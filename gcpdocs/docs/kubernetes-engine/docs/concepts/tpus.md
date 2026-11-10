@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/tpus/
 title: About TPUs in GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:24.403256+00:00
+fetched_at: 2026-11-10T16:40:21.706466+00:00
 ---
 
 # About TPUs in GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ The TPU type and topology determine whether your TPU slice node can be multi-hos
 
   * For large-scale models, use multi-host TPU slice nodes.
   * For small-scale models, use single-host TPU slice nodes.
-  * For large-scale training or inferencing, use _Pathways_. Pathways simplifies large-scale machine learning computations by enabling a single [JAX](https://github.com/jax-ml/jax?tab=readme-ov-file#what-is-jax) client to orchestrate workloads across multiple large TPU slices. For more information, see [Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-intro).
+  * For large-scale training, use _Pathways_. Pathways simplifies large-scale machine learning computations by enabling a single [JAX](https://github.com/jax-ml/jax?tab=readme-ov-file#what-is-jax) client to orchestrate workloads across multiple large TPU slices. For more information, see [Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-intro).
 
 
 
@@ -258,6 +258,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

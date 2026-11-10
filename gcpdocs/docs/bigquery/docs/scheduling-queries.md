@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/scheduling-queries/
 title: Scheduling queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:53.450325+00:00
+fetched_at: 2026-11-10T17:34:14.637694+00:00
 ---
 
 # Scheduling queries  |  BigQuery  |  Google Cloud Documentation
@@ -53,9 +53,9 @@ To schedule a query, you need the following IAM permissions:
 
 To modify or delete a scheduled query, you must have one of the following:
 
-  * The `bigquery.transfers.update` and `bigquery.transfers.get` permissions on the project.
+  * The `bigquery.transfers.update` permission on the project.
   * If you're running a scheduled query using user credentials, the user needs ownership of the scheduled query, and you need the `bigquery.jobs.create` permission on the project.
-  * If you're running a scheduled query as a service account, the user that calls the scheduled query must have the `bigquery.transfers.update` and `bigquery.transfers.get` permissions on the project. Granting the [IAM Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`iam.serviceAccountUser`) role lets a user run jobs as the service account, but it does not grant management permissions over the scheduled query configuration.
+  * If you're running a scheduled query as a service account, the user that calls the scheduled query must have the `bigquery.transfers.update` permission on the project. Granting the [IAM Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`iam.serviceAccountUser`) role lets a user run jobs as the service account, but it does not grant management permissions over the scheduled query configuration.
 
 
 
@@ -1563,6 +1563,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

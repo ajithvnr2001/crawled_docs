@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/create-plan/apply-backup-temp-to-consistency-group/
 title: Back up a consistency group in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:13:36.721840+00:00
+fetched_at: 2026-11-10T15:29:28.112078+00:00
 ---
 
 # Back up a consistency group in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 **Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations) in the Backup and DR documentation. 
 
-Use these instructions to apply a backup template and manage:
+You can apply a backup template in the appliance management console to help to protect all of the applications in a consistency group. Applying a backup template helps to provide consistent data protection for your critical applications, supporting business continuity and security. Backup templates define the frequency and retention of data backups, and consistency groups logically group related applications to maintain atomicity in backup operations. You can also configure specific backup behaviors, resource profiles, and policy overrides for your consistency groups.
+
+Use these instructions to apply a backup template and manage a consistency group:
 
   1. In the appliance management console, click the **App Manager** tab and select **Applications** from the drop-down menu. The **Applications** page opens.
 
@@ -66,6 +68,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

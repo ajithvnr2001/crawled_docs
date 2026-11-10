@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/trigger-functions-from-log-entries/
 title: Trigger functions from log entries \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:23.835024+00:00
+fetched_at: 2026-11-10T12:13:26.533545+00:00
 ---
 
 # Trigger functions from log entries  |  Cloud Run  |  Google Cloud Documentation
@@ -100,25 +100,54 @@ You can use a [Pub/Sub-triggered function](https://docs.cloud.google.com/run/doc
 ### Java
     
     
-    import com.google.cloud.functions.BackgroundFunction;
-    import com.google.cloud.functions.Context;
-    import functions.eventpojos.PubsubMessage;
+    import com.google.cloud.functions.CloudEventsFunction;
+    import com.google.gson.Gson;
+    import com.google.gson.JsonElement;
+    import com.google.gson.JsonObject;
+    import functions.eventpojos.PubSubBody;
+    import io.cloudevents.CloudEvent;
     import java.nio.charset.StandardCharsets;
     import java.util.Base64;
     import java.util.logging.Logger;
     
-    public class StackdriverLogging implements BackgroundFunction<PubsubMessage> {
+    public class StackdriverLogging implements CloudEventsFunction {
       private static final Logger logger = Logger.getLogger(StackdriverLogging.class.getName());
+      // Use Gson (https://github.com/google/gson) to parse JSON content.
+      private static final Gson gson = new Gson();
     
       @Override
-      public void accept(PubsubMessage message, Context context) {
-        String name = "World";
-    
-        if (!message.getData().isEmpty()) {
-          name = new String(Base64.getDecoder().decode(
-              message.getData().getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8);
+      public void accept(CloudEvent event) throws Exception {
+        if (event.getData() == null) {
+          logger.info("Hello, World!");
+          return;
         }
-        String res = String.format("Hello, %s", name);
+    
+        // Extract Cloud Event data and convert to PubSubBody
+        String cloudEventData = new String(event.getData().toBytes(), StandardCharsets.UTF_8);
+        PubSubBody body = gson.fromJson(cloudEventData, PubSubBody.class);
+    
+        String encodedData = body.getMessage().getData();
+        String decodedData = new String(Base64
+            .getDecoder().decode(encodedData), StandardCharsets.UTF_8);
+    
+        // Retrieve and decode PubSubMessage data into a JsonElement.
+        // Function is expecting a user-supplied JSON message which contains what
+        // name to log.
+        JsonElement jsonPubSubMessageElement = gson.fromJson(decodedData, JsonElement.class);
+    
+        // Extract name if present or default to World
+        String name = "World";
+        if (jsonPubSubMessageElement != null && jsonPubSubMessageElement.isJsonObject()) {
+          JsonObject jsonPubSubMessageObject = jsonPubSubMessageElement.getAsJsonObject();
+    
+          if (jsonPubSubMessageObject.has("name")
+              && jsonPubSubMessageObject.get("name").isJsonPrimitive()
+              && jsonPubSubMessageObject.get("name").getAsJsonPrimitive().isString()) {
+            name = jsonPubSubMessageObject.get("name").getAsString();
+          }
+        }
+    
+        String res = String.format("Hello, %s!", name);
         logger.info(res);
       }
     }
@@ -207,6 +236,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/arima-single-time-series-forecasting-tutorial/
 title: Forecast a single time series with an ARIMA_PLUS univariate model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:50:46.433564+00:00
+fetched_at: 2026-11-10T16:58:34.221166+00:00
 ---
 
 # Forecast a single time series with an ARIMA_PLUS univariate model  |  BigQuery  |  Google Cloud Documentation
@@ -233,6 +233,11 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     import bigframes.pandas as bpd
     
+    # Set partial ordering mode for BigQuery DataFrames.
+    # For more information, see the BigQuery DataFrames performance documentation:
+    # https://cloud.google.com/bigquery/docs/dataframes-performance#partial-ordering-mode
+    bpd.options.bigquery.ordering_mode = "partial"
+    
     # Start by loading the historical data from BigQuerythat you want to analyze and forecast.
     # This clause indicates that you are querying the ga_sessions_* tables in the google_analytics_sample dataset.
     # Read and visualize the time series you want to forecast.
@@ -301,8 +306,16 @@ Before trying this sample, follow the BigQuery DataFrames setup instructions in 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from bigframes.ml import forecasting
     import bigframes.pandas as bpd
+    from bigframes.bigquery import ml
+    
+    # Set partial ordering mode for BigQuery DataFrames.
+    # For more information, see the BigQuery DataFrames performance documentation:
+    # https://cloud.google.com/bigquery/docs/dataframes-performance#partial-ordering-mode
+    bpd.options.bigquery.ordering_mode = "partial"
+    
+    # Use the data loaded in the previous step to fit the model
+    training_data = total_visits.to_frame().reset_index(drop=False)
     
     # Create a time series model to forecast total site visits:
     # The auto_arima option defaults to True, so the auto.ARIMA algorithm automatically
@@ -311,18 +324,21 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     # process automatically infers the data frequency of the input time series.
     # The decompose_time_series option defaults to True, so that information about
     # the time series data is returned when you evaluate the model in the next step.
-    model = forecasting.ARIMAPlus()
-    model.auto_arima = True
-    model.data_frequency = "auto_frequency"
-    model.decompose_time_series = True
-    
-    # Use the data loaded in the previous step to fit the model
-    training_data = total_visits.to_frame().reset_index(drop=False)
-    
-    X = training_data[["parsed_date"]]
-    y = training_data[["total_visits"]]
-    
-    model.fit(X, y)
+    # For more information, see the BigQuery DataFrames API reference documentation:
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.create_model.html#bigframes.bigquery.ml.create_model
+    ml.[create_model](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html)(
+        your_model_id,  # For example: "bqml_tutorial.ga_arima_model"
+        options={
+            "model_type": "ARIMA_PLUS",
+            "time_series_timestamp_col": "parsed_date",
+            "time_series_data_col": "total_visits",
+            "auto_arima": True,
+            "data_frequency": "AUTO_FREQUENCY",
+            "decompose_time_series": True,
+        },
+        training_data=training_data,
+        replace=True,
+    )
 
 ## Evaluate the candidate models
 
@@ -357,13 +373,20 @@ Before trying this sample, follow the BigQuery DataFrames setup instructions in 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    # Evaluate the time series models by using the summary() function. The summary()
-    # function shows you the evaluation metrics of all the candidate models evaluated
-    # during the process of automatic hyperparameter tuning.
-    summary = model.summary(
+    import bigframes.pandas as bpd
+    from bigframes.bigquery import ml
+    
+    # Set partial ordering mode for BigQuery DataFrames.
+    # For more information, see the BigQuery DataFrames performance documentation:
+    # https://cloud.google.com/bigquery/docs/dataframes-performance#partial-ordering-mode
+    bpd.options.bigquery.ordering_mode = "partial"
+    
+    # For more information, see the BigQuery DataFrames API reference documentation:
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.arima_evaluate.html#bigframes.bigquery.ml.arima_evaluate
+    ml.arima_evaluate(
+        your_model_id,  # For example: "bqml_tutorial.ga_arima_model"
         show_all_candidate_models=True,
     )
-    print(summary.peek())
     
     # Expected output:
     # row   non_seasonal_p	non_seasonal_d	non_seasonal_q	has_drift	log_likelihood	AIC	variance	seasonal_periods	has_holiday_effect	has_spikes_and_dips	has_step_changes	error_message
@@ -381,7 +404,7 @@ The `seasonal_periods` column contains information about the seasonal pattern id
 
 The `has_holiday_effect`, `has_spikes_and_dips`, and `has_step_changes` columns are only populated when `decompose_time_series=TRUE`. These columns also reflect information about the input time series data, and are not related to the ARIMA modeling. These columns also have the same values across all output rows.
 
-The `error_message` column shows any errors that incurred during the `auto.ARIMA` fitting process. One possible reason for errors is when the selected `non_seasonal_p`, `non_seasonal_d`, `non_seasonal_q`, and `has_drift` columns are not able to stabilize the time series. To retrieve the error message of all the candidate models, set the `show_all_candidate_models` option to `TRUE` when you create the model.
+The `error_message` column shows any errors that incurred during the `auto.ARIMA` fitting process. One possible reason for errors is when the selected `non_seasonal_p`, `non_seasonal_d`, `non_seasonal_q`, and `has_drift` columns are not able to stabilize the time series. To retrieve the error message of all the candidate models, set the `show_all_candidate_models` argument of the `ML.ARIMA_EVALUATE` function to `TRUE`. For single time series models, `TRUE` is the default.
 
 For more information about the output columns, see [`ML.ARIMA_EVALUATE` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-arima-evaluate).
 
@@ -413,15 +436,26 @@ For more information about the output columns, see [`ML.ARIMA_COEFFICIENTS` func
 
 ###  BigQuery DataFrames 
 
-Inspect the time series model's coefficients by using the `coef_` function. 
+Inspect the time series model's coefficients by using the [`bigframes.bigquery.ml.arima_coefficients` function](https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.arima_coefficients.html#bigframes.bigquery.ml.arima_coefficients). 
 
 Before trying this sample, follow the BigQuery DataFrames setup instructions in the [BigQuery quickstart using BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/dataframes-quickstart). For more information, see the [BigQuery DataFrames reference documentation](https://docs.cloud.google.com/python/docs/reference/bigframes/latest).
 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    coef = model.coef_
-    print(coef.peek())
+    import bigframes.pandas as bpd
+    from bigframes.bigquery import ml
+    
+    # Set partial ordering mode for BigQuery DataFrames.
+    # For more information, see the BigQuery DataFrames performance documentation:
+    # https://cloud.google.com/bigquery/docs/dataframes-performance#partial-ordering-mode
+    bpd.options.bigquery.ordering_mode = "partial"
+    
+    # For more information, see the BigQuery DataFrames API reference documentation:
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.arima_coefficients.html#bigframes.bigquery.ml.arima_coefficients
+    ml.arima_coefficients(
+        your_model_id,  # For example: "bqml_tutorial.ga_arima_model"
+    )
     
     # Expected output:
     #       ar_coefficients   ma_coefficients   intercept_or_drift
@@ -460,16 +494,28 @@ The results should look similar to the following:
 
 ###  BigQuery DataFrames 
 
-Forecast future time series values by using the `predict` function. 
+Forecast future time series values by using the [`bigframes.bigquery.ml.forecast` function](https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.forecast.html#bigframes.bigquery.ml.forecast). 
 
 Before trying this sample, follow the BigQuery DataFrames setup instructions in the [BigQuery quickstart using BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/dataframes-quickstart). For more information, see the [BigQuery DataFrames reference documentation](https://docs.cloud.google.com/python/docs/reference/bigframes/latest).
 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    prediction = model.predict(horizon=30, confidence_level=0.8)
+    import bigframes.pandas as bpd
+    from bigframes.bigquery import ml
     
-    print(prediction.peek())
+    # Set partial ordering mode for BigQuery DataFrames.
+    # For more information, see the BigQuery DataFrames performance documentation:
+    # https://cloud.google.com/bigquery/docs/dataframes-performance#partial-ordering-mode
+    bpd.options.bigquery.ordering_mode = "partial"
+    
+    # For more information, see the BigQuery DataFrames API reference documentation:
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.forecast.html#bigframes.bigquery.ml.forecast
+    ml.forecast(
+        your_model_id,  # For example: "bqml_tutorial.ga_arima_model"
+        horizon=30,
+        confidence_level=0.8,
+    )
     # Expected output:
     #           forecast_timestamp	   forecast_value	standard_error	confidence_level	prediction_interval_lower_bound	    prediction_interval_upper_bound	    confidence_interval_lower_bound	    confidence_interval_upper_bound
     # 11	2017-08-13 00:00:00+00:00	1845.439732	      328.060405	      0.8	                 1424.772257	                      2266.107208	                     1424.772257	                     2266.107208
@@ -517,18 +563,30 @@ For more information about the output columns, see [`ML.EXPLAIN_FORECAST` functi
 
 ###  BigQuery DataFrames 
 
-You can get explainability metrics in addition to forecast data by using the `predict_explain` function. The `predict_explain` function forecasts future time series values and also returns all the separate components of the time series.
+You can get explainability metrics in addition to forecast data by using the [`bigframes.bigquery.ml.explain_forecast` function](https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.explain_forecast.html#bigframes.bigquery.ml.explain_forecast). The `bigframes.bigquery.ml.explain_forecast` function forecasts future time series values and also returns all the separate components of the time series.
 
-Similar to the `predict` function, the `horizon=30, confidence_level=0.8` clause used in the `predict_explain` function indicates that the query forecasts 30 future time points and generates a prediction interval with 80% confidence.
+Similar to the `bigframes.bigquery.ml.forecast` function, the `horizon=30, confidence_level=0.8` arguments used in the `bigframes.bigquery.ml.explain_forecast` function indicate that the query forecasts 30 future time points and generates a prediction interval with 80% confidence.
 
 Before trying this sample, follow the BigQuery DataFrames setup instructions in the [BigQuery quickstart using BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/dataframes-quickstart). For more information, see the [BigQuery DataFrames reference documentation](https://docs.cloud.google.com/python/docs/reference/bigframes/latest).
 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    ex_pred = model.predict_explain(horizon=30, confidence_level=0.8)
+    import bigframes.pandas as bpd
+    from bigframes.bigquery import ml
     
-    print(ex_pred.head(4))
+    # Set partial ordering mode for BigQuery DataFrames.
+    # For more information, see the BigQuery DataFrames performance documentation:
+    # https://cloud.google.com/bigquery/docs/dataframes-performance#partial-ordering-mode
+    bpd.options.bigquery.ordering_mode = "partial"
+    
+    # For more information, see the BigQuery DataFrames API reference documentation:
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.explain_forecast.html#bigframes.bigquery.ml.explain_forecast
+    ml.explain_forecast(
+        your_model_id,  # For example: "bqml_tutorial.ga_arima_model"
+        horizon=30,
+        confidence_level=0.8,
+    )
     # Expected output:
     #       time_series_timestamp	  time_series_type	    time_series_data	time_series_adjusted_data	 standard_error	   confidence_level	   prediction_interval_lower_bound	   prediction_interval_upper_bound	  trend	   seasonal_period_yearly	  seasonal_period_quarterly	    seasonal_period_monthly	   seasonal_period_weekly	  seasonal_period_daily	    holiday_effect	   spikes_and_dips	   step_changes	   residual
     # 0	  2016-08-01 00:00:00+00:00	      history	             1711.0	               505.716474	           206.939556	         <NA>	                    <NA>	                            <NA>	               0.0	           <NA>	                        <NA>	                     <NA>	                 169.611938	                  <NA>	                <NA>	            <NA>	       1205.283526	   336.104536
@@ -608,6 +666,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/release-notes/
 title: Cloud SQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:01:51.918250+00:00
+fetched_at: 2026-11-10T18:38:29.339000+00:00
 ---
 
 # Cloud SQL release notes  |  Google Cloud Documentation

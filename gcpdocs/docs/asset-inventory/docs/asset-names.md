@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-names/
 title: Asset names \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:59:44.195802+00:00
+fetched_at: 2026-11-10T16:33:31.875136+00:00
 ---
 
 # Asset names  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -86,12 +86,19 @@ Resource type | Name format
 ` apigateway.googleapis.com/Gateway ` |  `//apigateway.googleapis.com/projects/PROJECT_ID/locations/LOCATION/gateways/GATEWAY`  
 ` apigee.googleapis.com/ApiProxy ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/apis/API_PROXY_ID`  
 ` apigee.googleapis.com/ApiProxyRevision ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/apis/API_PROXY_ID/revisions/REVISION_ID`  
+` apigee.googleapis.com/Deployment ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/deployments/DEPLOYMENT_ID`  
+` apigee.googleapis.com/EndpointAttachment ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/endpointAttachments/ENDPOINT_ATTACHMENT_ID`  
 ` apigee.googleapis.com/Environment ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID`  
+` apigee.googleapis.com/EnvironmentGroup ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/envgroups/ENVGROUP_ID`  
+` apigee.googleapis.com/EnvironmentGroupAttachment ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/envgroups/ENVGROUP_ID/attachments/ATTACHMENT_ID`  
 ` apigee.googleapis.com/Instance ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/instances/INSTANCE_ID`  
 ` apigee.googleapis.com/Organization ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID`  
 ` apigee.googleapis.com/SecurityAction ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/securityActions/SECURITY_ACTION`  
 ` apigee.googleapis.com/SecurityMonitoringCondition ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/securityMonitoringConditions/SECURITY_MONITORING_CONDITION`  
 ` apigee.googleapis.com/SecurityProfileV2 ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/securityProfilesV2/SECURITY_PROFILE_V2`  
+` apigee.googleapis.com/SharedFlow ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/sharedflows/SHARED_FLOW_ID`  
+` apigee.googleapis.com/SharedFlowRevision ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/sharedflows/SHARED_FLOW_ID/revisions/REVISION_ID`  
+` apigee.googleapis.com/TargetServer ` |  `//apigee.googleapis.com/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/targetservers/TARGET_SERVER_ID`  
 ` apihub.googleapis.com/ApiHubInstance ` |  `//apihub.googleapis.com/projects/PROJECT_ID/locations/LOCATION/apiHubInstances/INSTANCE_ID`  
 ` apikeys.googleapis.com/Key ` |  `//apikeys.googleapis.com/projects/PROJECT_ID/locations/LOCATION/keys/KEY_ID`  
 ` appengine.googleapis.com/Application ` |  `//appengine.googleapis.com/apps/APP`  
@@ -364,6 +371,7 @@ Resource type | Name format
 `//container.googleapis.com/projects/PROJECT_ID/zones/ZONE/clusters/CLUSTER/nodePools/NODE_POOL`  
 ` containerregistry.googleapis.com/Image ` |  `//containerregistry.googleapis.com/REGISTRY/PROJECT_ID/IMAGE`  
 ` dataflow.googleapis.com/Job ` |  `//dataflow.googleapis.com/projects/PROJECT_ID/locations/LOCATION/jobs/JOB`  
+` dataflow.googleapis.com/Snapshot ` |  `//dataflow.googleapis.com/projects/PROJECT_ID/locations/LOCATION/snapshots/SNAPSHOT`  
 ` dataform.googleapis.com/CompilationResult ` |  `//dataform.googleapis.com/projects/PROJECT_ID/locations/LOCATION/repositories/REPOSITORY/compilationResults/COMPILATION_RESULT`  
 ` dataform.googleapis.com/Folder ` |  `//dataform.googleapis.com/projects/PROJECT_ID/locations/LOCATION/folders/FOLDER`  
 ` dataform.googleapis.com/ReleaseConfig ` |  `//dataform.googleapis.com/projects/PROJECT_ID/locations/LOCATION/repositories/REPOSITORY/releaseConfigs/RELEASE_CONFIG`  
@@ -695,6 +703,7 @@ Resource type | Name format
 ` netapp.googleapis.com/Backup ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/backupVaults/BACKUP_VAULT/backups/BACKUP`  
 ` netapp.googleapis.com/BackupPolicy ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/backupPolicies/BACKUP_POLICY`  
 ` netapp.googleapis.com/BackupVault ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/backupVaults/BACKUP_VAULT`  
+` netapp.googleapis.com/HostGroup ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/hostGroups/HOST_GROUP`  
 ` netapp.googleapis.com/KmsConfig ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/kmsConfigs/KMS_CONFIG`  
 ` netapp.googleapis.com/Replication ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/volumes/VOLUME/replications/REPLICATION`  
 ` netapp.googleapis.com/Snapshot ` |  `//netapp.googleapis.com/projects/PROJECT_ID/locations/LOCATION/volumes/VOLUME/snapshots/SNAPSHOT`  

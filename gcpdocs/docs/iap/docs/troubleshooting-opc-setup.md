@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/troubleshooting-opc-setup/
 title: Troubleshooting your on-premises connector setup \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:21.280283+00:00
+fetched_at: 2026-11-10T16:58:57.480744+00:00
 ---
 
 # Troubleshooting your on-premises connector setup  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -28,24 +28,25 @@ Following are various issues and possible solutions to help you resolve a 500 er
 
 **The on-premises application is not connected to the Google Cloud network**
 
-Your on-premises application might not be connected to the Google Cloud network. Verify connectivity by pinging the on-premises application from one of the on-premises connector Compute Engine instances. If the on-premises connector endpoint is unreachable, debug the network connectivity and settings before continuing. 
+Your on-premises application might not be connected to the Google Cloud network. Verify connectivity by pinging the on-premises application from one of the on-premises connector Compute Engine instances. If the on-premises connector endpoint is unreachable, debug the network connectivity and settings before continuing.
 
 **Envoy is not properly installed in the VMs**
 
 Complete the following steps to verify that Envoy is properly installed:
 
   1. Log on to one of the Compute Engine VMs from the on-premises connector. The on-premises connector VM name starts with `opc-on-prem-app-deployment-ig-${app}`.
+
   2. In the Cloud console, verify that the `opc-on-prem-app-deployment-gclb-urlmap` load balancing backend service health checks are green.
-  3. If the backend service does not show up as healthy, SSH into one of the instances: 
+
+  3. If the backend service does not show up as healthy, SSH into one of the instances:
          
          gcloud compute ssh INSTANCE_NAME --zone=ZONE_NAME
 
-  4. Verify that Envoy is up and running, by issuing the following command: 
+  4. Verify that Envoy is up and running, by issuing the following command:
          
          ps aux | grep envoy
-         
 
-There should be more than one process running, other than the `grep envoy`. 
+There should be more than one process running, other than the `grep envoy`.
 
 An example output:
          
@@ -57,7 +58,7 @@ An example output:
 
   5. Verify that the Envoy log directory is created at `/var/log/envoy/`.
 
-  6. Ensure the gce-mesh bucket is reachable by the VMs, by issuing the following command: 
+  6. Ensure the gce-mesh bucket is reachable by the VMs, by issuing the following command:
          
          gcloud storage cp gs://gce-mesh/service-proxy-agent/releases/service-proxy-agent-0.2.tgz .
 
@@ -74,19 +75,21 @@ To ensure Envoy installs correctly, allow access to the `gce-mesh` storage bucke
 
 If you can ping the on-premises application from the VM but cannot use the on-premises connector, it's possible that Envoy cannot connect to the application.
 
-To verify that Envoy can connect to your on-premises application, try making a call to Envoy from the machine where Envoy is running. Using SSH,connect to the VM `opc-on-prem-app-deployment-ig-${app}` and run the following command. You can find the Envoy port number in **Instance Groups > Details > Port Name Mapping**. 
+To verify that Envoy can connect to your on-premises application, try making a call to Envoy from the machine where Envoy is running. Using SSH, connect to the VM `opc-on-prem-app-deployment-ig-${app}` and run the following command. You can find the Envoy port number in **Instance Groups > Details > Port Name Mapping**.
     
     
     curl -x -v localhost:${envoy_port}
 
 If the endpoint is not reachable, check the following:
 
-  * `/var/log/envoy/envoy.err.log` for any error logs. If there are no error logs, check if Cloud Service Mesh is enabled and is able to configure Envoy, by running the following command: 
+  * `/var/log/envoy/envoy.err.log` for any error logs. If there are no error logs, check if Cloud Service Mesh is enabled and is able to configure Envoy, by running the following command:
         
-        sudo curl 0.0.0.0:15000/config_dump 
+        sudo curl 0.0.0.0:15000/config_dump
 
   * Verify that `TRAFFICDIRECTOR_INTERCEPTION_LISTENER` is set. If `TRAFFICDIRECTOR_INTERCEPTION_LISTENER` is not set, Cloud Service Mesh could not configure Envoy.
+
   * Check for any error messages in each listener.
+
 
 
 
@@ -97,7 +100,9 @@ If you see the `GRPC 403` error in the `envoy.err.log` or if you do not see `TRA
 Verify that the VM service account has `TD` access permissions for `xDS v3`:
 
   * Verify the permissions: [Prepare to set up Cloud Service Mesh with Envoy](https://docs.cloud.google.com/service-mesh/docs/service-routing/prepare-for-envoy-setup#grant-permissions)
+
   * Verify the account: [Enable the service account](https://docs.cloud.google.com/service-mesh/docs/service-routing/prepare-for-envoy-setup#enable-service-account)
+
 
 
 
@@ -113,19 +118,27 @@ If the on-premises connector is deployed successfully and the certificate has be
 
 To verify if that Envoy is installed, SSH to one of the VMs and run the following command:
 
-  * ps aux | grep envoy 
+  * Check that Envoy is running:
+        
+        ps aux | grep envoy
 
 There should be more than one process running, other than the `grep envoy`.
-  * netstat -tlpn 
 
-The Envoy admin port 127.0.0.1:15000 should be listening.
+  * Check that the Envoy admin port is listening:
+        
+        netstat -tlpn
+
+The Envoy admin port `127.0.0.1:15000` should be listening.
+
 
 
 
 If any of the previous actions fail, take the following actions to mitigate the issue:
 
   1. Make sure [Private Google Access](https://docs.cloud.google.com/vpc/docs/private-google-access) is enabled on the subnet the connector is being deployed.
+
   2. Make sure [VM Manager (OS Config API)](https://console.cloud.google.com/marketplace/product/google/osconfig.googleapis.com) is enabled.
+
 
 
 
@@ -149,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/lakehouse-basics/
 title: How borderless Lakehouse works \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:26:26.599448+00:00
+fetched_at: 2026-11-10T18:49:32.896139+00:00
 ---
 
 # How borderless Lakehouse works  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  How borderless Lakehouse works Stay organized with collections  Save and categorize content based on your preferences. 
 
-The technical architecture of _borderless Lakehouse_ supports interoperability between engines by centralizing metadata management and handling queries through specific paths.
+_Borderless Lakehouse_ lets BigQuery and open source engines share the same open tables by centralizing metadata in the Lakehouse runtime catalog. Understanding its architecture, resource hierarchy, and query path helps you design catalogs, choose table types, and connect engines. For definitions of individual terms, see [Key concepts](https://docs.cloud.google.com/lakehouse/docs/key-concepts).
 
 ## Architecture
 
@@ -31,9 +31,9 @@ Building Google Cloud's _Lakehouse_ consists of the following technical componen
 
   * **Storage:** Cloud Storage and BigQuery storage serve as the storage layer, with Apache Iceberg as the recommended open table format for high-performance, interoperable storage in Cloud Storage. With borderless Lakehouse, your data doesn't need to reside in Google Cloud. By setting up [cross-cloud connections](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) to supported remote catalogs, you can keep your data in other cloud storage systems, such as Amazon S3, and query it without migrating files or building ETL pipelines.
 
-  * **Catalog:** The Lakehouse runtime catalog provides a single source of truth for managing metadata. It centralizes metadata discovery across multiple engines using various compatibility options, such as the Apache Iceberg REST catalog endpoint. Table registrations into the catalog automatically register entries into the business metadata knowledge catalog.
+  * **Catalog:** The Lakehouse runtime catalog provides a single source of truth for managing metadata. It centralizes metadata discovery across multiple engines using various compatibility options, such as the Apache Iceberg REST catalog endpoint and the Apache Hive catalog endpoint. Tables that you register in the catalog are automatically registered in Knowledge Catalog.
 
-  * **Query engine:** BigQuery and open-source engines—including Apache Spark, Apache Flink, and Trino—interoperate seamlessly by connecting to the Lakehouse runtime catalog. Compute engines like Managed Service for Apache Spark use open-source Apache Spark with execution optimizations to help ensure workload portability and avoid vendor lock-in.
+  * **Query engine:** BigQuery and open source engines—including Apache Spark, Apache Flink, and Trino—interoperate seamlessly by connecting to the Lakehouse runtime catalog. Compute engines like Managed Service for Apache Spark use open source Apache Spark with execution optimizations to help ensure workload portability and avoid vendor lock-in.
 
   * **Governance:** Knowledge Catalog provides centralized security, lineage, and governance policies across your entire lakehouse.
 
@@ -53,15 +53,15 @@ Google Cloud's Lakehouse organizes data using a hierarchy that aligns with Apach
 
 
 
-#### Supported endpoints
+### Supported endpoints
 
 The Lakehouse runtime catalog provides several endpoints to connect your data across Cloud Storage and BigQuery.
 
-  * **Apache Iceberg REST catalog endpoint:** Provides a standard [REST interface](https://iceberg.apache.org/rest-catalog-spec/) for wide compatibility with open-source engines like Apache Spark, Apache Flink, and Trino. This is the recommended interface for new workloads and offers full read and write interoperability.
+  * **Apache Iceberg REST catalog endpoint:** Provides a standard [REST interface](https://iceberg.apache.org/rest-catalog-spec/) for wide compatibility with open source engines like Apache Spark, Apache Flink, and Trino. This is the recommended interface for new workloads and offers full read and write interoperability.
 
-  * **Custom Apache Iceberg catalog for BigQuery endpoint:** Lets engines interoperate directly with the BigQuery catalog. This interface is used primarily for _Apache Iceberg tables_ managed by BigQuery and existing workloads transitioning to the _Lakehouse_ architecture.
+  * **Custom Apache Iceberg catalog for BigQuery endpoint:** An earlier integration that uses a catalog plugin (`BigQueryMetastoreCatalog`) to let open source engines store Apache Iceberg table definitions in BigQuery datasets. For new workloads, use the Apache Iceberg REST catalog endpoint instead.
 
-  * **Apache Hive catalog endpoint:** Provides compatibility for open-source workloads that depend on the Apache Hive metastore (HMS) interface. This lets you run Apache Hive or Spark workloads against a fully managed metastore service on Google Cloud.
+  * **Apache Hive catalog endpoint:** Provides compatibility for open source workloads that depend on the Apache Hive metastore (HMS) interface. This endpoint is served by the Lakehouse runtime catalog, so you can run Apache Hive or Spark workloads without maintaining a self-hosted Hive metastore. This endpoint manages standard Hive and Spark tables rather than Apache Iceberg tables.
 
 
 
@@ -70,7 +70,7 @@ The Lakehouse runtime catalog provides several endpoints to connect your data ac
 
 Within the resource hierarchy, the Lakehouse runtime catalog serves as the top-level regional metadata service in Google Cloud. It acts as the root container that hosts your individual catalog instances, centralizing metadata discovery across disparate query engines.
 
-It implements the open-source [Apache Iceberg REST Catalog API](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml) to manage namespaces and tables, and provides extensions specifically for catalog management.
+It implements the open source [Apache Iceberg REST Catalog API](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml) to manage namespaces and tables, and provides extensions specifically for catalog management.
 
 For a deeper dive into the metastore service, including key capabilities, supported engines, endpoint configuration, and limitations, see [About the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs).
 
@@ -81,7 +81,8 @@ A catalog is a logical metastore container backed by Cloud Storage warehouse loc
 Key characteristics of catalogs include the following:
 
   * **Storage association:** The relationship between a catalog and its underlying storage depends on the catalog type you configure.
-  * **Regional replication:** A catalog's region automatically matches the underlying bucket's region.
+  * **Regionality:** A catalog's region is derived from its storage. For a multiple-bucket catalog, the region comes from the bucket in `default_location`; for a single-bucket catalog, it matches the bucket's region. For more information, see [Bucket and catalog regions](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#bucket_and_catalog_regions).
+  * **Cross-region replication:** When the catalog uses a dual-region or multi-region bucket, the Lakehouse runtime catalog can replicate catalog metadata to a secondary region and supports [failover](https://docs.cloud.google.com/lakehouse/docs/about-managed-disaster-recovery) (Preview).
   * **Access delegation:** Administrators can enable credential vending on the catalog to delegate access, letting short-lived credentials with reduced scope be autogenerated instead of granting users direct bucket permissions.
 
 
@@ -107,11 +108,11 @@ When building with Google Cloud's Lakehouse, you can choose from the following t
 
 **Recommended**
 
-  * **Apache Iceberg tables:** Apache Iceberg tables created from open-source engines and stored in Cloud Storage. These offer open compatibility and management through the Lakehouse runtime catalog REST endpoint. To ensure no two tables occupy the same location, custom table paths must be nested under the parent namespace path, and resulting table locations automatically receive a random string suffix to prevent conflicts.
+  * **Apache Iceberg tables:** Apache Iceberg tables created from open source engines and stored in Cloud Storage. These offer open compatibility and management through the Apache Iceberg REST catalog endpoint. Open source engines can read and write these tables, and BigQuery can write to them (Preview) when you enable [BigQuery DML](https://docs.cloud.google.com/lakehouse/docs/table-options). To ensure no two tables occupy the same location, custom table paths must be nested under the parent namespace path, and resulting table locations automatically receive a random string suffix to prevent conflicts.
 
-#### Supported table formats
+**Supported table formats:** Apache Iceberg V2 tables (GA) and V3 tables (Preview) are supported. Iceberg V1 tables aren't supported. Before you use existing V1 tables with Lakehouse, you must upgrade them to a supported version. For more information, see [Upgrade Iceberg V1 tables to V2](https://docs.cloud.google.com/lakehouse/docs/update-tables#upgrade_a_table).
 
-Apache Iceberg V2 tables (GA) and V3 tables (Preview) are supported. Iceberg V1 tables aren't supported. Before you use existing V1 tables with Lakehouse, you must upgrade them to a supported version. For more information, see [Upgrade Iceberg V1 tables to V2](https://docs.cloud.google.com/lakehouse/docs/update-tables#upgrade_a_table).
+  * **Apache Hive tables:** Standard Hive and Spark tables (in formats such as Parquet, ORC, Avro, and Delta Lake) managed through the Apache Hive catalog endpoint. Open source engines can read and write these tables, and BigQuery can read them. For more information, see [Supported storage formats and types](https://docs.cloud.google.com/lakehouse/docs/spark-hive-formats-types).
 
 
 
@@ -119,12 +120,12 @@ Apache Iceberg V2 tables (GA) and V3 tables (Preview) are supported. Iceberg V1 
 #### Supported by BigQuery
 
   * **Apache Iceberg tables:** Apache Iceberg tables created and managed by BigQuery. The metadata for these tables is stored in the BigQuery catalog, and table data and physical metadata are stored in Cloud Storage.
-  * **Native tables:** Tables fully managed by BigQuery that can be connected to the Lakehouse runtime catalog to let you interoperate with open-source engines.
+  * **Native tables:** Tables fully managed by BigQuery that can be connected to the Lakehouse runtime catalog to let you interoperate with open source engines.
   * **External tables:** Tables outside of the Lakehouse runtime catalog where data and metadata are self-managed. These support delegated access through connections for data stored in Cloud Storage, Amazon S3, or Azure Blob Storage.
 
 
 
-For a detailed comparison of these options, see [Understand table types and capabilities](https://docs.cloud.google.com/lakehouse/docs/lakehouse-tables).
+For a detailed comparison of these options, see [Compare table types](https://docs.cloud.google.com/lakehouse/docs/lakehouse-tables).
 
 ## Query processing sequence
 
@@ -153,6 +154,7 @@ When architecting and operating a data lakehouse on Google Cloud, consider the f
 ## What's next
 
   * For a deeper dive into the metastore service, see [About the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs).
+  * For definitions of Lakehouse terms, see [Key concepts](https://docs.cloud.google.com/lakehouse/docs/key-concepts).
   * [Use the Lakehouse runtime catalog with Apache Spark, BigQuery and the Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/query-iceberg-tables-with-lakehouse).
 
 
@@ -161,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

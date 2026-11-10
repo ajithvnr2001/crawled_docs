@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-flex-start-vm/
 title: Create a Flex-start VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:54.671413+00:00
+fetched_at: 2026-11-10T16:50:04.800179+00:00
 ---
 
 # Create a Flex-start VM  |  Compute Engine  |  Google Cloud Documentation
@@ -187,7 +187,7 @@ To create a Flex-start VM, run the following command:
         --request-valid-for-duration=VALID_FOR_DURATION \
         --provisioning-model=FLEX_START \
         --instance-termination-action=TERMINATION_ACTION \
-        --max-run-duration=RUN_DURATION \
+        --max-run-duration=MAX_RUN_DURATION \
         --maintenance-policy=TERMINATE
     
 
@@ -235,9 +235,11 @@ Replace the following:
 
     * To stop the VM: `STOP`
 
+**Important:** If you set `TERMINATION_ACTION` to `STOP` and either you specify to attach Local SSD disks to your VM or the [machine type has Local SSD disks attached by default](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed), then you must include the `--discard-local-ssds-at-termination-timestamp=true` flag in the command. Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
     * To delete the VM: `DELETE`
 
-  * `RUN_DURATION`: the maximum time that the VM runs before Compute Engine automatically stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. The value must be between 10 minutes and seven days.
+  * `MAX_RUN_DURATION`: the maximum time that the VM runs before Compute Engine automatically stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. The value must be between 10 minutes and seven days.
 
 
 
@@ -251,7 +253,7 @@ If you want to apply a compact placement policy to an A2 or G2 Flex-start VM, th
         --request-valid-for-duration=VALID_FOR_DURATION \
         --provisioning-model=FLEX_START \
         --instance-termination-action=TERMINATION_ACTION \
-        --max-run-duration=RUN_DURATION \
+        --max-run-duration=MAX_RUN_DURATION \
         --maintenance-policy=TERMINATE \
         **--resource-policies= POLICY_NAME**
     
@@ -305,7 +307,7 @@ To create a Flex-start VM, make a `POST` request as follows:
         "provisioningModel": "FLEX_START",
         "instanceTerminationAction": "TERMINATION_ACTION",
         "maxRunDuration": {
-          "seconds": RUN_DURATION
+          "seconds": MAX_RUN_DURATION
         },
         "onHostMaintenance": "TERMINATE"
       }
@@ -374,9 +376,11 @@ Replace the following:
 
     * To stop the VM: `STOP`
 
+**Important:** If you set `TERMINATION_ACTION` to `STOP` and either you specify to attach Local SSD disks to your VM or the [machine type has Local SSD disks attached by default](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed), then you must update the request body to also set the `scheduling.onInstanceStopAction.discardLocalSsd` field to `true`. Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
     * To delete the VM: `DELETE`
 
-  * `RUN_DURATION`: the maximum time, in seconds, that the VM runs before Compute Engine automatically stops or deletes it. The value must be between `600` (600 seconds, or 10 minutes) and `604800` (604,800 seconds, or seven days).
+  * `MAX_RUN_DURATION`: the maximum time, in seconds, that the VM runs before Compute Engine automatically stops or deletes it. The value must be between `600` (600 seconds, or 10 minutes) and `604800` (604,800 seconds, or seven days).
 
 
 
@@ -411,7 +415,7 @@ If you want to apply a compact placement policy to an A2 or G2 Flex-start VM, th
         "provisioningModel": "FLEX_START",
         "instanceTerminationAction": "TERMINATION_ACTION",
         "maxRunDuration": {
-          "seconds": RUN_DURATION
+          "seconds": MAX_RUN_DURATION
         },
         "onHostMaintenance": "TERMINATE"
       },
@@ -453,6 +457,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

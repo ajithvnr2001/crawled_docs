@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/multiple/about-instance-flexibility-for-bulk-vms/
 title: About instance flexibility for VMs created in bulk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:50:12.978826+00:00
+fetched_at: 2026-11-10T19:01:11.449482+00:00
 ---
 
 # About instance flexibility for VMs created in bulk  |  Compute Engine  |  Google Cloud Documentation
@@ -31,9 +31,7 @@ This document describes how instance flexibility works for VMs created in bulk, 
 
 To configure instance flexibility, you list suitable machine types by defining one or more instance selections in your [regional bulk insert request](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk#create-vms-bulk-region). For example, in a REST request, you include the `instanceFlexibilityPolicy` object, within which you define one or more `instanceSelections` objects, each containing a list of machine types.
 
-**Note:** The `instanceSelections.machineTypes` field overrides the `machineType` field in `instanceProperties` or your instance template. If you want to use the machine type defined in `instanceProperties` or in your instance template, you must list that machine type in the `instanceSelections.machineTypes` field.
-
-You can also specify machine types that run on different CPU platforms, have different architectures (such as x86 and Arm), or have different disk requirements. To use machine types with different hardware requirements, use an instance selection to override corresponding properties from the request's instance properties (`instanceProperties`). For more information, see Instance property overrides in instance selections.
+**Note:** The `instanceSelections.machineTypes` field overrides the `machineType` field in `instanceProperties` or your instance template. If you want to use the machine type defined in `instanceProperties` or in your instance template, you must list that machine type in the `instanceSelections.machineTypes` field. You can also specify machine types that run on different CPU platforms, have different architectures (such as x86 and Arm), or have different disk requirements. To use machine types with different hardware requirements, use an instance selection to override corresponding properties from the request's instance properties (`instanceProperties`). For more information, see Instance property overrides in instance selections. 
 
 When Compute Engine receives the request, it first validates the machine types and their zonal compatibility, excluding any invalid entries. If at least one valid configuration exists, the operation proceeds.
 
@@ -51,10 +49,10 @@ You can specify a [minimum CPU platform](https://docs.cloud.google.com/compute/d
 
 Alternatively, you can set the `minCpuPlatform` field to `AUTOMATIC`. This setting overrides the `minCpuPlatform` value in `instanceProperties` and lets Compute Engine use any compatible CPU platform for the machine types in the instance selection.
 
-To mix machine types where only one series supports a specific CPU platform, place them in separate instance selections. For example, N4 machine types support the Intel Emerald Rapids platform, while N2 machine types with fewer than 96 vCPUs support Intel Ice Lake and Intel Cascade Lake. To mix N4 and N2 in a bulk insert request and require N2 to run on Intel Ice Lake, configure two instance selections as follows:
+To mix machine types where only one series supports a specific CPU platform, place them in separate instance selections. For example, C4 machine types support the Intel Emerald Rapids platform, while C3 machine types support the Intel Sapphire Rapids platform. To mix C4 and C3 in a bulk insert request and require C3 to run on Intel Sapphire Rapids, configure two instance selections as follows:
 
-  * **N2 selection:** Set the `minCpuPlatform` field to `Intel Ice Lake`.
-  * **N4 selection:** Leave the `minCpuPlatform` field unset, or set it to `AUTOMATIC`.
+  * **C3 selection:** Set the `minCpuPlatform` field to `Intel Sapphire Rapids`.
+  * **C4 selection:** Leave the `minCpuPlatform` field unset, or set it to `AUTOMATIC`.
 
 
 
@@ -71,15 +69,16 @@ For example, you can use separate instance selections to override disks for diff
 
 
 
-In either scenario, you can set equal preference for both machine types by assigning the same rank to the instance selections.
+In either scenario, you can set equal preference for both machine types by assigning the same rank to the instance selections. 
 
 If a disk in an instance selection has a `deviceName` that matches a disk in `instanceProperties`, then Compute Engine overrides that disk's configuration. If the `deviceName` doesn't match any disk in `instanceProperties`, then Compute Engine attaches it as an additional disk. You must ensure that the effective disk configuration is compatible with all machine types in the instance selection.
 
 The following diagram shows how Compute Engine merges disk configurations from `instanceProperties` and an instance selection:
 
-![Diagram showing that disks in an instance selection override disks with matching device names in instance properties and attach as additional disks when device names don't match.](https://docs.cloud.google.com/static/compute/images/bulk-instance-flexibility-disk-override.svg)
-
-For instructions on how to specify minimum CPU platform and disk overrides when you create VMs in bulk, see [Create VMs with multiple machine types, minimum CPU platform, and disk overrides](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk-with-instance-flexibility#disk-cpu-overrides).
+![Diagram showing that disks in an instance selection override disks with
+matching device names in instance properties and attach as additional disks when
+device names don't
+match.](https://docs.cloud.google.com/static/compute/images/bulk-instance-flexibility-disk-override.svg) For instructions on how to specify minimum CPU platform and disk overrides when you create VMs in bulk, see [Create VMs with multiple machine types, minimum CPU platform, and disk overrides](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk-with-instance-flexibility#disk-cpu-overrides).
 
 For more information about the limitations when you use instance selection overrides, see the Limitations section in this document.
 
@@ -87,7 +86,7 @@ For more information about the limitations when you use instance selection overr
 
 You can use overrides in an instance flexibility policy to provision VMs across machine series that require different CPU platforms, boot images, or disk types.
 
-Consider a bulk insert request with the following base `instanceProperties` configuration that defines a default `pd-balanced` boot disk:
+Consider a bulk insert request with the following base `instanceProperties` configuration that defines a default `pd-balanced` boot disk: 
     
     
     "instanceProperties": {
@@ -178,7 +177,7 @@ In this example, Compute Engine applies the following overrides depending on whi
 
   * **First preference (`first-preference`):** For `n4-standard-4` VMs, the selection overrides `boot-disk` to use a `hyperdisk-balanced` disk instead of the base `pd-balanced` disk.
   * **Second preference (`second-preference`):** For `c4a-standard-4` (Arm) VMs, the selection overrides `boot-disk` to use an Arm-compatible boot image (`debian-12-arm64`) on a `hyperdisk-balanced` disk, and attaches an additional 100 GB `hyperdisk-balanced` disk named `data-disk`.
-  * **Third preference (`third-preference`):** For `n2-standard-4` VMs, the selection sets `minCpuPlatform` to `Intel Ice Lake` and overrides `boot-disk` to use a `pd-ssd` disk.
+  * **Third preference (`third-preference`):** For `n2-standard-4` VMs, the selection sets `minCpuPlatform` to `Intel Ice Lake` and overrides `boot-disk` to use a `pd-ssd` disk. 
 
 
 
@@ -203,7 +202,7 @@ If you define a value for the minimum required number of VMs (`minCount`) in the
 
 
 
-For more information, see [`minCount` property in `bulkInsert`](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk#create_vms_in_bulk_in_a_region).
+For more information, see [`minCount` property in `bulkInsert`](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk#create-vms-bulk-region).
 
 ### Bulk insert validation and error scenarios
 
@@ -215,13 +214,13 @@ However, some validations of your configuration can occur only after Compute Eng
 
 The following limitations apply when you use instance flexibility for bulk VM creation:
 
-  * You can specify instance flexibility only for regional `bulkInsert` requests; you can't use it with zonal requests.
+  * You can specify instance flexibility only for regional `bulkInsert` requests; you can't use it with zonal requests. 
   * Instance flexibility doesn't support [Flex-start VMs](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms) and [future reservations](https://docs.cloud.google.com/compute/docs/instances/future-reservations-overview).
-  * You can't use instance flexibility with AI Hypercomputer features, or with A3 Ultra, A4, and newer GPUs.
+  * You can't use instance flexibility with AI Hypercomputer features, or with A3 Ultra, A4, and newer GPUs. 
   * You can specify a maximum of 10 different machine types across a maximum of 10 different instance selections.
   * When you override `minCpuPlatform` or `disks` in an instance selection, the following limitations also apply: 
-    * When you configure `minCpuPlatform` or `disks` for an instance selection, you must also include the `machineTypes` field. If you omit the `machineTypes` field, then the operation fails with an error.
-    * You can override Local SSD disks only for [machine types that let you choose a number of Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disk_options). You can't override Local SSD disks for [`-lssd` variants of machine types](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed), which automatically attach Local SSD disks.
+    * When you configure `minCpuPlatform` or `disks` for an instance selection, you must also include the `machineTypes` field. If you omit the `machineTypes` field, then the operation fails with an error. 
+    * You can override Local SSD disks only for [machine types that let you choose a number of Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disk_options). You can't override Local SSD disks for [`-lssd` variants of machine types](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed), which automatically attach Local SSD disks. 
 
 
 
@@ -236,6 +235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

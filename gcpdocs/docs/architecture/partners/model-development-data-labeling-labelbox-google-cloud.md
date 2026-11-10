@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/model-development-data-labeling-labelbox-google-cloud/
 title: Model development and data labeling with Google Cloud and Labelbox \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:02.697571+00:00
+fetched_at: 2026-11-10T16:58:25.347873+00:00
 ---
 
 # Model development and data labeling with Google Cloud and Labelbox  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/known-limitations/
 title: Known limitations and recommendations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:07:57.514596+00:00
+fetched_at: 2026-11-10T17:34:14.021280+00:00
 ---
 
 # Known limitations and recommendations  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -71,6 +71,7 @@ This page describes known limitations (including special considerations for hand
   * Table column names that include characters other than alphanumeric characters or an underscore (`_`) aren't supported. 
   * Maximum name length for tables or columns is 30 characters. Database Migration Service can't replicate tables that exceed this limit, or tables that contain columns whose names exceed this limit. 
   * Index-organized tables (IOTs) aren't supported.
+  * Object tables, such as user-defined object tables or `XMLType` tables, aren't supported. 
   * Global temporary tables require the `pgtt` PostgreSQL extension installed and created on the destination. 
   * For columns of type `BFILE`, only the path to the file will be replicated. The contents of the file won't be replicated. 
   * For Oracle 11g, tables that have columns of data types `ANYDATA` or `UDT` aren't supported, and the entire table won't be replicated. 
@@ -116,8 +117,6 @@ If your tables don't meet these requirements, you need to [ manually add missing
 
 **For continuous migrations** : Source tables that contain binary columns and don't have primary keys are unsupported for data migration in continuous migrations.
 
-If you use legacy conversion workspaces, you need to manually create primary key constraints in the converted tables in the destination database before you start the migration. For more information, see [ Legacy conversion workspaces](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/legacy-conversion-workspaces).
-
 ### Considerations for foreign keys and triggers
 
 Foreign keys and triggers present in your source database might lead to data integrity issues, or even cause the migration job to fail. You can prevent these issues if you skip foreign keys and triggers [ by using the `REPLICATION` option for the migration user](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/configure-your-destination-postgresql-database). Alternatively, you can also drop all foreign keys and triggers in the destination database and re-create them when the migration is complete.
@@ -150,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

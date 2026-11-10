@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/upgrade/upgrade/
 title: Upgrade Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:16.564056+00:00
+fetched_at: 2026-11-10T18:46:41.398389+00:00
 ---
 
 # Upgrade Cloud Service Mesh  |  Google Cloud Documentation
@@ -42,13 +42,13 @@ The Cloud Service Mesh version that you can upgrade from differs by platform.
 
 **Caution:** In-cluster Cloud Service Mesh using the `ISTIOD` control plane on GKE on Google Cloud is [deprecated](https://docs.cloud.google.com/service-mesh/deprecations). Cloud Service Mesh with an in-cluster control plane on Google Distributed Cloud (software only) continues to be supported as described in [Supported platforms](https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-platforms#off-gcp). 
 
-You can upgrade directly to Cloud Service Mesh 1.30.7-asm.3 on Google Kubernetes Engine from the following versions:
+You can upgrade directly to Cloud Service Mesh 1.30.7-asm.7 on Google Kubernetes Engine from the following versions:
 
 1.28+
 
 ### On-premises
 
-You can upgrade directly to Cloud Service Mesh 1.30.7-asm.3 on Google Distributed Cloud (software only) for VMware and Google Distributed Cloud (software only) for bare metal from the following versions:
+You can upgrade directly to Cloud Service Mesh 1.30.7-asm.7 on Google Distributed Cloud (software only) for VMware and Google Distributed Cloud (software only) for bare metal from the following versions:
 
 1.28+
 
@@ -56,7 +56,7 @@ You can upgrade directly to Cloud Service Mesh 1.30.7-asm.3 on Google Distribute
 
 **Caution:** [GKE on Azure](https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/azure/deprecations/deprecation-announcement) and [GKE on AWS](https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/aws/deprecations/deprecation-announcement) are deprecated and will shut down on March 17, 2027. [Cloud Service Mesh support for attached clusters](https://docs.cloud.google.com/service-mesh/deprecations), including Amazon EKS clusters and Microsoft AKS clusters, is deprecated and will shut down March 17, 2027. 
 
-You can upgrade directly to Cloud Service Mesh 1.30.7-asm.3 on GKE on AWS from the following versions:
+You can upgrade directly to Cloud Service Mesh 1.30.7-asm.7 on GKE on AWS from the following versions:
 
 1.28+
 
@@ -643,14 +643,14 @@ If you have gateways deployed, you will need to upgrade these as well. For a sim
 The output from the command is similar to the following.
          
          NAME                                                 READY   STATUS    RESTARTS   AGE   REV
-         istiod-asm-1307-3-67998f4b55-lrzpz           1/1     Running   0          68m   asm-1305-11
-         istiod-asm-1307-3-67998f4b55-r76kr           1/1     Running   0          68m   asm-1305-11
-         istiod-1305-11-1-5cd96f88f6-n7tj9    1/1     Running   0          27s   asm-1307-3
-         istiod-1305-11-1-5cd96f88f6-wm68b    1/1     Running   0          27s   asm-1307-3
+         istiod-asm-1307-7-67998f4b55-lrzpz           1/1     Running   0          68m   asm-1307-3
+         istiod-asm-1307-7-67998f4b55-r76kr           1/1     Running   0          68m   asm-1307-3
+         istiod-1307-3-1-5cd96f88f6-n7tj9    1/1     Running   0          27s   asm-1307-7
+         istiod-1307-3-1-5cd96f88f6-wm68b    1/1     Running   0          27s   asm-1307-7
 
-     1. In the output, under the `REV` column, note the value of the revision label for the new version. In this example, the value is `asm-1307-3`.
+     1. In the output, under the `REV` column, note the value of the revision label for the new version. In this example, the value is `asm-1307-7`.
 
-     2. Also note the value in the revision label for the old `istiod` version. You need this to delete the earlier version of `istiod` when you finish moving workloads to the new version. In the example output, the value of the revision label for the earlier version is `asm-1305-11`.
+     2. Also note the value in the revision label for the old `istiod` version. You need this to delete the earlier version of `istiod` when you finish moving workloads to the new version. In the example output, the value of the revision label for the earlier version is `asm-1307-3`.
 
   2. Add the revision label to an application namespace and remove the `istio-injection` label (if it exists). In the following command, change `REVISION` to the value that matches the new revision of `istiod`.
          
@@ -771,7 +771,7 @@ Expected output is similar to the following:
 
 Your installation (or upgrade) isn't complete until you enable automatic sidecar proxy injection (auto-injection). Migrations from OSS Istio and upgrades follow the revision-based upgrade process (referred to as "canary upgrades" in the Istio documentation). With a revision-based upgrade, the new version of the control plane is installed alongside the existing control plane. You then move some of your workloads to the new version, which lets you monitor the effect of the upgrade with a small percentage of the workloads before migrating all of the traffic to the new version.
 
-The script sets a [revision label](https://docs.cloud.google.com/service-mesh/v1.30/docs/revisions-overview) in the format `istio.io/rev=asm-1307-3` on `istiod`. To enable auto-injection, add a matching revision label to your namespace(s). The revision label is used by the sidecar injector webhook to associate injected sidecars with a particular `istiod` revision. After adding the label, restart the Pods in the namespace for sidecars to be injected.
+The script sets a [revision label](https://docs.cloud.google.com/service-mesh/v1.30/docs/revisions-overview) in the format `istio.io/rev=asm-1307-7` on `istiod`. To enable auto-injection, add a matching revision label to your namespace(s). The revision label is used by the sidecar injector webhook to associate injected sidecars with a particular `istiod` revision. After adding the label, restart the Pods in the namespace for sidecars to be injected.
 
   1. Get the revision label that is on `istiod` and the `istio-ingressgateway`. In the following command, change the `INGRESS_NAMESPACE` value to the namespace where your ingress gateway is running:
          
@@ -783,16 +783,16 @@ The output from the command is similar to the following if your ingress gateway 
          NAME                                                READY   STATUS    RESTARTS   AGE   REV
          istio-ingressgateway-65d884685d-6hrdk               1/1     Running   0          67m
          istio-ingressgateway-65d884685d-94wgz               1/1     Running   0          67m
-         istio-ingressgateway-asm-182-2-8b5fc8767-gk6hb      1/1     Running   0          5s    asm-1307-3
-         istio-ingressgateway-asm-182-2-8b5fc8767-hn4w2      1/1     Running   0          20s   asm-1307-3
-         istiod-asm-1307-3-67998f4b55-lrzpz          1/1     Running   0          68m   asm-1305-11
-         istiod-asm-1307-3-67998f4b55-r76kr          1/1     Running   0          68m   asm-1305-11
-         istiod-asm-1305-11-5cd96f88f6-n7tj9 1/1     Running   0          27s   asm-1307-3
-         istiod-asm-1305-11-5cd96f88f6-wm68b 1/1     Running   0          27s   asm-1307-3
+         istio-ingressgateway-asm-182-2-8b5fc8767-gk6hb      1/1     Running   0          5s    asm-1307-7
+         istio-ingressgateway-asm-182-2-8b5fc8767-hn4w2      1/1     Running   0          20s   asm-1307-7
+         istiod-asm-1307-7-67998f4b55-lrzpz          1/1     Running   0          68m   asm-1307-3
+         istiod-asm-1307-7-67998f4b55-r76kr          1/1     Running   0          68m   asm-1307-3
+         istiod-asm-1307-3-5cd96f88f6-n7tj9 1/1     Running   0          27s   asm-1307-7
+         istiod-asm-1307-3-5cd96f88f6-wm68b 1/1     Running   0          27s   asm-1307-7
 
-     1. In the output, under the `REV` column, note the value of the revision label for the new version. In this example, the value is `asm-1307-3`.
+     1. In the output, under the `REV` column, note the value of the revision label for the new version. In this example, the value is `asm-1307-7`.
 
-     2. Also note the value in the revision label for the old `istiod` version. You need this to delete the old version of `istiod` when you finish moving workloads to the new version. In the example output, the value of the revision label for the old version is `asm-1305-11`.
+     2. Also note the value in the revision label for the old `istiod` version. You need this to delete the old version of `istiod` when you finish moving workloads to the new version. In the example output, the value of the revision label for the old version is `asm-1307-3`.
 
   2. Switch the ingress gateway to the new revision. In the following command, change `REVISION` to the value that matches the revision label of the new version. Change the `INGRESS_NAMESPACE` to the namespace where your ingress gateway is running and the `INGRESS_NAME` to the name of your ingress gateway.
          
@@ -940,6 +940,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

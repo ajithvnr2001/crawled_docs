@@ -2,12 +2,14 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-guide/
 title: Migrate from self-managed SQL Server using Distributed Availability Groups \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:14.913346+00:00
+fetched_at: 2026-11-10T12:43:09.088505+00:00
 ---
 
 # Migrate from self-managed SQL Server using Distributed Availability Groups  |  Database Migration Service for SQL Server  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-guide/
+
+**Plan for SQL Server 2017 End of Support:** Starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 instances. You can use Database Migration Service to migrate and upgrade self-managed, Amazon RDS, or existing [Cloud SQL for SQL Server 2017 instances](https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide) to Cloud SQL for SQL Server 2019, 2022, or 2025. For timeline details, see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions). 
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -76,7 +78,7 @@ For more information about granting roles, see [Manage access](https://docs.clou
 In this step, you create your destination Cloud SQL for SQL Server Enterprise Edition instance and enable the database flag required for Linked Servers.
 
   1. Create your destination Cloud SQL for SQL Server instance. For detailed creation instructions, see [Create a Cloud SQL for SQL Server instance](https://docs.cloud.google.com/sql/docs/sqlserver/create-instance). Ensure that your instance meets the following requirements for Distributed Availability Group migrations: 
-     * Select **Enterprise Edition** (version 2017, 2019, 2022, or 2025).
+     * Select **Enterprise Edition** (version 2017, 2019, 2022, or 2025). You can select the same version as your source instance or a later version (2019, 2022, or 2025) to upgrade during the migration. Starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 instances (see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions)).
      * Configure private networking to align with how you plan to connect your source SQL Server instance and destination Cloud SQL for SQL Server instance. Enable [ Private Services Access](https://docs.cloud.google.com/sql/docs/sqlserver/configure-private-ip) if you plan to connect your instances over Virtual Private Cloud peering, or use [ Private Service Connect](https://docs.cloud.google.com/sql/docs/sqlserver/configure-private-service-connect) if you plan to connect your instances by using an inbound Private Service Connect endpoint and an outbound Private Service Connect network attachment. 
 
 Don't enable both Private Services Access and Private Service Connect on the same destination Cloud SQL for SQL Server instance. Cloud SQL for SQL Server doesn't support Linked Servers when both are enabled. For full networking setup details, see Establish bidirectional private network connectivity. 
@@ -735,6 +737,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

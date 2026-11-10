@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/enabling-compute-howto/
 title: Enable IAP for Compute Engine \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:22.972497+00:00
+fetched_at: 2026-11-10T16:58:58.318522+00:00
 ---
 
 # Enable IAP for Compute Engine  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -27,12 +27,21 @@ This page explains how to secure a Compute Engine instance with [Identity-Aware 
 
 To enable IAP for Compute Engine, you need the following:
 
-  * A Google Cloud console project with billing enabled. 
-  * A group of one or more Compute Engine instances, served by a load balancer. 
+  * A Google Cloud console project with billing enabled.
+
+
+  * A group of one or more Compute Engine instances, served by a load balancer.
+
     * Learn about [Setting up an external HTTPS load balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-https).
-    * Learn about [setting up an internal HTTP load balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal). 
+
+    * Learn about [setting up an internal HTTP load balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal).
+
+
+
   * A domain name registered to the address of your load balancer.
-  * Application code to verify that all requests have an identity. 
+
+  * Application code to verify that all requests have an identity.
+
     * Learn about [Getting the user's identity](https://docs.cloud.google.com/iap/docs/identity-howto).
 
 
@@ -50,100 +59,102 @@ You can enable IAP on a forwarding rule by using the load balancer [authorizatio
 ###  gcloud 
 
   1. Run the following command to prepare a `policy.yaml` file. The policy allows clients with an IP address range of `10.0.0.0/24` to enable IAP on a forwarding rule.
+         
+         $ cat << EOF > policy.yaml
+         action: CUSTOM
+         description: authz policy with Cloud IAP
+         name: AUTHZ_POLICY_NAME
+         httpRules:
+           - from:
+               sources:
+               - ipBlocks:
+                 - prefix: "10.0.0.0"
+                   length: 24
+         customProvider:
+           cloudIap: {}
+         target:
+           loadBalancingScheme: EXTERNAL_MANAGED
+           resources:
+           - https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID
+         EOF
+         
 
-
-    
-    
-    $ cat << EOF > policy.yaml
-    action: CUSTOM
-    description: authz policy with Cloud IAP
-    name: AUTHZ_POLICY_NAME
-    httpRules:
-      - from:
-          sources:
-          - ipBlocks:
-            - prefix: "10.0.0.0"
-              length: 24
-    customProvider:
-      cloudIap: {}
-    target:
-      loadBalancingScheme: EXTERNAL_MANAGED
-      resources:
-      - https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID
-    EOF
-    
-
-  1. Run the following command to enable IAP on a forwarding rule.
-
-
-    
-    
-    gcloud network-security authz-policies import AUTHZ_POLICY_NAME \
-    --source=policy.yaml \
-    --location=LOCATION \
-    --project=PROJECT_ID
-    
+  2. Run the following command to enable IAP on a forwarding rule.
+         
+         gcloud network-security authz-policies import AUTHZ_POLICY_NAME \
+         --source=policy.yaml \
+         --location=LOCATION \
+         --project=PROJECT_ID
+         
 
 Replace the following:
 
-  * PROJECT_ID: The Google Cloud project ID.
-  * LOCATION: The region that the resource is located in.
-  * FORWARDING_RULE_ID: The ID of the forwarding rule resource.
-  * AUTHZ_POLICY_NAME: The name of the authorization policy.
+     * PROJECT_ID: The Google Cloud project ID.
+
+     * LOCATION: The region that the resource is located in.
+
+     * FORWARDING_RULE_ID: The ID of the forwarding rule resource.
+
+     * AUTHZ_POLICY_NAME: The name of the authorization policy.
+
 
 
 
 ###  API 
 
-  1. Run the following command to prepare a `policy.json` file. 
+  1. Run the following command to prepare a `policy.json` file.
          
          cat << EOF > policy.json
          {
-         "name": "AUTHZ_POLICY_NAME",
-         "target": {
-           "loadBalancingScheme": "INTERNAL_MANAGED",
-           "resources": [
-             "https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID"
-           ],
-         },
-         "action": "CUSTOM",
-         "httpRules": [
-           {
-             "from": {
-               "sources": {
-                 "ipBlocks": [
-                   {
-                     "prefix": "10.0.0.0",
-                     "length": 24
-                   }
-                 ]
-               }
-             }
-           }
-         ],
-         "customProvider": {
-           "cloudIap": {}
-         }
+          "name": "AUTHZ_POLICY_NAME",
+          "target": {
+              "loadBalancingScheme": "INTERNAL_MANAGED",
+              "resources": [
+                "https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID"
+              ],
+          },
+          "action": "CUSTOM",
+          "httpRules": [
+              {
+                "from": {
+                  "sources": {
+                    "ipBlocks": [
+                      {
+                        "prefix": "10.0.0.0",
+                        "length": 24
+                      }
+                    ]
+                  }
+                }
+              }
+          ],
+          "customProvider": {
+              "cloudIap": {}
+          }
          }
          EOF
          
 
-  2. Run the following command to enable IAP on a forwarding rule. 
+  2. Run the following command to enable IAP on a forwarding rule.
          
-         curl -X PATCH \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Accept: application/json" \
-         -H "Content-Type: application/json" \
-         -d @policy.json \
+         curl -X PATCH \\
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \\
+         -H "Accept: application/json" \\
+         -H "Content-Type: application/json" \\
+         -d @policy.json \\
          "https://networksecurity.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/authzPolicies"
          
 
 Replace the following:
 
      * PROJECT_ID: The Google Cloud project ID.
+
      * LOCATION: The region that the resource is located in.
+
      * FORWARDING_RULE_ID: The ID of the forwarding rule resource.
+
      * AUTHZ_POLICY_NAME: The name of the authorization policy.
+
 
 
 
@@ -262,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/audit-logging/
 title: Agent Registry audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:12.404056+00:00
+fetched_at: 2026-11-10T17:34:16.016866+00:00
 ---
 
 # Agent Registry audit logging  |  Google Cloud Documentation
@@ -810,10 +810,25 @@ The following methods don't produce audit logs:
 
 
 
+## Audit logs for A2A agent calls
+
+When an orchestrator agent or client calls a discovered [Agent2Agent (A2A)](https://docs.cloud.google.com/agent-registry/a2a-protocol) agent, Cloud Audit Logs records the call in the audit logs of the target API, runtime service, or gateway rather than Agent Registry audit logs.
+
+When supported by the target service, runtime A2A calls generate [Data Access](https://docs.cloud.google.com/logging/docs/audit#data-access) audit logs, which are disabled by default for most Google Cloud services. To record A2A calls, [enable Data Access audit logs](https://docs.cloud.google.com/logging/docs/audit/configure-data-access) with [Data Access permission types](https://docs.cloud.google.com/logging/docs/audit/configure-data-access#permission-types) for the target service that exposes or hosts the agent:
+
+  * **Built-in Google agents exposed by Google Cloud APIs** : when a Google Cloud API supports audit logging for its A2A methods, Cloud Audit Logs records Data Access audit log entries within that API's service name. To review which methods generate audit logs for a specific API, see [Google Cloud services with audit logs](https://docs.cloud.google.com/logging/docs/audit/services). For details on the fields that these audit logs include, see [Understanding audit logs](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs) and [View and analyze log entries](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
+  * **Custom A2A agents hosted on Google Cloud runtimes or gateways** : when you call a custom A2A agent that you deploy in your own environment, review the audit logging documentation for the runtime or gateway that hosts the agent, for example: 
+    * **Gemini Enterprise Agent Platform and Agent Runtime** : see [Agent Platform audit logging information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging) and [Set up logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging).
+    * **Cloud Run** : see [Cloud Run audit logging](https://docs.cloud.google.com/run/docs/audit-logging).
+    * **Agent Gateway and Identity-Aware Proxy (IAP)** : see [Monitor traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway) and [IAP audit logging](https://docs.cloud.google.com/iap/docs/audit-log-howto).
+    * **Model Armor prompt and response inspection** : authorization audit logs omit prompt text and response payloads. When you configure [Model Armor integration with Agent Gateway](https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration), Model Armor writes inspection logs separately. For more information, see [Model Armor audit logging](https://docs.cloud.google.com/model-armor/audit-logging-model-armor).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

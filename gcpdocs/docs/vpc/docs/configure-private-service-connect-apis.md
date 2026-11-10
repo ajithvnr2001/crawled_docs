@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis/
 title: Access global Google APIs through endpoints \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:56.656618+00:00
+fetched_at: 2026-11-10T16:58:58.480174+00:00
 ---
 
 # Access global Google APIs through endpoints  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -63,6 +63,9 @@ The following permissions are required to manage endpoints that access global Go
     * `servicedirectory.namespaces.delete` on your project
     * `servicedirectory.services.create` on your project
     * `servicedirectory.services.delete` on your project
+  * To allocate an endpoint IP address from an internal range: 
+    * `networkconnectivity.internalRanges.get` on your project
+    * `networkconnectivity.internalRanges.list` on your project
   * To automatically or manually configure DNS entries for an endpoint: 
     * `dns.managedZones.create` on your project
     * `dns.managedZones.delete` on your project
@@ -102,6 +105,7 @@ You might also be able to get these permissions with [custom roles](https://docs
     * [Compute Engine API](https://console.cloud.google.com/apis/library/compute.googleapis.com)
     * [Service Directory API](https://console.cloud.google.com/apis/library/servicedirectory.googleapis.com)
     * [Cloud DNS API](https://console.cloud.google.com/apis/library/dns.googleapis.com)
+    * [Network Connectivity API](https://console.cloud.google.com/apis/library/networkconnectivity.googleapis.com), if you allocate the endpoint's IP address from an [internal range](https://docs.cloud.google.com/vpc/docs/internal-ranges)
 
 An API is enabled if you see a **Manage** button on the API's library page in the Google Cloud console. If you see an **Enable** button, the API isn't enabled, and you must click the **Enable** button to enable it.
 
@@ -155,19 +159,19 @@ To enable Private Google Access on a subnet, follow these steps.
 
 ###  gcloud 
 
-  1. Determine the name and region of the subnet. To list the subnets for a particular network, use the following command:
+  1. Determine the name and region of the subnet. To list the subnets for a particular network, use the [`gcloud compute networks subnets list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/networks/subnets/list) command:
          
          gcloud compute networks subnets list --filter=NETWORK_NAME
          
 
-  2. Run the following command to enable Private Google Access:
+  2. Run the [`gcloud compute networks subnets update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/networks/subnets/update) command to enable Private Google Access:
          
          gcloud compute networks subnets update SUBNET_NAME \
          --region=REGION \
          --enable-private-ip-google-access
          
 
-  3. Verify that Private Google Access is enabled by running this command:
+  3. Verify that Private Google Access is enabled by running the [`gcloud compute networks subnets describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/networks/subnets/describe) command:
          
          gcloud compute networks subnets describe SUBNET_NAME \
          --region=REGION \
@@ -182,6 +186,25 @@ Replace the following:
   * `SUBNET_NAME`: the name of the subnet
   * `REGION`: the region for the subnet
   * `NETWORK_NAME`: the name of the VPC network that contains the subnet
+
+
+
+###  API 
+
+To enable Private Google Access on a subnet, use the [`subnetworks.setPrivateIpGoogleAccess`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/subnetworks/setPrivateIpGoogleAccess) method:
+    
+    
+    POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/subnetworks/SUBNET_NAME/setPrivateIpGoogleAccess
+    {
+      "privateIpGoogleAccess": true
+    }
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that contains the subnet
+  * `REGION`: the region for the subnet
+  * `SUBNET_NAME`: the name of the subnet
 
 
 
@@ -225,6 +248,7 @@ To perform this task, you must have been granted the following permissions _or_ 
   * `compute.globalForwardingRules.create`
   * `compute.networks.use`
   * `compute.globalAddresses.use`
+  * `networkconnectivity.internalRanges.get`, if allocating the endpoint's IP address from an internal range
   * `servicedirectory.namespaces.create`
   * `servicedirectory.namespaces.associatePrivateZone`
   * `dns.managedZones.create`
@@ -275,8 +299,16 @@ The IP address must [meet these requirements](https://docs.cloud.google.com/vpc/
 If you need a new IP address, you can create one:
 
      1. Click **Create IP address**.
-     2. Enter a **Name** and **Description** for the IP address.
-     3. Enter the **IP address** you want to use and click **Save**.
+     2. Enter a **Name** and optional **Description** for the IP address.
+     3. Specify the IP address: 
+        * To reserve an IPv4 address, in the **IP address** field, enter the IP address that you want to use.
+        * To allocate an IPv4 address from an [internal range](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#reserve-endpoints-google-apis), do the following: 
+          1. Select the **Assign IP from an IP collection** checkbox.
+          2. In the **IP collection** list, select an internal range.
+          3. For **IP address assignment** , do one of the following: 
+             * To automatically allocate an IP address, select **Assign automatically**.
+             * To manually allocate an IP address, select **Let me choose** and enter an IP address from the internal range.
+     4. Click **Save**.
   8. If a **Service Directory region** is not already configured for this VPC network, select the region you want to use.
 
 All endpoints that are used to access Google APIs and services in a given VPC network use the same [Service Directory region](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#service-directory).
@@ -298,26 +330,45 @@ All endpoints that you use to access Google APIs and services in a given VPC net
 
 ###  gcloud 
 
-  1. Reserve a global internal IP address to assign to the endpoint.
-         
-         gcloud compute addresses create ADDRESS_NAME \
-             --global \
-             --purpose=PRIVATE_SERVICE_CONNECT \
-             --addresses=ENDPOINT_IP \
-             --network=NETWORK_NAME
-         
+  1. Reserve a global internal IP address to assign to the endpoint by using the [`gcloud compute addresses create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/addresses/create) command:
+
+     * To reserve an IPv4 address, run the following command:
+           
+           gcloud compute addresses create ADDRESS_NAME \
+               --global \
+               --purpose=PRIVATE_SERVICE_CONNECT \
+               --addresses=ENDPOINT_IP \
+               --network=NETWORK_NAME
+           
 
 Replace the following:
 
-     * `ADDRESS_NAME`: the name to assign to the reserved IP address.
+       * `ADDRESS_NAME`: the name to assign to the reserved IP address.
 
-     * `ENDPOINT_IP`: the IP address to reserve for the endpoint.
+       * `NETWORK_NAME`: the name of the VPC network for the endpoint.
+
+       * `ENDPOINT_IP`: the IP address to reserve for the endpoint.
 
 The IP address must [meet these requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements).
 
-     * `NETWORK_NAME`: the name of the VPC network for the endpoint.
+     * To reserve an IPv4 address from an [internal range](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#reserve-endpoints-google-apis), use the `--internal-range` flag.
 
-  2. Create a forwarding rule to connect the endpoint to Google APIs and services. The `--service-directory-registration` flag is optional. If you omit it, an existing namespace is reused, or if there are no existing namespaces, a system-generated namespace is assigned.
+The following command automatically allocates an IP address from the internal range. To choose a specific IP address, use the `--addresses` flag to specify an IP address within the internal range.
+           
+           gcloud compute addresses create ADDRESS_NAME \
+               --global \
+               --network=NETWORK_NAME \
+               --purpose=PRIVATE_SERVICE_CONNECT \
+               --internal-range=https://networkconnectivity.googleapis.com/v1/projects/PROJECT_ID/locations/global/internalRanges/RANGE_NAME
+           
+
+Replace the following:
+
+       * `PROJECT_ID`: the ID of the project that contains the internal range.
+
+       * `RANGE_NAME`: the name of the internal range to allocate the IP address from. The internal range must be in the same VPC network and have the `INTERNAL_ADDRESS` purpose, the `FOR_VPC` usage type, and the `FOR_SELF` peering type.
+
+  2. Create a forwarding rule to connect the endpoint to Google APIs and services by using the [`gcloud compute forwarding-rules create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/create) command. The `--service-directory-registration` flag is optional. If you omit it, an existing namespace is reused, or if there are no existing namespaces, a system-generated namespace is assigned.
          
          gcloud compute forwarding-rules create ENDPOINT_NAME \
              --global \
@@ -358,33 +409,51 @@ If you omit `--service-directory-registration` completely, or set a region witho
 
 ###  API 
 
-  1. Reserve a global internal IP address to assign to the endpoint.
+  1. Reserve a global internal IP address to assign to the endpoint by using the [`globalAddresses.insert`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/globalAddresses/insert) method:
          
          POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/global/addresses
          
-         
-         {
-           "name": ADDRESS_NAME,
-           "address": ENDPOINT_IP,
-           "addressType": "INTERNAL",
-           "purpose": PRIVATE_SERVICE_CONNECT,
-           "network": NETWORK_URL
-         }
-         
+
+     * To reserve an IPv4 address, use the following request body:
+           
+           {
+             "name": "ADDRESS_NAME",
+             "address": "ENDPOINT_IP",
+             "addressType": "INTERNAL",
+             "purpose": "PRIVATE_SERVICE_CONNECT",
+             "network": "NETWORK_URL"
+           }
+           
 
 Replace the following:
 
-     * `PROJECT_ID`: your project ID.
+       * `PROJECT_ID`: your project ID.
 
-     * `ADDRESS_NAME`: the name to assign to the reserved IP address.
+       * `ADDRESS_NAME`: the name to assign to the reserved IP address.
 
-     * `ENDPOINT_IP`: the IP address to reserve for the endpoint.
+       * `ENDPOINT_IP`: the IP address to reserve for the endpoint.
 
 The IP address must [meet these requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements).
 
-     * `NETWORK_URL`: the VPC network for the endpoint.
+       * `NETWORK_URL`: the VPC network for the endpoint.
 
-  2. Create a forwarding rule to connect the endpoint to Google APIs and services. The `serviceDirectoryRegistrations` object is optional. If you omit it, an existing namespace is reused, or if there are no existing namespaces, a system-generated namespace is assigned.
+     * To reserve an IPv4 address from an [internal range](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#reserve-endpoints-google-apis), include the `ipCollection` field in the request body.
+
+The following example automatically allocates an IP address from the internal range. To choose a specific IP address, use the `address` field to specify an IP address within the internal range.
+           
+           {
+             "name": "ADDRESS_NAME",
+             "addressType": "INTERNAL",
+             "purpose": "PRIVATE_SERVICE_CONNECT",
+             "ipCollection": "https://networkconnectivity.googleapis.com/v1/projects/PROJECT_ID/locations/global/internalRanges/RANGE_NAME",
+             "network": "NETWORK_URL"
+           }
+           
+
+Replace the following:
+
+       * `RANGE_NAME`: the name of the internal range to allocate the IP address from. The internal range must be in the same VPC network and have the `INTERNAL_ADDRESS` purpose, the `FOR_VPC` usage type, and the `FOR_SELF` peering type.
+  2. Create a forwarding rule to connect the endpoint to Google APIs and services by using the [`globalForwardingRules.insert`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules/insert) method. The `serviceDirectoryRegistrations` object is optional. If you omit it, an existing namespace is reused, or if there are no existing namespaces, a system-generated namespace is assigned.
          
          POST https://compute.googleapis.com/compute/v1/projects/PROJECT/global/forwardingRules
          
@@ -396,10 +465,10 @@ The IP address must [meet these requirements](https://docs.cloud.google.com/vpc/
            "target": "API_BUNDLE",
            "serviceDirectoryRegistrations": [
              {
-               "service_directory_region": REGION,
+               "serviceDirectoryRegion": "REGION",
                "namespace": "NAMESPACE"
              }
-           ],
+           ]
          }
          
 
@@ -514,18 +583,23 @@ The endpoints are displayed.
 
 
 ###  gcloud
+
+To list endpoints, use the [`gcloud compute forwarding-rules list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/list) command.
     
     
     gcloud compute forwarding-rules list  \
     --filter target="(all-apis OR vpc-sc)" --global
     
 
-The output is similar to the following:
+###  API 
+
+To list endpoints, use the [`globalForwardingRules.list`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules/list) method.
     
     
-    NAME  REGION  IP_ADDRESS  IP_PROTOCOL  TARGET
-    RULE          IP          TCP          all-apis
+    GET https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/global/forwardingRules?filter=(target%3Dall-apis)%20OR%20(target%3Dvpc-sc)
     
+
+Replace `PROJECT_ID` with the ID of the project that contains the endpoints.
 
 ## Get information about an endpoint
 
@@ -576,11 +650,30 @@ The endpoints are displayed.
 
 
 ###  gcloud 
+
+To get information about an endpoint, use the [`gcloud compute forwarding-rules describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/describe) command.
     
     
     gcloud compute forwarding-rules describe \
         ENDPOINT_NAME --global
     
+
+Replace `ENDPOINT_NAME` with the name of the endpoint.
+
+###  API 
+
+To get information about an endpoint, use the [`globalForwardingRules.get`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules/get) method.
+    
+    
+    GET https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/global/forwardingRules/ENDPOINT_NAME
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that contains the endpoint
+  * `ENDPOINT_NAME`: the name of the endpoint
+
+
 
 ## Label an endpoint
 
@@ -651,13 +744,30 @@ See Roles for role information.
 
 
 ###  gcloud 
+
+To delete an endpoint, use the [`gcloud compute forwarding-rules delete`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/delete) command.
     
     
-        gcloud compute forwarding-rules delete \
-            ENDPOINT_NAME --global
+    gcloud compute forwarding-rules delete \
+        ENDPOINT_NAME --global
     
 
 Replace `ENDPOINT_NAME` with the name of the endpoint that you want to delete.
+
+###  API 
+
+To delete an endpoint, use the [`globalForwardingRules.delete`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules/delete) method.
+    
+    
+    DELETE https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/global/forwardingRules/ENDPOINT_NAME
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that contains the endpoint
+  * `ENDPOINT_NAME`: the name of the endpoint that you want to delete
+
+
 
 ## Use an endpoint
 
@@ -815,6 +925,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

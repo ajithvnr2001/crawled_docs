@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/find-k-nearest-neighbors/
 title: Perform vector similarity search in Spanner by finding the K-nearest neighbors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:31.176911+00:00
+fetched_at: 2026-11-10T16:58:40.224986+00:00
 ---
 
 # Perform vector similarity search in Spanner by finding the K-nearest neighbors  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ The examples all use `EUCLIDEAN_DISTANCE()`. You can also use `COSINE_DISTANCE()
 
 ### Example 1: KNN search
 
-Consider a `Documents` table that has a column (`DocEmbedding`) of precomputed text embeddings from the `DocContents` bytes column.
+Consider a `Documents` table that has a column (`DocEmbedding`) of precomputed text embeddings from the `DocContents` bytes column. Specifying the vector length on `DocEmbedding` isn't required for KNN queries, but it's [recommended](https://docs.cloud.google.com/spanner/docs/vector-search-best-practices#annotate-embedding-column) to optimize scan performance and let you create a [vector index](https://docs.cloud.google.com/spanner/docs/vector-indexes) later. Omit the vector length if the column stores vectors of varying dimensions.
 
 ###  GoogleSQL 
     
@@ -64,7 +64,7 @@ Consider a `Documents` table that has a column (`DocEmbedding`) of precomputed t
     DocId        INT64 NOT NULL,
     Author       STRING(1024),
     DocContents  BYTES(MAX),
-    DocEmbedding ARRAY<FLOAT32>
+    DocEmbedding ARRAY<FLOAT32>(vector_length=>4)
     ) PRIMARY KEY (UserId, DocId);
     
 
@@ -76,7 +76,7 @@ Consider a `Documents` table that has a column (`DocEmbedding`) of precomputed t
     DocId        bigint NOT NULL,
     Author       varchar(1024),
     DocContents  bytea,
-    DocEmbedding float4[],
+    DocEmbedding float4[] VECTOR LENGTH 4,
     PRIMARY KEY  (UserId, DocId)
     );
     
@@ -227,6 +227,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

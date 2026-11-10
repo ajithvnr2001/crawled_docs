@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/iap/docs/auth-policies/
 title: Use authorization policies to delegate authorization to IAP and IAM \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:46.179773+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-10T16:58:56.911647+00:00
 ---
 
 # Use authorization policies to delegate authorization to IAP and IAM  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -42,8 +28,11 @@ To delegate authorization to IAP and Identity and Access Management (IAM), you a
 ## Before you begin
 
   * Understand [authorization policies](https://docs.cloud.google.com/load-balancing/docs/auth-policy/auth-policy-overview) concepts.
+
   * Ensure that the backend services of the forwarding rules don't have IAP enabled. If IAP is enabled, you receive an error when submitting your configuration.
+
   * [Enable the Network Services API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api#enabling_an_api).
+
 
 
 
@@ -54,100 +43,102 @@ To create an authorization policy, you create a policy file that defines the tar
 ###  gcloud 
 
   1. Run the following command to prepare a `policy.yaml` file. The policy allows clients with an IP address range of `10.0.0.0/24` to enable IAP on a forwarding rule.
+         
+         $ cat << EOF > policy.yaml
+         action: CUSTOM
+         description: authz policy with Cloud IAP
+         name: AUTHZ_POLICY_NAME
+         httpRules:
+           - from:
+               sources:
+               - ipBlocks:
+                 - prefix: "10.0.0.0"
+                   length: 24
+         customProvider:
+           cloudIap: {}
+         target:
+           loadBalancingScheme: EXTERNAL_MANAGED
+           resources:
+           - https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID
+         EOF
+         
 
-
-    
-    
-    $ cat << EOF > policy.yaml
-    action: CUSTOM
-    description: authz policy with Cloud IAP
-    name: AUTHZ_POLICY_NAME
-    httpRules:
-      - from:
-          sources:
-          - ipBlocks:
-            - prefix: "10.0.0.0"
-              length: 24
-    customProvider:
-      cloudIap: {}
-    target:
-      loadBalancingScheme: EXTERNAL_MANAGED
-      resources:
-      - https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID
-    EOF
-    
-
-  1. Run the following command to enable IAP on a forwarding rule.
-
-
-    
-    
-    gcloud network-security authz-policies import AUTHZ_POLICY_NAME \
-    --source=policy.yaml \
-    --location=LOCATION \
-    --project=PROJECT_ID
-    
+  2. Run the following command to enable IAP on a forwarding rule.
+         
+         gcloud network-security authz-policies import AUTHZ_POLICY_NAME \
+         --source=policy.yaml \
+         --location=LOCATION \
+         --project=PROJECT_ID
+         
 
 Replace the following:
 
-  * PROJECT_ID: The Google Cloud project ID.
-  * LOCATION: The region that the resource is located in.
-  * FORWARDING_RULE_ID: The ID of the forwarding rule resource.
-  * AUTHZ_POLICY_NAME: The name of the authorization policy.
+     * PROJECT_ID: The Google Cloud project ID.
+
+     * LOCATION: The region that the resource is located in.
+
+     * FORWARDING_RULE_ID: The ID of the forwarding rule resource.
+
+     * AUTHZ_POLICY_NAME: The name of the authorization policy.
+
 
 
 
 ###  API 
 
-  1. Run the following command to prepare a `policy.json` file. 
+  1. Run the following command to prepare a `policy.json` file.
          
          cat << EOF > policy.json
          {
-         "name": "AUTHZ_POLICY_NAME",
-         "target": {
-           "loadBalancingScheme": "INTERNAL_MANAGED",
-           "resources": [
-             "https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID"
-           ],
-         },
-         "action": "CUSTOM",
-         "httpRules": [
-           {
-             "from": {
-               "sources": {
-                 "ipBlocks": [
-                   {
-                     "prefix": "10.0.0.0",
-                     "length": 24
-                   }
-                 ]
-               }
-             }
-           }
-         ],
-         "customProvider": {
-           "cloudIap": {}
-         }
+          "name": "AUTHZ_POLICY_NAME",
+          "target": {
+              "loadBalancingScheme": "INTERNAL_MANAGED",
+              "resources": [
+                "https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/LOCATION/forwardingRules/FORWARDING_RULE_ID"
+              ],
+          },
+          "action": "CUSTOM",
+          "httpRules": [
+              {
+                "from": {
+                  "sources": {
+                    "ipBlocks": [
+                      {
+                        "prefix": "10.0.0.0",
+                        "length": 24
+                      }
+                    ]
+                  }
+                }
+              }
+          ],
+          "customProvider": {
+              "cloudIap": {}
+          }
          }
          EOF
          
 
-  2. Run the following command to enable IAP on a forwarding rule. 
+  2. Run the following command to enable IAP on a forwarding rule.
          
-         curl -X PATCH \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Accept: application/json" \
-         -H "Content-Type: application/json" \
-         -d @policy.json \
+         curl -X PATCH \\
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \\
+         -H "Accept: application/json" \\
+         -H "Content-Type: application/json" \\
+         -d @policy.json \\
          "https://networksecurity.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/authzPolicies"
          
 
 Replace the following:
 
      * PROJECT_ID: The Google Cloud project ID.
+
      * LOCATION: The region that the resource is located in.
+
      * FORWARDING_RULE_ID: The ID of the forwarding rule resource.
+
      * AUTHZ_POLICY_NAME: The name of the authorization policy.
+
 
 
 
@@ -223,12 +214,19 @@ In the example commands, replace POLICY_FILE with the path to a YAML formatted f
 Replace the following:
 
   * POLICY_FILE: The path to a YAML file that contains a valid policy.
+
   * ORGANIZATION: The ID of your organization.
+
   * FOLDER: The folder that contains your application.
+
   * PROJECT_ID: The Google Cloud project ID.
+
   * RESOURCE_TYPE: The IAP resource type. The resource type must be `app-engine`, `iap_web`, `compute`, `organization`, or `folder`.
+
   * SERVICE: The forwarding rule ID or name.
+
   * REGION: The region that the resource is located in.
+
 
 
 
@@ -303,10 +301,15 @@ For `policy.json`, you can create the JSON file by running the following command
 Replace the following:
 
   * ORGANIZATION: The ID of your organization.
+
   * FOLDER: The folder that contains your application.
+
   * PROJECT_ID: The Google Cloud project ID.
+
   * REGION: The region that the resource is located in.
+
   * SERVICE: The forwarding rule ID or name.
+
 
 
 
@@ -314,6 +317,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

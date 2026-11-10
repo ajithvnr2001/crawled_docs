@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/best-practices-for-planning/
 title: Best practices for planning accounts and organizations \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:58.790913+00:00
+fetched_at: 2026-11-10T16:33:35.785994+00:00
 ---
 
 # Best practices for planning accounts and organizations  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/sources-oracle/
 title: Stream data from Oracle databases \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:26.611853+00:00
+fetched_at: 2026-11-10T17:34:13.777767+00:00
 ---
 
 # Stream data from Oracle databases  |  Datastream  |  Google Cloud Documentation
@@ -162,6 +162,7 @@ Known limitations for using Oracle database as a source include:
   * For tables that don't have a primary key, Datastream uses the row's [`ROWID`](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ROWID-Pseudocolumn.html) to perform a merge operation on the consumer side. Note that the `ROWID` might not be unique. If you delete and reinsert a row with [Oracle's Export/Import utility](https://docs.oracle.com/en/database/other-databases/nosql-database/21.2/admin/using-export-and-import-utilities.html), for example, then the row's `ROWID` might change. If you delete a row, then Oracle can reassign its `ROWID` to a new row inserted later.
   * Index-organized tables (IOTs) aren't supported.
   * Temporary tables aren't supported.
+  * Object tables, such as user-defined object tables or `XMLType` tables, aren't supported.
   * The following Oracle data types are **not supported** and aren't replicated. Columns of these types are replicated as `NULL` values in the destination: 
     * `ANYDATA`, `ANYDATASET`, `ANYTYPE`
     * `VARRAY` (Oracle Arrays)
@@ -270,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

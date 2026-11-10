@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/deploying/
 title: Deploy container images to Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:38.003925+00:00
+fetched_at: 2026-11-10T16:58:31.626016+00:00
 ---
 
 # Deploy container images to Cloud Run services  |  Google Cloud Documentation
@@ -168,7 +168,7 @@ You can also specify more configuration such as environment variables or memory 
          
          gcloud run services replace service.yaml
 
-The `gcloud run services replace` command defaults to using `service.yaml` file if present.
+The `gcloud run services replace` command defaults to using the `service.yaml` file if present.
 
   3. Optionally, [make your service public](https://docs.cloud.google.com/run/docs/authenticating/public) if you want to allow unauthenticated access to the service.
 
@@ -478,7 +478,7 @@ The revision suffix is assigned automatically for new revisions. If you want to 
 
 ### YAML
 
-**Caution:** The following instructions replaces your existing service configuration with the one specified in the YAML file. So if you use YAML to make revision changes, you should avoid also using the Google Cloud console or gcloud CLI to make configuration changes because those can be overwritten when you use YAML.
+**Caution:** The following instructions replace your existing service configuration with the one specified in the YAML file. So if you use YAML to make revision changes, you should avoid also using the Google Cloud console or gcloud CLI to make configuration changes because those can be overwritten when you use YAML.
 
 If you need to download or view the configuration of an existing service, use the following command to save results to a YAML file:
     
@@ -490,11 +490,11 @@ From a service configuration YAML file, modify any `spec.template` child attribu
     
     gcloud run services replace service.yaml
 
-The `gcloud run services replace` command defaults to using `service.yaml` file if present.
+The `gcloud run services replace` command defaults to using the `service.yaml` file if present.
 
 ### Terraform
 
-Make sure you have setup Terraform as described in the Deploying a new service example.
+Make sure you have set up Terraform as described in the Deploying a new service example.
 
   1. Make a change to the configuration file.
 
@@ -728,11 +728,11 @@ Artifact Registry remote repositories allow you to:
 
 
 
-Alternatively, if using an Artifact Registry remote repository is not an option, you can temporarily pull and push container images to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) using `docker push` in order to deploy them to Cloud Run. The container image is imported by Cloud Run when deployed, so after the deployment, you can [delete the image from Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/docker/manage-images#deleting_images).
+Alternatively, if using an Artifact Registry remote repository is not an option, you can temporarily pull and push container images to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) using `docker push` to deploy them to Cloud Run. The container image is imported by Cloud Run when deployed, so after the deployment, you can [delete the image from Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/docker/manage-images#deleting_images).
 
 ## Deploy multiple containers to a service (sidecars)
 
-In a Cloud Run deployment with sidecars, there is one _ingress_ container that handles all incoming HTTPS requests at the container PORT you specify, and there are one or more _sidecar_ containers. The sidecars cannot listen for the incoming HTTP requests at the ingress container port, but they can communicate with each other and with the ingress container using a localhost port. The localhost port used varies depending on the containers you are using.
+In a Cloud Run deployment with sidecars, one _ingress_ container handles all incoming HTTPS requests at the container PORT you specify, along with one or more _sidecar_ containers. The sidecars cannot listen for the incoming HTTP requests at the ingress container port, but they can communicate with each other and with the ingress container using a localhost port. The localhost port used varies depending on the containers you are using.
 
 In the following diagram, the ingress container is communicating with the sidecar using `localhost:5000`.
 
@@ -891,7 +891,7 @@ After you update the YAML to include the ingress and sidecar containers, deploy 
     
     gcloud run services replace service.yaml
 
-The `gcloud run services replace` command defaults to using `service.yaml` file if present.
+The `gcloud run services replace` command defaults to using the `service.yaml` file if present.
 
 ### Terraform
 
@@ -965,7 +965,7 @@ Requests reaching the service are sent to the `ingress` container on port `8080`
 
 Containers `ingress` and `sidecar` can communicate with each other on `http://localhost`. For example, if the container `sidecar` listens for requests on port `5000`, then the container `ingress` can communicate with it on `http://localhost:5000`.
 
-Because the containers are named, the containers can even communicate with each other using the name of the container. For example, if the container `sidecar` listens for requests on port `5000`, then the container `ingress` can communicate with `sidecar` using on `http://sidecar:5000`.
+Because the containers are named, the containers can even communicate with each other using the name of the container. For example, if the container `sidecar` listens for requests on port `5000`, then the container `ingress` can communicate with `sidecar` on `http://sidecar:5000`.
 
 ## Adapt your containers for Cloud Run
 
@@ -1049,7 +1049,7 @@ After you deploy a new service, you can do the following:
 
   * [Gradual rollouts, rollback revisions, traffic migration](https://docs.cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration)
   * [View service logs](https://docs.cloud.google.com/run/docs/logging)
-  * [Monitor service performances](https://docs.cloud.google.com/run/docs/monitoring)
+  * [Monitor service performance](https://docs.cloud.google.com/run/docs/monitoring)
   * [Set memory limits](https://docs.cloud.google.com/run/docs/configuring/services/memory-limits)
   * [Set environment variables](https://docs.cloud.google.com/run/docs/configuring/services/environment-variables)
   * [Change service concurrency](https://docs.cloud.google.com/run/docs/configuring/concurrency)
@@ -1076,6 +1076,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

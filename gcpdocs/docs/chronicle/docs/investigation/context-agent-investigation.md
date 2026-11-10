@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/context-agent-investigation/
 title: Investigate alerts with the 3P Context Agent \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:21:40.433251+00:00
+fetched_at: 2026-11-10T19:11:35.630627+00:00
 ---
 
 # Investigate alerts with the 3P Context Agent  |  Google Security Operations  |  Google Cloud Documentation
@@ -13,7 +13,6 @@ fetched_at: 2026-11-06T10:21:40.433251+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Security ](https://docs.cloud.google.com/docs/security)
   * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
-  * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
 
@@ -28,7 +27,7 @@ Google SecOps
 **Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
 If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
 
-**Note:** This feature is in Private Preview and is not available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
+**Note:** This feature is in Private Preview and is not available to all customers in all regions. Private Preview features are not manageable in the Public Preview Features page in the Google SecOps platform. 
 
 **Important:** You must opt in to the 3P (third-party) Context Agent in the Google Security Operations platform before you can start using the agent. For more information, see Configure the 3P Context Agent.
 
@@ -121,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

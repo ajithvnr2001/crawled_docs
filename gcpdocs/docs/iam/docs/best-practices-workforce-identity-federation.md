@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/best-practices-workforce-identity-federation/
 title: Best practices for using Workforce Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:15.160325+00:00
+fetched_at: 2026-11-10T11:44:35.507088+00:00
 ---
 
 # Best practices for using Workforce Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -253,6 +253,7 @@ Use a single pool per IdP.
 Choose a unique and meaningful pool name.  
 Treat pools as highly-privileged resources.  
 Consider risks when extending federation to partners.  
+Monitor your token exchange quota.  
 
 
 ### Use a single pool per IdP
@@ -315,6 +316,24 @@ Federating Google Cloud with an external IdP using Workforce Identity Federation
 Workforce Identity Federation provides limited mechanisms to validate the assertions made by an external IdP. Specifically, Workforce Identity Federation doesn't support post-SSO MFA [in the same way as Cloud Identity](https://support.google.com/a/answer/6002699).
 
 Before using Workforce Identity Federation to allow external partners or contractors to access your Google Cloud resources, determine whether this level of trust is appropriate. Don't use Workforce Identity Federation for partner access unless you trust the partner and their IdP to consistently meet your security standards.
+
+### Monitor your token exchange quota
+
+Workforce Identity Federation token exchange is limited by the quota metric `sts.googleapis.com/workforce_requests`, which defaults to 1,000 requests per minute and is enforced **per organization**. The quota is shared across every workforce pool, provider, user, and workload in the organization. Separate pools don't receive separate quotas. For the current value, see [Quotas and limits](https://docs.cloud.google.com/iam/quotas).
+
+Because the quota is organization-wide, a single high-frequency client can exhaust it and cause `429 RESOURCE_EXHAUSTED` errors for all other users in your organization, including administrators.
+
+We recommend the following:
+
+  * **Reserve Workforce Identity Federation for human sign-in.** Route automated workloads, CI/CD pipelines, and agents to [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation), which is designed for machine-to-machine traffic.
+  * **Back off when throttled.** Retry `429 RESOURCE_EXHAUSTED` responses with exponential backoff and jitter. Tight retry loops deepen the saturation and extend the outage for everyone in your organization.
+  * **Request more quota before you need it.** If your organization has a legitimate, sustained need above the default, request a quota increase rather than operating at the edge of the limit.
+  * **Alert before you reach quota limit.** Create a Cloud Monitoring alert that fires when usage reaches 80% of your limit, by comparing `serviceruntime.googleapis.com/quota/rate/net_usage` against `serviceruntime.googleapis.com/quota/limit`, filtered to `metric.label.quota_metric="sts.googleapis.com/workforce_requests"`.
+  * **Maintain break-glass access.** Ensure at least one administrator can reach your organization without Workforce Identity Federation, so that you can still act if token exchange is being throttled.
+
+
+
+To view your current usage and limit, go to the [Quotas page](https://console.cloud.google.com/iam-admin/quotas) in the Google Cloud console and select your **organization** as the resource, then filter for `Workforce Pool token exchange requests`.
 
 ## Manage workforce identity pool providers
 
@@ -776,6 +795,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

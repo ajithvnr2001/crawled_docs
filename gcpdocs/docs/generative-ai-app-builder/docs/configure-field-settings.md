@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-field-settings/
 title: Configure field settings \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:48:08.565126+00:00
+fetched_at: 2026-11-10T14:04:22.703252+00:00
 ---
 
 # Configure field settings  |  Agent Search  |  Google Cloud Documentation
@@ -40,9 +40,11 @@ Setting | Definition | Purpose | Use case example
 (Preview) | Allows prefix matching text fields using the `STARTS_WITH` operator in filter expressions. Only fields of type `String` or `String Array` can be set to Prefix matchable. For more information, see Make fields available for prefix and partial matching below. | Setting a field to prefix matchable enables the search engine to match query strings that are prefixes of the field's value. This is particularly useful for matching hierarchical identifiers, paths, or codes where the beginning of the string is known. Prefix matching is limited to the first 12 characters of the normalized field value and increases the size of the search index. You can't set more than 10 fields as prefix matchable. |  You have a field, `ticket_id`, that uses a format like `<country-code><city-code><number>`. Examples include `UKLON100`, `UKMAN100`, `UKMAN101`, and `USNY200`. To find all tickets from Manchester (UK), you can set the `ticket_id` field as prefix matchable and then use the filter `ticket_id: STARTS_WITH("UKMAN")`, which returns `UKMAN100` and `UKMAN101`.  
 **Partially matchable**  
 (Preview) |  Allows partial string matching on text fields using the `CONTAINS` operator in filter expressions. Only fields of type `String` or `String Array` can be set to partially matchable. For more information, see Make fields available for prefix and partial matching below. |  Setting a field to partially matchable enables token-based matching within a field, allowing users to find content when only a part of the field value is known. The search engine matches query tokens against tokens in the field value, regardless of their order. Note that marking a field as partially matchable increases the size of the search index. You can't set more than 10 fields as partially matchable.  |  You want to filter for regions in Europe. The `region` names include `Central Europe` and `Eastern Europe`. If your filter is `region: ANY("Europe")`, you won't get any matches. However, if the `region` field is set as partially matchable, you can filter with `region: CONTAINS("Europe")` and get matches for `Central Europe` and `Eastern Europe`.   
+**Search-as-you-type compatible**  
+(Preview) | Marks a text field as usable by search-as-you-type: as the user types, documents are returned if the field value contains a token that starts with the query text, and the result set re-ranks on every keystroke. Only fields of type `String` or `String Array` can be set to search-as-you-type compatible. You can't set more than three fields per schema as search-as-you-type compatible. For more information, see Make fields available for search-as-you-type below. | Setting a field to `saytCompatible` lets users receive a refreshed set of ranked documents on every keystroke, before they finish typing a full query. Apply this setting when you expect users to _browse_ an updating result list as they type—for example, catalog lookups or long-tail navigation where the user recognizes the right result mid-query rather than typing it out in full. This differs from [autocomplete](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-autocomplete), which suggests _query strings_. Search-as-you-type returns ranked _documents_ that match the partial query. | In a movies data store, you set the `title` field as `saytCompatible`. When a user types `b`, the search results dynamically include _Batman Begins_ , _Batman Returns_ , and _Bats_ , ranked against the user's query. When the user extends the query to `bat`, the same three documents remain in the result set, re-ranked for the longer prefix. Extending the query to `batm` drops _Bats_ because the first token of its title doesn't start with `batm`, so only _Batman Begins_ and _Batman Returns_ remain, re-ranked again.  
 **Dynamic facetable** | Provides context-aware filters to better target searches for users. Setting a field as `Dynamic Facetable` allows the system to automatically generate interactive filters (facets) based on the unique values present in the field. | Setting a field to `Dynamic facetable` enables users to dynamically refine search results by selecting categories or attributes directly derived from your ingested data, without having to manually pre-define every possible filter option. This allows the user to narrow down their search to highly specific web content.  
 Use **Dynamic Facetable** with **Searchable** to achieve better results, which improves both the recall of your search and the quality of the facets offered to the user.  | Pages in an internal corporate knowledge base, such as HR policies, are ingested with data like `department`, `document_type`, or `last_modified_date`. If these fields are tagged as `dynamic facetable`, an employee search for a term like _expense reimbursement_ dynamically generates interactive filters based on the relevant results found. In such case, the web interface could display facets for **Department: Finance, Travel** , **Document Type: Policy, FAQ** , or **Last Modified Date: This Quarter, Last Year**.  
-**Retrievable** | When a search query hits matching content, the search engine can pull the values of retrievable fields to display or for use in the application, meaning that information from the original document is displayed as part of the search results. Key fields (unique identifiers for documents) are set up as retrievable.  | Retrievable fields provide search context by distinguishing fields whose values can be displayed from those that are only to be used in the search logic but whose raw values are not meant to be shown to the end-user. | For a product search on a merchant site, `product_id`, `name`, `price`, and an `image_url` are typical fields that you want to set as retrievable. On the other hand, the `internal_tracking_code` can be indexed and filterable for administrative purposes only, but not retrievable in public search results.  
+**Retrievable** | When a search query hits matching content, the search engine can pull the values of retrievable fields to display or for use in the application, meaning that information from the original document is displayed as part of the search results. Key fields (unique identifiers for documents) are set up as retrievable.  | Retrievable fields provide search context by distinguishing fields whose values can be displayed from those that are only to be used in the search logic but whose raw values are not meant to be shown to the user. | For a product search on a merchant site, `product_id`, `name`, `price`, and an `image_url` are typical fields that you want to set as retrievable. On the other hand, the `internal_tracking_code` can be indexed and filterable for administrative purposes only, but not retrievable in public search results.  
 **Completable** | Allows a field's contents to used for search query suggestions. For more information, see [Configure autocomplete](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-autocomplete). | This setting enables values within that field to be used for providing real-time query suggestions as users type. This feature helps guide your users to relevant content and accelerates the search process. Certain factors such as use of natural language filtering can impact this performance. | If the `completable` field is set for `product_name`, `brand`, and `category`, when the user types _Tech,_ the autocomplete suggestions can show: 
 
   * **TechCo** (from the `brand` field)
@@ -75,7 +77,7 @@ Field settings have the following limitations:
 
   * You can configure up to 50 fields as indexable, searchable, retrievable, or dynamic facetable.
   * To configure a field as dynamic facetable, it must first be configured as indexable.
-  * Changing the indexable setting requires re-indexing the data, which can take hours, especially for large data stores.
+  * Changing the indexable setting requires reindexing the data, which can take hours, especially for large data stores.
 
 
 
@@ -141,11 +143,11 @@ Field importance | Explanation
   
 ### Schema update and reindexing
 
-Adding weights to searchable fields requires a schema update and subsequent re-indexing of the data in the data store. Updating the schema takes hours, and there isn't a reliable indicator to tell you when indexing is completed, so you need to overestimate the indexing time.
+Adding weights to searchable fields requires a schema update and subsequent reindexing of the data in the data store. Updating the schema takes hours, and there isn't a reliable indicator to tell you when indexing is completed, so you need to overestimate the indexing time.
 
 ### Set weight levels on fields
 
-The task of setting weight levels for fields can be tedious because you should make only small changes and carefully review search results afterward to check for unintended consequences. After each change, you must wait for re-indexing to complete before you can evaluate the impact of the change.
+The task of setting weight levels for fields can be tedious because you should make only small changes and carefully review search results afterward to check for unintended consequences. After each change, you must wait for reindexing to complete before you can evaluate the impact of the change.
 
 **Note:** You can't apply a weight to a field that's a key property, such as `title` or `description`. Agent Search already applies a higher weighting for fields marked as key properties.
 
@@ -218,11 +220,11 @@ For fields of type `string`, you can edit the schema to make the fields availabl
 
 ### Schema update and reindexing
 
-Making fields available for prefix or partial matching requires a schema update and subsequent re-indexing of the data in the data store. Updating the schema takes hours, and there isn't a reliable indicator to tell you when indexing is completed, so you need to overestimate the indexing time.
+Making fields available for prefix or partial matching requires a schema update and subsequent reindexing of the data in the data store. Updating the schema takes hours, and there isn't a reliable indicator to tell you when indexing is completed, so you need to overestimate the indexing time.
 
 ### Update schema for prefix and partial matching
 
-**Note:** You can configure prefix and partial matching only through the API. This feature is not available in the Google Cloud console.
+**Note:** You can configure prefix and partial matching only through the API. This feature isn't available in the Google Cloud console.
 
 To specify fields as available for prefix matching or partial matching, you need to update the schema for the data store through the API [`projects.locations.dataStores.schemas.patch`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.schemas/patch) method.
 
@@ -367,6 +369,151 @@ The following examples demonstrate how tokenization affects partial matching res
 
 
 
+## Make fields available for search-as-you-type (Preview)
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+For fields of type `string`, you can edit the schema to mark the fields as `saytCompatible`. When one or more fields on the schema are `saytCompatible` and your application opts in to search-as-you-type on the search request, Agent Search returns documents whose `saytCompatible` fields contain a token that begins with the query text and re-ranks those documents on every keystroke.
+
+### About search-as-you-type for media
+
+Search-as-you-type is a generally available feature for media apps. See [Get search-as-you-type results for a media app](https://docs.cloud.google.com/generative-ai-app-builder/docs/get-media-search-results) for the media-only `searchAsYouTypeSpec.condition` request field.
+
+The `saytCompatible` field setting extends search-as-you-type to any search app by letting you mark the specific schema fields to answer partial queries. Media apps can continue to use `searchAsYouTypeSpec.condition` as before; non-media apps need `saytCompatible` fields on the schema.
+
+### Autocomplete and search-as-you-type
+
+Search-as-you-type is distinct from [autocomplete](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-autocomplete):
+
+  * **Autocomplete** predicts _query strings_ and is driven by the `completable` field setting.
+  * **Search-as-you-type** returns ranked _documents_ and is driven by the `saytCompatible` field setting.
+
+
+
+The two features can be used independently or together, and they don't share data.
+
+### Limits
+
+Making fields `saytCompatible` has the following limits:
+
+  * You can't mark more than three fields per schema as `saytCompatible`. Setting a fourth returns an `INVALID_ARGUMENT` error from the API when you patch the schema.
+  * `saytCompatible` is valid only on fields of type `string`. Setting it on `number`, `integer`, `boolean`, `object`, or `datetime` fields returns an `INVALID_ARGUMENT` error from the API.
+  * Only the first 12 tokens of a field's value are indexed, and each token contributes prefix fragments up to its first 10 characters. Longer values still get indexed, but the tail isn't reachable through a prefix.
+
+
+
+### Schema update and reindexing
+
+Setting fields as `saytCompatible` requires a schema update and subsequent reindexing of the data in the data store. Updating the schema takes hours, and there isn't a reliable indicator to tell you when indexing is completed, so you need to overestimate the indexing time.
+
+### Update schema for search-as-you-type
+
+**Note:** You can configure `saytCompatible` only through the API. This feature isn't available in the Google Cloud console, and it isn't exposed through `FieldConfig` on the [`schemas.fieldConfigs.batchUpdate`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.schemas.fieldConfigs/batchUpdate) method. Use the JSON-schema patch below.
+
+To mark fields as `saytCompatible` by using the [`projects.locations.dataStores.schemas.patch`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.schemas/patch) method, do the following:
+
+  1. If you don't have your schema already, follow the instructions to get your schema in [View a schema definition](https://docs.cloud.google.com/generative-ai-app-builder/docs/get-schema-definition).
+
+  2. Follow the instructions to [update the schema programmatically](https://docs.cloud.google.com/generative-ai-app-builder/docs/update-schemas). Set `saytCompatible` to `true` on the fields you want to enable for the feature, as in this example:
+         
+         "title": {
+            "type": "string",
+            "retrievable": true,
+            "saytCompatible": true
+          },
+          "channel_name": {
+            "type": "string",
+            "retrievable": true,
+            "saytCompatible": true
+          },
+         
+
+In this example, both the `title` and `channel_name` fields are marked as `saytCompatible`. Setting `saytCompatible` on a field whose type isn't `string` returns an `INVALID_ARGUMENT` error from the API, as does setting it on more than three fields in the schema.
+
+#### Example command and result
+         
+         curl -X PATCH \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+         -H "Content-Type: application/json" \
+         "https://discoveryengine.googleapis.com/v1beta/projects/my-project-123/locations/global/collections/default_collection/dataStores/my-data-store/schemas/default_schema" \
+         -d '{
+           "structSchema": { "$schema": "https://json-schema.org/draft/2020-12/schema",
+           "properties": { "title": { "type": "string", "retrievable": true,
+           "saytCompatible": true, "keyPropertyMapping": "title" },
+           "channel_name": { "type": "string", "retrievable": true,
+           "saytCompatible": true } },
+           "type": "object" } }'
+         
+         
+         * * *
+         
+         
+         {
+         "name": "projects/123456/locations/global/collections/default_collection/dataStores/my-data-store/schemas/default_schema/operations/update-schema-123456",
+           "metadata": {
+             "@type": "type.googleapis.com/google.cloud.discoveryengine.v1beta.UpdateSchemaMetadata"
+           }
+         }
+         
+
+  3. Wait for reindexing to complete.
+
+
+
+
+### Send a search-as-you-type search request
+
+After reindexing completes, opt in to search-as-you-type on each search request by sending a search request whose body includes [`searchAsYouTypeSpec`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/projects.locations.evaluations#SearchAsYouTypeSpec). Fields marked as `saytCompatible` on the schema are only consulted when `searchAsYouTypeSpec` is set on the request, so you can keep the same serving config for both partial and full queries.
+
+To send a search-as-you-type search request, do the following:
+
+  1. Call the search method on your serving config, as described in [Get search results](https://docs.cloud.google.com/generative-ai-app-builder/docs/preview-search-results).
+
+  2. In the request body, set [`searchAsYouTypeSpec.condition`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/projects.locations.evaluations#SearchAsYouTypeSpec) to `ENABLED`. This enables search-as-you-type on the request.
+
+  3. Optional: In the same `searchAsYouTypeSpec`, narrow search-as-you-type to a subset of the schema's `saytCompatible` fields, give each field a relative weight, and set a minimum score threshold below which documents are dropped. Every value in this block is optional; when omitted, defaults apply.
+
+     * `fields[i].key`: a schema field marked `saytCompatible`. Referencing a field that isn't `saytCompatible` returns no search-as-you-type contribution from that field.
+     * `fields[i].weight`: relative importance of the field in the search-as-you-type score. Defaults to `1.0`.
+     * `scoreThreshold`: documents whose search-as-you-type score falls below this value are excluded. Defaults to no threshold.
+  4. Send the request. The following example shows the shape of a `searchAsYouTypeSpec` that enables search-as-you-type, scopes it to two fields with different weights, and sets a minimum score:
+         
+         "searchAsYouTypeSpec": {
+           "condition": "ENABLED",
+           "fields": [
+             { "key": "title", "weight": 1.2 },
+             { "key": "channel_name" }
+           ],
+           "scoreThreshold": 0.5
+         }
+         
+
+
+
+
+### Details about search-as-you-type
+
+Search-as-you-type in Agent Search lets users receive ranked documents on every keystroke against fields marked as `saytCompatible` on the schema.
+
+#### Normalization and tokenization logic
+
+Agent Search normalizes and tokenizes both the **field value** (during indexing) and the **query text** (during search):
+
+  * **Lowercasing** : Agent Search converts the characters to lowercase. This makes the matching case-insensitive.
+
+  * **Tokenization** : Agent Search splits the string into individual tokens (words) using spaces and common punctuation as delimiters, matching the behavior used for partial matching.
+
+  * **Per-field bounds** : only the first 12 tokens of the field value are indexed for search-as-you-type; each of those tokens contributes prefix fragments up to its first 10 characters.
+
+
+
+
+#### Example
+
+If the `actor_name` field is marked `saytCompatible` and a document has the value `Christian Bale`, a query of `chr` reaches the document through the length-3 prefix fragment of the `christian` token, and extending the query to `chris` still matches through the length-5 prefix fragment. A query of `bale` also matches, through the length-4 prefix fragment of the second token in the field value. Ranking updates in place on every keystroke as the user types.
+
 ## What's next
 
   * [Update a schema for structured data](https://docs.cloud.google.com/generative-ai-app-builder/docs/update-schemas)
@@ -379,6 +526,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

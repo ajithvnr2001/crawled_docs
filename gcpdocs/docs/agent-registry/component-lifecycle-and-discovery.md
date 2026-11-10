@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery/
 title: Component lifecycle and discovery \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:11.119208+00:00
+fetched_at: 2026-11-10T16:58:23.918532+00:00
 ---
 
 # Component lifecycle and discovery  |  Agent Registry  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  Component lifecycle and discovery Stay organized with collections  Save and categorize content based on your preferences. 
 
-Agent Registry lets you register, discover, and connect modular agentic components so that developers and orchestrator agents can find and reuse AI capabilities across your organization. Understanding how Agent Registry represents components across automatic and manual registration helps you discover capabilities and connect them using bindings and auth providers.
+Agent Registry lets you register, discover, and connect modular agentic components so that you and your orchestrator agents can reuse AI capabilities across your organization. Understanding how Agent Registry represents automatically and manually registered components helps you query resources and attach bindings and auth providers.
 
 ## AI ecosystem
 
 You can register, discover, and govern four types of modular agentic components to integrate your AI ecosystem:
 
-  * **Agents** : autonomous AI actors that plan, reason, invoke tools, and collaborate with other agents.
+  * **Agents** : autonomous AI actors that plan, reason, invoke tools, and collaborate with other agents over protocols such as the [Agent2Agent (A2A) protocol](https://docs.cloud.google.com/agent-registry/a2a-protocol).
   * **MCP servers** : programs that implement the [Model Context Protocol (MCP)](https://docs.cloud.google.com/mcp/overview#how-mcp-works) to expose standardized tools and data resources.
   * **Endpoints** : target URLs, typically REST APIs, accessed by agents.
   * **[Skills](https://docs.cloud.google.com/agent-registry/skills-architecture)** : standalone packages of instructions and optional scripts, or inline [A2A skills](https://docs.cloud.google.com/agent-registry/skills-architecture#standalone-vs-a2a), that extend an agent's capabilities.
@@ -97,7 +97,7 @@ For more information about configuring manual registration, see [Use manual regi
 
 In Google Cloud, discovery in Agent Registry differs from discovery in infrastructure management tools:
 
-  * **Consumption discovery** : Agent Registry focuses on finding registered agents, MCP tools, endpoints, and skills that orchestrators can invoke at runtime. Developers and agents query Agent Registry using natural language search, tags, or [registry identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) to locate capabilities needed to complete workflows.
+  * **Consumption discovery** : Agent Registry focuses on finding registered agents, MCP tools, endpoints, and skills that orchestrator agents can call at runtime. You and your orchestrator agents query Agent Registry using natural language search, tags, or [registry identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) to locate capabilities needed to complete workflows.
   * **Infrastructure discovery** : services like [App Hub](https://docs.cloud.google.com/app-hub/docs/overview) focus on detecting physical compute resources, such as virtual machines, GKE services, and Cloud Run deployments, across your Google Cloud projects. App Hub organizes these compute assets into applications and environments for infrastructure health, resource monitoring, and reliability tracking.
 
 
@@ -112,7 +112,7 @@ To compose multi-agent workflows and manage outbound credentials, you create exp
 
 A binding defines a directed connection between a source agent and a target resource using their [registry identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) (URNs):
 
-  * **Agent-to-agent bindings** : establish delegation pathways that let an orchestrator agent invoke specialist subagents.
+  * **Agent-to-agent bindings** : establish delegation pathways that let an orchestrator agent call specialist subagents.
   * **Agent-to-MCP server bindings** : connect an agent to an MCP server, associating the agent with the server's published tools and data resources.
   * **Agent-to-endpoint bindings** : connect an agent to a registered external endpoint, such as a REST API.
 
@@ -122,18 +122,16 @@ Bindings provide visibility into your multi-agent topology, helping teams audit 
 
 ### Auth providers
 
-When an agent interacts with external tools, MCP servers, or APIs, it often requires dedicated credentials. An auth provider is a configuration in [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/agent-identity-overview#agent-auth-manager) that stores, acquires, and manages credentials, such as OAuth tokens or API keys, on behalf of the agent.
+When an agent interacts with external tools, MCP servers, or APIs, it often requires dedicated credentials. An auth provider is a configuration in [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) that stores, acquires, and manages credentials, such as OAuth tokens or API keys, on behalf of the agent.
 
 By associating a binding with an auth provider, you let the agent authenticate to external destinations without embedding secrets in prompt templates or agent source code. For more information, see [Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
 
 ## What's next
 
+  * Learn about the [A2A protocol](https://docs.cloud.google.com/agent-registry/a2a-protocol).
   * Learn about [Identity and identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers).
   * Learn about [cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology).
   * Learn about [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
-  * [Register agents](https://docs.cloud.google.com/agent-registry/register-agents).
-  * [Manage bindings](https://docs.cloud.google.com/agent-registry/manage-bindings).
-  * Explore [Key concepts](https://docs.cloud.google.com/agent-registry/concepts).
 
 
 
@@ -141,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

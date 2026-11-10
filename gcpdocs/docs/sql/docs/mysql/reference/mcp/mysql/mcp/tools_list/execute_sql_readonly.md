@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/reference/mcp/mysql/mcp/tools_list/execute_sql_readonly/
 title: MCP Tools Reference: cloud-sql \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:41:16.479933+00:00
+fetched_at: 2026-11-10T18:56:56.566435+00:00
 ---
 
 # MCP Tools Reference: cloud-sql  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -24,18 +24,18 @@ Send feedback
 
 ## Tool: `execute_sql_readonly`
 
-Execute any valid read-only SQL statement on a Cloud SQL for MySQL, Cloud SQL for PostgreSQL, or Cloud SQL for SQL Server instance.
+Execute any valid read-only SQL statement on a Cloud SQL for MySQL or Cloud SQL for PostgreSQL instance.
 
 To support the `execute_sql_readonly` tool, a Cloud SQL instance and request must meet the following requirements:
 
   * The value of `data_api_access` must be set to `ALLOW_DATA_API`.
-  * For PostgreSQL and SQL Server instances, the `database` field is required. For MySQL instances, the `database` field is optional.
-  * For built-in database users (supported for MySQL, PostgreSQL, and SQL Server, and required for SQL Server because Cloud SQL for SQL Server doesn't support IAM database authentication):
+  * For PostgreSQL instances, the `database` field is required. For MySQL instances, the `database` field is optional.
+  * For built-in database users (supported for MySQL and PostgreSQL):
 
     * Specify the `user` field and the `password_secret_version` field.
     * The value of `password_secret_version` must be the resource name of a regional secret version in Secret Manager stored in the same region as the Cloud SQL instance, such as `projects/12345/locations/us-central1/secrets/my-password-secret/versions/1` or `projects/12345/locations/us-central1/secrets/my-password-secret/versions/latest`.
     * The caller must have the `secretmanager.secretVersions.access` permission on the secret version.
-  * For IAM database authentication (supported for MySQL and PostgreSQL only; not supported for SQL Server):
+  * For IAM database authentication:
 
     * For a MySQL instance, the database flag `cloudsql_iam_authentication` must be set to `on`.
     * For a PostgreSQL instance, the database flag `cloudsql.iam_authentication` must be set to `on`.
@@ -46,6 +46,7 @@ To support the `execute_sql_readonly` tool, a Cloud SQL instance and request mus
 
 The `execute_sql_readonly` tool has the following limitations:
 
+  * The tool isn't supported for SQL Server.
   * If a SQL statement returns a response larger than 10 MB, then the response will be truncated.
   * The tool has a default timeout of 30 seconds. If a query runs longer than 30 seconds, then the tool returns a `DEADLINE_EXCEEDED` error.
 
@@ -55,7 +56,7 @@ If you receive errors similar to "IAM authentication is not enabled for the inst
 
 If you receive errors like "The instance doesn't allow using executeSql to access this instance", then you can use the `get_instance` tool to check the `data_api_access` setting.
 
-When you receive authentication errors for a built-in database user (including all SQL Server requests):
+When you receive authentication errors for a built-in database user:
 
   1. Check if the specified database user exists on the instance using the `list_users` tool.
   2. Verify that `password_secret_version` references a valid regional Secret Manager secret version in the same region as the Cloud SQL instance and that the caller has the `secretmanager.secretVersions.access` permission on the secret version.
@@ -63,7 +64,7 @@ When you receive authentication errors for a built-in database user (including a
 
 
 
-When you receive authentication errors for IAM database authentication (MySQL and PostgreSQL only):
+When you receive authentication errors for IAM database authentication:
 
   1. Check if the currently logged-in user account exists as an IAM user on the instance using the `list_users` tool.
   2. If the IAM user account doesn't exist, then use the `create_user` tool to create the IAM user account for the logged-in user.
@@ -358,6 +359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

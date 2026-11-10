@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/overview/
-title: Distributed Cloud software only for VMware overview \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
+title: Google Distributed Cloud software only for VMware overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:31.452512+00:00
+fetched_at: 2026-11-10T17:00:07.379235+00:00
 ---
 
-# Distributed Cloud software only for VMware overview  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
+# Google Distributed Cloud software only for VMware overview  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/overview/
 
@@ -19,17 +19,17 @@ fetched_at: 2026-11-07T05:43:31.452512+00:00
 
 Send feedback 
 
-#  Distributed Cloud software only for VMware overview Stay organized with collections  Save and categorize content based on your preferences. 
+#  Google Distributed Cloud software only for VMware overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Distributed Cloud software only for VMware lets you deploy and manage [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) clusters in a VMware vSphere environment. You can run and upgrade containerized applications in your data center while using Google Cloud features and infrastructure.
+Google Distributed Cloud software only for VMware lets you deploy and manage [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) clusters in a VMware vSphere environment. You can run and upgrade containerized applications in your data center while using Google Cloud features and infrastructure.
 
-To run software-only clusters directly on physical servers, see the [Distributed Cloud software only for bare metal overview](https://docs.cloud.google.com/distributed-cloud/bare-metal/docs/concepts/about-bare-metal).
+To run software-only clusters directly on physical servers, see the [Google Distributed Cloud software only for bare metal overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal).
 
-**Note:** Distributed Cloud software only was formerly known as Google Distributed Cloud Virtual, previously known as Anthos clusters on VMware.
+**Note:** Google Distributed Cloud software only was formerly known as Google Distributed Cloud Virtual, previously known as Anthos clusters on VMware.
 
-## Why use Distributed Cloud software only for VMware?
+## Why use Google Distributed Cloud software only for VMware?
 
-Running Distributed Cloud software only for VMware on your existing vSphere infrastructure lets you modernize applications with GKE while keeping the virtualization platform, storage, and operational processes that your teams already use.
+Running Google Distributed Cloud software only for VMware on your existing vSphere infrastructure lets you modernize applications with GKE while keeping the virtualization platform, storage, and operational processes that your teams already use.
 
 ### Integration with your vSphere environment
 
@@ -62,7 +62,7 @@ The following diagram shows the architecture of a completed installation with an
 
 ### Key components
 
-The following components make up an installation of Distributed Cloud software only for VMware:
+The following components make up an installation of Google Distributed Cloud software only for VMware:
 
   * **Admin cluster** : Manages one or more user clusters. Admin clusters consist of one or more control plane nodes running on dedicated virtual machines.
   * **User cluster** : Runs your containerized workloads. Each user cluster consists of at least one control plane node and one or more worker nodes.
@@ -78,7 +78,7 @@ The following components make up an installation of Distributed Cloud software o
 
 All user clusters are members of a [fleet](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs), which is a logical grouping of Kubernetes clusters that provides unified management across environments. Fleets let you view clusters together in the Google Cloud console and use [fleet-enabled features](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/deployment-options#features_available_on_clusters_outside_of_google_cloud) to manage, govern, and operate workloads at scale.
 
-Each cluster connects to Google Cloud through the [Connect Agent](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/connect-agent), which deploys automatically during cluster installation. Fleet membership also determines billing for Distributed Cloud software only for VMware.
+Each cluster connects to Google Cloud through the [Connect Agent](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/connect-agent), which deploys automatically during cluster installation. Fleet membership also determines billing for Google Distributed Cloud software only for VMware.
 
 ## Pricing
 
@@ -109,7 +109,7 @@ Replace VERSION with a minor version from 1.0 to 1.16 and copy the URL to the ad
 
 ## Where your data is stored
 
-When you run Distributed Cloud software only for VMware, your clusters, applications, and business data stay in your data center. By default,Google Distributed Cloud sends Google Cloud information about your clusters, such as their settings, health, and usage, but it doesn't send your application data.
+When you run Google Distributed Cloud software only for VMware, your clusters, applications, and business data stay in your data center. By default,Google Distributed Cloud sends Google Cloud information about your clusters, such as their settings, health, and usage, but it doesn't send your application data.
 
 ### Data that stays in your data center
 
@@ -172,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

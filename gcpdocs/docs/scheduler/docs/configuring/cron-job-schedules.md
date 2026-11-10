@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/configuring/cron-job-schedules/
 title: Cron job format and time zone \u00a0|\u00a0 Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:05.615378+00:00
+fetched_at: 2026-11-10T14:04:41.588643+00:00
 ---
 
 # Cron job format and time zone  |  Cloud Scheduler  |  Google Cloud Documentation
@@ -181,11 +181,7 @@ If your job requires a very specific cadence, you might want to consider choosin
 
 ## Alternative job format
 
-You can use a more human-readable time specification format known as groc that provides an alternative to cron expressions.
-
-Note that when specifying a job schedule using groc, you must use either the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler) or make a direct request to the [Cloud Scheduler API](https://docs.cloud.google.com/scheduler/docs/reference/rest/v1/projects.locations.jobs/create).
-
-For example, some recurring events might be awkward to specify using cron like the "third Tuesday of every month" or "biweekly" (every 336 hours). In such cases, you can instead use constructs like the following examples:
+You can use a more human-readable time specification format known as groc that provides an alternative to cron expressions. For example, some recurring events might be awkward to specify using cron like the "third Tuesday of every month" or "biweekly" (every 336 hours). In such cases, you can instead use constructs like the following examples:
     
     
     03 of month 12:34
@@ -205,10 +201,15 @@ For example, some recurring events might be awkward to specify using cron like t
     second,4th tue,thursday of 3rd month of quarter 18:30
     
 
+When specifying a job schedule using groc, you must use either the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler) or make a direct request to the [Cloud Scheduler API](https://docs.cloud.google.com/scheduler/docs/reference/rest/v1/projects.locations.jobs/create).
+
+**Note:** Cloud Scheduler doesn't send the `X-CloudScheduler-ScheduleTime` header for jobs that use the `groc` format. If your target handler relies on this header to deduplicate retried requests, specify your schedule in `unix-cron` format instead. For more information, see [Deduplicate job requests](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests).
+
 For more information about the syntax, see [Defining the cron job schedule](https://docs.cloud.google.com/appengine/docs/legacy/standard/python/config/cronref#defining_the_cron_job_schedule).
 
 ## What's next
 
+  * [Deduplicate job requests](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests)
   * [Changing the default region or zone](https://docs.cloud.google.com/compute/docs/regions-zones/changing-default-zone-region)
   * [View available regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones/viewing-regions-zones)
 
@@ -218,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models/
 title: Gemini Enterprise Agent Platform partner models for MaaS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:25:43.304382+00:00
+fetched_at: 2026-11-10T18:35:53.361912+00:00
 ---
 
 # Gemini Enterprise Agent Platform partner models for MaaS  |  Google Cloud Documentation
@@ -35,7 +35,13 @@ The following partner models are offered as managed APIs on Gemini Enterprise Ag
 
 Model name | Modality | Description | Quickstart  
 ---|---|---|---  
-Muse Spark 1.3 from Meta ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language | Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3)  
+GPT 6.0 Astra ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | Highest-capability partner model from OpenAI, built for complex multi-step reasoning, difficult engineering tasks, and long-horizon agent workflows. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/gpt-6-astra)  
+GPT 6.1 Sol ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | Flagship partner model from OpenAI, built for autonomous coding, agentic tool orchestration, and complex analytical workloads. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/gpt-6-1-sol)  
+GPT 6.1 Terra ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | High-throughput, cost-balanced reasoning model from OpenAI, built for general enterprise workloads and high-volume automation. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/gpt-6-1-terra)  
+GPT 6.0 Luna ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | Low-latency partner model from OpenAI, optimized for fast interactive coding assistants and latency-sensitive enterprise workloads. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/gpt-6-luna)  
+Muse Wonder from Meta ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | Muse Wonder from Meta is a high-capability reasoning model built for complex software engineering and long-horizon agentic work, including multi-step coding, autonomous agents, and computer use. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0)  
+Muse Ember from Meta ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | Muse Ember from Meta is an efficient reasoning model for high-volume agent tasks such as tool calls, coding subtasks, routing, extraction, and long documents, with a 1M-token context window. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0)  
+Muse Spark 1.3 from Meta ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language, Vision | Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It supports built-in tool calling with Model Context Protocol (MCP) support and a 1M-token context window for multi-step tasks. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3)  
 Grok 4.7 | Language | A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)  
 Grok 4.6 | Language | A high-capability model from xAI, built for coding, agentic tasks, and knowledge work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.6)  
 Grok 4.3 ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language | xAI's high-performance model. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.3)  
@@ -46,6 +52,7 @@ Anthropic's Claude Sonnet 5.5 on Google Cloud | Language, Vision | Anthropic's C
 Anthropic's Claude Sonnet 5 on Google Cloud | Language, Vision | Anthropic's Claude Sonnet 5 on Google Cloud is built for coding, agents, and professional work at scale. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)  
 Anthropic's Claude Opus 5.5 on Google Cloud | Language, Vision | Anthropic's Claude Opus 5.5 on Google Cloud is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)  
 Anthropic's Claude Opus 5 on Google Cloud | Language, Vision | Anthropic's Claude Opus 5 on Google Cloud is a high-intelligence model from Anthropic, built for coding, agents, and professional work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5)  
+Anthropic's Claude Fable 5.2 on Google Cloud | Language, Vision | Anthropic's Claude Fable 5.2 on Google Cloud is designed for technical and scientific work, including coding and finance. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-2)  
 Anthropic's Claude Fable 5.1 on Google Cloud | Language, Vision | Anthropic's Claude Fable 5.1 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-1)  
 Anthropic's Claude Fable 5 on Google Cloud | Language, Vision | Anthropic's Claude Fable 5 on Google Cloud is a model from Anthropic that's designed for autonomous knowledge work and coding, built for complex, multi-day projects. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)  
 Anthropic's Claude Opus 4.8 on Google Cloud | Language, Vision | Claude Opus 4.8 is a high-intelligence Opus model built for coding and agents, with deeper reasoning for enterprise workflows. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)  
@@ -97,6 +104,7 @@ For the Agent Platform SDK, a regional endpoint is the default. Set the region t
 The global endpoint is available for the following models:
 
   * [Anthropic's Claude Sonnet 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+  * [Anthropic's Claude Fable 5.2 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
   * [Anthropic's Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
   * [Anthropic's Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
   * [Anthropic's Claude Opus 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
@@ -117,6 +125,12 @@ The global endpoint is available for the following models:
   * [Grok 4.6](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6)
   * [Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7)
   * [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3)
+  * [Muse Wonder from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0)
+  * [Muse Ember from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0)
+
+
+
+Muse models from Meta use the OpenAI-compatible [Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses) at `https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/**global** /publishers/meta/v1/responses` rather than `publishers/PUBLISHER_NAME/models/MODEL_NAME`. Pass the bare model ID `muse-wonder-1.0`, `muse-ember-1.0`, or `muse-spark-1.3` in the `model` field. For more information, see [Use Meta models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models).
 
 **Note:** Prompt Caching is supported when using the global endpoint. Provisioned Throughput isn't supported when using the global endpoint.
 
@@ -296,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

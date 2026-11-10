@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/target-proxies/
 title: Target proxies overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:12.948002+00:00
+fetched_at: 2026-11-10T18:26:31.041807+00:00
 ---
 
 # Target proxies overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ At a high-level, traffic is handled according to the following process:
 
 Depending on the type of load balancer, target proxies terminate connections by using either [Google Front Ends (GFEs)](https://docs.cloud.google.com/docs/security/infrastructure/design#google-frontend-service) or [Envoy proxies](https://www.envoyproxy.io/).
 
-  4. The target proxy establishes a new connection to the appropriate backend VM instance or endpoint, as determined by the load balancer's URL map (applicable only to Application Load Balancers), TLS route ([Preview](https://cloud.google.com/products#product-launch-stages), applicable only to certain proxy Network Load Balancers), and backend service configuration.
+  4. The target proxy establishes a new connection to the appropriate backend VM instance or endpoint, as determined by the load balancer's URL map (applicable only to Application Load Balancers), TLS route (applicable only to certain proxy Network Load Balancers), and backend service configuration.
 
 
 **Note:** Target proxies are also used by [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/target-proxies). This page only discusses target proxies in the context of Cloud Load Balancing. 
@@ -58,9 +58,9 @@ Global external proxy Network Load Balancer | Target SSL proxy
 Target TCP proxy | Global | Target proxy references a single backend service.  
 Classic proxy Network Load Balancer | Target SSL proxy  
 Target TCP proxy | Global | Target proxy references a single backend service.  
-Regional external proxy Network Load Balancer * | Target TCP proxy | Regional | Target proxy references either a single backend service or one or more TLS routes ([Preview](https://cloud.google.com/products#product-launch-stages)).  
-Regional internal proxy Network Load Balancer * | Target TCP proxy | Regional | Target proxy references either a single backend service or one or more TLS routes ([Preview](https://cloud.google.com/products#product-launch-stages)).  
-Cross-region internal proxy Network Load Balancer * | Target TCP proxy | Global | Target proxy references either a single backend service or one or more TLS routes ([Preview](https://cloud.google.com/products#product-launch-stages)).  
+Regional external proxy Network Load Balancer * | Target TCP proxy | Regional | Target proxy references either a single backend service or one or more TLS routes.  
+Regional internal proxy Network Load Balancer * | Target TCP proxy | Regional | Target proxy references either a single backend service or one or more TLS routes.  
+Cross-region internal proxy Network Load Balancer * | Target TCP proxy | Global | Target proxy references either a single backend service or one or more TLS routes.  
   
 * This load balancer requires a [proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets) in each region of a VPC network in which you use an Envoy-based load balancer. Connections to the backend originate from this proxy-only subnet.
 
@@ -69,7 +69,7 @@ Cloud Load Balancing supports the following resource combinations:
   * Forwarding rule > target HTTPS proxy > URL map > one or more backend services
   * Forwarding rule > target HTTP proxy > URL map > one or more backend services
   * Forwarding rule > target TCP proxy > one backend service
-  * Forwarding rule > target TCP proxy > one or more TLS routes ([Preview](https://cloud.google.com/products#product-launch-stages)) > one or more backend services 
+  * Forwarding rule > target TCP proxy > one or more TLS routes > one or more backend services 
   * Forwarding rule > target SSL proxy > one backend service 
 
 
@@ -135,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/tcp/set-up-int-tcp-proxy-migs/
 title: Set up a regional internal proxy Network Load Balancer with VM instance group backends \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:01.587161+00:00
+fetched_at: 2026-11-10T18:26:29.168887+00:00
 ---
 
 # Set up a regional internal proxy Network Load Balancer with VM instance group backends  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ In this example, we'll use the load balancer to distribute TCP traffic across ba
 
 The regional internal proxy Network Load Balancer is a regional load balancer. All load balancer components must be in the same region as the load balancer.
 
-**SNI-based routing** : This page also shows you an alternative deployment architecture that you can use to configure SNI-based routing. For SNI-based routing, you use TLS routes to define how traffic is distributed. For details, see Create a load balancer with TLS routes ([Preview](https://cloud.google.com/products/#product-launch-stages)).
+**SNI-based routing** : This page also shows you an alternative deployment architecture that you can use to configure SNI-based routing. For SNI-based routing, you use TLS routes to define how traffic is distributed. For details, see Create a load balancer with TLS routes.
 
 ## Permissions
 
@@ -626,10 +626,6 @@ This section expands on the configuration example to provide alternative and add
 
 ### Create a load balancer with TLS routes
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 This section shows you how to create a load balancer that can use SNI-based routing. SNI-based routing lets your proxy Network Load Balancers route traffic to specific backend services based on the Server Name Indication (SNI) hostname provided during the TLS handshake.
 
 To create this load balancer we use the same networks, subnets, and firewall rules created previously on this page. You configure the deployment shown in the following diagram:
@@ -1152,6 +1148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

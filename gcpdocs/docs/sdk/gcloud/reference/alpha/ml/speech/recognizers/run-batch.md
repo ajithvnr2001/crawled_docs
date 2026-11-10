@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/ml/speech/recognizers/run-batch/
 title: gcloud alpha ml speech recognizers run-batch \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:47:22.173897+00:00
+fetched_at: 2026-11-10T17:33:29.767738+00:00
 ---
 
 # gcloud alpha ml speech recognizers run-batch  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha ml speech recognizers run-batch - get transcripts of long (more tha
 SYNOPSIS
     
 
-`gcloud alpha ml speech recognizers run-batch` (`RECOGNIZER` : `--location`=`LOCATION`) `--audio`=`AUDIO` [`--async`] [`--hint-boost`=`HINT_BOOST`] [`--hint-phrase-sets`=[`PHRASE_SET`,…]] [`--hint-phrases`=[`PHRASE`,…]] [`--language-codes`=[`LANGUAGE_CODE`,…]] [`--model`=`MODEL`] [`--audio-channel-count`=`AUDIO_CHANNEL_COUNT` `--encoding`=`ENCODING` `--sample-rate`=`SAMPLE_RATE`] [`--[no-]enable-automatic-punctuation` `--[no-]enable-spoken-emojis` `--[no-]enable-spoken-punctuation` `--[no-]enable-word-confidence` `--[no-]enable-word-time-offsets` `--max-alternatives`=`MAX_ALTERNATIVES` `--[no-]profanity-filter` `--[no-]separate-channel-recognition` `--max-speaker-count`=`MAX_SPEAKER_COUNT` `--min-speaker-count`=`MIN_SPEAKER_COUNT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha ml speech recognizers run-batch` [[`RECOGNIZER`] `--location`=`LOCATION`] `--audio`=`AUDIO` [`--async`] [`--hint-boost`=`HINT_BOOST`] [`--hint-phrase-sets`=[`PHRASE_SET`,…]] [`--hint-phrases`=[`PHRASE`,…]] [`--language-codes`=[`LANGUAGE_CODE`,…]] [`--model`=`MODEL`] [`--audio-channel-count`=`AUDIO_CHANNEL_COUNT` `--encoding`=`ENCODING` `--sample-rate`=`SAMPLE_RATE`] [`--[no-]enable-automatic-punctuation` `--[no-]enable-spoken-emojis` `--[no-]enable-spoken-punctuation` `--[no-]enable-word-confidence` `--[no-]enable-word-time-offsets` `--max-alternatives`=`MAX_ALTERNATIVES` `--[no-]profanity-filter` `--[no-]separate-channel-recognition` `--max-speaker-count`=`MAX_SPEAKER_COUNT` `--min-speaker-count`=`MIN_SPEAKER_COUNT`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Get transcripts of long (more than 60 seconds) audio from a gcloud uri. 
 POSITIONAL ARGUMENTS
@@ -39,28 +39,25 @@ Recognizer resource - recognizer. The arguments in this group can be used to spe
 To set the `project` attribute: 
 
   * provide the argument `recognizer` on the command line with a fully specified name; 
+  * default is the default recognizer with a fully specified name; 
   * provide the argument `--project` on the command line; 
   * set the property `core/project`. 
 
 
-
-This must be specified. 
-
-`RECOGNIZER`
+[`RECOGNIZER`]
      ID of the recognizer or fully qualified identifier for the recognizer. 
 
 To set the `recognizer` attribute: 
 
-  * provide the argument `recognizer` on the command line. 
+  * provide the argument `recognizer` on the command line; 
+  * default is the default recognizer. 
 
-
-
-This positional argument must be specified if any of the other arguments in this group are specified. 
 
 `--location`=`LOCATION`
      Location of the recognizer. To set the `location` attribute: 
 
   * provide the argument `recognizer` on the command line with a fully specified name; 
+  * default is the default recognizer with a fully specified name; 
   * provide the argument `--location` on the command line. 
 
 
@@ -131,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

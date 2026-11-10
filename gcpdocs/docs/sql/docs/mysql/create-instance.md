@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/create-instance/
 title: Create instances \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:53:21.538100+00:00
+fetched_at: 2026-11-10T11:44:46.229491+00:00
 ---
 
 # Create instances  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1471,14 +1471,15 @@ Determines memory and virtual cores available for your Cloud SQL instance. You c
 
   * **For Cloud SQL Enterprise Plus edition instances:** Cloud SQL offers predefined machine types in these machine series:
 
-    * [N2](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n2_machine_types) series.
-    * [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a) series.
-    * [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) series.
+    * [N2](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n2) series. 
+    * [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a) series. 
+    * [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) series. 
+    * [C4D](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d) series. 
   * **For Cloud SQL Enterprise edition instances:** Cloud SQL offers both predefined and custom machine types in these machine series:
 
-    * [general purpose - shared core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-shared-core) series.
-    * [general purpose - dedicated core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-dedicated-core) series.
-    * [N4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4) series.
+    * [ general purpose - shared core ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-shared-core) series. 
+    * [general purpose - dedicated core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-dedicated-core) series. 
+    * [N4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4) series. 
 
 
 
@@ -1559,6 +1560,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

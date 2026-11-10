@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/kubernetes-ha/
 title: Manage high availability in Kubernetes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:57.371196+00:00
+fetched_at: 2026-11-10T18:26:37.685787+00:00
 ---
 
 # Manage high availability in Kubernetes  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation
@@ -228,6 +228,8 @@ Replace the following:
 
 The command returns `Success` after the new primary database instance is ready for use. To monitor the status of the new standby instance, see the next section.
 
+If the failover fails or the database cluster remains in the `DBClusterFailoverInProgress` or `DBClusterFailoverRollbackFailed` phase, see [Database cluster remains stuck in a failover or switchover state](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/troubleshoot-kubernetes-operator#dbcluster-stuck-failover-switchover).
+
 ## Switchover to a standby instance
 
 Switchover is performed when you want to test your disaster recovery setup or any other planned activities that require switching the roles of the primary database and the standby replica.
@@ -282,6 +284,8 @@ To identify the standby replica name, run the following command:
 
 
 **Important:** If local backups are created before the switchover is performed, you can't restore using the `Restore` custom resource. If you want to manually clone the backup, see [Clone a database cluster in Kubernetes using a local backup](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/kubernetes-dr-backup-k8-local).
+
+If the switchover fails or the database cluster remains in the `DBClusterSwitchoverInProgress` or `DBClusterSwitchoverRollbackFailed` phase, see [Database cluster remains stuck in a failover or switchover state](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/troubleshoot-kubernetes-operator#dbcluster-stuck-failover-switchover).
 
 ## Heal a standby instance automatically
 
@@ -398,6 +402,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

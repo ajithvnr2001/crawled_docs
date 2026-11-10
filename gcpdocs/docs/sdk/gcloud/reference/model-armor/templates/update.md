@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/model-armor/templates/update/
 title: gcloud model-armor templates update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T15:45:12.160812+00:00
+fetched_at: 2026-11-10T17:33:23.367845+00:00
 ---
 
 # gcloud model-armor templates update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud model-armor templates update - update Model Armor Template
 SYNOPSIS
     
 
-`gcloud model-armor templates update` (`TEMPLATE` : `--location`=`LOCATION`) [`--request-id`=`REQUEST_ID`] [`--clear-filter-config` `--malicious-uri-filter-settings-enforcement`=`MALICIOUS_URI_FILTER_SETTINGS_ENFORCEMENT` `--basic-config-filter-enforcement`=`BASIC_CONFIG_FILTER_ENFORCEMENT` | `--advanced-config-deidentify-template`=`ADVANCED_CONFIG_DEIDENTIFY_TEMPLATE` `--advanced-config-inspect-template`=`ADVANCED_CONFIG_INSPECT_TEMPLATE` `--pi-and-jailbreak-filter-settings-confidence-level`=`PI_AND_JAILBREAK_FILTER_SETTINGS_CONFIDENCE_LEVEL` `--pi-and-jailbreak-filter-settings-enforcement`=`PI_AND_JAILBREAK_FILTER_SETTINGS_ENFORCEMENT` `--rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`] | `--add-rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`] `--clear-rai-settings-filters` | `--remove-rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`]] [`--clear-template-metadata` `--template-metadata-custom-llm-response-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_CODE` `--template-metadata-custom-llm-response-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_MESSAGE` `--template-metadata-custom-prompt-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_CODE` `--template-metadata-custom-prompt-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_MESSAGE` `--[no-]template-metadata-ignore-partial-invocation-failures` `--[no-]template-metadata-log-operations` `--[no-]template-metadata-log-sanitize-operations`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud model-armor templates update` (`TEMPLATE` : `--location`=`LOCATION`) [`--request-id`=`REQUEST_ID`] [`--clear-filter-config` `--malicious-uri-filter-settings-enforcement`=`MALICIOUS_URI_FILTER_SETTINGS_ENFORCEMENT` `--basic-config-filter-enforcement`=`BASIC_CONFIG_FILTER_ENFORCEMENT` | `--advanced-config-deidentify-template`=`ADVANCED_CONFIG_DEIDENTIFY_TEMPLATE` `--advanced-config-inspect-template`=`ADVANCED_CONFIG_INSPECT_TEMPLATE` `--pi-and-jailbreak-filter-settings-confidence-level`=`PI_AND_JAILBREAK_FILTER_SETTINGS_CONFIDENCE_LEVEL` `--pi-and-jailbreak-filter-settings-enforcement`=`PI_AND_JAILBREAK_FILTER_SETTINGS_ENFORCEMENT` `--rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`] | `--add-rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`] `--clear-rai-settings-filters` | `--remove-rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`]] [`--clear-template-metadata` `--template-metadata-custom-llm-response-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_CODE` `--template-metadata-custom-llm-response-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_MESSAGE` `--template-metadata-custom-prompt-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_CODE` `--template-metadata-custom-prompt-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_MESSAGE` `--[no-]template-metadata-ignore-partial-invocation-failures` `--[no-]template-metadata-log-operations` `--[no-]template-metadata-log-sanitize-operations` `--filter-version-selector`=`FILTER_VERSION_SELECTOR` | `--filter-version-selector-alias`=`FILTER_VERSION_SELECTOR_ALIAS`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Updates a Template. 
 EXAMPLES
@@ -230,6 +230,25 @@ Message describing TemplateMetadata
      If true, log template crud operations. Use `--template-metadata-log-operations` to enable and `--no-template-metadata-log-operations` to disable. 
 `--[no-]template-metadata-log-sanitize-operations`
      If true, log sanitize operations. Use `--template-metadata-log-sanitize-operations` to enable and `--no-template-metadata-log-sanitize-operations` to disable. 
+Arguments for the filter version selector. 
+Represents the configuration for selecting a Filter Version. Allows customers to choose to use either a specific version or a predefined alias. 
+Arguments for the version spec. 
+
+At most one of these can be specified: 
+
+`--filter-version-selector`=`FILTER_VERSION_SELECTOR`
+     Allows customers to pin to a specific, immutable Filter Version. This provides stability, as this will not change after a version upgrade. Expected format is a case-sensitive string, e.g., "v1", "v2". Requests providing an invalid or non-existent version string will be rejected with an `INVALID_ARGUMENT` error. 
+`--filter-version-selector-alias`=`FILTER_VERSION_SELECTOR_ALIAS`
+     Allows customers to use a predefined alias that dynamically points to a specific version based on internal upgrades. This offers flexibility and reduces the need for template updates. `FILTER_VERSION_SELECTOR_ALIAS` must be one of: 
+
+`filter-version-alias-latest`
+     `LATEST` alias points to the newest model version available. This version is subject to frequent revisions and offers SLO guarantees but does not assure stability, providing the most current security protections. 
+`filter-version-alias-legacy`
+     `LEGACY` alias could be used for sanitization operations for a transition period. New templates cannot be created with this version. 
+`filter-version-alias-retired`
+     `RETIRED` alias could be used for versions that are no longer available to be used. While new templates cannot be created with this alias, any existing template or request using `RETIRED` version will fall back to the current `STABLE` version for sanitization operations. 
+`filter-version-alias-stable`
+     `STABLE` alias points to the most recent stable model version. Using this alias means no code changes are required when a new model becomes the stable version. 
 Update labels. 
 
 At most one of these can be specified: 
@@ -320,6 +339,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

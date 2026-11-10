@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/quotas/
 title: Quotas and limits \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:20.239806+00:00
+fetched_at: 2026-11-10T17:01:16.094195+00:00
 ---
 
 # Quotas and limits  |  VPC Service Controls  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Quotas and limits Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the quotas and limits that apply to VPC Service Controls. Quotas and limits specified in this document are subject to change.
+This document lists the quotas and system limits that apply to VPC Service Controls. Quotas and limits specified in this document are subject to change.
+
+VPC Service Controls and Access Context Manager quota enforcement is integrated with [Cloud Quotas](https://docs.cloud.google.com/docs/quotas/overview).
 
 The quota utilization computation is based on the sum of the utilization across the enforced and the dry-run modes. For example, if a service perimeter protects five resources in enforced mode and seven resources in dry-run mode, then the sum of both, which is 12, is tested against the corresponding limit. Also, each individual entry is counted as one even if it occurs elsewhere in the policy. For example, if a project is included in one regular perimeter and five bridge perimeters, all six instances are counted and no deduplication is performed.
 
@@ -29,17 +31,21 @@ However, VPC Service Controls calculates the service perimeter limits differentl
 
 ## View quotas in the Google Cloud console
 
-  1. In the Google Cloud console navigation menu, click **Security** , and then click **VPC Service Controls**.
+You can view your VPC Service Controls quota utilization and system limits directly on the **VPC Service Controls** page or through the centralized **Quotas & System Limits** page in the Google Cloud console.
+
+### View quotas in the VPC Service Controls console
+
+  1. In the Google Cloud console, go to the **VPC Service Controls** page.
 
 [Go to VPC Service Controls](https://console.cloud.google.com/security/service-perimeter)
 
   2. If you are prompted, select your organization, folder, or project.
 
-  3. On the **VPC Service Controls** page, select the access policy for which you want to view quotas.
+  3. On the **VPC Service Controls** page, select the access policy that you want to view quotas for.
 
   4. Click **View Quota**.
 
-The **Quota** page displays the usage metrics for the following [access policy](https://docs.cloud.google.com/access-context-manager/docs/scoped-policies) limits that apply cumulatively across all service perimeters in a given access policy:
+The **Quota** page displays the usage metrics for the following [scoped access policy](https://docs.cloud.google.com/access-context-manager/docs/scoped-policies) limits that apply cumulatively across all service perimeters in a given access policy:
 
      * Service perimeters
      * Protected resources
@@ -48,9 +54,26 @@ The **Quota** page displays the usage metrics for the following [access policy](
 
 
 
+### View quotas in Cloud Quotas
+
+To view organization-level VPC Service Controls quotas and system limits across all access policies in the standard Google Cloud console **Quotas & System Limits** dashboard, do the following:
+
+  1. In the Google Cloud console navigation menu, click **IAM & Admin**, and then click **Quotas & System Limits**.
+
+[Go to Quotas & System Limits](https://console.cloud.google.com/iam-admin/quotas)
+
+  2. Select your organization in the resource picker.
+
+  3. To inspect effective limits and current utilization, filter by service name `accesscontextmanager.googleapis.com`.
+
+
+
+
+You can also query quota metrics programmatically using the [Cloud Quotas API](https://docs.cloud.google.com/docs/quotas/reference/rest).
+
 ## Service perimeter limits
 
-The following limit applies to each service perimeter configuration. That is, this limit applies separately for the dry-run and enforced configurations of a perimeter:
+The following limit applies to each service perimeter configuration. Unlike the cumulative quotas described previously, this limit applies separately for the dry-run and enforced configurations of a perimeter.
 
 Type | Limit | Notes  
 ---|---|---  
@@ -140,14 +163,31 @@ Type | Limit
 Organization-level access policy  |  1   
 Folder and project-scoped access policies  |  50   
   
+## Request quota increases
+
+Most quotas and system limits specified on this page are fixed platform constraints designed to ensure system scalability and availability.
+
+Only the **Protected resources** quota per access policy is eligible for an increase. To request an increase for protected resources:
+
+  1. Check your current quota usage in the Google Cloud console and confirm that your access policy is close to the 40,000 resource limit.
+  2. Create a case with [Google Cloud Support](https://cloud.google.com/support).
+
+**Note:** Requesting a quota increase directly through the **Quotas & System Limits** page in the Google Cloud console does not automatically open a support case. You must manually submit a support case.
+  3. Provide a clear business justification. Valid justifications include that it's required for projected resource growth and specific architecture requirements. A detailed justification is strictly required.
+
+
+
+
+Requests generally take 2 to 3 weeks to process and require manual review and approval by Google Cloud Support and engineering teams.
+
 ## Access Context Manager quotas and limits
 
-You're also subject to the [Access Context Manager quotas and limits](https://docs.cloud.google.com/access-context-manager/quotas#limits) because VPC Service Controls uses Access Context Manager APIs.
+You're also subject to the [Access Context Manager quotas and limits](https://docs.cloud.google.com/access-context-manager/quotas) because VPC Service Controls uses Access Context Manager APIs.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

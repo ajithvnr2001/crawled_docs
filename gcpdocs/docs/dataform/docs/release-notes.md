@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/release-notes/
 title: Dataform release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:13:59.945292+00:00
+fetched_at: 2026-11-10T08:24:35.807839+00:00
 ---
 
 # Dataform release notes  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page documents production updates to Dataform. Check this page for announce
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dataform-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+You can limit how many actions run concurrently within a single [workflow execution](https://docs.cloud.google.com/dataform/docs/trigger-execution#limit-concurrent-actions) or [workflow configuration schedule](https://docs.cloud.google.com/dataform/docs/schedule-runs#create-workflow-configuration). This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
 ## October 14, 2026
 
@@ -255,6 +261,46 @@ Dataform is available in the following regions:
 
 
 For more information, see [Locations](https://docs.cloud.google.com/dataform/docs/locations).
+
+## September 30, 2024
+
+Change
+
+The maximum size limit for workspaces encrypted with customer-managed encryption keys (CMEK) is 512 MB. For more information about Dataform quotas and limits, see [Quotas and limits](https://docs.cloud.google.com/dataform/docs/quotas). For more information about encrypting Dataform repositories with CMEK, see [Use customer-managed encryption keys](https://docs.cloud.google.com/dataform/docs/cmek).
+
+## September 09, 2024
+
+Feature
+
+You can now set a default Dataform customer-managed encryption keys (CMEK) key for your project to encrypt multiple Dataform repositories with the same CMEK key. For more information, see [Use Dataform default CMEK keys](https://docs.cloud.google.com/dataform/docs/cmek#default-keys).
+
+## August 12, 2024
+
+Feature
+
+Customer-Managed Encryption Keys (CMEK) in Dataform are [generally available](https://cloud.google.com/products#product-launch-stages) (GA). For more information, see [Use customer-managed encryption keys](https://docs.cloud.google.com/dataform/docs/cmek).
+
+Feature
+
+You can now use Cloud External Key Manager (Cloud EKM) keys to protect Dataform data. Cloud EKM keys in Dataform are [generally available](https://cloud.google.com/products#product-launch-stages) (GA). For more information, see [Using and managing external keys](https://docs.cloud.google.com/dataform/docs/cmek#ekm).
+
+## August 05, 2024
+
+Feature
+
+[Access Approval](https://docs.cloud.google.com/assured-workloads/access-approval/docs/overview) supports Dataform in the [GA stage](https://cloud.google.com/products#product-launch-stages).
+
+## July 31, 2024
+
+Change
+
+The maximum size limit for repositories encrypted with customer-managed encryption keys (CMEK) is 512 MB. For more information about Dataform quotas and limits, see [Quotas and limits](https://docs.cloud.google.com/dataform/docs/quotas). For more information about encrypting Dataform repositories with CMEK, see [Use customer-managed encryption keys](https://docs.cloud.google.com/dataform/docs/cmek).
+
+## July 18, 2024
+
+Announcement
+
+As of Dataform Core [`3.0.0.`](https://github.com/dataform-co/dataform/releases/tag/3.0.0), Dataform doesn't distribute a Docker image. You can build your own Docker image of Dataform, which you can use to run the equivalent of Dataform CLI commands. To build your own Docker image, see [Containerize an application](https://docs.docker.com/guides/workshop/02_our_app/) in the Docker documentation.
 
 ## June 21, 2024
 
@@ -556,6 +602,83 @@ Dataform [workflow configurations](https://docs.cloud.google.com/dataform/docs/w
 Feature
 
 [Cloud Logging](https://docs.cloud.google.com/dataform/docs/cloud-logging) is available for Dataform in Preview.
+
+## March 24, 2023
+
+Feature
+
+[Workspace compilation overrides](https://docs.cloud.google.com/dataform/docs/workspace-compilation-overrides) are available in Preview.
+
+## March 21, 2023
+
+Announcement
+
+Dataform in Preview is available in the following regions:
+
+  * australia-southeast1
+  * southamerica-east1
+
+
+
+## March 10, 2023
+
+Announcement
+
+Dataform in Preview is available in the following regions:
+
+  * asia-south1
+  * europe-west6
+
+
+
+## March 09, 2023
+
+Feature
+
+[Query preview](https://docs.cloud.google.com/dataform/docs/preview-queries) in a workspace is available in Preview.
+
+## March 06, 2023
+
+Announcement
+
+Dataform in Preview is available in the following regions:
+
+  * asia-northeast1
+  * europe-west2
+  * europe-west3
+  * us-east1
+
+
+
+## February 14, 2023
+
+Announcement
+
+Dataform in Preview is available in the following regions: 
+
+  * asia-southeast1
+  * europe-west1
+  * us-west1
+
+
+
+## January 27, 2023
+
+Announcement
+
+Dataform in Preview is available in the asia-east1 region.
+
+## January 25, 2023
+
+Feature
+
+Workspace navigation tabs are available in Preview.
+
+## January 09, 2023
+
+Feature
+
+[Display of a SQL workflow as a compiled graph in a workspace](https://docs.cloud.google.com/dataform/docs/workspaces) is available in Preview.
 
 ## November 25, 2022
 

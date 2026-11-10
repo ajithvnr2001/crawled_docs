@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/serve-3p-llms/
 title: Serve LLMs like DeepSeek-R1 671B or Llama 3.1 405B on bare metal \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:02.231707+00:00
+fetched_at: 2026-11-10T16:59:11.431890+00:00
 ---
 
 # Serve LLMs like DeepSeek-R1 671B or Llama 3.1 405B on bare metal  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Serve LLMs like DeepSeek-R1 671B or Llama 3.1 405B on bare metal Stay organized with collections  Save and categorize content based on your preferences. 
 
-Distributed Cloud software only for bare metal lets you serve large language models (LLMs) such as [DeepSeek-R1 671B](https://github.com/deepseek-ai/DeepSeek-R1) or [Llama 3.1 405B](https://github.com/meta-llama/llama) across multiple GPU nodes. In this document, you use portable open source technologies, such as Kubernetes, [vLLM](https://docs.vllm.ai/en/latest/), and the [LeaderWorkerSet](https://github.com/kubernetes-sigs/lws) (LWS) API, to deploy and serve AI/ML workloads on bare metal clusters.
+Google Distributed Cloud software only for bare metal lets you serve large language models (LLMs) such as [DeepSeek-R1 671B](https://github.com/deepseek-ai/DeepSeek-R1) or [Llama 3.1 405B](https://github.com/meta-llama/llama) across multiple GPU nodes. In this document, you use portable open source technologies, such as Kubernetes, [vLLM](https://docs.vllm.ai/en/latest/), and the [LeaderWorkerSet](https://github.com/kubernetes-sigs/lws) (LWS) API, to deploy and serve AI/ML workloads on bare metal clusters.
 
 ## Background
 
@@ -42,9 +42,9 @@ To learn more, see the [Llama documentation](https://www.llama.com/).
 
 ### Google Distributed Cloud managed Kubernetes service
 
-Google Distributed Cloud offers a wide range of services, including Distributed Cloud software only for bare metal, which is well-suited to deploying and managing AI/ML workloads in your own data center. Google Distributed Cloud is a managed Kubernetes service that simplifies deploying, scaling, and managing containerized applications. Google Distributed Cloud provides the necessary infrastructure, including scalable resources, distributed computing, and efficient networking, to handle the computational demands of LLMs.
+Google Distributed Cloud offers a wide range of services, including Google Distributed Cloud software only for bare metal, which is well-suited to deploying and managing AI/ML workloads in your own data center. Google Distributed Cloud is a managed Kubernetes service that simplifies deploying, scaling, and managing containerized applications. Google Distributed Cloud provides the necessary infrastructure, including scalable resources, distributed computing, and efficient networking, to handle the computational demands of LLMs.
 
-To learn more about key Kubernetes concepts, see [Start learning about Kubernetes](https://docs.cloud.google.com/kubernetes-engine/docs/learn/get-started-with-kubernetes). To learn more about the Google Distributed Cloud and how it helps you scale, automate, and manage Kubernetes, see [Distributed Cloud software only for bare metal overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal).
+To learn more about key Kubernetes concepts, see [Start learning about Kubernetes](https://docs.cloud.google.com/kubernetes-engine/docs/learn/get-started-with-kubernetes). To learn more about the Google Distributed Cloud and how it helps you scale, automate, and manage Kubernetes, see [Google Distributed Cloud software only for bare metal overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal).
 
 ### GPUs
 
@@ -530,6 +530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

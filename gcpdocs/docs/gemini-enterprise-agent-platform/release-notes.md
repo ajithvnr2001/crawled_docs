@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/
 title: Gemini Enterprise Agent Platform release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:04.219341+00:00
+fetched_at: 2026-11-10T18:39:15.723100+00:00
 ---
 
 # Gemini Enterprise Agent Platform release notes  |  Google Cloud Documentation
@@ -23,6 +23,52 @@ Send feedback
 This page documents production updates to Gemini Enterprise Agent Platform. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## November 10, 2026
+
+Fixed
+
+**CodeMender updates (v0.20.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Bug fixes** : 
+    * Fixed patch application failures during validation on large repositories and projects with mixed LF and CRLF line endings.
+    * Fixed scan error handling to properly surface permission denied errors when scanning unreadable directories instead of reporting zero findings.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
+Feature
+
+**Gemini 4 Carbon and Gemini 4 Carbon for cyber (GA)**
+
+[Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) (`gemini-4-carbon`) and [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) (`gemini-4-carbon-cyber-permissive`) are [generally available (GA)](https://cloud.google.com/products#product-launch-stages). Gemini 4 Carbon is Google's frontier model for complex, real-world tasks across coding, finance, legal, cybersecurity, and science, with a unified 1,048,576-token input and output limit, long decodes up to 1,048,576 tokens using `continuation_token`, configurable thinking levels (`LOW`, `MEDIUM`, and `HIGH`), implicit context caching with durable caching, Microsoft Office and OpenDocument file inputs, and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) support. Gemini 4 Carbon for cyber is a defensive cybersecurity variant available behind the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist.
+
+## November 09, 2026
+
+Feature
+
+**Fast mode for Anthropic Claude models is generally available**
+
+[Fast mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) for supported Anthropic Claude models, starting with [Claude Fable 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-2) (`claude-fable-5-2`), is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). You can set `"speed": "fast"` in online pay-as-you-go prediction requests to accelerate output token generation for latency-sensitive agentic workflows.
+
+For more information, see [Fast mode with Anthropic Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode).
+
+Feature
+
+**Anthropic's Claude Fable 5.2**
+
+[Claude Fable 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-2) (`claude-fable-5-2`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) in Model Garden, including support for [fast mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) (`"speed": "fast"`).
+
+Feature
+
+**Meta Muse models in Preview**
+
+[Muse Wonder from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) (`meta/muse-wonder-1.0`), [Muse Ember from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) (`meta/muse-ember-1.0`), and [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) (`meta/muse-spark-1.3`) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint through the OpenAI-compatible Responses API. Muse Wonder and Muse Spark 1.3 accept text, image, and PDF inputs, and Muse Ember accepts text and image inputs. All three models support reasoning, function calling, structured output, and a 1M-token context window.
+
+For more information, see [Muse models from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta).
 
 ## November 06, 2026
 
@@ -1780,6 +1826,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

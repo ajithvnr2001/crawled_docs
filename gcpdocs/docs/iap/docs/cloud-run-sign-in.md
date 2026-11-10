@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/cloud-run-sign-in/
 title: Hosting a sign-in page with Cloud Run \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:17:02.304969+00:00
+fetched_at: 2026-11-10T16:58:45.426133+00:00
 ---
 
 # Hosting a sign-in page with Cloud Run  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -46,8 +46,11 @@ If your project has email enumeration protection enabled, [disable email-enumera
   * Ensure that the service account used by Cloud Run, PROJECT_NUMBER-compute@developer.gserviceaccount.com, has the following [predefined roles](https://docs.cloud.google.com/iam/docs/understanding-roles):
 
     * `roles/identitytoolkit.viewer`
+
     * `roles/iap.settingsAdmin`
+
     * `roles/compute.networkViewer`
+
 
 
 
@@ -91,9 +94,13 @@ You should be redirected to the protected resource.
 You can customize the sign-in page using a JSON configuration file. Some options include:
 
   * Adding a header and logo to the sign-in page.
+
   * Specifying the available tenants and providers.
+
   * Customizing the icons and styling of each tenant and provider button.
+
   * Adding links to your app's privacy policy and terms of service.
+
 
 
 
@@ -291,9 +298,13 @@ The following example demonstrates overriding the default CSS:
 In some cases, you might want to redeploy the Cloud Run service that hosts the sign-in page. Example scenarios include:
 
   * Adding, modifying, or removing identity providers
+
   * Modifying tenant configurations
+
   * Setting environment variables
+
   * Updating the container image to the latest version
+
 
 
 
@@ -458,8 +469,11 @@ The following snippet describes the `authDomain` for a `popup` sign-in page:
 ## What's next
 
   * [Create an authentication UI with FirebaseUI](https://docs.cloud.google.com/iap/docs/using-firebaseui).
+
   * [Create a custom authentication UI](https://docs.cloud.google.com/iap/docs/create-custom-auth-ui).
+
   * Gain a deeper understanding of how [external identities work with IAP](https://docs.cloud.google.com/iap/docs/external-identities).
+
 
 
 
@@ -467,6 +481,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

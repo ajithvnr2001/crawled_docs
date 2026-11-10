@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/authorized-views-create-manage/
 title: Create and manage authorized views \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:21.337582+00:00
+fetched_at: 2026-11-10T10:42:01.565372+00:00
 ---
 
 # Create and manage authorized views  |  Bigtable  |  Google Cloud Documentation
@@ -452,9 +452,9 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
       AuthorizedView.SubsetView subsetView = authorizedView.getSubsetView();
     
       for (ByteString rowPrefix : subsetView.getRowPrefixesList()) {
-        System.out.printf("Row Prefix: %s%n", rowPrefix.toStringUtf8());
+        System.out.printf("Row Prefix: %s%n"<;, rowPrefix.toStringUtf8());
       }
-      for (Map.Entry<String, AuthorizedView.FamilySubsets> entry :
+      >for (Map.EntryString, AuthorizedView.FamilySubsets entry :
           subsetView.getFamilySubsetsMap().entrySet()) {
         for (ByteString qualifierPrefix : entry.getValue().getQualifierPrefixesList()) {
           System.out.printf(

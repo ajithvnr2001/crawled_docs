@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault/
-title: Backup vaults for immutable and indelible backups \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
+title: Overview of backup vaults \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:14:51.015596+00:00
+fetched_at: 2026-11-10T19:01:09.316998+00:00
 ---
 
-# Backup vaults for immutable and indelible backups  |  Backup and DR  |  Google Cloud Documentation
+# Overview of backup vaults  |  Backup and DR  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-11-04T07:14:51.015596+00:00
 
 Send feedback 
 
-#  Backup vaults for immutable and indelible backups Stay organized with collections  Save and categorize content based on your preferences. 
+#  Overview of backup vaults Stay organized with collections  Save and categorize content based on your preferences. 
 
 [Set up a backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-vault-create)
 
@@ -155,7 +155,7 @@ Workload | The backup vault must be in the same region as the source workload | 
 ---|---|---|---|---  
 Compute Engine instance | No | check | check | check  
 Compute Engine disk | No | check | check | check  
-Cloud SQL instance | Yes | check | check | close  
+Cloud SQL instance | No | check | check | check  
 AlloyDB cluster | Yes | check | close | check  
 Filestore instance | No | check | close | check  
 Google Cloud VMware Engine, Oracle database, and SQL Server database | No | check | close | check  
@@ -208,6 +208,7 @@ Supported workloads |
   * Compute Engine instances
   * Compute Engine disks
   * Filestore instances
+  * Cloud SQL instances
 
   
   
@@ -286,6 +287,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

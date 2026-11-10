@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-create-a4x-max/
 title: Create an AI-optimized GKE cluster that uses A4X Max \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:26:44.679520+00:00
+fetched_at: 2026-11-10T18:26:34.379984+00:00
 ---
 
 # Create an AI-optimized GKE cluster that uses A4X Max  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -233,7 +233,7 @@ Replace the following:
          export NODE_CUSTOM=node_custom.yaml
          
 
-  2. Create an A4X Max node pool:
+  2. Create an A4X Max node pool. The `--accelerator-network-profile=auto` flag automatically creates a network that connects all the A4X Max nodes within a single zone:
          
          gcloud container node-pools create NODE_POOL_NAME \
              --cluster=CLUSTER_NAME \
@@ -260,9 +260,6 @@ Replace the following:
      * `WORKLOAD_POLICY_NAME`: the name of the workload policy you created previously.
      * `RESERVATION_NAME`: the name of your reservation. To find this value, see [View future reservation requests](https://docs.cloud.google.com/compute/docs/instances/reservations-view#view-future-reservations).
      * `BLOCK_NAME`: the name of a specific block within the reservation. To find this value, see [View future reservation requests](https://docs.cloud.google.com/compute/docs/instances/reservations-view#view-future-reservations).
-
-This command automatically creates a network that connects all the A4X Max nodes within a single zone by using the `auto` accelerator network profile. When you create a node pool with the `--accelerator-network-profile=auto` flag, GKE automatically adds the `gke.networks.io/accelerator-network-profile: auto` label to the nodes. To schedule workloads on these nodes, you must include this label in your workload's `nodeSelector` field.
-
 
 
 
@@ -587,6 +584,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

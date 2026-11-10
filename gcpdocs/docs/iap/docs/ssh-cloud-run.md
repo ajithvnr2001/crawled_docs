@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/ssh-cloud-run/
 title: Use SSH for Cloud Run \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:50:39.586475+00:00
+fetched_at: 2026-11-10T16:58:53.961284+00:00
 ---
 
 # Use SSH for Cloud Run  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -32,6 +32,7 @@ By securing your SSH connections with IAP, you can debug individual container in
 ## Before you begin
 
   1. Make sure that your Cloud Run service is running in a second-generation execution environment and includes any debugging tools that you need to execute commands once connected. For more information, see [execution environments](https://docs.cloud.google.com/run/docs/configuring/execution-environments).
+
   2. To ensure that you are using the latest version of the Google Cloud CLI, run the following command:
          
          gcloud components update
@@ -78,11 +79,17 @@ You might also be able to get the required permissions through [custom roles](ht
 SSH for Cloud Run has the following limitations:
 
   * Only Cloud Run services and instances are supported.
+
   * For services, only the second generation execution environment is supported.
+
   * Cloud Run jobs aren't supported.
+
   * Worker pools aren't supported.
+
   * When using SSH, host keys in the image are overwritten. The keys remain overwritten after the SSH session ends, until the service is restarted.
+
   * Windows: PuTTY is not supported. Use the OpenSSH client.
+
 
 
 
@@ -93,7 +100,9 @@ You can manage access to Cloud Run resources at the project, region, or service 
 You can configure policies for the following Cloud Identity API identifiers:
 
   * _Cloud Identity_ : for example, `user:EMAIL@example.com`
+
   * _Workforce Identity Federation_ : for example: `principal://iam.googleapis.com/locations/global/workforcePools/` `<var>POOL_ID</var>/subject/<var>SUBJECT_ATTRIBUTE_VALUE</var>`
+
 
 
 
@@ -113,7 +122,9 @@ To update the service to enable SSH, run the following command:
 Replace the following:
 
   * `SERVICE_NAME`: the name of your Cloud Run service.
+
   * `LOCATION`: the Google Cloud region where the service is deployed (for example, `us-central1`).
+
 
 
 
@@ -163,7 +174,9 @@ Send a `POST` request to the project policy endpoint:
 Replace the following:
 
   * `USER`: the principal identifier of the user.
+
   * `PROJECT_NUMBER`: the Google Cloud project number where the resources are hosted.
+
 
 
 
@@ -186,7 +199,9 @@ Run the following command:
 Replace the following:
 
   * `USER`: the principal identifier of the user.
+
   * `LOCATION`: the Google Cloud region where the resources are deployed (for example, `us-central1`).
+
 
 
 
@@ -216,8 +231,11 @@ Send a `POST` request to the location policy endpoint:
 Replace the following:
 
   * `USER`: the principal identifier of the user
+
   * `PROJECT_NUMBER`: the Google Cloud project number
+
   * `LOCATION`: the Google Cloud region
+
 
 
 
@@ -241,8 +259,11 @@ Run the following command:
 Replace the following:
 
   * `USER`: the principal identifier of the user
+
   * `SERVICE_NAME`: the name of the service logic to connect to
+
   * `LOCATION`: the Google Cloud region where the service is deployed
+
 
 
 
@@ -273,9 +294,13 @@ Send a `POST` request to the service policy endpoint:
 Replace the following:
 
   * `USER`: the principal identifier of the user
+
   * `PROJECT_NUMBER`: the Google Cloud project number
+
   * `LOCATION`: the Google Cloud region
+
   * `SERVICE_NAME`: the name of the service
+
 
 
 
@@ -296,8 +321,11 @@ Run the following command:
 Replace the following:
 
   * `SERVICE_NAME`: the name of the service to connect to
+
   * `LOCATION`: the Google Cloud region where the service resides
+
   * `PROJECT_ID`: the ID of your Google Cloud project
+
 
 
 
@@ -321,8 +349,11 @@ To use a local OpenSSH client for connections:
 Replace the following:
 
      * `SERVICE_NAME`: the name of the service
+
      * `LOCATION`: the Google Cloud region
+
      * `PROJECT_ID`: your Google Cloud project ID
+
   2. Add the following configuration code to your local `~/.ssh/config` file:
          
          Host cloud-run-ssh
@@ -345,10 +376,15 @@ If your `gcloud` installation path is different, update the prefix in the `Proxy
 Replace the following:
 
      * `PROJECT_ID`: your Google Cloud project ID
+
      * `LOCATION`: the Google Cloud region
+
      * `SERVICE_NAME`: the name of the service
+
      * `REVISION`: the name of the revision
+
      * `PROJECT_NUMBER`: your Google Cloud project number
+
   3. Connect to the service using OpenSSH:
          
          ssh cloud-run-ssh
@@ -361,6 +397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

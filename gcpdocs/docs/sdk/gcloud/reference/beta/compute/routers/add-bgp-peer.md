@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/routers/add-bgp-peer/
 title: gcloud beta compute routers add-bgp-peer \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T06:55:37.722925+00:00
+fetched_at: 2026-11-10T18:39:24.860887+00:00
 ---
 
 # gcloud beta compute routers add-bgp-peer  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta compute routers add-bgp-peer - add a BGP peer to a Compute Engine ro
 SYNOPSIS
     
 
-`gcloud beta compute routers add-bgp-peer` `NAME` `--interface`=`INTERFACE` `--peer-asn`=`PEER_ASN` `--peer-name`=`PEER_NAME` [`--advertised-route-priority`=`ADVERTISED_ROUTE_PRIORITY`] [`--advertisement-mode`=`MODE`] [`--async`] [`--custom-learned-route-priority`=`PRIORITY`] [`--[no-]enable-ipv4`] [`--[no-]enable-ipv6`] [`--[no-]enabled`] [`--export-policies`=[`EXPORT_POLICY`,…]] [`--import-policies`=[`IMPORT_POLICY`,…]] [`--instance`=`INSTANCE`] [`--instance-zone`=`INSTANCE_ZONE`] [`--ipv4-nexthop-address`=`IPV4_NEXTHOP_ADDRESS`] [`--ipv6-nexthop-address`=`IPV6_NEXTHOP_ADDRESS`] [`--md5-authentication-key`=`MD5_AUTHENTICATION_KEY`] [`--peer-ip-address`=`PEER_IP_ADDRESS`] [`--peer-ipv4-nexthop-address`=`PEER_IPV4_NEXTHOP_ADDRESS`] [`--peer-ipv6-nexthop-address`=`PEER_IPV6_NEXTHOP_ADDRESS`] [`--region`=`REGION`] [`--set-advertisement-groups`=[`GROUP`,…]] [`--set-advertisement-ranges`=[`CIDR_RANGE`=`DESC`,…]] [`--set-custom-learned-route-ranges`=[`CIDR_RANGE`,…]] [`--bfd-min-receive-interval`=`BFD_MIN_RECEIVE_INTERVAL` `--bfd-min-transmit-interval`=`BFD_MIN_TRANSMIT_INTERVAL` `--bfd-multiplier`=`BFD_MULTIPLIER` `--bfd-session-initialization-mode`=`BFD_SESSION_INITIALIZATION_MODE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta compute routers add-bgp-peer` `NAME` `--interface`=`INTERFACE` `--peer-asn`=`PEER_ASN` `--peer-name`=`PEER_NAME` [`--advertised-route-priority`=`ADVERTISED_ROUTE_PRIORITY`] [`--advertisement-mode`=`MODE`] [`--async`] [`--custom-learned-route-priority`=`PRIORITY`] [`--[no-]enable-ipv4`] [`--[no-]enable-ipv6`] [`--[no-]enabled`] [`--export-policies`=[`EXPORT_POLICY`,…]] [`--import-policies`=[`IMPORT_POLICY`,…]] [`--instance`=`INSTANCE`] [`--instance-zone`=`INSTANCE_ZONE`] [`--ipv4-nexthop-address`=`IPV4_NEXTHOP_ADDRESS`] [`--ipv6-nexthop-address`=`IPV6_NEXTHOP_ADDRESS`] [`--linked-custom-hardware`=`LINKED_CUSTOM_HARDWARE`] [`--md5-authentication-key`=`MD5_AUTHENTICATION_KEY`] [`--peer-ip-address`=`PEER_IP_ADDRESS`] [`--peer-ipv4-nexthop-address`=`PEER_IPV4_NEXTHOP_ADDRESS`] [`--peer-ipv6-nexthop-address`=`PEER_IPV6_NEXTHOP_ADDRESS`] [`--region`=`REGION`] [`--set-advertisement-groups`=[`GROUP`,…]] [`--set-advertisement-ranges`=[`CIDR_RANGE`=`DESC`,…]] [`--set-custom-learned-route-ranges`=[`CIDR_RANGE`,…]] [`--bfd-min-receive-interval`=`BFD_MIN_RECEIVE_INTERVAL` `--bfd-min-transmit-interval`=`BFD_MIN_TRANSMIT_INTERVAL` `--bfd-multiplier`=`BFD_MULTIPLIER` `--bfd-session-initialization-mode`=`BFD_SESSION_INITIALIZATION_MODE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Add a BGP peer to a Compute Engine router. 
 POSITIONAL ARGUMENTS
@@ -97,6 +97,8 @@ Alternatively, the zone can be stored in the environment variable ``CLOUDSDK_COM
      If IPv4 route exchange is enabled for IPv6-based BGP, the IPv4 next hop address of the Cloud Router interface for this BGP peer. Ignored otherwise. Must be a Google owned link-local IPv4 address in the range 169.254.0.0/16 and must belong to the same subnet as the interface address of the peer router. 
 `--ipv6-nexthop-address`=`IPV6_NEXTHOP_ADDRESS`
      If IPv6 route exchange is enabled for IPv4-based BGP, the IPv6 next hop address of the Cloud Router interface for this BGP peer. Ignored otherwise. Must be a Google owned global unicast IPv6 address belonging to the range 2600:2d00:0:2:0:0:0:0/64 or 2600:2d00:0:3:0:0:0:0/64 and must belong to same subnet as the interface address of the peer router. 
+`--linked-custom-hardware`=`LINKED_CUSTOM_HARDWARE`
+     Linked custom hardware resource. The URI of the custom hardware link attachment is where you will establish the BGP session from the Cloud Router. This link attachment must reside in the same subnetwork as the associated router interface. 
 `--md5-authentication-key`=`MD5_AUTHENTICATION_KEY`
      The MD5 authentication key for this BGP peer. Maximum length is 80 characters. Can contain only printable ASCII characters. 
 `--peer-ip-address`=`PEER_IP_ADDRESS`
@@ -181,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

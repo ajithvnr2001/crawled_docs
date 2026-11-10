@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/recaptcha-enterprise/
 title: Integrate Identity Platform with the reCAPTCHA Enterprise API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:25.432622+00:00
+fetched_at: 2026-11-10T17:34:16.345527+00:00
 ---
 
 # Integrate Identity Platform with the reCAPTCHA Enterprise API  |  Google Cloud Documentation
@@ -93,13 +93,13 @@ Replace the following:
 
 
 
-## reCAPTCHA bot protection modes
+## reCAPTCHA bot protection behavior by provider
 
-reCAPTCHA bot protection has two modes that help you protect users: _audit_ and _enforce_. These modes differ in behavior based on the identity provider.
+reCAPTCHA bot protection behavior depends on the identity provider you configure:
 
 ### Email-password provider
 
-The audit and enforce modes behave as follows for email-password authentication flows.
+For email-password authentication flows, reCAPTCHA bot protection supports two modes: _audit_ and _enforce_.
 
 #### Audit mode
 
@@ -115,55 +115,9 @@ When you set email-password enforcement to enforce mode, Identity Platform creat
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-The audit and enforce modes behave as follows for phone authentication flows.
+When you enable bot protection for phone authentication flows by setting `phoneEnforcementState` to `ENFORCE` and `useSmsBotScore` to `true`, Identity Platform uses reCAPTCHA bot protection for app verification. If a user's request passes the bot protection assessment, an SMS verification code is sent. If a user's request fails the bot protection assessment, Identity Platform blocks the request and doesn't send an SMS message containing a verification code.
 
-#### Audit mode
-
-When you set phone authentication enforcement to audit mode, Identity Platform uses reCAPTCHA bot protection for app verification. If a user's request passes the toll fraud assessment, an SMS verification code is sent. If a user's request fails the toll fraud assessment and you're using the client SDK, Identity Platform triggers fallback verification methods to complete the phone authentication flow. The accepted fallback methods depend on your app's platform. 
-
-The client SDK triggers the fallback verification methods in the following scenarios:
-
-  * The reCAPTCHA token is missing.
-  * The reCAPTCHA token is invalid or expired.
-  * The reCAPTCHA token doesn't pass the score threshold.
-  * reCAPTCHA is not configured correctly.
-
-
-
-Ensure that the fallback verification methods for your app's platform are set up and ready to be triggered by the client SDK if necessary.
-
-### Web
-
-If the initial bot protection assessment fails, audit mode relies on reCAPTCHA v2 for verification. Therefore, you must set up the reCAPTCHA verifier (`RecaptchaVerifier`) and pass it to the following phone authentication operations: 
-
-  * `verifyPhoneNumber`
-  * `signInWithPhoneNumber`
-  * `linkWithPhoneNumber`
-  * `reauthenticateWithPhoneNumber`
-
-Without the reCAPTCHA verifier, Identity Platform can't initiate reCAPTCHA v2 and will return `auth/argument-error`. For more information on setting up the reCAPTCHA verifier, see [Set up the reCAPTCHA verifier](https://firebase.google.com/docs/auth/web/phone-auth#set-up-the-recaptcha-verifier) in the Firebase documentation. 
-
-### Android
-
-If the initial bot protection assessment fails, audit mode verifies your app against the Play Integrity API. If this verification fails, reCAPTCHA v2 is triggered. reCAPTCHA v2 might be triggered in the following scenarios: 
-
-  * If the end-user's device does not have Google Play services installed.
-  * If the app is not distributed through Google Play Store (on Authentication SDK v21.2.0 and later).
-  * If the obtained SafetyNet token was not valid (on Authentication SDK versions prior to v21.2.0).
-
-For more information on setting up Android app verification, see [Enable app verification](https://firebase.google.com/docs/auth/android/phone-auth#enable-app-verification) in the Firebase documentation. 
-
-### iOS
-
-If the initial bot protection assessment fails, audit mode relies on silent push notifications for verification. This verification method involves sending a token to your app on the requesting device with a silent push notification. If your app successfully receives the notification, the phone authentication flow proceeds. If your app does not receive the push notification, reCAPTCHA v2 is triggered. reCAPTCHA v2 might be triggered if silent push notifications are not configured properly. 
-
-For more information on setting up iOS app verification, see [Enable app verification](https://firebase.google.com/docs/auth/ios/phone-auth#enable-app-verification) in the Firebase documentation. 
-
-#### Enforce mode
-
-When you set phone authentication enforcement to enforce mode, Identity Platform uses reCAPTCHA bot protection for app verification. If a user's request passes the toll fraud assessment, an SMS verification code is sent. If a user's request fails the toll fraud assessment, Identity Platform blocks the request and doesn't send an SMS message containing a verification code.
-
-There is no fallback verification required in enforce mode, you don't have to set up any additional verification methods for your app. However, we recommend [setting up reCAPTCHA verifier](https://firebase.google.com/docs/auth/web/phone-auth#set-up-the-recaptcha-verifier) for web apps to ensure that reCAPTCHA v2 is enabled if you decide to change your app's reCAPTCHA mode to `AUDIT` or `OFF`.
+Fallback verification is not required when bot protection is enabled for phone authentication flows, and you don't have to set up any additional verification methods for your app. However, we recommend [setting up the reCAPTCHA verifier](https://firebase.google.com/docs/auth/web/phone-auth#set-up-the-recaptcha-verifier) for web apps to ensure that reCAPTCHA v2 is available if you decide to disable bot protection.
 
 ## Set up the Identity Platform integration with the reCAPTCHA Enterprise API
 
@@ -174,7 +128,7 @@ To set up the Identity Platform integration with the reCAPTCHA Enterprise API, y
 
 
 
-We recommend that you first enable reCAPTCHA enforcement in audit mode and monitor the reCAPTCHA metrics that your project emits to ensure that authentication flows are protected appropriately. You do this so that you don't interrupt your user traffic while you audit their use of reCAPTCHA. After you verify your authentication flows are protected, then set bot protection to `ENFORCE`.
+For email-password authentication flows, we recommend that you first enable reCAPTCHA enforcement in the audit mode and monitor the reCAPTCHA metrics that your project emits to avoid interrupting user traffic while verifying that authentication flows are protected. After you verify your authentication flows are protected, then set bot protection to `ENFORCE`. For phone authentication flows, enable bot protection by setting `phoneEnforcementState` to `ENFORCE` and `useSmsBotScore` to `true`, and monitor the reCAPTCHA metrics to fine-tune your score thresholds.
 
 ### Enable reCAPTCHA bot protection
 
@@ -211,7 +165,7 @@ For example:
 
 Replace the following:
 
-     * `ENFORCE_MODE`: the mode you want to set for reCAPTCHA email-password authentication enforcement. Valid values are `OFF`, `AUDIT`, and `ENFORCE`. To enable bot protection, this parameter must be set to `AUDIT` or `ENFORCE`. When you enable bot protection for the first time, we recommend setting this parameter to `AUDIT` and ensuring your authentication flows are protected before setting this to `ENFORCE`. For more information on how the modes work, see reCAPTCHA bot protection modes.
+     * `ENFORCE_MODE`: the mode you want to set for reCAPTCHA email-password authentication enforcement. Valid values are `OFF`, `AUDIT`, and `ENFORCE`. To enable bot protection, this parameter must be set to `AUDIT` or `ENFORCE`. When you enable bot protection for the first time, we recommend setting this parameter to `AUDIT` and ensuring your authentication flows are protected before setting this to `ENFORCE`. For more information on how the modes work, see reCAPTCHA bot protection behavior by provider.
      * `END_SCORE`: the lowest bot protection assessment score a request can have before it fails. You can set this score to be between `0.0` and `1.0`. For example, if you set a threshold of `0.6`, reCAPTCHA will fail any request with a `0.5` or lower. Therefore, the higher you set the score, the stricter the rules will be.
 
 You can also enable bot protection with the same config method for a _tenant_ using the Admin SDK. For more information on updating a tenant, see [Update a tenant](https://docs.cloud.google.com/identity-platform/docs/multi-tenancy-managing-tenants#updating_a_tenant).
@@ -257,21 +211,20 @@ For example:
          // Update project config with reCAPTCHA config
          const updateProjectConfigRequest = {
            recaptchaConfig: {
-             phoneEnforcementState: 'ENFORCE_MODE',
-             managedRules: [{ endScore: END_SCORE, action: 'BLOCK' }],
-             useSmsBotScore: 'true',
+             phoneEnforcementState: 'ENFORCE',
+             managedRules: [{
+               endScore: END_SCORE,
+               action: 'BLOCK'
+             }],
+             useSmsBotScore: true,
            }
-         }
+         };
          let projectConfig = await getAuth().projectConfigManager().updateProject(updateProjectConfigRequest);
          
 
-Replace the following:
+Replace `END_SCORE` with the lowest bot protection assessment score a request can have before it fails. You can set this score to be between `0.0` and `1.0`. For example, if you set a threshold of `0.6`, reCAPTCHA fails any request with a `0.5` or lower. Therefore, the higher you set the score, the stricter the rules are.
 
-     * `ENFORCE_MODE`: the mode you want to set for reCAPTCHA phone authentication enforcement. Valid values are `OFF`, `AUDIT`, and `ENFORCE`. To enable bot protection for SMS-based flows, this parameter must be set to `AUDIT` or `ENFORCE` and `useSmsBotScore` must be set to `true`.
-
-When enabling bot protection for the first time, we recommend setting this parameter to `AUDIT` and ensuring your authentication flows are protected before setting this to `ENFORCE`. For more information on how the modes work, see reCAPTCHA bot protection modes.
-
-     * `END_SCORE`: the lowest bot protection assessment score a request can have before it fails. You can set this score to be between `0.0` and `1.0`. For example, if you set a threshold of `0.6`, reCAPTCHA will fail any request with a `0.5` or lower. Therefore, the higher you set the score, the stricter the rules will be.
+Setting `phoneEnforcementState` to `ENFORCE` and `useSmsBotScore` to `true` enables bot protection enforcement for SMS-based authentication flows. For more information on how phone provider enforcement works, see reCAPTCHA bot protection behavior by provider.
 
 You can also enable bot protection with the same config method for a _tenant_ using the Admin SDK. For more information on updating a tenant, see [Update a tenant](https://docs.cloud.google.com/identity-platform/docs/multi-tenancy-managing-tenants#updating_a_tenant).
 
@@ -295,7 +248,7 @@ If you are using Identity Platform on the web, you must add an authorized domain
 
 reCAPTCHA key provisioning can take several minutes to complete.
 
-  4. If you've set enforcement to audit mode, we recommend that you monitor the reCAPTCHA metrics for bot protection to ensure that your flows are being protected.
+  4. Monitor the reCAPTCHA metrics for bot protection to ensure that your flows are being protected.
 
 
 
@@ -411,7 +364,7 @@ Make sure to use reCAPTCHA SDK version 18.5.1 or later.
 
 ### Monitor reCAPTCHA metrics for bot protection
 
-Before you set the reCAPTCHA enforcement to enforce mode, we recommend you use audit mode and monitor the reCAPTCHA metrics your project emits to ensure that authentication flows are protected. For example, these metrics can help you determine if you've set up the Identity Platform integration with the reCAPTCHA Enterprise API correctly. They can also help you fine-tune your score threshold for your user traffic. If reCAPTCHA key provisioning fails or if required service accounts weren't created, reCAPTCHA authentication attempts still succeed normally.
+Monitor the reCAPTCHA metrics your project emits to ensure that authentication flows are protected. For email-password authentication flows, we recommend monitoring metrics in audit mode before setting enforcement to enforce mode. For example, these metrics can help you determine if you've set up the Identity Platform integration with the reCAPTCHA Enterprise API correctly. They can also help you fine-tune your score threshold for your user traffic. If reCAPTCHA key provisioning fails or if required service accounts weren't created, reCAPTCHA authentication attempts still succeed normally.
 
 Ensure that reCAPTCHA authentication is working by examining the following metrics your project emits to Cloud Monitoring:
 
@@ -423,33 +376,16 @@ Ensure that reCAPTCHA authentication is working by examining the following metri
 
 For more information, see [Monitor reCAPTCHA metrics](https://docs.cloud.google.com/identity-platform/docs/recaptcha-metrics).
 
-### Enforce reCAPTCHA bot protection
+### Enforce reCAPTCHA bot protection for email-password flows
 
-After you verify that your app is receiving acceptable user traffic, you can enable reCAPTCHA enforcement to protect your users. Ensure you don't disrupt existing users, including users who may be using an older version of your app.
+For email-password authentication flows that you initially configured in `AUDIT` mode, after you verify that your app is receiving acceptable user traffic, you can switch `emailPasswordEnforcementState` to `ENFORCE` to block requests that fail the reCAPTCHA assessment. Ensure you don't disrupt existing users, including users who might be using an older version of your app.
 
-### Email-password provider
-
-To enable reCAPTCHA enforcement for email-password authentication flows on a project or tenant, use the Admin SDK to run the following:
+To enable reCAPTCHA enforcement for email-password authentication flows on a project or tenant, use the Admin SDK to run the following code:
     
     
     const enforceRequest = {
       recaptchaConfig: {
-        emailPasswordEnforcementState:  'ENFORCE',
-        }]
-      }
-    };
-    
-
-### Phone provider
-
-To enable reCAPTCHA enforcement for SMS-based authentication flows on a project or tenant, use the Admin SDK to run the following:
-    
-    
-    const enforceRequest = {
-      recaptchaConfig: {
-        phoneEnforcementState:  'ENFORCE',
-        useSmsBotScore: 'true'
-        }]
+        emailPasswordEnforcementState: 'ENFORCE',
       }
     };
     
@@ -463,20 +399,33 @@ To disable bot protection for email-password authentication flows, use the Admin
     
     const disableRequest = {
       recaptchaConfig: {
-        emailPasswordEnforcementState:  'OFF',
+        emailPasswordEnforcementState: 'OFF',
       }
     };
     
 
 ### Phone provider
 
-To disable bot protection for SMS-based authentication flows, use the Admin SDK to run the following command:
+To disable all phone reCAPTCHA protection, including bot protection, for SMS-based authentication flows, use the Admin SDK to run the following command:
     
     
     const disableRequest = {
       recaptchaConfig: {
-        phoneEnforcementState:  'OFF',
-        useSmsBotScore: 'false'
+        phoneEnforcementState: 'OFF',
+        useSmsBotScore: false,
+        useSmsTollFraudProtection: false
+      }
+    };
+    
+
+If you are also using reCAPTCHA SMS defense and want to keep it enabled while disabling bot protection, set `useSmsBotScore` to `false` and leave `phoneEnforcementState` set to `ENFORCE`:
+    
+    
+    const disableBotScoreOnlyRequest = {
+      recaptchaConfig: {
+        phoneEnforcementState: 'ENFORCE',
+        useSmsBotScore: false,
+        useSmsTollFraudProtection: true
       }
     };
     
@@ -518,7 +467,7 @@ The following example shows how to override a reCAPTCHA verdict by using blockin
 
 ## What's next
 
-  * [Enable reCAPTCHA SMS defense](https://docs.cloud.google.com/identity-platform/docs/recaptcha-tfp) for SMS-based authentication flows.
+  * [Enable reCAPTCHA SMS defense](https://docs.cloud.google.com/identity-platform/docs/recaptcha-sms) for SMS-based authentication flows.
   * Learn how to [use your own reCAPTCHA key](https://docs.cloud.google.com/identity-platform/docs/recaptcha-byok).
   * Learn more about [monitoring reCAPTCHA metrics](https://docs.cloud.google.com/identity-platform/docs/recaptcha-metrics).
   * Learn more about [reCAPTCHA](https://docs.cloud.google.com/recaptcha/docs/overview).
@@ -529,6 +478,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

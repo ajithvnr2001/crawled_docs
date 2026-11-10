@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-user-cluster/
 title: Create a user cluster \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:38.497376+00:00
+fetched_at: 2026-11-10T16:59:05.814732+00:00
 ---
 
 # Create a user cluster  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ In Google Distributed Cloud, your workloads run on one or more user clusters. Th
 
 This page is for Admins, Architects, and Operators who set up, monitor, and manage the tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
-In version 1.33 and higher, all new clusters are created as [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters). Be sure to review [Differences when running advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters#adv-clusters-feature-support).
+In version 1.33 and higher, all new clusters are created as advanced clusters.
 
 There are several tools that you can use to create a user cluster:
 
@@ -62,7 +62,7 @@ As you set up your [fleet host project](https://docs.cloud.google.com/kubernetes
 
   * Before you create a user cluster, you must have an admin cluster to manage the user cluster. If you haven't already done so, create an [admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-admin-workstation) and an [admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-admin-cluster).
 
-  * Determine the version of the user cluster that you want to install. When you create a user cluster, you typically install the version that matches the version of the admin cluster. If you want to install a different version on a user cluster, see [Version rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#verson_rules).
+  * Determine the version of the user cluster that you want to install. When you create a user cluster, you typically install the version that matches the version of the admin cluster. If you want to install a different version on a user cluster, see [Upgrade version rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules).
 
   * If you plan to install version 1.30 or a higher version, Controlplane V2 is required. Even if you are installing 1.29 or lower, we recommend that you enable Controlplane V2. When Controlplane V2 is enabled, the control plane for the user cluster runs on one or more nodes in the user cluster itself. The alternative is to create a user cluster that uses _kubeception_. In the kubeception case, the control plane for the user cluster runs on one or more nodes in the admin cluster.
 
@@ -122,7 +122,7 @@ Replace the following:
 
 `OUTPUT_FILENAME`: a path of your choice for the generated template. If you omit this flag, `gkectl` names the file `user-cluster.yaml` and puts it in the current directory.
 
-`VERSION`: the desired version number. For example: `gkectl create-config cluster --gke-on-prem-version=1.36.200-gke.118`.
+`VERSION`: the desired version number. For example: `gkectl create-config cluster --gke-on-prem-version=1.36.100-gke.144`.
 
 Familiarize yourself with the configuration file by scanning the [user cluster configuration file](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest) document. You might want to keep this document open in a separate tab or window, because you will refer to it as you complete the following steps.
 
@@ -132,7 +132,7 @@ Set the [`name`](https://docs.cloud.google.com/kubernetes-engine/distributed-clo
 
 ### `gkeOnPremVersion`
 
-This field is already filled in for you. It specifies the version of Google Distributed Cloud. For example, `1.36.200-gke.118`.
+This field is already filled in for you. It specifies the version of Google Distributed Cloud. For example, `1.36.100-gke.144`.
 
 ### `enableAdvancedCluster`
 
@@ -401,7 +401,7 @@ Here is an example of an IP block file and a user cluster configuration file;
     apiVersion: v1
     kind: UserCluster
     name: "my-user-cluster"
-    gkeOnPremVersion: 1.36.200-gke.118
+    gkeOnPremVersion: 1.36.100-gke.144
     enableControlplaneV2: true
     enableAdvancedCluster: true
     network:
@@ -538,7 +538,7 @@ Replace the following:
 
   * BUNDLE: the path of the bundle file. This file is on your admin workstation in `/var/lib/gke/bundles/`. For example:
         
-        /var/lib/gke/bundles/gke-onprem-vsphere-1.36.200-gke.118-full.tgz
+        /var/lib/gke/bundles/gke-onprem-vsphere-1.36.100-gke.144-full.tgz
         
 
   * USER_CLUSTER_CONFIG: the path of your user cluster configuration file
@@ -1921,8 +1921,6 @@ By default in version 1.32 and higher, user clusters created using Terraform don
     enable_advanced_cluster = true
     
 
-Be sure to review [Differences when running advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters#adv-clusters-feature-support) before enabling advanced cluster.
-
 ### Optional: Worker node IP addressing mode
 
 This section explains some optional configuration changes that you can make in `main.tf`. Before making changes, make a backup of `main.tf`:
@@ -2051,6 +2049,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

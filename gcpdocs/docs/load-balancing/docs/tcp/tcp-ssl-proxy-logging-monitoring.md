@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/tcp/tcp-ssl-proxy-logging-monitoring/
 title: Proxy Network Load Balancer logging and monitoring \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:11.227556+00:00
+fetched_at: 2026-11-10T18:26:28.982171+00:00
 ---
 
 # Proxy Network Load Balancer logging and monitoring  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -491,7 +491,7 @@ Field | Field format | Field type: Required or Optional | Description
   * `proxyStatus`
   * `backendNetworkName`
   * `routeName`
-  * `tlsSniHostname` ([Preview](https://cloud.google.com/products/#product-launch-stages))
+  * `tlsSniHostname`
 
   
 string | Required | The `proxyStatus` field contains a string that specifies why the global external proxy Network Load Balancer, regional external proxy Network Load Balancer, and internal proxy Network Load Balancer returned an error or info log. This field is not supported for classic proxy Network Load Balancers. The field is not logged if the value is an empty string. This can happen if the proxy returns an error code that is not `0`, `4XX`, or `5XX`. The `proxyStatus` field has two parts:
@@ -502,7 +502,7 @@ string | Required | The `proxyStatus` field contains a string that specifies why
   
 string | Required | The `backendNetworkName` field specifies the VPC network of the backend.  
 string | Required | The `routeName` field specifies the name of the TLS route which was used to route the traffic.  
-string | Optional | The `tlsSniHostname` field specifies the server name provided by the client in the `ClientHello` message. ([Preview](https://cloud.google.com/products/#product-launch-stages))  
+string | Optional | The `tlsSniHostname` field specifies the server name provided by the client in the `ClientHello` message.  
   
 ### Log fields
 
@@ -587,10 +587,10 @@ The [proxyStatus details](https://docs.cloud.google.com/load-balancing/docs/tcp/
 Filter this table:  proxyStatus details | Description | Common accompanying response status codes  
 ---|---|---  
 `client_disconnected_before_any_response` | The connection to the client was broken before the load balancer sent any response. | 0  
-`client_hello_too_large` | Received ClientHello is unreasonably large. The error results in a closed TLS connection ([Preview](https://cloud.google.com/products#product-launch-stages)). | 0  
-`destination_not_found` | The load balancer can't determine the appropriate backend. For example, the indicated SNI hostname did not match (see jsonPayload.tls.sni for the indicated SNI). The error results in a closed TLS connection. ([Preview](https://cloud.google.com/products#product-launch-stages)) | 0  
-`invalid_sni_rfc_6066` | The indicated SNI hostname is invalid. SNI must be the fully qualified DNS hostname. The error results in a closed connection. [Preview](https://cloud.google.com/products#product-launch-stages)) | 0  
-`client_hello_not_detected` | TLS was not found on the connection. The error results in a closed connection. ([Preview](https://cloud.google.com/products#product-launch-stages)) | 0  
+`client_hello_too_large` | Received ClientHello is unreasonably large. The error results in a closed TLS connection. | 0  
+`destination_not_found` | The load balancer can't determine the appropriate backend. For example, the indicated SNI hostname did not match (see jsonPayload.tls.sni for the indicated SNI). The error results in a closed TLS connection. | 0  
+`invalid_sni_rfc_6066` | The indicated SNI hostname is invalid. SNI must be the fully qualified DNS hostname. The error results in a closed connection. | 0  
+`client_hello_not_detected` | TLS was not found on the connection. The error results in a closed connection. | 0  
 `backend_connection_closed` | The backend unexpectedly closed its connection to the load balancer. This can happen if the load balancer is sending traffic to another entity such as a third-party application that has a TCP timeout shorter than the 10-minute (600-second) timeout of the load balancer. | `502`  
 `failed_to_connect_to_backend` | The load balancer failed to connect to the backend. This failure includes timeouts during the connection phase. | `503`  
 `failed_to_pick_backend` | The load balancer failed to pick a healthy backend to handle the request. | `502`  
@@ -772,6 +772,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

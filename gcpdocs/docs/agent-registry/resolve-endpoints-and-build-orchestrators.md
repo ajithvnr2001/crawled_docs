@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/agent-registry/resolve-endpoints-and-build-orchestrators/
-title: Resolve endpoints and build orchestrators \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
+title: Build multi-agent systems and call A2A agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:18:48.722335+00:00
+fetched_at: 2026-11-10T16:28:15.169732+00:00
 ---
 
-# Resolve endpoints and build orchestrators  |  Agent Registry  |  Google Cloud Documentation
+# Build multi-agent systems and call A2A agents  |  Agent Registry  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/agent-registry/resolve-endpoints-and-build-orchestrators/
 
@@ -19,62 +19,88 @@ fetched_at: 2026-11-08T09:18:48.722335+00:00
 
 Send feedback 
 
-#  Resolve endpoints and build orchestrators Stay organized with collections  Save and categorize content based on your preferences. 
+#  Build multi-agent systems and call A2A agents Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Agent Development Kit (ADK) provides a dedicated `AgentRegistry` client that lets you programmatically discover, look up, and connect to AI agents and Model Context Protocol (MCP) servers registered in Agent Registry. Instead of hardcoding endpoint URLs into your application, you can use the [ADK](https://github.com/google/adk-docs) to resolve these endpoints at runtime and compose them into a parent orchestrator agent.
+In multi-agent systems, an orchestrator agent delegates tasks to specialized target agents and tools. Those target agents become subagents of the multi-agent system or application.
 
-Agent Registry provides the underlying endpoints. For production deployments, you can route invocations through [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) to enforce security policies, perform protocol mediation, and apply content filtering.
+With Agent Registry, your orchestrator agent can look up [Agent2Agent (A2A)](https://docs.cloud.google.com/agent-registry/a2a-protocol) and Model Context Protocol (MCP) endpoints dynamically at runtime without hardcoding service URLs in your application code. You can retrieve [registered agents](https://docs.cloud.google.com/agent-registry/register-agents) and [MCP servers](https://docs.cloud.google.com/agent-registry/register-mcp-servers) to build orchestrator agents by using either the `AgentRegistry` client in [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) or standard HTTP and `google-auth` libraries.
+
+When an orchestrator agent calls the endpoint of a target agent, it sends the request directly to the target agent runtime or MCP server. To enforce security policies, perform protocol mediation, and apply content filtering on your target agent endpoints, you can route agent calls through [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview).
 
 ## Before you begin
 
-Before you integrate the ADK with Agent Registry, complete the following:
+Before you look up target agent endpoint URLs or call A2A agents through Agent Registry, complete the following steps:
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
   2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
-  3. Install or upgrade to the latest version of the ADK with the A2A, Agent Identity, and MCP dependencies:
+  3. Install the client dependencies for your framework:
 
-###  pip 
+###  ADK (pip) 
          
          pip install --upgrade "google-adk[a2a,agent-identity,mcp]"
          
 
-###  uv 
+You must install at least `google-adk>=1.29.0`.
+
+###  ADK (uv) 
          
          uv add "google-adk[a2a,agent-identity,mcp]"
          
 
-You must upgrade to at least `google-adk>=1.29.0`.
+You must install at least `google-adk>=1.29.0`.
 
-  4. Configure [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc):
+###  Non-ADK Python 
+         
+         pip install --upgrade google-auth requests httpx
+         
+
+  4. Configure [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc) for local development. Otherwise, attach a service account or [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation) credential configuration in external environments:
          
          gcloud auth application-default login
          
 
-
-
-
-Your credentials must have the necessary Identity and Access Management (IAM) permissions for the underlying services the agents or tools interact with. Optionally, you can also use custom headers for external toolsets. For more information, see [Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
-
-## Set environment variables
-
-Set up the following environment variables:
-    
-    
-    export GOOGLE_CLOUD_PROJECT=PROJECT_ID
-    export GOOGLE_CLOUD_LOCATION=LOCATION
-    
+  5. Set up the following environment variables:
+         
+         export GOOGLE_CLOUD_PROJECT=PROJECT_ID
+         export GOOGLE_CLOUD_LOCATION=LOCATION
+         
 
 Replace the following:
 
-  * `PROJECT_ID`: the project ID of your governance project.
-  * `LOCATION`: the registry region or location, such as `us-central1`.
+     * `PROJECT_ID`: the project ID of your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project).
+     * `LOCATION`: the [Agent Registry location](https://docs.cloud.google.com/agent-registry/locations) where your agents and MCP servers are registered, such as `global` or `us-central1`.
 
 
 
-## Initialize the registry client
+### Required roles
 
-To interact with your registry programmatically, initialize the `AgentRegistry` client with your governance project and location:
+You can use your user account for local development, or you can use a service account or agent principal for your orchestrator agent to discover registered components and call target A2A agents. The user account, service account, or agent principal must have appropriate roles to discover components and call target A2A agents.
+
+To ensure that your user account, service account, or agent principal has the necessary permissions to discover registered components and call target A2A agents, ask your administrator to grant the following IAM roles to your user account, service account, or agent principal on the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled: 
+
+  * To discover registered agents and MCP servers: [Agent Registry API Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.viewer) (`roles/agentregistry.viewer`) 
+  * To call a target A2A agent at runtime: The runtime or gateway role for the service that hosts the target agent, required to call that agent. For example, if the target agent runs on Cloud Run, the account or principal must have the Cloud Run Invoker role (`roles/run.invoker`). 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+Your administrator might also be able to give your user account, service account, or agent principal the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+## Choose credentials for target A2A agent endpoints
+
+Looking up a component in Agent Registry and calling its target A2A agent endpoint require separate authentication tokens. When your orchestrator agent calls a target A2A agent endpoint, it must attach the bearer token type expected by that endpoint:
+
+Target A2A agent endpoint | Required bearer token | Credential source and guides  
+---|---|---  
+**Google Cloud API agent endpoints** (`https://*.googleapis.com`) | [OAuth 2.0 access token](https://docs.cloud.google.com/docs/authentication/token-types#access-tokens) with the `https://www.googleapis.com/auth/cloud-platform` scope or a narrower service scope. When using Application Default Credentials (ADC) that don't have a default [quota project](https://docs.cloud.google.com/docs/quotas/quota-project) configured, include the `X-Goog-User-Project` header to specify the project billed for API quota. For details, see [Set the quota project with a REST request](https://docs.cloud.google.com/docs/authentication/rest#set-billing-project). | `google.auth.default()` using [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc), an attached service account, or a [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation) credential configuration. To restrict permissions per call, see [Use service account impersonation](https://docs.cloud.google.com/docs/authentication/use-service-account-impersonation).  
+**Cloud Run or Identity-Aware Proxy (IAP) HTTPS agent endpoints** (`https://*.run.app` or custom domains) | [ID token](https://docs.cloud.google.com/docs/authentication/token-types#identity-tokens) whose `aud` claim matches the target service URL or the IAP OAuth 2.0 client ID. | `google.oauth2.id_token.fetch_id_token()` using a service account or the compute metadata server. For setup instructions, see [Get an ID token](https://docs.cloud.google.com/docs/authentication/get-id-token), [Service-to-service authentication on Cloud Run](https://docs.cloud.google.com/run/docs/authenticating/service-to-service), and [Programmatic authentication for IAP](https://docs.cloud.google.com/iap/docs/authentication-howto).  
+**OAuth-bound external or SaaS agents** | [2-legged OAuth 2.0 token](https://docs.cloud.google.com/iam/docs/auth-with-2lo-v2), [3-legged OAuth 2.0 token](https://docs.cloud.google.com/iam/docs/auth-with-3lo-v2), or [API key](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2). | Managed automatically in ADK when an [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) binding is attached to the agent. For setup instructions, see [Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).  
+  
+## Initialize the `AgentRegistry` client in ADK
+
+To interact with Agent Registry through ADK, initialize the `AgentRegistry` client in your Python code with your governance project ID and Agent Registry location:
     
     
     import os
@@ -86,29 +112,32 @@ To interact with your registry programmatically, initialize the `AgentRegistry` 
     if not project_id:
         raise ValueError("GOOGLE_CLOUD_PROJECT environment variable not set.")
     
-    # Initialize the client
     registry = AgentRegistry(
         project_id=project_id,
         location=location,
     )
     
 
-## Compose a multi-agent system
+After you initialize the ADK `AgentRegistry` client, you can retrieve remote A2A agents and remote MCP tools from Agent Registry. In ADK, registered A2A agents are wrapped as `RemoteA2aAgent` instances. These instances are referred to as _remote agents_ because ADK delegates tasks to them over the network rather than running them in the local process. Similarly, registered remote MCP servers are wrapped as `McpToolset` instances.
 
-The ADK abstracts the underlying connection mechanics, letting you design scalable applications by composing multiple specialized agents into flexible hierarchies.
+## Compose a multi-agent system with ADK
 
-You can use the registry client to fetch specific resources and pass them directly into the definition of a new `LlmAgent` agent. Your orchestrator can invoke remote agents as subagents and execute MCP tools as if they were local Python functions.
+To retrieve remote A2A subagents and remote MCP toolsets from Agent Registry and include them in an `LlmAgent` orchestrator agent definition, use the initialized `AgentRegistry` client:
 
-To fetch a remote agent or MCP toolset, call the following `AgentRegistry` client methods in your Python agent code:
-
-  * **To fetch a remote agent** : use `get_remote_a2a_agent()`.
-  * **To fetch an MCP toolset** : use `get_mcp_toolset()`.
+  * **To retrieve a remote A2A agent** : call `registry.get_remote_a2a_agent()` with the subagent's relative resource name. This resource name can be either a relative resource name in the format `agents/AGENT_ID`, which uses the project ID and location configured on the `AgentRegistry` client, or the full resource name in the format `projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID`. When an [auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) `Binding` exists for the agent, `get_remote_a2a_agent()` configures request credentials automatically. When no `Binding` exists, pass a custom `httpx_client` configured with an `httpx.Auth` handler.
+  * **To retrieve a remote MCP toolset** : call `registry.get_mcp_toolset()` with the MCP server's relative resource name (`mcpServers/SERVER_ID`) or full resource name (`projects/PROJECT_ID/locations/LOCATION/mcpServers/SERVER_ID`).
 
 
 
-The following example demonstrates how to compose a multi-agent system by building an orchestrator agent that takes advantage of a registered travel agent and a registered [Compute Engine MCP server](https://docs.cloud.google.com/compute/docs/use-compute-engine-mcp). In this example, authentication is handled by the agent's own identity, but you can use other methods, such as API keys and OAuth 2.0. For more information, see [Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
+The following example shows how to define an orchestrator agent in an ADK `agent.py` file. In this sample consider the following:
 
-To design and orchestrate agents using a visual, low-code interface, configure registered subagents directly in the Agent Studio on Gemini Enterprise Agent Platform canvas. For more information, see [Design agents in Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents).
+  * The `GoogleApiAuth` class implements an `httpx.Auth` handler for calling a Google Cloud API (`https://*.googleapis.com`) A2A subagent. It uses `google.auth.default()` to load your Application Default Credentials, Attached Service Account, or Workload Identity Federation credentials and sets the `Authorization` and `X-Goog-User-Project` headers on each request.
+
+**Note:** The `https://www.googleapis.com/auth/cloud-platform` scope is the standard OAuth 2.0 scope required by Google Cloud APIs while fine-grained access is controlled by IAM roles. To restrict scopes or impersonate a dedicated service account per subagent, see [Use service account impersonation](https://docs.cloud.google.com/docs/authentication/use-service-account-impersonation). If your target subagent runs on Cloud Run or behind IAP, attach an OIDC ID token instead, as described in Choose credentials for target A2A agent endpoints.
+  * The `registry` client retrieves the remote A2A subagent and the remote MCP toolset from Agent Registry and passes them to `LlmAgent` through the `sub_agents` and `tools` parameters.
+
+
+
     
     
     import httpx
@@ -116,125 +145,214 @@ To design and orchestrate agents using a visual, low-code interface, configure r
     from google.auth.transport.requests import Request
     from google.adk.agents.llm_agent import LlmAgent
     
-    # Define the GoogleAuth class for the HTTP client
-    class GoogleAuth(httpx.Auth):
-        def __init__(self):
-            self.creds, _ = google.auth.default()
+    class GoogleApiAuth(httpx.Auth):
+        def __init__(self, user_project_id: str):
+            self.user_project_id = user_project_id
+            self.creds, _ = google.auth.default(
+                scopes=["https://www.googleapis.com/auth/cloud-platform"]
+            )
+    
         def auth_flow(self, request):
             if not self.creds.valid:
                 self.creds.refresh(Request())
             request.headers["Authorization"] = f"Bearer {self.creds.token}"
+            request.headers["X-Goog-User-Project"] = self.user_project_id
             yield request
     
-    # Connect to a remote A2A agent using its resource name in short or full format
-    # Short formats automatically imply the client's configured project and location
-    # Short format: "agents/AGENT_ID"
-    # Full format: f"projects/{project_id}/locations/{location}/agents/AGENT_ID"
+    quota_project_id = "QUOTA_PROJECT_ID"
     agent_name = "agents/AGENT_ID"
-    
-    # Configure the HTTP client with GoogleAuth and a 60-second timeout
-    httpx_client = httpx.AsyncClient(auth=GoogleAuth(), timeout=httpx.Timeout(60.0))
+    httpx_client = httpx.AsyncClient(
+        auth=GoogleApiAuth(quota_project_id),
+        timeout=httpx.Timeout(60.0),
+    )
     my_remote_agent = registry.get_remote_a2a_agent(
         agent_name=agent_name,
-        httpx_client=httpx_client
+        httpx_client=httpx_client,
     )
     
-    # Retrieve an MCP toolset using its resource name in short or full format
-    # Short formats automatically imply the client's configured project and location
-    # Short format: "mcpServers/SERVER_ID"
-    # Full format: f"projects/{project_id}/locations/{location}/mcpServers/SERVER_ID"
     mcp_server_name = "mcpServers/SERVER_ID"
     my_mcp_toolset = registry.get_mcp_toolset(mcp_server_name=mcp_server_name)
     
-    # Compose the orchestrator agent
-    main_agent = LlmAgent(
-        model="MODEL_ID", # Replace with a model such as gemini-1.5-flash
+    root_agent = LlmAgent(
+        model="MODEL_ID",
         name="travel_orchestrator",
-        instruction="""You are a travel coordinator. You can use your
-                       subagents to book travel and your tools to query
-                       historical travel data.""",
+        instruction=(
+            "You are a travel coordinator. Use your subagents to book travel "
+            "and your tools to query historical travel data."
+        ),
         tools=[my_mcp_toolset],
         sub_agents=[my_remote_agent],
     )
     
-    # You can now run your orchestrator agent
-    # response = await main_agent.run('Book a flight to Paris and check my past trips.')
-    
 
 Replace the following:
 
-  * `AGENT_ID`: the ID of your registered agent.
-  * `SERVER_ID`: the ID of your registered MCP server.
-  * `MODEL_ID`: the model ID for your orchestrator agent, for example, `gemini-1.5-flash`.
+  * `QUOTA_PROJECT_ID`: the project ID used for [quota and billing attribution](https://docs.cloud.google.com/docs/quotas/quota-project) on requests to Google Cloud API agent endpoints.
+  * `AGENT_ID`: the ID of the registered A2A subagent that you want your orchestrator agent to call, for example, `agentregistry-01234456-7890-abcd-1234-567890abcdef`.
+  * `SERVER_ID`: the ID of the registered MCP server that you want your orchestrator agent to use.
+  * `MODEL_ID`: the model ID for your orchestrator agent, for example, `gemini-2.5-flash`.
 
 
 
-## Best practices for reusing agents
+After saving `root_agent` in your ADK project's `agent.py` file, you can test and run your orchestrator agent locally using the `adk run` or `adk web` CLI commands, or deploy it to Agent Runtime on Gemini Enterprise Agent Platform. For complete project structure and execution instructions, see the [ADK Python quickstart](https://google.github.io/adk-docs/get-started/quickstart/) and the [ADK Agent Registry sample on GitHub](https://github.com/google/adk-python/tree/main/contributing/samples/integrations/agent_registry_agent).
 
-To minimize network latency, fetch your agents and toolsets from the registry once at application startup instead of calling `get_remote_a2a_agent()` on every invocation.
+**Note:** To design and orchestrate agents visually without writing code, you can also configure registered subagents in the Agent Studio on Gemini Enterprise Agent Platform canvas. For more information, see [Design agents in Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents).
 
-An agent can only have one parent agent at a time. If you attempt to assign the same fetched agent instance to multiple orchestrators, the ADK might throw an error indicating that the agent already has a parent.
+## Call an A2A agent from a non-ADK client
 
-To reuse a discovered agent across multiple parent agents, use the `.clone()` method to create a new instance of the agent object.
+If you build a custom orchestrator agent or client without ADK, your application performs two authenticated steps:
 
-The following example shows how to fetch an agent once and clone it for use in different orchestrators:
+  1. **Discovery** : authenticate to the Agent Registry API with an OAuth 2.0 access token to retrieve the target subagent's `Agent` resource and inspect its Agent Card.
+  2. **Runtime call** : attach the bearer token required by the target agent endpoint, which is an OAuth 2.0 access token for `*.googleapis.com` agent endpoints or an OIDC ID token for Cloud Run and IAP agent endpoints. Then, send an A2A [`SendMessage`](https://docs.cloud.google.com/agent-registry/a2a-protocol#transports-and-operations) request. The output returns a `SendMessageResponse` JSON object, which contains a `task` or `message` field in the format `{"task": ...}` or `{"message": ...}`. This field contains the subagent's response, which your orchestrator agent can parse and use in its workflow.
+
+
+
+To look up and call a registered A2A subagent using `google-auth` and `httpx`, complete the following steps:
+
+  1. Authenticate to Agent Registry with an OAuth 2.0 access token and fetch the subagent's `Agent` resource from the Agent Registry API:
+         
+         import os
+         import uuid
+         from urllib.parse import urlparse
+         import google.auth
+         from google.auth.transport.requests import Request
+         from google.oauth2 import id_token
+         import httpx
+         
+         project_id = os.environ["GOOGLE_CLOUD_PROJECT"]
+         location = os.environ.get("GOOGLE_CLOUD_LOCATION", "global")
+         agent_id = "AGENT_ID"
+         
+         creds, _ = google.auth.default(
+             scopes=["https://www.googleapis.com/auth/cloud-platform"]
+         )
+         creds.refresh(Request())
+         
+         registry_url = (
+             f"https://agentregistry.googleapis.com/v1/projects/{project_id}"
+             f"/locations/{location}/agents/{agent_id}"
+         )
+         client = httpx.Client(timeout=60.0)
+         reg_response = client.get(
+             registry_url,
+             headers={
+                 "Authorization": f"Bearer {creds.token}",
+                 "X-Goog-User-Project": project_id,
+             },
+         )
+         reg_response.raise_for_status()
+         agent_resource = reg_response.json()
+         
+
+Replace `AGENT_ID` with the ID of the registered A2A subagent that you want to call, for example, `agentregistry-01234456-7890-abcd-1234-567890abcdef`.
+
+  2. Extract the HTTP-based A2A interface from the Agent Card in the `Agent` resource:
+         
+         card = agent_resource.get("card", {}).get("content", {})
+         interfaces = card.get("supportedInterfaces") or (
+             (agent_resource.get("protocols") or [{}])[0].get("interfaces", [])
+         )
+         iface = next(
+             i for i in interfaces
+             if i.get("protocolBinding", "HTTP+JSON")
+             in ("HTTP+JSON", "HTTP_JSON", "JSONRPC")
+         )
+         endpoint_url = iface["url"]
+         binding = iface.get("protocolBinding", "HTTP+JSON")
+         tenant = iface.get("tenant", "")
+         
+
+  3. Prepare the request headers with an OAuth 2.0 access token for `*.googleapis.com` agent endpoints or an OIDC ID token for Cloud Run or IAP agent endpoints:
+         
+         host = urlparse(endpoint_url).hostname or ""
+         headers = {"Content-Type": "application/json", "A2A-Version": "1.0"}
+         if host == "googleapis.com" or host.endswith(".googleapis.com"):
+             headers["Authorization"] = f"Bearer {creds.token}"
+             headers["X-Goog-User-Project"] = project_id
+         else:
+             oidc_audience = f"https://{host}"
+             oidc_jwt = id_token.fetch_id_token(Request(), oidc_audience)
+             headers["Authorization"] = f"Bearer {oidc_jwt}"
+         
+
+**Note:** Calling `id_token.fetch_id_token()` requires service account credentials, an attached compute metadata server, or service account impersonation. For local testing with user credentials against an OIDC-protected agent endpoint, run `gcloud auth print-identity-token` with `--audiences` set to your target host.
+  4. Format and send the A2A `SendMessage` request using the protocol binding from the Agent Card, and parse the response from the subagent:
+         
+         message = {
+             "messageId": str(uuid.uuid4()),
+             "role": "ROLE_USER",
+             "parts": [{"text": "Summarize recent deployment status."}],
+         }
+         if binding == "JSONRPC":
+             params = {"message": message}
+             if tenant:
+                 params["tenant"] = tenant
+             payload = {
+                 "jsonrpc": "2.0",
+                 "id": str(uuid.uuid4()),
+                 "method": "SendMessage",
+                 "params": params,
+             }
+             target_url = endpoint_url
+         else:
+             payload = {"message": message}
+             prefix = f"/{tenant.strip('/')}" if tenant else ""
+             target_url = f"{endpoint_url.rstrip('/')}{prefix}/message:send"
+         
+         response = client.post(target_url, headers=headers, json=payload)
+         response.raise_for_status()
+         body = response.json()
+         if binding == "JSONRPC":
+             if "error" in body:
+                 raise RuntimeError(f"JSON-RPC error: {body['error']}")
+             send_message_response = body["result"]
+         else:
+             send_message_response = body
+         print(send_message_response)
+         client.close()
+         
+
+This step formats a `SendMessage` request for A2A version `1.0`. If you need to negotiate between A2A protocol versions `1.0` and `0.3` automatically, use ADK or the [`a2a-sdk` Python client](https://github.com/a2aproject/a2a-python).
+
+
+
+
+## Reuse remote agents across orchestrator agents in ADK
+
+To minimize network latency, retrieve your remote agents and toolsets from Agent Registry once at application startup instead of calling `get_remote_a2a_agent()` on every request.
+
+In ADK, a `RemoteA2aAgent` instance can only have one parent orchestrator agent at a time. Continuing from the initialization setup, call `.clone()` to create an independent copy for each parent orchestrator agent:
     
     
-    import httpx
-    import google.auth
-    from google.auth.transport.requests import Request
-    from google.adk.agents.llm_agent import LlmAgent
-    
-    # Define the GoogleAuth class for the HTTP client
-    class GoogleAuth(httpx.Auth):
-        def __init__(self):
-            self.creds, _ = google.auth.default()
-        def auth_flow(self, request):
-            if not self.creds.valid:
-                self.creds.refresh(Request())
-            request.headers["Authorization"] = f"Bearer {self.creds.token}"
-            yield request
-    
-    # Configure the HTTP client with GoogleAuth and a 60-second timeout
-    httpx_client = httpx.AsyncClient(auth=GoogleAuth(), timeout=httpx.Timeout(60.0))
-    
-    # Fetch the remote agent once during startup
-    # Use the resource name in short or full format
-    # Short formats automatically imply the client's configured project and location
-    # Short format: "agents/AGENT_ID"
-    # Full format: f"projects/{project_id}/locations/{location}/agents/AGENT_ID"
-    agent_name = f"projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID"
+    agent_path = (
+        f"projects/{project_id}/locations/{location}"
+        "/agents/AGENT_ID"
+    )
     base_remote_agent = registry.get_remote_a2a_agent(
-        agent_name=agent_name,
-        httpx_client=httpx_client
+        agent_name=agent_path,
+        httpx_client=httpx_client,
     )
     
-    # Use .clone() to assign the agent to different parent orchestrators
     flight_orchestrator = LlmAgent(
-        model="gemini-1.5-flash",
+        model="gemini-2.5-flash",
         name="flight_orchestrator",
-        sub_agents=[base_remote_agent.clone()]
+        sub_agents=[base_remote_agent.clone()],
     )
     
     hotel_orchestrator = LlmAgent(
-        model="gemini-1.5-flash",
+        model="gemini-2.5-flash",
         name="hotel_orchestrator",
-        sub_agents=[base_remote_agent.clone()]
+        sub_agents=[base_remote_agent.clone()],
     )
     
 
-Replace the following:
-
-  * `PROJECT_ID`: the project ID of your governance project.
-  * `LOCATION`: the registry region or location, such as `us-central1`.
-  * `AGENT_ID`: the ID of your registered agent.
-
-
+Replace `AGENT_ID` with the ID of the registered A2A subagent that you want your orchestrator agents to call.
 
 ## What's next
 
-  * Learn how to [set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) to route the traffic for your resolved endpoints.
-  * Learn how to [authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets) using custom headers or bindings.
+  * Review [A2A protocol](https://docs.cloud.google.com/agent-registry/a2a-protocol) for transport bindings and task lifecycle states.
+  * Learn how to [set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) to route and govern traffic for your target agent endpoints.
+  * Learn how to [authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets) and scope credentials across agent calls.
   * Learn how to [register skills](https://docs.cloud.google.com/agent-registry/register-skills) and [manage skills](https://docs.cloud.google.com/agent-registry/manage-skills) in Agent Registry.
 
 
@@ -243,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

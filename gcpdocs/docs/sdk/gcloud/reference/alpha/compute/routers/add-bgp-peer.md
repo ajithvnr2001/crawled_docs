@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/routers/add-bgp-peer/
 title: gcloud alpha compute routers add-bgp-peer \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T15:15:30.682716+00:00
+fetched_at: 2026-11-10T17:33:19.443370+00:00
 ---
 
 # gcloud alpha compute routers add-bgp-peer  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -98,7 +98,7 @@ Alternatively, the zone can be stored in the environment variable ``CLOUDSDK_COM
 `--ipv6-nexthop-address`=`IPV6_NEXTHOP_ADDRESS`
      If IPv6 route exchange is enabled for IPv4-based BGP, the IPv6 next hop address of the Cloud Router interface for this BGP peer. Ignored otherwise. Must be a Google owned global unicast IPv6 address belonging to the range 2600:2d00:0:2:0:0:0:0/64 or 2600:2d00:0:3:0:0:0:0/64 and must belong to same subnet as the interface address of the peer router. 
 `--linked-custom-hardware`=`LINKED_CUSTOM_HARDWARE`
-     The linked custom hardware resource. The URI of the custom hardware link attachment is where you will establish the BGP session from the Cloud Router. This link attachment must reside in the same subnetwork as the associated router interface. 
+     Linked custom hardware resource. The URI of the custom hardware link attachment is where you will establish the BGP session from the Cloud Router. This link attachment must reside in the same subnetwork as the associated router interface. 
 `--md5-authentication-key`=`MD5_AUTHENTICATION_KEY`
      The MD5 authentication key for this BGP peer. Maximum length is 80 characters. Can contain only printable ASCII characters. 
 `--peer-ip-address`=`PEER_IP_ADDRESS`
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

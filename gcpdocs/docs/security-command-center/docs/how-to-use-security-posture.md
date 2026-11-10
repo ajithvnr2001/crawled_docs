@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/how-to-use-security-posture/
 title: Manage a security posture \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:40.556988+00:00
+fetched_at: 2026-11-10T18:46:21.107943+00:00
 ---
 
 # Manage a security posture  |  Security Command Center  |  Google Cloud Documentation
@@ -45,11 +45,29 @@ If you want to use Security Health Analytics detectors as policies, select the S
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation))
 
+#### Permissions to manage postures
+
 To get the permissions that you need to use posture, ask your administrator to grant you the [Security Posture Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/securityposture#securityposture.admin) (`roles/securityposture.admin`) IAM role. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 For more information about security posture roles and security posture permissions, see [IAM for organization-level activations](https://docs.cloud.google.com/security-command-center/docs/access-control-org).
+
+### Permissions to manage Security Health Analytics detectors
+
+To enable or disable a service, you must have the following IAM permission. You can grant this permission at the organization, folder, or project level.
+
+`securitycentermanagement.securityCenterServices.update`
+
+Ask your administrator to either grant you one of the following roles that includes this permission or add the permission to the custom role (if your organization uses custom roles).
+
+  * [Security Posture Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/securityposture#securityposture.admin) (`roles/securityposture.admin`)
+  * [Security Posture Deployer](https://docs.cloud.google.com/iam/docs/roles-permissions/securityposture#securityposture.postureDeployer) (`roles/securityposture.postureDeployer`)
+  * [Security Center Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycentermanagement#securitycentermanagement.admin) (`roles/securitycentermanagement.admin`)
+  * [Security Center Management Services Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycentermanagement#securitycentermanagement.securityCenterServicesEditor) (`roles/securitycentermanagement.securityCenterServicesEditor`)
+  * [Security Center Management Settings Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycentermanagement#securitycentermanagement.settingsEditor) (`roles/securitycentermanagement.settingsEditor`)
+
+
 
 ### Set up Google Cloud CLI
 
@@ -1120,6 +1138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

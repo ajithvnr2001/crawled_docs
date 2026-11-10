@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/managing-access/
 title: Manage access to IAP-secured resources \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:19.690009+00:00
+fetched_at: 2026-11-10T16:58:52.656050+00:00
 ---
 
 # Manage access to IAP-secured resources  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -34,7 +34,9 @@ To manage project level and higher access, go to the [IAM page](https://console.
 Before you begin, you'll need the following:
 
   * An IAP-secured resource that you want to add individual or group access to.
+
   * User or group names for which you want to add access.
+
 
 
 
@@ -86,10 +88,15 @@ To control access to an IAP-secured resource with the Google Cloud console, foll
 
   1. Go to the [Identity-Aware Proxy page](https://console.cloud.google.com/security/iap/).   
 [Go to the Identity-Aware Proxy page](https://console.cloud.google.com/security/iap/)
+
   2. Select the resource that is secured with IAP.
+
   3. On the right side **Info panel** , select the section that corresponds to the role you want to remove from a principal.
+
   4. In the expanded section, next to each user or group name for which you want to remove the role, click **Remove**.
+
   5. In the **Remove principal** dialog that appears, click **Remove**.
+
 
 
 
@@ -105,7 +112,9 @@ Users need certain permissions to access an app that's secured by IAP. To grant 
 
 Each IAP resource has its own `getIamPolicy` and `setIamPolicy` permission that grants the ability to manage access policies for that resource and its children.
 
-To call the IAM API, construct a call with a URL path to a resource. The following is an example call that gets the IAM policy for an App Engine app service version.
+To call the IAM API, construct a call with a URL path to a resource.
+
+The following is an example call that gets the IAM policy for an App Engine app service version.
     
     
     https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/iap_web/  
@@ -480,6 +489,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

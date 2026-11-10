@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/configure-backint-backup-recovery/
 title: Configure Backint based backup and recovery for SAP HANA \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:57:11.146271+00:00
+fetched_at: 2026-11-10T12:38:23.666238+00:00
 ---
 
 # Configure Backint based backup and recovery for SAP HANA  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ For information about how to create Backint based backups and recover your SAP H
 
 ## Before you begin
 
-  * Validate your installation of **version 3.15 (latest)** of Google Cloud's Agent for SAP. For instructions, see the [installation guide for your scenario](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config).
+  * Validate your installation of **version 3.16 (latest)** of Google Cloud's Agent for SAP. For instructions, see the [installation guide for your scenario](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config).
   * If you have installed the agent on a Bare Metal Solution server, then make sure that you have completed the required prerequisites and set up a service account. For instructions, see [Configure Google Cloud's Agent for SAP on Linux](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config-on-bms#configure_agent4sap).
   * If your SAP HANA database is running in an on-premises environment, then make sure to set up a service account and its key. For information about how to do this, see [Configure Google Cloud's Agent for SAP on Linux](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config-on-bms#configure_agent4sap).
   * If you need to enable this feature for an instance of Google Cloud's Agent for SAP that is running on a host other than a Compute Engine instance or a Bare Metal Solution server, then you must create an incident with SAP support in component `BC-OP-LNX-GOOGLE` so that both SAP and Google Cloud can evaluate your configuration.
@@ -494,7 +494,7 @@ If you're specifying this parameter, then you also need to specify `object_reten
   
 ## Troubleshooting
 
-To troubleshoot problems with version 3.15 (latest) of Google Cloud's Agent for SAP, see [Google Cloud's Agent for SAP troubleshooting guide](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/troubleshooting).
+To troubleshoot problems with version 3.16 (latest) of Google Cloud's Agent for SAP, see [Google Cloud's Agent for SAP troubleshooting guide](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/troubleshooting).
 
 ## Get support
 
@@ -510,6 +510,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

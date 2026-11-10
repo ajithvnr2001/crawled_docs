@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/agentic-soc/security-tokens/
 title: Agentic SOC Security Tokens pricing and billing \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:33:56.779143+00:00
+fetched_at: 2026-11-10T14:04:35.737846+00:00
 ---
 
 # Agentic SOC Security Tokens pricing and billing  |  Google Security Operations  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ Security Tokens cannot be purchased as a standalone product. They are sold as an
 
   * **Co-termination:** The contract end-date for the token SKU cannot exceed the end-date of the primary Google SecOps deployment. Strict co-termination is supported, but not mandatory.
 
-  * **Cloud commitments:** Existing Google Cloud commitments can be applied to the purchase of {google_secops_name_short} Security Tokens. Note that you cannot directly transfer Gemini tokens sourced using Vertex AI or Gemini Enterprise Google SecOps agents to run first-party. However, you can use them for custom, customer-built security agents running independently on Vertex AI.
+  * **Cloud commitments:** Existing Google Cloud commitments can be applied to the purchase of Google SecOps Security Tokens. Note that you cannot directly transfer Gemini tokens sourced using Vertex AI or Gemini Enterprise Google SecOps agents to run first-party. However, you can use them for custom, customer-built security agents running independently on Vertex AI.
 
 
 
@@ -156,14 +156,14 @@ The following Agentic AI feature is available for use with Google SecOps Securit
 
 ## Important: Trial period
 
-The official trial period has ended. If you are interested in extending the trial or are a new customer please reach out to your Google SecOps account representative
+The official trial period has ended. If you are interested in extending the trial or are a new customer, contact your Google SecOps account representative.
 
-If your organization purchases a paid subscription to Google SecOps Security Tokens with a start date prior to July 1, 2026, your paid subscription term begins on the date listed on your Order Form. However, consumption of purchased Security Tokens against your paid subscription won't begin until August 31, 2026.
+If your organization purchases a paid subscription to Google SecOps Security Tokens with a start date prior to July 1, 2026, your paid subscription term begins on the date listed on your Order Form. However, consumption of purchased Security Tokens against your paid subscription only began on August 31, 2026.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

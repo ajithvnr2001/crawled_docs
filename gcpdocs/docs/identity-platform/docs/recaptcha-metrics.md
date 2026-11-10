@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/recaptcha-metrics/
 title: Monitor reCAPTCHA metrics \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:27.187886+00:00
+fetched_at: 2026-11-10T17:34:16.406616+00:00
 ---
 
 # Monitor reCAPTCHA metrics  |  Identity Platform  |  Google Cloud Documentation
@@ -25,9 +25,9 @@ This document describes the reCAPTCHA metrics that your Identity Platform emits 
 
 ## reCAPTCHA metrics
 
-After you [set up the Identity Platform integration with the reCAPTCHA Enterprise API](https://docs.cloud.google.com/identity-platform/docs/recaptcha-enterprise), and optionally, [enable reCAPTCHA SMS defense](https://docs.cloud.google.com/identity-platform/docs/recaptcha-tfp), you can monitor the reCAPTCHA metrics your project emits to ensure that your authentication flows are protected. If reCAPTCHA key provisioning fails or if required service accounts weren't created, reCAPTCHA authentication fails open.
+After you [set up the Identity Platform integration with the reCAPTCHA Enterprise API](https://docs.cloud.google.com/identity-platform/docs/recaptcha-enterprise), and optionally, [enable reCAPTCHA SMS defense](https://docs.cloud.google.com/identity-platform/docs/recaptcha-sms), you can monitor the reCAPTCHA metrics your project emits to ensure that your authentication flows are protected. If reCAPTCHA key provisioning fails or if required service accounts weren't created, reCAPTCHA authentication fails open.
 
-If you've enabled reCAPTCHA bot protection or reCAPTCHA SMS defense in audit mode, monitoring the reCAPTCHA metrics will help you determine if you can enable enforcement. You should consider the following before enabling enforcement:
+If you've enabled reCAPTCHA bot protection in audit mode for email-password authentication flows, monitoring the reCAPTCHA metrics helps you determine if you can enable enforcement. You should consider the following before enabling enforcement:
 
   * If the majority of recent requests have valid tokens and the ratio of `PASSED` to `FAILED_AUDIT` or `FAILED_ENFORCE` verdicts is acceptable for your business case, consider enabling enforcement.
   * If a majority of the recent requests are likely from outdated clients, consider waiting for more users to update their app before enabling enforcement. Enforcing Identity Platform integration with the reCAPTCHA Enterprise API breaks prior app versions that are not integrated with reCAPTCHA.
@@ -41,8 +41,8 @@ To ensure that the integration features are working as intended, you can examine
 This metric tracks the different verdicts returned by reCAPTCHA. A verdict is generated if a token is present. You can filter on the following verdicts:
 
   * `PASSED`: Indicates that a given request is allowed when enforcement is enabled.
-  * `FAILED_AUDIT`: Indicates that a given request is denied when reCAPTCHA audit mode is enabled.
-  * `FAILED_ENFORCE`: Indicates that a given request is denied when reCAPTCHA enforcement mode is enabled.
+  * `FAILED_AUDIT`: Indicates that a given email-password authentication request would be denied when reCAPTCHA audit mode is enabled.
+  * `FAILED_ENFORCE`: Indicates that a given request is denied when reCAPTCHA enforcement is enabled.
   * `CLIENT_TYPE_MISSING`: Indicates that a given request has a missing client type when reCAPTCHA enforcement is enabled. This error typically occurs if a request was sent using an outdated client SDK version that does not have reCAPTCHA support.
   * `KEYS_MISSING`: Indicates that a given request can't be verified because Identity Platform can't retrieve valid reCAPTCHA keys when reCAPTCHA enforcement is enabled.
 
@@ -96,6 +96,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

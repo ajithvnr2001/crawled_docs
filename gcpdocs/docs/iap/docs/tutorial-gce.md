@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/tutorial-gce/
 title: Setting up IAP for Compute Engine \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:21.369744+00:00
+fetched_at: 2026-11-10T16:58:56.587322+00:00
 ---
 
 # Setting up IAP for Compute Engine  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -28,10 +28,15 @@ This guide describes how to set up a Compute Engine instance with Identity-Aware
 In this tutorial, you learn about the following:
 
   * Creating a Compute Engine instance template and managed instance group (MIG).
+
   * Getting a domain name and certificate.
+
   * Creating an HTTPS load balancer with a certificate.
+
   * Enabling IAP.
+
   * Testing that IAP is working.
+
 
 
 
@@ -39,11 +44,15 @@ In this tutorial, you learn about the following:
 
 This tutorial uses billable components of Google Cloud, including the following:
 
-  * Compute Engine 
+  * Compute Engine
+
     * 4 Virtual Machines (VMs)
-  * Networking 
+  * Networking
+
     * Global Load Balancer Forwarding Rule
+
     * Ingress Traffic
+
 
 
 
@@ -72,11 +81,16 @@ In the Google Cloud console, go to the [Compute Engine > Create an instance temp
 Use the default values except for the following:
 
   * **Machine type:**
+
     * micro (f1-micro)
   * **Access scopes:**
+
     * Set access for each API
+
     * Compute Engine: Read Only
+
   * **Firewall:**
+
     * Allow HTTP traffic
   * In the **Management** section, under **Automation > Startup script**, copy and paste the following script: 
         
@@ -122,13 +136,19 @@ In the Google Cloud console, go to the [Compute Engine > Create a new instance g
 Use the default values except for the following:
 
   * **Name:** my-managed-instance-group
+
   * **Location:** Multi-zone
+
   * **Instance template:** Select the instance template you created in Step 1
+
   * **Number of instances:** To change the number of instances, you must first turn off autoscaling.
+
   * **Autoscaling mode:** Don't autoscale
+
   * **Health check:** select **Create a health check** , then enter the following values:
 
     * **Name:** my-health-check
+
     * **Protocol:** HTTP
 
 Use your new health check by clicking **Save and continue**.
@@ -157,15 +177,24 @@ In the Google Cloud console, go to the [Compute Engine > Create an instance page
 Use the default values except for the following:
 
   * **Name:** certbot-vm
+
   * **Machine type:** micro (f1-micro)
+
   * **Access scopes:**
+
     * Set access for each API
+
     * Compute Engine: Read/Write
+
   * **Boot disk image:**
+
     * Debian GNU/Linux 9 (stretch)
   * **Firewall:**
+
     * Allow HTTP traffic
+
     * Allow HTTPS traffic
+
 
 
 
@@ -176,12 +205,19 @@ When you finish updating values, click **Create** to create the VM instance. Not
 To set up your domain to point to the VM, follow these steps to configure A records:
 
   1. Sign in to your domain's account at your domain host.
+
   2. Find the page to update your domain's DNS records. This page might be called something like DNS Management, Name Server Management, or Advanced Settings.
-  3. Change your A records to the following values: 
+
+  3. Change your A records to the following values:
+
      * **Name/Host/Alias:** @
+
      * **Value:** the external IP address of the VM that you created to authenticate your domain ownership above.
+
      * **TTL:** the default for your registrar, or 86400 (one day).
+
   4. Wait for the DNS record to update. It can take up to one day for the record you added to propagate.
+
 
 
 
@@ -275,15 +311,25 @@ Cloud CDN and IAP are not compatible. If you have Cloud CDN enabled and you sele
 To set up your domain to point to the load balancer, configure A records using the following steps:
 
   1. Sign in to your domain's account at your domain host.
+
   2. Find the page to update your domain's DNS records. This page might be called something like DNS Management, Name Server Management, or Advanced Settings.
-  3. Change your A records to the following values: 
+
+  3. Change your A records to the following values:
+
      * **Name/Host/Alias:** @
+
      * **Value:** the external IP address of the load balancer you created earlier. Don't include the port `:443` in your DNS record.
+
      * **TTL:** the default for your registrar, or 86400 (one day).
+
   4. Wait for the DNS record to update. It can take up to a day for the record you just added to propagate.
-  5. To test the load balancer, use a web browser to go to your domain with an `https://` protocol. 
+
+  5. To test the load balancer, use a web browser to go to your domain with an `https://` protocol.
+
      * If the load balancer isn't set up yet, you see "HTTP 502" errors.
+
      * When the load balancer is ready, you see "Unauthorized request."
+
 
 
 
@@ -295,13 +341,21 @@ To correctly authenticate requests from IAP, you must restart the VMs in your MI
 
   1. In the Google Cloud console, go to the [Compute Engine > Instance groups page](https://console.cloud.google.com/compute/instanceGroups/list).   
 [GO TO THE INSTANCE GROUPS PAGE](https://console.cloud.google.com/compute/instanceGroups/list)
+
   2. Click **my-managed-instance-group**.
+
   3. On the top of the instance group details that appear, click **Rolling Restart/Replace**.
-  4. On the **Restart/replace instances of my-managed-instance-group** page, set the following values: 
+
+  4. On the **Restart/replace instances of my-managed-instance-group** page, set the following values:
+
      * **Operation:** Restart
+
      * **Maximum unavailable:** 3 instances out of 3 instances
+
      * **Minimum wait time:** 0 s
+
   5. When you're finished updating values, click **Restart**.
+
 
 
 
@@ -351,32 +405,45 @@ Next, configure your firewall to block access to the underlying VMs and only all
 
 To set up IAP for your project, follow these steps:
 
-1\. In the Google Cloud console, go to the [Security > Identity-Aware Proxy](https://console.cloud.google.com/security/iap/) page and select the project that you want to enable IAP for.   
-[GO TO THE IDENTITY-AWARE PROXY PAGE](https://console.cloud.google.com/security/iap/) 1\. If you haven't configured your project's OAuth consent screen, you're prompted to do so: **Caution:** Don't enter any confidential information on the OAuth consent screen. Any information you save to the OAuth consent screen may be publicly visible for anyone who accesses your URL. Email and product details are displayed on the login screen and when someone tries to access a resource for which they don't have permission. 
+  1. In the Google Cloud console, go to the [Security > Identity-Aware Proxy](https://console.cloud.google.com/security/iap/) page and select the project that you want to enable IAP for.   
+[GO TO THE IDENTITY-AWARE PROXY PAGE](https://console.cloud.google.com/security/iap/)
 
-  1. Go to the [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent).   
+  2. If you haven't configured your project's OAuth consent screen, you're prompted to do so: **Caution:** Don't enter any confidential information on the OAuth consent screen. Any information you save to the OAuth consent screen may be publicly visible for anyone who accesses your URL. Email and product details are displayed on the login screen and when someone tries to access a resource for which they don't have permission. 
+
+     1. Go to the [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent).   
 [Configure consent screen](https://console.cloud.google.com/apis/credentials/consent)
-  2. Under **Support email** , select the email address you want to display as a public contact. The email address must belong to the currently logged in user account or to a Google Group for which the currently logged in user is a [manager or owner](https://support.google.com/a/answer/167094). 
-  3. Enter the **Application name** you want to display.
-  4. Add any optional details you'd like.
-  5. Click **Save**.
-
-
+     2. Under **Support email** , select the email address you want to display as a public contact. The email address must belong to the currently logged in user account or to a Google Group for which the currently logged in user is a [manager or owner](https://support.google.com/a/answer/167094). 
+     3. Enter the **Application name** you want to display.
+     4. Add any optional details you'd like.
+     5. Click **Save**.
 
 To change information on the OAuth consent screen later, such as the product name or email address, repeat the preceding steps to configure the consent screen.
 
-1\. Next to **my-backend-service** ,  toggle the on/off switch in the **IAP** column. 1\. In the **Turn on IAP** window that appears, select the checkbox next to "I have read the configuration requirements and configured my Compute Engine resource according to the documentation." 1\. Click **Turn on**. 
+  3. Next to **my-backend-service** ,  toggle the on/off switch in the **IAP** column.
+
+  4. In the **Turn on IAP** window that appears, select the checkbox next to "I have read the configuration requirements and configured my Compute Engine resource according to the documentation."
+
+  5. Click **Turn on**.
+
+
+
 
 ### Add principals to the access list
 
 Next, add principals to the IAP access list for your project.
 
   1. On the [Security > Identity-Aware Proxy](https://console.cloud.google.com/security/iap/) right side **Access** section, click **Add**.
-  2. Enter the principals you want to give access to, including yourself, and assign the principals the **IAP-secured Web App User** role. Principals can be: 
+
+  2. Enter the principals you want to give access to, including yourself, and assign the principals the **IAP-secured Web App User** role. Principals can be:
+
      * Google Accounts: user@gmail.com
+
      * Google Groups: admins@googlegroups.com
+
      * Service accounts: server@example.gserviceaccount.com
-     * Google Workspace domains: example.com 
+
+     * Google Workspace domains: example.com
+
 
 
 
@@ -384,7 +451,16 @@ Next, add principals to the IAP access list for your project.
 
 To test that IAP is working correctly, follow these steps:
 
-1\. In your web browser, navigate to your domain. If you see "Unauthorized request", try again in a few minutes. 1\. When you see a Google sign-in screen, sign in using the Google Account you gave access to in the previous step. 1\. A message appears like "Hi, user@example.com. I am my-managed-instance-group-29z6." 1\. Try refreshing the page. Your browser should show the names of the 3 machines in your managed instance group. This is the load balancer distributing traffic across the VMs in the group. 
+  1. In your web browser, navigate to your domain. If you see "Unauthorized request", try again in a few minutes.
+
+  2. When you see a Google sign-in screen, sign in using the Google Account you gave access to in the previous step.
+
+  3. A message appears like "Hi, user@example.com. I am my-managed-instance-group-29z6."
+
+  4. Try refreshing the page. Your browser should show the names of the 3 machines in your managed instance group. This is the load balancer distributing traffic across the VMs in the group.
+
+
+
 
 Congratulations! You've successfully enabled a load-balanced service using IAP.
 
@@ -444,7 +520,9 @@ To delete a firewall rule:
 ## What's next
 
   * Try modifying the [example app](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/master/iap/example_gce_backend.py) we used in this tutorial to serve other data.
+
   * Read the [Best Practices](https://docs.cloud.google.com/iap/docs/concepts-best-practices) to understand how to write your own apps and secure them with IAP.
+
 
 
 
@@ -452,6 +530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

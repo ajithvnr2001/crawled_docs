@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/roles-permissions/
 title: Roles and permissions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:38.260099+00:00
+fetched_at: 2026-11-10T18:56:40.198752+00:00
 ---
 
 # Roles and permissions  |  Agent Registry  |  Google Cloud Documentation
@@ -21,15 +21,15 @@ Send feedback
 
 #  Roles and permissions Stay organized with collections  Save and categorize content based on your preferences. 
 
-Identity and Access Management (IAM) roles and permissions let you control who can view, register, and manage agents, MCP servers, tools, standalone skills, endpoints, and bindings in Agent Registry.
+Identity and Access Management (IAM) roles and permissions let you control who can view, register, and manage agents, Model Context Protocol (MCP) servers, tools, standalone skills, endpoints, and bindings in Agent Registry.
 
-To grant Agent Registry IAM roles to users or groups on your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) or your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use the IAM page in the Google Cloud console or the Google Cloud CLI. For details, see [Access control with IAM](https://docs.cloud.google.com/agent-registry/access-control), and [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
+To grant Agent Registry IAM roles to users or groups on your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) or your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use the IAM page in the Google Cloud console or the Google Cloud CLI. For details, see [Access control with IAM](https://docs.cloud.google.com/agent-registry/access-control) and [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
 
 ## Agent Registry roles
 
 The following table describes Agent Registry IAM roles and their typical responsibilities:
 
-**Caution:** Grant the **Agent Registry API Admin** (`roles/agentregistry.admin`) or **Agent Registry API Editor** (`roles/agentregistry.editor`) roles only to trusted administrators who manage the registry. Avoid granting these roles directly to agents. These roles contain permissions to create, delete, and update services, including modifying critical agent metadata and [tool annotations](https://modelcontextprotocol.io/specification/latest/schema#toolannotations) such as `readOnlyHint` or `destructiveHint`. Malicious changes to metadata and annotations can cause unintended and destructive consequences when an orchestrator uses the modified tool. Additionally, an agent with these permissions can explicitly enroll a malicious external agent into the registry.**Role** | **Description** | **Purpose**  
+**Caution:** Grant the **Agent Registry API Admin** (`roles/agentregistry.admin`) or **Agent Registry API Editor** (`roles/agentregistry.editor`) roles only to trusted administrators who manage the registry. Avoid granting these roles directly to agents. These roles contain permissions to create, delete, and update services, including modifying critical agent metadata and [tool annotations](https://modelcontextprotocol.io/specification/latest/schema#toolannotations) such as `readOnlyHint` or `destructiveHint`. Malicious changes to metadata and annotations can cause unintended and destructive consequences when an orchestrator agent uses the modified tool. Additionally, an agent with these permissions can explicitly enroll a malicious external agent into the registry.**Role** | **Description** | **Purpose**  
 ---|---|---  
 **Agent Registry API Admin** (`roles/agentregistry.admin`) |  Full access to all Agent Registry resources, including agents, MCP servers, tools, endpoints, standalone skills, skill revisions, security findings, skill encryption specifications, bindings, and skill IAM policies. | 
 
@@ -269,20 +269,37 @@ Because manually registered `Service` and `Binding` resources created in a membe
 
 ## Access control for registered resources
 
-Agent Registry roles govern who can manage and discover resources in the registry itself. To control which agents can communicate with registered services, endpoints, and MCP servers through [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview), you use [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/agent-overview) egress policies:
+Agent Registry roles govern who can manage and discover resources in the registry itself. To control who can view or update a standalone skill without granting project-wide access, configure a resource-level IAM policy on the `Skill` resource, or use [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) on project-level bindings. For instructions, see [Manage access to a skill](https://docs.cloud.google.com/agent-registry/manage-skills#manage-skill-access).
 
-  * **Egress access permissions** : to authorize an agent to route traffic to a registered agent, MCP server, or endpoint, grant the [**IAP-secured Egressor** (`roles/iap.egressor`)](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.egressor) role to the [agent principal](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-principals) on the target resource.
-  * **Policy administration permissions** : to configure IAP web IAM policies on registered resources, you must obtain the [IAP Policy Admin (`roles/iap.admin`)](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.admin) role on the governance project hosting the registry.
-  * **Access control on standalone skills** : to control who can view or update a standalone skill without granting project-wide access, configure a resource-level IAM policy on the `Skill` resource, or use [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) on project-level bindings. For instructions, see [Manage access to a skill](https://docs.cloud.google.com/agent-registry/manage-skills#manage-skill-access).
+Agent Registry roles don't grant permission to call an agent's runtime endpoint. When an orchestrator agent or client calls a discovered [Agent2Agent (A2A)](https://docs.cloud.google.com/agent-registry/a2a-protocol) agent, MCP server, or endpoint, authorization occurs on the target service or gateway.
+
+### Permissions to call A2A agents
+
+Grant the calling user, service account, or [agent principal](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-principals) (`principal://` or `principalSet://`) the role required to call the target API, runtime, or gateway:
+
+  * **Built-in Google agents exposed by Google Cloud APIs** : grant the IAM role required by the target API service that exposes the agent. For a list of predefined roles by service, see the [IAM roles and permissions index](https://docs.cloud.google.com/iam/docs/roles-permissions).
+  * **Custom A2A agents hosted on Google Cloud runtimes or gateways** : grant the role required by the runtime or gateway that hosts the agent, for example: 
+    * **Agent Runtime on Gemini Enterprise Agent Platform** : see [Grant access for A2A delegation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#a2a-delegation), [Share an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent), and [Gemini Enterprise Agent Platform roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user).
+    * **Cloud Run** : see [Authenticate your AI agents](https://docs.cloud.google.com/run/docs/ai/authenticate-agents) and [Cloud Run IAM roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker).
+    * **Agent Gateway and Identity-Aware Proxy (IAP)** : see [Create IAM Unified Access Policies (UAPs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) and [IAP roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/iap).
 
 
 
-For detailed instructions on configuring IAP egress policies, see [Configure IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies).
+In UAP Common Expression Language (CEL) conditions for [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview), target a registered agent using its [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) rather than its registry identifier. For administrative roles and policy configuration steps, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
+
+### Deny policies and content security
+
+Combine identity-based deny policies with payload inspection controls to govern A2A communication across your organization:
+
+  * **IAM deny policies** : attach [IAM deny policies](https://docs.cloud.google.com/iam/docs/deny-overview) to projects, folders, or your organization using an [agent principal](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-principals) (`principal://` or `principalSet://`) or service account as the denied principal. You can block permissions to call agents or downstream resource permissions that appear in [Permissions supported in deny policies](https://docs.cloud.google.com/iam/docs/deny-permissions-support).
+  * **Content security with Model Armor** : inspect supported A2A prompt and response payloads to help detect prompt injection and sensitive data exposure by configuring [Model Armor integration with Agent Gateway](https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration) and [service extension bindings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/extension-bindings-overview).
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

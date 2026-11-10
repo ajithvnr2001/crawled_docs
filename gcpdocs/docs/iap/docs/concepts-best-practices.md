@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/concepts-best-practices/
 title: Best practices \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:16.929200+00:00
+fetched_at: 2026-11-10T16:58:46.408331+00:00
 ---
 
 # Best practices  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -25,7 +25,8 @@ This page describes best practices for using Identity-Aware Proxy (IAP).
 
 ## Caching
 
-  * Don't use a third-party CDN in front of your application. CDNs may cache content and serve cached pages to unauthenticated users. 
+  * Don't use a third-party CDN in front of your application. CDNs may cache content and serve cached pages to unauthenticated users.
+
     * If you have large, non-sensitive resources that you want to serve from a CDN, use a separate domain such as `images.yourapp.com` for these resources. Use the CDN with that domain and add the `Cache-control: private` HTTP response header to all objects that should only be served to authenticated users.
 
 
@@ -47,6 +48,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

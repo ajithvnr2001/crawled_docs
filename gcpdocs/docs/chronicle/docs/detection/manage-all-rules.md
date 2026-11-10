@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/manage-all-rules/
 title: Edit rules in the Rules Editor \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:11:24.231948+00:00
+fetched_at: 2026-11-10T08:24:41.254645+00:00
 ---
 
 # Edit rules in the Rules Editor  |  Google Security Operations  |  Google Cloud Documentation
@@ -25,13 +25,13 @@ Supported in:
 
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
 
-The Rules editor in Google Security Operations is the primary interface to create, view, test, and manage your YARA-L detection rules. It provides a dedicated environment for security engineers to author and refine detection logic that identifies threats and suspicious activity in ingested log data.
+The Rules Editor in Google Security Operations is the primary interface to create, view, test, and manage your YARA-L detection rules. It provides a dedicated environment for security engineers to author and refine detection logic that identifies threats and suspicious activity in ingested log data.
 
-**Note:** The **Rule editing** window includes an automatic completion feature to show the correct YARA-L syntax for each section of the rule. Use this feature when you create and edit a rule to see automatic recommendations and verify the correct YARA-L syntax.
+**Note:** The rule-editing box includes an automatic completion feature to show the correct YARA-L syntax for each section of the rule. Use this feature when you create and edit a rule to see automatic recommendations and verify the correct YARA-L syntax.
 
 ## Create and edit rules
 
-To open the **Rules editor** , click **Detections > Rules & detections** > the **Rules editor** tab.
+To open the **Rules Editor** , click **Detections** > **Rules & detections** > **Rules Editor**.
 
 ### Create a new rule
 
@@ -39,7 +39,7 @@ Rules use the YARA-L 2.0 query language. Before creating a new rule for the firs
 
 To create a new rule, follow these steps:
 
-  1. In the **Rules editor** , click **New** to open the **Rules editor** window.
+  1. In the **Rules Editor** , click **New** to open the rule-editing box.
 
 The system automatically populates the default rule template and generates a unique name for the rule. Create your new rule in YARA-L.
 
@@ -59,7 +59,7 @@ For more information, see [Understand rule run scheduling](https://docs.cloud.go
 
   4. (Optional) To delete the new rule, click **Discard**.
 
-**Note:** Once you save a rule, you can't delete it using the **Rules editor** or the **Rules** dashboard.
+**Note:** Once you save a rule, you can't delete it using the **Rules Editor** or the **Rules** dashboard. To delete a saved rule, you must use the [Delete rule API](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.rules/delete).
 
 
 
@@ -71,7 +71,7 @@ To edit an existing rule, follow these steps:
 
   2. Select the rule to edit from the **Rules list**. 
 
-The rule displays in the **Rule editing** window. The rule menu offers the following options for each rule:
+The rule displays in the rule-editing box. The rule menu offers the following options for each rule:
 
      * **Live rule** : Enable or disable the rule.
      * **Duplicate rule** : Make a copy of the rule.
@@ -89,7 +89,7 @@ View information about current detections associated with a rule in one of these
 
 Click **View rule detections** to open **Rule detections** view. This view displays the rule's metadata and a graph showing the number of detections found by the rule over recent days.
 
-  * Click **Edit rule** to open the **Rules editor**.
+  * Click **Edit rule** to open the **Rules Editor**.
 
 The **Timeline** tab lists events detected by the rule. Select an event and open the associated raw log or UDM event.
 
@@ -100,11 +100,11 @@ To change the information shown on the **Timeline** tab, click  view_column  **C
 
 ## Test your rule
 
-Click **Run test** to test your custom rules. Google SecOps runs the rule on events in the specified time range, generates results, and displays them in the **Test rule results** window.
+Click **Test** to test your custom rules. Google SecOps runs the rule on events in the specified time range, generates results, and displays them in the **Test results** window.
 
-**Note:** If your rule uses the [`suppression_window` option](https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax#suppression), this option is not applied when you test the rule using **Run test**. Suppression is a post-processing step that only takes place after detections have been written by a live rule.
+**Note:** If your rule uses the [`suppression_window` option](https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax#suppression), this option is not applied when you test the rule using **Run test**. Suppression is a post-processing step that only takes place after detections have been written by a live rule.**Note:** The labels in the Rules Editor in the legacy view are slightly different. For more information, see [Manage your unified interface preferences](https://docs.cloud.google.com/chronicle/docs/detection/unified-rules/get-started#manage-unified-interface-preferences).
 
-Click **Cancel test** at any time to stop the process.
+Click **Cancel** at any time to stop the process.
 
 **Note:** Successive executions of the same test rule may generate different test detections and is expected behavior. Google SecOps runs a test rule in multiple parallel processes and detections are streamed to the dashboard as each process finishes. Minor timing differences can affect which duplicate detections are removed. By extension, results may not match those of live rules or retrohunts.**Note:** Test rule detections aren't persisted and don't generate alerts. This behavior allows rule authors to iterate without affecting production. Test rule detections may differ from retrohunt or live rule detections because the evaluation windows may be aligned differently.**Note:** These test results aren't saved and won't be viewable in the **Rules** dashboard.
 
@@ -115,7 +115,19 @@ If this feature isn't visible in your environment, see [Manage preview features]
 
 You can also execute the tests to validate your curated rules.
 
-For community blogs on managing rules, see: [Rules editor navigation](https://www.googlecloudcommunity.com/gc/Google-Security-Operations-Best/Getting-to-Know-Google-SecOps-SIEM-Rules-Editor-Navigation/ta-p/659309)
+### Understand the payload limit for rule tests
+
+To prevent browser memory exhaustion and crashes, the rule **Test** feature enforces a strict 50‑MB stream payload limit. The limit is based on total uncompressed payload size rather than a fixed row count, therefore, the number of displayed detections will vary depending on individual event and UDM payload sizes.
+
+For Enterprise customers validating YARA-L rules, if a test exceeds the limit, Google SecOps stops streaming additional detections but displays the detections that it has already received. The window will also display the following warning banner: `Maximum test detections limit reached. The number of detections returned exceeds the maximum limit for rule testing. Results have been capped.`
+
+To test rules that exceed the 50‑MB payload limit, use any of the following approaches:
+
+  * To reduce the response payload size, narrow the test time range.
+  * To validate query logic across larger datasets, use the [**SIEM Search**](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search) interface.
+  * To evaluate rules across large historical time ranges, [run a retrohunt](https://docs.cloud.google.com/chronicle/docs/detection/run-rule-historical-data). Retrohunts run asynchronously on the backend and aren't constrained by browser streaming limits.
+
+
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -123,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

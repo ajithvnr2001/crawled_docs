@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/colab/docs/runtimes/
 title: Runtimes and runtime templates \u00a0|\u00a0 Colab Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:18.144929+00:00
+fetched_at: 2026-11-10T08:24:41.524460+00:00
 ---
 
 # Runtimes and runtime templates  |  Colab Enterprise  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ Default runtimes and their corresponding automatically created default runtime t
 
 Specification | Default | Default with GPU  
 ---|---|---  
-Python version | Latest available (currently Python 3.12) | Latest available (currently Python 3.12)  
+Python version | Latest available (currently Python 3.13) | Latest available (currently Python 3.13)  
 Machine type | `e2-standard-4` | Depends on regional availability. See [Specifications](https://docs.cloud.google.com/colab/docs/default-runtimes-with-gpus#specifications).   
 Accelerator | None | Depends on regional availability. See [Specifications](https://docs.cloud.google.com/colab/docs/default-runtimes-with-gpus#specifications).   
 Boot disk | 100 GiB SSD persistent disk (`pd-ssd`) | 100 GiB SSD persistent disk (`pd-ssd`)  
@@ -130,7 +130,7 @@ To set a runtime template as the default runtime template, you can use the Googl
 
 ### Python versions
 
-Starting in May, 2025, when Colab Enterprise creates a default runtime template, the default runtime template is configured to use the latest version of Python (currently Python 3.12). This means that when a new version of Python is available in Colab Enterprise, new runtimes created from the default runtime template will use the latest Python version.
+When Colab Enterprise creates a default runtime template, the default runtime template is configured to use the latest available version of Python (currently Python 3.13). This means that when a new version of Python is available in Colab Enterprise, new runtimes created from the default runtime template will use the latest Python version.
 
 If your default runtime templates were created in May 2025 or earlier, they might be configured to use Python 3.10. To update a default runtime template to use the latest Python version, you must delete the default runtime template. Then, when a new default runtime template is created, it will be configured to use the latest Python version.
 
@@ -236,6 +236,7 @@ The following table lists the _end of patch and support date_ and _end of availa
 
 Python version | End of patch and support date | End of availability date  
 ---|---|---  
+Python 3.13 | To be determined | To be determined  
 Python 3.12 | To be determined | To be determined  
 Python 3.11 | To be determined | To be determined  
 Python 3.10 | February 23, 2026 | August 17, 2026  
@@ -378,6 +379,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

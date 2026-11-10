@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/saml-attribute-propagation/
 title: Configure SAML attribute propagation \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:21:55.847522+00:00
+fetched_at: 2026-11-10T16:58:45.206477+00:00
 ---
 
 # Configure SAML attribute propagation  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -47,8 +47,11 @@ Enable SAML attribute propagation by [creating an SSO profile](https://support.g
 
   1. In the Google Cloud console, go to the IAP page.  
 [ Go to IAP ](https://console.cloud.google.com/security/iap)
+
   2. Open the settings for a resource, and then scroll to **Attribute propagation**.
+
   3. Select **Enable attribute propagation** , and then click **Save**.
+
   4. In the **SAML Attributes** tab, enter the attributes that you want to propagate using the following format: `attribute1, attribute2, attribute3`
 
 You can also enter the attributes by using a custom expression. The attributes for your custom expression are displayed in the **SAML Attributes** tab. You must use the following expression format for your attributes to be displayed in the **SAML Attributes** tab:  
@@ -70,11 +73,17 @@ Run the following [IAP gcloud CLI commands](https://docs.cloud.google.com/sdk/gc
 Replace the following:
 
   * FOLDER: The folder in which your application resides.
+
   * ORGANIZATION: The organization in which your application resides.
+
   * PROJECT: The project in which your application resides.
+
   * RESOURCE_TYPE: The resource type.
+
   * SERVICE: The service.
+
   * VERSION: The version number.
+
 
 
 
@@ -146,8 +155,11 @@ You can use [Common Expression Language (CEL)](https://github.com/google/cel-spe
 Using CEL expressions with SAML attribute propagation has the following limitations:
 
   * An expression must return a list of attributes.
+
   * An expression can select a maximum of 45 attributes.
+
   * An expression string cannot exceed 1000 characters.
+
 
 
 
@@ -343,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

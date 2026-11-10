@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview/
 title: Choose a machine series \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:56:26.358932+00:00
+fetched_at: 2026-11-10T11:44:45.233039+00:00
 ---
 
 # Choose a machine series  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -36,9 +36,11 @@ The following table provides an overview of the machine series options that Clou
 
 Cloud SQL edition | Machine series | Storage option  
 ---|---|---  
-[Cloud SQL Enterprise Plus edition](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#enterprise-plus) | [C4](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#c4) | [Hyperdisk Balanced](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#hyperdisk)  
+[ Cloud SQL Enterprise Plus edition ](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#enterprise-plus) |  [C4](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#c4)  
+[C4D](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#c4d) |  [ Hyperdisk Balanced ](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#hyperdisk)  
+[ Hyperdisk Balanced ](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#hyperdisk)  
 [N2](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#n2) | [SSD](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#ssd)  
-[Memory-optimized-N2](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#memory-optimized-N2) | [SSD](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#ssd)  
+[ Memory-optimized-N2 ](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#memory-optimized-N2) | [SSD](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#ssd)  
 [Cloud SQL Enterprise edition](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#enterprise) | [N4 machine series](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#n4)  
 [Dedicated core](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#enterprise) | [Hyperdisk Balanced](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#hyperdisk)  
 [SSD](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview#ssd)  
@@ -52,7 +54,8 @@ For Cloud SQL Enterprise Plus edition instances, you can select one of the follo
 
   * **N2**: This x86-based machine series provides a balanced price-to-performance ratio for a variety of Cloud SQL workloads.
   * **Memory-optimized-N2**: This machine series provides high memory-to-compute ratios for memory-intensive Cloud SQL workloads.
-  * **C4**: This x86-based machine series provides optimized price-performance and delivers predictable high performance for high demand Cloud SQL workloads.
+  * **C4**: This x86-based machine series provides optimized price-performance and delivers predictable high performance for high-demand Cloud SQL workloads.
+  * **C4D**: This x86-based machine series is powered by 5th Generation AMD EPYC processors and Titanium, and delivers predictable high performance for high-demand Cloud SQL workloads.
 
 
 
@@ -110,6 +113,32 @@ Machine type | vCPUs | Memory (GB)
 `db-perf-optimized-C4-2` | 2 | 15  
 `db-perf-optimized-C4-4` | 4 | 31  
 `db-perf-optimized-C4-8` | 8 | 62  
+  
+### [C4D machine series](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series)
+
+The C4D machine series is powered by 5th Generation AMD EPYC processors (Turin) and Titanium, and delivers consistent, predictable high performance.
+
+It uses the Hyperdisk Balanced storage option, which is a Google Cloud Hyperdisk offering. Google Cloud Hyperdisk is the latest generation of network block storage service in Google Cloud. For more information about storage types, see [Cloud SQL storage options overview](https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview).
+
+The C4D machine series provides predefined machine types that depend on your instance's region and configuration. For more information about supported regions, see [Regional availability](https://docs.cloud.google.com/sql/docs/sqlserver/region-availability-overview).
+
+**Note:** Data cache isn't supported for instances that use the C4D machine series.
+
+#### C4D machine types
+
+The following table shows predefined machine types that are available for the C4D machine series.
+
+Machine type | vCPUs | Memory (GB)  
+---|---|---  
+`db-perf-optimized-C4D-2` | 2 | 15  
+`db-perf-optimized-C4D-4` | 4 | 31  
+`db-perf-optimized-C4D-8` | 8 | 63  
+`db-perf-optimized-C4D-16` | 16 | 126  
+`db-perf-optimized-C4D-32` | 32 | 252  
+`db-perf-optimized-C4D-48` | 48 | 378  
+`db-perf-optimized-C4D-64` | 64 | 504  
+`db-perf-optimized-C4D-96` | 96 | 756  
+`db-perf-optimized-C4D-192` | 192 | 1,512  
   
 ## Machine series availability for Cloud SQL Enterprise edition instances
 
@@ -186,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

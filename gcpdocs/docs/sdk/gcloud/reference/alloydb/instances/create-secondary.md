@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/instances/create-secondary/
 title: gcloud alloydb instances create-secondary \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T00:45:31.552183+00:00
+fetched_at: 2026-11-10T17:33:33.477695+00:00
 ---
 
 # gcloud alloydb instances create-secondary  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alloydb instances create-secondary - creates a new AlloyDB SECONDARY inst
 SYNOPSIS
     
 
-`gcloud alloydb instances create-secondary` `INSTANCE` `--cluster`=`CLUSTER` `--region`=`REGION` [`--allocated-ip-range-override`=`ALLOCATED_IP_RANGE_OVERRIDE`] [`--allowed-psc-projects`=[`ALLOWED_PSC_PROJECTS`,…]] [`--assign-inbound-public-ip`=`ASSIGN_INBOUND_PUBLIC_IP`] [`--async`] [`--authorized-external-networks`=[`AUTHORIZED_NETWORK`,…]] [`--availability-type`=`AVAILABILITY_TYPE`] [`--connection-pooling-client-connection-idle-timeout`=`CONNECTION_POOLING_CLIENT_CONNECTION_IDLE_TIMEOUT`] [`--connection-pooling-ignore-startup-parameters`=[`STARTUP_PARAMETERS`,…]] [`--connection-pooling-max-client-connections`=`CONNECTION_POOLING_MAX_CLIENT_CONNECTIONS`] [`--connection-pooling-max-pool-size`=`CONNECTION_POOLING_MAX_POOL_SIZE`] [`--connection-pooling-max-prepared-statements`=`CONNECTION_POOLING_MAX_PREPARED_STATEMENTS`] [`--connection-pooling-min-pool-size`=`CONNECTION_POOLING_MIN_POOL_SIZE`] [`--connection-pooling-pool-mode`=`CONNECTION_POOLING_POOL_MODE`] [`--connection-pooling-query-wait-timeout`=`CONNECTION_POOLING_QUERY_WAIT_TIMEOUT`] [`--connection-pooling-server-idle-timeout`=`CONNECTION_POOLING_SERVER_IDLE_TIMEOUT`] [`--connection-pooling-server-lifetime`=`CONNECTION_POOLING_SERVER_LIFETIME`] [`--connection-pooling-stats-users`=[`STATS_USERS`,…]] [`--database-flags`=`FLAG`=`VALUE`,[`FLAG`=`VALUE`,…]] [`--[no-]enable-connection-pooling`] [`--labels`=[`KEY`=`VALUE`,…]] [`--[no-]outbound-public-ip`] [`--psc-auto-connections`=[`network`=`NETWORK`],[`project`=`PROJECT`]] [`--psc-network-attachment-uri`=`PSC_NETWORK_ATTACHMENT_URI`] [`--[no-]require-connectors`] [`--ssl-mode`=`SSL_MODE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alloydb instances create-secondary` `INSTANCE` `--cluster`=`CLUSTER` `--region`=`REGION` [`--allocated-ip-range-override`=`ALLOCATED_IP_RANGE_OVERRIDE`] [`--allowed-psc-projects`=[`ALLOWED_PSC_PROJECTS`,…]] [`--assign-inbound-public-ip`=`ASSIGN_INBOUND_PUBLIC_IP`] [`--async`] [`--authorized-external-networks`=[`AUTHORIZED_NETWORK`,…]] [`--availability-type`=`AVAILABILITY_TYPE`] [`--connection-pooling-client-connection-idle-timeout`=`CONNECTION_POOLING_CLIENT_CONNECTION_IDLE_TIMEOUT`] [`--connection-pooling-ignore-startup-parameters`=[`STARTUP_PARAMETERS`,…]] [`--connection-pooling-max-client-connections`=`CONNECTION_POOLING_MAX_CLIENT_CONNECTIONS`] [`--connection-pooling-max-pool-size`=`CONNECTION_POOLING_MAX_POOL_SIZE`] [`--connection-pooling-max-prepared-statements`=`CONNECTION_POOLING_MAX_PREPARED_STATEMENTS`] [`--connection-pooling-min-pool-size`=`CONNECTION_POOLING_MIN_POOL_SIZE`] [`--connection-pooling-pool-mode`=`CONNECTION_POOLING_POOL_MODE`] [`--connection-pooling-query-wait-timeout`=`CONNECTION_POOLING_QUERY_WAIT_TIMEOUT`] [`--connection-pooling-server-idle-timeout`=`CONNECTION_POOLING_SERVER_IDLE_TIMEOUT`] [`--connection-pooling-server-lifetime`=`CONNECTION_POOLING_SERVER_LIFETIME`] [`--connection-pooling-stats-users`=[`STATS_USERS`,…]] [`--database-flags`=`FLAG`=`VALUE`,[`FLAG`=`VALUE`,…]] [`--[no-]enable-connection-pooling`] [`--[no-]enable-psc-auto-connection-policy`] [`--[no-]enable-psc-auto-dns`] [`--labels`=[`KEY`=`VALUE`,…]] [`--[no-]outbound-public-ip`] [`--psc-auto-connections`=[`network`=`NETWORK`],[`project`=`PROJECT`]] [`--psc-network-attachment-uri`=`PSC_NETWORK_ATTACHMENT_URI`] [`--[no-]require-connectors`] [`--ssl-mode`=`SSL_MODE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Creates a new AlloyDB SECONDARY instance within a given cluster. 
 EXAMPLES
@@ -107,6 +107,10 @@ OPTIONAL FLAGS
      Comma-separated list of database flags to set on the instance. Use an equals sign to separate flag name and value. Flags without values, like skip_grant_tables, can be written out without a value after, e.g., skip_grant_tables=`. Use on/off for booleans. View the Instance Resource API for allowed flags. (e.g., `\--database-flags max_allowed_packet=55555,skip_grant_tables=,log_output=1`) `
 `--[no-]enable-connection-pooling`
      Enable connection pooling for the instance. Use `--enable-connection-pooling` to enable and `--no-enable-connection-pooling` to disable. 
+`--[no-]enable-psc-auto-connection-policy`
+     Enable automatic creation of service connection policies (PSC auto connection policy) for the Private Service Connect (PSC) auto connections of the instance, which are configured with --psc-auto-connections`. Use `\--enable-psc-auto-connection-policy` to enable and `\--no-enable-psc-auto-connection-policy` to disable. `
+`--[no-]enable-psc-auto-dns`
+     Enable automatic creation of DNS records (PSC auto DNS) for the Private Service Connect (PSC) auto connections of the instance, which are configured with \--psc-auto-connections`. Use `\--enable-psc-auto-dns` to enable and `\--no-enable-psc-auto-dns` to disable. `
 `--labels`=[`KEY`=`VALUE`,…]
      List of label KEY=VALUE pairs to add. 
 
@@ -166,6 +170,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-02 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

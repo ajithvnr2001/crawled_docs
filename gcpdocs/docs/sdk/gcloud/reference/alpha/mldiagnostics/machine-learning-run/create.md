@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run/create/
 title: gcloud alpha mldiagnostics machine-learning-run create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:45.963623+00:00
+fetched_at: 2026-11-10T17:33:44.587347+00:00
 ---
 
 # gcloud alpha mldiagnostics machine-learning-run create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,14 +28,14 @@ gcloud alpha mldiagnostics machine-learning-run create - create a machine learni
 SYNOPSIS
     
 
-`gcloud alpha mldiagnostics machine-learning-run create` (`MACHINE_LEARNING_RUN` : `--location`=`LOCATION`) [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--gcs-path`=`GCS_PATH`] [`--labels`=[`LABELS`,…]] [`--orchestrator`=`ORCHESTRATOR`] [`--run-group`=`RUN_GROUP`] [`--run-phase`=`RUN_PHASE`; default="active"] [`--tools`=[`xprof`=`XPROF`]; default="xprof"] [`--configs-hardware`=[`CONFIGS_HARDWARE`,…] `--configs-software`=[`CONFIGS_SOFTWARE`,…]] [`--workload-targets`=[`display-name`=`DISPLAY-NAME`],[`hostname`=`HOSTNAME`],[`instance-id`=`INSTANCE-ID`],[`zone`=`ZONE`] [`--custom-workload-display-name`=`CUSTOM_WORKLOAD_DISPLAY_NAME` `--custom-workload-id`=`CUSTOM_WORKLOAD_ID` : `--custom-workload-create-time`=`CUSTOM_WORKLOAD_CREATE_TIME`] | `--gke-cluster-name`=`GKE_CLUSTER_NAME` `--gke-kind`=`GKE_KIND` `--gke-namespace`=`GKE_NAMESPACE` `--gke-workload-create-time`=`GKE_WORKLOAD_CREATE_TIME` `--gke-workload-name`=`GKE_WORKLOAD_NAME` | `--slurm-cluster-name`=`SLURM_CLUSTER_NAME` `--slurm-job-id`=`SLURM_JOB_ID` `--slurm-job-name`=`SLURM_JOB_NAME` `--slurm-job-submit-time`=`SLURM_JOB_SUBMIT_TIME`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha mldiagnostics machine-learning-run create` (`MACHINE_LEARNING_RUN` : `--location`=`LOCATION`) [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--gcs-path`=`GCS_PATH`] [`--labels`=[`LABELS`,…]] [`--orchestrator`=`ORCHESTRATOR`] [`--run-group`=`RUN_GROUP`] [`--run-phase`=`RUN_PHASE`; default="active"] [`--tools`=[`xprof`=`XPROF`]; default="xprof"] [`--auto-capture-default-duration`=`AUTO_CAPTURE_DEFAULT_DURATION` `--auto-capture-default-profiler-targets`=[`AUTO_CAPTURE_DEFAULT_PROFILER_TARGETS`,…] `--auto-capture-device-tracer-level`=`AUTO_CAPTURE_DEVICE_TRACER_LEVEL` `--auto-capture-enabled` `--auto-capture-host-tracer-level`=`AUTO_CAPTURE_HOST_TRACER_LEVEL` `--auto-capture-max-session-count-per-event`=`AUTO_CAPTURE_MAX_SESSION_COUNT_PER_EVENT` `--auto-capture-python-tracer-level`=`AUTO_CAPTURE_PYTHON_TRACER_LEVEL` `--auto-capture-type`=`AUTO_CAPTURE_TYPE`] [`--configs-hardware`=[`CONFIGS_HARDWARE`,…] `--configs-software`=[`CONFIGS_SOFTWARE`,…]] [`--workload-targets`=[`display-name`=`DISPLAY-NAME`],[`hostname`=`HOSTNAME`],[`instance-id`=`INSTANCE-ID`],[`zone`=`ZONE`] [`--custom-workload-display-name`=`CUSTOM_WORKLOAD_DISPLAY_NAME` `--custom-workload-id`=`CUSTOM_WORKLOAD_ID` : `--custom-workload-create-time`=`CUSTOM_WORKLOAD_CREATE_TIME`] | `--gke-cluster-name`=`GKE_CLUSTER_NAME` `--gke-kind`=`GKE_KIND` `--gke-namespace`=`GKE_NAMESPACE` `--gke-workload-create-time`=`GKE_WORKLOAD_CREATE_TIME` `--gke-workload-name`=`GKE_WORKLOAD_NAME` | `--slurm-cluster-name`=`SLURM_CLUSTER_NAME` `--slurm-job-id`=`SLURM_JOB_ID` `--slurm-job-name`=`SLURM_JOB_NAME` `--slurm-job-submit-time`=`SLURM_JOB_SUBMIT_TIME`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a machine learning run. 
 EXAMPLES
      To create the new machine learning run, run: 
     
     
-    gcloud alpha mldiagnostics machine-learning-run create gcloud-cli-run-id-01 --orchestrator gke --run-group group-gcloud-cli --tools xprof --gcs-path gs://diagon-prod-data-bucket --display-name gcloud-cli-run --gke-cluster-name projects/PROJECT_ID/locations/us-central1/clusters/mldiag-prod-gke-cluster projects/PROJECT_ID/locations/us-central1/clusters/mldiag-prod-gke-cluster --gke-namespace diagon --gke-workload-name mldiag-prod-demo-jobset --gke-kind JobSet --gke-workload-create-time 2026-02-20T06:00:00Z --labels "created_by"="cli" --run-phase ACTIVE
+    gcloud alpha mldiagnostics machine-learning-run create gcloud-cli-run-id-01 --orchestrator gke --run-group group-gcloud-cli --tools xprof --gcs-path gs://diagon-prod-data-bucket --display-name gcloud-cli-run --gke-cluster-name projects/PROJECT_ID/locations/us-central1/clusters/mldiag-prod-gke-cluster projects/PROJECT_ID/locations/us-central1/clusters/mldiag-prod-gke-cluster --gke-namespace diagon --gke-workload-name mldiag-prod-demo-jobset --gke-kind JobSet --gke-workload-create-time 2026-02-20T06:00:00Z --labels "created_by"="cli" --run-phase ACTIVE --auto-capture-enabled --auto-capture-default-duration 10s --auto-capture-type snapshot-over-on-demand --auto-capture-host-tracer-level host-tracer-level-info --auto-capture-device-tracer-level device-tracer-level-enabled --auto-capture-python-tracer-level python-tracer-level-disabled --auto-capture-max-session-count-per-event 5
     
     
     Sample output:
@@ -174,6 +174,51 @@ To enable XProf without a specific session ID: `--tools=xprof` To enable XProf w
     
     --tools=path_to_file.(yaml|json)
 
+Configuration for auto-capturing profiler sessions upon degradation events. 
+`--auto-capture-default-duration`=`AUTO_CAPTURE_DEFAULT_DURATION`
+     Default duration for on-demand profiler session during auto-capture. If not set, value of 10 seconds will be used by backend. 
+`--auto-capture-default-profiler-targets`=[`AUTO_CAPTURE_DEFAULT_PROFILER_TARGETS`,…]
+     Targets actively being profiled. This will be used only if targets are not specified during capture request. If not set, all targets will be profiled. Format: projects/{project}/locations/{location}/machineLearningRuns/{machine_learning_run}/profilerTargets/{profiler_target} 
+`--auto-capture-device-tracer-level`=`AUTO_CAPTURE_DEVICE_TRACER_LEVEL`
+     The device tracer level for the profiler session activity. `AUTO_CAPTURE_DEVICE_TRACER_LEVEL` must be one of: 
+
+`device-tracer-level-disabled`
+     Tracer level is disabled. 
+`device-tracer-level-enabled`
+     Tracer level is enabled. 
+`--auto-capture-enabled`
+     Enable auto-capture for the Machine Learning Run. Defaults to false if not set. 
+`--auto-capture-host-tracer-level`=`AUTO_CAPTURE_HOST_TRACER_LEVEL`
+     The host tracer level for the profiler session activity. `AUTO_CAPTURE_HOST_TRACER_LEVEL` must be one of: 
+
+`host-tracer-level-critical`
+     Tracer level is critical. 
+`host-tracer-level-disabled`
+     Tracer level is disabled. 
+`host-tracer-level-info`
+     Tracer level is info. 
+`host-tracer-level-verbose`
+     Tracer level is verbose. 
+`--auto-capture-max-session-count-per-event`=`AUTO_CAPTURE_MAX_SESSION_COUNT_PER_EVENT`
+     Max number of profiler sessions per monitored event. If not set, max of 500 sessions are allowed. 
+`--auto-capture-python-tracer-level`=`AUTO_CAPTURE_PYTHON_TRACER_LEVEL`
+     The python tracer level for the profiler session activity. `AUTO_CAPTURE_PYTHON_TRACER_LEVEL` must be one of: 
+
+`python-tracer-level-disabled`
+     Tracer level is disabled. 
+`python-tracer-level-enabled`
+     Tracer level is enabled. 
+`--auto-capture-type`=`AUTO_CAPTURE_TYPE`
+     Capture type for profiler session. `AUTO_CAPTURE_TYPE` must be one of: 
+
+`on-demand-over-snapshot`
+     Capture on-demand, if not possible then try to capture snapshot. 
+`only-on-demand`
+     Capture only on-demand session. 
+`only-snapshot`
+     Capture only snapshot. 
+`snapshot-over-on-demand`
+     Capture snapshot first, if not possible then try to capture on-demand. 
 Configuration for a Machine Learning run. 
 `--configs-hardware`=[`CONFIGS_HARDWARE`,…]
      Hardware configs. 
@@ -297,6 +342,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

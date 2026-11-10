@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-monitoring/
 title: Monitor BigQuery reservations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:06.780581+00:00
+fetched_at: 2026-11-10T12:13:30.837928+00:00
 ---
 
 # Monitor BigQuery reservations  |  Google Cloud Documentation
@@ -93,13 +93,84 @@ To view your capacity-based bill in real time, follow these steps:
 
 **Note:** BigQuery annual and three-year commitments are priced by months. Your bill doesn't change due to variability in the month length. If your slot usage remains unchanged, the rate remains the same every month.
 
-## Reservation cost attribution
+## Attribute compute costs to individual projects
 
-This feature lets you attribute reservation fees back to the specific query usage across any projects that used the reservation. This results in more accurate net costs for each project basis.
+By default, in BigQuery editions capacity-based pricing, all compute charges are billed to the central administration project that manages reservations and capacity commitments.
 
-All [BigQuery Reservations API](https://docs.cloud.google.com/bigquery/docs/reservations-commitments#enabling-reservations-api) customers have an **"Analysis Slots Attribution"** line item in their Cloud Billing data. This line item is included on the **Billing** page and in the Cloud Billing export.
+To help you estimate project-level budgets and perform internal chargebacks, BigQuery provides two ways to track resource consumption across the individual query projects that use the reservation:
 
-This line item shows slot hours used per project. It incurs no cost and doesn't affect your invoice totals.
+  * **Informational slot attribution (default):** an informational line item in your billing report that shows the slot hours used per project. Actual compute charges remain billed to the administration project.
+  * **Billed cost attribution (Preview):** an opt-in feature that shifts the actual billed compute charges from the administration project directly to the individual query projects based on their slot usage.
+
+
+
+### Informational slot attribution
+
+By default, the query projects where SQL jobs execute show `$0` for compute spend. However, all [BigQuery Reservations API](https://docs.cloud.google.com/bigquery/docs/reservations-commitments#enabling-reservations-api) customers have an **Analysis Slots Attribution** line item in their Cloud Billing data. This line item is included on the **Billing** page and in the Cloud Billing export.
+
+This line item shows the slot hours used per project. It incurs no cost and doesn't affect your invoice totals.
+
+### Billed cost attribution
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+**Note:** For support during the preview, contact [bigquery-wlm-feedback@google.com](mailto:bigquery-wlm-feedback@google.com?subject=Cost%20Attribution%20Preview).
+
+Billed compute cost attribution shifts the actual compute charges from the administration project directly to the individual query projects (also known as _consumption projects_) based on the slot hours consumed by queries. You can use billed compute cost attribution to do the following:
+
+  * **Track project-level costs:** view project-level consumption directly within Cloud Billing reports and data exports (`BigQuery` service > `All SKUs`).
+  * **Perform internal chargebacks:** process internal chargebacks across departments and teams without building custom data engineering pipelines.
+  * **Attribute autoscaler usage:** attribute autoscaler charges to the specific projects proportionally based on their autoscaler slots consumption.
+
+
+
+#### Required IAM roles
+
+To get the permission that you need to enable compute cost attribution, ask your administrator to grant you the [BigQuery Administrator ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.admin) (`roles/bigquery.admin`) IAM role on the administration project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+This predefined role contains the `bigquery.reservations.update` permission, which is required to enable compute cost attribution. 
+
+You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+#### Enable compute cost attribution
+
+To enable compute cost attribution across your query projects, run the [`ALTER PROJECT SET OPTIONS`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_project_set_options) data definition language (DDL) statement with the `reservation_attribution_mode` option.
+
+  1. In the Google Cloud console, go to the **BigQuery** page.
+
+[Go to BigQuery](https://console.cloud.google.com/bigquery)
+
+  2. In the query editor, enter the following statement:
+         
+         ALTER PROJECT `ADMIN_PROJECT_ID`
+         SET OPTIONS (
+           `region-LOCATION.reservation_attribution_mode` = 'RESERVATION_ATTRIBUTION_MODE_PROJECT_LEVEL'
+         );
+         
+
+Replace the following:
+
+     * `ADMIN_PROJECT_ID`: the project ID of your administration project.
+     * `LOCATION`: the location of your reservation.
+  3. Click play_circle **Run**.
+
+
+
+
+After you enable compute cost attribution, shifts in cost allocation begin appearing in individual query projects on the next billing day (billing days start at 00:00 in the `America/Los_Angeles` time zone). The changes are also reflected in daily Cloud Billing reports within approximately one day.
+
+#### Attribution rules and behavior
+
+When compute cost attribution is active, cost distribution follows these rules:
+
+  * **Autoscaler allocation:** autoscaler slot charges are attributed strictly to the query projects that triggered and consumed autoscaled capacity during that window. Projects running queries that consume only idle slots or baseline commitment slots accrue `$0` in autoscaler charges.
+  * **Administration project retention:** unused baseline capacity, unassigned capacity commitments, and unused autoscaler slots (from 50-slot scaling increments and the one-minute cool-down window) charges remain attributed to the administration project.
+  * **Single billing account requirement:** compute cost attribution requires both the administration project and the query projects to belong to the exact same Cloud Billing account. If a query project is linked to a separate billing account, its compute costs are not moved across billing accounts and remain in the administration project.
+  * **Storage costs:** storage costs continue to be billed directly to the individual projects where the datasets reside.
+
+
 
 ## Audit logs
 
@@ -188,7 +259,7 @@ The following script checks the slot usage covered by commitments for a particul
     10:00:00, 2023-06-01 11:00:00), then during that window the total slot seconds
     will be 100 * 3600.
     
-    This script calculates a specific window (based on the variables defined above),
+    This script calculates a specific window (based on the preceding variables),
     which is why the following script includes script_start_timestamp_unix_millis
     and script_end_timestamp_unix_millis. */
     
@@ -435,7 +506,7 @@ The following script checks the slot usage not covered by commitments for a part
     This script has several parts:
     1. Calculate the baseline and scaled slots for reservations
     2. Calculate the committed slots
-    3. Join the two results above to calculate the baseline not covered by committed
+    3. Join the two preceding results to calculate the baseline not covered by committed
        slots
     4. Aggregate the number
     */
@@ -467,7 +538,7 @@ The following script checks the slot usage not covered by commitments for a part
     10:00:00, 2023-06-01 11:00:00), then during that window the total slot seconds
     will be 100 * 3600.
     
-    This script calculates a specific window (based on the variables defined above),
+    This script calculates a specific window (based on the preceding variables),
     which is why the following script includes script_start_timestamp_unix_millis
     and script_end_timestamp_unix_millis. */
     
@@ -596,7 +667,7 @@ The following script checks the slot usage not covered by commitments for a part
           AND change_timestamp <= end_time
       ),
     
-      -- Convert the above to running total
+      -- Convert the preceding data to a running total
       /*
       +---------------------+-------------------------+----------------+
       |  change_timestamp   | autoscale_current_slots | baseline_slots |
@@ -769,7 +840,7 @@ The following script checks the slot usage not covered by commitments for a part
       ),
     
       /*
-      Join the preceding tables, so that we will know the number for baseline not covered by commitments.
+      Join the preceding data to determine the baseline not covered by commitments.
       +---------------------+-----------------------+-------------------------+------------------------------------+
       |  change_timestamp   | next_change_timestamp | autoscale_current_slots | baseline_not_covered_by_commitment |
       +---------------------+-----------------------+-------------------------+------------------------------------+
@@ -892,6 +963,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

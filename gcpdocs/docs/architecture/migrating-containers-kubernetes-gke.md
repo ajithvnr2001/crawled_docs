@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrating-containers-kubernetes-gke/
 title: Migrate containers to Google Cloud: Migrate from Kubernetes to GKE \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:20.408499+00:00
+fetched_at: 2026-11-10T16:58:18.485187+00:00
 ---
 
 # Migrate containers to Google Cloud: Migrate from Kubernetes to GKE  |  Cloud Architecture Center  |  Google Cloud Documentation

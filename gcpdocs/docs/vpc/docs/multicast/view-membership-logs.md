@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs/
 title: View multicast group membership event logs \u00a0|\u00a0 Cloud Multicast \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:12.169956+00:00
+fetched_at: 2026-11-10T18:38:26.940744+00:00
 ---
 
 # View multicast group membership event logs  |  Cloud Multicast  |  Google Cloud Documentation
@@ -255,8 +255,8 @@ For more information about configuring logging when creating a new multicast gro
 
 You can configure membership event logging on both of the following resources:
 
-  * **Multicast group range:** The logging configuration of a global group range applies to all activations of the group range.
-  * **Multicast group range activation:** The logging configuration of a zonal group range activation overrides the global group range configuration.
+  * **Multicast group range:** The logging configuration of a global group range applies to all zonal activations of the group range where logging isn't explicitly enabled or disabled.
+  * **Multicast group range activation:** The logging configuration of a zonal group range activation overrides the global group range configuration. If logging isn't set on the zonal activation, then the activation inherits the global group range setting.
 
 
 
@@ -289,10 +289,10 @@ To perform this task, you must have been granted the following permissions _or_ 
 Replace the following:
 
     * `GROUP_RANGE_NAME`: the name of the multicast group range
-    * `--[no-]enable-logging`: determines whether membership event logging is enabled. 
+    * `--[no-]enable-logging`: determines whether membership event logging is enabled for the group range. 
       * To enable logging, use `--enable-logging`.
       * To disable logging, use `--no-enable-logging`.
-  * To enable or disable logging for a multicast group range activation, use the [`network-services multicast-group-range-activations update` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-services/multicast-group-range-activations/update).
+  * To override the global logging setting for a specific zone, use the [`network-services multicast-group-range-activations update` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-services/multicast-group-range-activations/update).
         
         gcloud network-services multicast-group-range-activations update GROUP_RANGE_ACTIVATION_NAME \
             --location=ZONE \
@@ -303,9 +303,9 @@ Replace the following:
 
     * `GROUP_RANGE_ACTIVATION_NAME`: the name of the multicast group range activation
     * `ZONE`: the zone of the multicast group range activation
-    * `--[no-]enable-logging`: determines whether membership event logging is enabled. 
-      * To enable logging, use `--enable-logging`.
-      * To disable logging, use `--no-enable-logging`.
+    * `--[no-]enable-logging`: determines whether membership event logging is enabled in this zone, overriding the global group range setting. 
+      * To enable logging in this zone, use `--enable-logging`.
+      * To disable logging in this zone, use `--no-enable-logging`.
 
 
 
@@ -323,10 +323,10 @@ Replace the following:
 
     * `PROJECT_ID`: The ID of the project
     * `GROUP_RANGE_NAME`: the name of the multicast group range
-    * `LOGGING_ENABLED`: specifies whether membership event logging is enabled. 
+    * `LOGGING_ENABLED`: specifies whether membership event logging is enabled for the group range. 
       * To enable logging, set to `true`.
       * To disable logging, set to `false`.
-  * To enable or disable logging for a multicast group range activation, use the [`multicastGroupRangeActivations.patch` method](https://docs.cloud.google.com/vpc/docs/multicast/reference/rest/v1/projects.locations.multicastGroupRangeActivations/patch).
+  * To override the global logging setting for a specific zone, use the [`multicastGroupRangeActivations.patch` method](https://docs.cloud.google.com/vpc/docs/multicast/reference/rest/v1/projects.locations.multicastGroupRangeActivations/patch).
         
         PATCH https://networkservices.googleapis.com/v1/projects/PROJECT_ID/locations/ZONE/multicastGroupRangeActivations/GROUP_RANGE_ACTIVATION_NAME?updateMask=logConfig
         {
@@ -339,9 +339,9 @@ Replace the following:
     * `PROJECT_ID`: The ID of the project
     * `GROUP_RANGE_ACTIVATION_NAME`: the name of the multicast group range activation
     * `ZONE`: the zone of the multicast group range activation
-    * `LOGGING_ENABLED`: specifies whether membership event logging is enabled. 
-      * To enable logging, set to `true`.
-      * To disable logging, set to `false`.
+    * `LOGGING_ENABLED`: specifies whether membership event logging is enabled in this zone, overriding the global group range setting. 
+      * To enable logging in this zone, set to `true`.
+      * To disable logging in this zone, set to `false`.
 
 
 
@@ -441,6 +441,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

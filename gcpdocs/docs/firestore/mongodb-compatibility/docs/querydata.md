@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/querydata/
 title: Query databases in natural language with QueryData \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:12.602257+00:00
+fetched_at: 2026-11-10T14:04:39.404586+00:00
 ---
 
 # Query databases in natural language with QueryData  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ QueryData lets you interact with the data in your Firestore with MongoDB compati
 
 ## Context sets
 
-A context set is a collection of database-specific information that enables QueryData to generate queries with high accuracy. 
+A context set is a collection of database-specific information that enables QueryData to generate queries with high accuracy. A context set includes templates, facets, and value searches that help QueryData understand your database schema and the business logic of your applications.
 
 To learn more, see:
 
@@ -46,7 +46,7 @@ QueryData writes queries for your database using context sets, translating natur
 To learn more, see :
 
   * [QueryData overview](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/data-agent-overview)
-  * [Test QueryData in Firestore](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/inspect-data-agent)
+  * [Test QueryData in Firestore Studio](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/inspect-data-agent)
   * [Integrate QueryData with an application](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/integrate-applications-data-agent)
 
 
@@ -55,6 +55,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

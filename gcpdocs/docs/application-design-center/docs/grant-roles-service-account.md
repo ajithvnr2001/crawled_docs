@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/grant-roles-service-account/
 title: Grant roles to your service account \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:27:35.453181+00:00
+fetched_at: 2026-11-10T18:39:18.520415+00:00
 ---
 
 # Grant roles to your service account  |  Application Design Center  |  Google Cloud Documentation
@@ -23,12 +23,12 @@ Send feedback
 
 When you [preview and deploy applications](https://docs.cloud.google.com/application-design-center/docs/deploy-applications), you can use an existing [service account](https://docs.cloud.google.com/iam/docs/service-account-overview), or Application Design Center can automatically create a service account.
 
-To deploy using your own service account, you must grant the necessary Identity and Access Management roles and permissions. This document shows you how to grant roles and configure your service account, including the following:
+To deploy applications using your own service account, you must grant the necessary Identity and Access Management roles and permissions, including the following:
 
   * Add IAM policy bindings to the service account and user account.
   * Grant the service account the [roles](https://docs.cloud.google.com/iam/docs/understanding-roles) required to deploy each resource.
   * Add permissions to the service account to deploy outside of the project where the service account was created.
-  * Update your organization policies to allow service accounts to be used across projects.
+  * Update your organization policies to let you create a service account in one project and use it to deploy resources in another project.
 
 
 
@@ -134,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

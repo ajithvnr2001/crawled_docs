@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationsubtasks-list/
 title: List all migration subtasks for a workflow \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:22.341095+00:00
+fetched_at: 2026-11-10T10:42:04.740905+00:00
 ---
 
 # List all migration subtasks for a workflow  |  BigQuery  |  Google Cloud Documentation
@@ -135,9 +135,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     from google.api_core.exceptions import NotFound
-    from google.cloud import [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest)
+    from google.cloud import bigquery_migration_v2
     
-    client = [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest).[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
+    client = bigquery_migration_v2.[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
     
     
     def list_migration_subtasks(project_id: str, location: str, workflow_id: str) -> None:

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/modernization/
 title: Managed control plane modernization \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:47:14.793989+00:00
+fetched_at: 2026-11-10T11:44:47.556005+00:00
 ---
 
 # Managed control plane modernization  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -265,9 +265,10 @@ During active modernization of a cluster, both control plane implementations are
   3. Manual Workload Restarts for Non-Deployments (Customer Action Required). 
 
      * Google automatically restarts workloads managed by Kubernetes Deployments. Workloads managed by other types of Kubernetes resources, such as StatefulSets and DaemonSets, must be restarted manually.
-     * Restart these workloads after the cluster status reports `MODERNIZATION_COMPLETED` (that is, when the cluster is in the soaking period).
-     * You must restart these workloads before the fleet's modernization is finalized, otherwise those proxies remain connected to the legacy Istiod control plane that is scheduled for deprovisioning.
-     * Restart workloads using standard Kubernetes approaches, such as `kubectl rollout restart ...`
+     * After `Deployment` workloads have been restarted, if any workloads in the cluster still have Cloud Service Mesh proxies connected to `ISTIOD`, then the cluster reports `MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART` alongside `MODERNIZATION_MIGRATING_WORKLOADS`.
+     * Restart remaining workloads manually, so that their proxies connect to the `TRAFFIC_DIRECTOR` control plane implementation. Google waits at least 60 days for you to restart all workloads, before proceeding to subsequent clusters (in a multi-cluster fleet) or starting the fleet soak period.
+     * To check which proxies are still connected to `ISTIOD`, run the `gcloud beta container fleet mesh debug proxy-status` command, as described in [View control plane status](https://docs.cloud.google.com/service-mesh/docs/troubleshooting/troubleshoot-intro#view_control_plane_status). Proxies with an Istiod instance ID in the `ISTIOD` column of the command output still connect to `ISTIOD` and require a manual restart.
+     * After all mesh workloads in the cluster connect to `TRAFFIC_DIRECTOR`, `MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART` clears automatically, and the cluster status transitions to `MODERNIZATION_COMPLETED`.
   4. Once all workloads in a cluster are transitioned, the cluster waits for the fleet soak period.
 
 
@@ -315,6 +316,7 @@ Each cluster would then go through the statuses:
   * `MODERNIZATION_PREPARING`
   * `MODERNIZATION_PREPARED`
   * `MODERNIZATION_MIGRATING_WORKLOADS`
+  * (optionally) `MODERNIZATION_MIGRATING_WORKLOADS` with `MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART`
   * `MODERNIZATION_COMPLETED`
 
 
@@ -375,6 +377,7 @@ Condition | Description
 `MODERNIZATION_PREPARING` | Enabling the new control plane implementation.  
 `MODERNIZATION_PREPARED` | The new control plane implementation is enabled. Workload migration has not started yet.  
 `MODERNIZATION_MIGRATING_WORKLOADS` | The cluster is actively migrating workloads to the new control plane implementation.  
+`MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART` | Automated workload migration is complete. Restart non-`Deployment` mesh workloads, such as StatefulSets, DaemonSets, or Jobs, so that their proxies connect to the `TRAFFIC_DIRECTOR` control plane implementation.  
 `MODERNIZATION_COMPLETED` | The cluster has completed modernization and is in the soaking period.  
 `MODERNIZATION_STALLED` | Modernization is stalled due to an error (Customer-Triggered only). See condition details for resolution.  
 `MODERNIZATION_ROLLING_BACK_CLUSTER` | The cluster is actively being rolled back.  
@@ -384,6 +387,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

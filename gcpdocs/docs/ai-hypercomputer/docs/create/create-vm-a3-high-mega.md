@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a3-high-mega/
 title: Create an AI-optimized instance with A3 High or A3 Mega \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:02.983779+00:00
+fetched_at: 2026-11-10T17:33:08.065140+00:00
 ---
 
 # Create an AI-optimized instance with A3 High or A3 Mega  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -758,6 +758,15 @@ Based on the zonal requirements for your workload, specify one of the following 
 
      * `TERMINATION_ACTION`: whether Compute Engine stops (`STOP`) or deletes (`DELETE`) the VM at the end of its run duration.
 
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must include the `--discard-local-ssds-at-termination-timestamp=true` flag in the command. This configuration is required for Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, include the following flag:
+           
+           --discard-local-ssds-at-termination-timestamp=true
+           
+
+Otherwise, you must omit this flag; setting this flag to `false` isn't allowed.
+
   2. Optional: To use a compact placement policy, add the following flag:
          
          --resource-policies=POLICY_NAME
@@ -1088,6 +1097,15 @@ Based on the zonal requirements for your workload, specify one of the following 
 
      * `TERMINATION_ACTION`: whether Compute Engine stops (`STOP`) or deletes (`DELETE`) the VM at the end of its run duration.
 
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must include the `--discard-local-ssds-at-termination-timestamp=true` flag in the command. This configuration is required for Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, include the following flag:
+           
+           --discard-local-ssds-at-termination-timestamp=true
+           
+
+Otherwise, you must omit this flag; setting this flag to `false` isn't allowed.
+
   2. Optional: To use a compact placement policy, add the following flag:
          
          --resource-policies=POLICY_NAME
@@ -1206,57 +1224,57 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
+        },
       "reservationAffinity": {
         "consumeReservationType": "SPECIFIC_RESERVATION",
         "key": "compute.googleapis.com/reservation-name",
@@ -1348,57 +1366,57 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
+        },
       "scheduling": {
         "provisioningModel": "STANDARD",
         "onHostMaintenance": "TERMINATE",
@@ -1496,57 +1514,57 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
+        },
       "scheduling": {
         "provisioningModel": "STANDARD",
         "onHostMaintenance": "TERMINATE",
@@ -1628,67 +1646,69 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
-          },
-      "scheduling": {
-        "provisioningModel": "FLEX_START",
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
+        },
+      "params": {
         "requestValidForDuration": {
           "seconds": REQUEST_VALID_FOR_DURATION
-        },
+        }
+      },
+      "scheduling": {
+        "provisioningModel": "FLEX_START",
         "maxRunDuration": {
           "seconds": MAX_RUN_DURATION
         },
         "instanceTerminationAction": "TERMINATION_ACTION",
-        "onHostMaintenance": "TERMINATE",
+        "onHostMaintenance": "TERMINATE"
       }
     }
     
@@ -1717,6 +1737,25 @@ Based on the zonal requirements for your workload, specify one of the following 
      * `MAX_RUN_DURATION`: the duration you want the requested VMs to run. You must format the value as the number of seconds. For example, specify `86400` for 86,400 seconds (24 hours). The value must be between 10 minutes and seven days.
 
      * `TERMINATION_ACTION`: whether Compute Engine stops (`STOP`) or deletes (`DELETE`) the VM at the end of its run duration.
+
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must update the request body to also set the `scheduling.onInstanceStopAction.discardLocalSsd` field to `true`. This configuration is required whenever you create Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, replace the `scheduling` section of the request body with the following:
+           
+           "scheduling": {
+             "onInstanceStopAction": {
+               "discardLocalSsd": true
+             },
+             "provisioningModel": "FLEX_START",
+             "instanceTerminationAction": "STOP",
+             "maxRunDuration": {
+               "seconds": MAX_RUN_DURATION
+             },
+             "onHostMaintenance": "TERMINATE"
+           }
+           
+
+Otherwise, you must omit this field; setting this field to `false` isn't allowed.
 
   2. Optional: If you chose to use a compact placement policy, then add the following field to the request body:
          
@@ -1764,57 +1803,57 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-5",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-5"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-6",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-6"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-7",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-7"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-8",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-8"
+        },
       "scheduling":
       {
         "provisioningModel": "SPOT",
@@ -1912,37 +1951,37 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
       "reservationAffinity": {
         "consumeReservationType": "SPECIFIC_RESERVATION",
         "key": "compute.googleapis.com/reservation-name",
@@ -2034,37 +2073,37 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
       "scheduling": {
         "provisioningModel": "STANDARD",
         "onHostMaintenance": "TERMINATE",
@@ -2162,37 +2201,37 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
       "scheduling": {
         "provisioningModel": "STANDARD",
         "onHostMaintenance": "TERMINATE",
@@ -2274,47 +2313,49 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
-      "scheduling": {
-        "provisioningModel": "FLEX_START",
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
+      "params": {
         "requestValidForDuration": {
           "seconds": REQUEST_VALID_FOR_DURATION
-        },
+        }
+      },
+      "scheduling": {
+        "provisioningModel": "FLEX_START",
         "maxRunDuration": {
           "seconds": MAX_RUN_DURATION
         },
         "instanceTerminationAction": "TERMINATION_ACTION",
-        "onHostMaintenance": "TERMINATE",
+        "onHostMaintenance": "TERMINATE"
       }
     }
     
@@ -2343,6 +2384,25 @@ Based on the zonal requirements for your workload, specify one of the following 
      * `MAX_RUN_DURATION`: the duration you want the requested VMs to run. You must format the value as the number of seconds. For example, specify `86400` for 86,400 seconds (24 hours). The value must be between 10 minutes and seven days.
 
      * `TERMINATION_ACTION`: whether Compute Engine stops (`STOP`) or deletes (`DELETE`) the VM at the end of its run duration.
+
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must update the request body to also set the `scheduling.onInstanceStopAction.discardLocalSsd` field to `true`. This configuration is required whenever you create Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, replace the `scheduling` section of the request body with the following:
+           
+           "scheduling": {
+             "onInstanceStopAction": {
+               "discardLocalSsd": true
+             },
+             "provisioningModel": "FLEX_START",
+             "instanceTerminationAction": "STOP",
+             "maxRunDuration": {
+               "seconds": MAX_RUN_DURATION
+             },
+             "onHostMaintenance": "TERMINATE"
+           }
+           
+
+Otherwise, you must omit this field; setting this field to `false` isn't allowed.
 
   2. Optional: If you chose to use a compact placement policy, then add the following field to the request body:
          
@@ -2390,37 +2450,37 @@ Before you submit the request, review all of the following steps to determine wh
         }
       ],
       "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "name": "external-nat",
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ],
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
-          },
-          {
-            "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
-            "nicType": "GVNIC",
-            "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
-          },
+        {
+          "accessConfigs": [
+            {
+              "name": "external-nat",
+              "type": "ONE_TO_ONE_NAT"
+            }
+          ],
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-0",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-0"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-1",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-1"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-2",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-2"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-3",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-3"
+        },
+        {
+          "network": "projects/NETWORK_PROJECT_ID/global/networks/GVNIC_NAME_PREFIX-net-4",
+          "nicType": "GVNIC",
+          "subnetwork": "projects/NETWORK_PROJECT_ID/region/REGION/subnetworks/GVNIC_NAME_PREFIX-sub-4"
+        },
       "scheduling":
       {
         "provisioningModel": "SPOT",
@@ -2486,6 +2546,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

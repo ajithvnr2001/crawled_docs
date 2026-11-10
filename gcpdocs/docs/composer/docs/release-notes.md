@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/release-notes/
 title: Managed Service for Apache Airflow release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:53.057127+00:00
+fetched_at: 2026-11-10T18:38:32.833634+00:00
 ---
 
 # Managed Service for Apache Airflow release notes  |  Google Cloud Documentation
@@ -36,6 +36,80 @@ You can also:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/composer-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Announcement
+
+A new Managed Service for Apache Airflow release has started on **November 06, 2026**. Get ready for upcoming changes and features as we roll out the new release to all regions. This release is in progress at the moment. Listed changes and features might not be available in some regions yet.
+
+Feature
+
+_(Available without upgrading)_ Managed Airflow now supports [setting Custom Organization Policy constraints](https://docs.cloud.google.com/composer/docs/composer-3/create-custom-constraints) on Airflow configuration overrides and web server network access controls.
+
+You can define policies on the following fields of the `composer.googleapis.com/Environment` resource:
+
+  * `resource.config.softwareConfig.airflowConfigOverrides`
+  * `resource.config.webServerNetworkAccessControl.allowedIpRanges.description`
+  * `resource.config.webServerNetworkAccessControl.allowedIpRanges.value`
+
+
+
+Feature
+
+[Upgrade rollbacks](https://docs.cloud.google.com/composer/docs/composer-3/upgrade-environments#rollback) are available in Managed Airflow (Gen 3). You can roll back an environment upgrade if you encounter degraded performance, Airflow bugs, or compatibility issues with your DAGs, plugins, or dependencies.
+
+This feature is now available in all regions supported by Managed Airflow. The feature was announced previously and has finished gradually rolling out.
+
+Feature
+
+[Database retention](https://docs.cloud.google.com/composer/docs/composer-3/configure-db-retention) in Managed Airflow (Gen 3) now includes new Airflow 3 metadata tables, and updated retention logs to report the exact number of removed rows.
+
+This feature is now available in all regions supported by Managed Airflow. The feature was announced previously and has finished gradually rolling out.
+
+Fixed
+
+Startup failure logs for Airflow workloads in Managed Airflow (Gen 3) now include entries for KubernetesPodOperator and KubernetesExecutor workloads. This update extends the [previous change](https://docs.cloud.google.com/composer/docs/release-notes?e=48754805#October_13_2026).
+
+The fix will gradually roll out to all Managed Airflow Gen 3 environments. You can upgrade your environment to receive this update immediately.
+
+Fixed
+
+Fixed an issue where DAG file processor crashes caused the `composer.googleapis.com/environment/dag_processing/parse_error_count` metric to stop returning data.
+
+Fixed
+
+_(Available without upgrading)_ Fixed an issue where DAG details (description, schedule, and start date) were missing, and task listings failed. This issue occurred in environments where the `[core]compress_serialized_dags` Airflow configuration option was set to `True`.
+
+Fixed
+
+Fixed an issue where saving and loading snapshots failed in Managed Airflow (Gen 3) environments that had a large number of custom PyPI packages installed.
+
+Change
+
+The `apache-airflow-providers-cncf-kubernetes` package was [upgraded to version 10.25.0](https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/changelog.html). For changes in other packages, see the [preinstalled packages changelog](https://cloud.google.com/composer/docs/versions-packages).
+
+Change
+
+New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3) are available in Managed Airflow (Gen 3):
+
+  * [composer-3-airflow-3.3.1-build.6](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-6)
+  * [composer-3-airflow-3.2.2-build.10](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-10)
+  * [composer-3-airflow-2.11.1-build.23](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-23) (default)
+
+
+
+Change
+
+New [images](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2) are available in Managed Airflow (Gen 2):
+
+  * [composer-2.17.17-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-17-airflow-2-11-1) (default)
+
+
+
+Deprecated
+
+The following Managed Airflow versions and builds have reached their [end of support period](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-deprecation-and-support): composer-3-airflow-2.9.3-build.39, composer-3-airflow-2.9.3-build.38, composer-3-airflow-2.9.3-build.37, composer-3-airflow-2.10.5-build.19, composer-3-airflow-2.10.5-build.18, composer-3-airflow-2.10.5-build.17, composer-2.15.3-airflow-2.9.3, composer-2.15.3-airflow-2.10.5, composer-2.15.2-airflow-2.9.3, composer-2.15.2-airflow-2.10.5, composer-2.15.1-airflow-2.9.3, composer-2.15.1-airflow-2.10.5, composer-2.15.0-airflow-2.9.3, composer-2.15.0-airflow-2.10.5.
 
 ## October 30, 2026
 
@@ -9875,6 +9949,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

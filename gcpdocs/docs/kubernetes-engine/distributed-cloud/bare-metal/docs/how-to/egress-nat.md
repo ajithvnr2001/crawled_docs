@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/egress-nat/
 title: Configure an egress NAT gateway \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:22.385661+00:00
+fetched_at: 2026-11-10T16:59:49.946079+00:00
 ---
 
 # Configure an egress NAT gateway  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ If your nodes run Ubuntu 18.04, the Linux kernel must be version 5.4 or higher. 
 
 The Network Gateway Group custom resource is a bundled component of Google Distributed Cloud. The resource manages a list of one or more floating IP addresses to use for egress traffic from Nodes in your cluster. Participating Nodes are determined by the specified namespace. The Network Gateway Group makes a floating IP address available at all times on a best-effort basis. If a Node using a floating IP address goes down, the advanced network operator moves the assigned IP address to the next available Node. All workload egress traffic using that IP address will move as well.
 
-Include the Network Gateway Group details (annotation and spec) in the cluster configuration file when you create a new 1.36.200-gke.118 cluster.
+Include the Network Gateway Group details (annotation and spec) in the cluster configuration file when you create a new 1.36.100-gke.144 cluster.
 
 ### Create the `NetworkGatewayGroup` custom resource
 
@@ -407,6 +407,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

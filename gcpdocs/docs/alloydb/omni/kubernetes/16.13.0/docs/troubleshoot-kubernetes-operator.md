@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/troubleshoot-kubernetes-operator/
 title: Troubleshoot the AlloyDB Omni Kubernetes operator \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:44:14.631312+00:00
+fetched_at: 2026-11-10T18:26:38.436730+00:00
 ---
 
 # Troubleshoot the AlloyDB Omni Kubernetes operator  |  AlloyDB Omni using the container orchestrator: 16.13.0  |  Google Cloud Documentation
@@ -357,6 +357,202 @@ Replace `DB_POD_NAME` with the name of the downstream database Pod from the prev
 
 
 
+### Database cluster continually triggers automatic failovers
+
+If your `DBCluster` resource creates multiple automatic failovers one after another, complete the following checks:
+
+  1. List the `Failover` resources for your `DBCluster` and compare their creation timestamps:
+         
+         kubectl get failover.alloydbomni.dbadmin.goog \
+             --selector failover.dbadmin.goog/dbcluster=DB_CLUSTER_NAME \
+             --namespace DB_CLUSTER_NAMESPACE
+         
+
+Replace the following:
+
+     * `DB_CLUSTER_NAME`: the name of your `DBCluster` resource.
+     * `DB_CLUSTER_NAMESPACE`: the namespace of your `DBCluster` resource.
+  2. Connect to the primary database Pod on the `alloydbadmin` database and verify the database health:
+         
+         SELECT * FROM healthcheck;
+         
+
+Verify that the last health check timestamp is recent and that health checks run at expected intervals. If the primary instance is unhealthy, inspect the `postgresql.log` file to determine why the instance is failing. For more information about fetching logs, see [Troubleshoot the AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/troubleshoot-kubernetes-operator#fetch-postgresql-log).
+
+
+
+
+If you use a large number of database clusters in a single Kubernetes cluster, or if you have database clusters that are underprovisioned, automatic failover health checks might time out or fail to connect. If you receive an error that starts with `HealthCheckProber: health check for instance failed`, see the recommended fixes in [Troubleshoot instance healing](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-ha#troubleshoot-instance-healing). To reduce or prevent automatic failovers, you can also perform the following actions:
+
+  * Increase the `autoFailoverTriggerThreshold` value so that automatic failover occurs less frequently. For more information, see [Adjust automatic failover trigger settings](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-ha#adjust-failover-trigger-settings).
+
+  * Disable automatic failover on database clusters. For more information, see [Disable automatic failover](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-ha#disable-failover).
+
+
+
+
+### Database cluster remains stuck in a failover or switchover state
+
+During a high availability (HA) failover or switchover, the AlloyDB Omni operator fences the former primary instance during the `StopPrimary` phase by renaming the `PG_VERSION` files to `PG_VERSION.disabled` in both the root data directory at `/pgdata/db/PG_VERSION.disabled` and every database subdirectory at `/pgdata/db/base/OID/PG_VERSION.disabled`. If the failover or switchover fails before the standby instance is promoted and automatic rollback doesn't occur or fails, the former primary instance remains fenced and the `DBCluster` resource remains stuck in an in-progress or failed rollback phase.
+
+#### Affected versions
+
+AlloyDB Omni operator 1.0.0 and later.
+
+#### Symptoms
+
+When this issue occurs, you might observe the following symptoms:
+
+  * The `status.phase` field of the `DBCluster` resource remains in `DBClusterFailoverInProgress`, `DBClusterSwitchoverInProgress`, `DBClusterFailoverRollbackFailed`, or `DBClusterSwitchoverRollbackFailed`.
+  * The `HAReady` condition on the `DBCluster` resource has `status: "False"` with the `FailoverInProgress` or `SwitchoverInProgress` reason.
+  * The `Failover` (`failovers.alloydbomni.dbadmin.goog`) or `Switchover` (`switchovers.alloydbomni.dbadmin.goog`) resource is in the `Failed` or `Failed_RollbackFailed` state.
+  * The `status.internal.phase` field of the `Failover` or `Switchover` resource remains in a phase before `PromoteStandby`, such as `StopPrimary`, or remains in the `PromoteStandby` phase for an hour or more without promoting the standby instance.
+  * The primary database Pod fails to start PostgreSQL and logs an error indicating that the `PG_VERSION` file is missing because `PG_VERSION` was renamed to `PG_VERSION.disabled` in `/pgdata/db/PG_VERSION.disabled` and `/pgdata/db/base/OID/PG_VERSION.disabled`.
+  * If a previous manual recovery restored only the top-level `/pgdata/db/PG_VERSION` file while leaving `PG_VERSION.disabled` files in the `/pgdata/db/base/OID/` subdirectories, subsequent `pg_basebackup` operations on standby instances fail with the following error in the PostgreSQL logs on the primary instance:
+        
+        XX000:ERROR: [basebackup.c:1549] invalid segment number 0 in file "PG_VERSION.disabled"
+        
+
+
+
+
+#### Workaround
+
+**Warning:** This procedure rolls back the database cluster to the former primary instance. Only perform this procedure if the standby instance hasn't been promoted and is either stopped or still in read-only recovery mode. If the failover or switchover has already progressed past the `PromoteStandby` phase and promoted the standby instance, rolling back to the former primary instance can cause data loss. Instead, restore the database cluster from a backup.
+
+To manually unfence the former primary instance and recover the `DBCluster` resource, complete the following steps:
+
+  1. Inspect the external and internal `Failover` or `Switchover` resources in your database cluster namespace to check their phase and identify the former primary (`oldPrimary`) and target standby (`newPrimary`) instances:
+         
+         kubectl get failovers.alloydbomni.dbadmin.goog,switchovers.alloydbomni.dbadmin.goog,failovers.alloydbomni.internal.dbadmin.goog,instanceswitchovers.alloydbomni.internal.dbadmin.goog \
+             --namespace DB_CLUSTER_NAMESPACE \
+             -o yaml
+         
+
+Replace `DB_CLUSTER_NAMESPACE` with the namespace of your `DBCluster` resource.
+
+Confirm that `status.internal.phase` hasn't progressed past `PromoteStandby`. If the standby database Pod is running, verify that PostgreSQL on the standby instance is still in read-only recovery mode:
+         
+         kubectl exec -c database STANDBY_POD_NAME \
+             --namespace DB_CLUSTER_NAMESPACE -- \
+             psql -U alloydbadmin -d alloydbadmin -c "SELECT pg_is_in_recovery();"
+         
+
+Replace `STANDBY_POD_NAME` with the name of the standby database Pod, formatted as `al-STANDBY_INSTANCE_NAME-0`, where `STANDBY_INSTANCE_NAME` is the value of `status.internal.newPrimary`.
+
+Confirm that the query returns `t` (true), or that the standby database Pod is stopped. After you confirm that the standby instance hasn't been promoted, delete the standby `Instance` resource to prevent it from being promoted during recovery:
+         
+         kubectl delete instances.alloydbomni.internal.dbadmin.goog STANDBY_INSTANCE_NAME \
+             --namespace DB_CLUSTER_NAMESPACE
+         
+
+Replace `STANDBY_INSTANCE_NAME` with the name of the standby `Instance` resource from the `status.internal.newPrimary` field.
+
+  2. Check the `/pgdata/db` data directory on the primary database Pod for `PG_VERSION` and `PG_VERSION.disabled` files:
+         
+         kubectl exec -c database PRIMARY_POD_NAME \
+             --namespace DB_CLUSTER_NAMESPACE -- \
+             find /pgdata/db -type f -name "PG_VERSION*"
+         
+
+Replace `PRIMARY_POD_NAME` with the name of the primary database Pod, formatted as `al-PRIMARY_INSTANCE_NAME-0`, where `PRIMARY_INSTANCE_NAME` is the value of `status.internal.oldPrimary`.
+
+If neither `PG_VERSION` nor `PG_VERSION.disabled` exists in `/pgdata/db`, the database data directory isn't recoverable and must be restored from a backup.
+
+If `PG_VERSION.disabled` files exist, restore `PG_VERSION` across both the root data directory at `/pgdata/db/PG_VERSION.disabled` and every database subdirectory at `/pgdata/db/base/OID/PG_VERSION.disabled`. The following command renames each `PG_VERSION.disabled` file back to `PG_VERSION`, or removes the `PG_VERSION.disabled` file if the corresponding `PG_VERSION` file was already restored:
+         
+         kubectl exec -c database PRIMARY_POD_NAME \
+             --namespace DB_CLUSTER_NAMESPACE -- \
+             sh -c 'find /pgdata/db -type f -name "PG_VERSION.disabled" | while read -r f; do
+               target="${f%.disabled}"
+               if [ -f "$target" ]; then rm -f "$f"; else mv "$f" "$target"; fi
+             done'
+         
+
+  3. Restart the PostgreSQL service inside the primary database Pod:
+         
+         kubectl exec -c database PRIMARY_POD_NAME \
+             --namespace DB_CLUSTER_NAMESPACE -- \
+             /scripts/supervisor/bin/supervisorctl.par \
+             -c /scripts/supervisor/etc/supervisord.conf restart postgres
+         
+
+  4. Clear the failed failover or switchover state by using one of the following options:
+
+     * **Option 1: Delete the`Failover` or `Switchover` resources and restart the operator controllers.** Delete both the external and internal `Failover` resources, and restart the `fleet-controller-manager` and `local-controller-manager` deployments in the `alloydb-omni-system` namespace to release in-memory locks:
+           
+           kubectl delete failovers.alloydbomni.dbadmin.goog FAILOVER_NAME \
+               --namespace DB_CLUSTER_NAMESPACE
+           kubectl delete failovers.alloydbomni.internal.dbadmin.goog INTERNAL_FAILOVER_NAME \
+               --namespace DB_CLUSTER_NAMESPACE
+           kubectl rollout restart deployment/fleet-controller-manager deployment/local-controller-manager \
+               --namespace alloydb-omni-system
+           
+
+Replace the following:
+
+       * `FAILOVER_NAME`: the name of the `failovers.alloydbomni.dbadmin.goog` resource.
+       * `INTERNAL_FAILOVER_NAME`: the name of the `failovers.alloydbomni.internal.dbadmin.goog` resource.
+
+If a switchover is stuck instead of a failover, delete the `switchovers.alloydbomni.dbadmin.goog` and `instanceswitchovers.alloydbomni.internal.dbadmin.goog` resources instead.
+
+     * **Option 2: Mark the`Failover` resources as rolled back.** This option applies only to stuck `Failover` resources. If a `Switchover` resource is stuck, use Option 1 instead. Edit the `status` subresource on both the `failovers.alloydbomni.dbadmin.goog` and `failovers.alloydbomni.internal.dbadmin.goog` resources:
+           
+           kubectl edit failovers.alloydbomni.dbadmin.goog FAILOVER_NAME \
+               --namespace DB_CLUSTER_NAMESPACE \
+               --subresource=status
+           kubectl edit failovers.alloydbomni.internal.dbadmin.goog INTERNAL_FAILOVER_NAME \
+               --namespace DB_CLUSTER_NAMESPACE \
+               --subresource=status
+           
+
+In the `status` section of each `Failover` resource, set `endTime` to a timestamp after `createTime`, set `internal.phase` to `RollbackSucceeded`, and set `state` to `Failed`, as shown in the following example:
+           
+           apiVersion: alloydbomni.dbadmin.goog/v1
+           kind: Failover
+           status:
+             createTime: "2026-09-01T22:07:42Z"
+             endTime: "2026-09-01T22:07:50Z"
+             internal:
+               attempt: 0
+               lastPhaseChangeTime: "2026-09-01T22:07:39Z"
+               newPrimary: 4274-dbcluster-sample
+               newPrimaryZone: ""
+               oldPrimary: dafd-dbcluster-sample
+               phase: RollbackSucceeded
+             observedGeneration: 2
+             reconciled: true
+             startTime: "2026-09-01T22:07:39Z"
+             state: Failed
+           
+
+  5. Update the `status` subresource of the `DBCluster` resource to clear `latestFailoverStatus` and set `phase` to `DBClusterReconciling`:
+         
+         kubectl patch dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME \
+             --namespace DB_CLUSTER_NAMESPACE \
+             --subresource=status \
+             --type=merge \
+             --patch '{"status":{"latestFailoverStatus":null,"phase":"DBClusterReconciling"}}'
+         
+
+Replace `DB_CLUSTER_NAME` with the name of your `DBCluster` resource.
+
+If the `HAReady` condition in `status.conditions` still prevents reconciliation because its `reason` field is set to `FailoverInProgress` or `SwitchoverInProgress`, edit the `status` subresource of the `DBCluster` resource and either remove the `HAReady` condition entry from `status.conditions` so the AlloyDB Omni operator recreates it during reconciliation, or set its `reason` field to a valid non-empty `CamelCase` value such as `ClusterReady`:
+         
+         kubectl edit dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME \
+             --namespace DB_CLUSTER_NAMESPACE \
+             --subresource=status
+         
+
+  6. Verify that the AlloyDB Omni operator reconciles the standby instance and returns the `DBCluster` resource to the `DBClusterReady` phase:
+         
+         kubectl get dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME \
+             --namespace DB_CLUSTER_NAMESPACE
+         
+
+
+
+
 ## Debug memory issues
 
 These sections describe how to debug memory issues.
@@ -667,6 +863,8 @@ If an instance has not reconciled recently, you can edit the `forceReconcile` an
         forceReconcile: "1730414498"
     
 
+If a `DBCluster` resource remains stuck in `DBClusterFailoverInProgress`, `DBClusterSwitchoverInProgress`, `DBClusterFailoverRollbackFailed`, or `DBClusterSwitchoverRollbackFailed` because the primary instance is fenced with `PG_VERSION.disabled` files, see Database cluster remains stuck in a failover or switchover state.
+
 ## Collect database engine and audit logs
 
 The database engine logs and audit logs are available as files inside the database pod (requiring root access):
@@ -720,6 +918,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/monitor-reports/event-codes/
 title: Event IDs and resolutions for appliance-managed backups \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:14:21.651028+00:00
+fetched_at: 2026-11-10T17:34:12.968922+00:00
 ---
 
 # Event IDs and resolutions for appliance-managed backups  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -152,6 +152,16 @@ If this alert repeats daily but the appliance does not reach the maximum VDisks,
   * Delete mounts, clones, and live-clones if they are not needed.
 
   
+10053 | Operation Failed! Appliance 'appliance_name' is busy. Please try again after some time. | This issue occurs when an operation cannot be completed because the appliance is busy processing other tasks, or when database advisory lock contention occurs on the management server during simultaneous operations (such as centralized host credential updates across a multi-appliance fleet while active backup jobs or background management-server-to-appliance state synchronization tasks are running).  
+  
+To resolve this issue, do the following:  
+  
+
+
+  * Wait a few minutes for running jobs or background synchronization tasks to complete, and retry the operation during a low-activity window.
+  * If lock contention persists during centralized host credential updates across a multi-appliance fleet, [contact Support](https://docs.cloud.google.com/backup-disaster-recovery/docs/support) for per-appliance assistance.
+
+  
 10055 | Unable to check remote protection | Each backup/recovery appliance checks the remote appliance hourly for possible remote protection issues. The appliance communication fails due to the following issues:  
   
 
@@ -278,6 +288,18 @@ This alert is created to help you take action to prevent ESX datastores from fil
 43973 | udppm started Successfully | This is is an internal event and can be ignored.  
 43999 | Warning: VM is running on a host that is running an outdated version of ESXi , which is not supported by Google. Please upgrade it to a supported version (>=) to ensure the best results. | Upgrade the VM to a supported version (>=) to ensure the best results.  
 44003 | Succeeded `Job_xx-xx-xx` for application `application ID` on host `host`, sltname: `template`, slpname: `profile`. | This is is a successful status event and can be ignored.  
+52003 | Unable to discover the devices (data volume or log volume) attached to the Compute Engine Instance, please validate if the host is onboarded as Compute Engine. | This issue occurs during Persistent Disk snapshot backups (such as SAP HANA or database backups on Compute Engine) when the backup/recovery appliance can't discover the attached data or log volumes, or can't communicate with the Backup and DR agent (`udsagent`) on the guest host because the service is stopped or in a failed state.  
+  
+To resolve this issue, do the following:  
+  
+
+
+  1. On the target Linux host, check the status of the `udsagent` service by running `sudo systemctl status udsagent`. If the service is stopped or in a failed state, restart it by running `sudo systemctl restart udsagent`. For more information, see [Check Backup and DR agent status](https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/linux-agent#agent-status) and [Restart the Backup and DR agent on a Linux host](https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/linux-agent#agent-restart).
+  2. Confirm that TCP port 5106 is open for bidirectional communication between the backup/recovery appliance and the target host.
+  3. Confirm that the host is onboarded as a Compute Engine instance in the appliance management console and that the database data and log volumes reside on dedicated Persistent Disk volumes.
+  4. Retry the backup job.
+
+  
 62001 | Streamsnapd daemon started successfully | This is is an internal event and can be ignored.  
 90003 | A new update (version X) is available for Backup Appliance | A new update is available. Update your backup/recovery appliances as soon as possible.  
 90004 | New update is scheduled to be auto-installed on Backup Appliance | No action needed as this is informative message that new update is scheduled to be auto-installed on Backup Appliance, No reboot is required for this update.  
@@ -293,6 +315,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

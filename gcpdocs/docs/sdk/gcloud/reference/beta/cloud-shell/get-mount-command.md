@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/cloud-shell/get-mount-command/
 title: gcloud beta cloud-shell get-mount-command \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:20:03.342688+00:00
+fetched_at: 2026-11-10T18:39:32.450717+00:00
 ---
 
 # gcloud beta cloud-shell get-mount-command  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -30,7 +30,9 @@ SYNOPSIS
 
 `gcloud beta cloud-shell get-mount-command` `MOUNT_DIR` [`--force-key-file-overwrite`] [`--ssh-key-file`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` `gcloud beta cloud-shell get-mount-command` starts your Cloud Shell if it is not already running, then prints out a command that allows you to mount the Cloud Shell home directory onto your local file system using `sshfs`. You must install and run sshfs yourself. 
+     `(BETA)` `(DEPRECATED)` `[gcloud cloud-shell get-mount-command](https://docs.cloud.google.com/sdk/gcloud/reference/cloud-shell/get-mount-command)` is deprecated and will be removed in a future release. Please use `[gcloud cloud-shell scp](https://docs.cloud.google.com/sdk/gcloud/reference/cloud-shell/scp)` or `[gcloud cloud-shell ssh](https://docs.cloud.google.com/sdk/gcloud/reference/cloud-shell/ssh)` instead. 
+
+`gcloud beta cloud-shell get-mount-command` starts your Cloud Shell if it is not already running, then prints out a command that allows you to mount the Cloud Shell home directory onto your local file system using `sshfs`. You must install and run sshfs yourself. 
 
 After mounting the Cloud Shell home directory, any changes you make under the mount point on your local file system will be reflected in Cloud Shell and vice-versa. 
 
@@ -73,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

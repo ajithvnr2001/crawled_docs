@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/cross-data-center-replication/work-with-cross-data-center-replication/
 title: Work with cross-data-center replication \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:44:39.798012+00:00
+fetched_at: 2026-11-10T16:59:00.847410+00:00
 ---
 
 # Work with cross-data-center replication  |  AlloyDB Omni using the container orchestrator: 16.13.0  |  Google Cloud Documentation
@@ -128,7 +128,7 @@ Sample output looks similar to the following:
            
 
   5. Take a note of the output since you need it to enable replication on the secondary database cluster in the following step.
-  6. [Create an AlloyDB Omni cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/deploy-kubernetes#create) on your Kubernetes cluster in the secondary data center with configuration identical to your primary database cluster.
+  6. [Create an AlloyDB Omni cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/deploy-kubernetes#create) on your Kubernetes cluster in the secondary data center using a configuration that's identical to your primary database cluster.
   7. Ensure external connectivity is enabled on your AlloyDB Omni secondary database cluster
   8. If external connectivity is not enabled, add the following to the spec section of its manifest:
          
@@ -305,6 +305,7 @@ Sample output looks similar to the following:
             kind: Secret
             metadata:
               name: ha-rep-pw-DB_CLUSTER_NAME
+              namespace: DB_CLUSTER_NAMESPACE
             type: Opaque
             data:
               rep-user-pw: "ENCODED_PASSWORD"
@@ -313,6 +314,7 @@ Sample output looks similar to the following:
             kind: Replication
             metadata:
               name: REPLICATION_NAME
+              namespace: DB_CLUSTER_NAMESPACE
             spec:
               dbcluster:
                 name: DB_CLUSTER_NAME
@@ -347,6 +349,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities/
 title: GatewayClass capabilities \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:10.492197+00:00
+fetched_at: 2026-11-10T18:23:28.759982+00:00
 ---
 
 # GatewayClass capabilities  |  GKE networking  |  Google Cloud Documentation
@@ -70,7 +70,7 @@ Resource type |  | ServiceExport |  | ServiceExport | ServiceExport |  | Service
 
 **Feature** | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
 ---|---|---|---|---|---|---|---|---|---  
-Type | [Global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | [Regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | [Internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) | [Classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)  
+Type | [Global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | [Regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb)[Regional external proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp) | [Cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-internal)[Cross-region internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy) | [Internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal)[Regional internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy) | [Classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)  
 [Load balancer scope](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview#global_versus_regional_load_balancing) | Global | Regional | Regional | Regional | Global  
 Container-native load balancing |  (Default, using `GCE_VM_IP_PORT` [zonal NEGs](https://docs.cloud.google.com/load-balancing/docs/negs#zonal-neg))  
   
@@ -104,6 +104,7 @@ Cross-project load balancing | Backend services and NEGs must be in the same pro
 Cross-namespace routing |  |  |  |  |  |  |  |  |   
 Host/Path routing | Prefix, exact match or [regular expression](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) | Prefix or exact match  
 Header-based routing | Exact match or [regular expression](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) | Exact match  
+[SNI-based routing (TLSRoute)](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway) |  |  |  |  |  |  |  |  |   
 [Path redirects](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_path_redirects) |  |  |  |  |  |  |  |  |   
 [URL rewrites](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_url_rewrites) | Prefix match or regular expression |  |   
 [CORS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure-cors) |  |  |  |  |  |  |  |  |   
@@ -125,6 +126,7 @@ Feature | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc`
 [SSL policy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_ssl_policies) |  |  |  |  |  |  |  |  |   
 [HTTP-to-HTTPS redirect](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_http-to-https_redirects) |  |  |  |  |  |  |  |  |   
 Multiple TLS certificates support |  |  |  |  |  |  |  |  |   
+[TLS passthrough](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway) |  |  |  |  |  |  |  |  |   
 Frontend mTLS |  |  |  |  |  |  |  |  |   
 **Backend mTLS** |  |  |  |  |  |  |  |  |   
 [Kubernetes Secrets-based certificates](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#secure-using-secret) |  |  |  |  |  |  |  |  |   
@@ -151,7 +153,7 @@ Feature | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc`
 [Backend service timeout](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_timeout) |  |  |  |  |  |  |  |  |   
 [Custom load balancer health check configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_health_check) |  |  |  |  |  |  |  |  |   
 [Backend TLS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#configure-backend-tls) |  |  |  |  |  |  |  |  |   
-[Supported backend services protocols](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#load-balancer-tls) | HTTP, HTTPS, HTTP/2  
+[Supported backend services protocols](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#load-balancer-tls) | HTTP, HTTPS, HTTP/2 | HTTP, HTTPS, HTTP/2, TCP | HTTP, HTTPS, HTTP/2  
 [Custom default backend](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_the_gateway_default_backend) |  |  |  |  |  |  |  |  |   
   
 ### Additional Google Cloud services
@@ -217,7 +219,7 @@ For more information, see [`spec.listeners`](https://gateway-api.sigs.k8s.io/ref
 
 Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
 ---|---|---|---|---|---|---|---|---|---  
-`protocol` | HTTP, HTTPS  
+`protocol` | HTTP, HTTPS | HTTP, HTTPS, TLS | HTTP, HTTPS  
 `port` | 1-65535  
 `name` |  |  |  |  |  |  |  |  |   
 `hostname` |  |  |  |  |  |  |  |  |   
@@ -230,9 +232,11 @@ For more information, see [`spec.listeners.tls`](https://gateway-api.sigs.k8s.io
 
 Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
 ---|---|---|---|---|---|---|---|---|---  
-`mode` | `Terminate`  
+`mode` | `Terminate` | `Terminate, Passthrough` | `Terminate`  
 `certificateRefs` |  |  |  |  |  |  |  |  |   
   
+In the `spec.listeners.tls.mode` field, the `Terminate` mode is supported only for `HTTPS` listeners, and the `Passthrough` mode is supported only for `TLS` listeners.
+
 #### `spec.listeners.tls.options`
 
 For more information, see [`spec.listeners.tls.options`](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1.GatewayTLSConfig) in the Gateway documentation.
@@ -417,6 +421,44 @@ Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` 
 `urlRewrite.hostname` |  |  |  |  |  |  |  |  |   
 `urlRewrite.path` | `replacePrefixMatch`, `regexModifier` (with `GCPHTTPFilter`) |  |   
   
+### TLSRoute
+
+The following tables list the values of the [TLSRoute API specification](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#tlsroute) that are supported by GKE.
+
+#### `spec.parentRefs`
+
+For more information, see [`spec.parentRefs`](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#tlsroutespec) in the Gateway documentation.
+
+Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
+---|---|---|---|---|---|---|---|---|---  
+`parentRefs.group` |  |  |  |  |  |  |  |  |   
+`parentRefs.kind` |  |  |  |  |  |  |  |  |   
+`parentRefs.namespace` |  |  |  |  |  |  |  |  |   
+`parentRefs.name` |  |  |  |  |  |  |  |  |   
+`parentRefs.sectionName` |  |  |  |  |  |  |  |  |   
+`parentRefs.port` |  |  |  |  |  |  |  |  |   
+  
+#### `spec.hostnames`
+
+For more information, see [`spec.hostnames`](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#tlsroutespec) in the Gateway documentation.
+
+Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
+---|---|---|---|---|---|---|---|---|---  
+`Exact match` |  |  |  |  |  |  |  |  |   
+`Wildcard match (*.example.com)` |  |  |  |  |  |  |  |  |   
+  
+#### `spec.rules`
+
+For more information, see [`spec.rules`](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#tlsroutespec) in the Gateway documentation.
+
+Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
+---|---|---|---|---|---|---|---|---|---  
+`backendRefs.group` |  |  |  |  |  |  |  |  |   
+`backendRefs.kind` |  |  | `Service` | `ServiceImport` | `ServiceImport` | `Service` | `ServiceImport` |  |   
+`backendRefs.name` |  |  |  |  |  |  |  |  |   
+`backendRefs.namespace` |  |  |  |  |  |  |  |  |   
+`backendRefs.port` |  |  |  |  |  |  |  |  |   
+  
 ### ReferenceGrant
 
 The following tables list the values of the [ReferenceGrant API specification](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.ReferenceGrant) that are supported by GKE.
@@ -428,7 +470,7 @@ For more information, see [`spec.from`](https://gateway-api.sigs.k8s.io/referenc
 Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
 ---|---|---|---|---|---|---|---|---|---  
 `group` | `(empty), gateway.networking.k8s.io, net.gke.io`  
-`kind` | `Gateway, HTTPRoute`  
+`kind` | `Gateway, HTTPRoute` | `Gateway, HTTPRoute, TLSRoute` | `Gateway, HTTPRoute`  
 `namespace` |  |  |  |  |  |  |  |  |   
   
 #### `spec.to`
@@ -444,10 +486,10 @@ Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` 
 ## What's next
 
   * Learn how to [deploy Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
+  * Learn how to [deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn more about the [Gateway API](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
   * Learn how to [configure Gateway resources using Policies](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources).
   * Learn how to [secure Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway).
-  * Learn more about [traffic management](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/traffic-management).
 
 
 
@@ -455,6 +497,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-internal-multi-cluster-gateway/
 title: Deploy an internal multi-cluster Gateway \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:15.528720+00:00
+fetched_at: 2026-11-10T18:26:26.295717+00:00
 ---
 
 # Deploy an internal multi-cluster Gateway  |  GKE networking  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
 
-This document guides you through a practical example to deploy an internal multi-cluster Gateway to route traffic within your VPC network to an application that runs in two different GKE clusters.
+This document guides you through a practical example to deploy an internal multi-cluster Gateway to route traffic within your VPC network to an application that runs in two different GKE clusters by using HTTPRoute. To pass encrypted TLS traffic directly to multi-cluster backends by using TLSRoute without terminating TLS at the Gateway, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 Multi-cluster Gateways provide a powerful way to manage traffic for services deployed across multiple GKE clusters. By using Google's global load-balancing infrastructure, you can create a single entry point for your applications, which simplifies management and improves reliability. 
 
@@ -337,7 +337,7 @@ The following list defines some of the fields in the previous YAML file:
          kubectl get gateway internal-cross-region-gateway -n store -o yaml --context gke-west1
          
 
-Look for a condition with `type:`Programmed`and`status: "True"`. You should see IP addresses assigned in the`status.addresses`field, corresponding to the regions you specified (e.g., one for`us-west1`and one for`us-east1`).
+Look for a condition with `type: Programmed` and `status: "True"`. You should see IP addresses assigned in the `status.addresses` field, corresponding to the regions you specified (e.g., one for `us-west1` and one for `us-east1`).
 
   2. Check the HTTPRoute status:
          
@@ -501,6 +501,8 @@ To resolve this issue, [customize your health check](https://docs.cloud.google.c
 
 ## What's next
 
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
+  * Learn how to [Deploy an external multi-cluster Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-external-multi-cluster-gateway).
   * Learn more about the [Gateway controller](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
   * To configure backend authenticated TLS for your multi-cluster Gateway, see [Configure backend TLS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#configure-backend-tls).
 
@@ -510,6 +512,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

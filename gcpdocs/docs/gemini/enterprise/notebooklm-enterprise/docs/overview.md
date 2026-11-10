@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview/
 title: What is Gemini Notebook Enterprise? \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:17.874472+00:00
+fetched_at: 2026-11-10T12:42:48.977374+00:00
 ---
 
 # What is Gemini Notebook Enterprise?  |  Google Cloud Documentation
@@ -68,6 +68,7 @@ Video overviews | 20 per user per day
 Mind maps | 20 per user per day  
 Reports | 20 per user per day  
 Slide decks | 15 per user per day  
+Slide deck edits | 45 per user per day  
 Infographics | 15 per user per day  
 Quizzes | 100 per user per day  
 Flashcards | 100 per user per day  
@@ -132,6 +133,7 @@ Compliance | N/A |
 
   
 Audio sharing | Audio summaries can be shared through a link. Audio summaries are separate from the rest of the notebook. | When users get access to the notebook, they get access to the audio summaries too; audio summaries can't be shared separately.  
+Chat history | See the [NotebookLM Help Center](https://support.google.com/notebooklm). | Not saved. Chat conversations are kept only for the current browser session: refreshing the page, signing in again, or opening the notebook later starts a new chat. To keep an answer, save it to a note.   
   
 ## Separate administrator and user interfaces
 
@@ -158,7 +160,11 @@ Two roles are related to accessing Gemini Notebook Enterprise:
 
 
 
-The remaining three roles are the Cloud NotebookLM Notebook roles (Owner, Editor, and Viewer). Don't assign these roles through the admin interface. These roles get automatically assigned through the user interface, for example, when a user creates a notebook or shares a notebook with another user.
+The remaining three roles are the Cloud NotebookLM Notebook Owner (`roles/discoveryengine.notebookOwner`), Cloud NotebookLM Notebook Editor (`roles/discoveryengine.notebookEditor`), and Cloud NotebookLM Notebook Viewer (`roles/discoveryengine.notebookViewer`) roles. Don't grant these roles through the admin interface. Gemini Notebook Enterprise grants these roles automatically through the user interface when a user creates or shares a notebook.
+
+**Caution:** IAM checks access on each notebook, and notebooks inherit roles granted at the project level. Users with a project-level role that includes the `discoveryengine.notebooks.get` permission can open every notebook in the project, including notebooks that aren't shared with them. These roles include the Viewer (`roles/viewer`), Editor (`roles/editor`), Owner (`roles/owner`), Discovery Engine Admin (`roles/discoveryengine.admin`), and Cloud NotebookLM Admin roles. They also include the Cloud NotebookLM Notebook Owner, Cloud NotebookLM Notebook Editor, and Cloud NotebookLM Notebook Viewer roles when granted at the project level. To keep notebooks private to their owners and collaborators, grant end users only the Cloud NotebookLM User role, and reserve broader project roles for administrators.
+
+Grant the predefined Cloud NotebookLM User role rather than a custom role. Custom roles aren't updated automatically when Gemini Notebook Enterprise adds permissions for new features. Also, omitting required permissions—such as `resourcemanager.projects.get`, `resourcemanager.projects.list`, or `discoveryengine.accounts.create`—prevents users from signing in or loading their projects.
 
 ## About data access, storage, and lifecycle
 
@@ -193,6 +199,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

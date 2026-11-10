@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/snowflake-private-connectivity/
 title: Configure private connectivity for Snowflake transfers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:25:24.095206+00:00
+fetched_at: 2026-11-10T16:50:08.837153+00:00
 ---
 
 # Configure private connectivity for Snowflake transfers  |  BigQuery  |  Google Cloud Documentation
@@ -72,9 +72,15 @@ To create and configure a proxy VM for a Snowflake private transfer, do the foll
      1. Specify a port. For example, `443`.
      2. Forward all incoming TCP traffic to the private hostname and port on the Snowflake instance.
   3. Configure the VMs to resolve the Snowflake private hostname through the DNS configured in the consumer VPC network.
-  4. Set up an internal passthrough load balancer by doing the following: 
-     1. [Group the proxy VMs into a managed instance groups (MIG)](https://docs.cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances).
-     2. [Set up an internal passthrough Network Load Balancer with VM instance group backends](https://docs.cloud.google.com/load-balancing/docs/internal/setting-up-internal).
+
+
+
+## Create internal passthrough load balancer
+
+Set up an [internal passthrough load balancer](https://docs.cloud.google.com/load-balancing/docs/internal) for the control plane by doing the following:
+
+  1. [Group the proxy VMs into a managed instance groups (MIG)](https://docs.cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances).
+  2. [Set up an internal passthrough Network Load Balancer with VM instance group backends](https://docs.cloud.google.com/load-balancing/docs/internal/setting-up-internal).
 
 
 
@@ -110,7 +116,7 @@ Storage Transfer Service requires the `*.blob.core.windows.net` endpoint. The `*
 
 Once created, note the endpoint's IP address. You'll need to specify the IP address when creating your load balancer in the following section.
 
-## Create a network load balancer
+## Create a proxy regional load balancer
 
 In Google Cloud, set up a regional internal proxy Network Load Balancer with hybrid connectivity. This provides an internal IP address that's restricted to clients running in the same VPC network as the load balancer, and that routes traffic to the S3 VPC endpoints or Azure Storage private endpoints that you created in the previous section.
 
@@ -260,6 +266,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

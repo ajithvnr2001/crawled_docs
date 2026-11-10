@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/traffic-management/
 title: Gateway traffic management \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:42:58.024692+00:00
+fetched_at: 2026-11-10T17:01:36.983770+00:00
 ---
 
 # Gateway traffic management  |  GKE networking  |  Google Cloud Documentation
@@ -63,12 +63,13 @@ To learn more about how Cloud Load Balancing handles traffic management, see [gl
 
 ### Traffic management capabilities and Service Extensions
 
-Gateway, HTTPRoute, Service, and Policy resources provide the controls to manage traffic in GKE. The [GKE Gateway controller](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api) is the control plane that monitors these resources.
+Gateway, HTTPRoute, TLSRoute, Service, and Policy resources provide the controls to manage traffic in GKE. The [GKE Gateway controller](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api) is the control plane that monitors these resources.
 
 GKE Gateway Service Extensions customize and extend traffic management in GKE. Extensions inject custom logic for advanced traffic control.
 
 The following traffic management capabilities are available when deploying Services in GKE:
 
+  * **SNI-based routing (TLS passthrough)** : routing encrypted TLS connections directly to backend Services based on the Server Name Indication (SNI) hostname without decrypting the payload at the Gateway
   * **Service capacity** : specifying the amount of traffic capacity that a Service can receive before Pods autoscale or traffic overflows to other available clusters
   * **Traffic-based autoscaling** : autoscaling Pods within a Service based on HTTP requests received per second
   * **Multi-cluster load balancing** : load balancing to Services hosted across multiple GKE clusters or multiple regions
@@ -82,6 +83,41 @@ The following traffic management capabilities are available when deploying Servi
     * Integrating with external services for functions like authorization
 
 **Note:** Support for Service Extensions is in [Preview](https://cloud.google.com/products#product-launch-stages) stage.
+
+### Routing methods: HTTP routing compared to SNI-based routing
+
+GKE Gateway supports two distinct routing methods depending on whether traffic is decrypted at the load balancer or passed through directly to backend workloads: Layer 7 HTTP routing that uses the HTTPRoute resource, and Layer 4 SNI-based routing that uses the TLSRoute resource.
+
+#### HTTP routing with HTTPRoute
+
+HTTP routing operates at Layer 7 by using Application Load Balancers.
+
+When using HTTPRoute, the load balancer inspects the application-layer contents of HTTP and HTTPS requests. For HTTPS traffic, TLS is terminated at the Gateway (by using frontend SSL certificates), allowing the load balancer to evaluate HTTP request attributes such as the following:
+
+  * Request hostnames and URI paths
+  * HTTP headers and query parameters
+  * HTTP methods (for example, `GET` or `POST`)
+
+
+
+Terminating TLS at the Gateway enables advanced Layer 7 traffic management features, including path-based routing, URL rewrites, path redirects, header modifications, weighted traffic splitting across multiple backends, CORS policies, and Cloud CDN caching.
+
+#### SNI-based routing with TLSRoute
+
+SNI-based routing operates at Layer 4 by using proxy Network Load Balancers.
+
+When using TLSRoute resources with a TLS passthrough Gateway (the `tls.mode` field set to `Passthrough`), the load balancer inspects only the unencrypted `ClientHello` message during the initial TLS handshake to read the Server Name Indication (SNI) hostname. The load balancer then proxies the encrypted TCP stream directly to the target backend without terminating or decrypting the TLS session.
+
+Key characteristics of SNI-based routing include the following:
+
+  * **End-to-end encryption** : traffic remains encrypted in transit between the client and the backend Pods. The backend application is responsible for terminating TLS, validating certificates, and decrypting the application payload.
+  * **Hostname matching** : SNI-based routing supports exact hostname matching and wildcard hostname matching (for example, `*.example.com`).
+  * **Layer 4 forwarding** : the Gateway routes encrypted TCP streams based on unencrypted TLS handshake metadata (such as the SNI hostname), and each TLSRoute rule forwards matching traffic to a single backend Service (or ServiceImport for multi-cluster Gateways). Because routing uses TLS metadata rather than decrypted payload data, Layer 7 HTTP features at the Gateway (such as URI path routing, header filtering, and URL rewrites) require HTTP routing with HTTPRoute.
+  * **Supported GatewayClasses** : SNI-based routing is supported on the `gke-l7-regional-external-managed`, `gke-l7-regional-external-managed-mc`, `gke-l7-rilb`, `gke-l7-rilb-mc`, and `gke-l7-cross-regional-internal-managed-mc` GatewayClasses.
+
+
+
+For more information about how to deploy a TLS passthrough Gateway, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 ### Traffic management support
 
@@ -413,7 +449,7 @@ In the diagram, this equation computes to:
 
 ## Traffic splitting
 
-Traffic splitting uses an explicit ratio, called a **weight** , that defines the proportion of HTTP requests that are sent to a Service. HTTPRoute resources let you configure weights on a list of Services. The relative weights between Services define the split of traffic between them. This is useful for splitting traffic during rollouts, canarying changes, or for emergencies.
+Traffic splitting uses an explicit ratio, called a **weight** , that defines the proportion of HTTP requests that are sent to a Service. HTTPRoute resources let you configure weights on a list of Services. The relative weights between Services define the split of traffic between them. This capability is useful for splitting traffic during rollouts, canarying changes, or for emergencies. Traffic splitting is supported for HTTPRoute resources. TLSRoute resources forward traffic to a single backend per rule and don't support weighted splitting.
 
 **Warning:** Weighted traffic splitting takes precedence over session affinity. If you use both features simultaneously, client requests might be routed to different backend Pods based on the weights, even if session affinity is enabled.
 
@@ -482,11 +518,11 @@ To configure session affinity we recommend using GCPTrafficDistributionPolicy, w
 
 ## What's next
 
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn about [deploying Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
   * Read an overview of [Gateway security](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-security).
   * Learn about the [Gateway API](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
   * Learn how to [configure Gateway resources](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources).
-  * Learn about [GatewayClass capabilities](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
 
 
 
@@ -494,6 +530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

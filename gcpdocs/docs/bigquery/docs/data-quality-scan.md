@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-quality-scan/
 title: Scan for data quality issues \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:56.090208+00:00
+fetched_at: 2026-11-10T18:26:47.963407+00:00
 ---
 
 # Scan for data quality issues  |  BigQuery  |  Google Cloud Documentation
@@ -280,9 +280,9 @@ You can view the latest scan results on the **Data quality** tab in the BigQuery
      * **Quality score ( <=)**: sends a report when a job succeeds with a data quality score that is lower than the specified target score. Enter a target quality score between 0 and 100.
      * **Job failures** : sends a report when the job itself fails, regardless of the data quality results.
      * **Job completion (success or failure)** : sends a report when the job ends, regardless of the data quality results.
-  8. Click **Create**.
+  8. To create the scan, click **Create**.
 
-After the scan is created, you can run it at any time by clicking **Run now**.
+If you set the schedule to radio_button_checked **On-demand** , you can also run the scan now by clicking **Run scan**.
 
 
 
@@ -2278,6 +2278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/cud/
 title: Compute flexible committed use discounts \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:08.435359+00:00
+fetched_at: 2026-11-10T18:38:30.570324+00:00
 ---
 
 # Compute flexible committed use discounts  |  Cloud Run  |  Google Cloud Documentation
@@ -44,13 +44,11 @@ After you purchase a commitment, you can't cancel it. For more information, see 
 
 ## Pricing
 
-Flexible CUDs add flexibility to your spending capabilities by eliminating the need to restrict your commitments to a single project or region. Flexible CUDs are applicable to all Cloud Run services, Cloud Run jobs, and Cloud Run worker pools.
+Flexible CUDs add flexibility to your spending capabilities by eliminating the need to restrict your commitments to a single project or region. Flexible CUDs are applicable to all Cloud Run resources.
 
 ### Discount details
 
-When you purchase a flexible commitment for your Cloud Billing account, you commit to a minimum amount of hourly spend on Cloud Run services, worker pools, or jobs for a one-year or three-year term. You do this by committing to spend on resources that are worth a specified minimum amount of the discount price, every hour, throughout the commitment term.
-
-In return for committing to an hourly spend amount, you receive the following discounts for Cloud Run services with instance-based billing, Cloud Run jobs, and Cloud Run worker pools.
+When you purchase a flexible commitment for your Cloud Billing account, you commit to a minimum amount of hourly spend for a one-year or three-year term in return for a discount. You do this by committing to spend on resources that are worth a specified minimum amount of the discount price, every hour, throughout the commitment term.
 
 For all of the flexible CUD discounts, the following [consumption models](https://docs.cloud.google.com/docs/cuds-multiprice#consumption-model-intro) apply: 
 
@@ -59,7 +57,7 @@ For all of the flexible CUD discounts, the following [consumption models](https:
 
 
 
-The following discounts apply for Cloud Run services with instance-based billing, Cloud Run jobs, and Cloud Run worker pools:
+The following discounts apply for Cloud Run services with instance-based billing, jobs, worker pools, and instances:
 
   * **28% discount** : one-year term. For the duration of the term, you get eligible resources at their flexible CUD one-year prices, determined by your consumption model at your committed hourly spend.
 
@@ -68,7 +66,7 @@ The following discounts apply for Cloud Run services with instance-based billing
 
 
 
-The following discounts apply for Cloud Run services with request-based billing:
+The following discounts apply for Cloud Run services with request-based billing. This includes CPU and memory during active time, idle time for [minimum instances](https://docs.cloud.google.com/run/docs/configuring/min-instances), and requests:
 
   * **17% discount** : one-year term. For the duration of the term, you get eligible resources at their flexible CUD one-year prices, determined by your consumption model at your committed hourly spend. Choose this option to ensure that your discount remains for one year.
 
@@ -96,7 +94,7 @@ Your commitment fee remains the same even if the on-demand prices for your resou
 
 ### Calculate hourly commitment
 
-You calculate the baseline per hour cost of Cloud Run services, Cloud Run jobs, or Cloud Run worker pools in the region you want to benefit from a flexible committed use discount. Any usage beyond that limit will be charged at the regular on-demand price.
+Calculate the baseline per hour cost in the region you want to benefit from a flexible committed use discount. Any usage beyond that limit will be charged at the regular on-demand price.
 
 Once you make the commitment, you're charged that amount even if you decide to stop or scale down your Cloud Run usage during the rest of the commitment period.
 
@@ -136,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

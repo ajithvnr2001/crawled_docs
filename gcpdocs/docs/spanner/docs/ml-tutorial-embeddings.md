@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/ml-tutorial-embeddings/
 title: Get Agent Platform text embeddings \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:42:59.290260+00:00
+fetched_at: 2026-11-10T16:58:38.282201+00:00
 ---
 
 # Get Agent Platform text embeddings  |  Spanner  |  Google Cloud Documentation
@@ -145,13 +145,13 @@ To specify [task type](https://docs.cloud.google.com/gemini-enterprise-agent-pla
 
 After generating the embeddings in a read-only transaction, store them in Spanner so they can be managed with your operational data. To store the embeddings, use a [read-write transaction](https://docs.cloud.google.com/spanner/docs/samples/spanner-read-write-transaction).
 
-For workloads that are less performance sensitive, you can generate and insert embeddings with the following SQL in a read-write transaction:
+For workloads that are less performance sensitive, you can generate and insert embeddings with the following SQL in a read-write transaction. Specifying `vector_length` is optional for storing embeddings, [recommended for KNN search](https://docs.cloud.google.com/spanner/docs/vector-search-best-practices#annotate-embedding-column), and required for [vector indexes](https://docs.cloud.google.com/spanner/docs/vector-indexes). Replace `VECTOR_LENGTH` with your model's output dimension, such as `3072` or `768`, or omit `vector_length` if the column stores vectors of varying dimensions:
     
     
     CREATE TABLE Products(
       id INT64 NOT NULL,
       description STRING(MAX),
-      embeddings ARRAY<FLOAT32>,
+      embeddings ARRAY<FLOAT32>(vector_length=>VECTOR_LENGTH),
     ) PRIMARY KEY(id);
     
     
@@ -257,13 +257,13 @@ Replace the following:
 
 After generating the embeddings in a read-only transaction, store them in Spanner so they can be managed with your operational data. To store the embeddings, use a [read-write transaction](https://docs.cloud.google.com/spanner/docs/samples/spanner-read-write-transaction).
 
-For workloads that are less performance sensitive, you can generate and insert embeddings with the following SQL in a read-write transaction:
+For workloads that are less performance sensitive, you can generate and insert embeddings with the following SQL in a read-write transaction. Specifying `VECTOR LENGTH` is optional for storing embeddings, [recommended for KNN search](https://docs.cloud.google.com/spanner/docs/vector-search-best-practices#annotate-embedding-column), and required for [vector indexes](https://docs.cloud.google.com/spanner/docs/vector-indexes). Replace `VECTOR_LENGTH` with your model's output dimension, such as `3072` or `768`, or omit `VECTOR LENGTH` if the column stores vectors of varying dimensions:
     
     
     CREATE TABLE Products (
       id INT8 NOT NULL,
       description TEXT,
-      embeddings REAL[],
+      embeddings REAL[] VECTOR LENGTH VECTOR_LENGTH,
       PRIMARY KEY(id)
     );
     
@@ -345,6 +345,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

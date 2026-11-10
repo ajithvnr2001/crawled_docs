@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/search-agents-and-tools/
 title: Search for agents, tools, and skills \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:38.760782+00:00
+fetched_at: 2026-11-10T15:29:27.025016+00:00
 ---
 
 # Search for agents, tools, and skills  |  Agent Registry  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Search for agents, tools, and skills Stay organized with collections  Save and categorize content based on your preferences. 
 
-Agent Registry lets you search across your registered agents, Agent2Agent (A2A) skills, standalone skills, and Model Context Protocol (MCP) servers by keyword, prefix, or natural language in the Google Cloud console, Google Cloud CLI, or the Agent Registry API. Keyword and prefix searches help you quickly find resources by name, identifier, or metadata. Semantic search finds conceptually related capabilities across natural language instructions and descriptions based on intent.
+Agent Registry lets you search across registered agents, Agent2Agent (A2A) skills, standalone skills, and Model Context Protocol (MCP) servers by keyword, prefix, or natural language. You can run searches in the Google Cloud console, the Google Cloud CLI, or the Agent Registry API. Keyword and prefix searches help you find resources by name, identifier, or metadata. Semantic search finds conceptually related capabilities across natural language instructions and descriptions based on intent.
 
-Search queries evaluate agent, MCP server, and skill capability descriptions, tool schemas, and skill instructions. You can't use search queries to discover endpoints; for instructions on listing and filtering endpoints by metadata, see Discover endpoints and filter components by metadata.
+Search queries evaluate agent, MCP server, and skill capability descriptions, tool schemas, and skill instructions. You can't use search queries to discover endpoints. To list and filter endpoints by metadata, see Discover endpoints and filter components by metadata.
 
 ## Before you begin
 
@@ -52,14 +52,32 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Search for agents and tools
 
-To discover capabilities within your registry, you can search for registered agents and MCP servers in the Google Cloud console, gcloud CLI, or the REST API.
+To discover capabilities in your registry, you can search for registered agents and MCP servers in the Google Cloud console, gcloud CLI, or the Agent Registry API.
 
-When you search for agents or MCP servers, you can query by display name, description, or capability keywords:
+Depending on the component type, you can search by the following fields:
 
-  * **Agents** : search queries check the agent's display name, description, [agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers), and the names, descriptions, and tags of inline [A2A skills](https://docs.cloud.google.com/agent-registry/skills-architecture#standalone-vs-a2a) declared in its Agent Card to find a match.
-  * **MCP servers** : search queries check the server's display name, description, [MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers), and the names and descriptions of its tools to find a match.
+  * **Agents** : search by the agent's name, description, or [agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers). You can also search by the names, descriptions, tags, and example prompts of the inline [A2A skills](https://docs.cloud.google.com/agent-registry/skills-architecture#standalone-vs-a2a) in the agent's [Agent Card](https://docs.cloud.google.com/agent-registry/a2a-protocol).
+  * **MCP servers** : search by the server's name, description, or [MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers). You can also search by the names and descriptions of the MCP server's tools.
 
 
+
+To find built-in Google agents, Google and Google Cloud remote MCP servers, or project-scoped components by source prefix, see Find components by source prefix. To find by protocol type or inspect an agent's full Agent Card JSON file, filter by metadata.
+
+### Search fields
+
+When you search by keyword, Agent Registry checks all indexed fields on the agentic component's [discovery resource](https://docs.cloud.google.com/agent-registry/data-model#service-resources), including inline A2A skills on agents and tool names and descriptions on MCP servers. To narrow your search to a specific field, use the `:` operator, for example, `skills.tags:incident`:
+
+Field filter | Agentic component | Prefix search supported | Description  
+---|---|---|---  
+`displayName` | Agents and MCP servers | Yes | Display name of the agent or MCP server.  
+`name` | Agents and MCP servers | Yes |  [Resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) of the agent or MCP server.   
+`agentId` | Agents | Yes |  [Agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers) URN (also supports exact matches with `=`).   
+`mcpServerId` | MCP servers | No |  [MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers) URN (also supports exact matches with `=`).   
+`description` | Agents | No | Description of the agent.  
+`skills` | Agents | No | Searches across all inline A2A skill fields extracted from the Agent Card.  
+`skills.id`, `skills.name`, `skills.description`, `skills.tags`, `skills.examples` | Agents | No | Targets a specific inline A2A skill field extracted from the Agent Card.  
+  
+Custom fields inside the Agent Card and transport `protocols` aren't indexed for search. Instead, you can inspect that information by using filters for metadata when you list or describe agents. For more information, see Discover endpoints and filter components by metadata.
 
 ### Search by keywords
 
@@ -84,25 +102,34 @@ The **Search results** table displays matching agents, MCP servers, and standalo
 
 ###  gcloud 
 
-Provide the `--search-string` flag to the [`gcloud agent-registry agents search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/agents/search) or [`gcloud agent-registry mcp-servers search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/mcp-servers/search) command.
+Provide the `--search-string` flag to the [`gcloud agent-registry agents search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/agents/search) or [`gcloud agent-registry mcp-servers search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/mcp-servers/search) command, for example:
 
-For example, search for an agent that can handle flight bookings:
-    
-    
-    gcloud agent-registry agents search \
-        --project=PROJECT_ID \
-        --location=REGION \
-        --search-string="flight OR booking"
-    
+  * Search for an agent that can handle flight bookings:
+        
+        gcloud agent-registry agents search \
+            --project=PROJECT_ID \
+            --location=REGION \
+            --search-string="flight OR booking"
+        
 
-Search for an MCP server that provides database tools:
-    
-    
-    gcloud agent-registry mcp-servers search \
-        --project=PROJECT_ID \
-        --location=REGION \
-        --search-string="database"
-    
+  * Search for an agent by its A2A skill tags or example prompts:
+        
+        gcloud agent-registry agents search \
+            --project=PROJECT_ID \
+            --location=REGION \
+            --search-string='skills.tags:incident OR skills.examples:"rollout"'
+        
+
+  * Search for an MCP server that provides database tools:
+        
+        gcloud agent-registry mcp-servers search \
+            --project=PROJECT_ID \
+            --location=REGION \
+            --search-string="database"
+        
+
+
+
 
 Replace the following:
 
@@ -196,13 +223,99 @@ Replace the following:
 
 
 
+### Find components by source prefix
+
+Every agent and MCP server includes a source prefix in its [registry identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers):
+
+  * **Built-in Google agents and Google and Google Cloud remote MCP servers** : use `urn:agent:googleapis.com:` or `urn:mcp:googleapis.com:`.
+  * **Project-scoped components** : use `urn:agent:projects-` or `urn:mcp:projects-`, followed by the project number, for example, `urn:agent:projects-PROJECT_NUMBER:`.
+
+
+
+For example, you can search by these source prefixes to find only built-in Google agents, all project-scoped agents, or agents from a specific project:
+
+###  gcloud 
+
+Include a source prefix in the `--search-string` flag of the [`gcloud agent-registry agents search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/agents/search) command. Use the `agentId` field to search by agent identifier:
+
+  * **Built-in Google agents** : include the `urn:agent:googleapis.com:*` prefix:
+        
+        gcloud agent-registry agents search \
+            --project=PROJECT_ID \
+            --location=REGION \
+            --search-string='agentId:"urn:agent:googleapis.com:*"'
+        
+
+  * **Project-scoped agents** : use `urn:agent:projects-*` to match all project-scoped agents, or `urn:agent:projects-PROJECT_NUMBER:*` to target a specific project:
+
+    * Search for all project-scoped agents:
+          
+          gcloud agent-registry agents search \
+              --project=PROJECT_ID \
+              --location=REGION \
+              --search-string='agentId:"urn:agent:projects-*"'
+          
+
+    * Search for agents in a specific project:
+          
+          gcloud agent-registry agents search \
+              --project=PROJECT_ID \
+              --location=REGION \
+              --search-string='agentId:"urn:agent:projects-PROJECT_NUMBER:*"'
+          
+
+
+
+
+Replace the following:
+
+  * `PROJECT_ID`: the project ID.
+  * `REGION`: the registry location, such as a region like `us-central1`, a multi-region like `us` or `eu`, or `global`.
+  * `PROJECT_NUMBER`: the project number for a specific project's agents.
+
+
+
+###  REST 
+
+Send a `POST` request to the [`agents:search`](https://docs.cloud.google.com/agent-registry/reference/rest/v1/projects.locations.agents/search) endpoint with an `agentId` prefix in `searchString`:
+
+  * **Built-in Google agents** : include the `urn:agent:googleapis.com:*` prefix:
+        
+        curl -X POST \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Content-Type: application/json" \
+            -d '{"searchString": "agentId:\"urn:agent:googleapis.com:*\""}' \
+            "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/agents:search"
+        
+
+  * **Project-scoped agents** : use `urn:agent:projects-*` to match all project-scoped agents, or `urn:agent:projects-PROJECT_NUMBER:*` to target a specific project:
+        
+        curl -X POST \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Content-Type: application/json" \
+            -d '{"searchString": "agentId:\"urn:agent:projects-*\""}' \
+            "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/agents:search"
+        
+
+
+
+
+Replace the following:
+
+  * `PROJECT_ID`: the project ID.
+  * `REGION`: the registry location, such as a region like `us-central1`, a multi-region like `us` or `eu`, or `global`.
+
+
+
+You can also [filter registered agents](https://docs.cloud.google.com/agent-registry/manage-agents#filter-agents) and [filter registered MCP servers](https://docs.cloud.google.com/agent-registry/manage-mcp-tools#filter-servers) by source prefix when listing them in a specific project.
+
 ### Search across a management boundary
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can search for agents and MCP servers in a location across all member projects in that boundary from your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project):
+If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can search for all agents and MCP servers in a location across all member projects in that boundary from your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project):
     
     
     gcloud agent-registry agents search \
@@ -211,19 +324,29 @@ If you configured a [management boundary](https://docs.cloud.google.com/agent-re
         --search-string="analytics"
     
 
+To narrow search results on the management project to agents in a specific member project, filter by that member project's number using the [agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers) in the `--search-string` flag:
+    
+    
+    gcloud agent-registry agents search \
+        --project=MANAGEMENT_PROJECT_ID \
+        --location=LOCATION \
+        --search-string='agentId:"urn:agent:projects-MEMBER_PROJECT_NUMBER:*"'
+    
+
 Replace the following:
 
-  * `MANAGEMENT_PROJECT_ID`: the ID of your management project.
+  * `MANAGEMENT_PROJECT_ID`: the ID of your management project. To search exclusively within a single member project without cross-project rollup, specify that member project's ID in the `--project` flag instead.
   * `LOCATION`: the [location](https://docs.cloud.google.com/agent-registry/locations) to search across the management boundary, such as a region like `us-central1`, a multi-region like `us` or `eu`, or `global`. Agent Registry aggregates resources in that same location across the management project and all member projects in the boundary.
+  * `MEMBER_PROJECT_NUMBER`: the project number of the member project.
 
 
 
-To narrow results on the management project to a specific member project, pass the `--filter` flag set to `"project_id=MEMBER_PROJECT_ID"`. To search exclusively within a single member project without cross-project rollup, specify that member project's ID in the `--project` flag instead.
+You can filter MCP servers by member project using the [MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers) when listing MCP servers. For more information, see [Filter registered MCP servers](https://docs.cloud.google.com/agent-registry/manage-mcp-tools#filter-servers).
 
 When you search from the management project:
 
   * **Aggregated auto-discovered resources** : Agent Registry searches across auto-discovered agents and MCP servers in the specified location from all member projects in the management boundary, alongside any registered `Service` resources created in that location in the management project.
-  * **Request-scoped resource names** : in search results, each returned `Agent` or `McpServer` resource's `name` field preserves the component's ID and uses the project specified in the request URL.
+  * **Request-scoped resource names** : in search results, each [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) of a returned agent or MCP server uses the project specified in the request URL, and preserves the ID that Agent Registry assigned when the component was registered. The [registry identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) retains the member project.
   * **Project-scoped registered resources** : manually registered `Service` resources and `Binding` resources created in a member project remain scoped to that member project and don't appear in management project search results. To make them visible across the management boundary, create them in the management project.
 
 
@@ -370,12 +493,29 @@ Replace the following:
 
 Google-managed skills are discoverable from any project. For a list of available Google-managed skills, see the [`google/skills` repository](https://github.com/google/skills/tree/main) on GitHub.
 
+To search for skills from a verified Google-managed [publisher](https://docs.cloud.google.com/agent-registry/review-publishers), filter on the `publisher` field:
+    
+    
+    gcloud agent-registry skills search \
+        --project=PROJECT_ID \
+        --location=REGION \
+        --query="publisher:cloud.google.com" \
+        --search-type=keyword
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the project ID.
+  * `REGION`: the registry location, such as a region like `us-central1`, a multi-region like `us` or `eu`, or `global`.
+
+
+
 ## Discover endpoints and filter components by metadata
 
-You can also discover any component in Agent Registry, including registered [endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints), by listing its collection and filtering on structured metadata fields:
+You can also discover any component in Agent Registry, including registered [endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints), by listing the corresponding collection and filtering on structured metadata fields:
 
-  * **Discover endpoints** : because `Endpoint` resources don't support `:search` queries, you discover them by browsing the **Endpoints** tab in the Google Cloud console, running `gcloud agent-registry endpoints list --filter`, or calling the [`endpoints.list`](https://docs.cloud.google.com/agent-registry/reference/rest/v1/projects.locations.endpoints/list) REST method. For complete instructions, see [Manage and discover endpoints](https://docs.cloud.google.com/agent-registry/manage-endpoints#discover-endpoints).
-  * **Filter agents, MCP servers, and skills** : when you know a component's [registry identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) (URN), display name, or attribute, filter the collection in the Google Cloud console or pass `--filter` to `gcloud agent-registry agents list`, `gcloud agent-registry mcp-servers list`, or `gcloud agent-registry skills list`. For details, see [Manage agents](https://docs.cloud.google.com/agent-registry/manage-agents), [Manage MCP servers and tools](https://docs.cloud.google.com/agent-registry/manage-mcp-tools), and [Manage skills](https://docs.cloud.google.com/agent-registry/manage-skills).
+  * **Discover endpoints** : because `Endpoint` resources don't support search queries, you discover them by browsing the **Endpoints** tab in the Google Cloud console, running `gcloud agent-registry endpoints list --filter`, or calling the [`endpoints.list`](https://docs.cloud.google.com/agent-registry/reference/rest/v1/projects.locations.endpoints/list) REST method. For complete instructions, see [Manage and discover endpoints](https://docs.cloud.google.com/agent-registry/manage-endpoints#discover-endpoints).
+  * **Filter agents, MCP servers, and skills** : when you know a component's [registry identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) (URN), display name, protocol type, or attribute, you can filter the list in the Google Cloud console or include the `--filter` flag in `gcloud agent-registry agents list`, `gcloud agent-registry mcp-servers list`, or `gcloud agent-registry skills list` commands. For example, include `--filter='protocols.type="A2A_AGENT"'` to the `gcloud agent-registry agents list` command to show only A2A agents, and run `gcloud agent-registry agents describe` to view an agent's full Agent Card and `protocols` endpoints. For details, see [Manage agents](https://docs.cloud.google.com/agent-registry/manage-agents), [Manage MCP servers and tools](https://docs.cloud.google.com/agent-registry/manage-mcp-tools), and [Manage skills](https://docs.cloud.google.com/agent-registry/manage-skills).
 
 
 
@@ -383,6 +523,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

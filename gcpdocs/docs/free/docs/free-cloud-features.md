@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/free/docs/free-cloud-features/
 title: Free Google Cloud features and trial offer \u00a0|\u00a0 Google Cloud Free Program \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:28:18.365786+00:00
+fetched_at: 2026-11-10T11:44:48.309385+00:00
 ---
 
 # Free Google Cloud features and trial offer  |  Google Cloud Free Program  |  Google Cloud Documentation
@@ -119,6 +119,7 @@ You use your Free Trial account to explore Google Cloud.
   2. Full access to the Google Cloud Free Tier.
   3. Full access to Google Cloud, **with some restrictions** : 
      * **The $300 credit can't be used for the following use cases** : 
+       * The $300 credit can't pay for Gemini platform (formerly known as Gemini Enterprise Agent Platform, Vertex AI) services if you sign up for a free trial or upgrade to a paid account on or after **November 16, 2026**.
        * The $300 credit can't pay for [ Gemini API in AI Studio](https://ai.google.dev/gemini-api/docs/billing) costs. Consider using the [ Gemini API Free tier](https://ai.google.dev/gemini-api/docs/billing#about-billing), or sign up for a [ Prepay billing plan](https://ai.google.dev/gemini-api/docs/billing#billing-plans).
        * You can't access or use the $300 credit for a generative AI partner model that is offered as a managed API, which is also known as [ model as a service](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/overview).
      * **While your billing account is a non-billable _Free trial account_, you can't do any of the following**: 
@@ -610,6 +611,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

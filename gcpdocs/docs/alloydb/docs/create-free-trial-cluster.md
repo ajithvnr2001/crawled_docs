@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/create-free-trial-cluster/
 title: Create a free trial cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:06:26.232751+00:00
+fetched_at: 2026-11-10T18:46:30.385621+00:00
 ---
 
 # Create a free trial cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -63,11 +63,11 @@ You are not charged for free trial clusters and instance resources, but you are 
 
 When you create a free trial cluster, a primary instance is automatically created.
 
-  1. In the Google Cloud console, go to the **Clusters** page.
+  1. In the Google Cloud console, go to the **Get started** page, or go to the **Clusters** page if your Google Cloud project doesn't have any existing clusters.
 
 [Go to Clusters](https://console.cloud.google.com/alloydb/clusters)
 
-  2. Click **Create Free Cluster**.
+  2. Click **Start a free trial**.
 
   3. In the **Cluster ID** field of the **Basic info** section, enter a name for the cluster—for example, `my-trial-cluster`.
 
@@ -95,7 +95,7 @@ A new pane labeled **Enable Service Networking API** appears.
 
 The **Enable Service Networking API** pane is removed.
 
-  8. Click **Create Free Cluster**.
+  8. Click **Start a free trial**.
 
 
 
@@ -252,6 +252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

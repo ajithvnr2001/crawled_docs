@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/downloads/
 title: Google Distributed Cloud for bare metal downloads \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:34.729684+00:00
+fetched_at: 2026-11-10T17:01:36.705006+00:00
 ---
 
 # Google Distributed Cloud for bare metal downloads  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 #  Google Distributed Cloud for bare metal downloads Stay organized with collections  Save and categorize content based on your preferences. 
 
-To deploy and manage Distributed Cloud software only for bare metal, you can download and verify the required installation artifacts. These artifacts include the `bmctl` command-line tool and the Google Distributed Cloud software offline container images package.
+To deploy and manage Google Distributed Cloud software only for bare metal, you can download and verify the required installation artifacts. These artifacts include the `bmctl` command-line tool and the Google Distributed Cloud software offline container images package.
 
-**Note:** Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
+**Note:** Google Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
 
 ## Sign in
 
@@ -48,7 +48,7 @@ From your Linux admin workstation, use the following commands to download `bmctl
 
 Replace `VERSION` with the version of Google Distributed Cloud you want to install or upgrade your clusters to. Here's the list of the latest patch versions for supported minor versions:
 
-  * 1.36.200-gke.118
+  * 1.36.100-gke.144
   * 1.35.700-gke.124
   * 1.34.1000-gke.111
 
@@ -130,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

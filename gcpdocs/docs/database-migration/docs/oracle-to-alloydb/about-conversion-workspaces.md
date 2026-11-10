@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/about-conversion-workspaces/
 title: Conversion workspaces \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:37.231773+00:00
+fetched_at: 2026-11-10T12:42:58.920471+00:00
 ---
 
 # Conversion workspaces  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -35,8 +35,6 @@ Conversion workspaces help you convert the schema and objects from your source d
   * Gemini-powered conversion features looks at how you can integrate generative AI support to expedite the schema conversion process.
 
   * Conversion mapping files section provides an overview of customization directives you can use to override the rules of deterministic schema conversion.
-
-  * Legacy conversion workspaces describes the legacy workspaces that don't provide support for the interactive SQL editor.
 
 
 
@@ -641,12 +639,6 @@ The results of using this file are as follows:
 
 
 
-## Legacy conversion workspaces
-
-Legacy conversion workspaces are an older, more limited type of conversion workspaces. Legacy conversion workspaces don't support Gemini-enhanced conversion features or the interactive SQL editor. You can only use them to convert your source schema with the Ora2Pg migration tool.
-
-We don't recommend using the legacy type of conversion workspaces for your migrations. If your scenario requires the use of legacy conversion workspaces, see [ Work with legacy conversion workspaces](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/legacy-conversion-workspaces).
-
 ## What's next
 
 To learn about using conversion workspaces, see:
@@ -662,6 +654,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/release-notes/
 title: Agent Search release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:00.022150+00:00
+fetched_at: 2026-11-10T18:59:30.369055+00:00
 ---
 
 # Agent Search release notes  |  Google Cloud Documentation
@@ -28,6 +28,16 @@ This page documents production updates to Agent Search. Check this page for anno
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gen-app-builder-release-notes.xml) directly. 
+
+## November 10, 2026
+
+Feature
+
+**Agent Search: Search-as-you-type for custom search apps (Preview)**
+
+You can configure schema fields to support search-as-you-type in custom search apps. Search-as-you-type returns a refreshed set of ranked documents on every keystroke before a user finishes typing a full query. Unlike autocomplete, which suggests query strings, search-as-you-type returns matching documents so that users can browse an updating result list and find the right result mid-query.
+
+This feature is in Public Preview. For more information, see [Configure field settings](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-field-settings).
 
 ## October 16, 2026
 

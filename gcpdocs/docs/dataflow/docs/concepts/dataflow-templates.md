@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/concepts/dataflow-templates/
 title: Dataflow templates \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:24.685182+00:00
+fetched_at: 2026-11-10T16:58:31.240547+00:00
 ---
 
 # Dataflow templates  |  Google Cloud Documentation
@@ -69,6 +69,148 @@ Using Dataflow templates involves the following high-level steps:
 
 
 
+## Inspect and audit template jobs
+
+When you audit running or historical Dataflow template jobs programmatically by using the REST API or the Google Cloud CLI, the default view is a summary view (`JOB_VIEW_SUMMARY`). The summary view omits pipeline execution details, template metadata, and SDK pipeline options. To retrieve template details and environment options, you must explicitly request the full job view.
+
+To inspect template details for a job, use one of the following methods:
+
+### gcloud CLI
+
+To retrieve the full job description including template details, run the [`gcloud dataflow jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/describe) command with the `--full` flag:
+
+Before using any of the command data below, make the following replacements: 
+
+  * REGION: the Dataflow [region](https://docs.cloud.google.com/dataflow/docs/resources/locations) where the job is running.
+  * JOB_ID: the ID of the Dataflow job.
+
+
+
+Execute the following command: 
+
+#### Linux, macOS, or Cloud Shell
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    
+    gcloud dataflow jobs describe JOB_ID --full --region=REGION
+
+#### Windows (PowerShell)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    
+    gcloud dataflow jobs describe JOB_ID --full --region=REGION
+
+#### Windows (cmd.exe)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    
+    gcloud dataflow jobs describe JOB_ID --full --region=REGION
+
+You should receive a response similar to the following:
+    
+    
+    environment:
+      sdkPipelineOptions:
+        options:
+          templateLocation: gs://BUCKET_NAME/templates/TEMPLATE_NAME
+    id: JOB_ID
+    name: JOB_NAME
+    type: JOB_TYPE_BATCH
+    
+
+### REST
+
+To retrieve the full job resource including template details, send an HTTP `GET` request to the [`projects.locations.jobs.get`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/get) method with the `view=JOB_VIEW_ALL` query parameter:
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: your Google Cloud project ID.
+  * REGION: the Dataflow [region](https://docs.cloud.google.com/dataflow/docs/resources/locations) where the job is running.
+  * JOB_ID: the ID of the Dataflow job.
+
+
+
+HTTP method and URL: 
+    
+    
+    GET https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs/JOB_ID?view=JOB_VIEW_ALL
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Execute the following command: 
+    
+    
+    curl -X GET \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         "https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs/JOB_ID?view=JOB_VIEW_ALL"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method GET `  
+        -Headers $headers `  
+        -Uri "https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs/JOB_ID?view=JOB_VIEW_ALL" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following:
+    
+    
+    {
+      "id": "JOB_ID",
+      "name": "JOB_NAME",
+      "type": "JOB_TYPE_BATCH",
+      "environment": {
+        "sdkPipelineOptions": {
+          "options": {
+            "templateLocation": "gs://BUCKET_NAME/templates/TEMPLATE_NAME"
+          }
+        }
+      }
+    }
+    
+
+### Identify template types
+
+The response payload differs depending on whether the job was created from a Google-provided template or a custom template:
+
+  * **Google-provided templates** : Dataflow automatically attaches predefined labels to the job resource: 
+    * `goog-dataflow-provided-template-name`: the name of the template.
+    * `goog-dataflow-provided-template-type`: the template type, either `flex` or `legacy` (classic).
+    * `goog-dataflow-provided-template-version`: the release version of the template.
+  * **Custom templates** : Custom template jobs don't have the `goog-dataflow-provided-*` labels. Both Flex and classic template jobs populate the `templateLocation` option in `environment.sdkPipelineOptions`. To determine the template type for custom jobs when labels are absent, inspect the following fields in the full job response (`JOB_VIEW_ALL`): 
+    * **Classic templates** : The `templateLocation` field points directly to the staged template JSON file in Cloud Storage. For example, the path resembles `gs://BUCKET_NAME/templates/TEMPLATE_NAME`. Classic template jobs don't have container launcher image configurations.
+    * **Flex templates** : Flex template jobs execute from a launcher container image. Under the `environment` object, Flex template jobs contain launcher container specifications and parameters (such as `flexResourceLimits`). In addition, the staged `templateLocation` Cloud Storage path generated during launch contains the job ID.
+
+
+
+### Best practice: attach user labels during launch
+
+Because distinguishing custom template types programmatically requires retrieving and parsing the full `JOB_VIEW_ALL` environment options, we recommend that you attach descriptive user labels when launching your template jobs. For example, attach labels such as `template-type: flex` or `template-type: classic`.
+
+User labels are returned in the default summary view (`JOB_VIEW_SUMMARY`) and in job list operations. User labels let you filter, search, and audit template jobs efficiently across your project without fetching the full execution payload for every job.
+
+To attach labels when launching a template, use the following methods:
+
+  * For Flex templates in the gcloud CLI, use the `--additional-user-labels` flag in the [`gcloud dataflow flex-template run`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/flex-template/run) command.
+  * For classic templates in the gcloud CLI, use the `--labels` flag in the [`gcloud dataflow jobs run`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/run) command.
+  * When using the REST API, include the `labels` key-value map in the request body of the launch request.
+
+
+
 ## Set IAM permissions
 
 Dataflow jobs, including jobs run from templates, use two IAM service accounts:
@@ -115,6 +257,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

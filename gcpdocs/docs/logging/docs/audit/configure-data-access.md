@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/audit/configure-data-access/
 title: Enable Data Access audit logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:01.816126+00:00
+fetched_at: 2026-11-10T18:46:26.184955+00:00
 ---
 
 # Enable Data Access audit logs  |  Cloud Logging  |  Google Cloud Documentation
@@ -25,11 +25,11 @@ Send feedback
 
 ## Before you begin
 
-**Important:** Data Access audit logs volume can be large. Enabling Data Access logs might result in your Google Cloud project being charged for the additional logs usage. For pricing information, see the Cloud Logging sections of the [Google Cloud Observability pricing](https://cloud.google.com/products/observability/pricing) page. **Important:** If you configure Data Access logs to track access to [Storage objects](https://docs.cloud.google.com/storage/docs/objects), then [authenticated browser downloads](https://docs.cloud.google.com/storage/docs/request-endpoints#cookieauth) from `storage.cloud.google.com` might result in a [`403: Forbidden` response](https://docs.cloud.google.com/storage/docs/troubleshooting#access-permission). For example, if you copy the authenticated URL for an object and paste that URL into another browser tab, then an authenticated browser download occurs. These types of actions fail because Cloud Storage can't generate a Data Access audit log entry when the object is accessed by using [cookie-based authentication](https://docs.cloud.google.com/storage/docs/request-endpoints#cookieauth).
+**Important:** Data Access audit log volume can be large. Enabling Data Access logs might result in charges to your Google Cloud project for additional log usage. For pricing information, see the Cloud Logging sections of the [Google Cloud Observability pricing](https://cloud.google.com/products/observability/pricing) page. 
 
 Before you proceed with configuring Data Access audit logs, understand the following information:
 
-  * Data Access audit logs are disabled by default for all services but some BigQuery services. If you want Data Access audit logs to be written for services where these logs are disabled by default, then you must explicitly enable them in the Google Cloud console, or by using the API.
+  * Data Access audit logs are disabled by default for all services except some BigQuery services. If you want Data Access audit logs to be written for services where these logs are disabled by default, then you must explicitly enable them in the Google Cloud console, or by using the API.
 
   * Data Access audit logs are stored in the [`_Default`](https://docs.cloud.google.com/logging/docs/store-log-entries#default-bucket) bucket unless you've routed them elsewhere. For more information, see [Storing and routing audit logs](https://docs.cloud.google.com/logging/docs/audit#storing_and_routing_audit_logs).
 
@@ -37,7 +37,7 @@ Before you proceed with configuring Data Access audit logs, understand the follo
 
   * To get the permissions that you need to get access to all logs in the `_Required` and `_Default` buckets, including Data Access logs, ask your administrator to grant you the [Private Logs Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.privateLogViewer) (`roles/logging.privateLogViewer`) IAM role on your project. 
 
-The Private Logs Viewer role `(roles/logging.privateLogViewer)` includes the permissions contained in the Logs Viewer role (`roles/logging.viewer`), and those necessary to read Data Access audit logs in the `_Default` bucket.
+The Private Logs Viewer role (`roles/logging.privateLogViewer`) includes the permissions contained in the Logs Viewer role (`roles/logging.viewer`), and those necessary to read Data Access audit logs in the `_Default` bucket.
 
 The Editor role (`roles/editor`) doesn't include the permissions required to view Data Access logs.
 
@@ -60,7 +60,7 @@ You can configure how Data Access audit logs are enabled for your Google Cloud r
 
   * Default configurations: You can specify a default Data Access audit log configuration in an organization, folder, or Google Cloud project that applies to future Google Cloud services that begin to produce Data Access audit logs. For instructions, see Set the default configuration.
 
-  * Permission types: You can specify that Google Cloud APIs which only check for a certain type of permission emit an audit log. For more information, see the Permission types section of this page.
+  * Permission types: You can specify that Google Cloud APIs that check only for a certain type of permission emit an audit log. For more information, see the Permission types section of this page.
 
   * Exempted principals: You can exempt specific principals from having their data accesses recorded. For example, you can exempt your internal testing accounts from having their Cloud Monitoring operations recorded. For a list of valid principals, including users and groups, see the [`Binding` type reference](https://docs.cloud.google.com/resource-manager/reference/rest/Shared.Types/Binding#FIELDS.members).
 
@@ -89,7 +89,7 @@ API methods check IAM permissions. Each IAM permission has a _permission type_ ,
 
 You can enable or disable permission types for services by using the Google Cloud console or by invoking the API.
 
-Most Google Cloud APIs only check if the caller has a single IAM permission. If the permission type associated with that permission is enabled for the service whose API is being called, then the API generates an audit log.
+Most Google Cloud APIs check only whether the caller has a single IAM permission. If the permission type associated with that permission is enabled for the service whose API is being called, then the API generates an audit log.
 
 The following sections generally describe other ways in which Google Cloud API methods check for IAM permissions. For service-specific information about which methods are checked for which permission types, see the [service's audit logging documentation](https://docs.cloud.google.com/logging/docs/audit/services).
 
@@ -115,7 +115,7 @@ For example, Cloud Billing has an API method that checks for an `ADMIN_READ` per
 
 For some Google Cloud APIs, how the method is called determines which IAM permission type(s) must be enabled on the project for an audit log to be generated.
 
-For example, Spanner has an API method that sometimes checks for an IAM permission with the `DATA_WRITE` type, and sometimes checks for an IAM permission with the `DATA_READ` type depending on how the method is called. In this case, enabling `DATA_WRITE` for Spanner on the project the API call only enables the audit log associated with the API when the IAM permission with the `DATA_WRITE` type is checked.
+For example, Spanner has an API method that sometimes checks for an IAM permission with the `DATA_WRITE` type, and sometimes checks for an IAM permission with the `DATA_READ` type depending on how the method is called. In this case, enabling `DATA_WRITE` for Spanner on the project generates an audit log only when the API call checks an IAM permission with the `DATA_WRITE` type.
 
 ### Service-specific configurations
 
@@ -138,7 +138,7 @@ Google Cloud MCP servers write Data Access audit logs that are service-specific 
 
 You can configure Data Access audit logs for Google Cloud projects, billing accounts, folders, and organizations. If there is a configuration for a Google Cloud service across the hierarchy, then the resulting configuration is the union of the configurations. In other words, at the Google Cloud project level:
 
-  * You can enable logs for a Google Cloud service, but you can't disable logs for a Google Cloud service that is enabled in a parent organization or folder.
+  * You can enable logs for a Google Cloud service, but you can't disable logs for a Google Cloud service if those logs are enabled in a parent organization or folder.
 
   * You can enable kinds of information, but you can't disable kinds of information that are enabled in a parent organization or folder.
 
@@ -159,11 +159,11 @@ To view or set the policies associated with Data Access configuration, you need 
 
   * To view IAM policies, you need a role with the `resourcemanager.RESOURCE_TYPE.getIamPolicy` permission.
 
-**Important:** When viewing Data Access configs in the Google Cloud console at the Google Cloud project or folder level, if you don't have the `getIamPolicy` permission for a parent organization or folder, then any Data Access configurations present in those parent entities isn't shown in the Google Cloud console. Those Data Access configurations still apply to all API calls in the Google Cloud project or folder you are viewing.
+**Important:** When viewing Data Access configurations in the Google Cloud console at the Google Cloud project or folder level, if you don't have the `getIamPolicy` permission for a parent organization or folder, then any Data Access configurations present in those parent entities aren't shown in the Google Cloud console. Those Data Access configurations still apply to all API calls in the Google Cloud project or folder you are viewing.
 
 
 
-For the list of the permissions and roles you need to view Data Access audit logs, see [Access control with IAM](https://docs.cloud.google.com/logging/docs/access-control).
+For a list of the permissions and roles you need to view Data Access audit logs, see [Access control with IAM](https://docs.cloud.google.com/logging/docs/access-control).
 
 ## Configure Data Access audit logs with the Google Cloud console
 
@@ -197,7 +197,7 @@ To enable Data Access audit logs, do the following:
 
 
 
-Where you have successfully enabled audit logs, the table includes a _check_circle_ **Check** icon.
+When you enable audit logs, the table displays a _check_circle_ **Check** icon.
 
 In the following example, you see that, for the Access Approval service, the **Data Read** audit log type is enabled:
 
@@ -220,7 +220,7 @@ To disable Data Access audit logs, do the following:
 
 
 
-Where you've successfully disabled Data Access audit logs, the table indicates this with a dash. Any enabled Data Access audit logs are indicated with a _check_circle_ **Check** icon.
+When you disable Data Access audit logs, the table displays a dash. Any enabled Data Access audit logs are indicated with a _check_circle_ **Check** icon.
 
 ### Set exemptions
 
@@ -247,7 +247,7 @@ For a list of valid principals, including users and groups, see the [`Binding` t
 
 
 
-Where you have successfully added exempted principals to a service, the **Data Access audit logs configuration** table indicates this with a number under the **Exempted principals** column.
+When you add exempted principals to a service, the **Data Access audit logs configuration** table displays a number under the **Exempted principals** column.
 
 To remove a principal from your exemption list, do the following:
 
@@ -279,7 +279,7 @@ To edit the information for an exempted principal, do the following:
 
 ### Set the default configuration
 
-You can set a configuration that all new and existing Google Cloud services in your Google Cloud project, folder, or organization inherit. Setting this default configuration applies if a new Google Cloud service becomes available and principals in your organization begin using it: the service inherits the audit logging policy that you have already set for other Google Cloud services, ensuring that Data Access audit logs are captured.
+You can set a configuration that all new and existing Google Cloud services in your Google Cloud project, folder, or organization inherit. This default configuration applies if a new Google Cloud service becomes available and principals in your organization begin using it: the service inherits the audit logging policy that you have already set for other Google Cloud services, ensuring that Data Access audit logs are captured.
 
 To set or edit the default configuration, do the following:
 
@@ -337,15 +337,15 @@ The audit log configuration consists of a list of [`AuditConfig`](https://docs.c
       "service": SERVICE_NAME,
       "auditLogConfigs": [
         {
-          "logType": "ADMIN_READ"
+          "logType": "ADMIN_READ",
           "exemptedMembers": [ PRINCIPAL,]
         },
         {
-          "logType": "DATA_READ"
+          "logType": "DATA_READ",
           "exemptedMembers": [ PRINCIPAL,]
         },
         {
-          "logType": "DATA_WRITE"
+          "logType": "DATA_WRITE",
           "exemptedMembers": [ PRINCIPAL,]
         },
       ]
@@ -356,7 +356,7 @@ SERVICE_NAME has a value such as `"appengine.googleapis.com"`, or it is the spec
 
 The `auditLogConfigs` section of the `AuditConfig` object is a list of 0 to 3 objects, each of which configures one kind of audit log information. If you omit one of the kinds from the list, then that kind of information isn't enabled for the service.
 
-PRINCIPAL is a user for whom Data Access audit logs isn't collected. The [`Binding` type](https://docs.cloud.google.com/resource-manager/reference/rest/Shared.Types/Binding#FIELDS.members) describes different kinds of principals, including users and groups, but not all of those can be used to configure Data Access audit logs.
+PRINCIPAL is a user for whom Data Access audit logs aren't collected. The [`Binding` type](https://docs.cloud.google.com/resource-manager/reference/rest/Shared.Types/Binding#FIELDS.members) describes different kinds of principals, including users and groups, but not all of those can be used to configure Data Access audit logs.
 
 Following is an example of an audit configuration in both JSON and YAML formats. The YAML format is the default when using the Google Cloud CLI.
 
@@ -442,7 +442,7 @@ The following `auditConfigs` section enables Data Access audit logs for all serv
       service: allServices
     
 
-#### Enable one service and information kind
+#### Enable one service and log type
 
 The following configuration enables `DATA_WRITE` Data Access audit logs for Cloud SQL:
 
@@ -513,13 +513,13 @@ You use the Cloud Resource Manager API `getIamPolicy` and `setIamPolicy` methods
         
 
 
-**Note:** When you call `projects.getIamPolicy` or `projects get-iam-policy`, the result shows only the policies set in the Google Cloud project, not the policies inherited from a parent organization or folder.
+**Note:** When you call `projects.getIamPolicy` or `gcloud projects get-iam-policy`, the result shows only the policies set in the Google Cloud project, not the policies inherited from a parent organization or folder.
 
 Regardless of your choice, follow these three steps:
 
   1. **Read** the current policy using one of the `getIamPolicy` methods. Save the policy to a temporary file.
   2. **Edit** the policy in the temporary file. **Change (or add) only the`auditConfigs` section.**
-  3. **Write** the edited policy in the temporary file, using one of the `setIamPolicy` methods.
+  3. **Write** the edited policy from the temporary file using one of the `setIamPolicy` methods.
 
 
 
@@ -665,7 +665,7 @@ You can also remove all other information from the new policy object, as long as
 
 This section explains the importance of the `updateMask` parameter in the `setIamPolicy` method, and explains why you must be careful with the gcloud CLI `set-iam-policy` command so that you don't cause accidental harm to your Google Cloud project or organization.
 
-The [`setIamPolicy` API method](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/setIamPolicy) uses an `updateMask` parameter to control which policy fields are updated. For example, if the mask does not contain `bindings`, then you can't accidentally change that policy section. On the other hand, if the mask does contain `bindings`, then that section is _always_ updated. If you don't include an updated value for `bindings`, then that section is removed entirely from the policy.
+The [`setIamPolicy` API method](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/setIamPolicy) uses an `updateMask` parameter to control which policy fields are updated. For example, if the mask doesn't contain `bindings`, then you can't accidentally change that policy section. On the other hand, if the mask does contain `bindings`, then that section is _always_ updated. If you don't include an updated value for `bindings`, then that section is removed entirely from the policy.
 
 The `gcloud projects set-iam-policy` command, which calls `setIamPolicy`, doesn't let you specify the `updateMask` parameter. Instead, the command computes a value for `updateMask` in the following way:
 
@@ -676,11 +676,11 @@ The `gcloud projects set-iam-policy` command, which calls `setIamPolicy`, doesn'
 
 As a consequence of these rules, the `set-iam-policy` command has the following behaviors:
 
-  * If you omit the `auditConfigs` section in your new policy, then the previous value of `auditConfigs` section (if any) isn't changed, because that section isn't in the update mask. This is harmless but might be confusing.
+  * If you omit the `auditConfigs` section in your new policy, then the previous value of the `auditConfigs` section (if any) isn't changed, because that section isn't in the update mask. This is harmless but might be confusing.
 
-  * If you omit `bindings` in your new policy object, then the `bindings` section is removed from your policy, since this section appears in the update mask. This is very harmful, and causes all principals to lose access to your Google Cloud project.
+  * If you omit `bindings` in your new policy object, then the `bindings` section is removed from your policy, because this section appears in the update mask. This is very harmful, and causes all principals to lose access to your Google Cloud project.
 
-  * If you omit `etag` in your new policy object, this disables the checking for concurrent changes to your policy and might result in your changes accidentally overwriting someone else's changes.
+  * Omitting `etag` in your new policy object disables checking for concurrent changes to your policy and might cause your changes to accidentally overwrite someone else's changes.
 
 
 
@@ -689,6 +689,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

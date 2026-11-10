@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/spanner/databases/update/
 title: gcloud spanner databases update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:30:19.044000+00:00
+fetched_at: 2026-11-10T18:39:24.134489+00:00
 ---
 
 # gcloud spanner databases update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -107,7 +107,23 @@ GCLOUD WIDE FLAGS
 Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for details. 
 
 NOTES
-     These variants are also available: 
+     When updating encryption with `--kms-keys` or `--clear-kms-keys`, the update operation completes after the new encryption configuration is recorded. Existing data is then re-encrypted in the background, which can take several hours. Do not disable or destroy the previous KMS key(s) until re-encryption finishes. 
+
+Backups are not re-encrypted. Each backup keeps using the KMS key it was created with; keep that key until those backups are deleted or expire, or they can't be restored. 
+
+To wait until background re-encryption finishes, run: 
+    
+    
+    [gcloud alpha spanner databases wait-for-reencryption](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/spanner/databases/wait-for-reencryption) DATABASE --instance=INSTANCE (--kms-keys="KEY1,KEY2" | --clear-kms-keys)
+
+Or check progress manually with: 
+    
+    
+    [gcloud spanner databases describe](https://docs.cloud.google.com/sdk/gcloud/reference/spanner/databases/describe) DATABASE --instance=INSTANCE --format="value(encryptionConfig,encryptionInfo)"
+
+and wait until `encryptionInfo` lists only the target encryption key(s) (or only `GOOGLE_DEFAULT_ENCRYPTION` for `--clear-kms-keys`). When transitioning from Google-managed encryption to CMEK, both checks report completion after the new key(s) are in use, which may be before all existing data has been re-encrypted. 
+
+These variants are also available: 
     
     
     [gcloud alpha spanner databases update](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/spanner/databases/update)
@@ -119,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

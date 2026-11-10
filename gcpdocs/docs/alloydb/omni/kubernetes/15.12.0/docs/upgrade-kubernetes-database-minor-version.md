@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/upgrade-kubernetes-database-minor-version/
 title: Perform a minor database version upgrade for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:35.420808+00:00
+fetched_at: 2026-11-10T11:12:09.151462+00:00
 ---
 
 # Perform a minor database version upgrade for AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 15.12.0  |  Google Cloud Documentation
@@ -62,6 +62,8 @@ This process ensures minimal downtime during the upgrade.
 ## Limitations
 
 For low downtime upgrades, one standby instance is unavailable at any given time. To ensure that your database cluster doesn't reach zero Recovery Point Objective (RPO) and doesn't risk losing data, your database cluster must have one primary instance and at least two standby instances.
+
+Low downtime upgrades aren't supported on secondary database clusters in a [cross-data-center replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/cross-data-center-replication/about-cross-data-center-replication) configuration. Before you upgrade a secondary database cluster with HA standbys, explicitly disable LDTM by setting `dbcluster.dbadmin.goog/enableLDTM=false`.
 
 ## Before your begin
 
@@ -190,6 +192,13 @@ Replace the following variable:
 
 To downgrade your instance, follow the upgrade process and change the `databaseVersion` and `controlPlaneAgentsVersion` fields in the manifest file to the version you used before.
 
+  * If the upgrade or downgrade hangs in `DBCUpgradeInProgress=True` (`DBCUpgradeFlowBegins`) after the first standby upgrades on a cross-data-center replication secondary database cluster, verify whether low downtime upgrade is enabled (`dbcluster.dbadmin.goog/enableLDTM=true`) on the secondary database cluster. Disable LDTM on the secondary database cluster so the AlloyDB Omni operator completes the upgrade or downgrade using the simultaneous upgrade path:
+        
+        kubectl annotate dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME dbcluster.dbadmin.goog/enableLDTM=false
+        
+
+Replace `DB_CLUSTER_NAME` with the name of your secondary database cluster.
+
 
 
 
@@ -197,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

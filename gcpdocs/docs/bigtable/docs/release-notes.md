@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/release-notes/
 title: Bigtable release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:26:27.827652+00:00
+fetched_at: 2026-11-10T19:01:17.818711+00:00
 ---
 
 # Bigtable release notes  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page documents production updates to Bigtable. You can periodically check t
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/bigtable-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+You can use the Google Cloud console to create and manage Apache Avro schema bundles for your Bigtable tables. You can also view Avro schema bundle definitions in Bigtable Studio. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas).
 
 ## November 06, 2026
 

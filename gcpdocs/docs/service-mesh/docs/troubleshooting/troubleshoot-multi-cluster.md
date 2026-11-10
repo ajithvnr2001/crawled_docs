@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/troubleshooting/troubleshoot-multi-cluster/
 title: Resolving multi-cluster issues \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:47:06.150519+00:00
+fetched_at: 2026-11-10T18:38:40.471180+00:00
 ---
 
 # Resolving multi-cluster issues  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -24,6 +24,48 @@ Send feedback  Stay organized with collections  Save and categorize content base
 # Resolving multi-cluster issues
 
 This section explains common Cloud Service Mesh problems and how to resolve them. If you need additional assistance, see [Getting support](https://docs.cloud.google.com/service-mesh/docs/getting-support).
+
+## Cross-cluster timeouts, high latency, or unexpected cross-cluster traffic
+
+Workloads in a fleet with multiple clusters can experience timeouts or high tail latency when cross-cluster endpoint discovery is active without Pod-to-Pod connectivity.
+
+### Symptoms
+
+You might observe the following symptoms:
+
+  * Requests fail after a delay with a timeout or an HTTP `503` or `504` error.
+  * Tail latency spikes when retries hit unreachable remote Pods before reaching a local Pod or failing.
+  * Issues begin after you register another cluster to the fleet or enable automatic management on a cluster.
+
+
+
+### Causes
+
+This issue happens when cross-cluster endpoint discovery is enabled on multiple clusters in a fleet, but network connectivity or firewall rules between their Pods are missing:
+
+  * When multiple clusters in the same fleet have `multicluster_mode: connected` in the `asm-options` ConfigMap, traffic is load balanced between them. For more information, see [Configure endpoint discovery](https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/multi-cluster#endpoint-discovery-declarative-api).
+  * Cloud Service Mesh doesn't create Virtual Private Cloud (VPC) routes or firewall rules between clusters. Requests routed to local Pods succeed, while requests routed to remote cluster Pods wait until the connection timeout expires.
+
+
+
+### Diagnose the issue
+
+Check whether two or more clusters in your fleet have `multicluster_mode` set to `connected`. Run `gcloud container fleet memberships list` to list fleet clusters, and then check each cluster:
+    
+    
+    kubectl get configmap asm-options -n istio-system \
+        -o jsonpath='{.data.multicluster_mode}{"\n"}'
+    
+
+### Resolve the issue
+
+Depending on whether you want traffic to flow between clusters, do one of the following:
+
+  * To stop load balancing traffic between clusters, disable endpoint discovery. See [documentation on disabling endpoint discovery](https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/multi-cluster#endpoint-discovery-declarative-api).
+  * To keep only specific services in the local cluster, see [Keeping traffic in-cluster](https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/multi-cluster#keeping_traffic_in-cluster).
+  * To allow cross-cluster traffic, verify the [multi-cluster network prerequisites](https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/multi-cluster#prerequisites) and [create firewall rules](https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/multi-cluster#create_firewall_rule) between your clusters.
+
+
 
 ## Missing secrets
 
@@ -70,16 +112,10 @@ Check to see if there are any invalid secret errors.
 
 To recover from this problem, fix the underlying API server reachability issue. Next, delete all the remote secrets in every cluster and re-run the `create-mesh` command.
 
-## Missing firewall rule
-
-Without the proper firewall rule, users will experience a 10-second delay followed by a timeout when doing cross-cluster load balancing.
-
-To recover from this, follow the steps outlined in [Create firewall rule](https://docs.cloud.google.com/service-mesh/docs/unified-install/gke-install-multi-cluster#create_firewall_rule).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

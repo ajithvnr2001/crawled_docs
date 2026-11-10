@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/iceberg/catalogs/update/
 title: gcloud alpha biglake iceberg catalogs update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:34.570936+00:00
+fetched_at: 2026-11-10T18:39:30.112001+00:00
 ---
 
 # gcloud alpha biglake iceberg catalogs update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha biglake iceberg catalogs update - update a BigLake Iceberg REST cat
 SYNOPSIS
     
 
-`gcloud alpha biglake iceberg catalogs update` `CATALOG` [`--catalog-type`=`CATALOG_TYPE`] [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`] [`--clear-kms-key` | [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha biglake iceberg catalogs update` `CATALOG` [`--catalog-type`=`CATALOG_TYPE`] [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--snowflake-user-identity-federation-role`=`SNOWFLAKE_USER_IDENTITY_FEDERATION_ROLE`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`] [`--clear-kms-key` | [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update a BigLake Iceberg REST catalog. 
 EXAMPLES
@@ -124,6 +124,8 @@ FLAGS
      The service directory resource name for request routing, in the format `projects/{project_id}/locations/{location}/namespaces/{namespace}/services/{service_name}`. see <https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-lakehouse#setup-cci>. 
 `--snowflake-role`=`SNOWFLAKE_ROLE`
      The specific role to request for the Snowflake catalog. 
+`--snowflake-user-identity-federation-role`=`SNOWFLAKE_USER_IDENTITY_FEDERATION_ROLE`
+     The Snowflake role used to scope end user access to Snowflake Horizon Catalog for user identity federation. 
 `--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`
      Optional. The application ID of the Databricks service principal that will be used to access the Unity Catalog in the OIDC authentication flow. With OIDC, the secret-name argument is not used. 
 `--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`
@@ -192,6 +194,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/access-control/
 title: Access control with IAM \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:18:09.912628+00:00
+fetched_at: 2026-11-10T18:56:32.314639+00:00
 ---
 
 # Access control with IAM  |  Agent Registry  |  Google Cloud Documentation
@@ -207,9 +207,11 @@ To learn how to add conditions to role bindings, see [Managing conditional role 
 
   * To learn more about access control with IAM, see the [IAM overview](https://docs.cloud.google.com/iam/docs/overview). 
   * To view the available roles and permissions for Agent Registry, see [Agent Registry roles and permissions](https://docs.cloud.google.com/agent-registry/roles-permissions). 
+  * Review [permissions to call A2A agents and IAM deny policies](https://docs.cloud.google.com/agent-registry/roles-permissions#invocation-permissions).
   * Learn how to [authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
   * Learn about [identity and identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers) in Agent Registry.
-  * Learn how to [configure IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) with IAP and Agent Gateway.
+  * Learn how to [create IAM Unified Access Policies (UAPs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) with Identity-Aware Proxy (IAP) and Agent Gateway.
+  * Inspect A2A prompts and responses using [ Model Armor integration with Agent Gateway](https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration).
 
 
 
@@ -217,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

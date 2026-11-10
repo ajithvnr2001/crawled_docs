@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/open-model-serving-sw-only/
-title: Open model serving on Distributed Cloud software only reference architecture \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
+title: Open model serving on Google Distributed Cloud software only reference architecture \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:26.690676+00:00
+fetched_at: 2026-11-10T17:00:28.229466+00:00
 ---
 
-# Open model serving on Distributed Cloud software only reference architecture  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
+# Open model serving on Google Distributed Cloud software only reference architecture  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/open-model-serving-sw-only/
 
@@ -20,21 +20,21 @@ fetched_at: 2026-11-07T05:51:26.690676+00:00
 
 Send feedback 
 
-#  Open model serving on Distributed Cloud software only reference architecture Stay organized with collections  Save and categorize content based on your preferences. 
+#  Open model serving on Google Distributed Cloud software only reference architecture Stay organized with collections  Save and categorize content based on your preferences. 
 
 ## Overview
 
-This **Solution Reference Architecture (SRA)** defines the conceptual design, component topology, and technical boundaries for hosting, serving, and validating open-weight Large Language Models (LLMs) on Distributed Cloud software only standalone clusters.
+This **Solution Reference Architecture (SRA)** defines the conceptual design, component topology, and technical boundaries for hosting, serving, and validating open-weight Large Language Models (LLMs) on Google Distributed Cloud software only standalone clusters.
 
-Enterprise edge environments often require low-latency inference and strict data sovereignty. This Solution Reference Architecture provides a standardized, secure, and observable serving stack to deploy the **Gemma 4 31B** model on a single-node Distributed Cloud software only cluster equipped with a customer-sourced **NVIDIA RTX PRO 6000 GPU (96GB VRAM)**.
+Enterprise edge environments often require low-latency inference and strict data sovereignty. This Solution Reference Architecture provides a standardized, secure, and observable serving stack to deploy the **Gemma 4 31B** model on a single-node Google Distributed Cloud software only cluster equipped with a customer-sourced **NVIDIA RTX PRO 6000 GPU (96GB VRAM)**.
 
 **Important:** SRA versus SRI Scope. This document focuses on the architectural design and structural decisions. For concrete deployment manifests and step-by-step execution instructions, refer to the [Solution Reference Implementation (SRI)](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/open-model-serving-sw-only-implementation).
 
 ### Features and capabilities
 
-  * **Local Model Serving:** Exposes an industry-standard, OpenAI-compatible API locally within the Distributed Cloud software only cluster boundary.
+  * **Local Model Serving:** Exposes an industry-standard, OpenAI-compatible API locally within the Google Distributed Cloud software only cluster boundary.
   * **Support for Large Edge Models:** Optimized to run Gemma 4 31B in native precision (BF16) or quantized formats, fully utilizing the 96GB VRAM capacity.
-  * **Observability:** Integrates with Distributed Cloud software only's monitoring infrastructure (Google Cloud Managed Service for Prometheus) using native `PodMonitoring` resources to export GPU telemetry and vLLM performance metrics, avoiding the need for a standalone local Prometheus server.
+  * **Observability:** Integrates with Google Distributed Cloud software only's monitoring infrastructure (Google Cloud Managed Service for Prometheus) using native `PodMonitoring` resources to export GPU telemetry and vLLM performance metrics, avoiding the need for a standalone local Prometheus server.
   * **Interactive Validation:** Deploys a Gradio-based web interface for immediate, visual verification of model responsiveness.
 
 
@@ -53,24 +53,24 @@ Enterprise edge environments often require low-latency inference and strict data
 
 The solution components consist of:
 
-  * **Customer Namespace (Distributed Cloud software only Cluster):**
+  * **Customer Namespace (Google Distributed Cloud software only Cluster):**
     * **vLLM Serving Engine:** Deployed as a Kubernetes Deployment running the vLLM container. Configured to load Gemma weights from persistent storage and expose an OpenAI-compatible API.
     * **Gradio Web UI:** Deployed as a Kubernetes Deployment providing the chat interface for verification (Optional: Can also run externally on a developer workstation or test runtime connected to the cluster's vLLM service).
-  * **Persistent Volume Claim (PVC):** Backed by Distributed Cloud software only local shared storage (using the `local-shared` StorageClass) to host the model weights.
+  * **Persistent Volume Claim (PVC):** Backed by Google Distributed Cloud software only local shared storage (using the `local-shared` StorageClass) to host the model weights.
   * **Kubernetes Services:** ClusterIP service for vLLM API endpoint; NodePort or LoadBalancer service for Gradio UI to expose it to the customer network.
   * **Infrastructure (Customer Managed):**
-    * **NVIDIA GPU Operator:** Orchestrates and exposes the physical GPU resources to Distributed Cloud software only Kubernetes worker nodes.
+    * **NVIDIA GPU Operator:** Orchestrates and exposes the physical GPU resources to Google Distributed Cloud software only Kubernetes worker nodes.
     * **NVIDIA RTX PRO 6000 GPU:** The underlying physical accelerator (96 GB GDDR7 memory architecture).
   * **Google Cloud Integration:**
-    * **Google Cloud Monitoring & Logging:** Default Distributed Cloud software only agents collecting and forwarding system logs, container logs, and basic metrics to Google Cloud.
+    * **Google Cloud Monitoring & Logging:** Default Google Distributed Cloud software only agents collecting and forwarding system logs, container logs, and basic metrics to Google Cloud.
 
 
 
 ### High-level architecture overview
 
-The following diagram illustrates the flow of requests and component interactions within the Distributed Cloud software only cluster:
+The following diagram illustrates the flow of requests and component interactions within the Google Distributed Cloud software only cluster:
 
-![Open model serving on Distributed Cloud software only architecture diagram.](https://docs.cloud.google.com/static/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/images/open-model-serving-sw-only-diagram.png)
+![Open model serving on Google Distributed Cloud software only architecture diagram.](https://docs.cloud.google.com/static/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/images/open-model-serving-sw-only-diagram.png)
 
 ### Hardware constraints
 
@@ -89,7 +89,7 @@ The solution is designed for customer-sourced hardware equipped with the NVIDIA 
 Component | Managed by | Notes  
 ---|---|---  
 Physical Hardware & OS | Customer | Customer-sourced hardware (specifically server or workstation with NVIDIA RTX PRO 6000 Blackwell GPU).  
-Distributed Cloud software only Cluster Install | Customer | Must follow standard Distributed Cloud software only installation documentation.  
+Google Distributed Cloud software only Cluster Install | Customer | Must follow standard Google Distributed Cloud software only installation documentation.  
 GPU Drivers & Operator | Customer | Installation of NVIDIA GPU Operator and Helm charts. Google does not support NVIDIA operator deployment.  
 vLLM Serving Manifests | Google (Solution) | Provided as part of this solution guide.  
 Model Artifacts | Customer | Downloading and hosting the Gemma model weights.  
@@ -103,8 +103,8 @@ This section details the functional components, their responsibilities, and how 
 ### Infrastructure and platform
 
   * **NVIDIA RTX PRO 6000 GPU:** Provides 96GB GDDR7 VRAM. The physical GPU is dedicated entirely to the model serving instance. GPU partitioning (MIG) is not enabled to ensure the model has exclusive access to the full VRAM and memory bandwidth, preventing resource contention.
-  * **NVIDIA GPU Operator:** Customer-managed operator that orchestrates and exposes the physical GPU resources to Distributed Cloud software only Kubernetes worker nodes.
-  * **Node-Local Storage (Persistent Volume Claim):** Backed by Distributed Cloud software only node-local storage to host and persist the model weights on the node. This ensures that once model weights are downloaded, they are persisted locally. Subsequent pod restarts or updates load weights from this local cache, reducing startup time and protecting against WAN outages.
+  * **NVIDIA GPU Operator:** Customer-managed operator that orchestrates and exposes the physical GPU resources to Google Distributed Cloud software only Kubernetes worker nodes.
+  * **Node-Local Storage (Persistent Volume Claim):** Backed by Google Distributed Cloud software only node-local storage to host and persist the model weights on the node. This ensures that once model weights are downloaded, they are persisted locally. Subsequent pod restarts or updates load weights from this local cache, reducing startup time and protecting against WAN outages.
   * **Shared Memory Segment (`/dev/shm`):** An `emptyDir` volume with `medium: Memory` is mounted at `/dev/shm` and allocated 16GiB to prevent segmentation faults during high-concurrency tensor operations in vLLM.
 
 
@@ -122,7 +122,7 @@ This section details the functional components, their responsibilities, and how 
 
 ### Observability and Google Cloud integration
 
-  * **Cloud Logging:** Uses default Distributed Cloud software only logging agents to automatically capture and forward container logs (vLLM application logs and GPU diagnostics) to Cloud Logging.
+  * **Cloud Logging:** Uses default Google Distributed Cloud software only logging agents to automatically capture and forward container logs (vLLM application logs and GPU diagnostics) to Cloud Logging.
   * **Cloud Monitoring (PodMonitoring):** Google Cloud Managed Service for Prometheus (GMP) resources target both the vLLM pod (for serving telemetry like token throughput and KV cache usage) and the GPU exporter pod (for GPU telemetry), exporting metrics to Cloud Monitoring.
 
 
@@ -152,7 +152,7 @@ This section details the functional components, their responsibilities, and how 
 
 ### Operational complexity
 
-  * **Console Visibility:** Unlike GKE, Distributed Cloud software only does not support the console-based "AI/ML Models" view. All validation and monitoring must be performed via the `kubectl` CLI, port-forwarding, and direct Cloud Monitoring dashboards.
+  * **Console Visibility:** Unlike GKE, Google Distributed Cloud software only does not support the console-based "AI/ML Models" view. All validation and monitoring must be performed via the `kubectl` CLI, port-forwarding, and direct Cloud Monitoring dashboards.
 
 
 
@@ -172,7 +172,7 @@ This section details the functional components, their responsibilities, and how 
 
 **Selected Option:** **Native GMP (`PodMonitoring`)**
 
-  * **Rationale:** Distributed Cloud software only supports native integration with Cloud Monitoring. We can route metrics directly to Google Cloud using Managed Prometheus, reducing on-cluster operational overhead.
+  * **Rationale:** Google Distributed Cloud software only supports native integration with Cloud Monitoring. We can route metrics directly to Google Cloud using Managed Prometheus, reducing on-cluster operational overhead.
   * **Alternatives Rejected:**
     * _Local Prometheus and Grafana Stack:_ Rejected to minimize control plane resource usage on the single-node cluster.
 
@@ -206,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

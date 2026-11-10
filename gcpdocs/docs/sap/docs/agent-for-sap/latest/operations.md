@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/operations/
 title: Google Cloud's Agent for SAP operations guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:56:02.277477+00:00
+fetched_at: 2026-11-10T12:41:55.983928+00:00
 ---
 
 # Google Cloud's Agent for SAP operations guide  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Google Cloud's Agent for SAP operations guide Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide covers operational considerations and procedures for running **version 3.15 (latest)** of Google Cloud's Agent for SAP on Compute Engine instances and Bare Metal Solution servers.
+This guide covers operational considerations and procedures for running **version 3.16 (latest)** of Google Cloud's Agent for SAP on Compute Engine instances and Bare Metal Solution servers.
 
 ## Understand the agent lifecycle
 
@@ -281,13 +281,13 @@ When you disable or enable the agent's `systemd` service on Linux, the action is
 
 ## Upgrade to Google Cloud's Agent for SAP from other Google Cloud agents
 
-Google Cloud's Agent for SAP is the successor to other Google Cloud agents. The following sections provide information for upgrading from these agents to version 3.15 (latest) of Google Cloud's Agent for SAP.
+Google Cloud's Agent for SAP is the successor to other Google Cloud agents. The following sections provide information for upgrading from these agents to version 3.16 (latest) of Google Cloud's Agent for SAP.
 
 For instructions on installing and configuring Google Cloud's Agent for SAP, see [Choose your Google Cloud's Agent for SAP installation and configuration guide](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config).
 
 ### Upgrading from the legacy Backint agent
 
-To upgrade from the Cloud Storage Backint agent for SAP HANA to version 3.15 (latest), complete the following steps:
+To upgrade from the Cloud Storage Backint agent for SAP HANA to version 3.16 (latest), complete the following steps:
 
   1. Make sure that no data backups are in-progress or scheduled for the period overlapping with the upgrade.
 
@@ -343,7 +343,7 @@ Parameter name in legacy Backint agent | Parameter name in Google Cloud's Agent 
   
 ### Upgrading from monitoring agent for SAP HANA
 
-Installing version 3.15 (latest) of Google Cloud's Agent for SAP automatically detects versions of the monitoring agent for SAP HANA, disables them, and then removes them from your host machines during installation.
+Installing version 3.16 (latest) of Google Cloud's Agent for SAP automatically detects versions of the monitoring agent for SAP HANA, disables them, and then removes them from your host machines during installation.
 
 If this agent is detected, then its configuration is migrated to Google Cloud's Agent for SAP during its installation. For backup and reference purposes, the configuration of the monitoring agent for SAP HANA is copied to the following file:
     
@@ -387,7 +387,7 @@ If you experience any connection issues with your SAP HANA instances after this 
 
 ### Upgrading from monitoring agent for SAP NetWeaver
 
-Installing version 3.15 (latest) of Google Cloud's Agent for SAP automatically detects versions of the monitoring agent for SAP NetWeaver.
+Installing version 3.16 (latest) of Google Cloud's Agent for SAP automatically detects versions of the monitoring agent for SAP NetWeaver.
 
 If this agent is detected, then its configuration is migrated to Google Cloud's Agent for SAP during its installation.
 
@@ -437,7 +437,7 @@ Select your operating system, and then follow the steps:
 
   1. Establish an SSH connection with your instance.
   2. Update your agent instance: 
-     * (Recommended) To update to version 3.15 (latest) of the agent: 
+     * (Recommended) To update to version 3.16 (latest) of the agent: 
            
            sudo yum --nogpgcheck update google-cloud-sap-agent
 
@@ -454,7 +454,7 @@ Replace `VERSION_NUMBER` with the agent's version number that you want to instal
 
   1. Establish an SSH connection with your instance.
   2. Update your agent instance: 
-     * (Recommended) To update to version 3.15 (latest) of the agent: 
+     * (Recommended) To update to version 3.16 (latest) of the agent: 
            
            sudo zypper --no-gpg-checks update google-cloud-sap-agent
 
@@ -470,7 +470,7 @@ Replace `VERSION_NUMBER` with the agent's version number that you want to instal
 ### Windows
 
   1. Establish an RDP connection with your host Compute Engine instance.
-  2. To update to version 3.15 (latest) of the agent, as an administrator, run the following command from PowerShell: 
+  2. To update to version 3.16 (latest) of the agent, as an administrator, run the following command from PowerShell: 
          
          googet install google-cloud-sap-agent
 
@@ -560,6 +560,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

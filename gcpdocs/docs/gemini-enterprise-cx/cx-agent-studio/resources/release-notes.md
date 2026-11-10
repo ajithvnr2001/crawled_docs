@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/resources/release-notes/
 title: CX Agent Studio release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:23:59.681094+00:00
+fetched_at: 2026-11-10T17:34:13.197125+00:00
 ---
 
 # CX Agent Studio release notes  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page documents production updates to Customer Experience Agent Studio. Chec
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cx-agent-studio-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Deprecated
+
+Gemini 2.5 models (`gemini-2.5-flash` and `gemini-2.5-flash-lite`) are scheduled for deprecation on December 23, 2026, with automatic transition to Gemini 3.* models occurring in January 2027. Upgrade and test your agents before the cutoff date. For end-to-end instructions on switching models, running evaluations, and rolling out changes with traffic splitting, see [Migrate to a new model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/migrate-model). For feature-specific migration timelines across Gemini Enterprise for Customer Experience, see the [Gemini 2.5 migration primer](https://services.google.com/fh/files/emails/b_568444705_gecx_model_primer_gemini_2.5_migration.pdf).
 
 ## October 22, 2026
 

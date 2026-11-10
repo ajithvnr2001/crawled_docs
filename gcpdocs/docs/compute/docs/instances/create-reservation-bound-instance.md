@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-reservation-bound-instance/
 title: Create an instance with the reservation-bound model \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:16.932301+00:00
+fetched_at: 2026-11-10T18:39:16.934986+00:00
 ---
 
 # Create an instance with the reservation-bound model  |  Compute Engine  |  Google Cloud Documentation
@@ -194,7 +194,7 @@ Suppose that Google Cloud approves the request and Compute Engine automatically 
 
 The command is similar to the following. For the full requirements to create an A3 Ultra instance, instead see [Create an A3 Ultra or A4 instance](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-a3u-a4#create-instance-overview).
     
-    gcloud compute instances create example-a3ultra-instance  \
+    gcloud compute instances create example-a3ultra-instance \
         --machine-type=a3-ultragpu-8g \
         **--instance-termination-action= TERMINATION_ACTION** \
         **--provisioning-model=RESERVATION_BOUND** \
@@ -235,8 +235,10 @@ The command includes the following values:
            },
            "specificReservationRequired": true,
            "specificSkuProperties": {
-             "machineType": "a3-ultragpu-8g",
-             "totalCount": 5
+             "instanceProperties": {
+               "machineType": "a3-ultragpu-8g"
+             },
+             "totalCount": "5"
            },
            "timeWindow": {
              "startTime": "2026-03-05T00:00:00Z",
@@ -247,7 +249,7 @@ The command includes the following values:
 
 Suppose that Google Cloud approves the request and Compute Engine automatically creates an empty reservation. At the request start time, on March 5, 2026, Compute Engine increases the number of reserved GPU instances in the reservation. You can then consume the reservation.
 
-  2. At the request start time, to create an A3 Ultra instance to consume the example auto-created reservation, make a `POST` request to [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert). In the request body, include the following fields:
+  2. At the request start time, to create an A3 Ultra instance to consume the example auto-created reservation, make a `POST` request to the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert). In the request body, include the following fields:
 
      * The `reservationAffinity.consumeReservationType` field set to `SPECIFIC_RESERVATION`.
 
@@ -269,7 +271,7 @@ The request is similar to the following. For the full requirements to create an 
       "reservationAffinity": {
         **"consumeReservationType": "SPECIFIC_RESERVATION"** ,
         **"key": "compute.googleapis.com/reservation-name"** ,
-        **"values":[
+        **"values": [
           " RESERVATION_URL"
         ]**
       },
@@ -317,6 +319,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/
 title: gcloud oracle-database exadb-vm-clusters \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T01:43:35.909687+00:00
+fetched_at: 2026-11-10T17:33:48.895021+00:00
 ---
 
 # gcloud oracle-database exadb-vm-clusters  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -45,6 +45,10 @@ COMMANDS
      Delete an ExadbVmCluster. 
 `[describe](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/describe)`
      Get details of a ExadbVmCluster. 
+`[disable-identity-connector](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/disable-identity-connector)`
+     Disable the Workload Identity Connector for an Exadb VM Cluster. 
+`[enable-identity-connector](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/enable-identity-connector)`
+     Enable the Workload Identity Connector for an Exadb VM Cluster. 
 `[list](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/list)`
      List all ExadbVmClusters. 
 `[remove-virtual-machine](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/remove-virtual-machine)`
@@ -56,6 +60,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-23 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

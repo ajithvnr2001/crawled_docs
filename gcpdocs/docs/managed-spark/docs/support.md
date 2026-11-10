@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/support/
 title: Support \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:50:01.930747+00:00
+fetched_at: 2026-11-10T17:00:09.150668+00:00
 ---
 
 # Support  |  Managed Service for Apache Spark  |  Google Cloud Documentation

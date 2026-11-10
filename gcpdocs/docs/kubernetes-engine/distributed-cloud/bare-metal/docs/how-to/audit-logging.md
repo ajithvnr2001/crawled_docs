@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/audit-logging/
 title: Use Kubernetes audit logging \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:48.714446+00:00
+fetched_at: 2026-11-10T16:59:17.417956+00:00
 ---
 
 # Use Kubernetes audit logging  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 This document describes how to use Cloud Audit Logs for Google Distributed Cloud (software only). Google Distributed Cloud uses [Kubernetes Audit Logging](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/), which keeps a chronological record of calls made to a cluster Kubernetes API server. Audit logs are useful for investigating suspicious API requests and for collecting statistics. For information about audit logging for the GKE On-Prem API, see [Cloud API audit logging](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/audit-logging-api).
 
-**Note:** Starting with Google Distributed Cloud release 1.9.0, Cloud Audit Logs is enabled by default. Cloud Audit Logs is automatically enabled for 1.8.x clusters that are upgraded to 1.36.200-gke.118 unless it was explicitly disabled for the 1.8.x cluster by setting `disableCloudAuditLogging` to `true`.
+**Note:** Starting with Google Distributed Cloud release 1.9.0, Cloud Audit Logs is enabled by default. Cloud Audit Logs is automatically enabled for 1.8.x clusters that are upgraded to 1.36.100-gke.144 unless it was explicitly disabled for the 1.8.x cluster by setting `disableCloudAuditLogging` to `true`.
 
 ## About Cloud Audit Logs
 
@@ -40,7 +40,7 @@ Audit logs are written to [Cloud Audit Logs](https://docs.cloud.google.com/loggi
 
 ### Disk-based audit logging
 
-If Cloud Audit Logs is disabled explicitly, audit logs are written to a persistent disk so that cluster restarts and upgrades don't cause the logs to disappear. Distributed Cloud software only retains up to 1 GiB of audit log entries.
+If Cloud Audit Logs is disabled explicitly, audit logs are written to a persistent disk so that cluster restarts and upgrades don't cause the logs to disappear. Google Distributed Cloud software only retains up to 1 GiB of audit log entries.
 
 Access the disk-based audit logs by logging into control plane Nodes. The logs are located in the `/var/log/apiserver/` directory.
 
@@ -61,7 +61,7 @@ Cloud Audit Logs has the following limitations:
 
 ## Create a service account for Cloud Audit Logs
 
-Before you can use Cloud Logging and Cloud Monitoring with Distributed Cloud software only, you must first configure the following:
+Before you can use Cloud Logging and Cloud Monitoring with Google Distributed Cloud software only, you must first configure the following:
 
   1. Create a Cloud Monitoring Workspace within the Google Cloud project, if you don't have one already.
 
@@ -143,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

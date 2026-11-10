@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/create-user-cluster-api/
 title: Create a user cluster using GKE On-Prem API clients \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:06.112454+00:00
+fetched_at: 2026-11-10T16:59:51.504777+00:00
 ---
 
 # Create a user cluster using GKE On-Prem API clients  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -240,7 +240,7 @@ With manual load balancing, you configure your own load-balancing solutions for 
 
 ### Storage
 
-Distributed Cloud software only provides block and file storage interfaces. They have default options, but you can customize the configurations. For more information, see [Configure local storage](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-local-storage).
+Google Distributed Cloud software only provides block and file storage interfaces. They have default options, but you can customize the configurations. For more information, see [Configure local storage](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-local-storage).
 
   1. Optionally, you can configure the following:
 
@@ -833,7 +833,7 @@ For more information, see the [gcloud CLI reference](https://docs.cloud.google.c
 
 ### Before you begin
 
-The Distributed Cloud software only for bare metal version that you select when creating a user cluster must be a version that your admin cluster supports. Additionally, the latest minor or patch versions aren't available in the GKE On-Prem API until 7 to 14 days after the release. You can run a `gcloud` command to get a list of supported versions that you can use to install the user cluster.
+The Google Distributed Cloud software only for bare metal version that you select when creating a user cluster must be a version that your admin cluster supports. Additionally, the latest minor or patch versions aren't available in the GKE On-Prem API until 7 to 14 days after the release. You can run a `gcloud` command to get a list of supported versions that you can use to install the user cluster.
 
   1. Make sure to update components:
          
@@ -1020,7 +1020,7 @@ Be sure to wait until the Google Cloud console indicates that user cluster statu
          gcloud components update
          
 
-  2. Fetch the cluster credentials used to interact with connect gateway. In the following command, replace`MEMBERSHIP_NAME` with your cluster's name. For Distributed Cloud software only for bare metal, the membership name is the same as the cluster name.
+  2. Fetch the cluster credentials used to interact with connect gateway. In the following command, replace`MEMBERSHIP_NAME` with your cluster's name. For Google Distributed Cloud software only for bare metal, the membership name is the same as the cluster name.
          
          gcloud container fleet memberships get-credentials MEMBERSHIP_NAME
          
@@ -1068,6 +1068,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

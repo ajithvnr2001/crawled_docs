@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/
 title: Well-Architected Framework: AI and ML perspective \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:51.709615+00:00
+fetched_at: 2026-11-10T16:40:37.739314+00:00
 ---
 
 # Well-Architected Framework: AI and ML perspective  |  Cloud Architecture Center  |  Google Cloud Documentation

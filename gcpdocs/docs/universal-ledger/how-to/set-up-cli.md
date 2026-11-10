@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/how-to/set-up-cli/
 title: Set up the Universal Ledger CLI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:14.415644+00:00
+fetched_at: 2026-11-10T18:37:38.224616+00:00
 ---
 
 # Set up the Universal Ledger CLI  |  Google Cloud Documentation
@@ -67,7 +67,8 @@ Run the following command to create a directory to hold the CLI configuration fi
 Run each of the following commands to pull the `ul-cli` Docker image, define an alias for running the binary, and confirm that the binary works:
     
     
-    docker pull us-central1-docker.pkg.dev/universal-ledger-artifacts/images/client/ul-cli:stable
+    docker pull \
+        us-central1-docker.pkg.dev/universal-ledger-artifacts/release/ul-cli:stable
     alias ul-cli="docker run --rm -i --user $(id -u):$(id -g) \
         --volume /tmp:/tmp \
         --volume ~/.config/ul-cli:/home/.config/ul-cli \
@@ -75,7 +76,7 @@ Run each of the following commands to pull the `ul-cli` Docker image, define an 
         --volume .:/workspace \
         --env HOME=/home \
         --workdir /workspace \
-        us-central1-docker.pkg.dev/universal-ledger-artifacts/images/client/ul-cli:stable"
+        us-central1-docker.pkg.dev/universal-ledger-artifacts/release/ul-cli:stable"
     ul-cli --help
 
 ### Configure the ul-cli
@@ -219,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

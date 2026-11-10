@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp/
 title: Use the BigQuery Migration Service MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:45.154160+00:00
+fetched_at: 2026-11-10T18:39:18.699227+00:00
 ---
 
 # Use the BigQuery Migration Service MCP server  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Use the BigQuery Migration Service MCP server
 
-This document shows you how to use the BigQuery remote Model Context Protocol (MCP) server to connect with AI applications including Antigravity, ChatGPT, Claude, and custom applications you are developing. You can use the BigQuery Migration Service Model Context Protocol (MCP) server to perform tasks such as translating SQL queries into GoogleSQL syntax, generating DDL statements from SQL input queries, and getting explanations of SQL translations. The BigQuery remote MCP server is enabled when you enable the BigQuery API. 
+This document shows you how to use the BigQuery remote Model Context Protocol (MCP) server to connect with AI applications including Antigravity, ChatGPT, Claude, and custom applications you are developing. You can use the BigQuery Migration Service Model Context Protocol (MCP) server to perform tasks such as translating SQL queries and batches of SQL files into GoogleSQL syntax, translating metadata into DDL statements, generating DDL suggestions from SQL input queries, and getting explanations of SQL translations. The BigQuery remote MCP server is enabled when you enable the BigQuery API. 
 
 [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) standardizes how large language models (LLMs) and AI applications or agents connect to external data sources. MCP servers let you use their tools, resources, and prompts to take actions and get updated data from their backend service.
 
@@ -103,6 +103,7 @@ To get the permissions that you need to enable the BigQuery Migration Service MC
 
   * Make MCP tool calls: [MCP Tool User ](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) (`roles/mcp.toolUser`) 
   * Use the BigQuery Migration Service: [Migration Workflow Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquerymigration#bigquerymigration.editor) (`roles/bigquerymigration.editor`) 
+  * Access Cloud Storage buckets for input and output files: [Storage Object Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectAdmin) (`roles/storage.objectAdmin`) 
 
 
 
@@ -122,6 +123,10 @@ The following permissions are required to enable the BigQuery Migration Service 
     * `bigquerymigration.workflows.delete`
     * `bigquerymigration.subtasks.get`
     * `bigquerymigration.subtasks.list`
+  * Access Cloud Storage buckets for input and output files: 
+    * `storage.objects.get`
+    * `storage.objects.list`
+    * `storage.objects.create`
 
 
 
@@ -144,7 +149,7 @@ BigQuery Migration Service has the following MCP tool OAuth scopes:
 Scope URI for gcloud CLI | Description  
 ---|---  
 `https://www.googleapis.com/auth/bigquerymigration` | View and manage your workflows in BigQuery Migration Service and see the email address for your Google Account.  
-`https://www.googleapis.com/auth/devstorage.read_only` | This scope is required for query translations that read data from Cloud Storage.  
+`https://www.googleapis.com/auth/devstorage.read_only` | This scope is required for tools that read input files from Cloud Storage, such as metadata files, batch translation inputs, and batch DDL suggestion inputs.  
   
 Resources accessed during a tool call might require additional scopes.
 
@@ -257,12 +262,19 @@ The following are sample use cases for the BigQuery Migration Service MCP server
   * Assess translation quality.
   * Get explanations of SQL translations.
   * Generate a DDL statement for a specified query.
+  * Translate a directory of SQL files that are stored in Cloud Storage into GoogleSQL syntax.
+  * Translate a metadata ZIP file from your source system into DDL statements for BigQuery.
+  * Generate DDL statements for the tables and views that a batch of SQL files references.
 
 
 
 ### Sample prompts
 
 You can use the following sample prompts to create and manage BigQuery Migration Service resources:
+
+#### Translate a query
+
+Use the following prompts to translate a query, assess quality, explain translations, or generate DDL suggestions:
 
   * Translate the `DIALECT` query in this `FILENAME`. Use `PROJECT_ID` and `LOCATION`. Persist the output and translation logs into separate directories.
 
@@ -315,11 +327,37 @@ If the generated DDL statements are correct, any `RelationNotFound` or `Attribut
 
 
 
+#### Translate batch queries
+
+Use the following prompts to translate SQL files or metadata files that are stored in Cloud Storage, or to generate DDL suggestions for a batch of SQL files:
+
+  * Translate the `DIALECT` SQL files in `SOURCE_URI` into GoogleSQL and write the output to `TARGET_URI`. Use `PROJECT_NUMBER` and `LOCATION`.
+
+When you use this prompt, the MCP client calls the `translate_batch_queries` tool, and then periodically calls the `fetch_batch_translation` tool until the translation state is `SUCCEEDED` or `FAILED`. The server writes the translated SQL files and the `translation_report.csv` summary report to `TARGET_URI`. For more information about the output files, see [Explore the translation output](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#explore_the_translation_output).
+
+To improve the translation quality, include a [metadata ZIP file](https://docs.cloud.google.com/bigquery/docs/generate-metadata) and any [configuration YAML files](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation) in `SOURCE_URI`. The translator detects these files automatically. We recommend that you use an empty `TARGET_URI` for each translation so that the outputs of different translations don't mix.
+
+  * Translate the `DIALECT` metadata file `METADATA_FILE_URI` into BigQuery DDL. Write the output to `TARGET_URI`. Use `PROJECT_NUMBER` and `LOCATION`.
+
+When you use this prompt, the MCP client calls the `translate_metadata` tool, and then periodically calls the `fetch_batch_translation` tool until the translation state is `SUCCEEDED` or `FAILED`. The server writes the generated DDL statements and table mappings to `TARGET_URI`. If the translation fails, the client reads the translation logs from `fetch_batch_translation` to diagnose the issue. For more information, see [Translate metadata](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#translate_metadata).
+
+  * Generate DDL for the `DIALECT` SQL files in `SOURCE_URI` and write the output to `TARGET_URI`. Use `PROJECT_NUMBER` and `LOCATION`.
+
+When you use this prompt, the MCP client calls the `generate_batch_ddl_suggestion` tool, and then periodically calls the `fetch_batch_ddl_suggestion` tool until the suggestion state is `SUCCEEDED` or `FAILED`. The server writes the suggested DDL statements to the Cloud Storage directory returned in the `fetch_batch_ddl_suggestion` response. To retranslate with the suggested DDL statements, copy them as unzipped SQL files to a directory under `SOURCE_URI` and run `translate_batch_queries` again.
+
+The suggested DDL statements are inferred from how the SQL files use the tables and views, so they are approximate. Use this prompt only when you can't [generate a metadata ZIP file](https://docs.cloud.google.com/bigquery/docs/generate-metadata) from your source system. For more information, see [Generate source DDL](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#generate_source_ddl).
+
+
+
+
 In the prompts, replace the following:
 
-  * `DIALECT`: the dialect of the SQL query you're translating.
+  * `DIALECT`: the dialect of the SQL query, files, or metadata that you're translating.
   * `QUERY`: the query you're translating.
   * `FILENAME`: the file that contains the query you're translating.
+  * `SOURCE_URI`: the Cloud Storage directory that contains the input files, such as `gs://my_bucket/input/`.
+  * `TARGET_URI`: the Cloud Storage directory that receives the outputs, such as `gs://my_bucket/output/`.
+  * `METADATA_FILE_URI`: the Cloud Storage path of the metadata ZIP file, such as `gs://my_bucket/metadata.zip`. To create this file, see [Generate metadata for translation](https://docs.cloud.google.com/bigquery/docs/generate-metadata).
   * `PROJECT_NUMBER`: your Google Cloud [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin).
   * `LOCATION`: the location of the [SQL translator](https://docs.cloud.google.com/bigquery/docs/locations#sql-translator-loc).
 
@@ -447,9 +485,14 @@ You are still subject to the quotas enforced by the APIs called by the MCP serve
 Tool | API method | Quotas  
 ---|---|---  
 `explain_translation` | [`GetMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.GetMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
+`fetch_batch_ddl_suggestion` | [`GetMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.GetMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
+`fetch_batch_translation` | [`GetMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.GetMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
 `fetch_ddl_suggestion` | [`GetMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.GetMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
-`get_translation` | [`GetMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.GetMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
+`generate_batch_ddl_suggestion` | [`CreateMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.CreateMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
 `generate_ddl_suggestion` | [`CreateMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.CreateMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
+`get_translation` | [`GetMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.GetMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
+`translate_batch_queries` | [`CreateMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.CreateMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
+`translate_metadata` | [`CreateMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.CreateMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
 `translate_query` | [`CreateMigrationWorkflow`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rpc/google.cloud.bigquery.migration.v2#google.cloud.bigquery.migration.v2.MigrationService.CreateMigrationWorkflow) | [BigQuery Migration API quotas and limits](https://docs.cloud.google.com/bigquery/quotas#migration-api-limits)  
   
 For more information on BigQuery quotas, see [Quotas and limits](https://docs.cloud.google.com/bigquery/quotas).
@@ -466,6 +509,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

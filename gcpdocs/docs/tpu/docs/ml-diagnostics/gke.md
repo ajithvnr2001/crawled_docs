@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/tpu/docs/ml-diagnostics/gke/
-title: Configure GKE for ML Diagnostics \u00a0|\u00a0 Cloud TPU \u00a0|\u00a0 Google Cloud Documentation
+title: Configure GKE or self-managed Kubernetes \u00a0|\u00a0 Cloud TPU \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:45:44.606960+00:00
+fetched_at: 2026-11-10T16:58:45.328933+00:00
 ---
 
-# Configure GKE for ML Diagnostics  |  Cloud TPU  |  Google Cloud Documentation
+# Configure GKE or self-managed Kubernetes  |  Cloud TPU  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/tpu/docs/ml-diagnostics/gke/
 
@@ -19,29 +19,141 @@ fetched_at: 2026-11-09T05:45:44.606960+00:00
 
 Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Configure GKE for ML Diagnostics
+# Configure GKE or self-managed Kubernetes
 
-If you are using Google Kubernetes Engine (GKE) for your ML workload, you can use the ML Diagnostics platform in two ways:
+You can configure the ML Diagnostics platform for ML workloads running on Google Kubernetes Engine (GKE) or self-managed Kubernetes.
 
-  1. **Automatic workload monitoring and system metrics collection** : For automatic workload monitoring and system metrics collection, you do not need to instrument your code or perform any extra configuration. Workload monitoring and system metrics collection is enabled by default, and you are not required to perform the steps in this guide. Workload monitoring supports the `jobset` and `job` GKE job types, and is compatible with GKE versions 1.36.0-gke.4681000 and later.
-  2. **ML Diagnostics SDK and on-demand profiling** : If you want to use the ML Diagnostics SDK and do on-demand profiling, use this guide to configure your GKE cluster and install the required GKE artifacts.
+ML Diagnostics includes the following generally available features:
 
-
-
-The configuration of your workload depends on whether you use [on-demand profiling](https://docs.cloud.google.com/tpu/docs/ml-diagnostics/cli) or [programmatic profiling](https://docs.cloud.google.com/tpu/docs/ml-diagnostics/sdk).
-
-  * **On-demand profiling** : Requires you to install `connection-operator`.
-  * **Programmatic profiling** : Requires you to install `injection-webhook`, label the workload and use the [ML Diagnostics SDK](https://docs.cloud.google.com/tpu/docs/ml-diagnostics/sdk).
+  * **Automatic workload monitoring and system metrics collection** : For automatic workload monitoring and system metrics collection on GKE, you don't need to instrument your code or perform any extra configuration. Workload monitoring and system metrics collection are enabled by default, and you aren't required to perform the steps in this guide. Workload monitoring supports the `JobSet` and `Job` GKE job types, and is compatible with GKE versions `1.36.4-gke.1247000` and later.
+  * **ML Diagnostics SDK metrics and programmatic profiling** : If you want to use the ML Diagnostics SDK to collect metrics and run programmatic profiling, install the `injection-webhook` Helm chart, label the workload, and use the [ML Diagnostics SDK](https://docs.cloud.google.com/tpu/docs/ml-diagnostics/sdk). On GKE, you can use a single Google Cloud CLI command if you use a supported GKE version, or perform a manual installation. On self-managed Kubernetes, you must install the webhook manually.
+  * **On-demand profiling** : If you want to use on-demand profiling, install the `connection-operator` Helm chart. On GKE, you can use a single gcloud CLI command if you use a supported GKE version, or perform a manual installation. On self-managed Kubernetes, you must install the operator manually.
 
 
 
-If you are using a version of GKE that is later than `1.35.0-gke.3065000`, you can set up GKE cluster for ML Diagnostics with a single gcloud CLI command, through the Google Cloud console, or by using Terraform. For more information, see Set up with gcloud CLI, Google Cloud console, or Terraform.
+ML Diagnostics also includes the following Preview feature:
 
-For GKE versions prior to `1.35.0-gke.3065000`, you need to manually configure the GKE cluster to install the `cert-manager`, `injection-webhook`, and `connection-operator` artifacts. For more information, see Manual installation.
+  * **Diagon DaemonSet profiling** : If you want to use on-demand profiling, continuous profiling, and automatic profile capture from workload monitoring on your GKE workload, deploy the Diagon DaemonSet on your GKE TPU clusters. This DaemonSet also works on self-managed Kubernetes clusters, where only on-demand and continuous profiling are supported. Workload monitoring is not supported on self-managed Kubernetes.
 
-## Set up with gcloud CLI, Google Cloud console, or Terraform
 
-For GKE versions later than `1.35.0-gke.3065000`, use one of the following methods to deploy the required ML Diagnostics components (both connection-operator and injection-webhook) into your GKE cluster.
+
+## Deploy the Diagon DaemonSet
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+If you run containerized workloads on GKE or self-managed Kubernetes clusters, you can deploy the Diagon daemon as a DaemonSet. This ensures that a copy of the daemon runs on all, or selected, GPU and TPU nodes within the cluster.
+
+### Container image repository
+
+The Diagon daemon is published as a Docker image and is available from the following Artifact Registry path:
+
+`us-central1-docker.pkg.dev/hypercomputediagon-release/daemon-docker/mldiagnostics-daemon:latest`
+
+### Deployment steps
+
+To deploy the Diagon DaemonSet to your cluster, complete the following steps:
+
+  1. **Create the DaemonSet configuration** : Save the following YAML configuration as `diagon-daemonset.yaml`. This configuration runs the Diagon daemon in privileged mode so that it can collect diagnostic and profiling metrics from the underlying host GPU and TPU devices.
+         
+         # diagon-daemonset.yaml
+         apiVersion: apps/v1
+         kind: DaemonSet
+         metadata:
+           name: diagon-daemon
+           namespace: diagon
+           labels:
+             app.kubernetes.io/name: diagon-daemon
+             app.kubernetes.io/part-of: diagon
+         spec:
+           selector:
+             matchLabels:
+               name: diagon-daemon
+           template:
+             metadata:
+               labels:
+                 name: diagon-daemon
+             spec:
+               hostNetwork: true
+               dnsPolicy: ClusterFirstWithHostNet
+               serviceAccountName: SERVICE_ACCOUNT_NAME
+               terminationGracePeriodSeconds: 30
+               tolerations:
+               - operator: Exists
+                 effect: NoSchedule
+               - operator: Exists
+                 effect: NoExecute
+               containers:
+               - name: diagon-daemon
+                 image: us-central1-docker.pkg.dev/hypercomputediagon-release/daemon-docker/mldiagnostics-daemon:latest
+                 imagePullPolicy: Always
+                 command:
+                 - /mldiagnostics_extension_files/bin/mldiagnostics_extension
+                 - -standalone=true
+                 - -channel=hypercomputecluster.googleapis.com/diagnostics
+                 - -alsologtostderr=true
+                 securityContext:
+                   privileged: true
+                 resources:
+                   requests:
+                     cpu: 10m
+                     memory: 32Mi
+                   limits:
+                     memory: 256Mi  # No CPU limit.
+         
+
+  2. **Deploy the DaemonSet to the cluster** : Run the following command to deploy the daemon to your active Kubernetes context.
+         
+         kubectl apply -f diagon-daemonset.yaml
+         
+
+  3. **Verify deployment and daemon health** : On your administrative workstation or in Cloud Shell, check that all daemon pods are scheduled across worker nodes and have reached the `Running` state:
+         
+         kubectl get pods -n diagon -l name=diagon-daemon -o wide
+         
+
+Inspect the streaming logs to confirm connectivity to the Google Cloud ML Diagnostics control plane and active heartbeats:
+         
+         kubectl logs -n diagon -l name=diagon-daemon --tail=50
+         
+
+The output includes the following expected log signatures:
+         
+         Stream established.
+         Received successful DaemonRegistrationResponse from backend
+         Sending DaemonHeartbeatRequest
+         
+
+  4. **Update the DaemonSet image** : To update to a newer version of the daemon or roll back, update the image tag in your YAML file, or run the following command directly.
+         
+         kubectl set image daemonset/diagon-daemon diagon-daemon=us-docker.pkg.dev/hypercomputediagon-release/daemon/diagon-daemon:v2.1.0 --namespace=kube-system
+         
+
+To check the progress of the deployment or update, verify the rollout status:
+         
+         kubectl rollout status daemonset/diagon-daemon --namespace=kube-system
+         
+
+
+
+
+## Set up operator and webhook
+
+For the operator and webhook setup, you have the following options:
+
+  * If you use a version of GKE that is later than `1.35.0-gke.3065000`, you can set up your GKE cluster for ML Diagnostics with a single gcloud CLI command, through the Google Cloud console, or by using Terraform.
+
+  * For GKE versions earlier than `1.35.0-gke.3065000` and self-managed Kubernetes, you must manually configure the cluster to install the `cert-manager`, `injection-webhook`, and `connection-operator` artifacts. For more information, see Manual installation.
+
+
+
+
+Deploy the operator and webhook on your GKE cluster, along with the Diagon DaemonSet. If you already deployed the operator and webhook, you don't need to delete them. Instead, the operator serves as the fallback path for on-demand profile capture, and the webhook is still required to use the SDK.
+
+If you use a self-managed Kubernetes environment instead of GKE, install the webhook for the SDK and deploy the Diagon DaemonSet. In a self-managed Kubernetes environment, workload monitoring doesn't work; only SDK metrics, programmatic profiling, on-demand profiling, and continuous profiling are supported.
+
+For GKE versions later than `1.35.0-gke.3065000`, use one of the following methods to deploy the required ML Diagnostics components (both `connection-operator` and `injection-webhook`) into your GKE cluster.
 
 ###  gcloud 
 
@@ -166,14 +278,6 @@ After updating your configuration, apply the changes:
     terraform apply
     
 
-Replace the following:
-
-  * `PROJECT_ID`: the name of the project.
-  * `CLUSTER_NAME`: the name of the cluster.
-  * `LOCATION`: the region or zone.
-
-
-
 To learn more about using Terraform with GKE, see [Terraform support for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/resources/use-terraform-gke).
 
 ## Manual installation
@@ -181,16 +285,16 @@ To learn more about using Terraform with GKE, see [Terraform support for GKE](ht
 For GKE versions prior to `1.35.0-gke.3065000`, you need to manually configure the GKE cluster to install the following:
 
   * `cert-manager`: A prerequisite for the `injection-webhook`.
-  * `injection-webhook`: Provides the SDK with the required metadata. It supports common ML Kubernetes workloads, like `JobSet`,`RayJob`, and `LeaderWorkerSet`.
-  * `connection-operator`: For on-demand profiling on GKE. Deploying `connection-operator` along with `injection-webhook` into the GKE cluster will initialize profiling requests to target pods with profiling servers running when you trigger on-demand capture.
+  * `injection-webhook`: Provides the SDK with the required metadata. It supports common ML Kubernetes workloads, like `JobSet`, `RayJob`, and `LeaderWorkerSet`.
+  * `connection-operator`: For on-demand profiling on GKE. Deploying `connection-operator` along with `injection-webhook` into the GKE cluster initializes profiling requests to target pods with profiling servers running when you trigger on-demand capture.
 
 
 
-For more information on setting up for Google Kubernetes Engine, see [Configure Google Kubernetes Engine cluster](https://github.com/AI-Hypercomputer/google-cloud-mldiagnostics#configure-gke-cluster).
+For more information about setting up a GKE cluster, see [Configure GKE cluster](https://github.com/AI-Hypercomputer/google-cloud-mldiagnostics#configure-gke-cluster).
 
 ### Cert-manager
 
-`cert-manager` acts as the certificate controller for your cluster, ensuring that your applications are secure and that your certificates never unintentionally expire.
+The `cert-manager` add-on acts as the certificate controller for your cluster, ensuring that your applications are secure and that your certificates never unintentionally expire.
 
 Use Helm to install the following:
     
@@ -210,7 +314,7 @@ Use Helm to install the following:
 
 ### Injection-webhook
 
-`injection-webhook` passes metadata into the SDK. Use `helm upgrade --install` to install for the first time or upgrade an existing installation.
+The `injection-webhook` Helm chart passes metadata into the SDK. Use `helm upgrade --install` to install for the first time or upgrade an existing installation.
     
     
     helm upgrade --install mldiagnostics-injection-webhook \
@@ -222,9 +326,9 @@ Use Helm to install the following:
 
 ### Connection-operator
 
-`connection-operator` enables on-demand profiling on GKE. Use the following table to find the correct `mldiagnostics-connection-operator` version:
+The `connection-operator` Helm chart enables on-demand profiling on GKE. Use the following table to find the correct `mldiagnostics-connection-operator` version:
 
-JAX Version | Helm Chart Version  
+JAX version | Helm chart version  
 ---|---  
 0.8.x | 0.24.0  
 0.9.x+ | 0.24.0+  
@@ -256,7 +360,7 @@ For JAX 0.9.x+:
 
 For **programmatic profiling** , you need to trigger the `injection-webhook` to inject metadata into pods. Label either the workload or its namespace with `managed-mldiagnostics-gke=true` before deploying the workload:
 
-  * **Label a workload**. Label a `Jobset`, `LWS`, or `RayJob` workload, which will enable the webhook for that specific workload. The following is an example for a `JobSet` workload:
+  * **Label a workload** : Label a `JobSet`, `LeaderWorkerSet`, or `RayJob` workload, which enables the webhook for that specific workload. The following is an example for a `JobSet` workload:
         
         apiVersion: jobset.x-k8s.io/v1alpha2
         kind: JobSet
@@ -267,7 +371,7 @@ For **programmatic profiling** , you need to trigger the `injection-webhook` to 
             managed-mldiagnostics-gke: "true"
         
 
-  * **Label a namespace.** This will enable the webhook for all `Jobset`, `LWS`, and `RayJob` workloads within that namespace.
+  * **Label a namespace** : This enables the webhook for all `JobSet`, `LeaderWorkerSet`, and `RayJob` workloads within that namespace.
         
         kubectl create namespace ai-workloads
         kubectl label namespace ai-workloads managed-mldiagnostics-gke=true
@@ -280,6 +384,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

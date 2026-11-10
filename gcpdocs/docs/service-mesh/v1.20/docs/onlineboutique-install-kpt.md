@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.20/docs/onlineboutique-install-kpt/
 title: Deploying the Online Boutique sample application \u00a0|\u00a0 Cloud Service Mesh v1.20 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:55.707515+00:00
+fetched_at: 2026-11-10T18:47:05.492773+00:00
 ---
 
 # Deploying the Online Boutique sample application  |  Cloud Service Mesh v1.20  |  Google Cloud Documentation
@@ -171,7 +171,7 @@ To enable auto-injection, you label your namespaces with the _[default injection
            jsonpath={.items[*].metadata.labels.'istio\.io\/rev'}'{"\n"}'
          
 
-The command outputs the revision label that corresponds to the Cloud Service Mesh version, for example: `asm-1313-3`
+The command outputs the revision label that corresponds to the Cloud Service Mesh version, for example: `asm-1313-7`
 
   2. Apply the revision label to the application namespaces. In the following command, REVISION is the value of the `istiod` revision label that you noted in the previous step.
 
@@ -401,6 +401,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

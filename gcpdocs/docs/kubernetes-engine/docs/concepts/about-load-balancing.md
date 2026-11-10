@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-load-balancing/
 title: About load balancing in GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:34.514011+00:00
+fetched_at: 2026-11-10T17:01:37.057124+00:00
 ---
 
 # About load balancing in GKE  |  GKE networking  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ To make your applications accessible either from outside the cluster (external u
 
 The GKE Gateway controller is Google's implementation of the Kubernetes Gateway API for Cloud Load Balancing. Gateway API is an open-source project aimed at standardizing how service meshes and ingress controllers expose applications in Kubernetes. Gateway API is designed to be a more expressive, flexible, and extensible successor to the Ingress resource.
 
-The GKE Gateway controller is used to configure Layer 7 Application Load Balancers to expose HTTP(S) traffic to applications that run in the cluster.
+The GKE Gateway controller is used to configure Layer 7 Application Load Balancers to expose HTTP(S) traffic, and Layer 4 proxy Network Load Balancers (TCP proxy load balancers) with TLS passthrough and SNI-based routing to expose end-to-end encrypted TLS traffic to applications that run in the cluster.
 
 **Best practice** : 
 
@@ -65,9 +65,9 @@ If you configured an external LoadBalancer Service that clients outside your VPC
 
 ### Standalone NEGs
 
-Another method to manage your load balancers in GKE is to create the load balancer components yourself, and let GKE manage the NEGs. This type of load balancer is called a Proxy Network Load Balancer. NEGs are a way to represent groups of backend endpoints (for example, Pods) for load balancing.
+Another method to manage your load balancers in GKE is to create the load balancer components yourself, and let GKE manage the NEGs. This type of load balancer is called a proxy Network Load Balancer. NEGs are a way to represent groups of backend endpoints (for example, Pods) for load balancing.
 
-This type of load balancer is intended for TCP traffic only. Proxy Network Load Balancers distribute TCP traffic to backends in your VPC network or in other cloud environments. Traffic is terminated at the load balancing layer. The load balancer then forwards the traffic by establishing new TCP connections to the closest available backend.
+This type of load balancer is intended for TCP traffic only. proxy Network Load Balancers distribute TCP traffic to backends in your VPC network or in other cloud environments. Traffic is terminated at the load balancing layer. The load balancer then forwards the traffic by establishing new TCP connections to the closest available backend.
 
 ## What is container-native load balancing?
 
@@ -89,10 +89,10 @@ The following table shows you what type of load balancer is created for a given 
 
 Kubernetes resource  |  Type of load balancer created   
 ---|---  
-Application Load Balancer | Passthrough Network Load Balancer  
-Gateway  |  |   
-Ingress  |  |   
-LoadBalancer Service  |  |   
+Application Load Balancer | Proxy Network Load Balancer | Passthrough Network Load Balancer  
+Gateway  |  |  |   
+Ingress  |  |  |   
+LoadBalancer Service  |  |  |   
   
 ### Choose a method for creating a load balancer
 
@@ -107,13 +107,16 @@ Gateway | Ingress | LoadBalancer Service | Standalone NEGs
 [Regional internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) |  |  |  |   
 [Cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) |  |  |  |   
 [Proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/proxy-network-load-balancer)   
-(all types)  |  |  |  |   
+(all types)1 |  |  |  |   
 [Passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/passthrough-network-load-balancer)   
 (internal and external)  |  |  |  |   
   
+1 Gateway API supports proxy Network Load Balancers configured for TLS passthrough with SNI-based routing by using TLSRoute resources on supported GatewayClasses.
+
 ## What's next
 
   * Learn about the [Gateway API in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn about [GKE Ingress](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/ingress).
   * Learn about [LoadBalancer Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer).
 
@@ -123,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

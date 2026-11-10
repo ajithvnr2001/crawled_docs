@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/tcp/
 title: External proxy Network Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:46:29.419521+00:00
+fetched_at: 2026-11-10T18:26:27.637582+00:00
 ---
 
 # External proxy Network Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -195,10 +195,6 @@ External proxy Network Load Balancers using target SSL proxies require private k
 
 ### TLS routes
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 A [TLS route](https://docs.cloud.google.com/service-mesh/docs/reference/network-services/rest/v1/projects.locations.tlsRoutes) resource lets you define how traffic is routed to backend services based on SNI hostnames.
 
 If the load balancer's target TCP proxy is not referenced by a TLS route, then only the single default backend service is used, and the value of SNI hostname sent by the client or its absence isn't relevant.
@@ -217,7 +213,7 @@ Regional external proxy Network Load Balancer | [Regional `tlsRoutes`](https://d
 
 [Backend services](https://docs.cloud.google.com/load-balancing/docs/backend-service) direct incoming traffic to one or more attached backends. Each backend is composed of an [instance group](https://docs.cloud.google.com/compute/docs/instance-groups) or [network endpoint group](https://docs.cloud.google.com/load-balancing/docs/negs) and information about the backend's serving capacity. Backend serving capacity can be based on CPU or requests per second (RPS).
 
-Each load balancer has at least one backend service resource. If you use TLS routes ([Preview](https://cloud.google.com/products/#product-launch-stages)) to configure routing, you can configure multiple backend services for your load balancer. Without TLS routes, you're limited to only a single backend service per load balancer.
+Each load balancer has at least one backend service resource. If you use TLS routes to configure routing, you can configure multiple backend services for your load balancer. Without TLS routes, you're limited to only a single backend service per load balancer.
 
 The backend service specifies the [health check](https://docs.cloud.google.com/load-balancing/docs/health-checks) to be performed for the available backends.
 
@@ -519,10 +515,6 @@ For more information, see the following:
 
 ### SNI-based routing with TLS routes
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 **Note:** SNI-based routing is supported only for regional external proxy Network Load Balancers.
 
 SNI-based routing lets your TCP proxy Network Load Balancers route traffic to specific backend services based on the Server Name Indication (SNI) hostname provided during the TLS handshake. SNI is a TLS extension that allows a client to specify the domain name it wants to reach before the encrypted tunnel is established. The SNI hostname is transmitted in an unencrypted format within the `ClientHello` message so that the load balancer can inspect this value and route traffic to the appropriate backend service.
@@ -707,6 +699,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

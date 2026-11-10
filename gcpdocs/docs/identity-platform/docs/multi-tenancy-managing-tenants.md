@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/multi-tenancy-managing-tenants/
 title: Managing Identity Platform tenants programmatically \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:18.099100+00:00
+fetched_at: 2026-11-10T17:34:24.706961+00:00
 ---
 
 # Managing Identity Platform tenants programmatically  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ For operations such as tenant-specific user management, configuring OIDC/SAML pr
     TenantManager tenantManager = auth.getTenantManager();
     TenantAwareFirebaseAuth tenantAuth = tenantManager.getAuthForTenant(tenantId);
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L828-L830)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L828-L830)
 
 All calls to the user management APIs, OIDC/SAML provider management APIs, and email link generation APIs will be inside the scope of this tenant (using its `TenantAwareAuth` instance).
 
@@ -150,7 +150,7 @@ The Admin SDK provides the `getTenant()` method, which fetches information about
     Tenant tenant = FirebaseAuth.getInstance().getTenantManager().getTenant(tenantId);
     System.out.println("Retrieved tenant: " + tenant.getTenantId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L838-L839)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L838-L839)
 
 This method returns a `Tenant` object corresponding to the `tenantId`. If the provided `tenantId` does not belong to an existing tenant, the returned promise rejects with an `auth/tenant-not-found` error.
 
@@ -211,7 +211,7 @@ Use the `createTenant()` method to to create a new tenant configuration:
     Tenant tenant = FirebaseAuth.getInstance().getTenantManager().createTenant(request);
     System.out.println("Created tenant: " + tenant.getTenantId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L845-L850)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L845-L850)
 
 You can provide any combination of these properties:
 
@@ -308,7 +308,7 @@ Use the `updateTenant()` method to modify an existing tenant's data. You'll need
     Tenant tenant = FirebaseAuth.getInstance().getTenantManager().updateTenant(request);
     System.out.println("Updated tenant: " + tenant.getTenantId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L856-L860)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L856-L860)
 
 `updateTenant()` accepts the same properties as `createTenant()`. All properties are optional. If a property is not specified, the existing value will not be modified.
 
@@ -342,7 +342,7 @@ You can delete a tenant using its `tenantId`:
     
     FirebaseAuth.getInstance().getTenantManager().deleteTenant(tenantId);
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L866-L866)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L866-L866)
 
 The method returns an empty result when the deletion completes successfully. If the provided `tenantId` does not belong to an existing tenant, the returned promise rejects with an `auth/tenant-not-found` error.
 
@@ -384,7 +384,7 @@ Use the `listTenants()` method to list existing tenants:
       System.out.println("Retrieved tenant: " + tenant.getTenantId());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L872-L875)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L872-L875)
 
 Each batch of results contains a list of tenants, plus a next page token to list the next batch of tenant. When all the tenants have already been listed, no `pageToken` is returned.
 
@@ -419,7 +419,7 @@ To manage providers for a tenant, first create a `TenantAwareAuth` instance:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 You can then perform common operations, such as creating, modifying, or deleting providers for a tenant.
 
@@ -488,7 +488,7 @@ The following code shows how to create a SAML provider for a tenant:
     SamlProviderConfig saml = tenantAuth.createSamlProviderConfig(request);
     System.out.println("Created new SAML provider: " + saml.getProviderId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L886-L897)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L886-L897)
 
 ### Modifying a provider
 
@@ -534,7 +534,7 @@ The following code shows how to modify a provider:
     SamlProviderConfig saml = tenantAuth.updateSamlProviderConfig(request);
     System.out.println("Updated SAML provider: " + saml.getProviderId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L904-L909)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L904-L909)
 
 ### Getting a provider
 
@@ -567,7 +567,7 @@ The following code shows how to retrieve the provider configuration for a specif
     // Get display name and whether it is enabled.
     System.out.println(saml.getDisplayName() + " " + saml.isEnabled());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L915-L918)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L915-L918)
 
 ### Listing providers
 
@@ -606,7 +606,7 @@ The following code shows how to list provider configurations for a given tenant:
       System.out.println(saml.getProviderId());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L924-L928)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L924-L928)
 
 ### Deleting a provider
 
@@ -634,7 +634,7 @@ The following code shows how to delete a provider:
     
     tenantAuth.deleteSamlProviderConfig("saml.myProvider");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L935-L935)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L935-L935)
 
 OIDC providers are managed similarly to project-level OIDC providers, except they can be managed from the corresponding `TenantAwareAuth` instance, rather than an `Auth` project-level instance.
 
@@ -665,7 +665,7 @@ To start, you need a `TenantAwareAuth` instance for the corresponding tenant:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 ### Getting a user
 
@@ -701,7 +701,7 @@ You can retrieve a tenant-specific user with a `uid` identifier:
     UserRecord user = tenantAuth.getUser(uid);
     System.out.println("Successfully fetched user data: " + user.getDisplayName());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L942-L944)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L942-L944)
 
 You can also identify a user by their email:
 
@@ -734,7 +734,7 @@ You can also identify a user by their email:
     UserRecord user = tenantAuth.getUserByEmail(email);
     System.out.println("Successfully fetched user data: " + user.getDisplayName());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L951-L953)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L951-L953)
 
 ### Creating a user
 
@@ -791,7 +791,7 @@ Use the `createUser()` method to create new users for a specific tenant. When cr
     UserRecord user = tenantAuth.createUser(request);
     System.out.println("Successfully created user: " + user.getDisplayName());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L959-L968)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L959-L968)
 
 ### Modifying a user
 
@@ -848,7 +848,7 @@ You can modify existing users by specifying their `uid` to the `updateUser()` me
     UserRecord user = tenantAuth.updateUser(request);
     System.out.println("Successfully updated user: " + user.getDisplayName());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L975-L984)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L975-L984)
 
 ### Deleting a user
 
@@ -881,7 +881,7 @@ The following example shows how to delete a user based on their `uid`:
     
     System.out.println("Successfully deleted user: " + uid);
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L991-L993)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L991-L993)
 
 ### Listing users
 
@@ -948,7 +948,7 @@ To retrieve an entire list of users for a specific tenant in batches, use the `l
       page = page.getNextPage();
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L999-L1014)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L999-L1014)
 
 See the Admin SDK documentation on [managing users](https://firebase.google.com/docs/auth/admin/manage-users) to learn more.
 
@@ -977,7 +977,7 @@ To start, get a `TenantAwareAuth` instance for the corresponding tenant:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 You can import up to 1000 users at a time using a specific hashing algorithm.
 
@@ -1070,7 +1070,7 @@ You can import up to 1000 users at a time using a specific hashing algorithm.
       System.out.println("Failed to import user: " + error.getReason());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1021-L1041)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1021-L1041)
 
 All imported users will have their `tenantId` set to the `tenantAuth.tenantId`.
 
@@ -1168,7 +1168,7 @@ Users without passwords can also be imported to a specific tenant. These users c
       System.out.println("Failed to import user: " + error.getReason());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1048-L1072)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1048-L1072)
 
 See [Import users](https://firebase.google.com/docs/auth/admin/import-users) in the Admin SDK documentation to learn more.
 
@@ -1212,7 +1212,7 @@ Create a `TenantAwareAuth` instance on the server:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 You can then verify the ID token for that specific tenant:
 
@@ -1259,7 +1259,7 @@ You can then verify the ID token for that specific tenant:
       System.out.println("error verifying ID token: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1078-L1086)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1078-L1086)
 
 A server-side resource might be accessible by multiple tenants with different levels of access. Because the tenant ID might not be known ahead of time in this case, you can verify the ID token at the project level first:
 
@@ -1316,7 +1316,7 @@ A server-side resource might be accessible by multiple tenants with different le
       System.out.println("error verifying ID token: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1092-L1104)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1092-L1104)
 
 **Note:** Project-level `verifyIdToken` (or `verify_id_token` in Python) can verify the signature and claims of ID tokens from any tenant when `checkRevoked` (or `check_revoked`) is `false` (the default). However, enabling the revocation check at the project level only checks the root project's user pool and fails with a user-not-found error for tenant users. To check revocation for a tenant user, use a tenant-aware client as shown in Managing user sessions.
 
@@ -1349,7 +1349,7 @@ To begin, you need a `TenantAwareAuth` instance:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 The refresh tokens can then be revoked by specifying the `uid` of that user:
 
@@ -1398,7 +1398,7 @@ The refresh tokens can then be revoked by specifying the `uid` of that user:
     long timestamp = user.getTokensValidAfterTimestamp() / 1000;
     System.out.println("the refresh tokens were revoked at: " + timestamp + " (UTC seconds)");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1111-L1120)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1111-L1120)
 
 After refresh tokens are revoked, no new ID tokens can be issued for that user until they re-authenticate. However, existing ID tokens will remain active until their natural expiration time (one hour).
 
@@ -1465,7 +1465,7 @@ You can verify that an unexpired valid ID token is not revoked by specifying the
       }
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1127-L1138)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1127-L1138)
 
 If the tenant ID is unknown, first verify the token at the project level to extract the tenant ID. Then, use the corresponding tenant-aware client to verify revocation:
 
@@ -1571,7 +1571,7 @@ To begin, get a `TenantAwareAuth` instance for the corresponding tenant:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 Custom claims can contain sensitive data, so they should only be set from a privileged server environment using the Admin SDK.
 
@@ -1605,7 +1605,7 @@ Custom claims can contain sensitive data, so they should only be set from a priv
     // The new custom claims will propagate to the user's ID token the
     // next time a new one is issued.
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1156-L1161)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1156-L1161)
 
 Newly-set custom attributes will appear on the top-level attributes of the token payload the next time the user signs in or refreshes their ID tokens on an existing session. In the previous example, the ID token contains an additional claim: `{admin: true}`.
 
@@ -1647,7 +1647,7 @@ After verifying the ID token and decoding its payload, the additional custom cla
       // Allow access to requested admin resource.
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1166-L1170)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1166-L1170)
 
 Custom claims for an existing user for a specific tenant are also available as a property on the user record.
 
@@ -1679,7 +1679,7 @@ Custom claims for an existing user for a specific tenant are also available as a
     UserRecord user = tenantAuth.getUser(uid);
     System.out.println(user.getCustomClaims().get("admin"));
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1174-L1176)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1174-L1176)
 
 See the Admin SDK documentation on [Custom claims](https://firebase.google.com/docs/auth/admin/custom-claims) to learn more.
 
@@ -1710,7 +1710,7 @@ To begin, get a `TenantAwareAuth` instance for the corresponding tenant:
     TenantAwareFirebaseAuth tenantAuth = FirebaseAuth.getInstance().getTenantManager()
         .getAuthForTenant("TENANT-ID");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L881-L882)
 
 The following example shows how to generate a link to verify a user's email for a specified tenant:
 
@@ -1793,7 +1793,7 @@ The following example shows how to generate a link to verify a user's email for 
     // using custom SMTP server.
     sendCustomEmail(email, displayName, link);
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1185-L1203)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1185-L1203)
 
 Similar mechanisms are available for generating password reset and email-based sign-in links. Note that when generating an email action link in a tenant context, the tenant ID has to be parsed from the link and set on the client `Auth` instance before the code can be applied.
     
@@ -1842,6 +1842,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

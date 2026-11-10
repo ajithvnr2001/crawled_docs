@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/replication/
 title: About replication in Cloud SQL \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:13.418798+00:00
+fetched_at: 2026-11-10T18:46:29.865699+00:00
 ---
 
 # About replication in Cloud SQL  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -51,6 +51,7 @@ Cloud SQL supports the following types of replicas:
   * Read replicas
   * Cross-region read replicas
   * Cascading read replicas
+  * External read replicas
 
 
 
@@ -193,6 +194,12 @@ Primary A → Replica B → Replica C and Replica D
 
 
 
+## External read replicas
+
+External read replicas are PostgreSQL instances external to Cloud SQL that replicate from a Cloud SQL primary instance using [logical replication](https://docs.cloud.google.com/sql/docs/postgres/replication/configure-logical-replication), such as the `pglogical` extension with logical decoding. For example, a PostgreSQL instance running on Compute Engine or an on-premises database can be used as an external read replica.
+
+For information about configuring an external read replica, see [Configure external replicas](https://docs.cloud.google.com/sql/docs/postgres/replication/configure-external-replica).
+
 ## Logical replication
 
 Cloud SQL lets you configure your own replication solutions by using PostgreSQL's logical replication features. Logical replication is a flexible solution allowing:
@@ -246,6 +253,17 @@ Cross-region read replica | Cloud SQL instance | Cloud SQL instance |
   * [Replication metrics](https://docs.cloud.google.com/sql/docs/postgres/monitor-instance)
 
   
+External read replica | Cloud SQL standalone or primary instance | PostgreSQL instance external to Cloud SQL | 
+
+  * Reduced latency for external connections
+  * Analytics target
+  * Migration path to other platforms
+
+| 
+
+  * [ Configure external replicas](https://docs.cloud.google.com/sql/docs/postgres/replication/configure-external-replica)
+
+  
 Logical replication | Any PostgreSQL standalone or primary instance | Any PostgreSQL instance, or an external consumer | 
 
   * Replication from the outside of Cloud SQL
@@ -290,6 +308,7 @@ User tables | You cannot make changes on the replica. All user changes must be d
 ## What's next
 
   * Learn how to [create a read replica](https://docs.cloud.google.com/sql/docs/postgres/replication/create-replica). 
+  * Learn how to [configure an external replica configuration](https://docs.cloud.google.com/sql/docs/postgres/replication/configure-external-replica). 
   * Learn how to [configure an instance for high availability](https://docs.cloud.google.com/sql/docs/postgres/configure-ha).
   * Learn about [Advanced disaster recovery (DR)](https://docs.cloud.google.com/sql/docs/postgres/use-advanced-disaster-recovery)
 
@@ -299,6 +318,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

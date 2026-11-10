@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-snowflake/
 title: Set up cross-cloud connection for Snowflake Horizon Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:21.071059+00:00
+fetched_at: 2026-11-10T18:46:28.165476+00:00
 ---
 
 # Set up cross-cloud connection for Snowflake Horizon Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -460,7 +460,7 @@ The **Connection details** section appears.
 
      * For **Secret** , enter the name of your secret for **Secret-based (PAT)**. Use the following format: `projects/PROJECT_ID/locations/REGION/secrets/SNOWFLAKE_SECRET_NAME`.
      * For **OIDC** , enter your Snowflake role for **Workload Identity Federation**. For example, `ICEBERG_VIEW`.
-  11. Under **Transport layer** , select **Public internet** or **Dedicated private interconnect**. If you select **Dedicated private interconnect** , configure the following fields:
+  11. Under **Transport layer** , select **Public internet** (default) or **Dedicated private interconnect**. If you select **Dedicated private interconnect** , configure the following fields:
 
      * In the **Service directory name** field, enter the path to your transport Service Directory service in the format `projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME`.
      * Optional: To synchronize catalog metadata privately over Cross-Cloud Interconnect, in the **Metadata service directory name** field, enter the path to your metadata Service Directory service in the format `projects/PROJECT_ID/locations/REGION/namespaces/METADATA_SERVICE_DIRECTORY_NAMESPACE/services/METADATA_SERVICE_NAME`.
@@ -468,6 +468,8 @@ The **Connection details** section appears.
 
 
 
+
+To update **Transport layer** , **Service directory name** , or **Metadata service directory name** on an existing federated catalog, open the catalog in **Lakehouse** , click **Edit catalog** , modify the fields, and click **Save**.
 
 ###  gcloud 
 
@@ -743,6 +745,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

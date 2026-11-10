@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/troubleshooting-workforce-identity-federation/
 title: Troubleshoot Workforce Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:11.656696+00:00
+fetched_at: 2026-11-10T08:24:42.935842+00:00
 ---
 
 # Troubleshoot Workforce Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -128,9 +128,63 @@ The following error occurs when the `web-sso-response-type` and `web-sso-asserti
 
 To resolve this error, follow the steps in the [Create a provider](https://docs.cloud.google.com/iam/docs/manage-workforce-identity-pools-providers#create_a_provider) section to set the fields appropriately when you create the OIDC workforce identity pool provider.
 
-### Rate limit exceeded, please try again later
+### Rate limit exceeded (HTTP 429)
 
-This error occurs when you have reached your quota limit for workforce pool resources. Contact your Google Cloud account representative to request a quota increase.
+This error occurs when your organization has exhausted its quota for workforce pool token exchange (`sts.googleapis.com/workforce_requests`).
+
+This quota is enforced for each organization and defaults to 1,000 requests a minute. Because this quota is shared across every workforce pool, provider, user, and automated workload in your organization, **a single high-frequency client** can cause HTTP `429` errors across the organization, including for administrators. For more information, see [Quotas and limits](https://docs.cloud.google.com/iam/quotas).
+
+#### Before you begin
+
+If you're signed in through Workforce Identity Federation, Google Cloud CLI commands and new Google Cloud console sign-in sessions might be throttled. To perform these steps when your quota is exceeded, use an administrator account that doesn't authenticate through Workforce Identity Federation, such as an emergency access Cloud Identity super administrator account.
+
+#### Step 1: Confirm the quota is exhausted
+
+In the Google Cloud console, go to **IAM & Admin** > **Quotas** , set the resource selector to your organization (not a project), and select **Workforce Pool token exchange requests**.
+
+[ Go to IAM & Admin Quotas](https://console.cloud.google.com/iam-admin/quotas)
+
+#### Step 2: Identify the source of the traffic
+
+Throttled token exchanges are rejected before credentials are validated, so they don't appear in Cloud Audit Logs. To identify the source of the traffic, use one of the following methods:
+
+  * **Review your IdP sign-in logs:** In your identity provider, such as the Okta System Log or Microsoft Entra ID sign-in logs, check for a specific application, service principal, or user account issuing tokens at an unusually high rate.
+  * **Review workload configurations:** Check your automated jobs, CI/CD pipelines, daemon agents, and GKE workloads configured with a workforce credential configuration file.
+
+
+
+#### Step 3: Contain the traffic
+
+Choose the option that resolves the traffic with the fewest disruptions to your workforce:
+
+Action| Effect on your users  
+---|---  
+**Stop the workload** (scale the deployment to zero, delete the job, or revoke the client in your IdP) | None. Recommended when you can identify the specific workload.  
+**Disable programmatic sign-in** on the workforce pool | Blocks all programmatic token exchange for the pool, including `gcloud` and `kubectl` for your human users. Google Cloud console sign-in continues to work.  
+  
+Recommended when you cannot immediately locate the workload.  
+**Disable the pool or provider** | Blocks authentication for the entire workforce pool or provider.  
+  
+To disable programmatic sign-in:
+    
+    
+    gcloud iam workforce-pools update WORKFORCE_POOL_ID \
+        --location=global \
+        --disable-programmatic-signin
+    
+
+After stopping the problematic workload, re-enable programmatic sign-in by running the command with the `--no-disable-programmatic-signin` flag.
+
+**Note:** Deleting a workforce pool subject doesn't reduce the quota consumption. The quota is consumed when the token exchange request is received, before authorization is evaluated.
+
+#### Step 4: Prevent recurrence
+
+  * Migrate automated workloads to [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).
+  * Retry throttled requests with exponential backoff and jitter. Tight retry loops deepen the saturation and extend the outage.
+  * [Alert at 80% of your quota](https://docs.cloud.google.com/iam/docs/best-practices-workforce-identity-federation#monitor-quota) so you are warned before saturation.
+  * If your steady-state demand regularly exceeds the limit, we recommend that you request a quota increase through Cloud Customer Care before you need it.
+
+
 
 ## Sign-in errors
 
@@ -753,6 +807,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

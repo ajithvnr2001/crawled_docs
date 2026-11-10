@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workload-manager/docs/evaluate/set-up-agent-for-sap/
 title: Set up the agent for SAP workloads \u00a0|\u00a0 Workload Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:06.899091+00:00
+fetched_at: 2026-11-10T12:37:33.452660+00:00
 ---
 
 # Set up the agent for SAP workloads  |  Workload Manager  |  Google Cloud Documentation
@@ -86,7 +86,7 @@ To install the agent on a Compute Engine instance, follow these steps:
 
   1. Establish an SSH connection to your compute instance.
   2. In your terminal, install the agent by running the command that is specific to your operating system: 
-     * (Recommended) To install version 3.15 (latest) of the agent: 
+     * (Recommended) To install version 3.16 (latest) of the agent: 
 
 ### RHEL
            
@@ -762,7 +762,7 @@ Select your operating system, and then follow the steps:
 
   1. Establish an SSH connection with your instance.
   2. Update your agent instance: 
-     * (Recommended) To update to version 3.15 (latest) of the agent: 
+     * (Recommended) To update to version 3.16 (latest) of the agent: 
            
            sudo yum --nogpgcheck update google-cloud-sap-agent
 
@@ -779,7 +779,7 @@ Replace `VERSION_NUMBER` with the agent's version number that you want to instal
 
   1. Establish an SSH connection with your instance.
   2. Update your agent instance: 
-     * (Recommended) To update to version 3.15 (latest) of the agent: 
+     * (Recommended) To update to version 3.16 (latest) of the agent: 
            
            sudo zypper --no-gpg-checks update google-cloud-sap-agent
 
@@ -942,6 +942,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/samples/
 title: All Managed Service for Apache Spark code samples \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:03.727717+00:00
+fetched_at: 2026-11-10T17:00:17.615906+00:00
 ---
 
 # All Managed Service for Apache Spark code samples  |  Google Cloud Documentation

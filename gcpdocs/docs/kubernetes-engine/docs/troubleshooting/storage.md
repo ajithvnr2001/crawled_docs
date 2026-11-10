@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/storage/
 title: Troubleshooting storage in GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:09.673198+00:00
+fetched_at: 2026-11-10T16:33:06.329487+00:00
 ---
 
 # Troubleshooting storage in GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ This information is important for both Platform admins and operators managing cl
 
 Regional persistent disks are [restricted](https://docs.cloud.google.com/compute/docs/disks#restrictions_2) from being used with memory-optimized machines or compute-optimized machines.
 
-Consider using a non-regional persistent disk storage class if using a regional persistent disk is not a hard requirement. If using a regional persistent disk is a hard requirement, consider scheduling strategies such as [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to ensure that the Pods that need regional persistent disks are scheduled on a node pool that are not optimized machines.
+Consider using a non-regional persistent disk storage class if using a regional persistent disk is not a hard requirement. If using a regional persistent disk is a hard requirement, then consider scheduling strategies such as [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to ensure that the Pods that need regional persistent disks are scheduled on a node pool that are not optimized machines.
 
 ## Troubleshooting issues with disk performance
 
@@ -71,7 +71,7 @@ To help resolve such issues, review the following:
 
 ## Mounting a volume stops responding due to the `fsGroup` setting
 
-One issue that can cause `PersistentVolume` mounting to fail is a Pod that is configured with the `fsGroup` setting. Normally, mounts automatically retry and the mount failure resolves itself. However, if the `PersistentVolume` has a large number of files, kubelet will attempt to change ownership on each file on the filesystem, which can increase volume mount latency.
+A Pod configured with the `fsGroup` setting might cause PersistentVolume mounting to fail. Normally, mounts automatically retry and the mount failure resolves itself. However, if the PersistentVolume has a large number of files, the `kubelet` attempts to change ownership on each file on the file system, which can increase volume mount latency.
     
     
     Unable to attach or mount volumes for pod; skipping pod ... timed out waiting for the condition
@@ -83,7 +83,7 @@ To confirm if a failed mount error is due to the `fsGroup` setting, you can [che
     Setting volume ownership for /var/lib/kubelet/pods/POD_UUID and fsGroup set. If the volume has a lot of files then setting volume ownership could be slow, see https://github.com/kubernetes/kubernetes/issues/69699
     
 
-If the `PersistentVolume` does not mount within a few minutes, try the following steps to resolve this issue:
+If the PersistentVolume doesn't mount within a few minutes, try the following steps to resolve this issue:
 
   * Reduce the number of files in the [Volume](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/volumes).
   * Stop using the [`[fsGroup]` setting](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod).
@@ -257,6 +257,30 @@ To mitigate this issue for future stateful workloads, consider the following:
 
 
 
+## RWX PersistentVolumeClaim stuck in `Pending` status
+
+In GKE version 1.37.1 or later, if you deploy a PersistentVolumeClaim that requests the `ReadWriteMany` access mode without specifying a `storageClassName` field, then GKE automatically assigns the `regional-rwx` StorageClass to the claim. For more information, see [Default StorageClass assignment](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver#default-rwx). If the PersistentVolumeClaim remains in `Pending` status indefinitely, then it might be due to the defaulting mechanism or resource constraints.
+
+To diagnose this issue, complete the following steps:
+
+  1. Describe the PersistentVolumeClaim:
+         
+         kubectl describe pvc PVC_NAME
+         
+
+  2. Check the `STORAGECLASS` column in the command output. Depending on the value, do one of the following:
+
+     * If the column is empty, then GKE did not automatically assign a default StorageClass. To resolve the issue, bypass the automatic defaulting by manually adding the `storageClassName: regional-rwx` field-value pair to your PersistentVolumeClaim manifest.
+     * If GKE assigned the default StorageClass resource successfully but the volume wasn't provisioned, then check if the error is due to a lack of Google Cloud Filestore quota. Look for errors like the following:
+
+       * `googleapi: Error 403: Cloud Filestore API has not been used in project...`
+       * `is disallowed by organization's constraints/gcp.restrictServiceUsage constraint.`
+
+To resolve this issue, request your organization administrator to permit the `file.googleapis.com` API usage.
+
+
+
+
 ## What's next
 
   * If you can't find a solution to your problem in the documentation, see [Get support](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further help, including advice on the following topics:
@@ -271,6 +295,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

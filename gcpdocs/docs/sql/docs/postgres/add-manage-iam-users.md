@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/add-manage-iam-users/
 title: Manage users with IAM database authentication \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:56:46.899571+00:00
+fetched_at: 2026-11-10T12:13:33.895552+00:00
 ---
 
 # Manage users with IAM database authentication  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -419,7 +419,7 @@ To add an individual IAM user or service account, you add a new user account and
   3. Select **Users** from the SQL navigation menu.
   4. Click **Add user account**. The **Add a user account to instance _instance_name_** tab opens.
   5. Click the **Cloud IAM** radio button.
-  6. Add the email address for the user or service account you want to add in the **Principal** field. **Note:** Due to the length limit on a database username, for service accounts, Cloud SQL for PostgreSQL truncates the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` becomes `sa-name@project-id.iam`. 
+  6. Add the email address for the user or service account you want to add in the **Principal** field. **Note:** Due to the length limit on a database username, for service accounts, Cloud SQL for PostgreSQL truncates the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` becomes `sa-name@project-id.iam`. The truncated username must not exceed the 63-character limit for PostgreSQL database usernames. 
   7. Click **Add**. The user or service account is now in the user account list.
   8. If the user doesn't have the `cloudsql.instanceUser` IAM role assigned after user account creation, then a ![triangle](https://docs.cloud.google.com/static/sql/images/triangle.png) icon appears next to the username.
 
@@ -452,7 +452,7 @@ You can assign one or more database roles to provide the user with database priv
 
 Replace the following:
 
-  * SERVICE_ACCT: the email address of the service account. **Note:** Due to the length limit on a database username, you need to omit the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` should be `sa-name@project-id.iam`. 
+  * SERVICE_ACCT: the email address of the service account. **Note:** Due to the length limit on a database username, you need to omit the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` should be `sa-name@project-id.iam`. The truncated username must not exceed the 63-character limit for PostgreSQL database usernames. 
   * INSTANCE_NAME: the name of the instance you want to authorize the service account to access.
 
 
@@ -1333,7 +1333,7 @@ Replace the following:
 
 Replace the following:
 
-  * SERVICE_ACCOUNT: the email address of the service account. **Note:** Due to the length limit on a database username, you need to omit the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` should be `sa-name@project-id.iam`. 
+  * SERVICE_ACCOUNT: the email address of the service account. **Note:** Due to the length limit on a database username, you need to omit the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` should be `sa-name@project-id.iam`. The truncated username must not exceed the 63-character limit for PostgreSQL database usernames. 
   * INSTANCE_NAME: the name of the instance you want to authorize the service account to access.
   * ROLE_1, ROLE_2, ..., ROLE__N_ : the database role or roles to assign to the service account.
 
@@ -1683,7 +1683,7 @@ To replace database roles for a service account, use the following command:
 
 Replace the following:
 
-  * SERVICE_ACCT: the email address of the service account. **Note:** Due to the length limit on a database username, you need to omit the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` should be `sa-name@project-id.iam`. 
+  * SERVICE_ACCT: the email address of the service account. **Note:** Due to the length limit on a database username, you need to omit the `.gserviceaccount.com` suffix in the email. For example, the username for the service account `sa-name@project-id.iam.gserviceaccount.com` should be `sa-name@project-id.iam`. The truncated username must not exceed the 63-character limit for PostgreSQL database usernames. 
   * INSTANCE_NAME: the name of the instance you want to authorize the service account to access.
   * ROLE_1, ROLE_2, ..., ROLE__N_ : the database role or roles to assign to the service account.
 
@@ -2655,6 +2655,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/release-notes/
 title: VPC Service Controls release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:51:31.920818+00:00
+fetched_at: 2026-11-10T17:01:37.334820+00:00
 ---
 
 # VPC Service Controls release notes  |  Google Cloud Documentation
@@ -26,6 +26,16 @@ This page documents production updates to VPC Service Controls. You can periodic
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/vpc-sc-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Feature
+
+**VPC Service Controls feature:** Quota enforcement and observability for VPC Service Controls and Access Context Manager are integrated with Cloud Quotas and [generally available](https://cloud.google.com/products#product-launch-stages).
+
+Organization administrators can view quota usage and system limits for perimeters, protected resources, access levels, and scoped access policies directly in the Google Cloud console or through the Cloud Quotas API.
+
+For more information, see [Quotas and limits](https://docs.cloud.google.com/vpc-service-controls/quotas).
 
 ## November 03, 2026
 

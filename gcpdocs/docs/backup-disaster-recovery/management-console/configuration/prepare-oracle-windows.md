@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/prepare-oracle-windows/
 title: Prepare Oracle databases in a Windows environment for Backup and DR on a backup/recovery appliance \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:13:40.133468+00:00
+fetched_at: 2026-11-10T18:39:17.809666+00:00
 ---
 
 # Prepare Oracle databases in a Windows environment for Backup and DR on a backup/recovery appliance  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -22,6 +22,10 @@ Send feedback
 #  Prepare Oracle databases in a Windows environment for Backup and DR on a backup/recovery appliance Stay organized with collections  Save and categorize content based on your preferences. 
 
 **Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations) in the Backup and DR documentation. 
+
+Backup and DR helps you protect and recover Oracle databases running in a Windows environment. Using Backup and DR on a backup/recovery appliance helps you establish data protection and recovery strategies that minimize business interruption and speed up data restoration.
+
+Before you back up an Oracle database by using Backup and DR, you must prepare your Windows database server. This document explains how to configure your database services, network entries, and logging modes.
 
 ## Before you begin
 
@@ -288,6 +292,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

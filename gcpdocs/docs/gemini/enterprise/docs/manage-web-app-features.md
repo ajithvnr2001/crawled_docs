@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features/
 title: Manage web app features \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:42.412280+00:00
+fetched_at: 2026-11-10T15:37:22.808390+00:00
 ---
 
 # Manage web app features  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -59,7 +59,14 @@ Feature control | Description
 **Enable Gemini Notebook** |  When enabled, users can use Gemini Notebook Enterprise in the web app. For more information, see [Use Gemini Notebook Enterprise within Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/access-notebooklm).   
 **Enable session sharing** |  When enabled, users can share Gemini Enterprise conversations with other users.   
 **Enable memory and customization** |  When enabled, Gemini Enterprise uses past conversations and saved memory settings to generate personalized and relevant responses.   
-**Enable Canvas** |  When enabled, users can create, edit, and export files in an interactive editor next to their chat conversation. For more information, see [Create and edit documents and slides in Canvas](https://docs.cloud.google.com/gemini/enterprise/docs/assistant-canvas).   
+**Enable canvas** |  When enabled, users can create, edit, and export files in an interactive editor next to their chat conversation. For more information, see [Create documents, slides, and web apps in Canvas](https://docs.cloud.google.com/gemini/enterprise/docs/assistant-canvas).   
+**Enable app builder**   
+  
+When enabled, users can build and run interactive apps within Canvas. Enabling this feature also lets users share generated apps with other users in their organization or download the self-contained HTML file.   
+  
+Notes: 
+     * This feature requires **Enable canvas** to be turned on.
+     * To allow generated apps to incorporate web search results and online images, turn on **Search grounding**.  
 **Enable projects** |  When enabled, users can create and use collaborative projects in the web app. For more information, see [Create and manage projects](https://docs.cloud.google.com/gemini/enterprise/docs/projects).   
 **Enable image generation** |  When enabled, users can generate images in the web app. You can also choose the image model you want your users to use.   
   
@@ -152,7 +159,7 @@ Model | Publisher | Supported locations
   
 Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5—are turned off by default in the `global`, `us`, and `eu` regions. To make them available to end users, turn them on by enabling billing and accepting the terms of service. For more information about regional support, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).
 
-Third-party models aren't available for in-country regions.
+Third-party models aren't available for in-country regions or the Gemini Enterprise Frontline Starter and Business Starter editions. Even if you turn on third-party models, users with these editions can't select them in the model selector.
 
 ### Before you begin
 
@@ -226,6 +233,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

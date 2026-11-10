@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/minimal-infrastructure/
 title: Plan for a basic installation on your hardware \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:13.559321+00:00
+fetched_at: 2026-11-10T16:59:14.162019+00:00
 ---
 
 # Plan for a basic installation on your hardware  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,13 +22,13 @@ Send feedback
 
 #  Plan for a basic installation on your hardware Stay organized with collections  Save and categorize content based on your preferences. 
 
-Distributed Cloud software only lets you create a small proof-of-concept installation of GKE clusters on your bare metal hardware. In this first part of a two-part tutorial, you set up a minimal hardware environment and plan your IP addresses. In the second part, [Create basic clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/quickstart), you create an admin cluster and a user cluster.
+Google Distributed Cloud software only lets you create a small proof-of-concept installation of GKE clusters on your bare metal hardware. In this first part of a two-part tutorial, you set up a minimal hardware environment and plan your IP addresses. In the second part, [Create basic clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/quickstart), you create an admin cluster and a user cluster.
 
 This document is for Admins and architects and Operators who set up, monitor, and manage the infrastructure lifecycle. To learn more about common roles and tasks, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
 This minimal infrastructure is not intended for production workloads. For production installations, see [Choose a deployment model](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/install-prep).
 
-**Note:** Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
+**Note:** Google Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
 
 ## Before you begin
 
@@ -247,7 +247,7 @@ Install `bmctl` on your admin workstation:
 
   2. Run the following command to download the latest version of the `bmctl` binary file and make it executable:
          
-         gcloud storage cp gs://anthos-baremetal-release/bmctl/1.36.200-gke.118/linux-amd64/bmctl .
+         gcloud storage cp gs://anthos-baremetal-release/bmctl/1.36.100-gke.144/linux-amd64/bmctl .
          chmod +x ./bmctl
          
 
@@ -563,6 +563,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

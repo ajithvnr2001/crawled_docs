@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/choose-edition/
 title: Choose a Cloud SQL edition \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:53:39.102648+00:00
+fetched_at: 2026-11-10T18:46:34.090083+00:00
 ---
 
 # Choose a Cloud SQL edition  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -61,9 +61,10 @@ The following table provides an overview of key feature enhancements available i
 **Note:** If the database version for your instance is MySQL 8.0 or earlier, then the default Cloud SQL edition is Enterprise.  
 **[Availability SLA](https://cloud.google.com/sql/sla)** | 99.99% (includes maintenance) | 99.95% (excludes maintenance)  
 **_Performance_**  
-**[Machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview)** | N2  
+**[ Machine series ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview) ** | N2  
 C4A  
-C4  |  General purpose shared core  
+C4  
+C4D  |  General purpose shared core  
 General purpose dedicated core  
 N4  
 **[Machine configuration limits](https://docs.cloud.google.com/sql/docs/mysql/instance-settings#machine-type-2ndgen)** | **N2 machine series**  
@@ -76,8 +77,15 @@ Up to 72 vCPU
 Up to 576 GB RAM  
 1:8 core:memory ratio  
   
-**C4 machine series** Up to 8 vCPU  
+**C4 machine series**  
+Up to 8 vCPU  
 Up to 62 GB RAM  
+1:7.5 to 1:7.75 core:memory ratio  
+  
+**C4D machine series**  
+Up to 192 vCPU  
+Up to 1,512 GB RAM  
+1:7.5 to 1:7.875 core:memory ratio  
 |  **General purpose shared core**  
 1 vCPU  
 Up to 1.7 GB RAM  
@@ -139,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

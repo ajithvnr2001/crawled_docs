@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/connect-instance-cloud-run/
 title: Quickstart: Connect to Cloud SQL for MySQL from Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:53:32.274818+00:00
+fetched_at: 2026-11-10T17:34:14.898236+00:00
 ---
 
 # Quickstart: Connect to Cloud SQL for MySQL from Cloud Run  |  Google Cloud Documentation
@@ -762,7 +762,7 @@ These values aren't used because the Cloud SQL Language Connector already provid
   3. Click the **Select** button in the **Container image URL** input field.
      1. Select the `gcr.io/YOUR_PROJECT_ID/run-sql` container image you created in the previous step.
   4. Enter `quickstart-service` for the **Service name**.
-  5. In the **Authentication** section, select **Allow public access**. If you don't have permissions (Cloud Run Admin role) to select this, the service will deploy and require authentication.
+  5. In the **Authentication** section, select **Allow public access**. If you don't have permissions (Cloud Run Admin role) to select this, the service deploys and requires authentication.
   6. Expand the **Container, Variables & Secrets, Connections, Security ** section.
   7. Create the following `Environment variables` by clicking **Add Variable** under **Environment variables**. Set the values for the environment variables, as follows:
      * **INSTANCE_UNIX_SOCKET** : Set to `/cloudsql/YOUR_PROJECT_ID:us-central1:quickstart-instance`.
@@ -770,6 +770,7 @@ These values aren't used because the Cloud SQL Language Connector already provid
      * **DB_NAME** : Set to `quickstart-db`.
      * **DB_USER** : Set to `quickstart-user`.
      * **DB_PASS** : Set to the password of the `quickstart-user` that you specified in the previous **Create a user** quickstart step.
+**Note:** Setting sensitive database credentials such as the `DB_PASS` variable as plain text environment variables makes them visible to anyone with access to the service or revision metadata. For production workloads, we recommend that you use [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) to securely manage database passwords. For more information about using secrets in Cloud Run, see [Configure secrets for services](https://docs.cloud.google.com/run/docs/configuring/secrets).
   8. Enable connecting to Cloud SQL:
 
      * Click the **Connections** tab.
@@ -780,7 +781,7 @@ These values aren't used because the Cloud SQL Language Connector already provid
 
   9. To create the Cloud Run service, click **Create**.
 
-  10. Once the Cloud Run service is deployed, the **Service details** page will display a **URL** to the running service at the top of the page. Click the **URL** link to see the deployed sample app on Cloud Run connected to Cloud SQL. 
+  10. Once the Cloud Run service is deployed, the **Service details** page displays a **URL** to the running service at the top of the page. Click the **URL** link to see the deployed sample app on Cloud Run connected to Cloud SQL. 
 
 ![View deployed sample app.](https://docs.cloud.google.com/static/sql/images/tabs-vs-spaces-app-screen-shot.png)
 
@@ -807,6 +808,7 @@ Run the [`gcloud run deploy`](https://docs.cloud.google.com/sdk/gcloud/reference
 
 Enter the numeric choice provided for `us-central1` when prompted to specify a region.
 
+**Note:** Setting sensitive database credentials such as the `DB_PASS` variable as plain text environment variables makes them visible to anyone with access to the service or revision metadata. For production workloads, we recommend that you use [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) to securely manage database passwords and reference them with the `--set-secrets="DB_PASS=SECRET_NAME:latest"` or `--update-secrets` flag. For more information about using secrets in Cloud Run, see [Configure secrets for services](https://docs.cloud.google.com/run/docs/configuring/secrets).
   2. When you see a confirmation message that the Cloud Run service has been deployed, click the **Service URL** link in the message to see the sample app on Cloud Run that is connected to Cloud SQL. 
 
 ![View deployed sample app.](https://docs.cloud.google.com/static/sql/images/tabs-vs-spaces-app-screen-shot.png)
@@ -840,6 +842,7 @@ Enter the numeric choice provided for `us-central1` when prompted to specify a r
      * `DB_CERT`: Set to `certs/client-cert.pem`.
      * `DB_KEY`: Set to `certs/client-key.pem`.
      * `PRIVATE_IP`: Set to `TRUE`.
+**Caution:** Setting sensitive database credentials such as the `DB_PASS` variable as a plain text environment variable makes the credentials visible to anyone with access to the service or revision metadata. For production workloads, we recommend that you use [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) to securely manage database passwords. For more information about using secrets in Cloud Run, see [Configure secrets for services](https://docs.cloud.google.com/run/docs/configuring/secrets).
   8. Enable connecting to Cloud SQL:
 
      1. Click **Connections**.
@@ -884,6 +887,7 @@ Run the [`gcloud run deploy`](https://docs.cloud.google.com/sdk/gcloud/reference
 
 Enter the numeric choice provided for `us-central1` when prompted to specify a region.
 
+**Note:** Setting sensitive database credentials such as the `DB_PASS` variable as plain text environment variables makes them visible to anyone with access to the service or revision metadata. For production workloads, we recommend that you use [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) to securely manage database passwords and reference them with the `--set-secrets="DB_PASS=SECRET_NAME:latest"` or `--update-secrets` flag. For more information about using secrets in Cloud Run, see [Configure secrets for services](https://docs.cloud.google.com/run/docs/configuring/secrets).
   2. When you see a confirmation message that the Cloud Run service has been deployed, click the **Service URL** link in the message to see the sample app on Cloud Run that is connected to Cloud SQL. 
 
 ![View deployed sample app](https://docs.cloud.google.com/static/sql/images/tabs-vs-spaces-app-screen-shot.png)
@@ -972,6 +976,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

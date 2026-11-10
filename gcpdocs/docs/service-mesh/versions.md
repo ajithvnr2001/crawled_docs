@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/versions/
 title: Versions \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:02.522774+00:00
+fetched_at: 2026-11-10T18:46:33.250989+00:00
 ---
 
 # Versions  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -35,16 +35,18 @@ All versions listed in the Latest versions table are fully supported for the in-
 
 **Caution:** In-cluster Cloud Service Mesh using the `ISTIOD` control plane on GKE on Google Cloud is [deprecated](https://docs.cloud.google.com/service-mesh/deprecations). Cloud Service Mesh with an in-cluster control plane on Google Distributed Cloud (software only) continues to be supported as described in [Supported platforms](https://docs.cloud.google.com/service-mesh/docs/supported-platforms#off-gcp). Version | Release date | Documentation  
 ---|---|---  
-1.31.3-asm.3 | [November 2, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_02_2026) | [1.31 documentation](https://docs.cloud.google.com/service-mesh/docs)  
-1.30.7-asm.3 | [November 2, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_02_2026) | [1.30 documentation](https://docs.cloud.google.com/service-mesh/v1.30/docs)  
+1.31.3-asm.7 | [November 9, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_09_2026) | [1.31 documentation](https://docs.cloud.google.com/service-mesh/docs)  
+1.30.7-asm.7 | [November 9, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_09_2026) | [1.30 documentation](https://docs.cloud.google.com/service-mesh/v1.30/docs)  
 1.29.10-asm.0 | [November 2, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_02_2026) | [1.29 documentation](https://docs.cloud.google.com/service-mesh/v1.29/docs)  
   
 ## Previous versions
 
 Version | Release date | Documentation  
 ---|---|---  
+1.31.3-asm.3 | [November 2, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_02_2026) | [1.31 documentation](https://docs.cloud.google.com/service-mesh/docs)  
 1.31.1-asm.19 | [October 19, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#October_19_2026) | [1.31 documentation](https://docs.cloud.google.com/service-mesh/docs)  
 1.31.1-asm.16 | [October 12, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#October_12_2026) | [1.31 documentation](https://docs.cloud.google.com/service-mesh/docs)  
+1.30.7-asm.3 | [November 2, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#November_02_2026) | [1.30 documentation](https://docs.cloud.google.com/service-mesh/v1.30/docs)  
 1.30.5-asm.11 | [October 19, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#October_19_2026) | [1.30 documentation](https://docs.cloud.google.com/service-mesh/v1.30/docs)  
 1.30.5-asm.8 | [October 12, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#October_12_2026) | [1.30 documentation](https://docs.cloud.google.com/service-mesh/v1.30/docs)  
 1.30.4-asm.14 | [September 23, 2026](https://docs.cloud.google.com/service-mesh/docs/release-notes#September_23_2026) | [1.30 documentation](https://docs.cloud.google.com/service-mesh/v1.30/docs)  
@@ -303,6 +305,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

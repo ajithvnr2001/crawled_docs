@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-mcp-tools/
 title: Manage MCP servers and tools \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:18:08.919416+00:00
+fetched_at: 2026-11-10T15:29:26.158120+00:00
 ---
 
 # Manage MCP servers and tools  |  Agent Registry  |  Google Cloud Documentation
@@ -110,7 +110,10 @@ If you have multiple servers, or if you want to confirm the registration of a sp
 
 The page displays a list of all registered MCP servers and their details, such as name, [identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers), description, runtime, and location.
 
-  4. To filter by location, click the **Location** menu, select the locations you want to filter, and click **Apply**.
+  4. Filter the list by location or runtime:
+
+     * To filter by location, click the **Location** menu, select the locations you want to filter, and click **Apply**.
+     * To show or hide system-created MCP servers, click **Show system-created MCP servers** or **Hide system-created MCP servers** in the table toolbar. To list only Google and Google Cloud remote MCP servers, click **Filter** , select **Google MCP** or **Workspace** in the **Runtime** menu, and click **Apply**.
 
 The page displays a filtered list of the registered MCP servers for your selected conditions.
 
@@ -135,7 +138,8 @@ Replace the following:
   * `FILTER_EXPRESSION`: the filter expression for the MCP servers that you want to filter. For example, you can use the following filters: 
     * To filter by display name, use `displayName='DISPLAY_NAME'`.
     * To search by the globally unique [MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers) (URN), use `mcpServerId='urn:mcp:SERVER_URN'`.
-    * To filter by a specific member project when querying a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use `project_id=MEMBER_PROJECT_ID`.
+    * To list only Google and Google Cloud remote MCP servers, use `mcpServerId:"urn:mcp:googleapis.com:"`.
+    * To filter by a specific member project when querying a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use `mcpServerId:"urn:mcp:projects-MEMBER_PROJECT_NUMBER:"`.
 
 
 
@@ -384,6 +388,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/manage-templates/
 title: Create and manage templates \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:47:49.659292+00:00
+fetched_at: 2026-11-10T11:12:07.027697+00:00
 ---
 
 # Create and manage templates  |  Model Armor  |  Google Cloud Documentation
@@ -133,7 +133,7 @@ To enable the features that are restricted by data residency enforcement, clear 
 
   9. Select modality to specify whether you want to screen text, images, or both.
 
-**Note:** Only `us` and `eu` multi-regions support image modality. Selecting any other region disables the **Select modality** field.
+**Note:** The image modality is supported only in select locations. Selecting an unsupported region disables the **Select modality** field. For a list of supported locations, see [Supported features by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region#supported-by-region).
   10. In the **Detections** section, configure the detection settings.
 
   11. Optional: If you select Sensitive Data Protection detection, you need to configure the Sensitive Data Protection settings.
@@ -802,20 +802,26 @@ Model Armor filter versions provide a balance between stability for production w
 
 ### Select modality
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Use modality to specify whether you want to scan the following:
 
-  * **All** : Scans text and images.
+  * **All** (`"modalities": ["MODALITY_IMAGE", "MODALITY_TEXT"]` in the REST API): Scans both text and images, including text and embedded images in supported rich text documents.
   * **Specific modalities** : 
-    * **Text** : Scans text strings and text embedded in the [supported file formats](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs).
-    * **Image** : Scans images.
+    * **Text** (`"modalities": ["MODALITY_TEXT"]`): Scans text strings and text contained in [supported file formats](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs). Ignores embedded images in documents. Leaving the `modalities` field empty or unset in the REST API also scans only text.
+    * **Image** (`"modalities": ["MODALITY_IMAGE"]`): Scans standalone images and extracts and screens embedded images in [supported file formats](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs). Ignores plain text in documents.
 
 
 
-For more information, see [Image screening](https://docs.cloud.google.com/model-armor/overview#image-screening) and [Sanitize prompts containing images](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#prompts-with-images).
+When you use the REST API, specify one or both modalities in the `modalities` field of `templateMetadata`. To scan both text and images, specify `MODALITY_IMAGE` and `MODALITY_TEXT` as a comma-delimited list, as shown in the following truncated `templateMetadata` excerpt:
+    
+    
+    {
+      "templateMetadata": {
+        "modalities": ["MODALITY_IMAGE", "MODALITY_TEXT"]
+      }
+    }
+    
+
+For a complete REST API example, see Create a Model Armor template. For information about image screening specifications, limitations, and Sensitive Data Protection de-identification support, see [Screen images](https://docs.cloud.google.com/model-armor/screen-images#specifications-and-limitations).
 
 ### Configure detections
 
@@ -866,6 +872,8 @@ Model Armor processes requests differently depending on whether you specify only
 
 
 Model Armor de-identifies only the infoTypes that you specify in both your inspect and de-identify templates. For example, if you don't specify `CREDIT_CARD_NUMBER` in both inspect and de-identify templates, Model Armor doesn't flag or de-identify any credit card numbers that are passed in prompts and responses.
+
+**Note:** If you specify both **Inspect template** and **De-identify template** , Model Armor redacts either text in the `deidentifyResult.data.text` field or standalone images in the `redactResult.redactedImage` field, not both. De-identification isn't supported for rich text documents when the image modality is enabled. For more information, see [Redact sensitive data in standalone images](https://docs.cloud.google.com/model-armor/screen-images#redact-images) and [Screen embedded images in documents](https://docs.cloud.google.com/model-armor/screen-images#embedded-images-in-documents).
 
 ### Set confidence level
 
@@ -2044,10 +2052,10 @@ Metadata | Type | Default value | Description
 [log_template_operations](https://docs.cloud.google.com/model-armor/configure-logging#configure-logging-templates) | Boolean | False | Enables logging of template operations.  
 [log_sanitize_operations](https://docs.cloud.google.com/model-armor/configure-logging#configure-logging-templates) | Boolean | False | Enables logging of sanitize operations.  
 [multiLanguageDetection](https://docs.cloud.google.com/model-armor/overview#languages-supported) | Boolean | False | Enables multi-language detection.  
-[modalities](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#prompts-with-images) ([Preview](https://cloud.google.com/products#product-launch-stages)) | Enum | Empty | Determines whether to scan text, images, or both. Leaving this field empty scans only text. Use one of the following values:
+modalities | Enum | Empty | Determines whether to scan text, images, or both. Leaving this field empty or unset means that only text is scanned. In REST API requests, use one or both of the following values (to specify both, provide a comma-delimited list, such as `["MODALITY_IMAGE", "MODALITY_TEXT"]`):
 
-  * `TEXT`: Scans text strings and text embedded in the [supported file formats](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs).
-  * `IMAGE`: Scans images.
+  * `MODALITY_TEXT`: Scans text strings and text embedded in [supported file formats](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs).
+  * `MODALITY_IMAGE`: Scans [standalone images and images embedded in supported file formats](https://docs.cloud.google.com/model-armor/screen-images).
 
   
 [data_residency_compliant](https://docs.cloud.google.com/model-armor/data-residency) | Boolean | True |  Indicates whether the template is subject to strict data residency compliance (in-jurisdiction processing).
@@ -2062,6 +2070,7 @@ For more information about this field, see Set data residency compliance in this
   * Learn about [Model Armor overview](https://docs.cloud.google.com/model-armor/overview).
   * Learn about [Model Armor floor settings](https://docs.cloud.google.com/model-armor/configure-floor-settings).
   * [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses).
+  * [Screen images](https://docs.cloud.google.com/model-armor/screen-images).
   * [Troubleshoot Model Armor issues](https://docs.cloud.google.com/model-armor/troubleshooting).
 
 
@@ -2070,6 +2079,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

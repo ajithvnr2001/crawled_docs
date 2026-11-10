@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/developer-connect/account-connectors/update/
 title: gcloud developer-connect account-connectors update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T14:34:32.578915+00:00
+fetched_at: 2026-11-10T17:33:35.624004+00:00
 ---
 
 # gcloud developer-connect account-connectors update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -171,7 +171,7 @@ Message for a customized OAuth config.
 `--custom-oauth-config-host-uri`=`CUSTOM_OAUTH_CONFIG_HOST_URI`
      Host URI of the OAuth application. 
 `--[no-]custom-oauth-config-pkce-disabled`
-     Disable PKCE for this OAuth config. PKCE is enabled by default. Use `--custom-oauth-config-pkce-disabled` to enable and `--no-custom-oauth-config-pkce-disabled` to disable. 
+     Disable PKCE for this OAuth config. PKCE is enabled by default. Use `--custom-oauth-config-pkce-disabled` to disable and `--no-custom-oauth-config-pkce-disabled` to enable. 
 `--custom-oauth-config-scm-provider`=`CUSTOM_OAUTH_CONFIG_SCM_PROVIDER`
      Type of the SCM provider. `CUSTOM_OAUTH_CONFIG_SCM_PROVIDER` must be one of: 
 
@@ -322,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

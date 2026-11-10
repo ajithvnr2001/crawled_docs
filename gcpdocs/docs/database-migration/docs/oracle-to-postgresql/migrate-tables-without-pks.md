@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/migrate-tables-without-pks/
 title: Migrate tables without primary keys \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:41.136330+00:00
+fetched_at: 2026-11-10T11:34:57.662939+00:00
 ---
 
 # Migrate tables without primary keys  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -33,24 +33,23 @@ This page explains how to migrate Oracle tables that don't have primary keys.
 
 ## Automatic primary key generation overview
 
-Tables without primary keys don't promise consistent replication. Database Migration Service only migrates tables that have primary keys. If your source database includes tables that don't have primary keys, Database Migration Service can handle that in the following ways:
+Tables without primary keys don't promise consistent replication. Database Migration Service only migrates tables that have primary keys. When you [ convert your source code and schema](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/convert-sql), Database Migration Service can automatically create any missing primary keys by adding `ROWID` columns in the destination tables.
 
-  * When you [ convert your source code and schema](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/convert-sql), Database Migration Service can automatically create any missing primary keys by adding `ROWID` columns in the destination tables. This automated process requires that your source tables: 
-    * Don't already have primary keys.
-    * Don't have a `UNIQUE` constraint with no nullable columns.
-    * Don't have a `UNIQUE` index with no nullable columns.
-If your tables don't meet these requirements, you need to manually add missing primary keys to the tables in the converted PostgreSQL schema. 
-  * In **legacy conversion workspaces** , Database Migration Service doesn't automatically create primary keys. If you use a legacy conversion workspace, you need to manually add missing primary keys to the tables in the converted PostgreSQL schema. 
+This automated process requires that your source tables: 
+
+  * Don't already have primary keys.
+  * Don't have a `UNIQUE` constraint with no nullable columns.
+  * Don't have a `UNIQUE` index with no nullable columns.
 
 
+
+If your tables don't meet these requirements, you need to manually add missing primary keys to the tables in the converted PostgreSQL schema.
 
 ## Add missing primary keys manually
 
 To migrate Oracle tables without primary keys, do the following:
 
-  1. Use a conversion workspace to convert your source code and schema. 
-     * For standard conversion workspaces, see [ Convert your source code and schema](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/convert-sql). 
-     * For legacy conversion workspaces, see [ Work with legacy conversion workspaces](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/legacy-conversion-workspaces). 
+  1. Use a conversion workspace to convert your source code and schema. See [ Convert your source code and schema](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/convert-sql). 
   2. Connect to your destination Cloud SQL instance with a SQL client. You can use the following methods: 
      * [ `psql` client](https://docs.cloud.google.com/sql/docs/postgres/connect-admin-ip). You can use this method to connect to your instance private IP, but it might require that you create a Compute Engine virtual machine. 
      * [ `gcloud sql connect`](https://docs.cloud.google.com/sdk/gcloud/reference/sql/connect) command. This command works only for Cloud SQL instances that have a public IP address enabled. 
@@ -114,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

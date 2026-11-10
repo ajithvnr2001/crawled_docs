@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/how-to-use-vm-threat-detection/
 title: Use Virtual Machine Threat Detection \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:51.468473+00:00
+fetched_at: 2026-11-10T18:46:21.618810+00:00
 ---
 
 # Use Virtual Machine Threat Detection  |  Security Command Center  |  Google Cloud Documentation
@@ -41,9 +41,9 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Test VM Threat Detection
 
-To test VM Threat Detection cryptocurrency mining detection, you can run a cryptocurrency mining application on your VM. For a list of binary names and [YARA rules](https://yara.readthedocs.io/en/v4.1.0/index.html) that trigger findings, see Software names and YARA rules. If you install and test mining applications, we recommended that you only run applications in an isolated test environment, closely monitor their use, and remove them completely after testing.
+To test VM Threat Detection cryptocurrency mining detection, you can run a cryptocurrency mining application on your VM. For a list of binary names and [YARA rules](https://yara.readthedocs.io/en/v4.1.0/index.html) that trigger findings, see Software names and YARA rules. If you install and test mining applications, we recommend that you only run applications in an isolated test environment, closely monitor their use, and remove them completely after testing.
 
-To test VM Threat Detection malware detection, you can download malware applications on your VM. If you download malware, we recommend that you do so in an isolated test environment, and remove them completely after testing.
+To test VM Threat Detection malware detection, you can download malware applications on your VM. If you download malware, we recommend that you do so in an isolated test environment, and remove it completely after testing.
 
 ## Review findings in the Google Cloud console
 
@@ -993,7 +993,7 @@ You should receive a JSON response similar to the following:
 
 To enable or disable an individual VM Threat Detection detector, also known as a _module_ , do the following. It can take up to an hour for your changes to take effect.
 
-When you disable a service, all of its modules become inactive, even if the modules are individually enabled.
+**Note:** If you disable VM Threat Detection , Security Command Center also disables the individual VM Threat Detection modules and stores their previous enablement states. If you re-enable VM Threat Detection , Security Command Center restores the modules to their previous enablement states. 
 
 For information about all VM Threat Detection threat findings and the modules that generate them, see [Threat findings](https://docs.cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview#threat_detection).
 
@@ -1419,6 +1419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/set-up-secure-perimeter/
 title: Deploy resources in a service perimeter \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:12:20.183957+00:00
+fetched_at: 2026-11-10T18:39:18.296086+00:00
 ---
 
 # Deploy resources in a service perimeter  |  Application Design Center  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-To guard against data exfiltration, create a service perimeter around your App Design Center resources. The perimeter protects App Design Center resources in your [management project](https://docs.cloud.google.com/application-design-center/docs/key-concepts#mgmt-project), including application templates and applications. You create a service perimeter using [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) with [Cloud Build private pools](https://docs.cloud.google.com/build/docs/private-pools/private-pools-overview).
+[VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) with [Cloud Build private pools](https://docs.cloud.google.com/build/docs/private-pools/private-pools-overview) lets you create a service perimeter around your Application Design Center resources to help guard against data exfiltration. The service perimeter protects App Design Center resources in your [management project](https://docs.cloud.google.com/application-design-center/docs/key-concepts#mgmt-project), including application templates and applications.
 
 **Warning:** If you share a catalog between two spaces in your perimeter, and later remove the receiving space from your perimeter, sharing will continue. To stop sharing the catalog, see [Stop sharing a catalog with a space](https://docs.cloud.google.com/application-design-center/docs/manage-catalogs#manage-spaces-shared-with-a-catalog).
 
@@ -73,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

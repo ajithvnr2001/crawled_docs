@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-cloudscheduler/
 title: Connector for Cloud Scheduler \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:47.778958+00:00
+fetched_at: 2026-11-10T12:42:49.056379+00:00
 ---
 
 # Connector for Cloud Scheduler  |  Workflows  |  Google Cloud Documentation
@@ -20,14 +20,6 @@ fetched_at: 2026-11-09T05:48:47.778958+00:00
 #  Connector for Cloud Scheduler Stay organized with collections  Save and categorize content based on your preferences. 
 
 Workflows connector that defines the built-in function used to access Cloud Scheduler within a workflow.
-
-## Explore further
-
-For detailed documentation that includes this code sample, see the following: 
-
-  * [Cloud Scheduler API Connector Overview](https://docs.cloud.google.com/workflows/docs/reference/googleapis/cloudscheduler/Overview)
-
-
 
 ## Code sample
 

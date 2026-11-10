@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/iam/workload-identity-pools/create-cred-config/
 title: gcloud alpha iam workload-identity-pools create-cred-config \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:28:09.621165+00:00
+fetched_at: 2026-11-10T17:34:06.557949+00:00
 ---
 
 # gcloud alpha iam workload-identity-pools create-cred-config  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha iam workload-identity-pools create-cred-config - create a configura
 SYNOPSIS
     
 
-`gcloud alpha iam workload-identity-pools create-cred-config` `AUDIENCE` `--output-file`=`OUTPUT_FILE` (`--aws` | `--azure` | `--credential-cert-path`=`CREDENTIAL_CERT_PATH` | `--credential-source-file`=`CREDENTIAL_SOURCE_FILE` | `--credential-source-url`=`CREDENTIAL_SOURCE_URL` | `--executable-command`=`EXECUTABLE_COMMAND`) [`--app-id-uri`=`APP_ID_URI`] [`--credential-source-field-name`=`CREDENTIAL_SOURCE_FIELD_NAME`] [`--credential-source-headers`=[`key`=`value`,…]] [`--credential-source-type`=`CREDENTIAL_SOURCE_TYPE`] [`--enable-imdsv2`] [`--sts-location`=`STS_LOCATION`] [`--subject-token-type`=`SUBJECT_TOKEN_TYPE`] [`--credential-cert-private-key-path`=`CREDENTIAL_CERT_PRIVATE_KEY_PATH` : `--credential-cert-configuration-output-file`=`CREDENTIAL_CERT_CONFIGURATION_OUTPUT_FILE` `--credential-cert-trust-chain-path`=`CREDENTIAL_CERT_TRUST_CHAIN_PATH`] [`--executable-output-file`=`EXECUTABLE_OUTPUT_FILE` `--executable-timeout-millis`=`EXECUTABLE_TIMEOUT_MILLIS`] [`--service-account`=`SERVICE_ACCOUNT` : `--service-account-token-lifetime-seconds`=`SERVICE_ACCOUNT_TOKEN_LIFETIME_SECONDS`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha iam workload-identity-pools create-cred-config` `AUDIENCE` `--output-file`=`OUTPUT_FILE` (`--aws` | `--azure` | `--credential-source-url`=`CREDENTIAL_SOURCE_URL` | `--executable-command`=`EXECUTABLE_COMMAND` | `--credential-cert-path`=`CREDENTIAL_CERT_PATH` `--credential-source-file`=`CREDENTIAL_SOURCE_FILE`) [`--actor-token-field-name`=`ACTOR_TOKEN_FIELD_NAME`] [`--actor-token-type`=`ACTOR_TOKEN_TYPE`] [`--app-id-uri`=`APP_ID_URI`] [`--credential-source-field-name`=`CREDENTIAL_SOURCE_FIELD_NAME`] [`--credential-source-headers`=[`key`=`value`,…]] [`--credential-source-type`=`CREDENTIAL_SOURCE_TYPE`] [`--enable-imdsv2`] [`--sts-location`=`STS_LOCATION`] [`--subject-token-type`=`SUBJECT_TOKEN_TYPE`] [`--credential-cert-private-key-path`=`CREDENTIAL_CERT_PRIVATE_KEY_PATH` : `--credential-cert-configuration-output-file`=`CREDENTIAL_CERT_CONFIGURATION_OUTPUT_FILE` `--credential-cert-trust-chain-path`=`CREDENTIAL_CERT_TRUST_CHAIN_PATH`] [`--executable-output-file`=`EXECUTABLE_OUTPUT_FILE` `--executable-timeout-millis`=`EXECUTABLE_TIMEOUT_MILLIS`] [`--service-account`=`SERVICE_ACCOUNT` : `--service-account-token-lifetime-seconds`=`SERVICE_ACCOUNT_TOKEN_LIFETIME_SECONDS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` This command creates a configuration file to allow access to authenticated Google Cloud actions from a variety of external accounts. 
 EXAMPLES
@@ -62,6 +62,11 @@ To create an X.509 certificate-based credential configuration for your project, 
     
     gcloud alpha iam workload-identity-pools create-cred-config projects/$PROJECT_NUMBER/locations/$REGION/workloadIdentityPools/$WORKLOAD_POOL_ID/providers/$PROVIDER_ID --service-account=$EMAIL --credential-cert-path=$PATH_TO_CERTIFICATE_FILE --credential-cert-private-key-path=$PATH_TO_PRIVATE_KEY_FILE --output-file=credentials.json
 
+To create a hybrid file-sourced and X.509 certificate-bound credential configuration with an actor token for your project, run: 
+    
+    
+    gcloud alpha iam workload-identity-pools create-cred-config projects/$PROJECT_NUMBER/locations/$REGION/workloadIdentityPools/$WORKLOAD_POOL_ID/providers/$PROVIDER_ID --credential-source-file=$PATH_TO_JSON_TOKENS --credential-source-field-name=$SUBJECT_TOKEN_FIELD --actor-token-field-name=$ACTOR_TOKEN_FIELD --credential-cert-path=$PATH_TO_CERTIFICATE_FILE --credential-cert-private-key-path=$PATH_TO_PRIVATE_KEY_FILE --output-file=credentials.json
+
 To use the resulting file for any of these commands, set the GOOGLE_APPLICATION_CREDENTIALS environment variable to point to the generated file 
 
 POSITIONAL ARGUMENTS
@@ -82,17 +87,24 @@ Exactly one of these must be specified:
      Use AWS. 
 `--azure`
      Use Azure. 
-`--credential-cert-path`=`CREDENTIAL_CERT_PATH`
-     Path of the X.509 certificate file. 
-`--credential-source-file`=`CREDENTIAL_SOURCE_FILE`
-     Location of the credential source file. 
 `--credential-source-url`=`CREDENTIAL_SOURCE_URL`
      URL to obtain the credential from. 
 `--executable-command`=`EXECUTABLE_COMMAND`
      The full command to run to retrieve the credential. Must be an absolute path for the program including arguments. 
+Or at least one of these can be specified: 
+
+File and/or X.509 certificate credential sources. 
+`--credential-cert-path`=`CREDENTIAL_CERT_PATH`
+     Path of the X.509 certificate file. Can be used standalone for X.509 certificate-based credentials or combined with `--credential-source-file` for certificate-bound token exchanges. 
+`--credential-source-file`=`CREDENTIAL_SOURCE_FILE`
+     Location of the credential source file. 
 OPTIONAL FLAGS
     
 
+`--actor-token-field-name`=`ACTOR_TOKEN_FIELD_NAME`
+     The field name in the JSON credential source file containing the actor token. Must be used with `--credential-source-file` and `--credential-source-field-name`. 
+`--actor-token-type`=`ACTOR_TOKEN_TYPE`
+     The type of actor token being used for authorization. This defaults to urn:ietf:params:oauth:token-type:jwt. 
 `--app-id-uri`=`APP_ID_URI`
      The custom Application ID URI for the Azure access token. 
 `--credential-source-field-name`=`CREDENTIAL_SOURCE_FIELD_NAME`
@@ -107,7 +119,7 @@ OPTIONAL FLAGS
      The location to use for the Security Token Service token endpoint. For example, specifying `us-central1` will configure the client to use the regional endpoint `sts.us-central1.rep.googleapis.com`. If not specified, the global endpoint `sts.googleapis.com` is used. 
 `--subject-token-type`=`SUBJECT_TOKEN_TYPE`
      The type of token being used for authorization. This defaults to urn:ietf:params:oauth:token-type:jwt. 
-Arguments for an X.509 certificate type credential source. 
+Arguments for configuring X.509 certificates. 
 `--credential-cert-private-key-path`=`CREDENTIAL_CERT_PRIVATE_KEY_PATH`
      Path of the X.509 private key file. 
 
@@ -148,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-11 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-11 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

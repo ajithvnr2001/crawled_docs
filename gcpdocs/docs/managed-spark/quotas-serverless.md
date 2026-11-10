@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/managed-spark/quotas-serverless/
-title: Managed Service for Apache Spark serverless quotas \u00a0|\u00a0 Google Cloud Documentation
+title: Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:10.545948+00:00
+fetched_at: 2026-11-10T16:58:23.854770+00:00
 ---
 
-# Managed Service for Apache Spark serverless quotas  |  Google Cloud Documentation
+# Managed Service for Apache Spark  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/managed-spark/quotas-serverless/
 
@@ -19,9 +19,7 @@ fetched_at: 2026-11-07T05:49:10.545948+00:00
 
 
 
-Send feedback 
-
-#  Managed Service for Apache Spark serverless quotas Stay organized with collections  Save and categorize content based on your preferences. 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
 Managed Service for Apache Spark has API quota limits that are enforced at the project and region level. The quotas reset every 60 seconds (1 minute).
 
@@ -36,17 +34,55 @@ BatchOperationRequestsPerMinutePerProjectPerRegion | 200 | CreateBatch, DeleteBa
 SessionOperationRequestsPerMinutePerProjectPerRegion | 200 | CreateSession, DeleteSession, TerminateSession  
 DefaultRequestsPerMinutePerProjectPerRegion | 7,500 | GetBatch, ListBatches, GetSession, ListSessions  
 ActiveOperationsPerProjectPerRegion | 5,000 | Limit on the total number of concurrent active operations of all types in a project in a region.  
-**Increasing Resource Quota Limits** : Open the Google Cloud [IAM & Admin Quotas](https://console.cloud.google.com/iam-admin/quotas) page, and select the resources you want to modify. Then click **Edit Quotas** at the top of the page to start the quota increase process. If the resources you are trying to increase aren't displayed on the page and the current filtering is "Quotas with usage," change the filtering to "All quotas" by toggling the "Quota type" dropdown.
+**Increasing Resource Quota Limits** : Open the Google Cloud [Identity and Access Management (IAM) & Admin Quotas](https://console.cloud.google.com/iam-admin/quotas) page, and select the resources you want to modify. Then click **Edit Quotas** at the top of the page to start the quota increase process.
+
+## Managed Service for Apache Spark serverless DCU quota
+
+Starting with Managed Service for Apache Spark serverless runtime version `4.0`, a project's Data Compute Unit (DCU) quota (`dataproc.googleapis.com/data_compute_units`), instead of Compute Engine quota, manages and limits Managed Service for Apache Spark serverless batch workload and interactive session compute resource usage (underlying Compute Engine quota usage is redirected to a dedicated Managed Service for Apache Spark producer project).
+
+You can view and adjust your DCU quota on the Google Cloud console [**Quotas** page](https://console.cloud.google.com/iam-admin/quotas) in Dataproc API. You can enable the [quota adjuster](https://docs.cloud.google.com/docs/quotas/quota-adjuster) to increase your DCU quota when your usage approaches its limit.
+
+**Note:** When onboarding to Managed Service for Apache Spark serverless runtime version `4.0`, please make sure you have sufficient DCU quota for your expected workload size and number of concurrent sessions/batches. 
+
+### Calculate DCU consumption
+
+DCU usage is calculated **per node** from the VM shape, using the same formula as Managed Service for Apache Spark serverless [DCU pricing](https://cloud.google.com/dataproc-serverless/pricing):
+
+  * **0.6 DCU** per vCPU.
+  * **0.1 DCU** per GB of memory, up to 8 GB per vCPU.
+  * **0.2 DCU** per GB of memory above 8 GB per vCPU (extended memory).
+  * **Premium tier** nodes count **1.5x** the DCUs of the same shape on standard tier.
+
+
+
+The DCUs of a node pool are rounded **up** to the nearest integer:
+    
+    
+    DCUs = ceiling(nodes × DCUs per node)
+    
+
+**Example** : A standard tier node with 4 vCPUs and 16 GB of memory uses `4 × 0.6 + 16 × 0.1 = 4` DCUs. A batch with 1 driver and 10 executors of this shape uses 44 DCUs. The same batch on premium tier uses 66 DCUs.
+
+### Limitations
+
+The following limitations apply to DCU quotas:
+
+  * **Runtime versions** : DCU quotas apply to Managed Service for Apache Spark serverless runtime version `4.0` and later. Workloads that use runtime versions prior to `4.0` don't consume DCU quota and continue to consume a project's Compute Engine quota.
+  * **Unsupported quotas** : GPU, reservation, and global Compute Engine quotas are not supported in the DCU quota model.
+
+
 
 ## Other Google Cloud quotas
 
-Managed Service for Apache Spark batches use other Google Cloud products. These products have project-level quotas, which include quotas that apply to Managed Service for Apache Spark use. Some services are required to use Managed Service for Apache Spark, such as [Compute Engine](https://docs.cloud.google.com/compute "Compute Engine") and [Cloud Storage](https://docs.cloud.google.com/storage "gcs_name"). Other services, such as [BigQuery](https://docs.cloud.google.com/bigquery "bigquery_name") and [Bigtable](https://docs.cloud.google.com/bigtable "Bigtable"), can optionally be used with Managed Service for Apache Spark.
+Managed Service for Apache Spark batches use other Google Cloud products. These products have project-level quotas, which include quotas that apply to Managed Service for Apache Spark use. Some services are required to use Managed Service for Apache Spark, such as [ Compute Engine](https://docs.cloud.google.com/compute "Compute Engine") and [Cloud Storage](https://docs.cloud.google.com/storage "gcs_name"). Other services, such as [BigQuery](https://docs.cloud.google.com/bigquery "bigquery_name") and [Bigtable](https://docs.cloud.google.com/bigtable "Bigtable"), can optionally be used with Managed Service for Apache Spark.
 
 ### Required services
 
 The following services, which enforce quota limits, are required to create Managed Service for Apache Spark batches.
 
 #### Compute Engine
+
+**Note:** The Compute Engine quotas mentioned in this section are not required for runtime version `4.0` and later. For more information, see DCU quota.
 
 Managed Service for Apache Spark batch workloads can select a variety of Compute Engine resources:
 
@@ -85,7 +121,8 @@ L4 | `NVIDIA_L4_GPUS`
 A100 40GB | `NVIDIA_A100_GPUS`  
 A100 80GB | `NVIDIA_A100_80GB_GPUS`  
   
-The [Compute Engine quotas](https://docs.cloud.google.com/compute/resource-usage "Compute Engine Quotas") are split into regional and global limits. These limits apply to batches you create. For example, to run a Spark batch with 4 driver cores (`spark.driver.cores=4`) and two executors with 4 cores each (`spark.executor.cores=4`), you use 12 virtual CPUs (`4 * 3`). This batch usage counts against the regional quota limit of 24 virtual CPUs.
+The [Compute Engine quotas](https://docs.cloud.google.com/compute/resource-usage "
+Compute Engine Quotas") are split into regional and global limits. These limits apply to batches you create. For example, to run a Spark batch with 4 driver cores (`spark.driver.cores=4`) and two executors with 4 cores each (`spark.executor.cores=4`), you use 12 virtual CPUs (`4 * 3`). This batch usage counts against the regional quota limit of 24 virtual CPUs.
 
 **Free trial quotas:** If you use the Compute Engine free trial, your project will have a limit of 8 CPUs. To increase this limit, you must enable billing on the project. 
 
@@ -99,9 +136,9 @@ Virtual CPUs | 12
 Virtual Machine (VM) Instances | 3  
 Persistent disk | 1,200 GiB  
   
-#### Cloud Logging
+#### Logging
 
-Managed Service for Apache Spark saves batch output and logs in [Cloud Logging](https://docs.cloud.google.com/logging "Cloud Logging"). The [Cloud Logging quota](https://docs.cloud.google.com/logging/quota-policy "Cloud Logging quota") applies to your Managed Service for Apache Spark batches.
+Managed Service for Apache Spark saves batch output and logs in [Cloud Logging](https://docs.cloud.google.com/logging "Cloud Logging"). The [Logging quota](https://docs.cloud.google.com/logging/quota-policy "Cloud Logging quota") applies to your Managed Service for Apache Spark batches.
 
 ### Optional services
 
@@ -109,34 +146,26 @@ The following services, which have quota limits, can optionally be used with Man
 
 #### BigQuery
 
-When reading or writing data into BigQuery, the [BigQuery quota](https://docs.cloud.google.com/bigquery/quota-policy "BigQuery quota") applies.
+When reading or writing data into BigQuery, the [ BigQuery quota](https://docs.cloud.google.com/bigquery/quota-policy "BigQuery quota") applies.
 
 #### Bigtable
 
-When reading or writing data into Bigtable, the [Bigtable quota](https://docs.cloud.google.com/bigtable/quota "Bigtable quota") applies.
+When reading or writing data into Bigtable, the [ Bigtable quota](https://docs.cloud.google.com/bigtable/quota "Bigtable quota") applies.
 
 ## Identify workloads with quota or IP address limitations
 
-You can use the following [Cloud Logging](https://console.cloud.google.com/logs/query) queries to identify Managed Service for Apache Spark workloads that reached your quota or were unable to scale due to IP address exhaustion.
+You can use the following [Logging](https://console.cloud.google.com/logs/query) queries to identify Managed Service for Apache Spark workloads that reached your quota or were unable to scale due to IP address exhaustion.
 
 Quota query:
     
     
     jsonPayload.@type="type.googleapis.com/google.cloud.dataproc.logging.AutoscalerLog"
-    jsonPayload.recommendation.outputs.constraintsReached="SCALING_CAPPED_DUE_TO_LACK_OF_QUOTA"
-    
-
-IP address exhaustion query:
-    
-    
-    jsonPayload.@type="type.googleapis.com/google.cloud.dataproc.logging.AutoscalerLog"
-    jsonPayload.status.details =~".*Insufficient free IP addresses.*"
     
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

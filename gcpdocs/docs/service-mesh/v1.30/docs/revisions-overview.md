@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/revisions-overview/
 title: Cloud Service Mesh control plane revisions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:22.408183+00:00
+fetched_at: 2026-11-10T18:46:48.194487+00:00
 ---
 
 # Cloud Service Mesh control plane revisions  |  Google Cloud Documentation
@@ -70,7 +70,7 @@ The label used for auto-injection is like any other user-defined Kubernetes labe
 
 The current Cloud Service Mesh installation process lets you label the installed control plane with a revision string. The installer labels every control plane object with the revision. The key in the key-value pair is `istio.io/rev`, but the value of the revision label differs for the managed control plane and the in-cluster control planes.
 
-  * For in-cluster control planes, the `istiod` Service and Deployment typically have a revision label similar to `istio.io/rev=asm-1307-3`, where `asm-1307-3` identifies the Cloud Service Mesh version. The revision becomes part of the service name, for example: `istiod-asm-1307-3.istio-system`
+  * For in-cluster control planes, the `istiod` Service and Deployment typically have a revision label similar to `istio.io/rev=asm-1307-7`, where `asm-1307-7` identifies the Cloud Service Mesh version. The revision becomes part of the service name, for example: `istiod-asm-1307-7.istio-system`
 
   * For the managed control plane, the revision label corresponds to a [release channel](https://docs.cloud.google.com/service-mesh/v1.30/docs/managed/select-a-release-channel):
 
@@ -84,7 +84,7 @@ Revision label | Channel
 
 Additionally, you have the option of using [default injection labels](https://docs.cloud.google.com/service-mesh/v1.30/docs/managed/select-a-release-channel#how_to_select_a_release_channel) (for example, `istio-injection=enabled`).
 
-To enable auto-injection, you add a revision label to your namespaces that matches the revision label on the control plane. For example, a control plane with revision `istio.io/rev=asm-1307-3` selects Pods in namespaces with the label `istio.io/rev=asm-1307-3` and injects sidecars.
+To enable auto-injection, you add a revision label to your namespaces that matches the revision label on the control plane. For example, a control plane with revision `istio.io/rev=asm-1307-7` selects Pods in namespaces with the label `istio.io/rev=asm-1307-7` and injects sidecars.
 
 ## The canary upgrade process
 
@@ -123,7 +123,7 @@ You should see a separate configuration for each control plane that you have ins
         - key: istio.io/rev
           operator: In
           values:
-          - asm-1307-3
+          - asm-1307-7
     
 
 The selector may vary depending on the version of Cloud Service Mesh or Istio that you are running. This selector matches namespaces with a specific revision label as long as they do not also have an `istio-injection` label.
@@ -132,7 +132,7 @@ When a Pod is deployed to a namespace matching the selector, its Pod specificati
     
     
          service:
-            name: istiod-asm-1307-3
+            name: istiod-asm-1307-7
             namespace: istio-system
             path: /inject
             port: 443
@@ -168,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

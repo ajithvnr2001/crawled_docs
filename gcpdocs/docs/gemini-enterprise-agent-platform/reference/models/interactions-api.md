@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api/
 title: Interactions API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:44:29.913941+00:00
+fetched_at: 2026-11-10T16:32:17.502495+00:00
 ---
 
 # Interactions API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,6 +44,14 @@ The name of the `Model` used for generating the interaction.
 **Required if `agent` is not provided.**
 
 Possible values:
+
+  * `gemini-4-carbon`
+
+Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+  * `gemini-4-carbon-cyber-permissive`
+
+Cybersecurity variant of `gemini-4-carbon` for defensive cybersecurity workflows (available behind the Fairwind Program allowlist).
 
   * `gemini-4-argon`
 
@@ -702,6 +710,14 @@ model ModelOption (optional)
 The name of the `Model` used for generating the interaction.
 
 Possible values:
+
+  * `gemini-4-carbon`
+
+Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+  * `gemini-4-carbon-cyber-permissive`
+
+Cybersecurity variant of `gemini-4-carbon` for defensive cybersecurity workflows (available behind the Fairwind Program allowlist).
 
   * `gemini-4-argon`
 
@@ -4922,6 +4938,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

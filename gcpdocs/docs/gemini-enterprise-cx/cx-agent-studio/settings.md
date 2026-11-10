@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/settings/
 title: Project and agent settings \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:31:49.487434+00:00
+fetched_at: 2026-11-10T17:34:13.923682+00:00
 ---
 
 # Project and agent settings  |  CX Agent Studio  |  Google Cloud Documentation
@@ -61,7 +61,7 @@ The following agent application settings are available:
 
   * **Basic** : 
     * **Interactions** : 
-      * **Global model** : Default [model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent#model-support) used unless overridden by individual agents. Note that some models may be optimized for text or voice.
+      * **Global model** : Default [model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent#model-support) used unless overridden by individual agents. Note that some models may be optimized for text or voice. For instructions on changing models and validating your agent, see [Migrate to a new model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/migrate-model).
       * **Language controls** : 
         * **Default language** : Start all conversations in this language.
         * **Additional languages** : If your agent application is multilingual, provide additional languages. Your agent application will automatically switch languages to match the user input
@@ -107,7 +107,7 @@ To edit root or sub-agent specific settings:
 The following root and sub-agent settings are available:
 
   * **Agent name** : Display name for the agent. Use snake case.
-  * **Model** : The [model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent#model-support) used for the agent.
+  * **Model** : The [model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent#model-support) used for the agent. For instructions on switching models and testing changes, see [Migrate to a new model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/migrate-model).
   * **Description** : A description of the agent. This description is provided to other agents in the agent application.
   * **Custom code** : Provide code for [callbacks](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/callback).
 
@@ -117,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

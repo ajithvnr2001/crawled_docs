@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/reference/rest/v1beta1/projects.locations.clusters
 title: REST Resource: projects.locations.clusters \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:10:42.684463+00:00
+fetched_at: 2026-11-10T18:57:00.879799+00:00
 ---
 
 # REST Resource: projects.locations.clusters  |  Memorystore for Redis Cluster  |  Google Cloud Documentation
@@ -564,6 +564,9 @@ JSON representation
       "zone": string,
       "zones": [
         string
+      ],
+      "activeZones": [
+        string
       ]
     }  
   
@@ -572,6 +575,7 @@ Fields
 `mode` |  `enum (`[ZoneDistributionMode](https://docs.cloud.google.com/memorystore/docs/cluster/reference/rest/v1beta1/projects.locations.clusters#ZoneDistributionMode)`)` Optional. The mode of zone distribution. Defaults to MULTI_ZONE, when not specified.  
 `zone` |  `string` Optional. When SINGLE ZONE distribution is selected, zone field would be used to allocate all resources in that zone. This is not applicable to MULTI_ZONE, and would be ignored for MULTI_ZONE clusters.  
 `zones[]` |  `string` Optional. Specify the zones of a multi-zone cluster where Redis Cluster allocates resources. This flag isn't applicable for single-zone clusters.  
+`activeZones[]` |  `string` Output only. The list of zones where the cluster has active VMs.  
   
 ## ZoneDistributionMode
 
@@ -709,8 +713,8 @@ JSON representation
   
 Fields  
 ---  
-`day` |  `enum (`[DayOfWeek](https://docs.cloud.google.com/memorystore/docs/cluster/reference/rest/Shared.Types/DayOfWeek)`)` Optional. Allows to define schedule that runs specified day of the week.  
-`startTime` |  `object (`[TimeOfDay](https://docs.cloud.google.com/memorystore/docs/cluster/reference/rest/Shared.Types/TimeOfDay)`)` Optional. Start time of the window in UTC.  
+`day` |  `enum (`[DayOfWeek](https://docs.cloud.google.com/memorystore/docs/cluster/reference/rest/Shared.Types/DayOfWeek)`)` Optional. The day of the week for the maintenance window. This field is required. You can't use `DAY_OF_WEEK_UNSPECIFIED`.  
+`startTime` |  `object (`[TimeOfDay](https://docs.cloud.google.com/memorystore/docs/cluster/reference/rest/Shared.Types/TimeOfDay)`)` Optional. The start time of the maintenance window in UTC. When you specify a maintenance window, `startTime` is required.  
   
 ## ClusterMaintenanceSchedule
 
@@ -963,6 +967,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

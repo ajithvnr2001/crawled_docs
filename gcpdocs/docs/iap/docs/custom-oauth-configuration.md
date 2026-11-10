@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/custom-oauth-configuration/
 title: Use custom OAuth clients with IAP \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:21.873016+00:00
+fetched_at: 2026-11-10T16:58:56.832948+00:00
 ---
 
 # Use custom OAuth clients with IAP  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -28,8 +28,11 @@ By default, IAP uses Google-managed OAuth clients to authenticate users. Google-
 You must use a custom OAuth configuration to do the following:
 
   * Manage access to IAP-enabled applications for _external_ users that are outside of your organization.
+
   * Manage access to web applications that are in projects that aren't in a Google Cloud organization.
+
   * Display custom brand information in consent screens during authentication.
+
 
 
 
@@ -84,7 +87,9 @@ This section describes how to set up custom OAuth clients in IAP.
 You can create a custom OAuth client for IAP using the Google Cloud console in the following ways:
 
   * Create an OAuth client manually: You must add the redirect URI yourself before configuring IAP.
+
   * Create an OAuth client automatically by using IAP auto-generate credentials: IAP creates and configures the OAuth client for you and automatically adds the required redirect URI.
+
 
 
 
@@ -185,7 +190,9 @@ To apply the custom OAuth client using the gcloud CLI, do the following:
 Replace the following:
 
         * `CLIENT_ID`: The client ID from the OAuth credentials that you generated earlier.
+
         * `CLIENT_SECRET`: The client secret from the OAuth credentials that you generated earlier.
+
      2. To set the OAuth configuration, do one of the following:
 
         * To set the OAuth configuration at the project level, run the following command:
@@ -193,10 +200,10 @@ Replace the following:
     gcloud iap settings set iap-oauth.yaml
 
 To set the configuration at another level of the resource hierarchy, use one of the following flags instead of the `--project` flag. Setting custom OAuth clients at a level of the resource hierarchy provides the same custom branding to all of the services that run within that level.
-    
-    * <code>--folder=<var>FOLDER_ID</var></code>
-    * <code>--organization=<var>ORGANIZATION_ID</var></code>
-    
+
+        * `--folder=FOLDER_ID`
+
+        * `--organization=ORGANIZATION_ID`
 
         * To set the configuration on a specific service, run the following command:
     
@@ -211,17 +218,27 @@ Replace the following:
         * `PROJECT_ID`: the ID of the project resource. To set the configuration at another level, use one of the following flags instead of the `--project` flag:
 
           * `--folder=FOLDER_ID`
+
           * `--organization=ORGANIZATION_ID`
+
         * `RESOURCE_TYPE`: replace with one of the following resource types, depending on the resource:
 
           * `app-engine`
+
           * `backend-services`
+
           * `cloud-run`
+
           * `compute`
+
           * `folder`
+
           * `forwarding-rule`
+
           * `iap_web`
+
           * `organization`
+
         * `REGION`: the region where you run your Cloud Run service.
 
         * `SERVICE_NAME`: The name of your service.
@@ -244,7 +261,9 @@ To apply the custom OAuth client using Terraform, do the following:
 Replace the following:
 
      * `IAP_RESOURCE_NAME`: the resource name of the `iap_settings` resource for the service, which has the following format: `projects/PROJECT_NUMBER/iap_web/REGION/services/SERVICE_NAME`
+
      * `CLIENT_ID`: the client ID from the OAuth credentials that you generated earlier
+
      * `CLIENT_SECRET`: the client secret from the OAuth credentials that you generated earlier
 
 ### REST API
@@ -265,7 +284,9 @@ Replace the following:
 Replace the following:
 
         * `CLIENT_ID`: The client ID from the OAuth credentials that you generated earlier.
+
         * `CLIENT_SECRET`: The client secret from the OAuth credentials that you generated earlier.
+
      2. Apply the settings file.
             
             curl -X PATCH \
@@ -369,7 +390,9 @@ If you are running GKE clusters version 1.24 or later, you can configure IAP and
 
 Replace the following: 
      * `MY_SECRET`: The name of the secret to create
+
      * `CLIENT_ID`: The OAuth client ID
+
      * `CLIENT_SECRET`: The OAuth client secret
 
 You should receive confirmation, like the following output, that the Secret was successfully created: 
@@ -504,6 +527,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

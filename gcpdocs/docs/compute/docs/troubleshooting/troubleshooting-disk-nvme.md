@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-disk-nvme/
 title: Troubleshooting NVMe disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:24.263170+00:00
+fetched_at: 2026-11-10T18:56:26.944343+00:00
 ---
 
 # Troubleshooting NVMe disks  |  Compute Engine  |  Google Cloud Documentation
@@ -46,18 +46,20 @@ If you are encountering I/O timeout errors, latency could be exceeding the defau
 
 **Resolution** :
 
-To resolve this issue, increase the value of the timeout parameter.
+To resolve this issue, increase the value of the timeout parameter:
 
-**Note:** Most of the operating system images provided by Google already include this change.
+###  Linux 
 
-  1. View the current value of the timeout parameter.
+**Note:** Most Linux operating system images that Google provides already include this change.
 
-     1. Determine which NVMe controller is used by the persistent disk or Local SSD volume. 
+  1. View the current value of the timeout parameter:
+
+     1. Determine which NVMe controller the persistent disk or Local SSD volume uses: 
             
             ls -l /dev/disk/by-id
             
 
-     2. Display the `io_timeout` setting, specified in seconds, for the disk. 
+     2. Display the `io_timeout` setting, in seconds, for the disk: 
             
             cat /sys/class/nvme/CONTROLLER_ID/NAMESPACE/queue/io_timeout
             
@@ -66,7 +68,7 @@ Replace the following:
         * `CONTROLLER_ID`: the ID of the NVMe disk controller, for example, `nvme1`
         * `NAMESPACE`: the namespace of the NVMe disk, for example, `nvme1n1`
 
-If you only have a single disk that uses NVMe, then use the command: 
+If you have only a single disk that uses NVMe, then run the following command: 
     
     cat /sys/class/nvme/nvme0/nvme0n1/queue/io_timeout
     
@@ -75,6 +77,21 @@ If you only have a single disk that uses NVMe, then use the command:
          
          KERNEL=="nvme*n*", ENV{DEVTYPE}=="disk", ATTRS{model}=="nvme_card-pd", ATTR{queue/io_timeout}="4294967295"
          
+
+
+
+
+###  Windows 
+
+  1. To increase the timeout parameter for I/O operations submitted to NVMe devices on Windows, open PowerShell as an administrator and run the following commands to set the `IoTimeoutValue` registry property:
+         
+         $RegistryPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Parameters'
+         $Name         = 'IoTimeoutValue'
+         $Value        = '240'
+         New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force
+         
+
+  2. Restart the VM for the changes to take effect.
 
 
 
@@ -123,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

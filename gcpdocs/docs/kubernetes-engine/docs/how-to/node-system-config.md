@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config/
 title: Customizing node system configuration \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:45:31.710356+00:00
+fetched_at: 2026-11-10T12:13:27.113729+00:00
 ---
 
 # Customizing node system configuration  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -744,18 +744,14 @@ The following table describes the modifiable options for the termination and gra
   
 ### System resource reservations
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-For Standard node pools that run Linux and GKE 1.37 or later, you can customize the amount of memory and CPU reserved for system components. This lets you fine-tune allocatable capacity for specific scenarios such as handling high-volume image pulls or running customized node DaemonSets. For more information about the default reservations, see [About GKE node sizing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes).
+For Standard node pools that run Linux and GKE version 1.37.2-gke.1325000 or later, you can customize the amount of memory and CPU reserved for system components. This lets you fine-tune allocatable capacity for specific scenarios such as handling high-volume image pulls or running customized node DaemonSets. For more information about the default reservations, see [About GKE node sizing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes).
 
 The following table describes the modifiable options for system resource reservations.
 
 `kubelet` config settings | Restrictions | Default setting | Description  
 ---|---|---|---  
-`reservedResourcesConfig.memoryReservedMib` | Value must be an integer. Must be greater than or equal to the default memory reservation for node pools created running 1.37 or later, and less than 50% of the node's total memory capacity. | See [Memory reservations](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#memory_reservations). | The amount of memory to reserve for system components, in mebibytes (MiB).  
-`reservedResourcesConfig.cpuReservedMillicore` | Value must be an integer. Must be greater than or equal to the default CPU reservation for node pools created running 1.37 or later, and less than 50% of the node's total CPU capacity. | See [CPU reservations](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#cpu_reservations). | The amount of CPU to reserve for system components, in millicores.  
+`reservedResourcesConfig.memoryReservedMib` | Value must be an integer. Must be greater than or equal to the default memory reservation for node pools that run version 1.37.2-gke.1325000 or later, and less than 50% of the node's total memory capacity. | See [Memory reservations](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#memory_reservations). | The amount of memory to reserve for system components, in mebibytes (MiB).  
+`reservedResourcesConfig.cpuReservedMillicore` | Value must be an integer. Must be greater than or equal to the default CPU reservation for node pools that run version 1.37.2-gke.1325000 or later, and less than 50% of the node's total CPU capacity. | See [CPU reservations](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#cpu_reservations). | The amount of CPU to reserve for system components, in millicores.  
   
 #### Verify effective reservations
 
@@ -1252,6 +1248,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

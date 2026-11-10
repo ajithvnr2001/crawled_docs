@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/admin-jobs-explorer/
 title: Monitor jobs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:14.389128+00:00
+fetched_at: 2026-11-10T15:37:24.088217+00:00
 ---
 
 # Monitor jobs  |  BigQuery  |  Google Cloud Documentation
@@ -32,8 +32,8 @@ With the jobs explorer, you can do the following:
   * **Filter and identify jobs** : search for specific queries across your organization by applying filters based on criteria such as job status, duration, owner, or slot usage.
   * **Analyze timeline metrics** : track job execution trends and concurrency over time with the metric chart.
   * **Aggregate jobs by resource** : group jobs by owner, project, or reservation to view summary statistics and drill down into filtered tables.
-  * **Troubleshoot jobs** : select individual jobs to view their query execution graphs, SQL text, and execution history on the **Job details** page ([Preview](https://cloud.google.com/products#product-launch-stages)).
-  * **Compare performance** : compare jobs ([Preview](https://cloud.google.com/products#product-launch-stages)) to highlight significant metric differences and address potential performance issues.
+  * **Troubleshoot jobs** : select individual jobs to view their query execution graphs, SQL text, and execution history on the **Job details** page.
+  * **Compare performance** : compare jobs to highlight significant metric differences and address potential performance issues.
   * **Get AI assistance** : use Gemini Code Assist to troubleshoot jobs explorer ([Preview](https://cloud.google.com/products#product-launch-stages)) to analyze job statistics or explain slow-running queries.
 
 
@@ -173,12 +173,6 @@ To inspect the individual jobs associated with a specific resource, click the pa
 
 ## Troubleshoot job performance
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** To request feedback or support for this feature, send an email to [bq-performance-troubleshooting+feedback@google.com](mailto:bq-performance-troubleshooting+feedback@google.com).
-
 To diagnose and troubleshoot queries, you can view execution metrics, SQL text, and historical performance variances on the **Job details** page.
 
 ### View job details
@@ -214,12 +208,6 @@ The following example shows an execution graph with SQL text mapping enabled:
 
 
 ## Diagnose performance regressions by comparing jobs and systems
-
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** To request feedback or support for this feature, send an email to [bq-performance-troubleshooting+feedback@google.com](mailto:bq-performance-troubleshooting+feedback@google.com).
 
 The performance comparison tool lets you analyze performance differences between two query jobs or across two system intervals. The analysis shows query details, resource utilization shifts, and system environment settings that differ significantly between your baseline and target environments.
 
@@ -351,6 +339,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

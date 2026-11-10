@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/migrate/migration-skill/
 title: Migrate from Firebase Test Lab and Flank to Developer Device Platform with AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:17:30.038449+00:00
+fetched_at: 2026-11-10T08:24:35.146848+00:00
 ---
 
 # Migrate from Firebase Test Lab and Flank to Developer Device Platform with AI  |  Google Cloud Documentation
@@ -91,11 +91,10 @@ Test Type  | Feature Group  | Legacy Parameter (firebase / Flank) | Target Param
 ---|---|---|---|---  
 Common (Android & iOS)  | Core parameters and assets | Flank `--project` | `--project` | Standard Google Cloud global flag (`--project=PROJECT_ID`) or active Google Cloud CLI configuration.  
 Common (Android & iOS)  | Core parameters and assets | `--client-details` | `--labels` | **Dictionary** of key=value pairs.   
+Common (Android & iOS)  | Core parameters and assets | `--other-files` | `--other-files-to-push` | **Dictionary** of files to push before the test run (`SOURCE=DEST` format).   
 Common (Android & iOS)  | Device configuration and targeting  | `--device model={M},version={V}` | `--device={M}-{V}` | Maps model and OS version to `--device` ID string. Accepts a comma-separated list of multiple devices in a single flag (ex. `--device=mediumphone-arm-32,shiba-36`).  
 Common (Android & iOS)  | Execution control and flakiness  | `--async` | `--async` | Maps 1:1. Command stays synchronous by default, pass this to return immediately. Monitor or await with `gcloud beta device-run sessions wait <SESSION_ID>`.  
 Common (Android & iOS)  | Execution control and flakiness | `--num-flaky-test-attempts {R}` | `--flaky-test-attempts {A}` | **Integer**. Convert retry count $R$ to total attempts limit: $A = R + 1$ (defaults to 1).  
-Common (Android & iOS)  | Execution control and flakiness | N/A  | `--flaky-test-parallel-retry` | **Boolean**. Whether to retry test failures in parallel (defaults to sequential).  
-Common (Android & iOS)  | Execution control and flakiness | N/A  | `--flaky-test-retry-level` | **String**. Retry level: `shard` or `test` (defaults to `shard`).   
 Common (Android & iOS)  | Output and storage  | `--results-bucket` | `--bucket-name` | Bucket where test output artifacts are uploaded (defaults to `gs://[PROJECT_ID]-devicerun`).  
 Common (Android & iOS)  | Output and storage  | `--results-dir` | _Managed automatically_ | Setting custom subdirectories is not supported; all test artifacts are automatically organized under `automation/sessions/{session_id}/` within the bucket specified by `--bucket-name`.  
 Common (Android & iOS) | Output and storage | `--record-video` | `--video` | Valid values: `always` or `on-failure`.   
@@ -103,7 +102,6 @@ Common (Android & iOS) | Output and storage | `--directories-to-pull` | `--paths
 Common Android  | Core parameters and assets | `--app` | `--apps` | **List**. If multiple application APKs/AABs are supplied, pass them all to `--apps`.  
 Common Android  | Core parameters and assets | `--additional-apks` | `--apps` | **List**. Merge additional list values directly into the main `--apps` list.   
 Common Android  | Core parameters and assets | `--obb-files` | `--other-files-to-push` | **Dictionary** in `SOURCE=DEST` format. Push OBB files directly to device path (`/sdcard/Android/obb/{package_name}/`).  
-Common Android  | Core parameters and assets | `--other-files` | `--other-files-to-push` | **Dictionary** in `SOURCE=DEST` format.   
 Common Android  | Device configuration and targeting | `--device locale={L}` | `--locale={L}` | Maps device locale to top-level `--locale` flag (`language-region`, ex. `--locale=en-US`).  
 Common Android  | Device configuration and targeting | `--device orientation={O}` | `--orientation={O}` | Maps device orientation to top-level `--orientation` flag (`portrait` or `landscape`).  
 Common Android  | Device configuration and targeting | N/A  | `--coordinates` | Mock location coordinates (`latitude,longitude`, ex., `37.4220,-122.0841`).  
@@ -113,6 +111,8 @@ Common Android  | Output and storage | N/A  | `--bugreport` | Collect bugreport 
 Android Instrumentation  | Core parameters and assets | `--type=instrumentation` | `sessions submit instrumentation` | Sub-command structure determines test type instead of a `--type` flag.   
 Android Instrumentation  | Core parameters and assets | `--test` | `--test` | Path to the binary file containing instrumentation tests.   
 Android Instrumentation  | Execution control and flakiness | `--timeout` | `--instrumentation-timeout` | **Duration** (ex., `10m`, `20s`, `1h`). Valid range: `1m` to `3h` (defaults to `5m`).  
+Android Instrumentation  | Execution control and flakiness | N/A  | `--flaky-test-parallel-retry` | **Boolean**. Whether to retry test failures in parallel (defaults to sequential).  
+Android Instrumentation  | Execution control and flakiness | N/A  | `--flaky-test-retry-level` | **String**. Retry level: `shard` or `test` (defaults to `shard`).   
 Android Instrumentation  | Execution control and flakiness | `--num-uniform-shards {N}` | `--sharding-option=uniform`  
 `--uniform-sharding-count={N}` | Flag configuration activates uniform sharding strategy (valid count range: 1-20 physical, 1-200 virtual).  
 Android Instrumentation  | Execution control and flakiness | Flank `--shard-time {S}` | `--sharding-option=smart`  
@@ -343,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

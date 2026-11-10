@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues/
 title: Google Distributed Cloud for bare metal known issues \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:45.194890+00:00
+fetched_at: 2026-11-10T17:01:34.692321+00:00
 ---
 
 # Google Distributed Cloud for bare metal known issues  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,11 @@ Send feedback
 
 #  Google Distributed Cloud for bare metal known issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-Known issues for Distributed Cloud software only for bare metal highlight unexpected behaviors and available workarounds.
+Known issues for Google Distributed Cloud software only for bare metal highlight unexpected behaviors and available workarounds.
 
 If you're part of the Google Developer Program, you can save this document to receive notifications when related release notes are published. To learn more, see [Saved Pages](https://developers.google.com/profile/help/saved-pages).
 
-**Note:** Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
+**Note:** Google Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
 
 To filter the known issues by a product version or category, select your filters from the following drop-down menus.
 
@@ -46,7 +46,7 @@ Upgrades and updates | 1.34.400, 1.34.500, 1.34.700, 1.34.800, 1.35.400, 1.35.60
 
 ### Skip minor version upgrades fail due to unavailable intermediate release package
 
-When you perform a [skip upgrade](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade#skip-upgrades) (for example, from 1.34 to 1.36) to certain target patch versions of Distributed Cloud software only for bare metal, the upgrade fails because the required intermediate `1.N-1` (for example, 1.35 when upgrading from 1.34 to 1.36) patch version is missing from the public release bucket (`gs://anthos-baremetal-release/`). During a skip upgrade, the system first upgrades the cluster to a predefined intermediate `1.N-1` patch version (for example, 1.35 when upgrading from 1.34 to 1.36) before upgrading to the target `1.N` version (for example, 1.36 when upgrading from 1.34 to 1.36). In the affected target versions, the configured intermediate version references an unreleased build. As a result:
+When you perform a [skip upgrade](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade#skip-upgrades) (for example, from 1.34 to 1.36) to certain target patch versions of Google Distributed Cloud software only for bare metal, the upgrade fails because the required intermediate `1.N-1` (for example, 1.35 when upgrading from 1.34 to 1.36) patch version is missing from the public release bucket (`gs://anthos-baremetal-release/`). During a skip upgrade, the system first upgrades the cluster to a predefined intermediate `1.N-1` patch version (for example, 1.35 when upgrading from 1.34 to 1.36) before upgrading to the target `1.N` version (for example, 1.36 when upgrading from 1.34 to 1.36). In the affected target versions, the configured intermediate version references an unreleased build. As a result:
 
   * If you use a registry mirror, attempting to download the intermediate images package (`bmpackages_INTERMEDIATE_VERSION.tar.xz`) fails with a `404 Not Found` (`No URLs matched`) error.
   * When you run `bmctl upgrade cluster` or apply the updated `Cluster` resource with `kubectl`, the machine upgrade preflight check stalls and fails because the `ansible-runner` container can't pull the intermediate image, reporting an error similar to the following: 
@@ -82,7 +82,7 @@ Networking | 1.34.0-1.34.900 |
 
 ### Duplicate secondary IP addresses assigned to Pods on secondary networks
 
-On clusters running Distributed Cloud software only for bare metal versions 1.34.0 through 1.34.900 that use multiple network interfaces (`anthos-multinet`) with the Whereabouts CNI IPAM plugin, running Pods might be assigned duplicate secondary IP addresses on secondary networks (such as SR-IOV or Multus networks). When two running Pods hold the same secondary IP address, workloads on the secondary network can experience Layer 2 ARP/MAC flapping, intermittent packet loss, TCP connection resets, or health check failures. This issue occurs when a Pod restarts or is recreated with the same name (such as a `StatefulSet` Pod) while stale IP allocations from previous instances of that Pod remain in an `IPPool` custom resource under the same Pod reference (`podRef`). During scheduled garbage collection, the `whereabouts-gc` container in the `anthos-multinet` DaemonSet matches deallocation entries in `IPPool` only by `podRef` without verifying the IP address. As a result, `whereabouts-gc` can mistakenly delete a running Pod's active IP reservation from the `IPPool` and `OverlappingRangeIPReservation` custom resources in the `kube-system` namespace. When another Pod is scheduled on the same secondary network, Whereabouts IPAM treats the IP address as unallocated and assigns it to the new Pod. This issue is fixed in version 1.34.1000. Version 1.35.0 and later are not affected. **Diagnosis:** Your cluster is affected by this issue if any of the following are true:
+On clusters running Google Distributed Cloud software only for bare metal versions 1.34.0 through 1.34.900 that use multiple network interfaces (`anthos-multinet`) with the Whereabouts CNI IPAM plugin, running Pods might be assigned duplicate secondary IP addresses on secondary networks (such as SR-IOV or Multus networks). When two running Pods hold the same secondary IP address, workloads on the secondary network can experience Layer 2 ARP/MAC flapping, intermittent packet loss, TCP connection resets, or health check failures. This issue occurs when a Pod restarts or is recreated with the same name (such as a `StatefulSet` Pod) while stale IP allocations from previous instances of that Pod remain in an `IPPool` custom resource under the same Pod reference (`podRef`). During scheduled garbage collection, the `whereabouts-gc` container in the `anthos-multinet` DaemonSet matches deallocation entries in `IPPool` only by `podRef` without verifying the IP address. As a result, `whereabouts-gc` can mistakenly delete a running Pod's active IP reservation from the `IPPool` and `OverlappingRangeIPReservation` custom resources in the `kube-system` namespace. When another Pod is scheduled on the same secondary network, Whereabouts IPAM treats the IP address as unallocated and assigns it to the new Pod. This issue is fixed in version 1.34.1000. Version 1.35.0 and later are not affected. **Diagnosis:** Your cluster is affected by this issue if any of the following are true:
 
   * Two different `Running` Pods list the same secondary IP address in their `k8s.v1.cni.cncf.io/network-status` annotation.
   * A Pod is `Running` with a secondary IP address in `k8s.v1.cni.cncf.io/network-status`, but its `NAMESPACE/POD_NAME` reference is missing from `IPPool` (after the first garbage collection cycle) or its `IP_ADDRESS` is missing from `OverlappingRangeIPReservation` (after the second garbage collection cycle).
@@ -174,7 +174,7 @@ Operation, Upgrades and updates | 1.32, 1.33, 1.34 |
 
 ### Pods stuck in `Running` or `Terminating` state
 
-A race condition during `containerd` restarts can cause container exit events to be dropped. When this occurs, the underlying Linux process exits, but Kubernetes and the container runtime continue to report the pod in a `Running` or `Terminating` state. This prevents batch jobs from completing and can cause node draining to stall indefinitely during cluster upgrades or maintenance. This issue can occur whenever `containerd` is restarted on a node while containers are actively finishing execution.  This issue is found in Distributed Cloud software only for bare metal versions before **1.34.500-gke.108**. **Diagnosis:** To confirm whether this issue affects a pod:
+A race condition during `containerd` restarts can cause container exit events to be dropped. When this occurs, the underlying Linux process exits, but Kubernetes and the container runtime continue to report the pod in a `Running` or `Terminating` state. This prevents batch jobs from completing and can cause node draining to stall indefinitely during cluster upgrades or maintenance. This issue can occur whenever `containerd` is restarted on a node while containers are actively finishing execution.  This issue is found in Google Distributed Cloud software only for bare metal versions before **1.34.500-gke.108**. **Diagnosis:** To confirm whether this issue affects a pod:
 
   1. Identify pods that remain in the `Running` or `Terminating` state longer than their expected execution time, or check if a cluster upgrade is waiting on a node drain.
   2. (For upgrades only:) If a cluster upgrade stalls, inspect the `BareMetalMachine` resource in the admin cluster to identify which pods are blocking the drain: 
@@ -259,7 +259,7 @@ The preflight check fails to mount the required credential or certificate volume
     
     Warning  FailedMount  ... kubelet  MountVolume.SetUp failed for volume "registry-auth-volume-0" : secret "<namespace>-<creds>" not found
 
-This issue is fixed in Distributed Cloud software only for bare metal versions 1.34.1100, 1.35.700, and 1.36.300 and later. This issue affects CA certificate secrets (`caCertSecretRef`) and image pull credential secrets (`pullCredentialSecretRef`). Users with `cluster-admin` permissions can verify the status of the `SecretForwarder` resource in the cluster namespace:
+This issue is fixed in Google Distributed Cloud software only for bare metal versions 1.34.1100, 1.35.700, and 1.36.300 and later. This issue affects CA certificate secrets (`caCertSecretRef`) and image pull credential secrets (`pullCredentialSecretRef`). Users with `cluster-admin` permissions can verify the status of the `SecretForwarder` resource in the cluster namespace:
     
     
     kubectl get secretforwarder -n CLUSTER_NAMESPACE
@@ -287,7 +287,7 @@ Networking | 1.34, 1.35 |
 
 ### Pod IPv6 egress connectivity fails after upgrade
 
-After upgrading your cluster to Distributed Cloud software only for bare metal version 1.34.x or 1.35.x, pods might lose external IPv6 connectivity. This issue occurs because a strict configuration validation in the upgraded container network interface (CNI)—specifically during the transition of the underlying Cilium CNI from version 1.16 to 1.17—disables the IPv6 Neighbor Discovery Protocol (NDP) responder if the multicast device parameter (`ipv6-mcast-device`) is not explicitly configured in the CNI configuration. By default, Google Distributed Cloud configuration templates leave this parameter empty because interface names vary across customer environments. The issue is fixed in Distributed Cloud software only for bare metal versions 1.34.800, 1.35.400, and 1.36.0 and later. **Diagnosis:** To confirm whether your cluster is affected by this issue, check the logs of the `anetd` pods in the `kube-system` namespace for the following error message:
+After upgrading your cluster to Google Distributed Cloud software only for bare metal version 1.34.x or 1.35.x, pods might lose external IPv6 connectivity. This issue occurs because a strict configuration validation in the upgraded container network interface (CNI)—specifically during the transition of the underlying Cilium CNI from version 1.16 to 1.17—disables the IPv6 Neighbor Discovery Protocol (NDP) responder if the multicast device parameter (`ipv6-mcast-device`) is not explicitly configured in the CNI configuration. By default, Google Distributed Cloud configuration templates leave this parameter empty because interface names vary across customer environments. The issue is fixed in Google Distributed Cloud software only for bare metal versions 1.34.800, 1.35.400, and 1.36.0 and later. **Diagnosis:** To confirm whether your cluster is affected by this issue, check the logs of the `anetd` pods in the `kube-system` namespace for the following error message:
     
     
     IPv6NDP cannot be enabled without ipv6-mcast-device
@@ -569,7 +569,7 @@ Networking | 1.34.0 |
 
 ### Graceful migration drops existing connections on node cordon
 
-When you enable egress NAT fast failover, cordoning a gateway node with `kubectl cordon <NODE_NAME>` initiates a graceful migration that maintains existing egress connections. However, in Distributed Cloud software only release 1.34.0, the graceful migration feature doesn't function as intended. If an administrator cordons an active egress gateway node in a version 1.34.0 cluster that uses fast failover, the cordoning behaves like an unplanned node failure and terminates all existing stateful connections on that node immediately.   
+When you enable egress NAT fast failover, cordoning a gateway node with `kubectl cordon <NODE_NAME>` initiates a graceful migration that maintains existing egress connections. However, in Google Distributed Cloud software only release 1.34.0, the graceful migration feature doesn't function as intended. If an administrator cordons an active egress gateway node in a version 1.34.0 cluster that uses fast failover, the cordoning behaves like an unplanned node failure and terminates all existing stateful connections on that node immediately.   
 **Workaround:** There is no workaround for this issue.  
 Networking | 1.32.0 | 
 
@@ -3726,6 +3726,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

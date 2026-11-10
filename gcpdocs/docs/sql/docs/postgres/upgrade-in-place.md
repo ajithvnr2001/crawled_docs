@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/upgrade-in-place/
 title: Upgrade in place \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:42:38.858881+00:00
+fetched_at: 2026-11-10T11:44:50.376793+00:00
 ---
 
 # Upgrade in place  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -32,13 +32,24 @@ You can use in-place changes to upgrade or downgrade the edition, machine type, 
 
 ## Before you begin
 
-Ensure that your instance is running on PostgreSQL 12 or later.
+Before you make in-place changes to your instance, do the following:
+
+  * Ensure that your instance is running on PostgreSQL 12 or later.
 
 If your instance is on an earlier version of PostgreSQL, then you must upgrade to PostgreSQL 12 or later. For more information, see [Upgrade the database major version in-place](https://docs.cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace).
 
+
+
+  * Ensure that your instance is running on the latest maintenance version.
+
+If your instance is on an older maintenance version, then you must update to the latest maintenance version before you upgrade your instance to Cloud SQL Enterprise Plus edition. For more information about checking and updating the maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance).
+
+
+
+
 ### Be aware of potential storage changes related to machine type
 
-Different editions support different machine types which use different storage options. High-performance C4 and C4A machine types use [Hyperdisk Balanced](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced) storage rather than one of the [persistent disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks) options used by older machine types.
+Different editions support different machine types which use different storage options. High-performance C4, C4A, and C4D machine types use [Google Cloud Hyperdisk Balanced](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced) storage rather than one of the [persistent disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks) options used by older machine types.
 
 When you make a change to the edition or machine type you're using, your storage type may also change, which may result in some downtime and a change in storage costs. When moving to Google Cloud Hyperdisk Balanced, there are additional configuration options that you can specify. For more information, see Storage changes.
 
@@ -84,7 +95,7 @@ The following [`gcloud sql instance patch`](/sdk/gcloud/reference/sql/instances/
       --tier=MACHINE_TYPE \
       --project=PROJECT_ID
 
-Optional: you can also enable [data cache](https://docs.cloud.google.com/sql/docs/postgres/data-cache) for your instance by adding the [`--enable-data-cache`](https://docs.cloud.google.com/sdk/gcloud/reference/sql/instances/patch#--\[no-\]enable-data-cache) flag.
+Optional: you can also enable [data cache](https://docs.cloud.google.com/sql/docs/postgres/data-cache) for your instance by adding the [`--enable-data-cache`](https://docs.cloud.google.com/sdk/gcloud/reference/sql/instances/patch#--\[no-\]enable-data-cache) flag. Because data cache isn't supported for the C4D machine series, if you upgrade to a C4D machine type (8 vCPUs or larger), you must explicitly disable data cache by adding the `--no-enable-data-cache` flag.
 
 Replace the following:
 
@@ -266,7 +277,7 @@ Changing the edition of your Cloud SQL instance can require changing its machine
 
 When you change editions, you have to change machine type, too. See [Choose a machine series](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview) for more information about the machine series that Cloud SQL supports.
 
-When upgrading from Cloud SQL Enterprise edition to Cloud SQL Enterprise Plus edition, you can choose between the [N2](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#n2), [C4A](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4a), and [C4](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4) machine series.
+When upgrading from Cloud SQL Enterprise edition to Cloud SQL Enterprise Plus edition, you can choose between the [N2](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#n2), [C4A](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4a), [C4](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4), and [C4D](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4d) machine series.
 
 When downgrading from Cloud SQL Enterprise Plus edition to Cloud SQL Enterprise edition, you can choose between a [general purpose dedicated-core](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#gp-dedicated-core), and an [N4](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#n4) machine series.
 
@@ -274,13 +285,15 @@ When downgrading from Cloud SQL Enterprise Plus edition to Cloud SQL Enterprise 
 
 You can also change machine type without changing edition. After choosing to edit your instance, go to the **Machine** sub-section of **Machine Configuration** in the **Customize your instance** area. Using the drop-down, you can select a different machine type. You can also choose a different number of VCPUs, and enable or disable the [data cache](https://docs.cloud.google.com/sql/docs/postgres/data-cache) if appropriate.
 
-For more general information, see also [Compute Engine documentation](https://docs.cloud.google.com/compute/docs/overview) for the [N2](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2_series), [C4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series), [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series), and [N4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4_series) machine series.
+**Note:** Data cache isn't supported for the C4D machine series. If you change an instance that has data cache enabled to a C4D machine type, or if you upgrade an instance to Cloud SQL Enterprise Plus edition with a C4D machine type (8 vCPUs or larger), you must explicitly disable data cache (for example, by adding `--no-enable-data-cache` for the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud)).
+
+For more general information, see also [Compute Engine documentation](https://docs.cloud.google.com/compute/docs/overview) for the [N2](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2_series), [C4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series), [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series), [C4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series), and [N4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4_series) machine series.
 
 ### Storage changes
 
-If you are changing from a general purpose or an N2 machine series to an N4, C4A, or C4 machine series, your storage will be migrated from [Solid-state drive (SSD)](https://docs.cloud.google.com/sql/docs/postgres/storage-options-overview#ssd) to [Google Cloud Hyperdisk balanced](https://docs.cloud.google.com/sql/docs/postgres/storage-options-overview#hyperdisk) storage. This upgrade generally requires minimal downtime.
+If you are changing from a general purpose or an N2 machine series to an N4, C4A, C4, or C4D machine series, your storage is migrated from [Solid-state drive (SSD)](https://docs.cloud.google.com/sql/docs/postgres/storage-options-overview#ssd) to [Google Cloud Hyperdisk Balanced](https://docs.cloud.google.com/sql/docs/postgres/storage-options-overview#hyperdisk) storage. This upgrade generally requires minimal downtime.
 
-**Important:** If you switch from an N4, C4, or C4A machine series back to a general purpose dedicated-core or N2 machine series, moving your data from Google Cloud Hyperdisk Balanced storage to solid-state drive (SSD) storage can incur significant downtime. You cannot move to or from Hard-disk drive (HDD) storage.
+**Important:** If you switch from an N4, C4, C4A, or C4D machine series back to a general purpose dedicated-core or N2 machine series, moving your data from Google Cloud Hyperdisk Balanced storage to solid-state drive (SSD) storage can incur significant downtime. You cannot move to or from Hard-disk drive (HDD) storage.
 
 Google Cloud Hyperdisk Balanced storage can be customized for your use case by setting the following:
 
@@ -311,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-windows/
 title: Troubleshooting Windows VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:21:54.180512+00:00
+fetched_at: 2026-11-10T18:56:26.220161+00:00
 ---
 
 # Troubleshooting Windows VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -194,6 +194,13 @@ If your VM doesn't start correctly and using the advanced boot menu has failed t
 
      * [Repair your Windows image with `dism`](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image)
 
+To revert pending OS or SCCM updates that might be causing a UEFI boot loop, run the following command:
+           
+           dism /image:DRIVE_LETTER:\ /cleanup-image /revertpendingactions
+           
+
+Replace `DRIVE_LETTER` with the drive letter of the attached offline Windows volume on the recovery VM. For example, use `D`. Don't use the recovery VM's boot drive (typically `C`).
+
   5. If the offline repair has completed successfully, [update the boot disk](https://docs.cloud.google.com/compute/docs/disks/detach-reattach-boot-disk#update_a_boot_disk_for_an_instance) of the troubled VM to be the newly repaired boot disk.
 
   6. Optional: Delete the additional resources after you no longer need them:
@@ -355,6 +362,8 @@ After you obtain the blue screen error information and optionally obtained acces
 
 
 
+If your VM uses an NVMe disk and you suspect that the blue screen error is related to a storage timeout, see the Windows instructions for resolving an [I/O operation timeout error](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-disk-nvme#io-timeout).
+
 ## Licensing issues
 
 Windows operating systems renew their licenses every seven days by connecting to the [Key Management Service (KMS)](https://technet.microsoft.com/en-us/library/ff793434.aspx) server. If you receive messages about license expiration or any other issues related to licenses on your Windows VMs, do the following:
@@ -453,6 +462,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

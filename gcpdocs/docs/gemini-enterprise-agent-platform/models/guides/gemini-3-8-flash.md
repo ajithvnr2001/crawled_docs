@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-flash/
 title: Developer's guide to Gemini 3.8 Flash \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:25:44.228382+00:00
+fetched_at: 2026-11-10T18:36:33.359237+00:00
 ---
 
 # Developer's guide to Gemini 3.8 Flash  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ Input types | Text, Image, Audio, Video | Text, Image, Audio, Video | Text, Imag
 Output type(s) | Text | Text | Text  
 Context window | 1,048,576 | 1,048,576 | 1,048,576  
 Maximum output token length | 65,536 | 65,536 | 65,536  
-Supported regions |  Global, Multi-region  |  Global, Multi-region  |  Global   
+Supported regions |  Global, Multi-region, Americas, Asia Pacific  |  Global, Multi-region  |  Global   
 Supported thinking levels |  `LOW`, `MEDIUM`, `HIGH`  
 (Default: `MEDIUM`)  |  `LOW`, `MEDIUM`, `HIGH`  
 (Default: `MEDIUM`)  |  `LOW`, `MEDIUM`, `HIGH`  
@@ -187,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

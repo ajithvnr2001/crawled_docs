@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/scan-with-dlp/
 title: Using Sensitive Data Protection to scan BigQuery data \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:50.689959+00:00
+fetched_at: 2026-11-10T16:33:04.722483+00:00
 ---
 
 # Using Sensitive Data Protection to scan BigQuery data  |  Google Cloud Documentation
@@ -21,7 +21,13 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Using Sensitive Data Protection to scan BigQuery data
 
-Knowing where your sensitive data exists is often the first step in ensuring that it is properly secured and managed. This knowledge can help reduce the risk of exposing sensitive details such as credit card numbers, medical information, Social Security numbers, driver's license numbers, addresses, full names, and company-specific secrets. Periodic scanning of your data can also help with compliance requirements and ensure best practices are followed as your data grows and changes with use. To help meet compliance requirements, use Sensitive Data Protection to inspect your BigQuery tables and to help protect your sensitive data.
+Sensitive Data Protection lets you inspect BigQuery tables to identify, manage, and help protect sensitive data as your datasets grow and change. Periodic scanning helps you meet compliance requirements and reduce the risk of exposing details such as credit card numbers, medical information, Social Security numbers, driver's license numbers, addresses, full names, and company-specific secrets.
+
+This document explains how to run an on-demand inspection from the **BigQuery** page in the Google Cloud console. To learn more about Sensitive Data Protection, see the [Sensitive Data Protection documentation](https://docs.cloud.google.com/sensitive-data-protection/docs).
+
+## Ways to scan BigQuery data
+
+Sensitive Data Protection is a fully managed service that lets you identify and help protect sensitive data at scale. Sensitive Data Protection uses more than 150 predefined detectors to identify patterns, formats, and checksums. Sensitive Data Protection also provides a set of tools to de-identify your data—including masking, tokenization, pseudonymization, and date shifting—without replicating customer data.
 
 There are two ways to scan your BigQuery data:
 
@@ -32,12 +38,6 @@ There are two ways to scan your BigQuery data:
 
 
 
-This page describes how to do an on-demand inspection through the **BigQuery** page in the Google Cloud console.
-
-Sensitive Data Protection is a fully managed service that lets Google Cloud customers identify and protect sensitive data at scale. Sensitive Data Protection uses more than 150 predefined detectors to identify patterns, formats, and checksums. Sensitive Data Protection also provides a set of tools to de-identify your data including masking, tokenization, pseudonymization, date shifting, and more, all without replicating customer data.
-
-To learn more about Sensitive Data Protection, see the [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs) documentation.
-
 ## Before you begin
 
   1. Get familiar with [Sensitive Data Protection pricing](https://cloud.google.com/sensitive-data-protection/pricing) and [how to keep Sensitive Data Protection costs under control](https://docs.cloud.google.com/sensitive-data-protection/docs/best-practices-costs).
@@ -45,7 +45,7 @@ To learn more about Sensitive Data Protection, see the [Sensitive Data Protectio
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=dlp.googleapis.com)
 
-  3. Ensure that the user creating your Sensitive Data Protection jobs is granted an appropriate predefined Sensitive Data Protection [IAM role](https://docs.cloud.google.com/sensitive-data-protection/docs/iam-roles) or sufficient [permissions](https://docs.cloud.google.com/sensitive-data-protection/docs/iam-permissions) to run Sensitive Data Protection jobs.
+  3. Ensure that the user creating your Sensitive Data Protection jobs is granted an appropriate predefined Sensitive Data Protection [Identity and Access Management (IAM) role](https://docs.cloud.google.com/sensitive-data-protection/docs/iam-roles) or sufficient [permissions](https://docs.cloud.google.com/sensitive-data-protection/docs/iam-permissions) to run Sensitive Data Protection jobs.
 
 
 **Note:** When you enable the DLP API, a service account is created with a name similar to `service-project_number@dlp-api.iam.gserviceaccount.com`. This service account is granted the DLP API Service Agent role, which lets the service account authenticate with the BigQuery API. For more information, see [Service account](https://docs.cloud.google.com/sensitive-data-protection/docs/iam-permissions#service_account) on the Sensitive Data Protection IAM permissions page.
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

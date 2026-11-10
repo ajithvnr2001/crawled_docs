@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction/
 title: Interaction \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:43.008607+00:00
+fetched_at: 2026-11-10T11:44:40.505083+00:00
 ---
 
 # Interaction  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -37,8 +37,7 @@ The input for the interaction. The following is a list of mutually exclusive fie
   
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`responseFormat  
-**(deprecated)**` `object (`[Value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value)`)` This item is deprecated!Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. | `responseFormatList` `object (`[ResponseFormatList](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormatList)`)` | `responseFormatSingleton` `object (`[ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormat)`)` End of mutually exclusive fields. | `request_type` `Union type`  
+`responseFormatList` `object (`[ResponseFormatList](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormatList)`)` | `responseFormatSingleton` `object (`[ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormat)`)` End of mutually exclusive fields. | `request_type` `Union type`  
   
 The request type for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
@@ -107,9 +106,6 @@ The environment configuration for the interaction. Can be an object specifying r
       // Union type
     
       // response_format_config
-      "responseFormat": {
-        object ([Value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value))
-      },
       "responseFormatList": {
         object ([ResponseFormatList](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormatList))
       },
@@ -1401,6 +1397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

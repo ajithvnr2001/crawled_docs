@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/network-management/connectivity-tests/create/
 title: gcloud network-management connectivity-tests create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T04:34:49.808317+00:00
+fetched_at: 2026-11-10T17:33:22.515500+00:00
 ---
 
 # gcloud network-management connectivity-tests create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud network-management connectivity-tests create - create a new connectivity 
 SYNOPSIS
     
 
-`gcloud network-management connectivity-tests create` `CONNECTIVITY_TEST` (`--destination-cloud-sql-instance`=`DESTINATION_CLOUD_SQL_INSTANCE` `--destination-forwarding-rule`=`DESTINATION_FORWARDING_RULE` `--destination-gke-master-cluster`=`DESTINATION_GKE_MASTER_CLUSTER` `--destination-gke-pod`=`DESTINATION_GKE_POD` `--destination-instance`=`DESTINATION_INSTANCE` `--destination-ip-address`=`DESTINATION_IP_ADDRESS` `--destination-redis-cluster`=`DESTINATION_REDIS_CLUSTER` `--destination-redis-instance`=`DESTINATION_REDIS_INSTANCE`) (`--source-app-engine-version`=`SOURCE_APP_ENGINE_VERSION` `--source-cloud-function`=`SOURCE_CLOUD_FUNCTION` `--source-cloud-run-job`=`SOURCE_CLOUD_RUN_JOB` `--source-cloud-run-revision`=`SOURCE_CLOUD_RUN_REVISION` `--source-cloud-sql-instance`=`SOURCE_CLOUD_SQL_INSTANCE` `--source-dms-private-connection`=`SOURCE_DMS_PRIVATE_CONNECTION` `--source-gke-master-cluster`=`SOURCE_GKE_MASTER_CLUSTER` `--source-gke-pod`=`SOURCE_GKE_POD` `--source-instance`=`SOURCE_INSTANCE` `--source-ip-address`=`SOURCE_IP_ADDRESS`) [`--async`] [`--bypass-firewall-checks`] [`--description`=`DESCRIPTION`] [`--destination-fqdn`=`DESTINATION_FQDN`] [`--destination-network`=`DESTINATION_NETWORK`] [`--destination-port`=`DESTINATION_PORT`] [`--destination-project`=`DESTINATION_PROJECT`] [`--labels`=[`KEY`=`VALUE`,…]] [`--other-projects`=[`OTHER_PROJECTS`,…]] [`--protocol`=`PROTOCOL`] [`--round-trip`] [`--source-network`=`SOURCE_NETWORK`] [`--source-network-type`=`SOURCE_NETWORK_TYPE`; default="unspecified"] [`--source-project`=`SOURCE_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud network-management connectivity-tests create` `CONNECTIVITY_TEST` (`--destination-cloud-sql-instance`=`DESTINATION_CLOUD_SQL_INSTANCE` `--destination-forwarding-rule`=`DESTINATION_FORWARDING_RULE` `--destination-gke-master-cluster`=`DESTINATION_GKE_MASTER_CLUSTER` `--destination-gke-pod`=`DESTINATION_GKE_POD` `--destination-instance`=`DESTINATION_INSTANCE` `--destination-ip-address`=`DESTINATION_IP_ADDRESS` `--destination-redis-cluster`=`DESTINATION_REDIS_CLUSTER` `--destination-redis-instance`=`DESTINATION_REDIS_INSTANCE`) (`--source-app-engine-version`=`SOURCE_APP_ENGINE_VERSION` `--source-cloud-function`=`SOURCE_CLOUD_FUNCTION` `--source-cloud-run-job`=`SOURCE_CLOUD_RUN_JOB` `--source-cloud-run-revision`=`SOURCE_CLOUD_RUN_REVISION` `--source-cloud-sql-instance`=`SOURCE_CLOUD_SQL_INSTANCE` `--source-datastream-private-connection`=`SOURCE_DATASTREAM_PRIVATE_CONNECTION` `--source-dms-private-connection`=`SOURCE_DMS_PRIVATE_CONNECTION` `--source-gke-master-cluster`=`SOURCE_GKE_MASTER_CLUSTER` `--source-gke-pod`=`SOURCE_GKE_POD` `--source-instance`=`SOURCE_INSTANCE` `--source-ip-address`=`SOURCE_IP_ADDRESS`) [`--async`] [`--bypass-firewall-checks`] [`--description`=`DESCRIPTION`] [`--destination-fqdn`=`DESTINATION_FQDN`] [`--destination-network`=`DESTINATION_NETWORK`] [`--destination-port`=`DESTINATION_PORT`] [`--destination-project`=`DESTINATION_PROJECT`] [`--labels`=[`KEY`=`VALUE`,…]] [`--other-projects`=[`OTHER_PROJECTS`,…]] [`--protocol`=`PROTOCOL`] [`--round-trip`] [`--source-network`=`SOURCE_NETWORK`] [`--source-network-type`=`SOURCE_NETWORK_TYPE`; default="unspecified"] [`--source-project`=`SOURCE_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new connectivity test with the given name. 
 EXAMPLES
@@ -93,6 +93,8 @@ At least one of these must be specified:
      Cloud Run revision URI as the source endpoint. 
 `--source-cloud-sql-instance`=`SOURCE_CLOUD_SQL_INSTANCE`
      A Cloud SQL instance URI as the source endpoint. 
+`--source-datastream-private-connection`=`SOURCE_DATASTREAM_PRIVATE_CONNECTION`
+     Datastream private connection URI as the source endpoint. 
 `--source-dms-private-connection`=`SOURCE_DMS_PRIVATE_CONNECTION`
      DMS private connection URI as the source endpoint. 
 `--source-gke-master-cluster`=`SOURCE_GKE_MASTER_CLUSTER`
@@ -160,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

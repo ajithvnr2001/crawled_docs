@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-pipelines/
 title: Create pipelines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:58.891589+00:00
+fetched_at: 2026-11-10T19:01:28.613539+00:00
 ---
 
 # Create pipelines  |  BigQuery  |  Google Cloud Documentation
@@ -942,6 +942,7 @@ The **Tasks** table lists the tasks that you've selected. Click a task name to o
      * **Include dependents** : select this option to run the selected tasks and their transitive downstream dependents.
      * **Run with full refresh** : select this option to rebuild all tables from scratch.
      * **Run as interactive job with high priority (default)** : select this option to set the BigQuery query job priority. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
+     * **Limit concurrent actions** : to limit how many tasks can run concurrently during the execution, select this option. Then, in the **Maximum concurrent actions** field, enter a whole number between 1 and 5000. Ready tasks exceeding the limit remain queued until a concurrency slot becomes available.
   9. Click **Run**. If you selected **Run with user credentials** for your authentication method, you must authorize your Google Account ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
   10. Optional: To inspect the run, [view past manual runs](https://docs.cloud.google.com/bigquery/docs/manage-pipelines#view-manual-runs).
@@ -1000,6 +1001,7 @@ The **Tasks** table lists the tasks that you've selected. Click a task name to o
      * **Include dependents** : select this option to run the selected tasks and their transitive downstream dependents.
      * **Run with full refresh** : select this option to rebuild all tables from scratch.
      * **Run as interactive job with high priority (default)** : select this option to set the BigQuery query job priority. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
+     * **Limit concurrent actions** : to limit how many tasks can run concurrently during the execution, select this option. Then, in the **Maximum concurrent actions** field, enter a whole number between 1 and 5000. Ready tasks exceeding the limit remain queued until a concurrency slot becomes available.
   9. Click **Run**. If you selected **Run with user credentials** for your authentication method, you must authorize your Google Account ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
   10. Optional: To inspect the run, [view past manual runs](https://docs.cloud.google.com/bigquery/docs/manage-pipelines#view-manual-runs).
@@ -1097,6 +1099,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

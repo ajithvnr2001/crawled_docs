@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/modernize/hub/assess-java/
 title: Assess Java applications for modernization \u00a0|\u00a0 Modernization Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:23.948234+00:00
+fetched_at: 2026-11-10T19:01:27.241832+00:00
 ---
 
 # Assess Java applications for modernization  |  Modernization Hub  |  Google Cloud Documentation
@@ -29,6 +29,8 @@ This product is subject to the "Pre-GA Offerings Terms" in the General Service T
 This page shows you how to use Google Cloud Modernization Hub in the Google Cloud console to assess enterprise Java applications for Linux containerization and modernization to cross-platform Java Long-Term Support (LTS) releases (such as Java 17 or Java 21) on Google Cloud.
 
 Many enterprise Java applications depend on legacy Java EE APIs, proprietary application server configurations (such as WebLogic, WebSphere, or JBoss), or outdated third-party libraries that prevent direct deployment to Linux containers. An automated assessment in Modernization Hub analyzes your source code, identify migration blockers, evaluate Maven or Gradle dependency compatibility, and recommend refactoring paths for Cloud Run orGoogle Kubernetes Engine.
+
+To run assessments from your local computer or customize report sections by using the standalone `codmod` CLI, see [Create an App Modernization Assessment](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment).
 
 ## When to use a Java application assessment
 
@@ -214,6 +216,7 @@ The generated assessment report categorizes your application's migration readine
 
 ## What's next
 
+  * Learn how to [create an App Modernization Assessment with the `codmod` CLI](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment).
   * Learn how to [assess .NET applications](https://docs.cloud.google.com/modernize/hub/assess-dotnet).
   * Learn how to [set up Mainframe Assessment Tool (MAT)](https://docs.cloud.google.com/modernize/hub/setup-mat).
   * Explore AI-assisted code transformation using [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview).
@@ -224,6 +227,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

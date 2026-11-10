@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/metrics-functions/
 title: Use metrics functions for Risk Analytics rules \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:48.152837+00:00
+fetched_at: 2026-11-10T14:04:33.312067+00:00
 ---
 
 # Use metrics functions for Risk Analytics rules  |  Google Security Operations  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document describes the major elements of YARA-L 2.0 syntax features, specif
 
 **Note:** Some metric functions event types have equivalent event types. For a listing of equivalent event types, see [Metadata.EventType](https://docs.cloud.google.com/chronicle/docs/reference/udm-field-list#metadataeventtype).
 
-Google Security Operations supports a number of metric functions, which can aggregate large amounts of historical data. All rules that use the metric function are automatically categorized as [multi-event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multiple-event-rule), even if they don't have a `match` section and use only one event variable. This means that they count against multi-event rule quota.
+Google Security Operations supports a number of metric functions, which can aggregate large amounts of historical data. All rules that use the metric function are automatically categorized as [multi-event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multi-event-queries), even if they don't have a `match` section and use only one event variable. This means that they count against multi-event rule quota.
 
 **Note:** You can only use the metric function in the `outcome` section. All example function calls assume usage in a multi-event rule.
 
@@ -837,6 +837,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

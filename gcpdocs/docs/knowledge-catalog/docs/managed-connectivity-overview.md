@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/managed-connectivity-overview/
 title: Managed connectivity overview \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:45:10.245754+00:00
+fetched_at: 2026-11-10T18:46:18.489157+00:00
 ---
 
 # Managed connectivity overview  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Managed connectivity overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Managed connectivity pipelines import metadata from third-party sources into Knowledge Catalog (formerly Dataplex Universal Catalog). You can use these pipelines to import metadata into Knowledge Catalog at scale to extract data from your sources. The pipelines also create Knowledge Catalog entry groups in your Google Cloud project as needed. With this approach, you can orchestrate workflows and schedule import jobs according to your requirements.
-
-You build custom connectors to extract metadata from various third-party sources, including MySQL, SQL Server, Oracle, Snowflake, and Databricks. Alternatively, you can use community-contributed custom connectors for a wider range of sources.
+Managed connectivity pipelines let you extract and import metadata at scale from third-party data sources into Knowledge Catalog (formerly Dataplex Universal Catalog) by using custom connectors and Workflows. You can run these pipelines on demand or on a recurring schedule to keep your catalog synchronized and discover, search, and govern external assets in one place.
 
 ## How managed connectivity works
 
@@ -35,7 +33,7 @@ The following diagram shows a managed connectivity pipeline.
 
 At a high level, here's how managed connectivity works:
 
-  1. You [build a connector for your data source](https://docs.cloud.google.com/knowledge-catalog/docs/develop-custom-connector).
+  1. You [build a custom connector](https://docs.cloud.google.com/knowledge-catalog/docs/develop-custom-connector) to extract metadata from various third-party data sources, including MySQL, SQL Server, Oracle, Snowflake, and Databricks. Alternatively, you can use community-contributed custom connectors for a wider range of sources.
 
 The connector must be an Artifact Registry image that can run on Managed Service for Apache Spark.
 
@@ -43,7 +41,7 @@ The connector must be an Artifact Registry image that can run on Managed Service
 
   3. The managed connectivity pipeline performs the following actions:
 
-     1. Creates a target entry group based on your configuration, if the entry group doesn't exist.
+     1. Creates a target Knowledge Catalog entry group in your Google Cloud project based on your configuration, if the entry group doesn't exist.
      2. Runs the connector. The connector extracts the metadata from your data source and generates a metadata import file that can be imported into Knowledge Catalog.
      3. Monitors the progress of the metadata extraction.
      4. Runs a metadata import job to import the metadata into Knowledge Catalog.
@@ -82,6 +80,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

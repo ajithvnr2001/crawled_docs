@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-v6e-multi-host-torchtpu/
 title: Serve Qwen3-Coder-30B-A3B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU v6e accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:43:45.344078+00:00
+fetched_at: 2026-11-10T16:58:37.797756+00:00
 ---
 
 # Serve Qwen3-Coder-30B-A3B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU v6e accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -114,14 +114,20 @@ Ensure that your [Compute Engine default service account](https://docs.cloud.goo
 
 ## Set up your environment variables
 
+Set up your authentication:
+    
+    
+    gcloud auth login
+    gcloud auth application-default login
+
 Export the environment variables that you use throughout this tutorial:
     
     
     export CLUSTER_NAME="YOUR_CLUSTER_NAME" # <= 40 chars; start with a-z; only a-z, 0-9, -
     export PROJECT_ID="YOUR_PROJECT_ID" # Your Google Cloud project ID
     export REGION="YOUR_REGION" # for example, us-central1
-    export ZONE="YOUR_ZONE" # for example, us-central1-c
-    export RESERVATION="YOUR_RESERVATION_NAME" # TPU7x reservation name (if using a reservation)
+    export ZONE="YOUR_ZONE" # for example, us-central1-b
+    export RESERVATION="YOUR_RESERVATION_NAME" # TPU v6e reservation name (if using a reservation)
     export HF_TOKEN="YOUR_HF_TOKEN" # Hugging Face access token
     export SGLANG_IMAGE="lmsysorg/sglang:v0.1.0-tpu"
 
@@ -850,6 +856,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

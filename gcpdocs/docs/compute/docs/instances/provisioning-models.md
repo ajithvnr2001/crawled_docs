@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/provisioning-models/
 title: Compute Engine instances provisioning models \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:17.355485+00:00
+fetched_at: 2026-11-10T16:28:20.928520+00:00
 ---
 
 # Compute Engine instances provisioning models  |  Google Cloud Documentation
@@ -112,10 +112,10 @@ Resource allocation | **Best-effort**. Compute Engine physically places resource
 | **Dense**. Compute Engine physically places resources on tightly coupled hosts connected by a high-speed network fabric to minimize network latency.   
 Pricing | 
 
-  * You incur standard pricing for compute instances. See [VM instance pricing](https://cloud.google.com/compute/vm-instance-pricing).
+  * You incur standard pricing for compute instances, or 1-year or 3-year committed use discount (CUD) prices if your usage is covered by [ CUDs](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview). See [VM instance pricing](https://cloud.google.com/compute/vm-instance-pricing).
   * You incur charges based on the method that you use to create compute instances:
     * If you immediately create compute instances, then you pay for compute resources on a pay-as-you-go (PAYG) basis.
-    * If you create compute instances by using an on-demand reservation or an auto-created reservation for a future reservation, then you're charged for as long as the reservation exists. For more information, see [ reservations billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing).
+    * If you create compute instances by using an on-demand reservation or an auto-created reservation for a future reservation, then you're charged for as long as the reservation exists. If the reservation is attached to a [ resource-based commitment](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts), such as a future reservation for capacity blocks of one year or longer, then you receive the applicable 1-year or 3-year [CUD prices](https://cloud.google.com/compute/vm-instance-pricing). For more information, see [ reservations billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing).
 
 | 
 
@@ -133,7 +133,7 @@ Other supported machine types aren't eligible for discounts. For more informatio
 | 
 
   * You incur charges based on how you reserve capacity for creating compute instances as follows:
-    * If you create a future reservation for capacity blocks, then you incur charges based on [compute instance pricing](https://docs.cloud.google.com/compute/vm-instance-pricing). If you reserve resources for a year or longer, then you must purchase and attach a [ resource-based commitment](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts) to your reserved resources.
+    * If you create a future reservation for capacity blocks, then you incur charges based on [compute instance pricing](https://docs.cloud.google.com/compute/vm-instance-pricing). If you reserve resources for one year or longer, then your reservation includes an attached 1-year or 3-year [ resource-based commitment](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts) for the reserved resources, and you receive applicable CUD prices.
     * If you reserve capacity by using future reservations in calendar mode, then you incur charges based on the [ Dynamic Workload Scheduler (DWS) pricing](https://cloud.google.com/products/dws/pricing). 
   * You're charged for the reservation period. For more information, see [ reservations billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing).
 
@@ -184,7 +184,7 @@ Capacity assurance | **Based on the creation method**. Capacity assurance varies
   * If you immediately create compute instances, then Compute Engine makes best-effort attempts to provision your requested capacity. 
   * If you create compute instances by consuming an on-demand reservation or an auto-created reservation for a future reservation, then you have very high assurance that Compute Engine provisions your requested capacity if the reservation has reserved capacity available.
 
-| **Best-effort**. When you create Spot VMs, Compute Engine makes best-effort attempts to provision your requested capacity. | **Best-effort**. When you create a MIG resize request, Compute Engine makes best-effort attempts to schedule the provisioning of your requested capacity. | **Very high**. If Google Cloud approves your reservation request, then you have very high assurance that Compute Engine provisions your reserved capacity at your chosen delivery date and time. You have exclusive access to your reserved capacity for the reservation period.   
+| **Best-effort**. When you create Spot VMs, Compute Engine makes best-effort attempts to provision your requested capacity. | **Best-effort**. When you create Flex-start VMs, Compute Engine makes best-effort attempts to schedule the provisioning of your requested capacity. | **Very high**. If Google Cloud approves your reservation request, then you have very high assurance that Compute Engine provisions your reserved capacity at your chosen delivery date and time. You have exclusive access to your reserved capacity for the reservation period.   
 Compute instance lifespan | You can control when to stop or delete a compute instance. However, if the machine type that the compute instance uses doesn't support live migration, then Compute Engine stops the compute instance during [host maintenance events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview).  |  You can control when to stop or delete a compute instance, except in the following cases:
 
   * Compute Engine stops or deletes the compute instance to reclaim capacity. This process is called [_preemption_](https://docs.cloud.google.com/compute/docs/instances/spot#preemption). 
@@ -198,7 +198,7 @@ Compute instance lifespan | You can control when to stop or delete a compute ins
 When a compute instance reaches the end of its run duration, Compute Engine stops or deletes it based on its termination action. |  You can control when to stop or delete a compute instance, except in the following cases:
 
   * Compute Engine stops the compute instance during [host maintenance events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview).
-  * The automatically created reservation to provision your requested capacity reaches the end of its committed reservation period. At that time, Compute Engine deletes the reservation, and stops or deletes any compute instances that consume the reservation based on the [ termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime#limit-runtime-new-vm) that is specified in their configuration. 
+  * The automatically created reservation to provision your requested capacity reaches the end of its reservation period. At that time, Compute Engine deletes the reservation, and stops or deletes any compute instances that consume the reservation based on the [ termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime#limit-runtime-new-vm) that is specified in their configuration. 
 
   
   
@@ -221,6 +221,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

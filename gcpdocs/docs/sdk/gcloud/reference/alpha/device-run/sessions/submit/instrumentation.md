@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/device-run/sessions/submit/instrumentation/
 title: gcloud alpha device-run sessions submit instrumentation \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:41.386934+00:00
+fetched_at: 2026-11-10T18:39:43.664727+00:00
 ---
 
 # gcloud alpha device-run sessions submit instrumentation  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,19 +28,24 @@ gcloud alpha device-run sessions submit instrumentation - submit a Device Run se
 SYNOPSIS
     
 
-`gcloud alpha device-run sessions submit instrumentation` `--device`=[`DEVICE`,…] `--test`=`TEST_PATH` [`--additional-test-options`=[`KEY`=`VALUE`,…]] [`--apps`=[`APP_PATH`,…]] [`--async`] [`--bucket-name`=`BUCKET_NAME`] [`--bugreport`=`BUGREPORT`] [`--coordinates`=`LATITUDE`,`LONGITUDE`] [`--dumpsys`=`DUMPSYS`] [`--flaky-test-attempts`=`FLAKY_TEST_ATTEMPTS`] [`--[no-]flaky-test-parallel-retry`] [`--flaky-test-retry-level`=`FLAKY_TEST_RETRY_LEVEL`] [`--instrumentation-timeout`=`INSTRUMENTATION_TIMEOUT`] [`--labels`=[`KEY`=`VALUE`,…]] [`--locale`=`LOCALE`] [`--location`=`LOCATION`] [`--orchestrator-version`=`ORCHESTRATOR_VERSION`] [`--orientation`=`ORIENTATION`] [`--other-files-to-push`=[`SOURCE`=`DEST`,…]] [`--paths-to-pull`=[`DEVICE_PATH`,…]] [`--sharding-option`=`SHARDING_OPTION`] [`--smart-sharding-max-shard-count`=`SMART_SHARDING_MAX_SHARD_COUNT`] [`--smart-sharding-record-name`=`SMART_SHARDING_RECORD_NAME`] [`--smart-sharding-target-duration`=`SMART_SHARDING_TARGET_DURATION`] [`--test-runner-class`=`TEST_RUNNER_CLASS`] [`--test-targets`=[`KEY`=`VALUE`,…]] [`--uniform-sharding-count`=`UNIFORM_SHARDING_COUNT`] [`--video`=`VIDEO`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha device-run sessions submit instrumentation` `--device`=[`DEVICE`,…] `--test`=`TEST_PATH` [`--additional-test-options`=[`KEY`=`VALUE`,…]] [`--async`] [`--bucket-name`=`BUCKET_NAME`] [`--bugreport`=`BUGREPORT`] [`--coordinates`=`LATITUDE`,`LONGITUDE`] [`--dumpsys`=`DUMPSYS`] [`--flaky-test-attempts`=`FLAKY_TEST_ATTEMPTS`] [`--[no-]flaky-test-parallel-retry`] [`--flaky-test-retry-level`=`FLAKY_TEST_RETRY_LEVEL`] [`--instrumentation-timeout`=`INSTRUMENTATION_TIMEOUT`] [`--labels`=[`KEY`=`VALUE`,…]] [`--locale`=`LOCALE`] [`--location`=`LOCATION`] [`--orchestrator-version`=`ORCHESTRATOR_VERSION`] [`--orientation`=`ORIENTATION`] [`--other-files-to-push`=[`SOURCE`=`DEST`,…]] [`--paths-to-pull`=[`DEVICE_PATH`,…]] [`--sharding-option`=`SHARDING_OPTION`] [`--smart-sharding-max-shard-count`=`SMART_SHARDING_MAX_SHARD_COUNT`] [`--smart-sharding-record-name`=`SMART_SHARDING_RECORD_NAME`] [`--smart-sharding-target-duration`=`SMART_SHARDING_TARGET_DURATION`] [`--test-runner-class`=`TEST_RUNNER_CLASS`] [`--test-targets`=[`KEY`=`VALUE`,…]] [`--uniform-sharding-count`=`UNIFORM_SHARDING_COUNT`] [`--video`=`VIDEO`] [`--apps`=[`APP_PATH`,…] | `--pre-target-apps`=[`APP_PATH`,…] `--target-app`=`APP_PATH` `--post-target-apps`=[`APP_PATH`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Submit a Device Run session with an instrumentation job. 
 EXAMPLES
      To submit an instrumentation session in location `us-central1` on a device with ID `my-device-id`, run: 
     
     
-    gcloud alpha device-run sessions submit instrumentation --location=us-central1 --device=my-device-id --apps=gs://my-bucket/app.apk --test=gs://my-bucket/test.apk --bucket-name=my-bucket
+    gcloud alpha device-run sessions submit instrumentation --location=us-central1 --device=my-device-id --target-app=gs://my-bucket/app.apk --test=gs://my-bucket/test.apk --bucket-name=my-bucket
+
+To submit an instrumentation session that installs `helper.apk` before and `plugin.apk` after the target application `app.apk`, run: 
+    
+    
+    gcloud alpha device-run sessions submit instrumentation --location=us-central1 --device=my-device-id --pre-target-apps=gs://my-bucket/helper.apk --target-app=gs://my-bucket/app.apk --post-target-apps=gs://my-bucket/plugin.apk --test=gs://my-bucket/test.apk --bucket-name=my-bucket
 
 To submit an instrumentation session asynchronously without waiting for it to complete, run: 
     
     
-    gcloud alpha device-run sessions submit instrumentation --location=us-central1 --device=my-device-id --apps=gs://my-bucket/app.apk --test=gs://my-bucket/test.apk --bucket-name=my-bucket --async
+    gcloud alpha device-run sessions submit instrumentation --location=us-central1 --device=my-device-id --target-app=gs://my-bucket/app.apk --test=gs://my-bucket/test.apk --bucket-name=my-bucket --async
 
 REQUIRED FLAGS
     
@@ -54,8 +59,6 @@ OPTIONAL FLAGS
 
 `--additional-test-options`=[`KEY`=`VALUE`,…]
      A dictionary of additional options to pass to the instrumentation test. Formats supported in test_targets are not allowed to be used here. 
-`--apps`=[`APP_PATH`,…]
-     A list of application binary files (.apk, .aab, or .apks) to install before running the test. The order of the applications in the list determines their installation order on the device. Supports both Google Cloud Storage (`gs://…`) paths and local filesystem paths. Any local file will be uploaded to Google Cloud Storage prior to test execution. 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
 `--bucket-name`=`BUCKET_NAME`
@@ -161,6 +164,24 @@ Multiple values for target keys except `size` (such as `notAnnotation A,B` or `c
      Specify the total number of shards to create for uniform sharding. Required when `--sharding-option=uniform`. The valid range is `1` to `20` for physical devices and `1` to `200` for virtual devices. 
 `--video`=`VIDEO`
      Specify when to record video of the device screen during the test run. Accepted values are `always` or `on-failure`. `VIDEO` must be one of: `always`, `on-failure`. 
+Application binary files to install on the device before running the test. 
+
+At most one of these can be specified: 
+
+`--apps`=[`APP_PATH`,…]
+     (DEPRECATED) A list of application binary files (.apk, .aab, or .apks) to install before running the test. The order of the applications in the list determines their installation order on the device. Supports both Google Cloud Storage (`gs://…`) paths and local filesystem paths. Any local file will be uploaded to Google Cloud Storage prior to test execution. 
+
+The --apps flag is deprecated and will be removed in an upcoming release. Use \--target-app, --pre-target-apps and --post-target-apps instead. 
+
+Or at least one of these can be specified: 
+
+Application binary files to install on the device, ordered around the target application. 
+`--pre-target-apps`=[`APP_PATH`,…]
+     A list of application binary files (.apk, .aab, or .apks) to install before the application specified by `--target-app` (if any). The order of the applications in the list determines their installation order on the device. Supports both Google Cloud Storage (`gs://…`) paths and local filesystem paths. Any local file will be uploaded to Google Cloud Storage prior to test execution. 
+`--target-app`=`APP_PATH`
+     The application binary file (.apk, .aab, or .apks) of the primary Android package to install, i.e., the application under test. It is installed after the applications specified by `--pre-target-apps` and before the applications specified by `--post-target-apps`. It serves as the target package in the test execution and as the installation ordering anchor. Supports both Google Cloud Storage (`gs://…`) paths and local filesystem paths. Any local file will be uploaded to Google Cloud Storage prior to test execution. 
+`--post-target-apps`=[`APP_PATH`,…]
+     A list of application binary files (.apk, .aab, or .apks) to install after the application specified by `--target-app` (if any). The order of the applications in the list determines their installation order on the device. Supports both Google Cloud Storage (`gs://…`) paths and local filesystem paths. Any local file will be uploaded to Google Cloud Storage prior to test execution. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -176,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

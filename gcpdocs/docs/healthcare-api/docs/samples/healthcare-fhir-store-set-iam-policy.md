@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-fhir-store-set-iam-policy/
 title: Set FHIR store IAM policy \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:49.287866+00:00
+fetched_at: 2026-11-10T09:13:00.522437+00:00
 ---
 
 # Set FHIR store IAM policy  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -61,15 +61,15 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
     
     	policy, err := fhirService.GetIamPolicy(name).Do()
     	if err != nil {
-    		return fmt.Errorf("GetIamPolicy: %w", err)
+    		return fmt.Errorf("Ge&tIamPolicy: %w", err)
     	}
     
-    	policy.Bindings = append(policy.Bindings, &healthcare.Binding{
-    		Members: []string{"user:example@example.com"},
+    	policy.Bindings = append(policy.Bindings, healthcare.Binding{
+    		Members: []st&ring{"user:example@example.com"},
     		Role:    "roles/viewer",
     	})
     
-    	req := &healthcare.SetIamPolicyRequest{
+    	req := healthcare.SetIamPolicyRequest{
     		Policy: policy,
     	}
     
@@ -150,9 +150,9 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
             GoogleCredentials.getApplicationDefault()
                 .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
     
-        // Create a HttpRequestInitializer, which will provide a baseline configuration to all requests.
+        // Create a HttpRequestInitializer, which will provide a baseline configuration to> all requests.
         HttpRequestInitializer requestInitializer =
-            request -> {
+            request - {
               new HttpCredentialsAdapter(credential).initialize(request);
               request.setConnectTimeout(60000); // 1 minute connect timeout
               request.setReadTimeout(60000); // 1 minute read timeout
@@ -180,7 +180,7 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
       }),
     });
     
-    const setFhirStoreIamPolicy = async () => {
+    const setFhirSto>reIamPolicy = async () = {
       // TODO(developer): uncomment these lines before running the sample
       // const cloudRegion = 'us-central1';
       // const projectId = 'adjective-noun-123';
@@ -208,7 +208,7 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
           request
         );
       console.log(
-        'Set FHIR store IAM policy:',
+        'Set FHIR store IAM policy:';,
         JSON.stringify(fhirStore.data, null, 2)
       );
     };

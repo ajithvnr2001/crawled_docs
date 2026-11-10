@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/modernize/hub/overview/
 title: Google Cloud Modernization Hub overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:03:59.852477+00:00
+fetched_at: 2026-11-10T19:01:27.042698+00:00
 ---
 
 # Google Cloud Modernization Hub overview  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ Google Cloud Modernization Hub is a workspace in the Google Cloud console that h
 
 Modernization Hub provides the following capabilities:
 
-  * **Workload assessment:** run containerized code scans in the background by using the App Modernization Assessment (`codmod`) for source archives stored in Cloud Storage without provisioning separate Compute Engine instances.
+  * **Workload assessment:** run containerized code scans in the background by using the [App Modernization Assessment (`codmod`)](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment) for source archives stored in Cloud Storage without provisioning separate Compute Engine instances, or run the `codmod` CLI directly on your local computer.
   * **Automated blocker detection:** identify Windows Registry calls, Windows Communication Foundation (WCF) services, Internet Information Services (IIS) dependencies, legacy Java EE namespaces, or proprietary mainframe DB2 schemas in downloadable HTML and Markdown assessment reports.
   * **AI-assisted code transformation:** use Gemini-powered modernization assistants, specialized AI agents, and Antigravity to explain legacy code, refactor dependencies, and accelerate code conversion.
   * **Continuous modernization updates:** Track new refactoring recipes, AI agent capabilities, and product releases directly from the integrated **What's new** feed in Modernization Hub.
@@ -46,8 +46,8 @@ Modernization Hub supports assessment and transformation for four core enterpris
 
 Workload stack | Assessment tool | Key analysis output | Target runtime  
 ---|---|---|---  
-**ASP.NET / .NET Framework** | App Modernization Assessment (`codmod`) | Linux container readiness, Windows API blockers, NuGet upgrades | Cloud Run, Google Kubernetes Engine  
-**Enterprise Java** | App Modernization Assessment (`codmod`) | Linux container readiness, Java EE / JDK blockers, Maven and Gradle upgrades | Cloud Run, GKE  
+**ASP.NET / .NET Framework** | [App Modernization Assessment (`codmod`)](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment) | Linux container readiness, Windows API blockers, NuGet upgrades | Cloud Run, Google Kubernetes Engine  
+**Enterprise Java** | [App Modernization Assessment (`codmod`)](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment) | Linux container readiness, Java EE / JDK blockers, Maven and Gradle upgrades | Cloud Run, GKE  
 **Mainframe (COBOL, PL/I, JCL)** | Mainframe Assessment Tool (MAT) | Dependency mapping, complexity scoring, DB2 schema inventory | Compute Engine, Dual Run  
 **Legacy Databases (Oracle, SQL Server)** | Database Migration Accelerator (DMA) | Migration readiness, effort estimation, PL/SQL and T-SQL conversion analysis | AlloyDB for PostgreSQL, Cloud SQL for PostgreSQL  
   
@@ -125,6 +125,7 @@ To report issues, request assistance, or submit product feedback, email [moderni
 
 ## What's next
 
+  * Learn how to [create an App Modernization Assessment with the `codmod` CLI](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment).
   * Learn how to [assess .NET applications](https://docs.cloud.google.com/modernize/hub/assess-dotnet).
   * Learn how to [assess Java applications](https://docs.cloud.google.com/modernize/hub/assess-java).
   * Learn how to [set up Mainframe Assessment Tool (MAT)](https://docs.cloud.google.com/modernize/hub/setup-mat).
@@ -135,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

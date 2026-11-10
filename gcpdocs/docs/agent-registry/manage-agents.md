@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-agents/
 title: Manage agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:18:48.889141+00:00
+fetched_at: 2026-11-10T15:29:27.142106+00:00
 ---
 
 # Manage agents  |  Agent Registry  |  Google Cloud Documentation
@@ -103,10 +103,11 @@ If you have multiple agents, or if you want to confirm the registration of a spe
 
 The page displays a list of all registered agents. The list includes the agent's name, [identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers), type, description, version, runtime, and location.
 
-  4. Filter the list by the agent's location or their runtime resource:
+  4. Filter the list by the agent's location, runtime resource, or identifier:
 
      * To filter by location, click the **Location** menu, select the locations you want to filter, and click **Apply**.
      * To filter by runtime, click the **Runtime** menu, select the runtimes you want to filter, and click **Apply**.
+     * To show or hide system-created Google agents, click **Show system-created agents** or **Hide system-created agents** in the table toolbar. To list only built-in Google agents, click **Filter** , enter `urn:agent:googleapis.com:` in the **Agent ID** field, and click **Apply**.
 
 The page displays a filtered list of the registered agents for your selected conditions.
 
@@ -131,7 +132,8 @@ Replace the following:
   * `FILTER_EXPRESSION`: the filter expression for the agents that you want to filter. For example, you can use the following filters: 
     * To filter by display name, use `displayName='DISPLAY_NAME'`.
     * To search by the globally unique [agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers) (URN), use `agentId='urn:agent:AGENT_URN'`.
-    * To filter by a specific member project when querying a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use `project_id=MEMBER_PROJECT_ID`.
+    * To list only built-in Google agents, use `agentId:"urn:agent:googleapis.com:"`.
+    * To filter by a specific member project when querying a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use `agentId:"urn:agent:projects-MEMBER_PROJECT_NUMBER:"`.
 
 
 
@@ -179,7 +181,7 @@ Feature availability depends on your runtime. Tabs like **Sessions** , **Playgro
 
      * **Overview** : core details from the agent, including the agent's name, [identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers), location, description, and runtime. The overview also displays A2A skills and the [runtime reference](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#runtime-references), which you require for building queries in the [topology graph](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology#registered-agent).
      * **Observability** : application-centric insights such as latency, traffic, errors, and token spend. This tab integrates with Google Cloud Observability tools to display real-time performance metrics and system-level utilization to help you manage costs and user experience. For more information, see the [Observability overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview).
-     * **Traces** : the exact path of a conversation step-by-step, including detailed formatting of input and assistant messages to debug complex multi-agent reasoning loops or tool invocation errors in real time. For more information, see [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces).
+     * **Traces** : the exact path of a conversation step-by-step, including detailed formatting of input and assistant messages to debug complex multi-agent reasoning loops or tool call errors in real time. For more information, see [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces).
      * **Security** : findings from Model Armor and Security Command Center, including content policy violations, data leakage risks, and compliance assessments. For more information on security, see [View security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings).
      * **Topology** : a visual map of the relationships and traffic flows between an agent, its assigned Agent Gateway, and the MCP servers it interacts with. For more information on Agent Gateway, see the [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview). For more information on topology, see [View graphs for a registered agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology#registered-agent).
      * **Identity** : the [agent principal](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-principals) used for policy enforcement. You use this identity, for example, to configure [auth provider bindings](https://docs.cloud.google.com/agent-registry/manage-bindings#auth-provider) for [authentication to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
@@ -410,6 +412,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

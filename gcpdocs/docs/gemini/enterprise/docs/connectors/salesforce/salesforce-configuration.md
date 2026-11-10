@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration/
 title: Salesforce configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:30.759523+00:00
+fetched_at: 2026-11-10T18:26:40.909719+00:00
 ---
 
 # Salesforce configuration  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -50,6 +50,8 @@ Before you configure Salesforce, make sure of the following:
 
   * The **SObject All** MCP server is active in your organization. The server isn't active by default. See Enable the MCP server in your organization.
 
+  * Every Salesforce user who authorizes and uses the connector has the **API Enabled** system permission on their assigned profile or an assigned permission set (in **Setup** , go to **Users > Profiles** or **Users > Permission Sets**, and then select **System Permissions > API Enabled**). The standard **System Administrator** and **Standard User** profiles include this permission by default, but custom profiles often have it turned off.
+
 
 **Note:** Sandbox and production are separate Salesforce organizations. If you plan to connect a sandbox organization, complete the configuration in that sandbox as well as in production. See Connect a sandbox organization.
 
@@ -75,7 +77,7 @@ To activate it, follow these steps:
 Activating the **SObject All** MCP server enables the server for your organization without requiring a separate MCP server user permission, and it doesn't grant users permission to create, update, or delete records on its own. Write and delete access is controlled at two layers:
 
   * **In Gemini Enterprise** : Read-only actions are enabled by default, and actions that create, update, or delete records are turned off by default. When setting up or managing the data store, the Google Cloud administrator chooses which create, update, or delete actions to enable—or leaves them all disabled so that the connector is read-only. See [Enable actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store#enable-actions).
-  * **In Salesforce** : Every action runs under the authorizing user's own Salesforce account and respects that user's object-level permissions, field-level security, and sharing rules.
+  * **In Salesforce** : Every action runs as an API call under the authorizing user's own Salesforce account. The user must have the **API Enabled** system permission on their profile or an assigned permission set, and the connector respects that user's object-level permissions, field-level security, and sharing rules.
 
 
 
@@ -99,7 +101,7 @@ If you plan to use **OAuth 2.0 (Google Managed)** , install the Gemini Enterpris
      * **Install for Specific Profiles** : only users with the profiles you select can use the app.
      * **Install for All Users** (recommended): every user in the organization can use the app without additional profile configuration.
 
-The managed package already includes the required OAuth scopes (`mcp_api` and `refresh_token`). Every user who signs in to authorize the connector in Gemini Enterprise must have access to the app under the option you choose. A user whose profile doesn't have access can't complete the sign-in step.
+The managed package already includes the required OAuth scopes (`mcp_api` and `refresh_token`). Every user who signs in to authorize the connector in Gemini Enterprise must have access to the app under the option you choose, and must also have the **API Enabled** system permission on their Salesforce profile or an assigned permission set. A user whose profile doesn't have access to the app can't complete the sign-in step, and a user without **API Enabled** can't run queries or actions.
 
   6. Approve third-party access if Salesforce prompts you to, then click **Install** or **Upgrade**.
 
@@ -144,7 +146,7 @@ These grant the `mcp_api` and `refresh_token` scopes required by the connector.
 
      1. In **Setup** , go to **Apps > External Client App Manager**, click your external client app, select the **Policies** tab, and click **Edit**.
 
-     2. For **Permitted Users** , select **All users may self-authorize** (recommended), or select **Admin approved users are pre-authorized** and assign the profiles or permission sets for all users who will authorize the connector (including the administrator who verifies authentication during data store creation).
+     2. For **Permitted Users** , select **All users may self-authorize** (recommended), or select **Admin approved users are pre-authorized** and assign the profiles or permission sets for all users who authorize the connector (including the administrator who verifies authentication during data store creation). Make sure every user who authorizes the connector also has the **API Enabled** system permission on their profile or an assigned permission set.
 
      3. For **IP Relaxation** , select **Relax IP restrictions**. For details on why this setting is required, see Set the login IP policy for the app.
 
@@ -201,7 +203,13 @@ Symptom | Likely cause
 ---|---  
 The **Verify Auth** or **Authorize** step fails, or the Salesforce sign-in page reports an unknown, invalid, or unauthorized client application. | If you use **OAuth 2.0 (Google Managed)** , verify that the managed package is installed in the exact organization (including a sandbox) that the **Instance URI** points to. If you use **OAuth 2.0 (Bring Your Own App)** , verify that the **Client ID** and **Client Secret** match the app in that organization, the callback URL is set to `https://vertexaisearch.cloud.google.com/oauth-redirect`, the `mcp_api` and `refresh_token` scopes are selected, and **Require Proof Key for Code Exchange (PKCE) extension for Supported Authorization Flows** is enabled.  
 Some users can authorize and others can't. | The app's **Permitted Users** policy restricts access to specific profiles or permission sets that don't include those users, or **IP Relaxation** isn't set to **Relax IP restrictions**. In **Setup** , open the app's **Policies** tab, click **Edit** , add the affected profiles or permission sets (or set **Permitted Users** to **All users may self-authorize**), and verify that **IP Relaxation** is set to **Relax IP restrictions**.  
-Authorization succeeds, but queries or actions fail in the Gemini Enterprise web app. | The **SObject All** MCP server isn't active in the organization, or **Issue JSON Web Token (JWT)-based access tokens for named users** isn't selected on your external client app. Activate the server in Salesforce Setup (see Enable the MCP server in your organization) and verify that your external client app issues JWT-based access tokens.  
+Authorization succeeds, but queries or actions fail in the Gemini Enterprise web app. | Verify the following settings in Salesforce: 
+
+  * The authorizing user has the **API Enabled** system permission selected under **System Permissions** on their profile or an assigned permission set.
+  * The **SObject All** MCP server is active in the organization. To activate the **SObject All** MCP server in Salesforce Setup, see Enable the MCP server in your organization.
+  * If you use **OAuth 2.0 (Bring Your Own App)** , **Issue JSON Web Token (JWT)-based access tokens for named users** is selected on your external client app.
+
+  
 Authorization succeeds but no Salesforce data is returned. | The authorizing user might not have record-level access in Salesforce. The connector honors the user's own Salesforce permissions.  
   
 ## What's next
@@ -214,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

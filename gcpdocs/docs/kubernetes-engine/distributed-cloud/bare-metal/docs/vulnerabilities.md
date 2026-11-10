@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vulnerabilities/
 title: Vulnerability fixes \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:41.027022+00:00
+fetched_at: 2026-11-10T16:59:07.271719+00:00
 ---
 
 # Vulnerability fixes  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ Low | All other vulnerabilities. Exploitation is unlikely or consequences of exp
 
 Most vulnerabilities are fixed in supported versions of Google Distributed Cloud before they can be exploited. When there are reported incidents that have the potential to compromise the security of your clusters and data, we publish security bulletins. A security bulletin describes the security issue and its impact and provides a mitigation. For more information and a list of published bulletins, see the [Security bulletins](https://docs.cloud.google.com/kubernetes-engine/docs/security-bulletins) page.
 
-When a security bulletin is published for a vulnerability that affects Distributed Cloud software only for bare metal, we publish a corresponding release note with a link to the bulletin.
+When a security bulletin is published for a vulnerability that affects Google Distributed Cloud software only for bare metal, we publish a corresponding release note with a link to the bulletin.
 
 ## Fixed vulnerabilities by Google Distributed Cloud patch version
 
@@ -674,6 +674,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

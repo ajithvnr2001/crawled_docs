@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/sharing-oauth-clients/
 title: How to share OAuth clients \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:25.713038+00:00
+fetched_at: 2026-11-10T16:58:45.008809+00:00
 ---
 
 # How to share OAuth clients  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -32,20 +32,28 @@ When configuring IAP, you can use one of two OAuth client types:
   * **Google-managed OAuth client** : IAP automatically uses this by default. This built-in option requires no manual client creation but has two key limitations:
 
     * Only allows access to users within your organization (internal users)
+
     * Displays Google Cloud branding on the consent screen instead of your organization's branding
+
   * **Custom OAuth client** : You create and manage this yourself. This option:
 
     * Can be shared across multiple applications
+
     * Allows customization of branding on the consent screen
+
     * Supports access for external users (outside your organization)
+
 
 
 
 When you create a custom OAuth client, you have the flexibility to use it with a single application or share it across multiple applications. Sharing a custom OAuth client provides several benefits:
 
   * Reduces the administrative overhead of managing multiple clients
+
   * Simplifies enabling IAP for team members who shouldn't have access to the Credentials page
+
   * Facilitates programmatic (non-browser) access to applications protected by IAP
+
 
 
 
@@ -106,12 +114,19 @@ Example commands:
 Where:
 
      * SETTINGS_FILENAME: The YAML file you prepared.
+
      * ORGANIZATION: The organization ID
+
      * FOLDER: The folder ID
+
      * PROJECT: The project ID
+
      * RESOURCE_TYPE: The IAP resource type (`app-engine`, `iap_web`, `compute`, `organization`, or `folder`)
+
      * SERVICE: The service name (optional for `compute` or `app-engine` resource types)
+
      * VERSION: The version name (not applicable for `compute`, optional for `app-engine`)
+
 
 
 
@@ -152,11 +167,17 @@ Where:
 Where:
 
      * ORGANIZATION: The organization ID
+
      * FOLDER: The folder ID
+
      * PROJECT: The project ID
+
      * RESOURCE_TYPE: The IAP resource type (`app-engine`, `iap_web`, `compute`, `organization`, or `folder`)
+
      * SERVICE: The service name (optional for `compute` or `app-engine` resource types)
+
      * VERSION: The version name (not applicable for `compute`, optional for `app-engine`)
+
 
 
 
@@ -167,9 +188,13 @@ After configuration, sign in to the application using any one of the OAuth clien
 To enable IAP to use your client ID and secret through the Google Cloud console, complete the following instructions:
 
   * [Configure OAuth Client for Compute Engine (Compute Engine)](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration#backend-service)
+
   * [Configure OAuth Client for Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/iap/docs/enabling-kubernetes-howto)
+
   * [Configure OAuth Client for App Engine](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration#app-engine)
+
   * [Configure OAuth Client for Cloud Run](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration#cloud-run)
+
 
 
 
@@ -184,8 +209,11 @@ Using one OAuth client for many applications creates a single point of dependenc
 To manage this operational risk effectively:
 
   * Implement proper access controls to prevent accidental changes or deletion
+
   * Restrict access to OAuth clients using [`clientauthconfig.clients.*` permissions](https://docs.cloud.google.com/iap/docs/concepts-overview)
+
   * Use [Google Cloud Audit Logs](https://docs.cloud.google.com/logging/docs/audit) to track administrative activities involving OAuth clients
+
 
 
 
@@ -198,9 +226,13 @@ Sharing a client requires sharing your client secret with people and scripts. Th
 To mitigate this risk:
 
   * Protect client secrets like passwords and never store them as plain text
+
   * Implement secure credential management using [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview)
+
   * Monitor access to your IAP resources with [Cloud Audit Logging](https://docs.cloud.google.com/logging/docs/audit)
+
   * A leaked client secret only impacts authentication, not authorization to access resources. If you suspect your secret was leaked, reset it immediately.
+
 
 
 
@@ -211,8 +243,11 @@ For programmatic access to IAP-protected resources, consider using [service acco
 When sharing OAuth clients, all applications use the same permission scopes. For IAP, `openid` and `email` are the only required scopes. This consideration by itself isn't a significant risk, but it's important to understand:
 
   * OAuth is only used for **authentication** (verifying identity) in IAP; **authorization** (resource access) is handled separately through [IAM policies](https://docs.cloud.google.com/iap/docs/managing-access)
+
   * Even if authentication credentials are compromised, an attacker would still need appropriate IAM permissions to access protected resources
+
   * Restricting the client to only the required `openid` and `email` scopes helps limit potential security impact
+
 
 
 
@@ -220,6 +255,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/hub/rolloutsequences/create/
 title: gcloud alpha container hub rolloutsequences create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T00:38:40.924055+00:00
+fetched_at: 2026-11-10T17:33:18.625197+00:00
 ---
 
 # gcloud alpha container hub rolloutsequences create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha container hub rolloutsequences create - create a rollout sequence r
 SYNOPSIS
     
 
-`gcloud alpha container hub rolloutsequences create` `ROLLOUTSEQUENCE` `--stage-config`=`PATH_TO_FILE` [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--labels`=[`KEY`=`VALUE`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha container hub rolloutsequences create` `ROLLOUTSEQUENCE` `--stage-config`=`PATH_TO_FILE` [`--async`] [`--auto-rollout-scope`=[`SCOPE`,…]] [`--display-name`=`DISPLAY_NAME`] [`--ignored-clusters-selector`=`IGNORED_CLUSTERS_SELECTOR`] [`--labels`=[`KEY`=`VALUE`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a rollout sequence resource. 
 EXAMPLES
@@ -97,8 +97,12 @@ OPTIONAL FLAGS
 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
+`--auto-rollout-scope`=[`SCOPE`,…]
+     Specifies the types of upgrades for which rollouts are automatically created. `ALL` and `NONE` cannot be combined with other values. `SCOPE` must be one of: `CONTROL_PLANE_MINOR`, `CONTROL_PLANE_PATCH`, `NODE_MINOR`, `NODE_PATCH`, `ALL`, `NONE`. 
 `--display-name`=`DISPLAY_NAME`
      Display name of the rollout sequence. 
+`--ignored-clusters-selector`=`IGNORED_CLUSTERS_SELECTOR`
+     Selector for clusters to exclude from the Rollout Sequence. Must be a valid Common Expression Language (CEL) expression. Example: "resource.labels.ignored=='true'" 
 `--labels`=[`KEY`=`VALUE`,…]
      Labels for the rollout sequence. 
 GCLOUD WIDE FLAGS
@@ -119,6 +123,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-30 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

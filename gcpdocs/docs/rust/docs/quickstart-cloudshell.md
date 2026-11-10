@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/rust/docs/quickstart-cloudshell/
-title: Quickstart: Set up Rust on Cloud Shell \u00a0|\u00a0 Google Cloud Documentation
+title: Set up Rust on Cloud Shell \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:22.485069+00:00
+fetched_at: 2026-11-10T17:34:10.917984+00:00
 ---
 
-# Quickstart: Set up Rust on Cloud Shell  |  Google Cloud Documentation
+# Set up Rust on Cloud Shell  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/rust/docs/quickstart-cloudshell/
 
@@ -20,25 +20,37 @@ fetched_at: 2026-10-28T05:53:22.485069+00:00
 
 Send feedback 
 
-#  Quickstart: Set up Rust on Cloud Shell Stay organized with collections  Save and categorize content based on your preferences. 
+#  Set up Rust on Cloud Shell Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cloud Shell is a great environment to run small examples and tests. This guide shows you how to configure Rust and install one of the Cloud Client Libraries in Cloud Shell.
+Cloud Shell provides a browser-based command-line environment for running examples and testing Google Cloud APIs. This document shows you how to configure the Rust toolchain and run a Secret Manager sample using the Cloud Client Libraries for Rust in Cloud Shell.
 
-### Start up Cloud Shell
+## Before you begin
 
-  1. In the Google Cloud console [project selector](https://console.cloud.google.com/projectselector2/home/dashboard) , select a project.
-  2. Open [`https://shell.cloud.google.com`](https://shell.cloud.google.com) to start a new shell. You might be prompted to [authorize Cloud Shell](https://docs.cloud.google.com/shell/docs/auth) to use your credentials for Google Cloud API calls.
+Before running the commands in this document, select or create a [Google Cloud project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects) with [billing enabled](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
+
+## Start Cloud Shell
+
+Complete the following steps to select a project and open a Cloud Shell session:
+
+  1. In the Google Cloud console, select or create a Google Cloud project.
+
+[Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
+
+  2. Click **Activate Cloud Shell** at the top of the Google Cloud console to start a shell session. If prompted, [authorize Cloud Shell](https://docs.cloud.google.com/shell/docs/auth) to use your credentials for Google Cloud API calls.
 
 
 
-### Configure Rust
 
-  1. Cloud Shell comes with [`rustup`](https://rust-lang.github.io/rustup/) pre-installed. You can use it to install and configure the default version of Rust:
+## Configure Rust
+
+Cloud Shell includes [`rustup`](https://rust-lang.github.io/rustup/) preinstalled. Complete the following steps to configure and verify the Rust toolchain:
+
+  1. Configure the stable Rust toolchain as the default:
          
          rustup default stable
          
 
-  2. Confirm that you have the most recent version of Rust installed:
+  2. Verify your Cargo and Rust installation:
          
          cargo --version
          
@@ -46,34 +58,28 @@ Cloud Shell is a great environment to run small examples and tests. This guide s
 
 
 
-### Install Rust client libraries in Cloud Shell
+## Install a client library in Cloud Shell
 
-  1. Create a new Rust project:
+To enable the API, add dependencies, and run the sample program, complete the following steps:
+
+  1. Enable the Secret Manager API in your project:
+         
+         gcloud services enable secretmanager.googleapis.com
+         
+
+  2. Create a binary crate and change to its directory:
          
          cargo new my-project
-         
-
-  2. Change your directory to the new project:
-         
          cd my-project
          
 
-  3. Add the [Secret Manager client library](https://docs.cloud.google.com/secret-manager/docs/overview) to the new project:
+  3. Add the [Secret Manager client library](https://docs.cloud.google.com/secret-manager/docs/overview), [`google-cloud-gax`](https://crates.io/crates/google-cloud-gax), and [`tokio`](https://crates.io/crates/tokio) to your project:
          
-         cargo add google-cloud-secretmanager-v1
-         
-
-  4. Add the [google-cloud-gax crate](https://crates.io/crates/google-cloud-gax) to the new project:
-         
-         cargo add google-cloud-gax
+         cargo add google-cloud-secretmanager-v1 google-cloud-gax
+         cargo add tokio --features macros,rt-multi-thread
          
 
-  5. Add the [tokio crate](https://crates.io/crates/tokio) to the new project:
-         
-         cargo add tokio --features macros
-         
-
-  6. Edit `src/main.rs` in your project to use the Secret Manager client library:
+  4. Replace the contents of `src/main.rs` with the following code: 
          
          #[tokio::main]
          async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -91,23 +97,26 @@ Cloud Shell is a great environment to run small examples and tests. This guide s
              }
              Ok(())
          }
-         
 
-  7. Run your program, supplying your Google Cloud project ID:
+  5. Run the program, passing your Google Cloud project ID as an argument:
          
          PROJECT_ID=$(gcloud config get project)
-         cargo run ${PROJECT_ID}
+         cargo run -- "${PROJECT_ID}"
          
 
-The program will print the secrets associated with your project ID. If you don't see any secrets, you might not have any in Secret Manager. [Create a secret](https://docs.cloud.google.com/secret-manager/docs/creating-and-accessing-secrets) and rerun the program, and you should see the secret printed in the output.
+The program prints the names of the secrets in your project. If your project doesn't have any secrets yet, [create a secret](https://docs.cloud.google.com/secret-manager/docs/creating-and-accessing-secrets) and run the command again to see it in the output.
 
 
 
+
+## Clean up
+
+To avoid incurring charges to your Google Cloud account for the resources used in this document, [delete any test secrets](https://docs.cloud.google.com/secret-manager/docs/delete-secrets) that you created and remove the `my-project` directory from your Cloud Shell home directory when you're finished.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

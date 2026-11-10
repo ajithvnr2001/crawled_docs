@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/tutorial-deploy-existing-vm/
 title: Tutorial: Deploy an existing VM in a cluster using VM Runtime on GDC \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:33.659862+00:00
+fetched_at: 2026-11-10T17:00:21.674796+00:00
 ---
 
 # Tutorial: Deploy an existing VM in a cluster using VM Runtime on GDC  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Tutorial: Deploy an existing VM in a cluster using VM Runtime on GDC Stay organized with collections  Save and categorize content based on your preferences. 
 
-VM Runtime on GDC lets you deploy virtual machine (VM) workloads directly into an installation of Distributed Cloud software only for bare metal. In this tutorial, you migrate a sample [point of sale application](https://github.com/GoogleCloudPlatform/point-of-sale), which represents a retail [point of sale terminal](https://en.wikipedia.org/wiki/Point_of_sale), from a Compute Engine VM into a bare metal cluster and access its web frontend.
+VM Runtime on GDC lets you deploy virtual machine (VM) workloads directly into an installation of Google Distributed Cloud software only for bare metal. In this tutorial, you migrate a sample [point of sale application](https://github.com/GoogleCloudPlatform/point-of-sale), which represents a retail [point of sale terminal](https://en.wikipedia.org/wiki/Point_of_sale), from a Compute Engine VM into a bare metal cluster and access its web frontend.
 
 The deployment uses a pre-prepared disk image where the workload runs as a [systemd](https://en.wikipedia.org/wiki/Systemd) service. You can also follow these steps to prepare and deploy your own VM-based applications.
 
@@ -39,7 +39,7 @@ The deployment uses a pre-prepared disk image where the workload runs as a [syst
 
 To complete this document you need the following resources:
 
-  * Access to a version 1.12.0 or higher bare metal cluster that was created by following the [Install with Manual Loadbalancer](https://github.com/GoogleCloudPlatform/anthos-samples/blob/main/anthos-bm-gcp-terraform/docs/manuallb_install.md) guide. This document sets up networking resources so that you can access the workload running inside the VM through a browser. If you don't need that behavior, you can follow this document using any installation of Distributed Cloud software only for bare metal.
+  * Access to a version 1.12.0 or higher bare metal cluster that was created by following the [Install with Manual Loadbalancer](https://github.com/GoogleCloudPlatform/anthos-samples/blob/main/anthos-bm-gcp-terraform/docs/manuallb_install.md) guide. This document sets up networking resources so that you can access the workload running inside the VM through a browser. If you don't need that behavior, you can follow this document using any installation of Google Distributed Cloud software only for bare metal.
   * A workstation that meets the following requirements: 
     * Has access to your cluster using the [bmctl](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/bmctl) CLI.
     * Has access to your cluster using the [kubectl](https://kubernetes.io/docs/reference/kubectl/) CLI.
@@ -99,7 +99,7 @@ The following example output shows that the `virtctl` plugin is available for us
 
 ## Deploy the VM-based workload
 
-When you deploy a VM into an installation of Distributed Cloud software only for bare metal, VM Runtime on GDC expects a VM image. This image serves as the boot disk for the deployed VM.
+When you deploy a VM into an installation of Google Distributed Cloud software only for bare metal, VM Runtime on GDC expects a VM image. This image serves as the boot disk for the deployed VM.
 
 To migrate an existing VM into the cluster, first a disk image of that VM must be created. Then, the image must be hosted in a repository that the cluster can access. Finally, the URL of that image can be used to create the VM. VM Runtime on GDC expects the images to be in `qcow2` format. If you provide a different image type, it's automatically converted into the `qcow2` format. To avoid repetitive conversion and to enable reuse, you can [convert a virtual disk image](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/convert-image) and host the `qcow2` image.
 
@@ -398,6 +398,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal/
-title: Distributed Cloud software only for bare metal overview \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
+title: Google Distributed Cloud software only for bare metal overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:51.094051+00:00
+fetched_at: 2026-11-10T16:59:06.443961+00:00
 ---
 
-# Distributed Cloud software only for bare metal overview  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
+# Google Distributed Cloud software only for bare metal overview  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal/
 
@@ -20,17 +20,17 @@ fetched_at: 2026-11-07T05:44:51.094051+00:00
 
 Send feedback 
 
-#  Distributed Cloud software only for bare metal overview Stay organized with collections  Save and categorize content based on your preferences. 
+#  Google Distributed Cloud software only for bare metal overview Stay organized with collections  Save and categorize content based on your preferences. 
 
 Google Distributed Cloud is a fully managed software and hardware solution that extends Google Cloud infrastructure and services into your data center. Google Distributed Cloud is also available as a software-only product that runs on your own hardware. Google Distributed Cloud software can be installed on either VMware or bare metal. This guide is for Google Distributed Cloud software that runs directly on your bare metal machines.
 
 Google Distributed Cloud software is based on [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview), with its own Kubernetes package that extends GKE for use in an on-premises environment. With Google Distributed Cloud you can create, manage, and upgrade GKE clusters on your own premises while using Google Cloud features, and deploy and operate containerized applications on your clusters at scale using Google's infrastructure.
 
-**Note:** Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
+**Note:** Google Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
 
-## Why use Distributed Cloud software only for bare metal?
+## Why use Google Distributed Cloud software only for bare metal?
 
-Running Distributed Cloud software only for bare metal on your existing enterprise infrastructure provides direct hardware access, enterprise security, and central management across environments.
+Running Google Distributed Cloud software only for bare metal on your existing enterprise infrastructure provides direct hardware access, enterprise security, and central management across environments.
 
 ### Direct hardware control and performance
 
@@ -107,13 +107,13 @@ Starting with the 1.29 release, we no longer create a numbered directory for the
 
 Replace VERSION with a minor version from 1.0 to 1.16 and copy the URL to the address bar in your browser.
 
-## Installing Distributed Cloud software only for bare metal
+## Installing Google Distributed Cloud software only for bare metal
 
 Because clusters created using Google Distributed Cloud run in your own infrastructure, they're highly configurable. Once you select the [deployment model](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/install-prep) that meets your particular organizational and use case needs, you can choose from a range of supported load balancing modes, IP addressing options, security features, connectivity options, and more. Setting up a cluster involves making decisions before and during installation. This documentation set includes guides to help your team decide on the right features and options for you. To ensure that your installation meets the needs of your organization, consult with your networking and application teams.
 
 ## Where your data is stored
 
-When you run Distributed Cloud software only for bare metal, your clusters, applications, and business data stay in your data center. By default, Google Distributed Cloud sends Google Cloud information about your clusters, such as their settings, health, and usage, but it doesn't send your application data.
+When you run Google Distributed Cloud software only for bare metal, your clusters, applications, and business data stay in your data center. By default, Google Distributed Cloud sends Google Cloud information about your clusters, such as their settings, health, and usage, but it doesn't send your application data.
 
 ### Data that stays in your data center
 
@@ -178,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

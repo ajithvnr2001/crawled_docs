@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.20/docs/deploy-bookinfo/
 title: Deploying the Bookinfo sample \u00a0|\u00a0 Cloud Service Mesh v1.20 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:56.966838+00:00
+fetched_at: 2026-11-10T18:47:07.793935+00:00
 ---
 
 # Deploying the Bookinfo sample  |  Cloud Service Mesh v1.20  |  Google Cloud Documentation
@@ -96,11 +96,11 @@ Revision label | Channel
 The output looks similar to the following:
          
          NAME                                READY   STATUS    RESTARTS   AGE   LABELS
-         istiod-asm-173-3-5788d57586-bljj4   1/1     Running   0          23h   app=istiod,istio.io/rev=asm-1313-3,istio=istiod,pod-template-hash=5788d57586
-         istiod-asm-173-3-5788d57586-vsklm   1/1     Running   1          23h   app=istiod,istio.io/rev=asm-1313-3,istio=istiod,pod-template-hash=5788d57586
+         istiod-asm-173-3-5788d57586-bljj4   1/1     Running   0          23h   app=istiod,istio.io/rev=asm-1313-7,istio=istiod,pod-template-hash=5788d57586
+         istiod-asm-173-3-5788d57586-vsklm   1/1     Running   1          23h   app=istiod,istio.io/rev=asm-1313-7,istio=istiod,pod-template-hash=5788d57586
          
 
-In the output, under the `LABELS` column, note the value of the `istiod` revision label, which follows the prefix `istio.io/rev=`. In this example, the value is `asm-1313-3`.
+In the output, under the `LABELS` column, note the value of the `istiod` revision label, which follows the prefix `istio.io/rev=`. In this example, the value is `asm-1313-7`.
 
 **Note:** You can substitute `istio.io/rev` with the `istio-injection=enabled` label if the [default tag](https://istio.io/latest/docs/setup/upgrade/canary/#default-tag) is configured. Verify the default tag exists by running ` istioctl tag list` with the `istioctl` from `OUTPUT_DIR`. 
 
@@ -237,6 +237,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

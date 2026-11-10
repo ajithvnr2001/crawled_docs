@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/troubleshoot-mirrormaker-connector/
 title: Troubleshoot a MirrorMaker 2.0 connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:40.039096+00:00
+fetched_at: 2026-11-10T18:57:43.606020+00:00
 ---
 
 # Troubleshoot a MirrorMaker 2.0 connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -118,6 +118,16 @@ To troubleshoot this issue, check the following:
 
 
 
+## Troubleshoot a MirrorMaker 2.0 Checkpoint connector
+
+This section lists errors that you might encounter when using a [MirrorMaker 2.0 Checkpoint connector](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-checkpoint-connector).
+
+### Consumers don't resume from the latest checkpoint
+
+If a consumer at the target cluster doesn't resume from the latest committed offset, make sure that `sync.group.offsets.enabled` is set to `true` on the Checkpoint connector.
+
+For more information, see [How the Checkpoint connector works](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-checkpoint-connector#how-the-checkpoint-connector-works).
+
 ## Troubleshoot networking issues
 
 If you experience networking issues when using a MirrorMaker 2.0 connector, perform the following troubleshooting steps.
@@ -177,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

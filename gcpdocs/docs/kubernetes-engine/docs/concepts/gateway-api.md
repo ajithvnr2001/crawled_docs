@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api/
 title: About Gateway API \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:38.561161+00:00
+fetched_at: 2026-11-10T18:20:36.297769+00:00
 ---
 
 # About Gateway API  |  GKE networking  |  Google Cloud Documentation
@@ -51,17 +51,20 @@ Gateway API is a role-oriented resource model, designed for Cloud architects and
 
 Gateway API contains the following resource types:
 
-  * **GatewayClass** : Defines a cluster-scoped resource that's a template for creating load balancers in a cluster. GKE provides GatewayClasses that can be used in GKE clusters.
-  * **Gateway** : Defines where and how the load balancers listen for traffic. Cluster operators create Gateways in their clusters based on a GatewayClass. GKE creates load balancers that implement the configuration defined in the Gateway resource.
-  * **HTTPRoute** : Defines protocol-specific rules for routing requests from a Gateway to Kubernetes services. GKE supports HTTPRoutes for HTTP(S)-based traffic routing. Application developers create HTTPRoutes to expose their HTTP applications using Gateways.
-  * **Policy** : Defines a set of implementation-specific characteristics of a Gateway resource. You can attach a policy to a Gateway, a Route, or a Kubernetes Service.
-  * **ReferenceGrant** : Enables cross-namespace references within Gateway API. To refer to an object outside its namespace, you must create a ReferenceGrant resource.
+  * **GatewayClass** : defines a cluster-scoped resource that's a template for creating load balancers in a cluster. GKE provides GatewayClasses that can be used in GKE clusters.
+  * **Gateway** : defines where and how the load balancers listen for traffic. Cluster operators create Gateways in their clusters based on a GatewayClass. GKE creates load balancers that implement the configuration defined in the Gateway resource.
+  * **HTTPRoute** : defines protocol-specific rules for routing requests from a Gateway to Kubernetes services. GKE supports HTTPRoute resources for HTTP(S)-based traffic routing. Application developers create HTTPRoute resources to expose their HTTP applications by using Gateways.
+  * **TLSRoute** : defines protocol-specific rules for routing TLS streams from a Gateway to Kubernetes Services based on Server Name Indication (SNI) without terminating TLS. Application developers create TLSRoute resources to expose TLS applications by using TLS passthrough Gateways.
+  * **Policy** : defines a set of implementation-specific characteristics of a Gateway resource. You can attach a policy to a Gateway, a Route, or a Kubernetes Service.
+  * **ReferenceGrant** : enables cross-namespace references within Gateway API. To refer to an object outside its namespace, you must create a ReferenceGrant resource.
 
 
 
 ### GatewayClass
 
-A GatewayClass is a resource that defines a template for HTTP(S) (Layer 7) load balancers in a Kubernetes cluster. GKE provides GatewayClasses as cluster-scoped resources. Cluster operators specify a GatewayClass when creating Gateways in their clusters.
+A GatewayClass is a resource that defines a template for load balancers in a Kubernetes cluster. The managed GatewayClasses act as templates for both Application Load Balancers (when using HTTPRoute resources) and proxy Network Load Balancers (when using TLSRoute resources with TLS passthrough).
+
+GKE provides GatewayClasses as cluster-scoped resources. Cluster operators specify a GatewayClass when creating Gateways in their clusters.
 
 The different GatewayClasses correspond to different [Google Cloud load balancers](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview). When you create a Gateway based on a GatewayClass, a corresponding load balancer is created to implement the specified configuration.
 
@@ -72,14 +75,14 @@ The following table lists the GatewayClasses available in GKE clusters, their un
 GatewayClass name | Description | Supported cluster stack types  
 ---|---|---  
 `gke-l7-global-external-managed` | Global external Application Load Balancer(s) built on the [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack, IPv6-only  
-`gke-l7-regional-external-managed` | Regional external Application Load Balancer(s) built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb) | IPv4-only, dual-stack, IPv6-only  
-`gke-l7-rilb` | Internal Application Load Balancer(s) built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) | IPv4-only, dual-stack, IPv6-only  
-`gke-l7-gxlb` | Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack  
-`gke-l7-cross-regional-internal-managed-mc` | Multi-cluster Cross-region internal Application Load Balancer(s) built on the [cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-internal) | IPv4-only, dual-stack  
+`gke-l7-regional-external-managed` | Regional external Application Load Balancer(s) and proxy Network Load Balancers built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb) and [regional external proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp). | IPv4-only, dual-stack, IPv6-only  
+`gke-l7-rilb` | Internal Application Load Balancer(s) and proxy Network Load Balancers built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) and [regional internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy). | IPv4-only, dual-stack, IPv6-only  
+`gke-l7-gxlb` | Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https). | IPv4-only, dual-stack  
+`gke-l7-cross-regional-internal-managed-mc` | Multi-cluster Cross-region internal Application Load Balancer(s) and proxy Network Load Balancers built on the [cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-internal) and [cross-region internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy).  | IPv4-only, dual-stack  
 `gke-l7-global-external-managed-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack  
-`gke-l7-regional-external-managed-mc` | Multi-cluster Regional external Application Load Balancer(s) built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb) | IPv4-only, dual-stack  
-`gke-l7-rilb-mc` | Multi-cluster Internal Application Load Balancer(s) built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) | IPv4-only, dual-stack  
-`gke-l7-gxlb-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack  
+`gke-l7-regional-external-managed-mc` | Multi-cluster Regional external Application Load Balancer(s) and proxy Network Load Balancers built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb) and [regional external proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp).  | IPv4-only, dual-stack  
+`gke-l7-rilb-mc` | Multi-cluster Internal Application Load Balancer(s) and proxy Network Load Balancers built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) and [regional internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy).  | IPv4-only, dual-stack  
+`gke-l7-gxlb-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https). | IPv4-only, dual-stack  
 `gke-td` | Multi-cluster [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/gateway/overview) | IPv4-only  
 `asm-l7-gxlb` | Global external Application Load Balancer(s) built on [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) | IPv4-only  
   
@@ -95,15 +98,25 @@ The Gateway specification includes the GatewayClass for the Gateway, which ports
 
 For an example of deploying a Gateway, see [Deploying Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
 
+For an example of deploying a TLS passthrough Gateway, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
+
 For an example of deploying a multi-cluster Gateway, see [Deploying multi-cluster Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-multi-cluster-gateways).
 
 ### HTTPRoute
 
-An HTTPRoute defines how HTTP and HTTPS requests received by a Gateway are directed to Services. Application developers create HTTPRoutes to expose their applications through Gateways.
+An HTTPRoute defines how HTTP and HTTPS requests received by a Gateway are directed to Services. Application developers create HTTPRoute resources to expose their applications through Gateways.
 
 An HTTPRoute defines which Gateways it can route traffic from, which Services to route to, and rules that define what traffic the HTTPRoute matches. Gateway and Route binding is bidirectional, which means that both resources must select each other for them to bind. HTTPRoutes can match requests based on details in the request header. HTTPRoutes also support filters for header modification, redirect, rewrite, and CORS.
 
 **Note:** When multiple HTTPRoute resources reference the same Gateway, they are all compiled into a single URL map on the underlying Google Cloud infrastructure. As a result, all HTTPRoutes attached to a single Gateway are subject to the same URL map [quotas and limits](https://docs.cloud.google.com/load-balancing/docs/quotas#url_maps).
+
+### TLSRoute
+
+A TLSRoute resource defines how TLS requests received by a Gateway are directed to Services based on Server Name Indication (SNI) hostnames without terminating or decrypting the TLS session (TLS passthrough). Application developers create TLSRoute resources to expose secure workloads that require end-to-end encryption or backend mutual TLS (mTLS).
+
+A TLSRoute resource specifies the Gateways that the route attaches to, the SNI hostnames that the route matches (exact or wildcard), and the backend Kubernetes Services that receive the routed traffic. Unlike the HTTPRoute resource, which operates at Layer 7 and inspects HTTP paths and headers, the TLSRoute resource operates at Layer 4 and forwards raw TCP streams to backend Pods where the application directly terminates TLS.
+
+For an example of deploying a TLS passthrough Gateway and TLSRoute resources, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 ### Policy
 
@@ -123,7 +136,7 @@ The GKE Gateway controller supports the following Policies:
 
 ### ReferenceGrant
 
-ReferenceGrant enables resources like HTTPRoute or Gateway to reference backend services or secrets located in different namespaces through cross-namespace referencing. ReferenceGrant acts as a permission provider, specifying which resources (`from`) are allowed to reference other resources (`to`). To enable cross-namespace references, you need a ReferenceGrant in the namespace of the resource being referenced.
+ReferenceGrant enables resources like HTTPRoute, TLSRoute, or Gateway to reference backend services or secrets located in different namespaces through cross-namespace referencing. ReferenceGrant acts as a permission provider, specifying which resources (`from`) are allowed to reference other resources (`to`). To enable cross-namespace references, you need a ReferenceGrant in the namespace of the resource being referenced.
 
 In the following example, the HTTPRoute in the `frontend` namespace needs to route traffic to a Service in the `backend` namespace. You create a ReferenceGrant in the `backend` namespace where:
 
@@ -176,7 +189,7 @@ In the following diagram, the platform administrator has deployed a Gateway for 
 
 Sharing Gateways across Namespaces offers an even more centralized form of ownership to platform administrators. This lets different service owners, running in different Namespaces, share the same IP address, DNS domain, certificates, or paths for fine grained routing between services. Gateways provide control to platform administrators over which Namespaces can route for a specific domain. This is similar to the previous example except Gateways permit Route attachment from multiple Namespaces.
 
-In the following diagram, the platform administrator has deployed two Gateways into the `infra` Namespace. The `external` Gateway permits Routes from the `web` and `mobile` Namespaces to attach to the Gateway. Routes from the `accounts` Namespace cannot use the `external` Gateway because the `accounts` Namespace is only for internal services. The `internal` Gateway lets internal clients communicate privately within the VPC using private IP addresses.
+In the following diagram, the platform administrator has deployed two Gateways into the `infra` Namespace. The `external` Gateway permits Routes from the `web` and `mobile` Namespaces to attach to the Gateway. Routes from the `accounts` Namespace cannot use the `external` Gateway because the `accounts` Namespace is only for internal services. The `internal` Gateway lets internal clients communicate privately within the VPC by using private IP addresses.
 
 ![A Gateway per cluster allows different Namespaces inside a cluster to share a single Gateway](https://docs.cloud.google.com/static/kubernetes-engine/images/model-gateway-per-cluster.svg)
 
@@ -346,6 +359,7 @@ All Compute Engine resources deployed through the Gateway controllers are charge
 
   * Learn how to [Configure Gateway resources using Policies](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources)
   * Learn about [Deploying Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
+  * Learn about [Deploying a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn about [Deploying multi-cluster Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-multi-cluster-gateways).
   * For complete information about using Cloud Service Mesh with Gateway API, see [Cloud Service Mesh Overview](https://docs.cloud.google.com/service-mesh/docs/gateway/overview).
 
@@ -355,6 +369,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

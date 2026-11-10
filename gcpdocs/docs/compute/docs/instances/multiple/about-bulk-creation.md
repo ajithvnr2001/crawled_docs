@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/multiple/about-bulk-creation/
 title: About bulk creation of VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:48:41.685624+00:00
+fetched_at: 2026-11-10T19:01:11.054422+00:00
 ---
 
 # About bulk creation of VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -59,9 +59,8 @@ The following list describes the limitations that apply when creating VMs in bul
 
   * **Boot disks from snapshots.** You can't use a snapshot to create the boot disks for the VMs. Instead, use [a custom image](https://docs.cloud.google.com/compute/docs/images/create-custom#create_image) when you create VMs in bulk.
 
-  * **Global DNS.** If you are using global DNS, there might be name conflicts because the fully qualified domain name (FQDN) doesn't contain the zone. To avoid this, use zonal DNS. If you cannot switch to zonal DNS, avoid using the same name pattern across different regions. For more information, see [Types of internal DNS names](https://docs.cloud.google.com/compute/docs/internal-dns#instance-fully-qualified-domain-names).
 
-  * **Machine images.** You cannot create VMs from [machine images](https://docs.cloud.google.com/compute/docs/machine-images).
+\- **Global DNS.** If you are using global DNS, there might be name conflicts because the fully qualified domain name (FQDN) doesn't contain the zone. To avoid this, use zonal DNS. If you cannot switch to zonal DNS, avoid using the same name pattern across different regions. For more information, see [Types of internal DNS names](https://docs.cloud.google.com/compute/docs/internal-dns#instance-fully-qualified-domain-names). \- **Machine images.** You can't create VMs from [machine images](https://docs.cloud.google.com/compute/docs/machine-images). 
 
   * **Number of VMs.** You can create up to 5,000 VMs with each call. Also, you can create a maximum of 8,000 instances simultaneously at any time. This simultaneous operation limit is shared between [`instances.insert`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert) and [`instances.bulkInsert`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/bulkInsert).
 
@@ -82,7 +81,7 @@ Compute Engine also creates separate audit logs for each VM. You can find the au
 
 There are no additional charges for using bulk VM creation. As with creating single VMs, billing begins when you create the VMs.
 
-You are not billed for any VMs that Compute Engine fails to create.
+You are not billed for any VMs that Compute Engine fails to create. 
 
 ## What's next
 
@@ -94,6 +93,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/plan/landing-zones/
 title: Enterprise landing zones and foundations \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:03:57.064578+00:00
+fetched_at: 2026-11-10T11:44:48.549164+00:00
 ---
 
 # Enterprise landing zones and foundations  |  Migration  |  Google Cloud Documentation

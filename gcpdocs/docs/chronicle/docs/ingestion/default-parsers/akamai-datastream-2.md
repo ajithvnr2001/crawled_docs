@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/akamai-datastream-2/
 title: Collect Akamai DataStream 2 logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:35:21.812890+00:00
+fetched_at: 2026-11-10T19:01:25.090280+00:00
 ---
 
 # Collect Akamai DataStream 2 logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Make sure you have the following prerequisites:
 
   * A Google SecOps instance.
   * Privileged access to **Akamai Control Center** with DataStream 2 configuration permissions.
-  * Privileged access to **AWS** (S3, IAM).
+  * Privileged access to **AWS** (S3, IAM, and AWS KMS if the bucket is encrypted with a customer-managed KMS key).
 
 
 
@@ -120,6 +120,70 @@ Make sure you have the following prerequisites:
 
 
 
+### Configure AWS KMS permissions for SSE-KMS buckets
+
+Complete this section only if the bucket is encrypted with a customer managed AWS KMS key (SSE-KMS). Without these permissions, Akamai cannot write log files to the bucket and destination validation fails.
+
+  1. In the AWS console, go to **S3 > Buckets** and select your bucket.
+  2. Go to the **Properties** tab and check **Default encryption** : 
+     * If **Encryption type** is **Server-side encryption with Amazon S3 managed keys (SSE-S3)** , skip this section and the KMS section for the Google SecOps user.
+     * Otherwise, note the AWS KMS key that the bucket uses.
+  3. Go to **Key Management Service** and find that key: 
+     * If the key is listed under **AWS managed keys** (alias `aws/s3`), skip this section and the KMS section for the Google SecOps user. Principals in your account can use the `aws/s3` key through Amazon S3 without extra permissions.
+     * If the key is listed under **Customer managed keys** , select it and copy its ARN.
+  4. Go to **IAM > Users** and select `akamai-datastream-writer`.
+  5. Go to the **Permissions** tab and click **Add permissions > Create inline policy**.
+  6. In the **Policy editor** , select **JSON** and paste the following policy:
+         
+         {
+           "Version": "2012-10-17",
+           "Statement": [
+             {
+               "Sid": "AllowAkamaiDataStreamKmsKeyUse",
+               "Effect": "Allow",
+               "Action": [
+                 "kms:GenerateDataKey",
+                 "kms:Decrypt"
+               ],
+               "Resource": "KMS_KEY_ARN"
+             }
+           ]
+         }
+         
+
+Replace `KMS_KEY_ARN` with the key ARN you copied (for example, `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`).
+
+**Note:** `kms:GenerateDataKey` is required to upload encrypted objects. `kms:Decrypt` is required for `s3:GetObject` on encrypted objects, which Akamai requires, and for multipart uploads.
+  7. Click **Next**.
+
+  8. In **Policy name** , enter a name (for example, `akamai-datastream-kms`) and click **Create policy**.
+
+  9. Go to **Key Management Service > Customer managed keys** and select the key.
+
+  10. Go to the **Key policy** tab. If the tab shows the default view, click **Switch to policy view**. Check that the key policy allows IAM policies to grant access to the key:
+
+     * If the key policy contains a statement that allows the account root principal (`arn:aws:iam::ACCOUNT_ID:root`) the `kms:*` action, no change is needed. Keys created in the AWS KMS console have this statement by default. The inline policy that you created grants access.
+     * Otherwise, click **Edit** and add a statement that allows the user, then click **Save changes** :
+    
+    {
+      "Sid": "AllowAkamaiDataStreamKmsKeyUse",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::ACCOUNT_ID:user/akamai-datastream-writer"
+      },
+      "Action": [
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource": "*"
+    }
+    
+
+Replace `ACCOUNT_ID` with your 12-digit AWS account ID. In a key policy, `"Resource": "*"` refers to the key that the policy is attached to.
+
+
+
+
 ## Configure Akamai DataStream 2 to deliver logs to Amazon S3
 
   1. Sign in to **Akamai Control Center**.
@@ -183,7 +247,7 @@ If you prefer a separate read-only user for Google SecOps to ingest logs:
 
   6. Go to **IAM > Users > Create user**.
 
-  7. Enter a user name (for example, `secops-reader`).
+  7. Enter a username (for example, `secops-reader`).
 
   8. Click **Next**.
 
@@ -196,6 +260,41 @@ If you prefer a separate read-only user for Google SecOps to ingest logs:
   12. Select **Third-party service** as **Use case** and click **Next > Create access key**.
 
   13. Click **Download .csv file** to save the **Access Key ID** and **Secret Access Key** for the Google SecOps feed configuration.
+
+
+
+
+## Grant AWS KMS permissions to the Google SecOps user
+
+Complete this section only if the bucket is encrypted with a customer managed AWS KMS key (SSE-KMS), as determined in Grant AWS KMS permissions for an SSE-KMS bucket. The feed reads the bucket with the access key of one IAM user: `secops-reader` if you created the optional read-only user, or otherwise the user from Configure AWS S3 bucket and IAM for Google SecOps. The `AmazonS3FullAccess` policy does not include AWS KMS permissions.
+
+  1. Go to **IAM > Users** and select the user whose access key you use in the feed.
+  2. Go to the **Permissions** tab and click **Add permissions > Create inline policy**.
+  3. In the **Policy editor** , select **JSON** and paste the following policy:
+         
+         {
+           "Version": "2012-10-17",
+           "Statement": [
+             {
+               "Sid": "AllowSecOpsFeedKmsDecrypt",
+               "Effect": "Allow",
+               "Action": [
+                 "kms:Decrypt"
+               ],
+               "Resource": "KMS_KEY_ARN"
+             }
+           ]
+         }
+         
+
+Replace `KMS_KEY_ARN` with the ARN of the customer managed key that the bucket uses.
+
+**Note:** The feed only reads objects, so it needs `kms:Decrypt` and does not need `kms:GenerateDataKey`.
+  4. Click **Next**.
+
+  5. In **Policy name** , enter a name (for example, `secops-reader-kms`) and click **Create policy**.
+
+  6. If the key policy does not contain the default statement for the account root principal, add a statement for this user as described in Grant AWS KMS permissions for an SSE-KMS bucket, with the user ARN as `Principal` and only `kms:Decrypt` as `Action`.
 
 
 
@@ -299,6 +398,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

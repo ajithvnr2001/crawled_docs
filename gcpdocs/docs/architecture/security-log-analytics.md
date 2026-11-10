@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/security-log-analytics/
 title: Security log analytics in Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:18:07.292245+00:00
+fetched_at: 2026-11-10T18:46:26.942842+00:00
 ---
 
 # Security log analytics in Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -194,15 +194,13 @@ DATA_READ | Discovery
 Credential Access  
 Privilege Escalation  
 Storage services | BigQuery (enabled by default)  
-Cloud Storage1, 2 | DATA_READ  
+Cloud Storage1 | DATA_READ  
 DATA_WRITE | Collection  
 Exfiltration  
 Infrastructure services | Compute Engine  
 Organization Policy  | ADMIN_READ | Discovery  
   
 1 Enabling Data Access audit logs for IAP or Cloud Storage can generate large log volumes when there is high traffic to IAP-protected web resources or to Cloud Storage objects.
-
-2 Enabling Data Access audit logs for Cloud Storage might break the use of [authenticated browser downloads](https://docs.cloud.google.com/storage/docs/request-endpoints#cookieauth) for non-public objects. For more details and suggested workarounds to this issue, see the [Cloud Storage troubleshooting guide](https://docs.cloud.google.com/storage/docs/troubleshooting#trouble-download-storage-cloud).
 
 In the example configuration, notice how services are grouped in tiers of sensitivity based on their underlying data, metadata, or configuration. These tiers demonstrate the following recommended granularity of Data Access audit logging:
 

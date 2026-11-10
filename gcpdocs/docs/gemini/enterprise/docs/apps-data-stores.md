@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/apps-data-stores/
 title: About apps and data stores \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:46.522667+00:00
+fetched_at: 2026-11-10T12:43:05.264688+00:00
 ---
 
 # About apps and data stores  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -147,6 +147,14 @@ With blended search, multiple data stores can be connected to a single app. This
 
 To make a blended search app, you connect one or more data stores to an app after it has been created.
 
+You can change which data stores are connected to an app after it has been created, with the following restrictions when you use the `engines.patch` method:
+
+  * An app that is connected to a single data store can't add or remove data stores, and can't replace its data store, through the API. The request fails with the error `Engines with a single data store cannot add or remove data stores`.
+  * An app that is connected to multiple data stores must keep at least two data stores connected. A request that leaves fewer than two data stores fails with the error `Engines with multiple data stores can not remove data stores such that <2 data stores remain linked`. The same error is returned if you try to connect the first data store to an app that has none.
+  * To make these changes, use the Google Cloud console, which can convert an app between single-data-store and multi-data-store configurations.
+
+
+
 When getting search results, you can either search across all data stores, or filter for results from a single data store.
 
 Blended search has the following limitations:
@@ -197,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

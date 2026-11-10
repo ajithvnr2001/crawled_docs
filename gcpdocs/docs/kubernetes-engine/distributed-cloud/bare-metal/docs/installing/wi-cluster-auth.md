@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/wi-cluster-auth/
 title: Workload Identity Cluster Authentication \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:29.993480+00:00
+fetched_at: 2026-11-10T16:59:35.072204+00:00
 ---
 
 # Workload Identity Cluster Authentication  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Workload Identity Cluster Authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-Workload Identity Cluster Authentication lets you create and secure clusters for Distributed Cloud software only for bare metal by using short-lived tokens and Workload Identity Federation. This approach replaces persistent service account keys with OAuth 2.0 access tokens, reducing maintenance overhead and eliminating the security risks of long-lived credentials.
+Workload Identity Cluster Authentication lets you create and secure clusters for Google Distributed Cloud software only for bare metal by using short-lived tokens and Workload Identity Federation. This approach replaces persistent service account keys with OAuth 2.0 access tokens, reducing maintenance overhead and eliminating the security risks of long-lived credentials.
 
 You can enable this feature only when creating new clusters. This feature is available in version 1.33 and later and in [Preview](https://cloud.google.com/products/#product-launch-stages) in versions 1.30, 1.31, and 1.32. You can't update existing clusters to use it. For additional restrictions, see Limitations.
 
@@ -43,7 +43,7 @@ Workload Identity Cluster Authentication provides two main benefits over using s
 
 ## Before you begin
 
-In the following sections, you create service accounts and grant roles needed for Workload Identity Cluster Authentication. The setup instructions in this document aren't a replacement for the instructions in [Set up Google Cloud resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-sa), they are required in addition to the standard Distributed Cloud software only installation prerequisites. The service accounts required for Workload Identity Cluster Authentication are similar to the service accounts described in [Set up Google Cloud resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-sa), but they are uniquely named, so they don't interfere with clusters that use the default service account keys.
+In the following sections, you create service accounts and grant roles needed for Workload Identity Cluster Authentication. The setup instructions in this document aren't a replacement for the instructions in [Set up Google Cloud resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-sa), they are required in addition to the standard Google Distributed Cloud software only installation prerequisites. The service accounts required for Workload Identity Cluster Authentication are similar to the service accounts described in [Set up Google Cloud resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-sa), but they are uniquely named, so they don't interfere with clusters that use the default service account keys.
 
 The service accounts required for Workload Identity Cluster Authentication differ for the [Preview](https://cloud.google.com/products#product-launch-stages) and GA offerings as described in the following table:
 
@@ -844,7 +844,7 @@ Replace the following:
 
 ## Limitations
 
-The following features and capabilities aren't supported when you use Workload Identity Cluster Authentication for Distributed Cloud software only for bare metal:
+The following features and capabilities aren't supported when you use Workload Identity Cluster Authentication for Google Distributed Cloud software only for bare metal:
 
   * Using a proxy server
   * VPC Service Controls
@@ -864,6 +864,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

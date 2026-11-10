@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-security/
 title: Gateway security \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:37.631318+00:00
+fetched_at: 2026-11-10T18:23:28.848133+00:00
 ---
 
 # Gateway security  |  GKE networking  |  Google Cloud Documentation
@@ -28,20 +28,61 @@ This page describes different methods for securing Gateways in Google Kubernetes
 
 ## How Gateway security works
 
-A Gateway represents the frontend of a load balancer. There are two paths that you can secure with authentication and encryption for Gateways:
+A Gateway represents the frontend of a load balancer. Depending on your security and compliance requirements, you can help secure traffic through a Gateway in two primary ways:
 
-  * Client to Gateway: traffic originated at the client and terminated at the Gateway.
-  * Gateway to Pod: traffic originated at the Gateway and terminated at the backend Pods.
+  * **TLS termination** : the Gateway terminates client TLS connections at the Gateway frontend by using managed or self-managed SSL certificates. The Gateway can optionally re-encrypt traffic between the Gateway and backend Pods by using a BackendTLSPolicy.
+  * **TLS passthrough** : encrypted TLS traffic passes directly through the Gateway to backend Pods without the load balancer terminating or decrypting the traffic. You use TLSRoute resources to route traffic based on the Server Name Indication (SNI) hostname.
 
 
 
-The following diagram shows both paths to authenticate and encrypt Gateways:
+This page describes how to secure the client to Gateway path using certificates uploaded and managed at the Gateway level, and how to configure end-to-end TLS passthrough. To learn how to secure Gateway to Pod traffic with TLS termination, see [Secure load balancer to application traffic using TLS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#load-balancer-tls).
 
-![](https://docs.cloud.google.com/static/kubernetes-engine/images/gateway-encryption.svg)
+## TLS termination compared to TLS passthrough
+
+GKE Gateway supports two distinct TLS operating modes depending on whether TLS is decrypted at the load balancer or passed through directly to backend workloads: TLS termination and TLS passthrough.
+
+### TLS termination
+
+With TLS termination, the Gateway terminates TLS connections from clients at the load balancer frontend.
+
+When you configure a Gateway listener with the `tls.mode` field set to `Terminate` and the `protocol` field set to `HTTPS`, you attach TLS certificates directly to the Gateway by using Kubernetes Secrets, SSL certificates, or Certificate Manager.
+
+Key characteristics of TLS termination include the following:
+
+  * **Layer 7 inspection** : because the Gateway decrypts client traffic, it can evaluate HTTP request attributes (such as headers, paths, and methods) and route traffic by using HTTPRoute resources.
+  * **Edge security** : it enables integration with Google Cloud Armor security policies, Web Application Firewall (WAF) rules, and Cloud CDN edge caching.
+  * **Backend encryption with BackendTLSPolicy** : if your workloads require end-to-end encryption in transit, you can configure a BackendTLSPolicy resource to re-encrypt traffic between the Gateway and backend Pods.
+
+
+
+The following diagram shows how a GKE Gateway encrypts both traffic paths when you use TLS termination with backend encryption. An external client sends an encrypted HTTPS request (`https://example.com`) to the Gateway in a Virtual Private Cloud (VPC) network, where the load balancer terminates the TLS connection. The load balancer then establishes a separate, re-encrypted connection to forward the traffic to the backend `Store` Pods in the GKE cluster:
+
+![Client-to-Gateway and Gateway-to-backend encryption with TLS termination](https://docs.cloud.google.com/static/kubernetes-engine/images/gateway-encryption.svg)
 
 In addition to encryption, you can secure the Client-to-Gateway path by using authorization policies. Authorization policies enable a zero-trust architecture by inspecting incoming requests and enforcing access control based on client identities, HTTP headers, and requested paths before the traffic is routed to your backend Pods.
 
-This page describes how to secure the client to Gateway path using certificates uploaded and managed at the Gateway level. To learn how to secure Gateway to Pod traffic, see [Secure load balancer to application traffic using TLS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#load-balancer-tls).
+For more information about how to configure TLS termination and backend TLS, see [Secure a Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway).
+
+### TLS passthrough
+
+With TLS passthrough, the Gateway proxies encrypted TLS traffic directly to backend workloads without decrypting the payload at the load balancer.
+
+When you configure a Gateway listener with the `tls.mode` field set to `Passthrough` and the `protocol` field set to `TLS`, the Gateway does not terminate TLS or hold SSL certificates. Instead, the load balancer inspects only the unencrypted Server Name Indication (SNI) hostname in the TLS `ClientHello` handshake and routes the raw encrypted TCP stream to backend Pods by using TLSRoute resources.
+
+Key characteristics of TLS passthrough include the following:
+
+  * **End-to-end encryption** : traffic remains encrypted throughout transit from the client to the backend Pods. The backend application manages certificates, terminates TLS, and decrypts the payload.
+  * **No certificate management needed at Gateway** : you don't attach certificates or Kubernetes Secrets to the Gateway listener.
+  * **Layer 4 proxying** : the load balancer forwards encrypted TCP streams and routes traffic based on unencrypted TLS handshake metadata (such as the SNI hostname) by using TLSRoute resources.
+  * **Security trade-offs** : TLS passthrough works well for compliance requirements where you can't share private keys with cloud infrastructure, or for non-HTTP TLS-based protocols. However, it precludes Layer 7 load balancer inspection and edge security services like Google Cloud Armor WAF rules.
+
+
+
+The following diagram shows how Gateway encrypts and routes traffic from the client to the backend Pods when using TLS passthrough. A client sends an encrypted TLS request with the `store.example.com` SNI hostname to the Gateway, which forwards the encrypted stream without decryption directly to the target `Store` Pods:
+
+![End-to-end encrypted TLS passthrough from client to backend Pods](https://docs.cloud.google.com/static/kubernetes-engine/images/gateway-tls-passthrough.svg)
+
+For more information about how to deploy a TLS passthrough Gateway with TLSRoute, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 ## Benefits
 
@@ -174,6 +215,7 @@ Client to Gateway TLS | Supported | Supported
 Gateway to backend TLS | Supported | Supported  
 Google Cloud certificate resource | Global SSL certificate  
 `CertificateMap` | Regional SSL certificate  
+TLS passthrough (TLSRoute) | Not supported | Supported | Supported  
 Self-managed certificates with Kubernetes Secrets | Supported | Supported | Not supported  
 Self-managed Compute Engine SSL certificates | Supported | Supported | Not supported  
 Google-managed Compute Engine SSL certificates | Supported | Not supported | Not supported  
@@ -192,11 +234,11 @@ Additionally, Gateways can integrate with Service Extensions by using the GCPAut
 
 ## What's next
 
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn how to [secure a Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway).
   * Learn how to [deploy Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
   * Learn more about [Gateway API concepts](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
   * Learn how to [configure Gateway resources](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources).
-  * Learn how to [use GatewayClass capabilities](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
 
 
 
@@ -204,6 +246,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/behavior-differences/
 title: Behavior differences \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:21.121198+00:00
+fetched_at: 2026-11-10T18:26:41.303761+00:00
 ---
 
 # Behavior differences  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation
@@ -345,11 +345,8 @@ and sessions
   
 ### Drop collection limitations
 
-**Note:** Drop collection is in **Preview**.
-
 The following limitations apply when you drop a collection:
 
-  * **Index recreation:** You cannot create the same index configuration immediately after a drop. You must wait for the background deletion to finish.
   * **Size limit:** Dropping large collections may result in connection timeouts. Increase the connection deadline if you see timeouts. You can use [bulk delete](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/bulk-delete) as an alternative.
   * **Events:** Drop collection events are not generated for Eventarc when using the `drop` command.
 
@@ -366,6 +363,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

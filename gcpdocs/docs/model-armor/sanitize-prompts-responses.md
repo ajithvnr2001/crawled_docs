@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/sanitize-prompts-responses/
 title: Sanitize prompts and responses \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:47.511667+00:00
+fetched_at: 2026-11-10T11:11:59.449662+00:00
 ---
 
 # Sanitize prompts and responses  |  Model Armor  |  Google Cloud Documentation
@@ -847,135 +847,15 @@ This code returns a response similar to the following, where `filter_match_state
 
 ### Prompts containing images
 
-**Preview**
+You can screen standalone images and images embedded within supported rich text documents, and redact sensitive findings in standalone images, by enabling the image modality (`MODALITY_IMAGE`) in your [template metadata](https://docs.cloud.google.com/model-armor/manage-templates#select-modality). For instructions and examples, see the following sections in [Screen images](https://docs.cloud.google.com/model-armor/screen-images):
 
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-To enable [image screening](https://docs.cloud.google.com/model-armor/overview#image-screening), set the modality in the [template metadata](https://docs.cloud.google.com/model-armor/manage-templates#templates-metadata). You can configure modalities in both new and existing templates. If you specify a single modality (`IMAGE` or `TEXT`), Model Armor skips the other and returns `EXECUTION_SKIPPED`. You must explicitly set the `byteDataType` field to `IMAGE` and provide the base64-encoded image in the [supported format](https://docs.cloud.google.com/model-armor/overview#image-screening) in the `byteData` field.
-
-Use the following command to sanitize a prompt that contains an image.
-    
-    
-    curl -X POST \
-        -d "$(jq -n \
-        --arg data "$(base64 -w 0 -i IMAGE)" \
-        '{userPromptData: {byteItem: {byteDataType: "IMAGE", byteData: $data}}}')" \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeUserPrompt"
-
-Replace the following:
-
-  * `PROJECT_ID`: the ID of the project that contains the template.
-  * `LOCATION`: the location of the template.
-  * `TEMPLATE_ID`: the ID of the template.
-  * `IMAGE`: the image in a [supported format](https://docs.cloud.google.com/model-armor/overview#image-screening).
+  * [Sanitize standalone images](https://docs.cloud.google.com/model-armor/screen-images#prompts-with-images)
+  * [Redact sensitive data in standalone images](https://docs.cloud.google.com/model-armor/screen-images#redact-images)
+  * [Screen embedded images in documents](https://docs.cloud.google.com/model-armor/screen-images#embedded-images-in-documents)
 
 
 
-The response is similar to the following:
-    
-    
-    {
-      "sanitizationResult": {
-        "filterMatchState": "MATCH_FOUND",
-        "invocationResult": "SUCCESS",
-        "filterResults": {
-          "csam": {
-            "csamFilterFilterResult": {
-              "executionState": "EXECUTION_SUCCESS",
-              "matchState": "NO_MATCH_FOUND"
-            }
-          },
-          "sdp": {
-            "sdpFilterResult": {
-              "inspectResult": {
-                "executionState": "EXECUTION_SUCCESS",
-                "matchState": "MATCH_FOUND"
-              }
-            }
-          }
-        },
-      }
-    }
-
-#### Redact images
-
-For the Sensitive Data Protection advanced mode, Model Armor redacts images only if you configured Model Armor filters with a Sensitive Data Protection inspect template and a Sensitive Data Protection de-identify template. For more information, see [Set Sensitive Data Protection settings](https://docs.cloud.google.com/model-armor/manage-templates#set-sdp-settings). Make sure that you configure [image redaction](https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images) in the de-identify template.
-
-When using Sensitive Data Protection advanced mode, the `BASIC_AUTH_HEADER` infoType might be reported in detection results even if it is not explicitly included in the configured inspection template.
-
-The following example shows the filter configuration with [Sensitive Data Protection redaction enabled](https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images).
-    
-    
-    {
-      "filterConfig": {
-        "sdpSettings": {
-          "advancedConfig": {
-            "inspectTemplate": "projects/PROJECT_ID/locations/LOCATION/inspectTemplates/INSPECT_TEMPLATE_ID",
-            "deidentifyTemplate": "projects/PROJECT_ID/locations/LOCATION/deidentifyTemplates/DEIDENTIFY_TEMPLATE_ID"
-          }
-        }
-      }
-    }
-
-Replace the following:
-
-  * `PROJECT_ID`: the ID of the project that contains the Sensitive Data Protection templates.
-  * `LOCATION`: the location of the templates.
-  * `INSPECT_TEMPLATE_ID`: the ID of the inspect template.
-  * `DEIDENTIFY_TEMPLATE_ID`: the ID of the de-identify template.
-
-
-
-This results in the following response.
-    
-    
-    {
-      "sanitizationResult": {
-        "filterMatchState": "MATCH_FOUND",
-        "invocationResult": "SUCCESS",
-        "filterResults": {
-          "csam": {
-            "csamFilterFilterResult": {
-              "executionState": "EXECUTION_SUCCESS",
-              "matchState": "NO_MATCH_FOUND"
-            }
-          },
-          "sdp": {
-            "sdpFilterResult": {
-              "redactResult": {
-                "executionState": "EXECUTION_SUCCESS",
-                "matchState": "MATCH_FOUND",
-                "redactedImage": "[REDACTED_IMAGE]",
-                "findings": [
-                  {
-                    "infoType": "EMAIL_ADDRESS",
-                    "likelihood": "LIKELY",
-                    "location": {
-                      "contentLocations": [
-                        {
-                          "imageFindingLocation": {
-                            "boundingBox": {
-                              "top": 16,
-                              "left": 121,
-                              "width": 620,
-                              "height": 90
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    }
-
-#### Sanitize streaming text prompts
+### Sanitize streaming text prompts
 
 The streaming methods of Model Armor sanitize prompts and responses in real-time as text streams, without waiting for the entire content to become available. This capability is particularly useful for applications that handle large text payloads or that require low-latency interactions with LLMs.
 
@@ -1551,7 +1431,9 @@ Consider the following when sanitizing a streaming text prompt or response:
 
 ### File-based prompts
 
-To sanitize a prompt that is stored in a file, provide the file content in base64 format. Model Armor doesn't automatically detect the file type. You must explicitly set the `byteDataType` field to indicate the file format. If the field is missing or not specified, the request fails. The possible `byteDataType` values are `PLAINTEXT_UTF8`, `PDF`, `WORD_DOCUMENT`, `EXCEL_DOCUMENT`, `POWERPOINT_DOCUMENT`, `TXT`, and `CSV`. Sensitive Data Protection de-identification is not supported for file-based prompts.
+To sanitize a prompt that is stored in a file, provide the file content in base64 format. Model Armor doesn't automatically detect the file type. You must explicitly set the `byteDataType` field to indicate the file format. If the field is missing or not specified, the request fails. The possible `byteDataType` values are `PLAINTEXT_UTF8`, `PDF`, `WORD_DOCUMENT`, `EXCEL_DOCUMENT`, `POWERPOINT_DOCUMENT`, `TXT`, and `CSV`.
+
+When you screen rich text files, Model Armor scans text, embedded images, or both, depending on the [modalities configured in your template](https://docs.cloud.google.com/model-armor/manage-templates#select-modality). For information about screening embedded images in documents and handling [partial file inspection](https://docs.cloud.google.com/model-armor/screen-images#partial-file-inspection) results, see [Screen embedded images in documents](https://docs.cloud.google.com/model-armor/screen-images#embedded-images-in-documents).
 
 ###  REST 
     
@@ -1915,6 +1797,38 @@ To run this code, [set up a Python development environment](https://docs.cloud.g
     # Sanitization Result.
     print(response)
     
+
+The response is similar to the following when all document contents are successfully screened:
+    
+    
+    {
+      "sanitizationResult": {
+        "filterMatchState": "NO_MATCH_FOUND",
+        "invocationResult": "SUCCESS",
+        "filterResults": {
+          "csam": {
+            "csamFilterFilterResult": {
+              "executionState": "EXECUTION_SUCCESS",
+              "matchState": "NO_MATCH_FOUND"
+            }
+          },
+          "pi_and_jailbreak": {
+            "piAndJailbreakFilterResult": {
+              "executionState": "EXECUTION_SUCCESS",
+              "matchState": "NO_MATCH_FOUND"
+            }
+          },
+          "sdp": {
+            "sdpFilterResult": {
+              "inspectResult": {
+                "executionState": "EXECUTION_SUCCESS",
+                "matchState": "NO_MATCH_FOUND"
+              }
+            }
+          }
+        }
+      }
+    }
 
 ### Basic Sensitive Data Protection configuration
 
@@ -3011,7 +2925,7 @@ This example returns the following response:
       }
     }
 
-For information about image redaction requests and responses, see Redact images.
+For information about image redaction requests and responses, see [Redact sensitive data in standalone images](https://docs.cloud.google.com/model-armor/screen-images#redact-images).
 
 ## Sanitize model response
 
@@ -3636,6 +3550,7 @@ Replace the following:
 ## What's next
 
   * Learn more about [Model Armor](https://docs.cloud.google.com/model-armor/overview).
+  * [Screen images](https://docs.cloud.google.com/model-armor/screen-images).
   * Learn about [Model Armor floor settings](https://docs.cloud.google.com/model-armor/configure-floor-settings).
   * Learn about [Model Armor templates](https://docs.cloud.google.com/model-armor/manage-templates).
   * [Troubleshoot Model Armor issues](https://docs.cloud.google.com/model-armor/troubleshooting).
@@ -3646,6 +3561,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

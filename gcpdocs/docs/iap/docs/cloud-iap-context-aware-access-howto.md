@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/cloud-iap-context-aware-access-howto/
 title: Setting up context-aware access with Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:56.461323+00:00
+fetched_at: 2026-11-10T16:58:45.535201+00:00
 ---
 
 # Setting up context-aware access with Identity-Aware Proxy  |  Google Cloud Documentation
@@ -21,13 +21,18 @@ Send feedback
 
 #  Setting up context-aware access with Identity-Aware Proxy Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide describes how to extend Identity-Aware Proxy (IAP) access policies using [access levels](https://docs.cloud.google.com/access-context-manager/docs) and the [Identity and Access Management (IAM) Conditions Framework](https://docs.cloud.google.com/iam/docs/conditions-overview). Access levels allow access restrictions to resources based on IP address and end-user device attributes. IAM conditions allow access restrictions based on URL hosts, paths, date, and time.
+This guide describes how to extend Identity-Aware Proxy (IAP) access policies using [access levels](https://docs.cloud.google.com/access-context-manager/docs) and the [Identity and Access Management (IAM) Conditions Framework](https://docs.cloud.google.com/iam/docs/conditions-overview).
+
+Access levels allow access restrictions to resources based on IP address and end-user device attributes. IAM conditions allow access restrictions based on URL hosts, paths, date, and time.
 
 For example, depending on the policy configuration, your sensitive app can:
 
   * Grant access to all employees if they're using a trusted corporate device from your corporate network.
+
   * Grant access to employees in the **Remote Access** group if they're using a trusted corporate device with a secure password and up-to-date patch level, from any network.
-  * Only grant access to employees in the **Privileged Access** group if the URL path starts with `/admin`. 
+
+  * Only grant access to employees in the **Privileged Access** group if the URL path starts with `/admin`.
+
 
 
 
@@ -36,7 +41,9 @@ For example, depending on the policy configuration, your sensitive app can:
 Before you begin, you'll need the following:
 
   * A IAP-secured app to which you want to add individual or group access.
+
   * User or group names that you want to grant access to.
+
 
 
 
@@ -53,8 +60,11 @@ A IAP-secured app has an IAM policy that binds the IAP role to the app.
 By adding an [IAM conditional binding](https://docs.cloud.google.com/iam/docs/conditions-overview) to the IAM policy, access to your resources is further restricted based on [request attributes](https://docs.cloud.google.com/iam/docs/conditions-overview#request_attributes). These request attributes include:
 
   * Access levels
+
   * URL Host/Path
+
   * Date/Time
+
 
 
 
@@ -78,11 +88,16 @@ To add a conditional binding using the Google Cloud console:
 
   5. In the **Select a role** drop-down list, select the **IAP-secured Web App User** role and specify access level conditions that the principals will need to meet to access the resource.
 
-     * To specify existing access levels, select them from the **Access levels** drop-down list. You need to select the **IAP-secured Web App User** role and have organization level permissions to view existing access levels. You must be [granted](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) one of the following roles: 
+     * To specify existing access levels, select them from the **Access levels** drop-down list. You need to select the **IAP-secured Web App User** role and have organization level permissions to view existing access levels. You must be [granted](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) one of the following roles:
+
        * Access Context Manager Admin
+
        * Access Context Manager Editor
+
        * Access Context Manager Reader
+
      * To create and manage access levels, use the [Access Context Manager](https://console.cloud.google.com/projectselector/security/access-level).
+
   6. If you want to add more roles to the principals, click **Add another role**.
 
   7. When you're finished adding roles, click **Save**.
@@ -122,7 +137,9 @@ To set conditional bindings, edit your project's `policy.yaml` file by following
   2. Edit the `policy.yaml` file to specify the following:
 
      * The users and groups you want to apply the IAM condition to.
+
      * The `iap.httpsResourceAccessor` role to grant them access to the resources.
+
      * The IAM condition.
 
 The following snippet shows an IAM condition with only one attribute specified. This condition grants access to the user and group if the ACCESS_LEVEL_NAME access level requirements are met and the resource URL path starts with `/`.
@@ -155,126 +172,115 @@ To edit your app's `policy.json` file, follow the process below for your app typ
 Before doing the application-specific API steps below, export the following variables:
     
     
-     export PROJECT_NUM=PROJECT_NUMBER
-     export IAP_BASE_URL=https://iap.googleapis.com/v1/projects/${PROJECT_NUM}/iap_web
-     # Replace POLICY_FILE.JSON with the name of JSON file to use for setIamPolicy
-     export JSON_NEW_POLICY=POLICY_FILE.JSON
-     
+    export PROJECT_NUM=PROJECT_NUMBER
+    export IAP_BASE_URL=https://iap.googleapis.com/v1/projects/${PROJECT_NUM}/iap_web
+    # Replace POLICY_FILE.JSON with the name of JSON file to use for setIamPolicy
+    export JSON_NEW_POLICY=POLICY_FILE.JSON
 
-### App Engine 
-    
-    
-     1. Export the following App Engine variables:
-     <pre class="devsite-click-to-copy prettyprint lang-html" suppresswarning="suppresswarning">
-     \# The APP_ID is usually the project ID
-     export GAE_APP_ID=<var>APP_ID</var>
-     export GAE_BASE_URL=${IAP_BASE_URL}/appengine-${GAE_APP_ID}</pre>
-    
-     1. Get the IAM policy for the App Engine app using the `getIamPolicy` method. The empty data bit at the end turns the `curl` request into POST instead of GET.
-    
-    
-    
-    curl -i -H "Authentication: Bearer $(gcloud auth print-access-token)" \\
-        ${GAE_BASE_URL}/:getIamPolicy -d ''
+### App Engine
 
-1\. Add your IAM conditional binding to the IAM policy JSON file. The following is an example of an edited `policy.json` file that binds the `iap.httpsResourceAccessor` role to two users, granting them access to the IAP-secured resources. An IAM condition has been added to grant them access to the resources only if the ACCESS_LEVEL_NAME access level requirement is met and the resource URL path starts with `/`. Each binding can have only one condition.  
-  
-**Example policy.json file** 
-    
-    
-    {
-    "policy": {
-      "bindings": [
+  1. Export the following App Engine variables:
+         
+         # The APP_ID is usually the project ID
+         export GAE_APP_ID=APP_ID
+         export GAE_BASE_URL=${IAP_BASE_URL}/appengine-${GAE_APP_ID}
+
+  2. Get the IAM policy for the App Engine app using the `getIamPolicy` method. The empty data bit at the end turns the `curl` request into POST instead of GET.
+         
+         curl -i -H "Authentication: Bearer $(gcloud auth print-access-token)" \
+          ${GAE_BASE_URL}/:getIamPolicy -d ''
+
+  3. Add your IAM conditional binding to the IAM policy JSON file. The following is an example of an edited `policy.json` file that binds the `iap.httpsResourceAccessor` role to two users, granting them access to the IAP-secured resources. An IAM condition has been added to grant them access to the resources only if the ACCESS_LEVEL_NAME access level requirement is met and the resource URL path starts with `/`. Each binding can have only one condition.
+
+**Example policy.json file**
+         
+         {
+         "policy": {
+          "bindings": [
             {
               "role": "roles/iap.httpsResourceAccessor",
               "members": [
-                  "group:EXAMPLE_GROUP@GOOGLE.COM",
-                  "user:EXAMPLE_USER@GOOGLE.COM"
+                "group:EXAMPLE_GROUP@GOOGLE.COM",
+                "user:EXAMPLE_USER@GOOGLE.COM"
               ],
               "condition": {
                 "expression": "\"accessPolicies/ORGANIZATION_NUMBER/accessLevels/ACCESS_LEVEL_NAME\" in request.auth.access_levels && request.path.startsWith(\"/\")",
                 "title": "CONDITION_NAME"
               }
             }
-            ]
-      }
-    }
+          ]
+         }
+         }
 
-1\. Set your new `policy.json` file using the `setIamPolicy` method. 
-    
-    
-     curl -i -H "Authentication: Bearer $(gcloud auth print-access-token)" \\
-         ${GAE_BASE_URL}:setIamPolicy -d @${JSON_NEW_POLICY}
+  4. Set your new `policy.json` file using the `setIamPolicy` method.
+         
+         curl -i -H "Authentication: Bearer $(gcloud auth print-access-token)" \
+          ${GAE_BASE_URL}:setIamPolicy -d @${JSON_NEW_POLICY}
+
+
+
 
 #### App Engine services and versions
-    
-    
-     You can also update the IAM policy of a App Engine
-     service, all versions, or a specific version of a service. To do this for a specific version of a service:
-    
-     1. Export the following additional variables.
-    
-    
-    
-        export GAE_SERVICE=SERVICE_NAME
-        export GAE_VERSION=VERSION_NAME
-        
 
-1\. Update the exported GAE_BASE_URL variable. 
-    
-    
-    export GAE_BASE_URL=${IAP_BASE_URL}/appengine-${GAE_APP_ID}/services/${GAE_SERVICE}/versions/${GAE_VERSION}
+You can also update the IAM policy of a App Engine service, all versions, or a specific version of a service. To do this for a specific version of a service:
 
-1\. Get and set the IAM policy for the version using the `getIamPolicy` and `setIamPolicy` commands shown above. 
+  1. Export the following additional variables.
+         
+         export GAE_SERVICE=SERVICE_NAME
+         export GAE_VERSION=VERSION_NAME
+
+  2. Update the exported GAE_BASE_URL variable.
+         
+         export GAE_BASE_URL=${IAP_BASE_URL}/appengine-${GAE_APP_ID}/services/${GAE_SERVICE}/versions/${GAE_VERSION}
+
+  3. Get and set the IAM policy for the version using the `getIamPolicy` and `setIamPolicy` commands shown above.
+
+
+
 
 ### GKE and Compute Engine
 
-1\. Export the project ID of your backend service. 
-    
-    
+  1. Export the project ID of your backend service.
+         
          export BACKEND_SERVICE_NAME=BACKEND_SERVICE_NAME
-    
-    
-     2. Get the IAM policy for the Compute Engine app using the `getIamPolicy` method. The empty data bit at the end turns the `curl` request into POST instead of GET.
-     <pre class="devsite-click-to-copy prettyprint lang-html" suppresswarning="suppresswarning">
-     curl -i -H "Authentication: Bearer $(gcloud auth print-access-token)" \\
-         ${IAP_BASE_URL}/compute/services/${BACKEND_SERVICE_NAME}:getIamPolicy \\
-         -d ''</pre>
-     3. Add your IAM conditional binding to the IAM policy JSON file.
-        The following is an example of an edited `policy.json` file that binds the
-        `iap.httpsResourceAccessor` role to two users, granting them access to the IAP-secured resources. An IAM
-        condition has been added to grant them access to the resources only if the <var>ACCESS_LEVEL_NAME</var> access level requirement is met and the resource URL path starts with `/`.
-        Each binding can have only one condition.
-    
-        <br/>**Example policy.json file**
-    
-    
-    
-    {
-      "policy": {
-        "bindings": [
-          {
-            "role": "roles/iap.httpsResourceAccessor",
-            "members": [
-              "group:EXAMPLE_GROUP@GOOGLE.COM",
-              "user:EXAMPLE_USER@GOOGLE.COM"
-            ],
-            "condition": {
-              "expression": "\"accessPolicies/ORGANIZATION_NUMBER/accessLevels/ACCESS_LEVEL_NAME\" in request.auth.access_levels && request.path.startsWith(\"/\")",
-              "title": "CONDITION_NAME"
-            }
-          }
-        ]
-      }
-    }
 
-4\. Set your new `policy.json` file using the `setIamPolicy` method. 
-    
-    
-         curl -i -H "Content-Type:application/json" \\
-                 -H "Authentication: Bearer $(gcloud auth print-access-token)" \\
-                 ${IAP_BASE_URL}/compute/services/${BACKEND_SERVICE_NAME}:setIamPolicy \\
-                 -d @${JSON_NEW_POLICY}
+  2. Get the IAM policy for the Compute Engine app using the `getIamPolicy` method. The empty data bit at the end turns the `curl` request into POST instead of GET.
+         
+         curl -i -H "Authentication: Bearer $(gcloud auth print-access-token)" \
+          ${IAP_BASE_URL}/compute/services/${BACKEND_SERVICE_NAME}:getIamPolicy \
+          -d ''
+
+  3. Add your IAM conditional binding to the IAM policy JSON file. The following is an example of an edited `policy.json` file that binds the `iap.httpsResourceAccessor` role to two users, granting them access to the IAP-secured resources. An IAM condition has been added to grant them access to the resources only if the ACCESS_LEVEL_NAME access level requirement is met and the resource URL path starts with `/`. Each binding can have only one condition.
+
+**Example policy.json file**
+         
+         {
+         "policy": {
+          "bindings": [
+            {
+              "role": "roles/iap.httpsResourceAccessor",
+              "members": [
+                "group:EXAMPLE_GROUP@GOOGLE.COM",
+                "user:EXAMPLE_USER@GOOGLE.COM"
+              ],
+              "condition": {
+                "expression": "\"accessPolicies/ORGANIZATION_NUMBER/accessLevels/ACCESS_LEVEL_NAME\" in request.auth.access_levels && request.path.startsWith(\"/\")",
+                "title": "CONDITION_NAME"
+              }
+            }
+          ]
+         }
+         }
+
+  4. Set your new `policy.json` file using the `setIamPolicy` method.
+         
+         curl -i -H "Content-Type:application/json" \
+              -H "Authentication: Bearer $(gcloud auth print-access-token)" \
+              ${IAP_BASE_URL}/compute/services/${BACKEND_SERVICE_NAME}:setIamPolicy \
+              -d @${JSON_NEW_POLICY}
+
+
+
 
 ## Use hostname and path conditions
 
@@ -297,8 +303,11 @@ For example, if a request has the path `/internal;some_param/admin`, IAP first p
 Hostnames are normalized by:
 
   * Removing trailing dots
+
   * Lowercasing characters
+
   * Converting to ASCII
+
 
 
 
@@ -309,7 +318,9 @@ To punycode your hostname string, use a converter like [Punycoder](https://www.p
 The following are examples of normalized hostnames:
 
   * `FOO.com` is normalized to `foo.com`
+
   * `café.fr` is normalized to `xn--caf-dma.fr`
+
 
 
 
@@ -318,7 +329,9 @@ The following are examples of normalized hostnames:
 Paths are normalized by:
 
   * Removing path params
+
   * Resolving relative paths to their absolute equivalent
+
 
 
 
@@ -329,8 +342,11 @@ Requests that contain `..;` at the beginning of a path section are considered in
 The following are examples of normalized paths:
 
   * `/internal;some_param/admin` is normalized to `/internal/admin`
+
   * `/a/../b` is normalized to `/b`
+
   * `/bar;param1/baz;baz;param2` is normalized to `/bar/baz`
+
 
 
 
@@ -364,6 +380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

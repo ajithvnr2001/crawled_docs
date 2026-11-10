@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/troubleshooting-in-place-major-version-upgrade-to-8.0
 title: Troubleshooting in-place major version upgrade to MySQL 8.0 \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:00.854371+00:00
+fetched_at: 2026-11-10T08:24:34.772156+00:00
 ---
 
 # Troubleshooting in-place major version upgrade to MySQL 8.0  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -128,24 +128,84 @@ To resolve this issue, identify spatial data indexes using a query similar to th
 
 ### Invalid UTF8 characters
 
-The following error occurs when you use invalid UTF8 character strings:
+During the upgrade precheck, you might receive an `invalidUtf8mb3MetadataCheck` error similar to the following:
     
     
-    [ERROR] [MY-010765] [Server] Error in Creating DD entry for %s.%s
-    [ERROR] [MY-013140] [Server] Invalid utf8 character string: invalid_string
+    Checks for invalid utf8mb3 characters in object metadata and definitions
+    (invalidUtf8mb3MetadataCheck)
+    SCHEMA_NAME.OBJECT_NAME - Error: Table comment, column
+    comment, index comment, or partition comment contains characters that are not
+    valid in utf8mb3
     
 
-This error occurs if there are invalid UTF8 characters in commands. For example, if a table definition contains invalid UTF8 characters, then converting the table definitions into the data dictionary might fail.
+If you start the upgrade without resolving this issue, the MySQL 8.0 error log contains entries similar to the following:
+    
+    
+    [ERROR] [MY-010765] [Server] Error in Creating DD entry for
+    SCHEMA_NAME.OBJECT_NAME
+    [ERROR] [MY-013140] [Server] Invalid utf8 character string:
+    'INVALID_STRING'
+    
 
-To resolve this issue, either replace the invalid characters with their corresponding UTF8 characters or remove them altogether.
+In these messages, the placeholders represent the following values:
 
-To identify and address invalid characters, you can use a query similar to the following:
+  * SCHEMA_NAME: the database schema name
+  * OBJECT_NAME: the affected table, view, stored routine, or event name
+  * INVALID_STRING: the character sequence that isn't valid in `utf8mb3`
+
+
+
+MySQL 8.0 stores data dictionary metadata and object definitions in the `utf8mb3` character set, which supports up to 3 bytes per character. If MySQL 5.7 metadata contains 4-byte `utf8mb4` characters, such as emoji, or malformed UTF-8 byte sequences, then the upgrade to MySQL 8.0 fails.
+
+This issue affects the following metadata and object definitions:
+
+  * Table, column, index, and partition comments
+  * View definitions
+  * Stored procedure and stored function definitions and comments
+  * Event definitions and comments
+
+
+
+To resolve this issue, inspect the affected database objects and remove or replace any characters that aren't valid 3-byte UTF-8.
+
+To inspect a table definition as raw bytes without character set conversion, run the following statements:
     
     
-    SHOW CREATE TABLE table_name;
+    SET NAMES 'binary';
+    SHOW CREATE TABLE SCHEMA_NAME.TABLE_NAME;
+
+Replace TABLE_NAME with the name of the table.
+
+To clear invalid comments or recreate affected objects with valid 3-byte UTF-8 text, run statements similar to the following:
     
-    ALTER TABLE table_name MODIFY COLUMN column_name data_type comment='';
-    // removing invalid utf8 character from comment
+    
+    -- Clear a table comment or column comment
+    ALTER TABLE SCHEMA_NAME.TABLE_NAME COMMENT = '';
+    ALTER TABLE SCHEMA_NAME.TABLE_NAME
+      MODIFY COLUMN COLUMN_NAME COLUMN_DEFINITION COMMENT '';
+    
+    -- Update a view definition
+    ALTER VIEW SCHEMA_NAME.VIEW_NAME
+      AS SELECT_STATEMENT;
+    
+    -- Clear an event comment or recreate a stored routine
+    ALTER EVENT SCHEMA_NAME.EVENT_NAME COMMENT '';
+    DROP PROCEDURE SCHEMA_NAME.ROUTINE_NAME;
+    CREATE PROCEDURE SCHEMA_NAME.ROUTINE_NAME()
+    BEGIN
+      -- Recreate the routine body with valid 3-byte UTF-8 characters
+    END;
+
+Replace the following:
+
+  * COLUMN_NAME: the column name
+  * COLUMN_DEFINITION: the existing column data type and attributes, such as `VARCHAR(255) NOT NULL`
+  * VIEW_NAME: the view name
+  * SELECT_STATEMENT: the view query without invalid `utf8mb3` characters
+  * EVENT_NAME: the event name
+  * ROUTINE_NAME: the stored procedure or stored function name
+
+
 
 ### Uncommitted XA transactions
 
@@ -401,6 +461,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

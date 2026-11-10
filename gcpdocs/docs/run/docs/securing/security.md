@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/securing/security/
 title: Security design overview \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:08.823862+00:00
+fetched_at: 2026-11-10T16:58:31.773345+00:00
 ---
 
 # Security design overview  |  Cloud Run  |  Google Cloud Documentation
@@ -87,6 +87,10 @@ If your service makes use of third-party infrastructure for securing containers,
 ### Cloud Run Threat Detection
 
 To continuously monitor the state of your Cloud Run resources for detecting common runtime attacks, such as suspicious binaries or malicious code, use [Cloud Run Threat Detection](https://docs.cloud.google.com/run/docs/securing/cloud-run-threat-detection).
+
+### Vulnerability Assessment for Google Cloud
+
+To continuously discover software package vulnerabilities (CVEs) and exposed secrets in container images in your running Cloud Run services, jobs, and worker pools, use [Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/run/docs/securing/cloud-run-vulnerability-scanning).
 
 ## Data encryption and storage
 
@@ -304,6 +308,7 @@ To learn more about execution environment security updates, see how to [configur
 
   * For an end-to-end walkthrough of how to set up networking, see the Cloud Run [Serverless Networking Guide](https://services.google.com/fh/files/misc/serverless_networking_guide.pdf).
   * Learn how to [detect threats using Cloud Run Threat Detection](https://docs.cloud.google.com/run/docs/securing/cloud-run-threat-detection).
+  * Learn how to [scan for vulnerabilities and secrets using Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/run/docs/securing/cloud-run-vulnerability-scanning).
 
 
 
@@ -311,6 +316,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

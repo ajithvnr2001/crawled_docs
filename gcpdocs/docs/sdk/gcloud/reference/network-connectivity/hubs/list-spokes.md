@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/network-connectivity/hubs/list-spokes/
 title: gcloud network-connectivity hubs list-spokes \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T20:52:23.344358+00:00
+fetched_at: 2026-11-10T17:33:34.677375+00:00
 ---
 
 # gcloud network-connectivity hubs list-spokes  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -37,6 +37,16 @@ EXAMPLES
     
     gcloud network-connectivity hubs list-spokes HUB --spoke-locations=us-central1,global
 
+To list all spokes in the ``us-central1`` region with a detailed view, run: 
+    
+    
+    gcloud network-connectivity hubs list-spokes HUB --spoke-locations=us-central1 --view=detailed
+
+To list all spokes in the global location with a detailed view, run: 
+    
+    
+    gcloud network-connectivity hubs list-spokes HUB --spoke-locations=global --view=detailed
+
 POSITIONAL ARGUMENTS
     
 
@@ -64,9 +74,14 @@ FLAGS
     
 
 `--spoke-locations`=[`LOCATION`,…]
-     A comma separated list of locations. The locations can be set to 'global' and/or Google Cloud supported regions. To see the names of regions, see [Viewing a list of available regions](https://cloud.google.com/compute/docs/regions-zones/viewing-regions-zones#viewing_a_list_of_available_regions). 
+     Comma-separated list of locations. The locations can be set to 'global' and/or Google Cloud supported regions. When `--view=detailed` is specified, `--spoke-locations` must be set to a single location, either 'global' or a region. To see the names of regions, see [Viewing a list of available regions](https://cloud.google.com/compute/docs/regions-zones/viewing-regions-zones#viewing_a_list_of_available_regions). 
 `--view`=`VIEW`; default="basic"
-     Enumeration to control which spoke fields are included in the response. `VIEW` must be one of: `basic`, `detailed`. 
+     Enumeration to control which spoke fields are included in the response. `VIEW` must be one of: 
+
+`basic`
+     Includes basic spoke fields in the response. Supports listing spokes across one or more locations, or all locations if `--spoke-locations` is omitted. 
+`detailed`
+     Includes detailed spoke fields in the response. Supports both 'global' and regional locations. Requires `--spoke-locations` to be set to a single location, either 'global' or a region. 
 LIST COMMAND FLAGS
     
 
@@ -95,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

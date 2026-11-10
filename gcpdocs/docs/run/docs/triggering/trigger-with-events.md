@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/trigger-with-events/
 title: Create triggers with Eventarc \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T05:59:24.540636+00:00
+fetched_at: 2026-11-10T15:29:29.911759+00:00
 ---
 
 # Create triggers with Eventarc  |  Cloud Run  |  Google Cloud Documentation
@@ -262,6 +262,8 @@ To create an Eventarc trigger for a Cloud Run function, see [Create a trigger us
 
 Event-driven Cloud Run functions are implemented using Eventarc in combination with a Pub/Sub subscription. By default, the [acknowledgement (`ack`) deadline](https://docs.cloud.google.com/pubsub/docs/subscription-properties#ack_deadline) of this Pub/Sub subscription is 10 seconds. This setting is insufficient for many functions, and can have the effect of causing unwanted duplicate executions.
 
+If you trigger your service or function directly with a [Pub/Sub push subscription](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers) without Eventarc, direct push subscriptions share the same 10-second default and 600-second (10-minute) maximum acknowledgment deadline, which bounds the effective [request timeout](https://docs.cloud.google.com/run/docs/configuring/request-timeout#timeout-period).
+
 We recommend that you set the `ack` deadline for your service or function to the maximum value of 600 seconds as follows:
 
 ###  Console 
@@ -343,6 +345,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

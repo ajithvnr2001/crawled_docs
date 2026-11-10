@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/cross-data-center-replication/work-with-cross-data-center-replication/
 title: Work with cross-data-center replication \u00a0|\u00a0 AlloyDB Omni for containers: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:05.564937+00:00
+fetched_at: 2026-11-10T16:58:59.802983+00:00
 ---
 
 # Work with cross-data-center replication  |  AlloyDB Omni for containers: 15.7.1  |  Google Cloud Documentation
@@ -50,18 +50,18 @@ To create an AlloyDB Omni secondary database cluster and enable replication from
   1. Ensure external connectivity is enabled on your AlloyDB Omni primary database cluster. If external connectivity is not enabled, add the following to the spec section of the database cluster manifest:
          
          kind: DBCluster
-           spec:
-            allowExternalIncomingTraffic: true
+         spec:
+           allowExternalIncomingTraffic: true
          
 
   2. To use cross-data-center replication with a primary database cluster that has HA enabled, make sure that both the primary and standby database servers in your primary database cluster have adequate Write-Ahead Logging (WAL) space that can accomodate the WAL files required for replication to the secondary cluster. Set the WAL size for your AlloyDB Omni primary database cluster by setting the spec section of the database cluster manifest:
          
          kind: DBCluster
-           spec:
-             primarySpec:
-               parameters:
-                 wal_keep_size: WAL_KEEP_SIZE
-                 max_wal_size: MAX_WAL_SIZE
+         spec:
+           primarySpec:
+             parameters:
+               wal_keep_size: WAL_KEEP_SIZE
+               max_wal_size: MAX_WAL_SIZE
          
 
 Replace the following:
@@ -73,21 +73,21 @@ Replace the following:
          apiVersion: v1
          kind: Secret
          metadata:
-          name: ha-rep-pw-DB_CLUSTER_NAME
+           name: ha-rep-pw-DB_CLUSTER_NAME
          type: Opaque
          data:
-          rep-user-pw: "ENCODED_PASSWORD"
+           rep-user-pw: "ENCODED_PASSWORD"
          ---
          apiVersion: alloydbomni.dbadmin.goog/v1
          kind: Replication
          metadata:
-          name: REPLICATION_NAME
+           name: REPLICATION_NAME
          spec:
-          dbcluster:
-            name: DB_CLUSTER_NAME
-          upstream:
-            password:
-              name: ha-rep-pw-DB_CLUSTER_NAME
+           dbcluster:
+             name: DB_CLUSTER_NAME
+           upstream:
+             password:
+               name: ha-rep-pw-DB_CLUSTER_NAME
          
 
 Replace the following:
@@ -115,11 +115,12 @@ Sample output looks similar to the following:
             "replicationSlotName": "dbc_1_replication_1",
             "username": "alloydbreplica"
            }
+          ```
          
 
   5. Take a note of the output since you need it to enable replication on the secondary database cluster in the following step.
 
-  6. [Create an AlloyDB Omni cluster](https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/deploy-kubernetes#create) on your Kubernetes cluster in the secondary data center with configuration identical to your primary database cluster. 
+  6. [Create an AlloyDB Omni cluster](https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/deploy-kubernetes#create) on your Kubernetes cluster in the secondary data center using a configuration that's identical to your primary database cluster.
 
   7. Ensure external connectivity is enabled on your AlloyDB Omni secondary database cluster.
 
@@ -131,28 +132,28 @@ Sample output looks similar to the following:
   9. To enable replication on your secondary database cluster, apply a manifest similar to the following to your Kubernetes cluster on the secondary data center:
          
          apiVersion: v1
-           kind: Secret
-           metadata:
-             name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
-           type: Opaque
-           data:
-             rep-user-pw: "ENCODED_PASSWORD"
-           ---
-           apiVersion: alloydbomni.dbadmin.goog/v1
-           kind: Replication
-           metadata:
-             name: SECONDARY_REPLICATION_NAME
-           spec:
-             dbcluster:
-               name: SECONDARY_DB_CLUSTER_NAME
-             downstream:
-               host: PRIMARY_HOST
-               port: PRIMARY_PORT
-               username: alloydbreplica
-               password:
-                 name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
-               replicationSlotName: PRIMARY_REPLICATION_SLOT
-               control: setup
+         kind: Secret
+         metadata:
+           name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+         type: Opaque
+         data:
+           rep-user-pw: "ENCODED_PASSWORD"
+         ---
+         apiVersion: alloydbomni.dbadmin.goog/v1
+         kind: Replication
+         metadata:
+           name: SECONDARY_REPLICATION_NAME
+         spec:
+           dbcluster:
+             name: SECONDARY_DB_CLUSTER_NAME
+           downstream:
+             host: PRIMARY_HOST
+             port: PRIMARY_PORT
+             username: alloydbreplica
+             password:
+               name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+             replicationSlotName: PRIMARY_REPLICATION_SLOT
+             control: setup
          
 
 Replace the following:
@@ -202,29 +203,29 @@ To promote a secondary database cluster to a primary database cluster, update th
 ###  Kubernetes 
     
     
-        apiVersion: v1
-        kind: Secret
-        metadata:
-          name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
-        type: Opaque
-        data:
-          rep-user-pw: "ENCODED_PASSWORD"
-        ---
-        apiVersion: alloydbomni.dbadmin.goog/v1
-        kind: Replication
-        metadata:
-          name: SECONDARY_REPLICATION_NAME
-        spec:
-          dbcluster:
-            name: SECONDARY_DB_CLUSTER_NAME
-          downstream:
-            host: PRIMARY_HOST
-            port: PRIMARY_PORT
-            username: alloydbreplica
-            password:
-              name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
-            replicationSlotName: PRIMARY_REPLICATION_SLOT
-            control: promote
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+      type: Opaque
+      data:
+        rep-user-pw: "ENCODED_PASSWORD"
+      ---
+      apiVersion: alloydbomni.dbadmin.goog/v1
+      kind: Replication
+      metadata:
+        name: SECONDARY_REPLICATION_NAME
+      spec:
+        dbcluster:
+          name: SECONDARY_DB_CLUSTER_NAME
+        downstream:
+          host: PRIMARY_HOST
+          port: PRIMARY_PORT
+          username: alloydbreplica
+          password:
+            name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+          replicationSlotName: PRIMARY_REPLICATION_SLOT
+          control: promote
     
 
 ## Perform a switchover
@@ -253,23 +254,23 @@ To perform a switchover, complete the following steps:
   1. To convert your AlloyDB Omni secondary database cluster into a primary database cluster, update its replication manifest on your Kubernetes cluster in the secondary data center as follows:
          
          apiVersion: v1
-            kind: Secret
-            metadata:
-             name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
-            type: Opaque
-            data:
-              rep-user-pw: "ENCODED_PASSWORD"
-            ---
-            apiVersion: alloydbomni.dbadmin.goog/v1
-            kind: Replication
-            metadata:
-             name: SECONDARY_REPLICATION_NAME
-            spec:
-             dbcluster:
-                name: SECONDARY_DB_CLUSTER_NAME
-              upstream:
-                password:
-                  name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+         kind: Secret
+         metadata:
+           name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+         type: Opaque
+         data:
+           rep-user-pw: "ENCODED_PASSWORD"
+         ---
+         apiVersion: alloydbomni.dbadmin.goog/v1
+         kind: Replication
+         metadata:
+           name: SECONDARY_REPLICATION_NAME
+         spec:
+           dbcluster:
+             name: SECONDARY_DB_CLUSTER_NAME
+           upstream:
+             password:
+               name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
          
 
 Wait for the replication status to be ready.
@@ -295,28 +296,28 @@ Sample output looks similar to the following:
   3. To convert your AlloyDB Omni primary database cluster into a secondary database cluster, update its replication manifest on your Kubernetes cluster on the primary data center similar to the following:
          
          apiVersion: v1
-             kind: Secret
-             metadata:
-              name: ha-rep-pw-DB_CLUSTER_NAME
-             type: Opaque
-             data:
-               rep-user-pw: "ENCODED_PASSWORD"
-             ---
-             apiVersion: alloydbomni.dbadmin.goog/v1
-             kind: Replication
-             metadata:
-               name: REPLICATION_NAME
-             spec:
-               dbcluster:
-                 name: DB_CLUSTER_NAME
-               downstream:
-                 host: SECONDARY_HOST
-                 port: SECONDARY_PORT
-                 username: alloydbreplica
-                 password:
-                   name: ha-rep-pw-DB_CLUSTER_NAME
-                 replicationSlotName: SECONDARY_REPLICATION_SLOT
-                control: rewind
+         kind: Secret
+         metadata:
+           name: ha-rep-pw-DB_CLUSTER_NAME
+         type: Opaque
+         data:
+           rep-user-pw: "ENCODED_PASSWORD"
+         ---
+         apiVersion: alloydbomni.dbadmin.goog/v1
+         kind: Replication
+         metadata:
+           name: REPLICATION_NAME
+         spec:
+           dbcluster:
+             name: DB_CLUSTER_NAME
+           downstream:
+             host: SECONDARY_HOST
+             port: SECONDARY_PORT
+             username: alloydbreplica
+             password:
+               name: ha-rep-pw-DB_CLUSTER_NAME
+             replicationSlotName: SECONDARY_REPLICATION_SLOT
+             control: rewind
          
 
 Wait for the replication status to become ready and healthy.
@@ -332,6 +333,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes/
 title: GKE persistent volumes and provisioning \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:28.256942+00:00
+fetched_at: 2026-11-10T16:33:05.870913+00:00
 ---
 
 # GKE persistent volumes and provisioning  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -31,37 +31,44 @@ This page is for Storage specialists who create and allocate storage and configu
 
 ## PersistentVolumes
 
-`PersistentVolume` resources are used to manage durable storage in a cluster. In GKE, a `PersistentVolume` is typically backed by a persistent disk.
+PersistentVolumes are used to manage durable storage in a cluster. In GKE, a PersistentVolume is typically backed by a persistent disk.
 
 You can use other storage solutions like NFS instead. [Filestore](https://docs.cloud.google.com/filestore/docs) is a NFS solution on Google Cloud. To learn how to set up a Filestore instance as an NFS PV solution for your GKE clusters, see [Access Filestore instances with the Filestore CSI driver](https://docs.cloud.google.com/filestore/docs/csi-driver) in the Filestore documentation.
 
-The `PersistentVolume` lifecycle is managed by Kubernetes. A `PersistentVolume` can be dynamically provisioned; you don't have to manually create and delete the backing storage.
+The PersistentVolume lifecycle is managed by Kubernetes. A PersistentVolume can be dynamically provisioned; you don't have to manually create and delete the backing storage.
 
-`PersistentVolume` resources are cluster resources that exist independently of [Pods](https://kubernetes.io/docs/concepts/workloads/pods). This means that the disk and data represented by a `PersistentVolume` continue to exist as the cluster changes and as Pods are deleted and recreated. `PersistentVolume` resources can be provisioned dynamically through `PersistentVolumeClaims`, or they can be explicitly created by a cluster administrator.
+PersistentVolume resources are cluster resources that exist independently of [Pods](https://kubernetes.io/docs/concepts/workloads/pods). This means that the disk and data represented by a PersistentVolume continue to exist as the cluster changes and as Pods are deleted and recreated. PersistentVolume resources can be provisioned dynamically through `PersistentVolumeClaims`, or they can be explicitly created by a cluster administrator.
 
 **Caution:** Using the [`[fsGroup]` setting](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#volumes-and-file-systems) with large `PersistentVolumes` can cause mounts to fail. For more information, see [Troubleshooting Volume mount failures](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/troubleshooting-gke-storage#mounting_a_volume_stops_responding_due_to_the_fsgroup_setting).
 
-To learn more about `PersistentVolume` resources, refer to the [Kubernetes Persistent Volumes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) and the [Persistent Volumes API reference](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+To learn more about PersistentVolume resources, refer to the [Kubernetes PersistentVolumes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) and the [PersistentVolumes API reference](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
 
 ## PersistentVolumeClaims
 
-A `PersistentVolumeClaim` is a request for and claim to a `PersistentVolume` resource. `PersistentVolumeClaim` objects request a specific size, access mode, and [`StorageClass`](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the `PersistentVolume`. If a `PersistentVolume` that satisfies the request exists or can be provisioned, the `PersistentVolumeClaim` is bound to that `PersistentVolume`.
+A PersistentVolumeClaim is a request for and claim to a PersistentVolume resource. PersistentVolumeClaim objects request a specific size, access mode, and [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PersistentVolume. If a PersistentVolume that satisfies the request exists or can be provisioned, the PersistentVolumeClaim is bound to that PersistentVolume.
 
 Pods use claims as volumes. The cluster inspects the claim to find the bound volume and mounts that volume for the Pod.
 
-Portability is another advantage of using `PersistentVolumes` and `PersistentVolumeClaims`. You can use the same [Pod specification](https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates) across different clusters and environments because `PersistentVolume` is an interface to the actual backing storage.
+Portability is another advantage of using `PersistentVolumes` and `PersistentVolumeClaims`. You can use the same [Pod specification](https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates) across different clusters and environments because PersistentVolume is an interface to the actual backing storage.
 
 ## StorageClasses
 
-Volume implementations such as [Compute Engine persistent disk Container Storage Interface (CSI) Driver](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver) are configured through [`StorageClass`](https://kubernetes.io/docs/concepts/storage/storage-classes/) resources.
+Volume implementations such as [Compute Engine persistent disk Container Storage Interface (CSI) Driver](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver) are configured through [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resources.
 
-GKE creates a default `StorageClass` for you which uses the balanced persistent disk type (ext4). The default `StorageClass` is used when a `PersistentVolumeClaim` doesn't specify a `StorageClassName`. You can replace the provided default `StorageClass` with your own. For instructions, see [Change the default StorageClass](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+For PersistentVolumeClaims that don't explicitly specify a StorageClass, GKE sets a default StorageClass that depends on the access mode, as follows:
 
-You can create your own `StorageClass` resources to describe different classes of storage. For example, classes might map to quality-of-service levels, or to backup policies. This concept is sometimes called "profiles" in other storage systems.
+  * **For ReadWriteOnce claims:** GKE defaults to the `standard-rwo` StorageClass.
+  * **For ReadWriteMany claims:** In GKE version 1.37.1 and later, GKE defaults to the `regional-rwx` StorageClass. For more information, see [Default StorageClass assignment](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver#default-rwx).
 
-If you are using a [cluster with Windows node pools](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster-windows), you must create a `StorageClass` and specify a `StorageClassName` in the `PersistentVolumeClaim` because the default fstype (ext4) is not supported with Windows. If you are using a Compute Engine persistent disk, you must use NTFS as the file storage type.
 
-When defining a `StorageClass`, you must list a provisioner. On GKE, we recommend that you use one of the following provisioners:
+
+You can replace the provided default StorageClass with your own. For instructions, see [Change the default StorageClass](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+
+You can create your own StorageClass resources to describe different classes of storage. For example, classes might map to quality-of-service levels, or to backup policies. This concept is sometimes called "profiles" in other storage systems.
+
+If you are using a [cluster with Windows node pools](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster-windows), you must create a StorageClass and specify a `storageClassName` in the PersistentVolumeClaim because the default fstype (ext4) is not supported with Windows. If you are using a Compute Engine persistent disk, you must use NTFS as the file storage type.
+
+When defining a StorageClass, you must list a provisioner. On GKE, we recommend that you use one of the following provisioners:
 
   * [Compute Engine persistent disk CSI](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/gce-pd-csi-driver)
   * [Kubernetes Filestore CSI](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver)
@@ -70,9 +77,9 @@ When defining a `StorageClass`, you must list a provisioner. On GKE, we recommen
 
 ## Dynamically provision PersistentVolumes
 
-Most of the time, you don't need to directly configure `PersistentVolume` objects or create Compute Engine persistent disks. Instead, you can create a `PersistentVolumeClaim` and Kubernetes automatically provisions a persistent disk for you.
+Most of the time, you don't need to directly configure PersistentVolume objects or create Compute Engine persistent disks. Instead, you can create a PersistentVolumeClaim and Kubernetes automatically provisions a persistent disk for you.
 
-The following manifest describes a request for a disk with 30 gibibytes (GiB) of storage whose access mode allows it to be mounted as read-write by a single node. It also creates a Pod that consumes the `PersistentVolumeClaim` as a volume.
+The following manifest describes a request for a disk with 30 gibibytes (GiB) of storage whose access mode allows it to be mounted as read-write by a single node. It also creates a Pod that consumes the PersistentVolumeClaim as a volume.
     
     
     # pvc-pod-demo.yaml
@@ -115,11 +122,11 @@ The following manifest describes a request for a disk with 30 gibibytes (GiB) of
               name: pvc-demo-vol
     
 
-When you create this `PersistentVolumeClaim` object with `kubectl apply -f pvc-pod-demo.yaml`, Kubernetes dynamically creates a corresponding `PersistentVolume` object.
+When you create this PersistentVolumeClaim object with `kubectl apply -f pvc-pod-demo.yaml`, Kubernetes dynamically creates a corresponding PersistentVolume object.
 
-Because the storage class `standard-rwo` uses volume binding mode `WaitForFirstConsumer`, the `PersistentVolume` won't be created until a Pod is scheduled to consume the volume.
+Because the storage class `standard-rwo` uses volume binding mode `WaitForFirstConsumer`, the PersistentVolume won't be created until a Pod is scheduled to consume the volume.
 
-The following example shows the `PersistentVolume` created.
+The following example shows the PersistentVolume created.
     
     
     apiVersion: v1
@@ -164,31 +171,31 @@ The following example shows the `PersistentVolume` created.
       phase: Bound
     
 
-Assuming that you haven't replaced the storage class `standard-rwo`, this `PersistentVolume` is backed by a new, empty Compute Engine persistent disk.
+Assuming that you haven't replaced the storage class `standard-rwo`, this PersistentVolume is backed by a new, empty Compute Engine persistent disk.
 
 **Note:** Modifying the `topology.kubernetes.io/zone` label during the lifetime of a PersistentVolume can result in mount failures.
 
 ## Delete persistent storage
 
-During dynamic provisioning, you can control whether your persistent storage is deleted when a `PersistentVolumeClaim` (PVC) is deleted. To do this, you set the `reclaimPolicy` field in your `StorageClass` configuration to either `Delete` or `Retain`.
+During dynamic provisioning, you can control whether your persistent storage is deleted when a PersistentVolumeClaim (PVC) is deleted. To do this, you set the `reclaimPolicy` field in your StorageClass configuration to either `Delete` or `Retain`.
 
-  * **`reclaimPolicy: Delete`** : This is the default policy. When the PVC is deleted, the `PersistentVolume` (PV) object and the underlying disk (such as a Compute Engine persistent disk) are automatically deleted. Use this policy for temporary workloads or for compliance requirements where data must be cleaned up after a job is complete.
+  * **`reclaimPolicy: Delete`** : This is the default policy. When the PVC is deleted, the PersistentVolume (PV) object and the underlying disk (such as a Compute Engine persistent disk) are automatically deleted. Use this policy for temporary workloads or for compliance requirements where data must be cleaned up after a job is complete.
 
-  * **`reclaimPolicy: Retain`** : If you set this policy, the PV and the underlying disk are not deleted when you delete the PVC. The PV status changes to **`Released`**. The data is preserved, but the volume cannot be used by a new PVC until an administrator manually reclaims it.
+  * **`reclaimPolicy: Retain`** : If you set this policy, the PersistentVolume and the underlying disk are not deleted when you delete the PersistentVolumeClaim. The PersistentVolume status changes to **`Released`**. The data is preserved, but the volume cannot be used by a new PersistentVolumeClaim until an administrator manually reclaims it.
 
 
 
 
 ### Manually managing retained volumes
 
-When a `PersistentVolume` has a `Released` status, you must manually decide what to do with the underlying data and disk.
+When a PersistentVolume has a `Released` status, you must manually decide what to do with the underlying data and disk.
 
-  * **To permanently delete the storage** : You must delete both the Kubernetes `PersistentVolume` resource and the underlying Compute Engine disk.
+  * **To permanently delete the storage** : You must delete both the Kubernetes PersistentVolume resource and the underlying Compute Engine disk.
 
-    1. Delete the `PersistentVolume`: `bash kubectl delete pv <your-pv-name>`
+    1. Delete the PersistentVolume: `bash kubectl delete pv <your-pv-name>`
     2. Find the name of the underlying disk by describing the YAML configuration file for the PV and looking for the `volumeHandle` or a similar field.
     3. Delete the Compute Engine persistent disk: `bash gcloud compute disks delete <your-disk-name> --zone=<your-zone>`
-  * **To reuse the volume** : Reclaiming a volume with a `Released` status for use by another PVC is an advanced task that involves manually cleaning the disk data and editing the `PersistentVolume` object to make it `Available` again. For more information about the detailed procedure, see the official Kubernetes documentation on [Reclaiming a PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming).
+  * **To reuse the volume** : Reclaiming a volume with a `Released` status for use by another PVC is an advanced task that involves manually cleaning the disk data and editing the PersistentVolume object to make it `Available` again. For more information about the detailed procedure, see the official Kubernetes documentation on [Reclaiming a PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming).
 
 
 
@@ -197,17 +204,17 @@ To prevent or mitigate data loss, we also recommend enabling [Backup for GKE](ht
 
 ### Troubleshooting unexpected disk deletion
 
-If you observe that your underlying persistent disks are being deleted when you don't expect them to be, the most common cause is a `reclaimPolicy` field that's set to `Delete` in the `StorageClass` configuration used by your `PersistentVolumeClaim`.
+If you observe that your underlying persistent disks are being deleted when you don't expect them to be, the most common cause is a `reclaimPolicy` field that's set to `Delete` in the StorageClass configuration used by your PersistentVolumeClaim.
 
 To diagnose this issue, complete the following steps:
 
-  1. Check the `StorageClass` of your PVC: `bash kubectl get pvc <your-pvc-name> -o jsonpath='{.spec.storageClassName}'`
+  1. Check the StorageClass of your PVC: `bash kubectl get pvc <your-pvc-name> -o jsonpath='{.spec.storageClassName}'`
 
   2. Inspect the `reclaimPolicy` field: `bash kubectl get sc <your-storageclass-name> -o yaml`
 
   3. **Align the policy with your intent** :
 
-     * If the policy is `Delete` and your application requires data to persist, you must update your application to use a `StorageClass` configuration that sets the policy to `Retain`.
+     * If the policy is `Delete` and your application requires data to persist, you must update your application to use a StorageClass configuration that sets the policy to `Retain`.
      * If the policy is `Delete` and your application is ephemeral or subject to compliance rules requiring data cleanup, then the configuration is correct and working as intended.
 
 
@@ -216,21 +223,24 @@ For more information, see the Kubernetes documentation about [Reclaiming](https:
 
 ### Manage persistent storage during cluster deletion
 
-When a GKE cluster is deleted, GKE retains `PersistentVolume` resources with either the `Delete` or `Retain` reclaim policy.
+When a GKE cluster is deleted, GKE retains PersistentVolume resources with either the `Delete` or `Retain` reclaim policy.
 
-To remove `PersistentVolume` resources when you delete a cluster, you can manually delete the namespace of `PersistentVolumeClaim` resources, which will trigger deletion for `PersistentVolume` objects with the `Delete` policy. Alternatively, you can delete individual `PersistentVolumeClaim` resources. However, GKE doesn't wait before these deletion activities are complete before starting to delete the cluster. So, if you delete a namespace then immediately delete the cluster, `PersistentVolume` resources with `Delete` policies might not be deleted.
+To remove PersistentVolume resources when you delete a cluster, you can manually delete the namespace of PersistentVolumeClaim resources, which will trigger deletion for PersistentVolume objects with the `Delete` policy. Alternatively, you can delete individual PersistentVolumeClaim resources. However, GKE doesn't wait before these deletion activities are complete before starting to delete the cluster. So, if you delete a namespace then immediately delete the cluster, PersistentVolume resources with `Delete` policies might not be deleted.
 
-After cluster deletion, you can view remaining `PersistentVolume` resources in the Google Cloud console.
+After cluster deletion, you can view remaining PersistentVolume resources in the Google Cloud console.
 
-To view any unused resources, such as unused `PersistentVolume` resources, you can [view recommendations for idle resources](https://docs.cloud.google.com/compute/docs/viewing-and-applying-idle-resources-recommendations).
+To view any unused resources, such as unused PersistentVolume resources, you can [view recommendations for idle resources](https://docs.cloud.google.com/compute/docs/viewing-and-applying-idle-resources-recommendations).
 
 ## Access modes
 
-`PersistentVolume` resources support the following [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes):
+PersistentVolume resources support the following [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes):
 
   * **ReadWriteOnce:** The volume can be mounted as read-write by a single node.
   * **ReadOnlyMany:** The volume can be mounted read-only by many nodes.
-  * **ReadWriteMany:** The volume can be mounted as read-write by many nodes. `PersistentVolume` resources that are backed by Compute Engine persistent disks don't support this access mode.
+  * **ReadWriteMany:** The volume can be mounted as read-write by many nodes. The level of support for this mode in GKE depends on the storage type, as follows: 
+    * **Shared file storage:** [Filestore](https://docs.cloud.google.com/filestore/docs) is the recommended solution for multi-writer shared file access on GKE.
+    * **Block storage:** [Hyperdisk Balanced High Availability](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/regional-pd) supports this mode when the PersistentVolumeClaim uses the `volumeMode: Block` setting. This volume mode exposes the disk as a raw block device (vector of bytes) rather than a distributed file system. Your application must manage its own data consistency, such as by using SCSI reservations.
+    * **Standard persistent disks:** Standard Compute Engine persistent disks don't support this access mode.
   * **ReadWriteOncePod:** The volume can be mounted as read-write by a single Pod only.
 
 
@@ -245,7 +255,7 @@ For instructions, refer to [Use persistent disks with multiple readers](https://
 
 ## Use pre-existing persistent disks as PersistentVolumes
 
-Dynamically provisioned `PersistentVolume` resources are empty when they are created. If you have an existing Compute Engine persistent disk populated with data, you can introduce it to your cluster by manually creating a corresponding `PersistentVolume` resource. The persistent disk must be in the same [zone](https://docs.cloud.google.com/compute/docs/regions-zones) as the cluster nodes.
+Dynamically provisioned PersistentVolume resources are empty when they are created. If you have an existing Compute Engine persistent disk populated with data, you can introduce it to your cluster by manually creating a corresponding PersistentVolume resource. The persistent disk must be in the same [zone](https://docs.cloud.google.com/compute/docs/regions-zones) as the cluster nodes.
 
 Refer to this [example of how to create a Persistent Volume backed by a pre-existing persistent disk](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/preexisting-pd).
 
@@ -253,9 +263,9 @@ Refer to this [example of how to create a Persistent Volume backed by a pre-exis
 
 ## Deployments versus StatefulSets
 
-You can use a `PersistentVolumeClaim` or `VolumeClaim` templates in higher level controllers such as [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) or [StatefulSets](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/statefulset) respectively.
+You can use a PersistentVolumeClaim or `VolumeClaim` templates in higher level controllers such as [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) or [StatefulSets](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/statefulset) respectively.
 
-Deployments are designed for [_stateless applications_](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/stateless-apps) so all replicas of a Deployment share the same `PersistentVolumeClaim`. Since the replica Pods created are identical to each other, only volumes with the ReadWriteMany mode can work in this setting.
+Deployments are designed for [_stateless applications_](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/stateless-apps) so all replicas of a Deployment share the same PersistentVolumeClaim. Since the replica Pods created are identical to each other, only volumes with the ReadWriteMany mode can work in this setting.
 
 Even Deployments with one replica using ReadWriteOnce volume are not recommended. This is because the default Deployment strategy creates a second Pod before bringing down the first Pod on a recreate. The Deployment may fail in deadlock as the second Pod can't start because the ReadWriteOnce volume is already in use, and the first Pod won't be removed because the second Pod has not yet started. Instead, use a StatefulSet with ReadWriteOnce volumes.
 
@@ -308,6 +318,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

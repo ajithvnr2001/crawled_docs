@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-transaction-document-update-conditional-async/
 title: Conditionally updating a Firestore document in a transaction (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:55.564284+00:00
+fetched_at: 2026-11-10T09:12:59.694185+00:00
 ---
 
 # Conditionally updating a Firestore document in a transaction (async)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/swift/enable-logging/
 title: Enable logging \u00a0|\u00a0 Swift \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:44:34.329535+00:00
+fetched_at: 2026-11-10T18:26:33.264525+00:00
 ---
 
 # Enable logging  |  Swift  |  Google Cloud Documentation
@@ -45,51 +45,38 @@ The Swift client libraries use Apple's [`swift-log`](https://github.com/apple/sw
              Logging Quickstart --package swift-log
          
 
-  2. Add the imports required to use the client library and `Logging`:
+  2. Add the imports required to use the client library and `Logging`: 
+         
+         import GoogleCloudSecretManagerV1
+         import GoogleGax
+         import Logging
+
+  3. Write a function that receives the project ID as a parameter: 
+         
+         func sample(projectId: String) async throws {
+
+  4. Create a `Logger` and set its `logLevel` to `.debug`. Because the client libraries emit request, response, and error logs at the `.debug` level, a logger with the default `.info` level doesn't output these messages: 
+         
+         var logger = Logger(label: "com.example.my-app")
+         logger.logLevel = .debug
+
+  5. Initialize a client with logging enabled by setting `logger` on `ClientOptions`. Because `Logger` has value semantics, configure `logLevel` (and any custom metadata) before passing `logger` to `ClientOptions`; modifying `logger` afterward doesn't affect the client: 
+         
+         let client = try SecretManagerServiceClient(
+           ClientOptions().with {
+             $0.logger = logger
+           })
+
+  6. Use the client to send a request: 
+         
+         let secrets = client.listSecretsByItems(
+           request: ListSecretsRequest().with { $0.parent = "projects/\(projectId)" })
+         for try await item in secrets {
+           print("  \(item)")
+         }
 
 
 
-    
-    
-    import GoogleCloudSecretManagerV1
-    import GoogleGax
-    import Logging
-
-  1. Write a function that receives the project ID as a parameter:
-
-
-    
-    
-    func sample(projectId: String) async throws {
-
-  1. Create a `Logger` and set its `logLevel` to `.debug`. Because the client libraries emit request, response, and error logs at the `.debug` level, a logger with the default `.info` level doesn't output these messages:
-
-
-    
-    
-    var logger = Logger(label: "com.example.my-app")
-    logger.logLevel = .debug
-
-  1. Initialize a client with logging enabled by setting `logger` on `ClientOptions`. Because `Logger` has value semantics, configure `logLevel` (and any custom metadata) before passing `logger` to `ClientOptions`; modifying `logger` afterward doesn't affect the client:
-
-
-    
-    
-    let client = try SecretManagerServiceClient(
-      ClientOptions().with {
-        $0.logger = logger
-      })
-
-  1. Use the client to send a request:
-
-
-    
-    
-    let secrets = client.listSecretsByItems(
-      request: ListSecretsRequest().with { $0.parent = "projects/\(projectId)" })
-    for try await item in secrets {
-      print("  \(item)")
-    }
 
 ### Expected output
 
@@ -175,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

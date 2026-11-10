@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources/
 title: Configure Gateway resources using Policies \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:28.467984+00:00
+fetched_at: 2026-11-10T18:20:35.962218+00:00
 ---
 
 # Configure Gateway resources using Policies  |  GKE networking  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ When you deploy a Gateway, the GatewayClass configuration determines which load 
 
 You can customize Gateway resources to fit your infrastructure or application requirements by attaching Policies to Gateways, Services, or ServiceImports. After you apply or modify a Policy, the Gateway controller processes it and automatically reconfigures the underlying load balancer resource. This eliminates the need to delete or recreate your Gateway, Route, or Service resources.
 
-You can also use a BackendTLSPolicy to configure backend authenticated TLS settings to verify the identity of the backends that the Gateway connects to. For more information, see [Configure backend TLS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#configure-backend-tls).
+You can also use a BackendTLSPolicy to configure backend authenticated TLS settings to verify the identity of the backends that the Gateway connects to (when using TLS termination with HTTPRoute). For more information, see [Configure backend TLS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway#configure-backend-tls). To pass encrypted TLS traffic directly to backends by using TLSRoute without terminating TLS at the Gateway, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 ## Before you begin
 
@@ -64,23 +64,13 @@ In addition to the GKE Gateway controller [restrictions and limitations](https:/
 
   * GCPGatewayPolicy resources must exist in the same namespace as the target Gateway.
 
-  * When using a single cluster Gateway, GCPBackendPolicy, and HealthCheckPolicy resources must refer to a Service resource.
-
-  * When using a multi-cluster Gateway, GCPBackendPolicy, and HealthCheckPolicy, resources must refer to a ServiceImport resource.
-
-  * Only one GCPBackendPolicy can be attached to a Service at any given time. When two GCPBackendPolicy policies are created that target the same Service or ServiceImport, the oldest policy takes precedence and the second one fails to be attached.
-
   * Hierarchical policies are not supported with GKE Gateway.
-
-  * HealthCheckPolicy, and GCPBackendPolicy resources must exist in the same namespace as the target Service or ServiceImport resource.
-
-  * GCPBackendPolicy and HealthCheckPolicy resources are structured in a way that they can reference only one backend service.
 
   * GCPBackendPolicy does not support `HEADER_FIELD` or `HTTP_COOKIE` options for session affinity. For `HEADER_FIELD` or `HTTP_COOKIE` session affinity, use the GCPTrafficDistributionPolicy resource.
 
   * Don't use the same backend Service across Gateways of different GatewayClass types (such as Global versus Regional, Internal versus External, or Managed versus Classic) if those Gateways require incompatible configurations. For example, a GCPBackendPolicy configured with features unsupported by a "Classic" GatewayClass cannot be applied to a Service that is also used by a "Classic" Gateway. To ensure correct configuration, create a distinct Service for each Gateway that requires different policy settings.
 
-  * Session affinity configured using a GCPTrafficDistributionPolicy is supported for single-cluster Gateways only.
+  * Session affinity configured by using a GCPTrafficDistributionPolicy is supported for single-cluster Gateways only.
 
   * GCPTrafficDistributionPolicy session affinity is not compatible with InferencePool resources because they use dedicated locality load balancing algorithms.
 
@@ -90,12 +80,21 @@ In addition to the GKE Gateway controller [restrictions and limitations](https:/
 
   * When using a multi-cluster Gateway, GCPBackendPolicy and HealthCheckPolicy resources must refer to a ServiceImport or GCPInferencePoolImport resource.
 
-  * Only one GCPBackendPolicy can be attached to a single target resource (Service, ServiceImport, InferencePool, or GCPInferencePoolImport) at any given time. When multiple GCPBackendPolicy resources are created that target the same resource, the oldest policy takes precedence and the newer one fails to be attached.
+  * Only one GCPBackendPolicy for each protocol (`HTTP` or `TCP`) can be attached to a single target resource (Service, ServiceImport, InferencePool, or GCPInferencePoolImport) at any given time. A Service or ServiceImport can have one `HTTP` policy (the default for HTTPRoute backends) and one `TCP` policy (`spec.protocol: TCP`, for TLSRoute backends). When multiple GCPBackendPolicy resources with the same protocol target the same resource, the oldest policy takes precedence and the newer ones aren't attached.
 
   * HealthCheckPolicy and GCPBackendPolicy resources must exist in the same namespace as the target Service, ServiceImport, InferencePool, or GCPInferencePoolImport resource.
 
-  * GCPBackendPolicy and HealthCheckPolicy resources can only target a single resource (such as a Service or InferencePool).
+  * GCPBackendPolicy and HealthCheckPolicy resources can only target a single resource (such as a Service or InferencePool). A GCPBackendPolicy with `spec.protocol: TCP` can only target Service and ServiceImport resources.
 
+  * When using TLS passthrough with TLSRoute, the following apply:
+
+    * BackendTLSPolicy, SSL policies, Google Cloud Armor security policies, IAP, and CORS filters aren't supported.
+    * You can attach a HealthCheckPolicy that uses `TCP` or `SSL` check types and a GCPBackendPolicy to a Service or ServiceImport referenced by a TLSRoute.
+    * A GCPBackendPolicy for a TLSRoute backend (proxy Network Load Balancer) must set the `spec.protocol` field to the `TCP` value (without the `spec.protocol` field, policies default to the `HTTP` value and apply to HTTPRoute backends on Application Load Balancers).
+    * `TCP` policies support only the following fields in the `spec.default` field: `timeoutSec`, `connectionDraining`, `logging.enabled`, `logging.sampleRate`, `sessionAffinity.type` (valid values are `CLIENT_IP` or `NONE`), `capacityScalerPercent`, `balancingMode: CONNECTION`, and `maxConnectionsPerEndpoint`.
+    * If a `TCP` policy targets a ServiceImport resource, you can set the `capacityScalerPercent`, `balancingMode: CONNECTION`, and `maxConnectionsPerEndpoint` fields in the `spec.default.scopes` field instead of in the `spec.default` field. Each scope applies to the backends that match its `selector` field, for example `gke.io/cluster-name`, `gke.io/zone`, or `gke.io/region`.
+    * A `TCP` policy that sets any other field in the `spec.default` field or in a scope, or an `HTTP` policy that sets a `TCP`-only field (`balancingMode: CONNECTION` or `maxConnectionsPerEndpoint`), is rejected on creation.
+    * For more information, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 
 
@@ -189,13 +188,15 @@ You can use a HealthCheckPolicy to control the load balancer health check settin
 
 For your load balancer to function normally, you might need to configure a custom HealthCheckPolicy for your load balancer if your health check path isn't the standard "/". This configuration is also necessary if you need to adjust the health check parameters. For example, if the default request path is "/" but your service can't be accessed at that request path and instead uses "/health" to report its health, then you must configure `requestPath` in your HealthCheckPolicy accordingly.
 
+For TLS passthrough backends that use TLSRoute, configure the health check type as `TCP` or `SSL` (or `HTTP` or `HTTPS` if your backend responds to HTTP health checks on a separate port). A HealthCheckPolicy applies to every backend that uses the targeted Service. If both an HTTPRoute and a TLSRoute reference the same Service, the policy configures the health checks of both routes, which can mark one route's backends unhealthy. To configure health checks for each route separately, use a separate Service for each route. For more information, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
+
 When configuring health checks, keep the following limitations in mind:
 
   * Unlike GKE Ingress, GKE Gateway does not automatically infer health check parameters (such as path, port, or protocol) from your Pod's readiness or liveness probes. If your service does not return a successful response on the default root path (`/`), you must explicitly configure a `HealthCheckPolicy`.
   * Google Cloud health check probes strictly require an HTTP `200` (OK) response code. If your application returns redirects (for example, HTTP `301` or `302`) or client errors (for example, HTTP `401` or `403` on authenticated endpoints) on the probed path, the load balancer will mark the backend unhealthy, resulting in a "No healthy upstream" error.
   * You cannot configure custom HTTP request headers (such as `Authorization` headers) in GKE Gateway `HealthCheckPolicy` probes. If your backend requires authentication headers, you must configure your application to allow unauthenticated access specifically to your dedicated health check path (for example, `/healthz` or `/ping`) for [Google Cloud health check IP ranges](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#ip-ranges).
 
-**Note:** To enable the Gateway controller to process health checks and update parameters, the Service that you define in the health check policy must also be referenced in the HTTPRoute manifest.
+**Note:** To enable the Gateway controller to process health checks and update parameters, the Service that you define in the health check policy must also be referenced in an HTTPRoute or TLSRoute manifest.
 
 The following HealthCheckPolicy manifest shows all the fields available when configuring a health check policy:
 
@@ -1434,7 +1435,7 @@ This manifest has the following fields:
   * `enable: true`: explicitly enables access logging. Logs are available in Logging.
   * `sampleRate: 500000`: specifies that 50% of packets are logged. You can use a value between 0 and 1,000,000. GKE converts this value to a floating point value in the range [0, 1] by dividing by 1,000,000. This field is only relevant if `enable` is set to `true`. `sampleRate` is an optional field, but if it's configured then `enable: true` must also be set. If `enable` is set to `true` and `sampleRate` is not provided then GKE sets `enable` to `false`.
   * `optionalMode: CUSTOM`: specifies that a set of `optionalFields` should be included in log entries.
-  * `optionalFields: tls.cipher, orcaLoadReport.cpu_utilization`: specifies that log entries should include both the name of the cipher used for the TLS handshake and the service's CPU utilization, whenever these are available.
+  * `optionalFields: tls.cipher, orcaLoadReport.cpu_utilization`: specifies that log entries should include both the name of the cipher used for the TLS handshake and the service's CPU utilization, whenever these are available. Supported only when the `spec.protocol` field is `HTTP`.
 
 
 
@@ -1554,11 +1555,11 @@ Create a regional [Cloud Armor security policy](https://docs.cloud.google.com/ar
 
 ## What's next
 
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn how to [deploy a Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
   * Learn more about the [Gateway controller](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
   * Learn how to [reference a Gateway from a resource](https://gateway-api.sigs.k8s.io/references/policy-attachment/#policy-attachment-for-ingress).
   * View the [Policy Types API reference](https://googlecloudplatform.github.io/gke-gateway-api/).
-  * View the [API type definitions](https://github.com/GoogleCloudPlatform/gke-gateway-api).
 
 
 
@@ -1566,6 +1567,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

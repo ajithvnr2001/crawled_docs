@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/adobe/
 title: Overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:20.406980+00:00
+fetched_at: 2026-11-10T18:46:28.562528+00:00
 ---
 
 # Overview  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 **Public preview:** The federated search and actions features are in public preview. This feature is subject to the "Pre-GA Offerings Terms" in the [General Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
 
-The Adobe data store for Gemini Enterprise lets you search, share, and manage your Adobe Creative Cloud assets, customize Adobe Express templates, apply Lightroom presets, and perform Photoshop-style image edits using natural language.
+The Adobe data store for Gemini Enterprise lets you search, share, and manage your Adobe Creative Cloud assets, customize Adobe Express templates, apply Lightroom presets, perform Photoshop-style image edits, and create, compress, OCR, or convert PDFs with Adobe Acrobat using natural language.
 
 ## Supported actions
 
@@ -57,6 +57,19 @@ Image remove blemishes | Removes skin blemishes, spots, and surface imperfection
 Image select by prompt | Select specific objects in the image so you can apply effects or adjustments to those objects only.  
 Image select subject | Selects the main subject or subjects in an image and creates a selection mask.  
 Replace image | Replace or change a visual element in the Express Design with a different image or appearance.  
+  
+The following Adobe Acrobat actions are read-only and always available, so you don't need to enable them.
+
+Action | Description  
+---|---  
+Markdown to PDF | Converts Markdown or plain text from the conversation into a PDF document.  
+PDF compress | Compresses a PDF file to reduce its size while maintaining quality.  
+PDF create | Creates a PDF from documents such as Word, PowerPoint, Excel, images, or text.  
+PDF export | Exports a PDF to other formats, such as Word, PowerPoint, Excel, or RTF.  
+PDF OCR | Applies optical character recognition (OCR) to a scanned PDF so that its text is searchable and selectable.  
+PDF operation status | Checks the status of an asynchronous PDF operation and returns its result once ready.  
+PDF to image | Converts PDF pages to JPEG or PNG images.  
+PDF to Markdown | Converts PDF documents to Markdown for text extraction.  
 **Note:** Additional read-only actions are also available.
 
 ## Limitations
@@ -83,6 +96,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

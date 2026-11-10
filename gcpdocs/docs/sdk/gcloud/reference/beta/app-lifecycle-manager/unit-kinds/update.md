@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/unit-kinds/update/
 title: gcloud beta app-lifecycle-manager unit-kinds update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:40:56.147654+00:00
+fetched_at: 2026-11-10T18:39:28.083252+00:00
 ---
 
 # gcloud beta app-lifecycle-manager unit-kinds update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta app-lifecycle-manager unit-kinds update - update a unit kind
 SYNOPSIS
     
 
-`gcloud beta app-lifecycle-manager unit-kinds update` `UNIT_KIND` [`--location`=`LOCATION`] [`--saas`=`SAAS`] [`--app-params-group`=`APP_PARAMS_GROUP` `--clear-app-params` `--scope-type`=`SCOPE_TYPE`] [`--clear-default-release` | `--default-release`=`DEFAULT_RELEASE`] [`--dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`] | `--add-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`] `--clear-dependencies` | `--remove-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]] [`--input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] | `--add-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] `--clear-input-variable-mappings` | `--remove-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`--output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] | `--add-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] `--clear-output-variable-mappings` | `--remove-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta app-lifecycle-manager unit-kinds update` `UNIT_KIND` [`--location`=`LOCATION`] [`--saas`=`SAAS`] [`--app-params-group`=`APP_PARAMS_GROUP` `--clear-app-params` `--scope-type`=`SCOPE_TYPE`] [`--application-template-component`=`APPLICATION_TEMPLATE_COMPONENT` `--application-template-component-revision`=`APPLICATION_TEMPLATE_COMPONENT_REVISION` `--clear-application-template-component` `--composite-ref-application-template`=`COMPOSITE_REF_APPLICATION_TEMPLATE` `--composite-ref-revision`=`COMPOSITE_REF_REVISION`] [`--clear-default-release` | `--default-release`=`DEFAULT_RELEASE`] [`--dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`] | `--add-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`] `--clear-dependencies` | `--remove-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]] [`--input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] | `--add-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] `--clear-input-variable-mappings` | `--remove-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`--output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] | `--add-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] `--clear-output-variable-mappings` | `--remove-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Update an App Lifecycle Manager unit kind. 
 EXAMPLES
@@ -114,6 +114,18 @@ Scope of the application.
      Global scope. 
 `type-regional`
      Regional scope. 
+Reference to a component and revision in an Application Design Center composite application template. 
+`--application-template-component`=`APPLICATION_TEMPLATE_COMPONENT`
+     Name of the component in the Application Design Center composite application template. 
+`--application-template-component-revision`=`APPLICATION_TEMPLATE_COMPONENT_REVISION`
+     Revision of the component. If the component does not have a revision, this defaults to the revision of the composite application template. 
+`--clear-application-template-component`
+     Set unitKind.applicationTemplateComponent back to default value. 
+Reference to the composite application template. 
+`--composite-ref-application-template`=`COMPOSITE_REF_APPLICATION_TEMPLATE`
+     Full resource name of the Application Design Center composite application template. 
+`--composite-ref-revision`=`COMPOSITE_REF_REVISION`
+     Revision of the composite application template to use. Changes to the revision trigger manual resynchronization. If empty, the application template is ignored. 
 Update default_release. 
 
 At most one of these can be specified: 
@@ -536,12 +548,15 @@ Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for de
 API REFERENCE
      This command uses the `saasservicemgmt/v1beta1` API. The full documentation for this API can be found at: <https://docs.cloud.google.com/app-lifecycle-manager>
 NOTES
-     This command is currently in beta and might change without notice. 
+     This command is currently in beta and might change without notice. This variant is also available: 
+    
+    
+    [gcloud app-lifecycle-manager unit-kinds update](https://docs.cloud.google.com/sdk/gcloud/reference/app-lifecycle-manager/unit-kinds/update)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

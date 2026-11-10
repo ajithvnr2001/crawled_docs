@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/tcp-by-host/
 title: Set up IAP TCP forwarding \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:17:15.192802+00:00
+fetched_at: 2026-11-10T16:58:57.556764+00:00
 ---
 
 # Set up IAP TCP forwarding  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -78,9 +78,13 @@ An FQDN list is a comma-separated list of hostnames, such as `*.internal.company
 Replace the following:
 
   * `YOUR_GROUP_NAME`: your group name. A group name can contain only lowercase letters (a-z) and dashes (-).
+
   * `REGION`: the region in which to create the destination group, such as `us-central1`.
+
   * `IP_RANGE_LIST`: optional. The IP range list, which consists of comma-separated ranges using CIDR notation, such as `10.1.2.0/24,172.0.0.0/8`.
+
   * `FQDN_LIST`: optional. The FQDN list is a comma-separated list of hostnames, such as `*.internal.company.com`. If an FQDN entry has a wildcard prefix, it will match any hostname with the specified ending. Otherwise, it requires an exact match. If a request matches any IP range or FQDN, it is considered a match.
+
 
 
 
@@ -97,13 +101,13 @@ You can view the details of a destination group, modify the destination group, a
 
 ### Console
 
-  1. Go to the [IAP page](https://console.cloud.google.com/iam-admin/iap) and click the **SSH and TCP resources** tab.
+Go to the [IAP page](https://console.cloud.google.com/iam-admin/iap) and click the **SSH and TCP resources** tab.
 
-     * To view the details of a destination group, click the name of the destination group.
+  * To view the details of a destination group, click the name of the destination group.
 
-     * To modify a destination group, select the destination group, and then click the pencil icon to open the **Edit destination group** panel. You can also delete the destination group from this panel.
+  * To modify a destination group, select the destination group, and then click the pencil icon to open the **Edit destination group** panel. You can also delete the destination group from this panel.
 
-     * To remove a destination group, select the destination group, and then click the garbage can icon.
+  * To remove a destination group, select the destination group, and then click the garbage can icon.
 
 
 
@@ -163,9 +167,13 @@ There are three gcloud CLI commands that you can use when working with IAP-TCP: 
 The IAP-TCP commands have been updated to support IP- and FQDN-based tunneling. To switch to IP address or FQDN, do the following when using the commands:
 
   * Specify an IP address or FQDN instead of the instance name.
+
   * Use `--region` instead of `--zone`.
+
   * Use `--dest-group` to specify the destination group to use.
+
   * Use `--network` to specify the name of the VPC network to use.
+
 
 
 
@@ -278,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

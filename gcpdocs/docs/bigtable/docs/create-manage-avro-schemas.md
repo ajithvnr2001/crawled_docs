@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas/
 title: Create and manage Avro schemas \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:44:53.209282+00:00
+fetched_at: 2026-11-10T19:01:16.009838+00:00
 ---
 
 # Create and manage Avro schemas  |  Bigtable  |  Google Cloud Documentation
@@ -29,21 +29,21 @@ Apache Avro schemas in Bigtable let you query individual fields within Avro reco
 
 Uploading an Avro schema bundle doesn't change how you write data to Bigtable. You continue to write Avro records as serialized bytes. The cell payload must contain only the raw bytes, without an embedded schema or schema fingerprint.
 
-After you upload a schema bundle to Bigtable, you can query your Avro data using GoogleSQL for Bigtable, [continuous materialized views](https://docs.cloud.google.com/bigtable/docs/continuous-materialized-views), or [logical views](https://docs.cloud.google.com/bigtable/docs/create-manage-logical-views).
+You can create and manage Avro schema bundles using the Google Cloud console or the Google Cloud CLI. After you upload a schema bundle to Bigtable, you can query your Avro data using GoogleSQL for Bigtable, [continuous materialized views](https://docs.cloud.google.com/bigtable/docs/continuous-materialized-views), or [logical views](https://docs.cloud.google.com/bigtable/docs/create-manage-logical-views).
 
 ## Before you begin
 
-Before you create and manage Avro schema bundles, do the following:
+Before you create and manage Avro schema bundles, make sure that you have a Bigtable instance and table.
 
-  1. Install the [Google Cloud CLI](https://docs.cloud.google.com/bigtable/docs/installing-cloud-sdk).
+If you plan to use the gcloud CLI, do the following:
+
+  1. Install the [gcloud CLI](https://docs.cloud.google.com/bigtable/docs/installing-cloud-sdk).
   2. Initialize the gcloud CLI:
          
          gcloud init
          
 
-  3. Make sure that you have a Bigtable instance and table.
-
-  4. Enable the Cloud Bigtable API and Cloud Bigtable Admin API:
+  3. Enable the Cloud Bigtable API and Cloud Bigtable Admin API:
          
          gcloud services enable bigtable.googleapis.com bigtableadmin.googleapis.com
          
@@ -86,9 +86,36 @@ For more information about Bigtable roles and permissions, see [Access control w
 
 ## Prepare Avro schema files
 
-Before you create an Avro schema bundle, prepare one or more JSON-formatted Avro schema files in the AVSC or JSON file format. Each file must contain a valid, self-contained Avro `record` schema at the top level with all dependencies inlined. If multiple files in a bundle inline the same `record` or `enum` in the same namespace, the definitions must match, including `doc` and `aliases`.
+Before you create an Avro schema bundle, prepare one or more JSON-formatted Avro schema files in the AVSC or JSON file format. Each file must contain a valid, self-contained Avro `record` schema at the top level with all dependencies inlined. In the Google Cloud console, you upload a single AVSC or JSON file. With the gcloud CLI, you can specify a single file or a directory that contains multiple Avro schema files. If multiple files in a bundle inline the same `record` or `enum` in the same namespace, the definitions must match, including `doc` and `aliases`.
 
 ## Create an Avro schema bundle
+
+###  Console 
+
+  1. In the Google Cloud console, open the list of Bigtable instances. 
+
+[ Open the instance list ](https://console.cloud.google.com/bigtable/instances)
+
+  2. Select an instance from the list.
+
+  3. In the navigation menu, click **Bigtable Studio**.
+
+  4. In the **Explorer** pane, next to the table where you want to create a schema bundle, click more_vert **View actions** , and then click **Create schema bundle**.
+
+  5. In the **Create schema bundle** dialog, in the **Schema file (.pb, .avsc, or .json)** field, click **Browse** , and then select your AVSC or JSON Avro schema file. The file size can't exceed 4 MB.
+
+  6. In the **Schema Bundle ID** field, keep the ID that is automatically populated from the filename, or enter a unique ID for the schema bundle.
+
+The ID must be 1 to 50 characters long, can contain only letters, numbers, underscores, and hyphens, can't start with a hyphen, and can't contain a period (`.`) character.
+
+  7. Click **Create**.
+
+The schema bundle opens in a new tab.
+
+
+
+
+###  gcloud 
 
 To create an Avro schema bundle in a table, use the [`gcloud bigtable schema-bundles create`](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/schema-bundles/create) command:
     
@@ -114,6 +141,29 @@ You can view information about schema bundles in a table by retrieving the defin
 
 ### Get an Avro schema bundle definition
 
+###  Console 
+
+  1. In the Google Cloud console, open the list of Bigtable instances. 
+
+[ Open the instance list ](https://console.cloud.google.com/bigtable/instances)
+
+  2. Select an instance from the list.
+
+  3. In the navigation menu, click **Bigtable Studio**.
+
+  4. In the **Explorer** pane, expand the table that contains the schema bundle, and then expand **Schema Bundles**.
+
+  5. Click the schema bundle that you want to view, or next to the schema bundle, click more_vert **View actions** , and then click **View details**.
+
+A tab opens that displays the schema bundle details and the JSON-formatted schema definition.
+
+  6. Optional: To open a query editor tab pre-populated with a sample SQL query that uses the schema bundle, next to the schema bundle, click more_vert **View actions** , and then click **Sample query**.
+
+
+
+
+###  gcloud 
+
 To retrieve the JSON-formatted Avro schema definition for a schema bundle, use the [`gcloud bigtable schema-bundles describe`](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/schema-bundles/describe) command:
     
     
@@ -131,6 +181,27 @@ Replace the following:
 
 
 ### List schema bundles in a table
+
+###  Console 
+
+  1. In the Google Cloud console, open the list of Bigtable instances. 
+
+[ Open the instance list ](https://console.cloud.google.com/bigtable/instances)
+
+  2. Select an instance from the list.
+
+  3. In the navigation menu, click **Bigtable Studio**.
+
+  4. In the **Explorer** pane, expand the table that contains the schema bundles that you want to view.
+
+  5. Expand **Schema Bundles**.
+
+The list of schema bundles in the table appears. If the table doesn't have any schema bundles, **Schema Bundles** isn't displayed.
+
+
+
+
+###  gcloud 
 
 To list the IDs of all schema bundles in a table, including both Avro and protobuf schema bundles, use the [`gcloud bigtable schema-bundles list`](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/schema-bundles/list) command:
     
@@ -151,9 +222,34 @@ To inspect the underlying schema definitions for a specific schema bundle from t
 
 ## Update an Avro schema bundle
 
-To update an Avro schema bundle, use the [`gcloud bigtable schema-bundles update`](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/schema-bundles/update) command. You can only add new Avro record or enum definitions to an existing Avro schema bundle, and you can't change the type of a schema bundle between Avro and protobuf. When you update the bundle, you must pass a file or directory that includes both the new schemas and all existing schemas.
+You can only add Avro record or enum definitions to an existing Avro schema bundle, and you can't change the type of a schema bundle between Avro and protobuf. When you update the bundle, you must provide both the new schemas and all existing schemas.
 
 **Warning:** After you register an Avro record or enum definition in a schema bundle, you can't modify or remove it. To prevent runtime query failures, data corruption, or incorrectly mapped fields, you must read Avro records using the exact schema that you used to write them.
+
+###  Console 
+
+  1. In the Google Cloud console, open the list of Bigtable instances. 
+
+[ Open the instance list ](https://console.cloud.google.com/bigtable/instances)
+
+  2. Select an instance from the list.
+
+  3. In the navigation menu, click **Bigtable Studio**.
+
+  4. In the **Explorer** pane, expand the table that contains the schema bundle, and then expand **Schema Bundles**.
+
+  5. Next to the schema bundle that you want to update, click more_vert **View actions** , and then click **Update**.
+
+  6. In the **Update schema bundle** dialog, in the **Schema file (.pb, .avsc, or .json)** field, click **Browse** , and then select the updated AVSC or JSON Avro schema file. The file size can't exceed 4 MB.
+
+  7. Click **Save**.
+
+
+
+
+###  gcloud 
+
+To update an Avro schema bundle, use the [`gcloud bigtable schema-bundles update`](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/schema-bundles/update) command:
     
     
     gcloud bigtable schema-bundles update SCHEMA_BUNDLE_ID \
@@ -176,6 +272,27 @@ Replace the following:
 If a continuous materialized view or a logical view references a schema bundle, then you can't delete the bundle. Before deleting the bundle, delete any continuous materialized views that reference it. For any logical views that reference the bundle, either update the views to remove the reference or delete them. For more information, see [Create and manage continuous materialized views](https://docs.cloud.google.com/bigtable/docs/manage-continuous-materialized-views) or [Create and manage logical views](https://docs.cloud.google.com/bigtable/docs/create-manage-logical-views).
 
 **Warning:** After you delete an Avro schema bundle, you can't retrieve it.
+
+###  Console 
+
+  1. In the Google Cloud console, open the list of Bigtable instances. 
+
+[ Open the instance list ](https://console.cloud.google.com/bigtable/instances)
+
+  2. Select an instance from the list.
+
+  3. In the navigation menu, click **Bigtable Studio**.
+
+  4. In the **Explorer** pane, expand the table that contains the schema bundle, and then expand **Schema Bundles**.
+
+  5. Next to the schema bundle that you want to delete, click more_vert **View actions** , and then click **Delete**.
+
+  6. In the confirmation dialog, click **Delete**.
+
+
+
+
+###  gcloud 
 
 To delete an Avro schema bundle, use the [`gcloud bigtable schema-bundles delete`](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/schema-bundles/delete) command:
     
@@ -220,9 +337,9 @@ Avro schema bundles have the following limitations:
 
 ## What's next
 
-  * Learn how to [query Avro data](https://docs.cloud.google.com/bigtable/docs/query-avro-data).
-  * Learn how to [create and manage protobuf schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas).
-  * Read the [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview).
+  * Learn how to [query Avro data](https://docs.cloud.google.com/bigtable/docs/query-avro-data)
+  * Learn how to [create and manage protobuf schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas)
+  * Read the [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview)
 
 
 
@@ -230,6 +347,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:38.642559+00:00
+fetched_at: 2026-11-10T16:58:24.369627+00:00
 ---
 
 # Quotas and system limits  |  Agent Registry  |  Google Cloud Documentation
@@ -91,6 +91,16 @@ Maximum A2A skills or tools per service | 100
 Maximum pagination size | 100  
 Maximum member projects per management project for cross-project rollup | 10,000  
   
+## Agentic A2A and downstream service quotas
+
+When your orchestrator agents discover and call [Agent2Agent (A2A)](https://docs.cloud.google.com/agent-registry/a2a-protocol) agents or Model Context Protocol (MCP) tools, Google Cloud evaluates quota consumption across three separate layers:
+
+  * **Registry discovery and management quotas** : the allocation and rate quotas listed in this document govern only registration, management, search, and metadata lookup requests sent to Agent Registry. Runtime agent and tool calls don't consume Agent Registry rate quota after your client looks up a target agent or MCP server endpoint URL.
+  * **Target agent runtime quotas** : each target runtime or Google Cloud service enforces its own rate quotas. For service-specific limits, see the quotas documentation for the target service or [view API-specific quotas](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
+  * **Downstream per-service API and token quotas** : when an A2A agent calls downstream Google Cloud APIs or MCP tools, those calls consume the per-service API rate quotas of the [quota project](https://docs.cloud.google.com/docs/quotas/quota-project) or resource project billed for each request. Autonomous reasoning loops, retries, and parallel subagents can generate bursty traffic against shared project quotas. Monitor usage in [Cloud Quotas](https://docs.cloud.google.com/docs/quotas/overview) and reduce usage by requesting lower quota values as described in [View and manage quotas](https://docs.cloud.google.com/docs/quotas/view-manage). To help cap shared LLM token consumption across outbound agent traffic, configure [token management policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/token-management-overview) on Secure Web Proxy and Agent Gateway.
+
+
+
 ## Get quota and system limit metric names
 
 Quotas and system limits have two types of names: display names and metric names. Display names have spaces and capitalization that make them easier for humans to read. Metric names are more likely to be lowercase and delimited by underscores instead of spaces; the exact format depends on the service.
@@ -139,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

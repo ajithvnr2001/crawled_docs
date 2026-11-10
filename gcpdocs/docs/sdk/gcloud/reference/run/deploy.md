@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/run/deploy/
 title: gcloud run deploy \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T13:56:46.877664+00:00
+fetched_at: 2026-11-10T17:33:22.280787+00:00
 ---
 
 # gcloud run deploy  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -342,9 +342,9 @@ At most one of these can be specified:
 At most one of these can be specified: 
 
 `--build-worker-pool`=`BUILD_WORKER_POOL`
-     Name of the Cloud Build Custom Worker Pool that should be used to build the function. The format of this field is `projects/${PROJECT}/locations/${LOCATION}/workerPools/${WORKERPOOL}` where ${PROJECT} is the project id and ${LOCATION} is the location where the worker pool is defined and ${WORKERPOOL} is the short name of the worker pool. 
+     Name of the Cloud Build private pool that should be used to build the function. The format of this field is `projects/${PROJECT}/locations/${LOCATION}/workerPools/${WORKERPOOL}` where ${PROJECT} is the project id and ${LOCATION} is the location where the worker pool is defined and ${WORKERPOOL} is the short name of the worker pool. 
 `--clear-build-worker-pool`
-     Clears the Cloud Build Custom Worker Pool field. 
+     Clears the Cloud Build private pool field. 
 At most one of these can be specified: 
 
 `--clear-env-vars`
@@ -486,6 +486,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

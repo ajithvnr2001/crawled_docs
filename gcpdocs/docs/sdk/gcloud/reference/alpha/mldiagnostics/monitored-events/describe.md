@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/monitored-events/describe/
 title: gcloud alpha mldiagnostics monitored-events describe \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:05:32.903592+00:00
+fetched_at: 2026-11-10T18:39:33.848347+00:00
 ---
 
 # gcloud alpha mldiagnostics monitored-events describe  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -43,6 +43,19 @@ EXAMPLES
         "analyzerReports": [
           {
             "analyzer": "ICI Link Analyzer",
+            "autoCaptureConfig": {
+              "duration": "10s",
+              "profilerTargets": [
+                "projects/PROJECT_ID/locations/us-central1/machineLearningRuns/my-run-123/profilerTargets/target-0"
+              ]
+            },
+            "autoCaptureDetails": [
+              {
+                "createTime": "2026-05-01T12:00:05Z",
+                "profilerSession": "projects/PROJECT_ID/locations/us-central1/machineLearningRuns/my-run-123/profilerSessions/auto-capture-session-01",
+                "state": "SUCCEEDED"
+              }
+            ],
             "detectionState": "DETECTED",
             "details": "ICI Link issues detected in <instance_ids>: This indicates networking issues on ICI links connected between TPU processors.",
             "recommendedActions": [
@@ -59,6 +72,12 @@ EXAMPLES
         "startTime": "2026-05-01T12:00:00Z",
         "type": "PERFORMANCE_DEGRADATION"
       }
+    
+    
+    To view the details and `dashboardUri` of an auto-captured profiler session from `autoCaptureDetails`, run:
+    
+    
+    [gcloud alpha mldiagnostics profiler-session describe](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/profiler-session/describe) projects/PROJECT_ID/locations/us-central1/machineLearningRuns/my-run-123/profilerSessions/auto-capture-session-01 --format=json
 
 POSITIONAL ARGUMENTS
     
@@ -119,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-21 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

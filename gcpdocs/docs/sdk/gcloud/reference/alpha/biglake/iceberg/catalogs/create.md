@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/iceberg/catalogs/create/
 title: gcloud alpha biglake iceberg catalogs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:48.906561+00:00
+fetched_at: 2026-11-10T18:39:30.870179+00:00
 ---
 
 # gcloud alpha biglake iceberg catalogs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha biglake iceberg catalogs create - create a BigLake Iceberg REST cat
 SYNOPSIS
     
 
-`gcloud alpha biglake iceberg catalogs create` `CATALOG` `--catalog-type`=`CATALOG_TYPE` [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--default-location`=`DEFAULT_LOCATION`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--federated-catalog-type`=`FEDERATED_CATALOG_TYPE`] [`--glue-aws-region`=`GLUE_AWS_REGION`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--glue-warehouse`=`GLUE_WAREHOUSE`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--primary-location`=`PRIMARY_LOCATION`] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-account-identifier`=`SNOWFLAKE_ACCOUNT_IDENTIFIER`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--snowflake-warehouse`=`SNOWFLAKE_WAREHOUSE`] [`--unity-catalog-name`=`UNITY_CATALOG_NAME`] [`--unity-instance-name`=`UNITY_INSTANCE_NAME`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`] [`--workday-base-url`=`WORKDAY_BASE_URL`] [`--workday-tenant`=`WORKDAY_TENANT`] [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha biglake iceberg catalogs create` `CATALOG` `--catalog-type`=`CATALOG_TYPE` [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--default-location`=`DEFAULT_LOCATION`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--federated-catalog-type`=`FEDERATED_CATALOG_TYPE`] [`--glue-aws-region`=`GLUE_AWS_REGION`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--glue-warehouse`=`GLUE_WAREHOUSE`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--primary-location`=`PRIMARY_LOCATION`] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-account-identifier`=`SNOWFLAKE_ACCOUNT_IDENTIFIER`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--snowflake-user-identity-federation-role`=`SNOWFLAKE_USER_IDENTITY_FEDERATION_ROLE`] [`--snowflake-warehouse`=`SNOWFLAKE_WAREHOUSE`] [`--unity-catalog-name`=`UNITY_CATALOG_NAME`] [`--unity-instance-name`=`UNITY_INSTANCE_NAME`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`] [`--workday-base-url`=`WORKDAY_BASE_URL`] [`--workday-tenant`=`WORKDAY_TENANT`] [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a BigLake Iceberg REST catalog. 
 EXAMPLES
@@ -148,6 +148,8 @@ OPTIONAL FLAGS
      The account identifier of the Snowflake catalog to connect to. 
 `--snowflake-role`=`SNOWFLAKE_ROLE`
      The specific role to request for the Snowflake catalog. 
+`--snowflake-user-identity-federation-role`=`SNOWFLAKE_USER_IDENTITY_FEDERATION_ROLE`
+     The Snowflake role used to scope end user access to Snowflake Horizon Catalog for user identity federation. 
 `--snowflake-warehouse`=`SNOWFLAKE_WAREHOUSE`
      The warehouse to connect to in Snowflake. 
 `--unity-catalog-name`=`UNITY_CATALOG_NAME`
@@ -220,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

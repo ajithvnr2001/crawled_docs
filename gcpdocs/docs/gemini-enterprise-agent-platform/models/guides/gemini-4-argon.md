@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon/
 title: Developer's guide to Gemini 4 Argon \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:28:57.026025+00:00
+fetched_at: 2026-11-10T18:35:50.132614+00:00
 ---
 
 # Developer's guide to Gemini 4 Argon  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -808,7 +808,7 @@ For a side-by-side comparison, see [Migrate from Gemini 3.1 Pro](https://docs.cl
 
 To migrate from `gemini-3.1-pro-preview`, do the following:
 
-  1. **Update the model ID** to `gemini-4-argon` (or `gemini-4-argon-cyber-permissive` for Fairwind-approved cybersecurity workloads).
+  1. **Update the model ID** to `gemini-4-argon` (or `gemini-4-argon-cyber-permissive` for cybersecurity workloads approved through the [Fairwind Program](https://deepmind.google/fairwind-program/)).
   2. **Upgrade to the latest Google Gen AI SDK and account for the unified input and output token limit** : Upgrade to `google-genai >= 2.34.0` (Python), `@google/genai >= 2.32.0` (JavaScript/TypeScript), Go `>= 1.77.0`, or Java `>= 1.80.0` for Interactions API automatic continuation (or `>= 2.30.1` Python / `>= 2.29.1` JavaScript on `GenerateContent`). Input and output tokens (including thinking and function calls) share the unified 1,048,576-token limit. For outputs exceeding 65,536 tokens (up to 1,048,576 tokens) on the Interactions API or `GenerateContent`, set `max_output_tokens` greater than 65,536 so the Google Gen AI SDK continues automatically across segments (or use `background=true` or a custom `continuation_token` loop).
   3. **Replace the reasoning budget parameter** : Replace `thinking_budget` and `MINIMAL` with `thinking_level` set to `LOW`, `MEDIUM` (default on `gemini-4-argon`), or `HIGH` (default on `gemini-4-argon-cyber-permissive`) (use lowercase `"low"`, `"medium"`, or `"high"` on the Interactions API).
   4. **Remove explicit caching** and front-load static prompt content (4,096 tokens or more) for automatic implicit caching.
@@ -821,7 +821,7 @@ To migrate from `gemini-3.1-pro-preview`, do the following:
 
 ## Summary checklist for developers
 
-Target model ID: `gemini-4-argon` (or `gemini-4-argon-cyber-permissive` for Fairwind-approved projects), and upgrade to the latest Google Gen AI SDK (Python `google-genai >= 2.34.0`, JS/TS `@google/genai >= 2.32.0`, Go `>= 1.77.0`, Java `>= 1.80.0` for Interactions API automatic continuation; .NET `>= 1.26.0` and Kotlin `>= 1.6.0` for `GenerateContent`) 
+Target model ID: `gemini-4-argon` (or `gemini-4-argon-cyber-permissive` for projects approved through the [Fairwind Program](https://deepmind.google/fairwind-program/)), and upgrade to the latest Google Gen AI SDK (Python `google-genai >= 2.34.0`, JS/TS `@google/genai >= 2.32.0`, Go `>= 1.77.0`, Java `>= 1.80.0` for Interactions API automatic continuation; .NET `>= 1.26.0` and Kotlin `>= 1.6.0` for `GenerateContent`) 
 
 Location: `global`, `us`, or `eu`
 
@@ -857,6 +857,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-types/
 title: Asset types \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:59:42.151658+00:00
+fetched_at: 2026-11-10T16:33:30.560478+00:00
 ---
 
 # Asset types  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -107,12 +107,19 @@ Service | Asset type
 
   * [ ` apigee.googleapis.com/ApiProxy ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.apis) Effective tags aren't supported. Not available in the analysis APIs. 
   * [ ` apigee.googleapis.com/ApiProxyRevision ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.apis.revisions) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/Deployment ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.environments.deployments) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/EndpointAttachment ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.endpointAttachments) Effective tags aren't supported. Not available in the analysis APIs. 
   * [ ` apigee.googleapis.com/Environment ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.environments) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/EnvironmentGroup ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.envgroups) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/EnvironmentGroupAttachment ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.envgroups.attachments) Effective tags aren't supported. Not available in the analysis APIs. 
   * [ ` apigee.googleapis.com/Instance ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances) Effective tags aren't supported. 
   * [ ` apigee.googleapis.com/Organization ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations) Effective tags aren't supported. 
   * [ ` apigee.googleapis.com/SecurityAction ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.environments.securityActions) Not available in the analysis APIs. 
   * [ ` apigee.googleapis.com/SecurityMonitoringCondition ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.securityMonitoringConditions) Not available in the analysis APIs. 
   * [ ` apigee.googleapis.com/SecurityProfileV2 ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.securityProfilesV2) Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/SharedFlow ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sharedflows) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/SharedFlowRevision ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sharedflows.revisions) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` apigee.googleapis.com/TargetServer ` ](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.environments.targetservers) Effective tags aren't supported. Not available in the analysis APIs. 
 
   
 **Apigee API hub** |  [API reference](https://apihub.googleapis.com/$discovery/rest?version=v1)
@@ -633,6 +640,7 @@ Supported [metadata](https://docs.cloud.google.com/compute/docs/metadata/overvie
 **Dataflow** Dataflow asset change history might be incomplete. Data freshness is synchronized every 7 hours. If a sync fails, freshness is delayed until the next successful sync. |  [API reference](https://dataflow.googleapis.com/$discovery/rest?version=v1b3)
 
   * [ ` dataflow.googleapis.com/Job ` ](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs)
+  * [ ` dataflow.googleapis.com/Snapshot ` ](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/Snapshot) Not available in the analysis APIs. 
 
   
 **Dataform** |  [API reference](https://dataform.googleapis.com/$discovery/rest?version=v1beta1)
@@ -833,6 +841,7 @@ Supported [metadata](https://docs.cloud.google.com/compute/docs/metadata/overvie
   * [ ` netapp.googleapis.com/Backup ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.backupVaults.backups) Effective tags aren't supported. 
   * [ ` netapp.googleapis.com/BackupPolicy ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.backupPolicies) Effective tags aren't supported. 
   * [ ` netapp.googleapis.com/BackupVault ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.backupVaults) Effective tags aren't supported. 
+  * [ ` netapp.googleapis.com/HostGroup ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.hostGroups) Not available in the analysis APIs. 
   * [ ` netapp.googleapis.com/KmsConfig ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.kmsConfigs) Effective tags aren't supported. Not available in the analysis APIs. 
   * [ ` netapp.googleapis.com/Replication ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.volumes.replications) Effective tags aren't supported. Not available in the analysis APIs. 
   * [ ` netapp.googleapis.com/Snapshot ` ](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.volumes.snapshots) Effective tags aren't supported. Not available in the analysis APIs. 

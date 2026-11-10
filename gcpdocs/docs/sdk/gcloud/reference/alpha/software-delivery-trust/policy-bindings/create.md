@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/software-delivery-trust/policy-bindings/create/
 title: gcloud alpha software-delivery-trust policy-bindings create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:44.234571+00:00
+fetched_at: 2026-11-10T17:33:56.226753+00:00
 ---
 
 # gcloud alpha software-delivery-trust policy-bindings create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -30,12 +30,12 @@ SYNOPSIS
 
 `gcloud alpha software-delivery-trust policy-bindings create` `POLICY_BINDING` `--enforcement-mode`=`ENFORCEMENT_MODE` `--resource-selectors`=[`matchPattern`=`MATCHPATTERN`],[`path`=`PATH`] [`--async`] [`--custom-gate`=`CUSTOM_GATE`] [`--location`=`LOCATION`] [`--policy`=`POLICY`] [`--policy-revision`=`POLICY_REVISION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(ALPHA)` Bind a policy to target deployment resources with an enforcement mode (e.g. DRY_RUN or DENY). 
+     `(ALPHA)` Bind a policy to target deployment resources with an enforcement mode (e.g. LOG_ONLY or DENY). 
 EXAMPLES
-     To create policy binding 'prod-gke-binding' linking policy 'require-slsa-build' to a GKE cluster in location 'us-central1', run: 
+     To create policy binding 'prod-ar-binding' linking policy 'require-slsa-build' to an Artifact Registry repository in location 'us-central1', run: 
     
     
-    gcloud alpha software-delivery-trust policy-bindings create prod-gke-binding --location=us-central1 --policy=projects/my-project/locations/us-central1/policies/require-slsa-build --enforcement-mode=DENY --resource-selectors="path=//container.googleapis.com/projects/my-project/locations/us-central1/clusters/prod-cluster,matchPattern=EXACT"
+    gcloud alpha software-delivery-trust policy-bindings create prod-ar-binding --location=us-central1 --policy=projects/my-project/locations/us-central1/policies/require-slsa-build --enforcement-mode=DENY --resource-selectors="path=//artifactregistry.googleapis.com/projects/my-project/locations/us-central1/repositories/my-repo,matchPattern=EXACT"
 
 POSITIONAL ARGUMENTS
     
@@ -156,6 +156,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas/
 title: Create and manage protobuf schemas \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:26:02.699986+00:00
+fetched_at: 2026-11-10T19:01:16.578059+00:00
 ---
 
 # Create and manage protobuf schemas  |  Bigtable  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ You can create schema bundles using the Google Cloud console or the Google Cloud
 
 Take the following steps if you plan to use the gcloud CLI:
 
-  1. Install the [Google Cloud CLI](https://docs.cloud.google.com/bigtable/docs/installing-cloud-sdk).
+  1. Install the [gcloud CLI](https://docs.cloud.google.com/bigtable/docs/installing-cloud-sdk).
   2. Initialize the gcloud CLI:
          
          gcloud init
@@ -112,15 +112,15 @@ For example, to create a descriptor set named `library.pb` for the `library.prot
 
   2. Select an instance from the list.
 
-  3. In the navigation pane, click **Bigtable Studio**.
+  3. In the navigation menu, click **Bigtable Studio**.
 
-  4. In the **Explorer** pane, next to the table where you want to create a schema bundle, click the more_vert action menu, and then click **Create schema bundle**.
+  4. In the **Explorer** pane, next to the table where you want to create a schema bundle, click more_vert **View actions** , and then click **Create schema bundle**.
 
-  5. In the **Create schema bundle** dialog, in the **Schema Bundle ID** field, enter a unique identifier for the schema bundle.
+  5. In the **Create schema bundle** dialog, in the **Schema file (.pb, .avsc, or .json)** field, click **Browse** , and then select the protobuf file descriptor set (`.pb` file) that you created in the Generate a protobuf file descriptor set section of this document. The file size can't exceed 4 MB.
+
+  6. In the **Schema Bundle ID** field, keep the ID that is automatically populated from the filename, or enter a unique identifier for the schema bundle.
 
 The ID must be 1 to 50 characters long, can contain only letters, numbers, underscores, and hyphens, can't start with a hyphen, and can't contain the period character (`.`).
-
-  6. In the **File Descriptor Set (.pb file)** field, click **Browse** to select the protobuf file descriptor set that you created in the Generate a protobuf file descriptor set section of this document. The file size can't exceed 4 MB.
 
   7. Click **Create**.
 
@@ -194,15 +194,15 @@ Before you can view information about schema bundles, you need to have a Bigtabl
 
   2. Select an instance from the list.
 
-  3. In the navigation pane, click **Bigtable Studio**.
+  3. In the navigation menu, click **Bigtable Studio**.
 
   4. In the **Explorer** pane, expand the table that contains the schema bundle, and then expand **Schema Bundles**.
 
-  5. Click the schema bundle that you want to view, or click the more_vert action menu next to the schema bundle, and then click **View details**.
+  5. Click the schema bundle that you want to view, or next to the schema bundle, click more_vert **View actions** , and then click **View details**.
 
-A tab opens that displays the schema bundle definition.
+A tab opens that displays the schema bundle details and the schema definition.
 
-  6. Optional: To open a SQL query editor tab with a sample query that uses the schema bundle, click the more_vert action menu next to the schema bundle, and then click **Sample query**.
+  6. Optional: To open a query editor tab pre-populated with a sample SQL query that uses the schema bundle, next to the schema bundle, click more_vert **View actions** , and then click **Sample query**.
 
 
 
@@ -291,13 +291,13 @@ The output is similar to the following:
 
   2. Select an instance from the list.
 
-  3. In the navigation pane, click **Bigtable Studio**.
+  3. In the navigation menu, click **Bigtable Studio**.
 
   4. In the **Explorer** pane, expand the table that contains the schema bundles that you want to view.
 
   5. Expand **Schema Bundles**.
 
-The list of schema bundles in the table appears. If the table doesn't have any schema bundles, the **Schema Bundles** list isn't displayed.
+The list of schema bundles in the table appears. If the table doesn't have any schema bundles, **Schema Bundles** isn't displayed.
 
 
 
@@ -368,13 +368,13 @@ If you're sure that the incompatible changes are safe and want to force an updat
 
   2. Select an instance from the list.
 
-  3. In the navigation pane, click **Bigtable Studio**.
+  3. In the navigation menu, click **Bigtable Studio**.
 
   4. In the **Explorer** pane, expand the table that contains the schema bundle, and then expand **Schema Bundles**.
 
-  5. Next to the schema bundle that you want to update, click the more_vert action menu, and then click **Update**.
+  5. Next to the schema bundle that you want to update, click more_vert **View actions** , and then click **Update**.
 
-  6. In the **Update schema bundle** dialog, in the **File Descriptor Set (.pb file)** field, select the new protobuf file descriptor set. The file size can't exceed 4 MB.
+  6. In the **Update schema bundle** dialog, in the **Schema file (.pb, .avsc, or .json)** field, click **Browse** , and then select the new protobuf file descriptor set (`.pb` file). The file size can't exceed 4 MB.
 
   7. Click **Save**.
 
@@ -453,11 +453,11 @@ You can't delete a schema bundle if it's in use by a continuous materialized vie
 
   2. Select an instance from the list.
 
-  3. In the navigation pane, click **Bigtable Studio**.
+  3. In the navigation menu, click **Bigtable Studio**.
 
   4. In the **Explorer** pane, expand the table that contains the schema bundle, and then expand **Schema Bundles**.
 
-  5. Next to the schema bundle that you want to delete, click the more_vert action menu, and then click **Delete**.
+  5. Next to the schema bundle that you want to delete, click more_vert **View actions** , and then click **Delete**.
 
   6. In the confirmation dialog, click **Delete**.
 
@@ -515,10 +515,10 @@ Schema bundles have the following limitations:
 
 ## What's next
 
-  * Learn how to [query protobuf data](https://docs.cloud.google.com/bigtable/docs/query-protobuf-data).
-  * Learn how to [create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas).
-  * Read about [changing or uncertain queries](https://docs.cloud.google.com/bigtable/docs/schema-design#changing-or-uncertain-queries).
-  * Refer to [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview).
+  * Learn how to [query protobuf data](https://docs.cloud.google.com/bigtable/docs/query-protobuf-data)
+  * Learn how to [create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas)
+  * Read about [changing or uncertain queries](https://docs.cloud.google.com/bigtable/docs/schema-design#changing-or-uncertain-queries)
+  * Refer to [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview)
 
 
 
@@ -526,6 +526,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

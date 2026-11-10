@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/release-notes/
 title: Security Command Center release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:52:12.129391+00:00
+fetched_at: 2026-11-10T18:46:20.609615+00:00
 ---
 
 # Security Command Center release notes  |  Google Cloud Documentation
@@ -26,6 +26,18 @@ This page contains release notes for features and updates to Security Command Ce
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/scc-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+Security Command Center predefined roles are modified. For information about the changes and how to migrate your custom roles, see [Migrating custom roles](https://docs.cloud.google.com/security-command-center/docs/access-control#migration-custom-roles).
+
+Feature
+
+**Preview** : Security Command Center Vulnerability Assessment for Google Cloud helps you detect vulnerabilities and exposed secrets in the container images of your Cloud Run services, jobs, and worker pools with [Vulnerability Assessment for Cloud Run](https://docs.cloud.google.com/run/docs/securing/cloud-run-vulnerability-scanning) ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+For more information, see [Enable and use Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/security-command-center/docs/vulnerability-assessment-google-cloud).
 
 ## November 05, 2026
 
@@ -4369,6 +4381,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

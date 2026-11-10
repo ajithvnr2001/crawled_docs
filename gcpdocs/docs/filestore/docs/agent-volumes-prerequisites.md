@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/agent-volumes-prerequisites/
 title: Set up Filestore agent volumes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:52:52.786176+00:00
+fetched_at: 2026-11-10T16:28:08.110700+00:00
 ---
 
 # Set up Filestore agent volumes  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Set up Filestore agent volumes Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** The Filestore agent volumes feature is available to all Google Cloud customers for evaluation and non-production use. To request access for your Google Cloud project, submit the [Filestore agent volumes access request form](https://forms.gle/vYPkcFiZVoTjf7Ah7). Production support is offered on an allow list basis under a limited GA program. To check your eligibility or to request production support, use the access form. 
+**Note:** Filestore agent volumes are available under an Allowlisted GA (AGA) program. To request access for your Google Cloud project, submit the Filestore agent volumes [access request form](https://forms.gle/vYPkcFiZVoTjf7Ah7). 
 
-Before you create volume pools or provision volumes, you must configure Virtual Private Cloud (VPC) networking using Private Service Connect (PSC), enable the required APIs, and grant the appropriate IAM roles.
+Before you create volume pools or provision volumes, whether you plan to deploy workloads on Google Kubernetes Engine (GKE) or use your own orchestration framework, you must complete a one-time project setup to enable the required APIs, grant IAM roles, initialize the Filestore service agent, and configure Virtual Private Cloud (VPC) networking using Private Service Connect (PSC).
 
 ## Create a project and enable APIs
 
@@ -138,78 +138,18 @@ Replace the following:
   * `PROJECT_ID`: the ID of your Google Cloud project.
   * `REGION`: the region where the volume pool and workloads will reside, such as `us-central1`.
   * `VPC_NETWORK`: the name of an existing VPC network.
-  * `SUBNET_NAME`: the name of a regular VPC subnet in the specified region where Private Service Connect endpoint IP addresses is to be allocated. An example can be the default subnet with the `--purpose` flag set to `PRIVATE`.
+  * `SUBNET_NAME`: the name of a regular VPC subnet in the specified region where Private Service Connect endpoint IP addresses are allocated. For example, you can use the default subnet with the `--purpose` flag set to `PRIVATE`.
 
 
 
-## Create a volume pool and StorageClass
+## Create volume pools
 
-A volume pool provides the shared storage capacity and IOPS for agent volumes. To dynamically provision volumes from your volume pool in GKE, create the volume pool and then define a Kubernetes `StorageClass` that references it.
+[Create and manage volume pools](https://docs.cloud.google.com/filestore/docs/create-volume-pools) to reserve shared regional capacity and IOPS.
 
-### Create a volume pool
+## Choose your orchestration path
 
-To create a sample volume pool, send an HTTP `POST` request to the `volumePools.create` endpoint:
-    
-    
-    curl -X POST \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json; charset=utf-8" \
-        -d '{
-          "description": "Sample volume pool for agent volumes",
-          "network": "projects/PROJECT_ID/global/networks/VPC_NETWORK",
-          "defaultVolumeQuotaMib": 2048,
-        }' \
-        "https://file.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/volumePools?volumePoolId=VOLUME_POOL_ID"
-    
-
-Replace the following:
-
-  * `PROJECT_ID`: the ID of your Google Cloud project.
-  * `VPC_NETWORK`: the name of your PSC-enabled VPC network.
-  * `LOCATION`: the region where the volume pool is deployed, such as `us-central1`.
-  * `VOLUME_POOL_ID`: an identifier for the volume pool, such as `my-volume-pool`.
-
-
-
-For more information, see [Create and manage volume pools](https://docs.cloud.google.com/filestore/docs/create-volume-pools).
-
-### Create a StorageClass
-
-Create a `StorageClass` manifest named `volume-pool-sc.yaml` that references your volume pool:
-    
-    
-    apiVersion: storage.k8s.io/v1
-    kind: StorageClass
-    metadata:
-      name: volume-pool-sc
-    provisioner: filestore.csi.storage.gke.io
-    volumeBindingMode: Immediate
-    reclaimPolicy: Delete
-    allowVolumeExpansion: true
-    parameters:
-      volume-pool: "projects/<var>PROJECT_ID</var>/locations/<var>LOCATION</var>/volumePools/<var>VOLUME_POOL_ID</var>"
-    
-
-Replace the following:
-
-  * `PROJECT_ID`: the ID of your Google Cloud project.
-  * `LOCATION`: the region where the volume pool is deployed.
-  * `VOLUME_POOL_ID`: the identifier of your volume pool.
-
-
-
-If you have an existing GKE cluster with the Filestore CSI driver installed, apply the `StorageClass`:
-    
-    
-    kubectl apply -f volume-pool-sc.yaml
-    
-
-Otherwise, apply this manifest after setting up your cluster in [Set up GKE environment for Filestore agent volumes](https://docs.cloud.google.com/filestore/docs/use-filestore-agent-volumes-gke#create-storageclass).
-
-## What's next
-
-  * Create and manage [volume pools](https://docs.cloud.google.com/filestore/docs/create-volume-pools).
-  * Configure [GKE environment for Filestore agent volumes](https://docs.cloud.google.com/filestore/docs/use-filestore-agent-volumes-gke).
+  * [Set up GKE environment for Filestore agent volumes](https://docs.cloud.google.com/filestore/docs/use-filestore-agent-volumes-gke) to automatically provision and mount volumes using the Filestore CSI driver.
+  * [Use Filestore volumes with your orchestration framework](https://docs.cloud.google.com/filestore/docs/manage-agent-volumes) to provision, clone, tier, and manage individual volumes directly.
 
 
 
@@ -217,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

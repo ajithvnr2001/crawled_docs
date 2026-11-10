@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways/
 title: Deploying Gateways \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:32.001445+00:00
+fetched_at: 2026-11-10T18:12:00.836410+00:00
 ---
 
 # Deploying Gateways  |  GKE networking  |  Google Cloud Documentation
@@ -26,7 +26,7 @@ Send feedback
 
 Deploy Kubernetes Gateway resources to manage how external traffic reaches applications within a single Google Kubernetes Engine (GKE) cluster. Configuring GKE Gateway provides flexible and powerful control over ingress traffic, improving the scalability and reliability of your applications. For example, GKE Gateway offers optimized routing and autoscaling capabilities. These capabilities are essential for low-latency online serving, ensuring a responsive user experience while helping control costs.
 
-To deploy Gateways across multiple clusters or a fleet, see [Deploying Multi-Cluster Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-multi-cluster-gateways). For specific Gateway configurations like cross-namespace routing and HTTP traffic splitting, refer to [Gateway API user guides](https://gateway-api.sigs.k8s.io/guides/).
+To deploy Gateways across multiple clusters or a fleet, see [Deploying Multi-Cluster Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-multi-cluster-gateways). For specific Gateway configurations like cross-namespace routing and HTTP traffic splitting, refer to [Gateway API user guides](https://gateway-api.sigs.k8s.io/guides/). To deploy a Gateway for TLS passthrough applications with SNI-based routing, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 ## Before you begin
 
@@ -81,7 +81,7 @@ For optimal performance, limit the number of Gateways to a maximum of 100. Excee
 
   * You can't automatically generate a Google-managed SSL certificate with Gateways but you can manually create and reference a Google-managed SSL certificate. For more information, see [Secure a Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway).
 
-  * HTTPRoute is the only Route type supported. TCPRoutes, UDPRoutes, and TLSRoutes are not supported. To see a list of fields the GKE Gateway controller supports, see [GatewayClass capabilities](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
+  * HTTPRoute and TLSRoute are supported. TCPRoutes and UDPRoutes are not supported. To see a list of fields the GKE Gateway controller supports, see [GatewayClass capabilities](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
 
   * Custom request and response headers with Gateway or path redirects and URL rewrites with Gateway is only available on GKE version 1.27 or later.
 
@@ -3066,6 +3066,7 @@ Replace the following:
 
 ## What's next
 
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn more about the [Gateway controller](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
   * Learn how to [Configure Gateway resources using Policies](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources).
   * Learn about other Gateway configurations in the [Gateway API](https://gateway-api.sigs.k8s.io/guides/) documentation.
@@ -3076,6 +3077,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

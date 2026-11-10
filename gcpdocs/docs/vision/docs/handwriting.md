@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/handwriting/
 title: Detect handwriting in images \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:20.134440+00:00
+fetched_at: 2026-11-10T16:58:39.041168+00:00
 ---
 
 # Detect handwriting in images  |  Cloud Vision API  |  Google Cloud Documentation
@@ -24,11 +24,11 @@ Send feedback
 **Note:**
 
   * Using this API in a mobile device app? Try [Firebase Machine Learning](https://firebase.google.com/docs/ml) and [ML Kit](https://developers.google.com/ml-kit), which provide platform-specific Android and iOS SDKs for using Cloud Vision services, as well as on-device ML Vision APIs and on-device inference using custom ML models. 
-  * The Vision API now supports offline **asynchronous batch image annotation** for all features. This asynchronous request supports up to 2000 image files and returns response JSON files that are stored in your Cloud Storage bucket. For more information about this feature, refer to [Offline batch image annotation](https://docs.cloud.google.com/vision/docs/batch). 
+  * The Vision API now supports offline **asynchronous batch image annotation** for all features. This asynchronous request supports up to 2000 image files and returns response JSON files that are stored in your Cloud Storage bucket. For more information about this feature, see [Offline batch image annotation](https://docs.cloud.google.com/vision/docs/batch). 
 
-Pricing for document text detection is at the `DOCUMENT_TEXT_DETECTION` rate. Please see the [Pricing](https://cloud.google.com/vision/pricing) page for details.
+Pricing for document text detection is at the `DOCUMENT_TEXT_DETECTION` rate. See the [Pricing](https://cloud.google.com/vision/pricing) page for details.
 
-## Handwriting detection with Optical Character Recognition (OCR)
+## Handwriting detection with optical character recognition (OCR)
 
 The Vision API can detect and extract text from images:
 
@@ -1440,7 +1440,7 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     client = vision.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)(client_options=client_options)
 
-## Try the feature with the Google APIs Explorer
+## Try text and handwriting detection
 
 Try text detection and document text detection in the Google APIs Explorer. You can use the image specified already (`gs://cloud-samples-data/vision/handwriting_image.png`) by clicking **Execute** , or you can specify your own image in its place.
 
@@ -1483,6 +1483,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

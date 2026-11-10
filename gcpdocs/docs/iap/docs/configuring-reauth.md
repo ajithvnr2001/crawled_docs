@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/iap/docs/configuring-reauth/
 title: IAP reauthentication \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:49.300714+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-10T16:58:57.006850+00:00
 ---
 
 # IAP reauthentication  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -44,8 +30,11 @@ IAP reauthentication (or, reauth) is designed to enforce reauthentication polici
 You can use the following methods to manage the reauthentication settings:
 
   * **Login** : End users reauthenticate using their login credentials.
+
   * **Secure key** : End users reauthenticate using their configured security key.
+
   * **Enrolled second factors** : End users reauthenticate using one of their enrolled second factors.
+
 
 
 
@@ -73,8 +62,11 @@ For both policy types, the evaluation process is repeated to determine the `reau
 If both levels have `reauthSettings`, the merged result uses the following:
 
     * The shorter session duration.
+
     * The reauthentication method with the higher precedence.
+
     * The precedence is `Secure key` (highest), `Enrolled second factors` (medium), and `Login` (lowest).
+
   * **Resulting policy type** : The policy type of the merged settings is `MINIMUM`.
 
 
@@ -166,6 +158,7 @@ To set a reauthentication policy, complete the following steps.
 
   1. Go to the [IAP page](https://console.cloud.google.com/security/iap/).   
 [Go to the Identity-Aware Proxy page](https://console.cloud.google.com/security/iap/)
+
   2. Select a project, and then select the resource that you want to set a reauthentication policy on.
 
   3. Open the **Settings** for the resource and under **Reauthentication policy** , select **Configure reauthentication**.
@@ -224,11 +217,17 @@ Where `SETTING_FILE` is:
 Replace the following:
 
   * FOLDER: The folder ID.
+
   * ORGANIZATION: The organization ID.
+
   * PROJECT: The project ID.
+
   * RESOURCE_TYPE: The IAP resource type. Must be `app-engine`, `iap_web`, `compute`, `organization`, or `folder`.
+
   * SERVICE: The service name. This is optional when `resource-type` is set to `compute` or `app-engine`.
+
   * VERSION: The version name. This is not applicable for the `compute` resource type and is optional for the `app-engine` resource type.
+
 
 
 
@@ -278,10 +277,15 @@ For URLs such as `myapp.appspot.com`, `appspot.com` is a public domain, therefor
 ## Known limitations
 
   * Reauthentication is only supported for browser flows. Programmatic [user account access](https://docs.cloud.google.com/iap/docs/authentication-howto#authenticating_a_user_account) isn't supported. For example, mobile and desktop applications cannot reauthenticate users because the resources that require reauthentication are inaccessible to these applications.
+
   * Service accounts and IAP-TCP are exempt from reauthentication requirements.
+
   * Reauthentication does not work with the Identity and Access Management member type `allUsers`.
+
   * [External identities](https://docs.cloud.google.com/iap/docs/enable-external-identities), such as OAuth and SAML, are not supported with reauthentication.
+
   * Workforce Identity Federation identities are not supported for IAP reauthentication.
+
 
 
 
@@ -289,6 +293,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list/
 title: gcloud alpha artifacts docker images list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T20:17:29.195354+00:00
+fetched_at: 2026-11-10T18:39:35.555966+00:00
 ---
 
 # gcloud alpha artifacts docker images list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -39,12 +39,12 @@ A valid image has the format of LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID
 To specify the maximum number of images to list, use the --limit flag. 
 
 EXAMPLES
-     To list images under the current project, repository, and location: 
+     To list images in the default repository, as specified by the `core/project`, `artifacts/location`, and `artifacts/repository` properties: 
     
     
     gcloud alpha artifacts docker images list
 
-To list images with tags under the current project, repository, and location: 
+To list images with tags in the default repository: 
     
     
     gcloud alpha artifacts docker images list --include-tags
@@ -57,13 +57,13 @@ To list images under repository `my-repo`, project `my-project`, in `us-central1
 The following command lists a maximum of five images: 
     
     
-    gcloud alpha artifacts docker images list docker.pkg.dev/my-project/my-repo --limit=5
+    gcloud alpha artifacts docker images list us-central1-docker.pkg.dev/my-project/my-repo --limit=5
 
 POSITIONAL ARGUMENTS
     
 
 [`IMAGE_PATH`]
-     An Artifact Registry repository or a container image. If not specified, default config values are used. 
+     An Artifact Registry repository or a container image. If not specified, the values of the `core/project`, `artifacts/location`, and `artifacts/repository` properties are used. 
 
 A valid docker repository has the format of LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID 
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

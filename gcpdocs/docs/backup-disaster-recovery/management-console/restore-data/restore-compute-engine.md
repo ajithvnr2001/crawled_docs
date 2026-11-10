@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/restore-data/restore-compute-engine/
 title: Restore a Compute Engine instance from the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:14:18.226691+00:00
+fetched_at: 2026-11-10T16:33:03.963238+00:00
 ---
 
 # Restore a Compute Engine instance from the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -24,6 +24,8 @@ Send feedback
 **Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations) in the Backup and DR documentation. 
 
 You can restore images of Compute Engine instances that are protected using the appliance management console. When you restore an image, the backup plan management of the instance is disabled in the **App Manager**.
+
+**Caution:** To recover or replace an active Compute Engine instance or its boot disk, use the **Restore** workflow. Don't use the [**Mount**](https://docs.cloud.google.com/backup-disaster-recovery/management-console/access-data/mount-snapshot-images-of-cloud-instances) feature to replace an active boot disk. Mounting is intended only for data access and verification. Replacing a boot disk with a mounted disk can cause disk signature collisions and boot failures.
 
 The appliance management console lets you restore a local solid-state drive (SSD) VM only if the source VM was configured with local SSD during VM creation. Local solid-state drives (SSDs) are physically attached to the server that hosts your VM instance. Local SSDs are suitable only for temporary storage such as caches, processing space, or low value data. For details, see [local SSDs](https://docs.cloud.google.com/compute/docs/disks/local-ssd) and [Create a VM with a local SSD](https://docs.cloud.google.com/compute/docs/disks/add-local-ssd#create_local_ssd). You cannot restore a VM until the source VM is deleted, because a VM with local SSD cannot be powered off when the VM instance is running.
 
@@ -159,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

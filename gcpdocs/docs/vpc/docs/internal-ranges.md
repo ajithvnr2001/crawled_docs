@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/internal-ranges/
 title: Internal ranges overview \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:00.804072+00:00
+fetched_at: 2026-11-10T16:58:57.407742+00:00
 ---
 
 # Internal ranges overview  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -27,8 +27,9 @@ Internal ranges let you reserve blocks of internal IP addresses and specify how 
 
   * An internal range resource represents an internal IPv4 or IPv6 CIDR block that is allocated from within a VPC network.
   * When you reserve an internal range, you configure the following: 
-    * If the range can be used by Google Cloud resources in its VPC network or is reserved for external use.
-    * How the range can be used if VPC Network Peering is configured.
+    * The purpose of the range—whether the range is used for subnets and child internal ranges, or exclusively for allocating individual global internal IPv4 addresses for Private Service Connect endpoints.
+    * The peering type of the range—how the range can be used if VPC Network Peering is configured.
+    * The usage type of the range—whether the range can be used by Google Cloud resources in its VPC network or is reserved for external use.
     * If the range can overlap with subnets or routes in its parent VPC network.
     * If the range's address block or overlap behavior can be modified.
   * By default, you can't reserve an internal range that contains IP addresses that are used by other Google Cloud resources in the range's VPC network.
@@ -43,6 +44,32 @@ For example, consider a mutable internal range for `10.0.0.0/24` with no overlap
 If you try to create a subnet in the same VPC network that uses the range `10.0.0.0/25`, the subnet creation fails, unless you [associate the subnet with the internal range](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#create-subnets-with-ranges).
 
 If you try to create a route in the same VPC network that uses the range `10.0.0.0/25`, the route creation fails, unless you update the internal range by [setting the `overlaps` property](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#update-overlap) to `OVERLAP_ROUTE_RANGE`.
+
+## Purpose types
+
+The purpose of an internal range resource specifies the types of Google Cloud resources that can allocate IP addresses from the range's CIDR block. The purpose for an internal range can be one of the following:
+
+  * `VPC_SUBNET`: the internal range can be used to [create subnets](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#create-subnets-with-ranges) and smaller child internal ranges. This is the default setting.
+  * `INTERNAL_ADDRESS`: the internal range can be used only to [reserve global internal IPv4 addresses](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#reserve-addresses-with-ranges), for [Private Service Connect endpoints for global Google APIs](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints).
+
+
+
+You can't change the purpose of an internal range after the range is created.
+
+### Internal ranges for Private Service Connect endpoints
+
+You can [reserve a range of global internal IPv4 addresses](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#reserve-endpoints-google-apis) to assign to [Private Service Connect endpoints for global Google APIs](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints).
+
+Internal ranges for Private Service Connect endpoints have the following specifications:
+
+  * The purpose type must be `INTERNAL_ADDRESS`.
+  * The peering type must be `FOR_SELF`.
+  * The usage type must be `FOR_VPC`.
+  * Only IPv4 CIDR blocks are supported—IPv6 CIDR blocks aren't supported.
+  * You can't create this type of internal range if it overlaps with existing subnets or routes. For more information, see [IP address requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements).
+  * You can't create subnets or smaller child internal ranges within an internal range that has the `INTERNAL_ADDRESS` purpose.
+
+
 
 ## Peering types
 
@@ -98,13 +125,14 @@ Internal ranges with usage type `FOR_MIGRATION` must have the peering type `FOR_
 
 The following table describes use cases for internal ranges with different usage and peering combinations. IPv6 internal ranges have specific usage and peering requirements and don't support all of the use cases listed here.
 
-Purpose | Usage type | Peering type | IP version  
+Use case | Purpose type | Peering type | Usage type  
 ---|---|---|---  
-Reserve a range for use only within the range's VPC network. | `FOR_VPC` | `NOT_SHARED` | IPv4  
-Reserve a range specifically for peer VPC networks, preventing resources in the local VPC network from using it. In peer networks, you can assign IP addresses from the range's CIDR block without referring to the internal range resource. | `FOR_VPC` | `FOR_PEER` | IPv4  
-Reserve a range for use outside the range's VPC network, preventing resources in the range's VPC network from using those IP addresses. For IPv6 ranges, prevent [automatic assignment](https://docs.cloud.google.com/vpc/docs/subnets#ipv6-specifications) of the range's IP addresses to new IPv6-only or dual-stack subnets. | `EXTERNAL_TO_VPC` | `FOR_SELF` | IPv4 or IPv6  
-Reserve a range for on-premises use only, preventing resources in the range's VPC network from using those IP addresses. | `EXTERNAL_TO_VPC` | `NOT_SHARED` | IPv4  
-Reserve a range temporarily for migrating a subnet from one VPC network to another. | `FOR_MIGRATION` | `FOR_SELF` | IPv4  
+Reserve a range for use only within the range's VPC network. IPv4 only | `VPC_SUBNET` | `NOT_SHARED` | `FOR_VPC`  
+Reserve a range specifically for peer VPC networks, preventing resources in the local VPC network from using it. In peer networks, you can assign IP addresses from the range's CIDR block without referring to the internal range resource. IPv4 only | `VPC_SUBNET` | `FOR_PEER` | `FOR_VPC`  
+Reserve a range for use outside the range's VPC network, preventing resources in the range's VPC network from using those IP addresses. For IPv6 ranges, prevent [automatic assignment](https://docs.cloud.google.com/vpc/docs/subnets#ipv6-specifications) of the range's IP addresses to new IPv6-only or dual-stack subnets. IPv4 or IPv6 | `VPC_SUBNET` | `FOR_SELF` | `EXTERNAL_TO_VPC`  
+Reserve a range for on-premises use only, preventing resources in the range's VPC network from using those IP addresses. IPv4 only | `VPC_SUBNET` | `NOT_SHARED` | `EXTERNAL_TO_VPC`  
+Reserve a range temporarily for migrating a subnet from one VPC network to another. IPv4 only | `VPC_SUBNET` | `FOR_SELF` | `FOR_MIGRATION`  
+Reserve a range exclusively for allocating global internal IPv4 addresses for [Private Service Connect endpoints for global Google APIs](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints). IPv4 only | `INTERNAL_ADDRESS` | `FOR_SELF` | `FOR_VPC`  
   
 ## IPv4 address allocation strategies
 
@@ -142,6 +170,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

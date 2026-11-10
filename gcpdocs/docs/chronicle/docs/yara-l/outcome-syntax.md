@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/yara-l/outcome-syntax/
 title: Outcome section syntax \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:44.722896+00:00
+fetched_at: 2026-11-10T14:04:37.143712+00:00
 ---
 
 # Outcome section syntax  |  Google Security Operations  |  Google Cloud Documentation
@@ -116,7 +116,7 @@ These outcome variables assign the `risk_score` specified in the rule's `outcome
 
 This rule detects successful logins to high-privilege administrator accounts. It uses the `risk_entity_to_score` keyword to explicitly target the specific user being logged in. Using this variable, the detection ensures that the calculated risk score applies to only to that user and not to other entities involved in the event, such as the source IP address.
 
-For details about how to write a multi-event rule, see [Multiple event rule](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multiple-event-rule).
+For details about how to write a multi-event rule, see [Multiple event rule](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multi-event-queries).
 
 **Note:** While the rule provides the user ID, the system applies the standard resolution logic to consolidate this risk under the Most Reliable Indicator (MRI) for that entity, such as the Windows SID. If a more reliable indicator isn't available, the system attributes the risk score to the user ID.
     
@@ -158,7 +158,7 @@ For details about how to write a multi-event rule, see [Multiple event rule](htt
 
 This rule checks for lateral movement by identifying network connections between internal network segments. It uses `$risk_entity_to_score prefix` to assign risk to multiple entities within a single detection. Both the initiating host (`$risk_entity_to_score_source_asset`) and the targeted user (`$risk_entity_to_score_targeted_user`) have their risk scores updated. The risk engine records other outcome variables that don't use this specific prefix for context, but ignores them (their risk scores remain the same).
 
-For details about how to write a multi-event rule, see [Multiple event rule](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multiple-event-rule) and [Outcome conditionals example rule](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#outcome-conditionals-example-rule).
+For details about how to write a multi-event rule, see [Multiple event rule](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multi-event-queries) and [Outcome conditionals example rule](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#outcome-conditionals).
     
     
     rule lateral_movement_network_connection {
@@ -484,6 +484,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

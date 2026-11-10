@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/release-notes/
 title: Google Security Operations release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:23:59.220836+00:00
+fetched_at: 2026-11-10T12:42:50.869038+00:00
 ---
 
 # Google Security Operations release notes  |  Google Cloud Documentation
@@ -27,6 +27,14 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-security-operations-release-notes.xml) directly. 
 
+## November 08, 2026
+
+Feature
+
+**Operations in Emerging Threats Center General Availability**
+
+The **Operations** feature in the **Emerging Threats Center** feed is now in General Availability (GA). For more information see, [Operations in Emerging Threats Center](https://docs.cloud.google.com/chronicle/docs/secops/release-notes#August_24_2026).
+
 ## November 05, 2026
 
 Feature
@@ -37,13 +45,19 @@ You can now use custom tags for individual activities, comments, tasks, and acti
 
 For more information, see [Add a tag to a Case Wall activity](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin#add-activity-tag).
 
+This feature is being rolled out in waves starting Monday, November 16 and continuing through Thursday, November 19.
+
 ## November 04, 2026
 
 Announcement
 
-**Consolidated Settings and Navigation**
+**[Spotlight Feature] Consolidated Settings and Navigation**
 
-The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and also updates the left navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. Note that the Google SecOps documentation has been updated to reflect the new navigational changes. For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
+The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and also updates the left navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. The Google SecOps documentation has been updated to reflect the new navigational changes.
+
+For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
+
+This feature is being rolled out in waves starting Monday, November 9 and continuing through Thursday, November 12.
 
 ## November 02, 2026
 
@@ -10392,6 +10406,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

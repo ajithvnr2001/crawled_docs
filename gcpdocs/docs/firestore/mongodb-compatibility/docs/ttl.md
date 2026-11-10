@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/ttl/
 title: Manage data retention with TTL indexes \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:07.209214+00:00
+fetched_at: 2026-11-10T18:26:41.221489+00:00
 ---
 
 # Manage data retention with TTL indexes  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation
@@ -261,7 +261,7 @@ Use the [`dropIndex()`](https://www.mongodb.com/docs/manual/reference/method/db.
 
 Note that [Audit logs](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/audit-logging) for dropping a TTL index with the MongoDB API use the method name `google.firestore.admin.v1.FirestoreAdmin.UpdateField`.
 
-**Note:** Dropping a collection using the MongoDB `drop()` command automatically removes the TTL index configured for that collection. Drop collection is in **Preview**.
+**Note:** Dropping a collection using the MongoDB `drop()` command automatically removes the TTL index configured for that collection.
 
 ### Google Cloud Console
 
@@ -313,6 +313,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

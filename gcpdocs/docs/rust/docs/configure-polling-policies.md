@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/rust/docs/configure-polling-policies/
 title: Configuring polling policies \u00a0|\u00a0 Rust \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:27.245254+00:00
+fetched_at: 2026-11-10T17:34:12.242244+00:00
 ---
 
 # Configuring polling policies  |  Rust  |  Google Cloud Documentation
@@ -22,47 +22,48 @@ Send feedback
 
 #  Configuring polling policies Stay organized with collections  Save and categorize content based on your preferences. 
 
-Learn how to configure polling policies for long-running operations. The Google Cloud client libraries for Rust provide helper functions to simplify the progress monitoring of long-running operations (LROs). These helpers use policies to configure polling frequency and determine which polling errors are transient (and can be safely retried) and which are unrecoverable.
+The Cloud Client Libraries for Rust provide helper functions to monitor the progress of long-running operations (LROs). These helpers use policies to configure polling frequency and determine which polling errors are transient and safe to retry, and which are unrecoverable.
 
-Two policies control the behavior of the LRO loops:
+Two policies control the behavior of LRO polling loops:
 
-  * The **polling backoff policy** controls how long the loops wait before polling the status of an LRO that is still in progress.
-  * The **polling error policy** controls what to do on a polling error. Some polling errors are unrecoverable and indicate that the operation was aborted or the caller has no permissions to check the status of the LRO. Other polling errors are transient and indicate a temporary problem in the client network or the service.
+  * The **polling backoff policy** controls how long the loop waits before polling the status of an in-progress LRO.
+  * The **polling error policy** controls how to handle a polling error. Some polling errors are unrecoverable, indicating that the operation stopped or that the caller lacks permission to check its status. Other polling errors are transient and indicate a temporary network or service issue.
 
 
 
-You can set each of these policies independently. Additionally, you can apply a policy to all LROs started on a client or change the policy for a single request.
+You can set each policy independently, either for all LROs started on a client or for an individual request.
 
-## Prerequisites
+## Before you begin
 
-This guide uses the Cloud Storage service to keep the code snippets concrete, but the same concepts apply to any other service using LROs.
+This document uses Cloud Storage to illustrate polling policy configuration, though the same concepts apply to any Google Cloud service that uses LROs.
 
-Before using this guide, follow [Using Cloud Storage with Rust](https://docs.cloud.google.com/rust/docs/quickstart-storage) to enable and authenticate the Cloud Storage API.
+Before running the code in this document, complete the following prerequisites:
 
-For complete setup instructions for the Rust libraries, see [Setting up your development environment](https://docs.cloud.google.com/rust/docs/quickstart).
+  * Follow [Get started with Rust](https://docs.cloud.google.com/rust/docs/quickstart) to set up your development environment.
+  * Follow [Using Cloud Storage with Rust](https://docs.cloud.google.com/rust/docs/quickstart-storage) to set up a Google Cloud project with billing enabled, enable the Cloud Storage API, and configure credentials.
+  * Create a Cloud Storage bucket with [hierarchical namespace](https://docs.cloud.google.com/storage/docs/rename-hns-folders) enabled, create a source folder to rename, and grant your principal an Identity and Access Management (IAM) role with permission to manage folders, such as Storage Admin (`roles/storage.admin`).
 
-## Dependencies
 
-Add the following dependencies to your `Cargo.toml` file:
+
+### Dependencies
+
+Add the required crates to your `Cargo.toml` file:
     
     
-    cargo add google-cloud-storage google-cloud-lro
+    cargo add google-cloud-storage google-cloud-lro google-cloud-gax anyhow
     
 
-## Configure the polling frequency for all requests in a client
+## Configure polling frequency for all requests on a client
 
-If you plan to use the same polling backoff policy for most requests with the same client, consider setting the policy as a client option. This code sample configures the polling frequency for all requests to the Cloud Storage service.
+If you use the same polling backoff policy across most requests on a client, configure the policy on the client builder. The following example configures exponential polling backoff for all LROs started by a `StorageControl` client:
     
     
     pub async fn client_backoff(bucket: &str, folder: &str, dest: &str) -> Result<()> {
-        // Use a type that implements the `PollingBackoffPolicy` trait, in this case
-        // `ExponentialBackoffBuilder`.
         use google_cloud_gax::exponential_backoff::ExponentialBackoffBuilder;
         use google_cloud_lro::Poller;
         use std::time::Duration;
     
         let client = StorageControl::builder()
-            // Initialize the policy with a chosen delay duration.
             .with_polling_backoff_policy(
                 ExponentialBackoffBuilder::new()
                     .with_initial_delay(Duration::from_millis(250))
@@ -72,7 +73,6 @@ If you plan to use the same polling backoff policy for most requests with the sa
             .build()
             .await?;
     
-        // Initiate an LRO using polling.
         let response = client
             .rename_folder()
             .set_name(format!("projects/_/buckets/{bucket}/folders/{folder}"))
@@ -85,43 +85,24 @@ If you plan to use the same polling backoff policy for most requests with the sa
     
         Ok(())
     }
-    
 
-Unless you override the policy with a per-request setting, the policy remains in effect for any long-running operation started by the client.
+Unless you override the policy on an individual request, this configuration applies to every LRO started by the client. In this example, the client library waits 250 ms after the first poll and 500 ms after the second. The delay then doubles to 1 s, 2 s, 4 s, and 8 s before capping at 10 s for all subsequent polls.
 
-For example, the following call will use this policy:
-    
-    
-        let mut operation = client
-            .rename_folder()
-            /* more stuff */
-            .send()
-            .await?;
-    
+## Configure polling frequency for a specific request
 
-In this example call, the client library waits for 250 ms after the first polling attempt, then for 500 ms for the second attempt. Subsequent attempts wait for 1 s, 2 s, 4 s, and 8 s, and then all further attempts wait for 10 s.
-
-## Configure the polling frequency for a specific request
-
-You can configure the polling frequency for an individual request, which overrides any policy set at the client level. For example:
+You can also configure the polling frequency on an individual request builder, which overrides any client-level polling backoff policy. Bring `RequestOptionsBuilder` into scope and call `with_polling_backoff_policy` on the request builder:
     
     
     pub async fn rpc_backoff(bucket: &str, folder: &str, dest: &str) -> Result<()> {
-        // Use a type that implements the `PollingBackoffPolicy` trait, in this case
-        // `ExponentialBackoffBuilder`.
         use google_cloud_gax::exponential_backoff::ExponentialBackoffBuilder;
         use std::time::Duration;
-    
-        // To configure the request, bring the RequestOptionsBuilder trait into
-        // scope.
         use google_cloud_gax::options::RequestOptionsBuilder;
         use google_cloud_lro::Poller;
     
         let client = StorageControl::builder().build().await?;
-        // Create the request builder.
+    
         let response = client
             .rename_folder()
-            // Configure the polling backoff policy.
             .with_polling_backoff_policy(
                 ExponentialBackoffBuilder::new()
                     .with_initial_delay(Duration::from_millis(250))
@@ -130,7 +111,6 @@ You can configure the polling frequency for an individual request, which overrid
             )
             .set_name(format!("projects/_/buckets/{bucket}/folders/{folder}"))
             .set_destination_folder_id(dest)
-            // Issue the polling request as normal.
             .poller()
             .until_done()
             .await?;
@@ -139,35 +119,37 @@ You can configure the polling frequency for an individual request, which overrid
     
         Ok(())
     }
-    
 
-## Configure retryable polling errors for all requests in a client
+## Configure polling error policies for all requests on a client
 
-To configure retryable errors, use a type that implements the `PollingErrorPolicy` trait. The client libraries provide several policies; a conservative choice is `Aip194Strict`. If you plan to use the same polling policy for most requests with the same client, consider setting the policy as a client option.
+To control which polling errors the loop retries and when polling stops, pass a type that implements the `PollingErrorPolicy` trait, such as `Aip194Strict`.
 
-This code sample configures the retryable polling errors for all requests to the Cloud Storage service:
+The polling error policy governs errors only during the LRO wait loop. To handle transient errors when sending the initial request that starts the LRO, also configure a standard retry policy on the client:
     
     
-    pub async fn client_error_policy(bucket: &str, folder: &str, dest: &str) -> Result<()> {
-        // Use a type that implements the `PollingErrorPolicy` trait, in this case
-        // `Aip194Strict`.
+    pub async fn client_errors(bucket: &str, folder: &str, dest: &str) -> Result<()> {
         use google_cloud_gax::polling_error_policy::Aip194Strict;
         use google_cloud_gax::polling_error_policy::PollingErrorPolicyExt;
-        use google_cloud_lro::Poller;
+        use google_cloud_gax::retry_policy;
+        use google_cloud_gax::retry_policy::RetryPolicyExt;
         use std::time::Duration;
+        use google_cloud_lro::Poller;
     
-        // Add the polling policy that you want to use for all long-running
-        // operations.
-        let client = StorageControl::builder()
-            .with_polling_error_policy(
-                Aip194Strict
+        let builder = StorageControl::builder().with_polling_error_policy(
+            Aip194Strict
+                .with_attempt_limit(100)
+                .with_time_limit(Duration::from_secs(300)),
+        );
+    
+        let client = builder
+            .with_retry_policy(
+                retry_policy::Aip194Strict
                     .with_attempt_limit(100)
                     .with_time_limit(Duration::from_secs(300)),
             )
             .build()
             .await?;
     
-        // Initiate an LRO using polling.
         let response = client
             .rename_folder()
             .set_name(format!("projects/_/buckets/{bucket}/folders/{folder}"))
@@ -180,76 +162,22 @@ This code sample configures the retryable polling errors for all requests to the
     
         Ok(())
     }
-    
 
-While the polling error policy handles errors during the LRO wait loop, you can also add a standard retry policy to handle transient errors that might occur when initially sending the request to start the LRO:
-    
-    
-        let client = StorageControl::builder()
-            .with_retry_policy(
-                retry_policy::Aip194Strict
-                    .with_attempt_limit(100)
-                    .with_time_limit(Duration::from_secs(300)),
-            )
-            .build()
-            .await?;
-    
+**Note:** With `Aip194Strict`, which implements [AIP-194](https://google.aip.dev/194), the client library retries transient I/O and `UNAVAILABLE` polling errors. Adding the `PollingErrorPolicyExt` decorators `with_attempt_limit(100)` and `with_time_limit(Duration::from_secs(300))` stops polling after 100 attempts or 300 s, whichever comes first.
 
-Unless you override the policy with a per-request setting, this policy remains in effect for any long-running operation started by the client. For example, if you make the following call:
-    
-    
-        let mut operation = client
-            .rename_folder()
-            /* more stuff */
-            .send()
-            .await?;
-    
+## Configure polling error policies for a specific request
 
-**Note:** The client library treats only `UNAVAILABLE` (see [AIP-194](https://google.aip.dev/194)) as a retryable error and stops polling after 100 attempts or 300 seconds, whichever comes first.
-
-## Configure retryable polling errors for a specific request
-
-You can configure retryable polling errors for a specific request by using a type that implements the `PollingErrorPolicy` trait and bringing the `RequestOptionsBuilder` trait into scope.
-
-This code sample configures retryable polling errors for a specific request to the Cloud Storage service.
+To override the polling error policy for a single request, bring `RequestOptionsBuilder` into scope and call `with_polling_error_policy` on the request builder:
     
     
-    pub async fn rpc_error_policy(bucket: &str, folder: &str, dest: &str) -> Result<()> {
-        // Use a type that implements the `PollingErrorPolicy` trait, in this case
-        // `Aip194Strict`.
+    pub async fn rpc_errors(bucket: &str, folder: &str, dest: &str) -> Result<()> {
         use google_cloud_gax::polling_error_policy::Aip194Strict;
         use google_cloud_gax::polling_error_policy::PollingErrorPolicyExt;
-        // Bring `RequestOptionsBuilder` into scope.
+        use google_cloud_gax::retry_policy;
+        use google_cloud_gax::retry_policy::RetryPolicyExt;
+        use std::time::Duration;
         use google_cloud_gax::options::RequestOptionsBuilder;
-        use std::time::Duration;
         use google_cloud_lro::Poller;
-    
-        let client = StorageControl::builder().build().await?;
-    
-        // Create the request builder.
-        let response = client
-            .rename_folder()
-            // Configure the polling error policy.
-            .with_polling_error_policy(
-                Aip194Strict
-                    .with_attempt_limit(100)
-                    .with_time_limit(Duration::from_secs(300)),
-            )
-            .set_name(format!("projects/_/buckets/{bucket}/folders/{folder}"))
-            .set_destination_folder_id(dest)
-            // Initialize the request.
-            .poller()
-            .until_done()
-            .await?;
-    
-        println!("LRO completed, response={response:?}");
-    
-        Ok(())
-    }
-    
-
-You might also consider adding a retry policy, in the event that the initial request to start the LRO fails:
-    
     
         let client = StorageControl::builder()
             .with_retry_policy(
@@ -260,11 +188,28 @@ You might also consider adding a retry policy, in the event that the initial req
             .build()
             .await?;
     
+        let response = client
+            .rename_folder()
+            .with_polling_error_policy(
+                Aip194Strict
+                    .with_attempt_limit(100)
+                    .with_time_limit(Duration::from_secs(300)),
+            )
+            .set_name(format!("projects/_/buckets/{bucket}/folders/{folder}"))
+            .set_destination_folder_id(dest)
+            .poller()
+            .until_done()
+            .await?;
+    
+        println!("LRO completed, response={response:?}");
+    
+        Ok(())
+    }
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/choose-compute-deployment-option/
 title: Choose a Compute Engine deployment strategy for your workload \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:51.292775+00:00
+fetched_at: 2026-11-10T16:58:38.084405+00:00
 ---
 
 # Choose a Compute Engine deployment strategy for your workload  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ Review and understand the features and relative advantages of the options that y
 **Clusters of compute instances**
     With this option, you create a group of compute instances that are physically located close to each other to provide low-latency, high-bandwidth network connectivity for high performance computing (HPC) and artificial intelligence (AI) workloads. 
 
-  * For CPU-based workloads, you can create clusters using C2, C2D, H3, and H4D machine types. For more information, see [Create HPC clusters on Compute Engine](https://docs.cloud.google.com/compute/docs/instances/create-hpc-compute%20instance).
+  * For CPU-based workloads, you can create clusters using C2, C2D, H3, and H4D machine types. For more information, see [Create HPC clusters on Compute Engine](https://docs.cloud.google.com/compute/docs/instances/create-hpc-vm).
   * For GPU-based workloads, see [AI Hypercomputer](https://docs.cloud.google.com/ai-hypercomputer/docs).
 
 
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

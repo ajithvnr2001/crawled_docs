@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-mysql/integrate-applications-data-agent/
 title: Integrate QueryData with an application \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:32.223546+00:00
+fetched_at: 2026-11-10T16:58:50.629273+00:00
 ---
 
 # Integrate QueryData with an application  |  Data Agents  |  Google Cloud Documentation
@@ -82,6 +82,7 @@ Enable the following services for your project:
 
 ### Required roles and permissions
 
+  * Enable IAM database authentication on the instance by setting the `cloudsql_iam_authentication` database flag to `on` (`cloudsql_iam_authentication=on`). For more information, see [Configure existing instances for IAM database authentication](https://docs.cloud.google.com/sql/docs/mysql/create-edit-iam-instances#configure-existing).
   * Add an IAM user or service account at the instance level. For more information, see [Add an IAM policy binding to a user, service account, or group](https://docs.cloud.google.com/sql/docs/mysql/add-manage-iam-users#add-policy-binding).
   * Grant the `cloudsql.studioUser`, `cloudsql.instanceUser`, and `geminidataanalytics.queryDataUser` roles to the IAM user or service account at the project level. For more information, see [Add IAM policy binding for a project](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding).
   * To create, upload, and manage context sets, grant the Dataplex Catalog Editor (`roles/dataplex.catalogEditor`) or Dataplex Catalog Admin (`roles/dataplex.catalogAdmin`) role to the IAM user or service account at the project level. For more information, see [Context sets permissions](https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions#context-set-permissions).
@@ -98,9 +99,7 @@ For more information, see [Grant database privileges to an individual IAM user o
 To grant the `executesql` permission to Cloud SQL instance and enable the Cloud SQL Data API, run the following command: 
     
     
-    gcloud config set project PROJECT_ID
-    gcloud components update
-    gcloud beta sql instances patch INSTANCE_ID --data-api-access=ALLOW_DATA_API
+    gcloud sql instances patch INSTANCE_ID --project=PROJECT_ID --data-api-access=ALLOW_DATA_API
     
 
 Replace the following: 
@@ -1410,6 +1409,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

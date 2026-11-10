@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/self-managed-gke/
 title: Use Filestore agent volumes with self-managed GKE workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:14:03.754756+00:00
+fetched_at: 2026-11-10T16:20:34.797551+00:00
 ---
 
 # Use Filestore agent volumes with self-managed GKE workloads  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Use Filestore agent volumes with self-managed GKE workloads Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** The Filestore agent volumes feature is available to all Google Cloud customers for evaluation and non-production use. To request access for your Google Cloud project, submit the [Filestore agent volumes access request form](https://forms.gle/vYPkcFiZVoTjf7Ah7). Production support is offered on an allow list basis under a limited GA program. To check your eligibility or to request production support, use the access form. 
+**Note:** Filestore agent volumes are available under an Allowlisted GA (AGA) program. To request access for your Google Cloud project, submit the Filestore agent volumes [access request form](https://forms.gle/vYPkcFiZVoTjf7Ah7). 
 
 If you run standard AI agent benchmarks, developer environments, or automated pipeline workloads on Google Kubernetes Engine (GKE), you can use standard Kubernetes `PersistentVolumeClaim` (PVC) and `Deployment` resources directly with Filestore agent volumes.
 
@@ -69,7 +69,7 @@ The output is similar to the following:
     agent-workspace-pvc   Bound    pvc-12345678-abcd-ef01-2345-6789abcdef01   1Gi        RWX            volume-pool-sc   5s
     
 
-The Filestore CSI driver provisions a new volume within your volume pool in under one second and binds the PVC.
+The Filestore CSI driver rapidly provisions a new volume within your volume pool (typically in less than two seconds) and binds the PVC.
 
 ## Deploy an agent workload
 
@@ -172,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

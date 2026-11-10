@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/detecting-faces/
 title: Detect faces and facial attributes in images \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:13.186788+00:00
+fetched_at: 2026-11-10T15:29:27.781907+00:00
 ---
 
 # Detect faces and facial attributes in images  |  Cloud Vision API  |  Google Cloud Documentation
@@ -179,7 +179,7 @@ Save the request body in a file named `request.json`, and execute the following 
 
 If the request is successful, the server returns a `200 OK` HTTP status code and the response in JSON format.
 
-A `FACE_DETECTION` response includes bounding boxes for all faces detected, landmarks detected on the faces (eyes, nose, mouth, etc.), and confidence ratings for face and image properties (joy, sorrow, anger, surprise, etc.).
+A `FACE_DETECTION` response includes bounding boxes for all faces detected, landmarks detected on the faces (eyes, nose, mouth, etc.), and confidence ratings for face and image properties (such as underexposed, blurred, and headwear). Note that emotion likelihood fields (`joyLikelihood`, `sorrowLikelihood`, `angerLikelihood`, and `surpriseLikelihood`) are deprecated and return `UNKNOWN`.
 
 #### Response
     
@@ -508,10 +508,10 @@ A `FACE_DETECTION` response includes bounding boxes for all faces detected, land
               "tiltAngle": -1.4997566,
               "detectionConfidence": 0.9310801,
               "landmarkingConfidence": 0.5775582,
-              "joyLikelihood": "VERY_LIKELY",
-              "sorrowLikelihood": "VERY_UNLIKELY",
-              "angerLikelihood": "VERY_UNLIKELY",
-              "surpriseLikelihood": "VERY_UNLIKELY",
+              "joyLikelihood": "UNKNOWN",
+              "sorrowLikelihood": "UNKNOWN",
+              "angerLikelihood": "UNKNOWN",
+              "surpriseLikelihood": "UNKNOWN",
               "underExposedLikelihood": "VERY_UNLIKELY",
               "blurredLikelihood": "VERY_UNLIKELY",
               "headwearLikelihood": "POSSIBLE"
@@ -836,10 +836,10 @@ A `FACE_DETECTION` response includes bounding boxes for all faces detected, land
               "tiltAngle": 9.26052,
               "detectionConfidence": 0.5463216,
               "landmarkingConfidence": 0.55711126,
-              "joyLikelihood": "VERY_UNLIKELY",
-              "sorrowLikelihood": "VERY_UNLIKELY",
-              "angerLikelihood": "VERY_UNLIKELY",
-              "surpriseLikelihood": "VERY_UNLIKELY",
+              "joyLikelihood": "UNKNOWN",
+              "sorrowLikelihood": "UNKNOWN",
+              "angerLikelihood": "UNKNOWN",
+              "surpriseLikelihood": "UNKNOWN",
               "underExposedLikelihood": "VERY_UNLIKELY",
               "blurredLikelihood": "UNLIKELY",
               "headwearLikelihood": "VERY_UNLIKELY"
@@ -1164,10 +1164,10 @@ A `FACE_DETECTION` response includes bounding boxes for all faces detected, land
               "tiltAngle": -5.252778,
               "detectionConfidence": 0.38126788,
               "landmarkingConfidence": 0.040030442,
-              "joyLikelihood": "VERY_UNLIKELY",
-              "sorrowLikelihood": "VERY_UNLIKELY",
-              "angerLikelihood": "VERY_UNLIKELY",
-              "surpriseLikelihood": "VERY_UNLIKELY",
+              "joyLikelihood": "UNKNOWN",
+              "sorrowLikelihood": "UNKNOWN",
+              "angerLikelihood": "UNKNOWN",
+              "surpriseLikelihood": "UNKNOWN",
               "underExposedLikelihood": "LIKELY",
               "blurredLikelihood": "VERY_LIKELY",
               "headwearLikelihood": "VERY_UNLIKELY"
@@ -1462,7 +1462,7 @@ Save the request body in a file named `request.json`, and execute the following 
 
 If the request is successful, the server returns a `200 OK` HTTP status code and the response in JSON format.
 
-A `FACE_DETECTION` response includes bounding boxes for all faces detected, landmarks detected on the faces (eyes, nose, mouth, etc.), and confidence ratings for face and image properties (joy, sorrow, anger, surprise, etc.).
+A `FACE_DETECTION` response includes bounding boxes for all faces detected, landmarks detected on the faces (eyes, nose, mouth, etc.), and confidence ratings for face and image properties (such as underexposed, blurred, and headwear). Note that emotion likelihood fields (`joyLikelihood`, `sorrowLikelihood`, `angerLikelihood`, and `surpriseLikelihood`) are deprecated and return `UNKNOWN`.
 
 #### Response
     
@@ -1791,10 +1791,10 @@ A `FACE_DETECTION` response includes bounding boxes for all faces detected, land
               "tiltAngle": -1.4997566,
               "detectionConfidence": 0.9310801,
               "landmarkingConfidence": 0.5775582,
-              "joyLikelihood": "VERY_LIKELY",
-              "sorrowLikelihood": "VERY_UNLIKELY",
-              "angerLikelihood": "VERY_UNLIKELY",
-              "surpriseLikelihood": "VERY_UNLIKELY",
+              "joyLikelihood": "UNKNOWN",
+              "sorrowLikelihood": "UNKNOWN",
+              "angerLikelihood": "UNKNOWN",
+              "surpriseLikelihood": "UNKNOWN",
               "underExposedLikelihood": "VERY_UNLIKELY",
               "blurredLikelihood": "VERY_UNLIKELY",
               "headwearLikelihood": "POSSIBLE"
@@ -2119,10 +2119,10 @@ A `FACE_DETECTION` response includes bounding boxes for all faces detected, land
               "tiltAngle": 9.26052,
               "detectionConfidence": 0.5463216,
               "landmarkingConfidence": 0.55711126,
-              "joyLikelihood": "VERY_UNLIKELY",
-              "sorrowLikelihood": "VERY_UNLIKELY",
-              "angerLikelihood": "VERY_UNLIKELY",
-              "surpriseLikelihood": "VERY_UNLIKELY",
+              "joyLikelihood": "UNKNOWN",
+              "sorrowLikelihood": "UNKNOWN",
+              "angerLikelihood": "UNKNOWN",
+              "surpriseLikelihood": "UNKNOWN",
               "underExposedLikelihood": "VERY_UNLIKELY",
               "blurredLikelihood": "UNLIKELY",
               "headwearLikelihood": "VERY_UNLIKELY"
@@ -2447,10 +2447,10 @@ A `FACE_DETECTION` response includes bounding boxes for all faces detected, land
               "tiltAngle": -5.252778,
               "detectionConfidence": 0.38126788,
               "landmarkingConfidence": 0.040030442,
-              "joyLikelihood": "VERY_UNLIKELY",
-              "sorrowLikelihood": "VERY_UNLIKELY",
-              "angerLikelihood": "VERY_UNLIKELY",
-              "surpriseLikelihood": "VERY_UNLIKELY",
+              "joyLikelihood": "UNKNOWN",
+              "sorrowLikelihood": "UNKNOWN",
+              "angerLikelihood": "UNKNOWN",
+              "surpriseLikelihood": "UNKNOWN",
               "underExposedLikelihood": "LIKELY",
               "blurredLikelihood": "VERY_LIKELY",
               "headwearLikelihood": "VERY_UNLIKELY"
@@ -2699,6 +2699,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

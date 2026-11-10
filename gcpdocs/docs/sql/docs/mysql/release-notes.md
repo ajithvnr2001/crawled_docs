@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/release-notes/
 title: Cloud SQL for MySQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:53:09.961631+00:00
+fetched_at: 2026-11-10T18:46:40.391733+00:00
 ---
 
 # Cloud SQL for MySQL release notes  |  Google Cloud Documentation
@@ -27,6 +27,32 @@ This page documents production updates to Cloud SQL for MySQL. You can check thi
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-mysql-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+The [C4D machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d) is available for Cloud SQL for MySQL Enterprise Plus instances in the following regions:
+
+  * `africa-south1` — Johannesburg
+  * `asia-northeast1` — Tokyo
+  * `europe-west1` — Belgium
+  * `europe-west2` — London
+  * `europe-west3` — Frankfurt
+  * `europe-west4` — Netherlands
+  * `europe-west9` — Paris
+  * `us-east1` — South Carolina
+  * `us-east4` — Northern Virginia
+
+
+
+The C4D machine series provides the following benefits:
+
+  * Runs on 5th Generation AMD EPYC processors (Turin) and Google Titanium.
+  * Uses Hyperdisk Balanced storage with customizable IOPS and throughput.
+  * Delivers consistent, predictable high performance for demanding workloads.
+
+
 
 ## October 30, 2026
 

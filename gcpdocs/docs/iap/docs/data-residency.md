@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/data-residency/
 title: Data residency overview \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:48.333905+00:00
+fetched_at: 2026-11-10T16:58:57.320505+00:00
 ---
 
 # Data residency overview  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -35,8 +35,10 @@ Identity-Aware Proxy is enabled on a load balancer, and will support _at most_ t
 
 The following data is considered _in use_ by IAP:
 
-  * Request headers, for example `"foo": "bar"
-  * URL query parameters, such as "?param=data"
+  * Request headers, for example `"foo": "bar"`
+
+  * URL query parameters, such as `"?param=data"`
+
 
 **Warning:** IAP will only enforce data residency for query parameters in the _URL query parameter string_. Any parameters embedded in the path, for example "/param(data)", and the path itself are not enforced.
 
@@ -62,6 +64,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

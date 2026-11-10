@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/configure-data-transformer-script-task/
 title: Data Transformer task \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:08:53.237315+00:00
+fetched_at: 2026-11-10T11:44:47.412646+00:00
 ---
 
 # Data Transformer task  |  Application Integration  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-27T18:08:53.237315+00:00
 Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
 # Data Transformer task
-
-**Preview — BigQuery Connector**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The **Data Transformer** task provides two modes– _Diagram and Script_ –to transform your data. In the _Diagram_ mode, you use a visual mapping canvas, called the Data Transformer editor, to perform data assignments and mappings in your integration. In addition, you can also use the supported transformations to transform your data into meaningful variables and formats to make them accessible to other tasks or triggers in your integration. In the _Script_ mode, you can write, edit, and evaluate custom [Jsonnet](https://jsonnet.org/) templates to perform data mapping in your integration. 
 
@@ -53,7 +49,7 @@ If you are creating a new integration:
   4. In the _integration editor_ navigation bar, click **Tasks** to view the list of available tasks and connectors. 
   5. Click and place the **Data Transformer** element in the integration editor.
   6. Click the **Data Transformer** element to view the task configuration pane.
-  7. Click **Open Data Transformer editor**. In the **Data Transformer (preview) Task Editor** page, select one of the following options:
+  7. Click **Open Data Transformer editor**. In the **Data Transformer Task Editor** page, select one of the following options:
      * By default, the **Diagram** mode opens. The **Diagram** mode provides a console-based experience to select the input and output variables and perform transformations in the data transformation editor. 
 
 In the **Diagram** mode, you can visually perform data mapping between input and output variables.
@@ -218,7 +214,7 @@ For information about the usage limits that apply to the **Data Transformer** ta
 
      * Learn about the following: 
        * [All tasks and triggers](https://docs.cloud.google.com/application-integration/docs/all-triggers-tasks).
-       * [Data Transformer functions](https://docs.cloud.google.com/application-integration/docs/data-transformer-functions-reference) ([Preview](https://cloud.google.com/terms/service-terms#1))
+       * [Data Transformer functions](https://docs.cloud.google.com/application-integration/docs/data-transformer-functions-reference)
        * [Testing and publishing integrations](https://docs.cloud.google.com/application-integration/docs/test-publish-integrations).
        * [Error handling](https://docs.cloud.google.com/application-integration/docs/error-handling-strategy).
      * [Integration execution logs](https://docs.cloud.google.com/application-integration/docs/introduction-logs).
@@ -229,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

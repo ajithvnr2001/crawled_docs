@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/custom-modules-sha-test/
 title: Test custom modules for Security Health Analytics \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:30:13.961199+00:00
+fetched_at: 2026-11-10T18:46:22.041979+00:00
 ---
 
 # Test custom modules for Security Health Analytics  |  Security Command Center  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ This page explains how to test Security Health Analytics custom modules in the G
 Before you can test custom modules, you need to satisfy the following prerequisites:
 
   * All of the general prerequisites that apply to using Security Health Analytics custom modules. For the full list of prerequisites, see [Using custom modules for Security Health Analytics](https://docs.cloud.google.com/security-command-center/docs/custom-modules-sha-create#before_you_begin).
-  * Your user account must be granted one or more Identity and Access Management (IAM) roles that allow you to not only work with Security Command Center and custom modules, but also includes the `securitycenter.securityhealthanalyticscustommodules.test` permission. For more about the permissions and roles you need to work with custom modules, see [Required IAM permissions](https://docs.cloud.google.com/security-command-center/docs/custom-modules-sha-create#iam-for-custom-modules).
+  * Your user account must be granted one or more Identity and Access Management (IAM) roles that allow you to not only work with Security Command Center and custom modules, but also includes the `securitycentermanagement.securityhealthanalyticscustommodules.test` permission. For more about the permissions and roles you need to work with custom modules, see [Required IAM permissions](https://docs.cloud.google.com/security-command-center/docs/custom-modules-sha-create#iam-for-custom-modules).
   * API calls to test custom modules are subject to a quota. For more information, see [Custom module quotas](https://docs.cloud.google.com/security-command-center/docs/custom-modules-sha-overview#custom_module_quotas).
 
 
@@ -39,7 +39,7 @@ Before you can test custom modules, you need to satisfy the following prerequisi
 
 To test a custom module, you define fake resource definitions, fake policy definitions, or both in a YAML file.
 
-The definitions do not correspond to real resource or policy instances, but the definitions must conform to the schemas of the resource or policy types that are specified in your custom modules.
+The definitions don't correspond to real resource or policy instances, but the definitions must conform to the schemas of the resource or policy types that are specified in your custom modules.
 
 In your test definitions, the only properties that you need to specify are the properties that your custom modules evaluate. You don't need to include resource properties that the custom module doesn't reference.
 
@@ -157,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

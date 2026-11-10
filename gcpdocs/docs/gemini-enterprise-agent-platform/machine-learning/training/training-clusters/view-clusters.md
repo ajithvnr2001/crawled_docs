@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters/
 title: View clusters \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:26:25.594039+00:00
+fetched_at: 2026-11-10T18:58:28.673082+00:00
 ---
 
 # View clusters  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -209,10 +209,24 @@ The response is a `ModelDevelopmentCluster` resource. Alongside the cluster's co
   * `clusterStatus.state`: the state of the cluster, one of `PROVISIONING`, `RUNNING`, `UPDATING`, `STOPPING`, or `ERROR`. The Google Cloud console shows `PROVISIONING` as **Creating**.
   * `clusterStatus.nodesStatus[]`: one entry for each node in the cluster, giving the node's `nodeState` (`PREPARING`, `RUNNING`, `UPDATING`, or `ERROR`), its Compute Engine instance name, its node pool, and the time its state last changed.
   * `clusterStatus.detail`: a human-readable description of the cluster's status, when one is available.
+  * `clusterStatus.infrastructureNotices[]`: active infrastructure maintenance notices for the cluster, when any are present. For more information, see Cluster maintenance.
 
 
 
 For a description of the configuration fields, see the [parameter reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#param-reference).
+
+## Cluster maintenance
+
+Gemini Enterprise Agent Platform training clusters periodically updates the cluster management software on a running cluster, such as the Slurm controller. During or after a maintenance update, the Google Cloud console shows a notice in the **Status** column on the **Training Clusters** page and in a banner on the **Cluster details** page. In the Agent Platform API, active notices appear in the `clusterStatus.infrastructureNotices` field.
+
+The following maintenance notices can appear:
+
+  * **Maintenance in progress** : The cluster is undergoing infrastructure maintenance and might be temporarily unavailable. Wait for the maintenance update to finish before submitting new Slurm jobs or updating the cluster.
+  * **Incomplete maintenance** : An unexpected issue prevented the maintenance update from completing. The cluster remains functional, and no action is needed if your workloads are running normally. If the cluster is partially inaccessible or Slurm commands fail, contact your Google representative or the Google Cloud support team with your project ID, cluster ID, and region.
+
+
+
+Maintenance notices clear automatically when maintenance is finished.
 
 ## What's next
 
@@ -227,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

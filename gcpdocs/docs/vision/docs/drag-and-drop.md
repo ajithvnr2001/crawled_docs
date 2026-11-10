@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/vision/docs/drag-and-drop/
-title: Try it! \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
+title: Try the Cloud Vision API: Interactive image analysis demo \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:22.287026+00:00
+fetched_at: 2026-11-10T18:46:32.851515+00:00
 ---
 
-# Try it!  |  Cloud Vision API  |  Google Cloud Documentation
+# Try the Cloud Vision API: Interactive image analysis demo  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/vision/docs/drag-and-drop/
 
@@ -19,12 +19,16 @@ fetched_at: 2026-11-09T05:47:22.287026+00:00
 
 Send feedback 
 
-#  Try it! Stay organized with collections  Save and categorize content based on your preferences. 
+#  Try the Cloud Vision API: Interactive image analysis demo Stay organized with collections  Save and categorize content based on your preferences. 
 
-Use the following application to return image annotations for your image file. Click the **Show JSON** button to view the raw response.
+Use the following interactive web application to evaluate Cloud Vision and return image annotations for your image file. Test computer vision capabilities such as object detection, label detection, [optical character recognition (OCR)](https://docs.cloud.google.com/vision/docs/ocr), and [SafeSearch](https://docs.cloud.google.com/vision/docs/detecting-safe-search) detection. Click the **Show JSON** button to view the raw API response.
+
+## Interactive image demo
+
+Before you try the demo, note the following requirements and limitations:
 
   * Maximum file size is 20 MB.
-  * You must use a [supported image type](https://docs.cloud.google.com/vision/docs/supported-files). PDF and TIFF files are not supported for the demo.
+  * You must use a [supported image format](https://docs.cloud.google.com/vision/docs/supported-files). PDF and TIFF files are not supported for the demo.
   * Your browser must have JavaScript enabled.
   * The demo text† is available only in English. However, you can provide images in any of the [supported languages](https://docs.cloud.google.com/vision/docs/languages).
 
@@ -32,10 +36,12 @@ Use the following application to return image annotations for your image file. C
 
 This demo uses the `builtin/latest` model for text detection. See [Release notes](https://docs.cloud.google.com/vision/docs/release-notes) for a list of recently updated models in Vision API. 
 
+## Demo instructions and controls
+
 †  
 **Demo instructions** : Try the API. Drag an image file here or browse from your computer.
 
-**Demo tabs** : Objects, Labels, Properties (Dominant Colors, Crop Hints, Aspect Ratio), Safe Search (Adult, Spoof, Medical, Violence, Racy, "Likeliness values are Unknown, Very Unlikely, Unlikely, Possible, Likely, and Very Likely").
+**Demo tabs** : Objects, Labels, Properties (Dominant Colors, Crop Hints, Aspect Ratio), Safe Search (Adult, Spoof, Medical, Violence, Racy). Likeliness values are Unknown, Very Unlikely, Unlikely, Possible, Likely, and Very Likely.
 
 **Demo buttons** : Show JSONexpand_more, replayReset, uploadNew file.
 
@@ -49,6 +55,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

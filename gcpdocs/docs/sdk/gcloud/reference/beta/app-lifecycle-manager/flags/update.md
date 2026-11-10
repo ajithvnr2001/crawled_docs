@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/flags/update/
 title: gcloud beta app-lifecycle-manager flags update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:44.956277+00:00
+fetched_at: 2026-11-10T18:39:23.033068+00:00
 ---
 
 # gcloud beta app-lifecycle-manager flags update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta app-lifecycle-manager flags update - update Flag
 SYNOPSIS
     
 
-`gcloud beta app-lifecycle-manager flags update` (`FLAG` : `--location`=`LOCATION`) [`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultTarget`=`DEFAULTTARGET`],[`rules`=`RULES`]] [`--state`=`STATE`] [`--variants`=[`booleanValue`=`BOOLEANVALUE`],[`description`=`DESCRIPTION`],[`doubleValue`=`DOUBLEVALUE`],[`id`=`ID`],[`integerValue`=`INTEGERVALUE`],[`stringValue`=`STRINGVALUE`]] [`--annotations`=[`ANNOTATIONS`,…] | `--update-annotations`=[`UPDATE_ANNOTATIONS`,…] `--clear-annotations` | `--remove-annotations`=`REMOVE_ANNOTATIONS`] [`--clear-description` | `--description`=`DESCRIPTION`] [`--clear-flag-set` | `--flag-set`=`FLAG_SET`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta app-lifecycle-manager flags update` (`FLAG` : `--location`=`LOCATION`) [`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultAllocation`=`DEFAULTALLOCATION`],[`defaultVariant`=`DEFAULTVARIANT`],[`rules`=`RULES`]] [`--state`=`STATE`] [`--variants`=[`booleanValue`=`BOOLEANVALUE`],[`description`=`DESCRIPTION`],[`doubleValue`=`DOUBLEVALUE`],[`id`=`ID`],[`integerValue`=`INTEGERVALUE`],[`stringValue`=`STRINGVALUE`]] [`--annotations`=[`ANNOTATIONS`,…] | `--update-annotations`=[`UPDATE_ANNOTATIONS`,…] `--clear-annotations` | `--remove-annotations`=`REMOVE_ANNOTATIONS`] [`--clear-description` | `--description`=`DESCRIPTION`] [`--clear-flag-set` | `--flag-set`=`FLAG_SET`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Update the definition of a feature flag. This command modifies the flag's configuration such as variants, evaluation logic, or metadata within its parent UnitKind. 
 
@@ -82,7 +82,7 @@ To update a percentage rollout (50% Enabled) using a userID attribute, run:
     gcloud beta app-lifecycle-manager flags update my-flag --location=global --evaluation-spec='{"allocations": [{"id": "p10",
     "randomizedOn": "userID", "slots": [{"variant": "Disabled",
     "weight": 50}, {"variant": "Enabled", "weight": 50}]}],
-    "defaultTarget": "p10", "attributes":
+    "defaultAllocation": "p10", "attributes":
     ["projects/my-project/locations/global/flagAttributes/id-attr"]}'
 
 To add labels to a flag, run: 
@@ -138,7 +138,7 @@ To set the `location` attribute:
 FLAGS
     
 
-`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultTarget`=`DEFAULTTARGET`],[`rules`=`RULES`]
+`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultAllocation`=`DEFAULTALLOCATION`],[`defaultVariant`=`DEFAULTVARIANT`],[`rules`=`RULES`]
      Specification of how the Flag value should be evaluated. 
 
 `allocations`
@@ -159,26 +159,30 @@ FLAGS
      Weight defines the proportion of traffic to allocate to the variant, relative to other slots in the same allocation. 
 `attributes`
      Names of the context attributes that are used in the evaluation rules and allocations. 
-`defaultTarget`
-     Default variant for the flag. 
+`defaultAllocation`
+     ID of an allocation to use as the default. 
+`defaultVariant`
+     Name of a variant to use as the default. 
 `rules`
      Define the logic for evaluating the flag against a given context. The rules are evaluated sequentially in their specified order. 
 
+`allocationId`
+     ID of an allocation to target. 
 `condition`
      A Common Expression Language (CEL cel.dev) expression evaluated against the evaluation context. For example: `plan == "premium" && country == "DE"`. 
 `id`
      A unique identifier for the rule. 
-`target`
-     The ID of the variant to return if the condition evaluates to true. 
+`variantId`
+     Name of a variant to target. 
 `Shorthand Example:`
     
     
-    --evaluation-spec=allocations=[{description=string,id=string,randomizedOn=string,slots=[{variant=string,weight=int}]}],attributes=[string],defaultTarget=string,rules=[{condition=string,id=string,target=string}]
+    --evaluation-spec=allocations=[{description=string,id=string,randomizedOn=string,slots=[{variant=string,weight=int}]}],attributes=[string],defaultAllocation=string,defaultVariant=string,rules=[{allocationId=string,condition=string,id=string,variantId=string}]
 
 `JSON Example:`
     
     
-    --evaluation-spec='{"allocations": [{"description": "string", "id": "string", "randomizedOn": "string", "slots": [{"variant": "string", "weight": int}]}], "attributes": ["string"], "defaultTarget": "string", "rules": [{"condition": "string", "id": "string", "target": "string"}]}'
+    --evaluation-spec='{"allocations": [{"description": "string", "id": "string", "randomizedOn": "string", "slots": [{"variant": "string", "weight": int}]}], "attributes": ["string"], "defaultAllocation": "string", "defaultVariant": "string", "rules": [{"allocationId": "string", "condition": "string", "id": "string", "variantId": "string"}]}'
 
 `File Example:`
     
@@ -396,6 +400,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

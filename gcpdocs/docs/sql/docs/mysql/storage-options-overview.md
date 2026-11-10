@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/storage-options-overview/
 title: Choose a storage option \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:01.250820+00:00
+fetched_at: 2026-11-10T18:46:35.613600+00:00
 ---
 
 # Choose a storage option  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ Cloud SQL storage options let you match your instance's IOPS, throughput, and co
 
 ## Google Cloud Hyperdisk Balanced
 
-Cloud SQL uses the Hyperdisk Balanced storage option for the [N4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4), [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a), and [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) machine series. This storage type is a Google Cloud Hyperdisk offering. Hyperdisk is the latest generation of network block storage. It offers scalable, high-performance storage with comprehensive data persistence and management capabilities. You can also enable [automatic storage increase](https://docs.cloud.google.com/sql/docs/mysql/instance-settings#automatic-storage-increase-2ndgen) with this storage option to have Cloud SQL automatically increase the storage for your instance when it falls below the threshold size.
+Cloud SQL uses the Hyperdisk Balanced storage option for the [N4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4), [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a), [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4), and [C4D](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d) machine series. This storage type is a Google Cloud Hyperdisk offering. Hyperdisk is the latest generation of network block storage. It offers scalable, high-performance storage with comprehensive data persistence and management capabilities. You can also enable [automatic storage increase](https://docs.cloud.google.com/sql/docs/mysql/instance-settings#automatic-storage-increase-2ndgen) with this storage option to have Cloud SQL automatically increase the storage for your instance when it falls below the threshold size. 
 
 Hyperdisk Balanced provides customizable throughput and IOPS. For more information, see [About Hyperdisk Balanced](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced).
 
@@ -38,8 +38,8 @@ Hyperdisk Balanced sets default IOPS and throughput values and limits based on y
 
 The following table shows the minimum and maximum limits for IOPS and throughput (in MiB/s) for each machine type in the [C4A machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview) based on its vCPUs:
 
-|  |  | Hyperdisk Balanced | Hyperdisk Balanced HA  
----|---|---|---|---  
+|  Hyperdisk Balanced/Hyperdisk Balanced HA  | Hyperdisk Balanced | Hyperdisk Balanced HA  
+---|---|---|---  
 vCPUs | Minimum IOPS | Minimum throughput | Maximum IOPs | Maximum throughput | Maximum IOPs | Maximum throughput  
 2 | 3,000 | 140 | 50,000 | 800 | 50,000 | 800  
 4 | 3,000 | 140 | 50,000 | 800 | 50,000 | 800  
@@ -67,32 +67,64 @@ You can also set custom IOPS and throughput when using Hyperdisk Balanced.
 
 The following table shows the minimum and maximum limits for IOPS and throughput (in MiB/s) for each machine type in the [C4 machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) based on its vCPUs:
 
-|  |  | Hyperdisk Balanced | Hyperdisk Balanced HA  
----|---|---|---|---  
+|  Hyperdisk Balanced/Hyperdisk Balanced HA  | Hyperdisk Balanced | Hyperdisk Balanced HA  
+---|---|---|---  
 vCPUs | Minimum IOPS | Minimum throughput | Maximum IOPs | Maximum throughput | Maximum IOPs | Maximum throughput  
 2 | 3,000 | 140 MiB/s | 50,000 | 400 MiB/s | 50,000 | 400 MiB/s  
 4 | 3,000 | 140 MiB/s | 50,000 | 400 MiB/s | 50,000 | 400 MiB/s  
 8 | 3,000 | 140 MiB/s | 50,000 | 800 MiB/s | 50,000 | 800 MiB/s  
   
-The following table shows the default Google Cloud Hyperdisk Balanced IOPS and throughput values based on the selected disk size:
+The following table shows the default Google Cloud Hyperdisk Balanced IOPS and throughput values based on the selected disk size, up to the maximum IOPS and throughput limits for the machine type:
 
-Disk Size Range (GB) | Default IOPS | Default Throughput  
+Disk size range (GB) | Default IOPS | Default throughput  
 ---|---|---  
-10 to 256 | 4,000 | 170 MiB/s  
+20 to 256 | 4,000 | 170 MiB/s  
 257 to 512 | 7,000 | 240 MiB/s  
 513 to 1,024 | 10,000 | 500 MiB/s  
 1,025 to 4,096 | 16,000 | 750 MiB/s  
 4,097 to 32,768 | 70,000 | 1,200 MiB/s  
 32,769 to 65,536 | 100,000 | 1,200 MiB/s  
+**Note:** If the default IOPS or throughput for a disk size exceeds the maximum limit for your machine type, Cloud SQL caps the default at the machine type's maximum limit.
+
+You can also set custom IOPS and throughput when using Hyperdisk Balanced.
+
+### C4D machine series IOPS and throughput limits
+
+The following table shows the minimum and maximum limits for IOPS and throughput (in MiB/s) for each machine type in the [C4D machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d) based on its vCPUs:
+
+|  Hyperdisk Balanced/Hyperdisk Balanced HA  |  Hyperdisk Balanced  |  Hyperdisk Balanced HA   
+---|---|---|---  
+vCPUs | Minimum IOPS | Minimum throughput | Maximum IOPS | Maximum throughput | Maximum IOPS | Maximum throughput  
+2 | 3,000 | 140 MiB/s | 22,500 | 400 MiB/s | 22,500 | 400 MiB/s  
+4 | 3,000 | 140 MiB/s | 50,000 | 400 MiB/s | 50,000 | 400 MiB/s  
+8 | 3,000 | 140 MiB/s | 50,000 | 800 MiB/s | 50,000 | 800 MiB/s  
+16 | 3,000 | 140 MiB/s | 75,000 | 1,200 MiB/s | 75,000 | 1,200 MiB/s  
+32 | 3,000 | 140 MiB/s | 75,000 | 1,600 MiB/s | 75,000 | 1,600 MiB/s  
+48 | 3,000 | 140 MiB/s | 75,000 | 1,600 MiB/s | 75,000 | 1,600 MiB/s  
+64 | 3,000 | 140 MiB/s | 160,000 | 2,400 MiB/s | 100,000 | 2,400 MiB/s  
+96 | 3,000 | 140 MiB/s | 160,000 | 2,400 MiB/s | 100,000 | 2,400 MiB/s  
+192 | 3,000 | 140 MiB/s | 160,000 | 2,400 MiB/s | 100,000 | 2,400 MiB/s  
   
+The following table shows the default Google Cloud Hyperdisk Balanced IOPS and throughput values based on the selected disk size, up to the maximum IOPS and throughput limits for the machine type:
+
+Disk size range (GB) | Default IOPS | Default throughput  
+---|---|---  
+20 to 256 | 4,000 | 170 MiB/s  
+257 to 512 | 7,000 | 240 MiB/s  
+513 to 1,024 | 10,000 | 500 MiB/s  
+1,025 to 4,096 | 16,000 | 750 MiB/s  
+4,097 to 32,768 | 70,000 | 1,200 MiB/s  
+32,769 to 65,536 | 100,000 | 1,200 MiB/s  
+**Note:** If the default IOPS or throughput for a disk size exceeds the maximum limit for your machine type, Cloud SQL caps the default at the machine type's maximum limit.
+
 You can also set custom IOPS and throughput when using Hyperdisk Balanced.
 
 ### N4 machine series IOPS and throughput limits
 
 The following table shows the minimum and maximum limits for IOPS and throughput for each machine type in the [N4 machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4) based on its vCPUs:
 
-**Note:** Read and write IOPs and throughput values are combined for Hyperdisk Balanced. |  |  | Hyperdisk Balanced | Hyperdisk Balanced HA  
----|---|---|---|---  
+**Note:** Read and write IOPs and throughput values are combined for Hyperdisk Balanced. |  Hyperdisk Balanced/Hyperdisk Balanced HA  | Hyperdisk Balanced | Hyperdisk Balanced HA  
+---|---|---|---  
 vCPUs | Minimum IOPS | Minimum throughput | Maximum IOPs | Maximum throughput | Maximum IOPs | Maximum throughput  
 0-7 | 3,000 | 140 | 15,000 | 240 | 15,000 | 240  
 8-15 | 3,000 | 140 | 15,000 | 480 | 15,000 | 480  
@@ -220,6 +252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

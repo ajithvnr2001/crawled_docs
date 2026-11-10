@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-manage-on-vm-fleet/
 title: Install and manage Agent for SAP on a fleet of VMs \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:57:11.643212+00:00
+fetched_at: 2026-11-10T12:40:45.833533+00:00
 ---
 
 # Install and manage Agent for SAP on a fleet of VMs  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Install and manage Agent for SAP on a fleet of VMs Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide shows you how to install and manage **version 3.15 (latest)** of Google Cloud's Agent for SAP on a fleet of Compute Engine VMs globally or within a specific zone by using [VM Extension Manager](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager).
+This guide shows you how to install and manage **version 3.16 (latest)** of Google Cloud's Agent for SAP on a fleet of Compute Engine VMs globally or within a specific zone by using [VM Extension Manager](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager).
 
 VM Extension Manager policy lets you perform tasks such as the following:
 
@@ -299,7 +299,7 @@ The following command creates a policy named `test-sap-agent-policy` in the Goog
 
 ### Default configuration file
 
-The following snippet is an example of the default configuration of version 3.15 (latest) of Google Cloud's Agent for SAP:
+The following snippet is an example of the default configuration of version 3.16 (latest) of Google Cloud's Agent for SAP:
     
     
     {
@@ -724,6 +724,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

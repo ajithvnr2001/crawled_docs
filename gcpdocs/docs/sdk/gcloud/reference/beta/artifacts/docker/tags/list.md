@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/artifacts/docker/tags/list/
 title: gcloud beta artifacts docker tags list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T04:29:02.795777+00:00
+fetched_at: 2026-11-10T17:33:15.435127+00:00
 ---
 
 # gcloud beta artifacts docker tags list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -33,26 +33,21 @@ DESCRIPTION
      `(BETA)` A valid Docker top layer image has the format of 
     
     
-    [<location>-]docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE_PATH
+    LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE_PATH
 
 A valid container image can be referenced by tag or digest, has the format of 
     
     
-    [<location>-]docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE_PATH:tag
-    [<location>-]docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE_PATH@sha256:digest
+    LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE_PATH:tag
+    LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE_PATH@sha256:digest
 
-To specify the maximum number of repositories to list, use the --limit flag. 
+To specify the maximum number of tags to list, use the --limit flag. 
 
 EXAMPLES
-     To list all tags under the current project, repository, and location: 
+     To list all tags in the default repository, as specified by the `core/project`, `artifacts/location`, and `artifacts/repository` properties: 
     
     
     gcloud beta artifacts docker tags list
-
-To list all tags under the `my-project`, `my-repository`, across all locations: 
-    
-    
-    gcloud beta artifacts docker tags list docker.pkg.dev/my-project/my-repository
 
 To list all tags in repository `my-repository` in `us-west1`: 
     
@@ -68,7 +63,7 @@ POSITIONAL ARGUMENTS
     
 
 [`IMAGE_PATH`]
-     An Artifact Registry repository or a container image. If not specified, default config values are used. 
+     An Artifact Registry repository or a container image. If not specified, the values of the `core/project`, `artifacts/location`, and `artifacts/repository` properties are used. 
 
 A valid docker repository has the format of LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID 
 
@@ -103,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

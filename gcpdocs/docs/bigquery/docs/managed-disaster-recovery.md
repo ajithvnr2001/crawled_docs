@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery/
 title: Managed disaster recovery \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:05:37.288376+00:00
+fetched_at: 2026-11-10T18:33:51.212940+00:00
 ---
 
 # Managed disaster recovery  |  BigQuery  |  Google Cloud Documentation
@@ -101,6 +101,12 @@ Location code | Region Name | Region Description
 | `EUROPE-WEST4` | Netherlands  
 | `EUROPE-WEST8` | Milan  
 | `EUROPE-WEST9` | Paris  
+`EUR5` |  |   
+| `EUROPE-WEST1` | Belgium  
+| `EUROPE-WEST2` | London  
+`EUR7` |  |   
+| `EUROPE-WEST2` | London  
+| `EUROPE-WEST3` | Frankfurt  
 `IN` |  |   
 | `ASIA-SOUTH1` | Mumbai  
 | `ASIA-SOUTH2` | Delhi  
@@ -116,7 +122,7 @@ Location code | Region Name | Region Description
 | `US-WEST3` | Salt Lake City  
 | `US-WEST4` | Las Vegas  
   
-Region pairs must be selected within `AU`, `CA`, `DE`, `EU`, `IN` or the `US`. For example, a region within the `US` cannot be paired with a region within `EU`.
+Region pairs must be selected within `AU`, `CA`, `DE`, `EU`, `EUR5`, `EUR7`, `IN`, or the `US`. For example, a region within the `US` cannot be paired with a region within `EU`.
 
 If your BigQuery dataset is in a multi-region location, you can't use the following region pairs. This limitation is required to make sure that your failover reservation and data are geographically separated after replication. For more information about regions that are contained within multi-regions, see [Multi-regions](https://docs.cloud.google.com/bigquery/docs/locations#multi-regions).
 
@@ -583,6 +589,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

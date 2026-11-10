@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/config-yaml-translation/
 title: Transform SQL translations with YAML \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:05.051505+00:00
+fetched_at: 2026-11-10T18:38:30.423984+00:00
 ---
 
 # Transform SQL translations with YAML  |  BigQuery  |  Google Cloud Documentation
@@ -21,28 +21,135 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Transform SQL translations with YAML
 
-configuration YAML files let you customize how BigQuery translates SQL code from your source database during a migration. When you use the [BigQuery interactive SQL translator](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator), use the [BigQuery Migration API](https://docs.cloud.google.com/bigquery/docs/api-sql-translator), or perform a [batch SQL translation](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator), you can provide configuration YAML files to modify object names, data types, and SQL expressions in your translated queries.
+configuration YAML files let you customize how BigQuery translates SQL code from your source database during a migration. The BigQuery Migration Service supports two kinds of configuration YAML files: `*.config.yaml` translation configuration files that give the translation engine deterministic rules, and `*.ai_config.yaml` Gemini-based configuration files that give Gemini natural-language rules.
 
-## How to specify a configuration YAML file
+To customize a SQL translation with configuration YAML files, do the following:
 
-You can specify a configuration YAML file to use in a SQL translation in the following ways:
-
-  * If you are using the interactive SQL translator, [specify the path to the configuration file or batch translation job ID in the translation settings](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator#translate-with-additional-configs).
-  * If you are performing a batch SQL translation or using the BigQuery Migration API, place the configuration YAML in the same Cloud Storage bucket as the input SQL files.
-
+  1. **Create configuration files** : Create deterministic `*.config.yaml` translation configuration files, `*.ai_config.yaml` Gemini-based configuration files, or both types of configuration files to combine structural rules with Gemini customization.
+  2. **Provide the files to a translation job** : Submit the configuration files when you translate a single query or batch SQL files.
+  3. **Review the translation outputs** : Locate the translated SQL and Gemini suggestions in the response when you translate a single query, or in Cloud Storage when you translate batch SQL files.
 
 
-The interactive SQL translator, BigQuery Migration API, and the batch SQL translator support the use of multiple configuration YAML files in a single translation job. For more information, see [Applying multiple YAML configurations](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation#yaml_multiple).
 
-## Configuration YAML file requirements
+## Types of configuration YAML files
 
-Before creating a configuration YAML file, review the following information to ensure that your YAML file is compatible to use with the BigQuery Migration Service:
+The following table compares the two types of configuration YAML files:
 
-  * You must upload the configuration YAML files in the directory of the Cloud Storage bucket that contains your SQL translation input files. For information on how to create buckets and upload files to Cloud Storage, see [Create buckets](https://docs.cloud.google.com/storage/docs/creating-buckets) and [Upload objects from a filesystem](https://docs.cloud.google.com/storage/docs/uploading-objects).
-  * The file size for a single configuration YAML file must not exceed 1 MB.
-  * The total file size of all configuration YAML files used in a single SQL translation job must not exceed 4 MB.
+Feature | Translation configuration (`*.config.yaml`) | Gemini-based configuration (`*.ai_config.yaml`)  
+---|---|---  
+How rules are applied | Rules are applied by the translation engine as deterministic rules on the parsed SQL, so the same input and configuration always produce the same output. | Rules are applied by Gemini as natural-language instructions and examples applied to the SQL text. Output can vary between runs, so always review and verify suggestions before using them.  
+What can be transformed | The translation engine can transform any objects or settings that it recognizes. This includes database, schema, table, column, and function names and types, table properties such as partitioning, clustering, and expiration, session defaults, UDF signatures, optimizations, and statement output such as `GROUP BY` and `SELECT *` style. | Gemini can change any SQL transformation that you can describe in natural language. This includes formatting and comments, replacing patterns, rewriting constructs that the engine doesn't translate the way you want, and generating an explanation of the translation.  
+Requirements | 
+
+  * The input SQL must parse in the source dialect.
+  * Rules can't act on text in the input SQL that the parser doesn't recognize, such as `${VAR}` placeholders or template syntax.
+  * Use a `SOURCE_SQL` rule in `*.ai_config.yaml` files or your own preprocessing to remove such text first.
+
+| 
+
+  * You must enable Gemini AI suggestions for the job.
+  * The job must run in a [supported processing location](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#google_model_endpoint_locations).
+  * Gemini usage is free up to a limit.
+
+  
+Where the result appears | The result appears in the translated SQL itself, such as in the translation response or in the `sql/` output directory in Cloud Storage. | The result appears as separate Gemini suggestions in the Google Cloud console, in separate suggestion fields or output files in the Google Cloud CLI and MCP server, or in separate `*_suggestion/` output directories in Cloud Storage. For more information, see Where to find translation outputs.  
+Filename | File names must end with `.config.yaml`—for example, `rename-tables.config.yaml`. | File names must end with `.ai_config.yaml`—for example, `style-rules.ai_config.yaml`.  
+The translation service ignores any YAML file in the input that doesn't end with `.config.yaml` or `.ai_config.yaml` and reports the ignored file in the translation log.  
+Reference | For more information, see Guidelines to create a configuration YAML file and configuration YAML examples on this page. | For more information, see Create a Gemini-based configuration YAML file on this page.  
+  
+### How the two kinds of rules are applied
+
+A translation job applies configuration rules in the following order:
+
+  1. Gemini applies `SOURCE_SQL` rules in `*.ai_config.yaml` files to the original input SQL to produce rewritten source SQL.
+  2. The translation engine translates the rewritten source SQL from the preceding step—or the original input SQL if no `SOURCE_SQL` rules apply—and applies any rules in `*.config.yaml` files to produce the translated SQL.
+  3. Gemini applies `TARGET_SQL` rules in `*.ai_config.yaml` files to the translated SQL from the preceding step to produce rewritten target SQL. If your `*.ai_config.yaml` files include `TRANSLATION_EXPLANATION` rules, then Gemini also generates a text explanation of the translated SQL.
+
+
+
+We recommend that you use `*.config.yaml` rules for repeatable, structural changes such as renaming objects, mapping types, and setting partitioning. We recommend that you use `*.ai_config.yaml` rules for changes that the engine can't express, or for cleaning up input that doesn't parse. You can use both types of configuration files in the same job.
+
+## Provide configuration files to a translation
+
+The Google Cloud console, gcloud CLI, BigQuery Migration API, and BigQuery Migration Service MCP server support using multiple configuration files in a single translation job. For more information, see [Applying multiple YAML configurations](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation#yaml_multiple).
+
+To provide configuration files to a translation job, select one of the following options:
+
+###  Console 
+
+  * To use configuration files when translating a single query, specify them in the translation settings of the interactive translator: 
+    * `*.config.yaml`: In the **Translation Configuration Source Location** field in the translation settings, [specify a Cloud Storage path](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator#translate-with-additional-configs) to the configuration file.
+    * `*.ai_config.yaml`: [Create customization rules](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator#customize), which are saved to `__default.ai_config.yaml`, or specify a Cloud Storage path.
+  * To use configuration files while batch translating SQL files, do the following: 
+    * `*.config.yaml`: Upload the configuration files in the input Cloud Storage directory, then in the translation settings, [specify a path to the directory in the **File location details** field](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#submit_a_translation_job).
+    * `*.ai_config.yaml`: Upload the configuration files in the input Cloud Storage directory, then in the translation settings, select **Optional settings** > **Gemini AI suggestions**.
+
+
+
+###  gcloud 
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+  * When using the [`gcloud alpha bq migration translate` command](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator#translate_a_query_into_standard_sql), use the `--translation-config-files` flag to specify either `*.config.yaml` or `*.ai_config.yaml` files.
+  * When using the [`gcloud alpha bq migration translate-batch` command](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#config-yaml), do one of the following: 
+    * `*.config.yaml`: Include the files in the input directory that you pass to `--source-gcs-uris` or `--source-local-dirs`, or pass individual files with the `--source-gcs-files` or `--source-local-files` flag.
+    * `*.ai_config.yaml`: Include the files in the input directory that you pass to `--source-gcs-uris` or `--source-local-dirs`, or pass individual files with the `--source-gcs-files` or `--source-local-files` flag, and add the `--enable-ai-suggestion` flag.
+
+
+
+###  API 
+
+In the [BigQuery Migration API](https://docs.cloud.google.com/bigquery/docs/api-sql-translator), whether you translate a single query or batch SQL files, do the following:
+
+  * `*.config.yaml`: Upload the files under the input path in `source_spec.base_uri`, pass a `gcs_file_path` entry in `source_spec` when the file isn't under `base_uri`, or pass an inline `literal` entry in `source_spec`.
+  * `*.ai_config.yaml`: Provide the files in `source_spec` under `base_uri`, as a `gcs_file_path` entry when the file isn't under `base_uri`, or as an inline `literal` entry, and include `"suggestion"` in `target_types`—for example, `"target_types": ["sql", "suggestion"]`.
+
+
+
+###  MCP 
+
+In the [BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp):
+
+  * To translate a single query (`translate_query`), do the following: 
+    * `*.config.yaml`: Pass inline `translationConfigs` entries.
+    * `*.ai_config.yaml`: Pass inline `aiSuggestionConfigs` entries.
+  * To translate batch SQL files (`translate_batch_queries`), do the following: 
+    * `*.config.yaml`: Upload the files under `sourceBaseUri`, or list them in `configurationFilePaths` when they aren't under `sourceBaseUri`.
+    * `*.ai_config.yaml`: Upload the files under `sourceBaseUri`, or list them in `configurationFilePaths` when they aren't under `sourceBaseUri`, and set `enableAiSuggestions` to `true`.
+
+
+
+## Where to find translation outputs
+
+Depending on the configuration files that you provide, a translation job can produce the following outputs:
+
+  * Translated SQL from the translation engine after it applies any rules in `*.config.yaml` files.
+  * Rewritten source SQL from Gemini after it applies `SOURCE_SQL` rules in `*.ai_config.yaml` files.
+  * Rewritten target SQL from Gemini after it applies `TARGET_SQL` rules in `*.ai_config.yaml` files.
+  * A translation explanation from Gemini when your `*.ai_config.yaml` files include `TRANSLATION_EXPLANATION` rules, or when you request an explanation on demand.
+
+
+
+Where you find these outputs depends on how you run the translation:
+
+  * To find outputs when you translate a single query in the Google Cloud console or the gcloud CLI, see [Explore the translation output](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator#translation-output) in the interactive SQL translator guide.
+  * To find outputs when you translate batch SQL files in Cloud Storage or review them in the Google Cloud console, see [Explore the translation output](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#explore_the_translation_output) in the batch SQL translator guide.
+  * To find outputs when you use the BigQuery Migration API, see [Retrieve results](https://docs.cloud.google.com/bigquery/docs/api-sql-translator#retrieve_results) in the BigQuery Migration API guide. For single-query translations, add the output paths that you want—`sql/<var>PATH</var>`, `source_sql_query_customization_suggestion/<var>PATH</var>`, `target_sql_query_customization_suggestion/<var>PATH</var>`, or `translation_explanation_suggestion/<var>PATH</var>`—to `target_return_literals` to receive them in `translatedLiterals`.
+  * To find outputs when you use the BigQuery Migration Service MCP server, see [Use the BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp). The `translate_query` and `get_translation` tools return `translatedQuery`, `sourceSqlSuggestion`, and `targetSqlSuggestion`, and the `explain_translation` tool returns a translation explanation.
+
+
+
+## Translation `*.config.yaml` file requirements
+
+A translation `*.config.yaml` file must meet the following requirements to be compatible with the BigQuery Migration Service:
+
+  * When you upload `*.config.yaml` files under the input Cloud Storage path for a batch translation job, configuration files placed anywhere under the input path apply to the entire job. They don't need to be at the root level or copied into each subdirectory. For information on how to create buckets and upload files to Cloud Storage, see [Create buckets](https://docs.cloud.google.com/storage/docs/creating-buckets) and [Upload objects from a filesystem](https://docs.cloud.google.com/storage/docs/uploading-objects).
+  * The file size for a single `*.config.yaml` file must not exceed 1 MB.
+  * The total file size of all `*.config.yaml` files used in a single SQL translation job must not exceed 4 MB.
   * If you are using `regex` syntax for name matching, use [RE2/J](https://github.com/google/re2j).
-  * All configuration YAML filenames must include a `.config.yaml` extension—for example, `change-case.config.yaml`. `config.yaml` alone is not a valid name for the configuration file.
+  * All translation configuration file names must end with `.config.yaml`—for example, `change-case.config.yaml`. `config.yaml` alone isn't a valid name for the configuration file.
 
 
 
@@ -1285,9 +1392,9 @@ A SQL translation with this optimization might look like the following:
   
 ## Create a Gemini-based configuration YAML file
 
-**Note:** The Translation service can call Gemini model to generate suggestions to your translated SQL query based on your AI configuration YAML file.
+**Note:** The translation service can call Gemini to generate suggestions for your SQL translation based on your `*.ai_config.yaml` file. For a comparison with deterministic `*.config.yaml` files and the order in which rules run, see Types of configuration YAML files.
 
-To generate AI output, the source directory containing your SQL translation input must include a configuration YAML file.
+To generate AI output, provide at least one `*.ai_config.yaml` file and enable Gemini AI suggestions when the interface requires it. For more information, see Provide configuration files to a translation.
 
 ### Requirements
 
@@ -1295,14 +1402,14 @@ The configuration YAML file for AI outputs must have a suffix of `.ai_config.yam
 
 ### Supported fields
 
-You can use the following fields to configure your AI translation output:
+Unlike a `*.config.yaml` file, a `*.ai_config.yaml` file doesn't include a `type` header. Instead, the file contains a top-level `translation_rules` list, where each rule supports the following fields:
 
   * `suggestion_type` (optional): Specify the type of AI suggestion to be generated. The following suggestion types are supported: 
-    * `QUERY_CUSTOMIZATION` (default): Generates AI-suggestions for SQL code based on the translation rules specified in the configuration YAML file.
+    * `QUERY_CUSTOMIZATION` (default): Generates AI suggestions for SQL code based on the translation rules specified in the `*.ai_config.yaml` file.
     * `TRANSLATION_EXPLANATION`: Generates text that includes a summary of the translated GoogleSQL query and the differences and inconsistencies between the source SQL query and the translated GoogleSQL query.
-  * `rewrite_target` (optional): Specify `SOURCE_SQL` if you want to apply the translation rule to your input SQL, or `TARGET_SQL` (default) if you want to apply the translation rule to your output SQL.
-  * `instruction` (optional): In natural language, describe a change to the target SQL. The Gemini-enhanced SQL translation assesses the request and makes the specified change.
-  * `examples` (optional): Provide SQL examples of how you want the SQL pattern to be modified.
+  * `rewrite_target` (optional): Specify `SOURCE_SQL` to apply the rule to the original input SQL before the translation engine runs, or `TARGET_SQL` to apply the rule to the translated SQL that the translation engine produces. The default value is `TARGET_SQL`. For more information, see How the two kinds of rules are applied.
+  * `instruction` (optional): Describe in natural language the change to apply to the input SQL or translated SQL for `QUERY_CUSTOMIZATION` rules, or the explanation to generate for `TRANSLATION_EXPLANATION` rules.
+  * `examples` (optional): Provide a list of `input` and `output` SQL pairs that show how you want a SQL pattern to be modified.
 
 
 
@@ -1332,7 +1439,7 @@ The following examples create Gemini-based configuration YAML files which you ca
       examples:
       - input: "upper(X)"
         output: "X"
-    - instruction: "Insert a comment at the head that explains each statement in detail.
+    - instruction: "Insert a comment at the head that explains each statement in detail."
       suggestion_type: QUERY_CUSTOMIZATION
       rewrite_target: TARGET_SQL
     
@@ -1382,7 +1489,7 @@ This example uses the default LLM prompts provided by the translation service to
 
 ## Applying multiple YAML configurations
 
-When specifying a configuration YAML file in a batch or interactive SQL translation, you can select multiple configuration YAML files in a single translation job to reflect multiple transformations. If multiple configurations conflict, one transformation might override another. We recommend using different types of configuration settings in each file to avoid conflicting transformations in the same translation job.
+When you translate a single query or batch SQL files, you can provide multiple configuration YAML files in a single translation job to reflect multiple transformations. If multiple configurations conflict, one transformation might override another. We recommend using different types of configuration settings in each file to avoid conflicting transformations in the same translation job.
 
 The following example lists two separate configuration YAML files that were provided for a single SQL translation job, one to change a column's attribute, and the other to set the table as temporary:
 
@@ -1430,6 +1537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes/
 title: About GKE node sizing \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:13.938179+00:00
+fetched_at: 2026-11-10T12:13:27.801641+00:00
 ---
 
 # About GKE node sizing  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -87,20 +87,20 @@ GKE reserves specific amounts of memory and CPU resources on nodes based on the 
 
 The following sections describe the default memory and CPU reservations based on the machine type.
 
-For Standard node pools running GKE 1.37 or later, you can customize the amount of CPU and memory reserved for system components. For more information, see [System resource reservations](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config#system-resource-reservations) ([Preview](https://cloud.google.com/products#product-launch-stages)).
+For Standard node pools running GKE version 1.37.2-gke.1325000 or later, you can customize the amount of CPU and memory reserved for system components. For more information, see [System resource reservations](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config#system-resource-reservations).
 
 **Note:** This document uses gibibytes (GiB) and mebibytes (MiB) for memory and storage values. However, the Google Cloud console uses gigabytes (GB) and megabytes (MB). This difference in units means that the allocatable capacity values that you see in the Google Cloud console might be different than the values that you calculate using this document.
 
 #### Memory reservations
 
-GKE calculates memory reservations in the following ways, depending on the GKE version that the node pool was created on:
+GKE calculates memory reservations in the following ways, depending on the GKE version that the node pool runs:
 
-  * If the node pool was created running GKE version 1.37 or later, GKE uses the following formula:
+  * If the node pool runs GKE version 1.37.2-gke.1325000 or later, GKE uses the following formula:
         
         MemoryReserved = Min(EarlierMemoryReservation, (15 MiB * MaxPodsPerNode) + BaseOverhead)
         
 
-GKE uses the lower of a calculation that factors Pod density, or `EarlierMemoryReservation`, which is the reservation calculation for node pools created running 1.36 or earlier.
+GKE uses the lower of a calculation that factors Pod density, or `EarlierMemoryReservation`, which is the reservation calculation for node pools that run versions earlier than 1.37.2-gke.1325000.
 
 In this formula, the value of `BaseOverhead` depends on the node configuration, as follows:
 
@@ -110,7 +110,7 @@ In this formula, the value of `BaseOverhead` depends on the node configuration, 
 
 An additional 100 MiB of memory is reserved for Pod eviction thresholds.
 
-  * If the node pool was created running GKE version 1.36 or earlier, GKE uses the following formula. GKE uses this formula even if the node pool is later upgraded to version 1.37 or later:
+  * If the node pool runs a GKE version earlier than 1.37.2-gke.1325000, GKE uses the following formula:
 
     * 255 MiB for machines with less than 1 GiB of memory
     * 25% of the first 4 GiB of memory
@@ -125,7 +125,9 @@ An additional 100 MiB of memory is reserved for Pod eviction thresholds.
 
 #### CPU reservations
 
-For node pools that were created on GKE version 1.37 or later, GKE limits the total CPU reservation to 1 vCPU (1000 mCPU) or less for standard, non-fractional compute instances. System components can still burst beyond this limit when needed. The 1 vCPU limit helps ensure that high-core compute instances don't lose multiple cores of allocatable capacity to system reservations. The 1 vCPU limit doesn't apply to node pools that were created on GKE version 1.36 or earlier. GKE calculates CPU reservations by using the following formula:
+For node pools that run GKE version 1.37.2-gke.1325000 or later, GKE limits the total CPU reservation to 1 vCPU (1000 mCPU) or less for standard, non-fractional compute instances. System components can still burst beyond this limit when needed. The 1 vCPU limit helps ensure that high-core compute instances don't lose multiple cores of allocatable capacity to system reservations.
+
+GKE calculates CPU reservations by using the following formula:
 
   * 6% of the first core
   * 1% of the next core (up to 2 cores)
@@ -238,6 +240,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

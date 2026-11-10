@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/use-filestore-agent-volumes-gke/
 title: Set up GKE environment for Filestore agent volumes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:41.771541+00:00
+fetched_at: 2026-11-10T16:27:54.690358+00:00
 ---
 
 # Set up GKE environment for Filestore agent volumes  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Set up GKE environment for Filestore agent volumes Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** The Filestore agent volumes feature is available to all Google Cloud customers for evaluation and non-production use. To request access for your Google Cloud project, submit the [Filestore agent volumes access request form](https://forms.gle/vYPkcFiZVoTjf7Ah7). Production support is offered on an allow list basis under a limited GA program. To check your eligibility or to request production support, use the access form. 
+**Note:** Filestore agent volumes are available under an Allowlisted GA (AGA) program. To request access for your Google Cloud project, submit the Filestore agent volumes [access request form](https://forms.gle/vYPkcFiZVoTjf7Ah7). 
 
 Filestore agent volumes integrate with Google Kubernetes Engine (GKE) to provide high-density, low-latency persistent file storage for stateful AI agent sandboxes, developer environments, and multi-agent workflows.
 
@@ -29,14 +29,15 @@ This guide walks you through the prerequisites needed to use Filestore agent vol
 
 ## Before you begin
 
-  1. Complete the initial setup in [Set up Filestore agent volumes](https://docs.cloud.google.com/filestore/docs/agent-volumes-prerequisites).
-  2. Enable the GKE API:
+  1. Complete the initial project and networking setup in [Set up Filestore agent volumes](https://docs.cloud.google.com/filestore/docs/agent-volumes-prerequisites).
+  2. Create a regional volume pool in [Create and manage volume pools](https://docs.cloud.google.com/filestore/docs/create-volume-pools#create-volume-pool).
+  3. Enable the GKE API:
          
          gcloud services enable container.googleapis.com \
              --project=PROJECT_ID
          
 
-  3. Install the required components for `gcloud`:
+  4. Install the required components for `gcloud`:
          
          gcloud components install kubectl gke-gcloud-auth-plugin
          
@@ -46,7 +47,7 @@ This guide walks you through the prerequisites needed to use Filestore agent vol
 
 ## Create a GKE cluster
 
-Create a GKE cluster connected to your Private Service Connect.
+Create a GKE cluster connected to your Private Service Connect-enabled VPC network:
     
     
     gcloud container clusters create CLUSTER_NAME \
@@ -142,8 +143,6 @@ The output is similar to the following:
 
 To allow your GKE workloads to dynamically provision volumes from your volume pool, apply a Kubernetes `StorageClass` to your cluster.
 
-If you already created the `volume-pool-sc.yaml` manifest in [Set up Filestore agent volumes](https://docs.cloud.google.com/filestore/docs/agent-volumes-prerequisites#sample-storage-class), skip to step 2.
-
   1. Create a file named `volume-pool-sc.yaml` with the following configuration:
          
          apiVersion: storage.k8s.io/v1
@@ -204,6 +203,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

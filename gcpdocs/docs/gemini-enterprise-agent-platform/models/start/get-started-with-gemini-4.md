@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4/
 title: Get started with Gemini 4 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:25:05.065734+00:00
+fetched_at: 2026-11-10T18:35:50.773442+00:00
 ---
 
 # Get started with Gemini 4  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Get started with Gemini 4 Stay organized with collections  Save and categorize content based on your preferences. 
 
-The first Gemini 4 model is [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon`), Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+The Gemini 4 family includes [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) (`gemini-4-carbon`) and [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon`), Google's frontier models that excel at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
 
-This guide shows you how to make your first Gemini 4 request, describes what's new in Gemini 4, and explains what changes when you migrate from Gemini 3.1 Pro. For model-specific details, see the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon).
+This guide shows you how to make your first Gemini 4 request, describes what's new in Gemini 4, and explains what changes when you migrate from Gemini 3.1 Pro. For model-specific details, see the [developer's guide to Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon) and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon).
 
 ## Quickstart
 
@@ -39,7 +39,7 @@ Upgrade to the latest `google-genai` SDK (`>= 2.34.0` for Python, `@google/genai
 
 ### Set environment variables
 
-Replace GOOGLE_CLOUD_PROJECT with your Google Cloud project ID. Gemini 4 Argon is available on the `global` endpoint and in the `us` and `eu` multi-regions:
+Replace GOOGLE_CLOUD_PROJECT with your Google Cloud project ID. Gemini 4 Carbon and Gemini 4 Argon are available on the `global` endpoint and in the `us` and `eu` multi-regions:
     
     
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
@@ -57,7 +57,7 @@ Replace GOOGLE_CLOUD_PROJECT with your Google Cloud project ID. Gemini 4 Argon i
     client = genai.Client()
     
     response = client.models.generate_content(
-        model="gemini-4-argon",
+        model="gemini-4-carbon",
         contents="How does AI work?",
     )
     print(response.text)
@@ -69,7 +69,7 @@ Replace GOOGLE_CLOUD_PROJECT with your Google Cloud project ID. Gemini 4 Argon i
     curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
-    https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-4-argon:generateContent \
+    https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-4-carbon:generateContent \
     -d '{
       "contents": {
         "role": "USER",
@@ -80,21 +80,23 @@ Replace GOOGLE_CLOUD_PROJECT with your Google Cloud project ID. Gemini 4 Argon i
 
 ## What's new in Gemini 4
 
+Gemini 4 models introduce the following capabilities and API changes:
+
 ### Unified input and output token limit
 
-Gemini 4 Argon has a unified 1,048,576-token limit that includes both input and output tokens (where output includes thinking, function calls, and the final response). Output can use up to 1,048,576 tokens minus your input tokens. By default, a single synchronous request generates up to 65,536 output tokens (or 32,768 tokens for non-streaming direct HTTP requests).
+Gemini 4 models have a unified 1,048,576-token limit that includes both input and output tokens (where output includes thinking, function calls, and the final response). Output can use up to 1,048,576 tokens minus your input tokens. By default, a single synchronous request generates up to 65,536 output tokens (or 32,768 tokens for non-streaming direct HTTP requests).
 
 ### Long decodes
 
-When a single turn requires more than 65,536 output tokens (or 32,768 tokens for non-streaming foreground calls), such as formal proofs, complex math or science problems, or multi-file code generation, Gemini 4 Argon supports long decodes up to 1,048,576 tokens (minus your input tokens) on both the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and `GenerateContent` (`v1beta1`). With the latest Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript, Go `>= 1.77.0`, Java `>= 1.80.0`), setting `max_output_tokens` greater than 65,536 (or greater than 32,768 for non-streaming calls) automatically follows `continuation_token` across segments to return a single response or stream. On the Interactions API, you can also run server-managed asynchronous long decodes with `background=true` or chain `continuation_token` manually in stored (`store=true`) or stateless (`store=false`) loops.
+When a single turn requires more than 65,536 output tokens (or 32,768 tokens for non-streaming foreground calls), such as formal proofs, complex math or science problems, or multi-file code generation, Gemini 4 models support long decodes up to 1,048,576 tokens (minus your input tokens) on both the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and `GenerateContent` (`v1beta1`). With the latest Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript, Go `>= 1.77.0`, Java `>= 1.80.0`), setting `max_output_tokens` greater than 65,536 (or greater than 32,768 for non-streaming calls) automatically follows `continuation_token` across segments to return a single response or stream. On the Interactions API, you can also run server-managed asynchronous long decodes with `background=true` or chain `continuation_token` manually in stored (`store=true`) or stateless (`store=false`) loops.
 
 **Note:** **Known issue** : Long decoding (`continuation_token`) on both the Interactions API and `GenerateContent` (`generateContent` and `streamGenerateContent`) is supported only in the `v1beta1` API (not `v1`) on Agent Platform. The Google Gen AI SDK uses `v1beta1` by default unless you explicitly set `api_version='v1'`; for direct REST calls, use the `/v1beta1/` endpoint path.
 
-For code samples, SDK version requirements, and implementation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes).
+For code samples, SDK version requirements, and implementation rules, see the [developer's guide to Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon#long-decodes) or the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes).
 
 ### Thinking levels
 
-Use `thinking_level` to control how much the model reasons before it responds. Gemini 4 Argon supports `LOW`, `MEDIUM` (default on `gemini-4-argon`), and `HIGH` (default on `gemini-4-argon-cyber-permissive`):
+Use `thinking_level` to control how much the model reasons before it responds. Gemini 4 models support `LOW`, `MEDIUM` (default on `gemini-4-carbon` and `gemini-4-argon`), and `HIGH` (default on `gemini-4-carbon-cyber-permissive` and `gemini-4-argon-cyber-permissive`):
     
     
     from google import genai
@@ -103,7 +105,7 @@ Use `thinking_level` to control how much the model reasons before it responds. G
     client = genai.Client()
     
     response = client.models.generate_content(
-        model="gemini-4-argon",
+        model="gemini-4-carbon",
         contents="Design a lock-free ring buffer in Rust for multi-producer, single-consumer telemetry ingestion.",
         config=types.GenerateContentConfig(
             thinking_config=types.ThinkingConfig(
@@ -116,7 +118,7 @@ Use `thinking_level` to control how much the model reasons before it responds. G
 
 ### Implicit context caching
 
-Gemini 4 Argon supports [implicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) for shared prompt prefixes of 4,096 tokens or more, with durable caching enabled by default. To benefit from it, put static content, such as a code repository or long documents, at the start of your prompt.
+Gemini 4 models support [implicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) for shared prompt prefixes of 4,096 tokens or more, with durable caching enabled by default. To benefit from it, put static content, such as a code repository or long documents, at the start of your prompt.
 
 ### Agentic video understanding
 
@@ -124,13 +126,13 @@ Gemini 4 Argon supports [implicit caching](https://docs.cloud.google.com/gemini-
 
 ### Sampling parameters
 
-Gemini 4 Argon ignores custom values for `temperature`, `top_p`, and `top_k`, as recent Gemini 3 models do. To control output, use `thinking_level` and structured output (`response_schema`).
+Gemini 4 models ignore custom values for `temperature`, `top_p`, and `top_k`, as Gemini 3 models do. To control output, use `thinking_level` and structured output (`response_schema`).
 
 ## Migrate from Gemini 3.1 Pro
 
-We recommend migrating from `gemini-3.1-pro-preview` to `gemini-4-argon`. The following behavior is different in Gemini 4 Argon:
+When migrating from `gemini-3.1-pro-preview` to `gemini-4-carbon` or `gemini-4-argon`, account for the following behavioral differences in Gemini 4 models:
 
-Area | Gemini 3.1 Pro | Gemini 4 Argon | What to do  
+Area | Gemini 3.1 Pro | Gemini 4 models | What to do  
 ---|---|---|---  
 Input and output token limits | Separate input (1,048,576) and output (65,536) limits | Unified 1,048,576-token limit across input and output (where output includes thinking, function calls, and the final response); 65,536-token default single-request output limit (32,768 tokens for non-streaming direct HTTP requests), extensible up to 1,048,576 tokens using long decodes | Budget input and output together. Upgrade to the latest Google Gen AI SDK and set `max_output_tokens` greater than 65,536 (or use `background=true` or `continuation_token` in custom loops) on the Interactions API or `GenerateContent` for outputs over the single-request limit.  
 `thinking_budget` | Mapped to a thinking level | Returns an HTTP `400` error | Use `thinking_level`.  
@@ -140,23 +142,23 @@ Token billing | A subset of tokens is billed | Every token the model processes i
   
 To migrate from `gemini-3.1-pro-preview`, do the following:
 
-  1. Change the model ID to `gemini-4-argon` and upgrade to the latest Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript).
-  2. Account for the unified 1,048,576-token input and output limit and the 65,536-token (or 32,768-token non-streaming foreground) single-request output cap (or configure [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) for larger outputs on the Interactions API or `GenerateContent`).
+  1. Change the model ID to `gemini-4-carbon` or `gemini-4-argon` and upgrade to the latest Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript).
+  2. Account for the unified 1,048,576-token input and output limit and the 65,536-token (or 32,768-token non-streaming foreground) single-request output cap (or configure [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon#long-decodes) for larger outputs on the Interactions API or `GenerateContent`).
   3. Replace `thinking_budget` and `thinking_level="MINIMAL"` with `thinking_level` set to `LOW`, `MEDIUM`, or `HIGH`.
   4. Remove explicit `cached_content` references.
   5. Remove `temperature`, `top_p`, and `top_k`, which have no effect.
 
 
 
-## Gemini 4 Argon Cyber Permissive
+## Gemini 4 Carbon for cyber and Gemini 4 Argon Cyber Permissive
 
-Gemini 4 Argon Cyber Permissive is a version of Gemini 4 Argon for defensive cybersecurity use cases, available behind an allowlist. For differences and access, see [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber).
+Gemini 4 Carbon for cyber and Gemini 4 Argon Cyber Permissive are versions of Gemini 4 Carbon and Gemini 4 Argon for defensive cybersecurity use cases, available behind an allowlist. For differences and access, see [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) and [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber).
 
 ## What's next
 
-  * Try the [Intro to Gemini 4 Argon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_argon.ipynb) notebook tutorial.
-  * Read the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon).
-  * See the [Gemini 4 Argon model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) for specifications, supported features, and locations.
+  * Try the [Intro to Gemini 4 Carbon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_carbon.ipynb) and [Intro to Gemini 4 Argon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_argon.ipynb) notebook tutorials.
+  * Read the [developer's guide to Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon) and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon).
+  * See the [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) and [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) model pages for specifications, supported features, and locations.
   * Learn more about [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking).
 
 
@@ -165,6 +167,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

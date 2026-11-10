@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/inference/
 title: About AI/ML model inference on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:37.913107+00:00
+fetched_at: 2026-11-10T16:40:18.166407+00:00
 ---
 
 # About AI/ML model inference on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -168,7 +168,6 @@ GPUs | TorchServe |  [Serve T5 on GKE with TorchServe ](https://docs.cloud.googl
 TPUs | vLLM |  [Serve an LLM using TPU Trillium on GKE with vLLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-vllm-tpu)  
 TPUs | vLLM |  [Serve an LLM using TPUs on GKE with KubeRay ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-lllm-tpu-ray)  
 TPUs | MaxDiffusion |  [Serve Stable Diffusion XL (SDXL) using TPUs on GKE with MaxDiffusion](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-sdxl-tpu)  
-TPUs | vLLM |  [Serve LLMs using multi-host TPUs on GKE with JetStream and Pathways](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-multihost-tpu-jetstream)  
 TPUs | vLLM |  [Serve open LLMs on TPUs with a pre-configured architecture ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-open-models-tpu-terraform)  
   
 ## What's next
@@ -182,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

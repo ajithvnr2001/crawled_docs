@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-bulk/
 title: Create GPU VMs in bulk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:10:12.365300+00:00
+fetched_at: 2026-11-10T19:01:11.256179+00:00
 ---
 
 # Create GPU VMs in bulk  |  Compute Engine  |  Google Cloud Documentation
@@ -98,7 +98,7 @@ If you choose to specify a region, Compute Engine places the VMs in any zone wit
 
 ## Machine types
 
-You can create GPU VMs in bulk by using either accelerator-optimized or N1 general-purpose machine types.
+You can create GPU VMs in bulk by using either accelerator-optimized or N1 general-purpose machine types. 
 
 Compute Engine offers different machine types to support your various workloads.
 
@@ -154,11 +154,11 @@ AI and ML workloads | Graphics and visualization | Other GPU workloads
   
 ## Create groups of A4X, A4, and A3 Ultra
 
-To create instances in bulk for the A4X, A4, and A3 Ultra machine series, see the [Deployment options overview](https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-overview) in the AI Hypercomputer documentation.
+To create instances in bulk for the A4X, A4, and A3 Ultra machine series, see the [Deployment options overview](https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-overview) in the AI Hypercomputer documentation. 
 
 ## Create groups of A3, A2, G4, and G2 VMs
 
-This section explains you can create instances in bulk for the A3 High, A3 Mega, A3 Edge, A2 Standard, A2 Ultra, G4, and G2 machine series by using [Google Cloud CLI](https://docs.cloud.google.com/compute/docs/gcloud-compute), or [REST](https://docs.cloud.google.com/compute/docs/reference/rest/v1).
+This section explains how you can create instances in bulk for the A3 High, A3 Mega, A3 Edge, A2 Standard, A2 Ultra, G4, and G2 machine series by using [Google Cloud CLI](https://docs.cloud.google.com/compute/docs/gcloud-compute), or [REST](https://docs.cloud.google.com/compute/docs/reference/rest/v1). 
 
 ###  gcloud 
 
@@ -189,7 +189,7 @@ This example creates two VMs that have attached GPUs by using the following spec
 
 Replace the following:
 
-  * `REGION`: the region for the VMs. This region must support [your selected accelerator-optimized machine type](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones).
+  * `REGION`: the region for the VMs. This region must support [your selected accelerator-optimized machine type](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones). 
   * `MACHINE_TYPE`: the machine type that you selected. Choose from one of the following:
 
     * An [A3 High machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-high-vms)
@@ -198,16 +198,14 @@ Replace the following:
     * An [A2 Standard machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms)
     * An [A2 Ultra machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-ultra-vms)
     * A [G4 machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-machine-types)
-    * A [G2 machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-standard-vms) G2 machine types also support custom memory. Memory must be a multiple of 1024 MB and within the supported memory range. For example, to create a VM with 4 vCPUs and 19 GB of memory specify `--machine-type=g2-custom-4-19456`.
+    * A [G2 machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-standard-vms) G2 machine types also support custom memory. Memory must be a multiple of 1024 MB and within the supported memory range. For example, to create a VM with 4 vCPUs and 19 GB of memory specify `--machine-type=g2-custom-4-19456`. 
   * `IMAGE`: an operating system image [that supports GPUs](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support).
 
 If you want to use the latest image in an [image family](https://docs.cloud.google.com/compute/docs/images#image_families), replace the `--image` flag with the `--image-family` flag and set its value to an image family that supports GPUs. For example: `--image-family=rocky-linux-8-optimized-gcp`.
 
-You can also specify a custom image or [Deep Learning VM Images](https://docs.cloud.google.com/deep-learning-vm/docs/images).
+You can also specify a custom image or [Deep Learning VM Images](https://docs.cloud.google.com/deep-learning-vm/docs/images). 
 
-  * `IMAGE_PROJECT`: the Compute Engine [image project](https://docs.cloud.google.com/compute/docs/images/os-details#general-info) that the OS image belongs to. If using a custom image or Deep Learning VM Images, specify the project that those images belong to.
-
-  * `VWS_ACCELERATOR_COUNT`: the number of virtual GPUs that you need.
+  * `IMAGE_PROJECT`: the Compute Engine [image project](https://docs.cloud.google.com/compute/docs/images/os-details#general-info) that the OS image belongs to. If using a custom image or Deep Learning VM Images, specify the project that those images belong to. 
 
 
 
@@ -276,7 +274,7 @@ Replace `POLICY_NAME` with the name of your placement policy. You can only creat
   
 ###  REST 
 
-Use the [`instances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/bulkInsert) with the required parameters to create multiple VMs in a zone. For more information about the parameters and how to use this command, see [Create VMs in bulk](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk).
+Use the [`regionInstances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstances/bulkInsert) with the required parameters to create multiple VMs in a region. For more information about the parameters and how to use this command, see [Create VMs in bulk](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk).
 
 **Note:** The following example outlines the required flags. For a list of optional flags that you can include, see the optional flags section. Depending on your workload requirement or if you need to use a Windows operating system, you might need to include one or more of these optional flags. 
 
@@ -324,7 +322,7 @@ This example creates two VMs that have attached GPUs by using the following spec
 Replace the following:
 
   * `PROJECT_ID`: your project ID
-  * `REGION`: the region for the VMs. This region must support [your selected GPU model](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones).
+  * `REGION`: the region for the VMs. This region must support [your selected GPU model](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones). 
   * `MACHINE_TYPE`: the machine type that you selected. Choose from one of the following:
 
     * An [A3 High machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-high-vms)
@@ -333,7 +331,7 @@ Replace the following:
     * An [A2 Standard machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms)
     * An [A2 Ultra machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-ultra-vms)
     * A [G4 machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-machine-types)
-    * A [G2 machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-standard-vms). G2 machine types also support custom memory. Memory must be a multiple of 1024 MB and within the supported memory range. For example, the machine type name for an instance with 4 vCPUs and 19 GB of memory would be `g2-custom-4-19456`.
+    * A [G2 machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-standard-vms). G2 machine types also support custom memory. Memory must be a multiple of 1024 MB and within the supported memory range. For example, the machine type name for an instance with 4 vCPUs and 19 GB of memory would be `g2-custom-4-19456`. 
   * `SOURCE_IMAGE_URI`: the URI for the specific [image or image family](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support) that you want to use.
 
 For example:
@@ -506,7 +504,7 @@ If successful, the output is similar to the following:
 
 ###  REST 
 
-Use the [`instances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/bulkInsert) with the required parameters to create multiple VMs in a zone. For more information about the parameters and how to use this command, see [Create VMs in bulk](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk).
+Use the [`regionInstances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstances/bulkInsert) with the required parameters to create multiple VMs in a region. For more information about the parameters and how to use this command, see [Create VMs in bulk](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk).
 
 **Example**
 
@@ -520,10 +518,10 @@ The following example creates two VMs with attached GPUs using the following spe
 
 
 
-Replace `PROJECT_ID` with your project ID.
+Replace `PROJECT_ID` with your project ID and `REGION` with `us-central1`.
     
     
-    POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/us-central1/instances/bulkInsert
+    POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/instances/bulkInsert
     
     {
         "namePattern":"my-test-vm-#",
@@ -572,12 +570,9 @@ Replace `PROJECT_ID` with your project ID.
 
 ## What's next?
 
-  * Learn how to [monitor GPU performance](https://docs.cloud.google.com/compute/docs/gpus/monitor-gpus).
-
-  * Learn how to [use higher network bandwidth](https://docs.cloud.google.com/compute/docs/gpus/optimize-gpus).
+\+ Learn how to [monitor GPU performance](https://docs.cloud.google.com/compute/docs/gpus/monitor-gpus). \+ Learn how to [use higher network bandwidth](https://docs.cloud.google.com/compute/docs/gpus/optimize-gpus). 
 
   * Learn how to [handle GPU host maintenance events](https://docs.cloud.google.com/compute/docs/gpus/gpu-host-maintenance).
-
 
 
   * Learn how to [view the actual and forecasted usage of your VMs and GPUs](https://docs.cloud.google.com/capacity-planner/docs/view-data).
@@ -588,6 +583,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/release-notes/
 title: Cloud Service Mesh release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:16.237823+00:00
+fetched_at: 2026-11-10T18:46:31.626451+00:00
 ---
 
 # Cloud Service Mesh release notes  |  Google Cloud Documentation
@@ -28,6 +28,28 @@ This page contains release notes for each version of Cloud Service Mesh. You can
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/servicemesh-release-notes.xml) directly. 
+
+## November 09, 2026
+
+1.31.x
+
+Announcement
+
+**1.31.3-asm.7 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/upgrade/upgrade). Cloud Service Mesh 1.31.3-asm.7 uses Envoy v1.39.5-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-080](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-080) ([ISTIO-SECURITY-2026-009](https://istio.io/latest/news/security/istio-security-2026-009/)).
+
+1.30.x
+
+Announcement
+
+**1.30.7-asm.7 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/v1.30/docs/upgrade/upgrade). Cloud Service Mesh 1.30.7-asm.7 uses Envoy v1.38.10-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-080](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-080) ([ISTIO-SECURITY-2026-009](https://istio.io/latest/news/security/istio-security-2026-009/)).
 
 ## November 02, 2026
 

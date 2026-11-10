@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/
 title: Migrate to the latest Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:27:02.742325+00:00
+fetched_at: 2026-11-10T18:56:18.992577+00:00
 ---
 
 # Migrate to the latest Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -39,23 +39,23 @@ You only need to make major code changes for certain breaking changes or to use 
 
 The Gemini model you use depends on your application's needs:
 
-Feature | [3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) | [3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) | [3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) | [3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) | [3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) | [3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) | [4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)  
----|---|---|---|---|---|---|---  
-Launch stage | Preview | GA | GA | GA | GA | GA | GA  
-Input modalities |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video  
-Output modalities |  Text |  Text |  Text |  Text |  Text |  Text |  Text  
-Context window, total token limit |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576   
-Output context length |  65,536  |  65,536  |  65,536  |  65,536  |  65,536  |  65,536  |  1,048,576   
-[Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search) |  |  |  |  |  |  |   
-[Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) |  |  |  |  |  |  |   
-[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution) |  |  |  |  |  |  |   
-[Implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) |  |  |  |  |  |  |   
-[Explicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) |  |  |  |  |  |  |   
-[Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) |  |  |  |  |  |  |   
-[Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) |  |  |  |  |  |  |   
-[Fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) |  |  |  |  |  |  |   
-Latency |  |  |  |  |  |  |   
-[Retirement date](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) |  |  July 21, 2027 or later  |  May 19, 2027 or later  |  November 19, 2026  |  January 28, 2027  |  September 2, 2027 or later  |  October 13, 2027 or later   
+Feature | [3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) | [3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) | [3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) | [3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) | [3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) | [3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) | [4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) | [4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)  
+---|---|---|---|---|---|---|---|---  
+Launch stage | Preview | GA | GA | GA | GA | GA | GA | GA  
+Input modalities |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video |  Text, Image, Audio, Video  
+Output modalities |  Text |  Text |  Text |  Text |  Text |  Text |  Text |  Text  
+Context window, total token limit |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576  |  1,048,576   
+Output context length |  65,536  |  65,536  |  65,536  |  65,536  |  65,536  |  65,536  |  1,048,576  |  1,048,576   
+[Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search) |  |  |  |  |  |  |  |   
+[Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) |  |  |  |  |  |  |  |   
+[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution) |  |  |  |  |  |  |  |   
+[Implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) |  |  |  |  |  |  |  |   
+[Explicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) |  |  |  |  |  |  |  |   
+[Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) |  |  |  |  |  |  |  |   
+[Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) |  |  |  |  |  |  |  |   
+[Fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) |  |  |  |  |  |  |  |   
+Latency |  |  |  |  |  |  |  |   
+[Retirement date](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) |  |  July 21, 2027 or later  |  May 19, 2027 or later  |  November 19, 2026  |  January 28, 2027  |  September 2, 2027 or later  |  October 13, 2027 or later  |   
   
 ## Before you begin migrating
 
@@ -274,14 +274,16 @@ If you experience an overuse of tool calls: 1\. **Reduce the thinking level** (`
 
 Use the following checklists as a quick reference when migrating from previous model versions:
 
-### From Gemini 3.1 Pro Preview to Gemini 4 Argon
+### From Gemini 3.1 Pro Preview to Gemini 4 Carbon or Gemini 4 Argon
 
-  * Update model name: `gemini-3.1-pro-preview` to `gemini-4-argon` (or `gemini-4-argon-cyber-permissive` for Fairwind-approved cybersecurity workloads) and upgrade to the latest Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript).
-  * Account for the unified 1,048,576-token input and output limit (where output includes thinking, function calls, and the final response) and the 65,536-token single-request output cap (32,768 tokens for non-streaming foreground calls). For single-turn outputs up to 1,048,576 tokens, configure [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) or `GenerateContent` (`v1beta1`) (handled automatically in the Google Gen AI SDK when `max_output_tokens` is set greater than 65,536, with `background=true` on the Interactions API, or using `continuation_token` in custom loops).
-  * Replace `thinking_budget` and `thinking_level="MINIMAL"` (both return an HTTP `400` error) with `thinking_level` set to `LOW`, `MEDIUM` (default on `gemini-4-argon`), or `HIGH` (default on `gemini-4-argon-cyber-permissive`).
+To migrate from Gemini 3.1 Pro Preview, complete the following steps:
+
+  * Update model name: `gemini-3.1-pro-preview` to `gemini-4-carbon` or `gemini-4-argon` (or `gemini-4-carbon-cyber-permissive` / `gemini-4-argon-cyber-permissive` for cybersecurity workloads approved through the [Fairwind Program](https://deepmind.google/fairwind-program/)) and upgrade to the latest Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript).
+  * Account for the unified 1,048,576-token input and output limit (where output includes thinking, function calls, and the final response) and the 65,536-token single-request output cap (32,768 tokens for non-streaming foreground calls). For single-turn outputs up to 1,048,576 tokens, configure [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon#long-decodes) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) or `GenerateContent` (`v1beta1`) (handled automatically in the Google Gen AI SDK when `max_output_tokens` is set greater than 65,536, with `background=true` on the Interactions API, or using `continuation_token` in custom loops).
+  * Replace `thinking_budget` and `thinking_level="MINIMAL"` (both return an HTTP `400` error) with `thinking_level` set to `LOW`, `MEDIUM` (default on `gemini-4-carbon` and `gemini-4-argon`), or `HIGH` (default on `gemini-4-carbon-cyber-permissive` and `gemini-4-argon-cyber-permissive`).
   * Remove explicit `cached_content` calls; place static prompt prefixes (4,096 tokens or more) at the start of prompts for automatic implicit caching.
   * Remove `temperature`, `top_p`, `top_k`, `frequency_penalty`, `presence_penalty`, `candidate_count`, and prefilled `model` turns.
-  * See [Migrate from Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4#migrate) and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#migration-guide) for full details.
+  * See [Migrate from Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4#migrate), the [developer's guide to Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon#migration-guide), and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#migration-guide) for full details.
 
 
 
@@ -364,6 +366,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

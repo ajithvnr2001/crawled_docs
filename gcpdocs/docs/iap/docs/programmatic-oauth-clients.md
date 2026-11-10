@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/iap/docs/programmatic-oauth-clients/
 title: Programmatically creating OAuth clients for IAP \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:46.071151+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-10T16:58:58.736569+00:00
 ---
 
 # Programmatically creating OAuth clients for IAP  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -43,10 +29,15 @@ This page describes how to programmatically create OAuth clients for use with IA
 There are a few limitations for OAuth clients created programmatically using this API:
 
   * OAuth clients created by the API can only be modified by using the API. You cannot modify an OAuth client through the Google Cloud console if it was created by using the API.
+
   * The OAuth clients created by the API are locked for IAP usage only, and therefore the API does not allow any updates to the redirect URI or other attributes.
+
   * The API does not operate on the OAuth clients that were created using the Google Cloud console.
+
   * Only 500 OAuth clients are allowed per project when using the API.
+
   * API-created OAuth consent screen brands have specific limitations. For more information, see Understanding brands and branding state.
+
 
 
 
@@ -57,24 +48,33 @@ The [OAuth consent screen](https://console.cloud.google.com/apis/credentials/con
 Brands can be created manually or programmatically through an API. API-created brands are configured with the following default settings:
 
   * Internal: Brands are internal by default. They must be manually set to public.
+
   * Unreviewed: Brands are in the "unreviewed" state, and a brand review must be triggered.
+
 
 
 
 To manually set an internal brand to public:
 
   1. Open the [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent).
+
   2. Select a project from the drop-down menu.
+
   3. On the **OAuth consent screen** page, note that the **User Type** is automatically set to **Internal**. To set it to **Public** , click **Edit App**. More configuration options become available.
+
   4. Under **Application type** , click **Public**.
+
 
 **Note:** When an API-created internal brand is set to public, the [`identityAwareProxyClients.create()`](https://docs.cloud.google.com/iap/docs/reference/rest/v1/projects.brands.identityAwareProxyClients/create) API will stop working, as it requires the brand to be set to internal. Therefore, you cannot create new OAuth clients via the API after an internal brand is made public.
 
 To trigger a brand review for an unreviewed API-created brand:
 
   1. Open the [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent).
+
   2. Select your project from the drop-down menu.
+
   3. On the **OAuth consent screen** page, enter any required information, and then click **Submit for verification**.
+
 
 
 
@@ -85,13 +85,21 @@ The verification process may take up to several weeks, and you will receive emai
 Before you can create a client, first ensure that the caller has been granted the following permissions:
 
   * `clientauthconfig.brands.list`
+
   * `clientauthconfig.brands.create`
+
   * `clientauthconfig.brands.get`
+
   * `clientauthconfig.clients.create`
+
   * `clientauthconfig.clients.listWithSecrets` (Only required for listing OAuth clients with secret.)
+
   * `clientauthconfig.clients.getWithSecret`
+
   * `clientauthconfig.clients.delete`
+
   * `clientauthconfig.clients.update`
+
 
 
 
@@ -157,9 +165,13 @@ The response contains the following fields:
 Use the client ID (`client_id` in the previous example) and `secret` to enable IAP. See the following topics for more information about enabling IAP using the credentials you've just created:
 
   * [IAP for GKE](https://docs.cloud.google.com/iap/docs/enabling-kubernetes-howto)
+
   * [IAP for App Engine](https://docs.cloud.google.com/iap/docs/enabling-app-engine)
+
   * [IAP for Compute Engine](https://docs.cloud.google.com/iap/docs/enabling-compute-howto)
+
   * [IAP for Cloud Run](https://docs.cloud.google.com/iap/docs/enabling-cloud-run)
+
 
 
 
@@ -167,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

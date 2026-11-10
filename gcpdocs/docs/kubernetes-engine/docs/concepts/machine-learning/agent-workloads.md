@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-workloads/
 title: Plan an architecture for AI agent workloads on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:23.561437+00:00
+fetched_at: 2026-11-10T16:58:40.316336+00:00
 ---
 
 # Plan an architecture for AI agent workloads on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -156,20 +156,16 @@ Both runtimes run untrusted code and headless browsers:
   * **MicroVMs** : each sandbox runs in a lightweight virtual machine with a dedicated guest Linux kernel. Choose microVMs when you need VM-level isolation, full Linux syscall compatibility, or per-container CPU and memory limits inside a multi-container actor.
   * **gVisor** : each sandbox runs in a user-space kernel that intercepts and filters Linux syscalls. Choose gVisor for faster cold starts, lower memory overhead, or broader Compute Engine machine support (including GPUs, TPUs, Arm nodes, and GKE Autopilot in Agent Sandbox).
 
-
-
-The following table compares microVMs and gVisor on GKE:
-
-Feature | MicroVMs | gVisor  
+The following table compares microVMs and gVisor on GKE: Feature | MicroVMs | gVisor  
 ---|---|---  
 Kernel access | Full Linux kernel | Subset of Linux kernel syscalls  
-Isolation level | Hardware virtualization with a dedicated guest kernel | Syscall interception in a user-space kernel  
-CPU and memory overhead |  Per-actor VMM memory in Agent Substrate. Fixed 250 mCPU and 130 MiB per Pod in GKE Sandbox.  | Dynamic overhead with low base memory  
-Start time | 1 to 2 seconds | Less than 100 ms  
+Isolation level |  Hardware virtualization with a dedicated guest kernel  |  Syscall interception in a user-space kernel   
+CPU and memory overhead |  Per-actor VMM memory in Agent Substrate. Fixed 250 mCPU and 130 MiB per Pod in GKE Sandbox.  |  Dynamic overhead with low base memory   
+Start time |  1 to 2 seconds  | Less than 100 ms  
 GKE node configuration |  GKE Standard nodes with [nested virtualization](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/nested-virtualization) (both models), or x86 bare-metal nodes (Agent Substrate only)  |  GKE Standard node pools (both models), or GKE Autopilot nodes (Agent Sandbox only)   
 Node image support |  Container-Optimized OS (`cos_containerd`) in Agent Substrate. Container-Optimized OS (`cos_containerd`) or Ubuntu in GKE Sandbox.  |  Container-Optimized OS (`cos_containerd`) only   
 Machine type compatibility |  x86 [machine series that support nested virtualization](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/overview) and x86 bare metal (not supported on E2 or Arm)  |  Non-mixed-CPU x86 series in Agent Substrate. Most x86, Arm, and accelerator series in Agent Sandbox.   
-Accelerator support | Not supported |  Supported [GPU models](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#gpus) and [TPU versions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#tpus) (Agent Sandbox only)   
+Accelerator support |  Not supported  |  Supported [GPU models](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#gpus) and [TPU versions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#tpus) (Agent Sandbox only)   
 Example use cases | 
 
   * Autonomous coding and browser agents
@@ -200,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

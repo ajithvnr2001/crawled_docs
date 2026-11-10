@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk/
 title: Create VMs in bulk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:52.048345+00:00
+fetched_at: 2026-11-10T19:01:12.059198+00:00
 ---
 
 # Create VMs in bulk  |  Compute Engine  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Linux  Windows 
 
-When you want to create a large number of virtual machine (VM) instances that are identical and independent from each other, create VMs in bulk using the Google Cloud CLI or the Compute Engine API. You can create these VMs across all [zones in a region](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones) or distributed across certain zones.
+When you want to create a large number of virtual machine (VM) instances that are identical and independent from each other, create VMs in bulk using the Google Cloud CLI or the Compute Engine API. You can create these VMs across all [zones in a region](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones) or distributed across certain zones. 
 
 For more details and associated limitations, see [About bulk creation of VMs](https://docs.cloud.google.com/compute/docs/instances/multiple/about-bulk-creation). If you want to create instances with attached GPUs, see [Create GPU VMs in bulk](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-bulk) instead.
 
@@ -93,7 +93,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 To create VMs in bulk in a region, use the gcloud CLI or the Compute Engine API.
 
-If you specify a machine type or support for additional hardware such as a GPU or a local SSD, Compute Engine places the VMs in a zone within the region that supports the machine type and the additional hardware.
+If you specify a machine type or support for additional hardware such as a GPU or a local SSD, Compute Engine places the VMs in a zone within the region that supports the machine type and the additional hardware. 
 
 ###  gcloud 
 
@@ -145,7 +145,7 @@ Value | Description
 
 ###  REST 
 
-To create VMs in bulk in a region, use the following [`instances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/bulkInsert):
+To create VMs in bulk in a region, use the following [`regionInstances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstances/bulkInsert):
     
     
     POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/instances/bulkInsert
@@ -297,10 +297,10 @@ You can create VMs with custom hostnames in bulk in a region or in a zone by usi
 
 You must manually configure the DNS record for your custom hostname. For more information, see [limitations](https://docs.cloud.google.com/compute/docs/instances/custom-hostname-vm#limitations).
 
-If you don't specify a hostname, Compute Engine sets the hostname for VMs as one of the following:
+If you don't specify a hostname, Compute Engine sets the hostname for VMs as one of the following: 
 
   * `VM_NAME.c.PROJECT_ID.internal` when you enable global DNS
-  * `VM_NAME.ZONE.c.PROJECT_ID.internal` when you enable zonal DNS
+  * `VM_NAME.ZONE.c.PROJECT_ID.internal` when you enable zonal DNS 
 
 
 
@@ -363,7 +363,7 @@ Value | Description
 
 ###  REST 
 
-To create VMs with custom hostnames in bulk in a specific region, use the following [`instances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/bulkInsert):
+To create VMs with custom hostnames in bulk in a specific region, use the following [`regionInstances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstances/bulkInsert):
     
     
     POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/instances/bulkInsert
@@ -489,14 +489,14 @@ When the bulk insert operation is in progress, you should see a response similar
       "id": "4653028658507445766",
       "name": "operation-1587661030638-5a3f823c143e3-e33bbfa3-bd72185c",
       "operationType": "bulkInsert",
-      "targetLink":  "https://www.googleapis.com/compute/v1/projects/my-project"
+      "targetLink": "https://compute.googleapis.com/compute/v1/projects/my-project",
       "targetId": 4653028658507445766,
       "status": "RUNNING",
       "progress": 2,
-      "user": "example@google.com",
+      "user": "user@example.com",
       "insertTime": "2023-04-23T09:57:13.474-07:00",
       "startTime": "2023-04-23T09:57:13.474-07:00",
-      "selfLink": "https://www.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a/operations/operation-1587661030638-5a3f823c143e3-e33bbfa3-bd72185c",
+      "selfLink": "https://compute.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a/operations/operation-1587661030638-5a3f823c143e3-e33bbfa3-bd72185c",
       "operationGroupId": "4653028658507445766",
       "metadata":
         "instances_bulk_insert_operation_metadata": {
@@ -534,13 +534,13 @@ The operation returns the status `DONE` when Compute Engine successfully creates
       "operationGroupId": "4653028658507445766",
       "operationType": "bulkInsert",
       "progress": 100,
-      "selfLink": "https://www.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a/operations/operation-1587661030638-5a3f823c143e3-e33bbfa3-bd72185c",
+      "selfLink": "https://compute.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a/operations/operation-1587661030638-5a3f823c143e3-e33bbfa3-bd72185c",
       "startTime": "2023-09-11T16:21:55.629-07:00",
       "status": "DONE",
       "targetId": "625521788110",
-      "targetLink": "https://www.googleapis.com/compute/v1/projects/my-project",
-      "user": "example@google.com",
-      "zone": "https://www.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a"
+      "targetLink": "https://compute.googleapis.com/compute/v1/projects/my-project",
+      "user": "user@example.com",
+      "zone": "https://compute.googleapis.com/compute/v1/projects/my-project/zones/us-central1-a"
     }
     
 
@@ -665,7 +665,7 @@ The following pseudocode describes how to create multiple VMs of a specified mac
 
   2. Specify the machine families to attempt to create the VMs of.
          
-         acceptableMachineFamilies = ["n2","c2","e2","n1"]
+         acceptableMachineFamilies = ["c4","c3","m3"]
          
 
   3. Iterate through the set of machine types and attempt to create the VMs of the machine type until successful.
@@ -715,7 +715,7 @@ The following procedure shows you how to create a group of VMs that have predefi
   1. Specify the number of VMs to create, the zone to create them in, and a data structure to store the names in.
          
          nTarget = 1000
-         targetZone = "us-central-1a"
+         targetZone = "us-central1-a"
          names = []
          
 
@@ -753,6 +753,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

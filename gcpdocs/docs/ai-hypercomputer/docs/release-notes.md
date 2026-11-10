@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/release-notes/
 title: AI Hypercomputer release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:52:04.364248+00:00
+fetched_at: 2026-11-10T17:34:12.326415+00:00
 ---
 
 # AI Hypercomputer release notes  |  Google Cloud Documentation
@@ -24,6 +24,38 @@ Send feedback
 This page documents production updates to AI Hypercomputer. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## November 09, 2026
+
+Feature
+
+**Generally available** : [Pathways on Cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-intro) is now generally available on Google Kubernetes Engine (GKE). Major features include the following:
+
+  * **Single-controller execution model** : Coordinate multi-slice and multi-host Cloud TPU workloads from a single Python client process. Pathways uses asynchronous dispatch and centralized scheduling to support both Single Program, Multiple Data (SPMD) and Multiple Program, Multiple Data (MPMD) workloads. For example, training and reinforcement learning (RL) loops.
+  * **Resilient and elastic training** : Keep training jobs running across hardware interruptions with [resilient training](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training), including the following capabilities: 
+    * **[Elastic training](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training#elastic-training)** : Dynamically scale down to healthy Cloud TPU slices during unplanned hardware failures and scale back up when replacement slices rejoin without restarting the entire job.
+    * **Suspend-resume** : Automatically save and restore high-bandwidth memory (HBM) state to Cloud Storage during planned GKE preemption events.
+    * **Hot-swapping** : Remap interrupted workloads onto standby or lower-priority Cloud TPU slices.
+  * **[Colocated Python sidecar containers](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads#colocated-python)** : Run custom Python code directly on Cloud TPU host VMs alongside Pathways workers. For example, multi-host data loading with [Grain](https://github.com/google/grain) or `RemoteIterator`, and distributed asynchronous checkpointing with [Orbax](https://github.com/google/orbax).
+  * **Interactive mode and Shared Pathways Service** : Run, inspect, and debug JAX workloads interactively from a notebook or terminal using [interactive mode](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-interactive-mode), or share a long-running pool of Cloud TPU slices on demand across multiple users and jobs with the [Shared Pathways Service](https://github.com/AI-Hypercomputer/pathways-utils/tree/main/pathwaysutils/experimental/shared_pathways_service).
+  * **Cluster Director, Cluster Toolkit, and GKE integration** : Launch JAX workloads on the Pathways runtime using [Cluster Director](https://docs.cloud.google.com/cluster-director/docs/overview) or [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/run-workloads-pathways) (`gcluster` with `--pathways` and `--pathways-headless`), or by deploying Kubernetes JobSet manifests on GKE.
+  * **`pathwaysutils` utility package**: Use the [`pathwaysutils`](https://github.com/AI-Hypercomputer/pathways-utils) Python package for advanced features such as the Shared Pathways Service, [elasticity](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training#elastic-training), and [`experimental.reshard`](https://github.com/AI-Hypercomputer/pathways-utils/blob/main/pathwaysutils/experimental/reshard.py) for device-side data transfers across hosts over Inter-Chip Interconnect (ICI) or Data Center Network (DCN).
+  * **Standard`libtpu.so` layering and custom `libtpu.so` support**: Pathways is layered over the standard `libtpu.so` shared library and provides a way to dynamically link in a user-provided `libtpu.so` at runtime using [`PathwaysJobSet.with_custom_libtpu`](https://github.com/AI-Hypercomputer/pathways-utils/tree/main/pathwaysutils/experimental/gke) in `pathwaysutils`.
+  * **Single-process profiling, observability, and compilation cache** : Capture end-to-end JAX profiler traces across the client, proxy, resource manager, and Cloud TPU hosts from a single process. Reuse compiled XLA modules with a persistent compilation cache on Cloud Storage, and view Pathways control and data plane metrics in Cloud Monitoring.
+  * **Agentic workload debugging** : Troubleshoot failed, crashing, or stalled Pathways workloads on GKE using the [`pathways-workload` agent skill](https://github.com/google/skills/tree/main/skills/cloud/pathways-workload). With this skill, AI agents can inspect Cloud Logging container logs, node kernel logs, and GKE events to help identify root causes and fixes.
+  * **Supported Cloud TPU versions, JAX versions, and container images** : Supports TPU7x (Ironwood), TPU v6e (Trillium), TPU v5p, and TPU v5e for JAX versions 0.12.0.1, 0.12.0, 0.11.2, 0.11.1, 0.11.0, 0.10.2, and 0.10.1, with container images published in Artifact Registry: 
+    * **Image locations** : 
+      * **Pathways resource manager and worker** : `us-docker.pkg.dev/cloud-tpu-v2-images/cloud-pathways/server:TAG`
+      * **IFRT proxy server** : `us-docker.pkg.dev/cloud-tpu-v2-images/cloud-pathways/proxy_server:TAG`
+      * **Colocated Python sidecar** : `us-docker.pkg.dev/cloud-tpu-v2-images/cloud-pathways/colocated_python_sidecar:TAG`
+    * **Image tags** : Replace `TAG` with one of the following tags, which are created automatically when a Pathways build passes qualification tests and is promoted to production: 
+      * `YYYYMMDD-jax_JAX_VERSION`: Pinned tag created by combining the UTC promotion date (`YYYYMMDD`) with `-jax_` and the verified JAX version (`JAX_VERSION`) after per-version qualification tests pass. For example, `20261108-jax_0.12.0.1`.
+      * `jax-JAX_VERSION`: Rolling tag updated after per-version qualification tests pass to point to the most recent verified image for that JAX release. For example, `jax-0.12.0.1` or `jax-0.12.0`.
+      * `latest`: Rolling tag updated when a build passes qualification tests against the most recent supported JAX release.
+
+
+
+For more information, see [Introduction to Pathways on Cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-intro).
 
 ## October 06, 2026
 

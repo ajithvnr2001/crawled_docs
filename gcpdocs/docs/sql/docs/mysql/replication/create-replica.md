@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/replication/create-replica/
 title: Create read replicas \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:54.689929+00:00
+fetched_at: 2026-11-10T18:26:33.979940+00:00
 ---
 
 # Create read replicas  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -743,7 +743,9 @@ To create a read replica of an instance, use the [`gcloud sql instances create`]
     --enable-private-service-connect \
     --allowed-psc-projects=ALLOWED_PROJECTS \
     --availability-type=AVAILABILITY_TYPE \
-    --no-assign-ip
+    --no-assign-ip \
+    --tier=TIER \
+    --edition=EDITION
 
 Make the following replacements:
 
@@ -761,8 +763,10 @@ Cloud SQL doesn't copy the allowed projects for the primary instance over to the
 
 For more information about setting and removing high availability for instances, see [Configure an existing instance for high availability](https://docs.cloud.google.com/sql/docs/mysql/configure-ha#ha-instance) and [Deactivate high availability for an instance](https://docs.cloud.google.com/sql/docs/mysql/configure-ha#deactivate-ha-instance).
 
+  * TIER: the machine type for the replica instance, such as `db-perf-optimized-N-4` or `db-custom-2-7680`. This parameter is required if your primary instance is a Cloud SQL Enterprise Plus edition instance using PostgreSQL 15 and earlier, MySQL 8.0 and earlier, or SQL Server. For other instances, this parameter is optional and the replica inherits the machine tier from the primary instance.
+  * EDITION: the Cloud SQL edition for the replica instance (`ENTERPRISE` or `ENTERPRISE_PLUS`). This parameter is required if your primary instance is an Cloud SQL Enterprise Plus edition instance using PostgreSQL 15 and earlier, MySQL 8.0 and earlier, or SQL Server. For other instances, this parameter is optional and the replica inherits the edition from the primary instance.
 
-
+**Note:** The `--tier` and `--edition` flags are required if your primary instance is an Cloud SQL Enterprise Plus edition instance using PostgreSQL 15 and earlier, MySQL 8.0 and earlier, or SQL Server. If not specified for these instances, the command defaults the edition to `ENTERPRISE` (or `EDITION_UNSPECIFIED`) and fails with an `Invalid Tier (...) for (EDITION_UNSPECIFIED) Edition` error. For all other instances, these flags are optional and the replica inherits the edition and machine tier from the primary instance.
 
 ### REST v1
 
@@ -1146,6 +1150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

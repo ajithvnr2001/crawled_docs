@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-identity-federation/
 title: Workforce Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:25.167811+00:00
+fetched_at: 2026-11-10T11:44:34.958146+00:00
 ---
 
 # Workforce Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -37,6 +37,12 @@ To compare this approach with other federation architectures, see [Architecture 
 ### Workforce Identity Federation versus Workload Identity Federation
 
 Workforce Identity Federation federates user identities whereas Workload Identity Federation federates workload identities.
+
+Workforce Identity Federation is designed and capacity-modeled for human sign-in rates. Token exchange is limited by the quota metric `sts.googleapis.com/workforce_requests`, which defaults to **1,000 requests per minute per organization**. For the current value, see [Quotas and limits](https://docs.cloud.google.com/iam/quotas).
+
+**Caution:** This quota is enforced **per organization** and is shared by every workforce pool, provider, human user, and automated workload in that organization. Creating a separate workforce pool does **not** create a separate quota. For automated workloads, use [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).   
+  
+If a workload must use Workforce Identity Federation, retry throttled requests with exponential backoff rather than tight retry loops, and [monitor your token exchange quota](https://docs.cloud.google.com/iam/docs/best-practices-workforce-identity-federation#monitor-quota). 
 
 For more information, see [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).
 
@@ -336,6 +342,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

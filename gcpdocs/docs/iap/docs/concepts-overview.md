@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/concepts-overview/
 title: Identity-Aware Proxy overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:17:15.063477+00:00
+fetched_at: 2026-11-10T16:58:55.963842+00:00
 ---
 
 # Identity-Aware Proxy overview  |  Google Cloud Documentation
@@ -39,11 +39,15 @@ App Engine![request path to App Engine when using Cloud IAP](https://docs.cloud.
 
 ### Authentication
 
-Requests to your Google Cloud resources come through Cloud Run, App Engine, and Cloud Load Balancing (external and internal HTTP(S) load balancing). The serving infrastructure code for these products checks if IAP is enabled for the app or backend service. If IAP is enabled, information about the protected resource is sent to the IAP authentication server. This includes information like the Google Cloud project number, the request URL, and any IAP credentials in the request headers or cookies. IAP then checks whether the user is signed in. If the user isn't signed in, their browser is redirected to one of the following sign-in methods that IAP supports: 
+Requests to your Google Cloud resources come through Cloud Run, App Engine, and Cloud Load Balancing (external and internal HTTP(S) load balancing). The serving infrastructure code for these products checks if IAP is enabled for the app or backend service. If IAP is enabled, information about the protected resource is sent to the IAP authentication server. This includes information like the Google Cloud project number, the request URL, and any IAP credentials in the request headers or cookies. 
+
+IAP then checks whether the user is signed in. If the user isn't signed in, their browser is redirected to one of the following sign-in methods that IAP supports:
 
   * **Google Account:** Your Google Cloud users with Google Accounts are redirected through the Google Account sign-in flow to access Google Cloud.
+
   * **Workforce Identity Federation:** Your Google Cloud users in an external identity provider are redirected through their IdP sign-in to access Google Cloud.
-  * **Identity Platform:** Your customers who use email and passwords or social sign-ins, such as Facebook, Apple, and Google (Gmail) to access your application. 
+
+  * **Identity Platform:** Your customers who use email and passwords or social sign-ins, such as Facebook, Apple, and Google (Gmail) to access your application.
 
 
 
@@ -57,7 +61,9 @@ If you're using Compute Engine or Google Kubernetes Engine, users who can access
 If you're using Cloud Run, you can [enable IAP](https://docs.cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run) in the following ways: 
 
   * Directly on your Cloud Run services. This enables IAP to protect all ingress paths to Cloud Run, including the [auto-assigned URL](https://docs.cloud.google.com/run/docs/triggering/https-request) and any configured load balancer URL. This configuration is useful when you have a single Cloud Run service to enable IAP for.
+
   * Through a load balancer with a Cloud Run backend. This configuration is useful when you have multiple Cloud Run services in different regions with a single global load balancer. In this configuration, the auto-assigned URL is unprotected by IAP and might be directly accessible. Learn more about your responsibilities to ensure security.
+
 
 
 
@@ -78,7 +84,9 @@ As part of the authorization step, you can use context-aware access to provide s
 ##### Google Cloud console and APIs
 
   * First layer of defense in protecting infrastructure access to Google Cloud.
+
   * Advanced context-aware Google Cloud access to users.
+
 
 
 
@@ -102,7 +110,7 @@ As part of the authorization step, you can use context-aware access to provide s
 
 ## Your responsibilities
 
-IAP secures authentication and authorization of all requests to Cloud Run, App Engine, Cloud Load Balancing (HTTPS), and internal HTTP load balancing. 
+IAP secures authentication and authorization of all requests to Cloud Run, App Engine, Cloud Load Balancing (HTTPS), and internal HTTP load balancing.
 
 To ensure security, you must take the following precautions:
 
@@ -154,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

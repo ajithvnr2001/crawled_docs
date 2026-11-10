@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/admin-cluster-creation/
 title: Create admin clusters \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:29.177207+00:00
+fetched_at: 2026-11-10T16:59:03.741499+00:00
 ---
 
 # Create admin clusters  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ In a high-availability (HA) configuration, admin clusters provide redundant cont
 
 ## Prerequisites
 
-  * Latest `bmctl` is downloaded (`gs://anthos-baremetal-release/bmctl/1.36.200-gke.118/linux-amd64/bmctl`) from Cloud Storage.
+  * Latest `bmctl` is downloaded (`gs://anthos-baremetal-release/bmctl/1.36.100-gke.144/linux-amd64/bmctl`) from Cloud Storage.
   * Workstation running `bmctl` has network connectivity to all nodes in the target user clusters.
   * Workstation running `bmctl` has network connectivity to the cluster API server (control plane VIP).
   * SSH key used to create the Admin cluster is available to either `root` or a [non-root user with passwordless `sudo` privileges](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/update-clusters#set_a_login_user) on all nodes in the target admin cluster.
@@ -210,6 +210,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

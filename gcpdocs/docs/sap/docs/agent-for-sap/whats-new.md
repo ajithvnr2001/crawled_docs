@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/whats-new/
 title: What's new with Google Cloud's Agent for SAP \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:42.519052+00:00
+fetched_at: 2026-11-10T12:38:22.309206+00:00
 ---
 
 # What's new with Google Cloud's Agent for SAP  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This document lists significant changes to Google Cloud's Agent for SAP.
 
 Google Cloud's Agent for SAP is the successor to the Google Cloud agents: Google Cloud's monitoring agent for SAP NetWeaver, Google Cloud monitoring agent for SAP HANA, and the Cloud Storage Backint agent for SAP HANA.
 
-If you are using any of these Google Cloud agents, then we recommend that you upgrade to using version 3.15 (latest) of Google Cloud's Agent for SAP at your earliest convenience. For details about Google Cloud's Agent for SAP, see the [Google Cloud's Agent for SAP planning guide](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/planning).
+If you are using any of these Google Cloud agents, then we recommend that you upgrade to using version 3.16 (latest) of Google Cloud's Agent for SAP at your earliest convenience. For details about Google Cloud's Agent for SAP, see the [Google Cloud's Agent for SAP planning guide](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/planning).
 
 To view all of the announcements from SAP on Google Cloud, see [Release notes](https://docs.cloud.google.com/sap/docs/release-notes).
 
@@ -33,8 +33,16 @@ To view all of the announcements from SAP on Google Cloud, see [Release notes](h
 
 Use the filters or search box to find updates by agent version, agent feature, or keyword.
 
-**Filter by:** All versions3.153.143.133.123.113.103.93.83.73.63.53.43.33.23.13.0Agent configuration managementAgent lifecycle managementBackint based backup and recovery for SAP HANADisk snapshot based backup and recovery for SAP HANAFeature enablementAgent framework and general updatesProcess monitoring metrics collectionSAP HANA monitoring metrics collectionWorkload Manager evaluation metrics collectionConfigure guest OS on bare metal instances for SAP HANAWorkload performance diagnosticsGenerate support bundleSAP system discoveryVersion | Feature | Enhancements and bug fixes  
+**Filter by:** All versions3.163.153.143.133.123.113.103.93.83.73.63.53.43.33.23.13.0Agent configuration managementAgent lifecycle managementBackint based backup and recovery for SAP HANADisk snapshot based backup and recovery for SAP HANAFeature enablementAgent framework and general updatesProcess monitoring metrics collectionSAP HANA monitoring metrics collectionWorkload Manager evaluation metrics collectionConfigure guest OS on bare metal instances for SAP HANAWorkload performance diagnosticsGenerate support bundleSAP system discoveryVersion | Feature | Enhancements and bug fixes  
 ---|---|---  
+3.16 |  Configure guest OS on bare metal instances for SAP HANA |  This version introduces the following:
+
+  * To help you preview the OS configurations that your bare metal instance needs to optimally run your SAP HANA workload, this version introduces support for the `-describe` option with the `configureinstance` command. By using this flag, you can view a CSV or JSON output about all the OS configurations applicable to your bare metal instance. For more information, see step 4 in [Configure the guest OS on your bare metal instance](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/configure-bare-metal-instances#configure_the_guest_os_on_your_bare_metal_instance).
+  * OS configuration updates for X4 instances.
+
+After you update to this version of the agent, re-run the `configureinstance -check` command and the `configureinstance -apply` commands to help ensure that the guest OS on your bare metal instance is optimally configured to run your SAP HANA workload.  
+3.16 |  Agent framework and general updates Workload Manager evaluation metrics collection |  This version improves the handling of transient HTTP 503 errors when the agent communicates with Google APIs to submit Workload Manager evaluation metrics and to report the agent's status. Additionally, the log severity for temporary failures has been downgraded from `ERROR` to `WARNING` or `INFO`, depending on the nature of the failure.  
+3.16 |  SAP HANA monitoring metrics collection |  This version introduces fixes for the collection of SAP HANA monitoring metrics where the agent instance uses a [Secure user store (`hdbuserstore`) key](https://help.sap.com/docs/HANA_SERVICE_CF/18956b5b1b004347b7c350f9378bd2e3/dd95ac9dbb571014a7d7f0234d762fdb.html) for SAP HANA authentication.  
 3.15 |  Disk snapshot based backup and recovery for SAP HANA |  You can configure the timeout for SAP HANA database queries during disk snapshot based backup operations by using the `-hana-query-timeout` argument. Additionally, the default timeout has been increased from 150 seconds to 600 seconds (10 minutes) to prevent timeouts during backup operations. For information about disk snapshot based backup and recovery for SAP HANA, see [Backup and recovery for SAP HANA by using disk snapshots](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/disk-snapshot-backup-recovery).  
 3.15 |  Agent framework and general updates |  This version updates the libraries in the agent's [GitHub repository](https://github.com/GoogleCloudPlatform/sapagent) to address vulnerabilities when you're building the agent from its GitHub source.  
 3.14 |  Disk snapshot based backup and recovery for SAP HANA |  While you're recovering an SAP HANA database by using a disk snapshot based backup, you can encrypt the restored disks with a Cloud KMS key. To encrypt your SAP HANA disks with a CMEK, you use the following arguments while running the `hanadiskrestore` command: `-target-kms-key`, `-target-kms-keyring`, `-target-kms-location`, `-target-kms-project`, and `-target-kms-service-account`. For more information, see [Encrypt disks during recovery](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/disk-snapshot-backup-recovery#encrypt_disks_during_recovery).  
@@ -345,6 +353,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

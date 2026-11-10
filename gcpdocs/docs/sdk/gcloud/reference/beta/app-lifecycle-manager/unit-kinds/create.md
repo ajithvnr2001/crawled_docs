@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/unit-kinds/create/
 title: gcloud beta app-lifecycle-manager unit-kinds create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:40:56.271927+00:00
+fetched_at: 2026-11-10T17:34:04.492248+00:00
 ---
 
 # gcloud beta app-lifecycle-manager unit-kinds create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta app-lifecycle-manager unit-kinds create - create a unit kind
 SYNOPSIS
     
 
-`gcloud beta app-lifecycle-manager unit-kinds create` `UNIT_KIND` `--saas`=`SAAS` [`--default-release`=`DEFAULT_RELEASE`] [`--dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]] [`--input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--app-params-group`=`APP_PARAMS_GROUP` `--scope-type`=`SCOPE_TYPE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta app-lifecycle-manager unit-kinds create` `UNIT_KIND` `--saas`=`SAAS` [`--default-release`=`DEFAULT_RELEASE`] [`--dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]] [`--input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--app-params-group`=`APP_PARAMS_GROUP` `--scope-type`=`SCOPE_TYPE`] [`--application-template-component`=`APPLICATION_TEMPLATE_COMPONENT` `--application-template-component-revision`=`APPLICATION_TEMPLATE_COMPONENT_REVISION` [`--composite-ref-application-template`=`COMPOSITE_REF_APPLICATION_TEMPLATE` : `--composite-ref-revision`=`COMPOSITE_REF_REVISION`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Create an App Lifecycle Manager unit kind. 
 
@@ -266,6 +266,19 @@ Scope of the application.
      Global scope. 
 `type-regional`
      Regional scope. 
+Reference to a component and revision in an Application Design Center composite application template. 
+`--application-template-component`=`APPLICATION_TEMPLATE_COMPONENT`
+     Name of the component in the Application Design Center composite application template. 
+`--application-template-component-revision`=`APPLICATION_TEMPLATE_COMPONENT_REVISION`
+     Revision of the component. If the component does not have a revision, this defaults to the revision of the composite application template. 
+Reference to the composite application template. 
+`--composite-ref-application-template`=`COMPOSITE_REF_APPLICATION_TEMPLATE`
+     Full resource name of the Application Design Center composite application template. 
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
+`--composite-ref-revision`=`COMPOSITE_REF_REVISION`
+     Revision of the composite application template to use. Changes to the revision trigger manual resynchronization. If empty, the application template is ignored. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -274,12 +287,15 @@ Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for de
 API REFERENCE
      This command uses the `saasservicemgmt/v1beta1` API. The full documentation for this API can be found at: <https://docs.cloud.google.com/app-lifecycle-manager>
 NOTES
-     This command is currently in beta and might change without notice. 
+     This command is currently in beta and might change without notice. This variant is also available: 
+    
+    
+    [gcloud app-lifecycle-manager unit-kinds create](https://docs.cloud.google.com/sdk/gcloud/reference/app-lifecycle-manager/unit-kinds/create)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

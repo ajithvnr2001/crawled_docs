@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/cluster-director/clusters/update/
 title: gcloud alpha cluster-director clusters update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:33.091566+00:00
+fetched_at: 2026-11-10T17:33:57.689832+00:00
 ---
 
 # gcloud alpha cluster-director clusters update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha cluster-director clusters update - updates a Cluster Director resou
 SYNOPSIS
     
 
-`gcloud alpha cluster-director clusters update` (`CLUSTER` : `--location`=`LOCATION`) (`--add-filestore-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-flex-start-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`maxDuration`=`MAXDURATION`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-labels`=[`ADD_LABELS`,…] `--add-lustre-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-new-filestore-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`fileshare`=`FILESHARE`],[`id`=`ID`],[`name`=`NAME`],[`protocol`=`PROTOCOL`],[`tier`=`TIER`] `--add-new-lustre-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`dynamicTierOptionsMode`=`DYNAMICTIEROPTIONSMODE`],[`filesystem`=`FILESYSTEM`],[`id`=`ID`],[`name`=`NAME`],[`perUnitStorageThroughput`=`PERUNITSTORAGETHROUGHPUT`] `--add-new-storage-buckets`=[`enableAutoclass`=`ENABLEAUTOCLASS`],[`enableHNS`=`ENABLEHNS`],[`id`=`ID`],[`name`=`NAME`],[`storageClass`=`STORAGECLASS`],[`terminalStorageClass`=`TERMINALSTORAGECLASS`] `--add-nfs`=[`id`=`ID`],[`mountOptions`=`MOUNTOPTIONS`],[`remoteMount`=`REMOTEMOUNT`],[`serverIpAddress`=`SERVERIPADDRESS`] `--add-on-demand-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`],[`reservationBlock`=`RESERVATIONBLOCK`],[`reservationSubBlock`=`RESERVATIONSUBBLOCK`] `--add-spot-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`terminationAction`=`TERMINATIONACTION`],[`zone`=`ZONE`] `--add-storage-buckets`=[`id`=`ID`],[`name`=`NAME`] `--description`=`DESCRIPTION` `--remove-filestore-instances`=[`REMOVE_FILESTORE_INSTANCES`,…] `--remove-flex-start-instances`=[`REMOVE_FLEX_START_INSTANCES`,…] `--remove-labels`=[`REMOVE_LABELS`,…] `--remove-lustre-instances`=[`REMOVE_LUSTRE_INSTANCES`,…] `--remove-nfs`=[`REMOVE_NFS`,…] `--remove-on-demand-instances`=[`REMOVE_ON_DEMAND_INSTANCES`,…] `--remove-reserved-instances`=[`REMOVE_RESERVED_INSTANCES`,…] `--remove-spot-instances`=[`REMOVE_SPOT_INSTANCES`,…] `--remove-storage-buckets`=[`REMOVE_STORAGE_BUCKETS`,…] `--add-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`serviceAccount`=`SERVICEACCOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`] `--remove-managed-instance-groups`=[`REMOVE_MANAGED_INSTANCE_GROUPS`,…] `--update-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`] | `--add-slurm-epilog-scripts`=[`ADD_SLURM_EPILOG_SCRIPTS`,…] `--add-slurm-node-sets`=[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`config`=`CONFIG`],[`container-resource-labels`=`CONTAINER-RESOURCE-LABELS`],[`container-startup-script`=`CONTAINER-STARTUP-SCRIPT`],[`containerNodePool`=`CONTAINERNODEPOOL`],[`id`=`ID`],[`labels`=`LABELS`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`resourcePolicyConfig`=`RESOURCEPOLICYCONFIG`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`],[`type`=`TYPE`] `--add-slurm-partitions`=[`config`=`CONFIG`],[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] `--add-slurm-prolog-scripts`=[`ADD_SLURM_PROLOG_SCRIPTS`,…] `--add-slurm-task-epilog-scripts`=[`ADD_SLURM_TASK_EPILOG_SCRIPTS`,…] `--add-slurm-task-prolog-scripts`=[`ADD_SLURM_TASK_PROLOG_SCRIPTS`,…] `--no-enable-slurm-health-check` `--remove-slurm-epilog-scripts`=[`REMOVE_SLURM_EPILOG_SCRIPTS`,…] `--remove-slurm-node-sets`=[`REMOVE_SLURM_NODE_SETS`,…] `--remove-slurm-partitions`=[`REMOVE_SLURM_PARTITIONS`,…] `--remove-slurm-prolog-scripts`=[`REMOVE_SLURM_PROLOG_SCRIPTS`,…] `--remove-slurm-task-epilog-scripts`=[`REMOVE_SLURM_TASK_EPILOG_SCRIPTS`,…] `--remove-slurm-task-prolog-scripts`=[`REMOVE_SLURM_TASK_PROLOG_SCRIPTS`,…] `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION` `--update-slurm-config`=[`UPDATE_SLURM_CONFIG`,…] `--update-slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`startupScript`=`STARTUPSCRIPT`] `--update-slurm-node-sets`=[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`config`=`CONFIG`],[`container-resource-labels`=`CONTAINER-RESOURCE-LABELS`],[`container-startup-script`=`CONTAINER-STARTUP-SCRIPT`],[`containerNodePool`=`CONTAINERNODEPOOL`],[`id`=`ID`],[`labels`=`LABELS`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`resourcePolicyConfig`=`RESOURCEPOLICYCONFIG`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`],[`type`=`TYPE`] `--update-slurm-partitions`=[`config`=`CONFIG`],[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`]) [`--async`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha cluster-director clusters update` (`CLUSTER` : `--location`=`LOCATION`) (`--add-filestore-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-flex-start-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`maxDuration`=`MAXDURATION`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-labels`=[`ADD_LABELS`,…] `--add-lustre-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-new-filestore-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`fileshare`=`FILESHARE`],[`id`=`ID`],[`name`=`NAME`],[`protocol`=`PROTOCOL`],[`tier`=`TIER`] `--add-new-lustre-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`dynamicTierOptionsMode`=`DYNAMICTIEROPTIONSMODE`],[`filesystem`=`FILESYSTEM`],[`id`=`ID`],[`name`=`NAME`],[`perUnitStorageThroughput`=`PERUNITSTORAGETHROUGHPUT`] `--add-new-storage-buckets`=[`enableAutoclass`=`ENABLEAUTOCLASS`],[`enableHNS`=`ENABLEHNS`],[`id`=`ID`],[`name`=`NAME`],[`storageClass`=`STORAGECLASS`],[`terminalStorageClass`=`TERMINALSTORAGECLASS`] `--add-nfs`=[`id`=`ID`],[`mountOptions`=`MOUNTOPTIONS`],[`remoteMount`=`REMOTEMOUNT`],[`serverIpAddress`=`SERVERIPADDRESS`] `--add-on-demand-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`],[`reservationBlock`=`RESERVATIONBLOCK`],[`reservationSubBlock`=`RESERVATIONSUBBLOCK`] `--add-spot-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`terminationAction`=`TERMINATIONACTION`],[`zone`=`ZONE`] `--add-storage-buckets`=[`id`=`ID`],[`name`=`NAME`] `--description`=`DESCRIPTION` `--remove-filestore-instances`=[`REMOVE_FILESTORE_INSTANCES`,…] `--remove-flex-start-instances`=[`REMOVE_FLEX_START_INSTANCES`,…] `--remove-labels`=[`REMOVE_LABELS`,…] `--remove-lustre-instances`=[`REMOVE_LUSTRE_INSTANCES`,…] `--remove-nfs`=[`REMOVE_NFS`,…] `--remove-on-demand-instances`=[`REMOVE_ON_DEMAND_INSTANCES`,…] `--remove-reserved-instances`=[`REMOVE_RESERVED_INSTANCES`,…] `--remove-spot-instances`=[`REMOVE_SPOT_INSTANCES`,…] `--remove-storage-buckets`=[`REMOVE_STORAGE_BUCKETS`,…] `--add-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`additionalDisks`=`ADDITIONALDISKS`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enableOsLogin`=`ENABLEOSLOGIN`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`labels`=`LABELS`],[`metadata`=`METADATA`],[`serviceAccount`=`SERVICEACCOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`] `--remove-managed-instance-groups`=[`REMOVE_MANAGED_INSTANCE_GROUPS`,…] `--update-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`additionalDisks`=`ADDITIONALDISKS`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enableOsLogin`=`ENABLEOSLOGIN`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`labels`=`LABELS`],[`metadata`=`METADATA`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`] | `--add-slurm-epilog-scripts`=[`ADD_SLURM_EPILOG_SCRIPTS`,…] `--add-slurm-node-sets`=[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`config`=`CONFIG`],[`container-resource-labels`=`CONTAINER-RESOURCE-LABELS`],[`container-startup-script`=`CONTAINER-STARTUP-SCRIPT`],[`containerNodePool`=`CONTAINERNODEPOOL`],[`id`=`ID`],[`labels`=`LABELS`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`resourcePolicyConfig`=`RESOURCEPOLICYCONFIG`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`],[`type`=`TYPE`] `--add-slurm-partitions`=[`config`=`CONFIG`],[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] `--add-slurm-prolog-scripts`=[`ADD_SLURM_PROLOG_SCRIPTS`,…] `--add-slurm-task-epilog-scripts`=[`ADD_SLURM_TASK_EPILOG_SCRIPTS`,…] `--add-slurm-task-prolog-scripts`=[`ADD_SLURM_TASK_PROLOG_SCRIPTS`,…] `--no-enable-slurm-health-check` `--remove-slurm-epilog-scripts`=[`REMOVE_SLURM_EPILOG_SCRIPTS`,…] `--remove-slurm-node-sets`=[`REMOVE_SLURM_NODE_SETS`,…] `--remove-slurm-partitions`=[`REMOVE_SLURM_PARTITIONS`,…] `--remove-slurm-prolog-scripts`=[`REMOVE_SLURM_PROLOG_SCRIPTS`,…] `--remove-slurm-task-epilog-scripts`=[`REMOVE_SLURM_TASK_EPILOG_SCRIPTS`,…] `--remove-slurm-task-prolog-scripts`=[`REMOVE_SLURM_TASK_PROLOG_SCRIPTS`,…] `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION` `--update-slurm-config`=[`SLURM_CONFIG`,…] `--update-slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`startupScript`=`STARTUPSCRIPT`] `--update-slurm-node-sets`=[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`config`=`CONFIG`],[`container-resource-labels`=`CONTAINER-RESOURCE-LABELS`],[`container-startup-script`=`CONTAINER-STARTUP-SCRIPT`],[`containerNodePool`=`CONTAINERNODEPOOL`],[`id`=`ID`],[`labels`=`LABELS`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`resourcePolicyConfig`=`RESOURCEPOLICYCONFIG`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`],[`type`=`TYPE`] `--update-slurm-partitions`=[`config`=`CONFIG`],[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`]) [`--async`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` `gcloud alpha cluster-director clusters update` facilitates the updation of a cluster resource. 
 
@@ -495,7 +495,7 @@ Orchestrator configuration for the cluster.
 At most one of these can be specified: 
 
 Configuration of orchestration type for Managed Compute Clusters. 
-`--add-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`serviceAccount`=`SERVICEACCOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`]
+`--add-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`additionalDisks`=`ADDITIONALDISKS`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enableOsLogin`=`ENABLEOSLOGIN`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`labels`=`LABELS`],[`metadata`=`METADATA`],[`serviceAccount`=`SERVICEACCOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`]
      Parameters to define Compute Engine orchestrator managed instance group config. 
 
 Required fields: 
@@ -505,14 +505,23 @@ Required fields:
 
 
 
-For example --add-managed-instance-groups id=mig1,computeId=c1,targetSize=2,\ acceleratorTopology=2x4,enablePublicIps=true,\ startupScript="echo hello",bootDisk="{type=pd-balanced,sizeGb=100}" 
+For example: `--add-managed-instance-groups=id=mig1,computeId=c1,targetSize=2,acceleratorTopology=2x4,enablePublicIps=true,startupScript="echo hello",bootDisk="{type=pd-balanced,sizeGb=100}"`. 
 
 Note: 
 
+  * enableOsLogin: 
+    * Boolean (`true` or `false`) enabling or disabling OS Login on VM instances in the group. 
+  * labels: 
+    * Map of `KEY=VALUE` user labels applied to VM instances. 
+  * metadata: 
+    * Map of `KEY=VALUE` custom Compute Engine instance metadata entries. 
   * startupScript: 
-    * Either str or file_path 
+    * Either str or file_path. 
     * For file_path, only bash file format (.sh or .bash) is supported. 
     * For file_path, only absolute path is supported. 
+  * additionalDisks: 
+    * Map keyed by custom disk device name matching `^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$`. 
+    * Specify `type` (short ID such as `pd-balanced`) and `sizeGb` (with optional `image` in `global/images/IMAGE` or `global/images/family/FAMILY` format, or `snapshot` in `global/snapshots/SNAPSHOT` format) to create a new disk, or `existingDisk` in `zones/ZONE/disks/DISK` format to attach an existing disk in the cluster project read-only. 
   * bootDisk.storagePools: 
     * At most 1 storage pool is supported. 
     * storagePools: The name of the storage pool to use, in the format zones/us-central1-a/storagePools/pool1. 
@@ -523,12 +532,12 @@ Sets `add_managed_instance_groups` value.
 `Shorthand Example:`
     
     
-    --add-managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,serviceAccount={email=string,scopes=[string]},startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int --add-managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,serviceAccount={email=string,scopes=[string]},startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int
+    --add-managed-instance-groups=acceleratorTopology=string,additionalDisks={string={existingDisk=string,image=string,sizeGb=int,snapshot=string,type=string}},bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enableOsLogin=boolean,enablePublicIps=boolean,id=string,labels={string=string},metadata={string=string},serviceAccount={email=string,scopes=[string]},startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int --add-managed-instance-groups=acceleratorTopology=string,additionalDisks={string={existingDisk=string,image=string,sizeGb=int,snapshot=string,type=string}},bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enableOsLogin=boolean,enablePublicIps=boolean,id=string,labels={string=string},metadata={string=string},serviceAccount={email=string,scopes=[string]},startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int
 
 `JSON Example:`
     
     
-    --add-managed-instance-groups='[{"acceleratorTopology": "string", "bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enablePublicIps": boolean, "id": "string", "serviceAccount": {"email": "string", "scopes": ["string"]}, "startupScript": "string", "startupScriptTimeout": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}]'
+    --add-managed-instance-groups='[{"acceleratorTopology": "string", "additionalDisks": {"string": {"existingDisk": "string", "image": "string", "sizeGb": int, "snapshot": "string", "type": "string"}}, "bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enableOsLogin": boolean, "enablePublicIps": boolean, "id": "string", "labels": {"string": "string"}, "metadata": {"string": "string"}, "serviceAccount": {"email": "string", "scopes": ["string"]}, "startupScript": "string", "startupScriptTimeout": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}]'
 
 `File Example:`
     
@@ -538,9 +547,9 @@ Sets `add_managed_instance_groups` value.
 `--remove-managed-instance-groups`=[`REMOVE_MANAGED_INSTANCE_GROUPS`,…]
      Parameters to remove managed instance group config by id. 
 
-For example --remove-managed-instance-groups mig1,mig2,… 
+For example: `--remove-managed-instance-groups=mig1,mig2`. 
 
-`--update-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`]
+`--update-managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`additionalDisks`=`ADDITIONALDISKS`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enableOsLogin`=`ENABLEOSLOGIN`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`labels`=`LABELS`],[`metadata`=`METADATA`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`]
      Parameters to update Compute Engine orchestrator managed instance group config. 
 
 Required fields: 
@@ -549,17 +558,23 @@ Required fields:
 
 
 
-For example --update-managed-instance-groups id=mig1,targetSize=4,\ startupScript="echo updated". 
+For example: `--update-managed-instance-groups=id=mig1,targetSize=4,startupScript="echo updated"`. 
+
+Note: 
+
+  * For `labels`, `metadata`, and `additionalDisks`, entries are merged into existing maps; pass `key=""` or `disk1={}` to remove a key, or `{}` to clear the map. 
+
+
 
 Sets `update_managed_instance_groups` value. `Shorthand Example:`
     
     
-    --update-managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int --update-managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int
+    --update-managed-instance-groups=acceleratorTopology=string,additionalDisks={string={existingDisk=string,image=string,sizeGb=int,snapshot=string,type=string}},bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enableOsLogin=boolean,enablePublicIps=boolean,id=string,labels={string=string},metadata={string=string},startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int --update-managed-instance-groups=acceleratorTopology=string,additionalDisks={string={existingDisk=string,image=string,sizeGb=int,snapshot=string,type=string}},bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enableOsLogin=boolean,enablePublicIps=boolean,id=string,labels={string=string},metadata={string=string},startupScript=string,startupScriptTimeout=string,storageConfigs=[{id=string,localMount=string}],targetSize=int
 
 `JSON Example:`
     
     
-    --update-managed-instance-groups='[{"acceleratorTopology": "string", "bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enablePublicIps": boolean, "id": "string", "startupScript": "string", "startupScriptTimeout": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}]'
+    --update-managed-instance-groups='[{"acceleratorTopology": "string", "additionalDisks": {"string": {"existingDisk": "string", "image": "string", "sizeGb": int, "snapshot": "string", "type": "string"}}, "bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enableOsLogin": boolean, "enablePublicIps": boolean, "id": "string", "labels": {"string": "string"}, "metadata": {"string": "string"}, "startupScript": "string", "startupScriptTimeout": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}]'
 
 `File Example:`
     
@@ -700,12 +715,30 @@ For example --remove-slurm-task-prolog-scripts script1.sh,script2.sh
 
 For example --slurm-default-partition p1 
 
-`--update-slurm-config`=[`UPDATE_SLURM_CONFIG`,…]
+`--update-slurm-config`=[`SLURM_CONFIG`,…]
      Parameters to update slurm cluster config. 
 
-Supports both dot-notation (e.g. `schedulerParameters.bfBusyNodes=true` or `schedulerParameters.bf_busy_nodes=true`, `additionalSettings.MaxArraySize=10000`) and sub-dictionary notation (e.g. `schedulerParameters="{bfBusyNodes=true,bfInterval=30}"` or `schedulerParameters="{bf_busy_nodes=true,bf_interval=30}"`, `additionalSettings="{MaxArraySize=10000,TreeWidth=50}"`). Both camelCase and snake_case (matching native Slurm parameter names) are supported for nested parameters. 
+Unspecified fields are preserved. To clear a string or repeated field (or an individual key in `schedulerParameters`, `preemptParameters`, or `additionalSettings`), set its value to `""` or `[]`. To clear an integer field, set its value to `0`. To clear an entire nested submessage or map (such as `schedulerParameters`), set it to `{}`. To clear the entire Slurm config, pass `--update-slurm-config=""`. 
 
-For example: --update-slurm-config defMemPerCpu=2048,healthCheckInterval=10,schedulerParameters.bf_busy_nodes=true,preemptParameters.youngest_first=true,additionalSettings.MaxArraySize=10000 or --update-slurm-config defMemPerCpu=2048,schedulerParameters="{bf_busy_nodes=true,bf_interval=30}",preemptParameters="{youngest_first=true,suspend_grace_time=60}" 
+For example: 
+    
+    
+    --update-slurm-config healthCheckInterval=10,healthCheckNodeState=IDLE,healthCheckProgram=/usr/bin/true
+
+Sets `update_slurm_config` value. `Shorthand Example:`
+    
+    
+    --update-slurm-config=accountingStorageEnforceFlags=[string],accountingStorageTres=string,additionalSettings={string=string},defMemPerCpu=string,enforcePartLimits=string,fairShareDampeningFactor=string,firstJobId=string,healthCheckInterval=int,healthCheckNodeState=string,healthCheckProgram=string,jobRequeue=string,overTimeLimit=string,preemptExemptTime=string,preemptMode=[string],preemptParameters={minExemptPriority=string,reclaimLicenses=boolean,reorderCount=string,sendUserSignal=boolean,strictOrder=boolean,suspendGraceTime=string,youngestFirst=boolean},preemptType=string,priorityCalcPeriod=string,priorityDecayHalfLife=string,priorityFavorSmall=string,priorityFlags=string,priorityMaxAge=string,priorityType=string,priorityUsageResetPeriod=string,priorityWeightAge=int,priorityWeightAssoc=int,priorityWeightFairshare=int,priorityWeightJobSize=int,priorityWeightPartition=int,priorityWeightQos=int,priorityWeightTres=string,prologEpilogTimeout=string,prologFlags=[string],requeueExitCodes=[int],requeueHoldExitCodes=[int],schedulerParameters={bfBusyNodes=boolean,bfContinue=boolean,bfInterval=string,bfMaxJobPart=string,bfMaxJobTest=string,bfMaxJobUser=string,bfMinAgeReserve=string,bfResolution=string,bfWindow=string,defaultQueueDepth=string,noholdOnPrologFail=boolean},selectTypeParameters=string
+
+`JSON Example:`
+    
+    
+    --update-slurm-config='{"accountingStorageEnforceFlags": ["string"], "accountingStorageTres": "string", "additionalSettings": {"string": "string"}, "defMemPerCpu": "string", "enforcePartLimits": "string", "fairShareDampeningFactor": "string", "firstJobId": "string", "healthCheckInterval": int, "healthCheckNodeState": "string", "healthCheckProgram": "string", "jobRequeue": "string", "overTimeLimit": "string", "preemptExemptTime": "string", "preemptMode": ["string"], "preemptParameters": {"minExemptPriority": "string", "reclaimLicenses": boolean, "reorderCount": "string", "sendUserSignal": boolean, "strictOrder": boolean, "suspendGraceTime": "string", "youngestFirst": boolean}, "preemptType": "string", "priorityCalcPeriod": "string", "priorityDecayHalfLife": "string", "priorityFavorSmall": "string", "priorityFlags": "string", "priorityMaxAge": "string", "priorityType": "string", "priorityUsageResetPeriod": "string", "priorityWeightAge": int, "priorityWeightAssoc": int, "priorityWeightFairshare": int, "priorityWeightJobSize": int, "priorityWeightPartition": int, "priorityWeightQos": int, "priorityWeightTres": "string", "prologEpilogTimeout": "string", "prologFlags": ["string"], "requeueExitCodes": [int], "requeueHoldExitCodes": [int], "schedulerParameters": {"bfBusyNodes": boolean, "bfContinue": boolean, "bfInterval": "string", "bfMaxJobPart": "string", "bfMaxJobTest": "string", "bfMaxJobUser": "string", "bfMinAgeReserve": "string", "bfResolution": "string", "bfWindow": "string", "defaultQueueDepth": "string", "noholdOnPrologFail": boolean}, "selectTypeParameters": "string"}'
+
+`File Example:`
+    
+    
+    --update-slurm-config=path_to_file.(yaml|json)
 
 `--update-slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`startupScript`=`STARTUPSCRIPT`]
      Parameters to update slurm cluster login node. Only bootDisk, count and startupScript can be updated. 
@@ -809,6 +842,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

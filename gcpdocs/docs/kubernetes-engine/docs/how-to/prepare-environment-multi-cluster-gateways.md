@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/prepare-environment-multi-cluster-gateways/
 title: Prepare your environment for multi-cluster Gateways \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:54:00.652313+00:00
+fetched_at: 2026-11-10T18:46:28.714707+00:00
 ---
 
 # Prepare your environment for multi-cluster Gateways  |  GKE networking  |  Google Cloud Documentation
@@ -308,7 +308,7 @@ When enabling the multi-cluster Gateway controller, you must select your config 
              --project=PROJECT_ID
          
 
-  2. Grant Identity and Access Management (IAM) permissions required by the multi-cluster Gateway controller:
+  2. Grant Identity and Access Management (IAM) permissions that the multi-cluster Gateway controller requires:
          
          gcloud projects add-iam-policy-binding PROJECT_ID \
              --member "serviceAccount:service-PROJECT_NUMBER@gcp-sa-multiclusteringress.iam.gserviceaccount.com" \
@@ -318,6 +318,7 @@ When enabling the multi-cluster Gateway controller, you must select your config 
 
 Replace `PROJECT_ID` and `PROJECT_NUMBER` with the project ID and project number where your clusters are deployed.
 
+**Note:** Ensure that the Multi-Cluster Ingress service agent retains the default `roles/multiclusteringress.serviceAgent` role on your project, especially when you manage IAM permissions by using Terraform. If this role was removed, see Connect Gateway reports "ERROR: Lost connection" for instructions to restore it.
   3. If the project for your cluster's network differs from your fleet project (for example, you are using a [shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc)), you must allow the multi-cluster Gateway controller service account in the fleet project to access the network project.
 
 Grant the multi-cluster Gateway controller service account in the fleet project permission to access the network project:
@@ -471,7 +472,7 @@ Enabling multi-cluster services in the fleet host project creates or helps to en
               --project=FLEET_HOST_PROJECT_ID
             
 
-     2. Grant Identity and Access Management (IAM) permissions required by the multi-cluster Gateway controller.
+     2. Grant Identity and Access Management (IAM) permissions that the multi-cluster Gateway controller requires:
             
             gcloud projects add-iam-policy-binding FLEET_HOST_PROJECT_ID \
                --member "serviceAccount:service-FLEET_HOST_PROJECT_NUMBER@gcp-sa-multiclusteringress.iam.gserviceaccount.com" \
@@ -479,6 +480,7 @@ Enabling multi-cluster services in the fleet host project creates or helps to en
                --project=FLEET_HOST_PROJECT_ID
             
 
+**Note:** Ensure that the Multi-Cluster Ingress service agent retains the default `roles/multiclusteringress.serviceAgent` role on the fleet host project, especially when you manage IAM permissions by using Terraform. If this role was removed, see Connect Gateway reports "ERROR: Lost connection" for instructions to restore it.
   4. **If you plan to use an multi-cluster internal Gateway,[create a proxy-only subnet](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-gateway-traffic-splitting#configuring_a_proxy-only_subnet).**
 
   5. **Create a firewall rule in the Shared VPC host project.**
@@ -527,6 +529,15 @@ Replace the following:
 
 
 
+If the Gateway API is enabled on your config cluster, but running the `kubectl get gatewayclasses` command still doesn't list multi-cluster GatewayClasses such as `gke-l7-gxlb-mc`, complete the following next steps:
+
+  * If you enabled the Gateway API after you enabled Fleet ingress, restart Fleet ingress as described in Multi-cluster Gateway controller doesn't start.
+
+  * Check the Fleet ingress status by running the `gcloud container fleet ingress describe` command. If the output reports `ERROR: Lost connection`, restore the service agent role as described in Connect Gateway reports "ERROR: Lost connection".
+
+
+
+
 ### Multi-cluster Gateway controller doesn't start
 
 When you enable the [Gateway API](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#enable-gateway) on the config cluster and include the CRDs _after_ the Fleet ingress feature is enabled, the multi-cluster Gateway controller might fail to start.
@@ -555,6 +566,45 @@ Replace the following:
 
 
 
+### Connect Gateway reports "ERROR: Lost connection"
+
+The following error might occur in the output when you run the `gcloud container fleet ingress describe` command:
+    
+    
+    state:
+      code: ERROR
+      description: 'ERROR: Lost connection'
+    
+
+You might also find that running the `kubectl get gatewayclasses` command does not list multi-cluster GatewayClasses such as `gke-l7-gxlb-mc` in your config cluster, even after you enable the Gateway API on the config cluster.
+
+In these cases, the Multi-Cluster Ingress service agent might be missing the `roles/multiclusteringress.serviceAgent` role. This issue occurs when default service agent roles are removed, which commonly happens when authoritative IAM resources in Terraform (`google_project_iam_binding` or `google_project_iam_policy`) overwrite the project's IAM policy, removing default service agent role grants that are not declared in the Terraform configuration.
+
+To resolve this issue, complete the following steps:
+
+  1. Grant the `roles/multiclusteringress.serviceAgent` role to the Multi-Cluster Ingress service agent in your fleet host project:
+         
+         gcloud projects add-iam-policy-binding PROJECT_ID \
+             --member "serviceAccount:service-PROJECT_NUMBER@gcp-sa-multiclusteringress.iam.gserviceaccount.com" \
+             --role "roles/multiclusteringress.serviceAgent" \
+             --project=PROJECT_ID
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: the project ID where your clusters are deployed.
+
+     * `PROJECT_NUMBER`: the project number where your clusters are deployed.
+
+  2. Ensure that the `roles/container.admin` role is also granted to the service agent by re-running the `gcloud projects add-iam-policy-binding` command in Enable multi-cluster Gateway in the fleet.
+
+  3. If you manage IAM permissions with Terraform, update your configuration to use non-authoritative `google_project_iam_member` resources to prevent future Terraform deployments from removing the service agent role again.
+
+  4. Verify that the controller connection is restored and multi-cluster GatewayClasses are available by running the verification commands in Enable multi-cluster Gateway in the fleet. If the `kubectl get gatewayclasses` command returns the `error: the server doesn't have a resource type "gatewayclasses"` message, see GatewayClasses are not available in the config cluster.
+
+
+
+
 ## What's next
 
   * Learn how to [deploy an external multi-cluster Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-external-multi-cluster-gateway).
@@ -568,6 +618,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

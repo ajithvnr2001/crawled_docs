@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/python-client-migration/
 title: Migrating to Python Client Library v0.25.1 \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:49.956838+00:00
+fetched_at: 2026-11-10T15:29:27.539649+00:00
 ---
 
 # Migrating to Python Client Library v0.25.1  |  Cloud Vision API  |  Google Cloud Documentation
@@ -158,6 +158,8 @@ Particularly, bounding box vertices are now stored in `bounding_poly.vertices` a
 The bounding box change affects `face_detection`, `logo_detection`, `text_detection`, `document_text_detection`, and `crop_hints`.
 
 #### Making a face detection request and processing the response
+
+**Caution:** Emotion labels are deprecated, and the API returns `UNKNOWN` for all emotion-related labels, such as `joyLikelihood`, `sorrowLikelihood`, `angerLikelihood`, and `surpriseLikelihood` in [`FaceAnnotation`](https://docs.cloud.google.com/vision/docs/reference/rest/v1/AnnotateImageResponse#FaceAnnotation).
 
 **Python Client Library v0.25.1:**
     
@@ -704,6 +706,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

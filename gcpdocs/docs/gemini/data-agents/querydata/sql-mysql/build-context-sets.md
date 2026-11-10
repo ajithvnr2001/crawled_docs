@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-mysql/build-context-sets/
 title: Build and optimize context sets with the context engineering agent \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:24:24.084792+00:00
+fetched_at: 2026-11-10T14:04:40.525152+00:00
 ---
 
 # Build and optimize context sets with the context engineering agent  |  Data Agents  |  Google Cloud Documentation
@@ -97,26 +97,35 @@ Replace `INSTANCE_NAME` with the name of your Cloud SQL for MySQL instance.
 The `--database-flags` flag replaces all existing database flags on the instance and restarts the instance. If your instance has other flags configured, include them in the comma-separated list.
   3. To let the Cloud SQL for MySQL instance perform semantic value searches:
 
-     1. Create a vector column to store embeddings (for example, `city` embeddings on the `properties` table):
+     1. Create a vector column to store embeddings:
             
-            ALTER TABLE `properties`
-            ADD COLUMN `city_embedding` VECTOR(768) USING VARBINARY;
-            
-
-     2. Generate and store vector embeddings for the column values:
-            
-            UPDATE `properties`
-            SET `city_embedding` = mysql.ml_embedding('text-embedding-005', `city`)
-            WHERE `city` IS NOT NULL;
+            ALTER TABLE `TABLE_NAME`
+            ADD COLUMN `EMBEDDING_COLUMN_NAME` VECTOR(768) USING VARBINARY;
             
 
-  4. To let the Cloud SQL for MySQL instance perform trigram value searches, create a `FULLTEXT` index with the `ngram` parser on the target text column (for example, `address` on the `properties` table):
+     2. Generate and store vector embeddings for the target column:
+            
+            UPDATE `TABLE_NAME`
+            SET `EMBEDDING_COLUMN_NAME` = mysql.ml_embedding('text-embedding-005', `COLUMN_NAME`)
+            WHERE `COLUMN_NAME` IS NOT NULL;
+            
+
+  4. To let the Cloud SQL for MySQL instance perform trigram value searches, create a `FULLTEXT` index with the `ngram` parser on the target text column:
          
-         CREATE FULLTEXT INDEX `idx_ngram_properties_address`
-         ON `properties`(`address`)
+         CREATE FULLTEXT INDEX `INDEX_NAME`
+         ON `TABLE_NAME`(`COLUMN_NAME`)
          WITH PARSER ngram;
          
 
+
+
+
+Replace the following:
+
+  * `TABLE_NAME`: the name of your table.
+  * `EMBEDDING_COLUMN_NAME`: the name of the new vector column that stores the embeddings.
+  * `COLUMN_NAME`: the name of the existing target text column (which can differ between semantic and trigram searches).
+  * `INDEX_NAME`: the name of the `FULLTEXT` index.
 
 
 
@@ -287,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

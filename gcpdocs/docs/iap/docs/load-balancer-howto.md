@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/load-balancer-howto/
 title: Setting up an external Application Load Balancer \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:19.411115+00:00
+fetched_at: 2026-11-10T16:58:46.532739+00:00
 ---
 
 # Setting up an external Application Load Balancer  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -24,13 +24,25 @@ Send feedback
 External Application Load Balancers with Identity-Aware Proxy (IAP) are supported with the following backend types:
 
   * [Instance groups](https://docs.cloud.google.com/compute/docs/instance-groups)
+
   * [Zonal network endpoint groups (NEGs)](https://docs.cloud.google.com/load-balancing/docs/negs/zonal-neg-concepts)
-  * [Serverless NEGs](https://docs.cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts): One or more [Cloud Run](https://docs.cloud.google.com/run/docs) services 
+
+  * [Serverless NEGs](https://docs.cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts): One or more [Cloud Run](https://docs.cloud.google.com/run/docs) services
+
+
+
   * [Internet NEGs](https://docs.cloud.google.com/load-balancing/docs/negs/internet-neg-concepts), for endpoints that are outside of Google Cloud (also known as custom origins)
-  * [Hybrid Connectivity NEGs](https://docs.cloud.google.com/load-balancing/docs/negs/hybrid-neg-concepts), for endpoints that extend beyond Google Cloud, such as on-premises data centers and other public clouds that you can use [hybrid connectivity](https://cloud.google.com/hybrid-connectivity) to reach. 
-  * [Private Service Connect NEG](https://docs.cloud.google.com/load-balancing/docs/negs#psc-neg), endpoint that resolves to one of the following: 
+
+  * [Hybrid Connectivity NEGs](https://docs.cloud.google.com/load-balancing/docs/negs/hybrid-neg-concepts), for endpoints that extend beyond Google Cloud, such as on-premises data centers and other public clouds that you can use [hybrid connectivity](https://cloud.google.com/hybrid-connectivity) to reach.
+
+
+
+  * [Private Service Connect NEG](https://docs.cloud.google.com/load-balancing/docs/negs#psc-neg), endpoint that resolves to one of the following:
+
     * A Google-managed regional API endpoint
+
     * A managed service published using Private Service Connect
+
 
 **Important:** Backend buckets aren't supported with IAP. For serverless backends, see the limitations documented in [Serverless network endpoint groups overview](https://docs.cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts). For all supported use cases, you must follow the instructions in Enabling IAP on the external Application Load Balancer. This setup guide shows you how to create an external Application Load Balancer with a [Compute Engine managed instance group](https://docs.cloud.google.com/compute/docs/instance-groups) backend with IAP enabled. 
 
@@ -859,13 +871,16 @@ After a few minutes have passed, you can test the setup by running the following
 ## What's next
 
   * Read about [enabling Cloud Load Balancing for GKE](https://docs.cloud.google.com/iap/docs/enabling-kubernetes-howto)
+
   * Learn more about [instance groups](https://docs.cloud.google.com/compute/docs/instance-groups).
+
   * Read about [load balancing and scaling](https://docs.cloud.google.com/compute/docs/load-balancing-and-autoscaling).
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

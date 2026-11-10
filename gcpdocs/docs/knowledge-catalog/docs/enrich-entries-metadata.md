@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata/
 title: Manage aspects and enrich metadata \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:55.078005+00:00
+fetched_at: 2026-11-10T11:11:54.619886+00:00
 ---
 
 # Manage aspects and enrich metadata  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -179,7 +179,7 @@ System aspect types that are data aspects include the following:
   * [`data-rules`](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules#data-rules-fields): Attach data quality rules to an entry.
   * [`data-quality-rule-template`](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules#rule-template-fields): Define a reusable data quality rule template.
 
-
+**Note:** To view the contents of data aspects, you need the `dataplex.entries.getData` permission on the entry, or the corresponding permission to read data in the source system (for example, `bigquery.tables.getData` for a BigQuery table). You can get the `dataplex.entries.getData` permission through [predefined roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles) or [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles). For more information, see [IAM permissions for entries](https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions#entries).
 
 ## Before you begin
 
@@ -3756,6 +3756,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

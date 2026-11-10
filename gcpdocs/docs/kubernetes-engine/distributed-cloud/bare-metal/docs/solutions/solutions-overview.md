@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/solutions-overview/
-title: Solutions for Distributed Cloud software only \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
+title: Solutions for Google Distributed Cloud software only \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:25.695418+00:00
+fetched_at: 2026-11-10T16:59:31.422820+00:00
 ---
 
-# Solutions for Distributed Cloud software only  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
+# Solutions for Google Distributed Cloud software only  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/solutions-overview/
 
@@ -20,9 +20,9 @@ fetched_at: 2026-11-07T05:51:25.695418+00:00
 
 Send feedback 
 
-#  Solutions for Distributed Cloud software only Stay organized with collections  Save and categorize content based on your preferences. 
+#  Solutions for Google Distributed Cloud software only Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Distributed Cloud software only solutions guides bridge the gap between out-of-the-box product capabilities and production-ready enterprise architectures. These guides equip platform administrators and application operators with conceptual frameworks, reference architectures, and practical implementation steps to run critical workloads in Distributed Cloud software only environments.
+The Google Distributed Cloud software only solutions guides bridge the gap between out-of-the-box product capabilities and production-ready enterprise architectures. These guides equip platform administrators and application operators with conceptual frameworks, reference architectures, and practical implementation steps to run critical workloads in Google Distributed Cloud software only environments.
 
 The solutions guides adhere to strict requirements for performance, security, and data sovereignty.
 
@@ -37,6 +37,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

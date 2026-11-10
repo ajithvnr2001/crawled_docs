@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/identity-and-identifiers/
 title: Identity and identifiers \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:43.777190+00:00
+fetched_at: 2026-11-10T18:56:34.300785+00:00
 ---
 
 # Identity and identifiers  |  Agent Registry  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Identity and identifiers Stay organized with collections  Save and categorize content based on your preferences. 
 
-Agent Registry assigns distinct identifiers and identities to your registered agents, MCP servers, endpoints, and skills so that you can discover capabilities, enforce access policies, and route runtime traffic. Understanding how each identifier layer works helps you configure search queries, security policies, and network routes across your AI ecosystem.
+Agent Registry assigns distinct identifiers and identities to your registered agents, Model Context Protocol (MCP) servers, endpoints, and skills so that you can discover capabilities, enforce access policies, and route runtime traffic. Understanding how each identifier layer works helps you configure search queries, security policies, and network routes across your AI ecosystem.
 
 ## Architectural layers
 
@@ -89,6 +89,7 @@ Agent Registry automatically generates agent identifiers during ingestion. The e
   * **Google Kubernetes Engine (GKE) deployments** : `urn:agent:projects-PROJECT_NUMBER:projects:PROJECT_NUMBER:locations:REGION:container:clusters:CLUSTER_NAME:k8s:namespaces:NAMESPACE:apps:deployments:DEPLOYMENT_NAME`
   * **Gemini Enterprise** : `urn:agent:projects-PROJECT_NUMBER:projects:PROJECT_NUMBER:locations:global:discoveryengine:collections:default_collection:engines:ENGINE_ID:assistants:default_assistant:agents:AGENT_ID`
   * **Google Workspace** : `urn:agent:googleapis.com:locations:global:workspaceagent:workspaceagent--a2a`
+  * **Built-in Google agents** : `urn:agent:googleapis.com:projects:PROJECT_NUMBER:locations:LOCATION:SERVICE:AGENT_ID`
   * **Manually registered agents** : `urn:agent:projects-PROJECT_NUMBER:projects:PROJECT_NUMBER:locations:LOCATION:agentregistry:services:AGENT_ID`
 
 
@@ -97,7 +98,7 @@ Agent Registry automatically generates agent identifiers during ingestion. The e
 
 An MCP server identifier (`mcpServerId`) is a registry identifier used to discover an MCP server and its tools in Agent Registry.
 
-MCP servers only respond to requests and don't have an IAM principal. When an agent invokes tools on an MCP server, access is authorized using the calling agent principal.
+MCP servers only respond to requests and don't have an IAM principal. When an agent calls tools on an MCP server, access is authorized using the calling agent principal.
 
 The following are the URN formats for MCP server identifiers:
 
@@ -174,6 +175,8 @@ IAM supports governing agent access across the following scopes:
 
 Agent Registry displays the individual agent principal as an output-only attribute when you [view the details of an agent](https://docs.cloud.google.com/agent-registry/manage-agents#view-details).
 
+When configuring Agent2Agent (A2A) access, specify the `principal://` or `principalSet://` identity as the caller in IAM allow and deny policies. Reference the target `Agent` resource name in Agent Gateway and IAP egress policies. For permission mappings and IAM deny policies, see [Permissions to call A2A agents](https://docs.cloud.google.com/agent-registry/roles-permissions#invocation-permissions).
+
 ## Runtime references
 
 A runtime reference points to the underlying compute infrastructure where the code for an agent, MCP server, or endpoint runs. For example, a runtime reference can point to an Agent Runtime reasoning engine, a GKE deployment, or a Cloud Run service.
@@ -196,6 +199,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

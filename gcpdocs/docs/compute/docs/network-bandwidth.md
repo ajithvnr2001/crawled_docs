@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/network-bandwidth/
 title: Network bandwidth \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:26.706600+00:00
+fetched_at: 2026-11-10T16:58:33.767534+00:00
 ---
 
 # Network bandwidth  |  Compute Engine  |  Google Cloud Documentation
@@ -188,7 +188,7 @@ E2 shared-core | 2 Gbps | Not available
 N1 machine types with 1 vCPU | 2 Gbps | Not available  
 N1 shared-core (f1-micro and g1-small) | 1 Gbps | Not available  
 [T2A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2a_machine_types) and [T2D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2d_machine_types) | 32 Gbps | Not available  
-[X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_machine_types) | 200 Gbps | N/A  
+[X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_machine_types) | 200 Gbps | Not applicable  
 [X4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x4_machine_types) | 100 Gbps | Not applicable  
 [Z3](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_machine_types) | 100 Gbps | 200 Gbps  
 [Z4D](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_machine_types) | 400 Gbps | Not applicable  
@@ -698,6 +698,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

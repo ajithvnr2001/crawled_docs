@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax/
 title: Options section syntax \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:05.588937+00:00
+fetched_at: 2026-11-10T14:04:35.156796+00:00
 ---
 
 # Options section syntax  |  Google Security Operations  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ The `suppression_window` option provides a scalable mechanism to control alert v
 
 The `suppression_window` uses a tumbling window approach—a fixed-size, non-overlapping window that suppresses duplicate detections. You can optionally provide a `suppression_key` to further refine which query instances are suppressed within the `suppression window`. The deduplication key (`suppression_key`), the specific data point the system looks at to decide if an event is a duplicate, varies by rule type:
 
-  * [Single-event queries](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#single-event-rule) use an `outcome` variable named `suppression_key` to define the deduplication scope. If you don't specify a `suppression_key`, all query instances are suppressed globally during the window. 
+  * [Single-event queries](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#single-event-query) use an `outcome` variable named `suppression_key` to define the deduplication scope. If you don't specify a `suppression_key`, all query instances are suppressed globally during the window. 
 
 **Note:** The `suppression_window` option doesn't work when testing a rule using [**Run test**](https://docs.cloud.google.com/chronicle/docs/detection/manage-all-rules#test_your_rule). Suppression is a post-processing step that takes place only after detections have been written.
 
@@ -82,7 +82,7 @@ In the following example, `suppression_window` is set to `5m` and `suppression_k
         suppression_window = 5m
     }
 
-  * [Multiple event queries](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multiple-event-rule) use the variables defined in the `match` section to determine what should be suppressed. The `suppression_window` value must also be greater than the `match` window.
+  * [Multiple event queries](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multi-event-queries) use the variables defined in the `match` section to determine what should be suppressed. The `suppression_window` value must also be greater than the `match` window.
 
 
 
@@ -118,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

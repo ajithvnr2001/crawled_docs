@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/restore-plan/
 title: Plan a set of restores \u00a0|\u00a0 Backup for GKE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:27.484804+00:00
+fetched_at: 2026-11-10T16:31:25.263761+00:00
 ---
 
 # Plan a set of restores  |  Backup for GKE  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ This page describes how to create a Backup for GKE restore plan, which is used f
 
 Restore plans are pre-configured restore scenarios for a corresponding line of backups. Restore plans can assign permissions for administrators to use these configurations. Those users can quickly and independently restore a backup when an incident occurs. For example, persistent data might be corrupted by a software update in a deployed application, putting the application namespace in an invalid state, which requires a restore.
 
-Backup for GKE doesn't support restoring a backup from one project to another. You can only restore backups to clusters within the same project that the backup originated from. Restore plans cannot reference backup plans in a different project.
+To restore a backup from one project to a cluster in another project, see [Perform cross-project restores](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/cross-project-restores).
 
 During restoration, you can optionally apply transformation rules, which are used to match a set of resources and substitute the current value of an attribute on those resources for a new value.
 
@@ -91,8 +91,12 @@ Replace the following:
   * `RESTORE_PLAN`: the name of the restore plan that you want to create.
   * `PROJECT_ID`: the ID of your Google Cloud project.
   * `RESTORE_LOCATION`: the [compute region](https://docs.cloud.google.com/compute/docs/regions-zones#available) for the resource, for example `us-central1`. See [About resource locations](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/concepts/about-locations). The location must be the same region where the target cluster is located.
-  * `BACKUP_PLAN`: the source of backups that can be restored with this restore plan: 
-    * `projects/PROJECT_ID/locations/BACKUP_LOCATION/backupPlans/BACKUP_PLAN_NAME` Ensure that the backup plan is in the same project as the new restore plan.
+  * `BACKUP_PLAN`: the source of backups that can be restored with this restore plan:
+
+    * `projects/PROJECT_ID/locations/BACKUP_LOCATION/backupPlans/BACKUP_PLAN_NAME`
+
+If the backup plan is in a different project, ensure that a [restore channel](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/cross-project-restores#create-restore-channel) is configured between the projects.
+
   * `CLUSTER`: the name of the target cluster to which you want to restore the backup:
 
     * Regional clusters: `projects/PROJECT_ID/locations/REGION/clusters/CLUSTER_NAME`
@@ -410,6 +414,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

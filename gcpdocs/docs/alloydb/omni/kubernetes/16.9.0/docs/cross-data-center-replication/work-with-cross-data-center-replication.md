@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/cross-data-center-replication/work-with-cross-data-center-replication/
 title: Work with cross-data-center replication \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:58:00.058403+00:00
+fetched_at: 2026-11-10T16:59:02.896359+00:00
 ---
 
 # Work with cross-data-center replication  |  AlloyDB Omni for Kubernetes: 16.9.0  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ Sample output looks similar to the following:
 
   5. Take a note of the output since you need it to enable replication on the secondary database cluster in the following step.
 
-  6. [Create an AlloyDB Omni cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/cross-data-center-replication/\(/alloydb/omni/kubernetes/16.9.0/docs/deploy-kubernetes#create) on your Kubernetes cluster in the secondary data center with configuration identical to your primary database cluster.
+  6. [Create an AlloyDB Omni cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/deploy-kubernetes#create) on your Kubernetes cluster in the secondary data center using a configuration that's identical to your primary database cluster.
 
   7. Ensure external connectivity is enabled on your AlloyDB Omni secondary database cluster
 
@@ -275,23 +275,23 @@ To perform a switchover, complete the following steps:
          apiVersion: v1
          kind: Secret
          metadata:
-           name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+           name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
            namespace: SECONDARY_DB_CLUSTER_NAMESPACE
          type: Opaque
          data:
-           rep-user-pw: "ENCODED_PASSWORD"
+           rep-user-pw: "ENCODED_PASSWORD"
          ---
          apiVersion: alloydbomni.dbadmin.goog/v1
          kind: Replication
          metadata:
-           name: SECONDARY_REPLICATION_NAME
+           name: SECONDARY_REPLICATION_NAME
            namespace: SECONDARY_DB_CLUSTER_NAMESPACE
          spec:
-           dbcluster:
-             name: SECONDARY_DB_CLUSTER_NAME
-           upstream:
-             password:
-               name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+           dbcluster:
+             name: SECONDARY_DB_CLUSTER_NAME
+           upstream:
+             password:
+               name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
 
 Wait for the replication status to be ready.
 
@@ -318,26 +318,28 @@ Sample output looks similar to the following:
          apiVersion: v1
          kind: Secret
          metadata:
-           name: ha-rep-pw-DB_CLUSTER_NAME
+           name: ha-rep-pw-DB_CLUSTER_NAME
+           namespace: DB_CLUSTER_NAMESPACE
          type: Opaque
          data:
-           rep-user-pw: "ENCODED_PASSWORD"
+           rep-user-pw: "ENCODED_PASSWORD"
          ---
          apiVersion: alloydbomni.dbadmin.goog/v1
          kind: Replication
          metadata:
-           name: REPLICATION_NAME
+           name: REPLICATION_NAME
+           namespace: DB_CLUSTER_NAMESPACE
          spec:
-           dbcluster:
-             name: DB_CLUSTER_NAME
-           downstream:
-             host: SECONDARY_HOST
-             port: SECONDARY_PORT
-             username: alloydbreplica
-             password:
-               name: ha-rep-pw-DB_CLUSTER_NAME
-             replicationSlotName: SECONDARY_REPLICATION_SLOT
-             control: rewind
+           dbcluster:
+             name: DB_CLUSTER_NAME
+           downstream:
+             host: SECONDARY_HOST
+             port: SECONDARY_PORT
+             username: alloydbreplica
+             password:
+               name: ha-rep-pw-DB_CLUSTER_NAME
+             replicationSlotName: SECONDARY_REPLICATION_SLOT
+             control: rewind
 
 Wait for the replication status to become ready and healthy.
 
@@ -352,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

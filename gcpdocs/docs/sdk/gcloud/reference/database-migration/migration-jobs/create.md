@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/create/
 title: gcloud database-migration migration-jobs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:19:16.811274+00:00
+fetched_at: 2026-11-10T17:33:49.235649+00:00
 ---
 
 # gcloud database-migration migration-jobs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud database-migration migration-jobs create - create a Database Migration Se
 SYNOPSIS
     
 
-`gcloud database-migration migration-jobs create` (`MIGRATION_JOB` : `--region`=`REGION`) `--destination`=`DESTINATION` `--source`=`SOURCE` `--type`=`TYPE` [`--no-async`] [`--commit-id`=`COMMIT_ID`] [`--conversion-workspace`=`CONVERSION_WORKSPACE`] [`--display-name`=`DISPLAY_NAME`] [`--dump-parallel-level`=`DUMP_PARALLEL_LEVEL`] [`--dump-type`=`DUMP_TYPE`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--filter`=`FILTER`] [`--labels`=[`KEY`=`VALUE`,…]] [`--load-parallel-level`=`LOAD_PARALLEL_LEVEL`] [`--mysql-is-primary-destination`] [`--original-migration-name`=`ORIGINAL_MIGRATION_NAME`] [`--postgres-max-additional-subscriptions`=`POSTGRES_MAX_ADDITIONAL_SUBSCRIPTIONS`] [`--use-postgres-native`] [`--all-databases` | `--databases-filter`=`databaseName`,[…]] [`--cmek-key`=`CMEK_KEY` : `--cmek-keyring`=`CMEK_KEYRING` `--cmek-project`=`CMEK_PROJECT`] [`--dump-flags`=[`KEY`=`VALUE`,…] | `--dump-path`=`DUMP_PATH`] [`--max-concurrent-cdc-connections`=`MAX_CONCURRENT_CDC_CONNECTIONS` `--max-concurrent-full-dump-connections`=`MAX_CONCURRENT_FULL_DUMP_CONNECTIONS` `--skip-full-dump` `--oracle-cdc-start-position`=`ORACLE_CDC_START_POSITION` | `--sqlserver-cdc-start-position`=`SQLSERVER_CDC_START_POSITION` `--max-concurrent-destination-connections`=`MAX_CONCURRENT_DESTINATION_CONNECTIONS` `--transaction-timeout`=`TRANSACTION_TIMEOUT`] [`--peer-vpc`=`PEER_VPC` | `--static-ip` | [`--vm-ip`=`VM_IP` `--vm-port`=`VM_PORT` `--vpc`=`VPC` : `--vm`=`VM`]] [`--sqlserver-dag-linked-server`=`SQLSERVER_DAG_LINKED_SERVER` `--sqlserver-dag-source-ag`=`SQLSERVER_DAG_SOURCE_AG` | [`--sqlserver-databases`=`databaseName`,[…] : `--sqlserver-diff-backup` `--sqlserver-encrypted-databases`=`SQLSERVER_ENCRYPTED_DATABASES` `--sqlserver-promote-when-ready`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud database-migration migration-jobs create` (`MIGRATION_JOB` : `--region`=`REGION`) `--destination`=`DESTINATION` `--source`=`SOURCE` `--type`=`TYPE` [`--no-async`] [`--commit-id`=`COMMIT_ID`] [`--conversion-workspace`=`CONVERSION_WORKSPACE`] [`--display-name`=`DISPLAY_NAME`] [`--dump-parallel-level`=`DUMP_PARALLEL_LEVEL`] [`--dump-type`=`DUMP_TYPE`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--filter`=`FILTER`] [`--labels`=[`KEY`=`VALUE`,…]] [`--load-parallel-level`=`LOAD_PARALLEL_LEVEL`] [`--mysql-is-primary-destination`] [`--original-migration-name`=`ORIGINAL_MIGRATION_NAME`] [`--postgres-max-additional-subscriptions`=`POSTGRES_MAX_ADDITIONAL_SUBSCRIPTIONS`] [`--use-postgres-native`] [`--all-databases` | `--databases-filter`=`databaseName`,[…] `--excluded-schemas-filter`=`DATABASE`.`SCHEMA`,[…] `--excluded-tables-filter`=`DATABASE`.`SCHEMA`.`TABLE`,[…] `--schemas-filter`=`DATABASE`.`SCHEMA`,[…] `--tables-filter`=`DATABASE`.`SCHEMA`.`TABLE`,[…]] [`--cmek-key`=`CMEK_KEY` : `--cmek-keyring`=`CMEK_KEYRING` `--cmek-project`=`CMEK_PROJECT`] [`--dump-flags`=[`KEY`=`VALUE`,…] | `--dump-path`=`DUMP_PATH`] [`--max-concurrent-cdc-connections`=`MAX_CONCURRENT_CDC_CONNECTIONS` `--max-concurrent-full-dump-connections`=`MAX_CONCURRENT_FULL_DUMP_CONNECTIONS` `--skip-full-dump` `--oracle-cdc-start-position`=`ORACLE_CDC_START_POSITION` | `--sqlserver-cdc-start-position`=`SQLSERVER_CDC_START_POSITION` `--max-concurrent-destination-connections`=`MAX_CONCURRENT_DESTINATION_CONNECTIONS` `--transaction-timeout`=`TRANSACTION_TIMEOUT`] [`--peer-vpc`=`PEER_VPC` | `--static-ip` | [`--vm-ip`=`VM_IP` `--vm-port`=`VM_PORT` `--vpc`=`VPC` : `--vm`=`VM`]] [`--sqlserver-dag-linked-server`=`SQLSERVER_DAG_LINKED_SERVER` `--sqlserver-dag-source-ag`=`SQLSERVER_DAG_SOURCE_AG` | [`--sqlserver-databases`=`databaseName`,[…] : `--sqlserver-diff-backup` `--sqlserver-encrypted-databases`=`SQLSERVER_ENCRYPTED_DATABASES` `--sqlserver-promote-when-ready`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a Database Migration Service migration job. Recommended steps before creating the migration job: 
 
@@ -249,14 +249,30 @@ To set the `migration_job` attribute:
 `--use-postgres-native`
      Use native logical replication for PostgreSQL migration. 
 The migration job objects config. 
-The migration job objects config for databases. 
 
 At most one of these can be specified: 
 
 `--all-databases`
      Migrate all databases for the migration job. This flag is used only for Postgres to AlloyDB, and Postgres to Cloud SQL Postgres and MySQL to Cloud SQL MySQL migrations. 
+Or at least one of these can be specified: 
+
+The migration job objects filter config. 
 `--databases-filter`=`databaseName`,[…]
      A list of databases to be migrated to the destination instance. Provide databases as a comma separated list. This flag is used only for Postgres to AlloyDB, and Postgres to Cloud SQL Postgres and MySQL to Cloud SQL MySQL migrations. 
+`--excluded-schemas-filter`=`DATABASE`.`SCHEMA`,[…]
+     A list of schemas to be excluded from migration to the destination instance. Provide schemas as a comma separated list in the format DATABASE.SCHEMA, or SCHEMA if a single database is specified in --databases-filter. If a database or schema name contains a dot (.), enclose it in double quotes (e.g. `db1."my.schema"`) or escape the dot with a backslash (e.g. `db1.my\.schema`). This flag is used only for migrations from PostgreSQL to AlloyDB or Cloud SQL for PostgreSQL. 
+
+Note: Omitting --databases-filter migrates only the database(s) referenced in this filter. On multi-database instances, specify all databases to be migrated in --databases-filter. 
+
+`--excluded-tables-filter`=`DATABASE`.`SCHEMA`.`TABLE`,[…]
+     A list of tables to be excluded from migration to the destination instance. Provide tables as a comma separated list in the format DATABASE.SCHEMA.TABLE, or SCHEMA.TABLE if a single database is specified in --databases-filter. If a database, schema, or table name contains a dot (.), enclose it in double quotes (e.g. `db1."my.schema"."my.table"`) or escape the dot with a backslash (e.g. `db1.my\.schema.my\.table`). This flag is used only for migrations from PostgreSQL to AlloyDB or Cloud SQL for PostgreSQL. 
+
+Note: Omitting --databases-filter migrates only the database(s) referenced in this filter. On multi-database instances, specify all databases to be migrated in --databases-filter. 
+
+`--schemas-filter`=`DATABASE`.`SCHEMA`,[…]
+     A list of schemas to be migrated to the destination instance. Provide schemas as a comma separated list in the format DATABASE.SCHEMA, or SCHEMA if a single database is specified in --databases-filter. If a database or schema name contains a dot (.), enclose it in double quotes (e.g. `db1."my.schema"`) or escape the dot with a backslash (e.g. `db1.my\.schema`). This flag is used only for migrations from PostgreSQL to AlloyDB or Cloud SQL for PostgreSQL. 
+`--tables-filter`=`DATABASE`.`SCHEMA`.`TABLE`,[…]
+     A list of tables to be migrated to the destination instance. Provide tables as a comma separated list in the format DATABASE.SCHEMA.TABLE, or SCHEMA.TABLE if a single database is specified in --databases-filter. If a database, schema, or table name contains a dot (.), enclose it in double quotes (e.g. `db1."my.schema"."my.table"`) or escape the dot with a backslash (e.g. `db1.my\.schema.my\.table`). This flag is used only for migrations from PostgreSQL to AlloyDB or Cloud SQL for PostgreSQL. 
 Cmek key resource - Name of the CMEK (customer-managed encryption key) used for the migration job The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `region` attribute: 
@@ -396,6 +412,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

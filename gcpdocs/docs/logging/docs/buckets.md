@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/buckets/
 title: Configure log buckets \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:00.840411+00:00
+fetched_at: 2026-11-10T14:04:29.043538+00:00
 ---
 
 # Configure log buckets  |  Cloud Logging  |  Google Cloud Documentation
@@ -407,7 +407,7 @@ If you extend a bucket's retention period, then the retention rules apply going 
 
 **Warning:** Locking a log bucket is irreversible.
 
-When you lock a bucket against updates, you also lock the bucket's retention policy. After a retention policy is locked, you can't delete the bucket until every log entry in the bucket has fulfilled the bucket's retention period. If you want to prevent the accidental deletion of a project that contains a locked log bucket, then add a lien to the project. To learn more, see [Protecting projects with liens](https://docs.cloud.google.com/resource-manager/docs/project-liens).
+When you lock a bucket against updates, you also lock the bucket's retention policy and prevent deletion of that log bucket. If you want to prevent the accidental deletion of a project that contains a locked log bucket, then add a lien to the project. To learn more, see [Protecting projects with liens](https://docs.cloud.google.com/resource-manager/docs/project-liens).
 
 To prevent anyone from updating or deleting a log bucket, lock the bucket. To lock the bucket, do the following:
 
@@ -436,16 +436,11 @@ To lock your bucket's attributes, use [`projects.locations.buckets.patch`](https
 
 **Note:** If you delete a log bucket, then make sure that you also delete any log sinks that route log entries to that log bucket.
 
-You can delete log buckets that satisfy one of the following:
-
-  * The log bucket is unlocked.
-  * The log bucket is locked and all log entries in the log bucket have fulfilled the bucket's retention period.
-
-
+You can delete log buckets that are unlocked. You can't delete locked log buckets. If you want to delete a locked user-defined log bucket, wait until all log entries in the bucket have fulfilled the bucket's retention period and then contact Cloud Customer Care.
 
 You can't delete a log bucket in any of the following situations:
 
-  * The log bucket is locked against updates and it stores log entries that haven't fulfilled the bucket's retention period.
+  * The log bucket is locked.
 
 
   * There are one or more links on the log bucket. To determine if there are links on your log bucket, you can use the Google Cloud console or run the [`gcloud logging links list`](https://docs.cloud.google.com/sdk/gcloud/reference/logging/links/list) command.
@@ -879,11 +874,11 @@ If you encounter problems when using log buckets, refer to the following trouble
 
 ### Why can't I delete this bucket?
 
-If you're trying to delete a bucket, do the following:
+If you're trying to delete a user-defined log bucket, do the following:
 
-  * Verify that you have the correct permissions to delete the bucket. For the list of the permissions that you need, see [Access control with IAM](https://docs.cloud.google.com/logging/docs/access-control).
+  * Verify that you have the correct permissions to delete the log bucket. For the list of the permissions that you need, see [Access control with IAM](https://docs.cloud.google.com/logging/docs/access-control).
 
-  * Determine whether the bucket is locked by listing the bucket's attributes. If the bucket is locked, check the bucket's retention period. You can't delete a locked bucket until all of the logs in the bucket have fulfilled the bucket's retention period.
+  * Determine whether the log bucket is locked by listing the bucket's attributes. You can't delete a locked bucket.
 
 
 
@@ -952,6 +947,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/cloud-iap-for-on-prem-apps-overview/
 title: Overview of IAP for on-premises apps \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:55:42.167129+00:00
+fetched_at: 2026-11-10T16:58:54.067658+00:00
 ---
 
 # Overview of IAP for on-premises apps  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -32,8 +32,11 @@ IAP targets on-premises apps with the [IAP On-Prem Connector](https://cloud.goog
 The On-Prem Connector creates the following resources:
 
   * A [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) deployment that acts as a proxy for the on-premises app. 
+
   * An [external Application Load Balancer](https://cloud.google.com/load-balancing/docs/https/) that acts as the ingress controller for requests.
+
   * Routing rules.
+
 
 
 
@@ -74,8 +77,11 @@ The following is an example of `routing` parameters defined for a IAP connector 
               destination: finance-internal.domain.com
 
   * Each `routing` name corresponds to a new, Ambassador-created Compute Engine backend service resource.
+
   * The `mapping` parameter specifies a list of Ambassador routing rules for a backend service.
+
   * The `source` of a routing rule is mapped to a `destination`, where `source` is the URL of requests coming to Google Cloud, and `destination` is the URL for your on-premises app that IAP routes traffic to after a user has been authorized and authenticated.
+
 
 
 
@@ -90,7 +96,9 @@ finance | finance-host | www.finance-domain.com | finance-internal.domain.com
 ## What's next
 
   * Learn how to [secure on-premises apps with IAP](https://docs.cloud.google.com/iap/docs/enabling-on-prem-howto).
+
   * Learn more about [how IAP works](https://docs.cloud.google.com/iap/docs/concepts-overview).
+
 
 
 
@@ -98,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/release-notes/
 title: Memorystore for Redis release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:45:31.166931+00:00
+fetched_at: 2026-11-10T18:34:34.779099+00:00
 ---
 
 # Memorystore for Redis release notes  |  Google Cloud Documentation
@@ -28,11 +28,35 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/memorystore-release-notes.xml) directly. 
 
+## November 09, 2026
+
+Feature
+
+Memorystore for Redis supports the `CLIENT` command and the following subcommands:
+
+  * `CLIENT` | `CACHING`
+  * `CLIENT` | `GETNAME`
+  * `CLIENT` | `GETREDIR`
+  * `CLIENT` | `HELP`
+  * `CLIENT` | `ID`
+  * `CLIENT` | `INFO`
+  * `CLIENT` | `KILL`
+  * `CLIENT` | `LIST`
+  * `CLIENT` | `NO-TOUCH`
+  * `CLIENT` | `REPLY`
+  * `CLIENT` | `SETNAME`
+  * `CLIENT` | `TRACKING`
+  * `CLIENT` | `TRACKINGINFO`
+
+
+
+For more information about the `CLIENT` command and its supported subcommands, see [Supported and blocked commands](https://docs.cloud.google.com/memorystore/docs/redis/supported-commands). This feature is [generally available (GA)](https://docs.cloud.google.com/products#product-launch-stages).
+
 ## October 08, 2026
 
 Feature
 
-To help protect your data and provide a baseline level of persistence, RDB snapshots are enabled by default when you [create an instance](https://docs.cloud.google.com/memorystore/docs/redis/manage-rdb-snapshots) using the Google Cloud console. This feature is [generally available](https://docs.cloud.google.com/products#product-launch-stages).
+To help protect your data and provide a baseline level of persistence, Redis Database (RDB) snapshots are enabled by default when you [create an instance](https://docs.cloud.google.com/memorystore/docs/redis/manage-rdb-snapshots) using the Google Cloud console. This feature is [generally available (GA)](https://docs.cloud.google.com/products#product-launch-stages).
 
 ## September 03, 2026
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/rule-quotas/
 title: Understand rule quotas \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:25.235947+00:00
+fetched_at: 2026-11-10T14:04:33.906295+00:00
 ---
 
 # Understand rule quotas  |  Google Security Operations  |  Google Cloud Documentation
@@ -67,9 +67,9 @@ Quota type  |  Description  |  What counts toward the quota  |  Total rules quot
 ---|---|---  
 Multi-event rules quota  |  A restricted subset of the total quota reserved for multi-event rules.  |  Only multi-event rules: Rules that correlate multiple events over time, use joins, or perform [windowed aggregations](https://docs.cloud.google.com/chronicle/docs/yara-l/match-syntax#supported_time_windows) (for example, rules with a match section).   
   
-  * [Single-event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#single-event-rule) count only toward the total active quota.
+  * [Single-event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#single-event-query) count only toward the total active quota.
 
-  * [Multi-event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multiple-event-rule) consume capacity from **both** the total active and multi-event quotas simultaneously.
+  * [Multi-event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multi-event-queries) consume capacity from **both** the total active and multi-event quotas simultaneously.
 
 
 
@@ -219,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

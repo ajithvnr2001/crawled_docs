@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/builds/worker-pools/create/
 title: gcloud beta builds worker-pools create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:11:49.192897+00:00
+fetched_at: 2026-11-10T17:33:25.871836+00:00
 ---
 
 # gcloud beta builds worker-pools create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta builds worker-pools create - create a worker pool for use by Cloud B
 SYNOPSIS
     
 
-`gcloud beta builds worker-pools create` `WORKER_POOL` [`--generation`=`GENERATION`; default=1] [`--region`=`REGION`] [`--config-from-file`=`CONFIG_FROM_FILE` | `--disable-public-ip-address` `--network-attachment`=`NETWORK_ATTACHMENT` `--route-all-traffic` | `--peered-network`=`PEERED_NETWORK` `--peered-network-ip-range`=`PEERED_NETWORK_IP_RANGE` `--no-public-egress` `--worker-disk-size`=`WORKER_DISK_SIZE` `--worker-machine-type`=`WORKER_MACHINE_TYPE` `--worker-release`=`WORKER_RELEASE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta builds worker-pools create` `WORKER_POOL` [`--generation`=`GENERATION`; default=1] [`--region`=`REGION`] [`--config-from-file`=`CONFIG_FROM_FILE` | `--peered-network`=`PEERED_NETWORK` `--peered-network-ip-range`=`PEERED_NETWORK_IP_RANGE` `--no-public-egress` `--worker-disk-size`=`WORKER_DISK_SIZE` `--worker-machine-type`=`WORKER_MACHINE_TYPE` `--worker-release`=`WORKER_RELEASE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Create a worker pool for use by Cloud Build. 
 EXAMPLES
@@ -67,21 +67,6 @@ Private pool options:
 Or at least one of these can be specified: 
 
 Command-line flags to configure the private pool: 
-At most one of these can be specified: 
-
-Network configuration for Private Service Connect interface: 
-`--disable-public-ip-address`
-     If set, workers in the worker pool are created without an external IP address. 
-
-If the worker pool is within a VPC Service Control perimeter, use this flag. 
-
-`--network-attachment`=`NETWORK_ATTACHMENT`
-     The network attachment that the worker network interface is peered to. The network attachment is specified in resource URL format projects/{project}/regions/{region}/networkAttachments/{name}. The region of network attachment must be the same as the worker pool. See <https://cloud.google.com/vpc/docs/about-network-attachments> for details. 
-`--route-all-traffic`
-     Route all traffic through PSC interface. Enable this if you want full control of traffic in the private pool. Configure Cloud NAT for the subnet of network attachment if you need to access public Internet. 
-
-If unset, Only route private IPs, e.g. 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16 through PSC interface. 
-
 Network configuration for Service Networking: 
 `--peered-network`=`PEERED_NETWORK`
      Existing network to which workers are peered. The network is specified in resource URL format projects/{network_project}/global/networks/{network_name}. 
@@ -131,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

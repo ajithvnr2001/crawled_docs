@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.20/docs/unified-install/options/ca-migration/
 title: Canary-based Migration to Mesh CA \u00a0|\u00a0 Cloud Service Mesh v1.20 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:49.780368+00:00
+fetched_at: 2026-11-10T18:46:59.986935+00:00
 ---
 
 # Canary-based Migration to Mesh CA  |  Cloud Service Mesh v1.20  |  Google Cloud Documentation
@@ -45,8 +45,8 @@ Migrating to Cloud Service Mesh certificate authority (Mesh CA) from [Istio CA](
 
 Use the steps in this guide for the following use cases:
 
-  * Migrate from Istio on GKE to the Cloud Service Mesh 1.31.3-asm.3 in-cluster control plane with Mesh CA.
-  * Upgrade from Cloud Service Mesh 1.15 or a 1.16 patch release with Istio CA to the Cloud Service Mesh 1.31.3-asm.3 in-cluster control plane with Mesh CA.
+  * Migrate from Istio on GKE to the Cloud Service Mesh 1.31.3-asm.7 in-cluster control plane with Mesh CA.
+  * Upgrade from Cloud Service Mesh 1.15 or a 1.16 patch release with Istio CA to the Cloud Service Mesh 1.31.3-asm.7 in-cluster control plane with Mesh CA.
 
 
 
@@ -159,7 +159,7 @@ Install a control plane revision with an option that distributes the Mesh CA roo
   * `--root_cert` The root certificate.
   * `--cert_chain` The certificate chain.
   * `--option ca-migration-citadel` When you [redeploy your workloads](https://docs.cloud.google.com/service-mesh/v1.20/docs/unified-install/install-anthos-service-mesh#deploy_and_redeploy_workloads), this option triggers the new root of trust to be distributed to the sidecar proxies of the workloads.
-  * `REVISION_1`: Recommended. A [revision label](https://docs.cloud.google.com/service-mesh/v1.20/docs/revisions-overview) is a key-value pair that is set on the control plane. The revision label key is always `istio.io/rev`. By default, the tool sets the value for the revision label based on the Cloud Service Mesh version, for example: `asm-1313-3`. We recommend that you include this option and replace `REVISION_1` with a name that describes the installation, such as `asm-1313-3-distribute-root`. The name must be a DNS-1035 label, and it must consist of lower case alphanumeric characters or `-`, start with an alphabetic character, and end with an alphanumeric character (such as `my-name` or `abc-123`).
+  * `REVISION_1`: Recommended. A [revision label](https://docs.cloud.google.com/service-mesh/v1.20/docs/revisions-overview) is a key-value pair that is set on the control plane. The revision label key is always `istio.io/rev`. By default, the tool sets the value for the revision label based on the Cloud Service Mesh version, for example: `asm-1313-7`. We recommend that you include this option and replace `REVISION_1` with a name that describes the installation, such as `asm-1313-7-distribute-root`. The name must be a DNS-1035 label, and it must consist of lower case alphanumeric characters or `-`, start with an alphabetic character, and end with an alphanumeric character (such as `my-name` or `abc-123`).
 
 
 
@@ -206,7 +206,7 @@ The output is similar to the following:
          istiod-asm-195-2-distribute-root-6f764dbb7c-g9f8c                1/1     Running   0          18m   asm-195-2-distribute-root
          istiod-asm-195-2-distribute-root-6f764dbb7c-z7z9s                1/1     Running   0          18m   asm-195-2-distribute-root
 
-     1. In the output, under the `REV` column, note the value of the revision label for the new revision, which matches the revision label that you specified when you ran `asmcli install`. In this example, the value is `asm-1313-3-distribute-root`.
+     1. In the output, under the `REV` column, note the value of the revision label for the new revision, which matches the revision label that you specified when you ran `asmcli install`. In this example, the value is `asm-1313-7-distribute-root`.
 
      2. You need to delete the old revision of `istiod` when you finish moving workloads to the new revision. Note the value in the revision label for the old `istiod` revision. The example output shows a migration from Istio, which is using the `default` revision.
 
@@ -339,12 +339,12 @@ Expected output:
 
      7. Remove the new `IstioOperator` configuration.
             
-            kubectl delete IstioOperator installed-state-asm-1313-3-distribute-root -n istio-system
+            kubectl delete IstioOperator installed-state-asm-1313-7-distribute-root -n istio-system
             
 
 Expected output is similar to the following:
             
-            istiooperator.install.istio.io "installed-state-asm-1313-3-distribute-root" deleted
+            istiooperator.install.istio.io "installed-state-asm-1313-7-distribute-root" deleted
 
 
 
@@ -385,7 +385,7 @@ You use `asmcli install` to install a new control plane revision that has Mesh C
          * [ Register the cluster](https://docs.cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster) to the fleet if it isn't already registered.
 
        * `--ca mesh_ca` You can now switch to Mesh CA since the Mesh CA root of trust has been distributed.
-       * `REVISION_2` Recommended. Replace `REVISION_2` with a name that describes the installation, such as `asm-1313-3-meshca-ca-migration`. The name must be a DNS-1035 label, and it must consist of lower case alphanumeric characters or `-`, start with an alphabetic character, and end with an alphanumeric character (such as `my-name` or `abc-123`). 
+       * `REVISION_2` Recommended. Replace `REVISION_2` with a name that describes the installation, such as `asm-1313-7-meshca-ca-migration`. The name must be a DNS-1035 label, and it must consist of lower case alphanumeric characters or `-`, start with an alphabetic character, and end with an alphanumeric character (such as `my-name` or `abc-123`). 
        * `--option ca-migration-migration` When you [redeploy your workloads](https://docs.cloud.google.com/service-mesh/v1.20/docs/unified-install/install-anthos-service-mesh#deploy_and_redeploy_workloads), this option configures the proxies to use the Mesh CA root of trust.
 
 
@@ -402,18 +402,18 @@ To finish the installation, you need to label your namespaces with the new revis
 The output is similar to the following:
          
          NAME                                                                          READY   STATUS    RESTARTS   AGE   REV
-         istio-ingressgateway-asm-1313-3-distribute-root-65d884685d-6hrdk      1/1     Running   0          67m   asm-1313-3-distribute-root
-         istio-ingressgateway-asm-1313-3-distribute-root65d884685d-94wgz       1/1     Running   0          67m   asm-1313-3-distribute-root
-         istio-ingressgateway-asm-1313-3-meshca-ca-migration-8b5fc8767-gk6hb   1/1     Running   0          5s    asm-1313-3-meshca-ca-migration
-         istio-ingressgateway-asm-1313-3-meshca-ca-migration-8b5fc8767-hn4w2   1/1     Running   0          20s   asm-1313-3-meshca-ca-migration
-         istiod-asm-1313-3-distribute-root-67998f4b55-lrzpz                    1/1     Running   0          68m   asm-1313-3-distribute-root
-         istiod-asm-1313-3-distribute-root-67998f4b55-r76kr                    1/1     Running   0          68m   asm-1313-3-distribute-root
-         istiod-asm-1313-3-meshca-ca-migration-5cd96f88f6-n7tj9                1/1     Running   0          27s   asm-1313-3-meshca-ca-migration
-         istiod-asm-1313-3-meshca-ca-migration-5cd96f88f6-wm68b                1/1     Running   0          27s   asm-1313-3-meshca-ca-migration
+         istio-ingressgateway-asm-1313-7-distribute-root-65d884685d-6hrdk      1/1     Running   0          67m   asm-1313-7-distribute-root
+         istio-ingressgateway-asm-1313-7-distribute-root65d884685d-94wgz       1/1     Running   0          67m   asm-1313-7-distribute-root
+         istio-ingressgateway-asm-1313-7-meshca-ca-migration-8b5fc8767-gk6hb   1/1     Running   0          5s    asm-1313-7-meshca-ca-migration
+         istio-ingressgateway-asm-1313-7-meshca-ca-migration-8b5fc8767-hn4w2   1/1     Running   0          20s   asm-1313-7-meshca-ca-migration
+         istiod-asm-1313-7-distribute-root-67998f4b55-lrzpz                    1/1     Running   0          68m   asm-1313-7-distribute-root
+         istiod-asm-1313-7-distribute-root-67998f4b55-r76kr                    1/1     Running   0          68m   asm-1313-7-distribute-root
+         istiod-asm-1313-7-meshca-ca-migration-5cd96f88f6-n7tj9                1/1     Running   0          27s   asm-1313-7-meshca-ca-migration
+         istiod-asm-1313-7-meshca-ca-migration-5cd96f88f6-wm68b                1/1     Running   0          27s   asm-1313-7-meshca-ca-migration
 
-     1. In the output, under the `REV` column, note the value of the revision label for the new version. In this example, the value is `asm-1313-3-meshca-ca-migration`.
+     1. In the output, under the `REV` column, note the value of the revision label for the new version. In this example, the value is `asm-1313-7-meshca-ca-migration`.
 
-     2. Also note the value in the revision label for the old `istiod` version. You need this to delete the old version of `istiod` when you finish moving workloads to the new version. In the example, the value of the revision label for the previous revision is `asm-1313-3-distribute-root`.
+     2. Also note the value in the revision label for the old `istiod` version. You need this to delete the old version of `istiod` when you finish moving workloads to the new version. In the example, the value of the revision label for the previous revision is `asm-1313-7-distribute-root`.
 
   2. Add the new revision label to a namespace In the following command, replace `NAMESPACE` with the namespace to label.
          
@@ -535,6 +535,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries/
 title: Agent Platform Workbench client libraries \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:53.602802+00:00
+fetched_at: 2026-11-10T09:13:43.135609+00:00
 ---
 
 # Agent Platform Workbench client libraries  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-notebooks" % "1.99.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-notebooks" % "1.100.0"
 
 For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup).
 

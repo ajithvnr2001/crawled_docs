@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/filestore-for-gke/
 title: About Filestore support for Google Kubernetes Engine \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:38.659535+00:00
+fetched_at: 2026-11-10T16:33:06.764931+00:00
 ---
 
 # About Filestore support for Google Kubernetes Engine  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -42,9 +42,9 @@ The GKE Filestore CSI driver is the primary way for you to use Filestore instanc
 
   * You have access to fully-managed NFS storage through the Kubernetes APIs ([`kubectl`](https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api)).
 
-  * You can use the GKE Filestore CSI driver to dynamically provision your PersistentVolumes.
+  * You can use the GKE Filestore CSI driver to dynamically provision your PersistentVolumes. In GKE version 1.37.1 and later, if you request a shared, multi-writer PersistentVolumeClaim without specifying a StorageClass, GKE automatically uses the `regional-rwx` StorageClass by default. For more information, see [Default StorageClass assignment](https://docs.cloud.google.com/filestore/docs/csi-driver#default-rwx).
 
-  * You can use the GKE Filestore CSI driver to decouple capacity from performance, allowing the dynamic scaling of performance. For more information, see [Dynamically scale Filestore performance using `VolumeAttributesClass`](https://docs.cloud.google.com/filestore/docs/csi-driver#scale-custom-performance).
+  * You can use the GKE Filestore CSI driver to decouple capacity from performance, allowing the dynamic scaling of performance. For more information, see [Dynamically scale Filestore performance using VolumeAttributesClass](https://docs.cloud.google.com/filestore/docs/csi-driver#scale-custom-performance).
 
   * You can use the GKE Filestore CSI driver to create [CSI volume snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/volume-snapshots) which subsequently create [Filestore backups](https://docs.cloud.google.com/filestore/docs/backups).
 
@@ -83,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

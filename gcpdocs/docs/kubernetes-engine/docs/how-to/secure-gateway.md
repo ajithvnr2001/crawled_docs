@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway/
 title: Secure a Gateway \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:56.987836+00:00
+fetched_at: 2026-11-10T18:12:00.211819+00:00
 ---
 
 # Secure a Gateway  |  GKE networking  |  Google Cloud Documentation
@@ -39,7 +39,9 @@ This page explains how you can secure a Gateway using various security features:
 
 
 
-To learn more about Gateway security, see [Gateway security](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-security).
+To pass encrypted TLS traffic directly to backends without terminating TLS or managing certificates at the Gateway, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
+
+For more information about Gateway security concepts, see [Gateway security](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-security).
 
 ## Before you begin
 
@@ -92,6 +94,8 @@ In addition to the GKE Gateway controller [restrictions and limitations](https:/
   * **Location alignment.** The referenced TrustConfig resource must exist in the same location (global or specific region) as the Gateway that uses the Service.
 
   * **Namespace constraint.** The BackendTLSPolicy resource and its target resource must be in the same namespace.
+
+  * **TLS passthrough.** When deploying a TLS passthrough Gateway (the `tls.mode` field set to `Passthrough`) with TLSRoute resources, don't attach certificates or Kubernetes Secrets to the Gateway listener. In addition, BackendTLSPolicy resources, SSL policies, Google Cloud Armor security policies, IAP, and CORS filters don't apply to TLS passthrough traffic. For more information, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
 
 
 
@@ -1369,6 +1373,7 @@ Replace `GATEWAY_NAME` with the name of your Gateway.
 
 ## What's next
 
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn more about [Gateway security](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-security).
   * Learn how to [configure Gateway resources using Policies](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources).
   * Learn how to [deploy Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
@@ -1380,6 +1385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

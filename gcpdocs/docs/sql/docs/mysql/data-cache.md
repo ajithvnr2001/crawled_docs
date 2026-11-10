@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/data-cache/
 title: Data cache overview \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:53:17.594511+00:00
+fetched_at: 2026-11-10T18:46:40.483745+00:00
 ---
 
 # Data cache overview  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -67,7 +67,10 @@ Use a data cache for workloads that are predominantly made up of read operations
   * When a data cache becomes full, it removes the stored data based on the least recently used analysis to accommodate subsequent updates to the data cache.
 
 
+  * Data cache isn't supported for the [C4D machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d). Because data cache is enabled automatically for Cloud SQL Enterprise Plus edition instances, if you provision a Cloud SQL Enterprise Plus edition instance with a C4D machine type (8 vCPUs or larger), you must explicitly disable data cache. For example, for the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud), add the `--no-enable-data-cache` flag to your creation command. 
+  * For the [C4 machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4), data cache isn't supported on the `db-perf-optimized-C4-2` machine type. To use data cache with the C4 machine series, select the `db-perf-optimized-C4-4` or `db-perf-optimized-C4-8` machine type.
   * If there's a user- or system-triggered shutdown or restart, then the contents of the data cache are available on restart. However, if the primary instance performs maintenance or encounters an unexpected shutdown, such as in a failover operation, then the contents of the data cache are lost. This can lead to reduced performance while the data cache is repopulated.
+  * Data cache doesn't store [redo logs](https://dev.mysql.com/doc/refman/8.4/en/en/innodb-redo-log.html) and [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html).
 
 
 
@@ -75,6 +78,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

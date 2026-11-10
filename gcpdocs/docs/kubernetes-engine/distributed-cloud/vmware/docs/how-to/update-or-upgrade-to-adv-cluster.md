@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster/
 title: Update or upgrade a cluster to an advanced cluster \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:04.404620+00:00
+fetched_at: 2026-11-10T16:59:22.532298+00:00
 ---
 
 # Update or upgrade a cluster to an advanced cluster  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,10 +21,107 @@ Send feedback
 
 #  Update or upgrade a cluster to an advanced cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows how to update or upgrade a cluster to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters) from version 1.32.
+You can convert a version 1.32 cluster to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview) by updating it in place at version 1.32 or by upgrading it to version 1.33. Converting to an advanced cluster prepares your environment for version 1.33 and later, where advanced clusters are the default or required architecture.
 
-**Important:** Non-advanced clusters will be upgraded to advanced cluster automatically in 1.33.
+## Key differences after moving to advanced clusters
 
+Upgrading or updating your cluster to an advanced cluster introduces several key differences compared to standard clusters. Here are the major changes in advanced clusters:
+
+  * **Resource location** : Cluster and machine resources are no longer located in user clusters. These resources are located exclusively within the admin cluster.
+
+  * **`NodeExternalIP`** : The `NodeExternalIP` isn't set on the nodes.
+
+  * **`cert-manager` installation**: `cert-manager` is automatically installed on advanced clusters. If you installed `cert-manager` in your cluster, updating or upgrading to advanced cluster overwrites it with the advanced cluster version.
+
+
+
+
+### Feature differences between advanced and non-advanced clusters
+
+When you enable advanced clusters, some features or capabilities won't work the same way as they do in non-advanced clusters. Some of these changes apply only to the Preview version of advanced clusters in version 1.31. The differences are noted throughout the documentation.
+
+The following table lists the features supported for Google Distributed Cloud software only for VMware, their availability status when advanced clusters is enabled, and any differences in behavior or use:
+
+Make a selectionNo differencesChanges applyNot supportedNot recommendedDeprecatedFeature/capability | **1.31 Adv. clusters (Preview)** | **1.32 Not enabled** | **1.32 Advanced clusters (GA)** | **1.33 Advanced clusters (GA)** | **Differences**  
+---|---|---|---|---|---  
+Advanced clusters | **Preview** | GA | GA | GA | Not supported  
+[Topology domains](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/topology-domains-set-up) | **Preview** |  | **Preview** | **Preview** | Changes apply. For more information see [Set up topology domains](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/topology-domains-set-up) and related cluster configuration references.  
+[Regional fleet membership](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#gkeconnect-location-field) | GA | GA | GA | GA | No differences.  
+[Version skew n+2 admin cluster - user cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules#version-skew) |  | GA | GA | GA | Not recommended: Because managing a lower-version preview user cluster isn't supported, don't use this feature.   
+[Version skew n+2 node pool - user cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules#version-skew) |  | GA | GA | GA | Not recommended: Because managing a lower-version preview user cluster isn't supported, don't use this feature.  
+[Max surge setting for node pool updates](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-updatestrategy-rollingupdate-maxsurge-field) | **Preview** | **Preview** | **Preview** | **Preview** | No differences.  
+[cgroup v2 for nodes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-osimagetype-field) | GA | GA | GA | GA | No differences.  
+[DSR mode for Dataplane V2](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#dataplanev2-forwardmode-field) | GA | GA | GA | GA | No differences.  
+[Binary Authorization for Controlplane V2 user clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/binary-authorization-policy) | GA | GA | GA | GA | No differences.  
+[User-managed admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-admin-workstation) | GA | GA | GA | GA | No differences.  
+[StatefulSet CSI migration tool](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/using-statefulset-csi-migration-tool) | GA | GA | GA | GA | No differences.  
+[Seesaw to MetalLB migration](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/migrate-seesaw-metallb) | GA | GA | GA | GA | No differences.  
+[Disable bundled ingress](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/disable-bundled-ingress) | GA | GA | GA | GA | No differences.  
+[Admin cluster prepared credentials](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/prepared-credentials-admin) |  | GA | GA | GA | No differences.  
+[Storage policy for a user cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/configure-storage-policy) | GA | GA | GA | GA | No differences.  
+[Storage policy for an admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/configure-storage-policy) | GA | GA | GA | GA | No differences.  
+[Node auto repair](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-auto-repair) | GA | GA | GA | GA | Changes apply: If advanced cluster is enabled, the periodic health checks aren't run as part of auto repair. For information and other differences, see [Automatic node repair and health checking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-auto-repair).  
+[High availability admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-admin-cluster) | GA | GA | GA | GA | No differences.  
+[VM host affinity](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/configure-vm-host-affinity) |  | GA | GA | GA | Supported on advanced clusters in version 1.32.200 and 1.33 and later. When you use [topology domains](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/topology-domains-set-up), configure host groups in [`topologyDomains[i].compute.hostGroups`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/reference/vsphere-infrastructure-configuration-file#topology-domains-compute-host-groups) in the vSphere infrastructure configuration file instead of `nodePools[i].vsphere.hostgroups` in the user cluster configuration file.  
+[Generate configuration files from an existing cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/get-configuration-file-from-cluster) | GA | GA | GA | GA | Changes apply. Clusters that use [topology domains](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/topology-domains-set-up#limitations) aren't supported.  
+[Google Cloud Managed Service for Prometheus system metrics collection](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/logging-and-monitoring#using-managed-service-for-prometheus) | GA | GA | GA | GA | No differences.  
+[Upgrade and rollback of node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-node-pools) |  | GA | GA | GA | No differences.  
+[Update private registry credentials](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-cluster-credentials#update_private_registry_credentials) | GA | GA | GA | GA | No differences.  
+[Admin cluster backup and restore with gkectl](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/back-up-and-restore-an-admin-cluster-with-gkectl) |  | **Preview** | **Preview** | GA | Changes apply. Updated the `gkectl` command for improved restoring of admin clusters and to support backing up and restoring user clusters. For more information, see [Back up and restore advanced clusters with gkectl.](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/back-up-and-restore-advanced-cluster-with-gkectl)  
+[User cluster node pool autoscaling](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-autoscaling-section) | GA | GA | GA | GA | No differences.  
+[Cluster automatic node resizing](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-auto-resize) |  | GA |  | GA | No differences.  
+[Multiple vSphere cluster support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/install-overview#2_set_up_your_vsphere_environment) | GA | GA | GA | GA | No differences.  
+[Multiple vSphere data centers support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/install-overview#2_set_up_your_vsphere_environment) | GA | GA | GA | GA | No differences.  
+[OpenID Connect (OIDC) support for authentication to clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/authentication) | GA | GA | GA | GA | No differences.  
+[CA certificate rotation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/ca-rotation) |  | GA | GA | GA | No differences.  
+[Workload Identity Federation support](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/use-workload-identity) | GA | GA | GA | GA | No differences.  
+[GKE Identity Service with LDAP authentication support](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/ldap) | GA | GA | GA | GA | No differences.  
+[Always-on secrets encryption without hardware security module (HSM)](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/always-on-secrets-encryption) |  | GA | GA | GA | No differences.  
+[Update vCenter CA certificates with gkectl](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-vcenter-certificate) | GA | GA | GA | GA | No differences.  
+[Egress NAT gateway](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/egress-nat-gateway) | GA | GA | GA | GA | No differences.  
+[Admin cluster fleet registration](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#gkeconnect-section) | GA | GA | GA | GA | No differences.  
+[Windows node pool support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-guide-for-windows-server-os-node-pools) |  | GA |  |  | Not supported.  
+[`containerd` runtime for Windows node pool](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-guide-for-windows-server-os-node-pools) |  | GA |  |  | Not supported.  
+[Container-Optimized OS node pool support](https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits) |  | GA | GA | GA | No differences.  
+[CoreDNS as the cluster DNS provider](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/configure-dns) | GA | GA | GA | GA | No differences.  
+[User cluster lifecycle in the Google Cloud console](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-user-cluster) |  | GA | **Partial support** | GA | Changes apply. For more information, see [Advanced cluster limitations](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/cluster-lifecycle-management-tools#advanced_cluster_limitations).  
+[Admin cluster node creation with Container-Optimized OS](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#os-image-type-field) |  | GA | GA | GA | No differences.  
+[Multi-NIC capability for Pods](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/multi-nic) | GA | GA | GA | GA | No differences.  
+[MetalLB load balancer option](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/bundled-load-balance-metallb) | GA | GA | GA | GA | Changes apply. For details, see [Bundled load balancing with MetalLB](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/bundled-load-balance-metallb).  
+[`gkectl update admin` support for enabling and disabling Cloud Logging and Cloud Monitoring](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/logging-and-monitoring) | GA | GA | GA | GA | No differences.  
+Windows Dataplane V2 support |  | GA |  |  | Not supported.  
+Summary API metrics | GA | GA | GA | GA | No differences.  
+[`gkectl update credentials` support for updating component access service account key](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/rotating-service-account-keys) | **Partial support** | GA | **Partial support** | **Partial support** | Changes apply. For details about what is or isn't supported for updating credentials for advanced clusters, see [Advanced cluster differences for rotating service account keys](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/rotating-service-account-keys#adv-cluster-diffs).  
+[Prepared credentials for user cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/prepared-credentials) |  | GA | GA | GA | No differences.  
+[Dry run upgrade of user cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_user_cluster) | GA | GA | GA | GA | No differences.  
+[Asynchronous upgrade of user cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_user_cluster) | GA | GA | GA | GA | No differences.  
+Dry run upgrade of admin cluster |  |  | GA | GA | No differences.  
+[Asynchronous upgrade of admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_admin_cluster) | GA | GA | GA | GA | No differences.  
+[Sequential update of node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepoolupdatepolicy-maximumconcurrentnodepoolupdate-field) |  | GA | GA | GA | No differences.  
+[Create volume snapshot with vSphere CSI driver](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/vsphere-csi-restore-volume-snapshot) | **Preview** | **Preview** | **Preview** | **Preview** | No differences.  
+[Create user cluster with Controlplane V2 enabled](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-user-cluster) | GA | GA | GA | GA | No differences.  
+[Storage migration with SPBM](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/storage-migration-spbm) | GA | GA | GA | GA | No differences.  
+[Migrate a datastore to an SPBM](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/migrate-datastore-spbm) | GA | GA | GA | GA | No differences.  
+[Migrate a user cluster to Controlplane V2](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/migrate-kubeception-controlplane-v2) | GA | GA | GA | GA | No differences.  
+[Migrate to an HA admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/migrate-admin-cluster-ha) | GA | GA | GA | GA | No differences.  
+[Migrate configuration settings for F5 BIG-IP](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/migrate-f5-manual) | GA | GA | GA | GA | No differences.  
+[Load balancer](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/setup-load-balance) | **Partial support** | GA | GA | GA | Changes apply. For more information, refer to the relevant load balancer and cluster configuration reference documentation.  
+[Preflight checks](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/preflight-checks) | **Partial support** | GA | GA | GA | No differences.  
+[Hardware requirements](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/cpu-ram-storage) | GA | GA | GA | GA | Changes apply. For details, see [CPU, RAM, and storage requirements](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/cpu-ram-storage).  
+[Snapshot](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/snapshots-advanced-cluster) | GA | GA | GA | GA | No differences.  
+[Private registry](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/private-registry) | GA | GA | GA | GA | Changes apply. For details about using a private registry on an advanced cluster, see [Limitations with advanced clusters and the full bundle](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/private-registry#advanced-cluster-limitation).  
+IPAM, [DNS](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/configure-dns), NTP and [multi-NIC](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/multi-nic) | GA | GA | GA | GA | No differences.  
+Cluster creation/upgrade/deletion | GA | GA | GA | GA | Changes apply. For more information, refer to the relevant cluster operation documentation and [ Advanced cluster limitations](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/cluster-lifecycle-management-tools#advanced_cluster_limitations).   
+[Proxy](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/firewall-rules) | GA | GA | GA | GA | No differences.  
+[NodePool update policy](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-pool-update-policy) |  | GA | GA | GA | No differences.  
+[Diagnose](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose) |  | GA | GA | GA | Changes apply. vCenter-related checks aren't available for advanced clusters. Since there's no longer an `onprem-user-cluster-controller` controller, the [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose) guide is obsolete for advanced clusters. For version 1.32 advanced clusters, the `gkectl diagnose cluster` command runs [health checks](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/healthchecks) for the specified cluster.  
+[vSphere tags and VM tracking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/vm-track-tags) |  | GA |  | GA | No differences.  
+vSphere host group |  | GA |  | GA | No differences.  
+[Logging and monitoring](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/logging-and-monitoring) | GA | GA | GA | GA | No differences.  
+[Anti-affinity groups](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#antiaffinitygroups-enabled-field) |  | GA | GA | GA | No differences.  
+Non-HA user cluster control plane |  | GA |  |  | Not supported.  
+`gkectl check-config` |  | GA | GA | GA | Changes apply. Support for the command on advanced user clusters was added in the following versions: 1.32.700+, 1.33.300+, and 1.34.0 and higher.  
+  
 ## Prerequisites
 
   * The `gkectl` version must be the same as the target cluster version.
@@ -36,12 +133,13 @@ This document shows how to update or upgrade a cluster to an [advanced cluster](
     * If the command reports any errors or warnings, resolve them before you start the update or upgrade to an advanced cluster.
   * Make sure your clusters use only [recommended features](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/migrate-recommended-features).
 
-  * Verify your clusters don't use any [features not supported by advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters#adv-clusters-feature-support) before starting the update or upgrade. If any unsupported features are active, disable them using [update](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general) first.
+  * Verify your clusters don't use any features not supported by advanced clusters before starting the update or upgrade. If any unsupported features are active, disable them using [update](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general) first.
 
     * Although highly-available (HA) user clusters are required on advanced clusters, you can still update or upgrade a non-HA user cluster to an HA advanced cluster following this guide.
   * You must update or upgrade the admin cluster to an advanced cluster before you update or upgrade any user clusters.
 
-  * About `cert-manager` installation: `cert-manager` is automatically installed on advanced clusters. When you migrate from a non-advanced cluster to an advanced cluster, the integrated `cert-manager` automatically overrides any customer-installed versions of `cert-manager`. Make sure you don't have critical custom configurations or features applied to your existing `cert-manager` before you update or upgrade to advanced clusters. For more information, see [Upgrade to `cert-manager` bundled with advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster#upgrade-cert-manager).
+  * About `cert-manager` installation: `cert-manager` is automatically installed on advanced clusters. When you migrate from a non-advanced cluster to an advanced cluster, the integrated `cert-manager` automatically overrides any customer-installed versions of `cert-manager`. Make sure you don't have critical custom configurations or features applied to your existing `cert-manager` before you update or upgrade to advanced clusters.
+
 
 
 
@@ -156,7 +254,7 @@ After the admin cluster has been updated or upgraded to an advanced cluster:
 
 
 
-We recommend that you upgrade all user clusters to advanced clusters soon afterward to maintain a consistent and fully-featured environment.
+Upgrade all user clusters to advanced clusters soon afterward to maintain a consistent and fully-featured environment.
 
 ## Update or upgrade the user cluster to advanced cluster
 
@@ -275,7 +373,7 @@ The command will recreate all the nodes in the user cluster.
 
 ## `cert-manager` bundled with advanced clusters
 
-`cert-manager` is a mandatory, system-managed component in [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters).
+`cert-manager` is a mandatory, system-managed component in [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview).
 
 If you use `cert-manager` without advanced clusters, check the following before you upgrade to advanced clusters:
 
@@ -330,25 +428,10 @@ Google Distributed Cloud (software only) for VMware | Bundled `cert-manager` ver
 1.33 | 1.18  
 1.34 | 1.19  
   
-## Key differences after moving to advanced clusters
-
-Upgrading or updating your cluster to an advanced cluster introduces several key differences compared to standard clusters. Here are the major changes in advanced clusters:
-
-  * **Resource location** : Cluster and machine resources are no longer located in user clusters. These resources are located exclusively within the admin cluster.
-
-  * **`NodeExternalIP`** : The `NodeExternalIP` isn't set on the nodes.
-
-  * **`cert-manager` installation**: `cert-manager` is automatically installed on advanced clusters. If you installed `cert-manager` in your cluster, updating or upgrading to advanced cluster overwrites it with the advanced cluster version.
-
-
-
-
-For a comprehensive overview of feature differences, refer to the [feature comparison table](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters#adv-clusters-feature-support).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

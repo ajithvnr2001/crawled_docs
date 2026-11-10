@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/replication/
 title: About replication in Cloud SQL \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:42:38.330677+00:00
+fetched_at: 2026-11-10T18:46:29.343595+00:00
 ---
 
 # About replication in Cloud SQL  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -414,7 +414,7 @@ User tables | You cannot make changes on the replica. All user changes must be d
 ## What's next
 
   * Learn how to [create a read replica](https://docs.cloud.google.com/sql/docs/mysql/replication/create-replica). 
-  * Learn how to [configure an external replica configuration](https://docs.cloud.google.com/sql/docs/mysql/replication/configure-external-replica).
+  * Learn how to [configure an external replica configuration](https://docs.cloud.google.com/sql/docs/mysql/replication/configure-external-replica). 
   * Learn how to [replicate your data from an external server](https://docs.cloud.google.com/sql/docs/mysql/replication/replication-from-external).
   * Learn how to [configure an external server configuration](https://docs.cloud.google.com/sql/docs/mysql/replication/replication-from-external).
   * Learn about [replication in MySQL](https://dev.mysql.com/doc/refman/8.4/en/replication.html). 
@@ -427,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

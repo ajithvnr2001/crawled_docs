@@ -2,12 +2,14 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/create-cloud-sql-destination-instance/
 title: Create and configure the Cloud SQL for SQL Server destination instance \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:29.542734+00:00
+fetched_at: 2026-11-10T12:43:10.848208+00:00
 ---
 
 # Create and configure the Cloud SQL for SQL Server destination instance  |  Database Migration Service for SQL Server  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/database-migration/docs/sqlserver/create-cloud-sql-destination-instance/
+
+**Plan for SQL Server 2017 End of Support:** Starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 instances. You can use Database Migration Service to migrate and upgrade self-managed, Amazon RDS, or existing [Cloud SQL for SQL Server 2017 instances](https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide) to Cloud SQL for SQL Server 2019, 2022, or 2025. For timeline details, see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions). 
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -23,7 +25,7 @@ Send feedback
 
 For homogeneous SQL Server migrations to Cloud SQL, Database Migration Service requires that you first create and configure your Cloud SQL destination instance. Perform the following steps:
 
-  1. [ Create your destination instance](https://docs.cloud.google.com/sql/docs/sqlserver/create-instance). Make sure you use enough compute and memory resources to cover your migration needs and follow the requirements listed in [ known limitations](https://docs.cloud.google.com/database-migration/docs/sqlserver/known-limitations).
+  1. [ Create your destination instance](https://docs.cloud.google.com/sql/docs/sqlserver/create-instance). You can select the same SQL Server version as your source or a later version (2019, 2022, or 2025) to upgrade during the migration (starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 instances; see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions)). Make sure you use enough compute and memory resources to cover your migration needs and follow the requirements listed in [ known limitations](https://docs.cloud.google.com/database-migration/docs/sqlserver/known-limitations).
 
   2. Create and configure a dedicated migration user in your destination Cloud SQL instance. This user is required for Database Migration Service to successfully connect to your destination instance and monitor your data. You need to provide the username and password for this account at a later stage, when you [ create the destination connection profile](https://docs.cloud.google.com/database-migration/docs/sqlserver/create-destination-connection-profile).
 
@@ -55,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

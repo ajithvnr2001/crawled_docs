@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/dataplex-catalog-integration/
 title: Manage your Cloud SQL resources using Knowledge Catalog \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:55:44.384085+00:00
+fetched_at: 2026-11-10T16:58:30.809320+00:00
 ---
 
 # Manage your Cloud SQL resources using Knowledge Catalog  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 [MySQL](https://docs.cloud.google.com/sql/docs/mysql/dataplex-catalog-integration "View this page for the MySQL database engine") | [PostgreSQL](https://docs.cloud.google.com/sql/docs/postgres/dataplex-catalog-integration "View this page for the PostgreSQL database engine") | SQL Server
 
-This page explains how you can search for and manage your Cloud SQL resources by using Knowledge Catalog.
+This page explains how you can search for and manage your Cloud SQL resources by using [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/introduction) (formerly known as Dataplex Universal Catalog).
 
 Knowledge Catalog is a platform for storing, managing, and accessing your metadata. Knowledge Catalog retrieves the following metadata from Cloud SQL instances, databases, tables, columns, and views automatically:
 
@@ -62,6 +62,49 @@ For example, you might attach the following aspect to a column that contains a S
 For more information about Knowledge Catalog, see [About metadata management in Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview).
 
 **Note:** Knowledge Catalog refers to the resources in Cloud SQL and in other Google Cloud services as _assets_. In this page, we refer to Cloud SQL resources—instances, databases, tables, and views—as Cloud SQL assets. We also use the term _assets_ to refer to both the resources and Knowledge Catalog metadata for the resources.
+
+## Knowledge Catalog integration data freshness
+
+The expected freshness of your instance metadata in Knowledge Catalog depends on the creation date of the instance, its database version, and its network architecture.
+
+### Near real-time
+
+Integration with Knowledge Catalog is enabled by default when the instance is created if the instance meets **all** of the following criteria:
+
+  1. **Creation time:** On or after November 9, 2026 
+
+  2. **Version:** All SQL Server versions
+  3. **Network architecture:** [New network architecture](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-cloud-sql-instance-new-network-architecture#overview)
+
+
+
+For existing instances created before April 18, 2026 that meet the version and new network architecture criteria, enabling Knowledge Catalog integration using Enable the integration of Knowledge Catalog on an existing Cloud SQL instance enables the integration in near real-time. If such an instance already has Knowledge Catalog integration enabled once a day, then you can deactivate the integration and re-enable it to move from once a day to near real-time.
+
+If your instance doesn't meet the criteria for near real-time integration, see Once a day.
+
+Instances that are integrated in near real-time contain a timestamp table to track creation and update times for your assets. The timestamp table is the `resource_timestamps` table in the `gcloud_cloudsqladmin` database. The timestamp table can be queried from Cloud SQL in the Google Cloud console. When your instance has a DDL or schema change, the integration queries the timestamp table to identify recently changed assets, and then loads the latest schema updates to Knowledge Catalog in near real-time. In rare instances, for example when there is network instability, Knowledge Catalog might miss an update. While this is rare, any changes that have been missed become eventually consistent, usually within 24 hours. For more information about scenarios that can cause missed changes, see Limitations on this page.
+
+When you view queries that have been run in an instance, you will see queries that support the Knowledge Catalog integration. You can identify these queries by the `--Dataplex` comment that they include. To view queries for an instance, see [View active queries](https://docs.cloud.google.com/sql/docs/sqlserver/monitor-active-queries#view-active-queries).
+
+You can deactivate the integration and re-enable it later using the instructions in Update the instance.
+
+### Once a day
+
+Integration with Knowledge Catalog can be enabled for instances that meet **any** of the following criteria:
+
+  1. **Creation time:** Before April 18, 2026
+  2. **Version:** All SQL Server versions
+  3. **Network architecture:** [Old network architecture](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-cloud-sql-instance-new-network-architecture#overview)
+
+
+
+After you enable integration with Knowledge Catalog, metadata for instances that meet any of these criteria is usually refreshed in Knowledge Catalog around once a day.
+
+If your instance was created after March 24, 2026 , then integration with Knowledge Catalog is enabled by default. For instances created prior to April 18, 2026, you can Enable the integration of Knowledge Catalog on an existing Cloud SQL instance  .
+
+If an existing instance created before April 18, 2026 meets the version and new network architecture criteria in Near real-time, then enabling Knowledge Catalog integration (or deactivating the integration and re-enabling it if already integrated in once a day) configures the instance for near real-time updates instead.
+
+You can deactivate the integration and re-enable it later using the instructions in Update the instance.
 
 ## Before you begin
 
@@ -113,7 +156,16 @@ For more information, see [Predefined Cloud SQL IAM roles](https://docs.cloud.go
 
 ## Create an instance with Knowledge Catalog integration enabled
 
-New instances are integrated with Knowledge Catalog by default. To create a new instance with Knowledge Catalog integration enabled, you just have to create a new instance. 
+New instances are integrated with Knowledge Catalog by default. To create a new instance with Knowledge Catalog integration enabled, you just have to create a new instance. To create an instance with Knowledge Catalog integrated in near real-time, your new instance must meet **all** of the following criteria:
+
+  1. **Creation time:** On or after November 9, 2026 
+
+  2. **Version:** All SQL Server versions
+  3. **Network architecture:** [New network architecture](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-cloud-sql-instance-new-network-architecture#overview)
+
+
+
+If you want to enable near real-time Knowledge Catalog for a new instance with an earlier database version or the old network architecture, then you can clone the instance or restore from a backup to a new instance.
 
 ### gcloud
 
@@ -316,7 +368,23 @@ You should receive a JSON response similar to the following:
 
 ## Enable the integration of Knowledge Catalog on an existing Cloud SQL instance
 
-To enable or re-enable the integration of Knowledge Catalog on an existing Cloud SQL instance, use one of the following procedures.
+You can follow the update instructions in this section to enable Knowledge Catalog integration on an existing instance created before April 18, 2026.
+
+When you enable Knowledge Catalog integration on an existing instance: 
+
+  * For instances that meet **any** of the following criteria, enabling Knowledge Catalog integration enables **once a day** updates:
+
+    * **Version:** All SQL Server versions
+    * **Network architecture:** [Old network architecture](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-cloud-sql-instance-new-network-architecture#overview)
+  * For instances that meet **all** of the following criteria, enabling Knowledge Catalog integration enables **near real-time** updates:
+
+    * **Version:** All SQL Server versions
+    * **Network architecture:** [New network architecture](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-cloud-sql-instance-new-network-architecture#overview)
+
+After enabling integration in near real-time, new DDL and schema changes appear within 10 minutes while existing resources on the instance are populated within 24 hours.
+
+
+To enable or re-enable the integration of Knowledge Catalog on an existing Cloud SQL instance, use one of the following procedures. 
 
 ### gcloud
 
@@ -616,7 +684,9 @@ You should receive a JSON response similar to the following:
 
 ## Deactivate the integration of Knowledge Catalog on your Cloud SQL instance
 
-To deactivate the integration of Knowledge Catalog on your Cloud SQL instance, use one of the following procedures. 
+To deactivate the integration of Knowledge Catalog on your Cloud SQL instance, use one of the following procedures.
+
+Disabling Knowledge Catalog integration on an instance that is integrated in near real-time takes up to 10 minutes.
 
 ### Console
 
@@ -979,7 +1049,9 @@ There is no charge for storing Cloud SQL technical metadata in Knowledge Catalog
 
 ## Resource usage
 
-While the Knowledge Catalog integration is enabled, Knowledge Catalog extracts data from your instances periodically. The extraction process requires a certain amount of CPU usage. Instances with smaller machine types—for example, machines that have shared cores and larger schemas (10,000 or more tables), can use up to 40% of their CPU during the extraction process. 
+While the Knowledge Catalog integration is enabled, Knowledge Catalog extracts data from your instances periodically. The extraction process requires a certain amount of CPU usage.
+
+Instances that are integrated with Knowledge Catalog in near real-time generally have a minimal impact on CPU usage. For instances that are integrated with Knowledge Catalog in once a day, the CPU usage can be greater. This is especially noticeable for instances with smaller machine types—for example, machines that have shared cores and larger schemas (10,000 or more tables), which can use up to 40% of their CPU during the extraction process. Instances with smaller machine types—for example, machines that have shared cores and larger schemas (10,000 or more tables), can use up to 40% of their CPU during the extraction process.
 
 ## Limitations
 
@@ -987,11 +1059,27 @@ This section lists limitations with using Cloud SQL and Knowledge Catalog.
 
   * For instances created before April 18, 2026, Knowledge Catalog integration with Cloud SQL is turned off for any instance that restricts access to resources due to resource enrollment in [Assured Workloads](https://docs.cloud.google.com/assured-workloads/docs/overview).
 
-  * After you enable Knowledge Catalog on an instance, it can take between 2 to 48 hours for your Cloud SQL resources to appear in Knowledge Catalog as assets, depending on the machine size, version, and type of Cloud SQL engine that you are using. 
+  * After you enable Knowledge Catalog on an instance, it can take between 2 to 48 hours for your Cloud SQL resources to appear in Knowledge Catalog as assets, depending on the machine size, version, and type of Cloud SQL engine that you are using.
 
 
+
+
+This limitation doesn't apply when your instance updates in near real-time as described in  Near real-time.
 
   * SQL Server databases that have the `Auto Close` option enabled won't be able to sync schema information to Knowledge Catalog. As a general [best practice](https://docs.cloud.google.com/sql/docs/sqlserver/best-practices#sqlserver_settings_retain) and for performance reasons, we recommend that you set the `Auto Close` option to false in SQL Server. However, if you want to use Knowledge Catalog, then you are required to set the `Auto Close` option to false. For Express editions, the `Auto Close` option is set to true by default, as designed by the SQL Server engine.
+
+
+
+The following limitations only apply when your instance updates in near real-time as described in Near real-time:
+
+  * When a database is renamed, only the database update is available in Knowledge Catalog in near real-time. The underlying mapping of the database and all the respective tables will be eventually consistent in Knowledge Catalog.
+  * An instance might drop messages, which can cause the data in Knowledge Catalog to become only eventually consistent. If messages are dropped, the missed updates become visible in Knowledge Catalog eventually. The cases where an instance might drop messages include the following: 
+    * Instances that are experiencing a high rate of DDLs in a short span of time.
+    * Instances that are clones of an existing instance.
+    * Instances that are restored from backup.
+    * Instances that are running out of memory.
+    * Instances that are restarting or restarting their databases.
+    * Instances that are experiencing network issues or a synchronization process interruption with Knowledge Catalog. 
 
 
 
@@ -1006,6 +1094,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

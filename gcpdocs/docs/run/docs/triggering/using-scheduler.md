@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/using-scheduler/
 title: Running services on a schedule \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T05:59:53.502116+00:00
+fetched_at: 2026-11-10T14:04:41.506188+00:00
 ---
 
 # Running services on a schedule  |  Google Cloud Documentation
@@ -270,7 +270,7 @@ To create a Cloud Scheduler job for the Cloud Run service:
       ]
     }
 
-Your Cloud Run service will be triggered via a request by the Cloud Scheduler job at the frequency you defined. You can confirm and monitor this by examining the [logs for this service](https://docs.cloud.google.com/run/docs/logging#viewing_logs_in).
+Your Cloud Run service will be triggered via a request by the Cloud Scheduler job at the frequency you defined. You can confirm and monitor this by examining the [logs for this service](https://docs.cloud.google.com/run/docs/logging#viewing_logs_in). To make your service handler idempotent and deduplicate retried requests, see [Deduplicate job requests](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests).
 
 ## What's next
 
@@ -285,6 +285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

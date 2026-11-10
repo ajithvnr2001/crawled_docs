@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/extend-differential-privacy/
 title: Extend differential privacy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:31.326959+00:00
+fetched_at: 2026-11-10T16:33:04.161154+00:00
 ---
 
 # Extend differential privacy  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Extend differential privacy
 
-This document provides examples of how to extend differential privacy for BigQuery differential privacy.
+BigQuery lets you extend [differential privacy](https://docs.cloud.google.com/bigquery/docs/differential-privacy) to multi-cloud data sources and external privacy libraries to help protect sensitive data across environments. You can apply differential privacy to multi-cloud data sources like Amazon Web Services (AWS) S3 with BigQuery Omni, call external libraries using remote functions, or run Python aggregations with [PipelineDP](https://pipelinedp.io/) on Apache Spark and Apache Beam.
 
-BigQuery lets you extend [differential privacy](https://docs.cloud.google.com/bigquery/docs/differential-privacy) to multi-cloud data sources and external differential privacy libraries. This document provides examples of how to apply differential privacy for multi-cloud data sources like AWS S3 with BigQuery Omni, how to call an external differential privacy library using a remote function, and how to perform differential privacy aggregations with [PipelineDP](https://pipelinedp.io/), a Python library that can run with Apache Spark and Apache Beam.
-
-**Note:** In this document, the privacy parameters in the examples are not recommendations. You should work with your privacy or security officer to determine the optimal privacy parameters for your dataset and organization.
-
-For more information about differential privacy, see [Use differential privacy](https://docs.cloud.google.com/bigquery/docs/differential-privacy).
+The privacy parameters in this document's examples aren't recommendations, so work with your privacy or security officer to determine the optimal parameters for your dataset and organization. For more information about core concepts and syntax, see [Use differential privacy](https://docs.cloud.google.com/bigquery/docs/differential-privacy).
 
 ## Differential privacy with BigQuery Omni
 
@@ -61,7 +57,7 @@ For more information about BigQuery Omni limitations, see [Limitations](https://
 
 You can call external differential privacy libraries using [remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions). The following link uses a remote function to call an external library hosted by [Tumult Analytics](https://www.tmlt.dev) to use zero-concentrated differential privacy on a retail sales dataset.
 
-For information about working with Tumult Analytics, see the [Tumult Analytics launch post](https://www.tmlt.io/resources/gcp-launch-post) {: .external}.
+For information about working with Tumult Analytics, see the [Tumult Analytics launch post](https://www.tmlt.io/resources/gcp-launch-post).
 
 ## Differential privacy aggregations with PipelineDP
 
@@ -272,6 +268,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

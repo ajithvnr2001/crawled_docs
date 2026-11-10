@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/trigger-execution/
 title: Manually trigger runs \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:13:58.195663+00:00
+fetched_at: 2026-11-10T19:01:26.683698+00:00
 ---
 
 # Manually trigger runs  |  Dataform  |  Google Cloud Documentation
@@ -87,7 +87,13 @@ Optional: In the **Extended access options** section, select the additional scop
 
   7. Optional: Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
 
-  8. Click **Start execution**. If you selected **Execute with user credentials** for your authentication method, you must authorize your Google Account.
+  8. Optional: To limit how many actions can run concurrently during the execution, select **Limit concurrent actions** , and in **Maximum concurrent actions** , enter a whole number between `1` and `5000`.
+
+If the number of ready actions exceeds the configured limit, Dataform places the remaining ready actions in a queue until a concurrency slot becomes available.
+
+The concurrent actions limit isn't supported when executing unit tests.
+
+  9. Click **Start execution**. If you selected **Execute with user credentials** for your authentication method, you must authorize your Google Account.
 
 
 
@@ -125,7 +131,13 @@ Optional: In the **Extended access options** section, select the additional serv
 
   9. Optional: Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
 
-  10. Click **Start execution**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
+  10. Optional: To limit how many actions can run concurrently during the execution, select **Limit concurrent actions** , and in **Maximum concurrent actions** , enter a whole number between `1` and `5000`.
+
+If the number of ready actions exceeds the configured limit, Dataform places the remaining ready actions in a queue until a concurrency slot becomes available.
+
+The concurrent actions limit isn't supported when executing unit tests.
+
+  11. Click **Start execution**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
 
 
 
@@ -163,7 +175,13 @@ Optional: In the **Extended access options** section, select the additional serv
 
   9. Optional: Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
 
-  10. Click **Start execution**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
+  10. Optional: To limit how many actions can run concurrently during the execution, select **Limit concurrent actions** , and in **Maximum concurrent actions** , enter a whole number between `1` and `5000`.
+
+If the number of ready actions exceeds the configured limit, Dataform places the remaining ready actions in a queue until a concurrency slot becomes available.
+
+The concurrent actions limit isn't supported when executing unit tests.
+
+  11. Click **Start execution**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
 
 
 
@@ -184,6 +202,18 @@ To revoke the permission that you granted, follow these steps:
 
 **Warning:** Revoking access permissions prevents any future pipeline runs that this Google Account owns across all regions.
 
+## Limit concurrent actions
+
+By default, Dataform executes all actions whose upstream dependencies are satisfied in parallel. When a workflow contains many independent actions, executing them all simultaneously can cause BigQuery rate limit errors, deplete project quotas, or exhaust BigQuery slots.
+
+To control resource contention without introducing artificial dependencies between independent actions in SQLX, you can configure a maximum concurrent actions limit on a manual execution or on a [workflow configuration schedule](https://docs.cloud.google.com/dataform/docs/schedule-runs#create-workflow-configuration).
+
+When you configure a concurrent actions limit, Dataform starts executing ready actions simultaneously up to the set limit. Additional actions whose upstream dependencies are satisfied enter the `QUEUED` state. As running actions complete and concurrency slots become available, Dataform starts queued actions in available slots until all actions complete. If a workflow execution fails or is cancelled while actions are queued, the queued actions are skipped.
+
+The limit applies per workflow invocation. Each execution tracks its own running actions independently.
+
+The concurrent actions limit isn't supported when executing unit tests.
+
 ## What's next
 
   * To learn how Dataform runs incremental tables and how to configure an incremental table, see [Configure an incremental table](https://docs.cloud.google.com/dataform/docs/create-tables#configure-incremental-table).
@@ -197,6 +227,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/reservations/update/
 title: gcloud beta compute reservations update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:58:26.521453+00:00
+fetched_at: 2026-11-10T17:34:02.856387+00:00
 ---
 
 # gcloud beta compute reservations update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta compute reservations update - update Compute Engine reservations
 SYNOPSIS
     
 
-`gcloud beta compute reservations update` `RESERVATION` [`--add-share-with`=`PROJECT`,[`PROJECT`,…]] [`--add-share-with-project`=`PROJECT`,[`PROJECT`,…]] [`--early-access-maintenance`=`EARLY_ACCESS_MAINTENANCE`] [`--[no-]enable-emergent-maintenance`] [`--remove-share-with`=`PROJECT`,[`PROJECT`,…]] [`--reservation-sharing-policy`=`RESERVATION_SHARING_POLICY`] [`--scheduling-type`=`SCHEDULING_TYPE`] [`--share-setting`=`SHARE_SETTING`] [`--share-with`=`SHARE_WITH`,[`SHARE_WITH`,…]] [`--vm-count`=`VM_COUNT`] [`--zone`=`ZONE`] [`--delete-after-duration`=`DELETE_AFTER_DURATION` | `--delete-at-time`=`DELETE_AT_TIME` | `--disable-auto-delete`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta compute reservations update` `RESERVATION` [`--add-share-with`=`PROJECT`,[`PROJECT`,…]] [`--add-share-with-project`=`PROJECT`,[`PROJECT`,…]] [`--early-access-maintenance`=`EARLY_ACCESS_MAINTENANCE`] [`--[no-]enable-emergent-maintenance`] [`--remove-share-with`=`PROJECT`,[`PROJECT`,…]] [`--[no-]require-specific-reservation`] [`--reservation-sharing-policy`=`RESERVATION_SHARING_POLICY`] [`--scheduling-type`=`SCHEDULING_TYPE`] [`--share-setting`=`SHARE_SETTING`] [`--share-with`=`SHARE_WITH`,[`SHARE_WITH`,…]] [`--vm-count`=`VM_COUNT`] [`--zone`=`ZONE`] [`--delete-after-duration`=`DELETE_AFTER_DURATION` | `--delete-at-time`=`DELETE_AT_TIME` | `--disable-auto-delete`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Update Compute Engine reservations. 
 EXAMPLES
@@ -77,6 +77,8 @@ FLAGS
      Enables the reservation to receive notifications when urgent maintenance for a GPU VM starts after the VM encounters a host error. Use `--enable-emergent-maintenance` to enable and `--no-enable-emergent-maintenance` to disable. 
 `--remove-share-with`=`PROJECT`,[`PROJECT`,…]
      A list of specific projects to remove from the list of projects that this reservation is shared with. List must contain project IDs or project numbers. 
+`--[no-]require-specific-reservation`
+     Whether VMs with matching properties can automatically consume the reservation, or whether VMs must target the reservation to consume it. If enabled, then only VMs that target this reservation by name with the `--reservation-affinity=specific` flag can consume it. Before you enable or disable this configuration, you must stop, suspend, or delete all VMs that consume the reservation. Use `--require-specific-reservation` to enable and `--no-require-specific-reservation` to disable. 
 `--reservation-sharing-policy`=`RESERVATION_SHARING_POLICY`
      The reservation sharing policy to use for this reservation. `RESERVATION_SHARING_POLICY` must be one of: 
 
@@ -153,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

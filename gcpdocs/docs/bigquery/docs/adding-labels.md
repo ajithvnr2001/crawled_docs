@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/adding-labels/
 title: Add labels to resources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:45.796702+00:00
+fetched_at: 2026-11-10T12:13:30.224513+00:00
 ---
 
 # Add labels to resources  |  BigQuery  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ Grant users the necessary Identity and Access Management (IAM) roles to perform 
 
 You can add a label to a BigQuery dataset when you create it by using the bq command-line tool's `bq mk` command or by calling the [`datasets.insert`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/datasets/insert) API method. You cannot add a label to a dataset when you create it using the Google Cloud console. However, you can add a dataset label after creation. For more information about creating a dataset, see [Creating a dataset](https://docs.cloud.google.com/bigquery/docs/datasets).
 
-When you add a label to a dataset, the label does not propagate to resources within the dataset. Tables or views do not inherit dataset labels. Also, when you add a label to a dataset, it is included in your storage billing data, but not in your job-related billing data.
+When you add a label to a dataset, the label does not propagate to resources within the dataset. Tables or views don't inherit dataset labels. Also, when you add a label to a dataset, it is included in your storage billing data, but not in your job-related billing data.
 
 For more information about label format, see [Requirements for labels](https://docs.cloud.google.com/bigquery/docs/labels-intro#requirements).
 
@@ -650,7 +650,7 @@ After you associate a query label with a session and run queries in that session
 
 When you add a label to a reservation, it is included in your billing data. You can use labels to filter the Analysis Slots Attribution SKU in your Cloud Billing data.
 
-The Analysis Slots Attribution SKU only records slot usage. It doesn't record costs for BigQuery Reservation API SKUs. Reservation labels aren't supported as filters for BigQuery Reservation API SKUs.
+The Analysis Slots Attribution SKU only records slot usage. It doesn't record costs for BigQuery Reservation API SKUs. Even when [compute cost attribution](https://docs.cloud.google.com/bigquery/docs/reservations-monitoring#reservation_cost_attribution) is enabled, reservation labels apply only to the Analysis Slots Attribution SKU and aren't supported as filters for BigQuery Reservation API SKUs.
 
 For more information about using labels in your billing data, see [Use **Filters** to refine data](https://docs.cloud.google.com/billing/docs/how-to/reports#filter-by-labels).
 
@@ -731,7 +731,7 @@ Replace the following:
 
 ## Add a label without a value
 
-A label that has a key with an empty value is sometimes called a tag. Do not confuse this with a [tag resource](https://docs.cloud.google.com/bigquery/docs/tags). For more information, see [labels and tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview). You can create a new label without a value, or remove a value from an existing label key.
+A label that has a key with an empty value is sometimes called a tag. Don't confuse this with a [tag resource](https://docs.cloud.google.com/bigquery/docs/tags). For more information, see [labels and tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview). You can create a new label without a value, or remove a value from an existing label key.
 
 Labels without values are useful when you label a resource but you don't need the key-value format. For example, if a table contains test data used by multiple groups, such as support or development, you can add a `test_data` label to the table to identify it.
 
@@ -818,6 +818,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run/describe/
 title: gcloud alpha mldiagnostics machine-learning-run describe \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:05:32.364860+00:00
+fetched_at: 2026-11-10T17:33:29.628743+00:00
 ---
 
 # gcloud alpha mldiagnostics machine-learning-run describe  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -42,6 +42,15 @@ EXAMPLES
       {
         "artifacts": {
           "gcsPath": "gs://diagon-prod-data"
+        },
+        "autoCaptureSettings": {
+          "captureType": "SNAPSHOT_OVER_ON_DEMAND",
+          "defaultDuration": "10s",
+          "deviceTracerLevel": "DEVICE_TRACER_LEVEL_ENABLED",
+          "enabled": true,
+          "hostTracerLevel": "HOST_TRACER_LEVEL_INFO",
+          "maxSessionCountPerEvent": 5,
+          "pythonTracerLevel": "PYTHON_TRACER_LEVEL_DISABLED"
         },
         "createTime": "2026-02-05T16:25:28.367865234Z",
         "displayName": "gcloud-cli-run",
@@ -121,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

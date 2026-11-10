@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-1/upgrade-environments/
 title: Upgrade environments \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:46:46.981273+00:00
+fetched_at: 2026-11-10T19:01:26.289495+00:00
 ---
 
 # Upgrade environments  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ Upgrade operations have the following limitations:
 
   * In Google Cloud console, you can upgrade only to the latest supported versions of Managed Airflow (Gen 2).
 
-  * In Google Cloud CLI, API, or Terraform, you can upgrade an environment to the latest supported versions, three previous versions of Managed Airflow (Gen 2), the last patch version of the previous minor version, and to versions with an extended upgrade timeline. It's not possible to upgrade to other versions of Managed Airflow (Gen 2), even if they are still supported and can be used to create a new environment.
+  * In Google Cloud CLI, API, or Terraform, you can upgrade an environment to the latest supported versions, three previous versions of Managed Airflow (Gen 2), the last patch version of the previous minor version of Managed Airflow (Gen 2), and to versions with an extended upgrade timeline. It's not possible to upgrade to other versions of Managed Airflow (Gen 2), even if they are still supported and can be used to create a new environment.
 
 Example of upgrade choices for Google Cloud CLI, API, and Terraform:
 
@@ -428,6 +428,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

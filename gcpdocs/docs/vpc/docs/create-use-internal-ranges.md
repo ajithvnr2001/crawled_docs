@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges/
 title: Create and use internal ranges \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:58.881055+00:00
+fetched_at: 2026-11-10T16:58:58.891006+00:00
 ---
 
 # Create and use internal ranges  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -60,6 +60,8 @@ To prevent users from updating an internal range's CIDR block or overlap configu
 
 By default, Google Cloud blocks the creation of internal ranges or resources if they share overlapping IP addresses in the same VPC network. You can configure an IPv4 internal range to allow overlap with the address ranges of existing subnets, new and existing routes, or both. You can't create Google Cloud resources that use IP addresses from an existing internal range, unless you explicitly associate the resource with the internal range (for subnets) or configure overlapping (for routes).
 
+For example use cases for internal ranges with different purpose, peering, and usage combinations, see [Example use cases](https://docs.cloud.google.com/vpc/docs/internal-ranges#use-cases).
+
 ###  Console 
 
   1. In the Google Cloud console, go to the **Internal ranges** page.
@@ -72,9 +74,11 @@ By default, Google Cloud blocks the creation of internal ranges or resources if 
 
   4. Optional: Enter a description.
 
-  5. Select an IP version.
+  5. For **Purpose** , select **VPC subnet** or **Internal addresses**.
 
-     * If you select **IPv4** , do the following:
+  6. Select an IP version:
+
+     * For an **IPv4** internal range, do the following:
 
        1. Specify whether the internal range is immutable.
        2. Select a reservation method.
@@ -92,27 +96,33 @@ Google Cloud allocates an IP address block to the internal range that doesn't ov
 
        3. Select a network.
 
-       4. Select a peering type.
+       4. Select a [peering type](https://docs.cloud.google.com/vpc/docs/internal-ranges#peering-types).
 
-       5. Select a usage type.
+If the internal range has purpose **Internal addresses** , select **For self**.
 
-       6. Optional: In the **Allowed overlaps** section, specify whether the internal range can overlap with existing subnets, new and existing routes, or both.
+       5. Select a [usage type](https://docs.cloud.google.com/vpc/docs/internal-ranges#usage-types).
 
-     * If you select **IPv6** , do the following:
+       6. In the **Allowed overlaps** section, specify whether the internal range can overlap with existing subnets, new and existing routes, or both.
+
+This option isn't available if the internal range has purpose **Internal addresses**.
+
+     * For an **IPv6** internal range, do the following:
 
        1. Specify whether the internal range is immutable.
        2. Select **Let me specify** , and then enter an IPv6 or IPv4-mapped IPv6 CIDR block.
        3. Select a network.
-       4. Click **Peering** , and then select **For self**.
-       5. Click **Usage** , and then select **External to VPC**.
-  6. Click **Reserve**.
+       4. In the **Peering** field, select **For self**.
+       5. In the **Usage** field, select **External to VPC**.
+  7. Click **Reserve**.
 
 
 
 
 ###  gcloud 
 
-  * To reserve an internal range for a specific IPv4 or IPv6 CIDR block, use the [`gcloud network-connectivity internal-ranges create` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-connectivity/internal-ranges/create).
+Create internal ranges by using the [`gcloud network-connectivity internal-ranges create` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-connectivity/internal-ranges/create).
+
+  * To reserve an internal range for a specific IPv4 or IPv6 CIDR block, use the following command:
         
         gcloud network-connectivity internal-ranges create RANGE_NAME \
             --ip-cidr-range=CIDR_RANGE \
@@ -207,6 +217,19 @@ Replace `OVERLAPS` with the type of overlap to allow. Options are `OVERLAP_EXIST
             --peering=PEERING_TYPE \
             --usage=USAGE_TYPE \
             --immutable
+        
+
+  * To reserve an internal range to use with Private Service Connect endpoints for Google APIs, use the following command. You can't use the `--overlaps` flag with the `INTERNAL_ADDRESS` purpose.
+
+When you choose the range, consider the [IP address requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements) for Private Service Connect endpoints that target Google APIs.
+        
+        gcloud network-connectivity internal-ranges create RANGE_NAME \
+            --ip-cidr-range=CIDR_RANGE \
+            --network=NETWORK_NAME \
+            --description="DESCRIPTION" \
+            --peering=FOR_SELF \
+            --usage=FOR_VPC \
+            --purpose=INTERNAL_ADDRESS
         
 
 
@@ -324,6 +347,21 @@ Replace `OVERLAPS` with the type of overlap to allow. Options are `OVERLAP_EXIST
         }
         
 
+  * To reserve an internal range to use with Private Service Connect endpoints for Google APIs, make the following request. You can't use the `overlaps` field with the `INTERNAL_ADDRESS` purpose.
+
+When you choose the range, consider the [IP address requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements) for Private Service Connect endpoints that target Google APIs.
+        
+        POST https://networkconnectivity.googleapis.com/v1/projects/PROJECT_ID/locations/global/internalRanges?internalRangeId=RANGE_NAME
+        {
+          "ipCidrRange": "CIDR_RANGE",
+          "network": "NETWORK_NAME",
+          "description": "DESCRIPTION",
+          "peering": "FOR_SELF",
+          "usage": "FOR_VPC",
+          "purpose": "INTERNAL_ADDRESS"
+        }
+        
+
 
 
 
@@ -390,7 +428,7 @@ You can create an IPv4-only or dual-stack subnet and use an internal range to sp
 
 ###  Console 
 
-  1. Reserve an IPv4 internal range in the network where you want to create a new subnet. Set the usage type on this internal range to `For VPC`, and set the peering type to `For self`.
+  1. Reserve an IPv4 internal range in the network where you want to create a new subnet. Set the purpose type on this internal range to **VPC subnet** , the peering type to **For self** , and the usage type to **For VPC**.
 
   2. In the Google Cloud console, go to the **VPC networks** page.
 
@@ -411,7 +449,7 @@ You can create an IPv4-only or dual-stack subnet and use an internal range to sp
 
 ###  gcloud 
 
-  1. Reserve an IPv4 internal range in the network where you want to create a new subnet. Set the usage type on this internal range to `FOR_VPC`, and set the peering type to `FOR_SELF`.
+  1. Reserve an IPv4 internal range in the network where you want to create a new subnet. Set the purpose type to `VPC_SUBNET`, set the peering type to `FOR_SELF`, and set the usage type to `FOR_VPC`.
   2. Do one of the following:
 
      * To create a subnet that is associated with an entire internal range, use the [`gcloud compute networks subnets create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/networks/subnets/create).
@@ -461,7 +499,7 @@ For example, the following commands create a subnet that is associated with only
 
 ###  API 
 
-  1. Reserve an IPv4 internal range in the network where you want to create a new subnet. Set the usage type on this internal range to `FOR_VPC`, and set the peering type to `FOR_SELF`.
+  1. Reserve an IPv4 internal range in the network where you want to create a new subnet. Set the purpose type to `VPC_SUBNET`, set the peering type to `FOR_SELF`, and set the usage type to `FOR_VPC`.
   2. Do one of the following:
 
      * To create a subnet that is associated with an entire internal range, make a `POST` request to the [`subnetworks.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/subnetworks/insert).
@@ -517,6 +555,76 @@ For example, the following requests create a subnet that is associated with only
       "network" : "network-b"
     }
     
+
+## Reserve global internal IP addresses for Private Service Connect endpoints
+
+You can reserve global internal IPv4 addresses for [Private Service Connect endpoints for global Google APIs](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#create-endpoint) from an internal range.
+
+###  Console 
+
+  1. Reserve an IPv4 internal range in the VPC network where you want to reserve the global internal IP address. Set the purpose type to **Internal addresses** , set the peering type to **For self** , and set the usage type to **For VPC**.
+  2. [Create a Private Service Connect endpoint for global Google APIs](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#create-endpoint), reserving a global internal IP address from an IP collection that represents the internal range.
+
+
+
+###  gcloud 
+
+  1. Reserve an IPv4 internal range in the VPC network where you want to reserve the global internal IP address. Set the purpose type to `INTERNAL_ADDRESS`, set the peering type to `FOR_SELF`, and set the usage type to `FOR_VPC`.
+
+  2. Reserve an IPv4 address from the internal range by using the [`gcloud compute addresses create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/addresses/create).
+
+The following command automatically allocates an IP address from the internal range. To choose a specific IP address, use the `--addresses` flag to specify an IP address within the internal range.
+         
+         gcloud compute addresses create ADDRESS_NAME \
+             --global \
+             --network=NETWORK_NAME \
+             --purpose=PRIVATE_SERVICE_CONNECT \
+             --internal-range=https://networkconnectivity.googleapis.com/v1/projects/PROJECT_ID/locations/global/internalRanges/RANGE_NAME
+         
+
+Replace the following:
+
+     * `ADDRESS_NAME`: a name for the IP address.
+
+     * `NETWORK_NAME`: the name of the VPC network to create the IP address in.
+
+     * `PROJECT_ID`: the ID of the project that contains the internal range.
+
+     * `RANGE_NAME`: the name of the internal range to allocate the IP address from.
+
+
+
+
+###  API 
+
+  1. Reserve an IPv4 internal range in the VPC network where you want to reserve the global internal IP address. Set the purpose type to `INTERNAL_ADDRESS`, set the peering type to `FOR_SELF`, and set the usage type to `FOR_VPC`.
+
+  2. Reserve an IPv4 address from the internal range by using the [`globalAddresses.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/globalAddresses/insert).
+
+The following example automatically allocates an IP address from the internal range. To choose a specific IP address, use the `address` field to specify an IP address within the internal range.
+         
+         POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/global/addresses
+         {
+           "name": "ADDRESS_NAME",
+           "addressType": "INTERNAL",
+           "purpose": "PRIVATE_SERVICE_CONNECT",
+           "ipCollection": "https://networkconnectivity.googleapis.com/v1/projects/PROJECT_ID/locations/global/internalRanges/RANGE_NAME",
+           "network": "projects/PROJECT_ID/global/networks/NETWORK_NAME"
+         }
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project.
+
+     * `ADDRESS_NAME`: a name for the IP address.
+
+     * `RANGE_NAME`: the name of the internal range to allocate the IP address from.
+
+     * `NETWORK_NAME`: the name of the VPC network to create the IP address in.
+
+
+
 
 ## Create GKE clusters with IPv4 internal ranges
 
@@ -957,6 +1065,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

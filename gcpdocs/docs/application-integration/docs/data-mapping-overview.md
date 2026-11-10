@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/data-mapping-overview/
 title: Data mapping \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:42:22.944257+00:00
+fetched_at: 2026-11-10T18:49:19.182697+00:00
 ---
 
 # Data mapping  |  Application Integration  |  Google Cloud Documentation
@@ -32,16 +32,12 @@ Enterprise data might reside in various sources and formats, making it difficult
 
 Application Integration lets you perform data mapping using the following [tasks](https://docs.cloud.google.com/application-integration/docs/task-overview):
 
-  * Data Transformer task ([Preview](https://cloud.google.com/terms/service-terms#1))
+  * Data Transformer task
   * Data Mapping task
 
 
 
 ## Data Transformer task
-
-**Preview — Data Transformer task**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The [Data Transformer](https://docs.cloud.google.com/application-integration/docs/configure-data-transformer-script-task) task is a template engine-based data mapping feature available in Application Integration. It uses Google's [Jsonnet](https://jsonnet.org/) configuration language to create and edit Jsonnet templates that define the mapping relationships for specified source and target integration variables in your integration. The **Data Transformer** task also provides a visual mapping canvas (Diagram mode) to perform data assignments and mappings in your integrations.
 
@@ -138,8 +134,8 @@ For information about quotas and limits, see [Quotas and limits](https://docs.cl
 
 ## What's next
 
-  * Add and configure a [Data Transformer task](https://docs.cloud.google.com/application-integration/docs/configure-data-transformer-script-task) ([Preview](https://cloud.google.com/terms/service-terms#1))
-  * Learn about [Data Transformer functions](https://docs.cloud.google.com/application-integration/docs/data-transformer-functions-reference) ([Preview](https://cloud.google.com/terms/service-terms#1))
+  * Add and configure a [Data Transformer task](https://docs.cloud.google.com/application-integration/docs/configure-data-transformer-script-task)
+  * Learn about [Data Transformer functions](https://docs.cloud.google.com/application-integration/docs/data-transformer-functions-reference)
   * Add and configure a [Data Mapping task](https://docs.cloud.google.com/application-integration/docs/data-mapping-task)
 
 
@@ -148,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/tutorials/migrate-in-cluster-to-managed-on-new-cluster/
 title: Migrate in-cluster to managed control plane on a new cluster \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:47:03.346931+00:00
+fetched_at: 2026-11-10T18:47:13.667212+00:00
 ---
 
 # Migrate in-cluster to managed control plane on a new cluster  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -206,11 +206,11 @@ Upon success, the output is similar to:
            create namespace asm-ingress
          
 
-  2. Use the `istio.io/rev=asm-1313-3` label to add the `asm-ingress` namespace to the service mesh and enable automatic sidecar proxy injection.
+  2. Use the `istio.io/rev=asm-1313-7` label to add the `asm-ingress` namespace to the service mesh and enable automatic sidecar proxy injection.
          
          kubectl \
            --context cluster-with-in-cluster-asm \
-           label --overwrite namespace asm-ingress istio.io/rev=asm-1313-3
+           label --overwrite namespace asm-ingress istio.io/rev=asm-1313-7
          
 
 The output is similar to:
@@ -218,7 +218,7 @@ The output is similar to:
          namespace/asm-ingress labeled
          
 
-**Note:** You may need to modify the `istio.io/rev=asm-1313-3` label to match your in-cluster Cloud Service Mesh version. You can see the version suffixed in the name of your `istiod-asm-*` Service by running `kubectl get service --context=cluster-with-in-cluster-asm --namespace=istio-system`
+**Note:** You may need to modify the `istio.io/rev=asm-1313-7` label to match your in-cluster Cloud Service Mesh version. You can see the version suffixed in the name of your `istiod-asm-*` Service by running `kubectl get service --context=cluster-with-in-cluster-asm --namespace=istio-system`
   3. Deploy the Cloud Service Mesh [ingress gateway](https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/gateways):
          
          kubectl \
@@ -252,11 +252,11 @@ The output is similar to:
            create namespace onlineboutique
          
 
-  2. Use the `istio.io/rev=asm-1313-3` label to add the `onlineboutique` namespace to the service mesh and enable automatic sidecar proxy injection.
+  2. Use the `istio.io/rev=asm-1313-7` label to add the `onlineboutique` namespace to the service mesh and enable automatic sidecar proxy injection.
          
          kubectl \
            --context cluster-with-in-cluster-asm \
-           label --overwrite namespace onlineboutique istio.io/rev=asm-1313-3
+           label --overwrite namespace onlineboutique istio.io/rev=asm-1313-7
          
 
 The output is similar to:
@@ -592,6 +592,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

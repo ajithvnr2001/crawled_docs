@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/deprecations/
 title: Product deprecations \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:15.265075+00:00
+fetched_at: 2026-11-10T14:04:24.966650+00:00
 ---
 
 # Product deprecations  |  Google Security Operations  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ Mute an IoC | January 18, 2026 | January 18, 2026 | The Mute an IoC feature is d
 ListAlerts endpoint | July 2025 | July 2025 | The ListAlerts endpoint is deleted. Migrate to alerting using the YARA-L detection engine by following the [migration guide](https://docs.cloud.google.com/chronicle/docs/detection/migrate-cbn-alerts).  
 NETSKOPE_ALERT log type | October 15, 2025 | November 30, 2025 | As of October 15, 2025, the Netskope Alerts v1 connector (for the NETSKOPE_ALERT log type) has been deprecated and will be removed on November 30, 2025. If you have existing feeds configured using the NETSKOPE_ALERT log type, you can create a new feed with the NETSKOPE_ALERT_V2 log type as described [in this guide](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/netskope-alert-v2).  
 `ListAvailableLogTypes` API | September 09, 2025 | October 09, 2025 | As of October 09, 2025, the `ListAvailableLogTypes` API is deprecated. To get a list of all log types, you can now use the [`logTypes.list`](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.logTypes/list) API.  
-Forwarder component | Apr 1, 2026 | Apr 1, 2027 | The forwarder component is being phased out of the Google SecOps platform and will reach end-of-life (EOL) in January 2027. This impact will change all any data collection pipelines that currently use the forwarder.  
+Forwarder component | Apr 1, 2026 | Apr 1, 2027 | The forwarder component is being phased out of the Google SecOps platform and will reach end-of-life (EOL) in January 2027. This impact will change any data collection pipelines that currently use the forwarder.  
   
 **Action required** : If you're currently using the forwarder component, you must migrate your data collection workflows to an alternative mechanism before April 1, 2027. You'll need to use another data pipeline management application for log ingestion.  
   
@@ -106,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

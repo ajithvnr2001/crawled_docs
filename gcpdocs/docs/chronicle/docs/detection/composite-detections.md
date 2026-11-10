@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/composite-detections/
 title: Composite detections overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:58:07.670632+00:00
+fetched_at: 2026-11-10T14:04:35.553541+00:00
 ---
 
 # Composite detections overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -196,7 +196,7 @@ Composite rules use these detections from other rules as part of their inputs. T
 
 Based on this evaluation, you can use composite rules to create new detections to be used as an intermediary representation for investigation, and alerting with a subsequent rule. This helps correlate multiple factors from different detections to identify complex threats.
 
-For more information about syntax and examples, see [Composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules) and [Examples](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#composite-rule-examples%7D).
+For more information about syntax and examples, see [Composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules) and [Examples](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#composite-detections).
 
 ## Define your strategy
 
@@ -271,7 +271,7 @@ A widget aggregates the risk scores from a very specific subset of DLP rules. Th
 
 ## Build composite detections
 
-The following workflow outlines the typical journey for creating a composite rule. For more information about syntax and examples, see [Composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules) and [Examples](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#composite-rule-examples%7D).
+The following workflow outlines the typical journey for creating a composite rule. For more information about syntax and examples, see [Composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules) and [Examples](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#composite-detections).
 
   1. **Define the threat scenario** : Define the specific threat you want to detect.
 
@@ -430,7 +430,7 @@ For more information on detection limits, see [Detection limits](https://docs.cl
 
 ## What's next
 
-For information on how to build composite detection rules, see [Composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules) and [Examples](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#composite-rule-examples%7D)..
+For information on how to build composite detection rules, see [Composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules) and [Examples](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#composite-detections).
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -438,6 +438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

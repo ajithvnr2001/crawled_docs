@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration-intro/
 title: Introduction to BigQuery migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:05:57.264820+00:00
+fetched_at: 2026-11-10T18:39:14.692450+00:00
 ---
 
 # Introduction to BigQuery migration  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ To access BigQuery Migration Service, in the Google Cloud console, go to the **B
 With the BigQuery Migration Service, you can do the following:
 
   * **Assess** : Plan your data warehouse migration by running a [BigQuery migration assessment](https://docs.cloud.google.com/bigquery/docs/migration-assessment).
-  * **Translate SQL** : The translation services automate the conversion of your SQL queries into GoogleSQL, including Gemini-enhanced SQL customization. You can use the [batch SQL translator](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator), the [interactive SQL translator](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator), or the [SQL translation API](https://docs.cloud.google.com/bigquery/docs/api-sql-translator) to migrate your workloads to BigQuery. 
+  * **Translate SQL** : The translation services automate the conversion of your SQL queries into GoogleSQL, including Gemini-enhanced SQL customization. You can use the [batch SQL translator](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator), the [interactive SQL translator](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator), the [SQL translation API](https://docs.cloud.google.com/bigquery/docs/api-sql-translator), or the [BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp) to migrate your workloads to BigQuery. 
   * **Transfer data** : Set up a data transfer that loads data from your data source to BigQuery. For more information, see [What is the BigQuery Data Transfer Service?](https://docs.cloud.google.com/bigquery/docs/dts-introduction). 
   * **Register or migrate open lakehouse** : Migrate metadata from external catalogs, such as Apache Hive Metastore and Apache Iceberg REST Catalogs, to Lakehouse REST catalog tables for Apache Iceberg.
 
@@ -84,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

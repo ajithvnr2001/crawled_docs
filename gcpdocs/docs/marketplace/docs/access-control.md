@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Google Cloud Marketplace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:50.020088+00:00
+fetched_at: 2026-11-10T12:13:26.671602+00:00
 ---
 
 # Access control with IAM  |  Google Cloud Marketplace  |  Google Cloud Documentation
@@ -43,6 +43,18 @@ With IAM, you manage access control by defining _who_ (identity) has _what acces
 We recommend that you assign the [Billing Account Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/billing) IAM role to users who are purchasing services from Cloud Marketplace.
 
 Users who want to access the services must have the [Viewer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) role, at a minimum.
+
+### Administrative access for OAuth 2.0 and domain verification
+
+If your Marketplace solution requires OAuth 2.0 verification or domain-level configuration (such as for SaaS integration), you must have administrative permissions to manage the project's identity and security settings.
+
+Scenario | Required Permission or Role | Action  
+---|---|---  
+**Regain administrative access** | `roles/resourcemanager.organizationAdmin` | Grant this role at the organization level to manage project owners.  
+**Verify authorized domains** | `roles/cloudsecurityscanner.editor` | Use this role to manage web security and domain-related configurations.  
+**Manage OAuth verification** | `roles/owner` or `roles/editor` | Configure the OAuth consent screen and submit branding for review.  
+  
+To resolve common verification issues, such as "Domain not found" or unresponsive home page URLs, make sure that your domain is verified in the [Search Console](https://search.google.com/search-console/welcome) and that your privacy policy is publicly accessible. For more information on identity verification, see [Verify your identity](https://cloud.google.com/marketplace/docs/verify-your-identity).
 
 For more granular control over users' permissions, you can create custom roles with the permissions that you want to grant.
 
@@ -392,6 +404,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

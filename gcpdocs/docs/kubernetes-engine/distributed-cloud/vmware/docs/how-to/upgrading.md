@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading/
 title: Upgrade a cluster \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:42:56.943977+00:00
+fetched_at: 2026-11-10T16:59:33.048417+00:00
 ---
 
 # Upgrade a cluster  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,92 +21,24 @@ Send feedback
 
 #  Upgrade a cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to upgrade clusters in Google Distributed Cloud (software only) for VMware. This document provides the steps for upgrading your admin workstation, user clusters, and admin clusters. The steps for upgrading a user cluster show how to upgrade the control plane and all node pools. If you want to upgrade the user cluster control plane and node pools separately, see [Upgrade node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-node-pools).
+Upgrading your admin workstation, user clusters, and admin clusters for Google Distributed Cloud (software only) for VMware lets you adopt supported Kubernetes releases, security patches, and platform features. This document walks you through upgrading a user cluster's control plane and node pools together; to upgrade them separately, see [Upgrade node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-node-pools).
 
-This page is for IT administrators and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+Before you begin, review the [Upgrade overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview) for tool selection and upgrade order, [Upgrade version rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules) for release-specific version skew and OS requirements, and [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices) for pre-upgrade checklists.
 
-Before you proceed, we recommend that you review the following documentation:
+## Before you begin
 
-  * [Upgrade overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview)   
-Among other things, this document describes the supported version skew and version rules for upgrades, which have changed for 1.28 and later.
+  * Make sure you have a current backup of the admin and user clusters before starting the upgrade. For more information, see [Back up the user and admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices#back_up_the_user_and_admin_cluster).
 
-  * [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices)  
-This document provides checklists and best practices for upgrading clusters.
+  * [Diagnose](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_admin_cluster) your cluster before upgrading. Run `gkectl diagnose cluster` to ensure your admin cluster is healthy, and resolve any issues before starting the upgrade.
 
+  * Make sure your `gkectl` and clusters are the appropriate version for an upgrade, and that you have downloaded the appropriate bundle. The version skew between your admin and user clusters depends on the Google Distributed Cloud version. To make sure you can upgrade your admin cluster, see the [version rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules) for your version.
 
-**Important:** Make sure you have a current backup of the admin and user clusters before starting the upgrade. For more information, see [Back up the user and admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices#back_up_the_user_and_admin_cluster).
+  * Make sure the `bundlepath` field in the [admin cluster configuration file](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#bundlepath-field) matches the path of the bundle to which you want to upgrade.
 
-## Advanced clusters differences
-
-When [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#enable-advanced-cluster-field) are enabled, there are some differences with upgrades, particularly in the preview of advanced clusters in version 1.31. To see the upgrade differences, search this document for the word `advanced`. For a table of all differences, see [Differences when running advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices#differences_when_running_advanced_clusters).
-
-## Automatic upgrade to advanced clusters
-
-Note the following differences between versions:
-
-  * When you upgrade your clusters from version 1.32 to 1.33, they are automatically converted to [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters), which uses improved architectures that provide greater flexibility and scalability. When upgrading to version 1.33, you have the option to have the cluster remain non-advanced. For details, see [Upgrade a version 1.32 non-advanced cluster and keep it as non-advanced](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-maintain-non-advanced-cluster).
-
-  * `cert-manager` is automatically installed on advanced clusters. When you migrate from a non-advanced cluster to an advanced cluster, the `cert-manager` integrated with advanced clusters automatically overrides any existing versions of `cert-manager`. Make sure you don't have critical custom configurations or features in your existing `cert-manager` before you update or upgrade to advanced clusters. For more information, see [Upgrade to `cert-manager` bundled with advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster#upgrade-cert-manager).
-
-The following table lists the bundled `cert-manager` versions for each version of Google Distributed Cloud (software only) for VMware.
-
-Google Distributed Cloud (software only) for VMware | Bundled `cert-manager` version  
----|---  
-1.32 | 1.17  
-1.33 | 1.18  
-1.34 | 1.19  
-  * Keeping a cluster as non-advanced is supported only for upgrades from version 1.32 to 1.33. When you upgrade a non-advanced cluster from version 1.33 to 1.34, the cluster is always converted to an advanced cluster.
-
-  * You must use the `gkectl` command line tool to upgrade non-advanced clusters to version 1.33. The GKE On-Prem API clients, Terraform, the Google Cloud console, and the gcloud CLI aren't supported.
-
-  * Validate `gkectl` version: The `gkectl` version **must** be the same as the Google Distributed Cloud software only for VMware version to which you want to upgrade. For example, if you are upgrading a 1.32 non-advanced cluster to 1.33.700-gke.71 advanced cluster, the `gkectl` version must be 1.33.700-gke.71. This strict version requirement only applies during the upgrade to an advanced cluster. For all other upgrades on your advanced cluster, [the standard version skew rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#version_skew) are in effect.
-
-  * Version skew not allowed: When upgrading from a non-advanced to an advanced cluster, you cannot upgrade the control plane and node pools separately. You must upgrade the control plane and all node pools to the Google Distributed Cloud software only for VMware target version at the same time. For example, if you are upgrading from a non-advanced cluster to a 1.33.700-gke.71 advanced cluster, you must upgrade the control plane and node pool versions to 1.33.700-gke.71 at the same time.
-
-
-**Caution:** A [ known issue](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/known-issues#rerunning-gkectl-upgrade-admin-deletes-the-bootstrap-cluster-upgrade-to-the-advanced-clusters) where an operation fails during upgrade from a non-advanced cluster to an advanced cluster, and you rerun the `gkectl upgrade admin ` command might cause upgrades to advanced clusters to become stuck. To avoid this issue and ensure a successful upgrade, upgrade to one of the following versions: 
-
-  * **1.32.1000-gke.57+**
-  * **1.33.700-gke.71+**
-  * **1.34.300-gke.59+**
+If you make any other changes to the fields in the admin cluster configuration file, these changes are ignored during the upgrade. To make those changes take effect, you must first upgrade the cluster, and then run an [update cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general) command with the configuration file changes to make other changes to the cluster.
 
 
 
-## Requirements
-
-This section provides information about version-related requirements and requirements for using the GKE On-Prem API clients (the Google Cloud console, the Google Cloud CLI, and Terraform) for upgrades.
-
-### Version rules
-
-The rules for upgrades depends on the cluster minor version.
-
-  * For versions 1.30 and lower, the user cluster minor version must be greater than or equal to the admin cluster minor version. The patch version doesn't matter. For example, if a user cluster is at version 1.30.1, the admin cluster can be upgraded to a higher patch version, such as 1.30.3.
-
-  * For versions 1.31 and higher, the admin cluster version, including the patch version, must be greater than or equal to the user cluster version. For example, if an admin cluster is at version 1.31.1, the highest version that the user cluster can be upgraded to is 1.31.1.
-
-
-
-
-When you want to upgrade your clusters to version 1.31, you must first bring all your clusters to version 1.30. After all the clusters are at version 1.30, you upgrade the admin cluster to version 1.31. After that, you can upgrade the user clusters to the same 1.31 patch version as the admin cluster.
-
-#### Version rules for `gkectl`
-
-The version of `gkectl` that you can use for the upgrade depends on the target cluster version (that is, the version of the cluster you are upgrading to). Typically, you use the same version of `gkectl` as the cluster target version. The following rules are enforced during the upgrade:
-
-  * The `gkectl` version can't be a lower minor version than the target minor cluster version. For example, if you are upgrading a 1.29 cluster to 1.30, you can't use `gkectl` 1.29 since that is lower than the target cluster version. Patch versions don't matter. For example, you can use `gkectl` version 1.29.0-gke.1456 to upgrade to a higher patch version, such as 1.29.1000-gke.94.
-
-  * The `gkectl` version can't be more than two minor versions higher than the current cluster version. For example, if you are upgrading a 1.28 cluster to 1.29, the `gkectl` version can be 1.29 or 1.30. But you can't use `gkectl` version 1.31 because that is three minor versions higher than the cluster version.
-
-  * If you are [upgrading the cluster to an advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster), the `gkectl` version **must** be the same as your target version. For example, if you are upgrading a 1.32 non-advanced cluster to 1.33.0-gke.799 advanced cluster, the `gkectl` version must be 1.33.0-gke.799.
-
-    * Your cluster will be upgraded to advanced cluster by default in 1.33. That means for 1.32 to 1.33 upgrades, the `gkectl` version must be the same as the upgraded version.
-
-    * This strict version requirement only applies during the transition to an advanced cluster. For all subsequent upgrades on your advanced cluster, the standard version skew rules are in effect.
-
-
-
-
-If needed, see [Download `gkectl`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/downloads#download_gkectl) to get a supported version of `gkectl`.
 
 ### Review your firewall rules
 
@@ -132,10 +64,16 @@ If your cluster is using a `NetworkPolicy`, temporarily remove its specification
 
   1. Check whether there's any non-system `NetworkPolicy` applied to your cluster:
          
-         kubectl --kubeconfig USER_CLUSTER_KUBECONFIG get networkpolicy -A -o wide | grep -v kube-system
+         kubectl --kubeconfig USER_CLUSTER_KUBECONFIG \
+             get networkpolicy -A -o wide \
+             --field-selector metadata.namespace!=kube-system
          
 
-  2. If the output of the prior step was not empty, save each `NetworkPolicy` specification to a file so that you can reapply the specification after upgrading the cluster.
+Replace `USER_CLUSTER_KUBECONFIG` with the path of the kubeconfig file for the user cluster.
+
+If only default `kube-system` policies exist, the command returns `No resources found`.
+
+  2. If the previous command lists any `NetworkPolicy` objects, save each `NetworkPolicy` specification to a file so that you can reapply the specification after upgrading the cluster:
          
          kubectl --kubeconfig USER_CLUSTER_KUBECONFIG get networkpolicy NETWORK_POLICY_NAME -n NETWORK_POLICY_NAMESPACE -o yaml > NETWORK_POLICY_NAME.yaml
          
@@ -220,7 +158,7 @@ Note the following limitations if you have [advanced clusters enabled](https://d
 
   * When upgrading clusters from version 1.32 to 1.33, you must use `gkectl`. The GKE On-Prem API clients (the console, the gcloud CLI, and Terraform) aren't supported for this specific upgrade path but are supported for upgrades starting from version 1.33.
 
-  * Only synchronous upgrades are supported.
+  * For advanced clusters at version 1.31 Preview, or when [converting a non-advanced admin cluster to an advanced admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster#update_or_upgrade_the_admin_cluster_to_advanced_cluster), you must run a synchronous upgrade. In version 1.32 and later, you can use the `--async` flag with the `gkectl upgrade admin` and `gkectl upgrade cluster` commands for existing advanced clusters.
 
 
 
@@ -257,11 +195,11 @@ In addition, your workstation has an information file. The default name of this 
 
 Locate your admin workstation configuration file and your information file. You need them to do the upgrade steps. If these files are in your current directory and they have their default names, then you won't need to specify them when you run the upgrade commands. If these files are in another directory, or if you have changed the filenames, then you specify them by using the `--config` and `--info-file` flags.
 
-If your output information file is missing, you can recreate it. See Recreate an information file if missing.
+If your output information file is missing, you can re-create it. See Re-create an information file if missing.
 
 ### Upgrade
 
-To upgrade the admin workstation:
+Upgrade the admin workstation:
 
   1. Check the `adminWorkstation.diskGB` field in the admin workstation configuration file and make sure that the specified size is at least 100, for example:
          
@@ -276,39 +214,42 @@ When upgrading to 1.28 and higher, 100 GB is required, and the cluster upgrade f
          gkeadm upgrade gkeadm --target-version TARGET_VERSION
          
 
-Replace `TARGET_VERSION` with the version that you are upgrading to. You need to specify a complete version number in the form of `X.Y.Z-gke.N.`. For a list of the Google Distributed Cloud versions, see [Versioning](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history#supported-versions).
+Replace `TARGET_VERSION` with the version that you are upgrading to. You need to specify a complete version number in the form of `X.Y.Z-gke.N`. For a list of the Google Distributed Cloud versions, see [Versioning](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history#supported-versions).
 
   3. Upgrade your admin workstation:
          
          gkeadm upgrade admin-workstation --config AW_CONFIG_FILE \
-             --info-file INFO_FILE
+           --info-file INFO_FILE
          
+
+
+
 
 Replace the following:
 
-     * `AW_CONFIG_FILE`: the path of your admin workstation configuration file. You can omit this flag if the file is in your current directory and has the name `admin-ws-config.yaml`.
+  * `AW_CONFIG_FILE`: the path of your admin workstation configuration file. You can omit this flag if the file is in your current directory and has the name `admin-ws-config.yaml`.
 
-     * `INFO_FILE`: the path of your information file. You can omit this flag if the file is in your current directory. The default name of this file is the same as the name of your admin workstation. 
+  * `INFO_FILE`: the path of your information file. You can omit this flag if the file is in your current directory. The default name of this file is the same as the name of your admin workstation.
 
 
 
 
 ### User-managed
 
-On your admin workstation, navigate to a directory where you want to install a new version of`gkectl`.
+On your admin workstation, navigate to a directory where you want to install a new version of `gkectl`.
 
   1. Download `gkectl`:
          
          gcloud storage cp gs://gke-on-prem-release/gkectl/TARGET_VERSION/gkectl ./
-         chmod +x gkectl
-         
+          chmod +x gkectl
+          
 
-Replace `TARGET_VERSION` with the version that you are upgrading to. You need to specify a complete version number in the form of `X.Y.Z-gke.N.`. For a list of the Google Distributed Cloud versions, see [Versioning](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history#supported-versions).
+Replace `TARGET_VERSION` with the version that you are upgrading to. You need to specify a complete version number in the form of `X.Y.Z-gke.N`. For a list of the Google Distributed Cloud versions, see [Versioning](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history#supported-versions).
 
   2. Download the Google Distributed Cloud bundle. Make sure the version matches the one you used to download `gkectl`:
          
          gcloud storage cp gs://gke-on-prem-release/gke-onprem-bundle/TARGET_VERSION/gke-onprem-vsphere-TARGET_VERSION.tgz ./
-         
+          
 
 
 
@@ -335,23 +276,6 @@ Replace `ADMIN_CLUSTER_KUBECONFIG` with the path to the admin cluster's kubeconf
 
 If the target version is 1.30 or lower, you must upgrade all your user clusters before you upgrade your admin cluster. The admin cluster minor version must be less than or equal to the user cluster minor version. The patch version doesn't matter. For example, if a user cluster is at version 1.30.1, the admin cluster can be upgraded to a higher patch version, such as 1.30.3.
 
-### Before you begin:
-
-  * Always [diagnose](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_admin_cluster) your cluster before upgrading. Run `gkectl diagnose cluster` to ensure your admin cluster is healthy, and resolve any issues before starting the upgrade.
-
-  * If you are upgrading to version 1.13 or higher, you must first register the admin cluster by filling out the `gkeConnect` section in the admin cluster configuration file. Run the [`gkectl` update cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general) command with the configuration file changes.
-
-  * Make sure your `gkectl` and clusters are the appropriate version for an upgrade, and that you have downloaded the appropriate bundle. The version skew between your admin and user clusters depends on the Google Distributed Cloud version. To make sure you can upgrade your admin cluster, see [Admin and user cluster version skew](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#admin_and_user_cluster_version_skew).
-
-  * Make sure the `bundlepath` field in the [admin cluster configuration file](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#bundlepath-field) matches the path of the bundle to which you want to upgrade.
-
-  * About `cert-manager` installation: `cert-manager` is automatically installed on advanced clusters. When you migrate from a non-advanced cluster to an advanced cluster, the integrated `cert-manager` automatically overrides any customer-installed versions of `cert-manager`. Make sure you don't have critical custom configurations or features applied to your existing `cert-manager` before you update or upgrade to advanced clusters. For more information, see [Upgrade to `cert-manager` bundled with advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster#upgrade-cert-manager). 
-
-If you make any other changes to the fields in the admin cluster configuration file, these changes are ignored during the upgrade. To make those changes take effect, you must first upgrade the cluster, and then run an [update cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general) command with the configuration file changes to make other changes to the cluster.
-
-
-
-
 ### Perform the upgrade
 
 ### gkectl
@@ -361,15 +285,12 @@ Do the steps in this section on your admin workstation. There are two variations
   * **Asynchronous** :   
 With the asynchronous variation, the command starts the upgrade and then completes. You don't need to watch the output of the command for the entire duration of the upgrade. Instead, you can periodically check on the upgrade progress by running `gkectl list admin` and `gkectl describe admin`. To use the asynchronous variation, include the `--async` flag in the command.
 
-
-
 Requirements for asynchronous upgrade:
 
-  * Supported only for HA admin clusters with version 1.29 or higher.
-  * All user clusters must have Controlplane V2 enabled.
-  * Version 1.31: Not supported on advanced clusters.
-  * Version 1.32 and higher: Available on advanced clusters.
-
+    * Supported only for HA admin clusters with version 1.29 or higher.
+    * All user clusters must have Controlplane V2 enabled.
+    * Version 1.31: Not supported on advanced clusters.
+    * Version 1.32 and higher: Available on advanced clusters.
   * **Synchronous** :   
 With the synchronous variation, the `gkectl upgrade admin` command outputs status messages to the admin workstation as the upgrade progresses.
 
@@ -381,16 +302,17 @@ With the synchronous variation, the `gkectl upgrade admin` command outputs statu
   1. On your admin workstation, diagnose the cluster before upgrading:
          
          gkectl diagnose cluster \
-             --kubeconfig ADMIN_CLUSTER_KUBECONFIG
+            --kubeconfig ADMIN_CLUSTER_KUBECONFIG
          
 
-     * If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_admin_cluster) and resolve them before proceeding.
+If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_admin_cluster) and resolve them before proceeding.
+
   2. Start an asynchronous upgrade:
          
          gkectl upgrade admin \
-             --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-             --config ADMIN_CLUSTER_CONFIG_FILE \
-             --async
+            --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+            --config ADMIN_CLUSTER_CONFIG_FILE \
+            --async
          
 
 Replace the following:
@@ -409,7 +331,7 @@ The preceding command completes, and you can continue to use your admin workstat
 The output shows a value for the cluster `STATE`. If the cluster is still upgrading, the value of `STATE` is `UPGRADING`. For example:
          
          NAME              STATE         AGE    VERSION
-         gke-admin-test    UPGRADING     9h     1.36.200-gke.118
+         gke-admin-test    UPGRADING     9h     1.36.100-gke.144
          
 
 The possible values for `STATE` are `RUNNING`, `UPGRADING`, `RECONCILING`, `ERROR`, and `UNKNOWN`.
@@ -419,202 +341,202 @@ The possible values for `STATE` are `RUNNING`, `UPGRADING`, `RECONCILING`, `ERRO
          gkectl describe admin --kubeconfig ADMIN_CLUSTER_KUBECONFIG
          
 
-The output shows the OnPremAdminCluster custom resource for the specified admin cluster, which includes cluster status, conditions.
+The output shows the OnPremAdminCluster custom resource for the specified admin cluster, which includes cluster status and conditions.
 
 Click to view the example output
          
          Status:
-             Cluster State:  RUNNING
-             Conditions:
-               Last Transition Time:    2026-08-10T20:22:58Z
-               Message:                 Operator NodePool is ready
-               Observed Generation:     2
-               Reason:                  OperatorNodePoolReady
-               Status:                  True
-               Type:                    ControlPlaneReady
-               Last Transition Time:    2026-08-10T20:22:59Z
-               Message:                 Cluster is running
-               Observed Generation:     2
-               Reason:                  ClusterRunning
-               Status:                  True
-               Type:                    Ready
-               Last Transition Time:    2026-08-10T20:23:00Z
-               Message:
-               Observed Generation:     2
-               Reason:                  Reconciling
-               Status:                  False
-               Type:                    OperatorClusterKubeProxyCleanedUp
-               Last Transition Time:    2026-08-10T20:22:58Z
-               Message:
-               Observed Generation:     2
-               Reason:                  PreflightCheckPassed
-               Status:                  True
-               Type:                    OperatorClusterPreflightCheckSuccessful
-               Last Transition Time:    2026-08-10T15:56:50Z
-               Message:
-               Observed Generation:     2
-               Reason:                  ProvisioningStarted
-               Status:                  True
-               Type:                    OperatorClusterProvisioningStarted
-               Last Transition Time:    2026-08-10T15:56:50Z
-               Message:
-               Observed Generation:     2
-               Reason:                  RemoteTrackerSetupComplete
-               Status:                  True
-               Type:                    OperatorClusterRemoteTrackerSetupSuccessful
-               Last Transition Time:    2026-08-10T15:56:50Z
-               Message:
-               Observed Generation:     2
-               Reason:                  Reconciling
-               Status:                  False
-               Type:                    OperatorClusterStalled
-               Last Transition Time:    2026-08-10T15:56:50Z
-               Message:
-               Observed Generation:     2
-               Reason:                  NotPresent
-               Status:                  False
-               Type:                    OperatorClusterWaitingOnPendingClusterID
-               Last Transition Time:    2026-08-10T20:22:59Z
-               Message:                 Operator Cluster is ready
-               Observed Generation:     2
-               Reason:                  OperatorClusterReady
-               Status:                  True
-               Type:                    OperatorClusterReady
-               Last Transition Time:    2026-08-10T15:56:50Z
-               Message:                 Component provisioner job is completed
-               Observed Generation:     2
-               Reason:                  ComponentProvisionerJobCompleted
-               Status:                  True
-               Type:                    ComponentProvisionerSystemProfileInstalled
-               Last Transition Time:    2026-08-10T15:58:20Z
-               Message:                 Component provisioner job is completed
-               Observed Generation:     2
-               Reason:                  ComponentProvisionerJobCompleted
-               Status:                  True
-               Type:                    ComponentProvisionerAdminProfileInstalled
-             Gke On Prem Version:       1.36.0-gke.527
-             Last Gke On Prem Version:  1.35.300-gke.87
-             Management Conditions:
-               Last Transition Time:  2026-08-10T15:58:20Z
-               Message:               Component provisioner job is completed
-               Observed Generation:   2
-               Reason:                ComponentProvisionerJobCompleted
-               Status:                True
-               Type:                  ManagementProfilesReady
-               Last Transition Time:  2026-08-10T15:56:29Z
-               Message:               Component provisioner job is completed
-               Observed Generation:   2
-               Reason:                ComponentProvisionerJobCompleted
-               Status:                True
-               Type:                  ComponentProvisionerSystemManagementProfileInstalled
-               Last Transition Time:  2026-08-10T15:58:20Z
-               Message:               Component provisioner job is completed
-               Observed Generation:   2
-               Reason:                ComponentProvisionerJobCompleted
-               Status:                True
-               Type:                  ComponentProvisionerManagementProfileInstalled
-             Operator Cluster Status:
-               Control Plane Node Pool Status:
-                 Anthos Bare Metal Version:  1.36.0-gke.527
-                 Anthos Bare Metal Versions:
-                   1.36.0-gke.527:  3
-                 Conditions:
-                   Last Transition Time:  2026-08-10T20:18:20Z
-                   Observed Generation:   11
-                   Reason:                PreflightCheckPassed
-                   Status:                True
-                   Type:                  PreflightCheckSuccessful
-                   Last Transition Time:  2026-08-10T20:22:58Z
-                   Observed Generation:   11
-                   Reason:                NodepoolReady
-                   Status:                True
-                   Type:                  Ready
-                   Last Transition Time:  2026-08-10T20:22:22Z
-                   Observed Generation:   11
-                   Reason:                ReconciliationCompleted
-                   Status:                False
-                   Type:                  Reconciling
-                 Gke Versions:
-                   v1.36.0-gke.2800:        3
-                 Last Reconciliation Time:  2026-08-10T20:25:07Z
-                 Maintenance Nodes:         0
-                 Managed Fields:
-                   Label Keys:
-                     kubernetes.googleapis.com/cluster-name
-                     node.kubernetes.io/control-plane
-                     node.kubernetes.io/master
-                   Node Label Keys:
-                     vsphere://abcdef-1:
-                       onprem.gke.io/failure-domain-name
-                       vmware.cluster.gke.io/machine-name
-                     vsphere://abcdef-2:
-                       onprem.gke.io/failure-domain-name
-                       vmware.cluster.gke.io/machine-name
-                     vsphere://abcdef-3:
-                       onprem.gke.io/failure-domain-name
-                       vmware.cluster.gke.io/machine-name
-                   Taints:
-                     Effect:         PreferNoSchedule
-                     Key:            node-role.kubernetes.io/control-plane
-                 Ready Nodes:        3
-                 Ready Timestamp:    2026-08-10T15:54:01Z
-                 Reconciling Nodes:  0
-                 Stalled Nodes:      0
-                 Unknown Nodes:      0
-               Data Plane Load Balancer Status:
-                 Conditions:
-                   Last Transition Time:  2026-08-10T15:39:16Z
-                   Observed Generation:   1
-                   Reason:                ReconciliationCompleted
-                   Status:                False
-                   Type:                  Reconciling
-                 Node Pool Location:      control-plane-nodepool
-               External Manifests Conditions:
-                 Last Transition Time:  2026-08-10T15:56:32Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-               Gke Connect Conditions:
-                 Last Transition Time:  2026-08-10T20:13:39Z
-                 Observed Generation:   2
-                 Reason:                AnthosBareMetalVersion
-                 Status:                True
-                 Type:                  1.36.0-gke.527
-                 Last Transition Time:  2026-08-10T20:13:39Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-               Gke Connect Dependent System Service Conditions:
-                 Last Transition Time:  2026-08-10T15:56:32Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-               Gke Hub Registration Status:
-                 Membership:
-                   Description:  description
-                   Name:         name
-               Gke Versions:
-                 v1.36.0-gke.2800:  3
-               Kernel Version Conditions:
-                 Last Transition Time:  2026-08-10T15:39:23Z
-                 Reason:                kernelVersionCheckPassed
-                 Status:                True
-                 Type:                  kernelVersionCheckSuccessful
-               System Service Conditions:
-                 Last Transition Time:  2026-08-10T20:12:26Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-           
+          Cluster State:  RUNNING
+          Conditions:
+            Last Transition Time:    2026-08-10T20:22:58Z
+            Message:                 Operator NodePool is ready
+            Observed Generation:     2
+            Reason:                  OperatorNodePoolReady
+            Status:                  True
+            Type:                    ControlPlaneReady
+            Last Transition Time:    2026-08-10T20:22:59Z
+            Message:                 Cluster is running
+            Observed Generation:     2
+            Reason:                  ClusterRunning
+            Status:                  True
+            Type:                    Ready
+            Last Transition Time:    2026-08-10T20:23:00Z
+            Message:
+            Observed Generation:     2
+            Reason:                  Reconciling
+            Status:                  False
+            Type:                    OperatorClusterKubeProxyCleanedUp
+            Last Transition Time:    2026-08-10T20:22:58Z
+            Message:
+            Observed Generation:     2
+            Reason:                  PreflightCheckPassed
+            Status:                  True
+            Type:                    OperatorClusterPreflightCheckSuccessful
+            Last Transition Time:    2026-08-10T15:56:50Z
+            Message:
+            Observed Generation:     2
+            Reason:                  ProvisioningStarted
+            Status:                  True
+            Type:                    OperatorClusterProvisioningStarted
+            Last Transition Time:    2026-08-10T15:56:50Z
+            Message:
+            Observed Generation:     2
+            Reason:                  RemoteTrackerSetupComplete
+            Status:                  True
+            Type:                    OperatorClusterRemoteTrackerSetupSuccessful
+            Last Transition Time:    2026-08-10T15:56:50Z
+            Message:
+            Observed Generation:     2
+            Reason:                  Reconciling
+            Status:                  False
+            Type:                    OperatorClusterStalled
+            Last Transition Time:    2026-08-10T15:56:50Z
+            Message:
+            Observed Generation:     2
+            Reason:                  NotPresent
+            Status:                  False
+            Type:                    OperatorClusterWaitingOnPendingClusterID
+            Last Transition Time:    2026-08-10T20:22:59Z
+            Message:                 Operator Cluster is ready
+            Observed Generation:     2
+            Reason:                  OperatorClusterReady
+            Status:                  True
+            Type:                    OperatorClusterReady
+            Last Transition Time:    2026-08-10T15:56:50Z
+            Message:                 Component provisioner job is completed
+            Observed Generation:     2
+            Reason:                  ComponentProvisionerJobCompleted
+            Status:                  True
+            Type:                    ComponentProvisionerSystemProfileInstalled
+            Last Transition Time:    2026-08-10T15:58:20Z
+            Message:                 Component provisioner job is completed
+            Observed Generation:     2
+            Reason:                  ComponentProvisionerJobCompleted
+            Status:                  True
+            Type:                    ComponentProvisionerAdminProfileInstalled
+          Gke On Prem Version:       1.36.0-gke.527
+          Last Gke On Prem Version:  1.35.300-gke.87
+          Management Conditions:
+            Last Transition Time:  2026-08-10T15:58:20Z
+            Message:               Component provisioner job is completed
+            Observed Generation:   2
+            Reason:                ComponentProvisionerJobCompleted
+            Status:                True
+            Type:                  ManagementProfilesReady
+            Last Transition Time:  2026-08-10T15:56:29Z
+            Message:               Component provisioner job is completed
+            Observed Generation:   2
+            Reason:                ComponentProvisionerJobCompleted
+            Status:                True
+            Type:                  ComponentProvisionerSystemManagementProfileInstalled
+            Last Transition Time:  2026-08-10T15:58:20Z
+            Message:               Component provisioner job is completed
+            Observed Generation:   2
+            Reason:                ComponentProvisionerJobCompleted
+            Status:                True
+            Type:                  ComponentProvisionerManagementProfileInstalled
+          Operator Cluster Status:
+            Control Plane Node Pool Status:
+              Anthos Bare Metal Version:  1.36.0-gke.527
+              Anthos Bare Metal Versions:
+                1.36.0-gke.527:  3
+              Conditions:
+                Last Transition Time:  2026-08-10T20:18:20Z
+                Observed Generation:   11
+                Reason:                PreflightCheckPassed
+                Status:                True
+                Type:                  PreflightCheckSuccessful
+                Last Transition Time:  2026-08-10T20:22:58Z
+                Observed Generation:   11
+                Reason:                NodepoolReady
+                Status:                True
+                Type:                  Ready
+                Last Transition Time:  2026-08-10T20:22:22Z
+                Observed Generation:   11
+                Reason:                ReconciliationCompleted
+                Status:                False
+                Type:                  Reconciling
+              Gke Versions:
+                v1.36.0-gke.2800:        3
+              Last Reconciliation Time:  2026-08-10T20:25:07Z
+              Maintenance Nodes:         0
+              Managed Fields:
+                Label Keys:
+                  kubernetes.googleapis.com/cluster-name
+                  node.kubernetes.io/control-plane
+                  node.kubernetes.io/master
+                Node Label Keys:
+                  vsphere://abcdef-1:
+                    onprem.gke.io/failure-domain-name
+                    vmware.cluster.gke.io/machine-name
+                  vsphere://abcdef-2:
+                    onprem.gke.io/failure-domain-name
+                    vmware.cluster.gke.io/machine-name
+                  vsphere://abcdef-3:
+                    onprem.gke.io/failure-domain-name
+                    vmware.cluster.gke.io/machine-name
+                Taints:
+                  Effect:         PreferNoSchedule
+                  Key:            node-role.kubernetes.io/control-plane
+              Ready Nodes:        3
+              Ready Timestamp:    2026-08-10T15:54:01Z
+              Reconciling Nodes:  0
+              Stalled Nodes:      0
+              Unknown Nodes:      0
+            Data Plane Load Balancer Status:
+              Conditions:
+                Last Transition Time:  2026-08-10T15:39:16Z
+                Observed Generation:   1
+                Reason:                ReconciliationCompleted
+                Status:                False
+                Type:                  Reconciling
+              Node Pool Location:      control-plane-nodepool
+            External Manifests Conditions:
+              Last Transition Time:  2026-08-10T15:56:32Z
+              Observed Generation:   2
+              Reason:                ReconciliationCompleted
+              Status:                False
+              Type:                  Reconciling
+            Gke Connect Conditions:
+              Last Transition Time:  2026-08-10T20:13:39Z
+              Observed Generation:   2
+              Reason:                AnthosBareMetalVersion
+              Status:                True
+              Type:                  1.36.0-gke.527
+              Last Transition Time:  2026-08-10T20:13:39Z
+              Observed Generation:   2
+              Reason:                ReconciliationCompleted
+              Status:                False
+              Type:                  Reconciling
+            Gke Connect Dependent System Service Conditions:
+              Last Transition Time:  2026-08-10T15:56:32Z
+              Observed Generation:   2
+              Reason:                ReconciliationCompleted
+              Status:                False
+              Type:                  Reconciling
+            Gke Hub Registration Status:
+              Membership:
+                Description:  description
+                Name:         name
+            Gke Versions:
+              v1.36.0-gke.2800:  3
+            Kernel Version Conditions:
+              Last Transition Time:  2026-08-10T15:39:23Z
+              Reason:                kernelVersionCheckPassed
+              Status:                True
+              Type:                  kernelVersionCheckSuccessful
+            System Service Conditions:
+              Last Transition Time:  2026-08-10T20:12:26Z
+              Observed Generation:   2
+              Reason:                ReconciliationCompleted
+              Status:                False
+              Type:                  Reconciling
+         
 
-  5. When the upgrade is complete, `gkectl list admin` shows a `STATUS` of `RUNNING`:
+  5. When the upgrade is complete, `gkectl list admin` shows a `STATE` of `RUNNING`:
          
          NAME              STATE         AGE    VERSION
-         gke-admin-test    RUNNING       9h     1.36.200-gke.118
+         gke-admin-test    RUNNING       9h     1.36.100-gke.144
          
 
 Also, when the upgrade is complete, `gkectl describe admin` shows a `Last GKE On Prem Version` field under `Status`. For example:
@@ -629,22 +551,23 @@ Also, when the upgrade is complete, `gkectl describe admin` shows a `Last GKE On
 
 #### Troubleshoot asynchronous upgrade
 
-For an asynchronous upgrade, the timeout duration is based on the number of nodes in the cluster. If the upgrade takes longer than the timeout duration, the cluster state is changed from `UPGRADING` to `ERROR`, with an event saying that the upgrade operation timed out. Note that the `ERROR` state here means the upgrade is taking longer than expected, but has not been terminated. The controller continues the reconciliation and keeps retrying the operation. When an upgrade is blocked or fails, you can run [ `gkectl diagnose`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose) to check for common cluster issues. Based on the result, you can decide whether to perform a manual fix or contact [Google Cloud Support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support) for further assistance. 
+For an asynchronous upgrade, the timeout duration is based on the number of nodes in the cluster. If the upgrade takes longer than the timeout duration, the cluster state is changed from `UPGRADING` to `ERROR`, with an event saying that the upgrade operation timed out. Note that the `ERROR` state here means the upgrade is taking longer than expected, but has not been terminated. The controller continues the reconciliation and keeps retrying the operation. When an upgrade is blocked or fails, you can run [`gkectl diagnose`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose) to check for common cluster issues. Based on the result, you can decide whether to perform a manual fix or contact [Google Cloud Support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support) for further assistance.
 
 ### Synchronous upgrade
 
   1. On your admin workstation, diagnose the cluster before upgrading:
          
          gkectl diagnose cluster \
-             --kubeconfig ADMIN_CLUSTER_KUBECONFIG
+            --kubeconfig ADMIN_CLUSTER_KUBECONFIG
          
 
-     * If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_admin_cluster) and resolve them before proceeding.
-  2. Run the following command:
+If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_admin_cluster) and resolve them before proceeding.
+
+  2. Upgrade the admin cluster:
          
          gkectl upgrade admin \
-             --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-             --config ADMIN_CLUSTER_CONFIG_FILE
+            --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+            --config ADMIN_CLUSTER_CONFIG_FILE
          
 
 Replace the following:
@@ -662,14 +585,14 @@ The `gkectl upgrade` command runs preflight checks. If the preflight checks fail
 
 
 
-### gcloud
+###  gcloud CLI 
 
-Upgrade the admin cluster using the `gcloud` CLI.
+Upgrade the admin cluster using the gcloud CLI.
 
   1. Update the platform version to the target version:
          
          gcloud container vmware admin-clusters update ADMIN_CLUSTER_NAME \
-             --location=REGION\
+             --location=REGION \
              --required-platform-version=VERSION \
              --async
          
@@ -697,381 +620,7 @@ This step completes the upgrade of the admin cluster to the target version.
 
 ## Upgrade a user cluster
 
-You can use `gkectl`, the console, the gcloud CLI, or Terraform to upgrade a user cluster. For information on deciding which tool to use, see [Choose a tool to upgrade user clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#choose_a_tool_to_upgrade_user_clusters).
-
-### gkectl
-
-## Prepare to upgrade a user cluster
-
-Do the following steps on your admin workstation:
-
-  1. Check if the user cluster is healthy before you begin the initial upgrade attempt. See [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_user_cluster). Run `gkectl diagnose cluster` on the user cluster and resolve any issues.
-
-  2. Do this step only if the `TARGET_VERSION` is 1.30 or lower, or if you are upgrading the user cluster to a different version from the admin cluster. Run `gkectl prepare` to import OS images to vSphere:
-         
-         gkectl prepare \
-           --bundle-path /var/lib/gke/bundles/gke-onprem-vsphere-TARGET_VERSION.tgz \
-           --kubeconfig ADMIN_CLUSTER_KUBECONFIG
-         
-
-  3. If your cluster has a Windows node pool, run `gkectl prepare windows`, and update the `osImage` field for the node pool. For detailed instructions, see [Upgrade user cluster with Windows node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-guide-for-windows-server-os-node-pools#upgrade-windows-node-pools).
-
-  4. In the user cluster configuration file, set [`gkeOnPremVersion`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#gkeonpremversion-field) to the target version of your upgrade.
-
-
-
-
-### Run preflight checks
-
-When upgrading to version 1.29 and higher, you can run the preflight checks before upgrading a user cluster:
-    
-    
-    gkectl upgrade cluster \
-        --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-        --config USER_CLUSTER_CONFIG \
-        --dry-run
-    
-
-Replace `USER_CLUSTER_CONFIG` with the path to the user cluster configuration file.
-
-With the `--dry-run` flag, `gkectl upgrade cluster` runs the preflight checks but doesn't start the upgrade process. Although earlier versions of Google Distributed Cloud run preflight checks, they can't be run separately from the upgrade. By adding the `--dry-run` flag, you can find and fix any issues that the preflight checks find with your user cluster before the upgrade.
-
-### Run `gkectl upgrade cluster`
-
-There are two variations of the `gkectl upgrade cluster` command:
-
-  * **Asynchronous** : (recommended)   
-With the asynchronous variation, the command starts the upgrade and then completes. You don't need to watch the output of the command for the entire duration of the upgrade. Instead, you can periodically check on the upgrade progress by running `gkectl list clusters` and `gkectl describe clusters`. To use the asynchronous variation, include the `--async` flag in the command.
-
-    * Version 1.31: Not available on advanced clusters.
-    * Version 1.32 and higher: Available on advanced clusters.
-  * **Synchronous** :   
-With the synchronous variation, the `gkectl upgrade cluster` command outputs status messages to the admin workstation as the upgrade progresses.
-
-
-
-
-### Asynchronous upgrade
-
-  1. Skip this step if you are upgrading to a version later than 1.16.
-
-If you are using [prepared credentials](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#preparedsecrets-namespace-field) and a [private registry](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#privateregistry-section) for the user cluster, make sure the private registry credential is prepared before upgrading the user cluster. For information on how to prepare the private registry credential, see [Configure prepared credentials for user clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/prepared-credentials).
-
-  2. Diagnose your cluster to make sure it is healthy:
-         
-         gkectl diagnose cluster \
-           --kubeconfig ADMIN_CLUSTER_KUBECONFIG
-         
-
-     * If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_user_cluster) and resolve them before proceeding.
-  3. On your admin workstation, start an asynchronous upgrade:
-         
-         gkectl upgrade cluster \
-           --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-           --config USER_CLUSTER_CONFIG \
-           --async
-         
-
-The preceding command completes, and you can continue to use your admin workstation while the upgrade is in progress.
-
-  4. To see the status of the upgrade:
-         
-         gkectl list clusters --kubeconfig ADMIN_CLUSTER_KUBECONFIG
-         
-
-The output shows a value for the cluster `STATE`. If the cluster is still upgrading, the value of `STATE` is `UPGRADING`. For example:
-         
-         NAMESPACE             NAME    READY   STATE       AGE   VERSION
-         my-uc-gkeonprem-mgmt  my-uc   False   UPGRADING   9h    1.36.0-gke.1
-         
-
-The possible values for `STATE` are `UPGRADING`, `DELETING`, `UPDATING`, `RUNNING`, `RECONCILING`, `ERROR`, and `UNKNOWN`.
-
-  5. To get more details about the upgrade progress and cluster events:
-         
-         gkectl describe clusters --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-           --cluster USER_CLUSTER_NAME -v 5
-         
-
-The output shows the OnPremUserCluster custom resource for the specified user cluster, which includes cluster status, conditions, and events.
-
-Click to view the example output
-         
-         Status:
-             Cluster State:  RUNNING
-             Conditions:
-               Last Transition Time:    2026-08-10T21:29:07Z
-               Message:                 Cluster is running
-               Observed Generation:     2
-               Reason:                  ClusterRunning
-               Status:                  True
-               Type:                    Ready
-               Last Transition Time:    2026-08-10T21:12:05Z
-               Message:                 Operator NodePool is ready
-               Observed Generation:     2
-               Reason:                  OperatorNodePoolReady
-               Status:                  True
-               Type:                    ControlPlaneReady
-               Last Transition Time:    2026-08-10T16:25:08Z
-               Message:                 Component provisioner job is completed
-               Observed Generation:     2
-               Reason:                  ComponentProvisionerJobCompleted
-               Status:                  True
-               Type:                    ComponentProvisionerUserProfileInstalled
-               Last Transition Time:    2026-08-10T21:29:07Z
-               Message:                 Node pools are running
-               Observed Generation:     2
-               Reason:                  NodePoolsRunning
-               Status:                  True
-               Type:                    NodePoolsReady
-               Last Transition Time:    2026-08-10T21:29:56Z
-               Message:
-               Observed Generation:     2
-               Reason:                  Reconciling
-               Status:                  False
-               Type:                    OperatorClusterKubeProxyCleanedUp
-               Last Transition Time:    2026-08-10T16:27:48Z
-               Message:
-               Observed Generation:     2
-               Reason:                  PreflightCheckPassed
-               Status:                  True
-               Type:                    OperatorClusterPreflightCheckSuccessful
-               Last Transition Time:    2026-08-10T16:27:48Z
-               Message:
-               Observed Generation:     2
-               Reason:                  ProvisioningStarted
-               Status:                  True
-               Type:                    OperatorClusterProvisioningStarted
-               Last Transition Time:    2026-08-10T16:27:48Z
-               Message:
-               Observed Generation:     2
-               Reason:                  RemoteTrackerSetupComplete
-               Status:                  True
-               Type:                    OperatorClusterRemoteTrackerSetupSuccessful
-               Last Transition Time:    2026-08-10T16:27:48Z
-               Message:
-               Observed Generation:     2
-               Reason:                  Reconciling
-               Status:                  False
-               Type:                    OperatorClusterStalled
-               Last Transition Time:    2026-08-10T16:27:48Z
-               Message:
-               Observed Generation:     2
-               Reason:                  NotPresent
-               Status:                  False
-               Type:                    OperatorClusterWaitingOnPendingClusterID
-               Last Transition Time:    2026-08-10T18:23:16Z
-               Message:                 Operator Cluster is ready
-               Observed Generation:     2
-               Reason:                  OperatorClusterReady
-               Status:                  True
-               Type:                    OperatorClusterReady
-             Gke On Prem Version:       1.36.0-gke.527
-             Last Gke On Prem Version:  1.35.300-gke.87
-             Operator Cluster Status:
-               Control Plane Node Pool Status:
-                 Anthos Bare Metal Version:  1.36.0-gke.527
-                 Anthos Bare Metal Versions:
-                   1.36.0-gke.527:  3
-                 Conditions:
-                   Last Transition Time:  2026-08-10T21:07:22Z
-                   Observed Generation:   11
-                   Reason:                PreflightCheckPassed
-                   Status:                True
-                   Type:                  PreflightCheckSuccessful
-                   Last Transition Time:  2026-08-10T21:12:05Z
-                   Observed Generation:   11
-                   Reason:                NodepoolReady
-                   Status:                True
-                   Type:                  Ready
-                   Last Transition Time:  2026-08-10T21:11:24Z
-                   Observed Generation:   11
-                   Reason:                ReconciliationCompleted
-                   Status:                False
-                   Type:                  Reconciling
-                 Gke Versions:
-                   v1.36.0-gke.2800:        3
-                 Last Reconciliation Time:  2026-08-10T21:28:02Z
-                 Maintenance Nodes:         0
-                 Managed Fields:
-                   Label Keys:
-                     node.kubernetes.io/control-plane
-                     node.kubernetes.io/master
-                   Node Label Keys:
-                     vsphere://abcdef-1:
-                       onprem.gke.io/failure-domain-name
-                       vmware.cluster.gke.io/machine-name
-                     vsphere://abcdef-2:
-                       onprem.gke.io/failure-domain-name
-                       vmware.cluster.gke.io/machine-name
-                     vsphere://abcdef-3:
-                       onprem.gke.io/failure-domain-name
-                       vmware.cluster.gke.io/machine-name
-                 Ready Nodes:        3
-                 Ready Timestamp:    2026-08-10T16:24:02Z
-                 Reconciling Nodes:  0
-                 Stalled Nodes:      0
-                 Unknown Nodes:      0
-               Data Plane Load Balancer Status:
-                 Conditions:
-                   Last Transition Time:  2026-08-10T16:08:47Z
-                   Observed Generation:   1
-                   Reason:                ReconciliationCompleted
-                   Status:                False
-                   Type:                  Reconciling
-                 Node Pool Location:      load-balancer-nodepool
-               External Manifests Conditions:
-                 Last Transition Time:  2026-08-10T16:12:25Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-               Gke Connect Conditions:
-                 Last Transition Time:  2026-08-10T21:11:33Z
-                 Observed Generation:   2
-                 Reason:                AnthosBareMetalVersion
-                 Status:                True
-                 Type:                  1.36.0-gke.527
-                 Last Transition Time:  2026-08-10T21:11:33Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-               Gke Connect Dependent System Service Conditions:
-                 Last Transition Time:  2026-08-10T16:25:26Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-               Gke Hub Registration Status:
-                 Membership:
-                   Description:  description
-                   Name:         name
-               Gke Versions:
-                 v1.36.0-gke.2800:  6
-               Kernel Version Conditions:
-                 Last Transition Time:  2026-08-10T16:08:53Z
-                 Reason:                kernelVersionCheckPassed
-                 Status:                True
-                 Type:                  kernelVersionCheckSuccessful
-               System Service Conditions:
-                 Last Transition Time:  2026-08-10T21:04:39Z
-                 Observed Generation:   2
-                 Reason:                ReconciliationCompleted
-                 Status:                False
-                 Type:                  Reconciling
-           Events:
-             Type    Reason         Age   From                            Message
-             ----    ------         ----  ----                            -------
-             Normal  StatusChanged  58m   onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New ClusterState condition: UPGRADING
-             Normal  ControlPlaneUpgradeStarted  58m  onprem-user-cluster-controller  Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:53 +0000 UTC
-             Normal  StatusChanged               58m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:53 +0000 UTC
-             Normal  ControlPlaneUpgradeStarted  58m  onprem-user-cluster-controller  Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:54 +0000 UTC
-             Normal  StatusChanged               58m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:54 +0000 UTC
-             Normal  ControlPlaneUpgradeStarted  58m  onprem-user-cluster-controller  Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:44:38 +0000 UTC
-             Normal  StatusChanged               58m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:44:38 +0000 UTC
-             Normal  StatusChanged  56m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:46:33 +0000 UTC
-             Normal  StatusChanged  54m (x2 over 56m)  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePoolClaim is currently in the progress of rolling update: Condition "NodeRecreationUpdateInProgress" ready, reason: "NodeRecreationUpdateInProgress", message: "Cannot further mark old InventoryMachines for recreation due to MinReadyNodesRequired requirement. Current process: There are still old InventoryMachines: [ci-4b6217b4ff2afdab2be082ab3b349e66-cp-99cc4wxzvx8ww829-2 ci-4b6217b4ff2afdab2be082ab3b349e66-cp-99cc4wxzvx8ww829-1]; New ready count (0) does not match desired count (3)"
-             Normal  StatusChanged  53m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" generation 7 hasn't been observed
-             Normal  StatusChanged  53m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:48:58 +0000 UTC
-             Normal  StatusChanged  30m (x3 over 58m)  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New Ready condition: True, ClusterRunning, Cluster is running
-             Normal  ControlPlaneUpgradeFinished  30m (x3 over 58m)  onprem-user-cluster-controller  Operator NodePool is ready
-             Normal  StatusChanged                29m (x9 over 47m)  onprem-user-cluster-controller  (combined from similar events): OnPremUserCluster status changed:
-             - New Ready condition: False, CreateOrUpdateNodePools, Creating or updating node pools, unready node pools: [ci-4b6217b4ff2afdab2be082ab3b349e66-gke-onprem-mgmt/ci-4b6217b4ff2afdab2be082ab3b349e66], in deletion node pools: []
-             Normal  NodePoolsUpgradeStarted  29m  onprem-user-cluster-controller  Creating or updating node pools, unready node pools: [ci-4b6217b4ff2afdab2be082ab3b349e66-gke-onprem-mgmt/ci-4b6217b4ff2afdab2be082ab3b349e66], in deletion node pools: []
-             Normal  StatusChanged            13m  onprem-user-cluster-controller  OnPremUserCluster status changed:
-             - New GKEOnPremVersion: "1.36.0-gke.527"
-             - New ClusterState condition: RUNNING
-             - New Ready condition: True, ClusterRunning, Cluster is running
-           
-
-  6. When the upgrade is complete, `gkectl list clusters` shows a `STATUS` of `RUNNING`:
-         
-         NAMESPACE             NAME    READY   STATE     AGE     VERSION
-         my-uc-gkeonprem-mgmt  my-uc   True    RUNNING   9h      1.36.0-gke.1
-         
-
-Also, when the upgrade is complete, `gkectl describe clusters` shows a `Last GKE On Prem Version` field under `Status`. For example:
-         
-         Status:
-         Cluster State:  RUNNING
-         Last GKE On Prem Version:  1.36.0-gke.1
-         
-
-
-
-
-### Troubleshoot asynchronous upgrade
-
-For an asynchronous upgrade, the timeout duration is based on the number of nodes in the cluster. If the upgrade takes longer than the timeout duration, the cluster state is changed from `UPGRADING` to `ERROR`, with an event saying that the upgrade operation timed out. Note that the `ERROR` state here means the upgrade is taking longer than expected, but has not been terminated. The controller continues the reconciliation and keeps retrying the operation.
-
-Usually a timeout is the result of a deadlock caused by a PodDisruptionBudget (PDB). In that case, Pods cannot be evicted from old nodes, and the old nodes cannot be drained. If the Pod eviction takes longer than 10 minutes, we write an event to the OnPremUserCluster object. You can capture the event by running `gkectl describe clusters`. Then you can adjust the PDB to allow the node to drain. After that, the upgrade can proceed and eventually complete.
-
-Example event:
-    
-    
-    Warning  PodEvictionTooLong  96s (x2 over 4m7s)  onprem-user-cluster-controller
-    Waiting too long(>10m0.00000003s) for (kube-system/coredns-856d6dbfdf-dl6nz) eviction.
-    
-
-In addition, when an upgrade is blocked or fails, you can run `gkectl diagnose` to check for common cluster issues. Based on the result, you can decide whether to perform a manual fix or contact the Anthos support team for further assistance.
-
-### Synchronous upgrade
-
-The `gkectl upgrade` command runs preflight checks. If the preflight checks fail, the command is blocked. You must fix the failures, or use the `--skip-preflight-check-blocking` flag. You should only skip the preflight checks if you are confident there are no critical failures.
-
-Proceed with these steps on your admin workstation:
-
-  1. Skip this step if you are upgrading to a version later than 1.16.
-
-If you are using [prepared credentials](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#preparedsecrets-namespace-field) and a [private registry](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#privateregistry-section) for the user cluster, make sure the private registry credential is prepared before upgrading the user cluster. For information on how to prepare the private registry credential, see [Configure prepared credentials for user clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/prepared-credentials).
-
-
-
-
-  1. Diagnose your cluster to make sure it is healthy:
-         
-         gkectl diagnose cluster   
-         
-               --kubeconfig ADMIN_CLUSTER_KUBECONFIG   
-         
-               --config USER_CLUSTER_CONFIG
-           
-
-     * If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_user_cluster) and resolve them before proceeding.
-     1. Upgrade the cluster:
-            
-            gkectl upgrade cluster \
-              --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-              --config USER_CLUSTER_CONFIG
-            
-
-     2. If you are upgrading to version 1.14.0 or higher, a new kubeconfig file is generated for the user cluster that overwrites any existing file. To view cluster details in the file, run the following command:
-            
-            kubectl config view --kubeconfig USER_CLUSTER_KUBECONFIG
-
-
-
-
-## Resume an upgrade
-
-If a user cluster upgrade is interrupted, you can resume the user cluster upgrade by running the same upgrade command with the `--skip-validation-all` flag:
-    
-    
-    gkectl upgrade cluster \
-        --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
-        --config USER_CLUSTER_CONFIG \
-        --skip-validation-all
-    
+You can use `gkectl`, the console, the gcloud CLI, or Terraform to upgrade a user cluster. For information on deciding which tool to use, see [Choose a tool to upgrade clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#choose_a_tool_to_upgrade_clusters).
 
 ### Console
 
@@ -1180,6 +729,363 @@ In the example output, the string `operation-1679543737105-5f7893fd5bae9-942b3f9
 
 
 
+### gkectl
+
+## Prepare to upgrade a user cluster
+
+Do the following steps on your admin workstation:
+
+  1. Check if the user cluster is healthy before you begin the initial upgrade attempt. See [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_user_cluster). Run `gkectl diagnose cluster` on the user cluster and resolve any issues.
+
+  2. Do this step only if the `TARGET_VERSION` is 1.30 or lower, or if you are upgrading the user cluster to a different version from the admin cluster. Run `gkectl prepare` to import OS images to vSphere:
+         
+         gkectl prepare \
+           --bundle-path /var/lib/gke/bundles/gke-onprem-vsphere-TARGET_VERSION.tgz \
+           --kubeconfig ADMIN_CLUSTER_KUBECONFIG
+         
+
+  3. If your cluster has a Windows node pool, run `gkectl prepare windows`, and update the `osImage` field for the node pool. For detailed instructions, see [Upgrade user cluster with Windows node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-guide-for-windows-server-os-node-pools#upgrade-windows-node-pools).
+
+  4. In the user cluster configuration file, set [`gkeOnPremVersion`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#gkeonpremversion-field) to the target version of your upgrade.
+
+
+
+
+### Run preflight checks
+
+When upgrading to version 1.29 and higher, you can run the preflight checks before upgrading a user cluster:
+    
+    
+    gkectl upgrade cluster \
+        --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+        --config USER_CLUSTER_CONFIG \
+        --dry-run
+    
+
+Replace `USER_CLUSTER_CONFIG` with the path to the user cluster configuration file.
+
+With the `--dry-run` flag, `gkectl upgrade cluster` runs the preflight checks but doesn't start the upgrade process. Although earlier versions of Google Distributed Cloud run preflight checks, they can't be run separately from the upgrade. By adding the `--dry-run` flag, you can find and fix any issues that the preflight checks find with your user cluster before the upgrade.
+
+### Run `gkectl upgrade cluster`
+
+There are two variations of the `gkectl upgrade cluster` command:
+
+  * **Asynchronous** : (recommended)   
+With the asynchronous variation, the command starts the upgrade and then completes. You don't need to watch the output of the command for the entire duration of the upgrade. Instead, you can periodically check on the upgrade progress by running `gkectl list clusters` and `gkectl describe clusters`. To use the asynchronous variation, include the `--async` flag in the command.
+
+    * Version 1.31: Not available on advanced clusters.
+    * Version 1.32 and higher: Available on advanced clusters.
+  * **Synchronous** :   
+With the synchronous variation, the `gkectl upgrade cluster` command outputs status messages to the admin workstation as the upgrade progresses.
+
+
+
+
+### Asynchronous upgrade
+
+  1. Skip this step if you are upgrading to a version later than 1.16.
+
+If you are using [prepared credentials](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#preparedsecrets-namespace-field) and a [private registry](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#privateregistry-section) for the user cluster, make sure the private registry credential is prepared before upgrading the user cluster. For information on how to prepare the private registry credential, see [Configure prepared credentials for user clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/prepared-credentials).
+
+  2. Diagnose your cluster to make sure it is healthy:
+         
+         gkectl diagnose cluster \
+             --kubeconfig <var>ADMIN_CLUSTER_KUBECONFIG</var>
+         
+
+If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_user_cluster) and resolve them before proceeding.
+
+  3. On your admin workstation, start an asynchronous upgrade:
+         
+         gkectl upgrade cluster \
+           --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+           --config USER_CLUSTER_CONFIG \
+           --async
+         
+
+The preceding command completes, and you can continue to use your admin workstation while the upgrade is in progress.
+
+  4. To see the status of the upgrade:
+         
+         gkectl list clusters --kubeconfig ADMIN_CLUSTER_KUBECONFIG
+         
+
+The output shows a value for the cluster `STATE`. If the cluster is still upgrading, the value of `STATE` is `UPGRADING`. For example:
+         
+         NAMESPACE             NAME    READY   STATE       AGE   VERSION
+         my-uc-gkeonprem-mgmt  my-uc   False   UPGRADING   9h    1.36.0-gke.1
+         
+
+The possible values for `STATE` are `UPGRADING`, `DELETING`, `UPDATING`, `RUNNING`, `RECONCILING`, `ERROR`, and `UNKNOWN`.
+
+  5. To get more details about the upgrade progress and cluster events:
+         
+         gkectl describe clusters --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+           --cluster USER_CLUSTER_NAME -v 5
+         
+
+The output shows the OnPremUserCluster custom resource for the specified user cluster, which includes cluster status, conditions, and events.
+
+Click to view the example output
+         
+         Status:
+         Cluster State:  RUNNING
+         Conditions:
+         Last Transition Time:    2026-08-10T21:29:07Z
+         Message:                 Cluster is running
+         Observed Generation:     2
+         Reason:                  ClusterRunning
+         Status:                  True
+         Type:                    Ready
+         Last Transition Time:    2026-08-10T21:12:05Z
+         Message:                 Operator NodePool is ready
+         Observed Generation:     2
+         Reason:                  OperatorNodePoolReady
+         Status:                  True
+         Type:                    ControlPlaneReady
+         Last Transition Time:    2026-08-10T16:25:08Z
+         Message:                 Component provisioner job is completed
+         Observed Generation:     2
+         Reason:                  ComponentProvisionerJobCompleted
+         Status:                  True
+         Type:                    ComponentProvisionerUserProfileInstalled
+         Last Transition Time:    2026-08-10T21:29:07Z
+         Message:                 Node pools are running
+         Observed Generation:     2
+         Reason:                  NodePoolsRunning
+         Status:                  True
+         Type:                    NodePoolsReady
+         Last Transition Time:    2026-08-10T21:29:56Z
+         Message:
+         Observed Generation:     2
+         Reason:                  Reconciling
+         Status:                  False
+         Type:                    OperatorClusterKubeProxyCleanedUp
+         Last Transition Time:    2026-08-10T16:27:48Z
+         Message:
+         Observed Generation:     2
+         Reason:                  PreflightCheckPassed
+         Status:                  True
+         Type:                    OperatorClusterPreflightCheckSuccessful
+         Last Transition Time:    2026-08-10T16:27:48Z
+         Message:
+         Observed Generation:     2
+         Reason:                  ProvisioningStarted
+         Status:                  True
+         Type:                    OperatorClusterProvisioningStarted
+         Last Transition Time:    2026-08-10T16:27:48Z
+         Message:
+         Observed Generation:     2
+         Reason:                  RemoteTrackerSetupComplete
+         Status:                  True
+         Type:                    OperatorClusterRemoteTrackerSetupSuccessful
+         Last Transition Time:    2026-08-10T16:27:48Z
+         Message:
+         Observed Generation:     2
+         Reason:                  Reconciling
+         Status:                  False
+         Type:                    OperatorClusterStalled
+         Last Transition Time:    2026-08-10T16:27:48Z
+         Message:
+         Observed Generation:     2
+         Reason:                  NotPresent
+         Status:                  False
+         Type:                    OperatorClusterWaitingOnPendingClusterID
+         Last Transition Time:    2026-08-10T18:23:16Z
+         Message:                 Operator Cluster is ready
+         Observed Generation:     2
+         Reason:                  OperatorClusterReady
+         Status:                  True
+         Type:                    OperatorClusterReady
+         Gke On Prem Version:       1.36.0-gke.527
+         Last Gke On Prem Version:  1.35.300-gke.87
+         Operator Cluster Status:
+         Control Plane Node Pool Status:
+           Anthos Bare Metal Version:  1.36.0-gke.527
+           Anthos Bare Metal Versions:
+             1.36.0-gke.527:  3
+           Conditions:
+             Last Transition Time:  2026-08-10T21:07:22Z
+             Observed Generation:   11
+             Reason:                PreflightCheckPassed
+             Status:                True
+             Type:                  PreflightCheckSuccessful
+             Last Transition Time:  2026-08-10T21:12:05Z
+             Observed Generation:   11
+             Reason:                NodepoolReady
+             Status:                True
+             Type:                  Ready
+             Last Transition Time:  2026-08-10T21:11:24Z
+             Observed Generation:   11
+             Reason:                ReconciliationCompleted
+             Status:                False
+             Type:                  Reconciling
+           Gke Versions:
+             v1.36.0-gke.2800:        3
+           Last Reconciliation Time:  2026-08-10T21:28:02Z
+           Maintenance Nodes:         0
+           Managed Fields:
+             Label Keys:
+               node.kubernetes.io/control-plane
+               node.kubernetes.io/master
+             Node Label Keys:
+               vsphere://abcdef-1:
+                 onprem.gke.io/failure-domain-name
+                 vmware.cluster.gke.io/machine-name
+               vsphere://abcdef-2:
+                 onprem.gke.io/failure-domain-name
+                 vmware.cluster.gke.io/machine-name
+               vsphere://abcdef-3:
+                 onprem.gke.io/failure-domain-name
+                 vmware.cluster.gke.io/machine-name
+           Ready Nodes:        3
+           Ready Timestamp:    2026-08-10T16:24:02Z
+           Reconciling Nodes:  0
+           Stalled Nodes:      0
+           Unknown Nodes:      0
+         Data Plane Load Balancer Status:
+           Conditions:
+             Last Transition Time:  2026-08-10T16:08:47Z
+             Observed Generation:   1
+             Reason:                ReconciliationCompleted
+             Status:                False
+             Type:                  Reconciling
+           Node Pool Location:      load-balancer-nodepool
+         External Manifests Conditions:
+           Last Transition Time:  2026-08-10T16:12:25Z
+           Observed Generation:   2
+           Reason:                ReconciliationCompleted
+           Status:                False
+           Type:                  Reconciling
+         Gke Connect Conditions:
+           Last Transition Time:  2026-08-10T21:11:33Z
+           Observed Generation:   2
+           Reason:                AnthosBareMetalVersion
+           Status:                True
+           Type:                  1.36.0-gke.527
+           Last Transition Time:  2026-08-10T21:11:33Z
+           Observed Generation:   2
+           Reason:                ReconciliationCompleted
+           Status:                False
+           Type:                  Reconciling
+         Gke Connect Dependent System Service Conditions:
+           Last Transition Time:  2026-08-10T16:25:26Z
+           Observed Generation:   2
+           Reason:                ReconciliationCompleted
+           Status:                False
+           Type:                  Reconciling
+         Gke Hub Registration Status:
+           Membership:
+             Description:  description
+             Name:         name
+         Gke Versions:
+           v1.36.0-gke.2800:  6
+         Kernel Version Conditions:
+           Last Transition Time:  2026-08-10T16:08:53Z
+           Reason:                kernelVersionCheckPassed
+           Status:                True
+           Type:                  kernelVersionCheckSuccessful
+         System Service Conditions:
+           Last Transition Time:  2026-08-10T21:04:39Z
+           Observed Generation:   2
+           Reason:                ReconciliationCompleted
+           Status:                False
+           Type:                  Reconciling
+         Events:
+         Type    Reason         Age   From                            Message
+
+* * *
+
+Normal StatusChanged 58m onprem-user-cluster-controller OnPremUserCluster status changed:
+
+     * New ClusterState condition: UPGRADING Normal ControlPlaneUpgradeStarted 58m onprem-user-cluster-controller Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:53 +0000 UTC Normal StatusChanged 58m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:53 +0000 UTC Normal ControlPlaneUpgradeStarted 58m onprem-user-cluster-controller Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:54 +0000 UTC Normal StatusChanged 58m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:43:54 +0000 UTC Normal ControlPlaneUpgradeStarted 58m onprem-user-cluster-controller Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:44:38 +0000 UTC Normal StatusChanged 58m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:44:38 +0000 UTC Normal StatusChanged 56m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:46:33 +0000 UTC Normal StatusChanged 54m (x2 over 56m) onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePoolClaim is currently in the progress of rolling update: Condition "NodeRecreationUpdateInProgress" ready, reason: "NodeRecreationUpdateInProgress", message: "Cannot further mark old InventoryMachines for recreation due to MinReadyNodesRequired requirement. Current process: There are still old InventoryMachines: [my-uc-cp-99cc4wxzvx8ww829-2 my-uc-cp-99cc4wxzvx8ww829-1]; New ready count (0) does not match desired count (3)" Normal StatusChanged 53m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" generation 7 hasn't been observed Normal StatusChanged 53m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateOperatorNodePool, Creating or updating operator NodePool: NodePool is not ready: Condition "Ready" status "False" is not "True", reason: "Reconciling", message: "", lastTransitionTime: 2026-08-10 20:48:58 +0000 UTC Normal StatusChanged 30m (x3 over 58m) onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New Ready condition: True, ClusterRunning, Cluster is running Normal ControlPlaneUpgradeFinished 30m (x3 over 58m) onprem-user-cluster-controller Operator NodePool is ready Normal StatusChanged 29m (x9 over 47m) onprem-user-cluster-controller (combined from similar events): OnPremUserCluster status changed:
+     * New Ready condition: False, CreateOrUpdateNodePools, Creating or updating node pools, unready node pools: [my-uc-gke-onprem-mgmt/my-uc], in deletion node pools: [] Normal NodePoolsUpgradeStarted 29m onprem-user-cluster-controller Creating or updating node pools, unready node pools: [my-uc-gke-onprem-mgmt/my-uc], in deletion node pools: [] Normal StatusChanged 13m onprem-user-cluster-controller OnPremUserCluster status changed:
+     * New GKEOnPremVersion: "1.36.0-gke.527"
+     * New ClusterState condition: RUNNING
+     * New Ready condition: True, ClusterRunning, Cluster is running 
+  6. When the upgrade is complete, `gkectl list clusters` shows a `STATE` of `RUNNING`:
+         
+         NAMESPACE             NAME    READY   STATE     AGE     VERSION
+         my-uc-gkeonprem-mgmt  my-uc   True    RUNNING   9h      1.36.0-gke.1
+         
+
+Also, when the upgrade is complete, `gkectl describe clusters` shows a `Last GKE On Prem Version` field under `Status`. For example:
+         
+         Status:
+         Cluster State:  RUNNING
+         Last GKE On Prem Version:  1.36.0-gke.1
+         
+
+
+
+
+### Troubleshoot asynchronous upgrade
+
+For an asynchronous upgrade, the timeout duration is based on the number of nodes in the cluster. If the upgrade takes longer than the timeout duration, the cluster state is changed from `UPGRADING` to `ERROR`, with an event saying that the upgrade operation timed out. Note that the `ERROR` state here means the upgrade is taking longer than expected, but hasn't been terminated. The controller continues the reconciliation and keeps retrying the operation.
+
+Usually a timeout is the result of a deadlock caused by a PodDisruptionBudget (PDB). In that case, Pods cannot be evicted from old nodes, and the old nodes cannot be drained. If the Pod eviction takes longer than 10 minutes, we write an event to the OnPremUserCluster object. You can capture the event by running `gkectl describe clusters`. Then you can adjust the PDB to allow the node to drain. After that, the upgrade can proceed and eventually complete.
+
+Example event:
+    
+    
+    Warning  PodEvictionTooLong  96s (x2 over 4m7s)  onprem-user-cluster-controller
+    Waiting too long(>10m0.00000003s) for (kube-system/coredns-856d6dbfdf-dl6nz) eviction.
+    
+
+In addition, when an upgrade is blocked or fails, you can run `gkectl diagnose` to check for common cluster issues. Based on the result, you can decide whether to perform a manual fix or contact [Google Cloud Support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support) for further assistance.
+
+### Synchronous upgrade
+
+The `gkectl upgrade` command runs preflight checks. If the preflight checks fail, the command is blocked. You must fix the failures, or use the `--skip-preflight-check-blocking` flag. You should only skip the preflight checks if you are confident there are no critical failures.
+
+Proceed with these steps on your admin workstation:
+
+  1. Skip this step if you are upgrading to a version later than 1.16.
+
+If you are using [prepared credentials](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#preparedsecrets-namespace-field) and a [private registry](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#privateregistry-section) for the user cluster, make sure the private registry credential is prepared before upgrading the user cluster. For information on how to prepare the private registry credential, see [Configure prepared credentials for user clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/prepared-credentials).
+
+  2. Diagnose your cluster to make sure it is healthy:
+         
+         gkectl diagnose cluster \
+           --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+           --config USER_CLUSTER_CONFIG
+         
+
+If the command reports any errors or warnings, refer to [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose#diagnose_user_cluster) and resolve them before proceeding.
+
+  3. Upgrade the cluster:
+         
+         gkectl upgrade cluster \
+           --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+           --config USER_CLUSTER_CONFIG
+         
+
+  4. If you are upgrading to version 1.14.0 or higher, a new kubeconfig file is generated for the user cluster that overwrites any existing file. To view cluster details in the file, run the following command:
+         
+         kubectl config view --kubeconfig USER_CLUSTER_KUBECONFIG
+
+
+
+
+## Resume an upgrade
+
+If a user cluster upgrade is interrupted, you can resume the user cluster upgrade by running the same upgrade command with the `--skip-validation-all` flag:
+    
+    
+    gkectl upgrade cluster \
+        --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+        --config USER_CLUSTER_CONFIG \
+        --skip-validation-all
+    
+
 ### Terraform
 
   1. Update the Google Cloud CLI components:
@@ -1269,7 +1175,7 @@ If you downloaded a full bundle, and you have successfully run `gkectl prepare` 
 
 If an admin cluster upgrade is interrupted or fails, the upgrade can be resumed if the [admin cluster checkpoint](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-admin-cluster#managing_the_checkpointyaml_file) contains the state required to restore the state prior to the interruption.
 
-**Warning** : Don't repair the admin master with `gkectl repair admin-master` after a failed upgrade attempt. This will cause the admin cluster to get into a bad state.
+**Warning** : Don't repair the admin control plane with `gkectl repair admin-master` after a failed upgrade attempt. Doing so causes the admin cluster to enter a bad state.
 
 Follow these steps:
 
@@ -1282,7 +1188,7 @@ Follow these steps:
 
 
 
-When you rerun the upgrade command, the resumed upgrade recreates admin cluster state from the checkpoint and reruns the entire upgrade. Starting from 1.12.0, if the admin control plane is unhealthy, the upgrade process will directly upgrade to the target version without trying to restore the admin cluster at the source version before proceeding to upgrade.
+When you rerun the upgrade command, the resumed upgrade re-creates admin cluster state from the checkpoint and reruns the entire upgrade. Starting from 1.12.0, if the admin control plane is unhealthy, the upgrade process will directly upgrade to the target version without trying to restore the admin cluster at the source version before proceeding to upgrade.
 
 The upgrade will resume from the point where it failed or exited if the admin cluster checkpoint is available. If the checkpoint is unavailable, the upgrade will fall back to relying on the admin control plane, and therefore the admin control plane must be healthy in order to proceed with the upgrade. After a successful upgrade, the checkpoint is regenerated.
 
@@ -1410,15 +1316,21 @@ Upgrading clusters can cause disruption or downtime for workloads that use [PodD
 
 ### Nodes fail to complete their upgrade process
 
-If you have `PodDisruptionBudget` objects configured that are unable to allow any additional disruptions, node upgrades might fail to upgrade to the control plane version after repeated attempts. To prevent this failure, we recommend that you scale up the `Deployment` or `HorizontalPodAutoscaler` to allow the node to drain while still respecting the `PodDisruptionBudget` configuration.
+If you have `PodDisruptionBudget` objects configured that are unable to allow any additional disruptions, nodes might fail to upgrade to the control plane version after repeated attempts. To prevent this failure, we recommend that you scale up the `Deployment` or `HorizontalPodAutoscaler` to allow the node to drain while still respecting the `PodDisruptionBudget` configuration.
 
-To see all `PodDisruptionBudget` objects that do not allow any disruptions:
+List all `PodDisruptionBudget` objects on the user cluster that don't allow any disruptions:
     
     
-    kubectl get poddisruptionbudget --all-namespaces -o jsonpath='{range .items[?(@.status.disruptionsAllowed==0)]}{.metadata.name}/{.metadata.namespace}{"\n"}{end}'
+    kubectl --kubeconfig USER_CLUSTER_KUBECONFIG \
+        get poddisruptionbudget --all-namespaces \
+        -o jsonpath='{range .items[?(@.status.disruptionsAllowed==0)]}{.metadata.namespace}/{.metadata.name}{"\n"}{end}'
     
 
-## Appendix
+Replace `USER_CLUSTER_KUBECONFIG` with the path of the kubeconfig file for the user cluster.
+
+The default `kube-system/log-aggregator` and `kube-system/prometheus` PDBs appear in the output with `disruptionsAllowed: 0` when they have zero matching Pods and `status.expectedPods` is `0`. Because these PDBs don't block node draining, you can ignore them.
+
+## Additional upgrade information
 
 ### About VMware DRS rules enabled in version 1.1.0-gke.6
 
@@ -1443,7 +1355,7 @@ Resource | Description
 ---|---  
 Admin cluster | When an admin cluster is down, user cluster control planes and workloads on user clusters continue to run, unless they were affected by a failure that caused the downtime.  
 User cluster control plane | Typically, you should expect no noticeable downtime to user cluster control planes. However, long-running connections to the Kubernetes API server might break and would need to be re-established. In those cases, the API caller should retry until it establishes a connection. In the worst case, there can be up to one minute of downtime during an upgrade. **Note:** If user cluster nodes are unable to reach the user control plane during the upgrade, new workloads are not scheduled to the cluster. Existing workloads are unaffected.  
-User cluster nodes | If an upgrade requires a change to user cluster nodes, Google Distributed Cloud recreates the nodes in a rolling fashion, and reschedules Pods running on these nodes. You can prevent impact to your workloads by configuring appropriate [PodDisruptionBudgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions) and [anti-affinity rules](https://kubernetes.io/docs/concepts/configuration/assign-pod-node).  
+User cluster nodes | If an upgrade requires a change to user cluster nodes, Google Distributed Cloud re-creates the nodes in a rolling fashion, and reschedules Pods running on these nodes. You can prevent impact to your workloads by configuring appropriate [PodDisruptionBudgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions) and [anti-affinity rules](https://kubernetes.io/docs/concepts/configuration/assign-pod-node).  
   
 ### Re-create an information file if missing
 
@@ -1468,10 +1380,10 @@ Here is a sample output information file:
     Created using gkeadm version: v1.10.3-gke.49
     VM name: admin-ws-janedoe
     IP: 172.16.91.21
-    SSH key used: /usr/local/google/home/janedoe/.ssh/gke-admin-workstation
+    SSH key used: /home/janedoe/.ssh/gke-admin-workstation
     Upgraded from (rollback version): v1.10.0-gke.194
     To access your admin workstation:
-    ssh -i /usr/local/google/home/janedoe/.ssh/gke-admin-workstation ubuntu@172.16.91.21
+    ssh -i /home/janedoe/.ssh/gke-admin-workstation ubuntu@172.16.91.21
     
 
 Create the file in an editor, substituting the appropriate parameters. Save the file with a filename that is the same as the VM name in the directory from which gkeadm is run. For example, if the VM name is `admin-ws-janedoe`, save the file as `admin-ws-janedoe`.
@@ -1494,6 +1406,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

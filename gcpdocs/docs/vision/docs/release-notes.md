@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/release-notes/
 title: Vision release notes \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:51:33.894648+00:00
+fetched_at: 2026-11-10T16:33:07.438431+00:00
 ---
 
 # Vision release notes  |  Cloud Vision API  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ Deprecated
 
 **Face detection model update**
 
-The emotion label response in the Cloud Vision API is deprecated. Going forward, the Cloud Vision API face detection (`FACE_DETECTION` feature) will return `UNKNOWN` for all emotion-related labels.
+The emotion label response for face detection (`FACE_DETECTION`) in the Cloud Vision API is deprecated. Effective October 15, 2026, the `joyLikelihood`, `sorrowLikelihood`, `angerLikelihood`, and `surpriseLikelihood` fields in [`FaceAnnotation`](https://docs.cloud.google.com/vision/docs/reference/rest/v1/AnnotateImageResponse#FaceAnnotation) return `UNKNOWN` for new projects and projects without recent Face Detection usage. Beginning January 14, 2027, these fields will permanently return `UNKNOWN` for all projects.
 
 ## December 19, 2024
 

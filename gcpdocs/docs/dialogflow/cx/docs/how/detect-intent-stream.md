@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/how/detect-intent-stream/
 title: Detect intent \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:17.234516+00:00
+fetched_at: 2026-11-10T09:16:13.770266+00:00
 ---
 
 # Detect intent  |  Dialogflow CX  |  Google Cloud Documentation
@@ -1572,21 +1572,21 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
     
     import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
     import com.google.api.gax.rpc.[BidiStream](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.BidiStream.html);
-    import com.google.cloud.dialogflow.cx.v3beta1.AudioEncoding;
-    import com.google.cloud.dialogflow.cx.v3beta1.AudioInput;
-    import com.google.cloud.dialogflow.cx.v3beta1.InputAudioConfig;
-    import com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig;
-    import com.google.cloud.dialogflow.cx.v3beta1.OutputAudioEncoding;
-    import com.google.cloud.dialogflow.cx.v3beta1.QueryInput;
-    import com.google.cloud.dialogflow.cx.v3beta1.QueryResult;
-    import com.google.cloud.dialogflow.cx.v3beta1.SessionName;
-    import com.google.cloud.dialogflow.cx.v3beta1.SessionsClient;
-    import com.google.cloud.dialogflow.cx.v3beta1.SessionsSettings;
-    import com.google.cloud.dialogflow.cx.v3beta1.SsmlVoiceGender;
-    import com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest;
-    import com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentResponse;
-    import com.google.cloud.dialogflow.cx.v3beta1.SynthesizeSpeechConfig;
-    import com.google.cloud.dialogflow.cx.v3beta1.VoiceSelectionParams;
+    import com.google.cloud.dialogflow.cx.v3.[AudioEncoding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioEncoding.html);
+    import com.google.cloud.dialogflow.cx.v3.[AudioInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioInput.html);
+    import com.google.cloud.dialogflow.cx.v3.[InputAudioConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.InputAudioConfig.html);
+    import com.google.cloud.dialogflow.cx.v3.[OutputAudioConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.OutputAudioConfig.html);
+    import com.google.cloud.dialogflow.cx.v3.[OutputAudioEncoding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.OutputAudioEncoding.html);
+    import com.google.cloud.dialogflow.cx.v3.[QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html);
+    import com.google.cloud.dialogflow.cx.v3.[QueryResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html);
+    import com.google.cloud.dialogflow.cx.v3.[SessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html);
+    import com.google.cloud.dialogflow.cx.v3.[SessionsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html);
+    import com.google.cloud.dialogflow.cx.v3.[SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html);
+    import com.google.cloud.dialogflow.cx.v3.[SsmlVoiceGender](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SsmlVoiceGender.html);
+    import com.google.cloud.dialogflow.cx.v3.[StreamingDetectIntentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.StreamingDetectIntentRequest.html);
+    import com.google.cloud.dialogflow.cx.v3.[StreamingDetectIntentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.StreamingDetectIntentResponse.html);
+    import com.google.cloud.dialogflow.cx.v3.[SynthesizeSpeechConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SynthesizeSpeechConfig.html);
+    import com.google.cloud.dialogflow.cx.v3.[VoiceSelectionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.VoiceSelectionParams.html);
     import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import java.io.FileInputStream;
     import java.io.IOException;
@@ -1597,13 +1597,13 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
       public static void detectIntentStream(
           String projectId, String locationId, String agentId, String sessionId, String audioFilePath)
           throws [ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html), IOException {
-        SessionsSettings.Builder sessionsSettingsBuilder = SessionsSettings.newBuilder();
+        [SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html).Builder sessionsSettingsBuilder = [SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html).newBuilder();
         if ("global".equals(locationId)) {
           sessionsSettingsBuilder.setEndpoint("dialogflow.googleapis.com:443");
         } else {
           sessionsSettingsBuilder.setEndpoint(locationId + "-dialogflow.googleapis.com:443");
         }
-        SessionsSettings sessionsSettings = sessionsSettingsBuilder.build();
+        [SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html) sessionsSettings = sessionsSettingsBuilder.build();
     
         // Instantiates a client by setting the session name.
         // Format: `projects/<ProjectID>/locations/<LocationID>/agents/<AgentID>/sessions/<SessionID>`
@@ -1612,57 +1612,58 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
         // Note: close() needs to be called on the SessionsClient object to clean up resources
         // such as threads. In the example below, try-with-resources is used,
         // which automatically calls close().
-        try (SessionsClient sessionsClient = SessionsClient.create(sessionsSettings)) {
-          SessionName session = SessionName.of(projectId, locationId, agentId, sessionId);
+        try ([SessionsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html) sessionsClient = [SessionsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html).create(sessionsSettings)) {
+          [SessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html) session =
+              [SessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html).[ofProjectLocationAgentSessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html#com_google_cloud_dialogflow_cx_v3_SessionName_ofProjectLocationAgentSessionName_java_lang_String_java_lang_String_java_lang_String_java_lang_String_)(projectId, locationId, agentId, sessionId);
     
           // Instructs the speech recognizer how to process the audio content.
           // Note: hard coding audioEncoding and sampleRateHertz for simplicity.
           // Audio encoding of the audio content sent in the query request.
-          InputAudioConfig inputAudioConfig =
-              InputAudioConfig.newBuilder()
-                  .setAudioEncoding(AudioEncoding.AUDIO_ENCODING_LINEAR_16)
+          [InputAudioConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.InputAudioConfig.html) inputAudioConfig =
+              [InputAudioConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.InputAudioConfig.html).newBuilder()
+                  .setAudioEncoding([AudioEncoding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioEncoding.html).AUDIO_ENCODING_LINEAR_16)
                   .setSampleRateHertz(16000) // sampleRateHertz = 16000
                   .build();
     
           // Build the AudioInput with the InputAudioConfig.
-          AudioInput audioInput = AudioInput.newBuilder().setConfig(inputAudioConfig).build();
+          [AudioInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioInput.html) audioInput = [AudioInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioInput.html).newBuilder().[setConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioInput.Builder.html#com_google_cloud_dialogflow_cx_v3_AudioInput_Builder_setConfig_com_google_cloud_dialogflow_cx_v3_InputAudioConfig_)(inputAudioConfig).build();
     
           // Build the query with the InputAudioConfig.
-          QueryInput queryInput =
-              QueryInput.newBuilder()
+          [QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html) queryInput =
+              [QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html).newBuilder()
                   .setAudio(audioInput)
                   .setLanguageCode("en-US") // languageCode = "en-US"
                   .build();
     
           // Create the Bidirectional stream
           BidiStream<StreamingDetectIntentRequest, StreamingDetectIntentResponse> bidiStream =
-              sessionsClient.streamingDetectIntentCallable().call();
+              sessionsClient.[streamingDetectIntentCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html#com_google_cloud_dialogflow_cx_v3_SessionsClient_streamingDetectIntentCallable__)().call();
     
           // Specify sssml name and gender
-          VoiceSelectionParams voiceSelection =
+          [VoiceSelectionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.VoiceSelectionParams.html) voiceSelection =
               // Voices that are available https://cloud.google.com/text-to-speech/docs/voices
-              VoiceSelectionParams.newBuilder()
+              [VoiceSelectionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.VoiceSelectionParams.html).newBuilder()
                   .setName("en-US-Standard-F")
-                  .setSsmlGender(SsmlVoiceGender.SSML_VOICE_GENDER_FEMALE)
+                  .[setSsmlGender](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.VoiceSelectionParams.Builder.html#com_google_cloud_dialogflow_cx_v3_VoiceSelectionParams_Builder_setSsmlGender_com_google_cloud_dialogflow_cx_v3_SsmlVoiceGender_)([SsmlVoiceGender](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SsmlVoiceGender.html).SSML_VOICE_GENDER_FEMALE)
                   .build();
     
-          SynthesizeSpeechConfig speechConfig =
-              SynthesizeSpeechConfig.newBuilder().setVoice(voiceSelection).build();
+          [SynthesizeSpeechConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SynthesizeSpeechConfig.html) speechConfig =
+              [SynthesizeSpeechConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SynthesizeSpeechConfig.html).newBuilder().[setVoice](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SynthesizeSpeechConfig.Builder.html#com_google_cloud_dialogflow_cx_v3_SynthesizeSpeechConfig_Builder_setVoice_com_google_cloud_dialogflow_cx_v3_VoiceSelectionParams_)(voiceSelection).build();
     
           // Setup audio config
-          OutputAudioConfig audioConfig =
+          [OutputAudioConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.OutputAudioConfig.html) audioConfig =
               // Output enconding explanation
               // https://cloud.google.com/dialogflow/cx/docs/reference/rpc/google.cloud.dialogflow.cx.v3#outputaudioencoding
-              OutputAudioConfig.newBuilder()
-                  .setAudioEncoding(OutputAudioEncoding.OUTPUT_AUDIO_ENCODING_UNSPECIFIED)
+              [OutputAudioConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.OutputAudioConfig.html).newBuilder()
+                  .setAudioEncoding([OutputAudioEncoding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.OutputAudioEncoding.html).OUTPUT_AUDIO_ENCODING_UNSPECIFIED)
                   .setAudioEncodingValue(1)
-                  .setSynthesizeSpeechConfig(speechConfig)
+                  .[setSynthesizeSpeechConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.OutputAudioConfig.Builder.html#com_google_cloud_dialogflow_cx_v3_OutputAudioConfig_Builder_setSynthesizeSpeechConfig_com_google_cloud_dialogflow_cx_v3_SynthesizeSpeechConfig_)(speechConfig)
                   .build();
     
           // The first request must **only** contain the audio configuration:
           bidiStream.send(
-              StreamingDetectIntentRequest.newBuilder()
-                  .setSession(session.toString())
+              [StreamingDetectIntentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.StreamingDetectIntentRequest.html).newBuilder()
+                  .setSession(session.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html#com_google_cloud_dialogflow_cx_v3_SessionName_toString__)())
                   .setQueryInput(queryInput)
                   .setOutputAudioConfig(audioConfig)
                   .build());
@@ -1674,29 +1675,29 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
             byte[] buffer = new byte[4096];
             int bytes;
             while ((bytes = audioStream.read(buffer)) != -1) {
-              AudioInput subAudioInput =
-                  AudioInput.newBuilder().setAudio([ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(buffer, 0, bytes)).build();
-              QueryInput subQueryInput =
-                  QueryInput.newBuilder()
+              [AudioInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioInput.html) subAudioInput =
+                  [AudioInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.AudioInput.html).newBuilder().setAudio([ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(buffer, 0, bytes)).build();
+              [QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html) subQueryInput =
+                  [QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html).newBuilder()
                       .setAudio(subAudioInput)
                       .setLanguageCode("en-US") // languageCode = "en-US"
                       .build();
               bidiStream.send(
-                  StreamingDetectIntentRequest.newBuilder().setQueryInput(subQueryInput).build());
+                  [StreamingDetectIntentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.StreamingDetectIntentRequest.html).newBuilder().setQueryInput(subQueryInput).build());
             }
           }
     
           // Tell the service you are done sending data.
           bidiStream.closeSend();
     
-          for (StreamingDetectIntentResponse response : bidiStream) {
-            QueryResult queryResult = response.getDetectIntentResponse().getQueryResult();
+          for ([StreamingDetectIntentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.StreamingDetectIntentResponse.html) response : bidiStream) {
+            [QueryResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html) queryResult = response.getDetectIntentResponse().getQueryResult();
             System.out.println("====================");
-            System.out.format("Query Text: '%s'\n", queryResult.getTranscript());
+            System.out.format("Query Text: '%s'\n", queryResult.[getTranscript](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html#com_google_cloud_dialogflow_cx_v3_QueryResult_getTranscript__)());
             System.out.format(
                 "Detected Intent: %s (confidence: %f)\n",
-                queryResult.getMatch().getIntent().getDisplayName(),
-                queryResult.getMatch().getConfidence());
+                queryResult.[getMatch](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html#com_google_cloud_dialogflow_cx_v3_QueryResult_getMatch__)().getIntent().getDisplayName(),
+                queryResult.[getMatch](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html#com_google_cloud_dialogflow_cx_v3_QueryResult_getMatch__)().getConfidence());
           }
         }
       }

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/monitor-instance-distribution/
 title: Monitor instance distribution in MIGs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:05:23.859275+00:00
+fetched_at: 2026-11-10T16:20:37.406623+00:00
 ---
 
 # Monitor instance distribution in MIGs  |  Compute Engine  |  Google Cloud Documentation
@@ -24,6 +24,8 @@ Send feedback
 This document describes the benefits, use cases, and the dashboard for monitoring virtual machine (VM) instance distribution in managed instance groups (MIGs). It also describes how to view the instance distribution for a specific MIG or across multiple MIGs, as well as how to customize and query the dashboard.
 
 When your MIG uses [location flexibility](https://docs.cloud.google.com/compute/docs/instance-groups/regional-migs) to distribute instances across multiple zones, [instance flexibility](https://docs.cloud.google.com/compute/docs/instance-groups/about-instance-flexibility) to specify multiple compatible machine types, or both, the MIG dynamically selects and provisions instances based on real-time resource availability. To monitor this behavior in real-time, you can use a dashboard to track how your instances are distributed across zones and machine types over time. You can view this data for a single MIG or aggregated across multiple MIGs. The dashboard also shows you both the running (active) and not running (inactive) instances, and the total instance count over the period. You can interpret the dashboard metrics to diagnose capacity allocation, zonal balance, and fallback behavior.
+
+To view how a MIG allocates compute instances across zones and machine types while evaluating real-time capacity, see [View instance distribution logs](https://docs.cloud.google.com/compute/docs/instance-groups/view-instance-distribution-logs). These logs reflect the MIG's planned allocations, not confirmed instance creations.
 
 ## Benefits of monitoring instance distribution in MIGs
 
@@ -283,6 +285,7 @@ Replace `YOUR_MIG_NAME` with the name of your MIG.
 
 ## What's next
 
+  * [View instance distribution logs](https://docs.cloud.google.com/compute/docs/instance-groups/view-instance-distribution-logs).
   * Learn about [location flexibility in regional MIGs](https://docs.cloud.google.com/compute/docs/instance-groups/regional-migs).
   * Learn about [instance flexibility](https://docs.cloud.google.com/compute/docs/instance-groups/about-instance-flexibility).
   * [Add instance flexibility](https://docs.cloud.google.com/compute/docs/instance-groups/configure-instance-flexibility) to a MIG.
@@ -295,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/release-notes/
 title: Compute Engine release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:51.592811+00:00
+fetched_at: 2026-11-10T16:58:34.756946+00:00
 ---
 
 # Compute Engine release notes  |  Google Cloud Documentation
@@ -33,6 +33,27 @@ This page contains the latest release notes for features and updates to the Comp
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/compute-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+**Preview** : To enforce VM extension configurations across multiple projects, you can create and manage global and zonal VM extension policies by using VM Extension Manager at the Google Cloud organization and folder levels. In addition, VM Extension Manager provides read-only `get` and `list` methods that let you view extension policies, supported VM extensions, and the runtime state of installed extensions on each Compute Engine instance.
+
+For more information, see the following documentation:
+
+  * [About VM Extension Manager](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager#hierarchy-scopes)
+  * [Install VM extensions by creating extension policies](https://docs.cloud.google.com/compute/docs/vm-extensions/create-extension-policy)
+  * [Manage VM extensions by using extension policies](https://docs.cloud.google.com/compute/docs/vm-extensions/manage-vm-extensions)
+  * [View VM extension details and status](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-details)
+
+
+
+## November 05, 2026
+
+Change
+
+M4N network performance improvements provide up to 400 Gbps maximum bandwidth for internal network communications, and up to 200 Gbps for external network communications. For more information, see [M4N machine types](https://docs.cloud.google.com/compute/docs/network-optimized-machines#m4n_machine_types).
 
 ## November 02, 2026
 

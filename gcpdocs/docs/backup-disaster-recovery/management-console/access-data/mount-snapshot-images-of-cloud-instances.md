@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/access-data/mount-snapshot-images-of-cloud-instances/
 title: Mount backups of Compute Engine instances in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:27.582959+00:00
+fetched_at: 2026-11-10T16:33:04.967271+00:00
 ---
 
 # Mount backups of Compute Engine instances in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ It can be used in various scenarios:
     * Clone instance to another project for development and testing teams for debugging.
     * In a disaster recovery, to recover source instance in a different project without changing the instance name.
 
-
+**Warning:** **Mount** is intended for quick data access, file-level recovery, and backup verification. Don't use **Mount** to replace the active boot disk of a virtual machine. Attaching a mounted backup disk to replace an active boot disk—especially on Windows instances—can cause disk signature collisions, operating system conflicts, and VM boot failure. To replace or restore an active boot disk or instance, use the [**Restore** a Compute Engine instance](https://docs.cloud.google.com/backup-disaster-recovery/management-console/restore-data/restore-compute-engine) procedure.
 
 Before mounting a backup, make sure you have all the required permissions. See [Permissions](https://docs.cloud.google.com/backup-disaster-recovery/docs/access-data/permissions) for details.
 
@@ -53,6 +53,16 @@ To mount a Compute Engine backup as an existing or new Compute Engine instance, 
 ## Mount Compute Engine backup to an existing Compute Engine instance
 
 For quick data access in any project, you can mount a backup of a selected Compute Engine instance to any existing Compute Engine instance. When you mount a backup to an existing instance, a disk is attached to the instance, no mount point is created.
+
+**Caution:** Don't attach a mounted backup volume to replace the active boot disk of an existing instance. The **Mount** option attaches backup volumes as secondary data disks for data access and file recovery. If you manually detach the original boot disk and attempt to boot from a mounted volume, the following issues occur:
+
+  * **Disk signature collisions and boot errors** : Because the backup disk is an identical copy of an existing volume, attaching it creates disk signature or partition UUID collisions. On Windows, this causes the operating system to mark the disk offline or triggers boot configuration (BCD) errors (`0xc000000e`). On Linux, duplicate filesystem UUIDs can cause boot sequence failures.
+  * **VM boot failure** : The disk is not configured as the primary boot device, causing the instance to fail to start.
+  * **Management session desynchronization** : Bypassing the Backup and DR workflow interferes with appliance session tracking, preventing the appliance from cleanly unmounting or cleaning up the temporary disk.
+
+
+
+To recover or replace an active boot disk or instance, use the [**Restore** a Compute Engine instance](https://docs.cloud.google.com/backup-disaster-recovery/management-console/restore-data/restore-compute-engine) procedure. If you need a separate running copy of the instance, see Mount a Compute Engine backup as a new Compute Engine instance.
 
 Use these instructions to mount a Compute Engine instance backup to an existing instance:
 
@@ -175,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

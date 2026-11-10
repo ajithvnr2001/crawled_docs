@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T05:56:28.194447+00:00
+fetched_at: 2026-11-10T15:29:34.326833+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,16 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## November 10, 2026
+
+**Model Armor**
+
+Feature
+
+Model Armor image screening is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
+You can extract and screen images embedded within supported rich text documents (PDF, Word, Excel, and PowerPoint). Pricing for image screening is in effect and converts processed images into tokens based on image size. For more information, see [Screen images](https://docs.cloud.google.com/model-armor/screen-images), [Pricing](https://docs.cloud.google.com/model-armor/overview#pricing), and [Token calculation and pricing for images](https://docs.cloud.google.com/model-armor/screen-images#tokens).
 
 ## November 09, 2026
 
@@ -144,6 +154,43 @@ These functions are in [Preview](https://cloud.google.com/products/#product-laun
 Feature
 
 You can use the Google Cloud console to create and manage Apache Avro schema bundles for your Bigtable tables. You can also view Avro schema bundle definitions in Bigtable Studio. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas).
+
+Libraries
+
+### Java
+
+#### [1.95.0](https://github.com/googleapis/google-cloud-java/compare/v1.94.0...v1.95.0) (2026-11-02)
+
+##### Bug Fixes
+
+  * **bigtable:** avoid mutating Query in-place in createPointReadCallable ([#14797](https://github.com/googleapis/google-cloud-java/issues/14797)) ([1b1c6a7](https://github.com/googleapis/google-cloud-java/commit/1b1c6a72fb29dd7a8e04b6ddb2e402603ad6ac90))
+  * **bigtable:** check isOk and getRejected first in RetryingVRpc.shouldRetry ([#14795](https://github.com/googleapis/google-cloud-java/issues/14795)) ([d821bd3](https://github.com/googleapis/google-cloud-java/commit/d821bd3e81aacea3b8aeb7adf471b88e47cb3764))
+  * **bigtable:** check remaining deadline on client-initiated retries in RetryingVRpc ([#14796](https://github.com/googleapis/google-cloud-java/issues/14796)) ([a04e24c](https://github.com/googleapis/google-cloud-java/commit/a04e24c1beb3558a6c7f93aab6293beb0c4428c9))
+  * **bigtable:** Fix empty RowResult semantics in TestProxy. ([#14810](https://github.com/googleapis/google-cloud-java/issues/14810)) ([1d2fb9a](https://github.com/googleapis/google-cloud-java/commit/1d2fb9a698f0c3eae14f8c0d06afea2440d5aca0))
+  * **bigtable:** include reversed in Query equals, hashCode, and toString ([#14799](https://github.com/googleapis/google-cloud-java/issues/14799)) ([fe9232b](https://github.com/googleapis/google-cloud-java/commit/fe9232bb7fa3debbafe067e453a156a5dd8fbd2a))
+  * **bigtable:** pass cell value size to RowBuilder.startCell in RowBuilderShim ([#14800](https://github.com/googleapis/google-cloud-java/issues/14800)) ([cfa7949](https://github.com/googleapis/google-cloud-java/commit/cfa7949755b23c7e86acb798d87ff6a11a426d7f))
+  * **bigtable:** reject empty split points in RowSetUtil and clarify QueryPaginator Javadoc ([#14811](https://github.com/googleapis/google-cloud-java/issues/14811)) ([1bc507f](https://github.com/googleapis/google-cloud-java/commit/1bc507f80adc6b85af4761420f5408cb6acb15f7))
+  * **bigtable:** remove legacy PollingConfiguration migration in ClientConfigurationManager ([#14822](https://github.com/googleapis/google-cloud-java/issues/14822)) ([95ead45](https://github.com/googleapis/google-cloud-java/commit/95ead459480137a07d5b62ad75ff9978ecb8099a))
+  * **bigtable:** resolve session diversion through a single shared rule ([#14738](https://github.com/googleapis/google-cloud-java/issues/14738)) ([00f7bea](https://github.com/googleapis/google-cloud-java/commit/00f7bea135eb77de710e71c97ae5be3a2829886d))
+  * **bigtable:** respect query limit smaller than pageSize and avoid mutating Query in QueryPaginator ([#14821](https://github.com/googleapis/google-cloud-java/issues/14821)) ([cecd09e](https://github.com/googleapis/google-cloud-java/commit/cecd09e27d3511de8def4983a94cf7823a248af3))
+
+
+
+##### Documentation
+
+  * **bigtable:** document that skipped large rows count towards row limit ([#14801](https://github.com/googleapis/google-cloud-java/issues/14801)) ([91d60e0](https://github.com/googleapis/google-cloud-java/commit/91d60e05e5c81d47288c53f55e25961169c2b3c5))
+
+
+
+### Java
+
+#### [1.96.0](https://github.com/googleapis/google-cloud-java/compare/v1.95.0...v1.96.0) (2026-11-05)
+
+##### Bug Fixes
+
+  * **bigtable:** allow non-default service accounts for session DirectAccess ([#14926](https://github.com/googleapis/google-cloud-java/issues/14926)) ([9f4a76a](https://github.com/googleapis/google-cloud-java/commit/9f4a76acfb576048729c2f35a768531eba1dad5c))
+
+
 
 **Cloud Asset Inventory**
 
@@ -392,6 +439,16 @@ Memorystore for Redis supports the `CLIENT` command and the following subcommand
 
 For more information about the `CLIENT` command and its supported subcommands, see [Supported and blocked commands](https://docs.cloud.google.com/memorystore/docs/redis/supported-commands). This feature is [generally available (GA)](https://docs.cloud.google.com/products#product-launch-stages).
 
+**SAP on Google Cloud**
+
+Announcement
+
+**Google Cloud's Agent for SAP version 3.16**
+
+Version 3.16 of Google Cloud's Agent for SAP is generally available (GA). This version introduces enhancements for the agent's `configureinstance` command and some framework level updates.
+
+For more information, see [What's new with Google Cloud's Agent for SAP](https://docs.cloud.google.com/sap/docs/agent-for-sap/whats-new).
+
 **Security Command Center**
 
 Feature
@@ -571,6 +628,260 @@ Config Controller now uses the following versions of its included products:
   * Config Connector v1.159.0, [release notes](https://docs.cloud.google.com/config-connector/docs/release-notes#October_13_2026)
 
 
+
+**Container Optimized OS**
+
+Change
+
+### cos-125-19216-801-14 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.114](https://cos.googlesource.com/third_party/kernel/+/1dcdbc3f0dcd16137863cab1347dee8c604b87c0) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.801.14/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Feature
+
+Added RTC support in A4X-Max images.
+
+Feature
+
+Enabled PCI peer to peer direct memory access for 64k kernels.
+
+Fixed
+
+Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.12. It installs ucodes firmwares for r615 and newer GPU driver versions.
+
+Fixed
+
+Upgraded app-arch/gzip to v1.15.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded sys-apps/less to v710.
+
+Fixed
+
+Upgraded sys-libs/timezone-data to v2026f.
+
+Security
+
+Fixed CVE-2025-31133 in cri-tools.
+
+Security
+
+Fixed CVE-2025-52565 in docker.
+
+Security
+
+Fixed CVE-2025-52881 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-32285 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-32285 in cri-tools.
+
+Security
+
+Fixed CVE-2026-63209 in containerd.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-63209, CVE-2026-39883, CVE-2024-25621 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84304 in containerd.
+
+Security
+
+Fixed CVE-2026-84304 in docker.
+
+Security
+
+Fixed CVE-2026-84304 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-29181 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-116587 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-63209 in docker.
+
+Security
+
+Updated curl to v8.22.0. This resolves CVE-2026-18924, CVE-2026-13608, CVE-2026-80229, CVE-2026-80255 and CVE-2026-19931.
+
+Security
+
+Updated libpcre2 to v10.49. This resolves CVE-2026-86145 and CVE-2026-103111.
+
+Security
+
+Updated pyjwt to v2.14.0. This resolves CVE-2026-102266, CVE-2026-102267, CVE-2026-102268 and CVE-2026-102271.
+
+Change
+
+### cos-129-19506-625-14 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.114](https://cos.googlesource.com/third_party/kernel/+/1bac64d736f17f5ed23cbcb8ec3f6edf39ccab9a) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.625.14/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Added RTC support in A4X-Max images.
+
+Feature
+
+Enabled PCI peer to peer direct memory access for 64k kernels.
+
+Fixed
+
+Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.12. It installs ucodes firmwares for r615 and newer GPU driver versions.
+
+Security
+
+Fixed CVE-2024-41110 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587 in guest-agent.
+
+Security
+
+Fixed CVE-2026-29181, CVE-2025-31133, CVE-2024-25621 in docker.
+
+Security
+
+Fixed CVE-2026-32285, CVE-2026-84304 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-34986 in guest-agent.
+
+Security
+
+Fixed CVE-2026-35469 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39883 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-39883 in docker.
+
+Security
+
+Fixed CVE-2026-45022, CVE-2026-24051, CVE-2026-53488 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-63209 in containerd.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-63209, CVE-2025-65637 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84304 in containerd.
+
+Security
+
+Fixed CVE-2026-84304 in docker.
+
+Security
+
+Fixed CVE-2026-84304 in kubernetes.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-29181 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-32285 in cri-tools.
+
+Security
+
+Fixed CVE-2026-84445 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-84445 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84445 in guest-agent.
+
+Security
+
+Updated curl to v8.22.0. This resolves CVE-2026-18924, CVE-2026-13608, CVE-2026-80229, CVE-2026-80255 and CVE-2026-19931.
+
+Security
+
+Updated libpcre2 to v10.49. This resolves CVE-2026-86145 and CVE-2026-103111.
+
+Security
+
+Updated pyjwt to v2.14.0. This resolves CVE-2026-102266, CVE-2026-102267, CVE-2026-102268 and CVE-2026-102271.
 
 **Firestore with MongoDB compatibility**
 
@@ -1404,6 +1715,296 @@ Change
 
 M4N network performance improvements provide up to 400 Gbps maximum bandwidth for internal network communications, and up to 200 Gbps for external network communications. For more information, see [M4N machine types](https://docs.cloud.google.com/compute/docs/network-optimized-machines#m4n_machine_types).
 
+**Container Optimized OS**
+
+Change
+
+### cos-133-19999-44-193 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/e794243e77b51f9bdf8954da0cb3ce2c79661328) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.193/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Enabled PCI peer to peer direct memory access for 64k kernels.
+
+Fixed
+
+Added support for NVIDIA driver v580.196.07.
+
+Fixed
+
+Added support for NVIDIA driver v595.112.07.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.12. It installs ucodes firmwares for r615 and newer GPU driver versions.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20261027.00.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20261021.00.
+
+Fixed
+
+Upgraded app-admin/sosreport to v4.12.1.
+
+Fixed
+
+Upgraded app-arch/bzip2 to v1.0.8-r5.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1229, Upgraded app-editors/vim-core to v9.2.1229.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded app-misc/jq to v1.8.2.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded sys-libs/talloc to v2.5.0.
+
+Fixed
+
+Upgraded net-fs/cifs-utils to v7.8.
+
+Fixed
+
+Upgraded net-libs/gnutls to v3.8.13.
+
+Fixed
+
+Upgraded sys-fs/mdadm to v4.6-r1.
+
+Fixed
+
+Upgraded sys-libs/libcap-ng to v0.9.6.
+
+Fixed
+
+Upgraded sys-libs/libxcrypt to v4.4.38-r1.
+
+Security
+
+Fixed CVE-2024-41110 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587 in containerd.
+
+Security
+
+Fixed CVE-2026-24051, CVE-2026-34986 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-29181 in guest-agent.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-35469 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39883 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84304 in containerd.
+
+Security
+
+Fixed CVE-2026-84304 in docker.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-32285 in cri-tools.
+
+Security
+
+Fixed CVE-2026-84445 in containerd.
+
+Security
+
+Fixed CVE-2026-84445 in kubernetes.
+
+Change
+
+### cos-121-18867-652-29 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.159](https://cos.googlesource.com/third_party/kernel/+/c87b8de2956ad6b99b07834c48be0a022d71d1d4) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.652.29/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Added support for NVIDIA driver v580.196.07.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20261027.00.
+
+Fixed
+
+Upgraded app-arch/gzip to v1.15.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1229.
+
+Fixed
+
+Upgraded app-editors/vim-core to v9.2.1229.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded net-misc/rsync to v3.5.1.
+
+Fixed
+
+Upgraded sys-apps/less to v710.
+
+Fixed
+
+Upgraded sys-libs/libxcrypt to v4.4.38-r1.
+
+Fixed
+
+Upgraded sys-libs/timezone-data to v2026f.
+
+Security
+
+Fixed CVE-2024-25621, CVE-2026-53488 in docker.
+
+Security
+
+Fixed CVE-2024-41110, CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2025-15558, CVE-2024-25621, CVE-2026-71556 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2025-52881 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587, CVE-2026-63209 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-24051, CVE-2025-31133, CVE-2026-63209 in docker.
+
+Security
+
+Fixed CVE-2026-29181, CVE-2026-84304 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-29181, CVE-2026-84304, CVE-2026-63209 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-33186 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in docker.
+
+Security
+
+Fixed CVE-2026-33186 in guest-agent.
+
+Security
+
+Fixed CVE-2026-46595 in docker.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-42508 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84304 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-84445 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-84304 in guest-agent.
+
+Security
+
+Fixed KCTF-d095321 in the Linux kernel.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Security
+
+Upgraded dev-libs/expat to v2.8.4. This fixes CVE-2026-76957.
+
 **Data Studio**
 
 Feature
@@ -1494,6 +2095,8 @@ Feature
 You can now use custom tags for individual activities, comments, tasks, and actions on the Case Wall, and filter the wall view by those tags. This allows you to categorize specific observations and filter the timeline to view only the entries relevant to your investigation or team.
 
 For more information, see [Add a tag to a Case Wall activity](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin#add-activity-tag).
+
+This feature is being rolled out in waves starting Monday, November 16 and continuing through Thursday, November 19.
 
 **Model Armor**
 
@@ -1863,7 +2466,11 @@ Announcement
 
 **[Spotlight Feature] Consolidated Settings and Navigation**
 
-The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and also updates the left navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. The Google SecOps documentation has been updated to reflect the new navigational changes. For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform). This feature is being rolled out in waves starting November 9 and continuing through November 12.
+The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and also updates the left navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. The Google SecOps documentation has been updated to reflect the new navigational changes.
+
+For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
+
+This feature is being rolled out in waves starting Monday, November 9 and continuing through Thursday, November 12.
 
 ## November 03, 2026
 
@@ -2316,6 +2923,20 @@ Feature
 The Data Engineering Agent now supports [BigQuery AI, ML, and object functions and statements in generated Dataform SQLX pipelines and agent instruction files](https://docs.cloud.google.com/bigquery/docs/data-engineering-agent-pipelines#bigquery-ai-ml-support).
 
 This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+**Bigtable**
+
+Libraries
+
+### Node.js
+
+#### [7.5.1](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.5.0...bigtable-v7.5.1) (2026-10-28)
+
+##### Bug Fixes
+
+  * **bigtable:** Use ReadonlyMap for EncodedKeyMap implements clause ([#9709](https://github.com/googleapis/google-cloud-node/issues/9709)) ([f803bff](https://github.com/googleapis/google-cloud-node/commit/f803bff4714360aa7c05387251bcb319536ae3f3))
+
+
 
 **Cloud Asset Inventory**
 
@@ -3144,6 +3765,187 @@ Security and compliance findings in Storage Intelligence advisor are available i
   * [About Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview#monitor-security-compliance)
   * [Re-encrypt objects that violate default CMEK bucket policies](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-default-cmek-policies)
   * [Re-encrypt objects that violate enforced encryption rules](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-enforced-encryption-rules)
+
+
+
+**Container Optimized OS**
+
+Change
+
+### cos-129-19506-578-33 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/d85203a42d8b86ef624aecfdbd44361fa8a62c51) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.578.33/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an IDPF bug that could cause indefinite IPv4 route loss after a hard NIC reset.
+
+Feature
+
+Enabled EROFS support.
+
+Fixed
+
+Added support for NVIDIA driver v580.196.07.
+
+Fixed
+
+Added support for NVIDIA driver v595.112.07.
+
+Fixed
+
+Upgraded app-arch/zstd to v1.5.7-r1.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1229, Upgraded app-editors/vim-core to v9.2.1229.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.9.0.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded net-fs/nfs-utils to v2.6.4.
+
+Fixed
+
+Upgraded sys-libs/libxcrypt to v4.4.38-r1.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-33186 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39834, CVE-2026-39832, CVE-2026-39831, CVE-2026-46595 in google-osconfig-agent.
+
+Security
+
+Fixed KCTF-d095321 in the Linux kernel.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Change
+
+### cos-125-19216-760-32 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/44bf8b7767ac63010cad3d8a3afa241b262193de) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.760.32/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an IDPF bug that could cause indefinite IPv4 route loss after a hard NIC reset.
+
+Security
+
+Fixed CVE-2024-41110, CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-33186 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in guest-agent.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-33186, CVE-2026-46595, CVE-2026-39831 in docker.
+
+Security
+
+Fixed CVE-2026-39834, CVE-2026-39831 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-77214 in dev-libs/expat.
+
+Security
+
+Fixed KCTF-d095321 in the Linux kernel.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Change
+
+### cos-133-19999-44-174 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/ebad2aad500721882e43d07ea6b43fef5882463d) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.174/lakitu/gpu_driver_versions.textproto)  
+  
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39830, CVE-2026-39833 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1807671 -> 1807627
+  * Changed: fs.fanotify.max_user_marks: 68382 -> 68378
+  * Changed: fs.inotify.max_user_watches: 64161 -> 64158
+  * Changed: kernel.threads-max: 63445 -> 63443
+  * Changed: net.ipv4.tcp_mem: 93972 125298 187944 -> 93969 125295 187938
+  * Changed: net.ipv4.udp_mem: 187947 250597 375894 -> 187941 250590 375882
+  * Changed: user.max_cgroup_namespaces: 31722 -> 31721
+  * Changed: user.max_fanotify_marks: 68382 -> 68378
+  * Changed: user.max_inotify_watches: 64161 -> 64158
+  * Changed: user.max_ipc_namespaces: 31722 -> 31721
+  * Changed: user.max_mnt_namespaces: 31722 -> 31721
+  * Changed: user.max_net_namespaces: 31722 -> 31721
+  * Changed: user.max_pid_namespaces: 31722 -> 31721
+  * Changed: user.max_time_namespaces: 31722 -> 31721
+  * Changed: user.max_user_namespaces: 31722 -> 31721
+  * Changed: user.max_uts_namespaces: 31722 -> 31721
 
 
 
@@ -4514,6 +5316,261 @@ Bug Fixes:
 
 
 
+**Container Optimized OS**
+
+Change
+
+### cos-dev-138-20248-0-0 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.57](https://cos.googlesource.com/third_party/kernel/+/8d63d0a98e25398e4dda752bc9b925ab47532d8d) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20248.0.0/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated the Linux kernel to v6.18.57.
+
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Added KVM virtualization support for AMD CPUID faulting.
+
+Feature
+
+Added nvidia-container-toolkit to ARM images.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded sys-libs/glibc to v2.41-r5.
+
+Security
+
+Fixed CVE-2024-4741 in dev-libs/openssl.
+
+Security
+
+Fixed CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39830 in guest-agent.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39831, CVE-2026-46595 in docker.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-46595 in kubernetes.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39830, CVE-2026-39834 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39831 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-24051, CVE-2026-84304, CVE-2026-39831, CVE-2026-39829, CVE-2026-39834, CVE-2026-34986, CVE-2026-39835, CVE-2026-39832, CVE-2026-39827, CVE-2026-81870, CVE-2026-46598, CVE-2026-29181, CVE-2026-39830, CVE-2026-46595, CVE-2026-39828, CVE-2026-25680, CVE-2026-39833, CVE-2026-39883, CVE-2026-84303, CVE-2026-46597, CVE-2026-42508 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-99999 in the Linux kernel.
+
+Security
+
+Upgraded dev-lang/go to v1.26.10. This fixes CVE-2026-111943.
+
+Security
+
+Upgraded dev-lang/go to v1.26.5. This fixes CVE-2026-39822.
+
+Security
+
+Upgraded dev-lang/go to v1.26.9. This fixes CVE-2026-94447.
+
+Security
+
+Upgraded dev-lang/python to v3.13.15. This fixes CVE-2026-15308.
+
+Security
+
+Upgraded dev-lang/python to v3.13.16. This fixes CVE-2026-19445.
+
+Change
+
+### cos-125-19216-760-20 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/c0c0e54972faeecef0eb8728e9c1d6291f4f7dee) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.760.20/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1808562 -> 1808517
+  * Changed: fs.fanotify.max_user_marks: 68416 -> 68412
+  * Changed: fs.inotify.max_user_watches: 64192 -> 64189
+  * Changed: kernel.threads-max: 63183 -> 63178
+  * Changed: net.ipv4.tcp_mem: 94020 125361 188040 -> 94017 125357 188034
+  * Changed: net.ipv4.udp_mem: 188040 250722 376080 -> 188034 250715 376068
+  * Changed: user.max_cgroup_namespaces: 31591 -> 31589
+  * Changed: user.max_fanotify_marks: 68416 -> 68412
+  * Changed: user.max_inotify_watches: 64192 -> 64189
+  * Changed: user.max_ipc_namespaces: 31591 -> 31589
+  * Changed: user.max_mnt_namespaces: 31591 -> 31589
+  * Changed: user.max_net_namespaces: 31591 -> 31589
+  * Changed: user.max_pid_namespaces: 31591 -> 31589
+  * Changed: user.max_time_namespaces: 31591 -> 31589
+  * Changed: user.max_user_namespaces: 31591 -> 31589
+  * Changed: user.max_uts_namespaces: 31591 -> 31589
+
+
+
+Change
+
+### cos-129-19506-578-21 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/120d67cd4f74b312486d3b1efa79fde8fa440eaa) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.578.21/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
+Security
+
+Fixed CVE-2026-77214 in dev-libs/expat.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1808562 -> 1808517
+  * Changed: fs.fanotify.max_user_marks: 68416 -> 68412
+  * Changed: fs.inotify.max_user_watches: 64192 -> 64189
+  * Changed: kernel.threads-max: 63183 -> 63178
+  * Changed: net.ipv4.tcp_mem: 94020 125361 188040 -> 94017 125357 188034
+  * Changed: net.ipv4.udp_mem: 188040 250722 376080 -> 188034 250715 376068
+  * Changed: user.max_cgroup_namespaces: 31591 -> 31589
+  * Changed: user.max_fanotify_marks: 68416 -> 68412
+  * Changed: user.max_inotify_watches: 64192 -> 64189
+  * Changed: user.max_ipc_namespaces: 31591 -> 31589
+  * Changed: user.max_mnt_namespaces: 31591 -> 31589
+  * Changed: user.max_net_namespaces: 31591 -> 31589
+  * Changed: user.max_pid_namespaces: 31591 -> 31589
+  * Changed: user.max_time_namespaces: 31591 -> 31589
+  * Changed: user.max_user_namespaces: 31591 -> 31589
+  * Changed: user.max_uts_namespaces: 31591 -> 31589
+
+
+
+Change
+
+### cos-121-18867-652-12 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.159](https://cos.googlesource.com/third_party/kernel/+/f32de83646bdc7b4c004477f6c4977ebd5b03cd7) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.652.12/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1809051 -> 1809007
+  * Changed: kernel.threads-max: 63204 -> 63199
+  * Changed: net.ipv4.tcp_mem: 94044 125395 188088 -> 94041 125391 188082
+  * Changed: net.ipv4.udp_mem: 188091 250790 376182 -> 188085 250783 376170
+  * Changed: user.max_cgroup_namespaces: 31602 -> 31599
+  * Changed: user.max_ipc_namespaces: 31602 -> 31599
+  * Changed: user.max_mnt_namespaces: 31602 -> 31599
+  * Changed: user.max_net_namespaces: 31602 -> 31599
+  * Changed: user.max_pid_namespaces: 31602 -> 31599
+  * Changed: user.max_time_namespaces: 31602 -> 31599
+  * Changed: user.max_user_namespaces: 31602 -> 31599
+  * Changed: user.max_uts_namespaces: 31602 -> 31599
+
+
+
+Change
+
+### cos-beta-133-19999-44-170 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/90c4c51012dc5bb5d116a470e49476dd9dd3998c) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.170/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
 **Gemini Enterprise**
 
 Feature
@@ -4956,6 +6013,33 @@ Feature
 The [`REGEXP_EXTRACT_GROUPS` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract_groups) produces substrings that match multiple capturing groups in a regular expression.
 
 This function is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+**Bigtable**
+
+Libraries
+
+### Python
+
+#### [2.50.2](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.50.1...google-cloud-bigtable-v2.50.2) (2026-10-22)
+
+##### Bug Fixes
+
+  * **bigtable:** preserve resource labels on batcher metrics ([#18712](https://github.com/googleapis/google-cloud-python/issues/18712)) ([f18cc6b](https://github.com/googleapis/google-cloud-python/commit/f18cc6b4086a3a1ea38c5bd45ccca79d927185ab))
+  * **bigtable:** resolve O(n^2) bottleneck in ReadRowsQuery.add_range ([#18706](https://github.com/googleapis/google-cloud-python/issues/18706)) ([5ac7cc6](https://github.com/googleapis/google-cloud-python/commit/5ac7cc6b1168fa674340e11598bc6e5866a53c16))
+
+
+
+### Java
+
+#### [1.94.0](https://github.com/googleapis/google-cloud-java/compare/v1.93.0...v1.94.0) (2026-10-22)
+
+##### Features
+
+  * **bigtable:** add per-method session diversion configuration ([#14681](https://github.com/googleapis/google-cloud-java/issues/14681)) ([042dd3e](https://github.com/googleapis/google-cloud-java/commit/042dd3eeff4b60fc5be076de58e0015d2fa65c67))
+  * **bigtable:** support SessionCheckAndMutateRow on the session client ([#14565](https://github.com/googleapis/google-cloud-java/issues/14565)) ([86de9c1](https://github.com/googleapis/google-cloud-java/commit/86de9c171da56be0b442a9bba023c1c625c3d9b2))
+  * **bigtable:** support SessionReadModifyWriteRow on the session client ([#14585](https://github.com/googleapis/google-cloud-java/issues/14585)) ([8e653b2](https://github.com/googleapis/google-cloud-java/commit/8e653b2b3c7ebe6031b89f5610b502deafe95f01))
+
+
 
 **Capacity Planner**
 
@@ -6212,6 +7296,318 @@ Feature
 
 **Generally available** : Resource-based committed use discounts (CUDs) are available for block storage resources like Google Cloud Hyperdisk Balanced and Google Cloud Hyperdisk Throughput Exapool capacity. You can purchase 1-year and 3-year block storage commitments for Hyperdisk Balanced and Hyperdisk Throughput Exapool capacity and receive discounted rates for the capacity units that you consume as part of applicable Google Cloud Hyperdisk Exapools. For more information, see [Block storage commitments](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts#block_storage_commitments) and [Purchase block storage commitments for Exapools](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-block-storage-commitments).
 
+**Container Optimized OS**
+
+Change
+
+### cos-133-19999-44-159 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/90c4c51012dc5bb5d116a470e49476dd9dd3998c) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.159/lakitu/gpu_driver_versions.textproto)  
+  
+Feature
+
+Added KVM virtualization support for AMD CPUID faulting.
+
+Feature
+
+Added nvidia-container-toolkit to ARM images.
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262-r1.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Security
+
+Fix CVE-2026-80256 in net-misc/curl.
+
+Security
+
+Fixed CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-39830 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-39833 in docker.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-39834, CVE-2026-39830, CVE-2026-42508 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-46595 in kubernetes.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-42508 in guest-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Upgraded dev-lang/go to v1.26.10. This fixes CVE-2026-111943.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1807627 -> 1807671
+  * Changed: fs.fanotify.max_user_marks: 68378 -> 68382
+  * Changed: fs.inotify.max_user_watches: 64158 -> 64161
+  * Changed: kernel.threads-max: 63443 -> 63445
+  * Changed: net.ipv4.tcp_mem: 93969 125295 187938 -> 93972 125298 187944
+  * Changed: net.ipv4.udp_mem: 187941 250590 375882 -> 187947 250597 375894
+  * Changed: user.max_cgroup_namespaces: 31721 -> 31722
+  * Changed: user.max_fanotify_marks: 68378 -> 68382
+  * Changed: user.max_inotify_watches: 64158 -> 64161
+  * Changed: user.max_ipc_namespaces: 31721 -> 31722
+  * Changed: user.max_mnt_namespaces: 31721 -> 31722
+  * Changed: user.max_net_namespaces: 31721 -> 31722
+  * Changed: user.max_pid_namespaces: 31721 -> 31722
+  * Changed: user.max_time_namespaces: 31721 -> 31722
+  * Changed: user.max_user_namespaces: 31721 -> 31722
+  * Changed: user.max_uts_namespaces: 31721 -> 31722
+
+
+
+Change
+
+### cos-125-19216-760-8 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/bac32aa947d1d7d52552c51d3bd2f355ecc21464) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.760.8/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Security
+
+Fixed CVE-2026-111943 in dev-lang/go.
+
+Security
+
+Fixed CVE-2026-39831 in guest-agent.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-39831 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-39833, CVE-2024-28180, CVE-2025-11065, CVE-2026-25680, CVE-2025-47914, GHSA-w67g-5rqw-f597, CVE-2026-84304, GHSA-fv92-fjc5-jj9h, CVE-2023-47108, CVE-2024-51744, CVE-2026-35469, CVE-2025-65637, CVE-2025-30204, CVE-2024-45337, CVE-2025-52565, CVE-2026-42508, CVE-2026-46598, CVE-2023-45142, CVE-2024-45310, CVE-2026-39830, CVE-2026-41579, CVE-2026-46595, CVE-2024-24786, CVE-2026-39832, CVE-2026-10722, CVE-2026-39831, CVE-2025-22869 in kubernetes.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-46595 in cri-tools.
+
+Security
+
+Fixed CVE-2026-46595 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-42508 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
+Change
+
+### cos-121-18867-652-7 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.159](https://cos.googlesource.com/third_party/kernel/+/f32de83646bdc7b4c004477f6c4977ebd5b03cd7) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.652.7/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Security
+
+Fixed CVE-2026-111943 in dev-lang/go.
+
+Security
+
+Fixed CVE-2026-39830 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39832 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-39833, CVE-2024-28180, CVE-2025-11065, CVE-2026-25680, CVE-2025-47914, GHSA-w67g-5rqw-f597, CVE-2026-84304, GHSA-fv92-fjc5-jj9h, CVE-2023-47108, CVE-2024-51744, CVE-2026-35469, CVE-2025-65637, CVE-2025-30204, CVE-2024-45337, CVE-2025-52565, CVE-2026-42508, CVE-2026-46598, CVE-2023-45142, CVE-2024-45310, CVE-2026-39830, CVE-2026-41579, CVE-2026-46595, CVE-2024-24786, CVE-2026-39832, CVE-2026-10722, CVE-2026-39831, CVE-2025-22869 in kubernetes.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-46595 in cri-tools.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-46595, CVE-2026-39831, CVE-2026-39830 in containerd.
+
+Security
+
+Fixed CVE-2026-46595 in guest-agent.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
+Change
+
+### cos-129-19506-578-9 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/38d8fc183d307b8c9fd3db3d33f44d32f55ae31e) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.578.9/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Security
+
+Fixed CVE-2026-111943 in dev-lang/go.
+
+Security
+
+Fixed CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1808517 -> 1808562
+  * Changed: fs.fanotify.max_user_marks: 68412 -> 68416
+  * Changed: fs.inotify.max_user_watches: 64189 -> 64192
+  * Changed: kernel.threads-max: 63178 -> 63183
+  * Changed: net.ipv4.tcp_mem: 94017 125357 188034 -> 94020 125361 188040
+  * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188040 250722 376080
+  * Changed: user.max_cgroup_namespaces: 31589 -> 31591
+  * Changed: user.max_fanotify_marks: 68412 -> 68416
+  * Changed: user.max_inotify_watches: 64189 -> 64192
+  * Changed: user.max_ipc_namespaces: 31589 -> 31591
+  * Changed: user.max_mnt_namespaces: 31589 -> 31591
+  * Changed: user.max_net_namespaces: 31589 -> 31591
+  * Changed: user.max_pid_namespaces: 31589 -> 31591
+  * Changed: user.max_time_namespaces: 31589 -> 31591
+  * Changed: user.max_user_namespaces: 31589 -> 31591
+  * Changed: user.max_uts_namespaces: 31589 -> 31591
+
+
+
 **Data Studio**
 
 Feature
@@ -7244,6 +8640,21 @@ Lakehouse federation in AlloyDB is generally available ([GA](https://cloud.googl
 
 For more information, see [Access to real-time data in BigQuery overview](https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview) and [Configure access to real-time data in BigQuery](https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data).
 
+**Bigtable**
+
+Libraries
+
+### Python
+
+#### [2.50.1](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.50.0...google-cloud-bigtable-v2.50.1) (2026-10-15)
+
+##### Bug Fixes
+
+  * **bigtable:** avoid hang when batcher not closed on process exit ([#18610](https://github.com/googleapis/google-cloud-python/issues/18610)) ([7674c91](https://github.com/googleapis/google-cloud-python/commit/7674c91a81a984e01166f72a8895cb18c8a8216b))
+  * **bigtable:** fix authentication scopes for metrics exporter ([#18609](https://github.com/googleapis/google-cloud-python/issues/18609)) ([722d34e](https://github.com/googleapis/google-cloud-python/commit/722d34e519dbb8305c4a48ac83790078f5ff9d57))
+
+
+
 **Cloud Asset Inventory**
 
 Feature
@@ -7439,6 +8850,154 @@ Feature
 Announcement
 
 A new Confidential Space image (261000) is available.
+
+**Container Optimized OS**
+
+Change
+
+### cos-129-19506-549-22 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.112](https://cos.googlesource.com/third_party/kernel/+/f4481ae514bfb44391addf1ce0dc85a372e5023f) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.549.22/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Added support for loading the pci-pf-stub module.
+
+Fixed
+
+Fix docker cp failure when copying to/from containers with nested bind mounts.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
+
+Security
+
+Fix CVE-2026-19445 by upgrading to python 3.11.17.
+
+Security
+
+Fix CVE-2026-82474 on app-admin/sudo
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Fixed CVE-2026-99999 in the Linux kernel.
+
+Security
+
+Upgraded dev-lang/python to v3.11.16. This fixes CVE-2026-6100.
+
+Change
+
+### cos-125-19216-739-16 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.112](https://cos.googlesource.com/third_party/kernel/+/d70e5f8042c76c3a2b0c640806692e13ddae3ecf) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.739.16/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Added support for loading the pci-pf-stub module.
+
+Fixed
+
+Fix docker cp failure when copying to/from containers with nested bind mounts.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1125, Upgraded app-editors/vim-core to v9.2.1125.
+
+Security
+
+Fix CVE-2026-19445 by upgrading to python 3.11.17.
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Fixed CVE-2026-99999 in the Linux kernel.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1808517 -> 1808562
+  * Changed: fs.fanotify.max_user_marks: 68412 -> 68416
+  * Changed: fs.inotify.max_user_watches: 64189 -> 64192
+  * Changed: kernel.threads-max: 63178 -> 63183
+  * Changed: net.ipv4.tcp_mem: 94017 125357 188034 -> 94020 125361 188040
+  * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188040 250722 376080
+  * Changed: user.max_cgroup_namespaces: 31589 -> 31591
+  * Changed: user.max_fanotify_marks: 68412 -> 68416
+  * Changed: user.max_inotify_watches: 64189 -> 64192
+  * Changed: user.max_ipc_namespaces: 31589 -> 31591
+  * Changed: user.max_mnt_namespaces: 31589 -> 31591
+  * Changed: user.max_net_namespaces: 31589 -> 31591
+  * Changed: user.max_pid_namespaces: 31589 -> 31591
+  * Changed: user.max_time_namespaces: 31589 -> 31591
+  * Changed: user.max_user_namespaces: 31589 -> 31591
+  * Changed: user.max_uts_namespaces: 31589 -> 31591
+
+
+
+Change
+
+### cos-121-18867-638-13 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.158](https://cos.googlesource.com/third_party/kernel/+/3220615da162e0194ca698feb342f7985fdc2709) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.638.13/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fix docker cp failure when copying to/from containers with nested bind mounts.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Security
+
+Fixed CVE-2026-99999 in the Linux kernel.
+
+Security
+
+Upgraded dev-lang/python to v3.11.17. This fixes CVE-2026-19445.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1809007 -> 1809051
+  * Changed: kernel.threads-max: 63199 -> 63204
+  * Changed: net.ipv4.tcp_mem: 94041 125391 188082 -> 94044 125395 188088
+  * Changed: net.ipv4.udp_mem: 188085 250783 376170 -> 188091 250790 376182
+  * Changed: user.max_cgroup_namespaces: 31599 -> 31602
+  * Changed: user.max_ipc_namespaces: 31599 -> 31602
+  * Changed: user.max_mnt_namespaces: 31599 -> 31602
+  * Changed: user.max_net_namespaces: 31599 -> 31602
+  * Changed: user.max_pid_namespaces: 31599 -> 31602
+  * Changed: user.max_time_namespaces: 31599 -> 31602
+  * Changed: user.max_user_namespaces: 31599 -> 31602
+  * Changed: user.max_uts_namespaces: 31599 -> 31602
+
+
 
 **Dialogflow**
 
@@ -9342,6 +10901,40 @@ Feature
 
 Incremental data transfers for the BigQuery Data Transfer Service for [PostgreSQL](https://docs.cloud.google.com/bigquery/docs/postgresql-transfer-intro#full-incremental-transfers) and [ServiceNow](https://docs.cloud.google.com/bigquery/docs/servicenow-transfer#full_or_incremental_transfers) are now [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
+**Bigtable**
+
+Libraries
+
+### Node.js
+
+#### [7.4.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.3.0...bigtable-v7.4.0) (2026-10-07)
+
+##### Features
+
+  * **tools:** Add individual CLI flags for Bun monkey patches ([#9533](https://github.com/googleapis/google-cloud-node/issues/9533)) ([a5eec89](https://github.com/googleapis/google-cloud-node/commit/a5eec894b054e0605fd8e79591a88393bb2697c6))
+
+
+
+### Python
+
+#### [2.50.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.49.0...google-cloud-bigtable-v2.50.0) (2026-10-08)
+
+##### Features
+
+  * update API sources and regenerate ([#18593](https://github.com/googleapis/google-cloud-python/issues/18593)) ([d0505e8](https://github.com/googleapis/google-cloud-python/commit/d0505e8bc7615f2c649d3e25ebc7e3ccca45f22b))
+
+
+
+### Node.js
+
+#### [7.5.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.4.0...bigtable-v7.5.0) (2026-10-08)
+
+##### Features
+
+  * Update API sources and regenerate ([#9554](https://github.com/googleapis/google-cloud-node/issues/9554)) ([8b6837a](https://github.com/googleapis/google-cloud-node/commit/8b6837a9757cc8bb281e0611b173cb19b58d4ac5))
+
+
+
 **Cloud Build**
 
 Announcement
@@ -9512,6 +11105,249 @@ Feature
 **Generally available** : The network-optimized C4N machine types with 375 GiB to 12,000 GiB of attached Titanium SSD are now generally available.
 
 For more information, see [C4N machine series](https://docs.cloud.google.com/compute/docs/network-optimized-machines#c4n_series) and [About Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd).
+
+**Container Optimized OS**
+
+Change
+
+### cos-dev-138-20198-0-0 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/bdbde7078cc46500653d60b76e7490df2fdbbee5) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20198.0.0/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated default cos-gpu-installer version to v2.7.9. It installs ucodes firmwares for VR200.
+
+Change
+
+Updated the Linux kernel to v6.18.55.
+
+Feature
+
+Enabled CONFIG_ARM_CCA_GUEST in the Linux kernel for ARM64 to support guest attestation on Arm CCA Confidential VMs.
+
+Feature
+
+Security: Disable Magic SysRq for gmec-tdx-kernel-host
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262-r1
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262.
+
+Fixed
+
+Added the "watchdog_timeout" module parameter to the idpf driver.
+
+Fixed
+
+Updated app-admin/google-guest-configs to v20260928.00.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20260928.00.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20260924.00.
+
+Fixed
+
+Upgraded app-containers/runc to v1.5.2, Upgraded app-containers/runc-test to v1.5.2.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.5.
+
+Fixed
+
+Upgraded dev-libs/libgcrypt to v1.12.4.
+
+Fixed
+
+Upgraded dev-libs/libpcre2 to v10.49.
+
+Fixed
+
+Upgraded dev-python/oauthlib to v4.0.0.
+
+Fixed
+
+Upgraded sys-apps/pv to v1.12.0.
+
+Fixed
+
+Upgraded sys-apps/xemu to v0.0.11.
+
+Security
+
+Fixed CVE-2026-18220 in sys-libs/binutils-libs.
+
+Security
+
+Fixed CVE-2026-5450 in sys-libs/glibc.
+
+Change
+
+### cos-133-19999-44-126 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/e4cb133e82a5c21d80531e07527d018402f04630) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.126/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Fixed an issue where openssl 3.2 was being incorrectly installed. Openssl is now on version 3.5.7.
+
+Change
+
+Updated dev-libs/openssl to v3.5.9.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20261006.00.
+
+Fixed
+
+Upgraded app-arch/gzip to v1.15.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.9.0.
+
+Fixed
+
+Upgraded dev-libs/xxhash to v0.8.3-r2.
+
+Fixed
+
+Upgraded net-misc/openssh to v10.4_p1-r1.
+
+Fixed
+
+Upgraded sys-apps/less to v710.
+
+Security
+
+Fixed CVE-2026-18220 in sys-libs/binutils-libs.
+
+Security
+
+Fixed CVE-2026-5450 in sys-libs/glibc.
+
+Security
+
+Patch CVE-2026-49264, CVE-2026-49265 on dev-python/oauthlib.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: kernel.threads-max: 63444 -> 63443
+  * Changed: net.ipv4.udp_mem: 187941 250591 375882 -> 187941 250590 375882
+  * Changed: user.max_cgroup_namespaces: 31722 -> 31721
+  * Changed: user.max_ipc_namespaces: 31722 -> 31721
+  * Changed: user.max_mnt_namespaces: 31722 -> 31721
+  * Changed: user.max_net_namespaces: 31722 -> 31721
+  * Changed: user.max_pid_namespaces: 31722 -> 31721
+  * Changed: user.max_time_namespaces: 31722 -> 31721
+  * Changed: user.max_user_namespaces: 31722 -> 31721
+  * Changed: user.max_uts_namespaces: 31722 -> 31721
+
+
+
+Change
+
+### cos-121-18867-638-5 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.158](https://cos.googlesource.com/third_party/kernel/+/ed1f77ef4535cd613776d78cf046773a9d90789b) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.638.5/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262-r1
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262.
+
+Security
+
+Fixed CVE-2026-18220 in sys-libs/binutils-libs.
+
+Security
+
+Fixed CVE-2026-5450 in sys-libs/glibc.
+
+Security
+
+Patch CVE-2026-49264, CVE-2026-49265 on dev-python/oauthlib.
+
+Change
+
+### cos-129-19506-549-7 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.112](https://cos.googlesource.com/third_party/kernel/+/e0eda3654b9ec529967ef7a996ea61b8f133bb95) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.549.7/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Added support for lustre v2.14.0_p262-r1
+
+Security
+
+Fixed CVE-2026-18220 in sys-libs/binutils-libs.
+
+Security
+
+Fixed CVE-2026-5450 in sys-libs/glibc.
+
+Security
+
+Patch CVE-2026-49264, CVE-2026-49265 on dev-python/oauthlib.
+
+Change
+
+### cos-125-19216-739-5 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.112](https://cos.googlesource.com/third_party/kernel/+/91e56902b9c6999dabbff541fd5baf20aee3108b) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.739.5/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Added support for lustre v2.14.0_p262-r1
+
+Security
+
+Fixed CVE-2026-18220 in sys-libs/binutils-libs.
+
+Security
+
+Fixed CVE-2026-5450 in sys-libs/glibc.
+
+Security
+
+Patch CVE-2026-49264, CVE-2026-49265 on dev-python/oauthlib.
 
 **Firestore with MongoDB compatibility**
 
@@ -11382,6 +13218,181 @@ Bug Fixes:
 
 
 
+**Container Optimized OS**
+
+Change
+
+### cos-129-19506-505-25 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.110](https://cos.googlesource.com/third_party/kernel/+/e8aea8a5b77baffbe8202925d0d4857248041049) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.505.25/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated dev-libs/openssl to v3.5.9.
+
+Fixed
+
+Added support for NVIDIA driver v595.91.07.
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262.
+
+Fixed
+
+Added the "watchdog_timeout" module parameter to the idpf driver.
+
+Fixed
+
+Rebuilt Go binaries with Go 1.25.14.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20260928.00.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.5.
+
+Fixed
+
+Upgraded sys-apps/xemu to v0.0.11.
+
+Fixed
+
+Upgraded sys-libs/timezone-data to v2026e.
+
+Fixed
+
+Upgraded sys-process/lsof to v4.99.7.
+
+Security
+
+Fixed CVE-2026-5928 in sys-libs/glibc.
+
+Security
+
+Upgraded dev-libs/libxml2 to v2.15.4. This fixes CVE-2026-86140.
+
+Change
+
+### cos-125-19216-700-23 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.110](https://cos.googlesource.com/third_party/kernel/+/016be3984fda059a05c980c7133651fec7536d1c) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.700.23/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated dev-libs/openssl to v3.5.9.
+
+Fixed
+
+Added support for net-fs/lustre-client-drivers v2.14.0_p262.
+
+Fixed
+
+Added the "watchdog_timeout" module parameter to the idpf driver.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20260928.00.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.5.
+
+Fixed
+
+Upgraded sys-apps/xemu to v0.0.11.
+
+Fixed
+
+Upgraded sys-process/lsof to v4.99.7.
+
+Security
+
+Fixed CVE-2026-5928 in sys-libs/glibc.
+
+Security
+
+Upgraded dev-libs/libxml2 to v2.15.4. This fixes CVE-2026-86140.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: net.ipv4.udp_mem: 188034 250714 376068 -> 188034 250715 376068
+
+
+
+Change
+
+### cos-133-19999-44-106 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.53](https://cos.googlesource.com/third_party/kernel/+/b72635466157d63e31f9ccfb6ae86ca6683ba729) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.106/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated default cos-gpu-installer version to v2.7.9. It installs ucodes firmwares for VR200.
+
+Fixed
+
+Updated app-admin/google-guest-configs to v20260928.00.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20260924.00.
+
+Fixed
+
+Upgraded sys-apps/xemu to v0.0.11.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: kernel.threads-max: 63443 -> 63444
+  * Changed: net.ipv4.udp_mem: 187941 250590 375882 -> 187941 250591 375882
+  * Changed: user.max_cgroup_namespaces: 31721 -> 31722
+  * Changed: user.max_ipc_namespaces: 31721 -> 31722
+  * Changed: user.max_mnt_namespaces: 31721 -> 31722
+  * Changed: user.max_net_namespaces: 31721 -> 31722
+  * Changed: user.max_pid_namespaces: 31721 -> 31722
+  * Changed: user.max_time_namespaces: 31721 -> 31722
+  * Changed: user.max_user_namespaces: 31721 -> 31722
+  * Changed: user.max_uts_namespaces: 31721 -> 31722
+
+
+
+Change
+
+### cos-121-18867-624-8 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.157](https://cos.googlesource.com/third_party/kernel/+/d3eba511730ad022ab42709e5700ada54b787344) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.624.8/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Fixed
+
+Updated app-admin/google-guest-configs to v20260928.00.
+
+Fixed
+
+Upgraded sys-apps/xemu to v0.0.11.
+
+Security
+
+Upgraded dev-libs/libxml2 to v2.15.4. This fixes CVE-2026-86140.
+
 **Gemini Enterprise**
 
 Feature
@@ -11491,6 +13502,32 @@ Feature
 Feature
 
 The `gemini-embedding-2` model works well for embedding long strings, including multilingual and unstructured data. It supports a mix of text, images, audio, video, and PDF files. You can use this model in the [`AI.EMBED`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-embed), [`AI.SIMILARITY`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-similarity), and [`AI.GENERATE_EMBEDDING`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-generate-embedding) functions. This model is [generally available](https://cloud.google.com/products#product-launch-stages).
+
+**Bigtable**
+
+Libraries
+
+### Python
+
+#### [2.48.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.47.0...google-cloud-bigtable-v2.48.0) (2026-09-29)
+
+##### Features
+
+  * **bigtable:** Reroute Mutations Batcher to use data client ([#18200](https://github.com/googleapis/google-cloud-python/issues/18200)) ([0b488a3](https://github.com/googleapis/google-cloud-python/commit/0b488a395542e9c76f535e82a7298fabaee8f4af))
+  * declare Python3.15 support ([05b0c34](https://github.com/googleapis/google-cloud-python/commit/05b0c342683b2b0e1b8dccd201ec86ec89612edc))
+
+
+
+### Python
+
+#### [2.49.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.48.0...google-cloud-bigtable-v2.49.0) (2026-10-01)
+
+##### Features
+
+  * declare Python3.15 support ([8775794](https://github.com/googleapis/google-cloud-python/commit/8775794508e17150023c8e7152543410014458bf))
+  * update API sources and regenerate ([#18513](https://github.com/googleapis/google-cloud-python/issues/18513)) ([7d7adca](https://github.com/googleapis/google-cloud-python/commit/7d7adcaee688603077ea53abec678130045c20ed))
+
+
 
 **Cloud Load Balancing**
 
@@ -13421,6 +15458,28 @@ Libraries
 
 
 
+### Java
+
+#### [1.92.0](https://github.com/googleapis/google-cloud-java/compare/v1.91.0...v1.92.0) (2026-09-23)
+
+##### Bug Fixes
+
+  * **bigtable:** don't notify config listeners while holding the manager lock ([#14294](https://github.com/googleapis/google-cloud-java/issues/14294)) ([4426ccd](https://github.com/googleapis/google-cloud-java/commit/4426ccdd45a82e9b10bc8f6f2174cecbcd9254d7))
+  * **bigtable:** fall back to classic path when per-RPC CallCredentials are set on session path ([#14477](https://github.com/googleapis/google-cloud-java/issues/14477)) ([57bacb0](https://github.com/googleapis/google-cloud-java/commit/57bacb006a74b0465d0601abd97536d801b92854))
+  * **bigtable:** fix abnormal session closures and scale-up in session pool ([#14431](https://github.com/googleapis/google-cloud-java/issues/14431)) ([6361ecd](https://github.com/googleapis/google-cloud-java/commit/6361ecddb460882f9ea82e877fca475a7699c087))
+
+
+
+### Python
+
+#### [2.47.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.46.0...google-cloud-bigtable-v2.47.0) (2026-09-24)
+
+##### Features
+
+  * update API sources and regenerate ([#18446](https://github.com/googleapis/google-cloud-python/issues/18446)) ([54f1019](https://github.com/googleapis/google-cloud-python/commit/54f10190a4ab7b3772010bf9006de55266f74da9))
+
+
+
 **Cloud Asset Inventory**
 
 Feature
@@ -13605,6 +15664,328 @@ Feature
 **Generally available** : The [C4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#supported_disk_types_for_c4d) machine series supports Hyperdisk Throughput.
 
 For more information, see [About Hyperdisk Throughput](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-throughput) and [Hyperdisk Throughput performance limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits#hdt-perf).
+
+**Container Optimized OS**
+
+Change
+
+### cos-dev-138-20162-0-0 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.51](https://cos.googlesource.com/third_party/kernel/+/e2eaa37d91b2b8020497e55ee941fa23bb334d64) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20162.0.0/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Enabled automatic loading of RDMA kernel modules when CX-9 devices are detected.
+
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Change
+
+Updated cos-gpu-installer to v2.7.8.
+
+Change
+
+Updated google-guest-configs to v20260918.00.
+
+Change
+
+Updated the Linux kernel to v6.18.51.
+
+Feature
+
+Added support for loading the CephFS kernel driver.
+
+Fixed
+
+Added support for NVIDIA driver v580.178.04.
+
+Fixed
+
+Added support for NVIDIA driver v595.91.07.
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Fixed
+
+Fixed a bug which could cause DOCA workloads to fail to initialize.
+
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20260902.00.
+
+Fixed
+
+Upgraded app-admin/sosreport to v4.12.0.
+
+Fixed
+
+Upgraded app-arch/unzip to v6.0_p31.
+
+Fixed
+
+Upgraded app-arch/xz-utils to v5.8.4.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260601.3.112.5.
+
+Fixed
+
+Upgraded chromeos-base/chromeos-common-script to v0.0.1-r675.
+
+Fixed
+
+Upgraded chromeos-base/debugd-client to v0.0.1-r2742.
+
+Fixed
+
+Upgraded chromeos-base/google-breakpad to v2026.09.04.193747-r281.
+
+Fixed
+
+Upgraded chromeos-base/power_manager-client to v0.0.1-r2976.
+
+Fixed
+
+Upgraded chromeos-base/session_manager-client to v0.0.1-r2838.
+
+Fixed
+
+Upgraded containerd and containerd-test to v2.4.1.
+
+Fixed
+
+Upgraded dev-lang/luajit to v2.1.1787165859.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.4.
+
+Fixed
+
+Upgraded dev-libs/json-c to v0.19-r2.
+
+Fixed
+
+Upgraded dev-libs/libgcrypt to v1.12.3-r1.
+
+Fixed
+
+Upgraded dev-libs/libpcre2 to v10.48.
+
+Fixed
+
+Upgraded dev-libs/libxml2 to v2.15.4.
+
+Fixed
+
+Upgraded dev-libs/xxhash to v0.8.3-r2.
+
+Fixed
+
+Upgraded dev-python/pyjwt to v2.14.0.
+
+Fixed
+
+Upgraded sys-devel/binutils-config to v5.6.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Security
+
+Fixed CVE-2026-56391 in sys-apps/coreutils.
+
+Security
+
+Fixed CVE-2026-90054 in the Linux kernel.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
+
+Change
+
+### cos-133-19999-44-85 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.48](https://cos.googlesource.com/third_party/kernel/+/21a2b64279c09aacca101f3eeda3503a9fefeed0) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.85/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Enabled automatic loading of RDMA kernel modules when CX-9 devices are detected.
+
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Change
+
+Updated cos-gpu-installer to v2.7.8.
+
+Change
+
+Updated google-guest-configs to v20260918.00.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
+
+Fixed
+
+Added support for NVIDIA driver v580.178.04.
+
+Fixed
+
+Added support for NVIDIA driver v595.91.07.
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20260902.00.
+
+Fixed
+
+Upgraded app-arch/zstd to v1.5.7-r1.
+
+Fixed
+
+Upgraded containerd and containerd-test to v2.4.1.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.4.
+
+Fixed
+
+Upgraded dev-libs/libverto to v0.3.2-r1.
+
+Fixed
+
+Upgraded dev-libs/libxml2 to v2.15.4.
+
+Fixed
+
+Upgraded dev-libs/popt to v1.19-r1.
+
+Security
+
+Fixed CVE-2026-15308 in dev-lang/python.
+
+Change
+
+### cos-125-19216-700-7 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.110](https://cos.googlesource.com/third_party/kernel/+/393cf3f7db2dfb458f3f1513e7eb6ef3a81930ba) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.700.7/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188034 250714 376068
+
+
+
+Change
+
+### cos-117-18613-767-2 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.157](https://cos.googlesource.com/third_party/kernel/+/04c29e4b70e72c933c0bf02443f8334f4bb78d32) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.767.2/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20260911.00.
+
+Change
+
+### cos-129-19506-505-8 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.110](https://cos.googlesource.com/third_party/kernel/+/39c6d6f687e655460d68a8405647b6b44e6e688b) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.505.8/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Change
+
+### cos-121-18867-624-2 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.157](https://cos.googlesource.com/third_party/kernel/+/d3eba511730ad022ab42709e5700ada54b787344) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.624.2/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Fixed
+
+Upgraded app-arch/bzip2 to v1.0.8-r5.
 
 **Dataform**
 
@@ -15872,6 +18253,49 @@ Feature
 
 BigQuery [generative AI functions](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview#locations) now support the `gemini-3.8-flash` Gemini model.
 
+**Bigtable**
+
+Libraries
+
+### Node.js
+
+#### [7.3.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.2.0...bigtable-v7.3.0) (2026-09-15)
+
+##### Features
+
+  * PNPM workspace ([#8973](https://github.com/googleapis/google-cloud-node/issues/8973)) ([1ea27c9](https://github.com/googleapis/google-cloud-node/commit/1ea27c9c9bf4e4cbf79381321dcb9bce7951a76f))
+
+
+
+### Python
+
+#### [2.45.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.44.0...google-cloud-bigtable-v2.45.0) (2026-09-14)
+
+##### Features
+
+  * **bigtable:** Rerouted MutateRows to use the data client ([#18195](https://github.com/googleapis/google-cloud-python/issues/18195)) ([3bbcbdf](https://github.com/googleapis/google-cloud-python/commit/3bbcbdf1a62dd10ab96f72e5c8198cffe9174ac7))
+
+
+
+### Python
+
+#### [2.46.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.45.0...google-cloud-bigtable-v2.46.0) (2026-09-17)
+
+##### Features
+
+  * **bigtable:** Rerouted RowSet and RowRange to use ReadRows from data client ([#18196](https://github.com/googleapis/google-cloud-python/issues/18196)) ([1857302](https://github.com/googleapis/google-cloud-python/commit/1857302d5c602087b9a782c62694c33013eb77ea))
+  * Rerouted ReadRows to data client ([#18198](https://github.com/googleapis/google-cloud-python/issues/18198)) ([934cd2d](https://github.com/googleapis/google-cloud-python/commit/934cd2da82be8b835192baa222e3a2ab5aa4b8d1))
+  * update API sources and regenerate ([#18396](https://github.com/googleapis/google-cloud-python/issues/18396)) ([e9f8e59](https://github.com/googleapis/google-cloud-python/commit/e9f8e590b7b395e660cc5437535166dfb920d246))
+  * update API sources and regenerate. ([e9f8e59](https://github.com/googleapis/google-cloud-python/commit/e9f8e590b7b395e660cc5437535166dfb920d246))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** Added rst_stream exception handling for ReadRows. ([#18197](https://github.com/googleapis/google-cloud-python/issues/18197)) ([f30df60](https://github.com/googleapis/google-cloud-python/commit/f30df60eda27810cec277663dff532a158c999f3))
+
+
+
 **Cloud SQL for MySQL**
 
 Feature
@@ -15943,6 +18367,132 @@ The C4 machine series provides the following benefits:
   * Offers a price-performance balance that makes it suitable for high-demand workloads.
 
 
+
+**Container Optimized OS**
+
+Change
+
+### cos-125-19216-655-40 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/1133af89a76cd21b91110351a353e7300d39c96b) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.655.40/lakitu/gpu_driver_versions.textproto)  
+  
+Feature
+
+Added support for loading the CephFS kernel driver.
+
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Fixed
+
+Upgraded app-arch/bzip2 to v1.0.8-r5.
+
+Fixed
+
+Upgraded app-shells/dash to v0.5.13.5.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Security
+
+Fixed CVE-2026-15308 in dev-lang/python.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
+
+Change
+
+### cos-129-19506-448-53 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/59eca8c9ae14588103453a37c861e6ab42230de4) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.448.53/lakitu/gpu_driver_versions.textproto)  
+  
+Feature
+
+Added support for loading the CephFS kernel driver.
+
+Feature
+
+Fixed a performance issue in the GVE driver on multi-NUMA systems.
+
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Security
+
+Fixed CVE-2026-15308 in dev-lang/python.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
+
+Change
+
+### cos-121-18867-584-32 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6e1e80a35e6e73b5aa0e3d6e0c87668f627b06f1) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.584.32/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Fixed
+
+Upgraded app-misc/jq to v1.8.2.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Security
+
+Fixed CVE-2026-15308 in dev-lang/python.
+
+Security
+
+Fixed CVE-2026-80916 in the Linux kernel.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
+
+Change
+
+### cos-117-18613-731-29 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6ee831c40108c3b447bc8edad4c4ebd45b746574) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.29/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.4.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
 
 **Dataform**
 
@@ -16870,6 +19420,408 @@ Feature
 The Z4D machine series delivers up to 3 TB of memory and 42,000 GiB of local Titanium SSD capacity. Z4D also supports up to 400 Gbps of network bandwidth using two physical NICs. Z4D instances are available in predefined `standardlssd` and `highlssd` machine shapes.
 
 For more information, see [Storage-optimized machine family](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series).
+
+**Container Optimized OS**
+
+Change
+
+### cos-125-19216-655-28 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/8b85c09213b2044542f81eae6f4b12adafdf848e) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.655.28/lakitu/gpu_driver_versions.textproto)  
+  
+Feature
+
+Fixed a performance issue in the GVE driver on multi-NUMA systems.
+
+Fixed
+
+Upgraded net-libs/libnftnl to v1.2.9.
+
+Security
+
+Fixed CVE-2026-80590 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80737 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80788 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80789 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80791 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80792 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80793 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80805 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80806 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80808 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80837 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80838 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80839 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80842 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80843 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80845 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80852 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80854 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80855 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80856 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80862 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80916 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80917 in the Linux kernel.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: net.ipv4.udp_mem: 188034 250714 376068 -> 188034 250715 376068
+
+
+
+Change
+
+### cos-129-19506-448-36 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/043c0c8ea2535cc8f7eda40e60161f375a3878ad) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.448.36/lakitu/gpu_driver_versions.textproto)  
+  
+Security
+
+Fixed CVE-2026-56391 in sys-apps/coreutils.
+
+Security
+
+Fixed CVE-2026-80590 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80737 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80788 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80789 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80791 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80792 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80793 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80805 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80806 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80808 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80837 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80838 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80839 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80842 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80843 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80845 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80852 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80854 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80855 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80856 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80862 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80916 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80917 in the Linux kernel.
+
+Change
+
+### cos-117-18613-731-21 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6ee831c40108c3b447bc8edad4c4ebd45b746574) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.21/lakitu/gpu_driver_versions.textproto)  
+  
+Security
+
+Fixed CVE-2026-80590 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80737 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80788 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80789 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80791 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80792 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80793 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80805 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80806 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80808 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80842 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80843 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80852 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80854 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80855 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80856 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80916 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80917 in the Linux kernel.
+
+Change
+
+### cos-121-18867-584-23 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/94e66fe5faf0c54135ca57e0fc71495f3727f0e5) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.584.23/lakitu/gpu_driver_versions.textproto)  
+  
+Security
+
+Fixed CVE-2026-80590 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80737 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80788 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80789 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80791 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80792 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80793 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80805 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80806 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80808 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80842 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80843 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80852 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80854 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80855 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80856 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80917 in the Linux kernel.
+
+Change
+
+### cos-beta-133-19999-44-44 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.48](https://cos.googlesource.com/third_party/kernel/+/6bfdf4d7391f8e3426a22b132b8661067f86017a) | v29.4.3 | v2.3.4 | [See List](https://storage.googleapis.com/cos-tools/19999.44.44/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Fixed CVE-2026-56391 in sys-apps/coreutils.
+
+Security
+
+Fixed CVE-2026-58470 in net-misc/wget.
+
+Security
+
+Fixed CVE-2026-59890 in dev-python/setuptools.
+
+Security
+
+Upgraded net-libs/nghttp2 to 1.69.0 and fixed CVE-2026-58055.
 
 **Dataform**
 
@@ -18274,38 +21226,6 @@ Fixed the %%bigquery notebook cell magic, which returned an error instead of que
 
 ## September 11, 2026
 
-**API Gateway**
-
-Feature
-
-**Enable Model Context Protocol (MCP)**
-
-You can now configure API Gateway to act as a remote Model Context Protocol (MCP) server. This Public Preview feature allows you to expose your existing REST APIs to AI agents as tools, without requiring changes to your backend services. You can enable MCP by annotating your OpenAPI 3.x specification using custom Google extensions.
-
-For more information, see [Model Context Protocol overview](https://docs.cloud.google.com/api-gateway/docs/mcp-overview) and [Configure Model Context Protocol](https://docs.cloud.google.com/api-gateway/docs/mcp-configure).
-
-**AlloyDB for PostgreSQL**
-
-Feature
-
-You can now monitor the status, throughput, and backlog of the audit logging pipeline for your AlloyDB for PostgreSQL instances and nodes using Cloud Monitoring.
-
-For more information, see [Monitor audit log pipeline status](https://docs.cloud.google.com/alloydb/docs/pgaudit/view-audit-log#monitor-audit-log-pipeline-status).
-
-**Cluster Toolkit**
-
-Security
-
-Google addressed multiple security vulnerabilities in Slurm that affect Cluster Toolkit. For more information, see the [security bulletin](https://docs.cloud.google.com/cluster-toolkit/docs/security-bulletins#gcp-2026-062).
-
-**Compute Engine**
-
-Feature
-
-**Preview** : You can view Workload Manager rule findings directly on the Compute Engine **Overview** page in the Google Cloud console. The **Workload Manager findings** tile lets you identify configuration risks for your compute instances and resources against best practices for reliability and security.
-
-For more information, see [View Workload Manager rule findings in Compute Engine](https://docs.cloud.google.com/compute/docs/view-wlm-findings).
-
 **Gemini Enterprise**
 
 Feature
@@ -18372,91 +21292,6 @@ You can now access the Agent Desktop using the new **Apps** menu. In the CCaaS p
 
 For more information, see [Open the agent desktop](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-desktop-use-agent-desktop#open-agent-desktop).
 
-Fixed
-
-This release addresses the following issues:
-
-  * Fixed an issue where SmartAction statuses were incorrectly marked as "failed" when a call ended before a photo or video upload completed.
-
-  * Fixed an issue where loading the outbound numbers list timed out or caused significant delays for organizations with large teams and custom roles.
-
-  * Fixed an issue where estimated wait times of less than one minute were incorrectly rounded down to zero, preventing the system from accurately triggering over-capacity actions.
-
-  * Fixed an issue where sudden spikes in call volume bypassed a team's capacity protections and reduced the team's agent availability to below configured minimums.
-
-  * Fixed an issue where nested object values in custom data were incorrectly displayed as `[object Object]` in the agent desktop session data feed.
-
-  * Fixed an agent desktop issue where the navigation bar in the **Previous Interactions** page of the call adapter was overlapped by summary text and didn't stay fixed while scrolling.
-
-  * Fixed an issue where answered voice calls triggered a second, unrequested callback after the end-user hung up.
-
-  * Fixed an issue where intermittent IMAP connection rejections caused email fetch workers to enter an extended backoff loop, resulting in several hours of mailbox downtime.
-
-  * Fixed an issue where inbound voice call recordings weren't exported to external storage when a virtual agent escalation was deflected to voicemail due to over-capacity.
-
-  * Fixed an issue where manual wrap-up sessions were incorrectly attributed to the most recent call in the **Agent Activity Timeline** and in raw data exports, even when the wrap-up was unrelated to that call.
-
-  * Fixed an issue where the "agent leg" of a call connection stalled in a connecting state for the full timeout duration before failing silently and moving the agent to an available status.
-
-  * Fixed an issue where custom form responses weren't exported to external storage for instances without an external CRM integration.
-
-  * Fixed an issue where a queue name saved in the **SLA thresholds for queues** dialog didn't persist after saving.
-
-  * Fixed an issue where virtual agent voice calls triggered a session error during wrap-up.
-
-  * Fixed an issue during high-capacity redirections where voicemails weren't saved.
-
-  * Fixed an issue where completed call transfers generated duplicate queue duration records, leading to inflated reporting for queue volume and SLA metrics.
-
-  * Fixed an agent desktop issue where the sentiment banner in the call adapter didn't immediately appear at the start of a call.
-
-  * Fixed an issue where saving the **Upload audio recording for Language Selection** option of the **Languages** dialog didn't persist and switched to **Text-to-speech**.
-
-  * Fixed an issue where inefficient database queries caused high CPU utilization and performance degradation across all communication channels.
-
-  * Fixed an issue where transient connection errors during Twilio ICE token fetching caused agent call setup to fail or take longer to connect.
-
-  * Fixed an issue where temporary connection drops during chat webhook delivery caused unnecessary delays.
-
-  * Fixed an issue where work time and wait time durations overlapped in reporting metrics.
-
-  * Fixed an issue where the agent adapter call history incorrectly displayed English queue names for French-Canadian calls.
-
-  * Fixed an issue where agents were assigned calls from secondary queues even when their primary queue fell below the minimum availability threshold.
-
-  * Fixed an issue where canceled virtual-agent-to-human escalations incorrectly reported negative queue durations and inaccurate SLA metrics in chat session data and reports.
-
-  * Fixed an issue where creating or updating queues failed and returned a timeout error.
-
-  * Fixed an agent desktop issue where an outbound call canceled by an agent while connecting was recorded as an unknown failure instead of an agent cancellation.
-
-  * Fixed an issue where clicking the rewind and forward buttons on the voicemail page of the call adapter restarted the voicemail from the beginning.
-
-  * Fixed an agent desktop issue where the chat adapter displayed a loading progress indicator instead of the chat transcript when a chat session was assigned.
-
-  * Fixed an issue where a disposition prompt didn't appear in the call adapter after a disconnected call, even when mandatory disposition was configured.
-
-  * Fixed an issue where Agent Assist real-time transcription didn't start on Vonage BYOC calls.
-
-  * Fixed an issue where changes made outside of browser-originated HTTP requests (such as from API clients or background jobs) failed to generate audit log records.
-
-  * Fixed an issue where over-capacity phone deflection didn't activate for direct agent calls, resulting in an error message or callers waiting indefinitely.
-
-  * Fixed an issue where transient network connection failures during call and chat DAP lookups caused inbound calls to route to default queues or prevented chat sessions from starting.
-
-  * Fixed a web SDK issue where static, non-interactive text within the chat widget incorrectly received keyboard focus, disrupting the navigation flow for keyboard and screen reader users.
-
-  * Fixed an issue where temporary asset errors during deployments were cached by the CDN, leading to web SDK initialization failures.
-
-  * Fixed an agent desktop issue where incomplete configuration settings prevented call control buttons from updating or rendering properly.
-
-  * Fixed an issue where the audio for an over-capacity deflection played in the source queue's language instead of the destination queue's language following a cross-language transfer.
-
-  * Fixed an issue where waiting chats weren't immediately offered to available agents who became eligible for a queue through a team membership update or direct queue assignment.
-
-
-
-
 **Google Kubernetes Engine**
 
 Feature
@@ -18484,19 +21319,6 @@ Deprecated
 **Deprecation of write permissions from the chronicle.readonly OAuth scope**
 
 Effective January 25, 2027, **write** permissions will be removed from the `chronicle.readonly` OAuth scope, restricting it strictly to **read** operations. You can continue using `chronicle.readonly` for read operations. Make sure you update any workflows performing **write** operations to use the `chronicle` OAuth scope.
-
-**Spanner**
-
-Feature
-
-Spanner Graph supports the following enhancements for `CREATE PROPERTY GRAPH`:
-
-  * **Semantic options for labels and properties** : You can configure `OPTIONS` (`description` and `synonyms`) on labels and properties to provide context and improve discoverability for natural language querying interfaces.
-  * **Element key uniqueness validation option** : You can configure the `validate_element_key_uniqueness` option in the property graph `OPTIONS` clause to control whether Spanner Graph validates element key uniqueness at schema creation time.
-
-
-
-For more information, see [CREATE PROPERTY GRAPH statement](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/graph-schema-statements#create_property_graph) and [Disabled key validation](https://docs.cloud.google.com/spanner/docs/graph/graph-with-views-overview#disabled-key-validation).
 
 Send feedback 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:58.078838+00:00
+fetched_at: 2026-11-10T11:11:57.051276+00:00
 ---
 
 # Quotas and system limits  |  Model Armor  |  Google Cloud Documentation
@@ -63,16 +63,21 @@ For information on quotas related to Model Armor integrations with other service
 
 ## File size system limit
 
-The following table specifies the system limit on the size of input files and images. If a file or image exceeds this limit, Model Armor skips scanning it.
+The following table specifies the system limits on input files and images.
 
 System limit | Value  
 ---|---  
-[All supported files](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs) and [images](https://docs.cloud.google.com/model-armor/overview#image-screening) | 4 MB  
+[All supported files](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs) | 4 MB  
+[ Standalone images](https://docs.cloud.google.com/model-armor/screen-images) | 4 MB  
+[ Embedded images in rich text documents](https://docs.cloud.google.com/model-armor/screen-images#embedded-images-in-documents) | Up to 5 images per document  
+  
+If an input file or standalone image exceeds its size limit, Model Armor skips scanning the entire file or image and returns an `executionState` of `EXECUTION_SKIPPED` for all configured filters. Similarly, when the image modality (`MODALITY_IMAGE`) is enabled, if a rich text document exceeds the 4 MB file size limit or contains more than 5 embedded images, Model Armor skips scanning the entire document, including both text and embedded images, without partial scanning, and returns an `executionState` of `EXECUTION_SKIPPED` for all configured filters.
+
 **Note:** Text extracted from supported files is subject to the [token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits). Model Armor rejects requests to scan files that are smaller than 69 bytes and returns an `InvalidDocumentInputException` error because such files are highly likely to be invalid. 
 
 ## Token system limits
 
-Model Armor has varying system limits on [tokens](https://docs.cloud.google.com/model-armor/overview#tokens) depending on the specific filter. These limits apply to direct text in prompts and responses, as well as text extracted from supported files. Model Armor screens text up to 65,536 tokens (approximately 262,144 characters) for prompt injection and jailbreak detection, responsible AI, and child sexual abuse material (CSAM) filters. A token is equivalent to about 4 characters. For more information about how tokens are counted, see the [Gemini API tokens guide](https://ai.google.dev/gemini-api/docs/tokens).
+Model Armor has varying system limits on [tokens](https://docs.cloud.google.com/model-armor/overview#tokens) depending on the specific filter. These limits apply to direct text in prompts and responses, as well as text extracted from supported files. Model Armor screens text up to 65,536 tokens (approximately 262,144 characters) for prompt injection and jailbreak detection, responsible AI, and child sexual abuse material (CSAM) filters. A token of text is equivalent to about 4 characters. For information about how Model Armor calculates tokens for text, images, and rich text documents, see [Tokens](https://docs.cloud.google.com/model-armor/overview#tokens), [Token calculation and pricing for images](https://docs.cloud.google.com/model-armor/screen-images#tokens), and the [Gemini API tokens guide](https://ai.google.dev/gemini-api/docs/tokens).
 
 Token system limits don't apply to malicious URL detection. Instead, Model Armor enforces a limit on the number of URLs scanned. Model Armor extracts URLs until it reaches 256 URLs or the end of the payload, and scans only the first 256 URLs found in prompts and responses. 
 
@@ -165,6 +170,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

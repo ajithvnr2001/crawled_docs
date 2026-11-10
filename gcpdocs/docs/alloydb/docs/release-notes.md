@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:06.597309+00:00
+fetched_at: 2026-11-10T18:49:15.723059+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,19 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+The following AlloyDB AI features and improvements are generally available ([GA](https://cloud.google.com/products#product-launch-stages)):
+
+  * Smart batching for AI functions: AI function acceleration is generally available for `ai.if`, `ai.rank`, `ai.analyze_sentiment`, `ai.summarize`, `ai.extract`, `ai.classify`, and `ai.generate` on AlloyDB clusters running PostgreSQL 17 and later. Smart batching automatically batches and offloads eligible AI operations for asynchronous evaluation. It improves query execution speed without requiring you to rewrite queries into complex array structures. In PostgreSQL 18 and later, this feature is enabled by default. For more information, see [Accelerate performance for queries with AI functions](https://docs.cloud.google.com/alloydb/docs/ai/accelerate-ai-queries).
+
+  * Sentiment analysis: the `ai.analyze_sentiment` function is generally available on AlloyDB clusters running PostgreSQL 17 and later. This built-in function classifies the sentiment of text as positive, negative, or neutral directly within SQL queries in real time. For more information, see [Analyze text sentiment](https://docs.cloud.google.com/alloydb/docs/ai/analyze-sentiment).
+
+
+
 
 ## November 04, 2026
 

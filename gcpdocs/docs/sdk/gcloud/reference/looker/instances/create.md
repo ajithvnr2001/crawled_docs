@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/looker/instances/create/
 title: gcloud looker instances create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:43.049995+00:00
+fetched_at: 2026-11-10T17:33:35.753443+00:00
 ---
 
 # gcloud looker instances create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud looker instances create - create a Looker instance
 SYNOPSIS
     
 
-`gcloud looker instances create` (`INSTANCE` : `--region`=`REGION`) `--edition`=`EDITION` [`--accelerated-security-patch-enabled`] [`--async`] [`--catalog-integration-opt-out`] [`--class-type`=`CLASS_TYPE`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--fips-enabled`] [`--kms-key`=`KMS_KEY`] [`--no-public-ip-enabled`] [`--release-channel`=`RELEASE_CHANNEL`] [`--consumer-network`=`CONSUMER_NETWORK` `--private-ip-enabled` : `--reserved-range`=`RESERVED_RANGE`] [`--deny-maintenance-period-end-date`=`DENY_MAINTENANCE_PERIOD_END_DATE` `--deny-maintenance-period-start-date`=`DENY_MAINTENANCE_PERIOD_START_DATE` `--deny-maintenance-period-time`=`DENY_MAINTENANCE_PERIOD_TIME`] [`--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-time`=`MAINTENANCE_WINDOW_TIME`] [`--oauth-client-id`=`OAUTH_CLIENT_ID` `--oauth-client-secret`=`OAUTH_CLIENT_SECRET`] [`--psc-enabled` : `--psc-allowed-vpcs`=[`PSC_ALLOWED_VPCS`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud looker instances create` (`INSTANCE` : `--region`=`REGION`) `--edition`=`EDITION` [`--accelerated-security-patch-enabled`] [`--async`] [`--catalog-integration-opt-out`] [`--class-type`=`CLASS_TYPE`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--fips-enabled`] [`--kms-key`=`KMS_KEY`] [`--no-public-ip-enabled`] [`--release-channel`=`RELEASE_CHANNEL`] [`--consumer-network`=`CONSUMER_NETWORK` `--private-ip-enabled` : `--reserved-range`=`RESERVED_RANGE`] [`--deny-maintenance-period-end-date`=`DENY_MAINTENANCE_PERIOD_END_DATE` `--deny-maintenance-period-start-date`=`DENY_MAINTENANCE_PERIOD_START_DATE` `--deny-maintenance-period-time`=`DENY_MAINTENANCE_PERIOD_TIME`] [`--google-auth-enabled` `--workforce-auth-enabled`] [`--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-time`=`MAINTENANCE_WINDOW_TIME`] [`--oauth-client-id`=`OAUTH_CLIENT_ID` `--oauth-client-secret`=`OAUTH_CLIENT_SECRET`] [`--psc-enabled` : `--psc-allowed-vpcs`=[`PSC_ALLOWED_VPCS`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new Looker instance. 
 
@@ -205,6 +205,11 @@ This flag argument must be specified if any of the other arguments in this group
 
 This flag argument must be specified if any of the other arguments in this group are specified. 
 
+Auth Type - Authentication configuration for the Looker instance. 
+`--google-auth-enabled`
+     This specifies whether Google auth is enabled on the Looker instance. 
+`--workforce-auth-enabled`
+     This specifies whether Workforce auth is enabled on the Looker instance. 
 Maintenance Window - Maintenance typically only takes place once every few months, and requires your instance to be restarted while updates are made, which disrupts service briefly. 
 `--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY`
      Day of week for maintenance window, in UTC time zone. `MAINTENANCE_WINDOW_DAY` must be one of: `friday`, `monday`, `saturday`, `sunday`, `thursday`, `tuesday`, `wednesday`. 
@@ -254,6 +259,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

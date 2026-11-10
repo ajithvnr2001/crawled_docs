@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-services/
 title: gcloud beta network-services \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:33:13.419093+00:00
+fetched_at: 2026-11-10T17:33:51.376057+00:00
 ---
 
 # gcloud beta network-services  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -45,6 +45,8 @@ GROUPS
      `(BETA)` Manage Network Services AgentGateways. 
 `[endpoint-policies](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-services/endpoint-policies)`
      `(BETA)` Manage Network Services EndpointPolicies. 
+`[express-links](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-services/express-links)`
+     `(BETA)` Manage Network Services Express Links. 
 `[multicast-consumer-associations](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-services/multicast-consumer-associations)`
      `(BETA)` Manage Network Services MulticastConsumerAssociations. 
 `[multicast-domain-activations](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-services/multicast-domain-activations)`
@@ -84,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

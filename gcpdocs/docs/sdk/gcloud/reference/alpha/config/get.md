@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/config/get/
 title: gcloud alpha config get \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:44.180060+00:00
+fetched_at: 2026-11-10T17:33:31.327765+00:00
 ---
 
 # gcloud alpha config get  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -340,6 +340,8 @@ If unset, default is `never`.
      Overrides API endpoint for `[gcloud run](https://docs.cloud.google.com/sdk/gcloud/reference/run)` command group. Defaults to `https://run.googleapis.com/`
 `runtimeconfig`
      Overrides API endpoint for `gcloud runtime-config` command group. Defaults to `https://runtimeconfig.googleapis.com/`
+`saasservicemgmt`
+     Overrides API endpoint for `[gcloud app-lifecycle-manager](https://docs.cloud.google.com/sdk/gcloud/reference/app-lifecycle-manager)` command group. Defaults to `https://saasservicemgmt.googleapis.com/`
 `sddc`
      Overrides API endpoint for `gcloud vmware sddc` command group. Defaults to `https://sddc.googleapis.com/`
 `secretmanager`
@@ -681,6 +683,8 @@ Valid values are:
 
 `local_python`
      Full path to the Python interpreter to use for Cloud ML Engine local predict/train jobs. If not specified, the default path is the one to the Python interpreter found on system `PATH`. 
+`location`
+     Default location to use when working with Recognizer resources. When a `location` value is required but not provided, the command will fall back to this value, if set. 
 `polling_interval`
      Interval (in seconds) at which to poll logs from your Cloud ML Engine jobs. Note that making it much faster than the default (60) will quickly use all of your quota. 
 `mps`
@@ -934,6 +938,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

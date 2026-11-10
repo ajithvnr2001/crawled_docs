@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/workstations/configs/create/
 title: gcloud workstations configs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:35.175498+00:00
+fetched_at: 2026-11-10T17:33:34.243584+00:00
 ---
 
 # gcloud workstations configs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud workstations configs create - create a workstation configuration
 SYNOPSIS
     
 
-`gcloud workstations configs create` (`CONFIG` : `--cluster`=`CLUSTER` `--region`=`REGION`) [`--allowed-ports`=[`ALLOWED_PORTS`,…]] [`--async`] [`--boot-disk-size`=`BOOT_DISK_SIZE`; default=50] [`--container-args`=[`CONTAINER_ARGS`,…]] [`--container-command`=[`CONTAINER_COMMAND`,…]] [`--container-env`=[`CONTAINER_ENV`,…]] [`--container-run-as-user`=`CONTAINER_RUN_AS_USER`] [`--container-working-dir`=`CONTAINER_WORKING_DIR`] [`--disable-public-ip-addresses`] [`--disable-ssh-to-vm`] [`--disable-tcp-connections`] [`--enable-audit-agent`] [`--enable-confidential-compute`] [`--enable-nested-virtualization`] [`--enable-ssh-to-vm`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--ephemeral-directory`=[`PROPERTY`=`VALUE`,…]] [`--grant-workstation-admin-role-on-create`] [`--idle-timeout`=`IDLE_TIMEOUT`; default=7200] [`--instance-metadata`=[`INSTANCE_METADATA`,…]] [`--labels`=[`LABELS`,…]] [`--machine-type`=`MACHINE_TYPE`; default="e2-standard-4"] [`--max-usable-workstations-count`=`MAX_USABLE_WORKSTATIONS_COUNT`] [`--network-tags`=[`NETWORK_TAGS`,…]] [`--pool-size`=`POOL_SIZE`; default=1] [`--replica-zones`=[`REPLICA_ZONES`,…]] [`--running-timeout`=`RUNNING_TIMEOUT`; default=7200] [`--service-account`=`SERVICE_ACCOUNT`] [`--service-account-scopes`=[`SERVICE_ACCOUNT_SCOPES`,…]] [`--shielded-integrity-monitoring`] [`--shielded-secure-boot`] [`--shielded-vtpm`] [`--startup-script-uri`=`STARTUP_SCRIPT_URI`] [`--vm-tags`=[`VM_TAGS`,…]] [`--accelerator-count`=`ACCELERATOR_COUNT` : `--accelerator-type`=`ACCELERATOR_TYPE`] [`--container-custom-image`=`CONTAINER_CUSTOM_IMAGE` | `--container-predefined-image`=`CONTAINER_PREDEFINED_IMAGE`; default="codeoss"] [`--kms-key`=`KMS_KEY` : `--kms-key-service-account`=`KMS_KEY_SERVICE_ACCOUNT`] [`--no-persistent-storage` | `--disk-archive-timeout`=`DISK_ARCHIVE_TIMEOUT` `--disk-reclaim-policy`=`DISK_RECLAIM_POLICY`; default="delete" `--disk-type`=`DISK_TYPE` `--disk-size`=`DISK_SIZE` | `--disk-source-snapshot`=`DISK_SOURCE_SNAPSHOT` | `--pd-disk-type`=`PD_DISK_TYPE`; default="pd-standard" `--pd-reclaim-policy`=`PD_RECLAIM_POLICY`; default="delete" `--pd-disk-size`=`PD_DISK_SIZE`; default=200 | `--pd-source-snapshot`=`PD_SOURCE_SNAPSHOT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud workstations configs create` (`CONFIG` : `--cluster`=`CLUSTER` `--region`=`REGION`) [`--allowed-ports`=[`ALLOWED_PORTS`,…]] [`--async`] [`--boot-disk-size`=`BOOT_DISK_SIZE`; default=50] [`--container-args`=[`CONTAINER_ARGS`,…]] [`--container-command`=[`CONTAINER_COMMAND`,…]] [`--container-env`=[`CONTAINER_ENV`,…]] [`--container-run-as-user`=`CONTAINER_RUN_AS_USER`] [`--container-working-dir`=`CONTAINER_WORKING_DIR`] [`--disable-public-ip-addresses`] [`--disable-ssh-to-vm`] [`--disable-tcp-connections`] [`--enable-audit-agent`] [`--enable-confidential-compute`] [`--enable-nested-virtualization`] [`--enable-ssh-to-vm`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--ephemeral-directory`=[`PROPERTY`=`VALUE`,…]] [`--grant-workstation-admin-role-on-create`] [`--idle-timeout`=`IDLE_TIMEOUT`; default=7200] [`--instance-metadata`=[`INSTANCE_METADATA`,…]] [`--labels`=[`LABELS`,…]] [`--machine-type`=`MACHINE_TYPE`; default="e2-standard-4"] [`--max-usable-workstations-count`=`MAX_USABLE_WORKSTATIONS_COUNT`] [`--network-tags`=[`NETWORK_TAGS`,…]] [`--pool-size`=`POOL_SIZE`; default=1] [`--replica-zones`=[`REPLICA_ZONES`,…]] [`--running-timeout`=`RUNNING_TIMEOUT`; default=7200] [`--service-account`=`SERVICE_ACCOUNT`] [`--service-account-scopes`=[`SERVICE_ACCOUNT_SCOPES`,…]] [`--shielded-integrity-monitoring`] [`--shielded-secure-boot`] [`--shielded-vtpm`] [`--startup-script-uri`=`STARTUP_SCRIPT_URI`] [`--vm-tags`=[`VM_TAGS`,…]] [`--accelerator-count`=`ACCELERATOR_COUNT` : `--accelerator-type`=`ACCELERATOR_TYPE`] [`--container-custom-image`=`CONTAINER_CUSTOM_IMAGE` | `--container-predefined-image`=`CONTAINER_PREDEFINED_IMAGE`; default="codeoss"] [`--kms-key`=`KMS_KEY` : `--kms-key-service-account`=`KMS_KEY_SERVICE_ACCOUNT`] [`--no-persistent-storage` | `--disk-archive-timeout`=`DISK_ARCHIVE_TIMEOUT` `--disk-provisioned-iops`=`DISK_PROVISIONED_IOPS` `--disk-provisioned-throughput`=`DISK_PROVISIONED_THROUGHPUT` `--disk-reclaim-policy`=`DISK_RECLAIM_POLICY`; default="delete" `--disk-type`=`DISK_TYPE` `--disk-size`=`DISK_SIZE` | `--disk-source-snapshot`=`DISK_SOURCE_SNAPSHOT` | `--pd-disk-type`=`PD_DISK_TYPE`; default="pd-standard" `--pd-reclaim-policy`=`PD_RECLAIM_POLICY`; default="delete" `--pd-disk-size`=`PD_DISK_SIZE`; default=200 | `--pd-source-snapshot`=`PD_SOURCE_SNAPSHOT`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a workstation configuration. 
 EXAMPLES
@@ -329,6 +329,10 @@ Or at least one of these can be specified:
 
 \--disk-archive-timeout`=`DISK_ARCHIVE_TIMEOUT``
      Number of seconds to wait after initially creating or subsequently shutting down the workstation before converting its disk into a snapshot to save costs. A value of 0 indicates that the disk will never be archived. 
+\--disk-provisioned-iops`=`DISK_PROVISIONED_IOPS``
+     Number of I/O operations per second that the disk can handle. Values must be between 3000 and 100,000. 
+\--disk-provisioned-throughput`=`DISK_PROVISIONED_THROUGHPUT``
+     Throughput in MB per second that the disk can handle. Values must be between 1 and 2,400. 
 \--disk-reclaim-policy`=`DISK_RECLAIM_POLICY`; default="delete"`
      What should happen to the disk after the Workstation is deleted. `DISK_RECLAIM_POLICY` must be one of: 
 
@@ -381,6 +385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

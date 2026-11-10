@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/migrate-user-cluster-recommended-features/
 title: Migrate a user cluster to recommended features \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:42:56.374289+00:00
+fetched_at: 2026-11-10T16:59:40.851369+00:00
 ---
 
 # Migrate a user cluster to recommended features  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -628,10 +628,10 @@ During the Controlplane V2 migration, the update performs the following actions:
 
 Note the following:
 
-  * There's no downtime for user cluster workloads during migration.
+  * Although the control plane cutover doesn't stop user cluster workloads directly, workloads are restarted at the end of the migration when the worker nodes go through a rolling update. Workloads can experience disruptions during the rolling update if they don't run multiple replicas or have PodDisruptionBudget objects configured.
   * There is some downtime for the user cluster control plane during migration. Specifically, the control plane is unavailable between stopping the kubeception cluster's Kubernetes control plane and the completion of connecting the nodepool nodes of the kubeception cluster to the new control-plane. (In tests, this downtime was less than 7 minutes, but the actual length depends on your infrastructure).
   * At the end of the migration, the user cluster control plane nodes of the kubeception clusters are deleted. If the admin cluster has [network.ipMode.type](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#network-ipmode-type-field) set to `"static"`, you can recycle some of the unused static IP addresses. You can list the admin cluster node objects with `kubectl get nodes -o wide` to see what IP addresses are in use. To recycle those IP addresses, remove them from the admin cluster configuration file and run `gkectl update admin`.
-  * At the end of the migration, the worker nodes go through a rolling update. Wait for all nodes to become ready before continuing to the post-migration steps in the following section.
+  * At the end of the migration, the worker nodes go through a rolling update, which drains and restarts each node sequentially. Wait for all nodes to become ready before continuing to the post-migration steps in the following section.
   * After migration, the old control plane VIP address still functions, but it is unstable. Don't rely on it. Update any dependencies on the old VIP address to use the new VIP address as soon as possible.
 
 
@@ -738,6 +738,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

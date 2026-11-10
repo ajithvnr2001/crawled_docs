@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices/
 title: Best practices for Google Distributed Cloud cluster upgrades \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:05.482831+00:00
+fetched_at: 2026-11-10T17:00:03.768875+00:00
 ---
 
 # Best practices for Google Distributed Cloud cluster upgrades  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Best practices for Google Distributed Cloud cluster upgrades Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes best practices and considerations to upgrade Google Distributed Cloud. You learn how to prepare for cluster upgrades, and the best practices to follow before the upgrade. These best practices help to reduce the risks associated with cluster upgrades.
-
-If you have multiple environments such as _test_ , _development_ , and _production_ , we recommend that you start with the least critical environment, such as _test_ , and verify the upgrade functionality. After you verify that the upgrade was successful, move on to the next environment. Repeat this process until you upgrade your production environments. This approach lets you move from one critical point to the next, and verify that the upgrade and your workloads all run correctly.
-
-**Note:** This document focuses on Google Distributed Cloud from versions 1.8 and later. Some commands that provide automated checks aren't available in older versions. If you run an older cluster, you must manually run some of these checks.
+Preparing your environment before a Google Distributed Cloud cluster upgrade helps you minimize workload disruption and reduce the risk of upgrade failures. If you manage multiple environments—such as _test_ , _development_ , and _production_ —upgrade your least critical environment first and verify that your workloads run as expected before proceeding to production.
 
 ## Upgrade checklist
 
@@ -69,7 +65,7 @@ These are several ways to reduce upgrade time and make it easier to plan and sch
 
   * In version 1.28 and later, you can accelerate an upgrade by setting the value of [`maxSurge`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-update-policy-updatestrategy-rolling-update-maxsurge-field) for individual node pools. When you upgrade notes with `maxSurge`, multiple nodes upgrade in the same time that it takes to upgrade a single node.
 
-  * If your clusters are at version 1.16 or higher, you can skip a minor version when upgrading node pools. Performing a skip-version upgrade halves the time that it would take to sequentially upgrade node pools two versions. Additionally, skip-version upgrades lets you increase the time between upgrades needed to stay on a supported version. Reducing the number of upgrades reduces workload disruptions and verification time. For more information, see [Skip a version when upgrading node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/skip-version-upgrade). 
+  * If your clusters are at version 1.16 or higher, you can skip a minor version when upgrading node pools. Performing a skip-version upgrade halves the time that it would take to sequentially upgrade node pools to two separate versions. Additionally, skip-version upgrades lets you increase the time between upgrades needed to stay on a supported version. Reducing the number of upgrades reduces workload disruptions and verification time. For more information, see [Skip a version when upgrading node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/skip-version-upgrade).
 
   * You can upgrade a user cluster's control plane separately from node pools. Having this flexibility can help you plan multiple, shorter maintenance windows instead of one long maintenance window to upgrade the entire cluster. For details, see [Upgrade node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-node-pools).
 
@@ -99,12 +95,12 @@ In Kubernetes, `PodDisruptionBudgets` (PDBs) can help prevent unwanted applicati
 
 Replace `KUBECONFIG` with the name of your kubeconfig file.
 
-The following example output shows PDBs named `istio-ingress`, `istiod`, and `kube-dns`:
+The following truncated example output shows PDBs named `istio-ingress`, `istiod`, and `coredns`:
          
          NAMESPACE     NAME            MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
          gke-system    istio-ingress   1               N/A               1                     16d
          gke-system    istiod          1               N/A               1                     16d
-         kube-system   kube-dns        1               N/A               1                     16d
+         kube-system   coredns         1               N/A               1                     16d
          
 
 
@@ -186,7 +182,7 @@ Run the following tools on all clusters before the upgrade:
 
   * The `gkectl diagnose` command: `gkectl diagnose` ensures all clusters are healthy. The command runs advanced checks, such as to identify nodes that aren't configured properly, or that have Pods that are in a stuck state. If the `gkectl diagnose` command shows a `Cluster unhealthy` warning, fix the issues before you attempt an upgrade. For more information, see [Diagnose cluster issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose).
 
-**Important:** Always [diagnose](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose) your cluster before upgrading to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters). We strongly recommend running `gkectl diagnose cluster` on your admin and user clusters to ensure they are healthy, and resolving any issues before starting the upgrade.
+**Important:** Always [diagnose](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/diagnose) your cluster before upgrading to an advanced cluster. We strongly recommend running `gkectl diagnose cluster` on your admin and user clusters to ensure they are healthy, and resolving any issues before starting the upgrade.
   * The [pre-upgrade tool](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/pre-upgrade-tool): in addition to checking the cluster health and configuration, the pre-upgrade tool checks for potential known issues that could happen during a cluster upgrade.
 
 
@@ -216,7 +212,7 @@ If you use [MetalLB](https://docs.cloud.google.com/kubernetes-engine/distributed
 
 ### Decide how to upgrade each user cluster
 
-In version 1.14 and later, you can choose to upgrade a user cluster as a whole (meaning you can upgrade the control plane and all node pools in the cluster), or you can upgrade the user cluster's control plane and leave the node pools at the current version. For information on why you might want to upgrade the control plane separately, see [User cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#user_cluster_upgrades).
+In version 1.14 and later, you can choose to upgrade a user cluster as a whole (meaning you can upgrade the control plane and all node pools in the cluster), or you can upgrade the user cluster's control plane and leave the node pools at the current version. For information on why you might want to upgrade the control plane separately, see [Cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview#cluster_upgrades).
 
 In a multi-cluster environment, keep track of which user clusters have been upgraded and record their version number. If you decide to upgrade the control plane and node pools separately, record the version of the control plane and each node pool in each cluster.
 
@@ -359,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/faq/
 title: Troubleshooting and frequently asked questions \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:10.976066+00:00
+fetched_at: 2026-11-10T16:58:58.190544+00:00
 ---
 
 # Troubleshooting and frequently asked questions  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -30,10 +30,15 @@ If you encounter errors during sign-in or when accessing your application, inspe
 ### Inspecting network traffic
 
   1. Open a new **Incognito** (Chrome) or **Private** window in your browser.
+
   2. Open your browser's developer tools and go to the **Network** tab.
+
   3. Select the **Preserve log** option to capture all requests during redirects.
+
   4. Reproduce the issue by navigating to the URL where you're experiencing problems.
+
   5. Examine the network requests in the log to identify where the error occurred.
+
 
 
 
@@ -44,7 +49,9 @@ When you access an IAP-secured application, you're redirected to the sign-in pag
 You can troubleshoot errors based on the domain where the error occurs:
 
   * **Errors on`iap.googleapis.com`**: If an error occurs on the `iap.googleapis.com` domain, a detailed error message is displayed on the page. If the error is related to your IAP settings, such as OAuth client issues, adjust your settings. If you encounter client errors that you don't know how to address, or if you see server errors, open a [Google Cloud Support ticket](https://docs.cloud.google.com/support).
+
   * **Errors on your application domain** : If an error occurs after you're redirected to your IAP-secured application domain, an error code is displayed. Reference the Error codes section for details on common errors. If you cannot resolve the issue, open a [Google Cloud Support ticket](https://docs.cloud.google.com/support).
+
 
 
 
@@ -60,7 +67,10 @@ IAP can be used with the following:
 
   * Cloud Run apps with HTTP(S) load balancing backend services
 
-  * [Cloud Run with one click](https://docs.cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run) and no load balancing backend services 
+  * [Cloud Run with one click](https://docs.cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run) and no load balancing backend services
+
+
+
 
 IAP _cannot_ be used with [Cloud CDN](https://docs.cloud.google.com/cdn/docs).
 
@@ -74,9 +84,10 @@ This typically happens when cookies aren't attached to your requests. JavaScript
 
 Different request methods require different approaches:
 
-    * For [`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials), set `withCredentials` to `true`.
+  * For [`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials), set `withCredentials` to `true`.
 
-    * For the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Sending_a_request_with_credentials_included), set `credentials` to `include` or `same-origin`.
+  * For the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Sending_a_request_with_credentials_included), set `credentials` to `include` or `same-origin`.
+
 
 For handling session-related errors, see [Managing IAP sessions](https://docs.cloud.google.com/iap/docs/sessions-howto). 
 
@@ -92,9 +103,12 @@ Browsers don't redirect in response to POST requests. Instead, IAP returns a `40
 
 For POST requests to IAP-secured resources, include either of the following:
 
-    * An ID token in an `Authorization: Bearer` header
+  * An ID token in an `Authorization: Bearer` header
 
-    * Valid cookies (see [refreshing sessions](https://docs.cloud.google.com/iap/docs/sessions-howto#expired_session_responses))
+  * Valid cookies (see [refreshing sessions](https://docs.cloud.google.com/iap/docs/sessions-howto#expired_session_responses))
+
+
+
 
 ## Can I use IAP if I have disabled the API?
 
@@ -108,16 +122,19 @@ If that's not possible, you can block IAP for TCP using [Firewall rules](https:/
 
 ## What domain does IAP for TCP use?
 
-IAP uses the following Google-owned domains: 
-    * `tunnel.cloudproxy.app`
+IAP uses the following Google-owned domains:
 
-    * `mtls.tunnel.cloudproxy.app` (when [certificate-based access](https://docs.cloud.google.com/chrome-enterprise-premium/docs/securing-resources-with-certificate-based-access) is enabled)
+  * `tunnel.cloudproxy.app`
+
+  * `mtls.tunnel.cloudproxy.app` (when [certificate-based access](https://docs.cloud.google.com/chrome-enterprise-premium/docs/securing-resources-with-certificate-based-access) is enabled)
+
 
 **Caution:** Ensure that your proxy servers and firewalls allow traffic to these domains and don't block WebSocket connections.
 
 ## Why am I receiving `Server Error`?
 
 If you see:
+    
     
     The server encountered a temporary error and could not complete your request. Please try again in 30 seconds.
     
@@ -140,25 +157,31 @@ Error code `38` indicates that the Identity Platform authentication URL for your
 
 To find the URL, do the following:
 
-    1. Go to the IAP page.
+  1. Go to the IAP page.
 
 [Go to IAP](https://console.cloud.google.com/security/iap)
 
-    2. Click the **Applications** tab.
+  2. Click the **Applications** tab.
 
-    3. In the **Resource** column, find your application and select the checkbox.
+  3. In the **Resource** column, find your application and select the checkbox.
 
-    4. In **Authentication URL** or **Login URL** , make sure the URL is correct.
+  4. In **Authentication URL** or **Login URL** , make sure the URL is correct.
 
-To learn how to use external identities with IAP, see [Authenticate users with external identities](https://docs.cloud.google.com/iap/docs/authenticate-users-external-identities). 
+
+
+
+To learn how to use external identities with IAP, see [Authenticate users with external identities](https://docs.cloud.google.com/iap/docs/authenticate-users-external-identities).
 
 ## How can I address quota exceeded errors (Error code 429)?
 
 Error code 429 occurs when your application exceeds IAP's request limits. The service enforces separate quotas:
 
-    * **Browser-based requests:** 360,000 per minute per project
+  * **Browser-based requests:** 360,000 per minute per project
 
-    * **Programmatic requests:** 360,000 per minute per project
+  * **Programmatic requests:** 360,000 per minute per project
+
+
+
 
 A programmatic request is one that includes an `AUTHORIZATION` or `PROXY-AUTHORIZATION` header and no IAP cookie. All other requests (including those with no credentials) are considered browser requests.
 
@@ -166,15 +189,18 @@ These limits apply collectively to all IAP-protected resources in your project.
 
 If you're experiencing quota-related errors, consider these solutions:
 
-    * Avoid load testing in production. Instead, use alternative network paths that bypass IAP.
+  * Avoid load testing in production. Instead, use alternative network paths that bypass IAP.
 
-    * For service-to-service traffic, implement exponential backoff to handle 429 errors gracefully.
+  * For service-to-service traffic, implement exponential backoff to handle 429 errors gracefully.
 
-    * Distribute high-traffic applications across multiple projects.
+  * Distribute high-traffic applications across multiple projects.
 
-    * Use Apigee or similar API gateway solutions for API-based applications.
+  * Use Apigee or similar API gateway solutions for API-based applications.
 
-    * Contact [Google Cloud Support](https://docs.cloud.google.com/support) for quota increases if organic growth is causing the issue.
+  * Contact [Google Cloud Support](https://docs.cloud.google.com/support) for quota increases if organic growth is causing the issue.
+
+
+
 
 ## Sign-in issues or unexpected behavior with IAP using Identity Platform
 
@@ -182,11 +208,14 @@ When using a third-party Identity Provider (IdP) with Identity Platform, large c
 
 Exceeding the session cookie size limit can lead to sign-in failures or infinite sign-in loops. To prevent these issues, consider the following actions:
 
-    * **Reduce claims** : Configure your third-party IdP to send only essential claims to Identity Platform. Minimize the size and number of claims included in the token.
+  * **Reduce claims** : Configure your third-party IdP to send only essential claims to Identity Platform. Minimize the size and number of claims included in the token.
 
-    * **Inspect cookie size** : Use browser developer tools to check the size of the cookies set on your application's domain. Look for warnings related to cookie size, particularly for IAP-related cookies.
+  * **Inspect cookie size** : Use browser developer tools to check the size of the cookies set on your application's domain. Look for warnings related to cookie size, particularly for IAP-related cookies.
 
-    * **Test minimal claims** : Temporarily configure the IdP to send the smallest possible set of claims. If this resolves the issue, it confirms that cookie size limitation is the root cause.
+  * **Test minimal claims** : Temporarily configure the IdP to send the smallest possible set of claims. If this resolves the issue, it confirms that cookie size limitation is the root cause.
+
+
+
 
 ## Why am I receiving an HTTP 502 error with "Empty Google Account OAuth client ID(s)/secret(s)"?
 
@@ -194,8 +223,12 @@ If you access your IAP-secured application and receive an `HTTP 502 Bad Gateway`
 
 This error typically occurs in the following scenarios:
 
-    * **The project does not belong to an organization:** The default Google-managed OAuth client is only available for projects that belong to a Google Cloud organization. If your project does not belong to an organization, you must [configure custom OAuth credentials for App Engine](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration#app-engine) or for your respective platform.
-    * **The OAuth credentials were deleted or not configured:** If you previously configured custom OAuth credentials and the OAuth client was deleted, re-create the credentials on the [Credentials page](https://console.cloud.google.com/apis/credentials) and update your IAP settings as described in [Use custom OAuth clients with IAP](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration). 
+  * **The project does not belong to an organization:** The default Google-managed OAuth client is only available for projects that belong to a Google Cloud organization. If your project does not belong to an organization, you must [configure custom OAuth credentials for App Engine](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration#app-engine) or for your respective platform.
+
+  * **The OAuth credentials were deleted or not configured:** If you previously configured custom OAuth credentials and the OAuth client was deleted, re-create the credentials on the [Credentials page](https://console.cloud.google.com/apis/credentials) and update your IAP settings as described in [Use custom OAuth clients with IAP](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration).
+
+
+
 
 ## Error codes
 
@@ -225,13 +258,10 @@ Error code | Description | Troubleshooting
   
 If you're unable to resolve your issue, or you don't see your error listed on this page, then contact Cloud Customer Care with a description of the error and the response you get from a `GET` call to the API. Ensure that you remove your client secret from the response.
 
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/edge-private-cloud/release-notes/
 title: Apigee Edge for Private Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:13.294277+00:00
+fetched_at: 2026-11-10T18:26:46.928175+00:00
 ---
 
 # Apigee Edge for Private Cloud release notes  |  Google Cloud Documentation
@@ -57,6 +57,34 @@ See also:
 rss_feed Subscribe: 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-edge-private-cloud-release-notes.xml) directly. 
+
+## November 09, 2026
+
+4.54.00.01
+
+Announcement
+
+Released Apigee Edge for Private Cloud 4.54.00.01.
+
+For the list of updated RPM packages and the patch update procedure, see [Install 4.54.00.x patch updates](https://docs.apigee.com/private-cloud/v4.54.00/update-apigee-edge-45400-patch#4540001).
+
+4.54.00.01
+
+Security
+
+Fixed multiple security vulnerabilities in Apigee Edge for Private Cloud, including security hardening across Edge runtime, management, New Edge UI, OpenLDAP, Apigee mTLS, and Nginx components.
+
+4.54.00.01
+
+Fixed
+
+Resolved the following issues in Apigee Edge for Private Cloud 4.54.00.01:
+
+  * Fixed an issue in the New Edge UI where creating an OpenAPI Specification in the `OASValidation` policy modal stored the specification resource under `yaml://` or `json://` instead of `oas://`.
+  * Fixed an issue where running `setup.sh -p uapim` failed during `edge-uapim-connector` setup.
+  * Apigee Edge for Private Cloud 4.54.00 and its patch releases support Red Hat Enterprise Linux, Oracle Linux, and Rocky Linux 8.10, 9.6, 9.7, and 9.8. See [Supported software and supported versions](https://docs.apigee.com/release/supported-software#apigeeedgeforprivatecloudsupportedversions).
+
+
 
 ## October 15, 2026
 

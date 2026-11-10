@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models/
 title: Supported models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:10.876929+00:00
+fetched_at: 2026-11-10T18:56:17.208681+00:00
 ---
 
 # Supported models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -39,6 +39,26 @@ To find out how many tokens your workload requires, refer to the [SDK tokenizer]
 
 **Model** | **Per-second throughput per GSU** | **Units** | **Minimum GSU purchase increment** | **Burndown rates**  
 ---|---|---|---|---  
+[Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) Latest supported version: `gemini-4-carbon` | 260 | Tokens | 1 |  1 input text token = 1 token  
+1 input image token = 1 token  
+1 input video token = 1 token  
+1 input audio token = 1 token  
+1 input text caching token = 0.05 tokens  
+1 input image caching token = 0.05 tokens  
+1 input video caching token = 0.05 tokens  
+1 input audio caching token = 0.05 tokens  
+1 output response/reasoning text token = 5 tokens  
+  
+[Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) Latest supported version: `gemini-4-carbon-cyber-permissive` | 260 | Tokens | 1 |  1 input text token = 1 token  
+1 input image token = 1 token  
+1 input video token = 1 token  
+1 input audio token = 1 token  
+1 input text caching token = 0.05 tokens  
+1 input image caching token = 0.05 tokens  
+1 input video caching token = 0.05 tokens  
+1 input audio caching token = 0.05 tokens  
+1 output response/reasoning text token = 5 tokens  
+  
 [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) Latest supported version: `gemini-4-argon` | 260 | Tokens | 1 |  1 input text token = 1 token  
 1 input image token = 1 token  
 1 input video token = 1 token  
@@ -304,6 +324,11 @@ Anthropic's Anthropic's Claude Opus 5.5 on Google Cloud | 261 | 1 | 1 | 1 input 
 1 cache write 5m token = 1.25 tokens  
 1 cache write 1h token = 2 tokens  
 1 cache hit token = 0.05 token  
+Anthropic's Claude Fable 5.2 on Google Cloud [Fast mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) (`"speed": "fast"`) isn't covered by Provisioned Throughput and is always billed as [pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo).  | 131 | 1 | 1 | 1 input token = 1 token  
+1 output token = 5 tokens  
+1 cache write 5m token = 1.25 tokens  
+1 cache write 1h token = 2 tokens  
+1 cache hit token = 0.025 token  
 Anthropic's Anthropic's Claude Fable 5.1 on Google Cloud | 105 | 1 | 1 | 1 input token = 1 token  
 1 output token = 5 tokens  
 1 cache write 5m token = 1.25 tokens  
@@ -453,6 +478,8 @@ The following table lists the Google models for which Provisioned Throughput sup
 
 Model | Latest supported model version  
 ---|---  
+[Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) | `gemini-4-carbon`  
+[Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) | `gemini-4-carbon-cyber-permissive`  
 [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) | `gemini-4-argon`  
 [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) | `gemini-4-argon-cyber-permissive`  
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) | `gemini-3.8-flash-cyber`  
@@ -508,6 +535,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

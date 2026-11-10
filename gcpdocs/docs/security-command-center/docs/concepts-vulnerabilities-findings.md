@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/concepts-vulnerabilities-findings/
 title: Vulnerability findings \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:54.232026+00:00
+fetched_at: 2026-11-10T16:58:33.541090+00:00
 ---
 
 # Vulnerability findings  |  Security Command Center  |  Google Cloud Documentation
@@ -5635,7 +5635,7 @@ You might want to hide some or all VM Manager findings in Security Command Cente
 
 You can hide VM Manager findings by creating a mute rule and adding query attributes specific to the VM Manager findings that you want to hide.
 
-For information on how to create a mute rule, see [Create a mute rule](https://docs.cloud.google.com/security-command-center/docs/how-to-mute-findings#create_mute_rules).
+For more information about how to create a mute rule, see [Create a mute rule](https://docs.cloud.google.com/security-command-center/docs/how-to-mute-findings#create_mute_rules).
 
 For example, if you want to hide specific CVE IDs in the VM Manager vulnerability findings, select **Vulnerability > CVE ID**, and then select the CVE IDs that you want to hide.
 
@@ -5729,6 +5729,168 @@ Category name in the API: `CONTAINER_IMAGE_VULNERABILITY` |  **Finding descripti
 
 You can resolve the finding by either removing the runtime association or removing the vulnerable image version in Artifact Registry.Refer to the details of the finding for specific remediation steps based on the appropriate runtime resource. For Standard-legacy tier customers, using the [Asset query feature](https://cloud.google.com/asset-inventory/docs/query-assets-with-sql) of Cloud Asset Inventory to determine where the vulnerable container image is deployed is not supported. We recommend upgrading to the Premium or Enterprise tiers to get more detailed information.  
   
+## Vulnerability Assessment for Google Cloud findings
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers)
+
+Vulnerability Assessment for Google Cloud helps you discover software package vulnerabilities and security risks in Google Cloud resources without installing agents. The types of resources scanned depend on the Security Command Center service tier, and include the following:
+
+  * Running Compute Engine VM instances
+  * Nodes in [GKE Standard](https://docs.cloud.google.com/kubernetes-engine/docs/resources/autopilot-standard-feature-comparison) clusters
+  * Containers running in GKE Standard and GKE Autopilot clusters
+  * Containers running in Cloud Run services, active revisions, executed jobs, and worker pools ([Preview](https://cloud.google.com/products/#product-launch-stages))
+
+
+
+### Compute Engine and Google Kubernetes Engine vulnerability detection
+
+For Compute Engine VM instances and GKE clusters, Vulnerability Assessment for Google Cloud performs agentless disk scanning by doing the following:
+
+  1. Clone persistent disks.
+  2. Run the clones in a secure VM instance in the same region
+  3. Scan the clones with [SCALIBR](https://github.com/google/osv-scalibr).
+
+
+
+To avoid adding to your costs, the VM instance clone is created in a Google-owned project.
+
+Findings have the class `VULNERABILITY` and appear under the following categories:
+
+  * `OS vulnerability`: Identifies vulnerabilities in operating system packages installed on Compute Engine VMs and GKE nodes.
+  * `Software vulnerability`: Identifies vulnerabilities in installed software packages and application dependencies.
+
+
+
+Each finding includes the following information:
+
+  * The software package that contains the vulnerability, package location, and associated CVE record details
+  * An assessment from Security Command Center of how severe the vulnerability is (`CRITICAL` or `HIGH`)
+  * The full resource name of the affected Compute Engine VM instance, GKE cluster, or workload (such as `Deployment`, `DaemonSet`, `StatefulSet`, `Job`, or `Pod`)
+  * For the Premium and Enterprise service tiers, enrichment with Mandiant CVE assessment information and attack exposure scores
+
+
+
+To remediate findings, apply available OS or software patches, update package dependencies, or deploy updated container images.
+
+#### Findings reference
+
+Detector | Summary  
+---|---  
+  
+#### `OS vulnerability`
+
+Category name in the API: `OS_VULNERABILITY` Class: `VULNERABILITY` Severity: `CRITICAL` or `HIGH` |  **Finding description** : A vulnerability with an assigned [Common Vulnerabilities and Exposures (CVE)](https://wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) was detected in an operating system package installed on a running Compute Engine VM instance or GKE Standard node. **Pricing tier** : [Standard, Premium, or Enterprise](https://cloud.google.com/security-command-center/pricing) **Supported assets** :
+
+  * [`compute.googleapis.com/Instance`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances)
+  * [`container.googleapis.com/Cluster`](https://docs.cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters)
+
+**Fix this finding build**: Review the finding details to identify the affected resource, operating system package, and recommended patch or version upgrade. To resolve the finding, do one of the following depending on the affected resource:
+
+  * For Compute Engine VM instances, apply the available operating system patches or update the vulnerable package to a fixed version.
+  * For GKE nodes, upgrade the node pool or node image to a version that includes the patched operating system package.
+
+After you apply the fix, the finding transitions to `INACTIVE` if Vulnerability Assessment for Google Cloud doesn't detect the vulnerability during subsequent scans within the active state period (72 hours for the Premium and Enterprise tiers, or 195 hours for the Standard tier).  
+  
+#### `Software vulnerability`
+
+Category name in the API: `SOFTWARE_VULNERABILITY` Class: `VULNERABILITY` Severity: `CRITICAL` or `HIGH` |  **Finding description** : A software package vulnerability with an assigned [Common Vulnerabilities and Exposures (CVE)](https://wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) was detected in an installed software package or application dependency on a running Compute Engine VM instance, GKE Standard node, or container running in a GKE Standard or Autopilot cluster. **Pricing tier** : [Standard, Premium, or Enterprise](https://cloud.google.com/security-command-center/pricing) **Supported assets** :
+
+  * [`compute.googleapis.com/Instance`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances)
+  * [`container.googleapis.com/Cluster`](https://docs.cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters)
+
+**Fix this finding build**: Review the finding details to identify the affected resource, software package, package location, and fixed version. To resolve the finding, do one of the following depending on the affected resource:
+
+  * For Compute Engine VM instances, update the affected software package or application dependency to a fixed version.
+  * For GKE workloads, update your application dependencies or base container image to a fixed version, rebuild the image, and redeploy the workload.
+
+After you apply the fix, the finding transitions to `INACTIVE` if Vulnerability Assessment for Google Cloud doesn't detect the vulnerability during subsequent scans within the active state period (72 hours for the Premium and Enterprise tiers, or 195 hours for the Standard tier).  
+  
+For instructions on enabling and using this feature, see [Enable and use Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/security-command-center/docs/vulnerability-assessment-google-cloud).
+
+### Cloud Run vulnerability and secret findings
+
+Vulnerability Assessment for Google Cloud discovers software package vulnerabilities with [Common Vulnerabilities and Exposures (CVEs)](https://wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) and exposed secrets in container image layers that are present in active Cloud Run services, revisions, executed jobs, and worker pools.
+
+Unlike static container image findings that attach to container images, these findings provide immediate context on which workloads are exposed to risk and are attached to the live Cloud Run runtime resource (`run.googleapis.com/Service`, `run.googleapis.com/Job`, or `run.googleapis.com/WorkerPool`).
+
+#### Vulnerability detection
+
+Vulnerability Assessment for Google Cloud identifies software vulnerabilities in the container packages running within your Cloud Run workloads.
+
+Findings have the class `VULNERABILITY` and a severity of either `HIGH` or `CRITICAL`.
+
+Each finding includes the following:
+
+  * The affected container name (for single-container and multi-container sidecar definitions) and container image digest
+  * The list of active revision names running the vulnerable image (`cloud_run.revisions`)
+  * Package issue details, CVSS scores, and the fixed package version, if available
+
+
+
+To resolve a finding, update your application dependencies or container image to use a secure version of the package, deploy a new revision of your service or update your job or worker pool, and route 100% of traffic to the updated revision.
+
+#### Secret detection
+
+Vulnerability Assessment for Google Cloud helps you detect exposed plaintext secrets and credentials embedded within the files and layers of container images used by Cloud Run services, jobs, and worker pools.
+
+Each finding identifies the following:
+
+  * The secret type, such as API keys or private keys
+  * The path within the container image where the credential was found
+  * The affected container name
+  * The active revision URIs
+
+
+
+Findings have the class `SECRET` and a severity of `CRITICAL`.
+
+To resolve a finding, revoke or rotate the exposed credential, remove it from your container image or source code, and use a secure secret management solution, such as Secret Manager.
+
+#### Findings reference
+
+Detector | Summary  
+---|---  
+  
+#### `Software vulnerability`
+
+Category name in the API: `SOFTWARE_VULNERABILITY` Class: `VULNERABILITY` Severity: `CRITICAL` or `HIGH` |  **Finding description** : A software package vulnerability with an assigned [Common Vulnerabilities and Exposures (CVE)](https://wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) was detected in the container packages running within an active Cloud Run service, revision, executed job, or worker pool. This includes vulnerabilities in both operating system packages and language runtime packages. **Pricing tier** : [Standard, Premium, or Enterprise](https://cloud.google.com/security-command-center/pricing) **Supported assets** :
+
+  * [`run.googleapis.com/Service`](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.services)
+  * [`run.googleapis.com/Job`](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.jobs)
+  * [`run.googleapis.com/WorkerPool`](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.workerPools)
+
+**Fix this finding build**: Review the finding details to identify the impacted package, container name, and active revisions. To resolve the finding, do the following:
+
+  1. Update your application dependencies, installed OS packages, or base container image to use a fixed version of the package.
+  2. Build and push the new container image to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview).
+  3. [Deploy a new revision](https://docs.cloud.google.com/run/docs/deploying) of your service or update your job or worker pool configuration with the fixed image.
+  4. If you use traffic splitting or instance splitting, allocate 100% of traffic or instances to the patched revision.
+
+Deploying a patched revision and deactivating the vulnerable revision resolves the finding for services and worker pools. For jobs, findings reflect executions that started within the past 14 days. If a job is updated to execute with a clean image, or if subsequent scan events evaluate the job after 14 days without executions, the finding transitions to `INACTIVE`.  
+  
+#### `Secrets in Cloud Run`
+
+Category name in the API: `SECRETS_IN_CLOUD_RUN` Class: `SECRET` Severity: `CRITICAL` |  **Finding description** : An exposed plaintext secret or credential (such as an API key or private key) was detected in the file system or layers of a container image used by an active Cloud Run service, job, or worker pool. The scanner emits finding descriptions such as: `Plaintext credential of type <TYPE> found in container image at path: <PATH>`. **Pricing tier** : [Standard, Premium, or Enterprise](https://cloud.google.com/security-command-center/pricing) **Supported assets** :
+
+  * [`run.googleapis.com/Service`](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.services)
+  * [`run.googleapis.com/Job`](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.jobs)
+  * [`run.googleapis.com/WorkerPool`](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.workerPools)
+
+**Fix this finding build**:
+
+  1. Investigate the finding to confirm details about the secret (including the file path within the container image), and then revoke or rotate the exposed credential.
+  2. Remove the plaintext secret from your container image file system, Dockerfile, or source code.
+  3. Implement a secure secret management solution, such as [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview), to store and access secrets securely at runtime.
+  4. Rebuild and push the clean container image, then deploy a new revision of the service or update the job or worker pool. Then, route all traffic or allocate all instances to the clean revision.
+
+Deploying a new revision without the exposed secret resolves the finding. The finding is automatically marked as `INACTIVE` when the vulnerable revision no longer serves traffic or runs instances.  
+  
+For instructions on viewing and remediating these findings, see [Enable and use Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/security-command-center/docs/vulnerability-assessment-google-cloud).
+
 ## Sensitive Data Protection
 
 Standard-legacy, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers)
@@ -5888,6 +6050,8 @@ To remediate a finding, do the following:
 
   * Read suggestions for [remediating Security Health Analytics findings](https://docs.cloud.google.com/security-command-center/docs/how-to-remediate-security-health-analytics-findings) and [remediating Web Security Scanner findings](https://docs.cloud.google.com/security-command-center/docs/how-to-remediate-web-security-scanner-findings).
 
+  * Learn how to [use Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/security-command-center/docs/vulnerability-assessment-google-cloud).
+
 
 
 
@@ -5895,6 +6059,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

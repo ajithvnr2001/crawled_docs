@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/import-metadata/
 title: Import metadata using a custom pipeline \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:45:09.799234+00:00
+fetched_at: 2026-11-10T18:46:19.763412+00:00
 ---
 
 # Import metadata using a custom pipeline  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,16 +23,9 @@ Send feedback
 
 #  Import metadata using a custom pipeline Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to import metadata from a third-party system into Knowledge Catalog (formerly Dataplex Universal Catalog) by using the metadata import API methods and your own pipeline. Knowledge Catalog metadata consists of entries and their aspects.
+The metadata import API lets you import metadata from a third-party system into Knowledge Catalog (formerly Dataplex Universal Catalog) by using your own pipeline. You can run metadata import jobs to synchronize or incrementally update your catalog so that you can discover, search, and govern external data assets alongside your Google Cloud resources.
 
-If you instead want to use a Google Cloud-managed orchestration pipeline to extract and import metadata, we suggest using a [managed connectivity pipeline](https://docs.cloud.google.com/knowledge-catalog/docs/managed-connectivity-overview). With a managed connectivity pipeline, you bring your own connector that extracts metadata and generates output in a format that can be used as input by the metadata import API methods (the metadata import file). Then, you use Workflows to orchestrate the pipeline tasks.
-
-You can run the following kinds of metadata import jobs:
-
-  * **Full sync of entries with incremental import of their aspects**. Supported for custom entries.
-  * **Incremental import of aspects only**. Supported for aspects that belong to custom entries and system entries. For custom entries, you can modify both optional aspects and required aspects. For system entries, you can modify optional aspects.
-
-
+If you prefer to use a Google Cloud-managed orchestration pipeline to extract and import metadata, you can use a [managed connectivity pipeline](https://docs.cloud.google.com/knowledge-catalog/docs/managed-connectivity-overview). With a managed connectivity pipeline, you bring your own connector to extract metadata and generate a metadata import file for the metadata import API methods, and then use Workflows to orchestrate the pipeline tasks.
 
 ## High-level steps
 
@@ -127,7 +120,16 @@ You specify the job scope when you create a metadata job.
 
 ### Sync mode
 
-The sync mode specifies how the entries and aspects in a metadata import job are updated. You provide a sync mode for both entries and aspects. Depending on what resources you want to import, the following combinations of sync modes are supported.
+The sync mode specifies how the entries and aspects in a metadata import job are updated. You provide a sync mode for both entries and aspects.
+
+You can run the following types of metadata import jobs:
+
+  * **Full sync of entries with incremental import of their aspects** : supported for custom entries.
+  * **Incremental import of aspects only** : supported for aspects that belong to custom entries and system entries. For custom entries, you can modify both optional aspects and required aspects. For system entries, you can modify optional aspects.
+
+
+
+Depending on what resources you want to import, the following combinations of sync modes are supported:
 
 Goal | Entry sync mode | Aspect sync mode | Results  
 ---|---|---|---  
@@ -1342,6 +1344,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ao-permissions/
 title: Prepare IAM permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:16.210397+00:00
+fetched_at: 2026-11-10T18:58:00.131226+00:00
 ---
 
 # Prepare IAM permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ The following table provides details about the permissions assigned to each pred
 
 Role name | Kubernetes resource name | Permission description  
 ---|---|---  
-AI Platform Admin | `ai-platform-admin` | Grant permissions to manage AI services.  
+Vertex AI Platform Admin | `ai-platform-admin` | Grant permissions to manage AI services.  
 Project Creator | `project-creator` | Create new projects.  
 User Cluster Admin | `user-cluster-admin` | Create, update, and delete a Kubernetes cluster, and manage the cluster's lifecycle.  
   
@@ -60,15 +60,15 @@ Vertex AI service or model | Role name | Kubernetes resource name | Permission d
 _N/A_ | IAM Project Admin | `project-iam-admin` | Manage the IAM allow policies of projects and create service accounts.  
 Online Prediction | Vertex AI Prediction User | `vertex-ai-prediction-user` | Access the Online Prediction service to make requests to your model endpoint.  
 Vertex AI Prediction Admin | `vertex-ai-prediction-admin` | Manage resources used to deploy models with Online Prediction.  
-Optical Character Recognition (OCR) | AI OCR Developer | `ai-ocr-developer` | Access the OCR service to detect text in images.  
-Speech-to-Text | AI Speech Developer | `ai-speech-developer` | Access the Speech-to-Text service to recognize speech and transcribe audio.  
-Text Embedding | AI Text Embedding Developer | `ai-text-embedding-developer` | Access the Text Embedding model to convert English natural language into numerical vectors.  
-AI Text Embedding Multilingual Developer | `ai-text-embedding-multilingual-developer` | Access the Text Embedding Multilingual model to convert multilingual natural language into numerical vectors.  
+Optical Character Recognition (OCR) | Vertex AI OCR Developer | `ai-ocr-developer` | Access the OCR service to detect text in images.  
+Speech-to-Text | Vertex AI Speech Developer | `ai-speech-developer` | Access the Speech-to-Text service to recognize speech and transcribe audio.  
+Text Embedding | Vertex AI Text Embedding Developer | `ai-text-embedding-developer` | Access the Text Embedding model to convert English natural language into numerical vectors.  
+Vertex AI Text Embedding Multilingual Developer | `ai-text-embedding-multilingual-developer` | Access the Text Embedding Multilingual model to convert multilingual natural language into numerical vectors.  
 Gemini | AI Large Gemini Developer | `ai-large-gemini-developer` | Access the Large Gemini service in the project namespace using the AICS inference gateway. Apply as a zonal RoleBinding on the management API server.  
 Vertex AI Search | Discovery Engine Admin | `vaisearch-admin` | Get full access to all Discovery Engine resources.  
 Discovery Engine Developer | `vaisearch-developer` | Get read and write access to all Discovery Engine resources.  
 Discovery Engine Viewer | `vaisearch-viewer` | Get read access to all Discovery Engine resources.  
-Vertex AI Translation | AI Translation Developer | `ai-translation-developer` | Access the Vertex AI Translation service to translate text.  
+Vertex AI Translation | Vertex AI Translation Developer | `ai-translation-developer` | Access the Vertex AI Translation service to translate text.  
 Vertex AI Workbench | GDC Restricted Service Policy Admin | `gdchrestrictedservice-policy-admin` | Get full access to the `GDCHRestrictedService` policy type to control access to Vertex AI Workbench.  
 Workbench Notebooks Admin | `workbench-notebooks-admin` | Get read and write access to all notebook resources within a project namespace.  
 Create, update, and delete notebooks.  
@@ -78,6 +78,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/access-context-manager/cloud-bindings/create/
 title: gcloud access-context-manager cloud-bindings create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T04:35:11.898269+00:00
+fetched_at: 2026-11-10T17:33:59.383789+00:00
 ---
 
 # gcloud access-context-manager cloud-bindings create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ For Google Group bindings (`--group-key`), the access level, the session setting
 
 The access level can also be bound to a specific service account or all service accounts in a specified project. 
 
-To apply session settings to all workforce pools in an organization, specify the `restrictedProject` scope in the `--binding-file` with `--federated-principal` set to `principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`. Bindings created for all workforce pools in an organization support only `scopedAccessSettings` with the `restrictedProject` client scope and active `sessionSettings`. Application scopes (`restrictedClientApplication`), top-level session settings, access levels, and dry run levels are not allowed for this principal type. 
+To apply session settings to all workforce pools in an organization, specify the `restrictedProject` or `restrictedClientApplication` scope in the `--binding-file` with `--federated-principal` set to `principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`. Bindings created for all workforce pools in an organization support only `scopedAccessSettings` with the `restrictedProject` or `restrictedClientApplication` client scope and active `sessionSettings`. Top-level session settings, access levels, dry run access levels, and dry run session settings are not allowed for this principal type. 
 
 Binding session settings to other principal types isn't supported, and those requests are rejected. You can bind session settings only to the following principal types: 
 
@@ -120,6 +120,40 @@ To create a new cloud access binding for all workforce pools in a given organiza
     
     gcloud access-context-manager cloud-bindings create --federated-principal='principalSet://cloudresourcemanager.googleapis.com/organizations/1234567890/type/WorkforcePool' --organization='1234567890' --binding-file='binding.yaml'
 
+To create a new cloud access binding for all workforce pools in a given organization with application-scoped session settings: 
+    
+    
+    Create a binding.yaml file containing scopedAccessSettings with restrictedClientApplication
+    and activeSettings (session length between 1 hour and 90 days, sessionReauthMethod: LOGIN,
+    and sessionLengthEnabled: true):
+    
+    
+    scopedAccessSettings:
+    - scope:
+        clientScope:
+          restrictedClientApplication:
+            name: "Gemini Enterprise mobile Android"
+      activeSettings:
+        sessionSettings:
+          sessionLength: 7776000s
+          sessionLengthEnabled: true
+          sessionReauthMethod: LOGIN
+    - scope:
+        clientScope:
+          restrictedClientApplication:
+            name: "Gemini Enterprise mobile IOS"
+      activeSettings:
+        sessionSettings:
+          sessionLength: 7776000s
+          sessionLengthEnabled: true
+          sessionReauthMethod: LOGIN
+    
+    
+    Then run the following command:
+    
+    
+    gcloud access-context-manager cloud-bindings create --federated-principal='principalSet://cloudresourcemanager.googleapis.com/organizations/1234567890/type/WorkforcePool' --organization='1234567890' --binding-file='binding.yaml'
+
 FLAGS
     
 
@@ -132,14 +166,16 @@ For details about the object, see the API reference: <https://docs.cloud.google.
 
 For Google Group bindings (`--group-key`), `scopedAccessSettings` can specify `restrictedClientApplication` (using `clientId` or `name`) with `accessLevels`, `dryRunAccessLevels`, and `sessionSettings` (session length up to 24 hours). The `restrictedProject` scope is not supported for Google Group bindings. 
 
-For bindings tied to all workforce pools in an organization (`principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`), `scopedAccessSettings` must only contain `restrictedProject` (format: `name: projects/{project_number}`) within the `scope.clientScope` and `sessionSettings` within `activeSettings`. For this configuration, the following requirements apply: 
+For bindings tied to all workforce pools in an organization (`principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`), `scopedAccessSettings` can contain `restrictedProject` (format: `name: projects/{project_number}`) or `restrictedClientApplication` within `scope.clientScope`, and `sessionSettings` within `activeSettings`. For this configuration, the following requirements apply: 
 
   * `sessionLength` must be set and must be between 1 hour and 90 days (for example, `7776000s`). 
   * `sessionReauthMethod` must be `LOGIN` or omitted (defaults to `LOGIN`). 
   * `sessionLengthEnabled` must be set to `true`. 
   * `maxInactivity` must be set to 0 or omitted. 
   * `useOidcMaxAge` must be set to `false` or omitted. 
-  * No application scopes (`restrictedClientApplication`), access levels, or dry run settings are allowed. 
+  * For project scopes (`restrictedProject`), the session settings apply to all OAuth apps owned by the specified project. 
+  * For application scopes (`restrictedClientApplication`), only supported Google Cloud applications are allowed. `name` must be set to one of the following case-sensitive values: `"Gemini Enterprise mobile Android"`, `"Gemini Enterprise mobile IOS"`, or `"Gemini Enterprise Desktop"`. Identifying applications by OAuth client ID (`clientId`) is not supported for workforce pools. 
+  * Access levels, dry run access levels, and dry run session settings are not allowed. 
 
 
 
@@ -156,7 +192,7 @@ The `restrictedProject` scope is usable only with bindings tied to all workforce
 
 
 
-Bindings created for all Workforce Pools in an organization support only `scopedAccessSettings` with the `restrictedProject` client scope and active `sessionSettings`. No other configurations (such as application scopes, access levels, or dry run settings) are allowed. 
+Bindings created for all Workforce Pools in an organization support only `scopedAccessSettings` with the `restrictedProject` or `restrictedClientApplication` client scope and active `sessionSettings`. No other configurations (such as top-level session settings, access levels, dry run access levels, or dry run session settings) are allowed. 
 
 Session settings cannot be configured for individual federated principals or workload identity pools. At most one of `--group-key`, `--federated-principal`, `--service-account`, or `--service-account-project-number` can be specified. 
 
@@ -179,7 +215,7 @@ A session begins when a user signs in successfully. If a user signs out before t
 
 Setting `--session-reauth-method` when `--session-length` is empty raises an error. 
 
-The session length applies only to Google Group bindings (`--group-key`). It isn't supported for bindings tied to all workforce pools in an organization, or for any other principal type. For bindings tied to all workforce pools in an organization, configure session settings through `--binding-file`, under `scopedAccessSettings` on the `restrictedProject` scope. 
+The session length applies only to Google Group bindings (`--group-key`). It isn't supported for bindings tied to all workforce pools in an organization, or for any other principal type. For bindings tied to all workforce pools in an organization, configure session settings through `--binding-file`, under `scopedAccessSettings`. 
 
 `--session-reauth-method`=`SESSION_REAUTH_METHOD`; default="login"
      Specifies the type of re-authentication challenge given to the user when their session expires. Defaults to `--session-reauth-method=login` if unspecified and `--session-length` is set. Cannot be used when `--session-length` is empty or 0. This parameter is supported only for Google Group bindings. It isn't supported for bindings tied to all workforce pools in an organization; for those bindings, configure session settings through `--binding-file`. `SESSION_REAUTH_METHOD` must be one of: 
@@ -207,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/multicast/create-group-ranges/
 title: Create multicast group ranges \u00a0|\u00a0 Cloud Multicast \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:27.018355+00:00
+fetched_at: 2026-11-10T18:38:27.368887+00:00
 ---
 
 # Create multicast group ranges  |  Cloud Multicast  |  Google Cloud Documentation
@@ -92,10 +92,10 @@ You can specify up to 100 projects by the project ID or name.
 
          * To allow this range to send multicast traffic only within a zone, set this flag to `intra-zone`.
          * (Default) To allow this range to send multicast traffic across zones, set this flag to `intra-region`.
-       * `--[no-]enable-logging`: determines whether [group membership event logging](https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs) is enabled.
+       * `--[no-]enable-logging`: determines whether [group membership event logging](https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs) is enabled for the group range. This setting applies to all zonal activations of the group range that don't explicitly enable or disable logging.
 
          * To enable logging, use `--enable-logging`.
-         * (Default) To disable logging, use `--no-enable-logging`.
+         * (Default) To leave logging disabled, omit this flag or use `--no-enable-logging`.
 
 
 
@@ -160,10 +160,10 @@ You can specify up to 100 projects by the project ID or name. Use the following 
 
        * To allow this range to send multicast traffic only within a zone, set to `INTRA_ZONE`.
        * (Default) To allow this range to send multicast traffic across zones, set to `INTRA_REGION`.
-     * `LOGGING_ENABLED`: determines whether [group membership event logging](https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs) is enabled.
+     * `LOGGING_ENABLED`: determines whether [group membership event logging](https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs) is enabled for the group range. This setting applies to all zonal activations of the group range that don't explicitly enable or disable logging.
 
        * To enable logging, set to `true`.
-       * (Default) To disable logging, set to `false`.
+       * (Default) To leave logging disabled, omit the `logConfig` field or set `enabled` to `false`.
 
 
 
@@ -193,8 +193,9 @@ Replace the following values:
   * `DOMAIN_ACTIVATION_NAME`: the name of the domain activation that you created previously in this zone
   * `GROUP_RANGE_NAME`: the name of the group range that you created previously
   * `--[no-]enable-logging`: optional, determines whether [group membership event logging](https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs) is enabled. Configuring this flag on a zonal group range activation overrides the setting for the global group range. 
-    * To enable logging, use `--enable-logging`.
-    * (Default) To disable logging, use `--no-enable-logging`.
+    * (Default) To inherit the logging setting from the global group range, omit this flag.
+    * To enable logging in this zone regardless of the global setting, use `--enable-logging`.
+    * To disable logging in this zone regardless of the global setting, use `--no-enable-logging`.
 
 
 
@@ -221,8 +222,9 @@ Replace the following values:
   * `DOMAIN_ACTIVATION_NAME`: the name of the domain activation that you created previously in this zone
   * `GROUP_RANGE_NAME`: the name of the group range that you created previously
   * `LOGGING_ENABLED`: determines whether [group membership event logging](https://docs.cloud.google.com/vpc/docs/multicast/view-membership-logs) is enabled. Configuring logging on a zonal group range activation overrides the setting for the global group range. 
-    * To enable logging, set to `true`.
-    * (Default) To disable logging, set to `false`.
+    * (Default) To inherit the logging setting from the global group range, omit the `logConfig` field from the request body.
+    * To enable logging in this zone regardless of the global setting, set `enabled` to `true`.
+    * To disable logging in this zone regardless of the global setting, set `enabled` to `false`.
 
 
 
@@ -238,6 +240,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

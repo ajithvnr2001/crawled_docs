@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/supported-commands/
 title: Supported and blocked commands \u00a0|\u00a0 Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:40:09.592728+00:00
+fetched_at: 2026-11-10T18:56:22.088474+00:00
 ---
 
 # Supported and blocked commands  |  Memorystore for Redis  |  Google Cloud Documentation
@@ -28,426 +28,517 @@ This page lists the commands from the [official Redis command library](https://r
 
 Memorystore for Redis supports the following commands:
 
-  * APPEND
-  * ASKING
-  * AUTH
-  * BITCOUNT
-  * BITFIELD
-  * BITFIELD_RO
-  * BITOP
-  * BITPOS
-  * BLMOVE
-  * BLMPOP
-  * BLPOP
-  * BRPOP
-  * BRPOPLPUSH
-  * BZMPOP
-  * BZPOPMAX
-  * BZPOPMIN
-  * COPY
-  * DBSIZE
-  * DECR
-  * DECRBY
-  * DEL
-  * DISCARD
-  * DUMP
-  * ECHO
-  * EVAL
-  * EVAL_RO
-  * EVALSHA
-  * EVALSHA_RO
-  * EXEC
-  * EXISTS
-  * EXPIRE
-  * EXPIREAT
-  * EXPIRETIME
-  * FCALL
-  * FCALL_RO
-  * FLUSHALL
-  * FLUSHDB
-  * FUNCTION | DELETE
-  * FUNCTION | DUMP
-  * FUNCTION | FLUSH
-  * FUNCTION | HELP
-  * FUNCTION | KILL
-  * FUNCTION | LIST
-  * FUNCTION | LOAD
-  * FUNCTION | RESTORE
-  * FUNCTION | STATS
-  * GEOADD
-  * GEODIST
-  * GEOHASH
-  * GEOPOS
-  * GEORADIUS
-  * GEORADIUS_RO
-  * GEORADIUSBYMEMBER
-  * GEORADIUSBYMEMBER_RO
-  * GEOSEARCH
-  * GEOSEARCHSTORE
-  * GET
-  * GETBIT
-  * GETDEL
-  * GETEX
-  * GETRANGE
-  * GETSET
-  * HDEL
-  * HELLO
-  * HEXISTS
-  * HGET
-  * HGETALL
-  * HINCRBY
-  * HINCRBYFLOAT
-  * HKEYS
-  * HLEN
-  * HMGET
-  * HMSET
-  * HRANDFIELD
-  * HSCAN
-  * HSET
-  * HSETNX
-  * HSTRLEN
-  * HVALS
-  * INCR
-  * INCRBY
-  * INCRBYFLOAT
-  * INFO
-  * KEYS
-  * LATENCY | DOCTOR
-  * LATENCY | GRAPH
-  * LATENCY | HELP
-  * LATENCY | HISTOGRAM
-  * LATENCY | HISTORY
-  * LATENCY | LATEST
-  * LATENCY | RESET
+  * `APPEND`
+  * `ASKING`
+  * `AUTH`
+  * `BITCOUNT`
+  * `BITFIELD`
+  * `BITFIELD_RO`
+  * `BITOP`
+  * `BITPOS`
+  * `BLMOVE`
+  * `BLMPOP`
+  * `BLPOP`
+  * `BRPOP`
+  * `BRPOPLPUSH`
+  * `BZMPOP`
+  * `BZPOPMAX`
+  * `BZPOPMIN`
+  * `CLIENT` | `CACHING`
+  * `CLIENT` | `GETNAME`
+  * `CLIENT` | `GETREDIR`
+  * `CLIENT` | `HELP`
+  * `CLIENT` | `ID`
+  * `CLIENT` | `INFO`
+  * `CLIENT` | `KILL`
+  * `CLIENT` | `LIST`
+  * `CLIENT` | `NO-TOUCH`
+  * `CLIENT` | `REPLY`
+  * `CLIENT` | `SETNAME`
+  * `CLIENT` | `TRACKING`
+  * `CLIENT` | `TRACKINGINFO`
 
-**Note** : The `LATENCY` command group isn't blocked. However, Memorystore for Redis doesn't support setting the `latency-monitor-threshold` parameter. Therefore, the `LATENCY` commands don't return relevant information for this parameter.
-  * LCS
+Memorystore for Redis supports this `CLIENT` command group only for Redis versions 6.x and later.
 
-  * LINDEX
+  * `COPY`
 
-  * LINSERT
+  * `DBSIZE`
 
-  * LLEN
+  * `DECR`
 
-  * LMOVE
+  * `DECRBY`
 
-  * LMPOP
+  * `DEL`
 
-  * LOLWUT
+  * `DISCARD`
 
-  * LPOP
+  * `DUMP`
 
-  * LPOS
+  * `ECHO`
 
-  * LPUSH
+  * `EVAL`
 
-  * LPUSHX
+  * `EVAL_RO`
 
-  * LRANGE
+  * `EVALSHA`
 
-  * LREM
+  * `EVALSHA_RO`
 
-  * LSET
+  * `EXEC`
 
-  * LTRIM
+  * `EXISTS`
 
-  * MEMORY | DOCTOR
+  * `EXPIRE`
 
-  * MEMORY | HELP
+  * `EXPIREAT`
 
-  * MEMORY | MALLOC-STATS
+  * `EXPIRETIME`
 
-  * MEMORY | PURGE
+  * `FCALL`
 
-  * MEMORY | STATS
+  * `FCALL_RO`
 
-  * MEMORY | USAGE
+  * `FLUSHALL`
 
-  * MGET
+  * `FLUSHDB`
 
-  * MODULE | HELP
+  * `FUNCTION` | `DELETE`
 
-  * MONITOR
+  * `FUNCTION` | `DUMP`
 
-  * MSET
+  * `FUNCTION` | `FLUSH`
 
-  * MSETNX
+  * `FUNCTION` | `HELP`
 
-  * MULTI
+  * `FUNCTION` | `KILL`
 
-  * PERSIST
+  * `FUNCTION` | `LIST`
 
-  * PEXPIRE
+  * `FUNCTION` | `LOAD`
 
-  * PEXPIREAT
+  * `FUNCTION` | `RESTORE`
 
-  * PEXPIRETIME
+  * `FUNCTION` | `STATS`
 
-  * PFADD
+  * `GEOADD`
 
-  * PFCOUNT
+  * `GEODIST`
 
-  * PFMERGE
+  * `GEOHASH`
 
-  * PING
+  * `GEOPOS`
 
-  * PSETEX
+  * `GEORADIUS`
 
-  * PSUBSCRIBE
+  * `GEORADIUS_RO`
 
-  * PTTL
+  * `GEORADIUSBYMEMBER`
 
-  * PUBLISH
+  * `GEORADIUSBYMEMBER_RO`
 
-  * PUBSUB|CHANNELS
+  * `GEOSEARCH`
 
-  * PUBSUB | HELP
+  * `GEOSEARCHSTORE`
 
-  * PUBSUB|NUMPAT
+  * `GET`
 
-  * PUBSUB|NUMSUB
+  * `GETBIT`
 
-  * PUBSUB | SHARDCHANNELS
+  * `GETDEL`
 
-  * PUBSUB | SHARDNUMSUB
+  * `GETEX`
 
-  * PUNSUBSCRIBE
+  * `GETRANGE`
 
-  * QUIT
+  * `GETSET`
 
-  * RANDOMKEY
+  * `HDEL`
 
-  * READONLY
+  * `HELLO`
 
-  * READWRITE
+  * `HEXISTS`
 
-  * RENAME
+  * `HGET`
 
-  * RENAMENX
+  * `HGETALL`
 
-  * RESET
+  * `HINCRBY`
 
-  * RESTORE
+  * `HINCRBYFLOAT`
 
-  * ROLE
+  * `HKEYS`
 
-  * RPOP
+  * `HLEN`
 
-  * RPOPLPUSH
+  * `HMGET`
 
-  * RPUSH
+  * `HMSET`
 
-  * RPUSHX
+  * `HRANDFIELD`
 
-  * SADD
+  * `HSCAN`
 
-  * SCAN
+  * `HSET`
 
-  * SCARD
+  * `HSETNX`
 
-  * SCRIPT | DEBUG
+  * `HSTRLEN`
 
-  * SCRIPT | EXISTS
+  * `HVALS`
 
-  * SCRIPT | FLUSH
+  * `INCR`
 
-  * SCRIPT | HELP
+  * `INCRBY`
 
-  * SCRIPT | KILL
+  * `INCRBYFLOAT`
 
-  * SCRIPT | LOAD
+  * `INFO`
 
-  * SDIFF
+  * `KEYS`
 
-  * SDIFFSTORE
+  * `LATENCY` | `DOCTOR`
 
-  * SELECT
+  * `LATENCY` | `GRAPH`
 
-  * SET
+  * `LATENCY` | `HELP`
 
-  * SETBIT
+  * `LATENCY` | `HISTOGRAM`
 
-  * SETEX
+  * `LATENCY` | `HISTORY`
 
-  * SETNX
+  * `LATENCY` | `LATEST`
 
-  * SETRANGE
+  * `LATENCY` | `RESET`
 
-  * SINTER
+The `LATENCY` command group isn't blocked. However, Memorystore for Redis doesn't support setting the `latency-monitor-threshold` parameter. Therefore, the `LATENCY` commands don't return relevant information for this parameter.
 
-  * SINTERCARD
+  * `LCS`
 
-  * SINTERSTORE
+  * `LINDEX`
 
-  * SISMEMBER
+  * `LINSERT`
 
-  * SLOWLOG | GET
+  * `LLEN`
 
-  * SLOWLOG | HELP
+  * `LMOVE`
 
-  * SLOWLOG | LEN
+  * `LMPOP`
 
-  * SLOWLOG | RESET
+  * `LOLWUT`
 
-  * SMEMBERS
+  * `LPOP`
 
-  * SMISMEMBER
+  * `LPOS`
 
-  * SMOVE
+  * `LPUSH`
 
-  * SORT
+  * `LPUSHX`
 
-  * SORT_RO
+  * `LRANGE`
 
-  * SPOP
+  * `LREM`
 
-  * SPUBLISH
+  * `LSET`
 
-  * SRANDMEMBER
+  * `LTRIM`
 
-  * SREM
+  * `MEMORY` | `DOCTOR`
 
-  * SSCAN
+  * `MEMORY` | `HELP`
 
-  * SSUBSCRIBE
+  * `MEMORY` | `MALLOC-STATS`
 
-  * STRLEN
+  * `MEMORY` | `PURGE`
 
-  * SUBSCRIBE
+  * `MEMORY` | `STATS`
 
-  * SUBSTR
+  * `MEMORY` | `USAGE`
 
-  * SUNION
+  * `MGET`
 
-  * SUNIONSTORE
+  * `MODULE` | `HELP`
 
-  * SUNSUBSCRIBE
+  * `MONITOR`
 
-  * TIME
+  * `MSET`
 
-  * TOUCH
+  * `MSETNX`
 
-  * TTL
+  * `MULTI`
 
-  * TYPE
+  * `PERSIST`
 
-  * UNLINK
+  * `PEXPIRE`
 
-  * UNSUBSCRIBE
+  * `PEXPIREAT`
 
-  * UNWATCH
+  * `PEXPIRETIME`
 
-  * WAIT
+  * `PFADD`
 
-  * WATCH
+  * `PFCOUNT`
 
-  * XACK
+  * `PFMERGE`
 
-  * XADD
+  * `PING`
 
-  * XAUTOCLAIM
+  * `PSETEX`
 
-  * XCLAIM
+  * `PSUBSCRIBE`
 
-  * XDEL
+  * `PTTL`
 
-  * XGROUP | CREATE
+  * `PUBLISH`
 
-  * XGROUP | CREATECONSUMER
+  * `PUBSUB` | `CHANNELS`
 
-  * XGROUP | DELCONSUMER
+  * `PUBSUB` | `HELP`
 
-  * XGROUP | DESTROY
+  * `PUBSUB` | `NUMPAT`
 
-  * XGROUP | HELP
+  * `PUBSUB` | `NUMSUB`
 
-  * XGROUP | SETID
+  * `PUBSUB` | `SHARDCHANNELS`
 
-  * XINFO | CONSUMERS
+  * `PUBSUB` | `SHARDNUMSUB`
 
-  * XINFO | GROUPS
+  * `PUNSUBSCRIBE`
 
-  * XINFO | HELP
+  * `QUIT`
 
-  * XINFO | STREAM
+  * `RANDOMKEY`
 
-  * XLEN
+  * `READONLY`
 
-  * XPENDING
+  * `READWRITE`
 
-  * XRANGE
+  * `RENAME`
 
-  * XREAD
+  * `RENAMENX`
 
-  * XREADGROUP
+  * `RESET`
 
-  * XREVRANGE
+  * `RESTORE`
 
-  * XTRIM
+  * `ROLE`
 
-  * ZADD
+  * `RPOP`
 
-  * ZCARD
+  * `RPOPLPUSH`
 
-  * ZCOUNT
+  * `RPUSH`
 
-  * ZDIFF
+  * `RPUSHX`
 
-  * ZDIFFSTORE
+  * `SADD`
 
-  * ZINCRBY
+  * `SCAN`
 
-  * ZINTER
+  * `SCARD`
 
-  * ZINTERCARD
+  * `SCRIPT` | `DEBUG`
 
-  * ZINTERSTORE
+  * `SCRIPT` | `EXISTS`
 
-  * ZLEXCOUNT
+  * `SCRIPT` | `FLUSH`
 
-  * ZMPOP
+  * `SCRIPT` | `HELP`
 
-  * ZMSCORE
+  * `SCRIPT` | `KILL`
 
-  * ZPOPMAX
+  * `SCRIPT` | `LOAD`
 
-  * ZPOPMIN
+  * `SDIFF`
 
-  * ZRANDMEMBER
+  * `SDIFFSTORE`
 
-  * ZRANGE
+  * `SELECT`
 
-  * ZRANGEBYLEX
+  * `SET`
 
-  * ZRANGEBYSCORE
+  * `SETBIT`
 
-  * ZRANGESTORE
+  * `SETEX`
 
-  * ZRANK
+  * `SETNX`
 
-  * ZREM
+  * `SETRANGE`
 
-  * ZREMRANGEBYLEX
+  * `SINTER`
 
-  * ZREMRANGEBYRANK
+  * `SINTERCARD`
 
-  * ZREMRANGEBYSCORE
+  * `SINTERSTORE`
 
-  * ZREVRANGE
+  * `SISMEMBER`
 
-  * ZREVRANGEBYLEX
+  * `SLOWLOG` | `GET`
 
-  * ZREVRANGEBYSCORE
+  * `SLOWLOG` | `HELP`
 
-  * ZREVRANK
+  * `SLOWLOG` | `LEN`
 
-  * ZSCAN
+  * `SLOWLOG` | `RESET`
 
-  * ZSCORE
+  * `SMEMBERS`
 
-  * ZUNION
+  * `SMISMEMBER`
 
-  * ZUNIONSTORE
+  * `SMOVE`
+
+  * `SORT`
+
+  * `SORT_RO`
+
+  * `SPOP`
+
+  * `SPUBLISH`
+
+  * `SRANDMEMBER`
+
+  * `SREM`
+
+  * `SSCAN`
+
+  * `SSUBSCRIBE`
+
+  * `STRLEN`
+
+  * `SUBSCRIBE`
+
+  * `SUBSTR`
+
+  * `SUNION`
+
+  * `SUNIONSTORE`
+
+  * `SUNSUBSCRIBE`
+
+  * `TIME`
+
+  * `TOUCH`
+
+  * `TTL`
+
+  * `TYPE`
+
+  * `UNLINK`
+
+  * `UNSUBSCRIBE`
+
+  * `UNWATCH`
+
+  * `WAIT`
+
+  * `WATCH`
+
+  * `XACK`
+
+  * `XADD`
+
+  * `XAUTOCLAIM`
+
+  * `XCLAIM`
+
+  * `XDEL`
+
+  * `XGROUP` | `CREATE`
+
+  * `XGROUP` | `CREATECONSUMER`
+
+  * `XGROUP` | `DELCONSUMER`
+
+  * `XGROUP` | `DESTROY`
+
+  * `XGROUP` | `HELP`
+
+  * `XGROUP` | `SETID`
+
+  * `XINFO` | `CONSUMERS`
+
+  * `XINFO` | `GROUPS`
+
+  * `XINFO` | `HELP`
+
+  * `XINFO` | `STREAM`
+
+  * `XLEN`
+
+  * `XPENDING`
+
+  * `XRANGE`
+
+  * `XREAD`
+
+  * `XREADGROUP`
+
+  * `XREVRANGE`
+
+  * `XTRIM`
+
+  * `ZADD`
+
+  * `ZCARD`
+
+  * `ZCOUNT`
+
+  * `ZDIFF`
+
+  * `ZDIFFSTORE`
+
+  * `ZINCRBY`
+
+  * `ZINTER`
+
+  * `ZINTERCARD`
+
+  * `ZINTERSTORE`
+
+  * `ZLEXCOUNT`
+
+  * `ZMPOP`
+
+  * `ZMSCORE`
+
+  * `ZPOPMAX`
+
+  * `ZPOPMIN`
+
+  * `ZRANDMEMBER`
+
+  * `ZRANGE`
+
+  * `ZRANGEBYLEX`
+
+  * `ZRANGEBYSCORE`
+
+  * `ZRANGESTORE`
+
+  * `ZRANK`
+
+  * `ZREM`
+
+  * `ZREMRANGEBYLEX`
+
+  * `ZREMRANGEBYRANK`
+
+  * `ZREMRANGEBYSCORE`
+
+  * `ZREVRANGE`
+
+  * `ZREVRANGEBYLEX`
+
+  * `ZREVRANGEBYSCORE`
+
+  * `ZREVRANK`
+
+  * `ZSCAN`
+
+  * `ZSCORE`
+
+  * `ZUNION`
+
+  * `ZUNIONSTORE`
 
 
 
@@ -456,43 +547,48 @@ Memorystore for Redis supports the following commands:
 
 Memorystore for Redis supports all Redis 7.2 commands, except for the commands that are listed in this section. For these blocked commands, Memorystore for Redis returns a `NOPERM` error.
 
-  * ACL | CAT
-  * ACL | DELUSER
-  * ACL | GENPASS
-  * ACL | GETUSER
-  * ACL | HELP
-  * ACL | LIST
-  * ACL | LOAD
-  * ACL | LOG
-  * ACL | SAVE
-  * ACL | SETUSER
-  * ACL | USERS
-  * ACL | WHOAMI
-  * ACL | CAT
-  * ACL | GENPASS
-  * ACL | HELP
-  * ACL | WHOAMI
-  * BGREWRITEAOF
-  * BGSAVE
-  * CLIENT
-  * CLUSTER
-  * COMMAND
-  * CONFIG
+  * `ACL` | `CAT`
+  * `ACL` | `DELUSER`
+  * `ACL` | `GENPASS`
+  * `ACL` | `GETUSER`
+  * `ACL` | `HELP`
+  * `ACL` | `LIST`
+  * `ACL` | `LOAD`
+  * `ACL` | `LOG`
+  * `ACL` | `SAVE`
+  * `ACL` | `SETUSER`
+  * `ACL` | `USERS`
+  * `ACL` | `WHOAMI`
+  * `ACL` | `CAT`
+  * `ACL` | `GENPASS`
+  * `ACL` | `HELP`
+  * `ACL` | `WHOAMI`
+  * `BGREWRITEAOF`
+  * `BGSAVE`
+  * `CLIENT` | `NO-EVICT`
+  * `CLIENT` | `PAUSE`
+  * `CLIENT` | `SETINFO`
+  * `CLIENT` | `UNBLOCK`
+  * `CLIENT` | `UNPAUSE`
+  * `CLUSTER`
+  * `COMMAND`
+  * `CONFIG`
 
-**Note** : Memorystore for Redis blocks the `CONFIG` command, which stops you from modifying the `redis.conf` file for your Redis server. However, you can use the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) to modify a defined set of [supported Redis configurations](https://docs.cloud.google.com/memorystore/docs/redis/supported-redis-configurations).
-  * DEBUG
+Memorystore for Redis blocks the `CONFIG` command, which stops you from modifying the `redis.conf` file for your Redis server. However, you can use the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) to modify a defined set of supported Redis configurations. For more information, see [Supported Redis configurations](https://docs.cloud.google.com/memorystore/docs/redis/supported-redis-configurations).
 
-  * LASTSAVE
+  * `DEBUG`
 
-  * MIGRATE
+  * `LASTSAVE`
 
-  * OBJECT
+  * `MIGRATE`
 
-  * REPLICAOF
+  * `OBJECT`
 
-  * SAVE
+  * `REPLICAOF`
 
-  * SHUTDOWN
+  * `SAVE`
+
+  * `SHUTDOWN`
 
 
 
@@ -501,6 +597,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

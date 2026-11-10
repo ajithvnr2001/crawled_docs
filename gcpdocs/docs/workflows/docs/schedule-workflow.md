@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/schedule-workflow/
 title: Schedule a workflow using Cloud Scheduler \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:54.833002+00:00
+fetched_at: 2026-11-10T14:05:04.506035+00:00
 ---
 
 # Schedule a workflow using Cloud Scheduler  |  Workflows  |  Google Cloud Documentation
@@ -149,7 +149,7 @@ Replace the following:
 
 Your workflow now executes according to the frequency you have defined.
 
-**Note:** Each execution of a workflow incurs costs, as detailed in [Workflows pricing](https://cloud.google.com/workflows/pricing). To stop incurring costs from a scheduled workflow, [delete the Cloud Scheduler job](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/delete).
+**Note:** Each execution of a workflow incurs costs, as detailed in [Workflows pricing](https://cloud.google.com/workflows/pricing). To stop incurring costs from a scheduled workflow, [delete the Cloud Scheduler job](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/delete). To prevent duplicate workflow executions when Cloud Scheduler retries a job, see [Prevent duplicate requests to Google Cloud API targets](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests#deduplicate-google-api-targets).
 
 ## What's next
 
@@ -163,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

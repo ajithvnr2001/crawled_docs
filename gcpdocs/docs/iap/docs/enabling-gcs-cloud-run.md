@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/enabling-gcs-cloud-run/
 title: Enable IAP for Cloud Storage buckets \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:29.060436+00:00
+fetched_at: 2026-11-10T16:58:58.113460+00:00
 ---
 
 # Enable IAP for Cloud Storage buckets  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -32,8 +32,11 @@ Cloud Storage static website hosting only serves public content and requires gra
 To complete the instructions in this document, you need the following:
 
   * A Google Cloud project with billing enabled. [Go to Google Cloud console](https://console.cloud.google.com/)
+
   * A private Cloud Storage bucket that contains your static files (for example, `index.html`, CSS, and images). Ensure the bucket is not public.
+
   * The [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk) installed.
+
 
 
 
@@ -80,9 +83,13 @@ To mount the bucket, deploy the service with volume flags:
 Replace the following:
 
   * `SERVICE_NAME`: the name of your Cloud Run service
+
   * `RUN_SERVICE_ACCOUNT`: the service account that you created in the previous step
+
   * `PROJECT_ID`: your Google Cloud project ID
+
   * `BUCKET_NAME`: the name of your Cloud Storage bucket
+
 
 
 
@@ -125,7 +132,9 @@ Reading files from a Cloud Storage volume mount might be slower than accessing a
 You can also use Cloud Storage volume mounts for other scenarios:
 
   * **Event-driven functions** : A function reads uploaded files directly from the file system.
+
   * **Generative AI applications** : An application loads a vector database (such as Chroma) from a Cloud Storage bucket using standard file system reads.
+
 
 
 
@@ -137,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

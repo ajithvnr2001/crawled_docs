@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods/
 title: GKE Sandbox \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:42:59.894229+00:00
+fetched_at: 2026-11-10T16:58:39.658515+00:00
 ---
 
 # GKE Sandbox  |  GKE security  |  Google Cloud Documentation
@@ -67,22 +67,24 @@ GKE Sandbox supports the following sandbox technologies, each of which uses a di
   * **MicroVMs** : lightweight virtual machines that run a full Linux kernel and operating system. Each Pod runs in its own microVM, which provides strict isolation from other Pods and from the host node. GKE Sandbox uses the open source [Kata Containers](https://kata-containers.github.io/kata-containers/) software and the [Cloud Hypervisor](https://www.cloudhypervisor.org/) virtual machine monitor (VMM) to create and manage microVMs.
 
 
-
-
-The following table summarizes the key differences between gVisor and microVMs. Use this information to choose the appropriate sandbox technology for your use case.
-
-| gVisor | MicroVMs  
+The following table summarizes the key differences between microVMs and gVisor. Use this information to choose the appropriate sandbox technology for your use case. Feature | MicroVMs | gVisor  
 ---|---|---  
-Kernel access | Subset of Linux kernel syscalls | Full Linux kernel  
-Isolation level | Syscall interception in a userspace kernel | Full hardware virtualization with a dedicated guest kernel  
-CPU and memory overhead | Dynamic overhead with low base memory for the userspace kernel | Fixed overhead of 250 mCPU and 130 MiB of memory for each Pod  
-Start time | Less than 200 ms | Approximately one to two seconds  
-GKE node configuration | Available in any Standard node pools and Autopilot nodes. Enabled by default in Autopilot clusters. | Available only in nodes that enable nested virtualization.  
-Node image support | Container-Optimized OS only | Container-Optimized OS or Ubuntu  
-Machine type compatibility | Supported by most CPUs, Arm architecture, and accelerator machine types. | Supported only by machine types that support nested virtualization.  
-Accelerator support | Supports specific GPU models and TPU versions. | Doesn't support GPUs or TPUs.  
-Privileged containers | Not supported. | Supported. Privileged containers get root access only to the guest OS in the microVM, and not to the host node.  
+Kernel access | Full Linux kernel | Subset of Linux kernel syscalls  
+Isolation level |  Full hardware virtualization with a dedicated guest kernel  |  Syscall interception in a userspace kernel   
+CPU and memory overhead |  Fixed overhead of 250 mCPU and 130 MiB of memory for each Pod  |  Dynamic overhead with low base memory for the userspace kernel   
+Start time |  Approximately one to two seconds  | Less than 100 ms  
+GKE node configuration |  Requires GKE Standard nodes with [nested virtualization](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/nested-virtualization) enabled  |  Available in GKE Standard node pools and GKE Autopilot nodes. Enabled by default in GKE Autopilot clusters.   
+Node image support |  Container-Optimized OS (`cos_containerd`) or Ubuntu  |  Container-Optimized OS (`cos_containerd`) only   
+Machine type compatibility |  Supported by x86 [machine series that support nested virtualization](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/overview) (not supported on E2 or Arm VMs)  |  Supported by most x86 CPUs, Arm architecture, and accelerator machine types   
+Accelerator support |  Doesn't support GPUs or TPUs.  |  Supports specific GPU models and TPU versions.   
 Example use cases | 
+
+  * AI agents that generate and execute code without supervision
+  * Autonomous code that runs in browsers, such as Puppeteer
+  * Workloads that expect access to the full Linux kernel
+  * Workloads that generate a high volume of low-overhead system calls, such as a large number of small I/O operations
+
+| 
 
   * Untrusted or third-party applications using runtimes such as Rust, Java, Python, PHP, Node.js, or Golang
   * Web server frontends, caches, or proxies
@@ -91,15 +93,10 @@ Example use cases |
   * AI inference workloads that process arbitrary inputs or run code
   * Training workloads that process large third-party datasets and models
 
-| 
-
-  * AI agents that generate and execute code without supervision
-  * Autonomous code that runs in browsers, such as Puppeteer
-  * Workloads that expect access to the full Linux kernel
-  * Workloads that generate a high volume of low-overhead system calls, such as a large number of small I/O operations
-
   
   
+If you are running AI agent workloads that execute untrusted code, you can use microVMs or gVisor with [Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate) or [Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox). To compare these orchestration models, see [Plan an architecture for AI agent workloads on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-workloads).
+
 For more information that might help you to decide which applications to run in a specific type of sandbox, see Limitations.
 
 ## How requesting sandboxes works
@@ -353,6 +350,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

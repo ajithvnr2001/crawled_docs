@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/sql-mysql/
 title: Conversational analytics for Cloud SQL for MySQL overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:21:51.156392+00:00
+fetched_at: 2026-11-10T17:34:01.102120+00:00
 ---
 
 # Conversational analytics for Cloud SQL for MySQL overview  |  Data Agents  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Before customizing an agent, we recommend that you first work with the context a
 Conversational analytics provides **the following types of context** :
 
   * Guided – you create this context in the Google Cloud console. This option is well suited for users who don't want to write code directly.
-  * Advanced – you create this context in the Gemini CLI or in your IDE. We recommend this approach for users who want more control of agent quality. This context resuses the context [for the QueryData method](https://docs.cloud.google.com/sql/docs/mysql/data-agent-overview#agent-context). 
+  * Advanced – you create this context in the Gemini CLI or in your IDE. We recommend this approach for users who want more control of agent quality. This context reuses the context [for the QueryData method](https://docs.cloud.google.com/sql/docs/mysql/data-agent-overview#agent-context). 
 
 
 
@@ -74,11 +74,13 @@ You can create, manage, and work with the following types of data agents on the 
 
 For more information, see [Create data agents](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/sql-mysql/create-data-agents). 
 
-Other services in the project that support data agents, such as the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview), can access data agents that you create in Cloud SQL for MySQL . You can also access an agent created in the Google Cloud console by calling it using the Conversational Analytics API.
+Other services in the project that support data agents, such as the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview), can access data agents that you create in Cloud SQL for MySQL .
+
+You can also access an agent created in the Google Cloud console by calling it using the Conversational Analytics API.
 
 ## Conversations
 
-Conversations are persisted chats with a data agent or database data source. You can ask data agents multi-part questions that use common terms like "sales" or "most popular," without having to specify table field names or define conditions to filter the database data.
+Conversations are persisted chats with a data agent or database data source. You can ask data agents multi-part questions that use common terms like "sales" or "most popular," without having to specify field names or define conditions to filter the database data.
 
 The chat response returned to you provides the following features:
 
@@ -122,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

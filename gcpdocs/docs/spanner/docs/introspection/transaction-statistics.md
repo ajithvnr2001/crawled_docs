@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/introspection/transaction-statistics/
 title: Transaction statistics \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:55.173072+00:00
+fetched_at: 2026-11-10T12:13:33.011289+00:00
 ---
 
 # Transaction statistics  |  Spanner  |  Google Cloud Documentation
@@ -436,6 +436,81 @@ Notice the large difference between the average and the 99th percentile latency.
 
 There's only one row in the result because aggregated stats have only one entry per `interval_end` for any time duration.
 
+#### Find the 99th percentile commit latency for transactions over custom time spans
+
+`SPANNER_SYS.DISTRIBUTION_AGG` is an aggregate function that merges multiple distribution values across rows into a single distribution of the same type. To compute the percentile over a custom time span, such as the last hour, specify the start and end times on `INTERVAL_END` in the `WHERE` clause. Then use `SPANNER_SYS.DISTRIBUTION_AGG` to merge the distributions from intervals where `COUNT` is greater than zero, and pass the result to `SPANNER_SYS.DISTRIBUTION_PERCENTILE`:
+
+###  GoogleSQL 
+    
+    
+    WITH aggregated_stats AS (
+      SELECT
+        T.FPRINT,
+        -- Aggregate distribution structs by checking the COUNT field directly
+        SPANNER_SYS.DISTRIBUTION_AGG(
+          IF(
+            T.COMMIT_LATENCY_DISTRIBUTION[SAFE_OFFSET(0)].COUNT > 0,
+            T.COMMIT_LATENCY_DISTRIBUTION[SAFE_OFFSET(0)],
+            NULL
+          )
+        ) AS commit_latency_dist
+      FROM
+        SPANNER_SYS.TXN_STATS_TOP_MINUTE AS T
+      WHERE
+        T.INTERVAL_END > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
+        AND T.INTERVAL_END <= CURRENT_TIMESTAMP()
+        AND T.FPRINT = transaction-fingerprint
+      GROUP BY
+        T.FPRINT
+    )
+    SELECT
+      FPRINT,
+      -- Calculate percentiles only if an aggregated distribution exists
+      IF(commit_latency_dist IS NOT NULL,
+        SPANNER_SYS.DISTRIBUTION_PERCENTILE(commit_latency_dist, 99.0),
+        NULL) AS p99_commit_latency
+    FROM
+      aggregated_stats;
+    
+
+Replace transaction-fingerprint with a transaction fingerprint.
+
+###  PostgreSQL 
+    
+    
+    WITH aggregated_stats AS (
+      SELECT
+        T.FPRINT,
+        -- Aggregate distribution JSON strings by checking the COUNT field
+        SPANNER_SYS.DISTRIBUTION_AGG(
+          CASE
+            WHEN T.COMMIT_LATENCY_DISTRIBUTION_JSON_STRING::jsonb ->> 'COUNT' != '0'
+              THEN T.COMMIT_LATENCY_DISTRIBUTION_JSON_STRING
+            ELSE NULL
+          END
+        ) AS commit_latency_dist_str
+      FROM
+        SPANNER_SYS.TXN_STATS_TOP_MINUTE AS T
+      WHERE
+        T.INTERVAL_END > spanner.timestamptz_subtract(now(), '1 HOUR')
+        AND T.INTERVAL_END <= now()
+        AND T.FPRINT = transaction-fingerprint
+      GROUP BY
+        T.FPRINT
+    )
+    SELECT
+      FPRINT,
+      CASE
+        WHEN commit_latency_dist_str IS NOT NULL
+          THEN SPANNER_SYS.DISTRIBUTION_PERCENTILE(commit_latency_dist_str, 99.0)
+        ELSE NULL
+      END AS p99_commit_latency
+    FROM
+      aggregated_stats;
+    
+
+Replace transaction-fingerprint with a transaction fingerprint.
+
 ## Data retention
 
 At a minimum, Spanner keeps data for each table for the following time periods:
@@ -726,6 +801,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

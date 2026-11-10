@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/signed-headers-howto/
 title: Securing your app with signed headers \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:20.897597+00:00
+fetched_at: 2026-11-10T16:58:56.209282+00:00
 ---
 
 # Securing your app with signed headers  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -24,8 +24,11 @@ Send feedback
 This page describes how to secure your app with signed IAP headers. When configured, Identity-Aware Proxy (IAP) uses JSON Web Tokens (JWT) to make sure that a request to your app is authorized. This protects your app from the following risks:
 
   * IAP is accidentally disabled
+
   * Misconfigured firewalls
+
   * Unauthorized access from within the project
+
 
 
 
@@ -40,7 +43,9 @@ Compute Engine and GKE health checks don't include JWT headers and IAP doesn't p
 To secure your app with signed headers, you'll need the following:
 
   * An application that you want users to connect to.
+
   * A [third-party JWT library for your language](https://jwt.io/) that supports the `ES256` algorithm.
+
 
 
 
@@ -62,7 +67,9 @@ JWT Header Claims
 Ensure that the JWT was signed by the private key that corresponds to the token's `kid` claim. First, retrieve the public key from one of two places:
 
   * `https://www.gstatic.com/iap/verify/public_key`. This URL contains a JSON dictionary that maps the `kid` claims to the public key values.
+
   * `https://www.gstatic.com/iap/verify/public_key-jwk`. This URL contains the IAP public keys in [JWK](https://tools.ietf.org/html/rfc7517) format.
+
 
 
 
@@ -504,9 +511,13 @@ If you haven't already set a path for your health check, use the Google Cloud co
 
   1. Go to the Google Cloud console [Health checks](https://console.cloud.google.com/compute/healthChecks) page.   
 [Go to the Health checks page](https://console.cloud.google.com/compute/healthChecks)
+
   2. Click the health check you're using for your app, then click **Edit**.
+
   3. Under **Request path** add a non-sensitive path name. This specifies the URL path that Google Cloud uses when sending health check requests. If omitted, the health check request is sent to `/`.
+
   4. Click **Save**.
+
 
 
 
@@ -1036,6 +1047,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

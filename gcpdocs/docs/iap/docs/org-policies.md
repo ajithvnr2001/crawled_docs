@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/org-policies/
 title: Using organization policies to control IAP enablement \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:31:02.665019+00:00
+fetched_at: 2026-11-10T16:58:54.009849+00:00
 ---
 
 # Using organization policies to control IAP enablement  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -29,9 +29,10 @@ IAP is a global service, and any IAP configuration is replicated globally. There
 
 ## IAP organization policies
 
-The following organization policies restrict IAP enablement for global and regional applications: 
+The following organization policies restrict IAP enablement for global and regional applications:
 
   * Global: `iap.requireGlobalIapWebDisabled`
+
   * Regional: `iap.requireRegionalIapWebDisabled`
 
 
@@ -39,9 +40,16 @@ The following organization policies restrict IAP enablement for global and regio
 
 You can use the organization policies to prevent administrators from enabling IAP on the following services:
 
-* [Compute Engine backend services](https://docs.cloud.google.com/assured-workloads/docs/restrict-creation-global-resources#org_iap), API reference: `backendServices/regionBackendServices` insert, update, and patch operations * App Engine applications, API reference: `Applications.updateApplication`
+  * [Compute Engine backend services](https://docs.cloud.google.com/assured-workloads/docs/restrict-creation-global-resources#org_iap), API reference: `backendServices/regionBackendServices` insert, update, and patch operations
 
-When you enable one or both of the policy constraints, it prevents future enabling of IAP on global or regional applications, respectively. Setting the policy constraints does not automatically disable IAP protections that are in place for existing Compute Engine or App Engine applications. For existing applications that IAP is enabled on, ensure that you bring them into compliance with the newly set policies without sacrificing your security posture.
+  * App Engine applications, API reference: `Applications.updateApplication`
+
+
+
+
+When you enable one or both of the policy constraints, it prevents future enabling of IAP on global or regional applications, respectively. Setting the policy constraints does not automatically disable IAP protections that are in place for existing Compute Engine or App Engine applications.
+
+For existing applications that IAP is enabled on, ensure that you bring them into compliance with the newly set policies without sacrificing your security posture.
 
 Organization policies specifically and strictly control only IAP enablement and not other aspects of the IAP configuration. When an organization policy is in place, an administrator can update any IAP settings, including OAuth Client information, for any application that is out of compliance at the time of the policy enforcement. This flexibility lets you maintain a strong security posture while working to bring all of your services into compliance with data residency requirements. 
 
@@ -49,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

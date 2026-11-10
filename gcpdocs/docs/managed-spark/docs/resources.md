@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/resources/
 title: Resources \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:50:31.531079+00:00
+fetched_at: 2026-11-10T17:00:06.477627+00:00
 ---
 
 # Resources  |  Managed Service for Apache Spark  |  Google Cloud Documentation

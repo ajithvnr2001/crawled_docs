@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/exadb-vm-clusters/create/
 title: gcloud oracle-database exadb-vm-clusters create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T01:43:36.447591+00:00
+fetched_at: 2026-11-10T17:34:02.299236+00:00
 ---
 
 # gcloud oracle-database exadb-vm-clusters create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud oracle-database exadb-vm-clusters create - create a new ExadbVmCluster
 SYNOPSIS
     
 
-`gcloud oracle-database exadb-vm-clusters create` `EXADB_VM_CLUSTER` `--backup-odb-subnet`=`BACKUP_ODB_SUBNET` `--display-name`=`DISPLAY_NAME` `--odb-subnet`=`ODB_SUBNET` (`--properties-enabled-ecpu-count-per-node`=`PROPERTIES_ENABLED_ECPU_COUNT_PER_NODE` `--properties-exascale-db-storage-vault`=`PROPERTIES_EXASCALE_DB_STORAGE_VAULT` `--properties-grid-image-id`=`PROPERTIES_GRID_IMAGE_ID` `--properties-hostname-prefix`=`PROPERTIES_HOSTNAME_PREFIX` `--properties-node-count`=`PROPERTIES_NODE_COUNT` `--properties-shape-attribute`=`PROPERTIES_SHAPE_ATTRIBUTE` `--properties-ssh-public-keys`=[`PROPERTIES_SSH_PUBLIC_KEYS`,…] `--vm-file-system-storage-size-in-gbs-per-node`=`VM_FILE_SYSTEM_STORAGE_SIZE_IN_GBS_PER_NODE` : `--properties-additional-ecpu-count-per-node`=`PROPERTIES_ADDITIONAL_ECPU_COUNT_PER_NODE` `--properties-cluster-name`=`PROPERTIES_CLUSTER_NAME` `--properties-license-model`=`PROPERTIES_LICENSE_MODEL` `--properties-scan-listener-port-tcp`=`PROPERTIES_SCAN_LISTENER_PORT_TCP` `--data-collection-options-is-diagnostics-events-enabled` `--data-collection-options-is-health-monitoring-enabled` `--data-collection-options-is-incident-logs-enabled` `--time-zone-id`=`TIME_ZONE_ID` `--time-zone-version`=`TIME_ZONE_VERSION`) [`--async`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--odb-network`=`ODB_NETWORK`] [`--request-id`=`REQUEST_ID`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud oracle-database exadb-vm-clusters create` `EXADB_VM_CLUSTER` `--backup-odb-subnet`=`BACKUP_ODB_SUBNET` `--display-name`=`DISPLAY_NAME` `--odb-subnet`=`ODB_SUBNET` (`--properties-enabled-ecpu-count-per-node`=`PROPERTIES_ENABLED_ECPU_COUNT_PER_NODE` `--properties-exascale-db-storage-vault`=`PROPERTIES_EXASCALE_DB_STORAGE_VAULT` `--properties-grid-image-id`=`PROPERTIES_GRID_IMAGE_ID` `--properties-hostname-prefix`=`PROPERTIES_HOSTNAME_PREFIX` `--properties-node-count`=`PROPERTIES_NODE_COUNT` `--properties-shape-attribute`=`PROPERTIES_SHAPE_ATTRIBUTE` `--properties-ssh-public-keys`=[`PROPERTIES_SSH_PUBLIC_KEYS`,…] `--vm-file-system-storage-size-in-gbs-per-node`=`VM_FILE_SYSTEM_STORAGE_SIZE_IN_GBS_PER_NODE` : `--properties-additional-ecpu-count-per-node`=`PROPERTIES_ADDITIONAL_ECPU_COUNT_PER_NODE` `--properties-cluster-name`=`PROPERTIES_CLUSTER_NAME` `--properties-license-model`=`PROPERTIES_LICENSE_MODEL` `--properties-scan-listener-port-tcp`=`PROPERTIES_SCAN_LISTENER_PORT_TCP` `--data-collection-options-is-diagnostics-events-enabled` `--data-collection-options-is-health-monitoring-enabled` `--data-collection-options-is-incident-logs-enabled` `--time-zone-id`=`TIME_ZONE_ID` `--time-zone-version`=`TIME_ZONE_VERSION`) [`--async`] [`--identity-connector-disabled`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--odb-network`=`ODB_NETWORK`] [`--request-id`=`REQUEST_ID`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new ExadbVmCluster. 
 EXAMPLES
@@ -228,6 +228,8 @@ OPTIONAL FLAGS
 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
+`--identity-connector-disabled`
+     If set to true, disables the automatic provisioning of the Workload Identity Connector during creation. If set to false or omitted, the Workload Identity Connector will be automatically provisioned by default. Note: Provisioning the Workload Identity Connector is a prerequisite for enabling Google Cloud CMEK. 
 `--labels`=[`LABELS`,…]
      The labels or tags associated with the ExadbVmCluster. 
 
@@ -273,6 +275,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-23 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

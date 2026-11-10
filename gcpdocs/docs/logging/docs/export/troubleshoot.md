@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/troubleshoot/
 title: Troubleshoot routing and storing logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:30:28.364800+00:00
+fetched_at: 2026-11-10T14:04:29.161842+00:00
 ---
 
 # Troubleshoot routing and storing logs  |  Cloud Logging  |  Google Cloud Documentation
@@ -466,11 +466,11 @@ To avoid seeing these log entries in the Logs Explorer, you can [refine the scop
 
 ### Why can't I delete this bucket?
 
-If you're trying to delete a bucket, do the following:
+If you're trying to delete a user-defined log bucket, do the following:
 
-  * Verify that you have the correct permissions to delete the bucket. For the list of the permissions that you need, see [Access control with IAM](https://docs.cloud.google.com/logging/docs/access-control).
+  * Verify that you have the correct permissions to delete the log bucket. For the list of the permissions that you need, see [Access control with IAM](https://docs.cloud.google.com/logging/docs/access-control).
 
-  * Determine whether the bucket is locked by listing the bucket's attributes. If the bucket is locked, check the bucket's retention period. You can't delete a locked bucket until all of the logs in the bucket have fulfilled the bucket's retention period.
+  * Determine whether the log bucket is locked by listing the bucket's attributes. You can't delete a locked bucket.
 
 
 
@@ -521,6 +521,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

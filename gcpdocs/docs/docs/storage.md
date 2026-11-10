@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/storage/
 title: Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:45.114488+00:00
+fetched_at: 2026-11-10T12:13:29.535655+00:00
 ---
 
 # Storage  |  Google Cloud Documentation

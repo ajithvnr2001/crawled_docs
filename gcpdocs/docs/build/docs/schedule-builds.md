@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/schedule-builds/
 title: Schedule builds \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:07.583906+00:00
+fetched_at: 2026-11-10T14:04:41.315754+00:00
 ---
 
 # Schedule builds  |  Cloud Build  |  Google Cloud Documentation
@@ -144,6 +144,7 @@ To make sure your trigger will no longer run at a specified time, [delete your C
   * Learn how to [start builds manually](https://docs.cloud.google.com/build/docs/running-builds/start-build-manually) using `gcloud` commands or the Cloud Build API.
   * Learn how to [create and manage triggers](https://docs.cloud.google.com/build/docs/automating-builds/create-manage-triggers).
   * Learn how to [view build results](https://docs.cloud.google.com/build/docs/view-build-results).
+  * Learn how to [prevent duplicate requests to Google Cloud API targets](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests#deduplicate-google-api-targets) when Cloud Scheduler retries a job.
 
 
 
@@ -151,6 +152,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

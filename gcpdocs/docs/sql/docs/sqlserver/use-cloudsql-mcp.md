@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/use-cloudsql-mcp/
 title: Use the Cloud SQL remote MCP server \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:15.895067+00:00
+fetched_at: 2026-11-10T18:48:42.609273+00:00
 ---
 
 # Use the Cloud SQL remote MCP server  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ To get the permissions that you need to use the Cloud SQL remote MCP server, ask
   * Create, clone, restore from backup, or update a Cloud SQL instance: [Cloud SQL Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.admin) (`roles/cloudsql.admin`) 
   * Update a Cloud SQL user: [Cloud SQL Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.admin) (`roles/cloudsql.admin`) 
   * Create secrets and access secret versions in Secret Manager: [Secret Manager Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/secretmanager#secretmanager.admin) (`roles/secretmanager.admin`) 
-  * Execute SQL statements (including read-only) in Cloud SQL: 
+  * Execute SQL statements in Cloud SQL: 
     * [Cloud SQL Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.admin) (`roles/cloudsql.admin`)
     * [Cloud SQL Studio User ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.StudioUser) (`roles/cloudsql.StudioUser`)
   * Get a Cloud SQL instance or list all Cloud SQL instances in a project: [Cloud SQL Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.viewer) (`roles/cloudsql.viewer`) 
@@ -102,7 +102,7 @@ The following permissions are required to use the Cloud SQL remote MCP server:
   * Clone a Cloud SQL instance: `cloudsql.instances.clone`
   * Create a Cloud SQL instance: `cloudsql.instances.create`
   * Create a Cloud SQL backup: `cloudsql.backupRuns.create`
-  * Execute SQL statements (including read-only) on a Cloud SQL instance: `cloudsql.instances.executeSql`
+  * Execute SQL statements on a Cloud SQL instance: `cloudsql.instances.executeSql`
   * Get a Cloud SQL instance: `cloudsql.instances.get`
   * Get a Cloud SQL instance operation: `cloudsql.instances.get`
   * Import data to a Cloud SQL instance: `cloudsql.instances.import`
@@ -418,7 +418,6 @@ The Cloud SQL remote MCP server provides specialized endpoint URLs (toolsets) th
     * `get_operation`
     * `list_instances`
     * `list_users`
-    * `execute_sql_readonly`
   * **Instance management** : `https://sqladmin.googleapis.com/mcp/instance_manage` Exposes tools for creating, modifying, and managing Cloud SQL instances:
 
     * `clone_instance`
@@ -440,7 +439,6 @@ The Cloud SQL remote MCP server provides specialized endpoint URLs (toolsets) th
   * `create_backup`: creates a backup of a Cloud SQL instance.
   * `create_instance`: initiates the creation of a Cloud SQL instance. 
   * `execute_sql`: executes any valid SQL statements (DDL, DCL, DQL, DML) on a Cloud SQL instance.
-  * `execute_sql_readonly`: executes any valid read-only SQL statement on a Cloud SQL instance.
   * `get_instance`: gets the details of a Cloud SQL instance.
   * `get_operation`: gets the status of a long-running operation in Cloud SQL.
   * `import_data`: imports data into a Cloud SQL instance from Cloud Storage.
@@ -512,9 +510,7 @@ The `update_instance` tool lets you make the following updates to your Cloud SQL
 
 ### Execute SQL statements
 
-The remote Cloud SQL MCP server provides two separate tools for executing SQL statements. You can use the `execute_sql` tool to administer and make changes to your database. For executing read-only SQL statements, such as querying data, you can use the `execute_sql_readonly` tool.
-
-In both cases, to execute the SQL statements, your Cloud SQL instance must meet the following requirements:
+To execute SQL statements using the `execute_sql` tool, your Cloud SQL instance must meet the following requirements:
 
   * The `data_api_access` configuration setting on the instance must be set to the value `ALLOW_DATA_API`. When you create an instance using the `create_instance` tool, the `data_api_access` configuration setting is configured automatically.
   * To authenticate, use a [built-in database user](https://docs.cloud.google.com/sql/docs/sqlserver/built-in-authentication) account. Store the user's password in a [regional secret](https://docs.cloud.google.com/secret-manager/regional-secrets/create-regional-secret) in Secret Manager in the same region as your Cloud SQL instance, and specify both `user` and `password_secret_version` when calling the tool.
@@ -525,7 +521,7 @@ If the `data_api_access` configuration setting for the instance isn't set to `AL
 
 #### sqlcommenter tags
 
-When executing queries using the `execute_sql` or `execute_sql_readonly` tool, set the optional `sql_commenter_enabled` parameter to `true` to append [sqlcommenter](https://google.github.io/sqlcommenter/) tags to the SQL statements for database observability and telemetry. The appended comment includes the following tags:
+When executing queries using the `execute_sql` tool, set the optional `sql_commenter_enabled` parameter to `true` to append [sqlcommenter](https://google.github.io/sqlcommenter/) tags to the SQL statements for database observability and telemetry. The appended comment includes the following tags:
 
   * `mcp.tool`: the name of the MCP tool called.
   * `mcp.server`: the identity of the remote MCP server (`Remote MCP Server`).
@@ -606,9 +602,9 @@ You can query a Cloud SQL database, update records, and make schema updates usin
 
 The Cloud SQL remote MCP server has the following limitations:
 
-  * If the `execute_sql` or `execute_sql_readonly` tool returns a response that's larger than 10 MB, then the response will be truncated.
-  * When using the `execute_sql` or `execute_sql_readonly` tool, queries that run for longer than 30 seconds can time out.
-  * Cloud SQL for SQL Server doesn't support the `create_user` tool.
+  * If the `execute_sql` tool returns a response that's larger than 10 MB, then the response will be truncated.
+  * When using the `execute_sql` tool, queries that run for longer than 30 seconds can time out.
+  * Cloud SQL for SQL Server doesn't support the `create_user` or `execute_sql_readonly` tools.
 
 
 
@@ -739,6 +735,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

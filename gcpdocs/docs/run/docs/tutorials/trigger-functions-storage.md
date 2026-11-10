@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/tutorials/trigger-functions-storage/
 title: Trigger functions from Cloud Storage using Eventarc \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:06.708840+00:00
+fetched_at: 2026-11-10T12:13:25.076560+00:00
 ---
 
 # Trigger functions from Cloud Storage using Eventarc  |  Cloud Run  |  Google Cloud Documentation
@@ -360,6 +360,185 @@ This adds packages needed by the sample.
 
 
 
+###  Java 
+
+  1. Create a new directory named `helloGCS` and change directory into it:
+         
+         mkdir helloGCS
+            cd helloGCS
+         
+
+  2. Create a `pom.xml` file in the `helloGCS` directory to specify Java dependencies:
+         
+         <?xml version="1.0" encoding="UTF-8"?>
+         
+         <!--
+           Copyright 2021 Google LLC
+         
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+         
+           http://www.apache.org/licenses/LICENSE-2.0
+         
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+         -->
+         
+         <project xmlns="http://maven.apache.org/POM/4.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+           <modelVersion>4.0.0</modelVersion>
+         
+           <groupId>com.example.functions</groupId>
+           <artifactId>functions-hello-gcs</artifactId>
+         
+           <parent>
+             <groupId>com.google.cloud.samples</groupId>
+             <artifactId>shared-configuration</artifactId>
+             <version>1.2.0</version>
+           </parent>
+         
+           <properties>
+             <maven.compiler.target>11</maven.compiler.target>
+             <maven.compiler.source>11</maven.compiler.source>
+             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+           </properties>
+         
+           <!-- used for google-cloud-{storage, logging} dependencies in ExampleSystemTest -->
+           <dependencyManagement>
+             <dependencies>
+               <dependency>
+                 <groupId>com.google.cloud</groupId>
+                 <artifactId>libraries-bom</artifactId>
+                 <version>26.32.0</version>
+                 <type>pom</type>
+                 <scope>import</scope>
+               </dependency>
+             </dependencies>
+           </dependencyManagement>
+         
+           <dependencies>
+             <!-- Required for Function primitives -->
+             <dependency>
+               <groupId>com.google.cloud.functions</groupId>
+               <artifactId>functions-framework-api</artifactId>
+               <version>1.1.0</version>
+               <scope>provided</scope>
+             </dependency>
+         
+             <dependency>
+               <groupId>com.google.cloud</groupId>
+               <artifactId>google-cloudevent-types</artifactId>
+               <version>0.14.0</version>
+             </dependency>
+             <!-- The following dependencies are only required for testing -->
+             <dependency>
+               <groupId>com.google.truth</groupId>
+               <artifactId>truth</artifactId>
+               <version>1.4.0</version>
+               <scope>test</scope>
+             </dependency>
+             <dependency>
+               <groupId>com.google.guava</groupId>
+               <artifactId>guava-testlib</artifactId>
+               <scope>test</scope>
+             </dependency>
+         
+             <!-- Pre-install the Functions Framework plugin -->
+             <dependency>
+               <groupId>com.google.cloud.functions</groupId>
+               <artifactId>function-maven-plugin</artifactId>
+               <version>0.11.0</version>
+               <scope>test</scope>
+             </dependency>
+           </dependencies>
+         
+           <build>
+             <plugins>
+               <plugin>
+                 <!--
+                   Google Cloud Functions Framework Maven plugin
+         
+                   This plugin allows you to run Cloud Functions Java code
+                   locally. Use the following terminal command to run a
+                   given function locally:
+         
+                   mvn function:run -Drun.functionTarget=your.package.yourFunction
+                 -->
+                 <groupId>com.google.cloud.functions</groupId>
+                 <artifactId>function-maven-plugin</artifactId>
+                 <version>0.11.0</version>
+                 <configuration>
+                   <functionTarget>functions.HelloGcs</functionTarget>
+                   <port>8082</port>
+                 </configuration>
+               </plugin>
+               <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-surefire-plugin</artifactId>
+                 <version>3.2.5</version>
+                 <configuration>
+                   <includes>
+                     <include>**/*Test.java</include>
+                   </includes>
+                   <skipTests>${skipTests}</skipTests>
+                   <reportNameSuffix>sponge_log</reportNameSuffix>
+                   <trimStackTrace>false</trimStackTrace>
+                 </configuration>
+               </plugin>
+             </plugins>
+           </build>
+         </project>
+
+  3. Create a `src/main/java/functions/HelloGcs.java` file in the `package functions` with the following Java sample:
+         
+         import com.google.cloud.functions.CloudEventsFunction;
+         import com.google.events.cloud.storage.v1.[StorageObjectData](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html);
+         import com.google.protobuf.[InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html);
+         import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
+         import io.cloudevents.CloudEvent;
+         import java.nio.charset.StandardCharsets;
+         import java.util.logging.Logger;
+         
+         public class HelloGcs implements CloudEventsFunction {
+           private static final Logger logger = Logger.getLogger(HelloGcs.class.getName());
+         
+           @Override
+           public void accept(CloudEvent event) throws [InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html) {
+             logger.info("Event: " + event.getId());
+             logger.info("Event Type: " + event.getType());
+         
+             if (event.getData() == null) {
+               logger.warning("No data found in cloud event payload!");
+               return;
+             }
+         
+             String cloudEventData = new String(event.getData().toBytes(), StandardCharsets.UTF_8);
+             [StorageObjectData](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html).Builder builder = [StorageObjectData](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html).newBuilder();
+         
+             // If you do not ignore unknown fields, then JsonFormat.Parser returns an
+             // error when encountering a new or unknown field. Note that you might lose
+             // some event data in the unmarshaling process by ignoring unknown fields.
+             [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).[Parser](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Parser.html) parser = [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().ignoringUnknownFields();
+             parser.merge(cloudEventData, builder);
+             [StorageObjectData](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html) data = [builder](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormatParseInfoTree.html#com_google_protobuf_TextFormatParseInfoTree_builder__).build();
+         
+             logger.info("Bucket: " + data.[getBucket](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html#com_google_events_cloud_storage_v1_StorageObjectData_getBucket__)());
+             logger.info("File: " + data.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html#com_google_events_cloud_storage_v1_StorageObjectData_getName__)());
+             logger.info("Metageneration: " + data.[getMetageneration](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html#com_google_events_cloud_storage_v1_StorageObjectData_getMetageneration__)());
+             logger.info("Created: " + data.[getTimeCreated](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html#com_google_events_cloud_storage_v1_StorageObjectData_getTimeCreated__)());
+             logger.info("Updated: " + data.[getUpdated](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.storage.v1.StorageObjectData.html#com_google_events_cloud_storage_v1_StorageObjectData_getUpdated__)());
+           }
+         }
+         
+
+
+
+
 ## Deploy an event-driven function
 
 Deploy the function named `helloworld-events` by running the following command in the directory that contains the sample code:
@@ -387,6 +566,18 @@ Replace BASE_IMAGE with the base image environment for your function, for exampl
     
 
 Replace BASE_IMAGE with the base image environment for your function, for example, `python314`. For more details about base images and the packages included in each image, see [Supported language runtimes and base images](https://docs.cloud.google.com/run/docs/configuring/services/runtime-base-images#how_to_obtain_base_images).
+
+###  Java 
+    
+    
+    gcloud run deploy helloworld-events \
+          --source . \
+          --function functions.HelloGcs \
+          --base-image BASE_IMAGE \
+          --region us-central1
+    
+
+Replace BASE_IMAGE with the base image environment for your function, for example, `java25`. For more details about base images and the packages included in each image, see [Supported language runtimes and base images](https://docs.cloud.google.com/run/docs/configuring/services/runtime-base-images#how_to_obtain_base_images).
 
 When the deployment is complete, the Google Cloud CLI displays a URL where your service is running.
 
@@ -544,6 +735,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

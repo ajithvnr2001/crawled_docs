@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/known-issues/
 title: Google Distributed Cloud (software only) for VMware known issues \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:49.741170+00:00
+fetched_at: 2026-11-10T17:01:21.046546+00:00
 ---
 
 # Google Distributed Cloud (software only) for VMware known issues  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -248,7 +248,7 @@ Upgrades, Updates, Advanced cluster, Security | 1.33, 1.34 |
 
 ### Control plane nodes fail to join during an update or upgrade to an advanced cluster after CA rotation
 
-When you update or upgrade an admin cluster or user cluster to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters) (`enableAdvancedCluster: true` or `enableAdvancedClusters: true`) in version 1.33 or 1.34, the operation fails if you previously rotated the cluster's certificate authorities (CAs) using `gkectl update credentials certificate-authorities rotate`. After a CA rotation completes, the active CA certificates and keys are stored in version-suffixed secrets (such as `cluster-ca-cert-2`, `etcd-ca-cert-2`, and `front-proxy-ca-cert-2`). During the migration to an advanced cluster, `gkectl` looks up the unversioned secrets (`cluster-ca-cert`, `etcd-ca-cert`, and `front-proxy-ca-cert`) instead of checking the `ca-rotation-stage` ConfigMap for the active CA version:
+When you update or upgrade an admin cluster or user cluster to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview) (`enableAdvancedCluster: true` or `enableAdvancedClusters: true`) in version 1.33 or 1.34, the operation fails if you previously rotated the cluster's certificate authorities (CAs) using `gkectl update credentials certificate-authorities rotate`. After a CA rotation completes, the active CA certificates and keys are stored in version-suffixed secrets (such as `cluster-ca-cert-2`, `etcd-ca-cert-2`, and `front-proxy-ca-cert-2`). During the migration to an advanced cluster, `gkectl` looks up the unversioned secrets (`cluster-ca-cert`, `etcd-ca-cert`, and `front-proxy-ca-cert`) instead of checking the `ca-rotation-stage` ConfigMap for the active CA version:
 
   * **If the unversioned`cluster-ca-cert` secret does not exist** (common on user clusters): `gkectl` fails during cluster preparation with `failed to get user cluster ca secret from admin client: secrets "cluster-ca-cert" not found`.
   * **If the unversioned secrets still exist with pre-rotation CA material** (common on admin clusters): `gkectl` seeds the bootstrap cluster with the outdated CA and pins the outdated public key hash into the `kubeadm` join configuration, causing control plane nodes to fail to join (`none of the public keys ... are pinned`). If `gkectl` also updates your local workstation `kubeconfig` file with the outdated CA, running `kubectl` commands with that `kubeconfig` fails with `crypto/rsa: verification error`.
@@ -1216,7 +1216,7 @@ Upgrades, Advanced cluster | 1.32 to 1.33 |
 
 ### User cluster upgrade to advanced cluster fails if you upgrade control plane and node pools separately
 
-When you upgrade a user cluster from version 1.32 to 1.33, the upgrade automatically converts the cluster to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters). The [automatic upgrade to an advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#automatic_upgrade_to_advanced_clusters_in_133) doesn't allow version skew between the control plane and node pools. If you attempt to upgrade the control plane and the node pools in separate operations, the version skew causes the `gkectl upgrade cluster` command to fail with the following error message:
+When you upgrade a user cluster from version 1.32 to 1.33, the upgrade automatically converts the cluster to an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview). The [automatic upgrade to an advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules#release-1-33) doesn't allow version skew between the control plane and node pools. If you attempt to upgrade the control plane and the node pools in separate operations, the version skew causes the `gkectl upgrade cluster` command to fail with the following error message:
     
     
     Failed to generate diff summary: failed to get desired onprem user cluster and node pools from seed config with dry-run webhooks: failed to apply mutating and validating webhooks to OnPremNodePools: failed to get OSImage getter for mutating webhook: failed to get vm template ConfigMap: VM Template 'default/vm-template-1.32.x' not found for version "1.32.x", which must have been created before the target onprem CR
@@ -6207,6 +6207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

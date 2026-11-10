@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-measures/
 title: Work with measures \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:42.033208+00:00
+fetched_at: 2026-11-10T16:59:46.981500+00:00
 ---
 
 # Work with measures  |  BigQuery  |  Google Cloud Documentation
@@ -476,12 +476,31 @@ Both measures replace a `NULL` budget with `0`. The inline form also replaces th
 To view the schema of the table returned by the `GRAPH_EXPAND` function without calling the function, use the [`BQ.SHOW_GRAPH_EXPAND_SCHEMA` system procedure](https://docs.cloud.google.com/bigquery/docs/reference/system-procedures#bqshow_graph_expand_schema):
     
     
-    DECLARE schema STRING DEFAULT '';
-    CALL BQ.SHOW_GRAPH_EXPAND_SCHEMA('university.SchoolGraph', schema);
-    SELECT schema;
+    DECLARE result_schema STRING DEFAULT '';
+    
+    -- View default flattened schema for a single-root graph:
+    CALL BQ.SHOW_GRAPH_EXPAND_SCHEMA('university.SchoolGraph', result_schema);
+    SELECT result_schema;
+    
+    -- View flattened schema for a specific subgraph:
+    CALL BQ.SHOW_GRAPH_EXPAND_SCHEMA(
+      'university.SchoolGraph',
+      'Course',
+      result_schema
+    );
+    SELECT result_schema;
+    
+    -- View nested STRUCT schema for a specific subgraph:
+    CALL BQ.SHOW_GRAPH_EXPAND_SCHEMA(
+      'university.SchoolGraph',
+      'Course',
+      FALSE,
+      result_schema
+    );
+    SELECT result_schema;
     
 
-This procedure populates the `schema` variable with the name, type, and mode of each column. It also indicates whether the property referenced by the column is a measure, and lists any description or synonyms that you defined on it.
+This procedure populates the `result_schema` variable with a JSON object that includes the name, type, and mode of each column, indicates whether the property referenced by the column is a measure (`"is_measure": true`), lists any options defined on the properties, and reflects nested `STRUCT` definitions when the `flatten_results` argument is set to `FALSE`.
 
 ## What's next
 
@@ -494,6 +513,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/set-targets/
 title: Set realistic targets for reliability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:24.341388+00:00
+fetched_at: 2026-11-10T16:33:33.800841+00:00
 ---
 
 # Set realistic targets for reliability  |  Cloud Architecture Center  |  Google Cloud Documentation

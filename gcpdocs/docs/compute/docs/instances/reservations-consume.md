@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/reservations-consume/
 title: Consume reservations \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:47.563961+00:00
+fetched_at: 2026-11-10T18:39:17.707242+00:00
 ---
 
 # Consume reservations  |  Compute Engine  |  Google Cloud Documentation
@@ -732,7 +732,7 @@ The following example shows how to create an automatic reservation in zone `us-c
 
 To create the example automatic reservation and consume it, do the following:
 
-  1. To create the example reservation, make a `POST` request to [`reservations.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/reservations/insert):
+  1. To create the example reservation, make a `POST` request to the [`reservations.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/reservations/insert):
          
          POST https://compute.googleapis.com/compute/v1/projects/example-project/zones/us-central1-a/reservations
          
@@ -742,7 +742,7 @@ To create the example automatic reservation and consume it, do the following:
              "count": "3",
              "instanceProperties": {
                "machineType": "n2-standard-32",
-               "minCpuPlatform": "Intel Cascade Lake",
+               "minCpuPlatform": "Intel Cascade Lake"
              }
            }
          }
@@ -1751,7 +1751,7 @@ The following example shows how to create a specific reservation in zone `us-cen
 
 To create the example specific reservation and consume it, do the following:
 
-  1. To create the example reservation, make a `POST` request to the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert). In the request body, include the `specificReservationRequired` field set to `true`:
+  1. To create the example reservation, make a `POST` request to the [`reservations.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/reservations/insert). In the request body, include the `specificReservationRequired` field set to `true`:
          
          POST https://compute.googleapis.com/compute/v1/projects/example-project/zones/us-central1-a/reservations
          
@@ -1761,7 +1761,7 @@ To create the example specific reservation and consume it, do the following:
              "count": "3",
              "instanceProperties": {
                "machineType": "n2-standard-32",
-               "minCpuPlatform": "Intel Cascade Lake",
+               "minCpuPlatform": "Intel Cascade Lake"
              }
            },
            **"specificReservationRequired": true**
@@ -1830,7 +1830,7 @@ To consume this type of reservation, you must create a compute instance as follo
 
     * In the Google Cloud console, if you specify a supported machine type for future reservations in calendar mode, then the reservation-bound model is automatically selected.
 
-    * In the gcloud CLI, include the `--provisioning-model` flag set to `reservation-bound`.
+    * In the gcloud CLI, include the `--provisioning-model` flag set to `RESERVATION_BOUND`.
 
     * In the REST API, include the `provisioningModel` field set to `RESERVATION_BOUND`.
 
@@ -1928,7 +1928,7 @@ Assume that Google Cloud approves the request and Compute Engine automatically c
 
 The command is similar to the following. For the full requirements to create an A3 Ultra instance, see [Create an A3 Ultra or A4 instance](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-a3u-a4#create-instance-overview).
     
-    gcloud compute instance create example-a3ultra-instance  \
+    gcloud compute instances create example-a3ultra-instance \
         --machine-type=a3-ultragpu-8g \
         **--instance-termination-action= TERMINATION_ACTION** \
         **--provisioning-model=RESERVATION_BOUND** \
@@ -1969,8 +1969,10 @@ The command includes the following values:
            },
            "specificReservationRequired": true,
            "specificSkuProperties": {
-             "machineType": "a3-ultragpu-8g",
-             "totalCount": 5
+             "instanceProperties": {
+               "machineType": "a3-ultragpu-8g"
+             },
+             "totalCount": "5"
            },
            "timeWindow": {
              "startTime": "2026-03-05T00:00:00Z",
@@ -1981,7 +1983,7 @@ The command includes the following values:
 
 Assume that Google Cloud approves the request and Compute Engine automatically creates an empty reservation. At the request start time, on March 5, 2026, Compute Engine increases the number of reserved GPU VMs in the reservation. You can then consume the reservation.
 
-  2. At the request start time, to create an A3 Ultra instance to consume the example auto-created reservation, make a `POST` request to [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert). In the request body, include the following fields:
+  2. At the request start time, to create an A3 Ultra instance to consume the example auto-created reservation, make a `POST` request to the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert). In the request body, include the following fields:
 
      * The `reservationAffinity.consumeReservationType` field set to `SPECIFIC_RESERVATION`.
 
@@ -1995,25 +1997,23 @@ Assume that Google Cloud approves the request and Compute Engine automatically c
 
 The request is similar to the following. For the full requirements to create an A3 Ultra instance, see [Create an A3 Ultra or A4 instance](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-a3u-a4#create-instance-overview).
     
-    POST https://compute.googleapis.com/compute/v1/projects/example-project/zones/us-central1-b/
+    POST https://compute.googleapis.com/compute/v1/projects/example-project/zones/us-central1-b/instances
     
     {
-      {
-        "machineType": "projects/example-project/zones/us-central1-b/machineTypes/a3-ultragpu-8g",
-        "name": "example-a3ultra-instance",
-        "reservationAffinity": {
-          **"consumeReservationType": "SPECIFIC_RESERVATION"** ,
-          **"key": "compute.googleapis.com/reservation-name"** ,
-          **"values":[
-            " RESERVATION_URL"
-          ]**,
-        },
-        "scheduling": {
-          **"instanceTerminationAction": " TERMINATION_ACTION"**,
-          **"provisioningModel": "RESERVATION_BOUND"**
-        },
-        ...
-      }
+      "machineType": "projects/example-project/zones/us-central1-b/machineTypes/a3-ultragpu-8g",
+      "name": "example-a3ultra-instance",
+      "reservationAffinity": {
+        **"consumeReservationType": "SPECIFIC_RESERVATION"** ,
+        **"key": "compute.googleapis.com/reservation-name"** ,
+        **"values": [
+          " RESERVATION_URL"
+        ]**
+      },
+      "scheduling": {
+        **"instanceTerminationAction": " TERMINATION_ACTION"**,
+        **"provisioningModel": "RESERVATION_BOUND"**
+      },
+      ...
     }
     
 
@@ -2096,6 +2096,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

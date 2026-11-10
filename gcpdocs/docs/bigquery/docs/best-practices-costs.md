@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-costs/
 title: Estimate and control costs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:10:39.884192+00:00
+fetched_at: 2026-11-10T12:13:31.250489+00:00
 ---
 
 # Estimate and control costs  |  BigQuery  |  Google Cloud Documentation
@@ -58,6 +58,12 @@ When you use the on-demand pricing model, the only way to restrict costs is to c
 When you use the capacity pricing model using slot reservations, you specify the maximum number of slots that are available to a reservation. You can also purchase slot commitments that provide discounted prices for a committed period of time.
 
 You can use editions fully on demand by setting the baseline of the reservation to 0 and the maximum to a setting that meets your workload needs. BigQuery automatically scales up to the number of slots needed for your workload, never exceeding the maximum that you set. For more information, see [Workload management using reservations](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management).
+
+### Attribute capacity costs to consumption projects
+
+If your organization uses BigQuery editions capacity-based pricing and separates workloads across multiple query projects (`consumption projects`), consider enabling [compute cost attribution](https://docs.cloud.google.com/bigquery/docs/reservations-monitoring#reservation_cost_attribution) in your administration project.
+
+Attributing capacity charges directly to the projects where queries execute lets you view project-level compute costs in Cloud Billing and perform better FinOps internal chargebacks.
 
 ## Control query costs
 
@@ -751,6 +757,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

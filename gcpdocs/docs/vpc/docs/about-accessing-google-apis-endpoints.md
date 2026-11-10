@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints/
 title: About accessing global Google APIs through endpoints \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:35.521518+00:00
+fetched_at: 2026-11-10T16:58:58.050443+00:00
 ---
 
 # About accessing global Google APIs through endpoints  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -173,17 +173,19 @@ The IP address must meet the following specifications:
 
   * It must be a valid IPv4 address. It can be an RFC 1918 address or a non-RFC 1918 address. IPv6 addresses are not supported.
 
-  * It cannot be within the range of subnets configured in the VPC network.
+  * It can't be within the range of subnets configured in the VPC network.
 
-  * It cannot be within a primary or secondary IP address range of any subnet in the VPC network or a network connected to the VPC network using VPC Network Peering.
+  * It can't be within a primary or secondary IP address range of any subnet in the VPC network or a network connected to the VPC network using VPC Network Peering.
 
-  * It cannot overlap with a `/32` custom static route in the local VPC network. For example, if the VPC network has a custom static route for `10.10.10.10/32`, you cannot reserve address `10.10.10.10` for Private Service Connect.
+  * It can't overlap with a `/32` custom static route in the local VPC network. For example, if the VPC network has a custom static route for `10.10.10.10/32`, you can't reserve address `10.10.10.10` for Private Service Connect.
 
-  * It cannot overlap with a `/32` peering custom static route if you've configured the peered network to [export custom routes](https://docs.cloud.google.com/vpc/docs/vpc-peering#importing-exporting-routes) and you've configured your VPC network to import custom routes.
+  * It can't overlap with a `/32` peering custom static route if you've configured the peered network to [export custom routes](https://docs.cloud.google.com/vpc/docs/vpc-peering#importing-exporting-routes) and you've configured your VPC network to import custom routes.
 
-  * It cannot be within any of the [auto-mode IP ranges](https://docs.cloud.google.com/vpc/docs/subnets#ip-ranges) (in `10.128.0.0/9`) if the local VPC network is an [auto mode network](https://docs.cloud.google.com/vpc/docs/vpc#subnet-ranges) or if it is peered with an auto mode network.
+  * It can't be within any of the [auto-mode IP ranges](https://docs.cloud.google.com/vpc/docs/subnets#ip-ranges) (in `10.128.0.0/9`) if the local VPC network is an [auto mode VPC network](https://docs.cloud.google.com/vpc/docs/vpc#subnet-ranges) or if it is peered with an auto mode VPC network.
 
-  * It cannot be within an [allocated IP range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#allocating-range) in the local VPC network. However, it can be within an allocated IP range in a peered VPC network.
+  * It can't be within an [allocated IP range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#allocating-range) in the local VPC network. However, it can be within an allocated IP range in a peered VPC network.
+
+  * It can't be within an [internal range](https://docs.cloud.google.com/vpc/docs/internal-ranges), unless you [reserve the IP address from an internal range for Private Service Connect endpoints](https://docs.cloud.google.com/vpc/docs/create-use-internal-ranges#reserve-endpoints-google-apis) in the same VPC network.
 
   * If an endpoint overlaps with a custom dynamic route whose destination is the same `/32`, the endpoint takes priority.
 
@@ -241,7 +243,7 @@ The number of Private Service Connect endpoints that you can create for accessin
 
 ## Organization policy constraints
 
-An Organization Policy Administrator can use the [`constraints/compute.disablePrivateServiceConnectCreationForConsumers`](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints) constraint to define the set of endpoint types for which users cannot create forwarding rules.
+An Organization Policy Administrator can use the [`constraints/compute.disablePrivateServiceConnectCreationForConsumers`](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints) constraint to define the set of endpoint types for which users can't create forwarding rules.
 
 For information about creating an organization policy that uses this constraint, see [Block consumers from deploying endpoints by connection type](https://docs.cloud.google.com/vpc/docs/manage-security-private-service-connect-consumers#connection-type).
 
@@ -255,6 +257,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

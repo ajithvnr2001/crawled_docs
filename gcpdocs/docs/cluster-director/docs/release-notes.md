@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/release-notes/
 title: Cluster Director release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:16:25.921242+00:00
+fetched_at: 2026-11-10T11:12:06.135321+00:00
 ---
 
 # Cluster Director release notes  |  Google Cloud Documentation
@@ -24,6 +24,12 @@ Send feedback
 This page documents production updates to Cluster Director. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## November 10, 2026
+
+Feature
+
+**Generally available** : Cluster Director supports the Doha, Qatar (`me-central1`) region. For more information, see [Cluster Director locations](https://docs.cloud.google.com/cluster-director/docs/locations).
 
 ## November 03, 2026
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/view-integration-details/
 title: Manage integrations \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:40:27.024229+00:00
+fetched_at: 2026-11-10T11:44:47.644815+00:00
 ---
 
 # Manage integrations  |  Application Integration  |  Google Cloud Documentation
@@ -135,7 +135,7 @@ To edit the details of an integration, open the integration in the integration e
 The integration summary includes the following information:
 
   * **Service account:** The service account attached to the integration.
-  * **Enable Variable Masking in logs ([preview](https://cloud.google.com/products#product-launch-stages)):** The setting to enable masking of variables in the integration execution logs. If you enable masking for your integration, ensure that you have also enabled masking at the [region](https://docs.cloud.google.com/application-integration/docs/enable-new-region#edit-region) and the [variable](https://docs.cloud.google.com/application-integration/docs/variables) levels. 
+  * **Enable Variable Masking in logs:** The setting to enable masking of variables in the integration execution logs. If you enable masking for your integration, ensure that you have also enabled masking at the [region](https://docs.cloud.google.com/application-integration/docs/enable-new-region#edit-region) and the [variable](https://docs.cloud.google.com/application-integration/docs/variables) levels. 
 
 For information about masking, see [Mask sensitive data in logs](https://docs.cloud.google.com/application-integration/docs/mask-sensitive-data-logs).
 
@@ -157,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

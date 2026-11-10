@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas/
 title: Quotas for Anthropic Claude models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:27:46.712788+00:00
+fetched_at: 2026-11-10T18:56:52.228930+00:00
 ---
 
 # Quotas for Anthropic Claude models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -54,6 +54,7 @@ Metric | Quota dimension
   * `anthropic-claude-sonnet`
   * `anthropic-claude-haiku`
   * `anthropic-claude-fable`
+  * `anthropic-claude-fable-fast`
 
   
 `global_online_prediction_input_tokens_per_minute_per_base_model` | `base_model`: 
@@ -62,6 +63,7 @@ Metric | Quota dimension
   * `anthropic-claude-sonnet`
   * `anthropic-claude-haiku`
   * `anthropic-claude-fable`
+  * `anthropic-claude-fable-fast`
 
   
 `global_online_prediction_output_tokens_per_minute_per_base_model` | `base_model`: 
@@ -70,6 +72,7 @@ Metric | Quota dimension
   * `anthropic-claude-sonnet`
   * `anthropic-claude-haiku`
   * `anthropic-claude-fable`
+  * `anthropic-claude-fable-fast`
 
   
   
@@ -85,6 +88,7 @@ Metric | Quota dimension
   * `anthropic-claude-sonnet`
   * `anthropic-claude-haiku`
   * `anthropic-claude-fable`
+  * `anthropic-claude-fable-fast`
 
   
 ` LOCATION_multi_region_online_prediction_input_tokens_per_minute_per_base_model ` | `base_model`: 
@@ -93,6 +97,7 @@ Metric | Quota dimension
   * `anthropic-claude-sonnet`
   * `anthropic-claude-haiku`
   * `anthropic-claude-fable`
+  * `anthropic-claude-fable-fast`
 
   
 ` LOCATION_multi_region_online_prediction_output_tokens_per_minute_per_base_model ` |  `base_model`: 
@@ -101,6 +106,7 @@ Metric | Quota dimension
   * `anthropic-claude-sonnet`
   * `anthropic-claude-haiku`
   * `anthropic-claude-fable`
+  * `anthropic-claude-fable-fast`
 
   
   
@@ -109,6 +115,8 @@ Metric | Quota dimension
   * **Adding a new version of a lineage doesn't require a new quota request.** When a new version of a model lineage, such as a future Sonnet release, launches on a public endpoint, it shares the existing model lineage quota bucket. You don't need to file a separate quota increase to use the new version.
 
   * **Mixing versions consumes the same quota bucket.** Traffic split across multiple versions of the same model lineage draws from one shared quota. Plan capacity at the lineage level, not the version level.
+
+  * **Fast mode uses a separate quota bucket.** On global and multi-region endpoints, requests with `"speed": "fast"` to shared-lineage models draw from a dedicated `*-fast` quota bucket (such as `anthropic-claude-fable-fast`). This bucket is isolated from standard-speed lineage quota; see [Fast mode quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode#quotas).
 
 
 
@@ -195,6 +203,24 @@ Anthropic's Claude Sonnet 5.5 on Google Cloud | `Multi-region` |
   * QPM: 2,500
   * Input TPM: 25,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
   * Output TPM: 2,500,000
+
+|  1,000,000   
+Anthropic's Claude Fable 5.2 on Google Cloud | `us (US multi-region)` | 
+
+  * QPM: Granted upon model enablement ([Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas))
+  * TPM: Granted upon model enablement ([Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas))
+
+|  1,000,000   
+`eu (Europe multi-region)` | 
+
+  * QPM: Granted upon model enablement ([Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas))
+  * TPM: Granted upon model enablement ([Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas))
+
+|  1,000,000   
+`global (global endpoint)` | 
+
+  * QPM: Granted upon model enablement ([Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas))
+  * TPM: Granted upon model enablement ([Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas))
 
 |  1,000,000   
 Anthropic's Claude Fable 5.1 on Google Cloud | `Multi-region` | 
@@ -586,6 +612,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

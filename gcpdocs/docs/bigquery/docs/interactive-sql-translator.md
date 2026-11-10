@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator/
 title: Translate queries with the interactive SQL translator \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:42.261544+00:00
+fetched_at: 2026-11-10T18:38:29.720145+00:00
 ---
 
 # Translate queries with the interactive SQL translator  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Translate queries with the interactive SQL translator
 
-The BigQuery interactive SQL translator lets you translate queries from other SQL dialects into GoogleSQL queries in the [Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui) or the Google Cloud CLI. Using the interactive SQL translator helps reduce the time and effort required to migrate workloads to BigQuery, and you can customize translations by using the translation rule feature.
+The BigQuery interactive SQL translator lets you translate queries from other SQL dialects into GoogleSQL queries by using the [Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui), the Google Cloud CLI, or the [BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp). Using the interactive SQL translator helps reduce the time and effort required to migrate workloads to BigQuery, and you can customize translations by using the translation rule feature.
 
 To build a custom software integration, an automated CI/CD pipeline, or another programmatic workflow, see the [BigQuery Migration API guide](https://docs.cloud.google.com/bigquery/docs/api-sql-translator). For information about supported dialects and processing locations, see [Supported SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects) and [Locations](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#locations).
 
@@ -96,7 +96,7 @@ The interactive SQL translator is only available in select processing locations.
 
 ## Translate a query into GoogleSQL
 
-You can translate a query with the Google Cloud console or the Google Cloud CLI.
+You can translate a query using the Google Cloud console, the gcloud CLI, or the BigQuery Migration Service MCP server. Select one of the following options:
 
 ###  Console 
 
@@ -173,9 +173,63 @@ To translate a query without creating a file, pipe it through standard input and
 
 To apply the customizations that you would otherwise set in **Translation settings** , use the following flags:
 
-  * `--translation-config-files`: a comma-separated list of [configuration YAML files](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation). Filenames must end with `.config.yaml`.
+  * `--translation-config-files`: a comma-separated list of [configuration YAML files](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation). File names must end with `.config.yaml` or `.ai_config.yaml`.
   * `--metadata-gcs-uri`: the Cloud Storage URI of a metadata ZIP file.
-  * `--explanation-output-file`: a local file that receives a Gemini-generated explanation of the translation.
+
+
+
+###  MCP 
+
+To translate a query from an AI application or agent, connect your MCP client to the BigQuery Migration Service MCP server. For setup instructions and required roles, see [Configure an MCP client to use the BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp#configure-client).
+
+Prompt your MCP client to translate a query:
+    
+    
+    Translate this query from DIALECT: QUERY. Use PROJECT_NUMBER and LOCATION.
+    
+
+Replace the following:
+
+  * `DIALECT`: the dialect of the SQL query that you're translating, such as `Teradata`. For the supported values, see [Supported SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects).
+  * `QUERY`: the SQL query that you're translating.
+  * `PROJECT_NUMBER`: your Google Cloud [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin).
+  * `LOCATION`: the [location](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#locations) where you want the translation job to run, such as `us` or `eu`.
+
+
+
+When you use this prompt, the MCP client calls the [`translate_query` tool](https://docs.cloud.google.com/bigquery/docs/reference/migration/mcp/tools_list/translate_query), and then periodically calls the [`get_translation` tool](https://docs.cloud.google.com/bigquery/docs/reference/migration/mcp/tools_list/get_translation) until the translation state is `SUCCEEDED` or `FAILED` and displays the translated query and any translation logs.
+
+You can also ask your MCP client to include a [metadata ZIP file](https://docs.cloud.google.com/bigquery/docs/generate-metadata) or [configuration YAML files](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation) in the translation, explain the translation with the [`explain_translation` tool](https://docs.cloud.google.com/bigquery/docs/reference/migration/mcp/tools_list/explain_translation), or infer source DDL statements with the [`generate_ddl_suggestion`](https://docs.cloud.google.com/bigquery/docs/reference/migration/mcp/tools_list/generate_ddl_suggestion) and [`fetch_ddl_suggestion`](https://docs.cloud.google.com/bigquery/docs/reference/migration/mcp/tools_list/fetch_ddl_suggestion) tools. For more sample prompts, see [Use the BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp#sample-prompts).
+
+## Explore the translation output
+
+Depending on the configuration files that you provide, translating a query can produce the translated SQL, rewritten source SQL from `SOURCE_SQL` rules, rewritten target SQL from `TARGET_SQL` rules, and a translation explanation. For more information, see [Transform SQL translations with YAML](https://docs.cloud.google.com/bigquery/docs/config-yaml-translation).
+
+To find each translation output, select one of the following options:
+
+###  Console 
+
+In the Google Cloud console, find each output in the following locations of the SQL editor:
+
+  * Translated SQL: the right pane of the SQL editor after you click **Translate**.
+  * Rewritten source SQL: the **Preview suggested changes** dialog that appears after you run the translation, or click **Assist** > **View suggestions** in the left pane. For more information, see Create and apply Gemini-enhanced translation rules.
+  * Rewritten target SQL: click **Assist** > **View suggestions** in the right pane. For more information, see Create and apply Gemini-enhanced translation rules.
+  * Translation explanation: click **Assist** > **Explain this translation**. For more information, see Explain a translation.
+
+
+
+###  gcloud 
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+By default, the `gcloud alpha bq migration translate` command prints the translated SQL, any rewritten source SQL, and any rewritten target SQL to standard output. To write each output to a local file instead, use the following flags:
+
+  * `--output-file`: a local file that receives the translated SQL that the translation engine produces after applying any rules in `*.config.yaml` files.
+  * `--source-sql-suggestion-output-file`: a local file that receives the rewritten source SQL that Gemini produces before translation by applying `SOURCE_SQL` rules in `*.ai_config.yaml` files to the input SQL.
+  * `--target-sql-suggestion-output-file`: a local file that receives the rewritten target SQL that Gemini produces by applying `TARGET_SQL` rules in `*.ai_config.yaml` files to the translated SQL.
+  * `--explanation-output-file`: a local file that receives a Gemini-generated explanation of the translation. The command generates an explanation only when you specify this flag, and it doesn't print the explanation to standard output.
 
 
 
@@ -389,6 +443,7 @@ Learn more about the following steps in data warehouse migration:
   * [Migration assessment](https://docs.cloud.google.com/bigquery/docs/migration-assessment)
   * [Schema and data transfer overview](https://docs.cloud.google.com/bigquery/docs/migration/schema-data-overview)
   * [Batch SQL translation](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator)
+  * [Use the BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp)
   * [Data pipelines](https://docs.cloud.google.com/bigquery/docs/migration/pipelines)
   * [Data security and governance](https://docs.cloud.google.com/bigquery/docs/data-governance)
   * [Data validation tool](https://github.com/GoogleCloudPlatform/professional-services-data-validator#data-validation-tool)
@@ -399,6 +454,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

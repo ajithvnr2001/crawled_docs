@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-default-service-accounts/
 title: Troubleshooting default service accounts \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:50:52.312139+00:00
+fetched_at: 2026-11-10T15:29:27.929146+00:00
 ---
 
 # Troubleshooting default service accounts  |  Compute Engine  |  Google Cloud Documentation
@@ -62,6 +62,15 @@ Use the `undelete` command to recover the service account. For more information,
 **If the default service account was deleted more than 30 days ago** :
 
      1. [Create a service account](https://docs.cloud.google.com/iam/docs/service-accounts-create#creating) or select an existing service account to set as the new Compute Engine default service account.
+
+     2. Use the [`gcloud alpha compute project-info set-default-service-account`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/project-info/set-default-service-account) command to set the new service account as the default service account for your project:
+            
+            gcloud alpha compute project-info set-default-service-account \
+              --service-account=SERVICE_ACCOUNT_EMAIL
+            
+
+Replace `SERVICE_ACCOUNT_EMAIL` with the email address of the service account that you created.
+
   2. If you want VMs to use the newly created default service account, [follow these steps](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes):
 
      1. Go to the **VM instances** page.
@@ -85,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

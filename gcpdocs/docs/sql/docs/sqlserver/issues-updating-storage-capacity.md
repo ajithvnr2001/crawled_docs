@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/issues-updating-storage-capacity/
 title: Issues updating storage capacity \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:43.122334+00:00
+fetched_at: 2026-11-10T11:44:50.263822+00:00
 ---
 
 # Issues updating storage capacity  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -26,20 +26,20 @@ Send feedback
 
 This page describes common error messages you might receive when attempting to reduce or [shrink instance storage capacity](https://docs.cloud.google.com/sql/docs/sqlserver/about-storage-shrink).
 
-### Storage shrink fails for C4, C4A and N4 machine types
+### Storage shrink fails for C4, C4A, C4D, and N4 machine types
 
-The following error might occur when you try to apply a storage shrink operation to a C4, C4A or N4 machine type:
+The following error might occur when you try to apply a storage shrink operation to a C4, C4A, C4D, or N4 machine type:
     
     
       ERROR: (gcloud.sql.instances.perform-storage-shrink) HTTPError 400: Invalid
       request: Requested provisioned IOPS is too high for the machine type and/or data disk size.
     
 
-The C4, C4A and N4 machine types use [Google Cloud Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-throughput), which lets users tune disk throughput and IOPS values. If you try to shrink the disk size to a point where the configured throughput and IOPS values become invalid, then the disk shrink operation fails and returns an error.
+The C4, C4A, C4D, and N4 machine types use [Google Cloud Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced), which lets users tune disk throughput and IOPS values. If you try to shrink the disk size to a point where the configured throughput and IOPS values become invalid, then the disk shrink operation fails and returns an error.
 
 In this example error message, the requested instance IOPS value is greater than the new small disk maximum IOPS value and the operation fails.
 
-To resolve this issue, recalculate the target storage size you want to use based on your machine's [Google Cloud Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-throughput) limitations and run the storage shrink operation again.
+To resolve this issue, recalculate the target storage size you want to use based on your machine's [Google Cloud Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced) limitations and run the storage shrink operation again.
 
 ### Can't check cancellation status
 
@@ -302,6 +302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

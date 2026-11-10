@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/troubleshooting/troubleshoot-with-feature-state-condition/
 title: Understanding Feature State Conditions \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:18.492202+00:00
+fetched_at: 2026-11-10T18:34:55.204782+00:00
 ---
 
 # Understanding Feature State Conditions  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -79,14 +79,58 @@ After enablement, the error message should be automatically removed and your clu
 
 ## MESH_IAM_PERMISSION_DENIED
 
-This error indicates that the service account does not have enough permission to access your fleet project. Follow the steps for troubleshooting:
+This error indicates that the Cloud Service Mesh service agent in the fleet project does not have the required permissions on the cluster project. This can happen if the cluster is in a different project than the fleet, or if the permissions were revoked.
 
-  1. Verify if your service account has granted `Anthos Service Mesh Service Agent` role. For details on how to verify IAM permission and add it, go to [Revision(s) reporting as unhealthy error](https://docs.cloud.google.com/service-mesh/docs/managed/troubleshoot-managed-anthos-service-mesh#revisions_reporting_as_unhealthy_error) and use the same steps there.
+To troubleshoot, follow one of the following methods:
 
-  2. If permission is verified while issue persists, contact Google customer support for further assistance.
+###  Google Cloud console 
+
+  1. In the Google Cloud console, navigate to the **IAM & Admin** > **IAM**.
+
+  2. Select **Include Google-provided role grants**.
+
+  3. Review the **Principal** list.
+
+If you see the service agent with the required IAM role in the list, then it is configured correctly.
+
+**Note:** The format of the service agent's identifier is `service-PROJECT_NUMBER@gcp-sa-servicemesh.iam.gserviceaccount.com`, and the required IAM role is Anthos Service Mesh Service Agent (`roles/anthosservicemesh.serviceAgent`).
+
+If the list doesn't include the service agent and the required role, then continue to the next step.
+
+  4. Grant the Anthos Service Mesh Service Agent role (`roles/anthosservicemesh.serviceAgent`) to the Cloud Service Mesh service agent on the project. For instructions, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
+
+**Note:** Ensure that you don't have any automated tooling that will revert this change. If the error recurs, then update any relevant configurations.
 
 
 
+###  Google Cloud CLI 
+
+  1. In the Google Cloud CLI, run the following command to check if the required IAM role has been granted:
+         
+         gcloud projects get-iam-policy PROJECT_ID  \
+         --flatten="bindings[].members" \
+         --filter="bindings.members:serviceAccount:service-PROJECT_NUMBER@gcp-sa-servicemesh.iam.gserviceaccount.com AND bindings.role:roles/anthosservicemesh.serviceAgent" \
+         --format='table(bindings.role)'
+         
+
+  2. Review the **`ROLE`** list.
+
+If you see any roles in the list, then it is configured correctly.
+
+If you don't see any roles in the list, then the required role was revoked.
+
+  3. To grant the required role to the service agent, run the following command:
+         
+         gcloud projects add-iam-policy-binding PROJECT_ID \
+          --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-servicemesh.iam.gserviceaccount.com" \
+          --role="roles/anthosservicemesh.serviceAgent"
+         
+
+**Note:** Ensure that you don't have any automated tooling that will revert this change. If the error recurs, then update any relevant configurations.
+
+
+
+If permission is verified while issue persists, contact Google customer support for further assistance.
 
 ## MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED
 
@@ -152,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/access-context-manager/cloud-bindings/update/
 title: gcloud access-context-manager cloud-bindings update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T21:52:57.662271+00:00
+fetched_at: 2026-11-10T17:33:23.924639+00:00
 ---
 
 # gcloud access-context-manager cloud-bindings update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ DESCRIPTION
 
 For Google Group bindings (`--group-key`), you can update any combination of the access level, dry run level, top-level session settings (1 hour to 24 hours, or 0 to disable), and scoped access settings for specific applications (`restrictedClientApplication`). 
 
-For bindings tied to all workforce pools in an organization (`principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`), you can update or append scoped access settings with `restrictedProject` and active `sessionSettings` using `--binding-file`. Top-level session settings, top-level access levels, dry run levels, and application scopes (`restrictedClientApplication`) are not supported for this principal type. 
+For bindings tied to all workforce pools in an organization (`principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`), you can update or append scoped access settings with `restrictedProject` or `restrictedClientApplication` and active `sessionSettings` using `--binding-file`. Top-level session settings, top-level access levels, dry run access levels, and dry run session settings are not supported for this principal type. 
 
 Session settings are supported only for Google Groups and bindings tied to all workforce pools in an organization. No other bindings allow session settings, and requests containing session settings for other principal types are rejected. 
 
@@ -49,7 +49,7 @@ To remove level and add dry run level, run the following command:
     
     gcloud access-context-manager cloud-bindings update --binding=my-binding-id --level= --dry-run-level=accessPolicies/123/accessLevels/new-def
 
-To replace scoped access settings (such as for specific applications on a group binding or restricted projects on a workforce pool binding) with a new list, run the following command: 
+To replace scoped access settings (such as for specific applications on a group binding, or restricted projects or applications on a workforce pool binding) with a new list, run the following command: 
     
     
     gcloud access-context-manager cloud-bindings update --binding=my-binding-id --binding-file='binding.yaml'
@@ -72,6 +72,38 @@ To update or append project-scoped session settings on a binding tied to all wor
         clientScope:
           restrictedProject:
             name: projects/1234567890
+      activeSettings:
+        sessionSettings:
+          sessionLength: 7776000s
+          sessionLengthEnabled: true
+          sessionReauthMethod: LOGIN
+    
+    
+    Then run the following command:
+    
+    
+    gcloud access-context-manager cloud-bindings update --binding=my-binding-id --binding-file='binding.yaml' --append
+
+To update or append application-scoped session settings on a binding tied to all workforce pools in an organization: 
+    
+    
+    Create a binding.yaml file containing the desired scopedAccessSettings with restrictedClientApplication:
+    
+    
+    scopedAccessSettings:
+    - scope:
+        clientScope:
+          restrictedClientApplication:
+            name: "Gemini Enterprise mobile Android"
+      activeSettings:
+        sessionSettings:
+          sessionLength: 7776000s
+          sessionLengthEnabled: true
+          sessionReauthMethod: LOGIN
+    - scope:
+        clientScope:
+          restrictedClientApplication:
+            name: "Gemini Enterprise mobile IOS"
       activeSettings:
         sessionSettings:
           sessionLength: 7776000s
@@ -139,14 +171,16 @@ For details about the object, see the API reference: <https://docs.cloud.google.
 
 For Google Group bindings, `scopedAccessSettings` can specify `restrictedClientApplication` (using `clientId` or `name`) with `accessLevels`, `dryRunAccessLevels`, and `sessionSettings` (session length up to 24 hours). The `restrictedProject` scope is not supported for Google Group bindings. 
 
-For bindings tied to all workforce pools in an organization (`principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`), `scopedAccessSettings` must only contain `restrictedProject` (format: `name: projects/{project_number}`) within `scope.clientScope` and `sessionSettings` within `activeSettings`. For this configuration, the following requirements apply: 
+For bindings tied to all workforce pools in an organization (`principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`), `scopedAccessSettings` can contain `restrictedProject` (format: `name: projects/{project_number}`) or `restrictedClientApplication` within `scope.clientScope`, and `sessionSettings` within `activeSettings`. For this configuration, the following requirements apply: 
 
   * `sessionLength` must be set and must be between 1 hour and 90 days (for example, `7776000s`). 
   * `sessionReauthMethod` must be `LOGIN` or omitted (defaults to `LOGIN`). 
   * `sessionLengthEnabled` must be set to `true`. 
   * `maxInactivity` must be set to 0 or omitted. 
   * `useOidcMaxAge` must be set to `false` or omitted. 
-  * No application scopes (`restrictedClientApplication`), access levels, or dry run settings are allowed. 
+  * For project scopes (`restrictedProject`), the session settings apply to all OAuth apps owned by the specified project. 
+  * For application scopes (`restrictedClientApplication`), only supported Google Cloud applications are allowed. `name` must be set to one of the following case-sensitive values: `"Gemini Enterprise mobile Android"`, `"Gemini Enterprise mobile IOS"`, or `"Gemini Enterprise Desktop"`. Identifying applications by OAuth client ID (`clientId`) is not supported for workforce pools. 
+  * Access levels, dry run access levels, and dry run session settings are not allowed. 
 
 
 
@@ -195,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

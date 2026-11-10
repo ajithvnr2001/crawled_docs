@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/use-custom-modules-etd/
 title: Create and manage custom modules for Event Threat Detection \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:02.258507+00:00
+fetched_at: 2026-11-10T18:46:25.917793+00:00
 ---
 
 # Create and manage custom modules for Event Threat Detection  |  Security Command Center  |  Google Cloud Documentation
@@ -581,22 +581,10 @@ The response contains a list of findings.
           "canonicalName": "organizations/123456789012/sources/3210987654321098765"
         },
         {
-          "name": "organizations/123456789012/sources/2109876543210987654",
-          "displayName": "Integrated Vulnerability Scanner",
-          "description": "Provider for Integrated Vulnerability Scanner.",
-          "canonicalName": "organizations/123456789012/sources/2109876543210987654"
-        },
-        {
           "name": "organizations/123456789012/sources/1098765432109876543",
           "displayName": "Event Threat Detection Custom Modules",
           "description": "Provider used by Event Threat Detection Custom Modules",
           "canonicalName": "organizations/123456789012/sources/1098765432109876543"
-        },
-        {
-          "name": "organizations/123456789012/sources/9876543210987654321",
-          "displayName": "Serverless Vulnerability Detection",
-          "description": "Provides vulnerability detection for serverless assets.",
-          "canonicalName": "organizations/123456789012/sources/9876543210987654321"
         }
       ]
     }
@@ -1308,6 +1296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

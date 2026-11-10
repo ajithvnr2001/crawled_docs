@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/audit-manager/audit-schedules/create/
 title: gcloud alpha audit-manager audit-schedules create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T13:25:33.806354+00:00
+fetched_at: 2026-11-10T17:34:06.961892+00:00
 ---
 
 # gcloud alpha audit-manager audit-schedules create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,14 +28,19 @@ gcloud alpha audit-manager audit-schedules create - create Audit Schedule
 SYNOPSIS
     
 
-`gcloud alpha audit-manager audit-schedules create` `--audit-schedule-id`=`AUDIT_SCHEDULE_ID` `--compliance-framework`=`COMPLIANCE_FRAMEWORK` `--frequency`=`FREQUENCY` `--gcs-uri`=`GCS_URI` `--location`=`LOCATION` `--report-format`=`REPORT_FORMAT` `--start-time`=`START_TIME` (`--folder`=`FOLDER` | `--organization`=`ORGANIZATION` | `--project`=`PROJECT`) [`--display-name`=`DISPLAY_NAME`] [`--end-time`=`END_TIME`] [`--time-zone`=`TIME_ZONE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha audit-manager audit-schedules create` `--audit-schedule-id`=`AUDIT_SCHEDULE_ID` `--compliance-framework`=`COMPLIANCE_FRAMEWORK` `--frequency`=`FREQUENCY` `--gcs-uri`=`GCS_URI` `--location`=`LOCATION` `--report-format`=`REPORT_FORMAT` `--start-time`=`START_TIME` (`--folder`=`FOLDER` | `--organization`=`ORGANIZATION` | `--project`=`PROJECT`) [`--display-name`=`DISPLAY_NAME`] [`--end-time`=`END_TIME`] [`--parameter-overrides`=[`PARAMETER_OVERRIDES`,…]] [`--time-zone`=`TIME_ZONE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(ALPHA)` Create a new Audit Schedule. 
+     `(ALPHA)` Create a new Audit Schedule. Parameter overrides are applied to every audit run of the schedule and cannot be changed after the schedule is created. 
 EXAMPLES
-     To create an Audit Schedule in the `us-central1` region, for a project with ID `123` for compliance framework `fedramp_moderate` in `odf` format, run: 
+     To create an Audit Schedule in the `us-central1` region, for a project with ID `123` against the compliance framework `organizations/456/locations/global/frameworks/builtin-nist-800-53-revision5` in `odf` format, run: 
     
     
-    gcloud alpha audit-manager audit-schedules create --project=123 --location=us-central1 --audit-schedule-id=my-schedule --compliance-framework=fedramp_moderate --report-format=odf --gcs-uri=gs://testbucketauditmanager --start-time="2026-03-01T00:00:00Z" --frequency=DAILY
+    gcloud alpha audit-manager audit-schedules create --project=123 --location=us-central1 --audit-schedule-id=my-schedule --compliance-framework=organizations/456/locations/global/frameworks/builtin-nist-800-53-revision5 --report-format=odf --gcs-uri=gs://testbucketauditmanager --start-time="2026-03-01T00:00:00Z" --frequency=DAILY
+
+If the compliance framework is parameterized, to create the same Audit Schedule while overriding cloud control parameters defined in the file `overrides.json`, run: 
+    
+    
+    gcloud alpha audit-manager audit-schedules create --project=123 --location=us-central1 --audit-schedule-id=my-schedule --compliance-framework=organizations/456/locations/global/frameworks/builtin-nist-800-53-revision5 --report-format=odf --gcs-uri=gs://testbucketauditmanager --start-time="2026-03-01T00:00:00Z" --frequency=DAILY --parameter-overrides=overrides.json
 
 REQUIRED FLAGS
     
@@ -69,6 +74,67 @@ OPTIONAL FLAGS
      Display name for the audit schedule. 
 `--end-time`=`END_TIME`
      Date and time that the schedule stops in RFC 3339 format. 
+`--parameter-overrides`=[`PARAMETER_OVERRIDES`,…]
+     Overrides for the parameters of parameterized cloud controls, applied when the audit runs. Map from cloud control resource name to the overrides for that cloud control. 
+
+`KEY`
+     Full resource name of the cloud control, for example `organizations/123/locations/global/cloudControls/my-control`, as returned by `[gcloud compliance-manager cloud-controls list](https://docs.cloud.google.com/sdk/gcloud/reference/compliance-manager/cloud-controls/list)`. 
+`VALUE`
+     Parameter overrides for the cloud control. 
+
+`parameters`
+     Parameters to override. 
+
+`name`
+     Name of the parameter. 
+`parameterValue`
+     Value of the parameter. Set exactly one of the following fields. 
+
+`boolValue`
+     A boolean value. 
+`numberValue`
+     A numeric value. 
+`oneofValue`
+     The selected sub-parameter of a `oneOf` parameter, with its own `name` and `parameterValue`. Can be nested up to 3 levels. 
+
+`name`
+     Name of the parameter. 
+`parameterValue`
+     Value of the parameter. Set exactly one of the following fields. 
+
+`boolValue`
+     A boolean value. 
+`numberValue`
+     A numeric value. 
+`stringListValue`
+     A list of strings. 
+
+`values`
+     The strings in the list. 
+`stringValue`
+     A string value. 
+`stringListValue`
+     A list of strings. 
+
+`values`
+     The strings in the list. 
+`stringValue`
+     A string value. 
+`Shorthand Example:`
+    
+    
+    --parameter-overrides=string={parameters=[{name=string,parameterValue={boolValue=boolean,numberValue=float,oneofValue={name=string,parameterValue={boolValue=boolean,numberValue=float,stringListValue={values=[string]},stringValue=string}},stringListValue={values=[string]},stringValue=string}}]}
+
+`JSON Example:`
+    
+    
+    --parameter-overrides='{"string": {"parameters": [{"name": "string", "parameterValue": {"boolValue": boolean, "numberValue": float, "oneofValue": {"name": "string", "parameterValue": {"boolValue": boolean, "numberValue": float, "stringListValue": {"values": ["string"]}, "stringValue": "string"}}, "stringListValue": {"values": ["string"]}, "stringValue": "string"}}]}}'
+
+`File Example:`
+    
+    
+    --parameter-overrides=path_to_file.(yaml|json)
+
 `--time-zone`=`TIME_ZONE`
      Time zone for the audit schedule in IANA format (e.g. America/New_York). 
 GCLOUD WIDE FLAGS
@@ -86,6 +152,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-22 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

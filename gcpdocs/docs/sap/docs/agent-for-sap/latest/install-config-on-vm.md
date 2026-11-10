@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config-on-vm/
 title: Install and configure Google Cloud's Agent for SAP on a Compute Engine instance \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:56.025438+00:00
+fetched_at: 2026-11-10T12:37:39.898825+00:00
 ---
 
 # Install and configure Google Cloud's Agent for SAP on a Compute Engine instance  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Install and configure Google Cloud's Agent for SAP on a Compute Engine instance Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide describes how to install and configure **version 3.15 (latest)** of Google Cloud's Agent for SAP on a Compute Engine instance, including one based on the X4 or C3 series.
+This guide describes how to install and configure **version 3.16 (latest)** of Google Cloud's Agent for SAP on a Compute Engine instance, including one based on the X4 or C3 series.
 
 To install and configure the agent on a Bare Metal Solution server, see [Install Google Cloud's Agent for SAP on a Bare Metal Solution server](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config-on-bms).
 
@@ -119,7 +119,7 @@ To install the agent on a Compute Engine instance, follow these steps:
 
   1. Establish an SSH connection to your compute instance.
   2. In your terminal, install the agent by running the command that is specific to your operating system: 
-     * (Recommended) To install version 3.15 (latest) of the agent: 
+     * (Recommended) To install version 3.16 (latest) of the agent: 
 
 ### RHEL
            
@@ -269,7 +269,7 @@ The following features are supported only on Linux. They are not supported on Wi
 
 ### Default configuration file
 
-The following snippet is an example of the default configuration of version 3.15 (latest) of Google Cloud's Agent for SAP:
+The following snippet is an example of the default configuration of version 3.16 (latest) of Google Cloud's Agent for SAP:
     
     
     {
@@ -464,6 +464,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

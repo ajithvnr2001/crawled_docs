@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/application-development/three-tier-web-app/
 title: Delete the Three-tier web app \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:53.695467+00:00
+fetched_at: 2026-11-10T16:58:27.658212+00:00
 ---
 
 # Delete the Three-tier web app  |  Cloud Architecture Center  |  Google Cloud Documentation

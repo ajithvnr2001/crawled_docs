@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/creating/
 title: Manage cron jobs \u00a0|\u00a0 Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:01.124129+00:00
+fetched_at: 2026-11-10T14:05:05.872698+00:00
 ---
 
 # Manage cron jobs  |  Cloud Scheduler  |  Google Cloud Documentation
@@ -99,7 +99,7 @@ Only a single instance of a job should be run at any time. In rare circumstances
 
 If a job is still running or waiting for a response from its target, other scheduled runs of the job are skipped until the current run finishes or times out. For more information, see [Subsequent job executions aren't starting](https://docs.cloud.google.com/scheduler/docs/troubleshooting#stuck-executions).
 
-**Note:** Cloud Scheduler provides [headers](https://docs.cloud.google.com/scheduler/docs/reference/rest/v1/projects.locations.jobs#httptarget) that can help with job request deduplication, making the request handler idempotent. You can uniquely identify a job request using its name and the `X-CloudScheduler-ScheduleTime` header. This header contains the original scheduled invocation time and remains constant across retry attempts.
+**Note:** Cloud Scheduler provides [headers](https://docs.cloud.google.com/scheduler/docs/reference/rest/v1/projects.locations.jobs#httptarget) that can help with job request deduplication, making the request handler idempotent. You can uniquely identify a job request using the `X-CloudScheduler-JobName` and `X-CloudScheduler-ScheduleTime` headers. The `X-CloudScheduler-ScheduleTime` header contains the original scheduled invocation time and remains constant across retry attempts. For further guidance and examples, see [Deduplicate job requests](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests).
 
 Cloud Scheduler is intended for repeating jobs. If you need to run a job only once, consider using [Cloud Tasks](https://docs.cloud.google.com/tasks), which can schedule a task up to 30 days in advance.
 
@@ -567,6 +567,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

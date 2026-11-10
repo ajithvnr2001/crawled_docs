@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/create-plan/policy-settings/
 title: Configure advanced policy settings in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:14:23.270192+00:00
+fetched_at: 2026-11-10T17:34:12.856831+00:00
 ---
 
 # Configure advanced policy settings in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -106,6 +106,8 @@ Note: Log replication doesn't occur until database has been protected and the ba
   * The policy ID shown in the appliance management console is the snapshot policy ID as this replication of logs to OnVault buckets is tied to Snapshot policy.
 
 **Note** : Daily, Weekly, Monthly and Yearly OnVault policies are only for database backups, they don't apply to log backups.   
+  
+**Caution:** Enabling **Send logs to OnVault Pool** (also referred to as **Copy Logs to OnVault**) on resource profiles that include Cloud Storage **Coldline** or **Archive** OnVault pools can generate high Cloud Storage Class A and Class B API operation charges and data retrieval fees. When this setting is enabled, Backup and DR replicates database transaction logs at every log backup interval (for example, every 15 minutes) and performs daily metadata reads and expiration checks across all OnVault pools attached to the profile. To avoid unexpected storage and retrieval costs, set **Send logs to OnVault Pool** to **No** when Coldline or Archive pools are attached to the resource profile, or isolate archival pools onto a separate backup/recovery appliance with log replication disabled.  
 **Log Staging Disk Growth Size (In Percent)** | When **Enable Database Log Backup** is set to **Yes** , **Log Staging Disk Growth Size** defines the growth to use when automatically growing the staging disk on which the logs reside. This setting is from five to 100 percent.  
 **Estimated Change Rate** | When **Enable Database Log Backup** is set to **Yes** , this setting defines the daily change (in percent), which allows the appliance to better calculate the size of the staging disk needed to hold logs. This setting is from zero to 100.  
 **Compress Database Log Backup** | When **Enable Database Log Backup** is set to **Yes** , this setting instructs the source database to compress its logs before they are captured by the appliance management console. The database server performs log compression during log backup. The options are **Yes** or **No**. When set to **Yes** , the **Compress Database Log Backup** option is enabled.  
@@ -144,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/mainframe-connector/docs/release-notes/
 title: Mainframe Connector release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:48:17.452179+00:00
+fetched_at: 2026-11-10T14:04:37.249410+00:00
 ---
 
 # Mainframe Connector release notes  |  Google Cloud Documentation
@@ -27,6 +27,19 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/mainframeconnector-release-notes.xml) directly. 
 
+## November 10, 2026
+
+v5.20.3
+
+Fixed
+
+The following issues are fixed in Mainframe Connector 5.20.3:
+
+  * Fixed an issue where the [`bq query` command](https://docs.cloud.google.com/mainframe-connector/docs/api-command-reference#bq_query) with `--follow=true` terminated on transient BigQuery API errors or null job statistics, even when query execution succeeded.
+  * Fixed Avro schema nullability handling and propagation for root records and `REQUIRED` fields during transcoding and BigQuery load operations.
+
+
+
 ## October 08, 2026
 
 v5.21.0
@@ -45,7 +58,7 @@ Fixed
 
 The following issues are fixed in Mainframe Connector 5.21.0:
 
-  * Fixed an issue where the [`bq query` command](https://docs.cloud.google.com/mainframe-connector/docs/api-command-reference#bq_query) command terminated even if query execution succeeded.
+  * Fixed an issue where the [`bq query` command](https://docs.cloud.google.com/mainframe-connector/docs/api-command-reference#bq_query) terminated even if query execution succeeded.
   * Fixed nullability of Avro fields.
 
 
@@ -520,6 +533,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

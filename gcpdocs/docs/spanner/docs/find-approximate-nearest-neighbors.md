@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/find-approximate-nearest-neighbors/
 title: Find approximate nearest neighbors (ANN) and query vector embeddings \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:33.214905+00:00
+fetched_at: 2026-11-10T16:58:40.461158+00:00
 ---
 
 # Find approximate nearest neighbors (ANN) and query vector embeddings  |  Spanner  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ For a detailed list of limitations, see the [approximate distance function refer
 
 **Examples**
 
-Consider a `Documents` table that has a `DocEmbedding` column of precomputed text embeddings from the `DocContents` bytes column, and a `NullableDocEmbedding` column populated from other sources that might be null.
+Consider a `Documents` table that has a `DocEmbedding` column of precomputed text embeddings from the `DocContents` bytes column, and a `NullableDocEmbedding` column populated from other sources that might be null. Both embedding columns specify a vector length of `3`, which is required to [create a vector index](https://docs.cloud.google.com/spanner/docs/vector-indexes#create-vector-index) for ANN search.
 
 ###  GoogleSQL 
     
@@ -68,8 +68,8 @@ Consider a `Documents` table that has a `DocEmbedding` column of precomputed tex
       DocId        INT64 NOT NULL,
       Author       STRING(1024),
       DocContents  BYTES(MAX),
-      DocEmbedding ARRAY<FLOAT32> NOT NULL,
-      NullableDocEmbedding ARRAY<FLOAT32>,
+      DocEmbedding ARRAY<FLOAT32>(vector_length=>3) NOT NULL,
+      NullableDocEmbedding ARRAY<FLOAT32>(vector_length=>3),
       WordCount    INT64
     ) PRIMARY KEY (UserId, DocId);
     
@@ -82,8 +82,8 @@ Consider a `Documents` table that has a `DocEmbedding` column of precomputed tex
       doc_id       bigint not null,
       author       varchar(1024),
       doc_contents bytea,
-      doc_embedding float4[] not null,
-      nullable_doc_embedding float4[],
+      doc_embedding float4[] VECTOR LENGTH 3 not null,
+      nullable_doc_embedding float4[] VECTOR LENGTH 3,
       word_count   bigint,
       PRIMARY KEY (user_id, doc_id)
     );
@@ -268,6 +268,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

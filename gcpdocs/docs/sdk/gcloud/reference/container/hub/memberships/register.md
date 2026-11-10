@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/container/hub/memberships/register/
 title: gcloud container hub memberships register \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:37.947499+00:00
+fetched_at: 2026-11-10T18:39:19.843594+00:00
 ---
 
 # gcloud container hub memberships register  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud container hub memberships register - register a cluster with a fleet
 SYNOPSIS
     
 
-`gcloud container hub memberships register` (`MEMBERSHIP_NAME` : `--location`=`LOCATION`) (`--gke-cluster`=`LOCATION`/`CLUSTER_NAME` | `--gke-uri`=`GKE_URI` | [`--context`=`CONTEXT` : `--kubeconfig`=`KUBECONFIG`]) [`--install-connect-agent`] [`--internal-ip`] [`--manifest-output-file`=`MANIFEST_OUTPUT_FILE`] [`--proxy`=`PROXY`] [`--service-account-key-file`=`SERVICE_ACCOUNT_KEY_FILE` | [`--enable-workload-identity` : `--has-private-issuer` | `--public-issuer-url`=`PUBLIC_ISSUER_URL`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud container hub memberships register` (`MEMBERSHIP_NAME` : `--location`=`LOCATION`) (`--gke-cluster`=`LOCATION`/`CLUSTER_NAME` | `--gke-uri`=`GKE_URI` | [`--context`=`CONTEXT` : `--kubeconfig`=`KUBECONFIG`]) [`--install-connect-agent`] [`--internal-ip`] [`--manifest-output-file`=`MANIFEST_OUTPUT_FILE`] [`--proxy`=`PROXY`] [`--read-only`] [`--service-account-key-file`=`SERVICE_ACCOUNT_KEY_FILE` | [`--enable-workload-identity` : `--has-private-issuer` | `--public-issuer-url`=`PUBLIC_ISSUER_URL`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      This command registers a cluster with the fleet by: 
     
@@ -170,6 +170,8 @@ OPTIONAL FLAGS
      The full path of the file into which the Connect agent installation manifest should be stored. If this option is provided, then the manifest will be written to this file and will not be deployed into the cluster by gcloud, and it will need to be deployed manually. 
 `--proxy`=`PROXY`
      The proxy address in the format of http[s]://{hostname}. The proxy must support the HTTP CONNECT method in order for this connection to succeed. 
+`--read-only`
+     Register the cluster with a `READ_ONLY` membership type. A `READ_ONLY` membership supports only read-only features i.e. can view cluster information but no mutating operations. 
 At most one of these can be specified: 
 
 `--service-account-key-file`=`SERVICE_ACCOUNT_KEY_FILE`
@@ -216,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

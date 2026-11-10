@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact-cases/
 title: Control access to 1P cases and alerts \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:33:58.211004+00:00
+fetched_at: 2026-11-10T14:04:30.875342+00:00
 ---
 
 # Control access to 1P cases and alerts  |  Google Security Operations  |  Google Cloud Documentation
@@ -136,7 +136,7 @@ Alert 1 (Scope 1) | Scope 1 | Scope 1 | Scoped user | **Yes** | User has access 
 Alert 1 (Scope 1) and Alert 2 (Scope 2) | Scope 1 and Scope 2 | Scope 1 | Scoped user | **No** | User is missing Scope 2; they must have access to all scopes assigned to the case.  
 Alert 1 (Scope 1) and Alert 2 (Scope 2) | Scope 1 and Scope 2 | Scope 1 and Scope 2 | Scoped user | **Yes** | User has access to all scopes assigned to the case.  
 Alert 1 (Scope 1) and Alert 2 (Scope 2) | Scope 1 and Scope 2 | Global | Global user | **Yes** | Global users bypass scope filtering and can see all cases.  
-Alert 1 (Global scope) | Global | Global | Global user | **Yes** | Global users bypass scope filtering and can see all cases cases.  
+Alert 1 (Global scope) | Global | Global | Global user | **Yes** | Global users bypass scope filtering and can see all cases.  
 Alert 1 (Scope 1) and Alert 2 (Global scope) | Global | Scope 1 | Scoped user | **No** | Global-scoped cases are restricted to global users.  
 Alert 1 (Scope 1) and Alert 2 (Global scope) | Global | Global | Global user | **Yes** | Global users bypass scope filtering and can see all cases.  
 Alert 1 (Global scope) | Global | Scope 1 | Scoped user | **No** | Global-scoped cases are restricted to global users.  
@@ -230,6 +230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

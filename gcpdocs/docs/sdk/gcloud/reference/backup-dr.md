@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/
 title: gcloud backup-dr \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:01.136949+00:00
+fetched_at: 2026-11-10T17:34:05.815277+00:00
 ---
 
 # gcloud backup-dr  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -69,6 +69,14 @@ GROUPS
      Manage Backup and DR operations. 
 `[resource-backup-config](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/resource-backup-config)`
      Show protection summary for resources in a particular location and project. 
+`[restore-template-executions](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/restore-template-executions)`
+     Manage Cloud Backup and DR Restore Template Executions. 
+`[restore-templates](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/restore-templates)`
+     Manage Cloud Backup and DR Restore Templates. 
+`[restore-verification-plan-associations](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/restore-verification-plan-associations)`
+     Manage Backup and DR Restore Verification Plan Associations. 
+`[restore-verification-plans](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/restore-verification-plans)`
+     Manage Backup and DR Restore Verification Plans. 
 `[service-config](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/service-config)`
      Manage Backup and DR Service configuration. 
 NOTES
@@ -84,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

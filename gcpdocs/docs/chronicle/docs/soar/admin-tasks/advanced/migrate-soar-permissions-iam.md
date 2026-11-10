@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-permissions-iam/
 title: Migrate SOAR permissions to IAM \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:34:10.267553+00:00
+fetched_at: 2026-11-10T14:04:30.490856+00:00
 ---
 
 # Migrate SOAR permissions to IAM  |  Google Security Operations  |  Google Cloud Documentation
@@ -48,14 +48,14 @@ Before starting the migration, confirm the following requirements are met:
 
   * **IdP group mapping** : If you are using Workforce Identity Federation for authentication, verify that all users are mapped to Identity Provider (IdP) groups in the **Group Mapping** page. For information on IdP group mapping, see [Map users in the platform](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-in-the-secops-platform). The migration tool uses these mappings to create a script that binds user mails or groups to IAM principals.
 
-  * **Email group mapping** If you are using Cloud Identity for authentication, verify that that all users are mapped to email groups in the **Group Mapping** page. For information on email mapping, see [Map users in the platform using Cloud Identity](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-in-the-secops-platform-first-party). The migration tool uses these mappings to create a script that binds user mails or groups to IAM principals.
+  * **Email group mapping** : If you are using Cloud Identity for authentication, verify that all users are mapped to email groups in the **Group Mapping** page. For information on email mapping, see [Map users in the platform using Cloud Identity](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-in-the-secops-platform-first-party). The migration tool uses these mappings to create a script that binds user mails or groups to IAM principals.
 
   * Optional: SOAR API key. If you don't have SOAR permissions to map the current user in the **Group Mappings** page, you can ask a SOAR administrator to provide a SOAR API key and use that to generate the scripts instead. 
 
 
 
 
-The SOAR admin should carry out the steps in the following procedure:
+The SOAR administrator should carry out the steps in the following procedure:
 
   1. In the Google SecOps platform, go to **Settings > Access Management > Permission Groups (API Keys)**.
   2. Create a Permission Group making sure that the **Settings** module and the options under Settings are all checked.
@@ -190,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

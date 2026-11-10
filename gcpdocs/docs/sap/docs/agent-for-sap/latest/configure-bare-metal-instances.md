@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/configure-bare-metal-instances/
 title: Configure guest OS on bare metal instances for SAP HANA \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:56.962086+00:00
+fetched_at: 2026-11-10T12:38:23.282613+00:00
 ---
 
 # Configure guest OS on bare metal instances for SAP HANA  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ For information about the bare metal machine types that you can use to run SAP H
 
 For information about how to deploy a bare metal instance, see [Create a bare metal instance from a public image](https://docs.cloud.google.com/compute/docs/instances/create-start-instance#baremetal).
 
-  * Verify that version 3.15 (latest) of Google Cloud's Agent for SAP is installed on your bare metal instance.
+  * Verify that version 3.16 (latest) of Google Cloud's Agent for SAP is installed on your bare metal instance.
 
 For information about how to install the agent on a compute instance, see [Install and configure Google Cloud's Agent for SAP on a Compute Engine instance](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/install-config-on-vm).
 
@@ -64,12 +64,38 @@ The command output informs if any OS configurations are needed. From version 3.1
 
 For information about the OS packages that X4 instances need to run SAP HANA, see the following file in the agent's read-only repository on GitHub: [GoogleCloudPlatform/sapagent/internal/onetime/configureinstance/configurex4.go](https://github.com/GoogleCloudPlatform/sapagent/blob/main/internal/onetime/configureinstance/configurex4.go).
 
-  4. If the preceding command output mentions that OS configurations are required, then apply them:
+  4. (Optional) To preview the OS configurations that the agent would apply to your bare metal instance, run the following command:
+         
+         sudo /usr/bin/google_cloud_sap_agent configureinstance -describe
+         
+
+The output of this command is a CSV that describes all the OS configurations that are needed on your bare metal instance to optimally run your SAP HANA workload. It also informs you if any OS configurations are already applied, and if any change needs a reboot.
+
+#### Click to expand and view a partial sample output
+
+The following table shows some parts of a sample output of the `configureinstance -describe` command for an X4 instance.
+
+`Series` | `Category` | TargetFile | ParameterKey | ExpectedValue | CurrentValue | RebootRequired  
+---|---|---|---|---|---|---  
+X4 | Systemd | `/etc/systemd/system.conf` | `DefaultTimeoutStartSec` | `300s` | `300s` | Yes  
+X4 | Systemd | `/etc/systemd/system.conf` | `DefaultTimeoutStopSec` | `300s` | `300s` | Yes  
+X4 | Systemd | `/etc/systemd/logind.conf` | `UserTasksMax` | `NOT_SET` | `NOT_SET` | Yes  
+X4 | Modprobe | `/etc/modprobe.d/google-x4.conf` | `blacklist idxd` | `blacklist idxd` | `blacklist idxd` | Yes  
+X4 | Modprobe | `/etc/modprobe.d/google-x4.conf` | `blacklist qat_4x` | `blacklist qat_4x` | `blacklist qat_4x` | Yes  
+X4 | Service | `saptune` | `ActiveState` | `active` | `active` | No  
+X4 | SaptuneProfile | `saptune` | `EnabledSolution` | `HANA` | `HANA` | No  
+  
+You can view this information also as a JSON by running the following command:
+         
+         sudo /usr/bin/google_cloud_sap_agent configureinstance -describe -format=json
+         
+
+  5. If the `configureinstance -check` command output indicates that OS configurations are required, then apply them:
          
          sudo /usr/bin/google_cloud_sap_agent configureinstance -apply
          
 
-  5. For the configuration to take effect, restart the guest OS that's running on your bare metal instance or restart the bare metal instance.
+  6. For the configuration to take effect, restart the guest OS that's running on your bare metal instance or restart the bare metal instance.
 
 
 
@@ -247,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

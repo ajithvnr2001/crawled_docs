@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/vm-extensions/monitor-vm-extensions/
 title: Monitor VM extensions \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:32.015793+00:00
+fetched_at: 2026-11-10T18:47:53.182765+00:00
 ---
 
 # Monitor VM extensions  |  Compute Engine  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  Monitor VM extensions Stay organized with collections  Save and categorize content based on your preferences. 
 
-Monitoring the health and performance of your VM extensions helps you manage resource usage and resolve issues across your fleet of Compute Engine instances. You can use Cloud Monitoring dashboards to visualize resource usage such as CPU or memory consumption, and configure alerting policies to receive notifications when an event, such as an installation failure, occurs.
+This document describes how to monitor VM extensions managed by VM Extension Manager on your Compute Engine instances by using Cloud Monitoring. Monitoring extension health and resource consumption helps you track CPU and memory usage and detect installation or runtime failures across your VM fleet.
 
-This document describes how to monitor VM extensions managed by VM Extension Manager on your Compute Engine instances by using Cloud Monitoring, and helps you do the following:
+In this document, you learn how to complete the following tasks:
 
-  * Understand the available metrics for VM extensions
+  * Review the available metrics for VM extensions
   * Build custom monitoring dashboards
   * Set up alerting policies
 
@@ -67,7 +67,7 @@ For more information, see [Authenticate for using REST](https://docs.cloud.googl
 
 ## Before you begin
 
-Before monitoring your extensions, ensure that you have completed the following:
+Before you monitor your extensions, complete the following prerequisites:
 
   * [Install VM extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/create-extension-policy) by creating extension policies.
   * Review the basics about [VM Extension Manager](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager).
@@ -75,11 +75,11 @@ Before monitoring your extensions, ensure that you have completed the following:
 
 
 
-## Required IAM roles
+## Required IAM permissions
 
-To get the permissions that you need to monitor metrics and create dashboards, ask your administrator to grant you the following IAM roles on your project.
+To get the permissions that you need to monitor metrics, build dashboards, and configure alerting policies, ask your administrator to grant you the following IAM roles on your project:
 
-To get the permissions that you need to monitor metrics and manage dashboards, ask your administrator to grant you the following IAM roles: 
+To get the permissions that you need to monitor metrics, build dashboards, and configure alerting policies, ask your administrator to grant you the following IAM roles: 
 
   * To view metrics and dashboards: [](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.viewer)[Monitoring Viewer](https://docs.cloud.google.com/monitoring/access-control#monitoring.viewer) (`roles/monitoring.viewer`) on the project 
   * To create and manage dashboards and alerting policies: [](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.editor)[Monitoring Editor](https://docs.cloud.google.com/monitoring/access-control#monitoring.editor) (`roles/monitoring.editor`) on the project 
@@ -88,11 +88,11 @@ To get the permissions that you need to monitor metrics and manage dashboards, a
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-These predefined roles contain the permissions required to monitor metrics and manage dashboards. To see the exact permissions that are required, expand the **Required permissions** section: 
+These predefined roles contain the permissions required to monitor metrics, build dashboards, and configure alerting policies. To see the exact permissions that are required, expand the **Required permissions** section: 
 
 #### Required permissions
 
-The following permissions are required to monitor metrics and manage dashboards:
+The following permissions are required to monitor metrics, build dashboards, and configure alerting policies:
 
   * To view dashboards: `monitoring.dashboards.get` on the project 
   * To create dashboards: `monitoring.dashboards.create` on the project 
@@ -112,7 +112,7 @@ The following metrics are available for monitoring your VM extensions in Monitor
 
 Metric name | Metric type | Description  
 ---|---|---  
-VM Extension Enforcement Status | `compute.googleapis.com/vm_extensions/extension/enforcement_status` | The enforcement status of a Compute Engine VM extension. Labels include `extension_name` and `status`. For a list of extension names, see [supported extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager#supported-extensions). Possible values for `status` are the following:
+VM Extension Enforcement Status | `compute.googleapis.com/vm_extensions/extension/enforcement_status` | The enforcement status of a Compute Engine VM extension. Labels include `extension_name` and `status`. For a list of extension names, see [Supported extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager#supported-extensions). Possible values for `status` include the following:
 
   * `ENFORCEMENT_STATE_UNSPECIFIED`
   * `INSTALLING`
@@ -127,7 +127,7 @@ VM Extension Enforcement Status | `compute.googleapis.com/vm_extensions/extensio
   * `APPLYING_CONFIG`
 
   
-VM Extension Health Status | `compute.googleapis.com/vm_extensions/extension/health_status` | The health status of a VM extension. Labels include `extension_name` and `status`. For a list of extension names, see [supported extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager#supported-extensions). Possible values for `status` are the following: 
+VM Extension Health Status | `compute.googleapis.com/vm_extensions/extension/health_status` | The health status of a VM extension. Labels include `extension_name` and `status`. For a list of extension names, see [Supported extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager#supported-extensions). Possible values for `status` include the following:
 
   * `HEALTH_STATUS_UNSPECIFIED`
   * `STARTING`
@@ -137,12 +137,12 @@ VM Extension Health Status | `compute.googleapis.com/vm_extensions/extension/hea
   * `CRASHED`
 
   
-VM Extension CPU Max Usage | `compute.googleapis.com/vm_extensions/extension/cpu/max_usage` | Max CPU time used by the VM extension expressed as a percentage.  
-VM Extension Memory Max Used Bytes | `compute.googleapis.com/vm_extensions/extension/memory/used_bytes` | Max memory usage of the VM extension in bytes.  
+VM Extension CPU Max Usage | `compute.googleapis.com/vm_extensions/extension/cpu/max_usage` | The maximum CPU time that the VM extension uses, expressed as a percentage.  
+VM Extension Memory Max Used Bytes | `compute.googleapis.com/vm_extensions/extension/memory/used_bytes` | The maximum memory that the VM extension uses, in bytes.  
   
 ## Build custom monitoring dashboards
 
-You can build Monitoring dashboards with the most relevant VM extension charts for your use case. To add a chart to a dashboard, follow these steps:
+You can build Monitoring dashboards with the most relevant VM extension charts for your use case. To add a chart to a dashboard, complete the following steps:
 
   1. In the Google Cloud console, select **Monitoring** : 
 
@@ -152,10 +152,10 @@ You can build Monitoring dashboards with the most relevant VM extension charts f
   3. Click **Create dashboard**.
   4. Click **Add widget**.
   5. In the **Add widget** window, for **Data** , select **Metric**.
-  6. To select the metric, expand the **Select a metric** menu and then do the following: 
-     1. For the **Active resources** , select **VM Instance**.
-     2. For the **Metric category** , select **Vm_extensions**.
-     3. For the **Metric** , select a metric, such as **VM Extension Health Status**. For a list of available metrics, see Available metrics for monitoring VM extensions.
+  6. To select a metric, expand the **Select a metric** menu and complete the following steps: 
+     1. For **Active resources** , select **VM Instance**.
+     2. For **Metric category** , select **Vm_extensions**.
+     3. For **Metric** , select a metric, such as **VM Extension Health Status**. For a list of available metrics, see Available metrics for VM extensions.
      4. Click **Apply**.
 
 
@@ -166,19 +166,21 @@ You can add as many charts to the dashboard as you like. For more information, s
 
 Monitoring lets you create alerts and receive notifications when a metric crosses a specified threshold. For example, you can receive a notification when an extension's health status changes to `CRASHED`.
 
+To create an alerting policy, complete the following steps:
+
   1. In the Google Cloud console, select **Monitoring**. 
 
 [Go to Monitoring](https://console.cloud.google.com/monitoring)
 
   2. In the navigation pane, select **Alerting**.
   3. Click **Create policy**.
-  4. On the **Create alerting policy** page, define the alerting conditions and notification channels. 
-     1. To select the metric, expand the **Select a metric** menu and then do the following: 
-        1. For the **Active resources** , select **VM Instance**.
-        2. For the **Metric category** , select **Vm_extensions**.
-        3. For the **Metric** , select a metric, such as **VM Extension Enforcement Status**. For a list of available metrics, see Available metrics for monitoring VM extensions.
+  4. On the **Create alerting policy** page, configure the alerting condition by completing the following steps: 
+     1. To select a metric, expand the **Select a metric** menu and complete the following steps: 
+        1. For **Active resources** , select **VM Instance**.
+        2. For **Metric category** , select **Vm_extensions**.
+        3. For **Metric** , select a metric, such as **VM Extension Enforcement Status**. For a list of available metrics, see Available metrics for VM extensions.
         4. Click **Apply**.
-     2. Configure the trigger conditions, such as checking if the `status` label is `INSTALL_FAILED`.
+     2. Configure the trigger conditions, such as whether the `status` label equals `INSTALL_FAILED`.
   5. Follow the prompts to add notification channels and name the policy.
   6. Click **Create policy**.
 
@@ -188,9 +190,10 @@ For more information, see [Create alerting policies](https://docs.cloud.google.c
 
 ## What's next
 
-  * [View VM extension logs](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-logs)
-  * [Manage VM extensions by using extension policies](https://docs.cloud.google.com/compute/docs/vm-extensions/manage-vm-extensions)
-  * [Learn about Monitoring](https://docs.cloud.google.com/monitoring/docs)
+  * To inspect rollout progress and extension health status, see [View VM extension details and status](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-details).
+  * To query historical enforcement events and audit installation or crash records in Cloud Logging, see [View VM extension logs](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-logs).
+  * To diagnose failed rollouts, check running guest processes, or inspect guest agent debug logs, see [Troubleshoot VM extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/troubleshoot-vm-extensions).
+  * To modify configuration settings, change pinned versions, or remove deployed agents, see [Manage VM extensions by using extension policies](https://docs.cloud.google.com/compute/docs/vm-extensions/manage-vm-extensions).
 
 
 
@@ -198,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

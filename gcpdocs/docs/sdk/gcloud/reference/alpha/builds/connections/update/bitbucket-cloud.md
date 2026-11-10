@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/builds/connections/update/bitbucket-cloud/
 title: gcloud alpha builds connections update bitbucket-cloud \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T13:47:15.162231+00:00
+fetched_at: 2026-11-10T17:33:58.708472+00:00
 ---
 
 # gcloud alpha builds connections update bitbucket-cloud  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -89,7 +89,7 @@ FLAGS
 `--authorizer-token-secret-version`=`AUTHORIZER_TOKEN_SECRET_VERSION`
      Secret containing the `repository_read`,`repository_admin`, `pullrequest_read`, `webhook` access token. It can be a repository, project or workspace access token. 
 `--[no-]disabled`
-     If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled. Use `--disabled` to enable and `--no-disabled` to disable. 
+     If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled. Use `--disabled` to disable and `--no-disabled` to enable. 
 `--read-authorizer-token-secret-version`=`READ_AUTHORIZER_TOKEN_SECRET_VERSION`
      Secret containing the `repository_read` access token. It can be a repository, project or workspace access token. 
 `--webhook-secret-secret-version`=`WEBHOOK_SECRET_SECRET_VERSION`
@@ -116,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-15 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-15 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

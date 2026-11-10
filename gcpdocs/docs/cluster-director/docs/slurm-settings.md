@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/slurm-settings/
 title: Supported Slurm settings in Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:17:11.627830+00:00
+fetched_at: 2026-11-10T19:09:47.579795+00:00
 ---
 
 # Supported Slurm settings in Cluster Director  |  Google Cloud Documentation
@@ -96,12 +96,49 @@ The following table lists the supported node settings for Slurm:
 
 API field | Slurm parameter | Data type | Description | Default value  
 ---|---|---|---|---  
-`cpuSpecList` | [`CpuSpecList`](https://slurm.schedmd.com/slurm.conf.html#OPT_CpuSpecList) | String | A comma-separated list of CPU IDs that Slurm reserves for system processes on each node in your nodeset. | None (unset)  
+`cpuSpecList` | [`CpuSpecList`](https://slurm.schedmd.com/slurm.conf.html#OPT_CpuSpecList) | String | A comma-separated list of CPU IDs that Slurm reserves for system processes on each node in your nodeset. You can't specify both this field and the `coreSpecCount` field in the same nodeset. | None (unset)  
 `features` | [`Features`](https://slurm.schedmd.com/slurm.conf.html#OPT_Features) | String | A comma-separated list of labels that you assign to nodes in your nodeset. | None (unset)  
 `memSpecLimit` | [`MemSpecLimit`](https://slurm.schedmd.com/slurm.conf.html#OPT_MemSpecLimit) | String | The amount of memory in megabytes (MB) that Slurm reserves for system processes on each node in your nodeset. | `0` (unset)  
 `weight` | [`Weight`](https://slurm.schedmd.com/slurm.conf.html#OPT_Weight) | String | A priority weight that Slurm uses to select nodes for jobs. Slurm allocates nodes with lower weights before nodes with higher weights. | `1`  
-`coreSpecCount` | [`CoreSpecCount`](https://slurm.schedmd.com/slurm.conf.html#OPT_CoreSpecCount) | String | The number of CPU cores that Slurm reserves for system processes on each node in your nodeset. | `0` (unset)  
+`coreSpecCount` | [`CoreSpecCount`](https://slurm.schedmd.com/slurm.conf.html#OPT_CoreSpecCount) | String | The number of CPU cores that Slurm reserves for system processes on each node in your nodeset. You can't specify both this field and the `cpuSpecList` field in the same nodeset. | `0` (unset)  
   
+## Update Slurm settings on an existing cluster
+
+The following example shows how to update custom Slurm settings on an existing cluster to configure fair-share and queue-age job priority. To apply these settings, you make a `PATCH` request to the [`clusters.patch` method](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1/projects.locations.clusters/patch) with the `updateMask` query parameter set to the fields that you want to update.
+
+For example, suppose that you want to give every user an equal share of cluster resources while also increasing the priority of jobs as they wait in the queue. To achieve this behavior, update the following fields in `orchestrator.slurm.config`:
+
+  * **`priorityType`** : set to `PRIORITY_MULTIFACTOR` to calculate job priority from multiple weighted factors.
+
+  * **`priorityWeightFairshare`** : set to `10000` to assign up to 10,000 priority points based on a user's recent cluster usage.
+
+  * **`priorityDecayHalfLife`** : set to `7-0` to reduce recorded past usage by half every seven days (7 days and 0 hours).
+
+  * **`priorityWeightAge`** : set to `10000` to assign up to 10,000 priority points based on how long a job waits in the queue.
+
+  * **`priorityMaxAge`** : set to `1-0` so that a waiting job reaches the maximum age priority after one day (1 day and 0 hours).
+
+
+
+
+To apply these settings, use a request body that is similar to the following:
+    
+    
+    {
+      "orchestrator": {
+        "slurm": {
+          "config": {
+            "priorityType": "PRIORITY_MULTIFACTOR",
+            "priorityWeightFairshare": 10000,
+            "priorityDecayHalfLife": "7-0",
+            "priorityWeightAge": 10000,
+            "priorityMaxAge": "1-0"
+          }
+        }
+      }
+    }
+    
+
 ## What's next
 
   * [Create a custom cluster](https://docs.cloud.google.com/cluster-director/docs/create/custom-cluster)
@@ -115,6 +152,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

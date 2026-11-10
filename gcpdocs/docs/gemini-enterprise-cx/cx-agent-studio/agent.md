@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent/
 title: Agents \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:33:14.375366+00:00
+fetched_at: 2026-11-10T17:34:13.680192+00:00
 ---
 
 # Agents  |  CX Agent Studio  |  Google Cloud Documentation
@@ -83,7 +83,7 @@ You should design your agents using English, but agents can automatically detect
 
 ## Model support
 
-CX Agent Studio uses Gemini foundation models to power generative reasoning, instruction following, and multimodal capabilities. You can select a global model for the entire agent application or override it for specific sub-agents.
+CX Agent Studio uses Gemini foundation models to power generative reasoning, instruction following, and multimodal capabilities. You can select a global model for the entire agent application or override it for specific sub-agents. For step-by-step instructions on switching models, evaluating performance, and rolling out changes safely, see [Migrate to a new model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/migrate-model).
 
 Models in CX Agent Studio are performance-tuned for customer experience, potentially differing from [standard Vertex AI offerings](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models).
 
@@ -198,6 +198,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

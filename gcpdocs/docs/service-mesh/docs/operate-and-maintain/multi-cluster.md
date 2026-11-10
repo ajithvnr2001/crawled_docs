@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/operate-and-maintain/multi-cluster/
 title: Set up a multi-cluster mesh on managed Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:47:11.571757+00:00
+fetched_at: 2026-11-10T18:38:40.676692+00:00
 ---
 
 # Set up a multi-cluster mesh on managed Cloud Service Mesh  |  Google Cloud Documentation
@@ -157,7 +157,7 @@ Enabling managed Cloud Service Mesh with the fleet API will enable endpoint disc
 
 This is the only way to configure multi-cluster endpoint discovery if you have the Managed (TD) [control plane implementation](https://docs.cloud.google.com/service-mesh/docs/supported-features-managed#identify_control_plane_implementation), and the recommended way to configure it if you have the Managed (Istiod) implementation.
 
-Before proceeding, you must have created a firewall rule.
+Before proceeding, you must have created a firewall rule. Without this firewall rule, traffic load balanced to other `connected` clusters in the fleet may fail (see [Resolving multi-cluster issues](https://docs.cloud.google.com/service-mesh/docs/troubleshooting/troubleshoot-multi-cluster#cross-cluster-timeouts)).
 
 ### Enable
 
@@ -180,6 +180,8 @@ Disable endpoint discovery for a cluster:
     
           kubectl patch configmap/asm-options -n istio-system --type merge -p '{"data":{"multicluster_mode":"manual"}}'
     
+
+Automatic management preserves `"multicluster_mode":"manual"`, including if you create the `asm-options` ConfigMap with `"multicluster_mode":"manual"` before enabling automatic management on a new cluster.
 
 If you unregister a cluster from the fleet without disabling endpoint discovery, secrets could remain in the cluster. You must manually clean up any remaining secrets.
 
@@ -607,6 +609,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

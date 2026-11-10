@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/looker/instances/update/
 title: gcloud looker instances update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T14:12:49.527881+00:00
+fetched_at: 2026-11-10T17:34:01.260269+00:00
 ---
 
 # gcloud looker instances update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud looker instances update - update a Looker instance
 SYNOPSIS
     
 
-`gcloud looker instances update` (`INSTANCE` : `--region`=`REGION`) [`--accelerated-security-patch-enabled`] [`--allowed-email-domains`=[`ALLOWED_EMAIL_DOMAINS`,…]] [`--async`] [`--catalog-integration-opt-out`] [`--class-type`=`CLASS_TYPE`] [`--custom-domain`=`CUSTOM_DOMAIN`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--linked-lsp-project-number`=`LINKED_LSP_PROJECT_NUMBER`] [`--public-ip-enabled`] [`--release-channel`=`RELEASE_CHANNEL`] [`--add-developer-users`=`ADD_DEVELOPER_USERS` `--add-standard-users`=`ADD_STANDARD_USERS` `--add-viewer-users`=`ADD_VIEWER_USERS`] [`--clear-periodic-export-config` | `--periodic-export-gcs-uri`=`PERIODIC_EXPORT_GCS_URI` `--periodic-export-kms-key`=`PERIODIC_EXPORT_KMS_KEY` `--periodic-export-start-time`=`PERIODIC_EXPORT_START_TIME`] [`--clear-psc-allowed-vpcs` | `--psc-allowed-vpcs`=[`PSC_ALLOWED_VPCS`,…] `--clear-psc-service-attachments` | `--psc-service-attachment`=[`attachment`=`ATTACHMENT`],[`domain`=`DOMAIN`],[`multiple-domains`=`MULTIPLE-DOMAINS`]] [`--deny-maintenance-period-end-date`=`DENY_MAINTENANCE_PERIOD_END_DATE` `--deny-maintenance-period-start-date`=`DENY_MAINTENANCE_PERIOD_START_DATE` `--deny-maintenance-period-time`=`DENY_MAINTENANCE_PERIOD_TIME`] [`--egress-enabled` `--egress-fqdns`=[`EGRESS_FQDNS`,…] `--marketplace-enabled`] [`--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-time`=`MAINTENANCE_WINDOW_TIME`] [`--oauth-client-id`=`OAUTH_CLIENT_ID` `--oauth-client-secret`=`OAUTH_CLIENT_SECRET`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud looker instances update` (`INSTANCE` : `--region`=`REGION`) [`--accelerated-security-patch-enabled`] [`--allowed-email-domains`=[`ALLOWED_EMAIL_DOMAINS`,…]] [`--async`] [`--catalog-integration-opt-out`] [`--class-type`=`CLASS_TYPE`] [`--custom-domain`=`CUSTOM_DOMAIN`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--linked-lsp-project-number`=`LINKED_LSP_PROJECT_NUMBER`] [`--public-ip-enabled`] [`--release-channel`=`RELEASE_CHANNEL`] [`--add-developer-users`=`ADD_DEVELOPER_USERS` `--add-standard-users`=`ADD_STANDARD_USERS` `--add-viewer-users`=`ADD_VIEWER_USERS`] [`--clear-periodic-export-config` | `--periodic-export-gcs-uri`=`PERIODIC_EXPORT_GCS_URI` `--periodic-export-kms-key`=`PERIODIC_EXPORT_KMS_KEY` `--periodic-export-start-time`=`PERIODIC_EXPORT_START_TIME`] [`--clear-psc-allowed-vpcs` | `--psc-allowed-vpcs`=[`PSC_ALLOWED_VPCS`,…] `--clear-psc-service-attachments` | `--psc-service-attachment`=[`attachment`=`ATTACHMENT`],[`domain`=`DOMAIN`],[`multiple-domains`=`MULTIPLE-DOMAINS`]] [`--deny-maintenance-period-end-date`=`DENY_MAINTENANCE_PERIOD_END_DATE` `--deny-maintenance-period-start-date`=`DENY_MAINTENANCE_PERIOD_START_DATE` `--deny-maintenance-period-time`=`DENY_MAINTENANCE_PERIOD_TIME`] [`--egress-enabled` `--egress-fqdns`=[`EGRESS_FQDNS`,…] `--marketplace-enabled`] [`--google-auth-enabled` `--workforce-auth-enabled`] [`--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-time`=`MAINTENANCE_WINDOW_TIME`] [`--oauth-client-id`=`OAUTH_CLIENT_ID` `--oauth-client-secret`=`OAUTH_CLIENT_SECRET`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update the metadata and/or configuration parameters of a Looker instance. 
 
@@ -187,6 +187,11 @@ Controlled Egress - Controlled egress allows you to egress data from a Looker (G
      List of FQDNs that are allowed to egress from the Looker instance. Example: `--egress-fqdns="github.com,my.salesforce.com"`. To clear all egress FQDNs, use `--egress-fqdns=""`. 
 `--marketplace-enabled`
      This specifies whether marketplace is enabled for controlled egress on the Looker instance. To disable marketplace for controlled egress, use the `--no-marketplace-enabled` flag. 
+Auth Type - Authentication configuration for the Looker instance. 
+`--google-auth-enabled`
+     This specifies whether Google auth is enabled on the Looker instance. 
+`--workforce-auth-enabled`
+     This specifies whether Workforce auth is enabled on the Looker instance. 
 Maintenance Window - Maintenance typically only takes place once every few months, and requires your instance to be restarted while updates are made, which disrupts service briefly. 
 `--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY`
      Day of the week for the maintenance window, in UTC time zone. `MAINTENANCE_WINDOW_DAY` must be one of: `friday`, `monday`, `saturday`, `sunday`, `thursday`, `tuesday`, `wednesday`. 
@@ -233,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

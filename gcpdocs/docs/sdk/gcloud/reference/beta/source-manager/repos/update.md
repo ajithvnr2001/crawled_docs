@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/source-manager/repos/update/
 title: gcloud beta source-manager repos update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T15:00:26.435769+00:00
+fetched_at: 2026-11-10T17:33:35.948922+00:00
 ---
 
 # gcloud beta source-manager repos update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta source-manager repos update - update a Secure Source Manager reposit
 SYNOPSIS
     
 
-`gcloud beta source-manager repos update` (`REPOSITORY` : `--region`=`REGION`) [`--description`=`DESCRIPTION`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--service-account`=`SERVICE_ACCOUNT`] [`--validate-only`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta source-manager repos update` (`REPOSITORY` : `--region`=`REGION`) [`--description`=`DESCRIPTION`] [`--[no-]enable-vulnerability-scanning`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--service-account`=`SERVICE_ACCOUNT`] [`--validate-only`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Update a Secure Source Manager repository. 
 EXAMPLES
@@ -77,6 +77,8 @@ FLAGS
 
 `--description`=`DESCRIPTION`
      Description of the repository. Cannot exceed 500 characters. 
+`--[no-]enable-vulnerability-scanning`
+     Enable vulnerability scanning on the repository. Use `--enable-vulnerability-scanning` to enable and `--no-enable-vulnerability-scanning` to disable. 
 `--endpoint-mode`=`ENDPOINT_MODE`
      Specifies endpoint mode for a given command. Regional endpoints provide enhanced data residency and reliability by ensuring your request is handled entirely within the specified Google Cloud region. This differs from global endpoints, which may process parts of the request outside the target region. Overrides the default `regional/endpoint_mode` property value for this command invocation. `ENDPOINT_MODE` must be one of: 
 
@@ -108,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-23 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

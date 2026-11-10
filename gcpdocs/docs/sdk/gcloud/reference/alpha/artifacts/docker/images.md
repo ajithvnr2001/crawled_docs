@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/
 title: gcloud alpha artifacts docker images \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T05:56:32.329087+00:00
+fetched_at: 2026-11-10T17:33:46.490495+00:00
 ---
 
 # gcloud alpha artifacts docker images  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ SYNOPSIS
 
 `gcloud alpha artifacts docker images` `COMMAND` [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(ALPHA)` To list images under the current project, repository, and location: 
+     `(ALPHA)` To list images in the default repository, as specified by the `core/project`, `artifacts/location`, and `artifacts/repository` properties: 
     
     
     [gcloud alpha artifacts docker images list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list)
@@ -40,15 +40,15 @@ To list images under repository `my-repo`, project `my-project`, in `us-central1
     
     [gcloud alpha artifacts docker images list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list) us-central1-docker.pkg.dev/my-project/my-repo
 
-To list images with tags, under repository `my-repo`, project `my-project` across all locations: 
+To list images with tags, under repository `my-repo`, project `my-project`, in `us-central1`: 
     
     
-    [gcloud alpha artifacts docker images list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list) docker.pkg.dev/my-project/my-repo --include-tags
+    [gcloud alpha artifacts docker images list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list) us-central1-docker.pkg.dev/my-project/my-repo --include-tags
 
-To list all images under image `busy-box`, in repository `my-repo`, project `my-project` across all locations: 
+To list all images under image `busy-box`, in repository `my-repo`, project `my-project`, in `us-central1`: 
     
     
-    [gcloud alpha artifacts docker images list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list) docker.pkg.dev/my-project/my-repo/busy-box
+    [gcloud alpha artifacts docker images list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/artifacts/docker/images/list) us-central1-docker.pkg.dev/my-project/my-repo/busy-box
 
 To delete image `busy-box` in `us-west1` and all of its digests and tags: 
     
@@ -102,6 +102,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

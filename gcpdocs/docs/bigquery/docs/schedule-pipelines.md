@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/schedule-pipelines/
 title: Schedule pipelines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:19.716142+00:00
+fetched_at: 2026-11-10T19:01:26.504771+00:00
 ---
 
 # Schedule pipelines  |  BigQuery  |  Google Cloud Documentation
@@ -168,7 +168,11 @@ Your selected service account must be granted the Storage Admin IAM role on the 
      3. In the **Timezone** menu, select the timezone for the schedule.
   11. Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
 
-  12. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account ([Preview](https://cloud.google.com/products#product-launch-stages)).
+  12. Optional: To limit how many tasks can run concurrently during scheduled pipeline runs, select **Limit concurrent actions** , and in the **Maximum concurrent actions** field, enter a whole number between `1` and `5000`.
+
+If the number of executed tasks exceeds the limit, BigQuery places the remaining tasks in a queue until a concurrency slot becomes available.
+
+  13. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
 
 
@@ -224,7 +228,11 @@ Your selected service account must be granted the Storage Admin IAM role on the 
      3. In the **Timezone** menu, select the timezone for the schedule.
   11. Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
 
-  12. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
+  12. Optional: To limit how many tasks can run concurrently during scheduled pipeline runs, select **Limit concurrent actions** , and in the **Maximum concurrent actions** field, enter a whole number between `1` and `5000`.
+
+If the number of executed tasks exceeds the limit, BigQuery places the remaining tasks in a queue until a concurrency slot becomes available.
+
+  13. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
 
 
 
@@ -274,7 +282,11 @@ Your selected service account must be granted the Storage Admin IAM role on the 
      3. In the **Timezone** menu, select the timezone for the schedule.
   10. Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
 
-  11. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
+  11. Optional: To limit how many tasks can run concurrently during scheduled pipeline runs, select **Limit concurrent actions** , and in the **Maximum concurrent actions** field, enter a whole number between `1` and `5000`.
+
+If the number of executed tasks exceeds the limit, BigQuery places the remaining tasks in a queue until a concurrency slot becomes available.
+
+  12. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
 
 
 **Note:** If a scheduled pipeline run doesn't finish before the start of the next scheduled run, the next scheduled run is skipped and marked with an error.
@@ -368,7 +380,11 @@ Your selected service account must be granted the Storage Admin IAM role on the 
 
   12. (Optional) For **Min Execution Duration** , select a duration to prevent triggers from activating more frequently than this minimum duration. Supports values between 3 minutes to 24 hours. If not specified, the default value is 3 minutes.
 
-  13. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
+  13. Optional: To limit how many actions can run concurrently during trigger-based executions, select **Limit concurrent actions** , and in **Maximum concurrent actions** , enter a whole number between `1` and `5000`.
+
+If the number of ready actions exceeds the limit, BigQuery places the remaining actions in a queue until a concurrency slot becomes available.
+
+  14. Click **Create schedule**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
 
 
 
@@ -774,6 +790,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

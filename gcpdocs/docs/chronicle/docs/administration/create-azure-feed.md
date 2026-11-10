@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/create-azure-feed/
 title: Create an Azure Event Hub feed \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:33:56.554031+00:00
+fetched_at: 2026-11-10T14:04:34.559921+00:00
 ---
 
 # Create an Azure Event Hub feed  |  Google Security Operations  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ For example, change `Endpoint=<ENDPOINT>;SharedAccessKeyName=<KEY_NAME>;SharedAc
 
 ### Configure network security (optional)
 
-If you restrict network access to your your Azure Event Hub namespace (for example, using firewalls or private endpoints), you must add Google SecOps IP addresses to an allowlist to ensure that Google SecOps can connect and ingest data.
+If you restrict network access to your Azure Event Hub namespace (for example, using firewalls or private endpoints), you must add Google SecOps IP addresses to an allowlist to ensure that Google SecOps can connect and ingest data.
 
 You have two options:
 
@@ -140,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

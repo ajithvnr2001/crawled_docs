@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/instance-settings/
 title: About instance settings \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:42:33.732276+00:00
+fetched_at: 2026-11-10T18:46:41.755225+00:00
 ---
 
 # About instance settings  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -79,9 +79,10 @@ Data cache | Y | Activated (default) or deactivated.
 [Machine type](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview) | Y | 
 
   * **For Cloud SQL Enterprise Plus edition instances:** Cloud SQL offers predefined machine types in these machine series:
-    * [N2](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n2_machine_types) series.
-    * [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a) series.
-    * [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) series.
+    * [ N2 ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n2) series. 
+    * [ C4A ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a) series. 
+    * [ C4 ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) series. 
+    * [ C4D ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d) series. 
   * **For Cloud SQL Enterprise edition instances:** Cloud SQL offers both predefined and custom machine types in these machine series:
     * [general purpose - shared core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-shared-core) series.
     * [general purpose - dedicated core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-dedicated-core) series.
@@ -89,13 +90,12 @@ Data cache | Y | Activated (default) or deactivated.
 
 [Learn more.](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview)  
 Cores | Y |  For Cloud SQL Enterprise Plus edition:  
-2 to 128 ([predefined machine types](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview) only)  
+2 to 192 ([predefined machine types](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview) only)  
   
 For Cloud SQL Enterprise edition:  
 1 to 96 (must be either 1 or an even number; up to 80 in [select regions](https://docs.cloud.google.com/sql/docs/mysql/region-availability-overview#enterprise-edition-regions))  
 Partial for shared vCPU   
-Memory | Y |  For Cloud SQL Enterprise Plus edition: 6.75 GB to 8 GB per vCPU.   
-The 6.75 GB to 1 vCPU ratio is for the `[db-perf-optimized-N-128](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview)` machine type only. All other machine types have the 8 GB to 1 vCPU ratio.   
+Memory | Y |  For Cloud SQL Enterprise Plus edition: 6.75 GB to 8 GB per vCPU, depending on the [machine series and predefined machine type](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview). The 6.75 GB to 1 vCPU ratio is for the `db-perf-optimized-N-128` machine type, C4 machine types have a 7.5 GB to 7.75 GB per vCPU ratio, and C4D machine types have a 7.5 GB to 7.875 GB per vCPU ratio. All other machine types have an 8 GB to 1 vCPU ratio.   
 For Cloud SQL Enterprise edition: 0.9 GB to 6.5 GB per vCPU (must be a multiple of 256 MB and at least 3.75 GB).   
 Storage type | N |  **SSD** (default value)  
 **HDD** (Cloud SQL Enterprise edition only)  
@@ -105,10 +105,10 @@ Storage capacity | Y
 Shared-core machine types (`db-f1-micro` and `db-g1-small`): up to 3054 GB.   
   
 Note that creating or increasing storage capacity to 64 TB might increase latency of common operations, such as backups, dependent on your workload.   
-[ Google Cloud Hyperdisk settings](https://docs.cloud.google.com/sql/docs/mysql/storage-options-overview#hyperdisk) | Y |  This setting is only applicable for Cloud SQL Enterprise Plus edition instances using the C4 or C4A machine series, and for Cloud SQL Enterprise edition instances using the N4 machine series.  
+[ Google Cloud Hyperdisk settings](https://docs.cloud.google.com/sql/docs/mysql/storage-options-overview#hyperdisk) | Y |  This setting applies only to Cloud SQL Enterprise Plus edition instances that use the C4, C4A, or C4D machine series, and to Cloud SQL Enterprise edition instances that use the N4 machine series.  
   
 **Provisioned IOPS** : 4,000 (default value)  
-**Provisioned throughput** : 170 (default value)  
+**Provisioned throughput** : 170 MiB/s (default value)  
   
 For more information about Google Cloud Hyperdisk settings, see [Google Cloud Hyperdisk Balanced](https://docs.cloud.google.com/sql/docs/mysql/storage-options-overview#hyperdisk).   
 Enable automatic storage increases | Y |  **On** (default value)  
@@ -161,14 +161,15 @@ Determines memory and virtual cores available for your Cloud SQL instance. You c
 
   * **For Cloud SQL Enterprise Plus edition instances:** Cloud SQL offers predefined machine types in these machine series:
 
-    * [N2](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n2_machine_types) series.
-    * [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a) series.
-    * [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) series.
+    * [N2](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n2) series. 
+    * [C4A](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4a) series. 
+    * [C4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) series. 
+    * [C4D](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4d) series. 
   * **For Cloud SQL Enterprise edition instances:** Cloud SQL offers both predefined and custom machine types in these machine series:
 
-    * [general purpose - shared core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-shared-core) series.
-    * [general purpose - dedicated core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-dedicated-core) series.
-    * [N4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4) series.
+    * [ general purpose - shared core ](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-shared-core) series. 
+    * [general purpose - dedicated core](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#gp-dedicated-core) series. 
+    * [N4](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#n4) series. 
 
 If you require real-time processing, such as online transaction processing (OLTP), make sure that your instance has enough memory to contain the entire working set. However, there are other factors that can impact memory requirements, such as number of active connections, and internal overhead processes. Perform load testing to avoid performance issues in your production environment. When you configure your instance, select sufficient memory and vCPUs to handle your needs, and scale up your instance as your requirements increase. A machine configuration with insufficient vCPUs might lose its SLA coverage. For more information, see [Operational guidelines](https://docs.cloud.google.com/sql/docs/mysql/operational-guidelines). For more information, see [Choose a machine series](/sql/docs/mysql/machine-series-overview). **Note:** The `db-f1-micro` and `db-g1-small` machine types aren't included in the Cloud SQL SLA. These machine types are configured to use a shared-core CPU, and are designed to provide low-cost test and development instances only. Don't use them for production instances.
 
@@ -187,6 +188,7 @@ Storage type by Cloud SQL editions and machine series:
 
   * **Cloud SQL Enterprise Plus edition C4 machine series** : Google Cloud Hyperdisk Balanced
   * **Cloud SQL Enterprise Plus edition C4A machine series** : Google Cloud Hyperdisk Balanced
+  * **Cloud SQL Enterprise Plus edition C4D machine series** : Google Cloud Hyperdisk Balanced
   * **Cloud SQL Enterprise Plus edition N2 machine series** : SSD
   * **Cloud SQL Enterprise edition N4 machine series** : Google Cloud Hyperdisk Balanced
   * **Cloud SQL Enterprise edition general purpose shared or dedicated core machine series** : SSD or HDD
@@ -196,7 +198,7 @@ Storage type by Cloud SQL editions and machine series:
 For the N2 machine series, choosing **SSD** , the default and only value, provides your instance with SSD storage. For the general purpose shared or dedicated core machine series, **SSD** is the default value and provides lower latency and higher data throughput. If you don't need high-performance access to your data, for example for long-term storage or rarely accessed data, then you can reduce your costs by choosing a different machine series that uses **HDD**.  
 
 
-For the C4, C4A, and N4 machine series, choosing **Google Cloud Hyperdisk Balanced** , the default and only value, provides a scalable, high-performance storage service. To learn more about Google Cloud Hyperdisk Balanced and its limitations, see [Storage options overview](https://docs.cloud.google.com/sql/docs/mysql/storage-options-overview).
+For the C4, C4A, C4D, and N4 machine series, choosing **Google Cloud Hyperdisk Balanced** , the default and only value, provides a scalable, high-performance storage service. To learn more about Google Cloud Hyperdisk Balanced and its limitations, see [Storage options overview](https://docs.cloud.google.com/sql/docs/mysql/storage-options-overview).
 
 Set password policy
     
@@ -472,6 +474,7 @@ Data cache
 
 Data cache is enabled automatically for Cloud SQL for MySQL Enterprise Plus edition instances. Data cache utilizes local SSDs to extend a buffer pool from memory to the SSD tier. Cloud SQL manages this setting. Caching your entire working set provides maximum performance when using data cache. You can use the Google Cloud console, [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud), or Cloud SQL Admin API to turn this setting on or off for your Cloud SQL for MySQL Enterprise Plus edition instances.
 
+**Note:** Data cache isn't supported for instances that use the C4D machine series. If you provision a Cloud SQL for MySQL Enterprise Plus edition instance with a C4D machine type (8 vCPUs or larger), then you must explicitly disable data cache (for example, by adding `--no-enable-data-cache` for the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud)). For 2 vCPU and 4 vCPU C4D machine types, data cache isn't available.
 Activation policy
     The activation policy is used only to start or stop the instance. You change the activation policy by [starting and stopping the instance](https://docs.cloud.google.com/sql/docs/mysql/start-stop-restart-instance). Stopping the instance prevents further instance charges.
 Database flags
@@ -508,6 +511,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

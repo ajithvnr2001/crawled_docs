@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/upgrade-kubernetes-database-minor-version/
 title: Perform a minor database version upgrade for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.10.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:57:01.742777+00:00
+fetched_at: 2026-11-10T11:12:09.653016+00:00
 ---
 
 # Perform a minor database version upgrade for AlloyDB Omni on Kubernetes  |  AlloyDB Omni using the container orchestrator: 17.10.0  |  Google Cloud Documentation
@@ -60,6 +60,8 @@ To perform a minor database version upgrade, there are two options:
 During the low downtime upgrade process, each standby instance is upgraded sequentially and is temporarily unavailable while upgrading.
 
 To ensure that your database cluster maintains a zero Recovery Point Objective (RPO) and doesn't risk data loss during the standby upgrade, it is recommended to have at least two standby instances. This setup acts as a three-node HA configuration.
+
+Low downtime upgrades aren't supported on secondary database clusters in a [cross-data-center replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/cross-data-center-replication/about-cross-data-center-replication) configuration. Before you upgrade a secondary database cluster with HA standbys, explicitly disable LDTM by setting `dbcluster.dbadmin.goog/enableLDTM=false`.
 
 ## Before you begin
 
@@ -208,7 +210,14 @@ Replace `DB_CLUSTER_NAME` with the name of your database cluster. It's the same 
 
   * If the issue that caused the upgrade failure persists and you prefer to keep the cluster on the previous version, you don't need to perform a downgrade procedure. Because the upgrade failed during the standby phase, your primary was never upgraded.
 
-To clear the `UpgradeFailed` status and return to a stable, non-upgrading state, update your DBCluster manifest's `databaseVersion` and `controlPlaneAgentsVersion` fields back to the versions used prior to the upgrade attempt, then re-apply the file. 
+To clear the `UpgradeFailed` status and return to a stable, non-upgrading state, update your DBCluster manifest's `databaseVersion` and `controlPlaneAgentsVersion` fields back to the versions used prior to the upgrade attempt, then re-apply the file.
+
+  * If the upgrade or downgrade hangs in `DBCUpgradeInProgress=True` (`DBCUpgradeFlowBegins`) after the first standby upgrades on a cross-data-center replication secondary database cluster, verify whether low downtime upgrade is enabled (`dbcluster.dbadmin.goog/enableLDTM=true`) on the secondary database cluster. Disable LDTM on the secondary database cluster so the AlloyDB Omni operator completes the upgrade or downgrade using the simultaneous upgrade path:
+        
+        kubectl annotate dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME dbcluster.dbadmin.goog/enableLDTM=false
+        
+
+Replace `DB_CLUSTER_NAME` with the name of your secondary database cluster. 
 
 
 
@@ -217,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

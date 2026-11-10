@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/review-publishers/
 title: Review skill publisher details \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:42.924696+00:00
+fetched_at: 2026-11-10T15:37:22.428539+00:00
 ---
 
 # Review skill publisher details  |  Agent Registry  |  Google Cloud Documentation
@@ -23,7 +23,11 @@ Send feedback
 
 In Agent Registry, publishers let you verify the authority behind registered standalone skills to help prevent unauthorized use of publisher names. Each [publisher](https://docs.cloud.google.com/agent-registry/skills-architecture#publishers) establishes the verified domain or ID prefix for [skill identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#skill-identifiers), such as `cloud.google.com` for Google-managed skills or `private-` for manually registered skills.
 
+## Google-managed and private publishers
+
 Google controls publisher creation, updates, and deletions. Skills that you create are automatically assigned to the default `private` publisher, which uses the `private-` prefix. You can list and inspect publisher details in Agent Registry to verify the ownership of registered skills.
+
+Google-managed and private publishers are associated with `Publisher` resources in Agent Registry. `Publisher` resources apply only to standalone skills. Agents and Model Context Protocol (MCP) servers distinguish between built-in Google agents, Google and Google Cloud remote MCP servers, and project-scoped components using prefixes in their [registry identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers). To search or filter by these prefixes, see [Find components by source prefix](https://docs.cloud.google.com/agent-registry/search-agents-and-tools#component-source) and [Filter registered agents](https://docs.cloud.google.com/agent-registry/manage-agents#filter-agents).
 
 ## Before you begin
 
@@ -157,6 +161,7 @@ Replace the following:
 ## What's next
 
   * Learn how to [register standalone skills](https://docs.cloud.google.com/agent-registry/register-skills).
+  * [Search for standalone skills](https://docs.cloud.google.com/agent-registry/search-agents-and-tools#search-skills).
 
 
 
@@ -164,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

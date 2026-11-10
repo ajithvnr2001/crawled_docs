@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/iam-authentication/
 title: IAM authentication \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:35.305805+00:00
+fetched_at: 2026-11-10T12:13:31.365899+00:00
 ---
 
 # IAM authentication  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -200,6 +200,7 @@ To ensure optimal connection performance and reliability:
     1. The login for an IAM database authentication user account must be all lowercase. For example, `example-user@example.com`. `Example-User@example.com` is not allowed.
     2. For security, logins using IAM database authentication are only available on an SSL connection. Unencrypted connections are rejected.
     3. There is a per-minute login quota for each instance, which includes both successful and unsuccessful logins. When the quota is exceeded, logins are temporarily unavailable. We recommend that you avoid frequent logins and restrict logins using [authorized networks](https://docs.cloud.google.com/sql/docs/postgres/authorize-networks). The quota for authorization of logins is 12,000 per minute, per instance. 
+    4. Database usernames are limited to 63 characters. For service accounts, even after Cloud SQL truncates the `.gserviceaccount.com` suffix to `sa-name@project-id.iam`, the resulting username must not exceed 63 characters. Otherwise, you can't add the service account as an IAM database authentication user. 
 
 ## What's next
 
@@ -215,6 +216,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

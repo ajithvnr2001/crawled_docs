@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/multi-cluster-gateways/
 title: About multi-cluster Gateways \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:16.377590+00:00
+fetched_at: 2026-11-10T18:14:54.885801+00:00
 ---
 
 # About multi-cluster Gateways  |  GKE networking  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ This document is for Cloud architects and Networking specialists who design and 
 
 ## Overview
 
-Multi-cluster Gateway is configured by using the Kubernetes Gateway API resources. The GKE Gateway controller watches these resources (Gateway, HTTPRoute) and automatically provisions and maintains the required Google Cloud global load-balancing infrastructure. This infrastructure provides advanced traffic management for services deployed across multiple GKE clusters within a fleet. Multi-cluster Gateways uses Google Cloud's global load-balancing infrastructure to provide a single, unified entry point for your applications. This approach has the following benefits:
+Multi-cluster Gateway is configured by using the Kubernetes Gateway API resources. The GKE Gateway controller watches these resources (Gateway, HTTPRoute, and TLSRoute) and automatically provisions and maintains the required Google Cloud load-balancing infrastructure. This infrastructure provides advanced traffic management for services deployed across multiple GKE clusters within a fleet. Multi-cluster Gateways use Google Cloud's load-balancing infrastructure to provide a single, unified entry point for your applications. This approach has the following benefits:
 
   * Simplifies management
   * Improves reliability
@@ -44,11 +44,13 @@ Multi-cluster Gateways provide you with advanced capabilities to manage traffic 
 
 Multi-cluster Gateways also let you mirror traffic, which sends a copy of live user requests to a new service to test performance without impacting users. To ensure reliability and prevent overloads, multi-cluster Gateways support health-based failover and capacity-based load balancing, which distributes requests based on the defined capacity of your services.
 
+For TLS traffic that requires end-to-end encryption without terminating TLS at the load balancer, multi-cluster Gateways support SNI-based routing with TLSRoute.
+
 ## How multi-cluster Gateway works
 
 All GKE clusters that participate in a multi-cluster Gateway setup must be registered to a fleet. A fleet provides a logical grouping of clusters, which enables consistent management and communication across the clusters. One GKE cluster within the fleet is designated as the _config cluster_.
 
-The **config cluster** acts as a centralized control point for your multi-cluster Gateway configuration. You deploy all multi-cluster Gateway API resources, such as `Gateway` and `HTTPRoute`, only to this designated cluster. The GKE Gateway controller watches the Kubernetes API server of the config cluster for these resources.
+The **config cluster** acts as a centralized control point for your multi-cluster Gateway configuration. You deploy all multi-cluster Gateway API resources, such as Gateway, HTTPRoute, and TLSRoute, only to this designated cluster. The GKE Gateway controller watches the Kubernetes API server of the config cluster for these resources.
 
 To choose a config cluster, consider a regional cluster or another [highly available](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/multi-cluster-ingress#config_cluster_availability) GKE cluster. This helps ensure that updates to your Gateway API resources can be continuously reconciled by the controller.
 
@@ -56,23 +58,25 @@ The multi-cluster Gateway controller uses multi-cluster Services (MCS) to discov
 
 MCG uses MCS to discover which Services are available in which clusters in order to route external traffic to the Services. The MCG controller uses MCS API resources to group Pods into a single Service that is addressable and spans multiple clusters.
 
-Based on the configurations that you defined in the Gateway API resources, the GKE Gateway controller provides either an external Application Load Balancer or an internal Application Load Balancer. This load balancer serves as the frontend for your application, and distributes traffic directly to the healthy Pods across your fleet, regardless of their location.
+Based on the configurations that you defined in the Gateway API resources, the GKE Gateway controller provides an external or internal Application Load Balancer (for HTTPRoute) or proxy Network Load Balancer (for TLSRoute). This load balancer serves as the frontend for your application, and distributes traffic directly to the healthy Pods across your fleet, regardless of their location.
 
 The following high-level steps describe the process to deploy a multi-cluster Gateway:
 
   1. **Define a Gateway** : in a multi-cluster Gateway setup, you create a Gateway resource that defines the entry point for your traffic in the config cluster. The Gateway resource specifies a GatewayClass, which is a template for a particular type of load balancer, such as a Global external Application Load Balancer or a Regional internal Application Load Balancer. In GKE, the following GatewayClasses deploy multi-cluster Gateways:
 
-     * `gke-l7-global-external-managed-mc`: provisions a Global external Application Load Balancer.
-     * `gke-l7-regional-external-managed-mc`: provisions a Regional external Application Load Balancer.
-     * `gke-l7-cross-regional-internal-managed-mc`: provisions a Internal Application Load Balancer.
-     * `gke-l7-rilb-mc`: provisions a Internal Application Load Balancer.
-     * `gke-l7-gxlb-mc`: provisions a Classic Application Load Balancer.
+     * `gke-l7-global-external-managed-mc`: provisions a global external Application Load Balancer.
+     * `gke-l7-regional-external-managed-mc`: provisions a regional external Application Load Balancer or regional external proxy Network Load Balancer.
+     * `gke-l7-cross-regional-internal-managed-mc`: provisions a cross-region internal Application Load Balancer or cross-region internal proxy Network Load Balancer.
+     * `gke-l7-rilb-mc`: provisions a regional internal Application Load Balancer or regional internal proxy Network Load Balancer.
+     * `gke-l7-gxlb-mc`: provisions a classic Application Load Balancer.
 
 The Gateway also defines how the load balancer listens for incoming traffic by specifying which network listeners (ports and protocols) to expose. For more information about Gateway Classes that GKE supports, see [Multi-cluster Services](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities#multi-cluster_services).
 
-  2. **Attach HTTPRoutes to the Gateway** : HTTPRoute resources define how incoming HTTP/S traffic is routed to specific backend services. HTTPRoutes are attached to Gateway resources and specify rules based on hostnames, paths, headers, and more. HTTPRoute also supports advanced traffic management features like traffic splitting and traffic mirroring.
+  2. **Attach route resources to the Gateway** : Route resources define how the load balancer routes incoming traffic to specific backend services:
 
-  3. **Create load balancer** : when you deploy Gateway and HTTPRoute resources, the GKE Gateway controller interprets these API objects and, in turn, dynamically configures the necessary Google Cloud load balancing infrastructure. The load balancer then directs traffic to the correct Pods, regardless of which cluster the Pods are in. This process provides a highly efficient and scalable way to route traffic.
+     * **HTTPRoute** : defines how the load balancer routes HTTP and HTTPS traffic based on hostnames, paths, headers, and query parameters. Supports traffic splitting, request redirection, and traffic mirroring.
+     * **TLSRoute** : defines how the load balancer routes encrypted TLS traffic based on the SNI hostname by using TLS passthrough (supported on the `gke-l7-regional-external-managed-mc`, `gke-l7-rilb-mc`, and `gke-l7-cross-regional-internal-managed-mc` GatewayClasses). The load balancer forwards traffic directly to backend ServiceImports without decrypting the payload at the Gateway.
+  3. **Create load balancer** : when you deploy Gateway and Route resources, the GKE Gateway controller interprets these API objects and, in turn, dynamically configures the necessary Google Cloud load balancing infrastructure. The load balancer then directs traffic to the correct Pods, regardless of which cluster the Pods are in. This process provides a highly efficient and scalable way to route traffic.
 
 
 
@@ -83,7 +87,7 @@ The following diagram illustrates how a multi-cluster Gateway works as a central
 
 ![Architecture of multi-cluster Gateway in GKE.](https://docs.cloud.google.com/static/kubernetes-engine/images/multi-cluster-gateway-resource.svg)**Figure:** Multi-cluster Gateway architecture
 
-The load balancer's behavior is configured based on the rules defined in your HTTPRoute resources. When user traffic arrives at the IP address of the provisioned Google Cloud load balancer (as defined by your Gateway resource), the load balancer, which is a Google-managed proxy, routes the traffic. This proxy (either a Google Front End proxy or a regional proxy) directs the traffic to the appropriate backend service endpoint within the correct GKE cluster, based on the following criteria:
+The load balancer's behavior is configured based on the rules defined in your HTTPRoute or TLSRoute resources. When user traffic arrives at the IP address of the provisioned Google Cloud load balancer (as defined by your Gateway resource), the load balancer, which is a Google-managed proxy, routes the traffic. This proxy (either a Google Front End proxy or a regional proxy) directs the traffic to the appropriate backend service endpoint within the correct GKE cluster, based on the following criteria:
 
   * Health checks
   * Traffic splitting rules
@@ -95,6 +99,9 @@ The traffic flows directly to the optimal Pod in the selected cluster.
 
 ## What's next
 
+  * Learn how to [Deploy an external multi-cluster Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-external-multi-cluster-gateway).
+  * Learn how to [Deploy an internal multi-cluster Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-internal-multi-cluster-gateway).
+  * Learn how to [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
   * Learn how to [enable multi-cluster Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/prepare-environment-multi-cluster-gateways).
   * Read an overview on how [Gateways work in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
 
@@ -104,6 +111,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

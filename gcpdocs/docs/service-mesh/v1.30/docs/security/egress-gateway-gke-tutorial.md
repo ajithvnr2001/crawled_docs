@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/security/egress-gateway-gke-tutorial/
 title: Using Cloud Service Mesh egress gateways on GKE clusters: Tutorial \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:20.192987+00:00
+fetched_at: 2026-11-10T18:46:47.250672+00:00
 ---
 
 # Using Cloud Service Mesh egress gateways on GKE clusters: Tutorial  |  Google Cloud Documentation
@@ -764,7 +764,7 @@ An error message from the sidecar proxy is generated because the `global-deny-eg
 
 ## Using the Sidecar resource to restrict the scope of sidecar proxy configuration
 
-You can use the [Sidecar resource](https://istio.io//docs/reference/config/networking/sidecar/) to restrict the scope of the egress listener that is configured for sidecar proxies. To reduce configuration bloat and memory usage, it's a good practice to apply a default `Sidecar` resource for every namespace.
+You can use the [Sidecar resource](https://istio.io/v1.30/docs/reference/config/networking/sidecar/) to restrict the scope of the egress listener that is configured for sidecar proxies. To reduce configuration bloat and memory usage, it's a good practice to apply a default `Sidecar` resource for every namespace.
 
 The proxy that Cloud Service Mesh runs in the sidecar is Envoy. In [Envoy terminology](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology), a `cluster` is a logically similar group of upstream endpoints used as destinations for load balancing.
 
@@ -883,7 +883,7 @@ You see clusters for the egress gateway and one for the test pod itself.
 
 **Configuring different egress routing for each namespace**
 
-The [`exportTo`](https://istio.io//docs/reference/config/networking/service-entry/#ServiceEntry-export_to) property controls which namespaces can use the service entry. Network administrators use service entries to centrally control the set of external hosts available to each namespace. Configure Kubernetes RBAC permissions so that only network administrators can directly create and modify service entries. Consider creating automation with an approval workflow so that application developers can request access to new external hosts.
+The [`exportTo`](https://istio.io/v1.30/docs/reference/config/networking/service-entry/#ServiceEntry-export_to) property controls which namespaces can use the service entry. Network administrators use service entries to centrally control the set of external hosts available to each namespace. Configure Kubernetes RBAC permissions so that only network administrators can directly create and modify service entries. Consider creating automation with an approval workflow so that application developers can request access to new external hosts.
 
   4. Create a `VirtualService` to route traffic to example.com through the egress gateway. There are two match conditions: the first condition directs traffic to the egress gateway, and the second directs traffic from the egress gateway to the destination host. The `exportTo` property controls which namespaces can use the virtual service.
          
@@ -1879,6 +1879,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

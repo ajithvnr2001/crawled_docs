@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-list-deny-policy/
 title: List deny policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:15.336216+00:00
+fetched_at: 2026-11-10T09:12:54.502334+00:00
 ---
 
 # List deny policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -105,7 +105,7 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
     
     
     import com.google.iam.v2.[PoliciesClient](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PoliciesClient.html);
-    import com.google.iam.v2.[Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html);
+    import com.google.iam.v2.[Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html);
     import java.io.IOException;
     import java.net.URLEncoder;
     import java.nio.charset.StandardCharsets;
@@ -145,7 +145,7 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
           String policyParent = String.format("policies/%s/denypolicies", attachmentPoint);
     
           // Create a list request and iterate over the returned policies.
-          for ([Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html) policy : policiesClient.listPolicies(policyParent).iterateAll()) {
+          for ([Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html) policy : policiesClient.listPolicies(policyParent).iterateAll()) {
             System.out.println(policy.getName());
           }
           System.out.println("Listed all deny policies");

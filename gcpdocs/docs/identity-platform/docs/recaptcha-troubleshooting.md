@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/recaptcha-troubleshooting/
 title: Troubleshooting the Identity Platform integration with the reCAPTCHA Enterprise API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:25.289377+00:00
+fetched_at: 2026-11-10T17:34:15.525353+00:00
 ---
 
 # Troubleshooting the Identity Platform integration with the reCAPTCHA Enterprise API  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ Your users might be experiencing issues due to mistakes when onboarding with the
 
 ## Users can't authenticate through reCAPTCHA Enterprise API supported flows
 
-If you are experiencing issues with reCAPTCHA Enterprise API supported flows, such as reCAPTCHA bot protection or reCAPTCHA SMS defense, see the following sections for feature specific guidance.
+If you are experiencing issues with reCAPTCHA Enterprise API-supported flows, such as reCAPTCHA bot protection or reCAPTCHA SMS defense, see the following sections for feature-specific guidance.
 
 ### reCAPTCHA bot protection troubleshooting
 
@@ -55,7 +55,8 @@ To resolve these authentication issues, try the following:
 
   * If user requests are failing with `ERROR_CAPTCHA_CHECK_FAILED`, consider a more permissive configuration by adjusting the thresholds you've set for `managedRules`. Any requests that score below the threshold you set will be considered a bot. For example, if you set a threshold of `0.6`, reCAPTCHA will fail any request with a `0.5` or lower. Therefore, the higher you set the score, the stricter the rules will be.
   * Ask the user to try a different device, browser, or network.
-  * Revert to audit mode and monitor metrics before re-enabling enforcement mode.
+  * For email-password authentication flows, revert `emailPasswordEnforcementState` to `AUDIT` mode and monitor metrics before re-enabling `ENFORCE` mode.
+  * For phone authentication flows, adjust your `managedRules` score thresholds or disable bot protection for the phone provider while troubleshooting. If reCAPTCHA SMS defense is also enabled and you want to keep it active, set `useSmsBotScore` to `false` and leave `phoneEnforcementState` set to `ENFORCE`. To disable all phone reCAPTCHA protection, set `phoneEnforcementState` to `OFF`, `useSmsBotScore` to `false`, and `useSmsTollFraudProtection` to `false`.
 
 
 
@@ -69,7 +70,7 @@ If you have determined that the Identity Platform integration with the reCAPTCHA
 
 To resolve this, consider a more permissive configuration by adjusting the threshold you've set for `tollFraudManagedRules`. Any score above the threshold you set will be considered SMS toll fraud. For example, if you set a threshold of `0.3`, reCAPTCHA will fail any request with a `0.4` or higher. Therefore, the lower you set the score, the stricter the rules will be.
 
-If this is an issue, we recommend setting your enforcement mode to audit to test and monitor the reCAPTCHA metrics emitted by your project. This will help you ensure that your app is receiving acceptable user traffic before enabling enforcement again.
+Monitor the reCAPTCHA metrics emitted by your project to verify that your app is receiving acceptable user traffic after adjusting the score threshold.
 
 ## What's next
 
@@ -81,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

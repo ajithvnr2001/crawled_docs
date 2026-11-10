@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/supported-databases/
 title: Supported source and destination databases \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:13.489097+00:00
+fetched_at: 2026-11-10T12:42:57.851089+00:00
 ---
 
 # Supported source and destination databases  |  Database Migration Service  |  Google Cloud Documentation
@@ -99,10 +99,13 @@ The following table lists all supported SQL Server source and destination databa
 
 Source databases | Destination databases  
 ---|---  
-Amazon RDS |  Cloud SQL for SQL Server versions 2025, 2022, 2019, 2017  
-Self-managed SQL Server (on-premises or on any cloud VM that you fully control)  
+Amazon RDS versions 2025, 2022, 2019, 2017 |  Cloud SQL for SQL Server versions 2025, 2022, 2019, 2017  
+Self-managed SQL Server versions 2025, 2022, 2019, 2017 (on-premises or on any cloud VM that you fully control)  
+Cloud SQL for SQL Server versions 2025, 2022, 2019, 2017 (with automated backup exports by Database Migration Service; backup-and-restore migrations only)  
   
-You can also use Database Migration Service to migrate from earlier versions of SQL Server to later versions supported in Cloud SQL, as long as you follow the version compatibility guidelines. For more information, see the supported version and edition upgrades for your SQL Server version in Microsoft documentation. For example, see [Supported version and edition upgrades (SQL Server 2025)](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/supported-version-and-edition-upgrades-2025?view=sql-server-ver17#upgrades-from-earlier-versions-to-sql-server-2025). 
+You can also use Database Migration Service to migrate from earlier versions of SQL Server (such as SQL Server 2017) to later versions supported in Cloud SQL (2019, 2022, or 2025), as long as you follow the version compatibility guidelines. For more information, see the supported version and edition upgrades for your SQL Server version in Microsoft documentation. For example, see [Supported version and edition upgrades (SQL Server 2025)](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/supported-version-and-edition-upgrades-2025?view=sql-server-ver17#upgrades-from-earlier-versions-to-sql-server-2025). 
+
+**Note:** Starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 destination instances. You can continue to use Database Migration Service to migrate and upgrade SQL Server 2017 source databases to Cloud SQL for SQL Server 2019, 2022, or 2025. For more information, see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions). 
 
 For more information, see [ Migrate to Cloud SQL for SQL Server](https://docs.cloud.google.com/database-migration/docs/sqlserver/scenario-overview).
 
@@ -228,6 +231,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

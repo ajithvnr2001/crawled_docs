@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/ms-licensing-faq/
 title: Microsoft licensing on Google Cloud FAQ \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:05:27.232766+00:00
+fetched_at: 2026-11-10T15:29:28.715129+00:00
 ---
 
 # Microsoft licensing on Google Cloud FAQ  |  Compute Engine  |  Google Cloud Documentation
@@ -32,11 +32,15 @@ This page covers the most frequently asked questions (FAQ) about licensing for t
 
 ## Windows Server on Google Cloud FAQ
 
+Find answers to common questions about licensing Windows Server on Google Cloud.
+
 #### What are my options for running Windows Server on Google Cloud?
 
 Windows Server is available using on-demand licenses available on prebuilt images in Compute Engine, or as an attached license string to custom images during image import. Additionally, you might be able to bring your own license (BYOL) of a Windows Server if it meets the eligibility requirements. For more information, see BYOL Windows Server FAQ.
 
 ### On-demand Windows Server FAQ
+
+Learn how to use on-demand licenses for Windows Server instances.
 
 #### How do I use on-demand licensing on my Windows Server instances?
 
@@ -64,6 +68,8 @@ No, the CALs and their cost are included with the OS image. You don't need to se
 No, RDS CALs are not required for on-demand Windows Servers unless you need more than two concurrent remote desktop sessions for administrative purposes. If you need more than two concurrent remote desktop sessions, you must purchase additional RDS CALs. For more information, see [license your RDS deployment with CALs](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
 ### BYOL Windows Server FAQ
+
+Review eligibility and compliance requirements for bringing your own Windows Server licenses to Google Cloud.
 
 #### How do I know if my license for Windows Server is eligible for use on Google Cloud (BYOL)?
 
@@ -126,6 +132,8 @@ There are several ways to run SQL Server workloads on Google Cloud:
 
 ### On-demand SQL Server FAQ
 
+Find answers to questions about core licensing and failover clusters for on-demand SQL Server instances.
+
 #### How many SQL Server core licenses are charged for my instance?
 
 Microsoft SQL Server licensing requires a core license to be assigned to each virtual CPU (vCPU) available to the guest operating system, with a minimum of four core licenses always being charged. Reducing the number of virtual CPUs available to the guest operating system by [disabling SMT](https://docs.cloud.google.com/compute/docs/instances/set-threads-per-core) or [disabling cores](https://docs.cloud.google.com/compute/docs/instances/customize-visible-cores), or both, reduces the number of core licenses that will be charged.
@@ -145,6 +153,8 @@ When you use on-demand licenses for SQL Server, you must license all instances i
 Once you create or import an instance, you can't edit or delete the instance's metadata. Therefore, you can't remove SQL Server licenses that are attached to the instance.
 
 ### BYOL SQL Server FAQ
+
+Learn about License Mobility, tenancy requirements, and activation when bringing your own SQL Server licenses to Google Cloud.
 
 #### Is SQL Server covered by Software Assurance with License Mobility?
 
@@ -268,6 +278,8 @@ No, the requirements for BYOL Windows Desktop OS are different from BYOL Windows
 
 ## Microsoft Office FAQ
 
+Review the requirements for using perpetual Microsoft Office licenses on Google Cloud.
+
 #### Can I bring my own Microsoft Office licenses to instances on Google Cloud?
 
 Perpetual versions of Microsoft Office (Microsoft Office 2019 and earlier) are eligible for BYOL to Google Cloud, however these licenses are subject to the Outsourcing Software Management Rights requirements:
@@ -279,6 +291,8 @@ Perpetual versions of Microsoft Office (Microsoft Office 2019 and earlier) are e
 
 
 ## End of support FAQ
+
+This section answers questions about Microsoft's support lifecycle and Extended Security Updates (ESUs) on Compute Engine.
 
 #### How does Microsoft's support lifecycle work for Windows Server on Compute Engine?
 
@@ -296,7 +310,11 @@ You can search for specific support dates for your Windows Server version using 
 
 Yes. If the Windows Server version has reached the end of its Extended Support phase (for example, Windows Server 2012 R2), you can purchase ESUs from Microsoft and configure your instances to receive them. For more details on ESU eligibility and activation, see the Microsoft [Extended Security Updates deployment guide](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates).
 
+Purchasing ESUs directly from Microsoft or its partners, or onboarding your VMs to Azure Arc, doesn't replace or eliminate Google Cloud pay-as-you-go (PAYG) licensing costs. You continue to be billed for the premium Windows Server image at standard Google Cloud rates as long as the VM is active.
+
 ## Image Import FAQ
+
+Find answers to questions about importing and sharing custom images in Compute Engine.
 
 #### Can I customize the image import workflows?
 
@@ -325,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

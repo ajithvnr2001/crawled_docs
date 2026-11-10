@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/install-edge-profile/
 title: Deploy clusters on the edge \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:10.760705+00:00
+fetched_at: 2026-11-10T16:59:13.374710+00:00
 ---
 
 # Deploy clusters on the edge  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Deploy clusters on the edge Stay organized with collections  Save and categorize content based on your preferences. 
 
-Combining Distributed Cloud software only for bare metal with [Config Sync](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/overview) lets you deploy and manage edge Kubernetes clusters at scale from a centralized location. Config Sync dynamically pulls configurations from GitHub and automatically applies these policies across your clusters. In this tutorial, designed for platform operators and developers, you use Compute Engine virtual machines (VMs) to emulate edge nodes running a sample point-of-sale workload.
+Combining Google Distributed Cloud software only for bare metal with [Config Sync](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/overview) lets you deploy and manage edge Kubernetes clusters at scale from a centralized location. Config Sync dynamically pulls configurations from GitHub and automatically applies these policies across your clusters. In this tutorial, designed for platform operators and developers, you use Compute Engine virtual machines (VMs) to emulate edge nodes running a sample point-of-sale workload.
 
 Before you begin, ensure that you are familiar with Google Cloud projects, `gcloud` and `kubectl` CLIs, edge deployment challenges, [Ansible playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html), and [deploying containerized web applications](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/hello-app).
 
@@ -213,7 +213,7 @@ The following sample is only a portion of the script. To see the entire script, 
 
 ## Provision the Compute Engine instances
 
-In this section, you create the Compute Engine VMs where Distributed Cloud software only will be installed. You also verify connectivity to these VMs before proceeding to the install section.
+In this section, you create the Compute Engine VMs where Google Distributed Cloud software only will be installed. You also verify connectivity to these VMs before proceeding to the install section.
 
   1. On your workstation, create SSH keys that are used for communication between the Compute Engine instances:
          
@@ -588,6 +588,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

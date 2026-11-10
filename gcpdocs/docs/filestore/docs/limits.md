@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/filestore/docs/limits/
 title: Quotas and limits \u00a0|\u00a0 Filestore \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:25:33.656843+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-10T16:28:08.043305+00:00
 ---
 
 # Quotas and limits  |  Filestore  |  Google Cloud Documentation
@@ -152,15 +138,23 @@ For more information, see [Backups feature limitations](https://docs.cloud.googl
 
 ## Filestore agent volumes limits
 
-Filestore agent volumes introduces high-density elastic NFS file storage backed by regional volume pools:
+Filestore agent volumes introduce high-density elastic NFS file storage backed by regional volume pools:
 
-Resource or metric | Limit  
+Resource or operation | Limit  
 ---|---  
-Maximum volume pool capacity | Up to 100 TB per volume pool  
-Maximum volumes per volume pool | Up to 1,000,000 volumes  
-Minimum volume size | 100 MiB  
-Volume attachment latency | Under 100 ms  
-Volume creation and deletion latency | Under 1 second  
+Maximum volume pool capacity | Up to 400 TiB of `HOT` storage by default (up to 5 PB including `COLD` storage)  
+Maximum volumes per volume pool | Up to 20,000,000 volumes  
+Maximum concurrently active volumes | 50,000  
+Volume capacity range | 100 MiB to 100 GiB  
+Throughput per volume | Up to 400 MB/s  
+IOPS per volume | Up to 10,000 IOPS  
+VPC network client IPs per pool | 2,000 IPs  
+Volume mount latency (resume) | Under 100 ms  
+Volume unmount latency (pause) | Under 100 ms  
+Volume creation and deletion latency | Under 2 seconds  
+Volume tiering to Cold | 3 s/GB or 1.5 s/10,000 files  
+Volume tiering to Hot | 1.5 s/GB or 1.5 s/10,000 files  
+Workspace cloning (from snapshot) | 3 s/GB or 1.5 s/10,000 files  
 Mount protocol | NFSv3  
 Supported access modes | ReadWriteMany (RWX), ReadOnlyMany (ROX)  
   
@@ -180,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

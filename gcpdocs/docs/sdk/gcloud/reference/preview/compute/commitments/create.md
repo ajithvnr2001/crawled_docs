@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/commitments/create/
 title: gcloud preview compute commitments create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:43.254604+00:00
+fetched_at: 2026-11-10T17:33:23.780358+00:00
 ---
 
 # gcloud preview compute commitments create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -101,7 +101,7 @@ Alternatively, the region can be stored in the environment variable ``CLOUDSDK_C
 `--split-source-commitment`=`SPLIT_SOURCE_COMMITMENT`
      Creates the new commitment by splitting the specified source commitment and redistributing the specified resources. 
 `--type`=`TYPE`; default="general-purpose"
-     Type of commitment. `memory-optimized` indicates that the commitment is for memory-optimized VMs. `TYPE` must be one of: `accelerator-optimized`, `accelerator-optimized-a3`, `accelerator-optimized-a3-mega`, `accelerator-optimized-a3-ultra`, `accelerator-optimized-a4`, `compute-optimized`, `compute-optimized-c2d`, `compute-optimized-c3`, `compute-optimized-c3d`, `compute-optimized-h3`, `compute-optimized-h4d`, `compute-optimized-h4d-3tb`, `general-purpose`, `general-purpose-c4`, `general-purpose-c4a`, `general-purpose-c4d`, `general-purpose-e2`, `general-purpose-n2`, `general-purpose-n2d`, `general-purpose-n4`, `general-purpose-n4a`, `general-purpose-n4d`, `general-purpose-t2d`, `graphics-optimized`, `graphics-optimized-g4`, `graphics-optimized-g4-vgpu`, `memory-optimized`, `memory-optimized-m3`, `memory-optimized-m4`, `memory-optimized-m4-6tb`, `memory-optimized-m4n`, `memory-optimized-m4n-6tb`, `memory-optimized-x4-1440-24t`, `memory-optimized-x4-16tb`, `memory-optimized-x4-1920-32t`, `memory-optimized-x4-24tb`, `memory-optimized-x4-32tb`, `memory-optimized-x4-480-6t`, `memory-optimized-x4-480-8t`, `memory-optimized-x4-960-12t`, `memory-optimized-x4-960-16t`, `network-optimized-c4n`, `network-optimized-u4c`, `network-optimized-u4p`, `network-optimized-u4s`, `storage-optimized-z3`, `storage-optimized-z4d4t`, `storage-optimized-z4dh`, `storage-optimized-z4ds`, `storage-optimized-z4m`. 
+     Type of commitment. `memory-optimized` indicates that the commitment is for memory-optimized VMs. `TYPE` must be one of: `accelerator-optimized`, `accelerator-optimized-a3`, `accelerator-optimized-a3-mega`, `accelerator-optimized-a3-ultra`, `accelerator-optimized-a4`, `compute-optimized`, `compute-optimized-c2d`, `compute-optimized-c3`, `compute-optimized-c3d`, `compute-optimized-h3`, `compute-optimized-h4d`, `compute-optimized-h4d-3tb`, `general-purpose`, `general-purpose-c4`, `general-purpose-c4a`, `general-purpose-c4d`, `general-purpose-e2`, `general-purpose-n2`, `general-purpose-n2d`, `general-purpose-n4`, `general-purpose-n4a`, `general-purpose-n4d`, `general-purpose-t2d`, `graphics-optimized`, `graphics-optimized-g4`, `graphics-optimized-g4-vgpu`, `memory-optimized`, `memory-optimized-m3`, `memory-optimized-m4`, `memory-optimized-m4-6tb`, `memory-optimized-m4n`, `memory-optimized-m4n-6tb`, `memory-optimized-x4-1440-24t`, `memory-optimized-x4-16tb`, `memory-optimized-x4-1920-32t`, `memory-optimized-x4-24tb`, `memory-optimized-x4-32tb`, `memory-optimized-x4-480-6t`, `memory-optimized-x4-480-8t`, `memory-optimized-x4-960-12t`, `memory-optimized-x4-960-16t`, `memory-optimized-x5-1376-24t`, `memory-optimized-x5-1376-32t`, `memory-optimized-x5-2064-48t`, `memory-optimized-x5-688-12t`, `memory-optimized-x5-688-16t`, `network-optimized-c4n`, `network-optimized-u4c`, `network-optimized-u4p`, `network-optimized-u4s`, `storage-optimized-z3`, `storage-optimized-z4d4t`, `storage-optimized-z4dh`, `storage-optimized-z4ds`, `storage-optimized-z4m`. 
 Manage the reservations to be created with the commitment. 
 
 At most one of these can be specified: 
@@ -202,6 +202,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

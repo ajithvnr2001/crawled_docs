@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/backfill-embeddings/
 title: Generate vector embeddings for textual data in bulk using partitioned DML \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:04.655416+00:00
+fetched_at: 2026-11-10T16:58:38.579410+00:00
 ---
 
 # Generate vector embeddings for textual data in bulk using partitioned DML  |  Spanner  |  Google Cloud Documentation
@@ -137,19 +137,20 @@ Replace the following:
 
 ## Update the source table to include additional columns to store the embeddings
 
-Next, update the source table schema to include an additional column of the data type `ARRAY<FLOAT32>` to store the generated embeddings:
+Next, update the source table schema to add an embedding column. Specifying the vector length is optional for storing embeddings, [recommended for KNN search performance](https://docs.cloud.google.com/spanner/docs/vector-search-best-practices#annotate-embedding-column), and required for [vector indexes](https://docs.cloud.google.com/spanner/docs/vector-indexes). Omit the vector length if the column stores vectors of varying dimensions:
 
 ###  GoogleSQL 
     
     
     ALTER TABLE TABLE_NAME
-    ADD COLUMN EMBEDDING_COLUMN_NAME ARRAY<FLOAT32>;
+    ADD COLUMN EMBEDDING_COLUMN_NAME ARRAY<FLOAT32>(vector_length=>VECTOR_LENGTH);
     
 
 Replace the following: 
 
   * `TABLE_NAME`: the name of the source table
   * `EMBEDDING_COLUMN_NAME`: the name of the column in which you want to add generated embeddings
+  * `VECTOR_LENGTH`: the output dimension of the embedding model, such as `768` or `3072`
 
 
 
@@ -157,13 +158,14 @@ Replace the following:
     
     
     ALTER TABLE TABLE_NAME
-    ADD COLUMN EMBEDDING_COLUMN_NAME real[];
+    ADD COLUMN EMBEDDING_COLUMN_NAME real[] VECTOR LENGTH VECTOR_LENGTH;
     
 
 Replace the following: 
 
   * `TABLE_NAME`: the name of the source table
   * `EMBEDDING_COLUMN_NAME`: the name of the column in which you want to add generated embeddings
+  * `VECTOR_LENGTH`: the output dimension of the embedding model, such as `768` or `3072`
 
 
 
@@ -173,14 +175,14 @@ For example, using the `products` table example, run:
     
     
     ALTER TABLE Products
-    ADD COLUMN desc_embed ARRAY<FLOAT32>;
+    ADD COLUMN desc_embed ARRAY<FLOAT32>(vector_length=>768);
     
 
 ###  PostgreSQL 
     
     
     ALTER TABLE Products
-    ADD COLUMN desc_embed real[];
+    ADD COLUMN desc_embed real[] VECTOR LENGTH 768;
     
 
 You can add another column to manage the version of the embedding model.
@@ -351,6 +353,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

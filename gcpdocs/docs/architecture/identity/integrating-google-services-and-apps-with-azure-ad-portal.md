@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/integrating-google-services-and-apps-with-azure-ad-portal/
 title: Microsoft My Apps portal integration \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:59.078426+00:00
+fetched_at: 2026-11-10T16:33:33.078034+00:00
 ---
 
 # Microsoft My Apps portal integration  |  Cloud Architecture Center  |  Google Cloud Documentation

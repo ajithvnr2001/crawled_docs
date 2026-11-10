@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/quick/api/
 title: Interactions with the API \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:15.970974+00:00
+fetched_at: 2026-11-10T09:17:29.313003+00:00
 ---
 
 # Interactions with the API  |  Dialogflow CX  |  Google Cloud Documentation
@@ -254,14 +254,14 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
     
     
     import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
-    import com.google.cloud.dialogflow.cx.v3beta1.DetectIntentRequest;
-    import com.google.cloud.dialogflow.cx.v3beta1.DetectIntentResponse;
-    import com.google.cloud.dialogflow.cx.v3beta1.QueryInput;
-    import com.google.cloud.dialogflow.cx.v3beta1.QueryResult;
-    import com.google.cloud.dialogflow.cx.v3beta1.SessionName;
-    import com.google.cloud.dialogflow.cx.v3beta1.SessionsClient;
-    import com.google.cloud.dialogflow.cx.v3beta1.SessionsSettings;
-    import com.google.cloud.dialogflow.cx.v3beta1.TextInput;
+    import com.google.cloud.dialogflow.cx.v3.[DetectIntentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.DetectIntentRequest.html);
+    import com.google.cloud.dialogflow.cx.v3.[DetectIntentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.DetectIntentResponse.html);
+    import com.google.cloud.dialogflow.cx.v3.[QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html);
+    import com.google.cloud.dialogflow.cx.v3.[QueryResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html);
+    import com.google.cloud.dialogflow.cx.v3.[SessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html);
+    import com.google.cloud.dialogflow.cx.v3.[SessionsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html);
+    import com.google.cloud.dialogflow.cx.v3.[SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html);
+    import com.google.cloud.dialogflow.cx.v3.[TextInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.TextInput.html);
     import com.google.common.collect.Maps;
     import java.io.IOException;
     import java.util.List;
@@ -278,13 +278,13 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
           List<String> texts,
           String languageCode)
           throws IOException, [ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) {
-        SessionsSettings.Builder sessionsSettingsBuilder = SessionsSettings.newBuilder();
-        if (locationId.[equals](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.UnaryCallSettings.html#com_google_api_gax_rpc_UnaryCallSettings_equals__org_jspecify_annotations_Nullable_java_lang_Object_)("global")) {
+        [SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html).Builder sessionsSettingsBuilder = [SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html).newBuilder();
+        if (locationId.equals("global")) {
           sessionsSettingsBuilder.setEndpoint("dialogflow.googleapis.com:443");
         } else {
           sessionsSettingsBuilder.setEndpoint(locationId + "-dialogflow.googleapis.com:443");
         }
-        SessionsSettings sessionsSettings = sessionsSettingsBuilder.build();
+        [SessionsSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsSettings.html) sessionsSettings = sessionsSettingsBuilder.build();
     
         Map<String, QueryResult> queryResults = Maps.newHashMap();
         // Instantiates a client.
@@ -292,11 +292,11 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
         // Note: close() needs to be called on the SessionsClient object to clean up resources
         // such as threads. In the example below, try-with-resources is used,
         // which automatically calls close().
-        try (SessionsClient sessionsClient = SessionsClient.create(sessionsSettings)) {
+        try ([SessionsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html) sessionsClient = [SessionsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionsClient.html).create(sessionsSettings)) {
           // Set the session name using the projectID (my-project-id), locationID (global), agentID
           // (UUID), and sessionId (UUID).
-          SessionName session =
-              SessionName.ofProjectLocationAgentSessionName(projectId, locationId, agentId, sessionId);
+          [SessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html) session =
+              [SessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html).[ofProjectLocationAgentSessionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html#com_google_cloud_dialogflow_cx_v3_SessionName_ofProjectLocationAgentSessionName_java_lang_String_java_lang_String_java_lang_String_java_lang_String_)(projectId, locationId, agentId, sessionId);
     
           // TODO : Uncomment if you want to print session path
           // System.out.println("Session Path: " + session.toString());
@@ -304,24 +304,24 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
           // Detect intents for each text input.
           for (String text : texts) {
             // Set the text (hello) for the query.
-            TextInput.Builder textInput = TextInput.newBuilder().setText(text);
+            [TextInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.TextInput.html).Builder textInput = [TextInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.TextInput.html).newBuilder().setText(text);
     
             // Build the query with the TextInput and language code (en-US).
-            QueryInput queryInput =
-                QueryInput.newBuilder().setText(textInput).setLanguageCode(languageCode).build();
+            [QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html) queryInput =
+                [QueryInput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryInput.html).newBuilder().setText(textInput).setLanguageCode(languageCode).build();
     
             // Build the DetectIntentRequest with the SessionName and QueryInput.
-            DetectIntentRequest request =
-                DetectIntentRequest.newBuilder()
-                    .setSession(session.toString())
+            [DetectIntentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.DetectIntentRequest.html) request =
+                [DetectIntentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.DetectIntentRequest.html).newBuilder()
+                    .setSession(session.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.SessionName.html#com_google_cloud_dialogflow_cx_v3_SessionName_toString__)())
                     .setQueryInput(queryInput)
                     .build();
     
             // Performs the detect intent request.
-            DetectIntentResponse response = sessionsClient.detectIntent(request);
+            [DetectIntentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.DetectIntentResponse.html) response = sessionsClient.detectIntent(request);
     
             // Display the query result.
-            QueryResult queryResult = response.getQueryResult();
+            [QueryResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.QueryResult.html) queryResult = response.[getQueryResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.DetectIntentResponse.html#com_google_cloud_dialogflow_cx_v3_DetectIntentResponse_getQueryResult__)();
     
             // TODO : Uncomment if you want to print queryResult
             // System.out.println("====================");
@@ -329,7 +329,7 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
             // System.out.format(
             //     "Detected Intent: %s (confidence: %f)\n",
             //     queryResult.getIntent().getDisplayName(),
-            //         queryResult.getIntentDetectionConfidence());
+            //     queryResult.getIntentDetectionConfidence());
     
             queryResults.put(text, queryResult);
           }

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/querydata/
 title: Query database in natural language with QueryData \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:55:36.759781+00:00
+fetched_at: 2026-11-10T14:04:39.585692+00:00
 ---
 
 # Query database in natural language with QueryData  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ QueryData lets you interact with the data in your database using conversational 
 
 ## Context sets
 
-A context set is a collection of database-specific information that enables QueryData to generate queries with high accuracy. A context set includes templates, facets, and value searches that help QueryData understand your database schema and the business logic of your applications. 
+A context set is a collection of database-specific information that enables QueryData to generate queries with high accuracy. A context set includes templates, facets, and value searches that help QueryData understand your database schema and the business logic of your applications.
 
 To learn more, see the following resources:
 
@@ -51,6 +51,7 @@ To learn more, see the following resources:
   * [QueryData overview](https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/data-agent-overview)
   * [Test QueryData in Cloud SQL Studio](https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/inspect-data-agent)
   * [Integrate QueryData with an application](https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/integrate-applications-data-agent)
+  * [Secure and control access to application data](https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/secure-app-data-parameterized-secure-views-qd)
 
 
 
@@ -58,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

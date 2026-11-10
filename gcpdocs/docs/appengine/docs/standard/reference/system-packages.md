@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/reference/system-packages/
 title: System packages and extensions \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:45.723736+00:00
+fetched_at: 2026-11-10T19:01:18.400798+00:00
 ---
 
 # System packages and extensions  |  App Engine standard environment  |  Google Cloud Documentation
@@ -99,12 +99,12 @@ git-man | 1:2.34.1-1ubuntu1.18
 gnupg | 2.2.27-3ubuntu2.5  
 gnupg-l10n | 2.2.27-3ubuntu2.5  
 gnupg-utils | 2.2.27-3ubuntu2.5  
-go | 1.28-20261015-RC02  
-go | 1.28-20261015-RC02  
-go | 1.28-20261015-RC02  
-go | 1.28-20261015-RC02  
-go | 1.28-20261015-RC02  
-go | 1.28-20261015-RC02  
+go | 1.28-20261102-RC00  
+go | 1.28-20261102-RC00  
+go | 1.28-20261102-RC00  
+go | 1.28-20261102-RC00  
+go | 1.28-20261102-RC00  
+go | 1.28-20261102-RC00  
 gpg | 2.2.27-3ubuntu2.5  
 gpg-agent | 2.2.27-3ubuntu2.5  
 gpg-wks-client | 2.2.27-3ubuntu2.5  
@@ -153,7 +153,7 @@ libblas3 | 3.10.0-2ubuntu1
 libblkid1 | 2.37.2-4ubuntu3.6  
 libbluray2 | 1:1.3.1-1  
 libbpf0 | 1:0.5.0-1ubuntu22.04.1  
-libbrotli1 | 1.0.9-2build6  
+libbrotli1 | 1.0.9-2ubuntu0.1  
 libbs2b0 | 3.1.0+dfsg-2.2build1  
 libbsd0 | 0.11.5-1  
 libbz2-1.0 | 1.0.8-5ubuntu0.1  
@@ -285,12 +285,12 @@ libncurses6 | 6.3-2ubuntu0.3
 libncursesw6 | 6.3-2ubuntu0.3  
 libnettle8 | 3.7.3-1build2  
 libnghttp2-14 | 1.43.0-1ubuntu0.4  
-libnginx-mod-http-geoip2 | 1.18.0-6ubuntu14.21  
-libnginx-mod-http-image-filter | 1.18.0-6ubuntu14.21  
-libnginx-mod-http-xslt-filter | 1.18.0-6ubuntu14.21  
-libnginx-mod-mail | 1.18.0-6ubuntu14.21  
-libnginx-mod-stream | 1.18.0-6ubuntu14.21  
-libnginx-mod-stream-geoip2 | 1.18.0-6ubuntu14.21  
+libnginx-mod-http-geoip2 | 1.18.0-6ubuntu14.22  
+libnginx-mod-http-image-filter | 1.18.0-6ubuntu14.22  
+libnginx-mod-http-xslt-filter | 1.18.0-6ubuntu14.22  
+libnginx-mod-mail | 1.18.0-6ubuntu14.22  
+libnginx-mod-stream | 1.18.0-6ubuntu14.22  
+libnginx-mod-stream-geoip2 | 1.18.0-6ubuntu14.22  
 libnorm1 | 1.5.9+dfsg-2  
 libnpth0 | 1.6-3build2  
 libnsl2 | 1.3.0-2build2  
@@ -314,7 +314,7 @@ libpangocairo-1.0-0 | 1.50.6+ds-2ubuntu1
 libpangoft2-1.0-0 | 1.50.6+ds-2ubuntu1  
 libpaper1 | 1.1.28build2  
 libpciaccess0 | 0.16-3  
-libpcre2-8-0 | 10.39-3ubuntu0.1  
+libpcre2-8-0 | 10.39-3ubuntu0.2  
 libpcre3 | 2:8.39-13ubuntu0.22.04.1  
 libperl5.34 | 5.34.0-3ubuntu1.9  
 libpgm-5.3-0 | 5.3.128~dfsg-2  
@@ -469,8 +469,8 @@ mysql-common | 5.8+1.0.8
 ncurses-base | 6.3-2ubuntu0.3  
 ncurses-bin | 6.3-2ubuntu0.3  
 netbase | 6.3  
-nginx-common | 1.18.0-6ubuntu14.21  
-nginx-core | 1.18.0-6ubuntu14.21  
+nginx-common | 1.18.0-6ubuntu14.22  
+nginx-core | 1.18.0-6ubuntu14.22  
 ocl-icd-libopencl1 | 2.2.14-3  
 openssl | 3.0.2-0ubuntu1.30  
 passwd | 1:4.8.1-2ubuntu2.2  
@@ -1093,6 +1093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

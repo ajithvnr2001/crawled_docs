@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/overview/
 title: About Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:06.753159+00:00
+fetched_at: 2026-11-10T14:04:41.378345+00:00
 ---
 
 # About Cloud Scheduler  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Each cron job created using Cloud Scheduler is sent to a _target_ according to a
 
 
 
-Cloud Scheduler is designed to provide "at least once" delivery; that is, the job will run at least once per scheduled execution. In some rare circumstances, it is possible for a job to run multiple times in association with a single instance of the schedule, so your code must ensure that there are no harmful side-effects of repeated execution. Your targets should be [idempotent](https://wikipedia.org/wiki/idempotent).
+Cloud Scheduler is designed to provide _at-least-once_ delivery; that is, the job will run at least once per scheduled execution. In some rare circumstances, it is possible for a job to run multiple times in association with a single instance of the schedule, so your code must ensure that there are no harmful side-effects of repeated execution. Your targets should be [idempotent](https://wikipedia.org/wiki/idempotent).
 
 You can create cron jobs using either the [Cloud console](https://docs.cloud.google.com/docs/overview#google-cloud-console) or the [gcloud command line tool](https://docs.cloud.google.com/sdk/gcloud).
 
@@ -54,18 +54,20 @@ If your target is an **App Engine application** located within your current proj
 
 ## Job retry policy
 
-If a Cloud Scheduler job doesn't complete successfully, and an acknowledgement isn't received from the job handler, it is retried with an exponential backoff according to its configured retry policy.
+If a Cloud Scheduler job doesn't complete successfully, and an acknowledgment isn't received from the job handler, it is retried with an exponential backoff according to its configured retry policy.
 
 You can configure the settings that determine the retry behavior. For more information, see [Retry jobs](https://docs.cloud.google.com/scheduler/docs/configuring/retry-jobs).
 
 ## Job request deduplication
 
-Cloud Scheduler provides [headers](https://docs.cloud.google.com/scheduler/docs/reference/rest/v1/projects.locations.jobs#httptarget) that can help with job request deduplication, making the request handler idempotent. You can uniquely identify a job request using its name and the `X-CloudScheduler-ScheduleTime` header. This header contains the original scheduled invocation time and remains constant across retry attempts.
+Cloud Scheduler provides at-least-once delivery. Duplicate job requests for the same scheduled run can occur if a target takes longer to respond than the job's attempt deadline (`attemptDeadline`) or if a transient network interruption prevents Cloud Scheduler from receiving the HTTP `2xx` acknowledgment.
+
+To make your job handler idempotent and deduplicate retried requests, you can use the `X-CloudScheduler-JobName` and `X-CloudScheduler-ScheduleTime` HTTP headers that Cloud Scheduler includes on requests. For more information, see [Deduplicate job requests](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

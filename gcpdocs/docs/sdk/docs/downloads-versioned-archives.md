@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/downloads-versioned-archives/
 title: Installing from versioned archives \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:02.728329+00:00
+fetched_at: 2026-11-10T15:29:30.923579+00:00
 ---
 
 # Installing from versioned archives  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -53,16 +53,16 @@ Additionally, for macOS, to check your machine hardware name (x86_64, arm64, or 
 
 Platform | Package | Size | SHA256 Checksum  
 ---|---|---|---  
-Linux 64-bit (x86_64) | [google-cloud-cli-linux-x86_64.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz) | 94.6 MB | 16fda6058d66e4ec29e8575e2b6e19b0d03cea7b091e6730f7e8361209e6955f  
-Linux 64-bit (Arm) | [google-cloud-cli-linux-arm.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-arm.tar.gz) | 90.6 MB | cc584dabf7b1f7ba79354744027b6de654ff6876c03dffb2174c1b1e3c0c6956  
-Linux 32-bit (x86) | [google-cloud-cli-linux-x86.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86.tar.gz) | 54.6 MB | b093baa9d87f894812aaefea8041289474de279c2c783cf7e9b7be8eb38bc675  
-macOS 64-bit (x86_64) | [google-cloud-cli-darwin-x86_64.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-x86_64.tar.gz) | 54.8 MB | bad0a5caba7b67c5d97a278e8ef31e56d341c72f944293f4e3b06091ef69148d  
-macOS 64-bit (arm64) | [google-cloud-cli-darwin-arm.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-arm.tar.gz) | 54.7 MB | 57553ae3c300f4ebaaa8fb4dee8d40c4d8c1141d84d266b41c1daf1669c4001a  
-macOS 32-bit (x86) | [google-cloud-cli-darwin-x86.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-x86.tar.gz) | 53.1 MB | 58bf0019d5c6390ce6a909c00c25b3f8c0f2ca3a997b4faa5e1d99b7d7966126  
-Windows 64-bit (x86_64) | [google-cloud-cli-windows-x86_64.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-windows-x86_64.zip) | 79.7 MB | 95b606b92ff63d84c7ac23fbc20752f1f3fd673b973f77200994d480a53791ab  
-Windows 64-bit (x86_64) with Python bundled | [google-cloud-sdk-592.0.0-windows-x86_64-bundled-python.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-592.0.0-windows-x86_64-bundled-python.zip) | 105.3 MB | 65002e0d679fc2ade00163b97637f45656d6fd5250d6f5962e4a1a555f2628ea  
-Windows 32-bit (x86) | [google-cloud-cli-windows-x86.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-windows-x86.zip) | 79.6 MB | c7af3ab51a963b9d8bb2172e6ff6692b43e41db1503d629fa250049dc21f4ca8  
-Windows 32-bit (x86) with Python bundled | [google-cloud-sdk-592.0.0-windows-x86-bundled-python.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-592.0.0-windows-x86-bundled-python.zip) | 102.6 MB | 7c03dbe05e953ccb0afdbeba67d01418435a25e2d3894654063f7e86ab0c64ea  
+Linux 64-bit (x86_64) | [google-cloud-cli-linux-x86_64.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz) | 94.7 MB | 181a74765ab1f2d3dd37bc1b7f9b53b6f5b348eef44ea2e194b9ed41310b44bb  
+Linux 64-bit (Arm) | [google-cloud-cli-linux-arm.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-arm.tar.gz) | 90.7 MB | 13e40f07f44bb6380a8d17275e352964360543af8ea18a7ddfee0445481f9413  
+Linux 32-bit (x86) | [google-cloud-cli-linux-x86.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86.tar.gz) | 54.8 MB | 476eef9d8f890795c246b6c567e7623e3c404c0c824d2e3be6f6be81d08bfe74  
+macOS 64-bit (x86_64) | [google-cloud-cli-darwin-x86_64.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-x86_64.tar.gz) | 54.9 MB | 108c1a0bb5d273703b61c4dc9cafab9cc0e674797347ab18d5357d228a517131  
+macOS 64-bit (arm64) | [google-cloud-cli-darwin-arm.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-arm.tar.gz) | 54.8 MB | 563b2102362a54506836b73ef3485b6abfe112c1e48559022bbb5dbf45f55e4e  
+macOS 32-bit (x86) | [google-cloud-cli-darwin-x86.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-x86.tar.gz) | 53.2 MB | 35d83632d1b2fc48fe342c957a3105995d5f855c2d770b37de277178f0cfe2d8  
+Windows 64-bit (x86_64) | [google-cloud-cli-windows-x86_64.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-windows-x86_64.zip) | 105.6 MB | 8fbdc9d644ffdd25a7f515c2643edc87100d3d48be9d3aa635454f6d7fb6a53c  
+Windows 64-bit (x86_64) with Python bundled | [google-cloud-sdk-593.0.0-windows-x86_64-bundled-python.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-593.0.0-windows-x86_64-bundled-python.zip) | 105.6 MB | 8fbdc9d644ffdd25a7f515c2643edc87100d3d48be9d3aa635454f6d7fb6a53c  
+Windows 32-bit (x86) | [google-cloud-cli-windows-x86.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-windows-x86.zip) | 102.8 MB | efb31b7f685035a637692beda552a1401115488e35c6bac2fa46e9ed668b433e  
+Windows 32-bit (x86) with Python bundled | [google-cloud-sdk-593.0.0-windows-x86-bundled-python.zip](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-593.0.0-windows-x86-bundled-python.zip) | 102.8 MB | efb31b7f685035a637692beda552a1401115488e35c6bac2fa46e9ed668b433e  
   3. Extract the contents of the file to any location on your file system. Preferably, this is your Home folder.
 
   4. To add the gcloud CLI tools to your path, run the install script from the root of the folder you extracted. Running this script also generates instructions to enable command completion in your `bash` shell (Linux and macOS only) and enable usage reporting.
@@ -122,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

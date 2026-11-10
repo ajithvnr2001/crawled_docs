@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/federating-gcp-with-active-directory-introduction/
 title: Federate Google Cloud with Active Directory \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:20.538881+00:00
+fetched_at: 2026-11-10T16:58:02.477351+00:00
 ---
 
 # Federate Google Cloud with Active Directory  |  Cloud Architecture Center  |  Google Cloud Documentation

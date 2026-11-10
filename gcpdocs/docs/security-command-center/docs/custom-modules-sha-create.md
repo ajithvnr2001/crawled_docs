@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/custom-modules-sha-create/
 title: Use custom modules for Security Health Analytics \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:38.407147+00:00
+fetched_at: 2026-11-10T18:46:19.977446+00:00
 ---
 
 # Use custom modules for Security Health Analytics  |  Security Command Center  |  Google Cloud Documentation
@@ -45,15 +45,15 @@ To work with custom modules, you need the following Identity and Access Manageme
 
 Permission | Role  
 ---|---  
-securitycenter.securityhealthanalyticscustommodules.create  
-securitycenter.securityhealthanalyticscustommodules.update  
-securitycenter.securityhealthanalyticscustommodules.delete | roles/securitycenter.settingsEditor  
+securitycentermanagement.securityhealthanalyticscustommodules.create  
+securitycentermanagement.securityhealthanalyticscustommodules.update  
+securitycentermanagement.securityhealthanalyticscustommodules.delete | roles/securitycenter.settingsEditor  
 roles/securitycenter.admin  
-securitycenter.securityhealthanalyticscustommodules.get  
-securitycenter.securityhealthanalyticscustommodules.list | roles/securitycenter.settingsViewer  
+securitycentermanagement.securityhealthanalyticscustommodules.get  
+securitycentermanagement.securityhealthanalyticscustommodules.list | roles/securitycenter.settingsViewer  
 roles/securitycenter.adminViewer  
 roles/securitycenter.admin  
-securitycenter.securityhealthanalyticscustommodules.test | roles/securitycenter.securityHealthAnalyticsCustomModulesTester  
+securitycentermanagement.securityhealthanalyticscustommodules.test | roles/securitycenter.securityHealthAnalyticsCustomModulesTester  
 roles/securitycenter.adminViewer  
 roles/securitycenter.adminEditor  
 roles/securitycenter.admin  
@@ -558,6 +558,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

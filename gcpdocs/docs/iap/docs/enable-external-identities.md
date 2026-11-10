@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/enable-external-identities/
 title: Enabling external identities \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:39.158775+00:00
+fetched_at: 2026-11-10T16:58:54.120982+00:00
 ---
 
 # Enabling external identities  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -32,11 +32,17 @@ If you want to utilize multiple tenants, you'll also need to follow the steps in
 Finally, you'll need to enable providers. The [quickstart](https://docs.cloud.google.com/identity-platform/docs/quickstart-cicp) shows how to use simple username and password authentication, but Identity Platform supports a wide range of provider types, including:
 
   * Email and password
+
   * OAuth (such as Google, Facebook, Twitter, and more)
+
   * SAML
+
   * OIDC
+
   * Phone number
+
   * Anonymous
+
 
 
 
@@ -107,9 +113,13 @@ Note that switching back to Google identities will clear your authentication URL
 ## What's next
 
   * [Host a sign-in page on Cloud Run](https://docs.cloud.google.com/iap/docs/cloud-run-sign-in).
+
   * [Create a sign-in page with FirebaseUI](https://docs.cloud.google.com/iap/docs/using-firebaseui).
+
   * [Create a custom sign-in page](https://docs.cloud.google.com/iap/docs/create-custom-auth-ui).
+
   * Gain a deeper understanding of how [external identities work with IAP](https://docs.cloud.google.com/iap/docs/external-identities).
+
 
 
 
@@ -117,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

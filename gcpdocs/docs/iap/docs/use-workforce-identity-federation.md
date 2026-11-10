@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/use-workforce-identity-federation/
 title: Configure IAP with Workforce Identity Federation \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:06:32.024903+00:00
+fetched_at: 2026-11-10T16:58:57.907529+00:00
 ---
 
 # Configure IAP with Workforce Identity Federation  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -28,9 +28,13 @@ When you configure Workforce Identity Federation with IAP, you can use an extern
 Configuring IAP with Workforce Identity Federation lets you do the following with regards to your IAP-secured applications:
 
   * Redirect an end user to an external IdP, such as Okta, to sign in.
+
   * Configure a sign-in session between 15 minutes and 12 hours.
+
   * Allow only specific end users or end user sets in an IdP to access your application.
+
   * Specify the context under which an end user can access an application. For example, only allow access during a specific time of the day.
+
 
 You can use IAP with Workforce Identity Federation on all existing resources and load balancers that IAP supports. 
 
@@ -39,8 +43,11 @@ You can use IAP with Workforce Identity Federation on all existing resources and
 Configuring IAP with Workforce Identity Federation comprises the following main tasks:
 
   1. Set up a workforce pool and provider.
+
   2. Create an OAuth client ID and secret.
+
   3. Enable IAP and configure it to use Workforce Identity Federation.
+
 
 
 
@@ -49,8 +56,11 @@ Configuring IAP with Workforce Identity Federation comprises the following main 
 To set up a workforce pool and provider, follow the instructions for one of the following providers:
 
   * [Microsoft Entra ID](https://docs.cloud.google.com/iam/docs/workforce-sign-in-microsoft-entra-id)
+
   * [Okta](https://docs.cloud.google.com/iam/docs/workforce-sign-in-okta)
+
   * [other OIDC or SAML 2.0 provider](https://docs.cloud.google.com/iam/docs/configuring-workforce-identity-federation)
+
 
 
 
@@ -62,20 +72,20 @@ If you want to map an email address from a third-party IdP to Google Cloud, you 
 
 Important: The OAuth client ID and secret that you create in the following steps are created for the Workforce Identity Federation infrastructure. These are different than the client ID and secret that are required when using the [custom OAuth configuration to enable IAP](https://docs.cloud.google.com/iap/docs/custom-oauth-configuration) with Google identities. 
 
-  1. Follow the instructions to [create an OAuth client ID and secret](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app) under a project in the same organization as the workforce pool that you will be using for this configuration. The project does not have to be the same project that the IAP-secured resource is in. When creating the OAuth client ID and secret, do the following:
+Follow the instructions to [create an OAuth client ID and secret](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app) under a project in the same organization as the workforce pool that you will be using for this configuration. The project does not have to be the same project that the IAP-secured resource is in. When creating the OAuth client ID and secret, do the following:
 
-     1. Use a placeholder for the redirect URI when creating the client ID. After you create the client ID, run [`describe` an OAuth client](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app#describe) to get the generated `clientID`.
+  1. Use a placeholder for the redirect URI when creating the client ID. After you create the client ID, run [`describe` an OAuth client](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app#describe) to get the generated `clientID`.
 
-     2. When you have the `clientID`, run [`update` an OAuth client](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app#update) to update `allowed-redirect-uris` to the following: `https://iap.googleapis.com/v1/oauth/clientIds/$CLIENT_ID:handleRedirect`.
+  2. When you have the `clientID`, run [`update` an OAuth client](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app#update) to update `allowed-redirect-uris` to the following: `https://iap.googleapis.com/v1/oauth/clientIds/$CLIENT_ID:handleRedirect`.
 
 Where `CLIENT_ID` is the `clientID` retrieved in the previous step.
 
-     3. After you create the client secret, run [`describe` an OAuth client credentials](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app#describe-credential) to get the generated `clientSecret`.
+  3. After you create the client secret, run [`describe` an OAuth client credentials](https://docs.cloud.google.com/iam/docs/workforce-manage-oauth-app#describe-credential) to get the generated `clientSecret`.
+
+
+
 
 Save the `clientId` and `clientSecret` because you will need them in later steps.
-
-
-
 
 ### Enable IAP to use Workforce Identity Federation
 
@@ -89,9 +99,13 @@ Enable IAP on the resource.
 
   1. In the Google Cloud console, open the IAP page.  
 [ Go to the IAP page](https://console.cloud.google.com/security/iap)
+
   2. Select a project. The project must be in the same organization as the workforce pool that you created earlier. The project doesn't have to be the project that you created the OAuth client ID and secret in.
+
   3. Click the **Applications** tab, and then locate the application that you want to restrict access to using IAP.
+
   4. In the IAP column, toggle the switch to **On**.
+
 
 
 
@@ -136,7 +150,7 @@ To use the gcloud CLI to enable IAP, follow the procedures for the applicable se
          "https://appengine.googleapis.com/v1/apps/PROJECT_ID?updateMask=iap.enabled"
          
 
-To enable IAP on Compute Engine, use the following URL: `https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/REGION/backendServices/BACKEND_SERVICE_NAME?updateMask=iap.enabled`. 
+To enable IAP on Compute Engine, use the following URL: `https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/REGION/backendServices/BACKEND_SERVICE_NAME?updateMask=iap.enabled`.
 
 
 
@@ -146,7 +160,9 @@ To enable IAP on Compute Engine, use the following URL: `https://compute.googlea
 To configure IAP to use Workforce Identity Federation, you must configure the following settings:
 
   * `WorkforceIdentitySettings`: The OAuth client ID and secret created earlier.
+
   * `IdentitySources`: The identity source.
+
 
 
 
@@ -178,7 +194,9 @@ For more information, see the [IAP APIs](https://docs.cloud.google.com/iap/docs/
 Replace the following:
 
      * PROJECT: The project ID.
+
      * RESOURCE_TYPE: The IAP resource type. The resource type must be `cloud-run` [(Preview)](https://cloud.google.com/products#product-launch-stages), `app-engine`, `iap_web`, `compute`, `organization`, or `folder`. For the `cloud-run` resource type, use the `--region` flag to indicate the region where your Cloud Run service is deployed.
+
      * SERVICE: The service name. This is optional for both `app-engine` and `compute`.
 
 For details on the command, see [gcloud iap settings set](https://docs.cloud.google.com/sdk/gcloud/reference/iap/settings/set).
@@ -220,8 +238,11 @@ For details on the command, see [gcloud iap settings set](https://docs.cloud.goo
 Replace the following:
 
      * PROJECT: The project ID.
+
      * RESOURCE_TYPE: The IAP resource type. The resource type must be `appengine`, `iap_web`, `compute`, `organization`, `folder`, or `cloud_run-$REGION` [(Preview)](https://cloud.google.com/products#product-launch-stages), where $REGION is the region in which your Cloud Run service is deployed.
+
      * SERVICE: The service name. This is optional for both `app-engine` and `compute`.
+
   3. Replace `RESOURCE_NAME` in the following command with the `RESOURCE_NAME` from the previous step.
          
          curl -X PATCH \
@@ -247,10 +268,15 @@ Unrestricted access to IAP-secured resources is not supported.
 
   1. In the Google Cloud console, open the IAP page.  
 [ Go to the IAP page](https://console.cloud.google.com/security/iap)
+
   2. Select the resource you want to secure with IAP.
+
   3. Click **Add Principal** , and then add the [principal identifiers](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#representing-workforce-users) of the groups or individuals to which you want to grant an IAM role for the resource.
+
   4. In **Assign roles** , select **IAP-Secured Web App User**.
+
   5. Click **Add**.
+
 
 
 
@@ -271,10 +297,18 @@ Run the following command.
 Replace the following:
 
   * PRINCIPAL_IDENTIFIER: The [principal identifier](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#representing-workforce-users).
-  * PROJECT_ID: The project ID. 
-  * RESOURCE_TYPE: The IAP resource type, which can be `app-engine` or `backend-services`. 
+
+  * PROJECT_ID: The project ID.
+
+
+
+  * RESOURCE_TYPE: The IAP resource type, which can be `app-engine` or `backend-services`.
+
+
   * SERVICE: (Optional) The service name.
+
   * CONDITION: (Optional) [IAM conditions](https://docs.cloud.google.com/iam/docs/conditions-overview). Following is an example condition configured with access levels:
+
 
 
     
@@ -351,6 +385,8 @@ IAP supports service account JWT authentication for applications configured with
 
 When using Workforce Identity Federation, consider the following limitations:
 
+The following limitations apply when using IAP with Workforce Identity Federation:
+
   * For each IAP-enabled application, only one workforce pool can be configured, and the workforce pool can contain only one provider.
 
   * The workforce pool, OAuth client ID and secret, and the IAP-enabled applications must all be in the same organization.
@@ -390,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

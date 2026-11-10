@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers/
 title: Create triggers from Pub/Sub events \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T05:59:29.700705+00:00
+fetched_at: 2026-11-10T15:29:28.529269+00:00
 ---
 
 # Create triggers from Pub/Sub events  |  Cloud Run  |  Google Cloud Documentation
@@ -192,6 +192,8 @@ Replace the following:
 
 Notes:
 
+        * The `--ack-deadline=600` flag sets the acknowledgment deadline to the 10-minute maximum. For more information, see [Set the Pub/Sub acknowledgment deadline](https://docs.cloud.google.com/run/docs/triggering/trigger-with-events#set-ack-deadline).
+
         * The `--push-auth-service-account` flag activates the Pub/Sub push functionality for [Authentication and authorization](https://docs.cloud.google.com/pubsub/docs/authenticate-push-subscriptions).
 
         * Your Cloud Run service domain is automatically registered for use with Pub/Sub subscriptions.
@@ -248,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

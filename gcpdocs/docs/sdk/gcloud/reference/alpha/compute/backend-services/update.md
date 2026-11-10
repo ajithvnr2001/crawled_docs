@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/backend-services/update/
 title: gcloud alpha compute backend-services update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:47.651438+00:00
+fetched_at: 2026-11-10T18:39:35.329819+00:00
 ---
 
 # gcloud alpha compute backend-services update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -664,7 +664,7 @@ At most one of these can be specified:
 At most one of these can be specified: 
 
 `--service-lb-policy`=`SERVICE_LOAD_BALANCING_POLICY`
-     The name or URI of the service load balancing policy to apply to this backend service, specified as a single string identifier rather than a complex configuration object or list. This policy can only be configured if the load balancing scheme is `EXTERNAL_MANAGED`, `INTERNAL_MANAGED`, or `INTERNAL_SELF_MANAGED`. The policy is exclusively available for global backend services and will be rejected if applied to a regional resource. 
+     The name or URI of the service load balancing policy to apply to this backend service, specified as a single string identifier rather than a complex configuration object or list. This policy can only be configured if the load balancing scheme is `EXTERNAL_MANAGED`, `INTERNAL_MANAGED`, or `INTERNAL_SELF_MANAGED`. If used with a global backend service, must reference a global policy. If used with a regional backend service, must reference a regional policy. 
 `--no-service-lb-policy`
      A configuration option that detaches all existing service load balancing policies from the backend service. As a standalone boolean flag, it requires no arguments or complex formatting. When specified, this operation clears any previously configured policies so the backend service no longer uses them for traffic distribution. This flag cannot be combined with `--service-lb-policy`. 
 At most one of these can be specified: 
@@ -697,6 +697,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions/
 title: Model versions and lifecycle \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:26:26.340503+00:00
+fetched_at: 2026-11-10T18:56:17.417826+00:00
 ---
 
 # Model versions and lifecycle  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,11 +21,13 @@ Send feedback
 
 #  Model versions and lifecycle Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document defines key terms related to the lifecycle stages and important dates for Gemini and embedding models that are available on Google Cloud Gemini Enterprise Agent Platform. It also gives you the recommended upgrades for the models and points you to available migration paths. 
+This document defines key terms related to the lifecycle stages and important dates for generally available Gemini and embedding models that are available on Google Cloud Gemini Enterprise Agent Platform. It also gives you the recommended upgrades for the models and points you to available migration paths. 
 
 ## Latest available models
 
-The following tables list the available models and their retirement dates. While retirement timelines may be extended, they won't be moved to an earlier date than what is listed.
+The following tables list the generally available (GA) models and their retirement dates. While retirement timelines may be extended, they won't be moved to an earlier date than what is listed.
+
+**Note:** Preview models aren't included in these tables. Each Preview model's documentation page lists its version IDs and release dates. For more information about available Preview models, see the Preview sections of the [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) page.
 
 ### Models available for at least 12 months after release
 
@@ -87,6 +89,8 @@ The following table lists models available for shorter terms:
 
 Model ID | Release date | Retirement date | Replacement model ID  
 ---|---|---|---  
+[`gemini-4-carbon`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) | November 10, 2026 |  No retirement date announced  |   
+[`gemini-4-carbon-cyber-permissive`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) | November 10, 2026 |  No retirement date announced  |   
 [`gemini-4-argon-cyber-permissive`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) | October 13, 2026 |  No retirement date announced  |   
 [`gemini-3.8-flash-cyber`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) | September 16, 2026 |  No retirement date announced  |   
 [`gemini-3.7-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) | August 13, 2026 |  January 28, 2027  |  [`gemini-3.8-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
@@ -153,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/data-cache/
 title: Data cache overview \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:52:15.524127+00:00
+fetched_at: 2026-11-10T18:46:39.399888+00:00
 ---
 
 # Data cache overview  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -63,6 +63,7 @@ Use a data cache for workloads that are predominantly made up of read operations
   * When a data cache becomes full, it removes the stored data based on the least recently used analysis to accommodate subsequent updates to the data cache.
 
 
+  * Data cache isn't supported for the [C4](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4) and [C4D](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4d) machine series. Because data cache is enabled automatically for Cloud SQL Enterprise Plus edition instances, if you provision a Cloud SQL Enterprise Plus edition instance with a C4D machine type (8 vCPUs or larger), you must explicitly disable data cache. For example, for the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud), add the `--no-enable-data-cache` flag to your creation command.
   * The following operations on the instance erase the contents of the data cache and can lead to a drop in performance while the data cache is repopulated: 
     * Planned maintenance
     * An unexpected shutdown (stopping the instance)
@@ -81,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

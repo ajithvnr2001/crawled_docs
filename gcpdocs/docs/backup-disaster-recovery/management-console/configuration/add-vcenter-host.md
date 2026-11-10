@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/add-vcenter-host/
 title: Add vCenter/ESX server hosts to the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:13:44.076072+00:00
+fetched_at: 2026-11-10T16:33:04.874875+00:00
 ---
 
 # Add vCenter/ESX server hosts to the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -71,6 +71,27 @@ ESXi standalone | ESX Server | The default ESX Server management port is 902. If
 
 
 
+## Edit or rotate vCenter credentials
+
+To edit or update credentials for an existing host, see [Edit host properties](https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/manage-hosts-and-their-applications#edit-host).
+
+When you update credentials for an existing vCenter host in the appliance management console, the management server broadcasts the updated credentials to all registered backup/recovery appliances that serve the host.
+
+### Rotate credentials in multi-appliance fleets
+
+To minimize database lock contention and avoid update errors in multi-appliance fleets, rotate credentials during periods of low activity.
+
+During a credential update, the management server acquires per-appliance database advisory locks to synchronize changes across appliances. If active backup jobs, restore jobs, or background replication and synchronization tasks hold database locks simultaneously, lock contention can cause error code `10053` (`Appliance is busy`).
+
+Don't pause all fleet backups. Pausing backups disrupts scheduled jobs and doesn't prevent lock contention from background system tasks.
+
+If error code `10053` occurs during a credential update, do the following:
+
+  1. Wait a few minutes for background tasks to release locks, and then retry the update.
+  2. If the error persists, see [Event IDs and resolutions](https://docs.cloud.google.com/backup-disaster-recovery/management-console/monitor-reports/event-codes) or [contact Cloud Customer Care](https://docs.cloud.google.com/backup-disaster-recovery/docs/support) for assistance with specific appliances.
+
+
+
 ## What's next
 
   * To discover and protect VM, see [Discover and protect VMware VMs](https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/discover-and-protect-vms)
@@ -107,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

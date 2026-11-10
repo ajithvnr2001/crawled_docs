@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-health/
 title: gcloud beta service-health \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:33:17.057096+00:00
+fetched_at: 2026-11-10T17:33:38.696808+00:00
 ---
 
 # gcloud beta service-health  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -43,6 +43,8 @@ GROUPS
      `(BETA)` Represents a report for a Google Cloud outage. 
 `[events](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-health/events)`
      `(BETA)` Represents events that may affect Google Cloud products. 
+`[impacts](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-health/impacts)`
+     `(BETA)` Represents an impact to an asset affected by a service health event. 
 `[organization-events](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-health/organization-events)`
      `(BETA)` Represents events that may affect products used across the organization. 
 `[organization-impacts](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-health/organization-impacts)`
@@ -60,6 +62,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

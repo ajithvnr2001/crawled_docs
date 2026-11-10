@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/local-ssd/
 title: About Local SSD disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:18.421218+00:00
+fetched_at: 2026-11-10T16:50:05.213429+00:00
 ---
 
 # About Local SSD disks  |  Compute Engine  |  Google Cloud Documentation
@@ -301,6 +301,7 @@ Data on Local SSD disks doesn't persist through the following events:
   * You shut down the guest OS and force the instance to stop.
   * You create a [Spot VM](https://docs.cloud.google.com/compute/docs/instances/spot) or [preemptible VM](https://docs.cloud.google.com/compute/docs/instances/preemptible) and the VM goes through the preemption process.
   * You configure the instance to [stop on host maintenance events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#terminate_and_optionally_restart) instead of using live migration, and the instance goes through a host maintenance event.
+  * You [limit the run time of an instance](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime), select `STOP` as the termination action, and the instance reaches its time limit.
   * You misconfigure a Local SSD disk and it becomes unreachable.
   * You disable project billing, causing the instance to stop.
   * If `automaticRestart` isn't configured on your instance.
@@ -758,6 +759,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/flexible-vms/
 title: Prioritize VM types with flexible VMs \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:33.365117+00:00
+fetched_at: 2026-11-10T11:44:41.529912+00:00
 ---
 
 # Prioritize VM types with flexible VMs  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -621,10 +621,67 @@ The following `SoftwareConfig` object overrides the number of vCPUs that YARN al
     }
     
 
+## Monitor flexible VM instance distribution
+
+After you create a cluster that uses flexible VMs, you can observe the provisioned VM instance distribution across machine types and zones.
+
+### Inspect cluster metadata
+
+To see the machine types and VM counts that are provisioned for each node group, inspect the [`instanceSelectionResults`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/InstanceGroupConfig#InstanceFlexibilityPolicy.FIELDS.instance_selection_results) field in the cluster metadata.
+
+You can view `instanceSelectionResults` under `masterConfig`, `workerConfig`, or `secondaryWorkerConfig` in the Dataproc API [`clusters.get`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/projects.regions.clusters/get) response or in the output of the [`gcloud dataproc clusters describe`](https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/clusters/describe) command.
+
+The following example shows an `instanceSelectionResults` snippet from a `gcloud dataproc clusters describe` command:
+    
+    
+    workerConfig:
+      instanceFlexibilityPolicy:
+        instanceSelectionResults:
+        - machineType: n4-standard-8
+          vmCount: 6
+        - machineType: n2-standard-8
+          vmCount: 4
+    
+
+**Note:** The `instanceSelectionResults` field reports VM counts by machine type only and does not include zone distribution.
+
+### View instance distribution in Cloud Monitoring
+
+To monitor VM instance distribution across both machine types and zones over time as well as active versus inactive instances, use the preconfigured **GCE MIG Instance Distribution Monitoring** dashboard in Cloud Monitoring.
+
+To view your cluster's instance distribution in Monitoring, do the following:
+
+  1. Get your cluster's [`clusterUuid`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/projects.regions.clusters#Cluster.FIELDS.cluster_uuid).
+
+For example, run the following command:
+         
+         gcloud dataproc clusters describe CLUSTER_NAME \
+             --region=REGION \
+             --format="value(clusterUuid)"
+         
+
+Replace the following:
+
+     * `CLUSTER_NAME`: the name of your cluster.
+     * `REGION`: the Google Cloud region where your cluster is located.
+  2. In the Google Cloud console, go to the **Monitoring** > **Dashboards** page.
+
+[Go to Dashboards](https://console.cloud.google.com/monitoring/dashboards)
+
+  3. In the **Filter** , search for **GCE MIG Instance Distribution Monitoring** and select the dashboard. You can also find this dashboard in the **Type** menu > **Google Services** category.
+
+  4. Add a dashboard filter for the [automatically applied label](https://docs.cloud.google.com/managed-spark/docs/guides/creating-managing-labels) `goog-dataproc-cluster-uuid` set to your cluster's UUID to filter the charts to your cluster's managed instance groups.
+
+
+
+
+For more information about this dashboard, see [Monitor instance distribution in MIGs](https://docs.cloud.google.com/compute/docs/instance-groups/monitor-instance-distribution).
+
 ## What's next
 
-  * Learn more about [Managed Service for Apache Spark cluster properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties). 
-    * Learn how to [create a Managed Service for Apache Spark cluster](https://docs.cloud.google.com/managed-spark/docs/guides/create-cluster).
+  * Learn more about [Managed Service for Apache Spark cluster properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties).
+  * Learn how to [create a Managed Service for Apache Spark cluster](https://docs.cloud.google.com/managed-spark/docs/guides/create-cluster).
+  * Learn how to [monitor instance distribution in MIGs](https://docs.cloud.google.com/compute/docs/instance-groups/monitor-instance-distribution).
 
 
 
@@ -632,6 +689,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

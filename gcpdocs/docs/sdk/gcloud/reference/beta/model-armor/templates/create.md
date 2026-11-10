@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/model-armor/templates/create/
 title: gcloud beta model-armor templates create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:17:55.898960+00:00
+fetched_at: 2026-11-10T17:33:13.780287+00:00
 ---
 
 # gcloud beta model-armor templates create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta model-armor templates create - create Model Armor Template
 SYNOPSIS
     
 
-`gcloud beta model-armor templates create` (`TEMPLATE` : `--location`=`LOCATION`) (`--malicious-uri-filter-settings-enforcement`=`MALICIOUS_URI_FILTER_SETTINGS_ENFORCEMENT` `--rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`] `--basic-config-filter-enforcement`=`BASIC_CONFIG_FILTER_ENFORCEMENT` | `--advanced-config-deidentify-template`=`ADVANCED_CONFIG_DEIDENTIFY_TEMPLATE` `--advanced-config-inspect-template`=`ADVANCED_CONFIG_INSPECT_TEMPLATE` `--pi-and-jailbreak-filter-settings-confidence-level`=`PI_AND_JAILBREAK_FILTER_SETTINGS_CONFIDENCE_LEVEL` `--pi-and-jailbreak-filter-settings-enforcement`=`PI_AND_JAILBREAK_FILTER_SETTINGS_ENFORCEMENT`) [`--labels`=[`LABELS`,…]] [`--request-id`=`REQUEST_ID`] [`--[no-]multi-language-detection-enable` `--template-metadata-custom-llm-response-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_CODE` `--template-metadata-custom-llm-response-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_MESSAGE` `--template-metadata-custom-prompt-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_CODE` `--template-metadata-custom-prompt-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_MESSAGE` `--template-metadata-enforcement-type`=`TEMPLATE_METADATA_ENFORCEMENT_TYPE` `--template-metadata-ignore-partial-invocation-failures` `--template-metadata-log-operations` `--template-metadata-log-sanitize-operations`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta model-armor templates create` (`TEMPLATE` : `--location`=`LOCATION`) (`--malicious-uri-filter-settings-enforcement`=`MALICIOUS_URI_FILTER_SETTINGS_ENFORCEMENT` `--rai-settings-filters`=[`confidenceLevel`=`CONFIDENCELEVEL`],[`filterType`=`FILTERTYPE`] `--basic-config-filter-enforcement`=`BASIC_CONFIG_FILTER_ENFORCEMENT` | `--advanced-config-deidentify-template`=`ADVANCED_CONFIG_DEIDENTIFY_TEMPLATE` `--advanced-config-inspect-template`=`ADVANCED_CONFIG_INSPECT_TEMPLATE` `--pi-and-jailbreak-filter-settings-confidence-level`=`PI_AND_JAILBREAK_FILTER_SETTINGS_CONFIDENCE_LEVEL` `--pi-and-jailbreak-filter-settings-enforcement`=`PI_AND_JAILBREAK_FILTER_SETTINGS_ENFORCEMENT`) [`--labels`=[`LABELS`,…]] [`--request-id`=`REQUEST_ID`] [`--[no-]multi-language-detection-enable` `--template-metadata-custom-llm-response-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_CODE` `--template-metadata-custom-llm-response-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_LLM_RESPONSE_SAFETY_ERROR_MESSAGE` `--template-metadata-custom-prompt-safety-error-code`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_CODE` `--template-metadata-custom-prompt-safety-error-message`=`TEMPLATE_METADATA_CUSTOM_PROMPT_SAFETY_ERROR_MESSAGE` `--template-metadata-enforcement-type`=`TEMPLATE_METADATA_ENFORCEMENT_TYPE` `--template-metadata-ignore-partial-invocation-failures` `--template-metadata-log-operations` `--template-metadata-log-sanitize-operations` `--filter-version-selector`=`FILTER_VERSION_SELECTOR` | `--filter-version-selector-alias`=`FILTER_VERSION_SELECTOR_ALIAS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Creates a new Template in a given project and location. 
 EXAMPLES
@@ -212,6 +212,25 @@ Metadata to enable multi language detection via template.
      If true, log template crud operations. 
 `--template-metadata-log-sanitize-operations`
      If true, log sanitize operations. 
+Arguments for the filter version selector. 
+Represents the configuration for selecting a Filter Version. Allows customers to choose to use either a specific version or a predefined alias. 
+Arguments for the version spec. 
+
+At most one of these can be specified: 
+
+`--filter-version-selector`=`FILTER_VERSION_SELECTOR`
+     Allows customers to pin to a specific, immutable Filter Version. This provides stability, as this will not change after a version upgrade. Expected format is a case-sensitive string, e.g., "v1", "v2". Requests providing an invalid or non-existent version string will be rejected with an `INVALID_ARGUMENT` error. 
+`--filter-version-selector-alias`=`FILTER_VERSION_SELECTOR_ALIAS`
+     Allows customers to use a predefined alias that dynamically points to a specific version based on internal upgrades. This offers flexibility and reduces the need for template updates. `FILTER_VERSION_SELECTOR_ALIAS` must be one of: 
+
+`filter-version-alias-latest`
+     `LATEST` alias points to the newest model version available. This version is subject to frequent revisions and offers SLO guarantees but does not assure stability, providing the most current security protections. 
+`filter-version-alias-legacy`
+     `LEGACY` alias could be used for sanitization operations for a transition period. New templates cannot be created with this version. 
+`filter-version-alias-retired`
+     `RETIRED` alias could be used for versions that are no longer available to be used. While new templates cannot be created with this alias, any existing template or request using `RETIRED` version will fall back to the current `STABLE` version for sanitization operations. 
+`filter-version-alias-stable`
+     `STABLE` alias points to the most recent stable model version. Using this alias means no code changes are required when a new model becomes the stable version. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -232,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/how-to-configure-security-command-center/
 title: Configure Security Command Center services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:23:31.388019+00:00
+fetched_at: 2026-11-10T18:46:20.904144+00:00
 ---
 
 # Configure Security Command Center services  |  Google Cloud Documentation
@@ -29,6 +29,29 @@ This page describes how to configure built-in services and integrated services.
 
 If data residency is enabled, some services and features might be unsupported or provide a modified set of capabilities. For more information, see [Plan for data residency](https://docs.cloud.google.com/security-command-center/docs/data-residency-support).
 
+### Activate Security Command Center
+
+Verify that you have [activated Security Command Center](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview) at either the project or the organization level.
+
+Some services might be unsupported or provide a modified set of capabilities when Security Command Center is activated at the project level.
+
+## Required permissions and roles
+
+To enable or disable a service, you must have the following IAM permission. You can grant this permission at the organization, folder, or project level.
+
+`securitycentermanagement.securityCenterServices.update`
+
+Ask your administrator to either grant you one of the following roles that includes this permission or add the permission to the custom role (if your organization uses custom roles).
+
+  * [Security Center Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycenter#securitycenter.admin) (`roles/securitycenter.admin`)
+  * [Security Center Settings Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycenter#securitycenter.settingsAdmin) (`roles/securitycenter.settingsAdmin`)
+  * [Security Center Settings Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycenter#securitycenter.settingsEditor) (`roles/securitycenter.settingsEditor`)
+  * [Security Center Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycentermanagement#securitycentermanagement.admin) (`roles/securitycentermanagement.admin`)
+  * [Security Center Management Services Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycentermanagement#securitycentermanagement.securityCenterServicesEditor) (`roles/securitycentermanagement.securityCenterServicesEditor`)
+  * [Security Center Management Settings Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycentermanagement#securitycentermanagement.settingsEditor) (`roles/securitycentermanagement.settingsEditor`)
+
+
+
 ## Built-in services of Security Command Center
 
 Standard-legacy, Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers)
@@ -50,9 +73,7 @@ The following built-in services are part of Security Command Center:
   * Virtual Machine Threat Detection: _Premium and Enterprise (Deprecated) service tiers only_
   * Vulnerability Assessment for Amazon Web Services (AWS): _Enterprise (Deprecated) service tier only_
   * Vulnerability Assessment for Google Cloud: _Standard, Premium, and Enterprise (Deprecated) service tiers only_
-
   * Web Security Scanner: _Standard-legacy, Premium, and Enterprise (Deprecated) service tiers only_
-
 
 
 
@@ -275,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.19/docs/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Service Mesh v1.19 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:12.451631+00:00
+fetched_at: 2026-11-10T18:46:35.459831+00:00
 ---
 
 # Security bulletins  |  Cloud Service Mesh v1.19  |  Google Cloud Documentation
@@ -43,6 +43,26 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This page lists the security bulletins for Cloud Service Mesh.
 
+## GCP-2026-080
+
+**Published:** 2026-11-09
+
+Description | Severity | Notes  
+---|---|---  
+Fixes a control plane crash in `istiod` triggered by supplying conflicting ports in a `Sidecar` custom resource egress host field (for example, `namespace/host:port`). 
+
+#### What should I do?
+
+**Check if your clusters are impacted** In-cluster Cloud Service Mesh v1.31 and v1.30 may be impacted by this vulnerability.  **Mitigation** For **in-cluster** Cloud Service Mesh, [upgrade your cluster](https://docs.cloud.google.com/service-mesh/docs/upgrade/upgrade) to one of the following patched versions: 
+
+  * 1.31.3-asm.7
+  * 1.30.7-asm.7
+
+If you're using Cloud Service Mesh v1.28 or earlier, your release has reached end of life and is no longer supported. Upgrade to a supported version.  For **managed** Cloud Service Mesh, no customer action is required. Your system is automatically updated.  | High |  [ISTIO-SECURITY-2026-009](https://istio.io/latest/news/security/istio-security-2026-009/)  
+[CVE-2026-31836](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-31836)  
+[GHSA-635j-qv98-9275](https://github.com/istio/istio/security/advisories/GHSA-635j-qv98-9275)  
+  
+  
 ## GCP-2026-076
 
 **Published:** 2026-11-02
@@ -1934,6 +1954,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/reports/pci-curated-dashboards/
 title: PCI curated dashboards overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:58.145004+00:00
+fetched_at: 2026-11-10T14:04:28.582495+00:00
 ---
 
 # PCI curated dashboards overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ The Data encryption dashboard helps you secure sensitive data, identify vulnerab
 
 ## EDR alert overview dashboard
 
-The EDR alert overview dashboard provides security teams with a complete picture of assets, events, and active threat detections, enabling them to quickly detect, investigate, and respond to potential threats. It summarizes overall EDR activity and the number of events and alerts. It prioritizes investigations by sorting alerts and events by severity and listing the top ten alerts, hosts, techniques, and tactics. It also helps evaluate the effectiveness of the EDR solution. This dashboard uses the `PCI_Assets` the reference list.
+The EDR alert overview dashboard provides security teams with a complete picture of assets, events, and active threat detections, enabling them to quickly detect, investigate, and respond to potential threats. It summarizes overall EDR activity and the number of events and alerts. It prioritizes investigations by sorting alerts and events by severity and listing the top ten alerts, hosts, techniques, and tactics. It also helps evaluate the effectiveness of the EDR solution. This dashboard uses the `PCI_Assets` reference list.
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -89,6 +89,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

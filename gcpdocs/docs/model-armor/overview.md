@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/overview/
 title: Model Armor overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T08:52:40.263955+00:00
+fetched_at: 2026-11-10T11:11:52.588767+00:00
 ---
 
 # Model Armor overview  |  Google Cloud Documentation
@@ -279,7 +279,7 @@ There are two ways to enable multi-language detection:
 
   * **Enable on each request** : For granular control, enable multi-language detection on a per-request basis when [sanitizing a user prompt](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#sanitize-prompts-multi-lang) and [sanitizing a model response](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#sanitize-response-multi-lang).
 
-  * **Enable one-time** : If you prefer a simpler setup, you can enable multi-language detection as a one-time configuration at the Model Armor template level using the REST API. For more information, see [Create a Model Armor template](https://docs.cloud.google.com/model-armor/manage-templates#rest).
+  * **Enable one-time** : If you prefer a simpler setup, you can enable multi-language detection as a one-time configuration at the Model Armor template level using the REST API. For more information, see [Create a Model Armor template](https://docs.cloud.google.com/model-armor/manage-templates#create-ma-template).
 
 
 
@@ -288,40 +288,25 @@ There are two ways to enable multi-language detection:
 
 Text in documents can include malicious and sensitive content. Model Armor can screen the following types of documents for safety, prompt injection and jailbreak attempts, sensitive data, and malicious URLs:
 
-  * PDFs
+  * Rich text documents: 
+    * PDFs
+    * Microsoft Word documents: DOCX, DOCM, DOTX, DOTM
+    * Microsoft PowerPoint slides: PPTX, PPTM, POTX, POTM, POT
+    * Microsoft Excel sheets: XLSX, XLSM, XLTX, XLTM
   * CSV
   * Text files: TXT
-  * Microsoft Word documents: DOCX, DOCM, DOTX, DOTM
-  * Microsoft PowerPoint slides: PPTX, PPTM, POTX, POTM, POT
-  * Microsoft Excel sheets: XLSX, XLSM, XLTX, XLTM
 
-**Note:** Supported files are limited to 4 MB in size. If a file exceeds this limit, Model Armor skips scanning the file. For more information, see [File size system limit](https://docs.cloud.google.com/model-armor/quotas#input-size-limit). Text extracted from supported files is subject to the [token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits). Model Armor rejects requests to scan files that are smaller than 69 bytes and returns an `InvalidDocumentInputException` error because such files are highly likely to be invalid. 
+
+
+You can screen documents by calling the Model Armor REST API directly ([File-based prompts](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#file-prompts)) or through the [Gemini Enterprise integration](https://docs.cloud.google.com/model-armor/model-armor-gemini-enterprise-integration). Other integrations scan and sanitize only text; for more information, see [Supported modalities](https://docs.cloud.google.com/model-armor/integrations#modalities).
+
+When you enable the image modality in your template, Model Armor also extracts and screens images embedded within supported rich text documents. For information about file size and embedded image limits, see [File size system limit](https://docs.cloud.google.com/model-armor/quotas#input-size-limit). Text extracted from supported files is subject to the [token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits). Model Armor rejects requests to scan files that are smaller than 69 bytes and returns an `InvalidDocumentInputException` error because such files are highly likely to be invalid. 
 
 ## Image screening
 
-**Preview**
+Model Armor screens standalone images and images embedded within supported rich text documents in prompts and responses. It uses visual scanning with the [advanced Sensitive Data Protection filter](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#advanced_sdp_configuration) to detect sensitive objects and subject matter, and optical character recognition (OCR) to extract and screen text within images against your configured filters.
 
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-Model Armor screens images provided in the prompts and responses to help protect your generative AI applications from risks embedded within images. Model Armor screens images using the following methods:
-
-  * **Visual scanning** : Screens the visual content within images only using the [advanced Sensitive Data Protection filter](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference#image-context).
-  * **Optical character recognition (OCR)** : Screens the text within images.
-
-
-
-Consider the following limitations when you use Model Armor for screening images:
-
-  * Model Armor screens images only in the JPEG, PNG, and BMP formats.
-  * Each image must be 4 MB or smaller.
-  * Model Armor doesn't screen images embedded within files.
-  * Model Armor doesn't screen images provided along with text in prompts and responses if you're using the `SanitizeUserPrompt` and `SanitizeModelResponse` methods.
-  * Model Armor screens only a single image per request. Screening multiple images at a time isn't supported when you use the `SanitizeUserPrompt` and `SanitizeModelResponse` methods.
-  * Image screening is supported only in the `us` and `eu` multi-regions. If you send a prompt containing an image to a regional endpoint where Model Armor doesn't support image screening, the `invocation_result` field in the response indicates `FAILURE`.
-
-
-
-For more information, see [Sanitize prompts containing images](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#prompts-with-images).
+For information about supported formats, size and extraction limits, regional availability, token calculation, and how to sanitize and redact images, see [Screen images](https://docs.cloud.google.com/model-armor/screen-images).
 
 ## Limitations
 
@@ -329,7 +314,7 @@ Consider the following limitations when you use Model Armor:
 
   * Model Armor inspects each prompt and response independently as a single-turn request. It doesn't track conversation history or maintain context across multi-turn interactions.
   * Model Armor doesn't decode or inspect encoded content, such as prompts encoded in Base64, hexadecimal, URL encoding, or ciphertext.
-  * Model Armor doesn't support audio or video. In addition, Model Armor doesn't support prompts that combine text and images in a single request. For image screening limitations and supported formats, see Image screening.
+  * Model Armor doesn't support audio or video.
 
 
 
@@ -348,7 +333,13 @@ Model Armor is designed with privacy and data minimization principles in mind. M
 
 ## Pricing
 
-Model Armor can be purchased as a standalone service or as an integrated part of Security Command Center. You aren't charged for data that is skipped. For pricing information, see the following:
+Model Armor can be purchased as a standalone service or as an integrated part of Security Command Center.
+
+Model Armor uses a unified token-based pricing model across text, standalone images, and rich text documents. Image tokens are billed at the same rate as text tokens and count toward the same token usage and tier allowances.
+
+You aren't charged for data that is skipped, such as empty inputs or files and images that exceed system limits. For more information, see [File size system limit](https://docs.cloud.google.com/model-armor/quotas#input-size-limit).
+
+For pricing information, see the following:
 
   * [Model Armor pricing](https://cloud.google.com/security/products/model-armor#pricing)
   * [Model Armor in Security Command Center](https://cloud.google.com/security-command-center/pricing#model-armor-in-security-command-center)
@@ -357,9 +348,14 @@ Model Armor can be purchased as a standalone service or as an integrated part of
 
 ## Tokens
 
-Generative AI models break down text and other data into units called _tokens_. A token is equivalent to about 4 characters. For more information about how tokens are counted, see [Understand and count tokens](https://ai.google.dev/gemini-api/docs/tokens).
+Generative AI models break down text and other data into units called _tokens_. Model Armor uses the total number of tokens in AI prompts and responses for pricing purposes and filter limit enforcement. For more information about token limits for each filter, see [Token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits).
 
-Model Armor uses the total number of tokens in AI prompts and responses for pricing purposes and filter limit enforcement. For more information about token limits for each filter, see [Token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits).
+Model Armor calculates tokens based on the input type and configured modalities:
+
+  * **Text inputs** : A token of text is equivalent to about 4 characters. For more information about how text tokens are counted, see [Understand and count tokens](https://ai.google.dev/gemini-api/docs/tokens).
+  * **Standalone images and rich text documents** : Model Armor calculates tokens based on the size of each processed image and the modalities configured in your template. For the image token formula, modality details, and calculation examples, see [Token calculation and pricing for images](https://docs.cloud.google.com/model-armor/screen-images#tokens).
+
+
 
 ## What's next
 
@@ -367,6 +363,7 @@ Model Armor uses the total number of tokens in AI prompts and responses for pric
   * Learn about [Model Armor floor settings](https://docs.cloud.google.com/model-armor/configure-floor-settings).
   * Learn about [Model Armor endpoints](https://docs.cloud.google.com/model-armor/data-residency#regional-endpoints).
   * [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses).
+  * [Screen images](https://docs.cloud.google.com/model-armor/screen-images).
   * Learn about [Model Armor audit logging](https://docs.cloud.google.com/model-armor/audit-logging-model-armor).
   * [Troubleshoot Model Armor issues](https://docs.cloud.google.com/model-armor/troubleshooting).
 
@@ -376,6 +373,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

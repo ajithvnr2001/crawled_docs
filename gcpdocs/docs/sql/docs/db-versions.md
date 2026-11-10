@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/db-versions/
 title: Database version policies \u00a0|\u00a0 Cloud SQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:11.242724+00:00
+fetched_at: 2026-11-10T18:47:40.382786+00:00
 ---
 
 # Database version policies  |  Cloud SQL  |  Google Cloud Documentation
@@ -57,7 +57,6 @@ MySQL 8.0| 8.0.46 (default)
 8.0.27  
 8.0.26  
 8.0.18 | August 30, 2020 | January 1, 2027 | July 1, 2029  
-  
 MySQL 5.7 | 5.7.44 | August 1, 2016 | February 1, 2025* | February 1, 2028  
   
 MySQL 5.6 | 5.6.51 | August 1, 2016 | February 1, 2025* | February 1, 2028  
@@ -181,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

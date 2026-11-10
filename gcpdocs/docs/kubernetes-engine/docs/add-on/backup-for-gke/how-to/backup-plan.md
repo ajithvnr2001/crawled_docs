@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/backup-plan/
 title: Plan a set of backups \u00a0|\u00a0 Backup for GKE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:25.822402+00:00
+fetched_at: 2026-11-10T16:32:12.572640+00:00
 ---
 
 # Plan a set of backups  |  Backup for GKE  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ You can create one or more backup plans for each cluster. There are two main rea
 
 We recommend that every cluster has at least one backup plan.
 
-Backup for GKE doesn't support backing up a cluster from one project to another. You can only create a backup plan to a cluster within the same project where the cluster is created.
+To back up a cluster to a different project, see [Perform cross-project backups](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/cross-project-backups).
 
 You can create a backup plan with a backup scheduling method to automatically create backups: smart scheduling or cron scheduling. We recommend smart scheduling for your backup plan. This ensures backups are automatically created to meet the [Recovery Point Objective (RPO)](https://en.wikipedia.org/wiki/Disaster_recovery) requirements. For more information, see [Automatic backup creation and deletion](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/backup-schedule).
 
@@ -607,6 +607,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

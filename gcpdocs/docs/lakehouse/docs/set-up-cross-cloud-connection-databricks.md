@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks/
 title: Set up cross-cloud connection for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:19.659564+00:00
+fetched_at: 2026-11-10T18:46:27.797605+00:00
 ---
 
 # Set up cross-cloud connection for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -482,8 +482,8 @@ The **Connection details** section appears.
   11. Optional: In the **Identity mode** section, select an option:
 
      * **Service identity (default):** Queries execute as the Lakehouse service account.
-     * **User identity:** Queries execute using the authenticated end user's identity and are propagated to the target catalog. Identity federation must be configured in the target catalog.
-  12. Under **Transport layer** , select **Public internet** or **Dedicated private interconnect**. If you select **Dedicated private interconnect** , configure the following fields:
+     * **User identity federation:** Queries execute using the authenticated end user's identity and are propagated to the target catalog. Identity federation must be configured in the target catalog.
+  12. Under **Transport layer** , select **Public internet** (default) or **Dedicated private interconnect**. If you select **Dedicated private interconnect** , configure the following fields:
 
      * In the **Service directory name** field, enter the path to your transport Service Directory service in the format `projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME`.
      * Optional: To synchronize catalog metadata privately over Cross-Cloud Interconnect, in the **Metadata service directory name** field, enter the path to your metadata Service Directory service in the format `projects/PROJECT_ID/locations/REGION/namespaces/METADATA_SERVICE_DIRECTORY_NAMESPACE/services/METADATA_SERVICE_NAME`.
@@ -491,6 +491,8 @@ The **Connection details** section appears.
 
 
 
+
+To update **Identity mode** , **Transport layer** , **Service directory name** , or **Metadata service directory name** on an existing federated catalog, open the catalog in **Lakehouse** , click **Edit catalog** , modify the fields, and click **Save**.
 
 ###  gcloud 
 
@@ -759,7 +761,7 @@ The **Catalog details** page appears.
 
      3. Click edit **Edit catalog**.
 
-     4. In the **Identity mode** section, select **User identity**.
+     4. In the **Identity mode** section, select **User identity federation**.
 
      5. Click **Save**.
 
@@ -835,6 +837,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

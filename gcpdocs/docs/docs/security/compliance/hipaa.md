@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/hipaa/
 title: HIPAA compliance on Google Cloud and Google Workspace \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:06:16.106345+00:00
+fetched_at: 2026-11-10T16:58:17.470207+00:00
 ---
 
 # HIPAA compliance on Google Cloud and Google Workspace  |  Security  |  Google Cloud Documentation
@@ -208,10 +208,13 @@ The [Google Cloud BAA](https://cloud.google.com/terms/hipaa-baa) includes Google
 
 ## Google SecOps supported services
 
+_Last updated: 2026-11-09_
+
 The following Google SecOps services[20] are supported by the BAA:
 
   * Google Security Operations SIEM
   * Google Security Operations SOAR
+  * Mandiant Consulting
 
 
 
@@ -297,14 +300,6 @@ Monitoring |
 
   * Don't store PHI in metadata such as metric labels, VM labels, GKE resource annotations, or dashboard titles or content. Anyone with the appropriate IAM permissions can view your monitoring console or use the Cloud Monitoring API to see this data. 
   * Don't place PHI in alerting configurations (for example, in display names or documentation) which can be sent to alert recipients. 
-
-  
-Google SecOps |  Don't use the following services or features: 
-
-  * Third-party services other than services that are provided by a Google Affiliate or a cloud-based infrastructure provider. 
-  * On-demand analyst support.
-  * Non-Google services, software, or hardware that's provided to Google personnel in connection with a Mandiant Consulting Services engagement. 
-  * API integration tools that aren't secure.
 
   
 Sensitive Data Protection  |  When configuring Sensitive Data Protection jobs, ensure that any output data is written to storage targets configured as part of your secure environment.   
@@ -424,6 +419,22 @@ Database security controls |  Consider the following when configuring database s
 
   
   
+### Google SecOps
+
+The following table describes best practices and limitations for Google SecOps.
+
+Item | Best practices and limitations  
+---|---  
+Excluded services |  Don't use the following services or features, which aren't supported by the BAA: 
+
+  * Third-party services other than services that are provided by a Google Affiliate or a cloud-based infrastructure provider. 
+  * Mandiant offensive security services.
+  * On-demand analyst support.
+  * Non-Google services, software, or hardware that's provided to Google personnel in connection with a Mandiant Consulting Services engagement. 
+  * API integration tools that aren't secure.
+
+  
+  
 ## What's next
 
   * Learn more about Google's security in the [Google security overview](https://docs.cloud.google.com/docs/security/overview/whitepaper) and the [Google infrastructure security design overview](https://docs.cloud.google.com/docs/security/infrastructure/design).
@@ -436,6 +447,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

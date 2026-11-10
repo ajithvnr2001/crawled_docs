@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver/
 title: Access Filestore instances with the Filestore CSI driver \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:04.078315+00:00
+fetched_at: 2026-11-10T16:33:06.573556+00:00
 ---
 
 # Access Filestore instances with the Filestore CSI driver  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -80,7 +80,7 @@ Basic HDD (100 GiB - 63.9 TiB) | Single share | 1.33 | Not supported
 Basic HDD | Single share | 1.21 | Not supported  
 Basic SSD | Single share | 1.21 | Not supported  
   
-Filestore uses the NFSv3 file system protocol on the Filestore instance by default and supports any NFSv3-compatible client. 
+Filestore uses the NFSv3 file system protocol on the Filestore instance by default and supports any NFSv3-compatible client.
 
 ## Before you begin
 
@@ -100,9 +100,7 @@ Before you start, make sure that you have performed the following tasks:
 
 ## Enable the Filestore CSI driver on your Standard cluster
 
-**Note:** The Filestore CSI driver is enabled by default for Autopilot clusters.
-
-To enable the Filestore CSI driver on Standard clusters, use the Google Cloud CLI or the Google Cloud console.
+In Google Kubernetes Engine version 1.36.3 and later, GKE enables the Filestore CSI driver by default on all new Standard and Autopilot clusters.
 
 To enable the driver on an existing Standard cluster, complete the following steps:
 
@@ -213,13 +211,15 @@ This section describes the typical process for using a Kubernetes volume to acce
          spec:
            accessModes:
              - ReadWriteMany
-           storageClassName: ""
+           storageClassName: "" # Set to an empty value to prevent assigning a default StorageClass
            resources:
              requests:
                storage: 1Ti
          
 
-  2. To create the `PersistentVolumeClaim` and `PersistentVolume` resources based on the `preprov-filestore.yaml` manifest file, run the following command:
+To bind a PersistentVolumeClaim to a static pre-existing PersistentVolume, you must set the `storageClassName` field to an empty string (`""`) value in the PersistentVolumeClaim specification. This setting prevents the access-mode-aware defaulting system from assigning a default StorageClass to the claim. For more information, see Default StorageClass assignment.
+
+  2. To create the PersistentVolumeClaim and PersistentVolume resources based on the `preprov-filestore.yaml` manifest file, run the following command:
          
          kubectl apply -f preprov-filestore.yaml
          
@@ -227,7 +227,7 @@ This section describes the typical process for using a Kubernetes volume to acce
 
 
 
-To specify the NFSv4.1 file system protocol, set the `protocol` field to `NFS_V4_1` in the `volumeAttributes` field of a `PersistentVolume` object. To use the NFSv3 file system protocol, set the `protocol` field to `NFS_V3` or omit the `protocol` field.
+To specify the NFSv4.1 file system protocol, set the `protocol` field to `NFS_V4_1` in the `volumeAttributes` field of a PersistentVolume object. To use the NFSv3 file system protocol, set the `protocol` field to `NFS_V3` or omit the `protocol` field.
 
 Then, proceed to create a Deployment that consumes the volume.
 
@@ -255,7 +255,7 @@ After you enable the Filestore CSI driver, GKE automatically installs the follow
 
 Each StorageClass is only available in GKE clusters running in their respective supported GKE version numbers. For a list of supported versions required for each service tier, see Requirements.
 
-You can find the name of your installed `StorageClass` by running the following command:
+You can find the name of your installed StorageClass by running the following command:
     
     
     kubectl get sc
@@ -263,7 +263,7 @@ You can find the name of your installed `StorageClass` by running the following 
 
 **Note:** The pre-installed StorageClasses use `volumeBindingMode: WaitForFirstConsumer`. This means that the Filestore instance is not provisioned immediately after creating the PersistentVolumeClaim. The instance is only created when a Pod that references the PersistentVolumeClaim is scheduled.
 
-You can also install a different `StorageClass` that uses the Filestore CSI driver by adding `filestore.csi.storage.gke.io` in the `provisioner` field.
+You can also install a different StorageClass that uses the Filestore CSI driver by adding `filestore.csi.storage.gke.io` in the `provisioner` field.
 
 Filestore needs to know on which network to create the new instance. The automatically installed StorageClasses use the default network created for GKE clusters. If you have deleted this network or want to use a different network, you must create a new StorageClass as described in the following steps. Otherwise, the automatically installed StorageClasses won't work.
 
@@ -287,7 +287,7 @@ From the manifest, consider the following parameter configuration:
      * Any supported [Filestore tier](https://docs.cloud.google.com/filestore/docs/service-tiers) can be specified in the [`tier` parameter](https://docs.cloud.google.com/filestore/docs/reference/rest/v1/Tier) (for example, `BASIC_HDD`, `BASIC_SSD`, `ZONAL`, or `ENTERPRISE`).
      * The [`network` parameter](https://docs.cloud.google.com/filestore/docs/reference/rest/v1/projects.locations.instances#networkconfig) can be used when provisioning Filestore instances on non-default VPCs. Non-default VPCs require special [firewall rules](https://docs.cloud.google.com/filestore/docs/configuring-firewall) to be set up.
      * The [`protocol` parameter](https://docs.cloud.google.com/filestore/docs/reference/rest/v1beta1/FileProtocol) can be used to set the file system protocol of the Filestore instance. It can take the following values: `NFS_V3` (default) and `NFS_V4_1`. The default protocol is `NFS_V3`.
-  2. To create a `StorageClass` resource based on the `filestore-example-class.yaml` manifest file, run the following command:
+  2. To create a StorageClass resource based on the `filestore-example-class.yaml` manifest file, run the following command:
          
          kubectl create -f filestore-example-class.yaml
          
@@ -299,11 +299,33 @@ If you want to use Filestore on a Shared VPC network, see Create a StorageClass 
 
 ### Use a PersistentVolumeClaim to access the volume
 
-You can create a `PersistentVolumeClaim` resource that references the Filestore CSI driver's `StorageClass`.
+You can create a PersistentVolumeClaim resource that references the Filestore CSI driver's StorageClass.
 
-You can use either a pre-installed or custom `StorageClass`.
+You can use either a pre-installed or custom StorageClass.
 
-The following example manifest file creates a `PersistentVolumeClaim` that references the `StorageClass` named `filestore-example`.
+#### Default StorageClass assignment
+
+In GKE version 1.37.1 and later, Filestore uses an access-mode-aware defaulting system. If you create a PersistentVolumeClaim that requests the `ReadWriteMany` access mode and omits the `storageClassName` field, then GKE automatically defaults the claim to the `regional-rwx` StorageClass.
+
+The following example PersistentVolumeClaim manifest demonstrates this automatic defaulting behavior:
+    
+    
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: podpvc-default
+    spec:
+      accessModes:
+      - ReadWriteMany
+      # storageClassName is omitted, so GKE assigns `regional-rwx`.
+      resources:
+        requests:
+          storage: 1Ti
+    
+
+#### Reference a specific StorageClass
+
+The following example manifest file creates a PersistentVolumeClaim that references the StorageClass named `filestore-example`.
 
   1. Save the following manifest file as `pvc-example.yaml`:
          
@@ -320,7 +342,7 @@ The following example manifest file creates a `PersistentVolumeClaim` that refer
                storage: 1Ti
          
 
-  2. To create a `PersistentVolumeClaim` resource based on the `pvc-example.yaml` manifest file, run the following command:
+  2. To create a PersistentVolumeClaim resource based on the `pvc-example.yaml` manifest file, run the following command:
          
          kubectl create -f pvc-example.yaml
          
@@ -330,9 +352,9 @@ The following example manifest file creates a `PersistentVolumeClaim` that refer
 
 ### Create a Deployment that consumes the volume
 
-The following example Deployment manifest consumes the `PersistentVolume` resource named `pvc-example.yaml`.
+The following example Deployment manifest consumes the PersistentVolume resource named `pvc-example.yaml`.
 
-Multiple Pods can share the same `PersistentVolumeClaim` resource.
+Multiple Pods can share the same PersistentVolumeClaim.
 
   1. Save the following manifest as `filestore-example-deployment.yaml`:
          
@@ -386,21 +408,21 @@ Multiple Pods can share the same `PersistentVolumeClaim` resource.
          kubectl get deployment
          
 
-It might take a while for Filestore instances to complete provisioning. Before that, deployments won't report a `READY` status. You can check the progress by monitoring your PVC status by running the following command:
+It might take a while for Filestore instances to complete provisioning. Before that, deployments won't report a `READY` status. You can check the progress by monitoring your PersistentVolumeClaim status by running the following command:
          
          kubectl get pvc
          
 
-You should see the PVC reach a `BOUND` status, when the volume provisioning completes.
+You should see the PersistentVolumeClaim reach a `BOUND` status, when the volume provisioning completes.
 
 
 
 
-## Dynamically scale Filestore performance using `VolumeAttributesClass`
+## Dynamically scale Filestore performance using VolumeAttributesClass
 
 The Filestore CSI driver supports [custom performance](https://docs.cloud.google.com/filestore/docs/custom-performance) for Zonal and Regional service tiers. Custom performance configuration lets you adjust the application performance according to your workload needs, scaling it up and down as required. Ensure that your GKE cluster version is 1.35 or later.
 
-To allow for smooth performance scaling, you can define multiple performance tiers using the `VolumeAttributesClass` API. Having predefined tiers lets you dynamically update performance settings on existing volumes by switching between them at runtime without re-provisioning the volume or experiencing downtime.
+To allow for smooth performance scaling, you can define multiple performance tiers using the VolumeAttributesClass API. Having predefined tiers lets you dynamically update performance settings on existing volumes by switching between them at runtime without re-provisioning the volume or experiencing downtime.
 
 ### Default performance tiers
 
@@ -414,7 +436,7 @@ Performance tier name | Parameter | Maximum IOPS
   
 ### Define performance tiers
 
-You define multiple performance tiers by creating `VolumeAttributesClass` resources. In the following example, you create a moderate and high performance tier using a fixed IOPS rate (`max-iops`). You can also use an IOPS-per-TiB ratio (`max-iops-per-tb`) which scales linearly with the volume size.
+You define multiple performance tiers by creating VolumeAttributesClass resources. In the following example, you create a moderate and high performance tier using a fixed IOPS rate (`max-iops`). You can also use an IOPS-per-TiB ratio (`max-iops-per-tb`) which scales linearly with the volume size.
 
 Specify `max-iops` or `max-iops-per-tb` values that yield at least 2,000 provisioned IOPS. If the calculated IOPS is less than 2,000, the system automatically rounds the value up to this minimum.
 
@@ -445,7 +467,7 @@ Specify `max-iops` or `max-iops-per-tb` values that yield at least 2,000 provisi
            max-iops-per-tb: "5000"
          
 
-  2. Create the `VolumeAttributesClass` resources:
+  2. Create the VolumeAttributesClass resources:
          
          kubectl apply -f performance-tiers.yaml
          
@@ -453,9 +475,9 @@ Specify `max-iops` or `max-iops-per-tb` values that yield at least 2,000 provisi
 
 
 
-### Create a `PersistentVolumeClaim` with an initial performance tier
+### Create a PersistentVolumeClaim with an initial performance tier
 
-To create a `PersistentVolumeClaim` with a performance configuration, reference the `VolumeAttributesClass` in your `PersistentVolumeClaim` resource.
+To create a PersistentVolumeClaim with a performance configuration, reference the VolumeAttributesClass in your PersistentVolumeClaim resource.
 
   1. Save the following manifest as `pvc-custom-performance.yaml`, referencing the `filestore-moderate` tier:
          
@@ -473,7 +495,7 @@ To create a `PersistentVolumeClaim` with a performance configuration, reference 
                storage: 1Ti
          
 
-  2. Create the `PersistentVolumeClaim`:
+  2. Create the PersistentVolumeClaim:
          
          kubectl apply -f pvc-custom-performance.yaml
          
@@ -481,7 +503,7 @@ To create a `PersistentVolumeClaim` with a performance configuration, reference 
 
 
 
-### Update the `PersistentVolumeClaim` to use a different performance tier
+### Update the PersistentVolumeClaim to use a different performance tier
 
   1. When your workload requires higher performance, update the `volumeAttributesClassName` in your `pvc-custom-performance.yaml` file to `filestore-high`:
          
@@ -505,7 +527,7 @@ To create a `PersistentVolumeClaim` with a performance configuration, reference 
          kubectl apply -f pvc-custom-performance.yaml
          
 
-The Filestore CSI driver processes the update dynamically. 
+The Filestore CSI driver processes the update dynamically.
 
   3. Verify the performance status:
          
@@ -521,13 +543,13 @@ Check the **Events** section in the command output to verify if the attributes w
 
 You can use [labels](https://docs.cloud.google.com/filestore/docs/tags-and-labels#labels) to group related instances and store metadata about an instance. A label is a key-value pair that helps you organize your Filestore instances. You can attach a label to each resource, then filter the resources based on their labels.
 
-You can provide labels by using the `labels` key in `StorageClass.parameters`. A Filestore instance can be labeled with information about what `PersistentVolumeClaim`/`PersistentVolume` the instance was created for. Custom label keys and values must comply with the label [naming convention](https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). See the Kubernetes [storage class example](https://github.com/kubernetes-sigs/gcp-filestore-csi-driver/blob/master/examples/kubernetes/sc-labels.yaml) to apply custom labels to the Filestore instance.
+You can provide labels by using the `labels` key in `StorageClass.parameters`. A Filestore instance can be labeled with information about what PersistentVolumeClaim/PersistentVolume the instance was created for. Custom label keys and values must comply with the label [naming convention](https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). See the Kubernetes [storage class example](https://github.com/kubernetes-sigs/gcp-filestore-csi-driver/blob/master/examples/kubernetes/sc-labels.yaml) to apply custom labels to the Filestore instance.
 
 ## Use NFSv4.1 file system protocol with Filestore
 
-The Filestore CSI driver supports the NFSv4.1 file system protocol with GKE version 1.33 or later. In case of static provisioning, set the `protocol` field to `NFS_V4_1` in the `volumeAttributes` field of a `PersistentVolume` object.
+The Filestore CSI driver supports the NFSv4.1 file system protocol with GKE version 1.33 or later. In case of static provisioning, set the `protocol` field to `NFS_V4_1` in the `volumeAttributes` field of a PersistentVolume object.
 
-For dynamic provisioning, set the `protocol` field to `NFS_V4_1` in the parameters of a `StorageClass` object.
+For dynamic provisioning, set the `protocol` field to `NFS_V4_1` in the parameters of a StorageClass object.
     
     
     apiVersion: storage.k8s.io/v1
@@ -768,6 +790,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

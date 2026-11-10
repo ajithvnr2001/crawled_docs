@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/troubleshoot/permission-errors/
 title: Troubleshoot permission errors in Backup for GKE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:29.128554+00:00
+fetched_at: 2026-11-10T16:33:07.335953+00:00
 ---
 
 # Troubleshoot permission errors in Backup for GKE  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ To resolve this error, use the following instructions:
 
      * Run the `gcloud projects describe` command using Google Cloud CLI:
            
-           gcloud projects describe PROJECT_ID –format="value(projectNumber)"
+           gcloud projects describe PROJECT_ID --format="value(projectNumber)"
            
 
 Replace `PROJECT_ID` with the unique name of your project.
@@ -177,7 +177,7 @@ To resolve this error, use the following troubleshooting instructions:
 
      * Run the `gcloud projects describe` command using Google Cloud CLI:
            
-           gcloud projects describe PROJECT_ID –-format="value(projectNumber)"
+           gcloud projects describe PROJECT_ID --format="value(projectNumber)"
            
 
 Replace `PROJECT_ID` with your project ID.
@@ -309,7 +309,7 @@ To resolve this error, use the following troubleshooting instructions:
 
   1. To check the status of all `PersistentVolumeClaims` in the cluster and identify the unbound `PersistentVolumeClaim`, run the `kubectl get pvc` command:
          
-         kubectl get pvc --all-namespaces | grep `Pending`
+         kubectl get pvc --all-namespaces | grep Pending
          
 
   2. After you identify the `PersistentVolumeClaim` that isn't bound to a `PersistentVolume`, retrieve information about the unbound `PersistentVolumeClaim` by running the `kubectl describe pvc` command:
@@ -338,6 +338,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

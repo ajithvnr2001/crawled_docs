@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:25.557978+00:00
+fetched_at: 2026-11-10T18:37:01.419310+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -26,6 +26,54 @@ The following security bulletins are related to Google Cloud products.
 
 [ Use this XML feed to subscribe to security bulletins for this page. ![Subscribe](https://docs.cloud.google.com/static/docs/images/feed-icon.png)](https://cloud.google.com/feeds/google-cloud-security-bulletins.xml)
 
+## GCP-2026-081
+
+**Published:** 2026-11-10
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+AMD has disclosed three vulnerabilities that affect 5th generation AMD EPYC processors (code-named Turin): CVE-2024-36350 and CVE-2024-36357, which AMD previously disclosed for earlier EPYC processors, and a new vulnerability, CVE-2026-0004. Under certain conditions, an attacker could infer data from the store queue or the L1 data cache, potentially leaking sensitive information across privilege boundaries. Affected Compute Engine machine series: C4D, N4D, H4D, Z4D, and G4, including C4D and Z4D bare metal instances. Google has applied mitigations that protect against attacks between VMs and between VMs and the host. To protect against attacks inside a VM, such as between processes, you need to update your guest operating system.
+
+#### What should I do?
+
+  * **VMs:** Update your guest operating system when your OS vendor releases fixes. Starting November 10th, Google will update the CPU information that VMs report so that patched guest kernels can turn on their mitigations. After the update reaches your VM, stop and start the VM. Rebooting the guest OS isn't enough.
+  * **Bare metal and nested virtualization:** If you run your own OS or hypervisor on a bare metal instance, apply your vendor's fixes when they're available. If you run a hypervisor inside a VM, Google will update the CPU information that VMs report so that patched guest kernels can turn on their mitigations. After the update reaches your VM, stop and start the VM. Rebooting the guest OS isn't enough.
+  * **GKE:** Updated GKE node images for Turin-based bare metal instances will be made available. Upgrading your nodes picks up the CPU information update. This bulletin will be updated once the new node image is available.
+  * **Cloud Run:** No action is required.
+
+For more information, see AMD security bulletins [AMD-SB-7073](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-7073.html) and [AMD-SB-3055](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3055.html).
+
+#### What vulnerabilities are being addressed?
+
+  * **CVE-2024-36350 (TSA-SQ):** may allow an attacker to infer data from previous stores, potentially leaking sensitive information.
+  * **CVE-2024-36357 (TSA-L1):** may allow an attacker to infer data in the L1 data cache, potentially leaking sensitive information across privilege boundaries.
+  * **CVE-2026-0004:** may allow an attacker to infer data in the L1 data cache, potentially leaking sensitive information across privilege boundaries.
+
+These are Transient Scheduler Attacks (TSA), a type of side-channel vulnerability. Under certain conditions, the processor can briefly use data before confirming it's valid. An attacker running code on the same processor core may be able to measure the resulting timing differences to infer data from another process, the kernel, another VM, or the host. | Medium | 
+
+  * [CVE-2024-36350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36350)
+  * [CVE-2024-36357](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36357)
+  * [CVE-2026-0004](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-0004)
+
+  
+  
+## GCP-2026-080
+
+**Published:** 2026-11-09
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+A security vulnerability was discovered in Istio ([ISTIO-SECURITY-2026-009](https://istio.io/latest/news/security/istio-security-2026-009/)). For instructions and more details, see the [Cloud Service Mesh security bulletin](https://docs.cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-080).  | High | 
+
+  * [CVE-2026-31836](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-31836)
+  * [GHSA-635j-qv98-9275](https://github.com/istio/istio/security/advisories/GHSA-635j-qv98-9275)
+
+  
+  
 ## GCP-2026-079
 
 **Published:** 2026-11-05
@@ -7760,6 +7808,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

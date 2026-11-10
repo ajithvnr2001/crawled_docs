@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/create-upgrade/
 title: Troubleshoot cluster creation or upgrade \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:26.791234+00:00
+fetched_at: 2026-11-10T16:59:16.140272+00:00
 ---
 
 # Troubleshoot cluster creation or upgrade  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -340,12 +340,17 @@ The total replicas count is difficult to determine from the PDB resource, becaus
 
 Runtime violations, such as the calculated `DisruptionsAllowed` value for a PDB resource being `0`, can also block node draining. If you have [`PodDisruptionBudget` objects configured](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) that are unable to allow any additional disruptions, node upgrades might fail to upgrade to the control plane version after repeated attempts. To prevent this failure, we recommend that you scale up the `Deployment` or `HorizontalPodAutoscaler` to allow the node to drain while still respecting the `PodDisruptionBudget` configuration.
 
-To see all `PodDisruptionBudget` objects that don't allow any disruptions, use the following command:
+List all `PodDisruptionBudget` objects on the cluster that don't allow any disruptions:
     
     
-    kubectl get poddisruptionbudget --all-namespaces \
-        -o jsonpath='{range .items[?(@.status.disruptionsAllowed==0)]}{.metadata.name}/{.metadata.namespace}{"\n"}{end}'
+    kubectl --kubeconfig CLUSTER_KUBECONFIG \
+        get poddisruptionbudget --all-namespaces \
+        -o jsonpath='{range .items[?(@.status.disruptionsAllowed==0)]}{.metadata.namespace}/{.metadata.name}{"\n"}{end}'
     
+
+Replace `CLUSTER_KUBECONFIG` with the path of the kubeconfig file for the cluster.
+
+The default `kube-system/log-aggregator` and `kube-system/prometheus` PDBs appear in the output with `disruptionsAllowed: 0` when they have zero matching Pods and `status.expectedPods` is `0`. Because these PDBs don't block node draining, you can ignore them.
 
 ### Check why Pods are unhealthy
 
@@ -377,6 +382,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

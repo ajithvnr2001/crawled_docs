@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/editions-intro/
 title: Cloud SQL editions overview \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:55:55.581153+00:00
+fetched_at: 2026-11-10T18:46:37.812864+00:00
 ---
 
 # Cloud SQL editions overview  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -60,8 +60,10 @@ SQL Server 2019 (Standard, Enterprise, Express, and Web)
 SQL Server 20171 (Standard, Enterprise, Express, and Web) **Note:** For all SQL Server versions, if you don't specify an edition in the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) or the Cloud SQL Admin API, then the default Cloud SQL edition is Enterprise.  
 **[Availability SLA](https://cloud.google.com/sql/sla)** | 99.99% (includes maintenance) | 99.95% (excludes maintenance)  
 **_Performance_**  
-**[Machine series](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview)** | N2  
-Memory-optimized-N2  |  General purpose dedicated core  
+**[ Machine series ](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview) ** | N2  
+Memory-optimized-N2  
+C4  
+C4D  |  General purpose dedicated core  
 N4  
 **[Machine configuration limits](https://docs.cloud.google.com/sql/docs/sqlserver/instance-settings#machine-type-2ndgen)** | **N2 machine series**   
 Up to 128 vCPU  
@@ -70,8 +72,16 @@ Up to 864 GB RAM
 Up to 16 vCPU  
 Up to 512 GB RAM  
 1:32 core:memory ratio  
-**C4 machine series** Up to 8 vCPU  
+  
+**C4 machine series**  
+Up to 8 vCPU  
 Up to 62 GB RAM  
+1:7.5 to 1:7.75 core:memory ratio  
+  
+**C4D machine series**  
+Up to 192 vCPU  
+Up to 1,512 GB RAM  
+1:7.5 to 1:7.875 core:memory ratio  
 |  **General purpose dedicated core**  
 Up to 96 vCPU (up to 80 vCPU in [select regions](https://docs.cloud.google.com/sql/docs/sqlserver/region-availability-overview#enterprise-edition-regions))  
 Up to 624 GB RAM  
@@ -181,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

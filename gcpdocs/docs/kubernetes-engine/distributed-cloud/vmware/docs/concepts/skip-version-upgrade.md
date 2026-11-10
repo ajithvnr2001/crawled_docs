@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/skip-version-upgrade/
 title: Skip a version when upgrading node pools \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:54:10.346479+00:00
+fetched_at: 2026-11-10T16:58:34.901278+00:00
 ---
 
 # Skip a version when upgrading node pools  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,26 +21,15 @@ Send feedback
 
 #  Skip a version when upgrading node pools Stay organized with collections  Save and categorize content based on your preferences. 
 
-In version 1.29 and higher, Google Distributed Cloud allows a user cluster's control plane to be up to two minor versions higher than the node pools in the cluster. For example, if a user cluster's control plane is at 1.29, the node pools in the cluster can be at version 1.16, 1.28, or 1.29. Additionally, Google Distributed Cloud lets you skip one minor version when upgrading node pools. Using the previous example, you can upgrade node pools that are at version 1.16 directly to version 1.29 and skip the upgrade to 1.28. Skipping a minor version when upgrading node pools is referred to as a _skip-version upgrade_.
+Skip-version upgrades let you skip a minor version when you upgrade worker node pools after upgrading the user cluster control plane, which reduces the number of node drain and reboot cycles. For example, if a worker node pool is at version 1.29, you can upgrade the user cluster control plane to 1.30 and then to 1.31, and then upgrade the worker node pool directly from 1.29 to 1.31. This capability is supported on advanced and non-advanced clusters, except on version 1.31 advanced clusters and Google Distributed Cloud software only for VMware versions earlier than 1.28.
 
-This page explains some of the benefits of a skip-version upgrade and provides steps on how to perform a skip-version upgrade by making configuration file changes and running `gkectl upgrade cluster`.
-
-This page is for IT administrators and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks). This page assumes that you are somewhat familiar with planning and executing Google Distributed Cloud upgrades as described in the following:
-
-  * [Upgrade overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview)
-
-  * [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices)
-
-  * [Upgrade a cluster or a node pool](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading)
-
-
-
+Before you begin, make sure that you're familiar with [Upgrade overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview), [Upgrade version rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules), [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices), and [Upgrade a cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading).
 
 ## Limitations
 
-Skip-version upgrades has the following limitations:
+The following are limitations of skip-version upgrades:
 
-  * Skip-version upgrades are supported for Ubuntu and COS node pools, but not for Windows node pools.
+  * Skip-version upgrades are supported for Ubuntu and Container-Optimized OS node pools, but not for Windows node pools.
 
   * Version 1.31: this feature isn't available on [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#enable-advanced-cluster-field).
 
@@ -100,22 +89,9 @@ In summary, a skip-version upgrade provides the following benefits:
 
 ## Controlling the control plane and node pool versions during an upgrade
 
-**Caution:** Version skew between the control plane and the node pool is **NOT** supported when [upgrading non-advanced clusters to advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster). Clusters will be automatically upgraded to advanced clusters in 1.33.
+**Caution:** Version skew between the control plane and the node pool isn't supported when [upgrading non-advanced clusters to advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/update-or-upgrade-to-adv-cluster). Clusters will be automatically upgraded to advanced clusters in 1.33.
 
 In the user cluster configuration file, the field [nodePools[i].gkeOnPremVersion](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-gkeonpremversion-field) allows a specific node pool to use a different version than the top level [gkeOnPremVersion](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#gkeonpremversion-field) field. By changing the value of the `nodePools[i].gkeOnPremVersion` field, you control when a node pool is upgraded when you run `gkectl upgrade cluster`. If you don't include `nodePools[i].gkeOnPremVersion` in the configuration file, or if you set the field to an empty string, node pools are upgraded to the same target version that you specify in `gkeOnPremVersion`.
-
-## Version rules
-
-The rules for upgrades depends on the cluster minor version.
-
-  * For versions 1.30 and lower, the user cluster minor version must be greater than or equal to the admin cluster minor version. The patch version doesn't matter. For example, if a user cluster is at version 1.30.1, the admin cluster can be upgraded to a higher patch version, such as 1.30.3.
-
-  * For versions 1.31 and higher, the admin cluster version, including the patch version, must be greater than or equal to the user cluster version. For example, if an admin cluster is at version 1.31.1, the highest version that the user cluster can be upgraded to is 1.31.1.
-
-
-
-
-When you want to upgrade your clusters to version 1.31, you must first bring all your clusters to version 1.30. After all the clusters are at version 1.30, you upgrade the admin cluster to version 1.31. After that, you can upgrade the user clusters to the same 1.31 patch version as the admin cluster.
 
 ## Skip-version upgrade sequence
 
@@ -134,9 +110,9 @@ Use this sequence if the target version is 1.32 or higher. Suppose your user clu
 
 ### 1.31
 
-Use this special sequence if the user cluster is at version 1.29, which means the target version is 1.31. When a user cluster is at version 1.29, an admin cluster that manages the user cluster could be at version 1.27, 1.28, or 1.29. 
+Use this special sequence if the user cluster is at version 1.29, which means the target version is 1.31. When a user cluster is at version 1.29, an admin cluster that manages the user cluster could be at version 1.16, 1.28, or 1.29. 
 
-  1. If your admin cluster is at version 1.27, upgrade it to 1.28.
+  1. If your admin cluster is at version 1.16, upgrade it to 1.28.
   2. If your admin cluster is at version 1.28, upgrade it to 1.29.
   3. Upgrade only the user cluster control plane from the source version, 1.29, to an intermediate version, 1.30. Leave the node pools at the source version. The intermediate 1.30 version is needed because the control plane must be upgraded one minor version at a time.
   4. Upgrade the admin cluster from version 1.29 to the intermediate version, 1.30.
@@ -164,22 +140,146 @@ This section provides the steps for performing a skip-version upgrade.
 
   1. Make sure the current version (the source version) of the cluster is at version 1.16 or higher. Be sure to check the version of the control plane (`gkeOnPremVersion`) and all node pools (`nodePools[i].gkeOnPremVersion`).
 
-  2. In version 1.29 and later, server-side preflight checks are enabled by default. Make sure to [review your firewall rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#google_api_and_iam_requirements) to make any needed changes.
+  2. In version 1.29 and later, server-side preflight checks are enabled by default. Make sure to [review your firewall rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#review_your_firewall_rules) to make any needed changes.
 
-  3. To upgrade to version 1.28 and later, you must enable `kubernetesmetadata.googleapis.com` and grant the `kubernetesmetadata.publisher` IAM role to the [logging-monitoring service account](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/service-accounts#logging_monitoring_service_account). For details, see [Google API and IAM requirements](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#google_api_and_iam_requirements).
+  3. To upgrade to version 1.28 and later, you must enable `kubernetesmetadata.googleapis.com` and grant the `kubernetesmetadata.publisher` Identity and Access Management (IAM) role to the [logging-monitoring service account](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/service-accounts#logging_monitoring_service_account). For details, see [Google API and IAM requirements](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#google_api_and_iam_requirements).
 
 
 
 
 ### Perform the upgrade
 
+### 1.32 and higher
+
+Use this sequence if the target version is 1.32 or later.
+
+Before you start, make sure your admin cluster is at least at the same minor version (`1.N`) as your user cluster. If your user cluster is at version 1.30 and your admin cluster is at version 1.28 or 1.29, upgrade your admin cluster one minor version at a time until it reaches 1.30. If you already upgraded your admin cluster to `1.N+1` or `1.N+2`—for example, while upgrading another user cluster—skip the completed admin cluster upgrade steps.
+
+  1. Define the source version (`1.N`), the intermediate version (`1.N+1`), and the target version (`1.N+2`) in the following placeholder variables. Specify full version numbers in the form `X.Y.Z-gke.N`, such as `1.34.1000-gke.111`:
+
+Description | Version  
+---|---  
+Get the current user cluster version. This is the source version (`1.N`). | `SOURCE_VERSION`  
+Select an [intermediate version](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history) (`1.N+1`). | `INTERMEDIATE_VERSION`  
+Select the [recommended patch](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/version-and-upgrade-support#google_cloud_distributed) from the target minor version (`1.N+2`). | `TARGET_VERSION`  
+  2. Upgrade the admin workstation and admin cluster from the source version (`1.N`) to the intermediate version (`1.N+1`):
+
+     1. [Upgrade your admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_awstation) to the intermediate version, `INTERMEDIATE_VERSION`, and wait for the upgrade to succeed.
+
+     2. Import the OS images from the intermediate bundle to vSphere:
+            
+            gkectl prepare \
+                --bundle-path /var/lib/gke/bundles/gke-onprem-vsphere-INTERMEDIATE_VERSION.tgz \
+                --kubeconfig ADMIN_CLUSTER_KUBECONFIG
+            
+
+Replace `ADMIN_CLUSTER_KUBECONFIG` with the path to your admin cluster `kubeconfig` file.
+
+     3. Set the `bundlePath` field in the admin cluster configuration file to the intermediate bundle:
+            
+            bundlePath: "/var/lib/gke/bundles/gke-onprem-vsphere-INTERMEDIATE_VERSION.tgz"
+            
+
+     4. Upgrade the admin cluster to the intermediate version:
+            
+            gkectl upgrade admin \
+                --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+                --config ADMIN_CLUSTER_CONFIG_FILE
+            
+
+Replace `ADMIN_CLUSTER_CONFIG_FILE` with the path to your admin cluster configuration file.
+
+  3. Upgrade the admin workstation and admin cluster from the intermediate version (`1.N+1`) to the target version (`1.N+2`):
+
+     1. [Upgrade your admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_awstation) to the target version, `TARGET_VERSION`, and wait for the upgrade to succeed.
+
+     2. Import the OS images from the target bundle to vSphere:
+            
+            gkectl prepare \
+                --bundle-path /var/lib/gke/bundles/gke-onprem-vsphere-TARGET_VERSION.tgz \
+                --kubeconfig ADMIN_CLUSTER_KUBECONFIG
+            
+
+     3. Set the `bundlePath` field in the admin cluster configuration file to the target bundle:
+            
+            bundlePath: "/var/lib/gke/bundles/gke-onprem-vsphere-TARGET_VERSION.tgz"
+            
+
+     4. Upgrade the admin cluster to the target version:
+            
+            gkectl upgrade admin \
+                --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+                --config ADMIN_CLUSTER_CONFIG_FILE
+            
+
+  4. Upgrade only the user cluster control plane from the source version (`1.N`) to the intermediate version (`1.N+1`):
+
+     1. Make the following changes in the user cluster configuration file:
+
+        * Set the `gkeOnPremVersion` field to the intermediate version, `INTERMEDIATE_VERSION`.
+
+        * Set all worker node pool versions in `nodePools[i].gkeOnPremVersion` to the source version, `SOURCE_VERSION`. If your cluster has load balancer node pools (`enableLoadBalancer: true`), set their `gkeOnPremVersion` field to an empty string (`""`) so that they upgrade with the control plane.
+
+After you update your configuration file, it looks similar to the following example:
+    
+    gkeOnPremVersion: INTERMEDIATE_VERSION
+    # Omitted fields
+    nodePools:
+    - name: pool-1
+      gkeOnPremVersion: SOURCE_VERSION
+      # Omitted fields
+    - name: pool-2
+      gkeOnPremVersion: SOURCE_VERSION
+      # Omitted fields
+    
+
+     2. Upgrade the user cluster control plane:
+            
+            gkectl upgrade cluster \
+                --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+                --config USER_CLUSTER_CONFIG_FILE
+            
+
+Replace `USER_CLUSTER_CONFIG_FILE` with the path to your user cluster configuration file.
+
+  5. Upgrade the user cluster control plane and worker node pools to the target version (`1.N+2`):
+
+     1. Make the following changes in the user cluster configuration file:
+
+        * Set the `gkeOnPremVersion` field to the target version, `TARGET_VERSION`.
+
+        * Set `nodePools[i].gkeOnPremVersion` for each node pool to an empty string (`""`).
+
+After you update your configuration file, it looks similar to the following example:
+    
+    gkeOnPremVersion: TARGET_VERSION
+    # Omitted fields
+    nodePools:
+    - name: pool-1
+      gkeOnPremVersion: ""
+      # Omitted fields
+    - name: pool-2
+      gkeOnPremVersion: ""
+      # Omitted fields
+    
+
+     2. Upgrade the user cluster control plane and node pools:
+            
+            gkectl upgrade cluster \
+                --kubeconfig ADMIN_CLUSTER_KUBECONFIG \
+                --config USER_CLUSTER_CONFIG_FILE
+            
+
+
+
+
 ### 1.31
 
 Use this special sequence if the user cluster is at version 1.29, which means the target version is 1.31. This sequence is needed because the version rules changed in version 1.31.
 
-When a user cluster is at version 1.29, an admin cluster that manages the user cluster could be at version 1.27, 1.28, or 1.29.
+When a user cluster is at version 1.29, an admin cluster that manages the user cluster could be at version 1.16, 1.28, or 1.29.
 
-  1. If your admin cluster is at version 1.27, follow the steps to [upgrade your admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_awstation) and [upgrade your admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_admin_cluster) to version 1.28.
+  1. If your admin cluster is at version 1.16, follow the steps to [upgrade your admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_awstation) and [upgrade your admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_admin_cluster) to version 1.28.
 
   2. If your admin cluster is at version 1.28, follow the steps to [upgrade your admin workstation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_awstation) and [upgrade your admin cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#upgrade_admin_cluster) to version 1.29.
 
@@ -250,7 +350,7 @@ Replace `USER_CLUSTER_CONFIG` with the path of your user cluster configuration f
 
   7. Set the `bundlePath` field in the admin cluster configuration file to the intermediate 1.30 version of the bundle:
          
-         bundlePath="/var/lib/gke/bundles/gke-onprem-vsphere-INTERMEDIATE_VERSION.tgz"
+         bundlePath: "/var/lib/gke/bundles/gke-onprem-vsphere-INTERMEDIATE_VERSION.tgz"
          
 
   8. Upgrade the admin cluster to the intermediate 1.30 version:
@@ -262,7 +362,8 @@ Replace `USER_CLUSTER_CONFIG` with the path of your user cluster configuration f
 
   9. Set the `bundlePath` field in the admin cluster configuration file to the target 1.31 version of the bundle:
          
-         bundlePath="/var/lib/gke/bundles/gke-onprem-vsphere-TARGET_VERSION.tgz"
+         bundlePath: "/var/lib/gke/bundles/gke-onprem-vsphere-TARGET_VERSION.tgz"
+         
 
   10. Upgrade the admin cluster to the target 1.31 version:
          
@@ -411,6 +512,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

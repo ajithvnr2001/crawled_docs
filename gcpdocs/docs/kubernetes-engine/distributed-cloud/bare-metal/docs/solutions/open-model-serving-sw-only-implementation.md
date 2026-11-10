@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/open-model-serving-sw-only-implementation/
-title: Open model serving on Distributed Cloud software only reference implementation \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
+title: Open model serving on Google Distributed Cloud software only reference implementation \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:26.448411+00:00
+fetched_at: 2026-11-10T16:59:12.364231+00:00
 ---
 
-# Open model serving on Distributed Cloud software only reference implementation  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
+# Open model serving on Google Distributed Cloud software only reference implementation  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/solutions/open-model-serving-sw-only-implementation/
 
@@ -20,15 +20,15 @@ fetched_at: 2026-11-07T05:51:26.448411+00:00
 
 Send feedback 
 
-#  Open model serving on Distributed Cloud software only reference implementation Stay organized with collections  Save and categorize content based on your preferences. 
+#  Open model serving on Google Distributed Cloud software only reference implementation Stay organized with collections  Save and categorize content based on your preferences. 
 
 ## Overview
 
-This document serves as the **Solution Reference Implementation (SRI)** guide, describing the concrete steps required to deploy, serve, and validate the **Open Model Serving on Distributed Cloud software only** solution.
+This document serves as the **Solution Reference Implementation (SRI)** guide, describing the concrete steps required to deploy, serve, and validate the **Open Model Serving on Google Distributed Cloud software only** solution.
 
-This guide implements the deployment of the optimized **vLLM serving engine** running **Gemma 4** (`google/gemma-4-31B-it`) on a Distributed Cloud software only **Single-Node Cluster configuration targeted for edge deployment** utilizing physical NVIDIA GPU resources (e.g., RTX PRO 6000).
+This guide implements the deployment of the optimized **vLLM serving engine** running **Gemma 4** (`google/gemma-4-31B-it`) on a Google Distributed Cloud software only **Single-Node Cluster configuration targeted for edge deployment** utilizing physical NVIDIA GPU resources (e.g., RTX PRO 6000).
 
-This walkthrough is designed to be executed from a CLI terminal client with `kubectl` access to the Distributed Cloud software only cluster.
+This walkthrough is designed to be executed from a CLI terminal client with `kubectl` access to the Google Distributed Cloud software only cluster.
 
 **Note:** Throughout this guide, the following placeholders are used: 
 
@@ -54,14 +54,14 @@ By completing this Solution Reference Implementation, you will:
 
 ### Prerequisites (cluster setup)
 
-This guide assumes you have a running Distributed Cloud software only cluster with GPU support configured. For installing the cluster, refer to the official [Distributed Cloud software only for bare metal documentation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal#install). The GPU configuration must comply with the official Google Cloud documentation for [Set up and use NVIDIA GPUs](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/gpu-manual-use).
+This guide assumes you have a running Google Distributed Cloud software only cluster with GPU support configured. For installing the cluster, refer to the official [Google Distributed Cloud software only for bare metal documentation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/about-bare-metal#install). The GPU configuration must comply with the official Google Cloud documentation for [Set up and use NVIDIA GPUs](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/gpu-manual-use).
 
 ### Client workstation prerequisites
 
 Ensure your local terminal environment has the following tools installed and configured:
 
-  * **gcloud CLI:** Required for project configuration and querying logs. **Must be authenticated (`gcloud auth login`) and configured to the active Google Cloud project where the Distributed Cloud software only cluster is registered.**
-  * **kubectl:** Required for managing cluster resources. Must be configured with the appropriate context to access the target Distributed Cloud software only cluster (e.g., via connect gateway or direct local network access).
+  * **gcloud CLI:** Required for project configuration and querying logs. **Must be authenticated (`gcloud auth login`) and configured to the active Google Cloud project where the Google Distributed Cloud software only cluster is registered.**
+  * **kubectl:** Required for managing cluster resources. Must be configured with the appropriate context to access the target Google Distributed Cloud software only cluster (e.g., via connect gateway or direct local network access).
   * **curl:** Required for sending test requests to the serving endpoint.
   * **jq:** Required for parsing JSON output from the serving endpoint.
 
@@ -134,7 +134,7 @@ The deployment consists of three main manifests: PVC, Service, and Deployment. T
 
 ### Persistent Volume Claim (PVC)
 
-The PVC ensures model weights persist across pod restarts, using the Distributed Cloud software only `local-shared` storage class.
+The PVC ensures model weights persist across pod restarts, using the Google Distributed Cloud software only `local-shared` storage class.
 
 Create a file named `vllm-pvc.yaml` with the following content:
     
@@ -650,6 +650,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

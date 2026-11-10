@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk-with-instance-flexibility/
 title: Create VMs in bulk with instance flexibility \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:55.739580+00:00
+fetched_at: 2026-11-10T19:01:15.822510+00:00
 ---
 
 # Create VMs in bulk with instance flexibility  |  Compute Engine  |  Google Cloud Documentation
@@ -120,7 +120,7 @@ Replace the following:
         --name-pattern=test-bulk-# \
         --region=us-central1 \
         --count=10 \
-        --instance-selection-machine-types=c3-standard-8,n2-standard-8,c2-standard-8
+        --instance-selection-machine-types=c4-standard-8,c3-standard-8
     
 
 ###  REST 
@@ -190,9 +190,8 @@ Replace the following:
         "instanceSelections": {
           "selection-1": {
             "machineTypes": [
-              "c3-standard-8",
-              "n2-standard-8",
-              "c2-standard-8"
+              "c4-standard-8",
+              "c3-standard-8"
             ]
           }
         }
@@ -238,8 +237,8 @@ Replace the following:
         --name-pattern=test-bulk-# \
         --region=us-central1 \
         --count=10 \
-        --instance-selection "name=most-preferred,rank=0,machine-type=c3-standard-16,machine-type=n2-standard-16,machine-type=c2-standard-16" \
-        --instance-selection "name=least-preferred,rank=1,machine-type=c3-standard-8,machine-type=n2-standard-8,machine-type=c2-standard-8"
+        --instance-selection "name=most-preferred,rank=0,machine-type=c4-standard-16" \
+        --instance-selection "name=least-preferred,rank=1,machine-type=c3-standard-16"
     
 
 ###  REST 
@@ -320,17 +319,13 @@ Replace the following:
         "instanceSelections": {
           "most-preferred": {
             "machineTypes": [
-              "c3-standard-16",
-              "c2-standard-16"
+              "c4-standard-16"
             ],
             "rank": 1
           },
           "least-preferred": {
             "machineTypes": [
-              "n2-standard-16",
-              "c3-standard-8",
-              "n2-standard-8",
-              "c2-standard-8"
+              "c3-standard-16"
             ],
             "rank": 2
           }
@@ -341,15 +336,11 @@ Replace the following:
 
 ## Create VMs with multiple machine types, minimum CPU platform, and disk overrides
 
-In addition to specifying machine types and ranks, you can override the [minimum CPU platform](https://docs.cloud.google.com/compute/docs/instances/specify-min-cpu-platform) and override or add to the disk definitions in `instanceProperties` for each instance selection. For example, if `instanceProperties` specifies a Persistent Disk and you select an N4 machine series, then you must override the boot disk with a supported Google Cloud Hyperdisk type.
+In addition to specifying machine types and ranks, you can override the [minimum CPU platform](https://docs.cloud.google.com/compute/docs/instances/specify-min-cpu-platform) and override or add to the disk definitions in `instanceProperties` for each instance selection. For example, if `instanceProperties` specifies a Persistent Disk and you select an N4 machine series, then you must override the boot disk with a supported Google Cloud Hyperdisk type. 
 
 For more information about supported disk types and how Compute Engine applies overrides, see the following resources:
 
-  * [Machine series support for Persistent Disks](https://docs.cloud.google.com/compute/docs/disks/persistent-disks#pd-machine-series)
-  * [Machine series support for Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine-type-support)
-  * [Instance property overrides in instance selections](https://docs.cloud.google.com/compute/docs/instances/multiple/about-instance-flexibility-for-bulk-vms#instance-property-overrides)
-
-
+* [Machine series support for Persistent Disks](https://docs.cloud.google.com/compute/docs/disks/persistent-disks#pd-machine-series) * [Machine series support for Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine-type-support) * [Instance property overrides in instance selections](https://docs.cloud.google.com/compute/docs/instances/multiple/about-instance-flexibility-for-bulk-vms#instance-property-overrides)
 
 To create VMs in bulk with multiple machine types, minimum CPU platform, and disk overrides, select one of the following options:
 
@@ -404,17 +395,8 @@ Replace the following:
 **Example**
 
 The following example creates 10 VMs using two instance selections that specify a minimum CPU platform, override the default boot disk, and attach additional disks:
-    
-    
-    gcloud compute instances bulk create \
-        --name-pattern=test-bulk-# \
-        --region=us-central1 \
-        --count=10 \
-        --boot-disk-device-name=boot-disk \
-        --instance-flexibility-policy='{"instanceSelections":
-            {"selection-1":{"machineTypes":["n2-standard-8","c2-standard-8"],"minCpuPlatform":"Intel Cascade Lake","disks":[{"type":"PERSISTENT","deviceName":"boot-disk","boot":true,"initializeParams":{"diskType":"pd-ssd","diskSizeGb":50,"sourceImage":"projects/debian-cloud/global/images/family/debian-12"}},{"type":"SCRATCH","initializeParams":{"diskType":"local-ssd"}}]},
-            "selection-2":{"machineTypes":["c4a-standard-8"],"disks":[{"type":"PERSISTENT","deviceName":"boot-disk","boot":true,"initializeParams":{"diskType":"hyperdisk-balanced","diskSizeGb":50,"sourceImage":"projects/debian-cloud/global/images/family/debian-12-arm64"}},{"type":"PERSISTENT","deviceName":"data-disk","initializeParams":{"diskType":"hyperdisk-balanced","diskSizeGb":128}}]}}}'
-    
+
+`sh gcloud compute instances bulk create \ --name-pattern=test-bulk-# \ --region=us-central1 \ --count=10 \ --boot-disk-device-name=boot-disk \ --instance-flexibility-policy='{"instanceSelections": {"selection-1":{"machineTypes":["n2-standard-8","c2-standard-8"],"minCpuPlatform":"Intel Cascade Lake","disks":[{"type":"PERSISTENT","deviceName":"boot-disk","boot":true,"initializeParams":{"diskType":"pd-ssd","diskSizeGb":50,"sourceImage":"projects/debian-cloud/global/images/family/debian-12"}},{"type":"SCRATCH","initializeParams":{"diskType":"local-ssd"}}]}, "selection-2":{"machineTypes":["c4a-standard-8"],"disks":[{"type":"PERSISTENT","deviceName":"boot-disk","boot":true,"initializeParams":{"diskType":"hyperdisk-balanced","diskSizeGb":50,"sourceImage":"projects/debian-cloud/global/images/family/debian-12-arm64"}},{"type":"PERSISTENT","deviceName":"data-disk","initializeParams":{"diskType":"hyperdisk-balanced","diskSizeGb":128}}]}}}'`
 
 Alternatively, if you use the `--flags-file` flag, you can specify the same instance flexibility policy in a YAML file:
     
@@ -457,7 +439,7 @@ Alternatively, if you use the `--flags-file` flag, you can specify the same inst
 
 ###  REST 
 
-In the Compute Engine API, make a `POST` request to the [`regionInstances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstances/bulkInsert). In each `instanceSelections` entry of `instanceFlexibilityPolicy`, include the `minCpuPlatform` field to override `instanceProperties.minCpuPlatform`, and include the `disks` field to override or add to `instanceProperties.disks`:
+In the Compute Engine API, make a `POST` request to the [`regionInstances.bulkInsert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstances/bulkInsert). In the request body, include `instanceFlexibilityPolicy` and, in each `instanceSelections` entry, include the `minCpuPlatform` field to override `instanceProperties.minCpuPlatform` and the `disks` field to override or add to `instanceProperties.disks`:
     
     
     POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/instances/bulkInsert
@@ -485,6 +467,7 @@ In the Compute Engine API, make a `POST` request to the [`regionInstances.bulkIn
             ],
             "minCpuPlatform": "MIN_CPU_PLATFORM_1",
             "disks": [
+              
               {
                 "type": "PERSISTENT",
                 "deviceName": "boot-disk",
@@ -501,6 +484,7 @@ In the Compute Engine API, make a `POST` request to the [`regionInstances.bulkIn
                   "diskType": "local-ssd"
                 }
               }
+              
             ]
           },
           "INSTANCE_SELECTION_2": {
@@ -524,8 +508,7 @@ In the Compute Engine API, make a `POST` request to the [`regionInstances.bulkIn
                 "deviceName": "data-disk",
                 "initializeParams": {
                   "diskType": "hyperdisk-balanced",
-                  "diskSizeGb": 128,
-                  "sourceImage": "projects/IMAGE_PROJECT_3/global/images/IMAGE_3"
+                  "diskSizeGb": 128
                 }
               }
             ]
@@ -546,8 +529,8 @@ Replace the following:
   * `MIN_CPU_PLATFORM_1`, `MIN_CPU_PLATFORM_2`: optional [minimum CPU platforms](https://docs.cloud.google.com/compute/docs/instances/specify-min-cpu-platform) for the VMs in each instance selection
   * `IMAGE_PROJECT`: the project that contains the default boot image in `instanceProperties`
   * `IMAGE`: the name of the default boot image or image family in `instanceProperties`
-  * `IMAGE_PROJECT_1`, `IMAGE_PROJECT_2`, `IMAGE_PROJECT_3`: the projects that contain the images for the disk overrides
-  * `IMAGE_1`, `IMAGE_2`, `IMAGE_3`: the names of the images for the disk overrides
+  * `IMAGE_PROJECT_1`, `IMAGE_PROJECT_2`: the projects that contain the images for the disk overrides
+  * `IMAGE_1`, `IMAGE_2`: the names of the images for the disk overrides
   * `PROJECT_ID`: your project ID
   * `REGION`: the region in which to create the VMs
 
@@ -575,6 +558,7 @@ The following example creates 10 VMs using two instance selections that specify 
         "networkInterfaces": [{}]
       },
       "instanceFlexibilityPolicy": {
+        
         "instanceSelections": {
           "selection-1": {
             "machineTypes": [
@@ -627,14 +611,22 @@ The following example creates 10 VMs using two instance selections that specify 
             ]
           }
         }
+        
       }
     }
     
+
+## What's next
+
+  * [About instance flexibility for VMs created in bulk](https://docs.cloud.google.com/compute/docs/instances/multiple/about-instance-flexibility-for-bulk-vms)
+  * [Create VMs in bulk](https://docs.cloud.google.com/compute/docs/instances/multiple/create-in-bulk)
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

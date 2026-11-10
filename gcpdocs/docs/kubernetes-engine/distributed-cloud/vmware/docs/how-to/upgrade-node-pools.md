@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-node-pools/
 title: Upgrade node pools \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:12.281380+00:00
+fetched_at: 2026-11-10T16:59:44.265882+00:00
 ---
 
 # Upgrade node pools  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,52 +21,45 @@ Send feedback
 
 #  Upgrade node pools Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows how to upgrade the control plane and node pools separately in a user cluster created with Google Distributed Cloud (software only) on VMware. This page is for IT administrators and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks). Before reading this document, ensure that you're familiar with planning and executing Google Distributed Cloud upgrades as described in the following:
+Upgrading the control plane and worker node pools separately in a Google Distributed Cloud software only for VMware user cluster lets you validate workload compatibility on individual node pools and spread upgrades across shorter maintenance windows.
 
-  * [Upgrade overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview)
-
-  * [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices)
-
-  * [Upgrade a cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading)
-
-
-
+This document is for IT administrators and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks). Before you begin, make sure that you're familiar with [Upgrade overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-overview), [Upgrade version rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-version-rules), [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices), and [Upgrade a cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading).
 
 ## Limitations
 
 Upgrading node pools separately from the control plane has the following limitations:
 
-  * This feature is supported for Ubuntu and COS node pools, but not for Windows node pools.
+  * This feature is supported for Ubuntu and Container-Optimized OS node pools, but not for Windows node pools.
 
-  * This feature is not available when upgrading non-advanced clusters to advanced clusters. Non-advanced clusters will be upgraded to advanced clusters in 1.33 automatically.
+  * This feature isn't available when upgrading non-advanced clusters to advanced clusters. Non-advanced clusters will be upgraded to advanced clusters in 1.33 automatically.
 
   * Version 1.31: this feature isn't available on [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#enable-advanced-cluster-field).
 
   * Version 1.32 and higher: this feature is available on advanced clusters.
 
-  * Load balancer node pool version must be the same as the cluster version. Upgrading a load balancer node pool (a node pool with `enableLoadBalancer: true`) separately from the control plane or having version skew is not supported.
+  * Load balancer node pool version must be the same as the cluster version. Upgrading a load balancer node pool (a node pool with `enableLoadBalancer: true`) separately from the control plane or having version skew isn't supported.
 
 
 
 
 ## Why upgrade the control plane and node pools separately?
 
-  * If your clusters are at version 1.16 or higher, you can skip a minor version when upgrading node pools. Performing a skip-version upgrade halves the time that it would take to sequentially upgrade node pools two versions. Additionally, skip-version upgrades lets you increase the time between upgrades needed to stay on a supported version. Reducing the number of upgrades reduces workload disruptions and verification time. For more information, see [Skip a version when upgrading node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/skip-version-upgrade). 
+In certain situations, you might want to upgrade some, but not all, of the worker node pools in a user cluster:
 
-  * In certain situations, you might want to upgrade some, but not all of the worker node pools in a user cluster, for example:
+  * You can first upgrade the control plane and a node pool that has light traffic or runs your least critical workloads. After you verify that your workloads run correctly on the new version, you can upgrade additional node pools until all node pools are upgraded.
 
-    * You could first upgrade the control plane and a node pool that has light traffic or that runs your least critical workloads. After you are convinced that your workloads run correctly on the new version, you could upgrade additional node pools, until eventually all the node pools are upgraded.
+  * Instead of using one large maintenance window for the cluster upgrade, you can upgrade the cluster across several maintenance windows. For information about estimating the time for a maintenance window, see [Estimate the time commitment and plan a maintenance window](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices#estimate_the_time_commitment_and_plan_a_maintenance_window).
 
-    * Instead of one large maintenance window for the cluster upgrade, you could upgrade the cluster in several maintenance windows. See [Estimate the time commitment and plan a maintenance window](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrade-best-practices#estimate_the_time_commitment_and_plan_a_maintenance_window) for information on estimating the time for a maintenance window.
+  * You can skip a minor version when upgrading node pools to reduce the number of upgrades required to stay on a supported version, which saves time and reduces workload disruptions. For more information, see [Skip a version when upgrading node pools](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/skip-version-upgrade).
 
 
 
 
 ## Before you begin
 
-  1. In version 1.29 and later, server-side preflight checks are enabled by default. Make sure to [review your firewall rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#google_api_and_iam_requirements) to make any needed changes.
+  1. In version 1.29 and later, server-side preflight checks are enabled by default. Make sure to [review your firewall rules](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#review_your_firewall_rules) to make any needed changes.
 
-  2. To upgrade to version 1.28 and later, you must enable `kubernetesmetadata.googleapis.com` and grant the `kubernetesmetadata.publisher` IAM role to the [logging-monitoring service account](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/service-accounts#logging_monitoring_service_account). For details, see [Google API and IAM requirements](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#google_api_and_iam_requirements).
+  2. To upgrade to version 1.28 and later, you must enable `kubernetesmetadata.googleapis.com` and grant the `kubernetesmetadata.publisher` IAM role to the [logging-monitoring service account](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/service-accounts#logging_monitoring_service_account). For details, see [Google API and Identity and Access Management (IAM) requirements](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading#google_api_and_iam_requirements).
 
   3. Make sure the current version of the cluster is at version 1.14 or higher.
 
@@ -100,10 +93,10 @@ Replace `ADMIN_CLUSTER_KUBECONFIG` with the path of your admin cluster `kubeconf
 
      * Set the `gkeOnPremVersion` field to the target version, `TARGET_VERSION`.
 
-     * For each node pool that you want to upgrade, set the `nodePools.nodePool[i].gkeOnPremVersion` field to the empty string.
+     * For each node pool that you want to upgrade, set the `nodePools[i].gkeOnPremVersion` field to the empty string.
 
-       * In version 1.28 and later, you can accelerate the node pool upgrade by setting `nodePools.nodePool[i].updateStrategy.rollingUpdate.maxSurge` [field](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-updatestrategy-rollingupdate-maxsurge-field) to an integer value greater than 1. When you upgrade nodes with `maxSurge`, multiple nodes upgrade in the same time that it takes to upgrade a single node.
-     * For each node pool that you **don't** want to upgrade, set `nodePools.nodePool[i].gkeOnPremVersion` to the source version, `SOURCE_VERSION`. Note that you cannot hold back load balancer node pools (node pools with `enableLoadBalancer: true`); their version must match the cluster version.
+       * In version 1.28 and later, you can accelerate the node pool upgrade by setting `nodePools[i].updateStrategy.rollingUpdate.maxSurge` [field](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#nodepool-updatestrategy-rollingupdate-maxsurge-field) to an integer value greater than 1. When you upgrade nodes with `maxSurge`, multiple nodes upgrade in the same time that it takes to upgrade a single node.
+     * For each node pool that you **don't** want to upgrade, set `nodePools[i].gkeOnPremVersion` to the source version, `SOURCE_VERSION`. Note that you cannot hold back load balancer node pools (node pools with `enableLoadBalancer: true`); their version must match the cluster version.
 
 The following example shows a portion of the user cluster configuration file. It specifies that the control plane and `pool-1` will be upgraded to `TARGET_VERSION`, but `pool-2` will remain at `SOURCE_VERSION`.
     
@@ -158,7 +151,7 @@ Using the previous example, suppose everything is working well with `pool-1`, an
 
 ###  gcloud CLI 
 
-Upgrading a user cluster requires some changes to the admin cluster. The the `gcloud container vmware clusters upgrade` command automatically does the following:
+Upgrading a user cluster requires some changes to the admin cluster. The `gcloud container vmware clusters upgrade` command automatically does the following:
 
   * [Enrolls the admin cluster in the GKE On-Prem API](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/enroll-cluster) if it isn't already enrolled.
 
@@ -171,7 +164,7 @@ Upgrading a user cluster requires some changes to the admin cluster. The the `gc
 
 Do the following step to upgrade the user cluster's control plane.
 
-  1. Update the Google Cloud CLI components:
+  1. Update the gcloud CLI components:
          
          gcloud components update
          
@@ -245,7 +238,7 @@ Do the following steps to upgrade the node pools after the user cluster's contro
 
 ### Terraform
 
-  1. Update the Google Cloud CLI components:
+  1. Update the gcloud CLI components:
          
          gcloud components update
          
@@ -254,7 +247,7 @@ Do the following steps to upgrade the node pools after the user cluster's contro
 
   3. Download the new version of the components and deploy them in the admin cluster:
          
-         gcloud vmware admin-clusters update ADMIN_CLUSTER_NAME \
+         gcloud container vmware admin-clusters update ADMIN_CLUSTER_NAME \
            --project=PROJECT_ID \
            --location=REGION \
            --required-platform-version=TARGET_VERSION
@@ -262,7 +255,7 @@ Do the following steps to upgrade the node pools after the user cluster's contro
 
 Replace the following:
 
-     * `USER_CLUSTER_NAME`: The name of the user cluster to upgrade.
+     * `ADMIN_CLUSTER_NAME`: The name of the admin cluster.
 
      * `PROJECT_ID`: The ID of the [fleet host project](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/multiple-gcp-projects#fleet_host_project) in which the user cluster is a member. This is the project that you specified when the cluster was created. If you created the cluster using `gkectl`, this is the project ID in the `gkeConnect.projectID` field in the cluster configuration file.
 
@@ -270,11 +263,11 @@ Replace the following:
 
      * `TARGET_VERSION`: The version to upgrade to. Select the [recommended patch](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/version-and-upgrade-support#google_cloud_distributed) from the target minor version.
 
-This command downloads the version of the components that you specify in `--required-platform-version` to the admin cluster, and then deploys the the components. These components let the admin cluster manage user clusters at that version.
+This command downloads the version of the components that you specify in `--required-platform-version` to the admin cluster, and then deploys the components. These components let the admin cluster manage user clusters at that version.
 
   4. In the `main.tf` file that you used to create the user cluster, change `on_prem_version` in the cluster resource to the new version.
 
-  5. Add the following to the cluster resource so that only the control plane is upgrade:
+  5. Add the following to the cluster resource so that only the control plane is upgraded:
          
          upgrade_policy {
            control_plane_only = true
@@ -293,7 +286,7 @@ Terraform installs any needed libraries, such as the Google Cloud provider.
          terraform plan
          
 
-  8. Apply the Terraform plan to create the user cluster:
+  8. Apply the Terraform plan to upgrade the user cluster control plane:
          
          terraform apply
          
@@ -321,7 +314,7 @@ For example:
          config {
            replicas = 3
            image_type = "ubuntu_containerd"
-           enable_load_balancer = true
+           enable_load_balancer = false
          }
          on_prem_version = "1.16.0-gke.0"
          }
@@ -337,7 +330,7 @@ For example:
          terraform plan
          
 
-  4. Apply the Terraform plan to create the user cluster:
+  4. Apply the Terraform plan to upgrade the node pools:
          
          terraform apply
          
@@ -353,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

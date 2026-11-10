@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/migrate/flag-command-translation/
 title: Firebase Test Lab to Developer Device Platform Command and Flag Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:17:28.920697+00:00
+fetched_at: 2026-11-10T08:24:32.154503+00:00
 ---
 
 # Firebase Test Lab to Developer Device Platform Command and Flag Translation  |  Google Cloud Documentation
@@ -231,9 +231,9 @@ Here is the flag mapping for migrating test configurations from Flank or `gcloud
 
 Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion Logic  
 ---|---|---  
-`--app` | `--apps` | **List**. If multiple application APKs/AABs are supplied, pass them all to `--apps` in the order to be installed on the device. Path can be local or in Cloud Storage (`gs://...`).  
-`--test` | `--test` | REQUIRED **String**. Path to the test APK containing Instrumentation tests, either local or in Cloud Storage.  
+Flank `--project` | `--project` | Standard Google Cloud global flag (`--project=PROJECT_ID`) or active Google Cloud CLI configuration.  
 `--client-details` | `--labels` | **Dictionary** of `key=value` pairs to attach to the test session.  
+`--other-files` | `--other-files-to-push` | **Dictionary**. Comma-separated `SOURCE=DEST` list of auxiliary files to push to the device before the test run.  
   
 ### Device configuration and targeting
 
@@ -245,21 +245,8 @@ Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion
 
 Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion Logic  
 ---|---|---  
-`--num-flaky-test-attempts {R}` | `--flaky-test-attempts {A}` | **Integer**. The maximum number of execution attempts per test shard. Convert retry count _R_ to total attempts _A_ limit: _A_ = _R_ +1 (defaults to 1).  
-_N/A_ | `--flaky-test-parallel-retry` | **Boolean**. Whether to retry test failures in parallel (defaults to `false` for sequential execution).  
-_N/A_ | `--flaky-test-retry-level` | **String**. Defines whether to retry at the `shard` or individual `test` level (defaults to `shard`).  
 `--async` | `--async` | **Boolean**. Maps 1:1. Command executes synchronously by default. Pass this to return to the terminal immediately. Exits immediately after file upload and prints operation and session IDs.  
-  
-### Test runner and targets
-
-Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion Logic  
----|---|---  
-`--environment-variables` | `--additional-test-options` | **Dictionary** of options passed to the Instrumentation test runner. Formats supported in `--test-targets` are not allowed here.  
-`--test-targets` | `--test-targets` | **Dictionary** of test targets or target filters to run. Each target must be fully qualified with the package name or class name supporting keys such as `package`, `notPackage`, `class`, `notClass`, `annotation`, `notAnnotation`, and `size`. Formats `testfile` or `notTestfile` are not supported.  
-`--use-orchestrator` | `--orchestrator-version` | Whether to use Android Test Orchestrator. Takes `auto` (default orchestrator) or specific version string (ex. `1.6`). Available versions can be queried using `gcloud beta device-run software-versions list`.  
-`--test-runner-class` | `--test-runner-class` | **String**. The fully-qualified Instrumentation test runner class (ex. `com.foo.MyRunner`) to use. If not specified, a default runner class is determined by examining the application's manifest.  
-`--directories-to-pull` | `--paths-to-pull` | **List**. Directories to download from the device after test run.  
-`--other-files` | `--other-files-to-push` | **Dictionary**. Comma-separated `SOURCE=DEST` list of auxiliary files to push to the device prior to test run.  
+`--num-flaky-test-attempts {R}` | `--flaky-test-attempts {A}` | **Integer**. The maximum number of execution attempts per test shard. Convert retry count _R_ to total attempts _A_ limit: _A_ = _R_ \+ 1 (defaults to 1).  
   
 ### Output and storage
 
@@ -267,6 +254,7 @@ Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion
 ---|---|---  
 `--results-bucket` | `--bucket-name` | **String**. Cloud Storage bucket where test artifacts, including local input files, test output files, and smart sharding timing records, are uploaded (defaults to `gs://[PROJECT_ID]-devicerun` if not specified).  
 `--results-dir` | _Managed automatically_ | **Unsupported**. Sub-paths are automatically organized in Cloud Storage under `automation/sessions/{session_id}/`.  
+`--directories-to-pull` | `--paths-to-pull` | **List**. Directories to download from the device after the test run.  
   
 ### Sharding configuration
 
@@ -279,18 +267,29 @@ Flank `--smart-flank-gcs-path` | `--smart-sharding-record-name={name} --bucket-n
   
 ### Android-specific flags
 
-Use this table to map legacy `gcloud firebase test android run` flags to their new `device-run` equivalents:
+Use this table to map legacy `gcloud firebase test android run` and Flank Android flags to their new `gcloud beta device-run sessions submit instrumentation` equivalents:
 
-Legacy Parameter (`firebase android`) | Target DDP Parameter | Format / Conversion Logic  
----|---|---  
-`--additional-apks` | `--apps` | **List**. Merge additional list values directly into the main `--apps` list.  
-`--device locale={L}` | `--locale={L}` | **String**. Maps device locale to top-level `--locale` flag (`language-region`, ex. `--locale=en-US`) to switch the device to before running the test.  
-`--device orientation={O}` | `--orientation={O}` | **String**. Maps device orientation to top-level `--orientation` flag (`portrait` or `landscape`).  
-_N/A_ | `--coordinates` | **String**. Mocks device GPS location coordinates (ex. `--coordinates=37.4220,-122.0841`).  
-_N/A_ | `--bugreport` | **String**. Collect a full `bugreport` from the device (values: `always`, `on-failure`).  
-_N/A_ | `--dumpsys` | **String**. Collect system state using `dumpsys` (values: `always`, `on-failure`).  
-`--timeout` | `--instrumentation-timeout` | **Duration** (ex. `10m`, `20s`, `1h`). Valid range: `1m` to `3h` (defaults to `5m`).  
-`--record-video` | `--video` | **String**. When to record video of the device screen during the test run. Valid values are `always` or `on-failure`.  
+Test Type | Feature Group | Legacy Parameter (`firebase android` / Flank) | Target DDP Parameter | Format / Conversion Logic  
+---|---|---|---|---  
+Common Android | Core parameters and assets | `--app` | `--apps` | **List**. If multiple application APKs/AABs are supplied, pass them all to `--apps` in the order to be installed on the device. Path can be local or in Cloud Storage (`gs://...`).  
+Common Android | Core parameters and assets | `--additional-apks` | `--apps` | **List**. Merge additional list values directly into the main `--apps` list.  
+Common Android | Core parameters and assets | `--obb-files` | `--other-files-to-push` | **Dictionary** in `SOURCE=DEST` format. Push OBB files directly to the target device path (`/sdcard/Android/obb/{package_name}/`).  
+Common Android | Device configuration and targeting | `--device locale={L}` | `--locale={L}` | **String**. Maps device locale to top-level `--locale` flag (`language-region`, ex. `--locale=en-US`) to switch the device to before running the test.  
+Common Android | Device configuration and targeting | `--device orientation={O}` | `--orientation={O}` | **String**. Maps device orientation to top-level `--orientation` flag (`portrait` or `landscape`).  
+Common Android | Device configuration and targeting | _N/A_ | `--coordinates` | **String**. Mocks device GPS location coordinates (ex. `--coordinates=37.4220,-122.0841`).  
+Common Android | Execution control and flakiness | `--grant-permissions` | _Automated Default_ | **Automated**. Runtime permissions are granted automatically by default (equivalent to `--grant-permissions=all`).  
+Common Android | Output and storage | _N/A_ | `--dumpsys` | **String**. Collect system state using `dumpsys` (values: `always`, `on-failure`).  
+Common Android | Output and storage | _N/A_ | `--bugreport` | **String**. Collect a full `bugreport` from the device (values: `always`, `on-failure`).  
+Common Android | Output and storage | `--record-video` | `--video` | **String**. When to record video of the device screen during the test run. Valid values are `always` or `on-failure`.  
+Android Instrumentation | Core parameters and assets | `--type=instrumentation` | `sessions submit instrumentation` | Sub-command structure determines test type instead of a `--type` flag.  
+Android Instrumentation | Core parameters and assets | `--test` | `--test` | REQUIRED **String**. Path to the test APK containing Instrumentation tests, either local or in Cloud Storage.  
+Android Instrumentation | Execution control and flakiness | `--timeout` | `--instrumentation-timeout` | **Duration** (ex. `10m`, `20s`, `1h`). Valid range: `1m` to `3h` (defaults to `5m`).  
+Android Instrumentation | Execution control and flakiness | _N/A_ | `--flaky-test-parallel-retry` | **Boolean**. Whether to retry test failures in parallel (defaults to `false` for sequential execution).  
+Android Instrumentation | Execution control and flakiness | _N/A_ | `--flaky-test-retry-level` | **String**. Defines whether to retry at the `shard` or individual `test` level (defaults to `shard`).  
+Android Instrumentation | Test runner and targets | `--test-runner-class` | `--test-runner-class` | **String**. The fully-qualified Instrumentation test runner class (ex. `com.foo.MyRunner`) to use. If not specified, a default runner class is determined by examining the application's manifest.  
+Android Instrumentation | Test runner and targets | `--test-targets` | `--test-targets` | **Dictionary** of test targets or target filters to run. Each target must be fully qualified with the package name or class name supporting keys such as `package`, `notPackage`, `class`, `notClass`, `annotation`, `notAnnotation`, and `size`. Formats `testfile` or `notTestfile` are not supported.  
+Android Instrumentation | Test runner and targets | `--use-orchestrator` | `--orchestrator-version` | Whether to use Android Test Orchestrator. Takes `auto` (default orchestrator) or specific version string (ex. `1.6`). Available versions can be queried using `gcloud beta device-run software-versions list`.  
+Android Instrumentation | Test runner and targets | `--environment-variables` | `--additional-test-options` | **Dictionary** of options passed to the Instrumentation test runner. Formats supported in `--test-targets` are not allowed here.  
   
 ### iOS-specific flags
 
@@ -320,6 +319,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

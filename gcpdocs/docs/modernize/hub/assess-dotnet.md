@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/modernize/hub/assess-dotnet/
 title: Assess .NET applications for modernization \u00a0|\u00a0 Modernization Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:05.137365+00:00
+fetched_at: 2026-11-10T19:01:27.302486+00:00
 ---
 
 # Assess .NET applications for modernization  |  Modernization Hub  |  Google Cloud Documentation
@@ -29,6 +29,8 @@ This product is subject to the "Pre-GA Offerings Terms" in the General Service T
 This page describes how to use Google Cloud Modernization Hub to assess ASP.NET and .NET Framework applications for Linux containerization and modernization to a cross-platform .NET release.
 
 Many enterprise .NET applications depend on Windows-specific APIs, IIS server configurations, or legacy .NET Framework libraries that prevent direct deployment to Linux containers. An automated assessment in Modernization Hub analyzes your source code to identify blockers, evaluate NuGet package compatibility, and recommend refactoring paths for Cloud Run or Google Kubernetes Engine.
+
+To run assessments from your local computer or customize report sections by using the standalone `codmod` CLI, see [Create an App Modernization Assessment](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment).
 
 ## When to use a .NET application assessment
 
@@ -226,6 +228,7 @@ Before you run agentic refactoring workflows, make sure that you meet the follow
 
 ## What's next
 
+  * Learn how to [create an App Modernization Assessment with the `codmod` CLI](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment).
   * Learn how to [assess Java applications](https://docs.cloud.google.com/modernize/hub/assess-java).
   * Learn how to [set up Mainframe Assessment Tool (MAT)](https://docs.cloud.google.com/modernize/hub/setup-mat).
   * Explore AI-assisted code transformation using [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview).
@@ -236,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

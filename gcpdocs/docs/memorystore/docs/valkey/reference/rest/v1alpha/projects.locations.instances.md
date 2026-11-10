@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances
 title: REST Resource: projects.locations.instances \u00a0|\u00a0 Memorystore for Valkey \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T02:04:35.245086+00:00
+fetched_at: 2026-11-10T18:46:18.886660+00:00
 ---
 
 # REST Resource: projects.locations.instances  |  Memorystore for Valkey  |  Google Cloud Documentation
@@ -228,7 +228,7 @@ Fields
 `nodeConfig` |  `object (`[NodeConfig](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#NodeConfig)`)` Output only. Configuration of individual nodes of the instance.  
 `zoneDistributionConfig` |  `object (`[ZoneDistributionConfig](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#ZoneDistributionConfig)`)` Optional. Immutable. Zone distribution configuration of the instance for node allocation.  
 `pscAutoConnections[]  
-**(deprecated)**` |  `object (`[PscAutoConnection](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#PscAutoConnection)`)` This item is deprecated!Optional. Immutable. Deprecated: Use the endpoints.connections.psc_auto_connection value instead.  
+**(deprecated)**` |  `object (`[PscAutoConnection](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#PscAutoConnection)`)` This item is deprecated!Optional. Immutable. Deprecated: Use the `endpoints.connections.psc_auto_connection` value instead.  
 `pscAttachmentDetails[]` |  `object (`[PscAttachmentDetail](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#PscAttachmentDetail)`)` Output only. Service attachment details to configure PSC connections.  
 `endpoints[]` |  `object (`[InstanceEndpoint](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#InstanceEndpoint)`)` Optional. Endpoints for the instance.  
 `mode` |  `enum (`[Mode](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#Mode)`)` Optional. Immutable. The mode config for the instance.  
@@ -520,6 +520,9 @@ JSON representation
       "zones": [
         string
       ],
+      "activeZones": [
+        string
+      ],
       "mode": enum ([ZoneDistributionMode](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#ZoneDistributionMode))
     }  
   
@@ -527,6 +530,7 @@ Fields
 ---  
 `zone` |  `string` Optional. Defines zone where all resources will be allocated with SINGLE_ZONE mode. Ignored for MULTI_ZONE mode.  
 `zones[]` |  `string` Optional. Specify the zones of a multi-zone instance where Memorystore instance allocates resources. This flag isn't applicable for single-zone instances.  
+`activeZones[]` |  `string` Output only. The list of zones where the instance has active VMs.  
 `mode` |  `enum (`[ZoneDistributionMode](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/v1alpha/projects.locations.instances#ZoneDistributionMode)`)` Optional. Current zone distribution mode. Defaults to MULTI_ZONE.  
   
 ## ZoneDistributionMode
@@ -754,8 +758,8 @@ JSON representation
   
 Fields  
 ---  
-`day` |  `enum (`[DayOfWeek](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/Shared.Types/DayOfWeek)`)` Optional. Allows to define schedule that runs specified day of the week.  
-`startTime` |  `object (`[TimeOfDay](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/Shared.Types/TimeOfDay)`)` Optional. Start time of the window in UTC.  
+`day` |  `enum (`[DayOfWeek](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/Shared.Types/DayOfWeek)`)` Optional. The day of the week for the maintenance window. This field is required. You can't use `DAY_OF_WEEK_UNSPECIFIED`.  
+`startTime` |  `object (`[TimeOfDay](https://docs.cloud.google.com/memorystore/docs/valkey/reference/rest/Shared.Types/TimeOfDay)`)` Optional. The start time of the maintenance window in UTC. When you specify a maintenance window, `startTime` is required.  
   
 ## MaintenanceSchedule
 
@@ -1068,6 +1072,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

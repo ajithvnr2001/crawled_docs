@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/upgrade-major-db-version-inplace/
 title: Upgrade the database major version in-place \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:00.017947+00:00
+fetched_at: 2026-11-10T08:24:31.355973+00:00
 ---
 
 # Upgrade the database major version in-place  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1049,7 +1049,7 @@ If the instance has an ongoing `MAJOR_VERSION_UPGRADE` operation for a length of
 Common issues found in upgrades from MySQL 5.7 to MySQL 8.0 can include:
 
   * Addition of new reserved keywords, such as `RANKS`, `GROUPS`, `FUNCTION`, in stored procedures, triggers, and other database objects. See [Keywords and Reserved Words](https://dev.mysql.com/doc/refman/8.0/en/keywords.html) for more information.
-  * Invalid UTF Characters in table definitions.
+  * Invalid `utf8mb3` characters, such as 4-byte `utf8mb4` characters or malformed UTF-8 byte sequences, in metadata comments and object definitions. This check has the ID `invalidUtf8mb3MetadataCheck` and covers tables, columns, indexes, partitions, views, stored routines, and events.
   * Uncommitted XA transitions that must be committed (using the `XA COMMIT` statement) or rolled back (using the `XA ROLLBACK` statement).
   * Foreign key constraint in names longer than 64 characters.
   * Spatial data type in a mixed index of columns. For more information, see [Spatial Data Type](https://dev.mysql.com/doc/refman/8.0/en/spatial-type-overview.html).
@@ -1192,6 +1192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

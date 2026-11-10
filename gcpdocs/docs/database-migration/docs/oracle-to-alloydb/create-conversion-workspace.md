@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/create-conversion-workspace/
 title: Create a conversion workspace and convert schema \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:35.563445+00:00
+fetched_at: 2026-11-10T12:43:09.644847+00:00
 ---
 
 # Create a conversion workspace and convert schema  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -224,44 +224,6 @@ Replace the following:
 
 
 
-## Legacy conversion workspaces
-
-Legacy conversion workspaces are an older, more limited type of conversion workspaces. We don't recommend using the legacy type of conversion workspaces for your migrations. If you need to use a legacy conversion workspace, expand the **Create a legacy conversion workspace and convert schema** section for more information.
-
-#### Create a legacy conversion workspace and convert schema
-
-Legacy conversion workspaces use Ora2Pg configuration files. Before you create a legacy conversion workspace, make sure you first create your Ora2Pg configuration outside Database Migration Service. For more information, see [ Work with legacy conversion workspaces](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/legacy-conversion-workspaces). 
-
-  1. In the Google Cloud console, go to **Conversion workspaces**. 
-
-[ Go to Conversion workspaces](https://console.cloud.google.com/dbmigration/conversion-workspaces)
-
-  2. Click **Set up workspace**.
-  3. On the **Create a conversion workspace** page, do the following: 
-     1. Enter the name, identifier, and region for your conversion workspace.
-     2. From the **Source database engine** drop-down menu, select **Oracle**. 
-     3. From the **Destination database engine** select **AlloyDB for PostgreSQL**. 
-     4. Expand the **Customize workspace configurations** section, and select the **Enable legacy conversion workspace** checkbox. 
-     5. Click **Create workspace and continue**.
-  4. On the **Connect to source and convert objects** page, do the following: 
-     1. From the **Source connection profile** drop-down menu, select the connection profile for your source database. 
-     2. In the **Configuration file** box, click **Browse** and use the system file picker to select your conversion mapping file. 
-
-You can upload multiple conversion mapping files by clicking **Add file**. 
-
-     3. In the **Convert the configuration** section, click **Pull schema and convert**. 
-
-Database Migration Service is now connecting to the source database, retrieving your schema and converting it to the destination SQL schema according to the rules defined in your conversion mapping file. This process can take several minutes. 
-
-  5. Click **Save and close**. 
-
-The conversion workspace details page opens.
-
-
-
-
-You can now apply the converted schema to your destination database. If your source database includes tables that don't have primary keys, you also need to manually create primary key constraints in the converted tables in the destination database after you apply the converted schema. For more information, see [ Work with legacy conversion workspaces](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/legacy-conversion-workspaces). 
-
 ## What's next
 
 You can now work with your conversion workspace to fix conversion issues, modify your objects with the interactive editor, and apply converted schema to your destination database. See [ Convert Oracle code and schema to PostgreSQL syntax](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/convert-sql).
@@ -270,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

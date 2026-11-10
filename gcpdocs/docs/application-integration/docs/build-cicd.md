@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/build-cicd/
 title: Build CICD for your integration \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:56.210849+00:00
+fetched_at: 2026-11-10T18:49:18.571086+00:00
 ---
 
 # Build CICD for your integration  |  Application Integration  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Build CICD for your integration Stay organized with collections  Save and categorize content based on your preferences. 
 
-This tutorial describes how to automate promoting an integration between different environments in different Google Cloud projects using [config variables](https://docs.cloud.google.com/application-integration/docs/variables#config_var) ([preview](https://cloud.google.com/products#product-launch-stages)).
+This tutorial describes how to automate promoting an integration between different environments in different Google Cloud projects using [config variables](https://docs.cloud.google.com/application-integration/docs/variables#config_var).
 
 **Note:** You cannot use config variables to configure entity operations and actions for connectors.**Tip:** To learn how to store integration and connector assets to a source code repository, promote changes across environments, and how such deployments can be automated, see the [CICD for Application Integration](https://www.googlecloudcommunity.com/gc/Cloud-Product-Articles/CI-CD-for-Application-Integration/ta-p/722811) blog. 
 
@@ -321,6 +321,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

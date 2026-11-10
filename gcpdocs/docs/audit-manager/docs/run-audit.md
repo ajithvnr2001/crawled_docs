@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/audit-manager/docs/run-audit/
 title: Schedule or run an audit \u00a0|\u00a0 Audit Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:21.050647+00:00
+fetched_at: 2026-11-10T16:58:36.007817+00:00
 ---
 
 # Schedule or run an audit  |  Audit Manager  |  Google Cloud Documentation
@@ -96,7 +96,13 @@ Before using any of the command data below, make the following replacements:
   * RESOURCE_TYPE: the type of resource. Valid values are `organization`, `folder`, and `project`. 
   * RESOURCE_ID: the resource ID of the organization, project, or folder. For example: `8767234`. 
   * LOCATION: the location of the Audit Manager API endpoint. For a list of available endpoints, see [Audit Manager locations](https://docs.cloud.google.com/audit-manager/docs/locations). For example: `us-central1`. 
-  * FRAMEWORK: the ID of the framework to audit against. For example: `builtin-cis-v8`. To find the ID of a framework, see the **View assessments** page in the Google Cloud console. 
+  * FRAMEWORK: the ID of the built-in or custom framework to audit against. Custom frameworks are created at the organization or project level. Consider the following examples: 
+
+    * To specify a built-in framework or custom framework at the organization level: `organizations/123456789/locations/global/frameworks/builtin-cis-v8`
+    * To specify a project-level custom framework: `projects/123456789/locations/global/frameworks/my-framework`
+
+To find the ID of a framework, see the **View assessments** page in the Google Cloud console.
+
   * AUDIT_REPORT_FORMAT: the format of the output audit report. Only ODF format is supported: `AUDIT_REPORT_FORMAT_ODF`.
   * OUTPUT_DIRECTORY: the directory where the output must be stored. For example: `reports`.
   * OUTPUT_FILENAME: the name of the output file. Don't include the file extension in the filename. For example: `scopeReport`. 
@@ -153,7 +159,13 @@ Before using any of the command data below, make the following replacements:
   * RESOURCE_TYPE: the type of resource. Valid values are `organization`, `folder`, and `project`. 
   * RESOURCE_ID: the resource ID of the organization, project, or folder. For example: `8767234`. 
   * LOCATION: the location of the Audit Manager API endpoint. For a list of available endpoints, see [Audit Manager locations](https://docs.cloud.google.com/audit-manager/docs/locations). For example: `us-central1`. 
-  * FRAMEWORK: the ID of the framework to audit against. For example: `builtin-cis-v8`. To find the ID of a framework, see the **View assessments** page in the Google Cloud console. 
+  * FRAMEWORK: the ID of the built-in or custom framework to audit against. Custom frameworks are created at the organization or project level. Consider the following examples: 
+
+    * To specify a built-in framework or custom framework at the organization level: `organizations/123456789/locations/global/frameworks/builtin-cis-v8`
+    * To specify a project-level custom framework: `projects/123456789/locations/global/frameworks/my-framework`
+
+To find the ID of a framework, see the **View assessments** page in the Google Cloud console.
+
   * BUCKET_URI: the URI of the Cloud Storage bucket. For example: `gs://testbucketauditmanager`.
   * AUDIT_REPORT_FORMAT: the format of the output audit report. Only ODF format is supported: `AUDIT_REPORT_FORMAT_ODF`.
 
@@ -215,7 +227,13 @@ Before using any of the command data below, make the following replacements:
   * RESOURCE_ID: the resource ID of the organization, project, or folder. For example: `8767234`. 
   * LOCATION: the location of the Audit Manager API endpoint. For a list of available endpoints, see [Audit Manager locations](https://docs.cloud.google.com/audit-manager/docs/locations). For example: `us-central1`. 
   * AUDIT_SCHEDULE_ID: the ID of the audit schedule. For example: `my-schedule-id`. To find the ID of an existing schedule, see the **Audit management** page in the Google Cloud console. 
-  * FRAMEWORK: the ID of the framework to audit against. For example: `builtin-cis-v8`. To find the ID of a framework, see the **View assessments** page in the Google Cloud console. 
+  * FRAMEWORK: the ID of the built-in or custom framework to audit against. Custom frameworks are created at the organization or project level. Consider the following examples: 
+
+    * To specify a built-in framework or custom framework at the organization level: `organizations/123456789/locations/global/frameworks/builtin-cis-v8`
+    * To specify a project-level custom framework: `projects/123456789/locations/global/frameworks/my-framework`
+
+To find the ID of a framework, see the **View assessments** page in the Google Cloud console.
+
   * AUDIT_REPORT_FORMAT: the format of the output audit report. Only OpenDocument Format (ODF) is supported: `odf`. 
   * BUCKET_URI: the URI of the Cloud Storage bucket. For example: `gs://testbucketauditmanager`.
   * FREQUENCY: the frequency of scheduled audit runs. Valid values are `daily`, `weekly`, `monthly`, `quarterly`, and `annually`. For example: `weekly`. 
@@ -285,7 +303,7 @@ Execute the following command:
 You should receive a response similar to the following:
     
     
-    complianceFramework: builtin-cis-v8
+    complianceFramework: organizations/123456789/locations/global/frameworks/builtin-cis-v8
     gcsUri: gs://my-bucket
     name: projects/834/locations/us-central1/auditSchedules/my-schedule-id
     reportFormat: AUDIT_REPORT_FORMAT_ODF
@@ -306,7 +324,13 @@ Before using any of the request data, make the following replacements:
   * RESOURCE_TYPE: the type of resource. Valid values are `organizations`, `folders`, and `projects`. 
   * RESOURCE_ID: the resource ID of the organization, project, or folder. For example: `8767234`. 
   * LOCATION: the location of the Audit Manager API endpoint. For a list of available endpoints, see [Audit Manager locations](https://docs.cloud.google.com/audit-manager/docs/locations). For example: `us-central1`. 
-  * FRAMEWORK: the ID of the framework to audit against. For example: `builtin-cis-v8`. To find the ID of a framework, see the **View assessments** page in the Google Cloud console. 
+  * FRAMEWORK: the ID of the built-in or custom framework to audit against. Custom frameworks are created at the organization or project level. Consider the following examples: 
+
+    * To specify a built-in framework or custom framework at the organization level: `organizations/123456789/locations/global/frameworks/builtin-cis-v8`
+    * To specify a project-level custom framework: `projects/123456789/locations/global/frameworks/my-framework`
+
+To find the ID of a framework, see the **View assessments** page in the Google Cloud console.
+
   * AUDIT_REPORT_FORMAT: the format of the output audit report. Only ODF format is supported: `AUDIT_REPORT_FORMAT_ODF`.
 
 
@@ -386,7 +410,13 @@ Before using any of the request data, make the following replacements:
   * RESOURCE_TYPE: the type of resource. Valid values are `organizations`, `folders`, and `projects`. 
   * RESOURCE_ID: the resource ID of the organization, project, or folder. For example: `8767234`. 
   * LOCATION: the location of the Audit Manager API endpoint. For a list of available endpoints, see [Audit Manager locations](https://docs.cloud.google.com/audit-manager/docs/locations). For example: `us-central1`. 
-  * FRAMEWORK: the ID of the framework to audit against. For example: `builtin-cis-v8`. To find the ID of a framework, see the **View assessments** page in the Google Cloud console. 
+  * FRAMEWORK: the ID of the built-in or custom framework to audit against. Custom frameworks are created at the organization or project level. Consider the following examples: 
+
+    * To specify a built-in framework or custom framework at the organization level: `organizations/123456789/locations/global/frameworks/builtin-cis-v8`
+    * To specify a project-level custom framework: `projects/123456789/locations/global/frameworks/my-framework`
+
+To find the ID of a framework, see the **View assessments** page in the Google Cloud console.
+
   * BUCKET_URI: the URI of the Cloud Storage bucket. For example: `gs://testbucketauditmanager`.
   * AUDIT_REPORT_FORMAT: the format of the output audit report. Only ODF format is supported: `AUDIT_REPORT_FORMAT_ODF`.
 
@@ -470,7 +500,13 @@ Before using any of the request data, make the following replacements:
   * RESOURCE_ID: the resource ID of the organization, project, or folder. For example: `8767234`. 
   * LOCATION: the location of the Audit Manager API endpoint. For a list of available endpoints, see [Audit Manager locations](https://docs.cloud.google.com/audit-manager/docs/locations). For example: `us-central1`. 
   * AUDIT_SCHEDULE_ID: the ID of the audit schedule. For example: `my-schedule-id`. To find the ID of an existing schedule, see the **Audit management** page in the Google Cloud console. 
-  * FRAMEWORK: the ID of the framework to audit against. For example: `builtin-cis-v8`. To find the ID of a framework, see the **View assessments** page in the Google Cloud console. 
+  * FRAMEWORK: the ID of the built-in or custom framework to audit against. Custom frameworks are created at the organization or project level. Consider the following examples: 
+
+    * To specify a built-in framework or custom framework at the organization level: `organizations/123456789/locations/global/frameworks/builtin-cis-v8`
+    * To specify a project-level custom framework: `projects/123456789/locations/global/frameworks/my-framework`
+
+To find the ID of a framework, see the **View assessments** page in the Google Cloud console.
+
   * BUCKET_URI: the URI of the Cloud Storage bucket. For example: `gs://testbucketauditmanager`.
   * AUDIT_REPORT_FORMAT: the format of the output audit report. Only ODF format is supported: `AUDIT_REPORT_FORMAT_ODF`.
   * FREQUENCY: the frequency of scheduled audit runs. Valid values are `DAILY`, `WEEKLY`, `MONTHLY`, `QUARTERLY`, and `ANNUALLY`. For example: `WEEKLY`. 
@@ -542,7 +578,7 @@ You should receive a JSON response similar to the following:
       "name": "projects/834/locations/us-central1/auditSchedules/my-schedule-id",
       "displayName": "My first audit schedule",
       "gcsUri": "gs://my-bucket",
-      "complianceFramework": "builtin-cis-v8",
+      "complianceFramework": "organizations/123456789/locations/global/frameworks/builtin-cis-v8",
       "reportFormat": "AUDIT_REPORT_FORMAT_ODF",
       "scheduleConfig": {
         "startTime": "2026-10-25T10:00:00Z",
@@ -620,11 +656,13 @@ You should receive a response similar to the following:
     ┌────────────┬────────────┬──────────────┬────────────┬────────────┬───────────────┬─────────────────┬─────────────┬─────────────┬───────────────┬───────────────────┬───────────────┐
     │     ID     │ FRAMEWORK  │ DISPLAY_NAME │   STATE    │  GCS_URI   │ REPORT_FORMAT │ SCHEDULE_CONFIG │ CREATE_TIME │ UPDATE_TIME │ NEXT_RUN_TIME │ LAST_TRIGGER_TIME │ ERROR_MESSAGE │
     ├────────────┼────────────┼──────────────┼────────────┼────────────┼───────────────┼─────────────────┼─────────────┼─────────────┼───────────────┼───────────────────┼───────────────┤
-    │ my-schedul │ builtin-ci │ My first aud │ SCHEDULE_S │ gs://my-bu │ AUDIT_REPORT_ │ {'frequency':   │ 2026-10-25T │ 2026-10-25T │               │                   │               │
-    │ e-id       │ s-v8       │ it schedule  │ TATE_ACTIV │ cket       │ FORMAT_ODF    │ 'weekly',       │ 13:27:00Z   │ 13:27:00Z   │               │                   │               │
-    │            │            │              │ E          │            │               │ 'startTime':    │             │             │               │                   │               │
-    │            │            │              │            │            │               │ '2026-10-25T10: │             │             │               │                   │               │
-    │            │            │              │            │            │               │ 00:00Z'}        │             │             │               │                   │               │
+    │ my-schedul │ organizati │ My first aud │ SCHEDULE_S │ gs://my-bu │ AUDIT_REPORT_ │ {'frequency':   │ 2026-10-25T │ 2026-10-25T │               │                   │               │
+    │ e-id       │ ons/123456 │ it schedule  │ TATE_ACTIV │ cket       │ FORMAT_ODF    │ 'weekly',       │ 13:27:00Z   │ 13:27:00Z   │               │                   │               │
+    │            │ 789/locati │              │ E          │            │               │ 'startTime':    │             │             │               │                   │               │
+    │            │ ons/global │              │            │            │               │ '2026-10-25T10: │             │             │               │                   │               │
+    │            │ /framework │              │            │            │               │ 00:00Z'}        │             │             │               │                   │               │
+    │            │ s/builtin- │              │            │            │               │                 │             │             │               │                   │               │
+    │            │ cis-v8     │              │            │            │               │                 │             │             │               │                   │               │
     └────────────┴────────────┴──────────────┴────────────┴────────────┴───────────────┴─────────────────┴─────────────┴─────────────┴───────────────┴───────────────────┴───────────────┘
     
 
@@ -670,7 +708,7 @@ Execute the following command:
 You should receive a response similar to the following:
     
     
-    complianceFramework: builtin-cis-v8
+    complianceFramework: organizations/123456789/locations/global/frameworks/builtin-cis-v8
     gcsUri: gs://my-bucket
     name: projects/834/locations/us-central1/auditSchedules/my-schedule-id
     reportFormat: AUDIT_REPORT_FORMAT_ODF
@@ -736,7 +774,7 @@ You should receive a JSON response similar to the following:
           "name": "projects/834/locations/us-central1/auditSchedules/my-schedule-id",
           "displayName": "My first audit schedule",
           "gcsUri": "gs://my-bucket",
-          "complianceFramework": "builtin-cis-v8",
+          "complianceFramework": "organizations/123456789/locations/global/frameworks/builtin-cis-v8",
           "reportFormat": "AUDIT_REPORT_FORMAT_ODF",
           "scheduleConfig": {
             "startTime": "2026-10-25T10:00:00Z",
@@ -805,7 +843,7 @@ You should receive a JSON response similar to the following:
       "name": "projects/834/locations/us-central1/auditSchedules/my-schedule-id",
       "displayName": "My first audit schedule",
       "gcsUri": "gs://my-bucket",
-      "complianceFramework": "builtin-cis-v8",
+      "complianceFramework": "organizations/123456789/locations/global/frameworks/builtin-cis-v8",
       "reportFormat": "AUDIT_REPORT_FORMAT_ODF",
       "scheduleConfig": {
         "startTime": "2026-10-25T10:00:00Z",
@@ -891,7 +929,7 @@ Execute the following command:
 You should receive a response similar to the following:
     
     
-    complianceFramework: builtin-cis-v8
+    complianceFramework: organizations/123456789/locations/global/frameworks/builtin-cis-v8
     gcsUri: gs://my-bucket
     name: projects/834/locations/us-central1/auditSchedules/my-schedule-id
     reportFormat: AUDIT_REPORT_FORMAT_ODF
@@ -970,7 +1008,7 @@ You should receive a JSON response similar to the following:
       "name": "projects/834/locations/us-central1/auditSchedules/my-schedule-id",
       "displayName": "My first audit schedule",
       "gcsUri": "gs://my-bucket",
-      "complianceFramework": "builtin-cis-v8",
+      "complianceFramework": "organizations/123456789/locations/global/frameworks/builtin-cis-v8",
       "reportFormat": "AUDIT_REPORT_FORMAT_ODF",
       "scheduleConfig": {
         "startTime": "2026-02-25T10:00:00Z",
@@ -995,6 +1033,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

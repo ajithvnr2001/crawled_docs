@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/flags/create/
 title: gcloud beta app-lifecycle-manager flags create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:41.829300+00:00
+fetched_at: 2026-11-10T17:33:43.102791+00:00
 ---
 
 # gcloud beta app-lifecycle-manager flags create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta app-lifecycle-manager flags create - create Flag
 SYNOPSIS
     
 
-`gcloud beta app-lifecycle-manager flags create` `FLAG` `--flag-value-type`=`FLAG_VALUE_TYPE` `--key`=`KEY` `--unit-kind`=`UNIT_KIND` [`--annotations`=[`ANNOTATIONS`,…]] [`--description`=`DESCRIPTION`] [`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultTarget`=`DEFAULTTARGET`],[`rules`=`RULES`]] [`--flag-set`=`FLAG_SET`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--state`=`STATE`] [`--variants`=[`booleanValue`=`BOOLEANVALUE`],[`description`=`DESCRIPTION`],[`doubleValue`=`DOUBLEVALUE`],[`id`=`ID`],[`integerValue`=`INTEGERVALUE`],[`stringValue`=`STRINGVALUE`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta app-lifecycle-manager flags create` `FLAG` `--flag-value-type`=`FLAG_VALUE_TYPE` `--key`=`KEY` `--unit-kind`=`UNIT_KIND` [`--annotations`=[`ANNOTATIONS`,…]] [`--description`=`DESCRIPTION`] [`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultAllocation`=`DEFAULTALLOCATION`],[`defaultVariant`=`DEFAULTVARIANT`],[`rules`=`RULES`]] [`--flag-set`=`FLAG_SET`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--state`=`STATE`] [`--variants`=[`booleanValue`=`BOOLEANVALUE`],[`description`=`DESCRIPTION`],[`doubleValue`=`DOUBLEVALUE`],[`id`=`ID`],[`integerValue`=`INTEGERVALUE`],[`stringValue`=`STRINGVALUE`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Create a new feature flag resource. Flags define toggleable features or configurations that can be evaluated at runtime by applications. 
 EXAMPLES
@@ -37,7 +37,7 @@ EXAMPLES
     
     gcloud beta app-lifecycle-manager flags create my-feature-flag --key=enable_new_feature --flag-value-type=bool --unit-kind=my-service-unit --variants='[{"id": "Enabled", "booleanValue": true}, {"id":
     "Disabled", "booleanValue": false}]' \
-       --evaluation-spec='{"defaultTarget": "Disabled"}' \
+       --evaluation-spec='{"defaultVariant": "Disabled"}' \
        --location=global
 
 To create a simple boolean flag including a flag set, description, state, and the default variants and evaluation spec, run: 
@@ -53,7 +53,7 @@ To create a percentage rollout (10% Enabled) using a `userID` attribute, run:
        --evaluation-spec='{"allocations": [{"id": "p10",
     "randomizedOn": "userID", "slots": [{"variant": "Disabled",
     "weight": 90}, {"variant": "Enabled", "weight": 10}]}],
-    "defaultTarget": "p10", "attributes":
+    "defaultAllocation": "p10", "attributes":
     ["projects/my-project/locations/global/flagAttributes/id-attr"]}' \
        --location=global
 
@@ -62,7 +62,7 @@ To create an integer flag for a retry limit, run:
     
     gcloud beta app-lifecycle-manager flags create retry-limit --key=max_retries --flag-value-type=int --unit-kind=my-service-unit --variants='[{"id": "Low", "integerValue": 3}, {"id": "High",
     "integerValue": 10}]' \
-       --evaluation-spec='{"defaultTarget": "Low"}' --location=global
+       --evaluation-spec='{"defaultVariant": "Low"}' --location=global
 
 To create a double flag for a discount percentage, run: 
     
@@ -70,14 +70,14 @@ To create a double flag for a discount percentage, run:
     gcloud beta app-lifecycle-manager flags create discount-percentage --key=discount_percentage --flag-value-type=double --unit-kind=my-service-unit --variants='[{"id": "Zero", "doubleValue": 0.0}, {"id":
     "TenPercent", "doubleValue": 0.1}, {"id": "TwentyPercent",
     "doubleValue": 0.2}]' \
-       --evaluation-spec='{"defaultTarget": "Zero"}' --location=global
+       --evaluation-spec='{"defaultVariant": "Zero"}' --location=global
 
 To create a string flag for a theme color, run: 
     
     
     gcloud beta app-lifecycle-manager flags create header-color --key=header_color --flag-value-type=string --unit-kind=my-service-unit --variants='[{"id": "Blue", "stringValue": "blue"}, {"id":
     "Red", "stringValue": "red"}]' \
-       --evaluation-spec='{"defaultTarget": "Blue"}' --location=global
+       --evaluation-spec='{"defaultVariant": "Blue"}' --location=global
 
 To create a flag with complex targeting rules using a CEL expression and attributes, run: 
     
@@ -85,8 +85,8 @@ To create a flag with complex targeting rules using a CEL expression and attribu
     gcloud beta app-lifecycle-manager flags create beta-feature --key=beta_enabled --flag-value-type=bool --unit-kind=my-service-unit --variants='[{"id": "Enabled", "booleanValue": true}, {"id":
     "Disabled", "booleanValue": false}]' \
        --evaluation-spec='{"rules": [{"id": "internal-testers",
-    "condition": "email.endsWith(\"@google.com\")", "target":
-    "Enabled"}], "defaultTarget": "Disabled", "attributes":
+    "condition": "email.endsWith(\"@google.com\")", "variantId":
+    "Enabled"}], "defaultVariant": "Disabled", "attributes":
     ["projects/my-project/locations/global/flagAttributes/email-attr"]}\
     ' --location=global
 
@@ -195,7 +195,7 @@ OPTIONAL FLAGS
 
 `--description`=`DESCRIPTION`
      A description of the flag. Max length: 500 bytes. 
-`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultTarget`=`DEFAULTTARGET`],[`rules`=`RULES`]
+`--evaluation-spec`=[`allocations`=`ALLOCATIONS`],[`attributes`=`ATTRIBUTES`],[`defaultAllocation`=`DEFAULTALLOCATION`],[`defaultVariant`=`DEFAULTVARIANT`],[`rules`=`RULES`]
      Specification of how the Flag value should be evaluated. 
 
 `allocations`
@@ -216,26 +216,30 @@ OPTIONAL FLAGS
      Weight defines the proportion of traffic to allocate to the variant, relative to other slots in the same allocation. 
 `attributes`
      Names of the context attributes that are used in the evaluation rules and allocations. 
-`defaultTarget`
-     Default variant for the flag. 
+`defaultAllocation`
+     ID of an allocation to use as the default. 
+`defaultVariant`
+     Name of a variant to use as the default. 
 `rules`
      Define the logic for evaluating the flag against a given context. The rules are evaluated sequentially in their specified order. 
 
+`allocationId`
+     ID of an allocation to target. 
 `condition`
      A Common Expression Language (CEL cel.dev) expression evaluated against the evaluation context. For example: `plan == "premium" && country == "DE"`. 
 `id`
      A unique identifier for the rule. 
-`target`
-     The ID of the variant to return if the condition evaluates to true. 
+`variantId`
+     Name of a variant to target. 
 `Shorthand Example:`
     
     
-    --evaluation-spec=allocations=[{description=string,id=string,randomizedOn=string,slots=[{variant=string,weight=int}]}],attributes=[string],defaultTarget=string,rules=[{condition=string,id=string,target=string}]
+    --evaluation-spec=allocations=[{description=string,id=string,randomizedOn=string,slots=[{variant=string,weight=int}]}],attributes=[string],defaultAllocation=string,defaultVariant=string,rules=[{allocationId=string,condition=string,id=string,variantId=string}]
 
 `JSON Example:`
     
     
-    --evaluation-spec='{"allocations": [{"description": "string", "id": "string", "randomizedOn": "string", "slots": [{"variant": "string", "weight": int}]}], "attributes": ["string"], "defaultTarget": "string", "rules": [{"condition": "string", "id": "string", "target": "string"}]}'
+    --evaluation-spec='{"allocations": [{"description": "string", "id": "string", "randomizedOn": "string", "slots": [{"variant": "string", "weight": int}]}], "attributes": ["string"], "defaultAllocation": "string", "defaultVariant": "string", "rules": [{"allocationId": "string", "condition": "string", "id": "string", "variantId": "string"}]}'
 
 `File Example:`
     
@@ -323,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

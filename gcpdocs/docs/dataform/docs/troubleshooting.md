@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/troubleshooting/
 title: Troubleshoot Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:07:08.551334+00:00
+fetched_at: 2026-11-10T19:01:27.136680+00:00
 ---
 
 # Troubleshoot Dataform  |  Google Cloud Documentation
@@ -63,6 +63,7 @@ The following error occurs when the number of concurrent queries run to BigQuery
 
 To resolve this error, reduce the number of parallel queries to less than 250 in the following ways:
 
+  * In Dataform, [limit concurrent actions](https://docs.cloud.google.com/dataform/docs/trigger-execution#limit-concurrent-actions) on the manual execution or workflow configuration schedule.
   * In Dataform, [categorize actions with tags](https://docs.cloud.google.com/dataform/docs/configure-additional-actions#add-execution-tags), and [run only selected tags](https://docs.cloud.google.com/dataform/docs/trigger-execution#run-actions-selected-tags) at a time.
   * In Dataform, introduce dependencies between actions.
   * In Dataform, divide executions of actions between different Google Cloud projects.
@@ -82,6 +83,7 @@ The following error occurs when the number of API requests that Dataform sends t
 
 To resolve this error, reduce the number of parallel queries to less than 250 in the following ways:
 
+  * In Dataform, [limit concurrent actions](https://docs.cloud.google.com/dataform/docs/trigger-execution#limit-concurrent-actions) on the manual execution or workflow configuration schedule.
   * In Dataform, [categorize actions with tags](https://docs.cloud.google.com/dataform/docs/configure-additional-actions#add-execution-tags), and [run only selected tags](https://docs.cloud.google.com/dataform/docs/trigger-execution#run-actions-selected-tags) at a time.
   * In Dataform, introduce dependencies between actions.
   * In Dataform, divide executions of actions between different Google Cloud projects.
@@ -385,10 +387,30 @@ To resolve this error, do the following:
 
 
 
+## Limit concurrent actions option isn't visible
+
+The **Limit concurrent actions** option isn't available in the following scenarios:
+
+  * The execution mode is set to **Unit tests**. Concurrent action limits aren't supported for unit tests. To configure a concurrent actions limit, set the execution mode to **Actions**.
+  * You are scheduling a notebook workflow.
+
+
+
+## Actions remain in Queued state for a long duration
+
+When a workflow execution has a concurrent actions limit configured, actions enter the **Queued** state if running actions occupy all concurrency slots.
+
+To resolve this issue, consider the following options:
+
+  * Wait for the running actions to finish. As concurrency slots become available, Dataform starts the queued actions.
+  * If actions stay queued for too long or workflow run durations are too high, increase the **Maximum concurrent actions** value for subsequent executions in the workflow configuration schedule.
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

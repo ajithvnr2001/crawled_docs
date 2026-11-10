@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/boundaries-and-topology/
 title: Cross-project boundaries \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:38:43.011473+00:00
+fetched_at: 2026-11-10T15:29:26.745078+00:00
 ---
 
 # Cross-project boundaries  |  Agent Registry  |  Google Cloud Documentation
@@ -144,7 +144,7 @@ When you list, search, or retrieve agentic components in a location on the manag
 
 
 
-If multiple boundaries are attached to the same `CapabilityConfig` resource, Agent Registry aggregates member projects from all attached boundaries into the same management project registry. To narrow list or search results on the management project to a single member project, pass `--filter="project_id=MEMBER_PROJECT_ID"`. If two environments require separate visibility, create a separate `CapabilityConfig` resource and management project for each boundary.
+If multiple boundaries are attached to the same `CapabilityConfig` resource, Agent Registry aggregates member projects from all attached boundaries into the same management project registry. To narrow results on the management project to a single member project, filter the [agent or MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) by the member project's number when you list [agents](https://docs.cloud.google.com/agent-registry/manage-agents#filter-agents) or [MCP servers](https://docs.cloud.google.com/agent-registry/manage-mcp-tools#filter-servers). You can also filter `agentId` when [searching for agents](https://docs.cloud.google.com/agent-registry/search-agents-and-tools#search-across-boundaries). If two environments require separate visibility, create a separate `CapabilityConfig` resource and management project for each boundary.
 
 Single-project discovery and cross-project discovery use identical API methods. The scope of the search depends on whether the targeted project is a member project or a management project.
 
@@ -201,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

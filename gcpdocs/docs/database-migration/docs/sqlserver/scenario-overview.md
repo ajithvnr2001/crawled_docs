@@ -2,12 +2,14 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/scenario-overview/
 title: Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:31.796691+00:00
+fetched_at: 2026-11-10T12:42:54.278438+00:00
 ---
 
 # Database Migration Service for SQL Server  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/database-migration/docs/sqlserver/scenario-overview/
+
+**Plan for SQL Server 2017 End of Support:** Starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 instances. You can use Database Migration Service to migrate and upgrade self-managed, Amazon RDS, or existing [Cloud SQL for SQL Server 2017 instances](https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide) to Cloud SQL for SQL Server 2019, 2022, or 2025. For timeline details, see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions). 
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -60,10 +62,11 @@ The following table lists all supported SQL Server source and destination databa
 
 Source databases | Destination databases  
 ---|---  
-Amazon RDS |  Cloud SQL for SQL Server versions 2025, 2022, 2019, 2017  
-Self-managed SQL Server (on premises or on any cloud VM that you fully control)  
-Cloud SQL for SQL Server (with automated backup exports by Database Migration Service)  
-  
+Amazon RDS versions 2025, 2022, 2019, 2017 |  Cloud SQL for SQL Server versions 2025, 2022, 2019, 2017  
+Self-managed SQL Server versions 2025, 2022, 2019, 2017 (on premises or on any cloud VM that you fully control)  
+Cloud SQL for SQL Server versions 2025, 2022, 2019, 2017 (with automated backup exports by Database Migration Service)  
+**Note:** Starting April 12, 2027, you won't be able to create new Cloud SQL for SQL Server 2017 destination instances. You can continue to use Database Migration Service to migrate and upgrade SQL Server 2017 databases (from self-managed, Amazon RDS, or [existing Cloud SQL for SQL Server 2017 instances](https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide)) to Cloud SQL for SQL Server 2019, 2022, or 2025. For more information, see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions) in the Cloud SQL documentation.
+
 ### Continuous migrations data flow
 
 For homogeneous SQL Server migrations to Cloud SQL, Database Migration Service supports the [ continuous migration](https://docs.cloud.google.com/database-migration/docs/overview#migrationconcepts) flow. In this approach, your data is first loaded from a full database backup file, then from a differential backup file, and then continuously updated based on transaction log files you upload to a dedicated Cloud Storage bucket.
@@ -136,7 +139,7 @@ For a complete comparison with backup-and-restore migrations, architectural deta
 
 ### Supported source and destination databases
 
-Distributed Availability Group migrations require **Enterprise Edition** on both the source SQL Server instance and the destination Cloud SQL for SQL Server instance:
+Distributed Availability Group migrations require **Enterprise Edition** on both the source SQL Server instance and the destination Cloud SQL for SQL Server instance. You can migrate between the same SQL Server version, or upgrade from an earlier source version (such as SQL Server 2017) to a later version supported in Cloud SQL (2019, 2022, or 2025), as long as you follow Microsoft's version compatibility guidelines. For example, see [Supported version and edition upgrades (SQL Server 2025)](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/supported-version-and-edition-upgrades-2025?view=sql-server-ver17#upgrades-from-earlier-versions-to-sql-server-2025).
 
 Source databases | Destination databases  
 ---|---  
@@ -189,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

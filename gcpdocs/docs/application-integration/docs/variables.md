@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/variables/
 title: Variables \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:41:57.579161+00:00
+fetched_at: 2026-11-10T11:44:47.152759+00:00
 ---
 
 # Variables  |  Application Integration  |  Google Cloud Documentation
@@ -82,13 +82,9 @@ In the **Variables** pane, task variables might be listed by a common output nam
 
 ### Config variables
 
-**Preview — BigQuery Connector**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 _Config variables_ enable you to externalize configuration for integration. With config variables, you can configure aspects of your integration such as connection names, endpoint URLs, or other environment-specific values that are based on the development environment, such as QA, staging, or production. You don't need to update your integration manually before you upload the integration to a new environment. Application Integration lets you enter values for the config variables when you publish the integration.
 
-**Caution:** Config variables are not a secret store. Their values are stored and exported in plain text, including when you [download an integration](https://docs.cloud.google.com/application-integration/docs/upload-download-integrations) or share it as a template. [Masking a variable](https://docs.cloud.google.com/application-integration/docs/mask-sensitive-data-logs) does not redact it on export. Don't store passwords, API keys, tokens, or other credentials in config variables. Use an [authentication profile](https://docs.cloud.google.com/application-integration/docs/configure-authentication-profiles) or the [Secret Manager access task](https://docs.cloud.google.com/application-integration/docs/gcp-tasks/configure-secretmanager-access-task) instead.
+**Caution:** Config variables are not a secret store. Their values are stored and exported in plain text, including when you [download an integration](https://docs.cloud.google.com/application-integration/docs/upload-download-integrations) or share it as a template. [Masking a variable in logs](https://docs.cloud.google.com/application-integration/docs/mask-sensitive-data-logs) is not supported for config variables and does not redact values on export. Don't store passwords, API keys, tokens, or other credentials in config variables. Use an [authentication profile](https://docs.cloud.google.com/application-integration/docs/configure-authentication-profiles) or the [Secret Manager access task](https://docs.cloud.google.com/application-integration/docs/gcp-tasks/configure-secretmanager-access-task) instead.
 
 To view and edit the config variables defined in your integration, click the  variable_add  **Integration config variable** in the **Variables** pane. To learn how to create config variables and use them, see the tutorial [Build CICD for your integration](https://docs.cloud.google.com/application-integration/docs/build-cicd).
 
@@ -127,10 +123,6 @@ The following image shows a sample layout of the **Variables** pane:
 ![Integrations designer var](https://docs.cloud.google.com/static/application-integration/images/varpane.png)![Integrations designer var](https://docs.cloud.google.com/static/application-integration/images/varpane.png)
 
 ### View and edit config variables
-
-**Preview — BigQuery Connector**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 To view the config variables defined in your integration, click the  variable_add  **Integration config variable** in the **Variables** pane. This brings up the **Config variables** pane displaying all the config variables defined in your integration. You can simply click the **Value** field to edit the value of the config variable.
 
@@ -175,9 +167,9 @@ For information about the supported data types, see Supported data types.
         * **Infer from the default value:** Generates a JSON schema using the provided default value.
         * **None:** No JSON schema.
 **Note:** This field is displayed only for **JSON** data type variables.
-     6. **Mask the variable in logs ([preview](https://docs.cloud.google.com/products#product-launch-stages)):** Select this option to enable masking for the variable in the integration execution logs. To enable masking for the variable, you must enable masking variables for your integration and region. For information about how to enable masking for the integration and the region, see [Edit an integration](https://docs.cloud.google.com/application-integration/docs/view-integration-details) and [Edit regions](https://application-integration/docs/enable-new-region#edit-region). 
+     6. **Mask the variable in logs:** Select this option to enable masking for the variable in the integration execution logs. To enable masking for the variable, you must enable masking variables for your integration and region. For information about how to enable masking for the integration and the region, see [Edit an integration](https://docs.cloud.google.com/application-integration/docs/view-integration-details) and [Edit regions](https://docs.cloud.google.com/application-integration/docs/enable-new-region#edit-region). 
 
-Masking applies to execution logs only; it does not redact values when you download or export the integration. See [Mask sensitive data in logs](https://docs.cloud.google.com/application-integration/docs/mask-sensitive-data-logs).
+This option isn't supported for config variables; config variable values aren't masked in execution logs. Masking applies to execution logs only; it does not redact values when you download or export the integration. See [Mask sensitive data in logs](https://docs.cloud.google.com/application-integration/docs/mask-sensitive-data-logs).
 
   4. Click **Create**.
 
@@ -253,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

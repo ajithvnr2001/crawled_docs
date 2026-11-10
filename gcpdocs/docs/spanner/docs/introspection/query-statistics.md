@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/introspection/query-statistics/
 title: Query statistics \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:54.806034+00:00
+fetched_at: 2026-11-10T12:13:31.956277+00:00
 ---
 
 # Query statistics  |  Spanner  |  Google Cloud Documentation
@@ -510,6 +510,68 @@ The following query returns the combined average latency, average latency for su
     WHERE  text LIKE "select x from table where x=@foo;";
     
 
+### Find the 99th percentile latency in the last hour for a query fingerprint
+
+`SPANNER_SYS.DISTRIBUTION_AGG` is an aggregate function that merges multiple distribution values across rows into a single distribution of the same type. You can use `SPANNER_SYS.DISTRIBUTION_AGG` to merge the 1-minute buckets from the last hour into a single distribution, and then use `SPANNER_SYS.DISTRIBUTION_PERCENTILE` to compute the percentile:
+
+###  GoogleSQL 
+    
+    
+    SELECT
+      IF(latency_dist IS NOT NULL,
+        SPANNER_SYS.DISTRIBUTION_PERCENTILE(latency_dist, 99.0),
+        NULL) AS p99_latency_last_hour
+    FROM (
+      SELECT
+        -- Aggregate distribution structs by checking the COUNT field directly
+        SPANNER_SYS.DISTRIBUTION_AGG(
+          IF(
+            T.LATENCY_DISTRIBUTION[SAFE_OFFSET(0)].COUNT > 0,
+            T.LATENCY_DISTRIBUTION[SAFE_OFFSET(0)],
+            NULL
+          )
+        ) AS latency_dist
+      FROM
+        SPANNER_SYS.QUERY_STATS_TOP_MINUTE AS T
+      WHERE
+        T.INTERVAL_END > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
+        AND T.INTERVAL_END <= CURRENT_TIMESTAMP()
+        AND T.TEXT_FINGERPRINT = query-fingerprint
+    );
+    
+
+Replace query-fingerprint with a query fingerprint.
+
+###  PostgreSQL 
+    
+    
+    SELECT
+      CASE
+        WHEN latency_dist IS NOT NULL
+          THEN SPANNER_SYS.DISTRIBUTION_PERCENTILE(latency_dist, 99.0)
+        ELSE NULL
+      END AS p99_latency_last_hour
+    FROM (
+      SELECT
+        -- Aggregate distribution JSON strings by checking the COUNT field
+        SPANNER_SYS.DISTRIBUTION_AGG(
+          CASE
+            WHEN T.LATENCY_DISTRIBUTION_JSON_STRING::jsonb ->> 'COUNT' != '0'
+              THEN T.LATENCY_DISTRIBUTION_JSON_STRING
+            ELSE NULL
+          END
+        ) AS latency_dist
+      FROM
+        SPANNER_SYS.QUERY_STATS_TOP_MINUTE AS T
+      WHERE
+        T.INTERVAL_END > spanner.timestamptz_subtract(now(), '1 HOUR')
+        AND T.INTERVAL_END <= now()
+        AND T.TEXT_FINGERPRINT = query-fingerprint
+    ) AS agg;
+    
+
+Replace query-fingerprint with a query fingerprint.
+
 ## Troubleshoot high CPU usage or elevated query latency with query statistics
 
 Query statistics are useful when you need to investigate high CPU usage on your Spanner database or when you are just trying to understand the CPU- heavy query shapes on your database. Inspecting queries that use significant amounts of database resources gives Spanner users a potential way to reduce operational costs and possibly improve general system latencies.
@@ -731,6 +793,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

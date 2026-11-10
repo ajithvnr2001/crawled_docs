@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-management/connectivity-tests/update/
 title: gcloud beta network-management connectivity-tests update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:49:20.043385+00:00
+fetched_at: 2026-11-10T17:33:25.071462+00:00
 ---
 
 # gcloud beta network-management connectivity-tests update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta network-management connectivity-tests update - update an existing co
 SYNOPSIS
     
 
-`gcloud beta network-management connectivity-tests update` `CONNECTIVITY_TEST` [`--async`] [`--bypass-firewall-checks`] [`--description`=`DESCRIPTION`] [`--destination-fqdn`=`DESTINATION_FQDN`] [`--destination-network`=`DESTINATION_NETWORK`] [`--destination-port`=`DESTINATION_PORT`] [`--destination-project`=`DESTINATION_PROJECT`] [`--labels`=[`KEY`=`VALUE`,…]] [`--other-projects`=[`OTHER_PROJECTS`,…]] [`--protocol`=`PROTOCOL`] [`--round-trip`] [`--source-network`=`SOURCE_NETWORK`] [`--source-network-type`=`SOURCE_NETWORK_TYPE`; default="unspecified"] [`--source-project`=`SOURCE_PROJECT`] [`--clear-destination-cloud-sql-instance` | `--destination-cloud-sql-instance`=`DESTINATION_CLOUD_SQL_INSTANCE`] [`--clear-destination-forwarding-rule` | `--destination-forwarding-rule`=`DESTINATION_FORWARDING_RULE`] [`--clear-destination-gke-master-cluster` | `--destination-gke-master-cluster`=`DESTINATION_GKE_MASTER_CLUSTER`] [`--clear-destination-gke-pod` | `--destination-gke-pod`=`DESTINATION_GKE_POD`] [`--clear-destination-instance` | `--destination-instance`=`DESTINATION_INSTANCE`] [`--clear-destination-ip-address` | `--destination-ip-address`=`DESTINATION_IP_ADDRESS`] [`--clear-destination-redis-cluster` | `--destination-redis-cluster`=`DESTINATION_REDIS_CLUSTER`] [`--clear-destination-redis-instance` | `--destination-redis-instance`=`DESTINATION_REDIS_INSTANCE`] [`--clear-source-app-engine-version` | `--source-app-engine-version`=`SOURCE_APP_ENGINE_VERSION`] [`--clear-source-cloud-function` | `--source-cloud-function`=`SOURCE_CLOUD_FUNCTION`] [`--clear-source-cloud-run-job` | `--source-cloud-run-job`=`SOURCE_CLOUD_RUN_JOB`] [`--clear-source-cloud-run-revision` | `--source-cloud-run-revision`=`SOURCE_CLOUD_RUN_REVISION`] [`--clear-source-cloud-sql-instance` | `--source-cloud-sql-instance`=`SOURCE_CLOUD_SQL_INSTANCE`] [`--clear-source-dms-private-connection` | `--source-dms-private-connection`=`SOURCE_DMS_PRIVATE_CONNECTION`] [`--clear-source-gke-master-cluster` | `--source-gke-master-cluster`=`SOURCE_GKE_MASTER_CLUSTER`] [`--clear-source-gke-pod` | `--source-gke-pod`=`SOURCE_GKE_POD`] [`--clear-source-instance` | `--source-instance`=`SOURCE_INSTANCE`] [`--clear-source-ip-address` | `--source-ip-address`=`SOURCE_IP_ADDRESS`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta network-management connectivity-tests update` `CONNECTIVITY_TEST` [`--async`] [`--bypass-firewall-checks`] [`--description`=`DESCRIPTION`] [`--destination-fqdn`=`DESTINATION_FQDN`] [`--destination-network`=`DESTINATION_NETWORK`] [`--destination-port`=`DESTINATION_PORT`] [`--destination-project`=`DESTINATION_PROJECT`] [`--labels`=[`KEY`=`VALUE`,…]] [`--other-projects`=[`OTHER_PROJECTS`,…]] [`--protocol`=`PROTOCOL`] [`--round-trip`] [`--source-network`=`SOURCE_NETWORK`] [`--source-network-type`=`SOURCE_NETWORK_TYPE`; default="unspecified"] [`--source-project`=`SOURCE_PROJECT`] [`--clear-destination-cloud-sql-instance` | `--destination-cloud-sql-instance`=`DESTINATION_CLOUD_SQL_INSTANCE`] [`--clear-destination-forwarding-rule` | `--destination-forwarding-rule`=`DESTINATION_FORWARDING_RULE`] [`--clear-destination-gke-master-cluster` | `--destination-gke-master-cluster`=`DESTINATION_GKE_MASTER_CLUSTER`] [`--clear-destination-gke-pod` | `--destination-gke-pod`=`DESTINATION_GKE_POD`] [`--clear-destination-instance` | `--destination-instance`=`DESTINATION_INSTANCE`] [`--clear-destination-ip-address` | `--destination-ip-address`=`DESTINATION_IP_ADDRESS`] [`--clear-destination-redis-cluster` | `--destination-redis-cluster`=`DESTINATION_REDIS_CLUSTER`] [`--clear-destination-redis-instance` | `--destination-redis-instance`=`DESTINATION_REDIS_INSTANCE`] [`--clear-source-app-engine-version` | `--source-app-engine-version`=`SOURCE_APP_ENGINE_VERSION`] [`--clear-source-cloud-function` | `--source-cloud-function`=`SOURCE_CLOUD_FUNCTION`] [`--clear-source-cloud-run-job` | `--source-cloud-run-job`=`SOURCE_CLOUD_RUN_JOB`] [`--clear-source-cloud-run-revision` | `--source-cloud-run-revision`=`SOURCE_CLOUD_RUN_REVISION`] [`--clear-source-cloud-sql-instance` | `--source-cloud-sql-instance`=`SOURCE_CLOUD_SQL_INSTANCE`] [`--clear-source-datastream-private-connection` | `--source-datastream-private-connection`=`SOURCE_DATASTREAM_PRIVATE_CONNECTION`] [`--clear-source-dms-private-connection` | `--source-dms-private-connection`=`SOURCE_DMS_PRIVATE_CONNECTION`] [`--clear-source-gke-master-cluster` | `--source-gke-master-cluster`=`SOURCE_GKE_MASTER_CLUSTER`] [`--clear-source-gke-pod` | `--source-gke-pod`=`SOURCE_GKE_POD`] [`--clear-source-instance` | `--source-instance`=`SOURCE_INSTANCE`] [`--clear-source-ip-address` | `--source-ip-address`=`SOURCE_IP_ADDRESS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Update an existing connectivity test with the given name. 
 EXAMPLES
@@ -180,6 +180,12 @@ At most one of these can be specified:
      A Cloud SQL instance URI as the source endpoint. 
 At most one of these can be specified: 
 
+`--clear-source-datastream-private-connection`
+     Clear existing source Datastream private connection. 
+`--source-datastream-private-connection`=`SOURCE_DATASTREAM_PRIVATE_CONNECTION`
+     Datastream private connection URI as the source endpoint. 
+At most one of these can be specified: 
+
 `--clear-source-dms-private-connection`
      Clear existing source DMS private connection. 
 `--source-dms-private-connection`=`SOURCE_DMS_PRIVATE_CONNECTION`
@@ -225,6 +231,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

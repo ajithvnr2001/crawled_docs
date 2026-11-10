@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/network-connectivity/hubs/create/
 title: gcloud network-connectivity hubs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T20:52:21.188151+00:00
+fetched_at: 2026-11-10T18:39:27.659736+00:00
 ---
 
 # gcloud network-connectivity hubs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud network-connectivity hubs create - create a new hub
 SYNOPSIS
     
 
-`gcloud network-connectivity hubs create` `HUB` [`--async`] [`--description`=`DESCRIPTION`] [`--export-psc`] [`--labels`=[`KEY`=`VALUE`,…]] [`--policy-mode`=`POLICY_MODE`] [`--preset-topology`=`PRESET_TOPOLOGY`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud network-connectivity hubs create` `HUB` [`--async`] [`--description`=`DESCRIPTION`] [`--labels`=[`KEY`=`VALUE`,…]] [`--policy-mode`=`POLICY_MODE`] [`--preset-topology`=`PRESET_TOPOLOGY`] [`--export-psc` | `--export-psc-global-google-apis` `--export-psc-published-services-and-regional-google-apis`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new hub with the given name. 
 EXAMPLES
@@ -67,8 +67,6 @@ FLAGS
      Return immediately, without waiting for the operation in progress to complete. 
 `--description`=`DESCRIPTION`
      Description of the hub. 
-`--export-psc`
-     This boolean controls whether Private Service Connect transitivity is enabled for the hub. 
 `--labels`=[`KEY`=`VALUE`,…]
      List of label KEY=VALUE pairs to add. 
 
@@ -78,6 +76,16 @@ Keys must start with a lowercase character and contain only hyphens (`-`), under
      Policy mode of the hub. `POLICY_MODE` must be one of: `policy-mode-unspecified`, `preset`. 
 `--preset-topology`=`PRESET_TOPOLOGY`
      Topology of the hub. Only applicable when ``\--policy-mode=PRESET``. `PRESET_TOPOLOGY` must be one of: `hybrid-inspection`, `mesh`, `preset-topology-unspecified`, `star`. 
+At most one of these can be specified: 
+
+`--export-psc`
+     This boolean controls whether Private Service Connect transitivity is enabled for the hub. 
+Or at least one of these can be specified: 
+
+`--export-psc-global-google-apis`
+     This boolean controls whether Private Service Connect endpoints for global Google APIs should be propagated. 
+`--export-psc-published-services-and-regional-google-apis`
+     This boolean controls whether Private Service Connect endpoints for regional ILBs and regional Google APIs should be propagated. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -98,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

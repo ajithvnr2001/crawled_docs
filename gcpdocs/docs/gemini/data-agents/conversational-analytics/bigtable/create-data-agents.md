@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigtable/create-data-agents/
 title: Create data agents \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:21:50.006578+00:00
+fetched_at: 2026-11-10T17:33:05.942312+00:00
 ---
 
 # Create data agents  |  Data Agents  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ Discover and use agents |
 
   
   
-To work with Bigtable resources, see [Bigtable roles and permissions](https://docs.cloud.google.com/bigtable/docs/access-control). 
+To work with Bigtable resources, see [Bigtable roles and permissions](https://docs.cloud.google.com/bigtable/docs/access-control).
 
 ## Create a data agent
 
@@ -104,7 +104,7 @@ The following sections describe how to create a data agent. After you create an 
 
   8. In the **Knowledge sources** section, click **Add source**. The **Add data** page opens.
 
-  9. Select tables that the agent will focus on when answering questions. 
+  9. Select the tables that the agent will focus on when answering questions. 
 
   10. Click **Add data**. The new agent page reopens.
 
@@ -197,7 +197,7 @@ To publish your agent, remain on the agent creation page and proceed to the next
 
   4. To publish the data agent and make it available for use in the project, click **Publish**. In the **Publishing channels** dialog, select the publishing channels to use. Click **Publish agent** (or **Publish updates**). 
 
-Publishing the agent lets other users— who have access to the same database tables—view and converse with your agent, benefiting from the instructions and context that you created.
+Publishing the agent lets other users— who have access to the same databases—view and converse with your agent, benefiting from the instructions and context that you created.
 
 You can create conversations with the data agent by using the **Agents** page in the Google Cloud console. You can also build your own interface to chat with the data agent by using the Conversational Analytics API.
 
@@ -224,8 +224,7 @@ You can find existing agents in the **Agent Catalog** tab, which consists of thr
 
   * **All agents** : a list of all agents that you create and publish, and agents that others create and share with you.
   * **My agents** : a list of all agents that you create and publish. You can modify and share published agents with others.
-  * **Agent drafts** : agents that you haven't published yet. You can't share draft agents. 
-
+  * **Agent drafts** : agents that you haven't published yet. You can't share draft agents.
 
 
 
@@ -418,6 +417,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

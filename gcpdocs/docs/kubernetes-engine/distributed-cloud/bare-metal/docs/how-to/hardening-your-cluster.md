@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/hardening-your-cluster/
 title: Harden your cluster security \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:23.597083+00:00
+fetched_at: 2026-11-10T16:59:33.790962+00:00
 ---
 
 # Harden your cluster security  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Harden your cluster security Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to harden the security of your clusters created with Distributed Cloud software only for bare metal.
+This document describes how to harden the security of your clusters created with Google Distributed Cloud software only for bare metal.
 
 ## Secure your containers using SELinux
 
@@ -117,7 +117,7 @@ The `runAsUser` field specifies that for any containers in the Pod, all processe
 
 This ensures that processes within a container are run as UID `8877`, which has fewer privileges than root.
 
-System containers in Distributed Cloud software only help install and manage clusters. The UIDs and GIDs used by these containers can be controlled by the field [`startUIDRangeRootlessContainers`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#clustersecurity-startuidrangerootlesscontainers) in the cluster specification. The `startUIDRangeRootlessContainers` is an optional field which, if not specified, has a value of `2000`. Allowed values for `startUIDRangeRootlessContainers` are `1000`-`57000`. The `startUIDRangeRootlessContainers` value can be changed during upgrades only. The system containers use the UIDs and GIDs in the range `startUIDRangeRootlessContainers` to `startUIDRangeRootlessContainers` \+ 2999.
+System containers in Google Distributed Cloud software only help install and manage clusters. The UIDs and GIDs used by these containers can be controlled by the field [`startUIDRangeRootlessContainers`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#clustersecurity-startuidrangerootlesscontainers) in the cluster specification. The `startUIDRangeRootlessContainers` is an optional field which, if not specified, has a value of `2000`. Allowed values for `startUIDRangeRootlessContainers` are `1000`-`57000`. The `startUIDRangeRootlessContainers` value can be changed during upgrades only. The system containers use the UIDs and GIDs in the range `startUIDRangeRootlessContainers` to `startUIDRangeRootlessContainers` \+ 2999.
 
 The following example shows an excerpt of a manifest file for a Cluster resource:
     
@@ -246,6 +246,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

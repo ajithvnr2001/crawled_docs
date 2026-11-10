@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/rotating-service-account-keys/
 title: Rotating service account keys \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:19.786507+00:00
+fetched_at: 2026-11-10T16:59:10.731877+00:00
 ---
 
 # Rotating service account keys  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ This page describes how to rotate keys for the following service accounts:
   * [Logging-monitoring](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/service-accounts#logging_monitoring_service_account)
   * [Audit logging](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/service-accounts#audit_logging_service_account)
 
-**Important:** The capabilities described in this document aren't fully supported for 1.31 or 1.32 clusters that have advanced clusters enabled. For details about what is or isn't supported for updating credentials for advanced clusters, see Advanced cluster differences for rotating service account keys. For a comprehensive list of Google Distributed Cloud for VMware features and capabilities that are or aren't supported for advanced clusters, see [Differences when running advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters#adv-clusters-feature-support).
+**Important:** The capabilities described in this document aren't fully supported for 1.31 or 1.32 clusters that have advanced clusters enabled. For details about what is or isn't supported for updating credentials for advanced clusters, see Advanced cluster differences for rotating service account keys.
 
 To rotate your service account keys:
 
@@ -194,12 +194,10 @@ Command | Description | Support
 `gkectl update credentials stackdriver` | ([Preview](https://cloud.google.com/products/#product-launch-stages)) Update Google Cloud Observability credentials. | Supported  
 `gkectl update credentials vsphere` | Update vSphere credentials for a cluster. | Supported  
   
-For a comprehensive list of Google Distributed Cloud for VMware features and capabilities that are or aren't supported for advanced clusters, see [Differences when running advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters#adv-clusters-feature-support).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

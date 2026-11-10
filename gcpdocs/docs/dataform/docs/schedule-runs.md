@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/schedule-runs/
 title: Schedule runs \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:07:52.600461+00:00
+fetched_at: 2026-11-10T19:01:26.978428+00:00
 ---
 
 # Schedule runs  |  Dataform  |  Google Cloud Documentation
@@ -117,9 +117,9 @@ This is the custom service account that's associated with the workflow configura
 Service account credentials are the default authorization method for scheduled workflow configuration creation and executions.
 
 **Note:** You can attach a maximum of 100 unique service accounts to all the workflow configurations in a repository.
-  * Google Account user credentials
+  * Google Account credentials.
 
-Google Account user credentials are the default authorization method for manual, non-scheduled workflow configuration creation and executions. For more information, see Authorize your Google Account.
+Google Account credentials are the default authorization method for manual, non-scheduled workflow configuration creation and executions. For more information, see Authorize your Google Account.
 
 **Note:** Organization administrators can disallow the use of end user credentials by creating a custom organization policy constraint that denies setting `end_user_auth_config`. For more information, see [Create custom organization policy constraints](https://docs.cloud.google.com/dataform/docs/create-custom-constraints).
   * Workflow actions to be executed:
@@ -127,6 +127,10 @@ Google Account user credentials are the default authorization method for manual,
     * All actions.
     * Selection of actions.
     * Selection of [tags](https://docs.cloud.google.com/dataform/docs/configure-additional-actions#add-execution-tags).
+  * Maximum concurrent actions.
+
+The maximum number of actions that can run concurrently during scheduled executions is `5000`. You can set this limit to a lower number to limit concurrent runs. For more information, see [Limit concurrent actions](https://docs.cloud.google.com/dataform/docs/trigger-execution#limit-concurrent-actions).
+
   * Run schedule and time zone.
 
 
@@ -176,6 +180,8 @@ The default time zone is UTC.
 Without this option, Dataform updates incremental tables without rebuilding them from scratch.
 
      * Optional: Set the BigQuery query job priority with the **Execute as interactive job with high priority (default)** option. By default, BigQuery runs queries as [interactive query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which are intended to start running as quickly as possible. Clearing this option runs the queries as [batch query jobs](https://docs.cloud.google.com/bigquery/docs/running-queries#interactive-batch), which have lower priority.
+
+     * Optional: To limit how many actions can run concurrently during scheduled executions, select **Limit concurrent actions** , and in **Maximum concurrent actions** , enter a whole number between `1` and `5000`. For more information, see [Limit concurrent actions](https://docs.cloud.google.com/dataform/docs/trigger-execution#limit-concurrent-actions).
 
   9. Click **Create**. If you selected **Execute with my user credentials** for your authentication method, you must authorize your Google Account.
 
@@ -816,6 +822,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

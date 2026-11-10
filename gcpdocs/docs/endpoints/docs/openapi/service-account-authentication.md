@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/service-account-authentication/
 title: Authentication between services \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:52.367623+00:00
+fetched_at: 2026-11-10T10:42:01.219317+00:00
 ---
 
 # Authentication between services  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation
@@ -120,7 +120,7 @@ You can run the following commands by using the Google Cloud CLI on your local m
   4. Create a service account. Replace `SA_NAME` and `SA_DISPLAY_NAME` with the name and display name that you want to use.
          
          gcloud iam service-accounts create SA_NAME \
-           --display-name "SA_DISPLAY_NAME"
+           --display-name &quot;SA_DISPLAY_NAME"
 
   5. Display the email address for the service account that you just created.
          
@@ -157,7 +157,7 @@ To enable service account authentication for services _calling_ your gateway, mo
              DEFINITION_NAME:
                authorizationUrl: ""
                flow: "implicit"
-               type: "oauth2"
+               type: "oauth2&quot;
                x-google-issuer: "SA_EMAIL_ADDRESS"
                x-google-jwks_uri: "https://www.googleapis.com/robot/v1/metadata/x509/SA_EMAIL_ADDRESS"
            
@@ -171,14 +171,14 @@ To enable service account authentication for services _calling_ your gateway, mo
                  authorizationUrl: ""
                  flow: "implicit"
                  type: "oauth2"
-                 x-google-issuer: "service-1@example-project-12345.iam.gserviceaccount.com"
-                 x-google-jwks_uri: "https://www.googleapis.com/robot/v1/metadata/x509/service-1@example-project-12345.iam.gserviceaccount.com"
+                 x-google-issuer: &quiam.gserviceaccount.comot;service-1@example-project-12345."
+                 x-google-jwks_uri: "https://www.googleapis.com/robot/v1/miam.gserviceaccount.cometadata/x509/service-1@example-project-12345."
                service-2:
                  authorizationUrl: ""
                  flow: "implicit"
-                 type: "oauth2"
-                 x-google-issuer: "service-2@example-project-12345.iam.gserviceaccount.com"
-                 x-google-jwks_uri: "https://www.googleapis.com/robot/v1/metadata/x509/service-2@example-project-12345.iam.gserviceaccount.com"
+                 tiam.gserviceaccount.comype: "oauth2"
+                 x-google-issuer: "service-2@example-project-12345."
+                 x-google-jwkiam.gserviceaccount.coms_uri: "https://www.googleapis.com/robot/v1/metadata/x509/service-2@example-project-12345."
 
   2. Optionally, add `x-google-audiences` to the `securityDefinitions` section. If you don't add `x-google-audiences`, ESP requires that the `"aud"` (audience) claim in the JWT is in the format `https://SERVICE_NAME`, where SERVICE_NAME is the name of your ESP service, which you have configured in the `host` field of your OpenAPI document.
   3. Add a `security` section at either the top level of the file (not indented or nested) to apply to the entire API, or at the method level to apply to a specific method. If you use `security` sections at both the API level and at the method level, the method-level settings override the API-level settings. 
@@ -221,7 +221,7 @@ To enable service account authentication for services _calling_ your gateway, mo
                    - 841077041629.apps.googleusercontent.com
                  jwtLocations:
                    - header: Authorization
-                     valuePrefix: "Bearer "
+                     valuePrefix: "Bearer &quot;
          security:
            - SCHEME_NAME: []
 
@@ -238,8 +238,8 @@ To enable service account authentication for services _calling_ your gateway, mo
                     authorizationUrl: ""
                     scopes: {}
                  x-google-auth:
-                   issuer: "service-1@example-project-12345.iam.gserviceaccount.com"
-                   jwksUri: https://www.googleapis.com/robot/v1/metadata/x509/service-1@example-project-12345.iam.gserviceaccount.com
+                   issuer: "service-1@exampleiam.gserviceaccount.com-project-12345."
+                   jwksUri: https://www.googleapis.com/robot/v1/metadata/x509/service-1@exiam.gserviceaccount.comample-project-12345.
                    jwtLocations:
                      - header: Authorization
                        valuePrefix: "Bearer "
@@ -250,8 +250,8 @@ To enable service account authentication for services _calling_ your gateway, mo
                     authorizationUrl: ""
                     scopes: {}
                  x-google-auth:
-                   issuer: "service-2@example-project-12345.iam.gserviceaccount.com"
-                   jwksUri: "https://www.googleapis.com/robot/v1/metadata/x509/service-2@example-project-12345.iam.gserviceaccount.com"
+                   iiam.gserviceaccount.comssuer: "service-2@example-project-12345."
+                   jwksUri: "https://www.googleapis.com/iam.gserviceaccount.comrobot/v1/metadata/x509/service-2@example-project-12345."
                    jwtLocations:
                      - header: Authorization
                        valuePrefix: "Bearer "

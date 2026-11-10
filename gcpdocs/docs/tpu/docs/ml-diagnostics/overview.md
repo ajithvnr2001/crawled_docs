@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/ml-diagnostics/overview/
 title: ML Diagnostics platform \u00a0|\u00a0 Cloud TPU \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:51.682072+00:00
+fetched_at: 2026-11-10T16:59:03.118210+00:00
 ---
 
 # ML Diagnostics platform  |  Cloud TPU  |  Google Cloud Documentation
@@ -41,25 +41,18 @@ ML Diagnostics includes the following generally available features:
 
 ML Diagnostics also includes the following Preview features:
 
-  * **Workload monitoring** : Automatically capture [XProf](https://openxla.org/xprof) profiles for further diagnosis when performance degradation analyzers show a bad state.
+  * **Workload monitoring** : Automatically capture [XProf](https://openxla.org/xprof) profiles (with the Diagon DaemonSet) for further diagnosis when performance degradation analyzers show a bad state.
   * **Python SDK** : Support for vLLM, Tunix, and TorchTPU workloads.
-  * **Managed profiling** : Continuous profiling in snapshot mode and agentic profile analysis.
+  * **Managed profiling** : Continuous profiling in snapshot mode (with the Diagon DaemonSet) and agentic profile analysis.
+  * **Orchestrators** : Support for self-managed Kubernetes, Cluster Director-managed Slurm, self-managed Slurm, and Compute Engine.
 
 
 
 ## Workload frameworks and orchestrator types
 
-ML Diagnostics supports JAX and is generally available on GKE. Workload frameworks like TorchTPU, vLLM on JAX, vLLM on TorchTPU, and Tunix are available in Preview on the following orchestrators:
+ML Diagnostics supports JAX and is generally available on GKE. Workload frameworks like TorchTPU, vLLM, and Tunix are available in Preview.
 
-  * GKE
-  * Self-managed Kubernetes
-  * Cluster Director-managed Slurm
-  * Self-managed Slurm
-  * Compute Engine
-
-
-
-The following table summarizes the supported features and required components for JAX workloads across orchestrator types:
+The following table summarizes the supported features and required components for TPU workloads across orchestrator types:
 
 Orchestrator type | Supported features and required components  
 ---|---  
@@ -68,23 +61,25 @@ Orchestrator type | Supported features and required components
   * Workload monitoring for GKE `Job` and `JobSet` workloads
   * SDK metrics and programmatic profiling (GKE webhook)
   * On-demand profiling (GKE operator)
-  * On-demand profiling, continuous profiling, and automatic profile capture from workload monitoring (Diagon DaemonSet)
+  * On-demand profiling, continuous profiling, and automatic profile capture from workload monitoring with the Diagon DaemonSet (Preview)
 
   
-**Self-managed Kubernetes** | 
+**Self-managed Kubernetes (Preview)** | 
 
   * SDK metrics and programmatic profiling (Kubernetes webhook)
   * On-demand profiling (Kubernetes operator)
-  * On-demand and continuous profiling (Diagon DaemonSet)
+  * On-demand and continuous profiling with the Diagon DaemonSet (Preview)
 
   
-**Cluster Director-managed Slurm, self-managed Slurm, and Compute Engine** | 
+**Cluster Director-managed Slurm, self-managed Slurm, and Compute Engine (Preview)** | 
 
   * SDK metrics and programmatic profiling
-  * On-demand and continuous profiling (Diagon DaemonSet)
+  * On-demand and continuous profiling with the Diagon DaemonSet (Preview)
 
   
   
+To request access to Preview features, contact your account team. You don't need to request access to use SDK metrics, programmatic profiling, or on-demand profiling with TorchTPU, vLLM, and Tunix workloads on GKE.
+
 ## User paths
 
 You can use the ML Diagnostics platform automatically with workload monitoring for all GKE jobs, or integrate the SDK with your workload for the complete ML workload diagnostics experience. You can interact with the ML Diagnostics platform through Google Cloud console or the CLI. Workload monitoring is automatically available for all workloads deployed with GKE on TPUs.
@@ -166,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

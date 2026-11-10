@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:58.913904+00:00
+fetched_at: 2026-11-10T18:26:26.452628+00:00
 ---
 
 # Quotas and limits  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -364,10 +364,6 @@ Health checks | [Quota](https://console.cloud.google.com/iam-admin/quotas?servic
   
 ## TLS routes
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Item | Quotas and limits | Notes  
 ---|---|---  
 Global TLS routes | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=networkservices.googleapis.com&metric=networkservices.googleapis.com/tlsroutes) | This is a per-project quota covering all global TLS routes. Quota name: `TLSROUTES`  
@@ -428,14 +424,20 @@ The total count of predicates for this path matcher would be 7. This is calculat
 
 ## Configuration size for Application Load Balancers
 
-The load balancer routing configuration size is measured in _quota units_. The number of quota units used by a URL map depends on the number of host rules, path matchers, and content of each path matcher. The quota unit usage scales in proportion to the number of forwarding rules that reference the URL map. For example, if a URL map referenced by one forwarding rule uses 50,000 quota units, that same URL map referenced by three forwarding rules uses 150,000 units. For more information, see [URL map size and quota units](https://docs.cloud.google.com/load-balancing/docs/url-map-size-quota).
+The load balancer routing configuration size is measured in _quota units_.
+
+_For Application Load Balancers_ : The number of quota units used by a URL map depends on the number of host rules, path matchers, and the content of each path matcher.
+
+_For Proxy Network Load Balancers_ : The number of quota units used by a TLS route depends on the complexity of its routing rules and matchers.
+
+The quota unit usage scales in proportion to the number of forwarding rules that reference the routing configuration. For example, if a URL map or TLS route referenced by one forwarding rule uses 50,000 quota units, that same routing configuration referenced by three forwarding rules uses 150,000 units. For more information, see [Routing configuration size and quota units](https://docs.cloud.google.com/load-balancing/docs/routing-config-size-quota).
 
 Item | Quotas and limits | Notes  
 ---|---|---  
-Total URL map configuration size for Global external Application Load Balancers and Classic Application Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/global_external_proxy_lb_config) | This quota is per project. Quota name: `GLOBAL_EXTERNAL_PROXY_LB_CONFIG`  
-Total URL map configuration size for Regional external Application Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/regional_external_proxy_lb_config_per_region_per_vpc_network) | This quota is per region of a VPC network. Quota name: `REGIONAL_EXTERNAL_PROXY_LB_CONFIG_PER_REGION_PER_VPC_NETWORK`  
-Total URL map configuration size for Cross-region internal Application Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/cross_regional_internal_proxy_lb_config_per_region_per_vpc_network) | This quota is per VPC network. Quota name: `CROSS_REGIONAL_INTERNAL_PROXY_LB_CONFIG_PER_REGION_PER_VPC_NETWORK`  
-Total URL map configuration size for Regional internal Application Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/regional_internal_proxy_lb_config_per_region_per_vpc_network) | This quota is per region of a VPC network. Quota name: `REGIONAL_INTERNAL_PROXY_LB_CONFIG_PER_REGION_PER_VPC_NETWORK`  
+Total routing configuration size for Global external Application Load Balancers and Classic Application Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/global_external_proxy_lb_config) | This quota is per project. Quota name: `GLOBAL_EXTERNAL_PROXY_LB_CONFIG`  
+Total routing configuration size for Regional external Application Load Balancers and Regional external proxy Network Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/regional_external_proxy_lb_config_per_region_per_vpc_network) | This quota is per region of a VPC network. Quota name: `REGIONAL_EXTERNAL_PROXY_LB_CONFIG_PER_REGION_PER_VPC_NETWORK`  
+Total routing configuration size for Cross-region internal Application Load Balancers and Cross-region internal proxy Network Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/cross_regional_internal_proxy_lb_config_per_region_per_vpc_network) | This quota is per VPC network. Quota name: `CROSS_REGIONAL_INTERNAL_PROXY_LB_CONFIG_PER_REGION_PER_VPC_NETWORK`  
+Total routing configuration size for Regional internal Application Load Balancers and Regional internal proxy Network Load Balancers | [Quota](https://console.cloud.google.com/iam-admin/quotas?service=compute.googleapis.com&metric=compute.googleapis.com/regional_internal_proxy_lb_config_per_region_per_vpc_network) | This quota is per region of a VPC network. Quota name: `REGIONAL_INTERNAL_PROXY_LB_CONFIG_PER_REGION_PER_VPC_NETWORK`  
   
 ## Header size for Application Load Balancers
 
@@ -744,6 +746,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

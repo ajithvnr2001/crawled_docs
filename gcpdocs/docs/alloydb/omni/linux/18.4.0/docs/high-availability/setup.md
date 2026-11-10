@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/high-availability/setup/
 title: Create a high availability setup \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:41:46.133502+00:00
+fetched_at: 2026-11-10T18:26:45.210733+00:00
 ---
 
 # Create a high availability setup  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation
@@ -78,18 +78,27 @@ If the number of clients that connect to the database becomes an issue and you h
          cd cloud-solutions/projects/alloydbomni-ha-patroni-etcd/terraform
          
 
-  2. Create and edit a `terraform.tfvars` file. In the file, set values for the following variables.
+  2. Create and edit a `terraform.tfvars` file. In the file, set values for the following variables:
          
          project_id                   = "PROJECT_ID"
          region                       = "REGION"
-         zones                        = "ZONES"
+         zones                        = [ZONES]
          node_count                   = 3
          cluster_name                 = "CLUSTER_NAME"
          replication_user_password    = "REPLICATION_USER_PASSWORD"
          postgres_super_user_password = "PG_SUPER_USER_PASSWORD"
          
 
-Descriptions for each variable can be found on GitHub in the [variables configuration file](https://github.com/GoogleCloudPlatform/cloud-solutions/blob/79ceca9b9ff498d2af6101f264b1c731c8911aee/projects/alloydbomni-ha-patroni-etcd/terraform/variables.tf).
+Replace the following:
+
+     * `PROJECT_ID`: the ID of your Google Cloud project.
+     * `REGION`: the Google Cloud region where you want to deploy the resources—for example, `us-central1`.
+     * `ZONES`: a comma-separated list of quoted zones in the specified region—for example, `"us-central1-a", "us-central1-b", "us-central1-c"` or `"us-central1-a", "us-central1-c"`.
+     * `CLUSTER_NAME`: the name for your Patroni and AlloyDB Omni cluster.
+     * `REPLICATION_USER_PASSWORD`: the password for the replication user.
+     * `PG_SUPER_USER_PASSWORD`: the password for the PostgreSQL superuser (`postgres`).
+
+For more information about each variable, see the [variables configuration file](https://github.com/GoogleCloudPlatform/cloud-solutions/blob/79ceca9b9ff498d2af6101f264b1c731c8911aee/projects/alloydbomni-ha-patroni-etcd/terraform/variables.tf) on GitHub.
 
   3. Run the Terraform script to create all the resources.
          
@@ -144,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

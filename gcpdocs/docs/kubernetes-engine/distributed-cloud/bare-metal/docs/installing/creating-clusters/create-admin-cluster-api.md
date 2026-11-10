@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/create-admin-cluster-api/
 title: Create an admin cluster using GKE On-Prem API clients \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:56.764400+00:00
+fetched_at: 2026-11-10T16:59:28.725772+00:00
 ---
 
 # Create an admin cluster using GKE On-Prem API clients  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -74,7 +74,7 @@ After the cluster is created, if you want to use the [connect gateway](https://d
 
 ## Choose the client to create the admin cluster
 
-You can use either the console or the gcloud CLI to create an admin cluster that is managed by the GKE On-Prem API. If this is your first time installing Distributed Cloud software only for bare metal, you might find the console easier to use than the gcloud CLI.
+You can use either the console or the gcloud CLI to create an admin cluster that is managed by the GKE On-Prem API. If this is your first time installing Google Distributed Cloud software only for bare metal, you might find the console easier to use than the gcloud CLI.
 
 After you are more familiar with the information that you need to provide for creating clusters, you might find the gcloud CLI more convenient because you can save the command with its arguments to a text file. If you are using a CI/CD tool, such as [Cloud Build](https://docs.cloud.google.com/build/docs/overview), you can use the `gcloud` commands to create a cluster and specify the `--impersonate-service-account` flag to automate the creation.
 
@@ -627,6 +627,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/manage-and-scale-windows-networking/deployment/
 title: Deploy Windows applications on managed Kubernetes \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:22.193364+00:00
+fetched_at: 2026-11-10T16:58:08.014702+00:00
 ---
 
 # Deploy Windows applications on managed Kubernetes  |  Cloud Architecture Center  |  Google Cloud Documentation

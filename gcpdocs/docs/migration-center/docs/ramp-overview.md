@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migration-center/docs/ramp-overview/
 title: Rapid Migration and Modernization Program (RaMP) overview \u00a0|\u00a0 Migration Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:43:04.057117+00:00
+fetched_at: 2026-11-10T19:01:27.408335+00:00
 ---
 
 # Rapid Migration and Modernization Program (RaMP) overview  |  Migration Center  |  Google Cloud Documentation
@@ -75,9 +75,9 @@ In this phase, use Google Cloud Migration Center to specific tools for lift and 
 
 We work with your team to perform a thorough, data-driven discovery of your existing environment. Using our advanced tools, we help you identify the highest-value opportunities and workloads, perform total cost of ownership calculations, and establish performance benchmarks to start to maximize immediate business value.
 
-In this phase, use Google Cloud Migration Center to optimize workloads and use AI-powered tools like Google Cloud Migration Center App Modernization Assessment (`codmod`):
+In this phase, use Google Cloud Migration Center to optimize workloads and use AI-powered tools like App Modernization Assessment (`codmod`):
 
-  * [Create an App Modernization Assessment](https://docs.cloud.google.com/migration-center/docs/app-modernization-assessment)
+  * [Create an App Modernization Assessment](https://docs.cloud.google.com/modernize/hub/app-modernization-assessment)
 
 
 
@@ -92,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

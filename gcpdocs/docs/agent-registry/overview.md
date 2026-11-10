@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/overview/
 title: Agent Registry overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:10.776038+00:00
+fetched_at: 2026-11-10T16:58:23.978068+00:00
 ---
 
 # Agent Registry overview  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Agent Registry overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Agent Registry lets you register, discover, and govern agentic components, including AI agents, Model Context Protocol (MCP) servers and tools, endpoints, and standalone skills, across your Google Cloud environment. By consolidating these components into a single registry, you can help eliminate fragmented tool access, isolated data, and redundant integrations across your AI deployments.
+Agent Registry lets you register, discover, and govern agentic components, including AI agents, Model Context Protocol (MCP) servers and tools, endpoints, and standalone skills, across your Google Cloud environment. By consolidating these components into a single registry, you can reduce fragmented tool access, isolated data, and redundant integrations across your AI deployments.
 
 You can view and manage registered components as resources in Agent Registry. For more information about Agent Registry resources, see [Agent Registry data model](https://docs.cloud.google.com/agent-registry/data-model).
 
@@ -30,7 +30,7 @@ You can view and manage registered components as resources in Agent Registry. Fo
 Agent Registry is structured around three primary goals to help you manage your agents, MCP servers, endpoints, and skills:
 
   * **Accelerate development** : discover and reuse existing agentic capabilities such as [A2A skills](https://docs.cloud.google.com/agent-registry/skills-architecture#standalone-vs-a2a), standalone [skills](https://docs.cloud.google.com/agent-registry/skills-architecture), and MCP tools across your organization. You can query the registry to identify and use available capabilities, removing the need to create custom integrations for each new process.
-  * **Simplify integration** : use standardized MCP or Agent2Agent (A2A) protocols to locate and connect to functional endpoints, and help reduce infrastructure management overhead.
+  * **Simplify integration** : use the standardized MCP and [Agent2Agent (A2A)](https://docs.cloud.google.com/agent-registry/a2a-protocol) protocols to locate and connect to functional endpoints and reduce infrastructure management overhead.
   * **Support governance** : enforce security through network and access policies and [management boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) across your agentic fleet. Other services can use the [identifiers of your agentic components](https://docs.cloud.google.com/agent-registry/identity-and-identifiers) to define permissions and control which agents can access your data, including centralizing agent metadata across multiple Google Cloud projects for governance with [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview).
 
 
@@ -43,7 +43,7 @@ In Agent Platform, Agent Registry maintains the authoritative registry of agents
 
 Identity and Access Management (IAM) access policies bind [agent principals](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-principals) to the target resources registered in Agent Registry. You can provision verifiable agent principals for workloads through [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) and manage credentials for external tools through [auth providers](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery#auth-providers).
 
-[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) uses your IAM and content security policies to determine where to enforce policies at runtime as the network enforcement point for agent traffic. Before routing requests between agents, MCP servers, or external endpoints, Agent Gateway queries Agent Registry and evaluates your configured IAM and content security policies.
+[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) uses your IAM and content security policies to determine where to enforce policies at runtime as the network enforcement point for agent traffic. Before routing requests between agents, MCP servers, or external endpoints, Agent Gateway queries Agent Registry, evaluates your configured IAM policies, and applies [Model Armor prompt and response inspection](https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration).
 
 ## Define the governance project for a central registry
 
@@ -64,7 +64,7 @@ Depending on your architecture, you can use a governance project in a single-pro
   * Learn about the Agent Registry [data model](https://docs.cloud.google.com/agent-registry/data-model) to understand how to manage your agentic capabilities.
   * Review [key concepts](https://docs.cloud.google.com/agent-registry/concepts) to familiarize yourself with the essential terms used in Agent Registry.
   * Learn about [Identity and identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers) used for registry discovery and policy governance.
-  * Learn about [Component lifecycle and discovery](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery), [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), and [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
+  * Learn about [Component lifecycle and discovery](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery), [A2A protocol](https://docs.cloud.google.com/agent-registry/a2a-protocol), [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), and [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
   * To get started, [set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
 
 
@@ -73,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

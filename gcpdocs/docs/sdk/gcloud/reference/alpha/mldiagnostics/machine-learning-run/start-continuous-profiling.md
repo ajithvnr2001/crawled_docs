@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run/start-continuous-profiling/
 title: gcloud alpha mldiagnostics machine-learning-run start-continuous-profiling \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:06.785101+00:00
+fetched_at: 2026-11-10T18:39:29.716249+00:00
 ---
 
 # gcloud alpha mldiagnostics machine-learning-run start-continuous-profiling  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,13 +28,15 @@ gcloud alpha mldiagnostics machine-learning-run start-continuous-profiling - sta
 SYNOPSIS
     
 
-`gcloud alpha mldiagnostics machine-learning-run start-continuous-profiling` `--targets`=[`TARGETS`,…] [`--async`] [`--device-tracer-level`=`DEVICE_TRACER_LEVEL`; default="enabled"] [`--host-tracer-level`=`HOST_TRACER_LEVEL`; default="info"] [`--location`=`LOCATION`] [`--machine-learning-run`=`MACHINE_LEARNING_RUN`] [`--python-tracer-level`=`PYTHON_TRACER_LEVEL`; default="disabled"] [`--xprof-server-port`=`XPROF_SERVER_PORT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha mldiagnostics machine-learning-run start-continuous-profiling` `--targets`=[`TARGETS`,…] [`--async`] [`--device-tracer-level`=`DEVICE_TRACER_LEVEL`; default="enabled"] [`--location`=`LOCATION`] [`--machine-learning-run`=`MACHINE_LEARNING_RUN`] [`--xprof-server-port`=`XPROF_SERVER_PORT`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Start continuous profiling on one or more profiler targets of an active machine learning run. 
 
 While continuous profiling is active, the XProf profiler on each target keeps the most recent trace data in an in-memory circular buffer. To save the buffered data as a profiler session, run `[gcloud alpha mldiagnostics profiler-session capture](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/profiler-session/capture)` with `--kind=snapshot`. On-demand profiler sessions can't be captured while continuous profiling is active. 
 
-Only one continuous profiling session can be active on a machine learning run at a time. The tracer levels and XProf server port can't be changed while continuous profiling is active. To change them, stop continuous profiling by running `[gcloud alpha mldiagnostics machine-learning-run stop-continuous-profiling](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run/stop-continuous-profiling)`, and then start it again. 
+Continuous profiling records device (TPU) traces only. Host and Python tracing are always disabled for continuous profiling, because their trace data is not bounded by the circular buffer. 
+
+Only one continuous profiling session can be active on a machine learning run at a time. The device tracer level and XProf server port can't be changed while continuous profiling is active. To change them, stop continuous profiling by running `[gcloud alpha mldiagnostics machine-learning-run stop-continuous-profiling](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run/stop-continuous-profiling)`, and then start it again. 
 
 EXAMPLES
      To start continuous profiling on the profiler targets `my-node-0` and `my-node-1` of the machine learning run `my-run` in `us-central1`, run: 
@@ -42,10 +44,10 @@ EXAMPLES
     
     [gcloud alpha mldiagnostics machine-learning-run](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run) start-continuous-profiling --machine-learning-run=my-run --location=us-central1 --targets=my-node-0,my-node-1
 
-To start continuous profiling with the lowest-overhead host tracer level and device tracing disabled, run: 
+To start continuous profiling when the XProf profiler server in your workload listens on port 9012, run: 
     
     
-    [gcloud alpha mldiagnostics machine-learning-run](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run) start-continuous-profiling --machine-learning-run=my-run --location=us-central1 --targets=my-node-0 --host-tracer-level=critical --device-tracer-level=disabled
+    [gcloud alpha mldiagnostics machine-learning-run](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/mldiagnostics/machine-learning-run) start-continuous-profiling --machine-learning-run=my-run --location=us-central1 --targets=my-node-0 --xprof-server-port=9012
 
 To list the profiler targets of the machine learning run `my-run`, run: 
     
@@ -102,28 +104,10 @@ OPTIONAL FLAGS
      Tracer level is disabled. 
 `enabled`
      Tracer level is enabled. 
-`--host-tracer-level`=`HOST_TRACER_LEVEL`; default="info"
-     Host tracer level for the session. If the field is not set or unspecified, the default is `HOST_TRACER_LEVEL_INFO`. `HOST_TRACER_LEVEL` must be one of: 
-
-`critical`
-     Tracer level is critical. 
-`disabled`
-     Tracer level is disabled. 
-`info`
-     Tracer level is info. 
-`verbose`
-     Tracer level is verbose. 
 `--location`=`LOCATION`
      For resources [machine-learning-run, targets], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
 `--machine-learning-run`=`MACHINE_LEARNING_RUN`
      For resources [machine-learning-run, targets], provides fallback value for resource machine-learning-run attribute. When the resource's full URI path is not provided, machine-learning-run will fallback to this flag value. 
-`--python-tracer-level`=`PYTHON_TRACER_LEVEL`; default="disabled"
-     Python tracer level for the session. If the field is not set or unspecified, the default is `PYTHON_TRACER_LEVEL_DISABLED`. `PYTHON_TRACER_LEVEL` must be one of: 
-
-`disabled`
-     Tracer level is disabled. 
-`enabled`
-     Tracer level is enabled. 
 `--xprof-server-port`=`XPROF_SERVER_PORT`
      Port of the XProf profiler server that runs in your workload on each profiler target. If unspecified, port 9999 is used. 
 GCLOUD WIDE FLAGS
@@ -140,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

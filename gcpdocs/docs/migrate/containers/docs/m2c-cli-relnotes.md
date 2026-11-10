@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/containers/docs/m2c-cli-relnotes/
 title: Migrate to Containers CLI release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:54.834604+00:00
+fetched_at: 2026-11-10T19:01:18.535244+00:00
 ---
 
 # Migrate to Containers CLI release notes  |  Google Cloud Documentation
@@ -23,6 +23,26 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This page documents production updates to Migrate to Containers CLI. You can periodically check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality.
 
+## November 4, 2026
+
+On November 4, 2026, we released version 1.2.7 of the Migrate to Containers CLI and version 1.4.23 of the Migrate to Containers modernization plugins.
+
+### Bug Fixes
+
+  * Updated the following plugin images to address discovered vulnerabilities:
+
+Plugin Image | Vulnerabilities  
+---|---  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/apache | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/jboss | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/linux-discovery | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/linux-extraction | CVE-2026-35189, CVE-2026-54872, CVE-2026-56857, CVE-2026-56866, CVE-2026-75805, CVE-2026-75806, CVE-2026-77696, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-84782, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/service-manager-runtime | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/tomcat-discovery | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/tomcat-extraction | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/websphere | CVE-2026-102633, CVE-2026-50219, CVE-2026-56131, CVE-2026-56412, CVE-2026-56857, CVE-2026-56866, CVE-2026-66046, CVE-2026-76957, CVE-2026-77214, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-93990, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+us-docker.pkg.dev/migrate-modernize-public/modernize-plugins-prod/wordpress | CVE-2026-56857, CVE-2026-56866, CVE-2026-78659, CVE-2026-78660, CVE-2026-78663, CVE-2026-78667, CVE-2026-78669, CVE-2026-94439, CVE-2026-94440, CVE-2026-94444, CVE-2026-94447, CVE-2026-94448, CVE-2026-97030, CVE-2026-97031, CVE-2026-97032  
+  
 ## October 15, 2026
 
 On October 15, 2026, we released version 1.2.6 of the Migrate to Containers CLI and version 1.4.22 of the Migrate to Containers modernization plugins.
@@ -712,6 +732,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

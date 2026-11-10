@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/authentication-howto/
 title: Programmatic authentication \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:19.018016+00:00
+fetched_at: 2026-11-10T16:58:46.356219+00:00
 ---
 
 # Programmatic authentication  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Programmatic authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to authenticate to an IAP-secured resource from a user account or a service account. 
+This document describes how to authenticate to an IAP-secured resource from a user account or a service account.
 
 Programmatic access refers to calling IAP-secured applications from non-browser clients, such as command-line tools, service-to-service calls, and mobile applications. Depending on your use case, you might want to authenticate to IAP using user credentials or service credentials.
 
@@ -36,9 +36,7 @@ Programmatic access refers to calling IAP-secured applications from non-browser 
 
 IAP supports the following types of credentials for programmatic access:
 
-  * **OAuth 2.0 ID token** \- A Google-issued token for a human user or service account with the audience claim set to the resource ID of the IAP application.
-
-  * **OAuth 2.0 access token** \- A Google-issued OAuth 2.0 access token for a human user or service account that includes the `openid` and `https://www.googleapis.com/auth/userinfo.email` (`email`) scopes. 
+  * **OAuth 2.0 ID token** \- A Google-issued token for a human user or service account with the audience claim set to the resource ID of the IAP application. 
 
   * **Service account signed JWT** \- A self-signed or Google-issued JWT token for a service account.
 
@@ -65,10 +63,15 @@ You can enable user access to your application from a desktop or mobile app to a
 ### Authenticate from a mobile app
 
   1. [Create](https://docs.cloud.google.com/iap/docs/oauth-client-creation) or use an existing OAuth 2.0 client ID for your mobile app. To use an existing OAuth 2.0 client ID, follow the steps in [How to share OAuth Clients](https://docs.cloud.google.com/iap/docs/sharing-oauth-clients). Add the OAuth client ID to the allowlist for [programmatic access](https://docs.cloud.google.com/iap/docs/sharing-oauth-clients#programmatic_access) to the application.
-  2. Get an ID token for the OAuth 2.0 client ID of the IAP-secured resource. 
+
+  2. Get an ID token for the OAuth 2.0 client ID of the IAP-secured resource.
+
      * **Android** : Use the [Google Sign-In API](https://developers.google.com/identity/sign-in/android/) to request an [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) (OIDC) token. Set the [`requestIdToken` client ID](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder.html#requestIdToken\(java.lang.String\)) to the client ID for the resource you're connecting to.
+
      * **iOS** : Use [Google Sign-In](https://developers.google.com/identity/sign-in/ios/backend-auth) to get an ID token.
+
   3. Include the ID token in an `Authorization: Bearer` header to make the authenticated request to the IAP-secured resource.
+
 
 
 
@@ -77,7 +80,9 @@ You can enable user access to your application from a desktop or mobile app to a
 This section describes how to authenticate a user account from a desktop command line.
 
   1. To allow developers to access your application from the command line, [create a desktop OAuth 2.0 client ID](https://docs.cloud.google.com/iap/docs/oauth-client-creation) or [share an existing desktop OAuth client ID](https://docs.cloud.google.com/iap/docs/sharing-oauth-clients).
+
   2. Add the OAuth ID to the allowlist for [programmatic access](https://docs.cloud.google.com/iap/docs/sharing-oauth-clients#programmatic_access) for the application.
+
 
 
 
@@ -86,6 +91,7 @@ This section describes how to authenticate a user account from a desktop command
 Each developer must sign in to access an IAP-secured app. You can package the process into a script, such as by using [gcloud CLI](https://docs.cloud.google.com/sdk/docs). The following example uses curl to sign in and generate a token that can be used to access the application:
 
   1. Sign in to your account that has access to the Google Cloud resource.
+
   2. Start a local server that can echo the incoming requests.
          
          # Example using Netcat (http://netcat.sourceforge.net/)
@@ -143,16 +149,18 @@ The following example uses curl to use the refresh token to get a new ID token a
 
 This command returns a JSON object with a new `id_token` field that you can use to access the app.
 
-**Note:** The refresh token workflow is not supported for access level policies. You must regenerate a new ID token using the full authentication flow. 
+**Note:** The refresh token workflow is not supported for access level policies. You must regenerate a new ID token using the full authentication flow.
 
 ## Authenticate a service account
 
-You can use a [service account JWT](https://developers.google.com/identity/protocols/oauth2/service-account#jwt-auth) or an [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) (OIDC) token, or an OAuth 2.0 access token to authenticate a service account with an IAP-secured resource. The following table outlines some of the differences between the different authentication tokens and their features. Authentication features | Service account JWT | OpenID Connect token | OAuth 2.0 access token  
+You can use a [service account JWT](https://developers.google.com/identity/protocols/oauth2/service-account#jwt-auth) or an [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) (OIDC) token, or an OAuth 2.0 access token to authenticate a service account with an IAP-secured resource. The following table outlines some of the differences between the different authentication tokens and their features.
+
+Authentication features | Service account JWT | OpenID Connect token | OAuth 2.0 access token  
 ---|---|---|---  
 Context-aware access support |  |  |   
 OAuth 2.0 Client ID requirement |  |  |   
 Token scope | URL of IAP-secured resource | OAuth 2.0 client ID | `openid` and `https://www.googleapis.com/auth/userinfo.email`  
-**Note:** Service accounts don't support [device policy attributes](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#device-policy) with context-aware access. 
+**Note:** Service accounts don't support [device policy attributes](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#device-policy) with context-aware access.
 
 ### Authenticate with a service account JWT
 
@@ -201,7 +209,9 @@ The created JWT should have a payload similar to the following example:
 You can use one of the following methods to sign the JWT:
 
   * Use the IAM credentials API to sign a JWT without requiring direct access to a private key.
+
   * Use a local credentials key file to sign the JWT locally.
+
 
 
 
@@ -214,30 +224,27 @@ To authenticate to IAP, set up application default credentials. For more informa
 ### gcloud
 
   1. Run the following command to prepare a request with the JWT payload:
+         
+         cat > claim.json << EOM
+         {
+           "iss": "SERVICE_ACCOUNT_EMAIL_ADDRESS",
+           "sub": "SERVICE_ACCOUNT_EMAIL_ADDRESS",
+           "aud": "TARGET_URL",
+           "iat": $(date +%s),
+           "exp": $((`date +%s` + 3600))
+         }
+         EOM
+         
 
-
-    
-    
-    cat > claim.json << EOM
-    {
-      "iss": "SERVICE_ACCOUNT_EMAIL_ADDRESS",
-      "sub": "SERVICE_ACCOUNT_EMAIL_ADDRESS",
-      "aud": "TARGET_URL",
-      "iat": $(date +%s),
-      "exp": $((`date +%s` + 3600))
-    }
-    EOM
-    
-
-  1. Use the following Google Cloud CLI command to sign the payload in `claim.json`:
-
-
-    
-    
-    gcloud iam service-accounts sign-jwt --iam-account="SERVICE_ACCOUNT_EMAIL_ADDRESS" claim.json output.jwt
-    
+  2. Use the following Google Cloud CLI command to sign the payload in `claim.json`:
+         
+         gcloud iam service-accounts sign-jwt --iam-account="SERVICE_ACCOUNT_EMAIL_ADDRESS" claim.json output.jwt
+         
 
 After a successful request, `output.jwt` contains a signed JWT that you can use to access your IAP-secured resource.
+
+
+
 
 ### Python
     
@@ -798,32 +805,39 @@ To generate an OIDC token using a service account key file, create and sign a JW
 This script performs the following steps:
 
   1. Extracts the service account key information from your JSON key file
+
   2. Creates a JWT with the necessary fields, including the IAP client ID as the target audience
+
   3. Signs the JWT using the service account's private key
+
   4. Exchanges this JWT for an OIDC token through Google's OAuth service
+
   5. Uses the resulting token to make an authenticated request to your IAP-secured resource
+
 
 
 
 To use this script:
 
   1. Save it to a file, for example: `get_iap_token.sh`
+
   2. Make it executable: `chmod +x get_iap_token.sh`
+
   3. Run it with three parameters:
-
-
-    
-    
-      ./get_iap_token.sh service-account-key.json \
-        OAUTH_CLIENT_ID \
-        URL
-    
+         
+         ./get_iap_token.sh service-account-key.json \
+           OAUTH_CLIENT_ID \
+           URL
+         
 
 Where:
 
-  * `service-account-key.json` is your downloaded service account key file
-  * OAUTH_CLIENT_ID is the OAuth client ID for your IAP-secured resource
-  * URL is the URL you want to access
+     * `service-account-key.json` is your downloaded service account key file
+
+     * OAUTH_CLIENT_ID is the OAuth client ID for your IAP-secured resource
+
+     * URL is the URL you want to access
+
 
 
 
@@ -895,8 +909,10 @@ To access the application by using the `Proxy-Authorization` header, run the fol
 
 ## What's next
 
-  * Learn more about [Authorization: Bearer Tokens](https://developers.google.com/gmail/markup/actions/verifying-bearer-tokens). 
-  * Try [Sign-In for Android](https://developers.google.com/identity/sign-in/android/start) or [Sign-In for iOS](https://developers.google.com/identity/sign-in/ios/start). 
+  * Learn more about [Authorization: Bearer Tokens](https://developers.google.com/gmail/markup/actions/verifying-bearer-tokens).
+
+
+  * Try [Sign-In for Android](https://developers.google.com/identity/sign-in/android/start) or [Sign-In for iOS](https://developers.google.com/identity/sign-in/ios/start).
 
 
 
@@ -904,6 +920,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

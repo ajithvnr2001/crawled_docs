@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/tut-workflows/
 title: Schedule Workflows \u00a0|\u00a0 Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:03.969269+00:00
+fetched_at: 2026-11-10T14:05:06.242790+00:00
 ---
 
 # Schedule Workflows  |  Cloud Scheduler  |  Google Cloud Documentation
@@ -285,7 +285,7 @@ Your workflow now executes every 5 minutes.
 
 For more information about the `gcloud scheduler` flags, as well as how to apply call logging so that each call step during the execution of your workflow is logged, see [Schedule a workflow](https://docs.cloud.google.com/workflows/docs/schedule-workflow) and the `gcloud` [reference](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/create/http).
 
-**Note:** Each execution of a workflow incurs costs, as detailed in [Workflows pricing](https://cloud.google.com/workflows/pricing). To stop incurring costs from a scheduled workflow, delete the Cloud Scheduler job.
+**Note:** Each execution of a workflow incurs costs, as detailed in [Workflows pricing](https://cloud.google.com/workflows/pricing). To stop incurring costs from a scheduled workflow, delete the Cloud Scheduler job. To prevent duplicate workflow executions when Cloud Scheduler retries a job, see [Prevent duplicate requests to Google Cloud API targets](https://docs.cloud.google.com/scheduler/docs/configuring/deduplicate-job-requests#deduplicate-google-api-targets).
 
 ## Run the job and verify the results
 
@@ -429,6 +429,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-new-features/
 title: GKE release notes (new features) \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:04.013923+00:00
+fetched_at: 2026-11-10T16:58:36.856094+00:00
 ---
 
 # GKE release notes (new features)  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -26,6 +26,34 @@ This page documents new features in Google Kubernetes Engine (GKE). You can peri
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gke-new-features-release-notes.xml) directly. 
+
+## November 09, 2026
+
+Feature
+
+GKE Gateway now supports Server Name Indication (SNI)-based routing with TLS passthrough. You can use TLS protocol-specific rules to route incoming TLS streams from the Gateway to Kubernetes Services based on SNI without terminating TLS at the GKE Gateway load balancer. Application developers can create TLSRoute resources to expose secure TLS traffic to applications that run in the GKE cluster.
+
+Creating TLSRoute resources requires the Gateway API version 1.5.0 or later CRDs (Standard channel), which are installed in GKE version 1.35.2-gke.1842000 or later.
+
+This feature supports single-cluster and multi-cluster GKE Gateway load balancers by using the following GatewayClass resources:
+
+  * `gke-l7-rilb`
+  * `gke-l7-regional-external-managed`
+  * `gke-l7-rilb-mc`
+  * `gke-l7-regional-external-managed-mc`
+  * `gke-l7-cross-regional-internal-managed-mc`
+
+
+
+For more information, see [Deploy a TLS passthrough Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-tls-passthrough-gateway).
+
+Feature
+
+Agent Substrate on GKE is now Generally Available (GA) for GKE Standard clusters running version 1.37 or later.
+
+Agent Substrate is an infrastructure layer designed for large-scale, high-density AI agent workloads, such as personal assistants and coding agents. Because interactive agents often remain idle while waiting for user input, running them on traditional microservice infrastructure can underutilize CPU and memory resources. Agent Substrate uses a lightweight control plane that bypasses standard Kubernetes Pod scheduling limits to provide fast sandbox provisioning and efficient suspend-and-resume capabilities.
+
+For more information, see [About Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate).
 
 ## November 03, 2026
 

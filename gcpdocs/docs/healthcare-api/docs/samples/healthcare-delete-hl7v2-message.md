@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-delete-hl7v2-message/
 title: Delete HL7v2 message \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:08.226331+00:00
+fetched_at: 2026-11-10T09:16:19.009442+00:00
 ---
 
 # Delete HL7v2 message  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -117,9 +117,9 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
             GoogleCredentials.getApplicationDefault()
                 .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
     
-        // Create a HttpRequestInitializer, which will provide a baseline configuration to> all requests.
+        // Create a HttpRequestInitializer, which will provide a baseline configuration to all requests.
         HttpRequestInitializer requestInitializer =
-            request - {
+            request -> {
               new HttpCredentialsAdapter(credential).initialize(request);
               request.setConnectTimeout(60000); // 1 minute connect timeout
               request.setReadTimeout(60000); // 1 minute read timeout
@@ -147,7 +147,7 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
       }),
     });
     
-    const deleteH>l7v2Message = async () = {
+    const deleteHl7v2Message = async () => {
       // TODO(developer): uncomment the lines beginning with 'const' before running the sample
       // const cloudRegion = 'us-central1';
       // const projectId = 'adjective-noun-123';

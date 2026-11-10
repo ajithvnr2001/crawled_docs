@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/create-and-connect/
 title: Create and query an AlloyDB database using the Google Cloud console \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:19:20.728222+00:00
+fetched_at: 2026-11-10T18:46:29.561556+00:00
 ---
 
 # Create and query an AlloyDB database using the Google Cloud console  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -111,13 +111,17 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 **Note:** To set up a cluster, instance, and network for your development environment using an interactive guide, follow the steps in the [AlloyDB setup codelab](https://codelabs.developers.google.com/easy-alloydb-setup).
 
-  1. In the Google Cloud console, go to the **Clusters** page.
+  1. In the Google Cloud console, go to the **Clusters** page, or go to the **Get started** page.
 
 [Go to Clusters](https://console.cloud.google.com/alloydb/clusters)
 
-  2. Click **Create cluster**.
+  2. If your Google Cloud project already has clusters, click **Create cluster** to open the **Select configuration** page.
 
-  3. In **Configure your cluster** , follow these steps:
+  3. In the **Production (single zone)** card, click **Create cluster**.
+
+  4. In the cluster creation pane that opens, click **Customize** to open the full cluster creation form.
+
+  5. In **Configure your cluster** , follow these steps:
 
      1. In the **Cluster ID** field, enter `my-cluster`.
 
@@ -127,7 +131,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
      4. In the **Region** menu under **Location** , select the `us-central1 (Iowa)` region.
 
-  4. In **Configure your primary instance** , follow these steps:
+  6. In **Configure your primary instance** , follow these steps:
 
      1. In the **Instance ID** field, enter `my-cluster-primary`.
 
@@ -146,7 +150,7 @@ If you have a private services access connection configured, continue to the nex
 
      5. Retain the default settings under **Network security**.
 
-  5. Click **Create cluster**. It might take several minutes for AlloyDB to create the cluster and display it on the primary cluster **Overview** page.
+  7. Click **Create cluster**. It might take several minutes for AlloyDB to create the cluster and display it on the primary cluster **Overview** page.
 
 
 
@@ -281,6 +285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
