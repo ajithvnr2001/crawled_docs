@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-gemini-multiturn-chat/
 title: Interactive text generation with a chatbot \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:58.774226+00:00
+fetched_at: 2026-11-10T06:00:54.670591+00:00
 ---
 
 # Interactive text generation with a chatbot  |  Generative AI on Vertex AI  |  Google Cloud Documentation

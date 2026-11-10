@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-get-mute-config/
 title: View a mute rule \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:51:00.412674+00:00
+fetched_at: 2026-11-10T06:00:22.885031+00:00
 ---
 
 # View a mute rule  |  Security Command Center  |  Google Cloud Documentation

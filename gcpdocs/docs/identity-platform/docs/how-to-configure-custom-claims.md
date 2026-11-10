@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/how-to-configure-custom-claims/
 title: Configure custom claims on users \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:22.449502+00:00
+fetched_at: 2026-11-10T06:09:39.089065+00:00
 ---
 
 # Configure custom claims on users  |  Identity Platform  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          // The new custom claims will propagate to the user's ID token the
          // next time a new one is issued.
          
-         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L157-L162)
+         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L157-L162)
 
 ###  Python 
          
@@ -119,7 +119,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
            // Allow access to requested admin resource.
          }
          
-         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L167-L171)
+         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L167-L171)
 
 ###  Python 
          
@@ -184,7 +184,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          UserRecord user = FirebaseAuth.getInstance().getUser(uid);
          System.out.println(user.getCustomClaims().get("admin"));
          
-         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L175-L177)
+         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L175-L177)
 
 ###  Python 
          

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-export-model-tabular-classification-sample/
 title: Export a model for tabular classification \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:01.467803+00:00
+fetched_at: 2026-11-10T06:00:59.229672+00:00
 ---
 
 # Export a model for tabular classification  |  Vertex AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-subcollection/
 title: Query a subcollection \u00a0|\u00a0 Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:46.891367+00:00
+fetched_at: 2026-11-10T06:10:49.863923+00:00
 ---
 
 # Query a subcollection  |  Firestore  |  Google Cloud Documentation

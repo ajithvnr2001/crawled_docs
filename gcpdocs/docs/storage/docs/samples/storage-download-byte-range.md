@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-download-byte-range/
 title: Download an object using a byte range \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:23.047788+00:00
+fetched_at: 2026-11-10T06:00:32.192826+00:00
 ---
 
 # Download an object using a byte range  |  Cloud Storage  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     
     using Google.Apis.Storage.v1;
-    using [Google.Cloud.Storage.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.html);
+    using Google.Cloud.Storage.V1;
     using System;
     using System.IO;
     using System.Net.Http;
@@ -79,14 +79,14 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             long lastByte = 20,
             string localPath = "my-local-path/my-file-name")
         {
-            var storageClient = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
+            var storageClient = StorageClient.Create();
     
             // Create an HTTP request for the media, for a limited byte range.
             StorageService storage = storageClient.Service;
             var uri = new Uri($"{storage.BaseUri}b/{bucketName}/o/{objectName}?alt=media");
     
             var request = new HttpRequestMessage { RequestUri = uri };
-            request.Headers.[Range](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.DownloadObjectOptions.html#Google_Cloud_Storage_V1_DownloadObjectOptions_Range) = new RangeHeaderValue(firstByte, lastByte);
+            request.Headers.Range = new RangeHeaderValue(firstByte, lastByte);
     
             using var outputFile = File.OpenWrite(localPath);
             // Use the HttpClient in the storage object because it supplies
@@ -115,7 +115,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     )
     
     // downloadByteRange downloads a specific byte range of an object to a file.
-    func downloadByteRange(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucket, object string, startByte int64, endByte int64, destFileName string) error {
+    func downloadByteRange(w io.Writer, bucket, object string, startByte int64, endByte int64, destFileName string) error {
     	// bucket := "bucket-name"
     	// object := "object-name"
     	// startByte := 0
@@ -131,13 +131,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	ctx, cancel := context.WithTimeout(ctx, time.Second*50)
     	defer cancel()
     
-    	f, err := os.[Create](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Create)(destFileName)
+    	f, err := os.Create(destFileName)
     	if err != nil {
     		return fmt.Errorf("os.Create: %w", err)
     	}
     
     	length := endByte - startByte
-    	rc, err := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object).[NewRangeReader](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_NewRangeReader)(ctx, startByte, length)
+    	rc, err := client.Bucket(bucket).Object(object).NewRangeReader(ctx, startByte, length)
     	if err != nil {
     		return fmt.Errorf("Object(%q).NewReader: %w", object, err)
     	}
@@ -165,10 +165,10 @@ For more information, see the [Cloud Storage Java API reference documentation](h
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.[ReadChannel](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.ReadChannel.html);
-    import com.google.cloud.storage.[BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html);
-    import com.google.cloud.storage.[Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html);
-    import com.google.cloud.storage.[StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);
+    import com.google.cloud.ReadChannel;
+    import com.google.cloud.storage.BlobId;
+    import com.google.cloud.storage.Storage;
+    import com.google.cloud.storage.StorageOptions;
     import com.google.common.io.ByteStreams;
     import java.io.IOException;
     import java.nio.channels.FileChannel;
@@ -178,12 +178,12 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     public class DownloadByteRange {
     
       public static void downloadByteRange(
-          [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) projectId,
-          [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bucketName,
-          [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) blobName,
+          String projectId,
+          String bucketName,
+          String blobName,
           long startByte,
           long endBytes,
-          [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) destFileName)
+          String destFileName)
           throws IOException {
         // The ID of your GCP project
         // String projectId = "your-project-id";
@@ -203,9 +203,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         // The path to which the file should be downloaded
         // String destFileName = '/local/path/to/file.txt';
     
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
-        [BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html) blobId = [BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html).of(bucketName, blobName);
-        try ([ReadChannel](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.ReadChannel.html) from = storage.[reader](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_reader_com_google_cloud_storage_BlobId_com_google_cloud_storage_Storage_BlobSourceOption____)(blobId);
+        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+        BlobId blobId = BlobId.of(bucketName, blobName);
+        try (ReadChannel from = storage.reader(blobId);
             FileChannel to = FileChannel.open(Paths.get(destFileName), StandardOpenOption.WRITE)) {
           from.seek(startByte);
           from.limit(endBytes);
@@ -214,7 +214,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
           System.out.printf(
               "%s downloaded to %s from byte %d to byte %d%n",
-              blobId.[toGsUtilUri](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html#com_google_cloud_storage_BlobId_toGsUtilUri__)(), destFileName, startByte, endBytes);
+              blobId.toGsUtilUri(), destFileName, startByte, endBytes);
         }
       }
     }
@@ -245,10 +245,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // const destFileName = '/local/path/to/file.txt';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    const {Storage} = require('@google-cloud/storage');
     
     // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    const storage = new Storage();
     
     async function downloadByteRange() {
       const options = {
@@ -258,7 +258,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       };
     
       // Downloads the file from the starting byte to the ending byte specified in options
-      await storage.bucket(bucketName).file(fileName).[download](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html)(options);
+      await storage.bucket(bucketName).file(fileName).download(options);
     
       console.log(
         `gs://${bucketName}/${fileName} downloaded to ${destFileName} from byte ${startByte} to byte ${endByte}.`
@@ -321,7 +321,7 @@ For more information, see the [Cloud Storage Python API reference documentation]
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
+    from google.cloud import storage
     
     
     def download_byte_range(
@@ -343,16 +343,16 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # The path to which the file should be downloaded
         # destination_file_name = "local/path/to/file"
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        storage_client = storage.Client()
     
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        bucket = storage_client.bucket(bucket_name)
     
         # Construct a client side representation of a blob.
         # Note `Bucket.blob` differs from `Bucket.get_blob` as it doesn't retrieve
         # any content from Google Cloud Storage. As we don't need additional data,
         # using `Bucket.blob` is preferred here.
         blob = bucket.blob(source_blob_name)
-        blob.[download_to_filename](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_to_filename)(destination_file_name, start=start_byte, end=end_byte)
+        blob.download_to_filename(destination_file_name, start=start_byte, end=end_byte)
     
         print(
             "Downloaded bytes {} to {} of object {} from bucket {} to local file {}.".format(
@@ -385,11 +385,11 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     require "google/cloud/storage"
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+    storage = Google::Cloud::Storage.new
     bucket  = storage.bucket bucket_name
-    file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
+    file    = bucket.file file_name
     
-    file.[download](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-File.html) local_file_path, range: start_byte..end_byte
+    file.download local_file_path, range: start_byte..end_byte
     
     puts "Downloaded bytes #{start_byte} to #{end_byte} of object #{file_name} from bucket #{bucket_name}" \
          + " to local file #{local_file_path}."

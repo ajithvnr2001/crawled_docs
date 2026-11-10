@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-databases/
 title: Create and manage databases \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:42:49.093397+00:00
+fetched_at: 2026-11-10T05:57:24.332774+00:00
 ---
 
 # Create and manage databases  |  Spanner  |  Google Cloud Documentation
@@ -235,7 +235,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
     import com.google.spanner.admin.database.v1.[CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html);
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     
@@ -252,7 +252,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
       static void createDatabaseWithDefaultLeader(String instanceName, String databaseId,
           String defaultLeader) throws IOException {
         try ([DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html) databaseAdminClient = [DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html).create()) {
-          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html) createdDatabase =
+          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html) createdDatabase =
               databaseAdminClient.createDatabaseAsync(
                   [CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html).newBuilder()
                       .setParent(instanceName)

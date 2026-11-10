@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/valkey/use-custom-org-policies/
 title: Enforce consistent configurations and restrictions for your instances by using custom organization policy constraints \u00a0|\u00a0 Memorystore for Valkey \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:41:59.556927+00:00
+fetched_at: 2026-11-10T06:00:32.456778+00:00
 ---
 
 # Enforce consistent configurations and restrictions for your instances by using custom organization policy constraints  |  Memorystore for Valkey  |  Google Cloud Documentation
@@ -106,7 +106,7 @@ After creating the custom constraint, you set it up to make it available for org
      1. In the **Condition** field, click **Edit**.
      2. In the **Add condition** dialog, enter the CEL condition. For example: `resource.shardCount == 5`.
 
-This condition can have a maximum length of 1,000 characters. For more information about the resources available to write conditions against, see  Supported custom constraints and operations.
+This condition can have a maximum length of 1,500 characters. For more information about the resources available to write conditions against, see  Supported custom constraints and operations.
 
      3. Click **Save**.
   10. In the **Action** section, make one of the following selections that represents the action to take if the condition is met: 
@@ -139,7 +139,7 @@ Make the following replacements:
      * `RESOURCE_NAME`: the name (not the URI) of the Memorystore for Valkey resource, containing the object and field that you want to restrict. For example: `memorystore.googleapis.com/Instance`.
      * `CONDITION`: a CEL condition that's written against a representation of a supported service resource. For example: `"resource.shardCount == 5"`.
 
-This field has a maximum length of 1,000 characters. For more information about the resources available to write conditions against, see Supported custom constraints and operations.
+This field has a maximum length of 1,500 characters. For more information about the resources available to write conditions against, see Supported custom constraints and operations.
 
      * `ACTION`: the action to take if the condition is met. This action can be one of the following values: 
        * `ALLOW`: if the condition evaluates to true, then the operation to create or update the instance is permitted. Every other case except those explicitly listed in the condition is blocked.
@@ -299,6 +299,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

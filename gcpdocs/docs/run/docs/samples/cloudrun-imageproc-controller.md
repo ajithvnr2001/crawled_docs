@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-imageproc-controller/
 title: Pub/Sub handler to process Cloud Storage events \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:08.225818+00:00
+fetched_at: 2026-11-10T06:03:25.162805+00:00
 ---
 
 # Pub/Sub handler to process Cloud Storage events  |  Cloud Run  |  Google Cloud Documentation

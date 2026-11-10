@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-sdk-code-completion-comment/
 title: Code completion \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:41.526736+00:00
+fetched_at: 2026-11-10T06:00:59.115092+00:00
 ---
 
 # Code completion  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,13 +35,13 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.v1.[EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html);
-    import com.google.cloud.aiplatform.v1.[PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html);
-    import com.google.cloud.aiplatform.v1.[PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html);
-    import com.google.protobuf.[InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
-    import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
+    import com.google.cloud.aiplatform.v1.EndpointName;
+    import com.google.cloud.aiplatform.v1.PredictResponse;
+    import com.google.cloud.aiplatform.v1.PredictionServiceClient;
+    import com.google.cloud.aiplatform.v1.PredictionServiceSettings;
+    import com.google.protobuf.InvalidProtocolBufferException;
+    import com.google.protobuf.Value;
+    import com.google.protobuf.util.JsonFormat;
     import java.io.IOException;
     import java.util.ArrayList;
     import java.util.List;
@@ -78,23 +78,23 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           String model)
           throws IOException {
         final String endpoint = String.format("%s-aiplatform.googleapis.com:443", location);
-        [PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html) predictionServiceSettings =
-            [PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html).newBuilder().setEndpoint(endpoint).build();
+        PredictionServiceSettings predictionServiceSettings =
+            PredictionServiceSettings.newBuilder().setEndpoint(endpoint).build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html) predictionServiceClient =
-            [PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html).create(predictionServiceSettings)) {
-          final [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html) endpointName =
-              [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html).[ofProjectLocationPublisherModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html#com_google_cloud_aiplatform_v1_EndpointName_ofProjectLocationPublisherModelName_java_lang_String_java_lang_String_java_lang_String_java_lang_String_)(project, location, publisher, model);
+        try (PredictionServiceClient predictionServiceClient =
+            PredictionServiceClient.create(predictionServiceSettings)) {
+          final EndpointName endpointName =
+              EndpointName.ofProjectLocationPublisherModelName(project, location, publisher, model);
     
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) instanceValue = stringToValue(instance);
-          [List<Value>](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html) instances = new ArrayList<>();
+          Value instanceValue = stringToValue(instance);
+          List<Value> instances = new ArrayList<>();
           instances.add(instanceValue);
     
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) parameterValue = stringToValue(parameters);
+          Value parameterValue = stringToValue(parameters);
     
-          [PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html) predictResponse =
+          PredictResponse predictResponse =
               predictionServiceClient.predict(endpointName, instances, parameterValue);
           System.out.println("Predict Response");
           System.out.println(predictResponse);
@@ -102,10 +102,10 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
       }
     
       // Convert a Json string to a protobuf.Value
-      static [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) stringToValue(String value) throws [InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html) {
-        [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder builder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
-        [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(value, builder);
-        return [builder](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormatParseInfoTree.html#com_google_protobuf_TextFormatParseInfoTree_builder__).build();
+      static Value stringToValue(String value) throws InvalidProtocolBufferException {
+        Value.Builder builder = Value.newBuilder();
+        JsonFormat.parser().merge(value, builder);
+        return builder.build();
       }
     }
 

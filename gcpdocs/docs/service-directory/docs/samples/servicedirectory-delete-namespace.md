@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/samples/servicedirectory-delete-namespace/
 title: Delete namespace \u00a0|\u00a0 Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:51:55.871546+00:00
+fetched_at: 2026-11-10T06:02:51.629523+00:00
 ---
 
 # Delete namespace  |  Service Directory  |  Google Cloud Documentation
@@ -249,7 +249,7 @@ To authenticate to Service Directory, set up Application Default Credentials. Fo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The path of the namespace
     namespace_name = registration_service.namespace_path(

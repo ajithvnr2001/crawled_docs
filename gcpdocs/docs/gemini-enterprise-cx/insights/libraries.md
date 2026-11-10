@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/libraries/
 title: CX Insights client libraries \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:38.272194+00:00
+fetched_at: 2026-11-10T06:00:54.556553+00:00
 ---
 
 # CX Insights client libraries  |  Customer Experience Insights  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-contact-center-insights" % "2.101.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-contact-center-insights" % "2.102.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

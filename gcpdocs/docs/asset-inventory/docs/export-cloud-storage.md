@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/export-cloud-storage/
 title: Export asset metadata to Cloud Storage \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:16:15.317722+00:00
+fetched_at: 2026-11-10T06:05:52.487593+00:00
 ---
 
 # Export asset metadata to Cloud Storage  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -624,14 +624,14 @@ To learn how to install and use the client library for Cloud Asset Inventory, se
 To authenticate to Cloud Asset Inventory, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest)
+    from google.cloud import asset_v1
     
     # TODO project_id = 'Your Google Cloud Project ID'
     # TODO dump_file_path = 'Your asset dump file path'
     
-    client = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
+    client = asset_v1.[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
     parent = f"projects/{project_id}"
-    output_config = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[OutputConfig](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.OutputConfig.html)()
+    output_config = asset_v1.[OutputConfig](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.OutputConfig.html)()
     output_config.gcs_destination.uri = dump_file_path
     request_options = {"parent": parent, "output_config": output_config}
     
@@ -650,7 +650,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     
     require "google/cloud/asset"
     
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     # project_id = 'YOUR_PROJECT_ID'
     formatted_parent = asset_service.[project_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset-V1-AssetService-Paths.html) project: project_id
     # Assets dump file path, e.g.: gs://[YOUR_BUCKET]/[YOUR_ASSETS_FILE]

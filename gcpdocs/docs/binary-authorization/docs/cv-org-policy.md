@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/cv-org-policy/
 title: Require continuous validation check-based platform policies for all GKE clusters \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:25.801320+00:00
+fetched_at: 2026-11-10T05:59:54.915955+00:00
 ---
 
 # Require continuous validation check-based platform policies for all GKE clusters  |  Binary Authorization  |  Google Cloud Documentation
@@ -75,7 +75,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
      2. In **Enforcement method** , select **Enforce on create and update**.
 
-     3. Enter an expression into the **Condition** field. This field has a maximum length of 1000 characters. The custom constraint is enforced when the condition evaluates to `true`. The condition is as expression in the [Common Expression Language (CEL) syntax](https://cel.dev). You can combine expressions with and (`&&`) and or (`||`) to create a complex condition. CEL is a C-like expression language. To learn more about the syntax and semantics of CEL, see <https://github.com/google/cel-spec>. To enter the condition, do the following:
+     3. Enter an expression into the **Condition** field. This field has a maximum length of 1,500 characters. The custom constraint is enforced when the condition evaluates to `true`. The condition is as expression in the [Common Expression Language (CEL) syntax](https://cel.dev). You can combine expressions with and (`&&`) and or (`||`) to create a complex condition. CEL is a C-like expression language. To learn more about the syntax and semantics of CEL, see <https://github.com/google/cel-spec>. To enter the condition, do the following:
 
         1. Click edit **Edit condition**.
 
@@ -127,7 +127,7 @@ Replace the following:
 
      * `ORGANIZATION_ID`: your organization ID—for example, `123456789`.
      * `CONSTRAINT_ID`: a constraint ID—for example, `RequireBinAuthzCVPolicy`.
-     * `CONDITION`: enter an expression to check for the existence of a CV platform policy. This field has a maximum length of 1000 characters. The custom constraint is enforced when the condition evaluates to `true`. The condition is as expression in the [Common Expression Language (CEL) syntax](https://cel.dev). You can combine expressions with and (`&&`) and or (`||`) to create a complex condition. CEL is a C-like expression language. To learn more about the syntax and semantics of CEL, see <https://github.com/google/cel-spec>. The following condition requires that a CV platform policy binding exists and that the platform policy has a specific name:
+     * `CONDITION`: enter an expression to check for the existence of a CV platform policy. This field has a maximum length of 1,500 characters. The custom constraint is enforced when the condition evaluates to `true`. The condition is as expression in the [Common Expression Language (CEL) syntax](https://cel.dev). You can combine expressions with and (`&&`) and or (`||`) to create a complex condition. CEL is a C-like expression language. To learn more about the syntax and semantics of CEL, see <https://github.com/google/cel-spec>. The following condition requires that a CV platform policy binding exists and that the platform policy has a specific name:
            
            resource.binaryAuthorization.policyBindings.exists(policy, policy.name == "projects/PROJECT_ID/platforms/gke/policies/POLICY_ID")
            
@@ -327,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

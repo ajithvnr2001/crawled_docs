@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-cursor-start-at-document/
 title: Query a Firestore collection with a cursor start at document filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:53.312694+00:00
+fetched_at: 2026-11-10T06:06:50.976350+00:00
 ---
 
 # Query a Firestore collection with a cursor start at document filter  |  Google Cloud Documentation

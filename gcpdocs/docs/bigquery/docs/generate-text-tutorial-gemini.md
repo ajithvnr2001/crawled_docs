@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-text-tutorial-gemini/
 title: Generate text by using a Gemini model and the AI.GENERATE_TEXT function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:13.726191+00:00
+fetched_at: 2026-11-10T05:59:17.239836+00:00
 ---
 
 # Generate text by using a Gemini model and the AI.GENERATE_TEXT function  |  BigQuery  |  Google Cloud Documentation
@@ -189,7 +189,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
   14. Grant roles to your user account. Run the following command once for each of the following IAM roles: ` roles/bigquery.admin, roles/resourcemanager.projectIamAdmin `
          
-         gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER" --role=ROLE
+         gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER&quot; --role=ROLE
 
 Replace the following:
 
@@ -311,7 +311,7 @@ Use the [`CREATE CONNECTION` statement](https://docs.cloud.google.com/bigquery/d
          CREATE CONNECTION [IF NOT EXISTS] `CONNECTION_NAME`
          OPTIONS (
            connection_type = "CLOUD_RESOURCE",
-           friendly_name = "FRIENDLY_NAME",
+           friendly_name = &quot;FRIENDLY_NAME";,
            description = "DESCRIPTION"
            );
 
@@ -389,18 +389,18 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
             project_id: The Google Cloud project ID.
             location: The location of the connection (for example, "us-central1").
             connection_id: The ID of the connection to create.
-        """
+        ["""span>
     
-        parent = client.[common_location_path](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.services.connection_service.ConnectionServiceClient.html#google_cloud_bigquery_connection_v1_services_connection_service_ConnectionServiceClient_common_location_path)(project_id, location)
-    
-        connection = [bigquery_connection_v1](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest).[Connection](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.types.Connection.html)(
+        parent = client.common_location_path(](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.services.connection_service.ConnectionServiceClient.html#google_cloud_bigquery_connection_v1_services_connection_service_ConnectionServiceClient_common_location_path)[project_id, location)
+    ](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest)
+    [    connec](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.types.Connection.html)tion = bigquery_connection_v1.Connection(
             friendly_name="Example Connection",
-            description="A sample connection for a Cloud Resource.",
-            cloud_resource=[bigquery_connection_v1](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest).[CloudResourceProperties](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.types.CloudResourceProperties.html)(),
+            description="A sample con[nection for a Cloud Re](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest)s[ource."](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.types.CloudResourceProperties.html),
+            cloud_resource=bigquery_connection_v1.CloudResourceProper[ties](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.services.connection_service.ConnectionServiceClient.html#google_cloud_bigquery_connection_v1_services_connection_service_ConnectionServiceClient_create_connection)(),
         )
     
         try:
-            created_connection = client.[create_connection](https://docs.cloud.google.com/python/docs/reference/bigqueryconnection/latest/google.cloud.bigquery_connection_v1.services.connection_service.ConnectionServiceClient.html#google_cloud_bigquery_connection_v1_services_connection_service_ConnectionServiceClient_create_connection)(
+            created_connection = client.create_connection(
                 parent=parent, connection_id=connection_id, connection=connection
             )
             print(f"Successfully created connection: {created_connection.name}")
@@ -425,10 +425,10 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     const {ConnectionServiceClient} =
-      require('[@google-cloud/bigquery-connection](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-connection/latest/overview.html)').v1;
+      require(&[#39;@google-cloud/bigquery-connec](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-connection/latest/overview.html)tion').v1;
     const {status} = require('@grpc/grpc-js');
     
-    const client = new [ConnectionServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-connection/latest/overview.html)();
+    con[st](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-connection/latest/overview.html) client = new ConnectionServiceClient();
     
     /**
      * Creates a new BigQuery connection to a Cloud Resource.
@@ -500,40 +500,40 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
        * @param location The geographic location of the connection (for example, "us-central1").
        * @param connectionId The ID of the connection to create (for example, "example-connection-id").
        */
-      public static void createConnection(String projectId, String location, String connectionId) {
-        [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.LocationName.html) parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.LocationName.html).of(projectId, location);
+      public static void createConnection(String projectId, String locatio[n](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.LocationName.html), String connectionId[) {
+        Loca](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.LocationName.html)tionName parent = LocationName.of(projectId, location);
     
-        // CloudResourceProperties provisions a managed Google Cloud service account on creation.
-        [CloudResourceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CloudResourceProperties.html) cloudResourceProperties = [CloudResourceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CloudResourceProperties.html).newBuilder().build();
-        [Connection](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html) connection =
-            [Connection](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html).newBuilder()
-                .[setFriendlyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.Builder.html#com_google_cloud_bigquery_connection_v1_Connection_Builder_setFriendlyName_java_lang_String_)("Example Connection")
-                .[setDescription](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.Builder.html#com_google_cloud_bigquery_connection_v1_Connection_Builder_setDescription_java_lang_String_)("Cloud Resource connection for federated queries.")
-                .[setCloudResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.Builder.html#com_google_cloud_bigquery_connection_v1_Connection_Builder_setCloudResource_com_google_cloud_bigquery_connection_v1_CloudResourceProperties_)(cloudResourceProperties)
-                .build();
+        // CloudResourceProperties provisions a managed Google Cloud ser[vice account on creatio](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CloudResourceProperties.html)n.
+        CloudResourcePropert[ies](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CloudResourceProperties.html) cloudResourceProperties = CloudResourcePropert[ies](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html).newBuilder().build();
+        Co[nnection](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html) connection =
+            Connect[ion](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.Builder.html#com_google_cloud_bigquery_connection_v1_Connection_Builder_setFriendlyName_java_lang_String_).newBuilder()
+                .setFriendlyName("[;Example Conne](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.Builder.html#com_google_cloud_bigquery_connection_v1_Connection_Builder_setDescription_java_lang_String_)ction")
+                .setDescription("Cloud Resource conn[ection for feder](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.Builder.html#com_google_cloud_bigquery_connection_v1_Connection_Builder_setCloudResource_com_google_cloud_bigquery_connection_v1_CloudResourceProperties_)ated queries.")
+                .setCloudResource(cl[oudResourceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CreateConnectionRequest.html))
+                .build([);](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CreateConnectionRequest.html)
     
-        [CreateConnectionRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CreateConnectionRequest.html) request =
-            [CreateConnectionRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CreateConnectionRequest.html).newBuilder()
-                .setParent(parent.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.LocationName.html#com_google_cloud_bigquery_connection_v1_LocationName_toString__)())
-                .[setConnectionId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CreateConnectionRequest.Builder.html#com_google_cloud_bigquery_connection_v1_CreateConnectionRequest_Builder_setConnectionId_java_lang_String_)(connectionId)
-                .setConnection(connection)
-                .build();
+        CreateConnectionRequest request =
+            CreateConnectionR[equest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.LocationName.html#com_google_cloud_bigquery_connection_v1_LocationName_toString__).newBuilder()
+         [       ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.CreateConnectionRequest.Builder.html#com_google_cloud_bigquery_connection_v1_CreateConnectionRequest_Builder_setConnectionId_java_lang_String_).setParent(parent.toString())
+                .setConnectionId(connectionId)
+                .setConne[ction](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient.html)(connection)
+                .bu[ild](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient.html)();
     
-        try ([ConnectionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient.html) client = [ConnectionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient.html).create()) {
-          [Connection](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html) response = client.createConnection(request);
+        try (ConnectionServiceClient c[lient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html) = ConnectionServiceClient.create()) {
+          Connection response = client.createConnection(request);
     
-          System.out.printf("Successfully created connection: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html#com_google_cloud_bigquery_connection_v1_Connection_getName__)());
-          System.out.printf("Friendly name: %s%n", response.[getFriendlyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html#com_google_cloud_bigquery_connection_v1_Connection_getFriendlyName__)());
-          System.out.printf(
-              "Service Account: %s%n", response.[getCloudResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html#com_google_cloud_bigquery_connection_v1_Connection_getCloudResource__)().getServiceAccountId());
-        } catch ([AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html) err) {
+          System.out.printf(["S](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html#com_google_cloud_bigquery_connection_v1_Connection_getName__)uccessfully created connection: %s%n", response.getName([));](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html#com_google_cloud_bigquery_connection_v1_Connection_getFriendlyName__)
+          System.out.printf("Friendly name: %s%n", response.getFriendlyName());[
+          System.ou](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryconnection/latest/com.google.cloud.bigquery.connection.v1.Connection.html#com_google_cloud_bigquery_connection_v1_Connection_getCloudResource__)t.printf(
+              "Service Accoun[t: %s%n"](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html), response.getCloudResource().getServiceAccountId());
+        } catch (AlreadyExistsException err) {
           System.err.printf(
-              "error: connection '%s' already exists in location '%s' for project '%s': %s%n",
-              connectionId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
-        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+              "error: connection '%s' already exist[s in locat](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)ion '%s' f[or project &](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html)#39;%s': %s%n",
+              connectionId, location, projectId, err.getMessage());
+        } catch (ApiException | IOException err) {
           System.err.printf(
-              "error: failed to create connection '%s' in location '%s' for project '%s': %s%n",
-              connectionId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+              "error: faile[d to creat](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)e connection &#39;%s' in location '%s' for project '%s': %s%n",
+              connectionId, location, projectId, err.getMessage());
         }
       }
     

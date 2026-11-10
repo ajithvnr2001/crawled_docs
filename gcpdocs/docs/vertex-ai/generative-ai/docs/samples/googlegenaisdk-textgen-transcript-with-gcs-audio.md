@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-transcript-with-gcs-audio/
 title: Transcript an audio file with Multimodal AI Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:35.364515+00:00
+fetched_at: 2026-11-10T06:01:43.802768+00:00
 ---
 
 # Transcript an audio file with Multimodal AI Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-update-sink/
 title: Update a sink \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:00:47.373333+00:00
+fetched_at: 2026-11-10T06:00:05.789507+00:00
 ---
 
 # Update a sink  |  Cloud Logging  |  Google Cloud Documentation
@@ -147,7 +147,7 @@ To authenticate to Logging, set up Application Default Credentials. For more inf
     require "google/cloud/logging"
     
     logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Cloud-Logging.html).new
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).new
+    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).new
     # bucket_name = "name-of-my-storage-bucket"
     bucket  = storage.create_bucket bucket_name
     # sink_name = "name-of-my-sink"

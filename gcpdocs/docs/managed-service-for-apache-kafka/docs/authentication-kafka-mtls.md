@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/authentication-kafka-mtls/
 title: Configure mTLS authentication \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:15.879484+00:00
+fetched_at: 2026-11-10T06:00:03.089871+00:00
 ---
 
 # Configure mTLS authentication  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -290,7 +290,7 @@ To set a mapping rule on your cluster using Google Cloud CLI, follow these steps
         
         gcloud managed-kafka clusters update CLUSTER_ID \
             --location=REGION \
-            --ssl-principal-mapping-rules='MAPPING_RULE'
+            --ssl-principal-mapping-rules=&#39;MAPPING_RULE'
         
 
 Replace the following:
@@ -322,7 +322,7 @@ Assume you have an application identified by its certificate that produces messa
              --principal=User:order-processing-app \
              --operation=WRITE \
              --permission-type=ALLOW \
-             --host="*"
+             --host=&quot;*"
          
 
 Replace the following:
@@ -339,7 +339,7 @@ Replace the following:
              --principal=User:order-processing-app \
              --operation=READ \
              --permission-type=ALLOW \
-             --host="*"
+             --host=&quot;*"
          
 
 
@@ -424,7 +424,7 @@ The output is similar to the following:
   3. Create a Java KeyStore. Combine the certificate and private key into a `PKCS#12` file, and then import it into a Java KeyStore (`.jks`) file.
          
          # Create a password for the keystore
-         export KEYSTORE_PASSWORD="KEYSTORE_PASSWORD"
+         export KEYSTORE_PASSWORD=&quot;KEYSTORE_PASSWORD"
          
          # Combine the key and cert into a PKCS#12 file
          openssl pkcs12 -export -inkey client-key.pem -in client-cert.pem \

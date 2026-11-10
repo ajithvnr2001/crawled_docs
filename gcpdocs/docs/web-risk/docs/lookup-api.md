@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/web-risk/docs/lookup-api/
 title: Using the Lookup API \u00a0|\u00a0 Web Risk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:14.421868+00:00
+fetched_at: 2026-11-10T06:01:21.568490+00:00
 ---
 
 # Using the Lookup API  |  Web Risk  |  Google Cloud Documentation
@@ -140,12 +140,12 @@ You should receive a JSON response similar to the following:
 ### Python
     
     
-    from google.cloud import [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest)
+    from google.cloud import webrisk_v1
     from google.cloud.webrisk_v1 import [SearchUrisResponse](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchUrisResponse.html)
     
     
     def search_uri(
-        uri: str, threat_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html).MALWARE
+        uri: str, threat_type: webrisk_v1.[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html).MALWARE
     ) -> SearchUrisResponse:
         """Checks whether a URI is on a given threatList.
     
@@ -162,9 +162,9 @@ You should receive a JSON response similar to the following:
         Returns:
             SearchUrisResponse that contains a threat_type if the URI is present in the threatList.
         """
-        webrisk_client = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
+        webrisk_client = webrisk_v1.[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
     
-        request = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[SearchUrisRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchUrisRequest.html)()
+        request = webrisk_v1.[SearchUrisRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchUrisRequest.html)()
         request.threat_types = [threat_type]
         request.uri = uri
     

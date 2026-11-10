@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/create-runtime-template/
 title: Create a runtime template in Colab Enterprise \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:28:08.863791+00:00
+fetched_at: 2026-11-10T06:01:40.931549+00:00
 ---
 
 # Create a runtime template in Colab Enterprise  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -138,7 +138,7 @@ If you select a machine type that has GPUs, select the **Accelerator type** and 
 
 ### Environment
 
-  1. In the **Environment** section, select an **Environment**. The default is **Latest** (currently Python 3.12). 
+  1. In the **Environment** section, select an **Environment**. The default is **Latest** (currently Python 3.13). 
 
   2. Optional: In the **Post-startup script** field, enter the URI for a post-startup script. For more information about using a post-startup script, see [Use a post-startup script](https://docs.cloud.google.com/colab/docs/post-startup-script). 
 
@@ -312,6 +312,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

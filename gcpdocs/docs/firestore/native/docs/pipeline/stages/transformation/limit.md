@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/limit/
 title: Limit (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:19.213439+00:00
+fetched_at: 2026-11-10T06:06:21.861324+00:00
 ---
 
 # Limit (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ Limits the number of documents returned by the pipeline.
       // pipeline would have unintentional results.
       .limit(10);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2165-L2174)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2166-L2175)
 
 ##### Swift
     
@@ -130,7 +130,7 @@ Android
     	Sort(firestore.Orders(firestore.Ascending(firestore.FieldOf("name")))).
     	Limit(10)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_general.go#L1709-L1713)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_general.go#L1709-L1713)
 
 ## Behavior
 
@@ -140,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

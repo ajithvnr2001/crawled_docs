@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/1stgendocs/tutorials/imagemagick-1st-gen/
 title: ImageMagick Tutorial (1st gen) \u00a0|\u00a0 Cloud Run functions (1st gen) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:19.848829+00:00
+fetched_at: 2026-11-10T06:19:09.682009+00:00
 ---
 
 # ImageMagick Tutorial (1st gen)  |  Cloud Run functions (1st gen)  |  Google Cloud Documentation
@@ -338,12 +338,12 @@ The application must import several dependencies in order to interact with Googl
     FunctionsFramework.on_startup do
       set_global :storage_client do
         require "google/cloud/storage"
-        Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+        Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       end
     
       set_global :vision_client do
         require "google/cloud/vision"
-        Google::Cloud::[Vision](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p3beta1/latest/Google-Cloud-Vision.html).[image_annotator](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision/latest/Google-Cloud-Vision.html)
+        Google::Cloud::[Vision](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p4beta1/latest/Google-Cloud-Vision.html).[image_annotator](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision/latest/Google-Cloud-Vision.html)
       end
     end
 

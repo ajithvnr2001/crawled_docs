@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/event-receivers/
 title: Develop event receivers \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:52.750105+00:00
+fetched_at: 2026-11-10T05:58:38.815007+00:00
 ---
 
 # Develop event receivers  |  Eventarc Standard  |  Google Cloud Documentation
@@ -191,7 +191,7 @@ The sample code shows you how to read Cloud Storage events using Cloud Audit Log
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudBuild.V2/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     
@@ -401,7 +401,7 @@ The sample code shows you how to read Pub/Sub events in a service deployed to Cl
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudBuild.V2/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     

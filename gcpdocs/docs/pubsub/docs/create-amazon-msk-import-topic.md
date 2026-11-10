@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/create-amazon-msk-import-topic/
 title: Create an Amazon Managed Streaming for Apache Kafka import topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:59:54.672814+00:00
+fetched_at: 2026-11-10T05:57:00.564576+00:00
 ---
 
 # Create an Amazon Managed Streaming for Apache Kafka import topic  |  Pub/Sub  |  Google Cloud Documentation

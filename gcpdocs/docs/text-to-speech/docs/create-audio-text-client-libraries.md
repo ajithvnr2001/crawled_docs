@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/text-to-speech/docs/create-audio-text-client-libraries/
 title: Quickstart: Create audio from text by using client libraries \u00a0|\u00a0 Cloud Text-to-Speech \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:19.743176+00:00
+fetched_at: 2026-11-10T06:02:25.734458+00:00
 ---
 
 # Quickstart: Create audio from text by using client libraries  |  Cloud Text-to-Speech  |  Google Cloud Documentation
@@ -89,7 +89,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-texttospeech" % "2.102.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-texttospeech" % "2.103.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

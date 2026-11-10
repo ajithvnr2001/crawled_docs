@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-server-client-library/
 title: Quickstart: Create a Firestore database by using a server client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:35.097838+00:00
+fetched_at: 2026-11-10T06:05:49.653035+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a server client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -219,7 +219,7 @@ Initialize an instance of Firestore:
     # project inferred from the environment.
     db = firestore.[Client](https://docs.cloud.google.com/python/docs/reference/firestore/latest/google.cloud.firestore_v1.client.Client.html)(project="my-project-id")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L26-L33)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L26-L33)
 
 ##### Python  
 (Async)
@@ -232,7 +232,7 @@ Initialize an instance of Firestore:
     # project inferred from the environment.
     db = firestore.[AsyncClient](https://docs.cloud.google.com/python/docs/reference/firestore/latest/google.cloud.firestore_v1.async_client.AsyncClient.html)(project="my-project-id")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L22-L27)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L22-L27)
 
 ##### Node.js
     
@@ -272,7 +272,7 @@ Initialize an instance of Firestore:
     }
     
     
-    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/firestore_quickstart/main.go#L40-L48)
+    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/firestore_quickstart/main.go#L40-L48)
 
 ##### PHP
     
@@ -321,7 +321,7 @@ Initialize an instance of Firestore:
     
     puts "Created Cloud Firestore client with given project ID."
     
-    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/d80e5996db280a1b34b04f5afda1f072143fb6ef/google-cloud-firestore/samples/quickstart.rb#L19-L26)
+    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/quickstart.rb#L19-L26)
 
 ## Add data
 
@@ -684,6 +684,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-update-cdn-key/
 title: Update a CDN key \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:59.239731+00:00
+fetched_at: 2026-11-10T06:04:26.042076+00:00
 ---
 
 # Update a CDN key  |  Video Stitcher API  |  Google Cloud Documentation
@@ -65,33 +65,33 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
             if (isMediaCdn)
             {
                 path = "media_cdn_key";
-             [   ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.CdnKey.html#Google_Cloud_Video_Stitcher_V1_CdnKey_MediaCdnKey)cdnKey.MediaCdn[Key](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.MediaCdnKey.html) = new MediaCdnKey
+                cdnKey.[MediaCdnKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.CdnKey.html#Google_Cloud_Video_Stitcher_V1_CdnKey_MediaCdnKey) = new [MediaCdnKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.MediaCdnKey.html)
                 {
                     KeyName = keyName,
-                    Pri[vateKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html) = B[yteString](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html#Google_Protobuf_ByteString_CopyFromUtf8_System_String_).CopyFromUtf8(privateKey)
+                    PrivateKey = [ByteString](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html).[CopyFromUtf8](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html#Google_Protobuf_ByteString_CopyFromUtf8_System_String_)(privateKey)
                 };
             }
             else
             {
-                path = "google_cdn_key";[
-               ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.CdnKey.html#Google_Cloud_Video_Stitcher_V1_CdnKey_GoogleCdnKey) cdnKey[.GoogleCdnKe](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.GoogleCdnKey.html)y = new GoogleCdnKey
+                path = "google_cdn_key";
+                cdnKey.[GoogleCdnKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.CdnKey.html#Google_Cloud_Video_Stitcher_V1_CdnKey_GoogleCdnKey) = new [GoogleCdnKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.GoogleCdnKey.html)
                 {
                     KeyName = keyName,
-             [       ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html)Priv[ateKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html#Google_Protobuf_ByteString_CopyFromUtf8_System_String_) = ByteString.CopyFromUtf8(privateKey)
-                };[
+                    PrivateKey = [ByteString](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html).[CopyFromUtf8](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html#Google_Protobuf_ByteString_CopyFromUtf8_System_String_)(privateKey)
+                };
             }
     
-           ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.UpdateCdnKeyRequest.html) UpdateCdnKeyRe[quest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.UpdateCdnKeyRequest.html) request = new UpdateCdnKeyRequest
+            [UpdateCdnKeyRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.UpdateCdnKeyRequest.html) request = new [UpdateCdnKeyRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.UpdateCdnKeyRequest.html)
             {
                 CdnKey = cdnKey,
-             [   ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.FieldMask.html)UpdateMask = new FieldMask { Paths = { "hostname", path } }
+                UpdateMask = new [FieldMask](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.FieldMask.html) { Paths = { "hostname", path } }
             };
     
-            // Make <the request.
-            Oper>ationCdnKey, OperationMet[adata](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.VideoStitcherServiceClient.html#Google_Cloud_Video_Stitcher_V1_VideoStitcherServiceClient_UpdateCdnKeyAsync_Google_Cloud_Video_Stitcher_V1_CdnKey_Google_Protobuf_WellKnownTypes_FieldMask_Google_Api_Gax_Grpc_CallSettings_) response = await client.UpdateCdnKeyAsync(request);
+            // Make the request.
+            Operation<CdnKey, OperationMetadata> response = await client.[UpdateCdnKeyAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest/Google.Cloud.Video.Stitcher.V1.VideoStitcherServiceClient.html#Google_Cloud_Video_Stitcher_V1_VideoStitcherServiceClient_UpdateCdnKeyAsync_Google_Cloud_Video_Stitcher_V1_CdnKey_Google_Protobuf_WellKnownTypes_FieldMask_Google_Api_Gax_Grpc_CallSettings_)(request);
     
-            // Poll until the returned long-running operation <is complete.
-            Oper>ationCdnKey, OperationMetadata completedResponse = await response.PollUntilCompletedAsync();
+            // Poll until the returned long-running operation is complete.
+            Operation<CdnKey, OperationMetadata> completedResponse = await response.PollUntilCompletedAsync();
     
             // Retrieve the operation result.
             return completedResponse.Result;
@@ -126,47 +126,47 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     	// privateKey := "my-updated-private-key"
     	// isMediaCDN := true
     	location := "us-central1"
-    	hostname := &q[uot;updated.cdn.exampl](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_NewVideoStitcherClient)e.com"
+    	hostname := "updated.cdn.example.com"
     	keyName := "cdn-key"
     	ctx := context.Background()
-    	client, err := stitcher.NewVid[eoSti](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_Close)tcherClient(ctx)
+    	client, err := stitcher.[NewVideoStitcherClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_NewVideoStitcherClient)(ctx)
     	if err != nil {
-    		return fmt.Errorf("stitcher.NewVide&oStitcherClient: %w", err)
+    		return fmt.Errorf("stitcher.NewVideoStitcherClient: %w", err)
     	}
-    	defer client.&Close()
+    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_Close)()
     
-    	var req *stitcherstreampb.UpdateC&dnKeyRequest
+    	var req *stitcherstreampb.UpdateCdnKeyRequest
     	if isMediaCDN {
-    		req = stitcherstreampb.&UpdateCdnKeyRequest{
-    			CdnKey: stitcherstreampb.CdnKey{
-    				CdnKeyConfig: stitcherstreampb.CdnKey_MediaCdnKey{
-    					MediaCdnKey: stitcherstreampb.MediaCdnKey{
+    		req = &stitcherstreampb.UpdateCdnKeyRequest{
+    			CdnKey: &stitcherstreampb.CdnKey{
+    				CdnKeyConfig: &stitcherstreampb.CdnKey_MediaCdnKey{
+    					MediaCdnKey: &stitcherstreampb.MediaCdnKey{
     						KeyName:    keyName,
     						PrivateKey: []byte(privateKey),
-    					},
-    				},
-    				Name:&     fmt.Sprintf("projects/%s/locations/%s/cdnKeys/%s", projectID, location, keyID),
-    				Hostname: host&name,
-    			},
-    			UpdateMask: fieldmaskpb.FieldMask{&
-    				Paths: []string{
-    					"hostname&q&uot;, "media_cdn_key",
-    				},
-    			},
-    		}
-    	} else& {
-    		req = stitcherstreampb.UpdateCdnKeyRequest{
-    			CdnKey: stitcherstreampb.CdnKey{
-    				CdnKeyConfig: stitcherstreampb.CdnKey_GoogleCdnKey{
-    					GoogleCdnKey: stitcherstreampb.GoogleCdnKey{
-    						KeyName:    keyName,
-    						PrivateKey: []byte(private&Key),
     					},
     				},
     				Name:     fmt.Sprintf("projects/%s/locations/%s/cdnKeys/%s", projectID, location, keyID),
     				Hostname: hostname,
     			},
-    			UpdateMask: fieldmaskpb.FieldMask{
+    			UpdateMask: &fieldmaskpb.FieldMask{
+    				Paths: []string{
+    					"hostname", "media_cdn_key",
+    				},
+    			},
+    		}
+    	} else {
+    		req = &stitcherstreampb.UpdateCdnKeyRequest{
+    			CdnKey: &stitcherstreampb.CdnKey{
+    				CdnKeyConfig: &stitcherstreampb.CdnKey_GoogleCdnKey{
+    					GoogleCdnKey: &stitcherstreampb.GoogleCdnKey{
+    						KeyName:    keyName,
+    						PrivateKey: []byte(privateKey),
+    					},
+    				},
+    				Name:     fmt.Sprintf("projects/%s/locations/%s/cdnKeys/%s", projectID, location, keyID),
+    				Hostname: hostname,
+    			},
+    			UpdateMask: &fieldmaskpb.FieldMask{
     				Paths: []string{
     					"hostname", "google_cdn_key",
     				},
@@ -228,9 +228,9 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
         updateCdnKey(projectId, location, cdnKeyId, hostname, keyName, privateKey, isMediaCdn);
       }
     
-      // updateCdnKey updates the hostname and key fields for an ex[isting](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html) Media CDN key or Cloud
+      // updateCdnKey updates the hostname and key fields for an existing Media CDN key or Cloud
       // CDN key.
-      public static CdnKey updateCdnKey(
+      public static [CdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html) updateCdnKey(
           String projectId,
           String location,
           String cdnKeyId,
@@ -240,50 +240,50 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
           Boolean isMediaCdn)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
-       [ ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html)// once, and can be reused for multiple requests.
-        try (Vide[oStitcherServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html) videoStitcherServiceCl[ient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html) =
-            VideoStitcherServiceClient.create()) {
-          CdnKey cdnKey;
+        // once, and can be reused for multiple requests.
+        try ([VideoStitcherServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html) videoStitcherServiceClient =
+            [VideoStitcherServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html).create()) {
+          [CdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html) cdnKey;
           String path;
           if (isMediaCdn) {
-     [      ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html) path = "media_cdn_key";
-        [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKeyName.html)cdnKey =
-                CdnKey.newBuilder()
-                    .setName(CdnK[eyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setHostname_java_lang_String_).of(projectId, location, cdnKeyId[).toString())
-    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setMediaCdnKey_com_google_cloud_video_stitcher_v1_MediaCdnKey_)                .setHo[stname](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.MediaCdnKey.html)(hostname)
-                    .setMediaCdnKey(
-                        MediaCdnKey.newBuilder()
-                  [          ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[setKeyName(k](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFromUtf8_java_lang_String_)eyName)
-                            .setPrivateKey(ByteString.copyFromUtf8(privateKey))
+            path = "media_cdn_key";
+            cdnKey =
+                [CdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html).newBuilder()
+                    .setName([CdnKeyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKeyName.html).of(projectId, location, cdnKeyId).toString())
+                    .[setHostname](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setHostname_java_lang_String_)(hostname)
+                    .[setMediaCdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setMediaCdnKey_com_google_cloud_video_stitcher_v1_MediaCdnKey_)(
+                        [MediaCdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.MediaCdnKey.html).newBuilder()
+                            .setKeyName(keyName)
+                            .setPrivateKey([ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFromUtf8](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFromUtf8_java_lang_String_)(privateKey))
                             .build())
                     .build();
-          }[ else ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html){
-            path = "google_cdn_key&q[uot;](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKeyName.html);
+          } else {
+            path = "google_cdn_key";
             cdnKey =
-                CdnKey.newBuilder()
-                    .se[tName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setHostname_java_lang_String_)(CdnKeyName.of(projectId, location[, cdnKeyId).toS](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setGoogleCdnKey_com_google_cloud_video_stitcher_v1_GoogleCdnKey_)tring())
-                 [   ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.GoogleCdnKey.html).setHostname(hostname)
-                    .setGoogleCdnKey(
-                        GoogleCdnKey.newBuilder()
-        [          ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html) [         ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFromUtf8_java_lang_String_).setKeyName(keyName)
-                            .setPrivateKey(ByteString.copyFromUtf8(privateK[ey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.UpdateCdnKeyRequest.html)))
+                [CdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html).newBuilder()
+                    .setName([CdnKeyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKeyName.html).of(projectId, location, cdnKeyId).toString())
+                    .[setHostname](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setHostname_java_lang_String_)(hostname)
+                    .[setGoogleCdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.Builder.html#com_google_cloud_video_stitcher_v1_CdnKey_Builder_setGoogleCdnKey_com_google_cloud_video_stitcher_v1_GoogleCdnKey_)(
+                        [GoogleCdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.GoogleCdnKey.html).newBuilder()
+                            .setKeyName(keyName)
+                            .setPrivateKey([ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFromUtf8](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFromUtf8_java_lang_String_)(privateKey))
                             .build())
-                 [   ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.UpdateCdnKeyRequest.html).build();
+                    .build();
           }
     
-          UpdateCdnKeyRequest updateCdnKeyRequest =
-              UpdateCdnKeyRequest.newBuilder()
+          [UpdateCdnKeyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.UpdateCdnKeyRequest.html) updateCdnKeyRequest =
+              [UpdateCdnKeyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.UpdateCdnKeyRequest.html).newBuilder()
                   .setCdnKey(cdnKey)
                   // Update the hostname field and the fields for the specific key type (Media CDN
-                  // or Cloud CDN). You m[ust set t](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html)he mask to the[ fields ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)you want to u[pdate.](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)
-                  .setUpdateMask(FieldMask.newBuilde[r](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html)().addPaths("hostname").addPaths(path).build())
-               [   ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html#com_google_cloud_video_stitcher_v1_VideoStitcherServiceClient_updateCdnKeyAsync_com_google_cloud_video_stitcher_v1_CdnKey_com_google_protobuf_FieldMask_).build();
+                  // or Cloud CDN). You must set the mask to the fields you want to update.
+                  .setUpdateMask([FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html).newBuilder().[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)("hostname").[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)(path).build())
+                  .build();
     
-          CdnKey response =
+          [CdnKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html) response =
               videoStitcherServiceClient
-                  .updateCdnKeyAsync(updateCdnKeyRequest)
-                  .get(TIMEO[UT_IN_M](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html#com_google_cloud_video_stitcher_v1_CdnKey_getName__)INUTES, TimeUnit.MINUTES);
-          System.out.println("Updated CDN key: " + response.getName());
+                  .[updateCdnKeyAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html#com_google_cloud_video_stitcher_v1_VideoStitcherServiceClient_updateCdnKeyAsync_com_google_cloud_video_stitcher_v1_CdnKey_com_google_protobuf_FieldMask_)(updateCdnKeyRequest)
+                  .get(TIMEOUT_IN_MINUTES, TimeUnit.MINUTES);
+          System.out.println("Updated CDN key: " + response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CdnKey.html#com_google_cloud_video_stitcher_v1_CdnKey_getName__)());
           return response;
         }
       }
@@ -307,16 +307,16 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     // isMediaCdn = true;
     
     // Imports the Video Stitcher library
-    const {V[ideoStitcherServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)} =
-      require('@google-cloud/video-stitcher').v1;
-    // I[nstantiates a client](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)
-    const stitcherClient = new VideoStitcherServiceClient();
+    const {VideoStitcherServiceClient} =
+      require('[@google-cloud/video-stitcher](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)').v1;
+    // Instantiates a client
+    const stitcherClient = new [VideoStitcherServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)();
     
     async function updateCdnKey() {
       // Construct request
-      const reque[st](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/video-stitcher/v1.videostitcherserviceclient.html) = {
+      const request = {
         cdnKey: {
-          name: stitcherClient.cdnKeyPath(projectId, location, cdnKeyId),
+          name: stitcherClient.[cdnKeyPath](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/video-stitcher/v1.videostitcherserviceclient.html)(projectId, location, cdnKeyId),
           hostname: hostname,
         },
       };
@@ -341,11 +341,11 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     
       const [operation] = await stitcherClient.updateCdnKey(request);
       const [response] = await operation.promise();
-      console.log(`Updated CDN key: ${response.name}`)>;
+      console.log(`Updated CDN key: ${response.name}`);
       console.log(`Updated hostname: ${response.hostname}`);
     }
     
-    updateCdnKey().catch(err = {
+    updateCdnKey().catch(err => {
       console.error(err.message);
       process.exitCode = 1;
     });
@@ -404,30 +404,30 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
             $cloudCdn = new MediaCdnKey();
             $cdnKey->setMediaCdnKey($cloudCdn);
             $updateMask = new FieldMask([
-                'path>s' = ['hostname', 'media_cdn_key']
+                'paths' => ['hostname', 'media_cdn_key']
             ]);
         } else {
-            $cloudCdn = new GoogleCd>nKey();
-            $cdnKey-setGoogleCdnKey($cloudCdn);
-            $updateMask = new FieldMask>([
-                'paths' = ['hostname', 'googl>e_cdn_key']
+            $cloudCdn = new GoogleCdnKey();
+            $cdnKey->setGoogleCdnKey($cloudCdn);
+            $updateMask = new FieldMask([
+                'paths' => ['hostname', 'google_cdn_key']
             ]);
         }
-      >  $cloudCdn-setKeyName($keyName);
-        $cloudCdn-setPrivateKey($privateKey);
+        $cloudCdn->setKeyName($keyName);
+        $cloudCdn->setPrivateKey($privateKey);
     
         // Run CDN key creation request
-        >$request = (new UpdateCdnKey>Request())
-            -setCdnKey($cdnKey)
-            -setUpdateMask($update>Mask);
-        $operationResponse = $stitcherClient>-updateCdnKey($request);
+        $request = (new UpdateCdnKeyRequest())
+            ->setCdnKey($cdnKey)
+            ->setUpdateMask($updateMask);
+        $operationResponse = $stitcherClient->updateCdnKey($request);
         $operationResponse->pollUntilComplete();
-        if ($operationResponse-operationSucc>eeded()) {
-            $result = $operationResponse-getResult();
+        if ($operationResponse->operationSucceeded()) {
+            $result = $operationResponse->getResult();
             // Print results
-            >printf('Updated CDN key: %s' . PHP_EOL, $result-getNa>me());
+            printf('Updated CDN key: %s' . PHP_EOL, $result->getName());
         } else {
-            $error = $operationResponse-getError();
+            $error = $operationResponse->getError();
             // handleError($error)
         }
     }
@@ -477,27 +477,27 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     
         client = VideoStitcherServiceClient()
     
-        name = f"projects/{project_id}/locations/{location}/cd[nKeys/](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest){cdn_k[ey_id](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.html)}["](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.CdnKey.html)
+        name = f"projects/{project_id}/locations/{location}/cdnKeys/{cdn_key_id}"
     
-        cdn_key = stitcher_v1.types.CdnKey(
+        cdn_key = [stitcher_v1](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest).[types](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.html).[CdnKey](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.CdnKey.html)(
             name=name,
             hostname=hostname,
         )
     
-        if is_clou[d_cdn](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest):
-         [   cd](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.html)n[_key.google_](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.GoogleCdnKey.html)cdn_key = stitcher_v1.types.GoogleCdnKey(
+        if is_cloud_cdn:
+            cdn_key.google_cdn_key = [stitcher_v1](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest).[types](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.html).[GoogleCdnKey](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.GoogleCdnKey.html)(
                 key_name=key_name,
                 private_key=private_key,
             )
-            update_mask = field_mask.FieldMask(paths=["hostname", "googl[e_cdn_key&q](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest)u[ot;](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.html)])
-    [    else:
-     ](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.MediaCdnKey.html)       cdn_key.media_cdn_key = stitcher_v1.types.MediaCdnKey(
+            update_mask = field_mask.FieldMask(paths=["hostname", "google_cdn_key"])
+        else:
+            cdn_key.media_cdn_key = [stitcher_v1](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest).[types](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.html).[MediaCdnKey](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.types.MediaCdnKey.html)(
                 key_name=key_name,
                 private_key=private_key,
             )
-            update_mask = field_mask.FieldMask(p[aths](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.services.video_stitcher_service.VideoStitcherServiceClient.html#google_cloud_video_stitcher_v1_services_video_stitcher_service_VideoStitcherServiceClient_update_cdn_key)=["hostname", "media_cdn_key"])
+            update_mask = field_mask.FieldMask(paths=["hostname", "media_cdn_key"])
     
-        operation = client.update_cdn_key(cdn_key=cdn_key, update_mask=update_mask)
+        operation = client.[update_cdn_key](https://docs.cloud.google.com/python/docs/reference/videostitcher/latest/google.cloud.video.stitcher_v1.services.video_stitcher_service.VideoStitcherServiceClient.html#google_cloud_video_stitcher_v1_services_video_stitcher_service_VideoStitcherServiceClient_update_cdn_key)(cdn_key=cdn_key, update_mask=update_mask)
         response = operation.result()
         print(f"Updated CDN key: {response.name}")
         return response

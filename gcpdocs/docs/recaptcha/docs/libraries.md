@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/libraries/
 title: Fraud Defense client libraries \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:55.733394+00:00
+fetched_at: 2026-11-10T06:01:20.696738+00:00
 ---
 
 # Fraud Defense client libraries  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-recaptchaenterprise" % "3.98.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-recaptchaenterprise" % "3.99.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/commit-schema-revision/
 title: Commit a schema revision \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:00:29.348134+00:00
+fetched_at: 2026-11-10T05:57:05.456307+00:00
 ---
 
 # Commit a schema revision  |  Pub/Sub  |  Google Cloud Documentation

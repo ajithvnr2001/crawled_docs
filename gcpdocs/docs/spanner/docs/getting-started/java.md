@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/getting-started/java/
 title: Getting started with Spanner in Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:52:46.045136+00:00
+fetched_at: 2026-11-10T06:04:04.925934+00:00
 ---
 
 # Getting started with Spanner in Java  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-spanner" % "6.126.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-spanner" % "6.127.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

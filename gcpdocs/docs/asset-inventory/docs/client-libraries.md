@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/client-libraries/
 title: Cloud Asset Inventory client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:16:17.996501+00:00
+fetched_at: 2026-11-10T06:05:53.908071+00:00
 ---
 
 # Cloud Asset Inventory client libraries  |  Google Cloud Documentation
@@ -330,7 +330,7 @@ The following example shows how to use the client library.
 ### Python
     
     
-    from google.cloud import [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest)
+    from google.cloud import asset_v1
     
     # TODO project_id = 'Your Google Cloud Project ID'
     # TODO asset_types = 'Your asset type list, e.g.,
@@ -340,7 +340,7 @@ The following example shows how to use the client library.
     # TODO content_type ="Content type to list"
     
     project_resource = f"projects/{project_id}"
-    client = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
+    client = asset_v1.[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
     
     # Call ListAssets v1 to list assets.
     response = client.[list_assets](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html#google_cloud_asset_v1_services_asset_service_AssetServiceClient_list_assets)(
@@ -361,7 +361,7 @@ The following example shows how to use the client library.
     
     require "google/cloud/asset"
     
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     # project_id = 'YOUR_PROJECT_ID'
     formatted_parent = asset_service.[project_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset-V1-AssetService-Paths.html) project: project_id
     

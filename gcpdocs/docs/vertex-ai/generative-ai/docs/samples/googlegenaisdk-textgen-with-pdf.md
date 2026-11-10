@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-with-pdf/
 title: Process a PDF file with Gemini \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:36.661383+00:00
+fetched_at: 2026-11-10T06:02:19.673238+00:00
 ---
 
 # Process a PDF file with Gemini  |  Generative AI on Vertex AI  |  Google Cloud Documentation

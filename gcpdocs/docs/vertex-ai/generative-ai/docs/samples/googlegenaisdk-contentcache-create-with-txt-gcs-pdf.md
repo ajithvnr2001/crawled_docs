@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-contentcache-create-with-txt-gcs-pdf/
 title: Create a context cache \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:14.037036+00:00
+fetched_at: 2026-11-10T06:03:14.453511+00:00
 ---
 
 # Create a context cache  |  Generative AI on Vertex AI  |  Google Cloud Documentation

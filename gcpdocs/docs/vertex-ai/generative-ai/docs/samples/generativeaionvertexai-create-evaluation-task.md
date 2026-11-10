@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-create-evaluation-task/
 title: Evaluate text generation models using Vertex AI Gen AI evaluation service \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:56.322644+00:00
+fetched_at: 2026-11-10T06:02:11.556695+00:00
 ---
 
 # Evaluate text generation models using Vertex AI Gen AI evaluation service  |  Generative AI on Vertex AI  |  Google Cloud Documentation

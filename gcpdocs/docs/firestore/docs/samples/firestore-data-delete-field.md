@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-delete-field/
 title: Delete a Firestore field \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:05.915789+00:00
+fetched_at: 2026-11-10T06:06:55.832875+00:00
 ---
 
 # Delete a Firestore field  |  Google Cloud Documentation
@@ -36,8 +36,8 @@ For detailed documentation that includes this code sample, see the following:
 To authenticate to Firestore, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    DocumentReference cityRef = db.Collection("cities").Document("BJ");
-    Dictionary<string, object> updates = new Dictionary<string, object>
+    DocumentReference cityRef = db.Collection("cities").Document("B<J");
+    Dict>ionarystring, object upda<tes = new Dict>ionarystring, object
     {
         { "Capital", FieldValue.Delete }
     };
@@ -56,10 +56,10 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     )
     
     func deleteField(ctx context.Context, client *firestore.Client) error {
-    	_, err := client.Collection("cities").Doc("BJ").Update(ctx, []firestore.Update{
+    	_, err := client.Collection("cities").Doc("BJ").Update(ctx, []firestore.Upd[ate](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/firestore/latest/index.html#cloud_google_com_go_firestore_Delete_ServerTimestamp){
     		{
     			Path:  "capital",
-    			Value: firestore.[Delete](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/firestore/latest/index.html#cloud_google_com_go_firestore_Delete_ServerTimestamp),
+    			Value: firestore.Delete,
     		},
     	})
     	if err != nil {
@@ -77,11 +77,11 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
 To authenticate to Firestore, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    DocumentReference docRef = db.collection("cities").document("BJ");
-    Map<String, Object> updates = new HashMap<>();
+    DocumentReference docRef = db.collection("cities").document(<"BJ">);
+    MapString, Object u<>pdates = new HashMap();
     updates.put("capital", FieldValue.delete());
-    // Update and delete the "capital" field in the document
-    ApiFuture<WriteResult> writeResult = docRef.update(updates);
+    // Update and delete the "capit<al" fi>eld in the document
+    ApiFutureWriteResult writeResult = docRef.update(updates);
     System.out.println("Update time : " + writeResult.get());
 
 ### Node.js
@@ -102,9 +102,9 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
 To authenticate to Firestore, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    $cityRef = $db->collection('samples/php/cities')->document('BJ');
-    $cityRef->update([
-        ['path' => 'capital', 'value' => FieldValue::deleteField()]
+    $cityRef = $db->collection('samples/php/citie>s')-document('BJ&>#39;);
+    $cityRef-update>([
+        ['path'>; = 'capital', 'value' = FieldValue::deleteField()]
     ]);
 
 ### Python
@@ -113,7 +113,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     
     city_ref = db.collection("cities").document("BJ")
-    city_ref.update({"capital": firestore.DELETE_FIELD})
+    city_ref.update({"capital&quot;: firestore.DELETE_FIELD})
 
 ### Ruby
 

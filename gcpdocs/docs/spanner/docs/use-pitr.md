@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/use-pitr/
 title: Recover data using point-in-time recovery (PITR) \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:44:42.712543+00:00
+fetched_at: 2026-11-10T05:57:23.506645+00:00
 ---
 
 # Recover data using point-in-time recovery (PITR)  |  Spanner  |  Google Cloud Documentation
@@ -228,7 +228,7 @@ The following shows the output:
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.Lists;
     import com.google.spanner.admin.database.v1.[CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html);
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html);
     import com.google.spanner.admin.database.v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html);
     import java.util.concurrent.ExecutionException;
     
@@ -257,7 +257,7 @@ The following shows the output:
                   .[addAllExtraStatements](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_addAllExtraStatements_java_lang_Iterable_java_lang_String__)(Lists.newArrayList("ALTER DATABASE " + "`" + databaseId + "`"
                       + " SET OPTIONS ( version_retention_period = '" + versionRetentionPeriod + "' )"))
                   .build();
-          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html) database =
+          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html) database =
               databaseAdminClient.createDatabaseAsync(request).get();
           System.out.println("Created database [" + database.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getName__)() + "]");
           System.out.println("\tVersion retention period: " + database.[getVersionRetentionPeriod](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getVersionRetentionPeriod__)());

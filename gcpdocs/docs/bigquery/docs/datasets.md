@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/datasets/
 title: Create datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:39.488394+00:00
+fetched_at: 2026-11-10T06:00:09.241867+00:00
 ---
 
 # Create datasets  |  BigQuery  |  Google Cloud Documentation
@@ -632,7 +632,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def create_dataset dataset_id = "my_dataset", location = "US"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
     
       # Create the dataset in a specified geographic location
       bigquery.[create_dataset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery-Project.html) dataset_id, location: location

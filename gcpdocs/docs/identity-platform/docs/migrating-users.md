@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/migrating-users/
 title: Migrating users from an existing app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:15.940517+00:00
+fetched_at: 2026-11-10T06:05:44.370221+00:00
 ---
 
 # Migrating users from an existing app  |  Identity Platform  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ HMAC hashing algorithms include `HMAC_MD5`, `HMAC_SHA1`, `HMAC_SHA256` and `HMAC
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L476-L493)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L476-L493)
 
 ### Python
     
@@ -208,7 +208,7 @@ MD5, SHA and PBKDF hashing algorithms include `MD5`, `SHA1`, `SHA256`, `SHA512`,
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L499-L516)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L499-L516)
 
 ### Python
     
@@ -328,7 +328,7 @@ The Admin SDK supports the standard `SCRYPT` algorithm as well as an [internal m
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L522-L542)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L522-L542)
 
 ### Python
     
@@ -474,7 +474,7 @@ In your code, you'll need to supply the following:
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L568-L590)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L568-L590)
 
 ### Python
     
@@ -603,7 +603,7 @@ No additional parameters or password salts are required for `BCRYPT` hashed pass
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L548-L562)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L548-L562)
 
 ### Python
     
@@ -717,7 +717,7 @@ If your users authenticate with an external identity provider using OAuth, SAML,
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L625-L648)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L625-L648)
 
 ### Python
     

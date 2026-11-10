@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-create-corpus/
 title: Create an index \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:53.640189+00:00
+fetched_at: 2026-11-10T06:01:16.047555+00:00
 ---
 
 # Create an index  |  Generative AI on Vertex AI  |  Google Cloud Documentation

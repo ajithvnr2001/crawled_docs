@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/search-resources/
 title: Search for resources \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:16:15.659096+00:00
+fetched_at: 2026-11-10T06:05:50.454829+00:00
 ---
 
 # Search for resources  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -610,7 +610,7 @@ To learn how to install and use the client library for Cloud Asset Inventory, se
 To authenticate to Cloud Asset Inventory, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest)
+    from google.cloud import asset_v1
     
     # TODO scope = 'Scope of the search'
     # TODO query = 'Query statement'
@@ -618,7 +618,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     # TODO page_size = Size of each result page
     # TODO order_by = 'Fields to sort the results'
     
-    client = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
+    client = asset_v1.[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
     response = client.[search_all_resources](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html#google_cloud_asset_v1_services_asset_service_AssetServiceClient_search_all_resources)(
         request={
             "scope": scope,
@@ -646,7 +646,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     # page_size = 'SIZE_OF_EACH_RESULT_PAGE'
     # page_token = 'TOKEN_PRODUCED_BY_THE_PRECEDING_CALL'
     # order_by = 'FIELDS_TO_SORT_THE RESULTS'
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     
     response = asset_service.search_all_resources(
       scope:       scope,

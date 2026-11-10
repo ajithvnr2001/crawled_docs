@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/attached/generic/how-to/setup-custom-constraints/
 title: Create and manage custom constraints \u00a0|\u00a0 GKE attached clusters \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:39.742347+00:00
+fetched_at: 2026-11-10T06:02:57.566409+00:00
 ---
 
 # Create and manage custom constraints  |  GKE attached clusters  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ Replace the following:
 
      * `CONSTRAINT_NAME` : the name of your new custom constraint. A custom constraint must start with `custom.`, and can only include uppercase letters, lowercase letters, or numbers. For example, `custom.allowClusterCreateIfAnnotationPresent`. The maximum length of this field is 70 characters, not counting the prefix, for example, `organizations/123456789/customConstraints/custom`.
 
-     * `CONDITION` : a condition that is written against a representation of an attached cluster resource. Conditions are written in [Common Expression Language (CEL)](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language). This field has a maximum length of 1,000 characters. For example, condition: `"key" in resource.annotations && resource.annotations.key == "created-by"`.
+     * `CONDITION` : a condition that is written against a representation of an attached cluster resource. Conditions are written in [Common Expression Language (CEL)](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language). This field has a maximum length of 1,500 characters. For example, condition: `"key" in resource.annotations && resource.annotations.key == "created-by"`.
 
      * `ACTION` : the action to take if the condition is met. This can be either `ALLOW` or `DENY`.
 
@@ -207,6 +207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

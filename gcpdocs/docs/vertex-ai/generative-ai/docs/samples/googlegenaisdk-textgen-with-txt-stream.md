@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-with-txt-stream/
 title: Generate streaming text content with Generative Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:13.339664+00:00
+fetched_at: 2026-11-10T06:01:40.266791+00:00
 ---
 
 # Generate streaming text content with Generative Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation

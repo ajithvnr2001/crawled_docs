@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-nested-fields/
 title: Add a Firestore document with nested fields \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:16.672828+00:00
+fetched_at: 2026-11-10T06:10:44.191642+00:00
 ---
 
 # Add a Firestore document with nested fields  |  Google Cloud Documentation

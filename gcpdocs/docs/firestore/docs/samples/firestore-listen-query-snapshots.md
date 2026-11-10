@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-listen-query-snapshots/
 title: Monitor query result changes with Firestore Watch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:42.799137+00:00
+fetched_at: 2026-11-10T06:10:50.038123+00:00
 ---
 
 # Monitor query result changes with Firestore Watch  |  Google Cloud Documentation

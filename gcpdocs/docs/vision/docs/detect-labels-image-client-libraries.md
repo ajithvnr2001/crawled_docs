@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/detect-labels-image-client-libraries/
 title: Quickstart: Detect labels in an image by using client libraries \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:26.389408+00:00
+fetched_at: 2026-11-10T06:03:40.223334+00:00
 ---
 
 # Quickstart: Detect labels in an image by using client libraries  |  Cloud Vision API  |  Google Cloud Documentation
@@ -180,7 +180,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-vision" % "3.99.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-vision" % "3.100.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

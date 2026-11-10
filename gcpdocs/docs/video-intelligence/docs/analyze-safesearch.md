@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/analyze-safesearch/
 title: Detect explicit content in videos \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:00.159613+00:00
+fetched_at: 2026-11-10T06:02:39.838267+00:00
 ---
 
 # Detect explicit content in videos  |  Video Intelligence API  |  Google Cloud Documentation
@@ -285,10 +285,10 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
     
     
     // Imports the Google Cloud Video Intelligence library
-    const video = require('[@google-cloud/video-intelligence](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)').v1;
+    const video = require(&[#39;@google-cloud/video-intellig](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)ence').v1;
     
     // Creates a client
-    const client = new video.[VideoIntelligenceServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)();
+    const client = ne[w](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html) video.VideoIntelligenceServiceClient();
     
     /**
      * TODO(developer): Uncomment the following line before running the sample.
@@ -317,8 +317,8 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
     // Gets unsafe content
     const explicitContentResults =
       operationResult.annotationResults[0].explicitAnnotation;
-    console.log('Explicit annotation results:');
-    explicitContentResults.frames.forEach(result => {
+    console.log>('Explicit annotation results:');
+    explicitContentResults.frames.forEach(result = {
       if (result.timeOffset === undefined) {
         result.timeOffset = {};
       }
@@ -358,7 +358,7 @@ For more information on installing and using the Cloud Video Intelligence API Cl
     for frame in result.annotation_results[0].explicit_annotation.frames:
         likelihood = videointelligence.Likelihood(frame.pornography_likelihood)
         frame_time = frame.time_offset.seconds + frame.time_offset.microseconds / 1e6
-        print("Time: {}s".format(frame_time))
+        print("Time: {}s&quot;.format(frame_time))
         print("\tpornography: {}".format(likelihood.name))
 
 ### Additional languages

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/map_functions/
 title: Map Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:07.066475+00:00
+fetched_at: 2026-11-10T06:06:53.531833+00:00
 ---
 
 # Map Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ Returns the value in a map given a specified key. Returns an `ABSENT` value if t
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1788-L1793)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1788-L1793)
 
 ### Web
     
@@ -81,7 +81,7 @@ Returns the value in a map given a specified key. Returns an `ABSENT` value if t
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3062-L3067)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3063-L3068)
 
 ##### Swift
     
@@ -158,7 +158,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_object.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_object.go#L28-L33)
+    [pipeline_snippets_object.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_object.go#L28-L33)
 
 ### MAP_SET
 
@@ -264,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

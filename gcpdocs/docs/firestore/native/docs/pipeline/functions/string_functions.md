@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/string_functions/
 title: String Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:08.093127+00:00
+fetched_at: 2026-11-10T06:06:53.062933+00:00
 ---
 
 # String Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ b"abc" | 3
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1800-L1805)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1800-L1805)
 
 ### Web
     
@@ -91,7 +91,7 @@ b"abc" | 3
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3074-L3079)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3075-L3080)
 
 ##### Swift
     
@@ -168,7 +168,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L28-L33)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L28-L33)
 
 ### CHAR_LENGTH
 
@@ -200,7 +200,7 @@ value | `char_length(value)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1812-L1817)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1812-L1817)
 
 ### Web
     
@@ -212,7 +212,7 @@ value | `char_length(value)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3086-L3091)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3087-L3092)
 
 ##### Swift
     
@@ -289,7 +289,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L47-L52)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L47-L52)
 
 ### STARTS_WITH
 
@@ -322,7 +322,7 @@ value | prefix | `starts_with(value, prefix)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1824-L1830)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1824-L1830)
 
 ### Web
     
@@ -335,7 +335,7 @@ value | prefix | `starts_with(value, prefix)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3098-L3104)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3099-L3105)
 
 ##### Swift
     
@@ -417,7 +417,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L66-L71)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L66-L71)
 
 ### ENDS_WITH
 
@@ -450,7 +450,7 @@ value | postfix | `ends_with(value, postfix)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1837-L1843)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1837-L1843)
 
 ##### Swift
     
@@ -530,7 +530,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L85-L90)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L85-L90)
 
 ### LIKE
 
@@ -564,7 +564,7 @@ value | pattern | `like(value, pattern)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1850-L1856)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1850-L1856)
 
 ### Web
     
@@ -577,7 +577,7 @@ value | pattern | `like(value, pattern)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3124-L3130)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3125-L3131)
 
 ##### Swift
     
@@ -657,7 +657,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L104-L109)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L104-L109)
 
 ### REGEX_CONTAINS
 
@@ -704,7 +704,7 @@ value | regexp | `regex_contains(value, regexp)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1863-L1869)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1863-L1869)
 
 ### Web
     
@@ -717,7 +717,7 @@ value | regexp | `regex_contains(value, regexp)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3137-L3143)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3138-L3144)
 
 ##### Swift
     
@@ -803,7 +803,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L123-L128)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L123-L128)
 
 ### REGEX_FIND
 
@@ -915,7 +915,7 @@ value | regexp | `regex_match(value, regexp)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1876-L1882)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1876-L1882)
 
 ### Web
     
@@ -928,7 +928,7 @@ value | regexp | `regex_match(value, regexp)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3150-L3156)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3151-L3157)
 
 ##### Swift
     
@@ -1014,7 +1014,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L180-L185)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L180-L185)
 
 ### STRING_CONCAT
 
@@ -1048,7 +1048,7 @@ arguments | `string_concat(values...)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1889-L1895)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1889-L1895)
 
 ### Web
     
@@ -1061,7 +1061,7 @@ arguments | `string_concat(values...)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3163-L3169)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3164-L3170)
 
 ##### Swift
     
@@ -1145,7 +1145,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L199-L204)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L199-L204)
 
 ### STRING_CONTAINS
 
@@ -1180,7 +1180,7 @@ value | substring | `string_contains(value, substring)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1902-L1908)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1902-L1908)
 
 ### Web
     
@@ -1193,7 +1193,7 @@ value | substring | `string_contains(value, substring)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3176-L3182)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3177-L3183)
 
 ##### Swift
     
@@ -1273,7 +1273,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L218-L223)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L218-L223)
 
 ### STRING_INDEX_OF
 
@@ -1340,7 +1340,7 @@ b"a1c" | b"A1C"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1915-L1921)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1915-L1921)
 
 ### Web
     
@@ -1353,7 +1353,7 @@ b"a1c" | b"A1C"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3189-L3195)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3190-L3196)
 
 ##### Swift
     
@@ -1433,7 +1433,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L237-L242)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L237-L242)
 
 ### TO_LOWER
 
@@ -1469,7 +1469,7 @@ b"ABC" | b"abc"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1928-L1934)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1928-L1934)
 
 ### Web
     
@@ -1482,7 +1482,7 @@ b"ABC" | b"abc"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3202-L3208)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3203-L3209)
 
 ##### Swift
     
@@ -1562,7 +1562,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L256-L261)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L256-L261)
 
 ### SUBSTRING
 
@@ -1619,7 +1619,7 @@ b"abc" | 0 | 1 | b"a"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1940-L1947)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1940-L1947)
 
 ### Web
     
@@ -1633,7 +1633,7 @@ b"abc" | 0 | 1 | b"a"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3214-L3221)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3215-L3222)
 
 ##### Swift
     
@@ -1725,7 +1725,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L275-L281)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L275-L281)
 
 ### STRING_REVERSE
 
@@ -1760,7 +1760,7 @@ b"abc" | b"cba"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1954-L1959)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1954-L1959)
 
 ### Web
     
@@ -1772,7 +1772,7 @@ b"abc" | b"cba"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3228-L3233)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3229-L3234)
 
 ##### Swift
     
@@ -1849,7 +1849,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L295-L300)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L295-L300)
 
 ### STRING_REPEAT
 
@@ -1984,7 +1984,7 @@ b"C1C2" | "foo" | error
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3240-L3245)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3241-L3246)
 
 ##### Swift
     
@@ -2061,7 +2061,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_string.go#L314-L319)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_string.go#L314-L319)
 
 ### LTRIM
 
@@ -2188,6 +2188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

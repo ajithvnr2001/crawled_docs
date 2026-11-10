@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/associate-schema-topic/
 title: Associate a schema with a topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:59:57.799805+00:00
+fetched_at: 2026-11-10T05:57:02.713557+00:00
 ---
 
 # Associate a schema with a topic  |  Pub/Sub  |  Google Cloud Documentation

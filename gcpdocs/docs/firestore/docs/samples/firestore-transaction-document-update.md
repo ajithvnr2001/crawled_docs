@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-transaction-document-update/
 title: Updating a Firestore document in a transaction \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:03.624789+00:00
+fetched_at: 2026-11-10T06:06:54.971920+00:00
 ---
 
 # Updating a Firestore document in a transaction  |  Google Cloud Documentation

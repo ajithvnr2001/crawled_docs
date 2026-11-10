@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/web-risk/docs/samples/webrisk-search-uri/
 title: Search a URI \u00a0|\u00a0 Web Risk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:19.848436+00:00
+fetched_at: 2026-11-10T06:01:17.044125+00:00
 ---
 
 # Search a URI  |  Web Risk  |  Google Cloud Documentation
@@ -89,12 +89,12 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
 To authenticate to Web Risk, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest)
+    from google.cloud import webrisk_v1
     from google.cloud.webrisk_v1 import [SearchUrisResponse](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchUrisResponse.html)
     
     
     def search_uri(
-        uri: str, threat_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html).MALWARE
+        uri: str, threat_type: webrisk_v1.[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html).MALWARE
     ) -> SearchUrisResponse:
         """Checks whether a URI is on a given threatList.
     
@@ -111,9 +111,9 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
         Returns:
             SearchUrisResponse that contains a threat_type if the URI is present in the threatList.
         """
-        webrisk_client = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
+        webrisk_client = webrisk_v1.[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
     
-        request = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[SearchUrisRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchUrisRequest.html)()
+        request = webrisk_v1.[SearchUrisRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchUrisRequest.html)()
         request.threat_types = [threat_type]
         request.uri = uri
     

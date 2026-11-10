@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-template-list-prompt/
 title: List all prompts \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:52.759973+00:00
+fetched_at: 2026-11-10T06:01:31.481147+00:00
 ---
 
 # List all prompts  |  Generative AI on Vertex AI  |  Google Cloud Documentation

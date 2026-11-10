@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/arithmetic_functions/
 title: Arithmetic Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:09.168706+00:00
+fetched_at: 2026-11-10T06:05:49.218577+00:00
 ---
 
 # Arithmetic Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -114,7 +114,7 @@ INT64.MIN | -1 | `[error]`
       .select(field("soldBooks").add(field("unsoldBooks")).as("totalBooks"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1366-L1369)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1366-L1369)
 
 ### Web
     
@@ -124,7 +124,7 @@ INT64.MIN | -1 | `[error]`
       .select(field("soldBooks").add(field("unsoldBooks")).as("totalBooks"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2643-L2646)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2644-L2647)
 
 ##### Swift
     
@@ -198,7 +198,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L28-L33)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L28-L33)
 
 ### SUBTRACT
 
@@ -231,7 +231,7 @@ INT64.MIN | 1 | `[error]`
       .select(field("price").subtract(constant(storeCredit)).as("totalCost"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1376-L1380)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1376-L1380)
 
 ### Web
     
@@ -242,7 +242,7 @@ INT64.MIN | 1 | `[error]`
       .select(field("price").subtract(constant(storeCredit)).as("totalCost"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2653-L2657)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2654-L2658)
 
 ##### Swift
     
@@ -322,7 +322,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L47-L53)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L47-L53)
 
 ### MULTIPLY
 
@@ -355,7 +355,7 @@ FLOAT64.MAX | FLOAT64.MAX | `+inf`
       .select(field("price").multiply(field("soldBooks")).as("revenue"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1387-L1390)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1387-L1390)
 
 ### Web
     
@@ -365,7 +365,7 @@ FLOAT64.MAX | FLOAT64.MAX | `+inf`
       .select(field("price").multiply(field("soldBooks")).as("revenue"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2664-L2667)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2665-L2668)
 
 ##### Swift
     
@@ -439,7 +439,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L67-L72)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L67-L72)
 
 ### DIVIDE
 
@@ -474,7 +474,7 @@ x | y | `divide(x, y)`
       .select(field("ratings").divide(field("soldBooks")).as("reviewRate"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1397-L1400)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1397-L1400)
 
 ### Web
     
@@ -484,7 +484,7 @@ x | y | `divide(x, y)`
       .select(field("ratings").divide(field("soldBooks")).as("reviewRate"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2674-L2677)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2675-L2678)
 
 ##### Swift
     
@@ -558,7 +558,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L86-L91)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L86-L91)
 
 ### MOD
 
@@ -599,7 +599,7 @@ x | y | `mod(x, y)`
       .select(field("unsoldBooks").mod(constant(displayCapacity)).as("warehousedBooks"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1407-L1411)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1407-L1411)
 
 ### Web
     
@@ -610,7 +610,7 @@ x | y | `mod(x, y)`
       .select(field("unsoldBooks").mod(constant(displayCapacity)).as("warehousedBooks"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2684-L2688)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2685-L2689)
 
 ##### Swift
     
@@ -690,7 +690,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L105-L111)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L105-L111)
 
 ### CEIL
 
@@ -730,7 +730,7 @@ number | `ceil(number)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1418-L1424)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1418-L1424)
 
 ### Web
     
@@ -743,7 +743,7 @@ number | `ceil(number)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2695-L2701)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2696-L2702)
 
 ##### Swift
     
@@ -834,7 +834,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L125-L131)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L125-L131)
 
 ### FLOOR
 
@@ -873,7 +873,7 @@ number | `floor(number)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1431-L1436)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1431-L1436)
 
 ### Web
     
@@ -885,7 +885,7 @@ number | `floor(number)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2708-L2713)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2709-L2714)
 
 ##### Swift
     
@@ -967,7 +967,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L145-L150)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L145-L150)
 
 ### ROUND
 
@@ -1011,7 +1011,7 @@ number | places | `round(number, places)`
       .aggregate(field("partialRevenue").sum().as("totalRevenue"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1443-L1447)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1443-L1447)
 
 ### Web
     
@@ -1022,7 +1022,7 @@ number | places | `round(number, places)`
       .aggregate(field("partialRevenue").sum().as("totalRevenue"))
       );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2720-L2724)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2721-L2725)
 
 ##### Swift
     
@@ -1109,7 +1109,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L164-L172)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L164-L172)
 
 ### TRUNC
 
@@ -1201,7 +1201,7 @@ base | exponent | `pow(base, exponent)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1454-L1472)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1454-L1472)
 
 ### Web
     
@@ -1226,7 +1226,7 @@ base | exponent | `pow(base, exponent)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2731-L2749)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2732-L2750)
 
 ##### Swift
     
@@ -1383,7 +1383,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L186-L199)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L186-L199)
 
 ### SQRT
 
@@ -1436,7 +1436,7 @@ number | `sqrt(number)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1479-L1497)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1479-L1497)
 
 ### Web
     
@@ -1461,7 +1461,7 @@ number | `sqrt(number)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2756-L2774)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2757-L2775)
 
 ##### Swift
     
@@ -1618,7 +1618,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L213-L226)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L213-L226)
 
 ### EXP
 
@@ -1650,7 +1650,7 @@ exponent | `exp(exponent)`
       .select(field("rating").exp().as("expRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1504-L1507)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1504-L1507)
 
 ### Web
     
@@ -1660,7 +1660,7 @@ exponent | `exp(exponent)`
       .select(field("rating").exp().as("expRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2781-L2784)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2782-L2785)
 
 ##### Swift
     
@@ -1734,7 +1734,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L240-L245)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L240-L245)
 
 ### LN
 
@@ -1769,7 +1769,7 @@ number | `ln(number)`
       .select(field("rating").ln().as("lnRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1514-L1517)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1514-L1517)
 
 ### Web
     
@@ -1779,7 +1779,7 @@ number | `ln(number)`
       .select(field("rating").ln().as("lnRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2791-L2794)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2792-L2795)
 
 ##### Swift
     
@@ -1853,7 +1853,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_arithmetic.go#L259-L264)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_arithmetic.go#L259-L264)
 
 ### LOG
 
@@ -1929,6 +1929,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

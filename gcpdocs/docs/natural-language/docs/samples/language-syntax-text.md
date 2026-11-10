@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/natural-language/docs/samples/language-syntax-text/
 title: Analyze syntax of a string \u00a0|\u00a0 Cloud Natural Language API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:12.825706+00:00
+fetched_at: 2026-11-10T06:10:52.817998+00:00
 ---
 
 # Analyze syntax of a string  |  Cloud Natural Language API  |  Google Cloud Documentation
@@ -106,10 +106,10 @@ To authenticate to Natural Language, set up Application Default Credentials. For
     
     
     // Imports the Google Cloud client library
-    const language = require('[@google-cloud/language](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html)');
+    const language = require(&[#39;@google-cloud/lang](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html)uage');
     
     // Creates a client
-    const client = new language.[LanguageServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html)();
+    const client = new l[anguage](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html).LanguageServiceClient();
     
     /**
      * TODO(developer): Uncomment the following line to run this code.
@@ -128,8 +128,8 @@ To authenticate to Natural Language, set up Application Default Credentials. For
     // Detects the sentiment of the document
     const [syntax] = await client.analyzeSyntax({document, encodingType});
     
-    console.log('Tokens:');
-    syntax.tokens.forEach(part => {
+    console.log('Tok>ens:');
+    syntax.tokens.forEach(part = {
       console.log(`${part.partOfSpeech.tag}: ${part.text.content}`);
       console.log('Morphology:', part.partOfSpeech);
     });
@@ -167,8 +167,8 @@ To authenticate to Natural Language, set up Application Default Credentials. For
         $tokens = $response->getTokens();
         // Print out information about each entity
         foreach ($tokens as $token) {
-            printf('Token text: %s' . PHP_EOL, $token->getText()->getContent());
-            printf('Token part of speech: %s' . PHP_EOL, Tag::name($token->getPartOfSpeech()->getTag()));
+            printf('Token text: %s' . PHP_EOL,> $token-ge>tText()-getContent());
+            printf('Token part of speech: %s' . PHP_EOL, T>ag::name($token-ge>tPartOfSpeech()-getTag()));
             print(PHP_EOL);
         }
     }
@@ -204,10 +204,10 @@ To authenticate to Natural Language, set up Application Default Credentials. For
         language = "en"
         document = {"content": text_content, "type_": type_, "language": language}
     
-        # Available values: NONE, UTF8, UTF16, UTF32
+        # Available values: NONE, UTF8, UTF16, U[TF32](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.services.language_service.LanguageServiceClient.html#google_cloud_language_v1_services_language_service_LanguageServiceClient_analyze_syntax)
         encoding_type = language_v1.EncodingType.UTF8
     
-        response = client.[analyze_syntax](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.services.language_service.LanguageServiceClient.html#google_cloud_language_v1_services_language_service_LanguageServiceClient_analyze_syntax)(
+        response = client.analyze_syntax(
             request={"document": document, "encoding_type": encoding_type}
         )
         # Loop through tokens returned from the API
@@ -220,22 +220,22 @@ To authenticate to Natural Language, set up Application Default Credentials. For
             # Part of speech is defined in:
             # http://www.lrec-conf.org/proceedings/lrec2012/pdf/274_Paper.pdf
             part_of_speech = token.part_of_speech
-            # Get the tag, e.g. NOUN, ADJ for Adjective, et al.
+            # Get the tag, e.g. NO[UN, ADJ for ](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.html)A[dje](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.Tag.html)ctive, et al.
             print(
                 "Part of Speech tag: {}".format(
-                    language_v1.[PartOfSpeech](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.html).[Tag](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.Tag.html)(part_of_speech.tag).name
+                    language_v1.PartOfSpeech.Tag(part_of_speech.tag).name
                 )
-            )
-            # Get the voice, e.g. ACTIVE or PASSIVE
+         [   )
+           ](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.html) [# Get](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.Voice.html) the voice, e.g. ACTIVE or PASSIVE
             print(
                 "Voice: {}".format(
-                    language_v1.[PartOfSpeech](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.html).[Voice](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.Voice.html)(part_of_speech.voice).name
+                    language_v1.PartOfSpeech.Voice(part_of_speech.voice).name
                 )
-            )
-            # Get the tense, e.g. PAST, FUTURE, PRESENT, et al.
+           [ )
+            #](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.html) [Get t](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.Tense.html)he tense, e.g. PAST, FUTURE, PRESENT, et al.
             print(
                 "Tense: {}".format(
-                    language_v1.[PartOfSpeech](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.html).[Tense](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.PartOfSpeech.Tense.html)(part_of_speech.tense).name
+                    language_v1.PartOfSpeech.Tense(part_of_speech.tense).name
                 )
             )
             # See API reference for additional Part of Speech information available
@@ -245,11 +245,11 @@ To authenticate to Natural Language, set up Application Default Credentials. For
             # Get the dependency tree parse information for this token.
             # For more information on dependency labels:
             # http://www.aclweb.org/anthology/P13-2017
-            dependency_edge = token.dependency_edge
-            print(f"Head token index: {dependency_edge.head_token_index}")
+            dependency_edge = token.depe[ndency_edgepan>
+       ](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.DependencyEdge.html)[     ](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.DependencyEdge.Label.html)print(f"Head token index: {dependency_edge.head_token_index}")
             print(
                 "Label: {}".format(
-                    language_v1.[DependencyEdge](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.DependencyEdge.html).[Label](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.types.DependencyEdge.Label.html)(dependency_edge.label).name
+                    language_v1.DependencyEdge.Label(dependency_edge.label).name
                 )
             )
     

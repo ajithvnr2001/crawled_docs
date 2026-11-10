@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/timestamp_functions/
 title: Timestamp Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:08.832205+00:00
+fetched_at: 2026-11-10T06:05:23.125506+00:00
 ---
 
 # Timestamp Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -128,7 +128,7 @@ Converts `input` (interpreted as the number of microseconds since `1970-01-01 00
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1986-L1991)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1986-L1991)
 
 ### Web
     
@@ -140,7 +140,7 @@ Converts `input` (interpreted as the number of microseconds since `1970-01-01 00
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3260-L3265)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3261-L3266)
 
 ##### Swift
     
@@ -221,7 +221,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L28-L33)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L28-L33)
 
 ### UNIX_MILLIS_TO_TIMESTAMP
 
@@ -253,7 +253,7 @@ Converts `input` (interpreted as the number of milliseconds since `1970-01-01 00
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1998-L2003)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1998-L2003)
 
 ### Web
     
@@ -265,7 +265,7 @@ Converts `input` (interpreted as the number of milliseconds since `1970-01-01 00
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3272-L3277)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3273-L3278)
 
 ##### Swift
     
@@ -346,7 +346,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L47-L52)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L47-L52)
 
 ### UNIX_SECONDS_TO_TIMESTAMP
 
@@ -378,7 +378,7 @@ Converts `input` (interpreted as the number of seconds since `1970-01-01 00:00:0
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2010-L2015)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2010-L2015)
 
 ### Web
     
@@ -390,7 +390,7 @@ Converts `input` (interpreted as the number of seconds since `1970-01-01 00:00:0
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3284-L3289)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3285-L3290)
 
 ##### Swift
     
@@ -471,7 +471,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L66-L71)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L66-L71)
 
 ### TIMESTAMP_ADD
 
@@ -516,7 +516,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2022-L2027)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2022-L2027)
 
 ### Web
     
@@ -528,7 +528,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3296-L3301)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3297-L3302)
 
 ##### Swift
     
@@ -607,7 +607,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L85-L90)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L85-L90)
 
 ### TIMESTAMP_SUB
 
@@ -652,7 +652,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2034-L2039)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2034-L2039)
 
 ### Web
     
@@ -664,7 +664,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3308-L3313)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3309-L3314)
 
 ##### Swift
     
@@ -747,7 +747,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L104-L109)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L104-L109)
 
 ### TIMESTAMP_TO_UNIX_MICROS
 
@@ -779,7 +779,7 @@ Converts `input` to the number of microseconds since `1970-01-01 00:00:00 UTC`. 
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2046-L2051)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2046-L2051)
 
 ### Web
     
@@ -791,7 +791,7 @@ Converts `input` to the number of microseconds since `1970-01-01 00:00:00 UTC`. 
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3320-L3325)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3321-L3326)
 
 ##### Swift
     
@@ -868,7 +868,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L123-L128)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L123-L128)
 
 ### TIMESTAMP_TO_UNIX_MILLIS
 
@@ -900,7 +900,7 @@ Converts `input` to the number of milliseconds since `1970-01-01 00:00:00 UTC`. 
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2058-L2063)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2058-L2063)
 
 ### Web
     
@@ -912,7 +912,7 @@ Converts `input` to the number of milliseconds since `1970-01-01 00:00:00 UTC`. 
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3332-L3337)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3333-L3338)
 
 ##### Swift
     
@@ -989,7 +989,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L142-L147)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L142-L147)
 
 ### TIMESTAMP_TO_UNIX_SECONDS
 
@@ -1021,7 +1021,7 @@ Converts `input` to the number of seconds since `1970-01-01 00:00:00 UTC`. Trunc
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2070-L2075)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2070-L2075)
 
 ### Web
     
@@ -1033,7 +1033,7 @@ Converts `input` to the number of seconds since `1970-01-01 00:00:00 UTC`. Trunc
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3344-L3349)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3345-L3350)
 
 ##### Swift
     
@@ -1110,7 +1110,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_date_timestamp.go#L161-L166)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_date_timestamp.go#L161-L166)
 
 ### TIMESTAMP_DIFF
 
@@ -1204,6 +1204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

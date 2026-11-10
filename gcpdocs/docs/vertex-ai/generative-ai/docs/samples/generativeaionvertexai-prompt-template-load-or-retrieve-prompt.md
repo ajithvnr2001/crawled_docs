@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-template-load-or-retrieve-prompt/
 title: Load or retrieve a prompt \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:20.079076+00:00
+fetched_at: 2026-11-10T06:02:06.915879+00:00
 ---
 
 # Load or retrieve a prompt  |  Generative AI on Vertex AI  |  Google Cloud Documentation

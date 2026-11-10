@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/logical_functions/
 title: Logical Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:25.676532+00:00
+fetched_at: 2026-11-10T06:06:09.840835+00:00
 ---
 
 # Logical Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -74,7 +74,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1668-L1674)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1668-L1674)
 
 ### Web
     
@@ -87,7 +87,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2945-L2951)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2946-L2952)
 
 ##### Swift
     
@@ -179,7 +179,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L47-L55)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L47-L55)
 
 ### OR
 
@@ -217,7 +217,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1681-L1687)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1681-L1687)
 
 ### Web
     
@@ -230,7 +230,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2958-L2964)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2959-L2965)
 
 ##### Swift
     
@@ -323,7 +323,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L69-L77)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L69-L77)
 
 ### XOR
 
@@ -362,7 +362,7 @@ Returns `NULL` if any of the given values are `ABSENT` or `NULL`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2971-L2977)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2972-L2978)
 
 ### Web
     
@@ -375,7 +375,7 @@ Returns `NULL` if any of the given values are `ABSENT` or `NULL`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2971-L2977)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2972-L2978)
 
 ##### Swift
     
@@ -472,7 +472,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L91-L99)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L91-L99)
 
 ### NOR
 
@@ -523,7 +523,7 @@ Returns the logical NOT of a boolean value.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2984-L2990)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2985-L2991)
 
 ### Web
     
@@ -536,7 +536,7 @@ Returns the logical NOT of a boolean value.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2984-L2990)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2985-L2991)
 
 ##### Swift
     
@@ -618,7 +618,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L113-L118)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L113-L118)
 
 ### CONDITIONAL
 
@@ -656,7 +656,7 @@ Evaluates and returns the `false_case` if the condition resolves to `FALSE`, `NU
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2997-L3005)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2998-L3006)
 
 ### Web
     
@@ -671,7 +671,7 @@ Evaluates and returns the `false_case` if the condition resolves to `FALSE`, `NU
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2997-L3005)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2998-L3006)
 
 ##### Swift
     
@@ -794,7 +794,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L132-L144)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L132-L144)
 
 ### IF_NULL
 
@@ -872,7 +872,7 @@ NaN | [1L, NaN, 3L] | `TRUE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3012-L3018)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3013-L3019)
 
 ### Web
     
@@ -885,7 +885,7 @@ NaN | [1L, NaN, 3L] | `TRUE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3012-L3018)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3013-L3019)
 
 ##### Swift
     
@@ -971,7 +971,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_array.go#L199-L204)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_array.go#L199-L204)
 
 ### NOT_EQUAL_ANY
 
@@ -1007,7 +1007,7 @@ NaN | [1L, NaN, 3L] | `FALSE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3025-L3031)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3026-L3032)
 
 ### Web
     
@@ -1020,7 +1020,7 @@ NaN | [1L, NaN, 3L] | `FALSE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3025-L3031)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3026-L3032)
 
 ##### Swift
     
@@ -1106,7 +1106,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_array.go#L218-L223)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_array.go#L218-L223)
 
 ### MAXIMUM
 
@@ -1145,7 +1145,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2633-L2636)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2634-L2637)
 
 ### Web
     
@@ -1155,7 +1155,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2633-L2636)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2634-L2637)
 
 ##### Swift
     
@@ -1232,7 +1232,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L158-L163)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L158-L163)
 
 ### MINIMUM
 
@@ -1271,7 +1271,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2623-L2626)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2624-L2627)
 
 ### Web
     
@@ -1281,7 +1281,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2623-L2626)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2624-L2627)
 
 ##### Swift
     
@@ -1358,7 +1358,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_logical.go#L177-L182)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_logical.go#L177-L182)
 
 ## What's next
 
@@ -1370,6 +1370,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

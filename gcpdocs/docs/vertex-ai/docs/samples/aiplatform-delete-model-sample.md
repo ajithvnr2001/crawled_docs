@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-delete-model-sample/
 title: Delete a model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:18.182915+00:00
+fetched_at: 2026-11-10T06:00:36.123264+00:00
 ---
 
 # Delete a model  |  Vertex AI  |  Google Cloud Documentation

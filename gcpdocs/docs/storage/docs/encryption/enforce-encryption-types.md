@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/encryption/enforce-encryption-types/
 title: Enforce or restrict the encryption types for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:45:43.360965+00:00
+fetched_at: 2026-11-10T05:58:10.137381+00:00
 ---
 
 # Enforce or restrict the encryption types for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -625,7 +625,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       customer_managed_config = { restriction_mode: "NotRestricted" }
       customer_supplied_config = { restriction_mode: "FullyRestricted" }
@@ -1160,7 +1160,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       # The ID to give your GCS bucket
       # bucket_name = "your-unique-bucket-name"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
       # Update a specific type (e.g., change GMEK to NotRestricted)
       new_config =  { restriction_mode: "NotRestricted" }

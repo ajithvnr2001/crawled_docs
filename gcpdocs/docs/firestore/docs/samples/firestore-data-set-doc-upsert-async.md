@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-doc-upsert-async/
 title: Update a Firestore document using merge (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:28.779447+00:00
+fetched_at: 2026-11-10T06:10:02.081392+00:00
 ---
 
 # Update a Firestore document using merge (async)  |  Google Cloud Documentation

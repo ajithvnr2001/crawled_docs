@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/policy-intelligence/docs/test-organization-policies/
 title: Test organization policy changes with Policy Simulator \u00a0|\u00a0 Policy Intelligence \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:00:23.620976+00:00
+fetched_at: 2026-11-10T05:56:59.970863+00:00
 ---
 
 # Test organization policy changes with Policy Simulator  |  Policy Intelligence  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ The constraint ID can't be changed after a custom constraint is created.
 
      6. To define a condition, click edit **Edit condition**.
 
-     7. In the **Add condition** panel, create a CEL condition that refers to a supported service resource, for example `resource.management.autoUpgrade == false`. This field has a maximum length of 1000 characters. For details about CEL usage, see [Common Expression Language](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language). For more information about the service resources you can use in your custom constraints, see [Custom constraint supported services](https://docs.cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services).
+     7. In the **Add condition** panel, create a CEL condition that refers to a supported service resource, for example `resource.management.autoUpgrade == false`. This field has a maximum length of 1,500 characters. For details about CEL usage, see [Common Expression Language](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language). For more information about the service resources you can use in your custom constraints, see [Custom constraint supported services](https://docs.cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services).
 
      8. Click **Save**.
 
@@ -169,7 +169,7 @@ Replace the following:
 
      * `METHOD1,METHOD2`: a list of RESTful methods for which to enforce the constraint. Can be `CREATE` or `CREATE` and `UPDATE`. Not all Google Cloud services support both methods. To see supported methods for each service, find the service in [Supported services](https://docs.cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services).
 
-     * `CONDITION`: a CEL condition that refers to a supported service resource, for example `"resource.management.autoUpgrade == false"`. This field has a maximum length of 1000 characters. For details about CEL usage, see [Common Expression Language](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language).
+     * `CONDITION`: a CEL condition that refers to a supported service resource, for example `"resource.management.autoUpgrade == false"`. This field has a maximum length of 1,500 characters. For details about CEL usage, see [Common Expression Language](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language).
 
      * `ACTION`: the action to take if the `condition` is met. This can be either `ALLOW` or `DENY`.
 
@@ -508,6 +508,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

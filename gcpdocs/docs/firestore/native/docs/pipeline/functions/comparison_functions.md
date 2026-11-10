@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/comparison_functions/
 title: Comparison Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:24.828963+00:00
+fetched_at: 2026-11-10T06:06:49.510358+00:00
 ---
 
 # Comparison Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ Returns `TRUE` if `x` and `y` are equal, and `FALSE` otherwise.
       .select(field("rating").equal(5).as("hasPerfectRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1598-L1601)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1598-L1601)
 
 ### Web
     
@@ -74,7 +74,7 @@ Returns `TRUE` if `x` and `y` are equal, and `FALSE` otherwise.
       .select(field("rating").equal(5).as("hasPerfectRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2875-L2878)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2876-L2879)
 
 ##### Swift
     
@@ -145,7 +145,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_comparison.go#L28-L33)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_comparison.go#L28-L33)
 
 ### GREATER_THAN
 
@@ -182,7 +182,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").greaterThan(4).as("hasHighRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1608-L1611)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1608-L1611)
 
 ### Web
     
@@ -192,7 +192,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").greaterThan(4).as("hasHighRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2885-L2888)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2886-L2889)
 
 ##### Swift
     
@@ -263,7 +263,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_comparison.go#L47-L52)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_comparison.go#L47-L52)
 
 ### GREATER_THAN_OR_EQUAL
 
@@ -300,7 +300,7 @@ NaN | 0L | `FALSE`
       .select(field("published").greaterThanOrEqual(1900).as("publishedIn20thCentury"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1618-L1621)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1618-L1621)
 
 ### Web
     
@@ -310,7 +310,7 @@ NaN | 0L | `FALSE`
       .select(field("published").greaterThanOrEqual(1900).as("publishedIn20thCentury"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2895-L2898)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2896-L2899)
 
 ##### Swift
     
@@ -385,7 +385,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_comparison.go#L66-L71)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_comparison.go#L66-L71)
 
 ### LESS_THAN
 
@@ -422,7 +422,7 @@ NaN | 0L | `FALSE`
       .select(field("published").lessThan(1923).as("isPublicDomainProbably"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1628-L1631)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1628-L1631)
 
 ### Web
     
@@ -432,7 +432,7 @@ NaN | 0L | `FALSE`
       .select(field("published").lessThan(1923).as("isPublicDomainProbably"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2905-L2908)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2906-L2909)
 
 ##### Swift
     
@@ -503,7 +503,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_comparison.go#L85-L90)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_comparison.go#L85-L90)
 
 ### LESS_THAN_OR_EQUAL
 
@@ -540,7 +540,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").lessThanOrEqual(2).as("hasBadRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1638-L1641)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1638-L1641)
 
 ### Web
     
@@ -550,7 +550,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").lessThanOrEqual(2).as("hasBadRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2915-L2918)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2916-L2919)
 
 ##### Swift
     
@@ -621,7 +621,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_comparison.go#L104-L109)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_comparison.go#L104-L109)
 
 ### NOT_EQUAL
 
@@ -655,7 +655,7 @@ NaN | NaN | `FALSE`
       .select(field("title").notEqual("1984").as("not1984"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1648-L1651)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1648-L1651)
 
 ### Web
     
@@ -665,7 +665,7 @@ NaN | NaN | `FALSE`
       .select(field("title").notEqual("1984").as("not1984"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L2925-L2928)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2926-L2929)
 
 ##### Swift
     
@@ -736,7 +736,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/pipeline_snippets_comparison.go#L123-L128)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/pipeline_snippets_comparison.go#L123-L128)
 
 ### CMP
 
@@ -779,6 +779,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

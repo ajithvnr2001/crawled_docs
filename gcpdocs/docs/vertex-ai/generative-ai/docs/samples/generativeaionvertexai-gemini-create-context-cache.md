@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-gemini-create-context-cache/
 title: Create a context cache \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:39.202923+00:00
+fetched_at: 2026-11-10T06:00:56.098806+00:00
 ---
 
 # Create a context cache  |  Generative AI on Vertex AI  |  Google Cloud Documentation

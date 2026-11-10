@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/speech-to-text/docs/v1/transcribe-streaming-audio/
 title: Transcribe audio from streaming input \u00a0|\u00a0 Cloud Speech-to-Text \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:54:13.989437+00:00
+fetched_at: 2026-11-10T06:01:37.709735+00:00
 ---
 
 # Transcribe audio from streaming input  |  Cloud Speech-to-Text  |  Google Cloud Documentation
@@ -1171,13 +1171,13 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
     import com.google.api.gax.rpc.[ClientStream](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ClientStream.html);
     import com.google.api.gax.rpc.[ResponseObserver](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ResponseObserver.html);
     import com.google.api.gax.rpc.[StreamController](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.StreamController.html);
-    import com.google.cloud.speech.v1p1beta1.RecognitionConfig;
-    import com.google.cloud.speech.v1p1beta1.SpeechClient;
-    import com.google.cloud.speech.v1p1beta1.SpeechRecognitionAlternative;
-    import com.google.cloud.speech.v1p1beta1.StreamingRecognitionConfig;
-    import com.google.cloud.speech.v1p1beta1.StreamingRecognitionResult;
-    import com.google.cloud.speech.v1p1beta1.StreamingRecognizeRequest;
-    import com.google.cloud.speech.v1p1beta1.StreamingRecognizeResponse;
+    import com.google.cloud.speech.v1.[RecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.RecognitionConfig.html);
+    import com.google.cloud.speech.v1.[SpeechClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechClient.html);
+    import com.google.cloud.speech.v1.[SpeechRecognitionAlternative](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechRecognitionAlternative.html);
+    import com.google.cloud.speech.v1.[StreamingRecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionConfig.html);
+    import com.google.cloud.speech.v1.[StreamingRecognitionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionResult.html);
+    import com.google.cloud.speech.v1.[StreamingRecognizeRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.html);
+    import com.google.cloud.speech.v1.[StreamingRecognizeResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeResponse.html);
     import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import com.google.protobuf.[Duration](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html);
     import java.text.DecimalFormat;
@@ -1273,7 +1273,7 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
         MicBuffer micrunnable = new MicBuffer();
         Thread micThread = new Thread(micrunnable);
         ResponseObserver<StreamingRecognizeResponse> responseObserver = null;
-        try (SpeechClient client = SpeechClient.create()) {
+        try ([SpeechClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechClient.html) client = [SpeechClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechClient.html).create()) {
           ClientStream<StreamingRecognizeRequest> clientStream;
           responseObserver =
               new ResponseObserver<StreamingRecognizeResponse>() {
@@ -1284,32 +1284,32 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
                   referenceToStreamController = controller;
                 }
     
-                public void onResponse(StreamingRecognizeResponse response) {
+                public void onResponse([StreamingRecognizeResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeResponse.html) response) {
                   responses.add(response);
-                  StreamingRecognitionResult result = response.getResultsList().get(0);
-                  [Duration](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html) resultEndTime = result.getResultEndTime();
+                  [StreamingRecognitionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionResult.html) result = response.[getResultsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeResponse.html#com_google_cloud_speech_v1_StreamingRecognizeResponse_getResultsList__)().get(0);
+                  [Duration](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html) resultEndTime = result.[getResultEndTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionResult.html#com_google_cloud_speech_v1_StreamingRecognitionResult_getResultEndTime__)();
                   resultEndTimeInMS =
                       (int)
                           ((resultEndTime.[getSeconds](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html#com_google_protobuf_Duration_getSeconds__)() * 1000) + (resultEndTime.[getNanos](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html#com_google_protobuf_Duration_getNanos__)() / 1000000));
                   double correctedTime =
                       resultEndTimeInMS - bridgingOffset + (STREAMING_LIMIT * restartCounter);
     
-                  SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
-                  if (result.getIsFinal()) {
+                  [SpeechRecognitionAlternative](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechRecognitionAlternative.html) alternative = result.[getAlternativesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionResult.html#com_google_cloud_speech_v1_StreamingRecognitionResult_getAlternativesList__)().get(0);
+                  if (result.[getIsFinal](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionResult.html#com_google_cloud_speech_v1_StreamingRecognitionResult_getIsFinal__)()) {
                     System.out.print(GREEN);
                     System.out.print("\033[2K\r");
                     System.out.printf(
                         "%s: %s [confidence: %.2f]\n",
                         convertMillisToDate(correctedTime),
-                        alternative.getTranscript(),
-                        alternative.getConfidence());
+                        alternative.[getTranscript](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechRecognitionAlternative.html#com_google_cloud_speech_v1_SpeechRecognitionAlternative_getTranscript__)(),
+                        alternative.[getConfidence](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechRecognitionAlternative.html#com_google_cloud_speech_v1_SpeechRecognitionAlternative_getConfidence__)());
                     isFinalEndTime = resultEndTimeInMS;
                     lastTranscriptWasFinal = true;
                   } else {
                     System.out.print(RED);
                     System.out.print("\033[2K\r");
                     System.out.printf(
-                        "%s: %s", convertMillisToDate(correctedTime), alternative.getTranscript());
+                        "%s: %s", convertMillisToDate(correctedTime), alternative.[getTranscript](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechRecognitionAlternative.html#com_google_cloud_speech_v1_SpeechRecognitionAlternative_getTranscript__)());
                     lastTranscriptWasFinal = false;
                   }
                 }
@@ -1318,24 +1318,24 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
     
                 public void onError(Throwable t) {}
               };
-          clientStream = client.streamingRecognizeCallable().[splitCall](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.BidiStreamingCallable.html#com_google_api_gax_rpc_BidiStreamingCallable_splitCall_com_google_api_gax_rpc_ResponseObserver_ResponseT__)(responseObserver);
+          clientStream = client.[streamingRecognizeCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechClient.html#com_google_cloud_speech_v1_SpeechClient_streamingRecognizeCallable__)().[splitCall](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.BidiStreamingCallable.html#com_google_api_gax_rpc_BidiStreamingCallable_splitCall_com_google_api_gax_rpc_ResponseObserver_ResponseT__)(responseObserver);
     
-          RecognitionConfig recognitionConfig =
-              RecognitionConfig.newBuilder()
-                  .setEncoding(RecognitionConfig.AudioEncoding.LINEAR16)
+          [RecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.RecognitionConfig.html) recognitionConfig =
+              [RecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.RecognitionConfig.html).newBuilder()
+                  .[setEncoding](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.RecognitionConfig.Builder.html#com_google_cloud_speech_v1_RecognitionConfig_Builder_setEncoding_com_google_cloud_speech_v1_RecognitionConfig_AudioEncoding_)([RecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.RecognitionConfig.html).AudioEncoding.LINEAR16)
                   .setLanguageCode(languageCode)
-                  .setSampleRateHertz(16000)
+                  .[setSampleRateHertz](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.RecognitionConfig.Builder.html#com_google_cloud_speech_v1_RecognitionConfig_Builder_setSampleRateHertz_int_)(16000)
                   .build();
     
-          StreamingRecognitionConfig streamingRecognitionConfig =
-              StreamingRecognitionConfig.newBuilder()
+          [StreamingRecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionConfig.html) streamingRecognitionConfig =
+              [StreamingRecognitionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionConfig.html).newBuilder()
                   .setConfig(recognitionConfig)
-                  .setInterimResults(true)
+                  .[setInterimResults](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognitionConfig.Builder.html#com_google_cloud_speech_v1_StreamingRecognitionConfig_Builder_setInterimResults_boolean_)(true)
                   .build();
     
-          StreamingRecognizeRequest request =
-              StreamingRecognizeRequest.newBuilder()
-                  .setStreamingConfig(streamingRecognitionConfig)
+          [StreamingRecognizeRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.html) request =
+              [StreamingRecognizeRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.html).newBuilder()
+                  .[setStreamingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.Builder.html#com_google_cloud_speech_v1_StreamingRecognizeRequest_Builder_setStreamingConfig_com_google_cloud_speech_v1_StreamingRecognitionConfig_)(streamingRecognitionConfig)
                   .build(); // The first request in a streaming call has to be a config
     
           clientStream.send(request);
@@ -1387,11 +1387,11 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
     
                 newStream = true;
     
-                clientStream = client.streamingRecognizeCallable().[splitCall](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.BidiStreamingCallable.html#com_google_api_gax_rpc_BidiStreamingCallable_splitCall_com_google_api_gax_rpc_ResponseObserver_ResponseT__)(responseObserver);
+                clientStream = client.[streamingRecognizeCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.SpeechClient.html#com_google_cloud_speech_v1_SpeechClient_streamingRecognizeCallable__)().[splitCall](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.BidiStreamingCallable.html#com_google_api_gax_rpc_BidiStreamingCallable_splitCall_com_google_api_gax_rpc_ResponseObserver_ResponseT__)(responseObserver);
     
                 request =
-                    StreamingRecognizeRequest.newBuilder()
-                        .setStreamingConfig(streamingRecognitionConfig)
+                    [StreamingRecognizeRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.html).newBuilder()
+                        .[setStreamingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.Builder.html#com_google_cloud_speech_v1_StreamingRecognizeRequest_Builder_setStreamingConfig_com_google_cloud_speech_v1_StreamingRecognitionConfig_)(streamingRecognitionConfig)
                         .build();
     
                 System.out.println(YELLOW);
@@ -1424,8 +1424,8 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
                     // set bridging offset for next request
                     for (int i = chunksFromMs; i < lastAudioInput.size(); i++) {
                       request =
-                          StreamingRecognizeRequest.newBuilder()
-                              .setAudioContent(lastAudioInput.get(i))
+                          [StreamingRecognizeRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.html).newBuilder()
+                              .[setAudioContent](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.Builder.html#com_google_cloud_speech_v1_StreamingRecognizeRequest_Builder_setAudioContent_com_google_protobuf_ByteString_)(lastAudioInput.get(i))
                               .build();
                       clientStream.send(request);
                     }
@@ -1436,7 +1436,7 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
                 tempByteString = [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(sharedQueue.take());
     
                 request =
-                    StreamingRecognizeRequest.newBuilder().setAudioContent(tempByteString).build();
+                    [StreamingRecognizeRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.html).newBuilder().[setAudioContent](https://docs.cloud.google.com/java/docs/reference/google-cloud-speech/latest/com.google.cloud.speech.v1.StreamingRecognizeRequest.Builder.html#com_google_cloud_speech_v1_StreamingRecognizeRequest_Builder_setAudioContent_com_google_protobuf_ByteString_)(tempByteString).build();
     
                 audioInput.add(tempByteString);
               }

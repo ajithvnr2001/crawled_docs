@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/order-limit-data/
 title: Order and limit data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:18.406944+00:00
+fetched_at: 2026-11-10T06:09:31.744540+00:00
 ---
 
 # Order and limit data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ Android
     
     citiesRef.orderBy("name").limit(3)
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L927-L927)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L927-L927)
 
 ##### Java  
 Android
@@ -85,7 +85,7 @@ Android
     
     citiesRef.orderBy("name").limit(3);
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1120-L1120)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1120-L1120)
 
 ### Dart
     
@@ -110,7 +110,7 @@ Android
     query = cities_ref.order_by("name").limit_to_last(2)
     results = query.get()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L578-L580)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L578-L580)
 
 ##### Python  
 (Async)
@@ -120,7 +120,7 @@ Android
     query = cities_ref.order_by("name").limit_to_last(2)
     results = await query.get()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L563-L565)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L563-L565)
 
 ##### C++
     
@@ -142,7 +142,7 @@ Android
     query := cities.OrderBy("name", firestore.Asc).Limit(3)
     query := cities.OrderBy("name", firestore.Asc).LimitToLast(3)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/query.go#L155-L155)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/query.go#L155-L155)
 
 ##### PHP
 
@@ -170,7 +170,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("name").limit(3)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/d80e5996db280a1b34b04f5afda1f072143fb6ef/google-cloud-firestore/samples/order_limit_data.rb#L25-L25)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L25-L25)
 
 You could also sort in descending order to get the _last_ 3 cities:
 
@@ -216,7 +216,7 @@ Android
     
     citiesRef.orderBy("name", Query.Direction.DESCENDING).limit(3)
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L931-L931)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L931-L931)
 
 ##### Java  
 Android
@@ -224,7 +224,7 @@ Android
     
     citiesRef.orderBy("name", Direction.DESCENDING).limit(3);
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1124-L1124)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1124-L1124)
 
 ### Dart
     
@@ -248,7 +248,7 @@ Android
     query = cities_ref.order_by("name", direction=firestore.Query.DESCENDING).limit(3)
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L539-L541)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L539-L541)
 
 ##### Python  
 (Async)
@@ -258,7 +258,7 @@ Android
     query = cities_ref.order_by("name", direction=firestore.Query.DESCENDING).limit(3)
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L529-L531)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L529-L531)
 
 ##### C++
     
@@ -279,7 +279,7 @@ Android
     
     query := cities.OrderBy("name", firestore.Desc).Limit(3)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/query.go#L164-L164)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/query.go#L164-L164)
 
 ##### PHP
 
@@ -307,7 +307,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("name", "desc").limit(3)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/d80e5996db280a1b34b04f5afda1f072143fb6ef/google-cloud-firestore/samples/order_limit_data.rb#L40-L40)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L40-L40)
 
 You can also order by multiple fields. For example, if you wanted to order by state, and within each state order by population in descending order:
 
@@ -355,7 +355,7 @@ Android
     
     citiesRef.orderBy("state").orderBy("population", Query.Direction.DESCENDING)
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L935-L935)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L935-L935)
 
 ##### Java  
 Android
@@ -363,7 +363,7 @@ Android
     
     citiesRef.orderBy("state").orderBy("population", Direction.DESCENDING);
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1128-L1128)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1128-L1128)
 
 ### Dart
     
@@ -388,7 +388,7 @@ Android
         "population", direction=firestore.Query.DESCENDING
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L552-L555)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L552-L555)
 
 ##### Python  
 (Async)
@@ -399,7 +399,7 @@ Android
         "population", direction=firestore.Query.DESCENDING
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L539-L542)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L539-L542)
 
 ##### C++
     
@@ -420,7 +420,7 @@ Android
     
     query := client.Collection("cities").OrderBy("state", firestore.Asc).OrderBy("population", firestore.Desc)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/query.go#L172-L172)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/query.go#L172-L172)
 
 ##### PHP
 
@@ -448,7 +448,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("state").order("population", "desc")
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/d80e5996db280a1b34b04f5afda1f072143fb6ef/google-cloud-firestore/samples/order_limit_data.rb#L55-L55)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L55-L55)
 
 You can combine `where()` filters with `orderBy()` and `limit()`. In the following example, the queries define a population threshold, sort by population in ascending order, and return only the first few results that exceed the threshold:
 
@@ -499,7 +499,7 @@ Android
     
     citiesRef.whereGreaterThan("population", 100000).orderBy("population").limit(2)
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L939-L939)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L939-L939)
 
 ##### Java  
 Android
@@ -507,7 +507,7 @@ Android
     
     citiesRef.whereGreaterThan("population", 100000).orderBy("population").limit(2);
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1132-L1132)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1132-L1132)
 
 ### Dart
     
@@ -538,7 +538,7 @@ Android
     )
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L563-L569)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L563-L569)
 
 ##### Python  
 (Async)
@@ -552,7 +552,7 @@ Android
     )
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L549-L555)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L549-L555)
 
 ##### C++
     
@@ -576,7 +576,7 @@ Android
     
     query := cities.Where("population", ">", 2500000).OrderBy("population", firestore.Desc).Limit(2)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/10029d2c3c58bceca00404aad1937429c8dfef51/firestore/query.go#L180-L180)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/1b7781c77366c3cff42201a77e7f67016c8381b0/firestore/query.go#L180-L180)
 
 ##### PHP
 
@@ -613,7 +613,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.where("population", ">", 2_500_000).order("population").limit(2)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/d80e5996db280a1b34b04f5afda1f072143fb6ef/google-cloud-firestore/samples/order_limit_data.rb#L70-L70)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L70-L70)
 
 However, if you have a filter with a range comparison (`<`, `<=`, `>`, `>=`), your first ordering must be on the same field, see the list of `orderBy()` limitations below.
 
@@ -654,6 +654,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/web-risk/docs/samples/webrisk-submit-uri/
 title: Submit a URI \u00a0|\u00a0 Web Risk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:15.061387+00:00
+fetched_at: 2026-11-10T06:01:16.566839+00:00
 ---
 
 # Submit a URI  |  Web Risk  |  Google Cloud Documentation
@@ -125,7 +125,7 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
     
     
     from google.api_core.operation import Operation
-    from google.cloud import [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest)
+    from google.cloud import webrisk_v1
     
     
     def submit_uri(project_id: str, uri: str) -> Operation:
@@ -146,22 +146,22 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
         Returns:
             A Long Running Operation ID similar to `projects/1234/operations/5678`.
         """
-        webrisk_client = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
+        webrisk_client = webrisk_v1.[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
     
         # Set the URI to be submitted.
-        submission = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[Submission](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.Submission.html)()
+        submission = webrisk_v1.[Submission](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.Submission.html)()
         submission.uri = uri
     
         # Confidence that a URI is unsafe.
-        threat_confidence = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[Confidence](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.Confidence.html)(
-            level=[webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[Confidence](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.Confidence.html).[ConfidenceLevel](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.Confidence.ConfidenceLevel.html).MEDIUM
+        threat_confidence = webrisk_v1.[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[Confidence](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.Confidence.html)(
+            level=webrisk_v1.[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[Confidence](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.Confidence.html).[ConfidenceLevel](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.Confidence.ConfidenceLevel.html).MEDIUM
         )
     
         # Context about why the URI is unsafe.
-        threat_justification = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[ThreatJustification](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.ThreatJustification.html)(
+        threat_justification = webrisk_v1.[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[ThreatJustification](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.ThreatJustification.html)(
             # Labels that explain how the URI was classified.
             labels=[
-                [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[ThreatJustification](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.ThreatJustification.html).[JustificationLabel](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.ThreatJustification.JustificationLabel.html).AUTOMATED_REPORT
+                webrisk_v1.[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html).[ThreatJustification](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.ThreatJustification.html).[JustificationLabel](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.ThreatJustification.JustificationLabel.html).AUTOMATED_REPORT
             ],
             # Free-form context on why this URI is unsafe.
             comments=["Testing submission"],
@@ -169,23 +169,23 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
     
         # Set the context about the submission including the type of abuse found on the URI and
         # supporting details.
-        threat_info = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html)(
+        threat_info = webrisk_v1.[ThreatInfo](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatInfo.html)(
             # The abuse type found on the URI.
-            abuse_type=[webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[types](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.html).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html).SOCIAL_ENGINEERING,
+            abuse_type=webrisk_v1.[types](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.html).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html).SOCIAL_ENGINEERING,
             threat_confidence=threat_confidence,
             threat_justification=threat_justification,
         )
     
         # Set the details about how the threat was discovered.
-        threat_discovery = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatDiscovery](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatDiscovery.html)(
+        threat_discovery = webrisk_v1.[ThreatDiscovery](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatDiscovery.html)(
             # Platform on which the threat was discovered.
-            platform=[webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatDiscovery](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatDiscovery.html).[Platform](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatDiscovery.Platform.html).MACOS,
+            platform=webrisk_v1.[ThreatDiscovery](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatDiscovery.html).[Platform](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatDiscovery.Platform.html).MACOS,
             # CLDR region code of the countries/regions the URI poses a threat ordered
             # from most impact to least impact. Example: "US" for United States.
             region_codes=["US"],
         )
     
-        request = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[SubmitUriRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SubmitUriRequest.html)(
+        request = webrisk_v1.[SubmitUriRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SubmitUriRequest.html)(
             parent=f"projects/{project_id}",
             submission=submission,
             threat_info=threat_info,

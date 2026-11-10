@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-add-delete-security-marks/
 title: Adding and deleting security marks \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:50.389978+00:00
+fetched_at: 2026-11-10T06:02:07.511693+00:00
 ---
 
 # Adding and deleting security marks  |  Security Command Center  |  Google Cloud Documentation

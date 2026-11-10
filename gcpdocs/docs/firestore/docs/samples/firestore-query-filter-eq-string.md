@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-filter-eq-string/
 title: Query a Firestore collection with a string eq filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:00.469285+00:00
+fetched_at: 2026-11-10T06:10:15.205418+00:00
 ---
 
 # Query a Firestore collection with a string eq filter  |  Google Cloud Documentation

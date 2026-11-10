@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-batch-writes-async/
 title: Performs a batch update on a Firestore document (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:17.733415+00:00
+fetched_at: 2026-11-10T06:06:22.122356+00:00
 ---
 
 # Performs a batch update on a Firestore document (async)  |  Google Cloud Documentation

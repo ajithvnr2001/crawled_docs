@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/roll-back-schemas/
 title: Roll back a schema revision \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:00:06.928868+00:00
+fetched_at: 2026-11-10T05:57:05.123836+00:00
 ---
 
 # Roll back a schema revision  |  Pub/Sub  |  Google Cloud Documentation

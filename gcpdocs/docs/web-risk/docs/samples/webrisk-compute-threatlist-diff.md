@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/web-risk/docs/samples/webrisk-compute-threatlist-diff/
 title: Get threat list diff \u00a0|\u00a0 Web Risk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:14.331349+00:00
+fetched_at: 2026-11-10T06:00:33.147758+00:00
 ---
 
 # Get threat list diff  |  Web Risk  |  Google Cloud Documentation
@@ -125,16 +125,16 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
 To authenticate to Web Risk, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest)
+    from google.cloud import webrisk_v1
     from google.cloud.webrisk_v1 import [ComputeThreatListDiffResponse](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffResponse.html)
     
     
     def compute_threatlist_diff(
-        threat_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html),
+        threat_type: webrisk_v1.[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html),
         version_token: bytes,
         max_diff_entries: int,
         max_database_entries: int,
-        compression_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[CompressionType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.CompressionType.html),
+        compression_type: webrisk_v1.[CompressionType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.CompressionType.html),
     ) -> ComputeThreatListDiffResponse:
         """Gets the most recent threat list diffs.
     
@@ -169,14 +169,14 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
             the response also contains the version token and the recommended time for next diff.
         """
     
-        webrisk_client = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
+        webrisk_client = webrisk_v1.[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
     
-        constraints = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html).[Constraints](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.Constraints.html)()
+        constraints = webrisk_v1.[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html).[Constraints](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.Constraints.html)()
         constraints.max_diff_entries = max_diff_entries
         constraints.max_database_entries = max_database_entries
         constraints.supported_compressions = [compression_type]
     
-        request = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html)()
+        request = webrisk_v1.[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html)()
         request.threat_type = threat_type
         request.version_token = version_token
         request.constraints = constraints

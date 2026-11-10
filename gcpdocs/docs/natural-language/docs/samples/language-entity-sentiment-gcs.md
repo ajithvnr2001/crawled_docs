@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/natural-language/docs/samples/language-entity-sentiment-gcs/
 title: Analyze entity sentiment in a Cloud Storage file \u00a0|\u00a0 Cloud Natural Language API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:47.727458+00:00
+fetched_at: 2026-11-10T06:10:43.120343+00:00
 ---
 
 # Analyze entity sentiment in a Cloud Storage file  |  Cloud Natural Language API  |  Google Cloud Documentation
@@ -74,10 +74,10 @@ To authenticate to Natural Language, set up Application Default Credentials. For
     
     
     // Imports the Google Cloud client library
-    const language = require('[@google-cloud/language](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html)');
+    const language = require(&[#39;@google-cloud/lang](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html)uage');
     
     // Creates a client
-    const client = new language.[LanguageServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html)();
+    const client = new l[anguage](https://docs.cloud.google.com/nodejs/docs/reference/language/latest/overview.html).LanguageServiceClient();
     
     /**
      * TODO(developer): Uncomment the following lines to run this code
@@ -95,8 +95,8 @@ To authenticate to Natural Language, set up Application Default Credentials. For
     const [result] = await client.analyzeEntitySentiment({document});
     const entities = result.entities;
     
-    console.log('Entities and sentiments:');
-    entities.forEach(entity => {
+    console.log('Entities and sent>iments:');
+    entities.forEach(entity = {
       console.log(`  Name: ${entity.name}`);
       console.log(`  Type: ${entity.type}`);
       console.log(`  Score: ${entity.sentiment.score}`);
@@ -136,13 +136,13 @@ To authenticate to Natural Language, set up Application Default Credentials. For
         $entities = $response->getEntities();
         // Print out information about each entity
         foreach ($entities as $entity) {
-            printf('Entity Name: %s' . PHP_EOL, $entity->getName());
-            printf('Entity Type: %s' . PHP_EOL, EntityType::name($entity->getType()));
-            printf('Entity Salience: %s' . PHP_EOL, $entity->getSalience());
-            $sentiment = $entity->getSentiment();
+            printf('Entity Name: %s' . PHP_EOL, >$entity-getName());
+            printf('Entity Type: %s' . PHP_EOL, EntityTyp>e::name($entity-getType()));
+            printf('Entity Salience: %s&>#39; . PHP_EOL, $entity-getSalience());
+         >   $sentiment = $entity-getSentiment();
             if ($sentiment) {
-                printf('Entity Magnitude: %s' . PHP_EOL, $sentiment->getMagnitude());
-                printf('Entity Score: %s' . PHP_EOL, $sentiment->getScore());
+                printf('Entity Magnitude>: %s' . PHP_EOL, $sentiment-getMagnitude());
+                printf('Enti>ty Score: %s' . PHP_EOL, $sentiment-getScore());
             }
             print(PHP_EOL);
         }
@@ -184,10 +184,10 @@ To authenticate to Natural Language, set up Application Default Credentials. For
             "language": language,
         }
     
-        # Available values: NONE, UTF8, UTF16, UTF32
+        # Available values: NONE, UTF8, UTF16, U[TF32](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.services.language_service.LanguageServiceClient.html#google_cloud_language_v1_services_language_service_LanguageServiceClient_analyze_entity_sentiment)
         encoding_type = language_v1.EncodingType.UTF8
     
-        response = client.[analyze_entity_sentiment](https://docs.cloud.google.com/python/docs/reference/language/latest/google.cloud.language_v1.services.language_service.LanguageServiceClient.html#google_cloud_language_v1_services_language_service_LanguageServiceClient_analyze_entity_sentiment)(
+        response = client.analyze_entity_sentiment(
             request={"document": document, "encoding_type": encoding_type}
         )
         # Loop through entitites returned from the API

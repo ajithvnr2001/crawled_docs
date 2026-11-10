@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-delete-corpus/
 title: Delete an index \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:41.415553+00:00
+fetched_at: 2026-11-10T06:02:09.030302+00:00
 ---
 
 # Delete an index  |  Generative AI on Vertex AI  |  Google Cloud Documentation

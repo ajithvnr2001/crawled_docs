@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-batch-predict-gemini-createjob-bigquery/
 title: Batch Predict with Gemini using BigQuery data \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:55.692467+00:00
+fetched_at: 2026-11-10T06:02:31.982509+00:00
 ---
 
 # Batch Predict with Gemini using BigQuery data  |  Generative AI on Vertex AI  |  Google Cloud Documentation

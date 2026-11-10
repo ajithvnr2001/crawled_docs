@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-list-files/
 title: List RAG files in an index \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:38.172437+00:00
+fetched_at: 2026-11-10T06:01:57.749124+00:00
 ---
 
 # List RAG files in an index  |  Generative AI on Vertex AI  |  Google Cloud Documentation

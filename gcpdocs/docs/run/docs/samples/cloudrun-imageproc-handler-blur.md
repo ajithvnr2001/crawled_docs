@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-imageproc-handler-blur/
 title: Retrieve image from Cloud Storage to blur and then upload to a storage bucket \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:11.195251+00:00
+fetched_at: 2026-11-10T06:03:20.286101+00:00
 ---
 
 # Retrieve image from Cloud Storage to blur and then upload to a storage bucket  |  Cloud Run  |  Google Cloud Documentation

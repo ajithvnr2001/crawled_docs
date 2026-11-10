@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-reference-subcollection/
 title: Create a Firestore subcollection reference \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:07.818032+00:00
+fetched_at: 2026-11-10T06:10:28.538771+00:00
 ---
 
 # Create a Firestore subcollection reference  |  Google Cloud Documentation

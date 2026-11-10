@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-chat-with-txt/
 title: Create a chat session with a Generative Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:37.124179+00:00
+fetched_at: 2026-11-10T06:02:16.810758+00:00
 ---
 
 # Create a chat session with a Generative Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation

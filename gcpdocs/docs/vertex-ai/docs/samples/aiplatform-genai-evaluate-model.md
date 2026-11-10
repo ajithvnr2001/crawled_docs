@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-genai-evaluate-model/
 title: Evaluate a model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:47:35.454290+00:00
+fetched_at: 2026-11-10T06:00:33.053836+00:00
 ---
 
 # Evaluate a model  |  Vertex AI  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     import os
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.evaluation import EvalResult, EvalTask
     
     # TODO (Developer) Set environment variables
@@ -56,7 +56,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     def evaluate_model() -> EvalResult:
         """Evaluate the performance of a generative AI model."""
     
-        [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION_ID)
+        [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION_ID)
     
         # Dataset URI containing input prompts and ground truth labels
         dataset_uri = "gs://cloud-samples-data/ai-platform/generative_ai/llm_classification_bp_input_prompts_with_ground_truth.jsonl"
@@ -78,7 +78,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         )
     
         # Evaluate using a modern Gemini model
-        eval_result = eval_task.[evaluate](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
+        eval_result = eval_task.[evaluate](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
             model=MODEL_NAME,
             prompt_template=prompt_template,
         )

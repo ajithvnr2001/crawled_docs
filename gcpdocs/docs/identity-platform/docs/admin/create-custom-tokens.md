@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/create-custom-tokens/
 title: Creating custom tokens \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:22.343405+00:00
+fetched_at: 2026-11-10T06:09:35.497506+00:00
 ---
 
 # Creating custom tokens  |  Identity Platform  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ The following example shows how to create a custom token:
     String customToken = FirebaseAuth.getInstance().createCustomToken(uid);
     // Send token back to client
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L238-L241)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L238-L241)
 
 ### Python
     
@@ -142,7 +142,7 @@ The following example shows how to add a `premiumAccount` claim:
         .createCustomToken(uid, additionalClaims);
     // Send token back to client
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L248-L254)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L248-L254)
 
 ### Python
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-get/
 title: Getting a Firestore document while using shards \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:48.086514+00:00
+fetched_at: 2026-11-10T06:45:19.923961+00:00
 ---
 
 # Getting a Firestore document while using shards  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-generate-upload-signed-url-v4/
 title: Create a PUT-signed URL using Cloud Storage libraries (V4) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:38.168348+00:00
+fetched_at: 2026-11-10T05:59:51.646388+00:00
 ---
 
 # Create a PUT-signed URL using Cloud Storage libraries (V4)  |  Google Cloud Documentation
@@ -369,7 +369,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       storage_expiry_time = 5 * 60 # 5 minutes
     
       url = storage.signed_url bucket_name, file_name, method: "PUT",

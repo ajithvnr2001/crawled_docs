@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/web-risk/docs/update-api/
 title: Using the Update API \u00a0|\u00a0 Web Risk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:13.759516+00:00
+fetched_at: 2026-11-10T06:00:30.200568+00:00
 ---
 
 # Using the Update API  |  Web Risk  |  Google Cloud Documentation
@@ -182,16 +182,16 @@ You should receive a JSON response similar to the following:
 ### Python
     
     
-    from google.cloud import [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest)
+    from google.cloud import webrisk_v1
     from google.cloud.webrisk_v1 import [ComputeThreatListDiffResponse](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffResponse.html)
     
     
     def compute_threatlist_diff(
-        threat_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html),
+        threat_type: webrisk_v1.[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html),
         version_token: bytes,
         max_diff_entries: int,
         max_database_entries: int,
-        compression_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[CompressionType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.CompressionType.html),
+        compression_type: webrisk_v1.[CompressionType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.CompressionType.html),
     ) -> ComputeThreatListDiffResponse:
         """Gets the most recent threat list diffs.
     
@@ -226,14 +226,14 @@ You should receive a JSON response similar to the following:
             the response also contains the version token and the recommended time for next diff.
         """
     
-        webrisk_client = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
+        webrisk_client = webrisk_v1.[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
     
-        constraints = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html).[Constraints](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.Constraints.html)()
+        constraints = webrisk_v1.[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html).[Constraints](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.Constraints.html)()
         constraints.max_diff_entries = max_diff_entries
         constraints.max_database_entries = max_database_entries
         constraints.supported_compressions = [compression_type]
     
-        request = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html)()
+        request = webrisk_v1.[ComputeThreatListDiffRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ComputeThreatListDiffRequest.html)()
         request.threat_type = threat_type
         request.version_token = version_token
         request.constraints = constraints
@@ -415,10 +415,10 @@ In the following example, the names of two Web Risk lists and a hash prefix are 
 ### Python
     
     
-    from google.cloud import [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest)
+    from google.cloud import webrisk_v1
     
     
-    def search_hashes(hash_prefix: bytes, threat_type: [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html)) -> list:
+    def search_hashes(hash_prefix: bytes, threat_type: webrisk_v1.[ThreatType](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.ThreatType.html)) -> list:
         """Gets the full hashes that match the requested hash prefix.
     
         This is used after a hash prefix is looked up in a threatList and there is a match.
@@ -443,10 +443,10 @@ In the following example, the names of two Web Risk lists and a hash prefix are 
         Returns:
             A hash list that contain all hashes that matches the given hash prefix.
         """
-        webrisk_client = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
+        webrisk_client = webrisk_v1.[WebRiskServiceClient](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.services.web_risk_service.WebRiskServiceClient.html)()
     
         # Set the hashPrefix and the threat types to search in.
-        request = [webrisk_v1](https://docs.cloud.google.com/python/docs/reference/webrisk/latest).[SearchHashesRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchHashesRequest.html)()
+        request = webrisk_v1.[SearchHashesRequest](https://docs.cloud.google.com/python/docs/reference/webrisk/latest/google.cloud.webrisk_v1.types.SearchHashesRequest.html)()
         request.hash_prefix = hash_prefix
         request.threat_types = [threat_type]
     

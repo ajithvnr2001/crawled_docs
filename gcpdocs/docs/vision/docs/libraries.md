@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/libraries/
 title: Vision client libraries \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:19.620667+00:00
+fetched_at: 2026-11-10T06:03:34.266954+00:00
 ---
 
 # Vision client libraries  |  Cloud Vision API  |  Google Cloud Documentation
@@ -90,7 +90,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-vision" % "3.99.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-vision" % "3.100.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

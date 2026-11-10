@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-30b-v6e-multi-host-vllm-torchtpu/
 title: Serve Qwen3-30B-A3B on GKE with multi-host vLLM TorchTPU and PD disaggregation on TPU v6e accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:42:57.853452+00:00
+fetched_at: 2026-11-10T06:19:13.353752+00:00
 ---
 
 # Serve Qwen3-30B-A3B on GKE with multi-host vLLM TorchTPU and PD disaggregation on TPU v6e accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -284,7 +284,7 @@ Alternatively, create a file named `download_qwen3_30b.yaml` with the following 
                - operator: Exists
                containers:
                - name: model-downloader
-                 image: gcr.io/google.com/cloudsdktool/google-cloud-cli:slim
+                 image: gcr.io/google.com/cloudsdktool/google-cloud-cli:592.0.0-slim-20261103
                  env:
                  - name: HF_TOKEN
                    valueFrom:
@@ -301,6 +301,9 @@ Alternatively, create a file named `download_qwen3_30b.yaml` with the following 
                  args:
                  - |
                    set -euo pipefail
+         
+                   echo "=== 0. Installing Python3 ==="
+                   apt-get update && apt-get install -y python3-pip
          
                    echo "=== 1. Installing huggingface_hub ==="
                    pip3 install --break-system-packages -q -U "huggingface_hub"

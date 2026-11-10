@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-configurations/
 title: Create and manage instance configurations \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:00.305149+00:00
+fetched_at: 2026-11-10T05:57:36.825486+00:00
 ---
 
 # Create and manage instance configurations  |  Spanner  |  Google Cloud Documentation
@@ -156,7 +156,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
     import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html);
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
-    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html);
+    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html);
     import com.google.spanner.admin.instance.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html);
     
     public class ListInstanceConfigsSample {
@@ -175,7 +175,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
                 .getService();
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
           final [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html) projectName = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html).of(projectId);
-          for ([InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html) instanceConfig :
+          for ([InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html) instanceConfig :
               instanceAdminClient.listInstanceConfigs(projectName).iterateAll()) {
             System.out.printf(
                 "Available leader options for instance config %s: %s%n",
@@ -472,7 +472,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
     import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html);
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
-    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html);
+    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html);
     import com.google.spanner.admin.instance.v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     
     public class GetInstanceConfigSample {
@@ -494,7 +494,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
           final [InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html) instanceConfigName = [InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId,
               instanceConfigId);
     
-          final [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html) instanceConfig =
+          final [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html) instanceConfig =
               instanceAdminClient.getInstanceConfig(instanceConfigName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html#com_google_spanner_admin_instance_v1_InstanceConfigName_toString__)());
     
           System.out.printf(
@@ -1467,7 +1467,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
     import com.google.cloud.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.common.collect.ImmutableList;
     import com.google.protobuf.[FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html);
-    import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html);
+    import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[UpdateInstanceConfigRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.UpdateInstanceConfigRequest.html);
     import java.util.concurrent.ExecutionException;
@@ -1492,8 +1492,8 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
           final [InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html) instanceConfigName =
               [InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId, instanceConfigId);
-          final [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html) instanceConfig =
-              [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html).newBuilder()
+          final [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html) instanceConfig =
+              [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html).newBuilder()
                   .setName(instanceConfigName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html#com_google_spanner_admin_instance_v1_InstanceConfigName_toString__)())
                   .setDisplayName("updated custom instance config")
                   .putLabels("updated", "true").build();
@@ -1511,7 +1511,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
           try {
             System.out.printf("Waiting for update operation on %s to complete...\n",
                 instanceConfigName);
-            [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html) instanceConfigResult =
+            [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.InstanceConfig.html) instanceConfigResult =
                 instanceAdminClient.updateInstanceConfigAsync(
                     updateInstanceConfigRequest).get(5, TimeUnit.MINUTES);
             System.out.printf(

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling/
 title: Create and use data profile scans \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:00:58.931808+00:00
+fetched_at: 2026-11-10T06:01:22.583707+00:00
 ---
 
 # Create and use data profile scans  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -348,7 +348,7 @@ The publishing option might not be available in the following cases:
 
   14. To create the scan, click **Create**.
 
-If you set the schedule to on-demand, you can also run the scan now by clicking **Run scan**.
+If you set the schedule to radio_button_checked **On-demand** , you can also run the scan now by clicking **Run scan**.
 
 
 
@@ -790,7 +790,7 @@ Knowledge Catalog uses the same results table for all of the data profile scans.
 
   17. To create the scans, click **Create**.
 
-If you set the schedule to on-demand, you can also run the scans now by clicking **Run scan**.
+If you set the schedule to radio_button_checked **On-demand** , you can also run the scans now by clicking **Run scan**.
 
 
 
@@ -2093,6 +2093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

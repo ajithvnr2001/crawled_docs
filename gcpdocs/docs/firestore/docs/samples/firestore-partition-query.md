@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-partition-query/
 title: Query a collection group using a partitioned query \u00a0|\u00a0 Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:52.557225+00:00
+fetched_at: 2026-11-10T06:10:28.284784+00:00
 ---
 
 # Query a collection group using a partitioned query  |  Firestore  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/regional-secrets/reference/libraries/
 title: Secret Manager client libraries \u00a0|\u00a0 Secret Manager Regional Service Documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:45.208925+00:00
+fetched_at: 2026-11-10T06:04:24.697004+00:00
 ---
 
 # Secret Manager client libraries  |  Secret Manager Regional Service Documentation  |  Google Cloud Documentation
@@ -88,7 +88,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-secretmanager" % "2.101.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-secretmanager" % "2.102.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

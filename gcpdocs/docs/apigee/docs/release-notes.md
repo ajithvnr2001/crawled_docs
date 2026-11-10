@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release-notes/
 title: Apigee all release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:55:40.634384+00:00
+fetched_at: 2026-11-10T05:56:24.142551+00:00
 ---
 
 # Apigee all release notes  |  Google Cloud Documentation
@@ -61,6 +61,30 @@ rss_feed Subscribe:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-release-notes.xml) directly. 
+
+## November 09, 2026
+
+**Apigee Edge for Private Cloud**
+
+Announcement
+
+Released Apigee Edge for Private Cloud 4.54.00.01.
+
+For the list of updated RPM packages and the patch update procedure, see [Install 4.54.00.x patch updates](https://docs.apigee.com/private-cloud/v4.54.00/update-apigee-edge-45400-patch#4540001).
+
+Security
+
+Fixed multiple security vulnerabilities in Apigee Edge for Private Cloud, including security hardening across Edge runtime, management, New Edge UI, OpenLDAP, Apigee mTLS, and Nginx components.
+
+Fixed
+
+Resolved the following issues in Apigee Edge for Private Cloud 4.54.00.01:
+
+  * Fixed an issue in the New Edge UI where creating an OpenAPI Specification in the `OASValidation` policy modal stored the specification resource under `yaml://` or `json://` instead of `oas://`.
+  * Fixed an issue where running `setup.sh -p uapim` failed during `edge-uapim-connector` setup.
+  * Apigee Edge for Private Cloud 4.54.00 and its patch releases support Red Hat Enterprise Linux, Oracle Linux, and Rocky Linux 8.10, 9.6, 9.7, and 9.8. See [Supported software and supported versions](https://docs.apigee.com/release/supported-software#apigeeedgeforprivatecloudsupportedversions).
+
+
 
 ## November 05, 2026
 
@@ -22963,6 +22987,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

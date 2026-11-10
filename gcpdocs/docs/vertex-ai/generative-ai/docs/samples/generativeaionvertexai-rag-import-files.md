@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-import-files/
 title: Import a set of RAG files \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:48:41.339802+00:00
+fetched_at: 2026-11-10T06:01:17.907561+00:00
 ---
 
 # Import a set of RAG files  |  Generative AI on Vertex AI  |  Google Cloud Documentation

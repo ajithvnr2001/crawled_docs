@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-query/
 title: Query a Firestore collection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:00.312769+00:00
+fetched_at: 2026-11-10T06:10:33.621499+00:00
 ---
 
 # Query a Firestore collection  |  Google Cloud Documentation

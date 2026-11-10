@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-get-bigquery-export/
 title: Get a BigQuery export configuration \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:51:54.373900+00:00
+fetched_at: 2026-11-10T06:00:57.233557+00:00
 ---
 
 # Get a BigQuery export configuration  |  Security Command Center  |  Google Cloud Documentation

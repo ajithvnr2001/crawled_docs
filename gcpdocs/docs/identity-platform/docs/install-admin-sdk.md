@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/install-admin-sdk/
 title: Installing the Admin SDK \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:19.594073+00:00
+fetched_at: 2026-11-10T06:09:30.036740+00:00
 ---
 
 # Installing the Admin SDK  |  Identity Platform  |  Google Cloud Documentation
@@ -227,7 +227,7 @@ Add the following code to your server app to initialize the Admin SDK using the 
     
     FirebaseApp.initializeApp();
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L71-L71)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L71-L71)
 
 ### Python
     
@@ -280,7 +280,7 @@ You can also manually specify a service account key file:
     
     FirebaseApp.initializeApp(options);
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L34-L41)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L34-L41)
 
 ### Python
     
@@ -356,7 +356,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     FirebaseAuth otherAuth = FirebaseAuth.getInstance(otherApp);
     FirebaseDatabase otherDatabase = FirebaseDatabase.getInstance(otherApp);
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L105-L120)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L105-L120)
 
 ### Python
     

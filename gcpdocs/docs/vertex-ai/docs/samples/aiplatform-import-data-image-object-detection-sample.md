@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-import-data-image-object-detection-sample/
 title: Import data for image object detection \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:29.597723+00:00
+fetched_at: 2026-11-10T06:00:05.696060+00:00
 ---
 
 # Import data for image object detection  |  Vertex AI  |  Google Cloud Documentation
@@ -71,38 +71,38 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void importDataImageObjectDetectionSample(
           String project, String datasetId, String gcsSourceUri)
-          throws IOException, InterruptedException, ExecutionExce[ption](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html), TimeoutException {
-        DatasetServiceSettings dat[asetServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html) =
-            DatasetServiceSettings.newBuilder()
+          throws IOException, InterruptedException, ExecutionException, TimeoutException {
+        [DatasetServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html) datasetServiceSettings =
+            [DatasetServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html).newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
-        // the "close" method on the client to safely clea[n up any remaining b](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html)ackground resources.
-        try (Da[tasetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html) datasetServiceClient =
-            DatasetServiceClient.create(datasetServiceSettings)) {
+        // the "close" method on the client to safely clean up any remaining background resources.
+        try ([DatasetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html) datasetServiceClient =
+            [DatasetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html).create(datasetServiceSettings)) {
           String location = "us-central1";
           String importSchemaUri =
-              "gs://google-cloud-aiplatform/schema/dataset/ioformat/&q[uot;](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.html)
-                  + "ima[ge_boundi](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.html)ng_box_io_format_1.0.0.yaml&quo[t;](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.Builder.html#com_google_cloud_aiplatform_v1_GcsSource_Builder_addUris_java_lang_String_);
-          GcsSource.Builder g[csSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetName.html) = GcsSource.newBu[ilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetName.html)();
-          gcsSource.addUris(gcsSourceUri);
-          Dat<asetName dataset>Name = DatasetName.of(project, location, datasetId);
+              "gs://google-cloud-aiplatform/schema/dataset/ioformat/"
+                  + "image_bounding_box_io_format_1.0.0.yaml";
+          [GcsSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.html).Builder gcsSource = [GcsSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.html).newBuilder();
+          gcsSource.[addUris](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.Builder.html#com_google_cloud_aiplatform_v1_GcsSource_Builder_addUris_java_lang_String_)(gcsSourceUri);
+          [DatasetName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetName.html) datasetName = [DatasetName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetName.html).of(project, location, datasetId);
     
-          ListImportDataC[onfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ImportDataConfig.html) importDataConfigList =
+          List<ImportDataConfig> importDataConfigList =
               Collections.singletonList(
-                  ImportDataCo[nfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ImportDataConfig.Builder.html#com_google_cloud_aiplatform_v1_ImportDataConfig_Builder_setImportSchemaUri_java_lang_String_).newBuilder()
+                  [ImportDataConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ImportDataConfig.html).newBuilder()
                       .setGcsSource(gcsSource)
-                      .setImpo<rtSchemaUri(importSchemaUri)
-                      >.build());
+                      .[setImportSchemaUri](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ImportDataConfig.Builder.html#com_google_cloud_aiplatform_v1_ImportDataConfig_Builder_setImportSchemaUri_java_lang_String_)(importSchemaUri)
+                      .build());
     
-          OperationFutureImportDataResponse, Import[DataOperationMe](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html#com_google_cloud_aiplatform_v1_DatasetServiceClient_importDataAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_DatasetName_java_util_List_com_google_cloud_aiplatform_v1_ImportDataConfig__)tadata importDataResponseFuture =
-              datasetServiceClient.importDataAsync(datasetName, importDataConfigList);
-          System.out.format[(
-     ](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)         "Operation name: %s\n", importDataResponseFuture.getInitialFuture([).](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ImportDataResponse.html)get().getName());
-          System.out.println("Waiting for op[era](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)tion to finish...");
-          ImportDataResponse importDataResponse = importDataResponseFuture.get(300, TimeUnit.SECONDS);
+          OperationFuture<ImportDataResponse, ImportDataOperationMetadata> importDataResponseFuture =
+              datasetServiceClient.[importDataAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html#com_google_cloud_aiplatform_v1_DatasetServiceClient_importDataAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_DatasetName_java_util_List_com_google_cloud_aiplatform_v1_ImportDataConfig__)(datasetName, importDataConfigList);
+          System.out.format(
+              "Operation name: %s\n", importDataResponseFuture.getInitialFuture().[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)().getName());
+          System.out.println("Waiting for operation to finish...");
+          [ImportDataResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ImportDataResponse.html) importDataResponse = importDataResponseFuture.[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)(300, TimeUnit.SECONDS);
     
           System.out.format(
               "Import Data Image Object Detection Response: %s\n", importDataResponse.toString());
@@ -123,19 +123,19 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
      */
     
     // const datasetId = "YOUR_DATASET_ID";
-    // const gcsSourceUri = "YOUR_GCS_SOURCE_URI&<quot;;
-    // eg. &>q<uot;gs://your-gcs->bucket/import_source_path/[file.csv/file.jsonl]"
+    // const gcsSourceUri = "YOUR_GCS_SOURCE_URI";
+    // eg. "gs://<your-gcs-bucket>/<import_source_path>/[file.csv/file.jsonl]"
     // const project = "YOUR_PROJECT_ID";
     // const location = 'YOUR_PROJECT_LOCATION';
     
-    // Imports the Google Cloud Dataset Service Client [library](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)
-    const {DatasetServiceClient} = require('@google-cloud/aiplatform');
+    // Imports the Google Cloud Dataset Service Client library
+    const {DatasetServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
-      apiEndpoint: 'us-central1-aipl[atform.googleapis.co](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)m',
+      apiEndpoint: 'us-central1-aiplatform.googleapis.com',
     };
-    const datasetServiceClient = new DatasetServiceClient(clientOptions);
+    const datasetServiceClient = new [DatasetServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
     
     async function importDataImageObjectDetection() {
       const name = datasetServiceClient.datasetPath(project, location, datasetId);
@@ -188,15 +188,15 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-    [    client = aiplatf](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html)orm.gapic.DatasetServiceClient(client_options=client_options)
+        client = aiplatform.gapic.[DatasetServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html)(client_options=client_options)
         import_configs = [
             {
                 "gcs_source": {"uris": [gcs_source_uri]},
-                "import_schema_uri": "gs://google-cloud-aiplatform/schema/dataset/ioformat/image_bound[ing_box_io_f](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html#google_cloud_aiplatform_v1_services_dataset_service_DatasetServiceClient_dataset_path)ormat_1.0.0.yaml",
+                "import_schema_uri": "gs://google-cloud-aiplatform/schema/dataset/ioformat/image_bounding_box_io_format_1.0.0.yaml",
             }
         ]
-        name = client.dataset_path(project=[project, lo](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html#google_cloud_aiplatform_v1_services_dataset_service_DatasetServiceClient_import_data)cation=location, dataset=dataset_id)
-        response = client.import_data(name=name, import_configs=import_configs)
+        name = client.[dataset_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html#google_cloud_aiplatform_v1_services_dataset_service_DatasetServiceClient_dataset_path)(project=project, location=location, dataset=dataset_id)
+        response = client.[import_data](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html#google_cloud_aiplatform_v1_services_dataset_service_DatasetServiceClient_import_data)(name=name, import_configs=import_configs)
         print("Long running operation:", response.operation.name)
         import_data_response = response.result(timeout=timeout)
         print("import_data_response:", import_data_response)

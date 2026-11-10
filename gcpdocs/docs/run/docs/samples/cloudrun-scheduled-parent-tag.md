@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-scheduled-parent-tag/
 title: Call Cloud Run on a schedule \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:55:11.075803+00:00
+fetched_at: 2026-11-10T06:02:31.137628+00:00
 ---
 
 # Call Cloud Run on a schedule  |  Google Cloud Documentation

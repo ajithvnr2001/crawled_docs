@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/enable-notebook-security-scanner/
 title: Enable and use Notebook Security Scanner \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:28.450985+00:00
+fetched_at: 2026-11-10T06:04:05.240403+00:00
 ---
 
 # Enable and use Notebook Security Scanner  |  Security Command Center  |  Google Cloud Documentation
@@ -27,13 +27,9 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-You can enable and use Notebook Security Scanner to detect vulnerabilities in Python packages that are used in Colab Enterprise notebooks (files with the `ipynb` filename extension) and resolve those package vulnerability findings.
+Notebook Security Scanner helps you detect and resolve vulnerabilities in Python packages within Colab Enterprise notebooks (`.ipynb` files). After you enable the scanner through Security Command Center in the Google Cloud console, it scans notebooks every 24 hours and publishes findings to the Security Command Center **Findings** page.
 
-After you enable Notebook Security Scanner, it scans Colab Enterprise notebooks once in every 24 hours and publishes the package vulnerability findings to the Security Command Center **Findings** page.
-
-You can use Notebook Security Scanner for Colab Enterprise notebooks that are created in the following regions: `us-central1`, `us-east4`, `us-west1`, and `europe-west4`.
-
-**Note:** This feature must be enabled and used through Security Command Center in the Google Cloud console. The Notebook Security Scanner API (`notebooksecurityscanner.googleapis.com`) isn't intended to be used directly.
+Notebook Security Scanner supports Colab Enterprise notebooks in the `us-central1`, `us-east4`, `us-west1`, and `europe-west4` regions. You manage this feature through the Google Cloud console; the Notebook Security Scanner API (`notebooksecurityscanner.googleapis.com`) isn't intended for direct use.
 
 ## Enable Notebook Security Scanner
 
@@ -113,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

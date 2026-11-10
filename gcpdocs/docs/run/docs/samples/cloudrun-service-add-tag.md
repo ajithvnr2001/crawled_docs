@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-service-add-tag/
 title: Change a Cloud Run Service to add a tag to a newly deployed revision \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T06:57:07.581614+00:00
+fetched_at: 2026-11-10T06:03:20.171547+00:00
 ---
 
 # Change a Cloud Run Service to add a tag to a newly deployed revision  |  Google Cloud Documentation

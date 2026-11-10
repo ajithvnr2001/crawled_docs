@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-predict-tabular-classification-sample/
 title: Predict for tabular classification \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:29.496075+00:00
+fetched_at: 2026-11-10T06:01:34.906639+00:00
 ---
 
 # Predict for tabular classification  |  Vertex AI  |  Google Cloud Documentation
@@ -44,15 +44,15 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.util.[ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html);
-    import com.google.cloud.aiplatform.v1.[EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html);
-    import com.google.cloud.aiplatform.v1.[PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html);
-    import com.google.cloud.aiplatform.v1.[PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.schema.predict.prediction.[TabularClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html);
-    import com.google.protobuf.[ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
-    import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
+    import com.google.cloud.aiplatform.util.ValueConverter;
+    import com.google.cloud.aiplatform.v1.EndpointName;
+    import com.google.cloud.aiplatform.v1.PredictResponse;
+    import com.google.cloud.aiplatform.v1.PredictionServiceClient;
+    import com.google.cloud.aiplatform.v1.PredictionServiceSettings;
+    import com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult;
+    import com.google.protobuf.ListValue;
+    import com.google.protobuf.Value;
+    import com.google.protobuf.util.JsonFormat;
     import java.io.IOException;
     import java.util.List;
     
@@ -68,30 +68,42 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void predictTabularClassification(String instance, String project, String endpointId)
           throws IOException {
-        PredictionServic[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html)ceSettings =
-            PredictionServic[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html)          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServiceSettings predictionServiceSettings =
+            PredictionServiceSettings.newBuilder()
+                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServic[PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html)ceClient =
-            PredictionServic[PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html)onServiceSettings)) {
+        try (PredictionServiceClient predictionServiceClient =
+            PredictionServiceClient.create(predictionServiceSettings)) {
           String location = "us-central1";
-          EndpointName end[EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html)EndpointName.of([EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html)ation, endpointId);
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
     
-          ListValue.Builde[ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html)ue = ListValue.newBui[ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html)     JsonFormat.parse[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html)instance, listValue);
-          List<Value> instan[ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html)listValue.getValuesList();
+          ListValue.Builder listValue = ListValue.newBuilder();
+          JsonFormat.parser().merge(instance, listValue);
+          List<Value> instanceList = listValue.getValuesList();
     
-          Value parameters[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html)lue.newBuilder[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html)tListValue(listValue).build();
-          PredictResponse [PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html) =
+          Value parameters = Value.newBuilder().setListValue(listValue).build();
+          PredictResponse predictResponse =
               predictionServiceClient.predict(endpointName, instanceList, parameters);
           System.out.println("Predict Tabular Classification Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.predictResponse.[getDeployedModelId](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getDeployedModelId__)().out.println("Predictions");
-          for (Value prediction[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html)edictResponse.predictResponse.[getPredictionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getPredictionsList__)()larClassific[TabularClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html)uilder =
-                TabularClassific[TabularClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html)       TabularClassific[TabularClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html)      (TabularClassific[TabularClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html)  ValueConverter.f[ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html)tBuilder, prediction);
+          System.out.format("\tDeployed Model Id: %s\n", predictResponse.getDeployedModelId());
     
-            for (int i = 0; i < result.getClasseresult.[getClassesCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_TabularClassificationPredictionResult_getClassesCount__)()   System.out.printf("\tClass: %s", result.getClasseresult.[getClasses](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_TabularClassificationPredictionResult_getClasses_int_)(i)tem.out.printf("\tScore: %f", result.getScoresresult.[getScores](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.TabularClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_TabularClassificationPredictionResult_getScores_int_)(i)   }
+          System.out.println("Predictions");
+          for (Value prediction : predictResponse.getPredictionsList()) {
+            TabularClassificationPredictionResult.Builder resultBuilder =
+                TabularClassificationPredictionResult.newBuilder();
+            TabularClassificationPredictionResult result =
+                (TabularClassificationPredictionResult)
+                    ValueConverter.fromValue(resultBuilder, prediction);
+    
+            for (int i = 0; i < result.getClassesCount(); i++) {
+              System.out.printf("\tClass: %s", result.getClasses(i));
+              System.out.printf("\tScore: %f", result.getScores(i));
+            }
+          }
         }
       }
     }
@@ -111,7 +123,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const endpointId = 'YOUR_ENDPOINT_ID';
     // const project = 'YOUR_PROJECT_ID';
     // const location = 'YOUR_PROJECT_LOCATION';
-    const aiplatform = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const aiplatform = require('@google-cloud/aiplatform');
     const {prediction} =
       aiplatform.protos.google.cloud.aiplatform.v1.schema.predict;
     
@@ -127,14 +139,14 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     };
     
     // Instantiates a client
-    const predictionServiceClient = new [PredictionServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const predictionServiceClient = new PredictionServiceClient(clientOptions);
     
     async function predictTablesClassification() {
       // Configure the endpoint resource
       const endpoint = `projects/${project}/locations/${location}/endpoints/${endpointId}`;
-      const parameters = [helpers](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html).toValue({});
+      const parameters = helpers.toValue({});
     
-      const instance = [helpers](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html).toValue({
+      const instance = helpers.toValue({
         petal_length: '1.4',
         petal_width: '1.3',
         sepal_length: '5.1',
@@ -193,17 +205,17 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[PredictionServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html)(client_options=client_options)
+        client = aiplatform.gapic.PredictionServiceClient(client_options=client_options)
         # for more info on the instance schema, please use get_model_sample.py
         # and look at the yaml found in instance_schema_uri
         instance = json_format.ParseDict(instance_dict, Value())
         instances = [instance]
         parameters_dict = {}
         parameters = json_format.ParseDict(parameters_dict, Value())
-        endpoint = client.[endpoint_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html#google_cloud_aiplatform_v1_services_prediction_service_PredictionServiceClient_endpoint_path)(
+        endpoint = client.endpoint_path(
             project=project, location=location, endpoint=endpoint_id
         )
-        response = client.[predict](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html)(
+        response = client.predict(
             endpoint=endpoint, instances=instances, parameters=parameters
         )
         print("response")

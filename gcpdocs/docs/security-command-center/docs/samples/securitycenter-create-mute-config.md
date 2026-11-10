@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-create-mute-config/
 title: Create a mute rule \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:50:21.333309+00:00
+fetched_at: 2026-11-10T06:00:57.058968+00:00
 ---
 
 # Create a mute rule  |  Security Command Center  |  Google Cloud Documentation

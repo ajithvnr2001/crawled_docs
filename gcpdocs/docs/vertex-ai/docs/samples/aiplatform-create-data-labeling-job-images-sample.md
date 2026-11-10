@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-data-labeling-job-images-sample/
 title: Create a data labeling job for images \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:42.155987+00:00
+fetched_at: 2026-11-10T06:00:40.720863+00:00
 ---
 
 # Create a data labeling job for images  |  Vertex AI  |  Google Cloud Documentation

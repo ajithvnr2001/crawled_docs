@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-multi-host-vllm-torchtpu/
 title: Serve Qwen3.5-397B on GKE with multi-host vLLM TorchTPU on TPU7x accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:43:46.934596+00:00
+fetched_at: 2026-11-10T06:55:23.897486+00:00
 ---
 
 # Serve Qwen3.5-397B on GKE with multi-host vLLM TorchTPU on TPU7x accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -244,7 +244,7 @@ Alternatively, you can choose to create a file named `download_model.yaml` with 
                - operator: Exists
                containers:
                - name: model-downloader
-                 image: gcr.io/google.com/cloudsdktool/google-cloud-cli:slim
+                 image: gcr.io/google.com/cloudsdktool/google-cloud-cli:592.0.0-slim-20261103
                  env:
                  - name: HF_TOKEN
                    valueFrom:
@@ -261,6 +261,9 @@ Alternatively, you can choose to create a file named `download_model.yaml` with 
                  args:
                  - |
                    set -euo pipefail
+         
+                   echo "=== 0. Installing Python3 ==="
+                   apt-get update && apt-get install -y python3-pip
          
                    echo "=== 1. Installing huggingface_hub ==="
                    pip3 install --break-system-packages -q -U "huggingface_hub"

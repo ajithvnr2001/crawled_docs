@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/create-custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:48:52.248516+00:00
+fetched_at: 2026-11-10T06:02:35.817963+00:00
 ---
 
 # Create custom organization policy constraints  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -142,20 +142,30 @@ composer.googleapis.com/Environment |  `resource.config.environmentSize`
 `resource.config.nodeConfig.network`  
 `resource.config.nodeConfig.serviceAccount`  
 `resource.config.nodeConfig.subnetwork`  
+`resource.config.nodeConfig.trafficRoutingConfig.cloudRunFunctionsRouting`  
 `resource.config.privateEnvironmentConfig.cloudComposerConnectionSubnetwork`  
 `resource.config.privateEnvironmentConfig.enablePrivateBuildsOnly`  
 `resource.config.privateEnvironmentConfig.enablePrivateEnvironment`  
 `resource.config.privateEnvironmentConfig.enablePrivatelyUsedPublicIps`  
 `resource.config.privateEnvironmentConfig.networkingConfig.connectionType`  
+`resource.config.privateEnvironmentConfig.networkingType`  
 `resource.config.privateEnvironmentConfig.privateClusterConfig.enablePrivateEndpoint`  
 `resource.config.recoveryConfig.scheduledSnapshotsConfig.enabled`  
 `resource.config.recoveryConfig.scheduledSnapshotsConfig.snapshotCreationSchedule`  
 `resource.config.recoveryConfig.scheduledSnapshotsConfig.snapshotLocation`  
 `resource.config.recoveryConfig.scheduledSnapshotsConfig.timeZone`  
 `resource.config.resilienceMode`  
+`resource.config.softwareConfig.airflowConfigOverrides`  
+`resource.config.softwareConfig.airflowRbacConfig.bindings.members`  
+`resource.config.softwareConfig.airflowRbacConfig.bindings.role`  
+`resource.config.softwareConfig.auditLogsReplicationMode`  
 `resource.config.softwareConfig.cloudDataLineageIntegration.enabled`  
 `resource.config.softwareConfig.imageVersion`  
 `resource.config.softwareConfig.webServerPluginsMode`  
+`resource.config.userWorkloadsConfig.serviceAccounts.googleServiceAccount`  
+`resource.config.userWorkloadsConfig.serviceAccounts.kubernetesServiceAccount`  
+`resource.config.webServerNetworkAccessControl.allowedIpRanges.description`  
+`resource.config.webServerNetworkAccessControl.allowedIpRanges.value`  
 `resource.config.workloadsConfig.dagProcessor.count`  
 `resource.config.workloadsConfig.dagProcessor.cpu`  
 `resource.config.workloadsConfig.dagProcessor.memoryGb`  
@@ -176,6 +186,7 @@ composer.googleapis.com/Environment |  `resource.config.environmentSize`
 `resource.config.workloadsConfig.worker.minCount`  
 `resource.config.workloadsConfig.worker.storageGb`  
 `resource.name`  
+`resource.operationSettings.strategy`  
   
 ## Set up a custom constraint
 
@@ -200,7 +211,7 @@ To create a custom constraint, do the following:
 To see supported methods for each service, find the service in [ Services that support custom constraints](https://docs.cloud.google.com/organization-policy/reference/custom-constraint-supported-services). 
 
   9. To define a condition, click edit **Edit condition**. 
-     1. In the **Add condition** panel, create a CEL condition that refers to a supported service resource, for example, `resource.management.autoUpgrade == false`. This field can contain up to 1000 characters. For details about CEL usage, see [ Common Expression Language](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language). For more information about the service resources you can use in your custom constraints, see [ Custom constraint supported services](https://docs.cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services). 
+     1. In the **Add condition** panel, create a CEL condition that refers to a supported service resource, for example, `resource.autopilot.enabled == false`. This field can contain up to 1,500 characters. For details about CEL usage, see [ Common Expression Language](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language). For more information about the service resources you can use in your custom constraints, see [ Custom constraint supported services](https://docs.cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services). 
      2. Click **Save**. 
   10. Under **Action** , select whether to allow or deny the evaluated method if the condition is met. 
 
@@ -238,7 +249,7 @@ Replace the following:
 
 To see the supported methods for each service, find the service in [ Services that support custom constraints](https://docs.cloud.google.com/organization-policy/reference/custom-constraint-supported-services). 
 
-     * `CONDITION`: a [ CEL condition](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language) that is written against a representation of a supported service resource. This field can contain up to 1000 characters. For example, `resource.config.environmentSize == "ENVIRONMENT_SIZE_SMALL"`. 
+     * `CONDITION`: a [ CEL condition](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language) that is written against a representation of a supported service resource. This field can contain up to 1,500 characters. For example, `resource.config.environmentSize == "ENVIRONMENT_SIZE_SMALL"`. 
 
 For more information about the resources available to write conditions against, see Supported resources. 
 
@@ -454,6 +465,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

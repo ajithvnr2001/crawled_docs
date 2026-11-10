@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-cancel-data-labeling-job-sample/
 title: Cancel a data labeling job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:46:40.338153+00:00
+fetched_at: 2026-11-10T06:01:15.171836+00:00
 ---
 
 # Cancel a data labeling job  |  Vertex AI  |  Google Cloud Documentation
@@ -34,9 +34,9 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.v1.[DataLabelingJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DataLabelingJobName.html);
-    import com.google.cloud.aiplatform.v1.[JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html);
+    import com.google.cloud.aiplatform.v1.DataLabelingJobName;
+    import com.google.cloud.aiplatform.v1.JobServiceClient;
+    import com.google.cloud.aiplatform.v1.JobServiceSettings;
     import java.io.IOException;
     
     public class CancelDataLabelingJobSample {
@@ -48,19 +48,19 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
       }
     
       static void cancelDataLabelingJob(String project, String dataLabelingJobId) throws IOException {
-        [JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html) jobServiceSettings =
-            [JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html).newBuilder()
+        JobServiceSettings jobServiceSettings =
+            JobServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html) jobServiceClient = [JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html).create(jobServiceSettings)) {
+        try (JobServiceClient jobServiceClient = JobServiceClient.create(jobServiceSettings)) {
           String location = "us-central1";
     
-          [DataLabelingJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DataLabelingJobName.html) dataLabelingJobName =
-              [DataLabelingJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DataLabelingJobName.html).of(project, location, dataLabelingJobId);
+          DataLabelingJobName dataLabelingJobName =
+              DataLabelingJobName.of(project, location, dataLabelingJobId);
           jobServiceClient.cancelDataLabelingJob(dataLabelingJobName);
           System.out.println("Cancelled Data labeling job");
         }
@@ -87,11 +87,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[JobServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html)(client_options=client_options)
-        name = client.[data_labeling_job_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_data_labeling_job_path)(
+        client = aiplatform.gapic.JobServiceClient(client_options=client_options)
+        name = client.data_labeling_job_path(
             project=project, location=location, data_labeling_job=data_labeling_job_id
         )
-        response = client.[cancel_data_labeling_job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_cancel_data_labeling_job)(name=name)
+        response = client.cancel_data_labeling_job(name=name)
         print("response:", response)
     
     

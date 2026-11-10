@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-delete-event-threat-detection-custom-module/
 title: Delete Event Threat Detection custom modules \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:51:54.178144+00:00
+fetched_at: 2026-11-10T05:59:55.524195+00:00
 ---
 
 # Delete Event Threat Detection custom modules  |  Security Command Center  |  Google Cloud Documentation

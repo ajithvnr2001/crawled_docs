@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/manage-users/
 title: Managing users programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:25.118849+00:00
+fetched_at: 2026-11-10T06:09:44.631526+00:00
 ---
 
 # Managing users programmatically  |  Identity Platform  |  Google Cloud Documentation
@@ -55,7 +55,7 @@ The primary way to identify a user is by their `uid`:
     // See the UserRecord reference doc for the contents of userRecord.
     System.out.println("Successfully fetched user data: " + userRecord.getUid());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L77-L79)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L77-L79)
 
 ### Python
     
@@ -119,7 +119,7 @@ You can also get a user using their email:
     // See the UserRecord reference doc for the contents of userRecord.
     System.out.println("Successfully fetched user data: " + userRecord.getEmail());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L85-L87)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L85-L87)
 
 ### Python
     
@@ -186,7 +186,7 @@ If a user has a phone number, you can look them up using it:
     // See the UserRecord reference doc for the contents of userRecord.
     System.out.println("Successfully fetched user data: " + userRecord.getPhoneNumber());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L94-L96)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L94-L96)
 
 ### Python
     
@@ -394,7 +394,7 @@ The code below shows how to list all users:
       System.out.println("User: " + user.getUid());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L211-L225)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L211-L225)
 
 ### Python
     
@@ -540,7 +540,7 @@ To create a new user:
     UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
     System.out.println("Successfully created new user: " + userRecord.getUid());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L112-L122)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L112-L122)
 
 ### Python
     
@@ -648,7 +648,7 @@ Property | Type | Description
     UserRecord userRecord = FirebaseAuth.getInstance().updateUser(request);
     System.out.println("Successfully updated user: " + userRecord.getUid());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L140-L150)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L140-L150)
 
 ### Python
     
@@ -741,7 +741,7 @@ You can delete a user with their `uid`:
     FirebaseAuth.getInstance().deleteUser(uid);
     System.out.println("Successfully deleted user.");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L231-L232)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/230789c5f35934a895e78dea31b62432554a78f1/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L231-L232)
 
 ### Python
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/tutorials/long-running-gpu-jobs/
 title: Design resilient long-running GPU jobs \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:40:11.065711+00:00
+fetched_at: 2026-11-10T05:59:06.621744+00:00
 ---
 
 # Design resilient long-running GPU jobs  |  Cloud Run  |  Google Cloud Documentation
@@ -286,7 +286,7 @@ Deploy the job to Cloud Run:
         --gpu 1 \
         --gpu-type nvidia-l4 \
         --no-gpu-zonal-redundancy \
-        --task-timeout 168h \
+        --task-timeout 12h \
         --max-retries 3 \
         --service-account gpu-job-sa@PROJECT_ID.iam.gserviceaccount.com \
         --add-volume=name=checkpoint-volume,type=cloud-storage,bucket=gpu-checkpoints-PROJECT_ID \
@@ -295,7 +295,7 @@ Deploy the job to Cloud Run:
 
 Note the following critical flags:
 
-  * `--task-timeout 168h`: Allows the task to run for up to 12 hours.
+  * `--task-timeout 12h`: Allows the task to run for up to 12 hours.
   * `--max-retries 3`: For GPU jobs with a timeout greater than 1 hour, we recommend setting the default configuration of 3 retries. To prevent silent failures during platform maintenance, we recommend against setting 0 retries. Finally, we recommend budgeting for at least 1 retry for maintenance-related failure as well as for additional retries for application failures over a 12 hour execution period.
   * `--add-volume` and `--add-volume-mount`: Mounts the Cloud Storage bucket to `/checkpoints` so the application can persist state across task retries.
 
@@ -399,6 +399,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

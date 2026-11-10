@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/create-confluent-cloud-import-topic/
 title: Create a Confluent Cloud import topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:00:32.506519+00:00
+fetched_at: 2026-11-10T05:57:06.226006+00:00
 ---
 
 # Create a Confluent Cloud import topic  |  Pub/Sub  |  Google Cloud Documentation

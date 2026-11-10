@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-with-local-video/
 title: Use Gemini to summarize local video file \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:49:12.787393+00:00
+fetched_at: 2026-11-10T06:02:46.083074+00:00
 ---
 
 # Use Gemini to summarize local video file  |  Generative AI on Vertex AI  |  Google Cloud Documentation
