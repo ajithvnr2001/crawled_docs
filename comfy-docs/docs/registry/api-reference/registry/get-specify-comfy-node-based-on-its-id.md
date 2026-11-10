@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/get-specify-comfy-node-based-on-its-id/
 title: get specify comfy-node based on its id - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:37.496759+00:00
+fetched_at: 2026-11-10T15:29:01.810043+00:00
 ---
 
 # get specify comfy-node based on its id - ComfyUI

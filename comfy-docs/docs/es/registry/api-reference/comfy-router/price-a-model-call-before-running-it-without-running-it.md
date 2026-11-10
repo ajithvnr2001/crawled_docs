@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T13:48:36.673275+00:00
+fetched_at: 2026-11-10T15:28:56.466183+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI
@@ -151,6 +151,8 @@ cURL
 429
 
 503
+
+504
     
     
     {
@@ -257,6 +259,21 @@ cURL
           "input": "<unknown>"
         }
       ]
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
     }
     
     
@@ -465,6 +482,8 @@ cURL
 429
 
 503
+
+504
     
     
     {
@@ -571,6 +590,21 @@ cURL
           "input": "<unknown>"
         }
       ]
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
     }
     
     

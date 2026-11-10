@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-all-publishers/
 title: Retrieve all publishers - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:35.322730+00:00
+fetched_at: 2026-11-10T15:28:58.194386+00:00
 ---
 
 # Retrieve all publishers - ComfyUI
