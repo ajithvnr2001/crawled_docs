@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/posting-jsx-as-images/
 title: Microsoft Teams + Mastra: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.543012+00:00
+fetched_at: 2026-11-10T10:58:44.485982+00:00
 ---
 
 # Microsoft Teams + Mastra: Posting JSX as images

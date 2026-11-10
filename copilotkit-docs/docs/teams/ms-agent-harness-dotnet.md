@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:09.862056+00:00
+fetched_at: 2026-11-10T10:58:42.482672+00:00
 ---
 
 # Microsoft Teams: Channels

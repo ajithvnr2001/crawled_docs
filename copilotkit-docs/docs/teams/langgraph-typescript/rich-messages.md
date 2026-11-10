@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/rich-messages/
 title: Microsoft Teams + LangGraph (TypeScript): Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:02.231395+00:00
+fetched_at: 2026-11-10T10:58:47.713229+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Rich messages and components

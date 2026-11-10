@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/history-and-transcripts/
 title: Microsoft Teams + MS Agent Framework (.NET): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:10.824319+00:00
+fetched_at: 2026-11-10T10:58:44.055035+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): History and transcripts

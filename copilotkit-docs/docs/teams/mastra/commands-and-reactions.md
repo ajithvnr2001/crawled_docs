@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/commands-and-reactions/
 title: Microsoft Teams + Mastra: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:30:58.041887+00:00
+fetched_at: 2026-11-10T10:58:45.670330+00:00
 ---
 
 # Microsoft Teams + Mastra: Commands and reactions

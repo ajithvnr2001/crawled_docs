@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/render-and-carousel/
 title: Microsoft Teams + MS Agent Framework (.NET): Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.733348+00:00
+fetched_at: 2026-11-10T10:58:42.834981+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Render and carousel

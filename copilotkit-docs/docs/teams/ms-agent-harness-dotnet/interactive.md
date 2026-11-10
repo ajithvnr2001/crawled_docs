@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/interactive/
 title: Microsoft Teams + MS Agent Harness (.NET): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:07.984060+00:00
+fetched_at: 2026-11-10T10:58:41.828713+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Interactive messages and approvals

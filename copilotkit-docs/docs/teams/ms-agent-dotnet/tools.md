@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/tools/
 title: Microsoft Teams + MS Agent Framework (.NET): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:10.277330+00:00
+fetched_at: 2026-11-10T10:58:42.711699+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Tools and context

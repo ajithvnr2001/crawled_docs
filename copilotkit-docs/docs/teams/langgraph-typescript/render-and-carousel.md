@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/render-and-carousel/
 title: Microsoft Teams + LangGraph (TypeScript): Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.308061+00:00
+fetched_at: 2026-11-10T10:58:47.537008+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Render and carousel

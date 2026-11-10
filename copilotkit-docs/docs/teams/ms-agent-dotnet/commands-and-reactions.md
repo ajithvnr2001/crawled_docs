@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/commands-and-reactions/
 title: Microsoft Teams + MS Agent Framework (.NET): Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:12.169314+00:00
+fetched_at: 2026-11-10T10:58:43.842304+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Commands and reactions

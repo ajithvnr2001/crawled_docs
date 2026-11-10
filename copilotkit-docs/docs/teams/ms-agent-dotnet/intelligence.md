@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/intelligence/
 title: Microsoft Teams + MS Agent Framework (.NET): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:10.618878+00:00
+fetched_at: 2026-11-10T10:58:43.066625+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Configure the Channel in Intelligence

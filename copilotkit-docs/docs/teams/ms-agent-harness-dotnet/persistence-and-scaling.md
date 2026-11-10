@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/persistence-and-scaling/
 title: Microsoft Teams + MS Agent Harness (.NET): Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:08.257837+00:00
+fetched_at: 2026-11-10T10:58:41.682173+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Persistence and scaling

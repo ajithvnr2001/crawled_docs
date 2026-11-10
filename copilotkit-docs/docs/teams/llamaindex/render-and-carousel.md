@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/render-and-carousel/
 title: Microsoft Teams + LlamaIndex: Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.342256+00:00
+fetched_at: 2026-11-10T10:58:46.231838+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Render and carousel

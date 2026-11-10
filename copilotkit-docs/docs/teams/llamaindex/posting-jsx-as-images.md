@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/posting-jsx-as-images/
 title: Microsoft Teams + LlamaIndex: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.609041+00:00
+fetched_at: 2026-11-10T10:58:46.617271+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Posting JSX as images

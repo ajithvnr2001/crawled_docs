@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/persistence-and-scaling/
 title: Microsoft Teams + Mastra: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:12.306750+00:00
+fetched_at: 2026-11-10T10:58:45.339666+00:00
 ---
 
 # Microsoft Teams + Mastra: Persistence and scaling

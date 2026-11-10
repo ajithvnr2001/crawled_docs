@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/identity-and-memory/
 title: Microsoft Teams + MS Agent Harness (.NET): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:08.724950+00:00
+fetched_at: 2026-11-10T10:58:41.749552+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Identity and Memory

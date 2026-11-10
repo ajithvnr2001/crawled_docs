@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/identity-and-memory/
 title: Microsoft Teams + Mastra: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:13.237609+00:00
+fetched_at: 2026-11-10T10:58:45.214692+00:00
 ---
 
 # Microsoft Teams + Mastra: Identity and Memory

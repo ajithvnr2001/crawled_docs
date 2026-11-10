@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:02.133032+00:00
+fetched_at: 2026-11-10T10:58:47.490394+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

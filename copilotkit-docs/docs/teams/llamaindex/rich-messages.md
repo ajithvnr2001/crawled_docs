@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/rich-messages/
 title: Microsoft Teams + LlamaIndex: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:30:59.715226+00:00
+fetched_at: 2026-11-10T10:58:46.438340+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Rich messages and components

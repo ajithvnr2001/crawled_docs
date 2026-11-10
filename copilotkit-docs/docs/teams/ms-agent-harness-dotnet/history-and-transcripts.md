@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/history-and-transcripts/
 title: Microsoft Teams + MS Agent Harness (.NET): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:08.884368+00:00
+fetched_at: 2026-11-10T10:58:42.079772+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): History and transcripts

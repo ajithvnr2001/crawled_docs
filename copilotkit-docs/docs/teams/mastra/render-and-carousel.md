@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/render-and-carousel/
 title: Microsoft Teams + Mastra: Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.375104+00:00
+fetched_at: 2026-11-10T10:58:44.316671+00:00
 ---
 
 # Microsoft Teams + Mastra: Render and carousel
