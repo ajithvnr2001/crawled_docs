@@ -2,7 +2,7 @@
 url: https://ai.google.dev/
 title: AI for every developer
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:42.439978+00:00
+fetched_at: 2026-11-10T12:03:51.989524+00:00
 ---
 
 # AI for every developer

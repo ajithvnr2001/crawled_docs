@@ -1,22 +1,13 @@
 ---
 url: https://ai.google.dev/aistudio/
-title: Google AI Studio | Gemini API \u00a0|\u00a0 Google AI for Developers
+title: Get started with the Gemini API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T19:15:50.716795+00:00
+fetched_at: 2026-11-10T12:03:51.582247+00:00
 ---
 
-# Google AI Studio | Gemini API  |  Google AI for Developers
+# Get started with the Gemini API
 
 > Source: https://ai.google.dev/aistudio/
-
-Gemini 4 Argon is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon). 
-
-  * [ Home ](https://ai.google.dev/)
-  * [ Gemini API ](https://ai.google.dev/gemini-api)
-
-
-
-Send feedback 
 
 #  Get started with the Gemini API 
 
@@ -29,5 +20,3 @@ Google AI Studio is the fastest way to start building with Gemini, our next gene
 ### [ Get a Gemini API Key  Grab your API key and start integrating Gemini models into your apps.  Get your API key ](https://aistudio.google.com/apikey)
 
 ### [ Prompt Gallery  Visit our prompt gallery for examples of what's possible with Gemini models.  Explore the Gallery ](https://ai.google.dev/gemini-api/prompts)
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

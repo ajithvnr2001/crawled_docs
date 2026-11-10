@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gdc/
 title: Google AI at
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:42:37.645843+00:00
+fetched_at: 2026-11-10T12:03:51.874614+00:00
 ---
 
 # Google AI at
