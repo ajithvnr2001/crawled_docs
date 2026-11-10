@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/migrations/from-elevenlabs/voice-cloning/
 title: Migrating Instant Voice Cloning from ElevenLabs to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T06:38:42.172921+00:00
+fetched_at: 2026-11-10T06:38:56.263161+00:00
 ---
 
 # Migrating Instant Voice Cloning from ElevenLabs to Sarvam | Sarvam API Docs
@@ -61,7 +61,7 @@ ElevenLabs| Sarvam| Notes
 `voice_settings.stability` / `similarity_boost` / `style` / `use_speaker_boost`| -| No dials; fidelity comes from the clip plus built-in QC  
 `model_id`| -| The cloning model is fixed behind the API  
 `output_format` (`mp3_44100_128`)| `output_audio_codec` \+ `speech_sample_rate`| Separate codec and sample-rate fields  
-`remove_background_noise`| -| Clean the clip before uploading  
+`remove_background_noise`| `remove_background_noise`| ElevenLabs defaults to `false` on IVC create; Sarvam defaults to `true` on `POST /voices/create`. Also available on Sarvam clone when sending `ref_audio`  
 `requires_verification`| -| No verification step; commercial use has consent requirements  
   
 ## Step 1: Pick one clean reference clip
@@ -70,7 +70,7 @@ ElevenLabs IVC accepts a list of samples and improves with more; Sarvam’s `POS
 
   * 10-15 seconds of continuous speech from the target speaker
   * Under 50 MB
-  * Minimal background noise - there is no server-side cleanup step, so what you upload is what the clone learns from
+  * Minimal background noise when possible - `remove_background_noise` (default `true` on create) runs ML vocal extraction before the voice is saved; pass `false` to keep the original clip
 
 
 
@@ -137,6 +137,8 @@ SDK equivalent: `client.voiceCloning.textToSpeech({ voiceId, text, language_code
 ## What Sarvam gives you that ElevenLabs doesn’t
 
   * **Built-in quality control.** `enable_qc` (on by default) transcribes the generation back with ASR, scores the character error rate against your text, and retries failing generations before returning anything.
+  * **Background noise removal.** `remove_background_noise` defaults to `true` on `POST /voices/create` (ML vocal extraction); create responses include `background_noise_removed`. On clone/stream/WS it applies only when you send `ref_audio`; turning it on there adds roughly 1 second of latency before synthesis.
+  * **Streaming for cloned voices.** Instant Voice Cloning (beta) includes HTTP stream (`POST /voices/clone/stream`) and WebSocket (`GET /voices/clone/ws`) alongside one-shot `POST /voices/clone`.
   * **Cross-lingual cloning in one call.** Clone a voice once and synthesize across the supported languages by changing `language_code` \- see [Clone Across Languages](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/clone-across-languages).
   * **Explicit language targeting.** Pass `language_code` across 12 Indian languages when pronunciation has to be exact. You can also omit it and let the service detect the language from `text`.
   * **Duration control.** `max_audio_duration` targets a fixed output length (use it or `pace`, not both - sending both returns a 400).
@@ -147,9 +149,7 @@ SDK equivalent: `client.voiceCloning.textToSpeech({ voiceId, text, language_code
 
   * **Professional Voice Cloning** \- a fine-tuned model tier trained on longer recordings; Sarvam cloning is instant-clip based.
   * **Multiple samples per clone** \- Sarvam learns from one clip, so sample selection matters more.
-  * **`remove_background_noise`** \- clean your clip before uploading.
   * **Voice sharing and library categories.**
-  * **Streaming for cloned voices** \- Instant Voice Cloning (beta) includes HTTP stream (`POST /voices/clone/stream`) and WebSocket (`GET /voices/clone/ws`) alongside one-shot `POST /voices/clone`.
 
 
 
@@ -179,6 +179,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -245,16 +246,19 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
@@ -426,7 +430,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

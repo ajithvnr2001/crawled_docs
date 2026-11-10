@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/legacy/document-intelligence/initialise/
 title: Initialise Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:56.620140+00:00
+fetched_at: 2026-11-10T06:38:37.304583+00:00
 ---
 
 # Initialise Job | Sarvam API Docs

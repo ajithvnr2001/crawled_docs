@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/text/transliterate-text/
 title: Transliteration | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:51.142559+00:00
+fetched_at: 2026-11-10T06:38:14.975733+00:00
 ---
 
 # Transliteration | Sarvam API Docs

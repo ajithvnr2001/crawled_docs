@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/split/
 title: Split Document | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:57.944958+00:00
+fetched_at: 2026-11-10T06:38:40.566559+00:00
 ---
 
 # Split Document | Sarvam API Docs

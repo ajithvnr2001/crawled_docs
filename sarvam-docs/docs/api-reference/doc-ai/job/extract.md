@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/extract/
 title: Extract Fields | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:58.561531+00:00
+fetched_at: 2026-11-10T06:38:46.619365+00:00
 ---
 
 # Extract Fields | Sarvam API Docs

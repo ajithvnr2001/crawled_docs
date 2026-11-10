@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/clone/
 title: Generate Speech | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:49.958230+00:00
+fetched_at: 2026-11-10T06:38:11.364689+00:00
 ---
 
 # Generate Speech | Sarvam API Docs
@@ -176,6 +176,10 @@ Enable response caching. Coming soon - accepted for forward compatibility, curre
 enable_vadbooleanOptionalDefaults to `true`
 
 Enable VAD-based silence trimming of the generated audio. Default is `true`. Applies to single-chunk (short) generations; long text that is split into sentence chunks is returned untrimmed.
+
+remove_background_noisebooleanOptionalDefaults to `false`
+
+Remove background noise from the reference audio before synthesis. Uses ML-powered vocal extraction to isolate the speaker’s voice. Only applies when `ref_audio` is provided; ignored when using `voice_id` (a saved voice keeps whatever processing it received when it was created). Adds processing latency — roughly 1 second for a typical reference clip.
 
 enable_text_normalizationboolean or nullOptional
 

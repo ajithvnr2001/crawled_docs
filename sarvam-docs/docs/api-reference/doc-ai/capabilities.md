@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/capabilities/
 title: Get Capabilities | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:58.932538+00:00
+fetched_at: 2026-11-10T06:38:42.637707+00:00
 ---
 
 # Get Capabilities | Sarvam API Docs

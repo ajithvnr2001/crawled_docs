@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:53.799880+00:00
+fetched_at: 2026-11-10T06:38:27.895548+00:00
 ---
 
 # Create Response | Sarvam API Docs

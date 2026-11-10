@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/legacy/document-intelligence/get-download-links/
 title: Get Download Links | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:56.882829+00:00
+fetched_at: 2026-11-10T06:38:41.181750+00:00
 ---
 
 # Get Download Links | Sarvam API Docs

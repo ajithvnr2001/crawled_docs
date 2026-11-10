@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/classify/
 title: Classify Document | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:58.713985+00:00
+fetched_at: 2026-11-10T06:38:45.426218+00:00
 ---
 
 # Classify Document | Sarvam API Docs

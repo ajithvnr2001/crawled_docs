@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/create-voice/
 title: Create Voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:49.692576+00:00
+fetched_at: 2026-11-10T06:38:08.896033+00:00
 ---
 
 # Create Voice | Sarvam API Docs
@@ -52,13 +52,17 @@ Python
     
             style="conversational",
     
+            remove_background_noise=True,
+    
         )
     
-    # Envelope: status + data(voice_id, status, reference_text)
+    # Envelope: status + data(voice_id, status, reference_text, background_noise_removed)
     
     print(response.data.voice_id)  # pass to voice_cloning.convert(voice_id=...)
     
     print(response.data.reference_text)
+    
+    print(response.data.background_noise_removed)
 
 Try it
 
@@ -75,15 +79,17 @@ Try it
     
         "status": "saved",
     
-        "reference_text": "Hello, welcome to Sarvam AI. We build cutting edge voice technology for Indian languages."
+        "reference_text": "Hello, welcome to Sarvam AI. We build cutting edge voice technology for Indian languages.",
+    
+        "background_noise_removed": true
     
       }
     
     }
 
-**Beta.** Creates a cloned voice from a reference audio clip in **one shot**. The whole pipeline runs inline: the audio is stored, validated for quality, transcribed via ASR, and cloned - the response returns the new `voice_id` and the auto-generated transcript (`reference_text`) together. No polling or status endpoint is needed; the voice is ready to use immediately with POST /voices/clone.
+**Beta.** Creates a cloned voice from a reference audio clip in **one shot**. The whole pipeline runs inline: the audio is stored, validated for quality, transcribed via ASR, and cloned - the response returns the new `voice_id` and the auto-generated transcript (`reference_text`) together.
 
-A background job improves the reference audio (noise reduction) after the voice is created; this does not block the response.
+`remove_background_noise` defaults to `true`: background noise is removed from the reference audio using ML vocal extraction before the voice is saved. Pass `false` to keep the original clip. The response includes `background_noise_removed` to indicate whether denoise was actually applied.
 
 Accepts `multipart/form-data` \- send the audio as the `file` upload and everything else as form fields.
 
@@ -129,6 +135,10 @@ Optional gender tag for the cloned voice.
 
 Allowed values:malefemale
 
+remove_background_noisebooleanOptionalDefaults to `true`
+
+Remove background noise from the reference audio before saving. Uses ML-powered vocal extraction to isolate the speaker’s voice. Defaults to `true`. Pass `false` to keep the original clip.
+
 ### Response
 
 Voice created successfully. Usable immediately with POST /voices/clone.
@@ -139,7 +149,7 @@ statusstring
 
 dataobject
 
-Show 3 properties
+Show 4 properties
 
 ### Errors
 

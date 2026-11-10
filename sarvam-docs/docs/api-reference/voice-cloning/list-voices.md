@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/list-voices/
 title: List Voices | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:49.569602+00:00
+fetched_at: 2026-11-10T06:38:07.196447+00:00
 ---
 
 # List Voices | Sarvam API Docs

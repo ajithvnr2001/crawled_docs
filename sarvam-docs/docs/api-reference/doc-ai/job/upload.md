@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/upload/
 title: Create Upload URL | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:57.223955+00:00
+fetched_at: 2026-11-10T06:38:39.040136+00:00
 ---
 
 # Create Upload URL | Sarvam API Docs

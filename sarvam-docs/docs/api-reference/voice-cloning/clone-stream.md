@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/clone-stream/
 title: REST Stream | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:50.394781+00:00
+fetched_at: 2026-11-10T06:38:12.303272+00:00
 ---
 
 # REST Stream | Sarvam API Docs
@@ -164,6 +164,10 @@ Show 7 enum values
 enable_text_normalizationboolean or nullOptional
 
 Enable pre-TTS text normalization: numbers, currencies and dates are converted to their spoken form before synthesis (e.g. `9840950950` becomes the spoken digit sequence). Defaults to the server-side setting.
+
+remove_background_noisebooleanOptionalDefaults to `false`
+
+Remove background noise from the reference audio before synthesis. Uses ML-powered vocal extraction to isolate the speaker’s voice. Only applies when `ref_audio` is provided; ignored when using `voice_id` (a saved voice keeps whatever processing it received when it was created). Adds processing latency before the first audio chunk — roughly 1 second for a typical reference clip.
 
 ### Response
 

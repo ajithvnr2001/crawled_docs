@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/pronunciation-dictionary/delete/
 title: Delete | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:54.779407+00:00
+fetched_at: 2026-11-10T06:38:29.325064+00:00
 ---
 
 # Delete | Sarvam API Docs

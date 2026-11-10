@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/clone-ws/
 title: WebSocket | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:50.115440+00:00
+fetched_at: 2026-11-10T06:38:10.096176+00:00
 ---
 
 # WebSocket | Sarvam API Docs

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/translate-document/doc-translation-live-status/
 title: Live Status | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:50.677079+00:00
+fetched_at: 2026-11-10T06:38:16.362495+00:00
 ---
 
 # Live Status | Sarvam API Docs

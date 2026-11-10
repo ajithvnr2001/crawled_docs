@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/text/identify-language/
 title: Language Detection | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:50.960564+00:00
+fetched_at: 2026-11-10T06:38:20.268340+00:00
 ---
 
 # Language Detection | Sarvam API Docs

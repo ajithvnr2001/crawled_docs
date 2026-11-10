@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/translate-document/create-doc-translation/
 title: Create Document Translation Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:51.430769+00:00
+fetched_at: 2026-11-10T06:38:15.643833+00:00
 ---
 
 # Create Document Translation Job | Sarvam API Docs

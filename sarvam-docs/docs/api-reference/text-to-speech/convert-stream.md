@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/text-to-speech/convert-stream/
 title: REST Stream | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:52.808510+00:00
+fetched_at: 2026-11-10T06:38:19.766487+00:00
 ---
 
 # REST Stream | Sarvam API Docs

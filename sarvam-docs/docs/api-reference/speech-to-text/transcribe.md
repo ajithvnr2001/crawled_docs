@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/speech-to-text/transcribe/
 title: REST | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:52.474582+00:00
+fetched_at: 2026-11-10T06:38:23.998818+00:00
 ---
 
 # REST | Sarvam API Docs

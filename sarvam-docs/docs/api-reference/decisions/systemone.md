@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/decisions/systemone/
 title: Decision API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:59.468116+00:00
+fetched_at: 2026-11-10T06:38:48.483647+00:00
 ---
 
 # Decision API | Sarvam API Docs

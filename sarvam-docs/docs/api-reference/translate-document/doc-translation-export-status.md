@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status/
 title: Export Status | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T06:30:50.831513+00:00
+fetched_at: 2026-11-10T06:38:16.870973+00:00
 ---
 
 # Export Status | Sarvam API Docs
