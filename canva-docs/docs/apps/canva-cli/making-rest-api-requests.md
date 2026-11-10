@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/canva-cli/making-rest-api-requests/
 title: Making Canva REST API requests from the CLI - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:28.970917+00:00
+fetched_at: 2026-11-10T17:21:18.944636+00:00
 ---
 
 # Making Canva REST API requests from the CLI - Canva Developers SDK Documentation
@@ -13,29 +13,15 @@ fetched_at: 2026-10-21T13:55:28.970917+00:00
 
 Apps inside Canva
 
-API reference
-
-[Permissions](https://www.canva.dev/docs/apps/configuring-intents-permissions/)[Error codes](https://www.canva.dev/docs/apps/intents-error-codes/)
-
-App UI Kit reference
-
-[Apps Scripts config reference](https://www.canva.dev/docs/apps/canva-app-scripts/configuration-reference/)[Localization syntax](https://www.canva.dev/docs/apps/localization/icu-syntax/)
+[API reference](https://www.canva.dev/docs/apps/api/)[Permissions](https://www.canva.dev/docs/apps/configuring-intents-permissions/)[Error codes](https://www.canva.dev/docs/apps/intents-error-codes/)[App UI Kit reference](https://www.canva.dev/docs/apps/app-ui-kit/changelog/)[Apps Scripts config reference](https://www.canva.dev/docs/apps/canva-app-scripts/configuration-reference/)[Localization syntax](https://www.canva.dev/docs/apps/localization/icu-syntax/)
 
 Canva for your platform
 
-Canva REST API reference
-
-[Keys](https://www.canva.dev/docs/apps/rest-apis/reference/webhooks/keys/)[Scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/)[Error responses](https://www.canva.dev/docs/apps/rest-apis/error-responses/)
-
-Webhooks notification reference
-
-[Changelog](https://www.canva.dev/docs/apps/rest-apis/changelog/)
+[Canva REST API reference](https://www.canva.dev/docs/apps/rest-apis/reference/)[Keys](https://www.canva.dev/docs/apps/rest-apis/reference/webhooks/keys/)[Scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/)[Error responses](https://www.canva.dev/docs/apps/rest-apis/error-responses/)[Credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/)[Webhooks notification reference](https://www.canva.dev/docs/apps/rest-apis/webhooks/)[Changelog](https://www.canva.dev/docs/apps/rest-apis/changelog/)
 
 Canva for AI assistants
 
-Tools
-
-[Rate limits](https://www.canva.dev/docs/apps/mcp/tools/)[Usage policy](https://www.canva.dev/docs/apps/mcp/usage-policy/)[Prohibited use](https://www.canva.dev/docs/apps/mcp/prohibited-use/)
+[Tools](https://www.canva.dev/docs/apps/mcp/tools/search-designs/)[Rate limits](https://www.canva.dev/docs/apps/mcp/tools/)[Usage policy](https://www.canva.dev/docs/apps/mcp/usage-policy/)[Prohibited use](https://www.canva.dev/docs/apps/mcp/prohibited-use/)
 
 Security
 
@@ -53,7 +39,7 @@ Canva CLI
 
 Policies
 
-[Deprecation policy](https://www.canva.dev/docs/apps/deprecation-policy/)
+[Deprecation policy](https://www.canva.dev/docs/apps/deprecation-policy/)[Restricted uses](https://www.canva.dev/docs/apps/restricted-uses/)
 
 # Making Canva REST API requests from the CLI
 
@@ -77,8 +63,8 @@ Choose the approach that matches what you're doing:
 
 You need:
 
-  * Node.js `v24`
-  * npm `v11`
+  * Node.js `v22`, `v24`, or `v26`
+  * npm (bundled with Node.js)
   * A [Canva⁠(opens in a new tab or window)](https://www.canva.com/) account
   * The Canva CLI. For install steps, see [Canva CLI](https://www.canva.dev/docs/apps/canva-cli/).
 

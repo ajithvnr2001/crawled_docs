@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/prerequisites/
 title: Prerequisites - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:12.825788+00:00
+fetched_at: 2026-11-10T17:21:18.873302+00:00
 ---
 
 # Prerequisites - Canva Developers SDK Documentation
@@ -43,12 +43,12 @@ Find the list for the surface you're building for. You only need the tooling for
     * A relatively modern web browser
     * A free [Canva⁠(opens in a new tab or window)](https://www.canva.com/) account
     * A command line application, such as **Terminal** on macOS
-    * An installation of git, and Node.js (`v24`) with npm (`v11`)
+    * An installation of git, and Node.js (`v22`, `v24`, or `v26`) with npm
     * Some knowledge of TypeScript and React
   * **Canva for your platform:**
     * A [Canva⁠(opens in a new tab or window)](https://www.canva.com/) account
     * [Multi-Factor Authentication (MFA)⁠(opens in a new tab or window)](https://www.canva.com/help/login-verification/) set up on your Canva account
-    * An installation of git, and Node.js (`v24`) with npm (`v11`)
+    * An installation of git, and Node.js (`v22`, `v24`, or `v26`) with npm
   * **Canva for AI assistants:**
     * A [Canva⁠(opens in a new tab or window)](https://www.canva.com/) account, on any plan
     * An AI tool or assistant that supports the Model Context Protocol
@@ -158,11 +158,11 @@ Copy
 
 To learn more about installing git, including alternative options, see [the official documentation⁠(opens in a new tab or window)](https://git-scm.com/download/linux).
 
-## Node.js (`v24`)
+## Node.js (`v22`, `v24`, or `v26`)
 
 Node.js is a JavaScript runtime that allows JavaScript to run outside of a browser. We use Node.js in the starter kits and CLI templates as it's a key dependency of developer tooling that we rely on.
 
-The starter kits require Node.js `v24`.
+The starter kits support Node.js `v22`, `v24`, and `v26`.
 
 ### Installing Node.js
 
@@ -255,11 +255,11 @@ This will set the correct version based on the starter kit's `.nvmrc` file. Each
 
 You can automatically switch to the appropriate Node.js version by updating your bash or zsh profile to detect the presence of `.nvmrc` files. To learn more, see [the official documentation⁠(opens in a new tab or window)](https://github.com/nvm-sh/nvm#deeper-shell-integration).
 
-## npm (v11)
+## npm
 
 npm is a package manager for Node.js. The starter kits use npm to install and manage dependencies.
 
-npm 11 is bundled with Node.js 24, so no separate installation is required. Once you have Node.js 24 installed, npm is already available.
+npm is bundled with Node.js, so no separate installation is required. Once you have Node.js installed, npm is already available.
 
 To verify that npm is available, run the following command:
     

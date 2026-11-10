@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/api-reference/brand-templates/list-brand-templates/
 title: List brand templates - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T16:59:01.562156+00:00
+fetched_at: 2026-11-10T17:21:34.628757+00:00
 ---
 
 # List brand templates - Canva REST API reference - Canva Developers SDK Documentation
@@ -89,8 +89,13 @@ GET` https://api.canva.com/rest/v1/brand-templates`
 
 ### Rate limit
 
-This operation is rate limited to 100 requests per minute for each user of your app.
+This operation's rate limit depends on your app type:
 
+App type| Rate limit  
+---|---  
+**Public or private apps** (acts on behalf of a user using the OAuth authorization code flow)| 100 requests per minute for each user of your app  
+**Service apps** (acts on behalf of your app itself using the OAuth client credentials flow)| 100 requests per minute for your app  
+  
 ## Authentication and authorization
 
 This endpoint requires a valid OAuth access token. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
