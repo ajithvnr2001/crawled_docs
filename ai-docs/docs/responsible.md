@@ -2,7 +2,7 @@
 url: https://ai.google.dev/responsible/
 title: Responsible Generative AI Toolkit
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:03:51.777604+00:00
+fetched_at: 2026-11-11T11:41:15.654834+00:00
 ---
 
 # Responsible Generative AI Toolkit
