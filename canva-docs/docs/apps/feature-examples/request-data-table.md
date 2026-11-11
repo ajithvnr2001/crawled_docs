@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/request-data-table/
 title: Request data table - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:56.769109+00:00
+fetched_at: 2026-11-11T17:30:38.419833+00:00
 ---
 
 # Request data table - Canva Developers SDK Documentation
@@ -829,10 +829,6 @@ Copy
     
     
     
-    
-    - **Preview/beta API**: `requestDataTable` is a `@beta` API. Check the latest API
-    
-      status in the docs before relying on it in a production app.
     
     - **Static/hardcoded data**: The Data Connector always returns the same fixed dataset.
     

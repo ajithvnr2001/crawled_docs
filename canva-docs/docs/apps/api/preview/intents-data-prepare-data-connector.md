@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/intents-data-prepare-data-connector/
 title: prepareDataConnector - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:16.071160+00:00
+fetched_at: 2026-11-11T17:30:41.966087+00:00
 ---
 
 # prepareDataConnector - Beta API reference - Canva Developers SDK Documentation
@@ -91,8 +91,6 @@ API reference for the intents prepareDataConnector method.
 
 Copy page
 
-**This API is a preview**. Preview APIs are unstable and may change without warning. You can't release public apps using this API until it's stable.
-
 Prepares a DataConnector Intent.
 
 ## Usage
@@ -129,11 +127,11 @@ Expand all
 
 `implementation``DataConnectorIntent`
 
-Required
+RequiredView type definition
 
-View type definition
+Main interface for implementing the Data Connector intent.
 
-Main interface for implementing the Data Connector intent. Mirrors the public `DataConnectorIntent` but with the Beta GetDataTableResponse, whose completed results may contain media references.
+Implementing the Data Connector intent enables apps to import external data into Canva. This allows users to select, preview, and refresh data from external sources.
 
 Properties of **implementation**
 
@@ -141,7 +139,14 @@ Properties of **implementation**
 
 RequiredView type definition
 
-Gets structured data from an external source. See the public `DataConnectorIntent.getDataTable` for full documentation.
+Gets structured data from an external source.
+
+This action is called in two scenarios:
+
+  * During data selection to preview data before import (when RenderSelectionUiRequest.updateDataRef is called).
+  * When refreshing previously imported data (when the user requests an update).
+
+
 
 **Example: Getting data from an external source**
     
@@ -279,13 +284,11 @@ Your app should monitor this signal and abort any ongoing operations if it becom
 
 A promise resolving to either a successful result with data or an error. This is a `Promise` that resolves with the following object:
 
-GetDataTableCompleted
-
-GetDataTableCompleted
+GetDataTableCompletedGetDataTableCompleted
 
 GetDataTableErrorGetDataTableError
 
-Successful result from `getDataTable` action. Mirrors the public `GetDataTableCompleted` but with the Beta DataTable (whose media cells may contain references to already-imported media).
+Successful result from `getDataTable` action.
 
 `status``string`
 
@@ -309,6 +312,8 @@ View type definition
 
 The data rows containing the actual values.
 
+Each row contains an array of cells with typed data values.
+
 Properties of **rows**
 
 `cells``DataTableCell<DataType>[]`
@@ -316,6 +321,8 @@ Properties of **rows**
 View type definition
 
 Array of cells containing the data values.
+
+Each cell must have a type that matches the corresponding column definition (if provided).
 
 datedate
 
@@ -325,9 +332,7 @@ numbernumber
 
 booleanboolean
 
-media
-
-media
+mediamedia
 
 Cell containing a date value.
 
@@ -614,7 +619,7 @@ Boolean value (true or false).
 
 Use `undefined` for an empty cell.
 
-Cell containing a media collection. In the Preview (Beta) API this additionally accepts references to already-imported Canva media (`image_reference` / `video_reference`).
+Cell containing a media collection (images and videos) value. A media cell can also contain references to media that is already imported into the user's Canva media library (`image_reference` / `video_reference`).
 
 **Examples**
 
@@ -682,19 +687,17 @@ The only valid value is `"media"`.
 
 View type definition
 
-Media collection values. Use an empty array for an empty cell.
+Media collection values.
+
+Use empty array for an empty cell.
 
 DataTableImageUploadDataTableImageUpload
 
 DataTableVideoUploadDataTableVideoUpload
 
-DataTableImageReference
+DataTableImageReferenceDataTableImageReference
 
-DataTableImageReference
-
-DataTableVideoReference
-
-DataTableVideoReference
+DataTableVideoReferenceDataTableVideoReference
 
 Options for uploading an image asset to the user's private media library.
 
@@ -1073,6 +1076,8 @@ OptionalView type definition
 
 Column definitions with names and data types.
 
+These help Canva interpret and display your data correctly.
+
 Properties of **columnConfigs**
 
 `name``string | undefined`
@@ -1207,7 +1212,7 @@ Optional message explaining the error.
 
 RequiredView type definition
 
-Renders a user interface for selecting and configuring data from your external sources. See the public `DataConnectorIntent.renderSelectionUi` for full documentation.
+Renders a user interface for selecting and configuring data from your external sources.
 
 **Example: Rendering a data selection UI**
     

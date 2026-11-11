@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/intents-changelog/
 title: Changelog for @canva/intents@beta - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:13.869808+00:00
+fetched_at: 2026-11-11T17:30:39.088053+00:00
 ---
 
 # Changelog for @canva/intents@beta - Beta API reference - Canva Developers SDK Documentation
@@ -90,6 +90,15 @@ Error: Test
 The latest changes for the Canva Apps SDK @canva/intents@beta package.
 
 Copy page
+
+## 2.8.1-beta.0 - 2026-11-03
+
+### Added
+
+  * Content Publisher intent: Added optional `messages` to `PublishContentCompleted`, for now supporting only `warning`-type messages, so an app can tell the user about issues with a publish that succeeded (for example, a failed cross-post or muted audio) using the new `AppMessage` type.
+  * Data Connector intent: Promoted `requestDataTable` and media references in `DataTable` to public release.
+
+
 
 ## 2.7.2-beta.0 - 2026-09-22
 
