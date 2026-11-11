@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/ca-service/predefined-certificate-templates/
 title: Predefined certificate templates \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:06.486156+00:00
+fetched_at: 2026-11-11T05:57:15.385808+00:00
 ---
 
 # Predefined certificate templates  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

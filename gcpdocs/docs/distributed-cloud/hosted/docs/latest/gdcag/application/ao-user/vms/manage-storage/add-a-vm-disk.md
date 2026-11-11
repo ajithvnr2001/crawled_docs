@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-storage/add-a-vm-disk/
 title: Add a persistent disk to your VM \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:27.114976+00:00
+fetched_at: 2026-11-11T05:58:52.219686+00:00
 ---
 
 # Add a persistent disk to your VM  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

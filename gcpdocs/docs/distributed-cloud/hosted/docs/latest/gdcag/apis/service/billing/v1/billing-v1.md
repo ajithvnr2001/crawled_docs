@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/billing/v1/billing-v1/
 title: KRM API billing.gdc.goog/v1 \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:08.562070+00:00
+fetched_at: 2026-11-11T05:59:05.211574+00:00
 ---
 
 # KRM API billing.gdc.goog/v1  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

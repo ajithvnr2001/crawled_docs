@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/cloud-nat-timeouts/
 title: Cloud NAT gateways with connection timeouts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:21.722640+00:00
+fetched_at: 2026-11-11T05:56:39.684828+00:00
 ---
 
 # Cloud NAT gateways with connection timeouts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

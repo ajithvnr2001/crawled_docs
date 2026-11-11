@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/pnp/allow-all-traffic/
 title: Create allow-all network policies \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:12.760943+00:00
+fetched_at: 2026-11-11T05:52:57.661551+00:00
 ---
 
 # Create allow-all network policies  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

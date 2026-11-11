@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/
 title: Cross-Cloud Network for distributed applications \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:22.010455+00:00
+fetched_at: 2026-11-11T05:52:25.073801+00:00
 ---
 
 # Cross-Cloud Network for distributed applications  |  Cloud Architecture Center  |  Google Cloud Documentation

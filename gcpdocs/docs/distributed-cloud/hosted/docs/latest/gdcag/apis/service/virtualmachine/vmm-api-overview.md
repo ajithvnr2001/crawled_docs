@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/virtualmachine/vmm-api-overview/
 title: Overview of Virtual Machine Manager API \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:15.041220+00:00
+fetched_at: 2026-11-11T05:58:41.578229+00:00
 ---
 
 # Overview of Virtual Machine Manager API  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

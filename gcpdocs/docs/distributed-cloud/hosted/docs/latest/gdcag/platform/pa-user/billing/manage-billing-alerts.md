@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/billing/manage-billing-alerts/
 title: Manage billing alerts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:01.372125+00:00
+fetched_at: 2026-11-11T05:56:36.506439+00:00
 ---
 
 # Manage billing alerts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ This page covers creating and silencing Billing alerts and alert rules.
 
 Before continuing, ensure you have the following required role:
 
-  * **MonitoringRule PA Creator** : create and manage `MonitoringRule` custom resources. Ask your IAM Org Admin to grant you the `monitoringrule-pa-creator` role.
+  * **Monitoring Rule Creator** : create and manage `MonitoringRule` custom resources. Ask your IAM Org Admin to grant you the `monitoringrule-pa-creator` role.
 
 
 

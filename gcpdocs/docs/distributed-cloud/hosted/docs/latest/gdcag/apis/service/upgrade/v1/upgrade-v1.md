@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/upgrade/v1/upgrade-v1/
 title: KRM API upgrade.gdc.goog/v1 \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:45.653312+00:00
+fetched_at: 2026-11-11T05:58:41.716892+00:00
 ---
 
 # KRM API upgrade.gdc.goog/v1  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

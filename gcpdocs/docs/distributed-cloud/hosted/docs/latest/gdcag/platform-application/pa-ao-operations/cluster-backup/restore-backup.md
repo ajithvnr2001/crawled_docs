@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/cluster-backup/restore-backup/
 title: Create a restore \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:42.645157+00:00
+fetched_at: 2026-11-11T05:56:50.892194+00:00
 ---
 
 # Create a restore  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

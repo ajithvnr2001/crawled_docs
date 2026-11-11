@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/health-checks/
 title: Configure health checks \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:17.326007+00:00
+fetched_at: 2026-11-11T05:57:42.030704+00:00
 ---
 
 # Configure health checks  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

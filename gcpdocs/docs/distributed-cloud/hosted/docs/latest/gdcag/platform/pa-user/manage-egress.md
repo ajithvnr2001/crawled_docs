@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/manage-egress/
 title: Manage outbound traffic from workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:24.540034+00:00
+fetched_at: 2026-11-11T05:57:39.463516+00:00
 ---
 
 # Manage outbound traffic from workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

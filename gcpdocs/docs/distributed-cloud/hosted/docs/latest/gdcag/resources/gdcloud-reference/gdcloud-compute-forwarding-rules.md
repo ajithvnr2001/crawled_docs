@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-compute-forwarding-rules/
 title: gdcloud compute forwarding-rules \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:15.978031+00:00
+fetched_at: 2026-11-11T05:54:49.547400+00:00
 ---
 
 # gdcloud compute forwarding-rules  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

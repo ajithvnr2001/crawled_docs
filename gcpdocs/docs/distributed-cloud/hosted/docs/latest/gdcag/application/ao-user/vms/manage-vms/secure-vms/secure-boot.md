@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/secure-vms/secure-boot/
 title: Securely boot a VM \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:57.624100+00:00
+fetched_at: 2026-11-11T05:58:46.914712+00:00
 ---
 
 # Securely boot a VM  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

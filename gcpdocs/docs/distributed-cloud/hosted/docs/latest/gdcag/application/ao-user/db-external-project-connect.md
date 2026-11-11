@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-external-project-connect/
 title: Enable external connections \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:05.878220+00:00
+fetched_at: 2026-11-11T05:58:25.200179+00:00
 ---
 
 # Enable external connections  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

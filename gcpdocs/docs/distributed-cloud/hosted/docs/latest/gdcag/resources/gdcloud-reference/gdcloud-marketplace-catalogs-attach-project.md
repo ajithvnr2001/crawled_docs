@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-marketplace-catalogs-attach-project/
 title: gdcloud marketplace catalogs attach-project \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:53.699333+00:00
+fetched_at: 2026-11-11T05:52:35.974005+00:00
 ---
 
 # gdcloud marketplace catalogs attach-project  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

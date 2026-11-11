@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/migrate-vm/assess-vms/
 title: Discover and assess VMs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:00.390676+00:00
+fetched_at: 2026-11-11T05:52:59.799727+00:00
 ---
 
 # Discover and assess VMs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

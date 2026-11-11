@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/metrics-dns/
 title: Cloud DNS (DNS) \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:13.161105+00:00
+fetched_at: 2026-11-11T05:55:43.965735+00:00
 ---
 
 # Cloud DNS (DNS)  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

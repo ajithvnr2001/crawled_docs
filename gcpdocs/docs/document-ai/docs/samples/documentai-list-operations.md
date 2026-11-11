@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-list-operations/
 title: List long-running operations \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:06:14.504282+00:00
+fetched_at: 2026-11-11T05:53:21.433745+00:00
 ---
 
 # List long-running operations  |  Document AI  |  Google Cloud Documentation

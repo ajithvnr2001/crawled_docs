@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-projects-get-iam-policy/
 title: gdcloud projects get-iam-policy \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:48.117655+00:00
+fetched_at: 2026-11-11T05:55:38.409512+00:00
 ---
 
 # gdcloud projects get-iam-policy  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

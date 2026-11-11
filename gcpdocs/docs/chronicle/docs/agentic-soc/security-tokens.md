@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/agentic-soc/security-tokens/
 title: Agentic SOC Security Tokens pricing and billing \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:35.737846+00:00
+fetched_at: 2026-11-11T05:50:33.686411+00:00
 ---
 
 # Agentic SOC Security Tokens pricing and billing  |  Google Security Operations  |  Google Cloud Documentation

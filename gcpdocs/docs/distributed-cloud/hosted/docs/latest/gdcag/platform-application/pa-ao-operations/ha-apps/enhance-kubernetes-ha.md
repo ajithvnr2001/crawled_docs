@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/ha-apps/enhance-kubernetes-ha/
 title: Kubernetes workloads for high availability \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:53.938810+00:00
+fetched_at: 2026-11-11T05:56:49.022371+00:00
 ---
 
 # Kubernetes workloads for high availability  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

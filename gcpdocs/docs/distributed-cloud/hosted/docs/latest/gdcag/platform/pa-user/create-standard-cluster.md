@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/create-standard-cluster/
 title: Create a standard cluster to run container workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:31.675802+00:00
+fetched_at: 2026-11-11T05:57:45.875025+00:00
 ---
 
 # Create a standard cluster to run container workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

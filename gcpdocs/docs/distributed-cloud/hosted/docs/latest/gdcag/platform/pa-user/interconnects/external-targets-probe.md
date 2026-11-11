@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/interconnects/external-targets-probe/
 title: Configure external probe targets \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:56.719022+00:00
+fetched_at: 2026-11-11T05:53:00.987618+00:00
 ---
 
 # Configure external probe targets  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

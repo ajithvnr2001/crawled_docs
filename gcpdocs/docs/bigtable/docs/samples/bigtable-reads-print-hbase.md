@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-print-hbase/
 title: Read and print (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:06.105490+00:00
+fetched_at: 2026-11-11T05:53:10.803252+00:00
 ---
 
 # Read and print (HBase)  |  Bigtable  |  Google Cloud Documentation

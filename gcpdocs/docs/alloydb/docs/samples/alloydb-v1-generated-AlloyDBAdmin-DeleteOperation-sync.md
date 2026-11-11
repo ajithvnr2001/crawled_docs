@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-DeleteOperation-sync/
 title: Delete a long-running operation \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:22.578190+00:00
+fetched_at: 2026-11-11T05:51:35.546733+00:00
 ---
 
 # Delete a long-running operation  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

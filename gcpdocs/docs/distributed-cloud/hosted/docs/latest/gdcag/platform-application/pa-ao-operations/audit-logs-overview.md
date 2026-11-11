@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-logs-overview/
 title: Audit logs overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:06.135496+00:00
+fetched_at: 2026-11-11T05:55:52.589291+00:00
 ---
 
 # Audit logs overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

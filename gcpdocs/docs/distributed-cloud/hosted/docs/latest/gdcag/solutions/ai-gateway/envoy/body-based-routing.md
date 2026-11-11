@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/solutions/ai-gateway/envoy/body-based-routing/
 title: Body-Based Routing with Envoy Agent Router user guide on GDC air-gapped \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:03.523279+00:00
+fetched_at: 2026-11-11T05:57:03.204198+00:00
 ---
 
 # Body-Based Routing with Envoy Agent Router user guide on GDC air-gapped  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

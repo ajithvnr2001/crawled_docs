@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/transfer-data/
 title: Transfer data \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:15.192338+00:00
+fetched_at: 2026-11-11T05:56:28.256071+00:00
 ---
 
 # Transfer data  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

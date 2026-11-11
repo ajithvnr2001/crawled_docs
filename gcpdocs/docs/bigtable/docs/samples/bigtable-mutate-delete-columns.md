@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-mutate-delete-columns/
 title: Delete columns with mutate \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:16.525492+00:00
+fetched_at: 2026-11-11T05:50:51.789801+00:00
 ---
 
 # Delete columns with mutate  |  Bigtable  |  Google Cloud Documentation

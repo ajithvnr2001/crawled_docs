@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-endpoints/
 title: Manage and discover endpoints \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:52.504724+00:00
+fetched_at: 2026-11-11T05:51:17.266142+00:00
 ---
 
 # Manage and discover endpoints  |  Agent Registry  |  Google Cloud Documentation
@@ -168,7 +168,7 @@ The page displays a list of all registered endpoints and their details, such as 
 
   4. Click the name of the endpoint that you want to view.
 
-The **Overview** page displays the name, description, location, and connection details of the endpoint, including the destination URL and the protocol bindings.
+The **Overview** page displays the name, description, location, and connection details of the endpoint, including the destination URL and the protocol bindings. If the endpoint includes multiple destination URLs, such as a [composite Google APIs endpoint](https://docs.cloud.google.com/agent-registry/register-endpoints#google-apis-endpoint), expand **Destination URL** to view all registered URL variants.
 
 
 
@@ -361,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

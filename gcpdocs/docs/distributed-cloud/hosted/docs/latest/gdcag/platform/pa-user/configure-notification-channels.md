@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/configure-notification-channels/
 title: Configure notification channels for alerts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:53.820700+00:00
+fetched_at: 2026-11-11T05:56:38.493018+00:00
 ---
 
 # Configure notification channels for alerts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -34,9 +34,9 @@ To manage `ObservabilityPipeline` custom resources, you must have the necessary 
 
 Contact your IAM Org Admin to request the following roles:
 
-  * **ObservabilityPipeline PA Creator** (`observabilitypipeline-pa-creator`): create `ObservabilityPipeline` custom resources.
-  * **ObservabilityPipeline PA Editor** (`observabilitypipeline-pa-editor`): edit or modify `ObservabilityPipeline` custom resources.
-  * **ObservabilityPipeline PA Viewer** (`observabilitypipeline-pa-viewer`): view `ObservabilityPipeline` custom resources.
+  * **Observability Pipeline Creator** (`observabilitypipeline-pa-creator`): create `ObservabilityPipeline` custom resources.
+  * **Observability Pipeline Editor** (`observabilitypipeline-pa-editor`): edit or modify `ObservabilityPipeline` custom resources.
+  * **Observability Pipeline Viewer** (`observabilitypipeline-pa-viewer`): view `ObservabilityPipeline` custom resources.
   * **ConfigMap Editor** (`observabilitypipeline-configmap-editor`): create `ConfigMap` objects in the platform namespace.
 
 

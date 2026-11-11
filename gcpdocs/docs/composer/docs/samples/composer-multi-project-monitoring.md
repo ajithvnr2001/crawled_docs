@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/samples/composer-multi-project-monitoring/
 title: Cross Project environment monitoring \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:52:15.638330+00:00
+fetched_at: 2026-11-11T05:49:46.805777+00:00
 ---
 
 # Cross Project environment monitoring  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

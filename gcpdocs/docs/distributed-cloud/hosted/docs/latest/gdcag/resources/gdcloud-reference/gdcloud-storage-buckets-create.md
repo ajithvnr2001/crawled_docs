@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-storage-buckets-create/
 title: gdcloud storage buckets create \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:48.653453+00:00
+fetched_at: 2026-11-11T05:55:38.551350+00:00
 ---
 
 # gdcloud storage buckets create  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/upload-download-storage-objects/
 title: Upload and download storage objects in projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:27.345179+00:00
+fetched_at: 2026-11-11T05:58:16.962356+00:00
 ---
 
 # Upload and download storage objects in projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

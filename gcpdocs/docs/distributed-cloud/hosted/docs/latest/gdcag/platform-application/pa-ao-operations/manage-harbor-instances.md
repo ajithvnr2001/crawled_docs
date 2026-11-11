@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/manage-harbor-instances/
 title: Manage Harbor registry instances \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:54.963136+00:00
+fetched_at: 2026-11-11T05:55:44.598018+00:00
 ---
 
 # Manage Harbor registry instances  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

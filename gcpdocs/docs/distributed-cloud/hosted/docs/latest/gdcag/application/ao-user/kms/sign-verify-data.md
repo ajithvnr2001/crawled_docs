@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/kms/sign-verify-data/
 title: Sign and verify data \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:39.724870+00:00
+fetched_at: 2026-11-11T05:58:54.564306+00:00
 ---
 
 # Sign and verify data  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/scenarios/data-storage-migration/
 title: Unstructured data and storage migration \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:39:20.468616+00:00
+fetched_at: 2026-11-11T05:54:06.802984+00:00
 ---
 
 # Unstructured data and storage migration  |  Migration  |  Google Cloud Documentation

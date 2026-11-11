@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/scenarios/mainframe-refactor/
 title: Mainframe application refactoring \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:39:50.848055+00:00
+fetched_at: 2026-11-11T05:54:06.022665+00:00
 ---
 
 # Mainframe application refactoring  |  Migration  |  Google Cloud Documentation

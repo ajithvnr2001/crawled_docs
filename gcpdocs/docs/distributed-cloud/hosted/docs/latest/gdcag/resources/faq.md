@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/faq/
 title: Google Distributed Cloud air-gapped frequently asked questions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:06.832510+00:00
+fetched_at: 2026-11-11T05:54:36.068611+00:00
 ---
 
 # Google Distributed Cloud air-gapped frequently asked questions  |  Google Cloud Documentation

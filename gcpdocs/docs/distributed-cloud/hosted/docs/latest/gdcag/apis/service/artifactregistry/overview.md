@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/artifactregistry/overview/
 title: Artifact Registry API overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:10.368718+00:00
+fetched_at: 2026-11-11T05:59:06.960690+00:00
 ---
 
 # Artifact Registry API overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

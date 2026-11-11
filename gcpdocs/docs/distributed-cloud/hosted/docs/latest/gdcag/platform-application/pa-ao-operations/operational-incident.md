@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/operational-incident/
 title: Respond to storage operational incidents \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:32.935303+00:00
+fetched_at: 2026-11-11T05:55:41.604523+00:00
 ---
 
 # Respond to storage operational incidents  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

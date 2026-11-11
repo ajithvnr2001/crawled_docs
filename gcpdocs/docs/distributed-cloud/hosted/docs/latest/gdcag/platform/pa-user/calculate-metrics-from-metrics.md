@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/calculate-metrics-from-metrics/
 title: Create new metrics from existing metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:39.313833+00:00
+fetched_at: 2026-11-11T05:56:41.150125+00:00
 ---
 
 # Create new metrics from existing metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -34,9 +34,9 @@ To manage `MonitoringRule` custom resources, you must have the necessary permiss
 
 Contact your IAM Org Admin to request the following roles:
 
-  * **MonitoringRule PA Creator** (`monitoringrule-pa-creator`): create `MonitoringRule` custom resources.
-  * **MonitoringRule PA Editor** (`monitoringrule-pa-editor`): edit or delete `MonitoringRule` custom resources.
-  * **MonitoringRule PA Viewer** (`monitoringrule-pa-viewer`): view `MonitoringRule` custom resources.
+  * **Monitoring Rule Creator** (`monitoringrule-pa-creator`): create `MonitoringRule` custom resources.
+  * **Monitoring Rule Editor** (`monitoringrule-pa-editor`): edit or delete `MonitoringRule` custom resources.
+  * **Monitoring Rule Viewer** (`monitoringrule-pa-viewer`): view `MonitoringRule` custom resources.
 
 
 

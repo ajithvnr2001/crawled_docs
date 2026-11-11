@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/workbench/krm/vertex-ai-workbench-krm-ref/
 title: Vertex AI Workbench KRM API reference \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:13.207030+00:00
+fetched_at: 2026-11-11T05:58:39.456434+00:00
 ---
 
 # Vertex AI Workbench KRM API reference  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

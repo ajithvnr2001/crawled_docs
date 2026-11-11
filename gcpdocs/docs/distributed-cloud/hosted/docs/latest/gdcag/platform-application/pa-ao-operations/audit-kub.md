@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-kub/
 title: Kubernetes cluster (KUB) \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:25.707833+00:00
+fetched_at: 2026-11-11T05:53:03.759025+00:00
 ---
 
 # Kubernetes cluster (KUB)  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

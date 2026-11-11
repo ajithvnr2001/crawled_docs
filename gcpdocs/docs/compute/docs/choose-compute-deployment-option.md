@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/choose-compute-deployment-option/
 title: Choose a Compute Engine deployment strategy for your workload \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:38.084405+00:00
+fetched_at: 2026-11-11T05:49:44.739073+00:00
 ---
 
 # Choose a Compute Engine deployment strategy for your workload  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 As a cloud architect or IT administrator, when you plan to run an application in Compute Engine, you need to design a compute instance topology that you can provision and operate efficiently.
 
-Compute Engine offers a range of deployment options: for example, you could deploy a group of compute instances that you manage as a single entity, or you could and manage the instances as individual resources. Each approach has distinct merits and limitations. How do you choose an optimal deployment strategy?
+Compute Engine offers a range of deployment options: for example, you could deploy a group of compute instances that you manage as a single entity, or you could provision and manage the instances as individual resources. Each approach has distinct merits and limitations. How do you choose an optimal deployment strategy?
 
   1. Start by assessing the key requirements of your application.
   2. Review the available deployment options and their relative merits.
@@ -119,7 +119,7 @@ The following diagrams show sample deployments side-by-side to help you understa
 Standalone compute instances | Stateful MIG | Stateless MIG  
 ---|---|---  
 This example shows three compute instances created individually.  |  This example shows a MIG containing three similarly configured compute instances, provisioned by using an instance template.  |  This example shows a MIG containing three identical compute instances, provisioned by using an instance template.   
-![Three standalone compute instances](https://docs.cloud.google.com/static/compute/images/standalone-compute%20instances.svg) |  ![A stateful MIG
+![Three standalone compute instances](https://docs.cloud.google.com/static/compute/images/standalone-vms.svg) |  ![A stateful MIG
                           with three compute instances created by using an instance template](https://docs.cloud.google.com/static/compute/images/stateful-mig.svg) |  ![A stateless MIG with three compute instances created by using an
                           instance template](https://docs.cloud.google.com/static/compute/images/stateless-mig.svg)  
   
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

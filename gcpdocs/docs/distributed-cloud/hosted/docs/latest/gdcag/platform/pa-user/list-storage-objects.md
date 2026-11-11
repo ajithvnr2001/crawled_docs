@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/list-storage-objects/
 title: List storage objects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:17.033383+00:00
+fetched_at: 2026-11-11T05:57:40.313153+00:00
 ---
 
 # List storage objects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/k8s-network-policy/k8s-network-policy-overview/
 title: Overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:22.535695+00:00
+fetched_at: 2026-11-11T05:53:00.120472+00:00
 ---
 
 # Overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

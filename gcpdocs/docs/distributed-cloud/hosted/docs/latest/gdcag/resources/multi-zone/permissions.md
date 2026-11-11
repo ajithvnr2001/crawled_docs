@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/multi-zone/permissions/
 title: Permissions control for a multi-zone universe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:55.023724+00:00
+fetched_at: 2026-11-11T05:57:04.594194+00:00
 ---
 
 # Permissions control for a multi-zone universe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

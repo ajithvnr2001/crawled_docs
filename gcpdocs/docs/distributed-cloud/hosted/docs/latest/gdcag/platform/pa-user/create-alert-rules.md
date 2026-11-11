@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/create-alert-rules/
 title: Create alert rules \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:33.116864+00:00
+fetched_at: 2026-11-11T05:57:47.943728+00:00
 ---
 
 # Create alert rules  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -56,9 +56,9 @@ To manage _metric-based_ or _log-based_ rules, you must have the necessary permi
 
 Contact your IAM Org Admin to request the following roles:
 
-  * **MonitoringRule PA Creator** (`monitoringrule-pa-creator`): create `MonitoringRule` custom resources.
-  * **MonitoringRule PA Editor** (`monitoringrule-pa-editor`): edit or modify `MonitoringRule` custom resources.
-  * **MonitoringRule PA Viewer** (`monitoringrule-pa-viewer`): view `MonitoringRule` custom resources.
+  * **Monitoring Rule Creator** (`monitoringrule-pa-creator`): create `MonitoringRule` custom resources.
+  * **Monitoring Rule Editor** (`monitoringrule-pa-editor`): edit or modify `MonitoringRule` custom resources.
+  * **Monitoring Rule Viewer** (`monitoringrule-pa-viewer`): view `MonitoringRule` custom resources.
 
 ### Request IAM project roles for _metric-based_ rules
 
@@ -76,9 +76,9 @@ Contact your IAM Project Admin to request the following roles:
 
 Contact your IAM Org Admin to request the following roles:
 
-  * **LoggingRule PA Creator** (`loggingrule-pa-creator`): create `LoggingRule` custom resources.
-  * **LoggingRule PA Editor** (`loggingrule-pa-editor`): edit or modify `LoggingRule` custom resources.
-  * **LoggingRule PA Viewer** (`loggingrule-pa-viewer`): view `LoggingRule` custom resources.
+  * **Logging Rule Creator** (`loggingrule-pa-creator`): create `LoggingRule` custom resources.
+  * **Logging Rule Editor** (`loggingrule-pa-editor`): edit or modify `LoggingRule` custom resources.
+  * **Logging Rule Viewer** (`loggingrule-pa-viewer`): view `LoggingRule` custom resources.
 
 
 
@@ -86,8 +86,9 @@ Contact your IAM Org Admin to request the following roles:
 
 Contact your IAM Project Admin to request the following roles:
 
-  * **LoggingRule Editor** (`loggingrule-editor`): edit or modify `LoggingRule` custom resources in the project namespace.
-  * **LoggingRule Viewer** (`loggingrule-viewer`): view `LoggingRule` custom resources in the project namespace.
+  * **Logging Rule Creator** (`loggingrule-creator`): create `LoggingRule` custom resources in the project namespace.
+  * **Logging Rule Editor** (`loggingrule-editor`): edit or modify `LoggingRule` custom resources in the project namespace.
+  * **Logging Rule Viewer** (`loggingrule-viewer`): view `LoggingRule` custom resources in the project namespace.
 
 
 

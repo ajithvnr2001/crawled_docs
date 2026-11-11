@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-disaster-recovery-buckets-create/
 title: gdcloud disaster-recovery buckets create \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:44.544428+00:00
+fetched_at: 2026-11-11T05:57:35.103537+00:00
 ---
 
 # gdcloud disaster-recovery buckets create  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

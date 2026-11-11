@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-the-os/manage-os-packages/
 title: Manage OS packages \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:18.938345+00:00
+fetched_at: 2026-11-11T05:58:51.368245+00:00
 ---
 
 # Manage OS packages  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

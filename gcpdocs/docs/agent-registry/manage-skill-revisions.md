@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-skill-revisions/
 title: Manage skill revisions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:40.054736+00:00
+fetched_at: 2026-11-11T05:51:16.567599+00:00
 ---
 
 # Manage skill revisions  |  Agent Registry  |  Google Cloud Documentation
@@ -68,10 +68,10 @@ The maximum ZIP file size of a skill revision is 1 MB.
   2. Select the **Skills** tab, and click the name of your skill.
   3. In the **Skill Details** page, locate the **Version history** table.
   4. Click add **Add version**.
-  5. In the **Add version** panel, choose one of the following options:
+  5. In the **Add new version** panel, choose one of the following options:
 
-     * **File** : upload the package or ZIP file containing your `SKILL.md` instructions file and optional scripts. You can click **Browse** to find your file in your local environment.
-     * **Bucket** : provide a `gs://...` Cloud Storage URI containing a valid ZIP bundle. You can click **Browse** to find your file in your Cloud Storage buckets.
+     * **File** : upload the ZIP archive containing your `SKILL.md` instructions file and optional scripts in the **Upload package or file** field. You can also upload a standalone `SKILL.md` file, with a maximum size of 1 MB. To find your file in your local environment, click **Browse**.
+     * **GCS bucket** : provide the URI of a Cloud Storage bucket that contains a valid ZIP bundle in the **Cloud Storage URI** field. The URI you provide must have the format `gs://PATH_TO_ZIP_BUNDLE`, and the maximum size of the ZIP bundle is 1 MB. To find your bundle in a Cloud Storage bucket, click **Browse**.
 
 **Important:** Before Agent Registry can access your skill files, you must grant its service agent access to the ZIP archive in your Cloud Storage bucket. The Agent Registry service agent uses the following format: `service-PROJECT_NUMBER@gcp-sa-agentregistry.iam.gserviceaccount.com`. If this service agent doesn't exist in your project, create it for the Agent Registry API. For instructions, see [Create and grant roles to service agents](https://docs.cloud.google.com/iam/docs/create-service-agents). The service agent requires the `storage.objects.get` permission on the Cloud Storage bucket containing your ZIP archive. For instructions on granting Identity and Access Management (IAM) permissions on bucket resources, see [IAM for Cloud Storage](https://docs.cloud.google.com/storage/docs/access-control/iam).
   6. Click **Create**.
@@ -387,6 +387,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

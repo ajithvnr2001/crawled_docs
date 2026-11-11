@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-set-up-translation/
 title: Set up a translation project \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:45.852088+00:00
+fetched_at: 2026-11-11T05:58:16.077067+00:00
 ---
 
 # Set up a translation project  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

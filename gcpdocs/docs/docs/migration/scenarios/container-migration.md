@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/scenarios/container-migration/
 title: Containerized application migration \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:39:35.570320+00:00
+fetched_at: 2026-11-11T05:54:06.492069+00:00
 ---
 
 # Containerized application migration  |  Migration  |  Google Cloud Documentation

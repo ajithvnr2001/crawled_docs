@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/subnet-permissions/
 title: Prepare IAM permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:29.996103+00:00
+fetched_at: 2026-11-11T05:56:28.993935+00:00
 ---
 
 # Prepare IAM permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

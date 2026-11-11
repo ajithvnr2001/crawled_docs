@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/monitor/monitor-metrics/
 title: Monitor VM metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:02.808940+00:00
+fetched_at: 2026-11-11T05:58:47.404710+00:00
 ---
 
 # Monitor VM metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

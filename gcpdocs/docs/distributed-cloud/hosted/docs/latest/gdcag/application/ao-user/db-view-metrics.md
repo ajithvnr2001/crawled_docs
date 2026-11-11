@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-view-metrics/
 title: Observe metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:58.342756+00:00
+fetched_at: 2026-11-11T05:58:23.394472+00:00
 ---
 
 # Observe metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

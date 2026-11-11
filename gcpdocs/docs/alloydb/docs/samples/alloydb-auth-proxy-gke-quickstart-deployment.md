@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-auth-proxy-gke-quickstart-deployment/
 title: Connect from Google Kubernetes Engine with a sidecar proxy \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:55.023046+00:00
+fetched_at: 2026-11-11T05:53:17.299405+00:00
 ---
 
 # Connect from Google Kubernetes Engine with a sidecar proxy  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

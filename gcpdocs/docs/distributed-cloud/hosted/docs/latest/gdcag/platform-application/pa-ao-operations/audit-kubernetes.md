@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-kubernetes/
 title: Kubernetes audit logs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:07.672832+00:00
+fetched_at: 2026-11-11T05:55:53.500737+00:00
 ---
 
 # Kubernetes audit logs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

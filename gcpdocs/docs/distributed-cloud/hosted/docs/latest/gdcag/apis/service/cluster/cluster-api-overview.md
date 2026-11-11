@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/cluster/cluster-api-overview/
 title: Cluster API overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:04.683446+00:00
+fetched_at: 2026-11-11T05:59:04.324748+00:00
 ---
 
 # Cluster API overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

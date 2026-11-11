@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/security/
 title: Security \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:37.098486+00:00
+fetched_at: 2026-11-11T05:58:28.163321+00:00
 ---
 
 # Security  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

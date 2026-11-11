@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/enable-dbs-backup/
 title: Enable backup for database services \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:09.316682+00:00
+fetched_at: 2026-11-11T05:55:45.485391+00:00
 ---
 
 # Enable backup for database services  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

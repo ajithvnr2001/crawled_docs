@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/obs-iam-permissions/
 title: Prepare IAM permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:21.237231+00:00
+fetched_at: 2026-11-11T05:56:33.023701+00:00
 ---
 
 # Prepare IAM permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -40,18 +40,18 @@ The following table provides details about the permissions assigned to each pred
 
 Role name | Kubernetes resource name | Permission description  
 ---|---|---  
-Dashboard PA Creator | `dashboard-pa-creator` | Create `Dashboard` custom resources.  
-Dashboard PA Editor | `dashboard-pa-editor` | Edit or modify `Dashboard` custom resources.  
-Dashboard PA Viewer | `dashboard-pa-viewer` | View `Dashboard` custom resources.  
-MonitoringRule PA Creator | `monitoringrule-pa-creator` | Create `MonitoringRule` custom resources.  
-MonitoringRule PA Editor | `monitoringrule-pa-editor` | Edit or modify `MonitoringRule` custom resources.  
-MonitoringRule PA Viewer | `monitoringrule-pa-viewer` | View `MonitoringRule` custom resources.  
-MonitoringTarget PA Creator | `monitoringtarget-pa-creator` | Create `MonitoringTarget` custom resources.  
-MonitoringTarget PA Editor | `monitoringtarget-pa-editor` | Edit or modify `MonitoringTarget` custom resources.  
-MonitoringTarget PA Viewer | `monitoringtarget-pa-viewer` | View `MonitoringTarget` custom resources.  
-ObservabilityPipeline PA Creator | `observabilitypipeline-pa-creator` | Create `ObservabilityPipeline` custom resources.  
-ObservabilityPipeline PA Editor | `observabilitypipeline-pa-editor` | Edit or modify `ObservabilityPipeline` custom resources.  
-ObservabilityPipeline PA Viewer | `observabilitypipeline-pa-viewer` | View `ObservabilityPipeline` custom resources.  
+Monitoring Dashboard Creator | `dashboard-pa-creator` | Create `Dashboard` custom resources.  
+Monitoring Dashboard Editor | `dashboard-pa-editor` | Edit or modify `Dashboard` custom resources.  
+Monitoring Dashboard Viewer | `dashboard-pa-viewer` | View `Dashboard` custom resources.  
+Monitoring Rule Creator | `monitoringrule-pa-creator` | Create `MonitoringRule` custom resources.  
+Monitoring Rule Editor | `monitoringrule-pa-editor` | Edit or modify `MonitoringRule` custom resources.  
+Monitoring Rule Viewer | `monitoringrule-pa-viewer` | View `MonitoringRule` custom resources.  
+Monitoring Target Creator | `monitoringtarget-pa-creator` | Create `MonitoringTarget` custom resources.  
+Monitoring Target Editor | `monitoringtarget-pa-editor` | Edit or modify `MonitoringTarget` custom resources.  
+Monitoring Target Viewer | `monitoringtarget-pa-viewer` | View `MonitoringTarget` custom resources.  
+Observability Pipeline Creator | `observabilitypipeline-pa-creator` | Create `ObservabilityPipeline` custom resources.  
+Observability Pipeline Editor | `observabilitypipeline-pa-editor` | Edit or modify `ObservabilityPipeline` custom resources.  
+Observability Pipeline Viewer | `observabilitypipeline-pa-viewer` | View `ObservabilityPipeline` custom resources.  
 Organization Grafana Viewer | `organization-grafana-viewer` | Visualize organization-related observability data on dashboards of the Grafana monitoring instance.  
   
 ### Logging resources
@@ -60,12 +60,12 @@ The following table provides details about the permissions assigned to each pred
 
 Role name | Kubernetes resource name | Permission description  
 ---|---|---  
-LoggingRule PA Creator | `loggingrule-pa-creator` | Create `LoggingRule` custom resources.  
-LoggingRule PA Editor | `loggingrule-pa-editor` | Edit or modify `LoggingRule` custom resources.  
-LoggingRule PA Viewer | `loggingrule-pa-viewer` | View `LoggingRule` custom resources.  
-LoggingTarget PA Creator | `loggingtarget-pa-creator` | Create `LoggingTarget` custom resources.  
-LoggingTarget PA Editor | `loggingtarget-pa-editor` | Edit or modify `LoggingTarget` custom resources.  
-LoggingTarget PA Viewer | `loggingtarget-pa-viewer` | View `LoggingTarget` custom resources.  
+Logging Rule Creator | `loggingrule-pa-creator` | Create `LoggingRule` custom resources.  
+Logging Rule Editor | `loggingrule-pa-editor` | Edit or modify `LoggingRule` custom resources.  
+Logging Rule Viewer | `loggingrule-pa-viewer` | View `LoggingRule` custom resources.  
+Logging Target Creator | `loggingtarget-pa-creator` | Create `LoggingTarget` custom resources.  
+Logging Target Editor | `loggingtarget-pa-editor` | Edit or modify `LoggingTarget` custom resources.  
+Logging Target Viewer | `loggingtarget-pa-viewer` | View `LoggingTarget` custom resources.  
   
 ## Predefined roles at the project level
 
@@ -90,9 +90,9 @@ MonitoringTarget Editor | `monitoringtarget-editor` | Edit or modify `Monitoring
 MonitoringTarget Viewer | `monitoringtarget-viewer` | View `MonitoringTarget` custom resources in the project namespace.  
 ObservabilityPipeline Editor | `observabilitypipeline-editor` | Edit or modify `ObservabilityPipeline` custom resources in the project namespace.  
 ObservabilityPipeline Viewer | `observabilitypipeline-viewer` | View `ObservabilityPipeline` custom resources in the project namespace.  
-Project Cortex Alertmanager Editor | `project-cortex-alertmanager-editor` | Edit the Cortex Alertmanager instance in the project namespace.  
-Project Cortex Alertmanager Viewer | `project-cortex-alertmanager-viewer` | Access the Cortex Alertmanager instance in the project namespace.  
-Project Cortex Prometheus Viewer | `project-cortex-prometheus-viewer` | Access the Cortex Prometheus instance in the project namespace.  
+Monitoring Project Alertmanager Editor | `project-cortex-alertmanager-editor` | Edit the Cortex Alertmanager instance in the project namespace.  
+Monitoring Project Alertmanager Viewer | `project-cortex-alertmanager-viewer` | Access the Cortex Alertmanager instance in the project namespace.  
+Monitoring Project Prometheus Viewer | `project-cortex-prometheus-viewer` | Access the Cortex Prometheus instance in the project namespace.  
 Project Grafana Viewer | `project-grafana-viewer` | Visualize project-related observability data on dashboards of the Grafana monitoring instance.  
   
 ### Logging resources
@@ -103,14 +103,14 @@ Role name | Kubernetes resource name | Permission description
 ---|---|---  
 Audit Logs Platform Restore Bucket Creator | `audit-logs-platform-restore-bucket-creator` | Create backup buckets to restore the platform audit logs.  
 Audit Logs Platform Bucket Viewer | `audit-logs-platform-bucket-viewer` | View backup buckets of platform audit logs.  
-Audit Logging Target Monitor | `auditloggingtarget-monitor` | Debugging `AuditLoggingTarget` custom resource.  
-LoggingRule Creator | `loggingrule-creator` | Create `LoggingRule` custom resources in the project namespace.  
-LoggingRule Editor | `loggingrule-editor` | Edit or modify `LoggingRule` custom resources in the project namespace.  
-LoggingRule Viewer | `loggingrule-viewer` | View `LoggingRule` custom resources in the project namespace.  
-LoggingTarget Creator | `loggingtarget-creator` | Create `LoggingTarget` custom resources in the project namespace.  
-LoggingTarget Editor | `loggingtarget-editor` | Edit or modify `LoggingTarget` custom resources in the project namespace.  
-LoggingTarget Viewer | `loggingtarget-viewer` | View `LoggingTarget` custom resources in the project namespace.  
-Log Query API Querier | `log-query-api-querier` | Access the Log Query API to query logs.  
+Logging Audit Logging Target Resource Monitor | `auditloggingtarget-monitor` | Debugging `AuditLoggingTarget` custom resource.  
+Logging Rule Creator | `loggingrule-creator` | Create `LoggingRule` custom resources in the project namespace.  
+Logging Rule Editor | `loggingrule-editor` | Edit or modify `LoggingRule` custom resources in the project namespace.  
+Logging Rule Viewer | `loggingrule-viewer` | View `LoggingRule` custom resources in the project namespace.  
+Logging Target Creator | `loggingtarget-creator` | Create `LoggingTarget` custom resources in the project namespace.  
+Logging Target Editor | `loggingtarget-editor` | Edit or modify `LoggingTarget` custom resources in the project namespace.  
+Logging Target Viewer | `loggingtarget-viewer` | View `LoggingTarget` custom resources in the project namespace.  
+Log Querier | `log-query-api-querier` | Access the Log Query API to query logs.  
 SIEM Export Org Creator | `siemexport-org-creator` | Create `SIEMOrgForwarder` custom resources in the project namespace.  
 SIEM Export Org Editor | `siemexport-org-editor` | Edit or modify `SIEMOrgForwarder` custom resources in the project namespace.  
 SIEM Export Org Viewer | `siemexport-org-viewer` | View `SIEMOrgForwarder` custom resources in the project namespace.  

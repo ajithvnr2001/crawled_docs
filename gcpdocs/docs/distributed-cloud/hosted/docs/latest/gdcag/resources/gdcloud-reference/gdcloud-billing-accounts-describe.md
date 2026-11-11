@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-billing-accounts-describe/
 title: gdcloud billing accounts describe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:02.811625+00:00
+fetched_at: 2026-11-11T05:57:50.796590+00:00
 ---
 
 # gdcloud billing accounts describe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

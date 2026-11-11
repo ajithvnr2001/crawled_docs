@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-hikaricp-connect-iam-authn-direct/
 title: Create a connection pool with IAM database authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:55.114257+00:00
+fetched_at: 2026-11-11T05:51:54.892711+00:00
 ---
 
 # Create a connection pool with IAM database authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

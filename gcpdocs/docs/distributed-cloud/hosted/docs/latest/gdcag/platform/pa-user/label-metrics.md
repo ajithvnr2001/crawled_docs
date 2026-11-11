@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/label-metrics/
 title: Label metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:50.234426+00:00
+fetched_at: 2026-11-11T05:57:40.528137+00:00
 ---
 
 # Label metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -34,9 +34,9 @@ To manage `MonitoringTarget` custom resources, you must have the necessary permi
 
 Contact your IAM Org Admin to request the following roles:
 
-  * **MonitoringTarget PA Creator** (`monitoringtarget-pa-creator`): create `MonitoringTarget` custom resources.
-  * **MonitoringTarget PA Editor** (`monitoringtarget-pa-editor`): edit or modify `MonitoringTarget` custom resources.
-  * **MonitoringTarget PA Viewer** (`monitoringtarget-pa-viewer~): view`MonitoringTarget` custom resources.
+  * **Monitoring Target Creator** (`monitoringtarget-pa-creator`): create `MonitoringTarget` custom resources.
+  * **Monitoring Target Editor** (`monitoringtarget-pa-editor`): edit or modify `MonitoringTarget` custom resources.
+  * **Monitoring Target Viewer** (`monitoringtarget-pa-viewer`): view `MonitoringTarget` custom resources.
 
 
 

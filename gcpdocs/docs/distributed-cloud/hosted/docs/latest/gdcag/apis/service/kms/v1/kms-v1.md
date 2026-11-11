@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/kms/v1/kms-v1/
 title: KRM API kms.gdc.goog/v1 \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:47.925823+00:00
+fetched_at: 2026-11-11T05:58:59.552141+00:00
 ---
 
 # KRM API kms.gdc.goog/v1  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

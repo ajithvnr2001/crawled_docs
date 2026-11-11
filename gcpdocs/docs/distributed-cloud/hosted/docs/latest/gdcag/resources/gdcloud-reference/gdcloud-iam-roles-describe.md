@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-iam-roles-describe/
 title: gdcloud iam roles describe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:37.428383+00:00
+fetched_at: 2026-11-11T05:57:25.104062+00:00
 ---
 
 # gdcloud iam roles describe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

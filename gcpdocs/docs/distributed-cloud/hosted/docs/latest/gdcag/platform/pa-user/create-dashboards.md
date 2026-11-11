@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/create-dashboards/
 title: Create visualization dashboards \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:08.696806+00:00
+fetched_at: 2026-11-11T05:57:48.354168+00:00
 ---
 
 # Create visualization dashboards  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -43,9 +43,9 @@ To manage `Dashboard` and `ConfigMap` custom resources, you must have the necess
 
 Contact your IAM Org Admin to request the following roles to work with dashboards across an organization:
 
-  * **Dashboard PA Creator** (`dashboard-pa-creator`): create custom dashboards.
-  * **Dashboard PA Editor** (`dashboard-pa-editor`): edit or delete custom dashboards.
-  * **Dashboard PA Viewer** (`dashboard-pa-viewer`): view custom dashboards.
+  * **Monitoring Dashboard Creator** (`dashboard-pa-creator`): create custom dashboards.
+  * **Monitoring Dashboard Editor** (`dashboard-pa-editor`): edit or delete custom dashboards.
+  * **Monitoring Dashboard Viewer** (`dashboard-pa-viewer`): view custom dashboards.
 
 
 

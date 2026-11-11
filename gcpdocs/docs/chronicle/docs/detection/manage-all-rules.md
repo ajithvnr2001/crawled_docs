@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/manage-all-rules/
 title: Edit rules in the Rules Editor \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T08:24:41.254645+00:00
+fetched_at: 2026-11-11T05:49:49.332097+00:00
 ---
 
 # Edit rules in the Rules Editor  |  Google Security Operations  |  Google Cloud Documentation

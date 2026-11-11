@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/storage/storage-api-overview/
 title: Storage API overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:40.181579+00:00
+fetched_at: 2026-11-11T05:58:43.288578+00:00
 ---
 
 # Storage API overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

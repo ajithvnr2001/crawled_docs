@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-set-up-stt/
 title: Set up a speech recognition project \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:30.422229+00:00
+fetched_at: 2026-11-11T05:58:16.416388+00:00
 ---
 
 # Set up a speech recognition project  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

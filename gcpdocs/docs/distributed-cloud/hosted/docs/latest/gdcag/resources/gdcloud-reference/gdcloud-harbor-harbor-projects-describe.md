@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-harbor-harbor-projects-describe/
 title: gdcloud harbor harbor-projects describe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:11.520744+00:00
+fetched_at: 2026-11-11T05:57:28.520695+00:00
 ---
 
 # gdcloud harbor harbor-projects describe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

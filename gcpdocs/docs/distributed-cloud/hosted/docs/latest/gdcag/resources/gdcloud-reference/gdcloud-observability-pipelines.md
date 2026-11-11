@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-observability-pipelines/
 title: gdcloud observability pipelines \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:04.238724+00:00
+fetched_at: 2026-11-11T05:52:31.523506+00:00
 ---
 
 # gdcloud observability pipelines  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

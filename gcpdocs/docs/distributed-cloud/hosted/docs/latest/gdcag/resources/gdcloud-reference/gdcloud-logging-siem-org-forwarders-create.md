@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-logging-siem-org-forwarders-create/
 title: gdcloud logging siem-org-forwarders create \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:23.749361+00:00
+fetched_at: 2026-11-11T05:57:18.741465+00:00
 ---
 
 # gdcloud logging siem-org-forwarders create  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

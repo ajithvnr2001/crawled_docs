@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/delete-storage-objects/
 title: Delete storage objects in projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:06.255582+00:00
+fetched_at: 2026-11-11T05:58:22.586840+00:00
 ---
 
 # Delete storage objects in projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/scenarios/mainframe-lift-shift/
 title: Mainframe workload lift and shift \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:39:07.528604+00:00
+fetched_at: 2026-11-11T05:54:06.066594+00:00
 ---
 
 # Mainframe workload lift and shift  |  Migration  |  Google Cloud Documentation

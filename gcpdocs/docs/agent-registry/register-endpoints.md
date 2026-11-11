@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-endpoints/
 title: Register endpoints \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:52.911640+00:00
+fetched_at: 2026-11-11T05:51:17.168894+00:00
 ---
 
 # Register endpoints  |  Agent Registry  |  Google Cloud Documentation
@@ -57,12 +57,16 @@ Because endpoints are custom, external destinations, use [manual registration](h
 
   4. Click **Add endpoint**.
 
-  5. In the **Endpoint details** panel, enter the display name, a description, the geographic region, and the destination URL.
+  5. In the **Add Endpoint** panel, locate the **Endpoint details** section and select **Custom Endpoint**.
+
+  6. Enter a display name and an optional description for the endpoint, and then select the location.
+
+  7. In the **Destination URL** field, enter the target URL for the endpoint.
 
 Optionally, click **Test connection** in this panel to test your connection to the destination URL.
 
 **Note:** You can register endpoints that use private URLs. However, the connection test only works for public endpoints, checking if the public URL is reachable. The test doesn't support private URLs or endpoints that require sending authenticated data, such as Agent Runtime on Gemini Enterprise Agent Platform endpoints.
-  6. Click **Save**.
+  8. Click **Save**.
 
 
 
@@ -144,6 +148,29 @@ Grouping interfaces into a single endpoint simplifies policy administration by l
 
 Follow these steps to register a composite Google APIs endpoint:
 
+###  Console 
+
+  1. In the Google Cloud console, go to **Agent Registry** :
+
+[Go to Agent Registry](https://console.cloud.google.com/agent-platform/agent-registry)
+
+  2. From the project picker, select the Google Cloud project where you [set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
+
+  3. Select the **Endpoints** tab.
+
+  4. Click **Add endpoint**.
+
+  5. In the **Add Endpoint** panel, locate the **Endpoint details** section and select **GCP Service Endpoint**.
+
+  6. From the **GCP Service** menu, select the Google Cloud service that you want to register, and then select the location.
+
+  7. In the **Automatically generated Endpoint URL variants** table, select one or more endpoint URL variants to include in the endpoint, such as the base, base mTLS, locational, locational mTLS, and regional endpoint (REP) URLs for the service. By default, all generated variants are selected.
+
+  8. Click **Save**.
+
+
+
+
 ###  gcloud 
 
 Register the endpoint with multiple interface URLs in the central governance project by using the [`gcloud agent-registry services create`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/services/create) command:
@@ -223,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

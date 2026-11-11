@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/query-and-view-metrics/
 title: Query and view metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:58.720934+00:00
+fetched_at: 2026-11-11T05:56:31.087139+00:00
 ---
 
 # Query and view metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ You can access your metrics in one of the following two methods:
 
 To get the permissions that you need to query and visualize metrics on Grafana dashboards, ask your IAM Org Admin or IAM Project Admin to grant you one of the predefined Organization Grafana Viewer or Project Grafana Viewer roles. Depending on the level of access and permissions you need, you might obtain Grafana roles in an organization or a project.
 
-Alternatively, to get the permissions that you need to query metrics from the Cortex endpoint, ask your IAM Project Admin to grant you the Project Cortex Prometheus Viewer role in your project namespace.
+Alternatively, to get the permissions that you need to query metrics from the Cortex endpoint, ask your IAM Project Admin to grant you the Monitoring Project Prometheus Viewer role in your project namespace.
 
 The following table summarizes the `Role` requirements for the PA and AO personas.
 

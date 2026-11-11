@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/genai/supported-text-languages/
 title: Supported text embedding languages \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:28.161263+00:00
+fetched_at: 2026-11-11T05:57:11.237307+00:00
 ---
 
 # Supported text embedding languages  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-skills/
 title: Register skills \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:38.091159+00:00
+fetched_at: 2026-11-11T05:51:16.683064+00:00
 ---
 
 # Register skills  |  Agent Registry  |  Google Cloud Documentation
@@ -190,7 +190,7 @@ To register your skills, do the following:
   4. In the **Skills** tab, the **Add skill** button displays two options to create a skill container and import your initial skills package. Choose one of the following:
 
      * **Add skill** : create a new skill container in the registry. You can optionally upload a skill package to create the first revision.
-     * **Import skill** : register a new custom skills package by uploading a ZIP bundle containing your `SKILL.md` instructions file and optional scripts.
+     * **Import skill** : register a new custom skills package by uploading a ZIP bundle containing your `SKILL.md` instructions file and optional scripts, or a standalone `SKILL.md` file.
   5. In the **Create skill** or **Import skill** panel, specify the following details:
 
      * **Display name** : enter a user-friendly name for the skill.
@@ -198,8 +198,8 @@ To register your skills, do the following:
      * **Location** : select the geographic region, for example, `global`, `us`, or `eu`.
   6. In the **Payload source** section, choose one of the following:
 
-     * **File** : drag your packaged skill ZIP file, or browse your local directory.
-     * **Bucket** : enter the path to your ZIP archive stored in a Cloud Storage bucket, in the format `gs://BUCKET_NAME/SKILL_PACKAGE.zip`.
+     * **File** : upload your packaged skill ZIP archive or a standalone `SKILL.md` file in the **Upload package or file** field. The maximum upload size is 1 MB. You can browse the file from your local directory.
+     * **GCS bucket** : enter the path to your ZIP archive stored in a Cloud Storage bucket in the **Cloud Storage URI** field. The maximum upload size is 1 MB. The path must be in the format `gs://BUCKET_NAME/SKILL_PACKAGE.zip`.
 
 **Important:** Before Agent Registry can access your skill files, you must grant its service agent access to the ZIP archive in your Cloud Storage bucket. The Agent Registry service agent uses the following format: `service-PROJECT_NUMBER@gcp-sa-agentregistry.iam.gserviceaccount.com`. If this service agent doesn't exist in your project, such as when you have never created a skill, trigger its creation for the Agent Registry API. For instructions, see [Create and grant roles to service agents](https://docs.cloud.google.com/iam/docs/create-service-agents). The service agent requires the `storage.objects.get` permission on the Cloud Storage bucket containing your ZIP archive. For instructions on granting Identity and Access Management (IAM) permissions on bucket resources, see [IAM for Cloud Storage](https://docs.cloud.google.com/storage/docs/access-control/iam).
   7. Click **Create**.
@@ -390,6 +390,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

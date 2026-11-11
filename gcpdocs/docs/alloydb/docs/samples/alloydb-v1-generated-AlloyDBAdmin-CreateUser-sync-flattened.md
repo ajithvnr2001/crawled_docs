@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-CreateUser-sync-flattened/
 title: Create a user \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:46.707384+00:00
+fetched_at: 2026-11-11T05:52:02.609002+00:00
 ---
 
 # Create a user  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

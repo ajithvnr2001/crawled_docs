@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/resources/
 title: Resources \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:57:17.897498+00:00
+fetched_at: 2026-11-11T05:53:27.334345+00:00
 ---
 
 # Resources  |  Document AI  |  Google Cloud Documentation

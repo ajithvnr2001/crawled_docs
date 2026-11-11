@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-compute-disks-describe/
 title: gdcloud compute disks describe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:41.439727+00:00
+fetched_at: 2026-11-11T05:54:51.643180+00:00
 ---
 
 # gdcloud compute disks describe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/delete-storage-buckets/
 title: Delete storage buckets for projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:13.622611+00:00
+fetched_at: 2026-11-11T05:58:23.076087+00:00
 ---
 
 # Delete storage buckets for projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

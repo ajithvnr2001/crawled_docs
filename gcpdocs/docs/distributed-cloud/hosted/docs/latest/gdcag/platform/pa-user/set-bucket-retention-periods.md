@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/set-bucket-retention-periods/
 title: Set storage bucket retention periods \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:55.735185+00:00
+fetched_at: 2026-11-11T05:56:30.096777+00:00
 ---
 
 # Set storage bucket retention periods  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

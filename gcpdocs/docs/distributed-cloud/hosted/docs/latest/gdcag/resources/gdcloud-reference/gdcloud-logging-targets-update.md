@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-logging-targets-update/
 title: gdcloud logging targets update \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:04.454185+00:00
+fetched_at: 2026-11-11T05:52:38.816904+00:00
 ---
 
 # gdcloud logging targets update  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

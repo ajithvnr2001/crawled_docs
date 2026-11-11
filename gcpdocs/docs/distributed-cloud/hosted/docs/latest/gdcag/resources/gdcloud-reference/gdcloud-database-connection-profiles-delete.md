@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-database-connection-profiles-delete/
 title: gdcloud database connection-profiles delete \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:19.606364+00:00
+fetched_at: 2026-11-11T05:52:43.437763+00:00
 ---
 
 # gdcloud database connection-profiles delete  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

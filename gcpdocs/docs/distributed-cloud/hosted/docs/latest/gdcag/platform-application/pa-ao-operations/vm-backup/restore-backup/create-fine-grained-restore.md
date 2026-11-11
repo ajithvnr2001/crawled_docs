@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/vm-backup/restore-backup/create-fine-grained-restore/
 title: Create a fine-grained restore \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:45.444205+00:00
+fetched_at: 2026-11-11T05:56:45.455764+00:00
 ---
 
 # Create a fine-grained restore  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

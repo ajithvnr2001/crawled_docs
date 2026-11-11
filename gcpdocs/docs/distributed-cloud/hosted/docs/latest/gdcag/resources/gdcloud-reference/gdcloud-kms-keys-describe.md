@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-kms-keys-describe/
 title: gdcloud kms keys describe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:49.490002+00:00
+fetched_at: 2026-11-11T05:57:20.648135+00:00
 ---
 
 # gdcloud kms keys describe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

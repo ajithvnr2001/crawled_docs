@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-proto-to-bigquery-python-udf/
 title: Pub/Sub Proto to BigQuery with Python UDF template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:01:15.839958+00:00
+fetched_at: 2026-11-11T05:53:47.288587+00:00
 ---
 
 # Pub/Sub Proto to BigQuery with Python UDF template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -131,12 +131,12 @@ To run the template using the REST API, send an HTTP POST request. For more info
     POST https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/LOCATION/flexTemplates:launch
     {
        "launch_parameter": {
-          &quot;jobName": "JOB_NAME",
-          "containerSpecGcsPath": "gs://dataflow-templates/VERSION/flex/PubSub_Proto_to_BigQuery_Xlang";,
-          &quot;parameters": {
-              "schemaPath&quot;: "SCHEMA_PATH",
-              "fullMessageName": "PROTO_MESSAGE_NAME&quot;,
-              "inputSubscription": &quot;SUBSCRIPTION_NAME",
+          "jobName": "JOB_NAME",
+          "containerSpecGcsPath": "gs://dataflow-templates/VERSION/flex/PubSub_Proto_to_BigQuery_Xlang",
+          "parameters": {
+              "schemaPath": "SCHEMA_PATH",
+              "fullMessageName": "PROTO_MESSAGE_NAME",
+              "inputSubscription": "SUBSCRIPTION_NAME",
               "outputTableSpec": "BIGQUERY_TABLE",
               "outputTopic": "UNPROCESSED_TOPIC"
           }
@@ -212,10 +212,10 @@ You can use the following values:
     import com.google.cloud.teleport.v2.values.FailsafeElement;
     import com.google.common.annotations.VisibleForTesting;
     import com.google.common.base.Strings;
-    import [com.google.](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.html)p[rotobuf.De](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html)scriptors.Descriptor;
-    import [com.google.pro](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.DynamicMessage.html)tobuf.DynamicMessage;
-    import [com.google.protobuf.InvalidPro](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html)tocolBufferException;
-    import com.g[oogle.prot](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html)obuf.util.JsonFormat;
+    import com.google.protobuf.[Descriptors](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.html).[Descriptor](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html);
+    import com.google.protobuf.[DynamicMessage](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.DynamicMessage.html);
+    import com.google.protobuf.[InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html);
+    import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
     import org.apache.beam.sdk.Pipeline;
     import org.apache.beam.sdk.PipelineResult;
     import org.apache.beam.sdk.coders.NullableCoder;
@@ -241,13 +241,13 @@ You can use the following values:
     import org.apache.commons.lang3.ArrayUtils;
     
     /**
-     * A t<emplate for writing a href="https://developers.goo>gle.com/<pr>otocol-buffers"Protobuf/a
-     * records fr<o>m Pub/Sub to BigQuery.
+     * A template for writing <a href="https://developers.google.com/protocol-buffers">Protobuf</a>
+     * records from Pub/Sub to BigQuery.
      *
-     * pPersistent failures are written to a Pub</>Sub unproc<essed topic.
+     * <p>Persistent failures are written to a Pub/Sub unprocessed topic.
      *
-     * pCheck out a
-     * href="https://github.com/GoogleCloudPlatform/DataflowTemplates/blob/main/v2/pubsub-binary-to-bigquery/>README<_P>ubSub_Proto_to_BigQuery.md"README/a
+     * <p>Check out <a
+     * href="https://github.com/GoogleCloudPlatform/DataflowTemplates/blob/main/v2/pubsub-binary-to-bigquery/README_PubSub_Proto_to_BigQuery.md">README</a>
      * for instructions on how to use or modify this template.
      */
     @MultiTemplate({
@@ -273,9 +273,9 @@ You can use the following values:
           requirements = {
             "The input Pub/Sub subscription must exist.",
             "The schema file for the Proto records must exist on Cloud Storage.",
-            "The output Pub/Sub< top>ic must exist.&qu<ot;,
-    >        "The output BigQuery dataset must exist.",
-            "If the BigQuery table exists, it must have a schema matching the proto data regardless of the codecreateDisposition/code value."
+            "The output Pub/Sub topic must exist.",
+            "The output BigQuery dataset must exist.",
+            "If the BigQuery table exists, it must have a schema matching the proto data regardless of the <code>createDisposition</code> value."
           },
           streaming = true,
           supportsAtLeastOnce = true),
@@ -301,20 +301,20 @@ You can use the following values:
               "https://cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-proto-to-bigquery",
           contactInformation = "https://cloud.google.com/support",
           requirements = {
-            "<The >input Pub/Sub sub<scrip>tion must exist.",
+            "The input Pub/Sub subscription must exist.",
             "The schema file for the Proto records must exist on Cloud Storage.",
-            "The output Pub/Sub topic mu<st exist."<,
-            &quo>>t;The output BigQuery dataset m<>ust exist.",
-            "If <the BigQuery ta<ble exists, it>> must have a schema matching th<>e proto data regardless of the codecreateDisposi<tion/code valu>e."
+            "The output Pub/Sub topic must exist.",
+            "The output BigQuery dataset must exist.",
+            "If the BigQuery table exists, it must have a schema matching the proto data regardless of the <code>createDisposition</code> value."
           },
           streaming = true,
           supportsAtLeastOnce = true)
     })
     public final class PubsubProtoToBigQuery {
-      private static final TupleTagFailsafeElementString, String UDF_SUCCESS_TAG = new TupleTag();
-      private static final TupleTagFailsafeElementString, String UDF_FAILURE_TAG = new TupleTag();
+      private static final TupleTag<FailsafeElement<String, String>> UDF_SUCCESS_TAG = new TupleTag<>();
+      private static final TupleTag<FailsafeElement<String, String>> UDF_FAILURE_TAG = new TupleTag<>();
     
-      private static final FailsafeElementCoderString, String FAILSAFE_CODER =
+      private static final FailsafeElementCoder<String, String> FAILSAFE_CODER =
           FailsafeElementCoder.of(StringUtf8Coder.of(), StringUtf8Coder.of());
     
       public static void main(String[] args) {
@@ -403,7 +403,7 @@ You can use the following values:
             description = "Use at at-least-once semantics in BigQuery Storage Write API",
             helpText =
                 "When using the Storage Write API, specifies the write semantics."
-                    + " To use at-least-once semantics (https://beam.apache.org/documentation/io/built-in/google-bigquery/#at-least-once-semanti[cs), set t](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html)his parameter to true`. To use exactly-once semantics<, set >the parameter to `false`."
+                    + " To use at-least-once semantics (https://beam.apache.org/documentation/io/built-in/google-bigquery/#at-least-once-semantics), set this parameter to true`. To use exactly-once semantics, set the parameter to `false`."
                     + " This parameter applies only when `useStorageWriteApi` is `true`. The default value is `false`.",
             hiddenUi = true)
         @Default.Boolean(false)
@@ -417,47 +417,47 @@ You can use the following values:
       private static PipelineResult run(PubSubProtoToBigQueryOptions options) {
         BigQueryIOUtils.validateBQStorageApiOptionsStreaming(options);
     
-        Pipeline p<ipelin>e = Pipeline.create(options);
+        Pipeline pipeline = Pipeline.create(options);
     
-        Descriptor descriptor = getDescriptor(options);
-        PCollectionString maybeForUdf =
+        [Descriptor](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html) descriptor = getDescriptor(options);
+        PCollection<String> maybeForUdf =
             pipeline
                 .apply("Read From Pubsub", readPubsubMessages(options, descriptor))
-                .apply("Dynamic Message to TableRow", n[ew](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.RpcCallback.html#com_google_protobuf_RpcCallback_run_ParameterType_) ConvertDynamicProtoMessageToJson(options));
+                .apply("Dynamic Message to TableRow", new ConvertDynamicProtoMessageToJson(options));
     
         WriteResult writeResult =
             runUdf(maybeForUdf, options)
-           [     ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html).apply("Write to BigQuery", writeToBigQuery(options, descriptor));
+                .apply("Write to BigQuery", writeToBigQuery(options, descriptor));
         BigQueryIOUtils.writeResultToBigQueryInsertErrors(writeResult, options)
             .apply(
-        [        ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html)&quot;Create Error Payload",
-                ErrorConverters.BigQueryInsertErrorToPubsubMessage.StringnewBuilder()
+                "Create Error Payload",
+                ErrorConverters.BigQueryInsertErrorToPubsubMessage.<String>newBuilder()
                     .setPayloadCoder(StringUtf8Coder.of())
                     .setTranslateFunction(BigQueryConverters::tableRowToJson)
                     .build())
-            .apply("Write Failed BQ Records", PubsubIO.writeMessages().to(optio<ns.getOutputTo>pic()));
+            .apply("Write Failed BQ Records", PubsubIO.writeMessages().to(options.getOutputTopic()));
     
-        return pipeline.run();
+        return pipeline.[run](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.RpcCallback.html#com_google_protobuf_RpcCallback_run_ParameterType_)();
       }
     
-      /** Gets the {@link D[escriptor}](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html) for the message type in the Pub/Sub topic. */
+      /** Gets the {@link Descriptor} for the message type in the Pub/Sub topic. */
       @VisibleForTesting
-      static Descriptor getDescriptor(PubSubProtoToBigQueryOptions options) {
+      static [Descriptor](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html) getDescriptor(PubSubProtoToBigQueryOptions options) {
         String schemaPath = options.getProtoSchemaPath();
         String messageName = options.getFullMessageName();
-        Descriptor descriptor = SchemaUtils.getProtoDomain<(>schemaPath).getDescriptor(messageName);
+        [Descriptor](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html) descriptor = SchemaUtils.getProtoDomain(schemaPath).getDescriptor(messageName);
     
         if (descriptor == null) {
           throw new IllegalArgumentException(
-              messageName + " is not a recognized me<ssage >in " + schemaPath);
+              messageName + " is not a recognized message in " + schemaPath);
         }
     
         return descriptor;
       }
     
-      [/** Return](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html)s the {@link PTransform}< for r>eading Pub/Sub messages. */
-      privat<e stat>ic ReadDynamicMessage readPubsubMessages(
-          PubSubProtoToBigQueryOptions options, Descriptor descriptor) {
+      /** Returns the {@link PTransform} for reading Pub/Sub messages. */
+      private static Read<DynamicMessage> readPubsubMessages(
+          PubSubProtoToBigQueryOptions options, [Descriptor](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html) descriptor) {
         return PubsubIO.readProtoDynamicMessages(descriptor)
             .fromSubscription(options.getInputSubscription())
             .withDeadLetterTopic(options.getOutputTopic());
@@ -466,28 +466,28 @@ You can use the following values:
       /**
        * Writes messages to BigQuery, creating the table if necessary and allowed in {@code options}.
        *
-       * pThe BigQuery schema will be inferred from {@code descriptor} unless a JSON schema path is
+       * <p>The BigQuery schema will be inferred from {@code descriptor} unless a JSON schema path is
        * specified in {@code options}.
        */
       @VisibleForTesting
-      static WriteString writeToBigQuery(
-          PubSubProtoT<oBigQueryOp<tions options,> Descriptor d<escrip>>tor) {
-        WriteString write =
-            BigQueryConverters.StringcreateWriteTransform(options)
+      static Write<String> writeToBigQuery(
+          PubSubProtoToBigQueryOptions options, [Descriptor](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Descriptors.Descriptor.html) descriptor) {
+        Write<String> write =
+            BigQueryConverters.<String>createWriteTransform(options)
                 .withFormatFunction(BigQueryConverters::convertJsonToTableRow);
     
         String schemaPath = options.getBigQueryTableSchemaPath();
-        if (Strin<gs.isN>ullOrEmpty(schemaPa<th)) {
-          r>eturn write.withSchema(
+        if (Strings.isNullOrEmpty(schemaPath)) {
+          return write.withSchema(
               SchemaUtils.createBigQuerySchema(descriptor, options.getPreserveProtoFieldNames()));
         } else {
-          return write.withJsonSch>ema(GCSUtils.getGcsFileAsString(schemaPath));
+          return write.withJsonSchema(GCSUtils.getGcsFileAsString(schemaPath));
         }
       }
     
-      /** {@link PTransform[} that han](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html)dles converting {@link PubsubMessage} values to JSON. */
+      /** {@link PTransform} that handles converting {@link PubsubMessage} values to JSON. */
       private static class ConvertDynamicProtoMessageToJson
-          extends PTransformPCollectionDynamicMessage, PCollectionString {
+          extends PTransform<PCollection<DynamicMessage>, PCollection<String>> {
         private final boolean preserveProtoName;
     
         private ConvertDynamicProtoMessageToJson(PubSubProtoToBigQueryOptions options) {
@@ -495,18 +495,18 @@ You can use the following values:
         }
     
         @Override
-        p<u>blic PCollectionString expand(PCollectionDynamicMessage input) {
+        public PCollection<String> expand(PCollection<DynamicMessage> input) {
           return input.apply(
-              &<q>uot;Map to JSON",
+              "Map to JSON",
               MapElements.into(TypeDescriptors.strings())
                   .via(
-                      message - {
+                      message -> {
                         try {
-                          JsonFormat.Printer printer = JsonFormat.printer();
+                          JsonFormat.Printer printer = [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).printer();
                           return preserveProtoName
                               ? printer.preservingProtoFieldNames().print(message)
                               : printer.print(message);
-                        <} catc>h (InvalidProtocolBufferEx<ceptio>n e) {
+                        } catch (InvalidProtocolBufferException e) {
                           throw new RuntimeException(e);
                         }
                       }));
@@ -516,26 +516,26 @@ You can use the following values:
       /**
        * Handles running the UDF.
        *
-       * pIf {@code options} is configured so as not to run the UDF, then the UDF will not be called.
+       * <p>If {@code options} is configured so as not to run the UDF, then the UDF will not be called.
        *
-       * pThis may add a branch to the pipeline for outputting failed UDF records to an unprocessed
+       * <p>This may add a branch to the pipeline for outputting failed UDF records to an unprocessed
        * topic.
        *
-       * @param jsonCollection {@link PCollection} of JSON strings for use as&& input to the UDF
+       * @param jsonCollection {@link PCollection} of JSON strings for use as input to the UDF
        * @param options the options containing info on running the UDF
        * @return the {@link PCollection} of UDF output as JSON or {@code jsonCollection} if UDF not
        *     called
        */
       @VisibleForTesting
-      static PCollectionString runUdf(
-          PCollectionString jsonCollection&&, PubSubProtoToBigQueryOptions options) {
+      static PCollection<String> runUdf(
+          PCollection<String> jsonCollection, PubSubProtoToBigQueryOptions options) {
     
         boolean useJavascriptUdf = !Strings.isNullOrEmpty(options.getJavascriptTextTransformGcsPath());
-        boolean usePythonUdf = !Strings.isNullOrEmpty(options.getPythonExternalTextTransform&&GcsPath());
+        boolean usePythonUdf = !Strings.isNullOrEmpty(options.getPythonExternalTextTransformGcsPath());
     
         // In order to avoid generating a graph that makes it look like a UDF was called when none was
         // intended, simply return the input as "success" output.
-        if (!useJavascriptUdf  !usePythonUd&&f) {
+        if (!useJavascriptUdf && !usePythonUdf) {
           return jsonCollection;
         }
     
@@ -543,16 +543,16 @@ You can use the following values:
         // in `expand`. Otherwise, we get a NullPointerException due to the PTransform not returning
         // a value.
         if (useJavascriptUdf
-             Strings.isNullOrEmpty(options.getJavascriptTextTransformFunctionName())) {
+            && Strings.isNullOrEmpty(options.getJavascriptTextTransformFunctionName())) {
           throw new IllegalArgumentException(
               "JavaScript function name cannot be null or empty if file is set");
         }
         if (usePythonUdf
-             Strings.isNullOrEmpty(options.getPythonEx<ternalTextTran>sformFunctionName())) {
-          throw new IllegalArgumentExcep>tion(
+            && Strings.isNullOrEmpty(options.getPythonExternalTextTransformFunctionName())) {
+          throw new IllegalArgumentException(
               "Python function name cannot be null or empty if file is set");
         }
-        if (usePythonUdf  useJavascriptUdf) {
+        if (usePythonUdf && useJavascriptUdf) {
           throw new IllegalArgumentException(
               "Either javascript or Python gcs path must be provided, but not both.");
         }
@@ -567,17 +567,17 @@ You can use the following values:
         maybeSuccess
             .get(UDF_FAILURE_TAG)
             .setCoder(FAILSAFE_CODER)
-         <   .apply(
-    <      >      "Get UD>F Failures",
-                ConvertFailsafeElementToPubsubMessage.String, Stringbuilder()
-                    .setOriginalPayloadSerializeFn(s - ArrayUtils.toObject(s.getBytes(UTF_8)))
-                    .setError<Messag>eAttributeKey("udfErrorMessage")
+            .apply(
+                "Get UDF Failures",
+                ConvertFailsafeElementToPubsubMessage.<String, String>builder()
+                    .setOriginalPayloadSerializeFn(s -> ArrayUtils.toObject(s.getBytes(UTF_8)))
+                    .setErrorMessageAttributeKey("udfErrorMessage")
                     .build())
             .apply("Write Failed UDF", writeUdfFailures(options));
     
         return maybeSuccess
             .get(UDF_SUCCESS_TAG)
-         <   .se>tCoder(FAILSAFE_CODER)
+            .setCoder(FAILSAFE_CODER)
             .apply(
                 "Get UDF Output",
                 MapElements.into(TypeDescriptors.strings()).via(FailsafeElement::getPayload))
@@ -585,38 +585,38 @@ You can use the following values:
       }
     
       /** {@link PTransform} that calls a UDF and returns both success and failure output. */
-      private static class RunUdf extends PTransformPCollectionString, PCollectionTuple {
+      private static class RunUdf extends PTransform<PCollection<String>, PCollectionTuple> {
         private final PubSubProtoToBigQueryOptions options;
     
-        Ru<nUdf(PubSubProtoToBigQu<eryOptions opt>>ions) {
+        RunUdf(PubSubProtoToBigQueryOptions options) {
           this.options = options;
         }
     
         @Override
-        pub<lic PCollection<Tuple expand(P>>CollectionString input) {
-          retur>n input
+        public PCollectionTuple expand(PCollection<String> input) {
+          return input
               .apply("Prepare Failsafe UDF", makeFailsafe())
               .setCoder(FAILSAFE_CODER)
               .apply(
                   "Call UDF",
-                  FailsafeJavascrip<tUdf.String<newBui>lder()
-               >       .setFileSystemPath(options.getJavascriptTextTransformGcsPath())
+                  FailsafeJavascriptUdf.<String>newBuilder()
+                      .setFileSystemPath(options.getJavascriptTextTransformGcsPath())
                       .setFunctionName(options.getJavascriptTextTransformFunctionName())
                       .setReloadIntervalMinutes(
-                 <      >   options.getJavascriptTextTransformReloadIntervalMinutes())
+                          options.getJavascriptTextTransformReloadIntervalMinutes())
                       .setSuccessTag(UDF_SUCCESS_TAG)
                       .setFailureTag(UDF_FAILURE_TAG)
                       .build());
         }
     
-        private static MapElementsString, FailsafeElementString, String makeFailsafe() {
-          return MapElements.into(new TypeDescriptorFailsafeElementString, String() {})
-              .via((String json) - FailsafeElement.of(json, json));
+        private static MapElements<String, FailsafeElement<String, String>> makeFailsafe() {
+          return MapElements.into(new TypeDescriptor<FailsafeElement<String, String>>() {})
+              .via((String json) -> FailsafeElement.of(json, json));
         }
       }
     
       /** {@link PTransform} that calls a python UDF and returns both success and failure output. */
-      private static class RunPythonUdf extends PTransformPCollectionString, PCollectionTuple {
+      private static class RunPythonUdf extends PTransform<PCollection<String>, PCollectionTuple> {
         private final PubSubProtoToBigQueryOptions options;
     
         RunPythonUdf(PubSubProtoToBigQueryOptions options) {
@@ -624,11 +624,11 @@ You can use the following values:
         }
     
         @Override
-        public PCollectionTuple expand(PCollectionString input) {
+        public PCollectionTuple expand(PCollection<String> input) {
           return input
-              .apply("Prepare Failsafe row", stringMappingFuncti<on())
-           >   .setCoder(
-                  RowCoder.of(PythonExternalTextTransformer.FailsafeRowPy<thonExternalU>df.ROW_SCHEMA))
+              .apply("Prepare Failsafe row", stringMappingFunction())
+              .setCoder(
+                  RowCoder.of(PythonExternalTextTransformer.FailsafeRowPythonExternalUdf.ROW_SCHEMA))
               .apply(
                   "InvokeUDF",
                   PythonExternalTextTransformer.FailsafePythonExternalUdf.newBuilder()
@@ -646,9 +646,9 @@ You can use the following values:
        * Returns a {@link PubsubIO.Write} configured to write UDF failures to the appropriate output
        * topic.
        */
-      private static PubsubIO.WritePubsubMessage writeUdfFailures(
+      private static PubsubIO.Write<PubsubMessage> writeUdfFailures(
           PubSubProtoToBigQueryOptions options) {
-        PubsubIO.WritePubsubMessage write = PubsubIO.writeMessages();
+        PubsubIO.Write<PubsubMessage> write = PubsubIO.writeMessages();
         return Strings.isNullOrEmpty(options.getUdfOutputTopic())
             ? write.to(options.getOutputTopic())
             : write.to(options.getUdfOutputTopic());
@@ -667,6 +667,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

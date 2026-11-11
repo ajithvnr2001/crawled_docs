@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-configure-extensions/
 title: Configure database extensions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:47.188798+00:00
+fetched_at: 2026-11-11T05:58:37.563597+00:00
 ---
 
 # Configure database extensions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

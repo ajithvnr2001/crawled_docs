@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-organizations-upgrade-get-status/
 title: gdcloud organizations upgrade get-status \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:36.963611+00:00
+fetched_at: 2026-11-11T05:55:40.675281+00:00
 ---
 
 # gdcloud organizations upgrade get-status  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

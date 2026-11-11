@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/data-mesh/
 title: Architecture and functions in a data mesh \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:04.567258+00:00
+fetched_at: 2026-11-11T05:51:04.094341+00:00
 ---
 
 # Architecture and functions in a data mesh  |  Cloud Architecture Center  |  Google Cloud Documentation

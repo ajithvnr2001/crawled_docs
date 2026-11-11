@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/keycloak/v1/global-keycloak-v1/
 title: KRM API keycloak.global.gdc.goog/v1 \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:47.379499+00:00
+fetched_at: 2026-11-11T05:59:01.489973+00:00
 ---
 
 # KRM API keycloak.global.gdc.goog/v1  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

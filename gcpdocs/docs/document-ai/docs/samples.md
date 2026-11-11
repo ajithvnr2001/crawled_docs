@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/
 title: All Document AI code samples \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:55.273320+00:00
+fetched_at: 2026-11-11T05:52:51.814777+00:00
 ---
 
 # All Document AI code samples  |  Google Cloud Documentation

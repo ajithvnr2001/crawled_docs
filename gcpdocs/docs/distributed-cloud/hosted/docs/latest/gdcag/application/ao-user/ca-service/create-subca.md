@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/ca-service/create-subca/
 title: Create a subordinate certificate authority \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:16.016524+00:00
+fetched_at: 2026-11-11T05:57:16.039179+00:00
 ---
 
 # Create a subordinate certificate authority  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

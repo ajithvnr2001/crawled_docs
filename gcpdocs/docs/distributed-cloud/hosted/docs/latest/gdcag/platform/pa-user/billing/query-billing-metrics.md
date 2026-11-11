@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/billing/query-billing-metrics/
 title: Query billing metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:55.537507+00:00
+fetched_at: 2026-11-11T05:56:36.378143+00:00
 ---
 
 # Query billing metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

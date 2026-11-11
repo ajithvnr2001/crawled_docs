@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/marketplace-offerings/
 title: Dataproc Container for Spark \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:00:57.212225+00:00
+fetched_at: 2026-11-11T05:58:20.499222+00:00
 ---
 
 # Dataproc Container for Spark  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

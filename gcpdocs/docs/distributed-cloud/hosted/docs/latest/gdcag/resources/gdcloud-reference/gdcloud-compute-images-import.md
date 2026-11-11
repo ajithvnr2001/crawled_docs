@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-compute-images-import/
 title: gdcloud compute images import \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:19.078827+00:00
+fetched_at: 2026-11-11T05:54:48.026841+00:00
 ---
 
 # gdcloud compute images import  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

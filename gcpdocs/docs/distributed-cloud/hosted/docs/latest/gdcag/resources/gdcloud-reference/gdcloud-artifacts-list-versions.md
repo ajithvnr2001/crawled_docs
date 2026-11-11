@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-artifacts-list-versions/
 title: gdcloud artifacts list-versions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:38.581786+00:00
+fetched_at: 2026-11-11T05:57:57.405719+00:00
 ---
 
 # gdcloud artifacts list-versions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

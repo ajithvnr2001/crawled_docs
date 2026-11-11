@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/deprecations/
 title: Product deprecations \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:24.966650+00:00
+fetched_at: 2026-11-11T05:51:06.587648+00:00
 ---
 
 # Product deprecations  |  Google Security Operations  |  Google Cloud Documentation

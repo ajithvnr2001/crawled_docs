@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/cloud-nat-gateway/
 title: Create a Cloud NAT gateway \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:32.191488+00:00
+fetched_at: 2026-11-11T05:56:41.607242+00:00
 ---
 
 # Create a Cloud NAT gateway  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

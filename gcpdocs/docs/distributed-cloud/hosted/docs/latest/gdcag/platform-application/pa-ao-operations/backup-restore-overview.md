@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/backup-restore-overview/
 title: Back up and restore overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:21.540368+00:00
+fetched_at: 2026-11-11T05:55:47.748444+00:00
 ---
 
 # Back up and restore overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

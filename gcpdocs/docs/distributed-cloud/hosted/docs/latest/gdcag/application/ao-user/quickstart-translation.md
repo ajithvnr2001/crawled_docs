@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation/
 title: Translate text \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:55.362001+00:00
+fetched_at: 2026-11-11T05:58:19.282720+00:00
 ---
 
 # Translate text  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/splitters/
 title: Document splitters behavior \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:57:17.606251+00:00
+fetched_at: 2026-11-11T05:53:25.507802+00:00
 ---
 
 # Document splitters behavior  |  Document AI  |  Google Cloud Documentation
@@ -47,12 +47,12 @@ For more information, see the [Document AI Java API reference documentation](htt
 To authenticate to Document AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.documentai.v1beta3.Document;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceClient;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceSettings;
-    import com.google.cloud.documentai.v1beta3.ProcessRequest;
-    import com.google.cloud.documentai.v1beta3.ProcessResponse;
-    import com.google.cloud.documentai.v1beta3.RawDocument;
+    import com.google.cloud.documentai.v1.[Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html);
+    import com.google.cloud.documentai.v1.[ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html);
+    import com.google.cloud.documentai.v1.[ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html);
+    import com.google.cloud.documentai.v1.[RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html);
     import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import java.io.IOException;
     import java.nio.file.Files;
@@ -82,9 +82,9 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         // the "close" method on the client to safely clean up any remaining background
         // resources.
         String endpoint = String.format("%s-documentai.googleapis.com:443", location);
-        DocumentProcessorServiceSettings settings =
-            DocumentProcessorServiceSettings.newBuilder().setEndpoint(endpoint).build();
-        try (DocumentProcessorServiceClient client = DocumentProcessorServiceClient.create(settings)) {
+        [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html) settings =
+            [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html).newBuilder().setEndpoint(endpoint).build();
+        try ([DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html) client = [DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html).create(settings)) {
           // The full resource name of the processor, e.g.:
           // projects/project-id/locations/location/processor/processor-id
           // You must create new processors in the Cloud Console first
@@ -97,16 +97,16 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // Convert the image data to a Buffer and base64 encode it.
           [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html) content = [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(imageFileData);
     
-          RawDocument document =
-              RawDocument.newBuilder().setContent(content).setMimeType("application/pdf").build();
+          [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html) document =
+              [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html).newBuilder().setContent(content).setMimeType("application/pdf").build();
     
           // Configure the process request.
-          ProcessRequest request =
-              ProcessRequest.newBuilder().setName(name).setRawDocument(document).build();
+          [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html) request =
+              [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html).newBuilder().setName(name).[setRawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.Builder.html#com_google_cloud_documentai_v1_ProcessRequest_Builder_setRawDocument_com_google_cloud_documentai_v1_RawDocument_)(document).build();
     
           // Recognizes text entities in the PDF document
-          ProcessResponse result = client.processDocument(request);
-          Document documentResponse = result.getDocument();
+          [ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html) result = client.processDocument(request);
+          [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html) documentResponse = result.[getDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html#com_google_cloud_documentai_v1_ProcessResponse_getDocument__)();
     
           System.out.println("Document processing complete.");
     
@@ -115,10 +115,10 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // This processor only provides text for the document and information on how
           // to split the document on logical boundaries. To identify and extract text,
           // form elements, and entities please see other processors like the OCR, form,
-          // and specalized processors.
-          List<Document.Entity> entities = documentResponse.getEntitiesList();
+          // and specialized processors.
+          List<Document.[Entity](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Entity.html)> entities = documentResponse.[getEntitiesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html#com_google_cloud_documentai_v1_Document_getEntitiesList__)();
           System.out.printf("Found %d subdocuments:\n", entities.size());
-          for (Document.Entity entity : entities) {
+          for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Entity](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Entity.html) entity : entities) {
             float entityConfidence = entity.getConfidence();
             String pagesRangeText = pageRefsToString(entity.getPageAnchor().getPageRefsList());
             String subdocumentType = entity.getType();
@@ -135,7 +135,7 @@ To authenticate to Document AI, set up Application Default Credentials. For more
       }
     
       // Converts page reference(s) to a string describing the page or page range.
-      private static String pageRefsToString(List<Document.PageAnchor.PageRef> pageRefs) {
+      private static String pageRefsToString(List<Document.[PageAnchor](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.PageAnchor.html).[PageRef](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.PageAnchor.PageRef.html)> pageRefs) {
         if (pageRefs.size() == 1) {
           return String.format("page %d is", pageRefs.get(0).getPage() + 1);
         } else {
@@ -382,6 +382,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

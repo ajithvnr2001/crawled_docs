@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/reference/
 title: .NET Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:23.225052+00:00
+fetched_at: 2026-11-11T05:52:53.648552+00:00
 ---
 
 # .NET Cloud Client Libraries  |  Google Cloud Documentation
@@ -360,32 +360,19 @@ Memorystore for Redis |  [ Google.Cloud.Memorystore.V1 ](https://cloud.google.co
 [ Google.Cloud.Redis.V1Beta1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Redis.V1Beta1/latest)   
   
 Merchant API for Shopping |  [ Google.Shopping.Merchant.Accounts.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Accounts.V1/latest)   
-[ Google.Shopping.Merchant.Accounts.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Accounts.V1Beta/latest)   
 [ Google.Shopping.Merchant.Conversions.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Conversions.V1/latest)   
-[ Google.Shopping.Merchant.Conversions.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Conversions.V1Beta/latest)   
 [ Google.Shopping.Merchant.DataSources.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.DataSources.V1/latest)   
-[ Google.Shopping.Merchant.DataSources.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.DataSources.V1Beta/latest)   
 [ Google.Shopping.Merchant.Inventories.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Inventories.V1/latest)   
-[ Google.Shopping.Merchant.Inventories.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Inventories.V1Beta/latest)   
 [ Google.Shopping.Merchant.IssueResolution.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.IssueResolution.V1/latest)   
-[ Google.Shopping.Merchant.IssueResolution.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.IssueResolution.V1Beta/latest)   
 [ Google.Shopping.Merchant.Lfp.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Lfp.V1/latest)   
-[ Google.Shopping.Merchant.Lfp.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Lfp.V1Beta/latest)   
 [ Google.Shopping.Merchant.LoyaltyCustomers.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.LoyaltyCustomers.V1/latest)   
 [ Google.Shopping.Merchant.Notifications.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Notifications.V1/latest)   
-[ Google.Shopping.Merchant.Notifications.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Notifications.V1Beta/latest)   
 [ Google.Shopping.Merchant.OrderTracking.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.OrderTracking.V1/latest)   
-[ Google.Shopping.Merchant.OrderTracking.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.OrderTracking.V1Beta/latest)   
 [ Google.Shopping.Merchant.Products.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Products.V1/latest)   
-[ Google.Shopping.Merchant.Products.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Products.V1Beta/latest)   
 [ Google.Shopping.Merchant.Promotions.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Promotions.V1/latest)   
-[ Google.Shopping.Merchant.Promotions.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Promotions.V1Beta/latest)   
 [ Google.Shopping.Merchant.Quota.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Quota.V1/latest)   
-[ Google.Shopping.Merchant.Quota.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Quota.V1Beta/latest)   
 [ Google.Shopping.Merchant.Reports.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reports.V1/latest)   
-[ Google.Shopping.Merchant.Reports.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reports.V1Beta/latest)   
 [ Google.Shopping.Merchant.Reviews.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reviews.V1/latest)   
-[ Google.Shopping.Merchant.Reviews.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reviews.V1Beta/latest)   
   
 Migrate to Virtual Machines |  [ Google.Cloud.VMMigration.V1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.VMMigration.V1/latest)   
   

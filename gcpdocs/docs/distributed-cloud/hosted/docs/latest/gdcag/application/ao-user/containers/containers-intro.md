@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/containers-intro/
 title: Container workloads in GDC \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:19.641963+00:00
+fetched_at: 2026-11-11T05:57:14.551380+00:00
 ---
 
 # Container workloads in GDC  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/manage-alerts-and-policies/
 title: Manage alerting policies and groups \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:13.555467+00:00
+fetched_at: 2026-11-11T05:57:39.704969+00:00
 ---
 
 # Manage alerting policies and groups  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -38,8 +38,8 @@ To manage alerts and policies custom resources, request the necessary permission
 
 Contact your IAM Project Admin to request the following roles:
 
-  * **Project Cortex Alertmanager Editor** (`project-cortex-alertmanager-editor`): edit the Cortex `Alertmanager` instance in the project namespace.
-  * **Project Cortex Alertmanager Viewer** (`project-cortex-alertmanager-viewer`): access the Cortex `Alertmanager` instance in the project namespace.
+  * **Monitoring Project Alertmanager Editor** (`project-cortex-alertmanager-editor`): edit the Cortex `Alertmanager` instance in the project namespace.
+  * **Monitoring Project Alertmanager Viewer** (`project-cortex-alertmanager-viewer`): access the Cortex `Alertmanager` instance in the project namespace.
 
 
 
