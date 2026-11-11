@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:44.042768+00:00
+fetched_at: 2026-11-11T15:29:46.855602+00:00
 ---
 
 # Bring Your Own Number - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:44.042768+00:00
 > Source: https://docs.fish.audio/agents/telephony/byo-sip/
 
 ## On this page
+
+Back to top
 
   * How it works
   * Prerequisites
@@ -235,7 +237,7 @@ Caller ID on transfers
 
 Imported numbers don’t have the [caller ID choice](https://docs.fish.audio/agents/telephony/transfers#caller-id-on-transfers) that bought numbers have. Instead:
 
-  * **Cold transfers** show whatever your carrier sends. On Twilio, you set this on the trunk with **Caller ID for Transfer Target** (see the Twilio steps above).
+  * **Cold transfers** show whatever your carrier sends. On Twilio, you set this on the trunk with **Caller ID for Transfer Target** (see Allow transfers in the Twilio steps above).
   * **Warm transfers** always show your imported number.
 
 
@@ -379,4 +381,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/telephony/byo-sip.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/telephony/byo-sip)
 
-[Phone Numbers](https://docs.fish.audio/agents/telephony/phone-numbers)[Inbound Calls](https://docs.fish.audio/agents/telephony/inbound-calls)
+[Phone Numbers](https://docs.fish.audio/agents/telephony/phone-numbers)[WhatsApp Business Calling](https://docs.fish.audio/agents/telephony/whatsapp)

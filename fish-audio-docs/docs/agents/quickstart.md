@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/quickstart/
 title: Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:43.367530+00:00
+fetched_at: 2026-11-11T15:29:47.016086+00:00
 ---
 
 # Quickstart - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:43.367530+00:00
 > Source: https://docs.fish.audio/agents/quickstart/
 
 ## On this page
+
+Back to top
 
   * Next steps
 
@@ -29,7 +31,7 @@ Build a voice agent and talk to it in a few minutes. Use the console for a no-co
 
   * A Fish Audio account. Agents is in public beta and open to every account, no application needed.
   * For the API path: a Fish Audio API key. Create one under [API keys](https://fish.audio/app/api-keys/) in the console
-  * Every account starts with a $5 trial balance, about 60 minutes of agent conversation. It pays for web, phone, and API sessions at the normal rates, including token-billed LLMs. After that, usage is billed per second against your API credit.
+  * Every account starts with a $5 trial balance, about 70 minutes of agent conversation. It pays for web, phone, and API sessions at the normal rates, including token-billed LLMs. After that, usage is billed per second against your API credit.
 
 
 

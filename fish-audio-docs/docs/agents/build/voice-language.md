@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/voice-language/
 title: Voice & Language - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:28.940848+00:00
+fetched_at: 2026-11-11T15:29:46.772202+00:00
 ---
 
 # Voice & Language - Fish Audio
@@ -11,11 +11,17 @@ fetched_at: 2026-10-23T16:37:28.940848+00:00
 
 ## On this page
 
+Back to top
+
   * Pick a voice in the Builder
   * Use any voice model
   * Set the voice via API
   * Speaking language
   * Text-to-speech model
+    * Live 3 (full duplex)
+    * Voices
+    * Situation prompt
+    * What else changes
   * Speech recognition model
   * Multilingual recognition
   * Strict language
@@ -166,7 +172,7 @@ Both settings can also be replaced for a single session: send `overrides.voice_i
 
 Text-to-speech model
 
-**Text-to-speech model** picks the Fish Audio model that renders the agent’s voice (`voice.tts_model` on the wire). Every voice from the Voice Library works with either model.
+**Text-to-speech model** picks the Fish Audio model that renders the agent’s voice (`voice.tts_model` on the wire). Every voice from the Voice Library works with either model. The same selector offers Live 3, a full-duplex model set with `voice.engine`.
 
 Value| Model| Status| Notes  
 ---|---|---|---  
@@ -189,6 +195,81 @@ API (curl)
     
 
 The model applies to everything the agent speaks in voice and phone sessions. As with every voice setting, the change lands in the draft: publish to roll it out.
+
+### 
+
+​
+
+Live 3 (full duplex)
+
+**Live 3** is Fish Audio’s full-duplex speech model. Instead of speaking the reply once the caller finishes, it listens while it speaks and decides on its own when to acknowledge, wait, respond, or stop. See [Cascade vs. full duplex](https://docs.fish.audio/agents/concepts#cascade-vs-full-duplex).
+
+  * **Backchannels:** while the caller reads out a phone number in chunks, it answers with a quick “mm-hmm” and waits for the rest instead of cutting in.
+  * **Interruptions:** a “yeah” or “mm-hmm” from the caller doesn’t stop it, but a real interjection such as “Wait, actually…” does.
+  * **Corrections:** when the caller changes their mind mid-order, it follows along without answering too early.
+
+Your agent’s instructions and tools still decide what the agent says. Live 3 decides when and how it is said. New agents start on Live 3 with the Clara voice. To create one with another Live 3 voice or situation, pass the same `voice` fields in `config` on [Create agent](https://docs.fish.audio/api-reference/endpoint/agent/create-agent). To switch an existing agent, pick **Live 3** in the **Text-to-speech model** selector, or set `voice.engine` to `live3` via the API:
+
+API (curl)
+    
+    
+    curl --request PATCH "https://api.fish.audio/v1/agent/agents/$AGENT_ID/config" \
+      --header "Authorization: Bearer $FISH_API_KEY" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "voice": {
+          "engine": "live3",
+          "live3_voice": "Clara"
+        }
+      }'
+    
+
+To switch back, pick Drama 3 or S2.1 Pro in the selector, or set `voice.engine` to `fish_tts`. The `live3_*` settings are ignored while Live 3 is off.
+
+Live 3 speaks English only. Sessions in another speaking language, including a per-session [language override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides), speak through the agent’s text-to-speech model instead. In English sessions, the agent answers in English even when the caller switches language.
+
+#### 
+
+​
+
+Voices
+
+Live 3 has its own voices. The Builder’s voice picker lists the ones that fit the current situation prompt under **Live 3 voices** , with samples. Set one via the API with `voice.live3_voice`:
+
+Situation| Voices  
+---|---  
+All| `Clara` (default), `Nora`, `Harper`, `Patricia`, `Owen`, `Marco`, `Milo`, `Jonah`  
+Drive-thru only| `Maddie`, `Brianna`, `Ethan`, `Tyler`  
+  
+The drive-thru voices need `voice.live3_prompt` set to `DT`. With any other situation, including the default, Live 3 doesn’t start and the session speaks through the text-to-speech model. You can also pick a Voice Library voice or one of your clones. Setting `voice_id` clears `voice.live3_voice` unless the same request sets it. Live 3 recreates the voice from a sample, so it sounds close to, but not exactly like, the same voice on Drama 3 or S2.1 Pro. If Live 3 can’t use the voice, the session speaks as Clara.
+
+#### 
+
+​
+
+Situation prompt
+
+`voice.live3_prompt` sets the situation the model speaks in, which tunes its pacing, backchannels, and turn-taking. In the Builder it is the **Situation prompt** selector, shown once Live 3 is on.
+
+Value| Situation  
+---|---  
+empty (default)| Phone support, same as `P2`  
+`P2`| Phone support  
+`DT`| Drive-thru  
+`AIR`| Airline  
+  
+#### 
+
+​
+
+What else changes
+
+  * Speech recognition is fixed to Fish Transcribe Stream 1 (see Speech recognition model).
+  * Speaking speed, expressive mode, and pronunciation dictionaries apply only to Drama 3 and S2.1 Pro. Live 3 sets its own pacing and delivery.
+  * If Live 3 can’t start a session, or drops during one, the agent keeps talking through its text-to-speech model.
+  * In a [warm transfer](https://docs.fish.audio/agents/telephony/transfers), the briefing to your team member is spoken by the text-to-speech model.
+
+
 
 ## 
 

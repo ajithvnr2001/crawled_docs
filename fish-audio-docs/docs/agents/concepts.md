@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/concepts/
 title: Core Concepts - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:42.431793+00:00
+fetched_at: 2026-11-11T15:29:46.599325+00:00
 ---
 
 # Core Concepts - Fish Audio
@@ -11,6 +11,8 @@ fetched_at: 2026-10-17T10:46:42.431793+00:00
 
 ## On this page
 
+Back to top
+
   * Workspaces
   * Agents
   * Drafts and published versions
@@ -18,6 +20,7 @@ fetched_at: 2026-10-17T10:46:42.431793+00:00
     * Which configuration runs
     * Restore and clone
   * Sessions
+  * Cascade vs. full duplex
   * Deleting resources
   * Where everything lives
   * Going further
@@ -148,6 +151,29 @@ A caller dials a connected [phone number](https://docs.fish.audio/agents/telepho
 Anyone talks to an agent you’ve shared publicly.
 
 Except [preview calls](https://docs.fish.audio/agents/test/preview-calls), which are ephemeral and never enter history, every session appears in [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history) and `/v1/agent/sessions` (with its transcript, and its recording when the agent [records audio](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored)) and can trigger [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis) when configured.
+
+## 
+
+​
+
+Cascade vs. full duplex
+
+An agent speaks in one of two ways, set by its [text-to-speech model](https://docs.fish.audio/agents/build/voice-language#text-to-speech-model). In both, speech recognition transcribes the caller and the LLM writes the reply from your prompt, tools, and knowledge sources. They differ in how the reply is spoken.
+
+  * **Cascade** (Drama 3, S2.1 Pro): a text-to-speech model speaks the reply. The agent listens while the caller talks and speaks once they finish.
+  * **Full duplex** ([Live 3](https://docs.fish.audio/agents/build/voice-language#live-3-full-duplex)): one speech model listens while it speaks and decides when to talk. It backchannels naturally while the caller talks and acknowledges when they finish, then speaks the reply.
+
+
+
+| Cascade| Full duplex  
+---|---|---  
+Models| Drama 3, S2.1 Pro| Live 3  
+Turn-taking| Takes turns: listens, then speaks| Listens while it speaks, and acknowledges the caller  
+Languages| All 52 speaking languages| English. Sessions in other languages use the cascade  
+Voices| Any Voice Library voice, including your clones| Live 3’s own voices, or a Voice Library voice  
+Delivery controls| Speaking speed, expressive mode, pronunciation dictionaries| Set by the model, tuned with a situation prompt  
+  
+New agents start on Live 3. Switch to the cascade for languages other than English, for the closest match to a cloned voice, or for control over delivery.
 
 ## 
 

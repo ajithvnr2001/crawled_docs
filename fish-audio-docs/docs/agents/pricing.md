@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/pricing/
 title: Pricing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:55.012511+00:00
+fetched_at: 2026-11-11T15:29:46.660979+00:00
 ---
 
 # Pricing - Fish Audio
@@ -37,7 +37,7 @@ Rates for conversations, LLM usage, telephony, transfers, and simulation tests, 
 
 Copy pageCopy page
 
-Agents cost **$0.06 per minute** of conversation, with a small number of add-ons for telephony and token-billed models. Every account starts with a $5 trial balance, and everything after that is charged against your API credit.
+Agents cost **$0.07 per minute** of conversation, with a small number of add-ons for telephony and token-billed models. Every account starts with a $5 trial balance, and everything after that is charged against your API credit. Current promotions, concurrency limits, and plans are on the [pricing page](https://fish.audio/plan/?plans=agent).
 
 ## 
 
@@ -55,7 +55,7 @@ These charges apply while a web session or phone call is running.
 
 Item| Price| Notes  
 ---|---|---  
-Agent conversation| $0.06 per minute| All-inclusive: STT, TTS, the basic LLMs, knowledge base retrieval, and tool calls  
+Agent conversation| $0.07 per minute| All-inclusive: STT, TTS, the basic LLMs, knowledge base retrieval, and tool calls  
 LLM usage| Covered for the basic LLMs, by token usage for the rest| The other LLMs are billed on the tokens each request uses. See LLM models. Custom LLM endpoints carry no LLM charge  
 Phone call surcharge| +$0.01 per minute| Added to the conversation rate on phone calls. Some outbound destinations carry a higher rate instead. See Outbound destinations  
   
@@ -147,7 +147,7 @@ The countries purchased numbers can call are listed under [allowed destinations]
 
 Trial balance
 
-Every account starts with a one-time **$5 trial balance** , about 60 minutes of conversation at the base rate. It pays for real usage at the normal rates:
+Every account starts with a one-time **$5 trial balance** , about 70 minutes of conversation at the list rate. It pays for real usage at the normal rates:
 
   * Every charge draws on it first: web sessions, phone calls and their surcharges, transferred call time, number rental, LLM tokens on token-billed models, and Simulation test runs. Only what the trial balance does not cover is charged to your API credit.
   * A session can start on any model, including token-billed ones, as long as the trial balance or your API credit is above zero. The same goes for running Simulation tests.
@@ -170,18 +170,20 @@ Usage is charged to your **API credit** , the same prepaid balance as the Fish A
 
 Examples
 
+The examples use the list rate.
+
 Scenario| Breakdown| Total  
 ---|---|---  
-Web conversation, 4 min 30 s, basic LLM| Conversation 4.5 min × $0.06 = $0.27| $0.27  
-Inbound phone call, 6 min, basic LLM| Conversation 6 min × $0.06 = $0.36  
-Phone surcharge 6 min × $0.01 = $0.06| $0.42  
-Outbound call, 10 min, Japanese mobile number| Conversation 10 min × $0.06 = $0.60  
-Japan mobile surcharge 10 min × $0.22 = $2.20| $2.80  
-Inbound call, 3 min with the agent, then 5 min with a person after a warm transfer| Conversation 3 min × $0.06 = $0.18  
+Web conversation, 4 min 30 s, basic LLM| Conversation 4.5 min × $0.07 = $0.315| $0.315  
+Inbound phone call, 6 min, basic LLM| Conversation 6 min × $0.07 = $0.42  
+Phone surcharge 6 min × $0.01 = $0.06| $0.48  
+Outbound call, 10 min, Japanese mobile number| Conversation 10 min × $0.07 = $0.70  
+Japan mobile surcharge 10 min × $0.22 = $2.20| $2.90  
+Inbound call, 3 min with the agent, then 5 min with a person after a warm transfer| Conversation 3 min × $0.07 = $0.21  
 Phone surcharge 3 min × $0.01 = $0.03  
-Warm transfer 5 min × $0.025 = $0.125| $0.335  
-Web conversation, 5 min, token-billed LLM| Conversation 5 min × $0.06 = $0.30  
-LLM usage: the session’s tokens at the LLM’s rates| $0.30 + LLM usage  
+Warm transfer 5 min × $0.025 = $0.125| $0.365  
+Web conversation, 5 min, token-billed LLM| Conversation 5 min × $0.07 = $0.35  
+LLM usage: the session’s tokens at the LLM’s rates| $0.35 + LLM usage  
 Simulation test run with 6 agent replies| Platform fee 6 × $0.003 = $0.018  
 LLM usage: the agent’s, the simulated user’s, and the judge’s tokens| $0.018 + LLM usage  
   
