@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/intelligence/
 title: Microsoft Teams + Google Antigravity: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:38.686305+00:00
+fetched_at: 2026-11-11T10:40:49.720234+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Configure the Channel in Intelligence

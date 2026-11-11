@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/commands-and-reactions/
 title: Microsoft Teams + LangGraph (TypeScript): Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:03.787787+00:00
+fetched_at: 2026-11-11T10:40:44.785207+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Commands and reactions

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/deploy-and-operate/
 title: Microsoft Teams + Google Antigravity: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:37.425609+00:00
+fetched_at: 2026-11-11T10:40:49.635041+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Deploy and operate

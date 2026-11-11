@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/intelligence/
 title: Microsoft Teams + LangGraph (Python): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:05.973075+00:00
+fetched_at: 2026-11-11T10:40:45.164560+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Configure the Channel in Intelligence

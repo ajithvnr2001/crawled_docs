@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/commands-and-reactions/
 title: Microsoft Teams + Google Antigravity: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:37.005587+00:00
+fetched_at: 2026-11-11T10:40:49.779853+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Commands and reactions

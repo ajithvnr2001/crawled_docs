@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/files-and-multimodality/
 title: Microsoft Teams + LangGraph (Python): Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:06.456983+00:00
+fetched_at: 2026-11-11T10:40:45.855179+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Files and multimodal input

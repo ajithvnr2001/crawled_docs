@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/posting-jsx-as-images/
 title: Microsoft Teams + LangGraph (FastAPI): Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:15.729631+00:00
+fetched_at: 2026-11-11T10:40:47.543950+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Posting JSX as images

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/interactive/
 title: Microsoft Teams + LangGraph (TypeScript): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:03.576809+00:00
+fetched_at: 2026-11-11T10:40:43.063175+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Interactive messages and approvals

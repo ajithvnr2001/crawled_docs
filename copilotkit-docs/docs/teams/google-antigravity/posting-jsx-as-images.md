@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/posting-jsx-as-images/
 title: Microsoft Teams + Google Antigravity: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:39.104582+00:00
+fetched_at: 2026-11-11T10:40:48.932464+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Posting JSX as images

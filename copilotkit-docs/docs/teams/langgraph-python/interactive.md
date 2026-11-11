@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/interactive/
 title: Microsoft Teams + LangGraph (Python): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:06.075084+00:00
+fetched_at: 2026-11-11T10:40:45.230878+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Interactive messages and approvals

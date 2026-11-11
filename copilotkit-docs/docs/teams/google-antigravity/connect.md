@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:37.362141+00:00
+fetched_at: 2026-11-11T10:40:49.971435+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

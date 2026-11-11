@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/identity-and-memory/
 title: Microsoft Teams + LangGraph (TypeScript): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:03.696286+00:00
+fetched_at: 2026-11-11T10:40:43.241568+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Identity and Memory

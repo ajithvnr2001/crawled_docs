@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/render-and-carousel/
 title: Microsoft Teams + LangGraph (FastAPI): Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:15.594490+00:00
+fetched_at: 2026-11-11T10:40:46.405381+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Render and carousel

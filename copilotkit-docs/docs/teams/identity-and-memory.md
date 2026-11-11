@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/identity-and-memory/
 title: Microsoft Teams: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:10.908542+00:00
+fetched_at: 2026-11-11T10:40:48.778831+00:00
 ---
 
 # Microsoft Teams: Identity and Memory

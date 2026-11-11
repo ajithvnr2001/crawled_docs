@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/files-and-multimodality/
 title: Microsoft Teams + LangGraph (TypeScript): Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:03.650268+00:00
+fetched_at: 2026-11-11T10:40:43.459582+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Files and multimodal input

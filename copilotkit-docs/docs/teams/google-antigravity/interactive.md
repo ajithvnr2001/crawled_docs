@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/interactive/
 title: Microsoft Teams + Google Antigravity: Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:38.893241+00:00
+fetched_at: 2026-11-11T10:40:49.042514+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Interactive messages and approvals

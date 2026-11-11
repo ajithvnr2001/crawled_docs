@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/persistence-and-scaling/
 title: Microsoft Teams + LangGraph (Python): Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:05.929185+00:00
+fetched_at: 2026-11-11T10:40:45.115463+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Persistence and scaling

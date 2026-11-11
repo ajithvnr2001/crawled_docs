@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/identity-and-memory/
 title: Microsoft Teams + LangGraph (Python): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:06.018164+00:00
+fetched_at: 2026-11-11T10:40:46.035227+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Identity and Memory

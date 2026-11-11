@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/commands-and-reactions/
 title: Microsoft Teams + LangGraph (FastAPI): Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:09.390390+00:00
+fetched_at: 2026-11-11T10:40:47.666477+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Commands and reactions

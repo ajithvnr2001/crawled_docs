@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/tools/
 title: Microsoft Teams + LangGraph (FastAPI): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:07.756010+00:00
+fetched_at: 2026-11-11T10:40:46.105283+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Tools and context

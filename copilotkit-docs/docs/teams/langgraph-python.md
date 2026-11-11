@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:07.894892+00:00
+fetched_at: 2026-11-11T10:40:45.800372+00:00
 ---
 
 # Microsoft Teams: Channels

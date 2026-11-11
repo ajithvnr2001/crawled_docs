@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/history-and-transcripts/
 title: Microsoft Teams + LangGraph (FastAPI): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:09.312365+00:00
+fetched_at: 2026-11-11T10:40:47.287754+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): History and transcripts

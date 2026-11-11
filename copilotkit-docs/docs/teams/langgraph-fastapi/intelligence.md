@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/intelligence/
 title: Microsoft Teams + LangGraph (FastAPI): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:07.944536+00:00
+fetched_at: 2026-11-11T10:40:47.179569+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Configure the Channel in Intelligence

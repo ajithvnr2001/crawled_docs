@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/identity-and-memory/
 title: Microsoft Teams + Google Antigravity: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:38.782367+00:00
+fetched_at: 2026-11-11T10:40:49.887229+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Identity and Memory

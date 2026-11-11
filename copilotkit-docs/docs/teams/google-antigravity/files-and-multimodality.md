@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/files-and-multimodality/
 title: Microsoft Teams + Google Antigravity: Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:37.473296+00:00
+fetched_at: 2026-11-11T10:40:49.582880+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Files and multimodal input

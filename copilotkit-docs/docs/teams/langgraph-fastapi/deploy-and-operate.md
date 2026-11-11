@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/deploy-and-operate/
 title: Microsoft Teams + LangGraph (FastAPI): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:09.182118+00:00
+fetched_at: 2026-11-11T10:40:47.338816+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Deploy and operate

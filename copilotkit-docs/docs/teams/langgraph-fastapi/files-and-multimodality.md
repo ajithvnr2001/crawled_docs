@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/files-and-multimodality/
 title: Microsoft Teams + LangGraph (FastAPI): Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:09.220749+00:00
+fetched_at: 2026-11-11T10:40:47.127752+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Files and multimodal input

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/history-and-transcripts/
 title: Microsoft Teams: History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:10.717917+00:00
+fetched_at: 2026-11-11T10:40:48.523445+00:00
 ---
 
 # Microsoft Teams: History and transcripts

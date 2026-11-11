@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/rich-messages/
 title: Microsoft Teams + Google Antigravity: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:38.945868+00:00
+fetched_at: 2026-11-11T10:40:48.709348+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Rich messages and components

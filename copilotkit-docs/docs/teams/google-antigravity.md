@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:36.859623+00:00
+fetched_at: 2026-11-11T10:40:49.671095+00:00
 ---
 
 # Microsoft Teams: Channels

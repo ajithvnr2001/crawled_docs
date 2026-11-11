@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/threads-and-state/
 title: Microsoft Teams + Google Antigravity: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:39.000564+00:00
+fetched_at: 2026-11-11T10:40:48.651697+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Threads and state
