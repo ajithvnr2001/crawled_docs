@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:44.136755+00:00
+fetched_at: 2026-11-11T14:59:05.828048+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -157,7 +157,7 @@ Video (81)
 
 
 
-Image (116)
+Image (117)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [Erase V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code): `bfl/erase-v1`
@@ -192,6 +192,7 @@ Image (116)
   * [Seedream 5.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-260128/code): `byteplus/seedream-5-0-260128`
   * [Seedream 5.0 Flash 260915](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-flash-260915/code): `byteplus/seedream-5-0-flash-260915`
   * [Seedream 5.0 Pro 260628](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-pro-260628/code): `byteplus/seedream-5-0-pro-260628`
+  * [Seedream 5.5 261028](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-5-261028/code): `byteplus/seedream-5-5-261028`
   * [Crystal Upscaler](https://docs.comfy.org/development/comfy-router/models/fal/crystal-upscaler/code): `fal/crystal-upscaler`
   * [Patina](https://docs.comfy.org/development/comfy-router/models/fal/patina/code): `fal/patina`
   * [AI Image Upscaler Precision V2](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-upscaler-precision-v2/code): `freepik/ai-image-upscaler-precision-v2`
@@ -505,6 +506,7 @@ Model| ID| Input| Output
 [Seedream 5.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-260128/code)| `byteplus/seedream-5-0-260128`| Text, Image| Image  
 [Seedream 5.0 Flash 260915](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-flash-260915/code)| `byteplus/seedream-5-0-flash-260915`| Text, Image| Image  
 [Seedream 5.0 Pro 260628](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-pro-260628/code)| `byteplus/seedream-5-0-pro-260628`| Text, Image| Image  
+[Seedream 5.5 261028](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-5-261028/code)| `byteplus/seedream-5-5-261028`| Text, Image| Image  
   
 ## 
 
@@ -622,12 +624,12 @@ Kling
 Model| ID| Input| Output  
 ---|---|---|---  
 [Kling 3.0 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code)| `kling/kling-3.0-turbo`| Text| Video  
-[Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code)| `kling/kling-4.0`| Text| Video  
+[Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code)| `kling/kling-4.0`| Text, Image, Video| Video  
 [Kling Image O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-image-o1/code)| `kling/kling-image-o1`| Text, Image| Image  
-[Kling V2.5 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code)| `kling/kling-v2-5-turbo`| Text| Video  
-[Kling V2.6](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-6/code)| `kling/kling-v2-6`| Text| Video  
+[Kling V2.5 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code)| `kling/kling-v2-5-turbo`| Image, Text| Video  
+[Kling V2.6](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-6/code)| `kling/kling-v2-6`| Image, Text| Video  
 [Kling V3 Omni](https://docs.comfy.org/development/comfy-router/models/kling/kling-v3-omni/code)| `kling/kling-v3-omni`| Text, Image, Video| Video  
-[Kling V3](https://docs.comfy.org/development/comfy-router/models/kling/kling-v3/code)| `kling/kling-v3`| Text| Video  
+[Kling V3](https://docs.comfy.org/development/comfy-router/models/kling/kling-v3/code)| `kling/kling-v3`| Image, Text| Video  
 [Kling Video O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-video-o1/code)| `kling/kling-video-o1`| Text, Image, Video| Video  
 [Videos Avatar Image 2video](https://docs.comfy.org/development/comfy-router/models/kling/videos-avatar-image2video/code)| `kling/videos-avatar-image2video`| Image, Audio| Video  
 [Videos Lip Sync](https://docs.comfy.org/development/comfy-router/models/kling/videos-lip-sync/code)| `kling/videos-lip-sync`| Video, Audio| Video  
@@ -968,10 +970,10 @@ xAI
 
 Model| ID| Input| Output  
 ---|---|---|---  
-[Grok Imagine Image 2.0](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-2-0/code)| `xai/grok-imagine-image-2.0`| Text| Image  
-[Grok Imagine Image Pro](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-pro/code)| `xai/grok-imagine-image-pro`| Text| Image  
-[Grok Imagine Image Quality](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-quality/code)| `xai/grok-imagine-image-quality`| Text| Image  
-[Grok Imagine Image](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image/code)| `xai/grok-imagine-image`| Text| Image  
+[Grok Imagine Image 2.0](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-2-0/code)| `xai/grok-imagine-image-2.0`| Image, Text| Image  
+[Grok Imagine Image Pro](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-pro/code)| `xai/grok-imagine-image-pro`| Image, Text| Image  
+[Grok Imagine Image Quality](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-quality/code)| `xai/grok-imagine-image-quality`| Image, Text| Image  
+[Grok Imagine Image](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image/code)| `xai/grok-imagine-image`| Image, Text| Image  
 [Grok Imagine Video 1.5 Lite](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-video-1-5-lite/code)| `xai/grok-imagine-video-1.5-lite`| Text, Image| Video  
 [Grok Imagine Video 1.5 Preview](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-video-1-5-preview/code)| `xai/grok-imagine-video-1.5-preview`| Text, Image| Video  
 [Grok Imagine Video 1.5](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-video-1-5/code)| `xai/grok-imagine-video-1.5`| Text, Image| Video  

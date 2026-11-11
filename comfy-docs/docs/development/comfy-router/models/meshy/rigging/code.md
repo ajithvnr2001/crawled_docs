@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/meshy/rigging/code/
 title: Use Rigging with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:21.439637+00:00
+fetched_at: 2026-11-11T14:59:09.875399+00:00
 ---
 
 # Use Rigging with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:21.439637+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/meshy/rigging/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -195,6 +197,16 @@ The approximate height of the character model in meters. Must be a positive numb
 
 ​
 
+include_fingers
+
+boolean
+
+default:"false"
+
+Whether to add finger bones to the character’s hands. Biped rig only; with texture_image_url, a quadruped rig, or a quad-topology input_task_id, Meshy refuses the request with 400, and a model it can rig only without fingers with 422 (not charged). Finger bones don’t change the credit cost. Defaults to false.
+
+​
+
 input_task_id
 
 string
@@ -208,6 +220,16 @@ model_url
 string
 
 A publicly accessible URL or Data URI to a textured humanoid GLB file. Required if input_task_id is not provided.
+
+​
+
+skeleton_template
+
+string
+
+default:"\"meshyrig\""
+
+The skeleton for the rigged character, setting its bone names and hierarchy. Biped rig only. With a value other than meshyrig (or include_fingers true), output files are in meters and use that skeleton’s bones instead of the default 24-bone meshyrig files in centimeters; an animation task made from this rig uses the same skeleton. Any other value is refused. Defaults to meshyrig.Possible values: `meshyrig`, `mixamo`, `ue5_mannequin`, `max_biped`, `unity_humanoid`, `maya_human_ik`, `blender_rigify_basic_human`, `cc5_hd_neutral_base`, `daz_genesis9`
 
 ​
 
@@ -469,26 +491,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/meshy/rigging/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/meshy/rigging/code)
 
-[Use Remesh with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/meshy/remesh/code)[Use MiniMax H3 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Remesh](https://docs.comfy.org/development/comfy-router/models/meshy/remesh/code)[MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code)

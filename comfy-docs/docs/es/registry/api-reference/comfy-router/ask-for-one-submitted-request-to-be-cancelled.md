@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/ask-for-one-submitted-request-to-be-cancelled/
 title: Ask for one submitted request to be cancelled. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:28:56.006029+00:00
+fetched_at: 2026-11-11T14:59:10.537093+00:00
 ---
 
 # Ask for one submitted request to be cancelled. - ComfyUI

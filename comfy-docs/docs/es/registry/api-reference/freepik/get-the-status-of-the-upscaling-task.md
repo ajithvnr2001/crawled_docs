@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-the-upscaling-task/
 title: Get the status of the upscaling task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:28:59.453646+00:00
+fetched_at: 2026-11-11T14:59:11.261701+00:00
 ---
 
 # Get the status of the upscaling task - ComfyUI

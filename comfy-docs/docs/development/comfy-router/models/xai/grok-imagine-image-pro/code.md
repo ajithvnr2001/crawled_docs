@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-pro/code/
 title: Use Grok Imagine Image Pro with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:50.826063+00:00
+fetched_at: 2026-11-11T14:59:05.957878+00:00
 ---
 
 # Use Grok Imagine Image Pro with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:50.826063+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-pro/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -32,7 +34,9 @@ Call xai/grok-imagine-image-pro through Comfy Router: endpoint, request shape an
 
 Copy pageCopy page
 
-API Reference for `xai/grok-imagine-image-pro`, served by Comfy Router from xAI. **Input:** Text · **Output:** Image
+API Reference for `xai/grok-imagine-image-pro`, served by Comfy Router from xAI. **Input:** Image, Text · **Output:** Image
+
+xAI retired `grok-imagine-image-pro` on [May 15, 2026](https://docs.x.ai/developers/migration/may-15-retirement), and routed its requests to `grok-imagine-image-quality`. xAI retired `grok-imagine-image-quality` on Nov 2, 2026. Requests are now served by `grok-imagine-image-2.0` at low quality. See [xAI’s migration notice](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2).
 
 ## 
 
@@ -229,7 +233,7 @@ quality
 
 string
 
-Quality of the output image. For grok-imagine-image-2.0 this selects the price tier (low/medium; medium is the default); other models currently ignore it.Possible values: `low`, `medium`, `high`
+Quality of the output image. For grok-imagine-image-2.0 this selects the price tier: low, medium, or auto (xAI’s default when omitted; auto serves low for generation and medium for edits). Other models ignore it.Possible values: `low`, `medium`, `high`, `auto`
 
 ​
 
@@ -274,6 +278,84 @@ user
 string
 
 A unique identifier representing your end-user, which can help xAI to monitor and detect abuse
+
+​
+
+image
+
+object
+
+Input image object for xAI endpoints
+
+​
+
+image.type
+
+string
+
+Type of the image inputPossible values: `image_url`
+
+​
+
+image.url
+
+string
+
+required
+
+URL of the input image (public URL or base64-encoded data URI)
+
+​
+
+images
+
+object[]
+
+List of input images for multi-reference editing. Mutually exclusive with image. When multiple images are provided, refer to them as <IMAGE_0>, <IMAGE_1>, etc. in the prompt.
+
+​
+
+images[].type
+
+string
+
+Type of the image inputPossible values: `image_url`
+
+​
+
+images[].url
+
+string
+
+required
+
+URL of the input image (public URL or base64-encoded data URI)
+
+​
+
+mask
+
+object
+
+Input image object for xAI endpoints
+
+​
+
+mask.type
+
+string
+
+Type of the image inputPossible values: `image_url`
+
+​
+
+mask.url
+
+string
+
+required
+
+URL of the input image (public URL or base64-encoded data URI)
 
 Generated from the schema Router serves at `GET /v2/models/xai/grok-imagine-image-pro/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
@@ -408,26 +490,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/xai/grok-imagine-image-pro/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/xai/grok-imagine-image-pro/code)
 
-[Use Grok Imagine Image 2.0 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-2-0/code)[Use Grok Imagine Image Quality with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-quality/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Grok Imagine Image 2.0](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-2-0/code)[Grok Imagine Image Quality](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-quality/code)

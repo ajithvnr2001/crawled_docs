@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-text-prompt/
 title: Generate music from text prompt - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:28:59.063844+00:00
+fetched_at: 2026-11-11T14:59:10.883004+00:00
 ---
 
 # Generate music from text prompt - ComfyUI

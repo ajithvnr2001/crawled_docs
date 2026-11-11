@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-image-quality/code/
 title: Use Grok Imagine Image Quality with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:37.466842+00:00
+fetched_at: 2026-11-11T14:59:05.647740+00:00
 ---
 
 # Use Grok Imagine Image Quality with Comfy Router - ComfyUI
@@ -34,7 +34,7 @@ Call xai/grok-imagine-image-quality through Comfy Router: endpoint, request shap
 
 Copy pageCopy page
 
-API Reference for `xai/grok-imagine-image-quality`, served by Comfy Router from xAI. **Input:** Text · **Output:** Image
+API Reference for `xai/grok-imagine-image-quality`, served by Comfy Router from xAI. **Input:** Image, Text · **Output:** Image
 
 xAI retired `grok-imagine-image-quality` on Nov 2, 2026. Requests are now served by `grok-imagine-image-2.0` at low quality. See [xAI’s migration notice](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2).
 
@@ -278,6 +278,84 @@ user
 string
 
 A unique identifier representing your end-user, which can help xAI to monitor and detect abuse
+
+​
+
+image
+
+object
+
+Input image object for xAI endpoints
+
+​
+
+image.type
+
+string
+
+Type of the image inputPossible values: `image_url`
+
+​
+
+image.url
+
+string
+
+required
+
+URL of the input image (public URL or base64-encoded data URI)
+
+​
+
+images
+
+object[]
+
+List of input images for multi-reference editing. Mutually exclusive with image. When multiple images are provided, refer to them as <IMAGE_0>, <IMAGE_1>, etc. in the prompt.
+
+​
+
+images[].type
+
+string
+
+Type of the image inputPossible values: `image_url`
+
+​
+
+images[].url
+
+string
+
+required
+
+URL of the input image (public URL or base64-encoded data URI)
+
+​
+
+mask
+
+object
+
+Input image object for xAI endpoints
+
+​
+
+mask.type
+
+string
+
+Type of the image inputPossible values: `image_url`
+
+​
+
+mask.url
+
+string
+
+required
+
+URL of the input image (public URL or base64-encoded data URI)
 
 Generated from the schema Router serves at `GET /v2/models/xai/grok-imagine-image-quality/openapi.json`, the same document it validates a call against before the request reaches the provider.
 

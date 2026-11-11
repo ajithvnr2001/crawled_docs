@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/serverless/overview/
 title: Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:43.143433+00:00
+fetched_at: 2026-11-11T14:59:09.775078+00:00
 ---
 
 # Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI
@@ -51,7 +51,7 @@ Concept| Meaning
 **Build version / release**|  A numbered version of a Build prepared for a deployment target, such as `linux/nvidia`.  
 **Deployment**|  A running endpoint that uses a release. It has its own GPU, region, and worker settings.  
   
-Workflows supported by [Comfy Cloud](https://docs.comfy.org/development/deploy/cloud) can run there without creating a Build or deployment.
+Workflows supported by [Comfy Cloud](https://docs.comfy.org/development/deploy/cloud) can run there without creating a Build or deployment. To add a model to a deployment without a new Build, upload it to your workspace library. See [Workspace library models](https://docs.comfy.org/development/serverless/library-models).
 
 ## Comfy API Quickstart
 
@@ -176,7 +176,7 @@ Am I charged for storing Builds that are not deployed?
 
 No. Builds and their releases are stored on your account at no charge. You are not billed for the storage footprint of a Build until you deploy it.Storage billing starts with a deployment:
 
-  * When you deploy a release, its models are staged onto network storage shared by the deployment’s workers. The storage is read-only after deployment and billed per GB-month for as long as any deployment of the Build exists in that region, including while a deployment is paused with `comfy deploy stop`.
+  * When you deploy a release, its models are staged onto network storage shared by the deployment’s workers. The storage is read-only after deployment and billed per GB-month for as long as any deployment of the Build exists in that region, including while a deployment is paused with `comfy deploy stop`. Models a job uses from your [workspace library](https://docs.comfy.org/development/serverless/library-models) are not staged there. The worker downloads them for the job.
   * Each worker also gets a fixed 50 GB container disk. It is ephemeral and is only billed while the worker is running, as part of the worker’s compute cost.
   * Deleting a deployment releases its compute. Staged network storage is cleaned up shortly after the last deployment using it in that region is deleted, and billing for it ends.
 

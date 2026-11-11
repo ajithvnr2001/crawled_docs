@@ -3,8 +3,5 @@
   "file": "development/comfy-router/models/xai/grok-imagine-image/code.md",
   "title": "Use Grok Imagine Image with Comfy Router - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:51.289880+00:00",
-  "html_len": 649331,
-  "md_len": 13103,
-  "depth": 0
+  "fetched_at": "2026-11-11T14:59:05.708273+00:00"
 }
