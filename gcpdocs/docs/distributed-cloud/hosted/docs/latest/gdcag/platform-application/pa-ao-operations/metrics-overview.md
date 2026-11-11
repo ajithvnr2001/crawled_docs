@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/metrics-overview/
 title: Metrics overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:43.672976+00:00
+fetched_at: 2026-11-11T10:29:01.506544+00:00
 ---
 
 # Metrics overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

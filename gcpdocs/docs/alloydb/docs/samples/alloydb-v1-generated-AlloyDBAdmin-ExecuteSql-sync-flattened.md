@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-ExecuteSql-sync-flattened/
 title: Execute a SQL statement \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:19.003089+00:00
+fetched_at: 2026-11-11T10:36:07.916069+00:00
 ---
 
 # Execute a SQL statement  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

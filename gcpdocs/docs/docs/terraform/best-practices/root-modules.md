@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/best-practices/root-modules/
 title: Best practices for root modules \u00a0|\u00a0 Terraform on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:09.045446+00:00
+fetched_at: 2026-11-11T08:47:24.457024+00:00
 ---
 
 # Best practices for root modules  |  Terraform on Google Cloud  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/snowflake-transfer/
 title: Schedule a Snowflake transfer \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:27.659185+00:00
+fetched_at: 2026-11-11T09:59:20.437988+00:00
 ---
 
 # Schedule a Snowflake transfer  |  BigQuery  |  Google Cloud Documentation

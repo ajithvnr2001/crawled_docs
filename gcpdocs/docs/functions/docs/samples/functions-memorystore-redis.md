@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-memorystore-redis/
 title: Memorystore for Redis \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:09.258454+00:00
+fetched_at: 2026-11-11T08:53:36.733478+00:00
 ---
 
 # Memorystore for Redis  |  Cloud Run functions  |  Google Cloud Documentation

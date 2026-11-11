@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-inequality-sort-invalid-not-same/
 title: Inequality sort invalid because it's not sorted by the same property \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:08.562273+00:00
+fetched_at: 2026-11-11T09:34:23.557435+00:00
 ---
 
 # Inequality sort invalid because it's not sorted by the same property  |  Firestore in Datastore mode  |  Google Cloud Documentation

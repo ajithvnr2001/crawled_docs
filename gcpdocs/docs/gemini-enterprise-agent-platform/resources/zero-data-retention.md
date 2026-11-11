@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention/
 title: Gemini Enterprise Agent Platform and zero data retention \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:29.102418+00:00
+fetched_at: 2026-11-11T08:40:37.014042+00:00
 ---
 
 # Gemini Enterprise Agent Platform and zero data retention  |  Google Cloud Documentation

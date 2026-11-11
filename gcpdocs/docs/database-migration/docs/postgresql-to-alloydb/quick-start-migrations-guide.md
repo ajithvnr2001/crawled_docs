@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/quick-start-migrations-guide/
 title: Use quick-start migrations to migrate to AlloyDB for PostgreSQL \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:04.938278+00:00
+fetched_at: 2026-11-11T09:33:44.146268+00:00
 ---
 
 # Use quick-start migrations to migrate to AlloyDB for PostgreSQL  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

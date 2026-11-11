@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-key-with-parent/
 title: Key with single parent \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:50.047637+00:00
+fetched_at: 2026-11-11T09:34:22.954102+00:00
 ---
 
 # Key with single parent  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBCSQLAdmin-GetOperation-sync/
 title: Get the status of a long-running operation \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:46:19.895581+00:00
+fetched_at: 2026-11-11T10:38:05.896228+00:00
 ---
 
 # Get the status of a long-running operation  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

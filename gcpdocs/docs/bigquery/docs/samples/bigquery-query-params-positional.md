@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-params-positional/
 title: Positional parameters \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:52:21.859112+00:00
+fetched_at: 2026-11-11T09:10:42.236112+00:00
 ---
 
 # Positional parameters  |  BigQuery  |  Google Cloud Documentation

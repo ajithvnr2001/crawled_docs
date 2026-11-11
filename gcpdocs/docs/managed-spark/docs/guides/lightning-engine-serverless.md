@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine-serverless/
 title: Accelerate Spark batch workloads and sessions with Lightning Engine \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:59:11.711530+00:00
+fetched_at: 2026-11-11T13:07:48.926394+00:00
 ---
 
 # Accelerate Spark batch workloads and sessions with Lightning Engine  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -165,9 +165,9 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to enabl
 
 Use the Google Cloud console to enable Lightning Engine on a runtime profile (session template):
 
-  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Serverless** (**Runtime Profiles**) page:
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Serverless Runtime Profiles** page:
 
-[Go to Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles)
+[Go to Serverless Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles)
 
   2. Click **Create** to open the **Create a runtime profile** page.
 
@@ -308,7 +308,7 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verif
 
   * To verify **engine** is set to `Lightning Engine` for a runtime profile (session template):
 
-    * Google Cloud console: On the [Serverless (Runtime Profiles)](https://console.cloud.google.com/dataproc/runtimeProfiles) page, click the runtime profile name to view its settings on the runtime profile details page.
+    * Google Cloud console: On the [Serverless Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles) page, click the runtime profile name to view its settings on the runtime profile details page.
 
     * gcloud CLI: Run the `gcloud beta dataproc session-templates describe` command.
 
@@ -395,6 +395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

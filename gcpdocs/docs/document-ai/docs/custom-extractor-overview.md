@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/custom-extractor-overview/
 title: Custom extractor overview \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:43.057886+00:00
+fetched_at: 2026-11-11T09:08:27.701021+00:00
 ---
 
 # Custom extractor overview  |  Document AI  |  Google Cloud Documentation

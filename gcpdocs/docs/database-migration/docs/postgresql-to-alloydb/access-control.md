@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/access-control/
 title: Database Migration Service IAM roles and permissions for AlloyDB for PostgreSQL \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:08.042713+00:00
+fetched_at: 2026-11-11T09:33:48.011982+00:00
 ---
 
 # Database Migration Service IAM roles and permissions for AlloyDB for PostgreSQL  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

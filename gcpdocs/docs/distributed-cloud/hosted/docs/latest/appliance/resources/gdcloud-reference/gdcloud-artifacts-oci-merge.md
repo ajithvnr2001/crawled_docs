@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/resources/gdcloud-reference/gdcloud-artifacts-oci-merge/
 title: gdcloud artifacts oci merge \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:18.452663+00:00
+fetched_at: 2026-11-11T08:47:18.738675+00:00
 ---
 
 # gdcloud artifacts oci merge  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

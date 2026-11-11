@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/pki/import-additional-ca/
 title: Add custom CAs to the system trust bundle \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:59.354520+00:00
+fetched_at: 2026-11-11T09:07:56.311390+00:00
 ---
 
 # Add custom CAs to the system trust bundle  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/ms-teams/
 title: Overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:57.828349+00:00
+fetched_at: 2026-11-11T12:22:38.325084+00:00
 ---
 
 # Overview  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ Federated search | `Channel.ReadBasic.All` | Delegated | Allows the app to read 
 `Chat.Read` | Delegated | Allows the app to read all chats.  
 `Chat.ReadBasic` | Delegated | Allows the app to read basic properties of chats.  
 `ChatMessage.Read` | Delegated | Allows the app to read all one-to-one and group chats messages.  
-`Group.Read.All` | Delegated | Allows the app to read the Microsoft Purview sensitivity labels assigned to a team's parent Microsoft 365 group, which are used to apply Sensitive Data Protection (redaction) to Microsoft Teams content.  
+`Group.Read.All` | Delegated | Allows the app to read the Microsoft Purview sensitivity labels assigned to a team's parent Microsoft 365 group, which are used to apply Sensitive Data Protection content policies to Microsoft Teams content.  
 `Schedule.Read.All` | Delegated | Allows the app to read schedules, schedule groups, and shifts for teams.  
 `Team.ReadBasic.All` | Delegated | Allows the app to read the names and description of teams.  
 `TeamMember.Read.All` | Delegated | Allows the app to read the members of teams.  
@@ -82,7 +82,7 @@ Federated search and actions | `Channel.Create` | Delegated | Allows the app to 
 `Chat.ReadWrite` | Delegated | Allows the app to read and write one-to-one and group chat threads, including chat messages. Required for the update chat and update chat message actions.  
 `ChatMessage.Read` | Delegated | Allows the app to read all one-to-one and group chat messages.  
 `ChatMessage.Send` | Delegated | Allows the app to send chat messages.  
-`Group.Read.All` | Delegated | Allows the app to read the Microsoft Purview sensitivity labels assigned to a team's parent Microsoft 365 group, which are used to apply Sensitive Data Protection (redaction) to Microsoft Teams content.  
+`Group.Read.All` | Delegated | Allows the app to read the Microsoft Purview sensitivity labels assigned to a team's parent Microsoft 365 group, which are used to apply Sensitive Data Protection content policies to Microsoft Teams content.  
 `Schedule.Read.All` | Delegated | Allows the app to read schedules, schedule groups, and shifts for teams.  
 `Schedule.ReadWrite.All` | Delegated | Allows the app to create and update schedules, shifts, and time-off entries for teams. Required for the create schedule, create time off entry, and update time off entry actions.  
 `Team.ReadBasic.All` | Delegated | Allows the app to read the names and description of teams.  
@@ -115,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

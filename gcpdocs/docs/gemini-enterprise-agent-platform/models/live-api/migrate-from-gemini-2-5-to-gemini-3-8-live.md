@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live/
 title: Migrate from Gemini 2.5 Flash Live API Native Audio to Gemini 3.8 Live \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:25.725679+00:00
+fetched_at: 2026-11-11T08:51:57.248505+00:00
 ---
 
 # Migrate from Gemini 2.5 Flash Live API Native Audio to Gemini 3.8 Live  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

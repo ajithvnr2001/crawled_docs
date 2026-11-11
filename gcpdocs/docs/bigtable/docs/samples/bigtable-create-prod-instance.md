@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-prod-instance/
 title: Create a production instance \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:16.363683+00:00
+fetched_at: 2026-11-11T09:29:07.129931+00:00
 ---
 
 # Create a production instance  |  Bigtable  |  Google Cloud Documentation

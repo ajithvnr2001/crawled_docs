@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/migration-job-statuses/
 title: Migration job status codes \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:59.689680+00:00
+fetched_at: 2026-11-11T09:34:36.251698+00:00
 ---
 
 # Migration job status codes  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

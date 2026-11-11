@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-approval/docs/supported-services/
 title: Supported services \u00a0|\u00a0 Access Approval \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:59.446004+00:00
+fetched_at: 2026-11-11T09:15:39.811848+00:00
 ---
 
 # Supported services  |  Access Approval  |  Google Cloud Documentation
@@ -95,6 +95,7 @@ Additionally, Apigee Hybrid customers must [upgrade to the latest version](https
 [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn) |  GA  |  None   
 [Cloud Vision API](https://docs.cloud.google.com/vision) |  Preview  |  None   
 [Cloud Workstations](https://docs.cloud.google.com/workstations/docs) |  GA  |  None   
+[Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-overview) |  GA  |  None   
 [Compute Engine](https://docs.cloud.google.com/compute-engine) |  GA  |  None   
 [Connect Agent](https://docs.cloud.google.com/anthos/fleet-management/docs/connect-agent) |  GA  |  None   
 [Customer Experience Agent Studio](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps) |  GA  |  None   
@@ -207,6 +208,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/dnssec/
 title: DNS Security Extensions (DNSSEC) overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:20.379366+00:00
+fetched_at: 2026-11-11T09:46:15.624396+00:00
 ---
 
 # DNS Security Extensions (DNSSEC) overview  |  Google Cloud Documentation

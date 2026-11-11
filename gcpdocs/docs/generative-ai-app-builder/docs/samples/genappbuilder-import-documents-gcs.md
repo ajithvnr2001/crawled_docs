@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-import-documents-gcs/
 title: Import documents from Cloud Storage \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:50.305458+00:00
+fetched_at: 2026-11-11T08:40:18.488482+00:00
 ---
 
 # Import documents from Cloud Storage  |  Agent Search  |  Google Cloud Documentation

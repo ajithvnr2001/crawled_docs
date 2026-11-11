@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-descending-sort/
 title: Descending sort \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:07.299851+00:00
+fetched_at: 2026-11-11T09:34:24.793241+00:00
 ---
 
 # Descending sort  |  Firestore in Datastore mode  |  Google Cloud Documentation

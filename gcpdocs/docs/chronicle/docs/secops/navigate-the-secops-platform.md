@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform/
 title: Navigate the Google SecOps platform \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:33.393349+00:00
+fetched_at: 2026-11-11T09:45:42.056453+00:00
 ---
 
 # Navigate the Google SecOps platform  |  Google Security Operations  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ Add or edit roles for security teams to control access to cases and environments
 Manage permissions and restrictions for different user groups  |  **Settings > Access Management > Permissions (API keys)** | [Permission groups overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-permission-groups)  
 Map IdP or IAM user groups to SOAR user groups  |  **Settings > Access Management > Group Mapping** | [Map groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-in-the-secops-platform)  
 Generate API key to interact with the Chronicle API  | **Settings > Access Management > API Keys** | [Generate API key](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-api-keys)  
-See user details.  |  **Settings > Access Management > User Managemen** | [Manage SOAR users](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-do-i-add-a-new-user-to-the-platform)  
+See user details.  |  **Settings > Access Management > User Management** | [Manage SOAR users](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-do-i-add-a-new-user-to-the-platform)  
 Manage RBAC Object Sharing  |  **Settings > Access Management > Object Sharing** |  [Manage object sharing](https://docs.cloud.google.com/chronicle/docs/administration/object-rbac-overview)  
 Manage IAM roles in the Google Cloud console.  |  **Settings > Access Management > Roles** |  [Roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle)  
 Add and manage tags that are added automatically to cases  | **Settings > Investigation > Tags** | [Define tags](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin)  
@@ -120,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

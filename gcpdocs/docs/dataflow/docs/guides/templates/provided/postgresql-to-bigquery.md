@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/postgresql-to-bigquery/
 title: PostgreSQL to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:47.533909+00:00
+fetched_at: 2026-11-11T09:28:01.441345+00:00
 ---
 
 # PostgreSQL to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation

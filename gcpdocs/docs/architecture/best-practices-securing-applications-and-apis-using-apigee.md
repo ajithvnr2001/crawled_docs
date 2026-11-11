@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/best-practices-securing-applications-and-apis-using-apigee/
 title: Best practices for securing your applications and APIs using Apigee \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:12.037293+00:00
+fetched_at: 2026-11-11T08:29:09.025503+00:00
 ---
 
 # Best practices for securing your applications and APIs using Apigee  |  Cloud Architecture Center  |  Google Cloud Documentation

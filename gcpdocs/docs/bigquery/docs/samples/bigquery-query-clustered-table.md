@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-clustered-table/
 title: Query a clustered table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:25:01.906393+00:00
+fetched_at: 2026-11-11T09:10:45.222829+00:00
 ---
 
 # Query a clustered table  |  BigQuery  |  Google Cloud Documentation

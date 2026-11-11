@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/serve-gemma-with-saxml-tpu/
 title: Serve Gemma open models using TPUs on Gemini Enterprise Agent Platform with Saxml \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:39.491133+00:00
+fetched_at: 2026-11-11T08:40:00.860264+00:00
 ---
 
 # Serve Gemma open models using TPUs on Gemini Enterprise Agent Platform with Saxml  |  Google Cloud Documentation

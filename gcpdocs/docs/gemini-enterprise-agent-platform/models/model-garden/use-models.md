@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models/
 title: Use models in Model Garden \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:56.725794+00:00
+fetched_at: 2026-11-11T08:50:18.815378+00:00
 ---
 
 # Use models in Model Garden  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

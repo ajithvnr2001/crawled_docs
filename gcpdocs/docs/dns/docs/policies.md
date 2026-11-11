@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/policies/
 title: Configure DNS server policies \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:43.808339+00:00
+fetched_at: 2026-11-11T09:46:20.357917+00:00
 ---
 
 # Configure DNS server policies  |  Google Cloud Documentation

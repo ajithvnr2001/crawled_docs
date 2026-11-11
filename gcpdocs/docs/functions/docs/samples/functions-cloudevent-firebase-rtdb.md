@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-firebase-rtdb/
 title: Listen to Firebase Realtime Database changes \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:05:02.106266+00:00
+fetched_at: 2026-11-11T08:56:59.316549+00:00
 ---
 
 # Listen to Firebase Realtime Database changes  |  Cloud Run functions  |  Google Cloud Documentation

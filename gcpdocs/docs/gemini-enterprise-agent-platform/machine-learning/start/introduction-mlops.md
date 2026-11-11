@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops/
 title: MLOps on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:49.484967+00:00
+fetched_at: 2026-11-11T08:39:51.217611+00:00
 ---
 
 # MLOps on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -31,9 +31,12 @@ For more information about MLOps, see [Continuous delivery and automation pipeli
 
 ![diagram of MLOps capabilities](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/start/images/mlops.png)
 
-  * **Orchestrate workflows** : Manually training and serving your models can be time-consuming and error-prone, especially if you need to repeat the processes many times.
+  * **Orchestrate workflows** : Manually executing multi-step ML processes can be time-consuming and error-prone. To automate, monitor, and govern your pipelines, Google Cloud provides orchestrators tailored to your architecture's scope:
 
-    * [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) helps you automate, monitor, and govern your ML workflows.
+    * **[Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction)** : A serverless orchestrator ideal for self-contained, container-native ML workflows that operate strictly within the Agent Platform ecosystem using Kubeflow Pipelines or TFX. It's the lowest-friction choice for pure model training and deployment loops.
+
+    * **[Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs)** : A fully managed Apache Airflow environment ideal for end-to-end enterprise MLOps. If your pipeline requires heterogeneity (such as orchestrating data pipelines in BigQuery or Dataflow, training in Agent Platform, and pushing predictions to external CRMs or data lakes), Managed Airflow acts as a unified control plane. It eliminates custom container technical debt through its extensive library of over 1,000 pre-built integrations. As an alternative to writing Airflow Python DAGs, Managed Airflow features [Orchestration Pipelines](https://docs.cloud.google.com/orchestration-pipelines), a declarative YAML framework that provides an out-of-the-box matrix of execution engines to run PySpark jobs on Managed Service for Apache Spark or SQL jobs on BigQuery.
+
   * **Manage and scale training jobs** : Efficiently managing compute resources for training is a core MLOps challenge, especially when scaling from experimentation to production. Vertex AI Training addresses this by providing flexible, fully managed services with compute options to fit the entire ML lifecycle.
 
     * For experimentation and variable workloads, [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops) involves the default serverless platform that provisions resources on-demand, offering maximum flexibility.

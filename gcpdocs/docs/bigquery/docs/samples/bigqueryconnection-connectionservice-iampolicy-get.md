@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryconnection-connectionservice-iampolicy-get/
 title: Get a connection's IAM policy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:15.932349+00:00
+fetched_at: 2026-11-11T09:16:58.442619+00:00
 ---
 
 # Get a connection's IAM policy  |  BigQuery  |  Google Cloud Documentation

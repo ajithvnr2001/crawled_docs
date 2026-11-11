@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-InjectFault-sync-flattened/
 title: Inject an instance fault \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:46.328489+00:00
+fetched_at: 2026-11-11T10:37:47.737142+00:00
 ---
 
 # Inject an instance fault  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

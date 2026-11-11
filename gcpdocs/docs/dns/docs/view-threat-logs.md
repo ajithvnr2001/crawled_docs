@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/view-threat-logs/
 title: View and monitor threat logs \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:42.046493+00:00
+fetched_at: 2026-11-11T09:46:45.195421+00:00
 ---
 
 # View and monitor threat logs  |  Cloud DNS  |  Google Cloud Documentation

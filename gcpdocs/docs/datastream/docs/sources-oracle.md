@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/sources-oracle/
 title: Stream data from Oracle databases \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:13.777767+00:00
+fetched_at: 2026-11-11T09:33:31.494549+00:00
 ---
 
 # Stream data from Oracle databases  |  Datastream  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-vpc/
 title: Deploy and manage index endpoints in a VPC network \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:18.850585+00:00
+fetched_at: 2026-11-11T08:52:42.662720+00:00
 ---
 
 # Deploy and manage index endpoints in a VPC network  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

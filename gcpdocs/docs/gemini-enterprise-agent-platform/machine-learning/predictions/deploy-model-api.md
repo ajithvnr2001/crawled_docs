@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api/
 title: Deploy a model by using the gcloud CLI or Gemini Enterprise API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:38.494587+00:00
+fetched_at: 2026-11-11T08:40:03.537448+00:00
 ---
 
 # Deploy a model by using the gcloud CLI or Gemini Enterprise API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

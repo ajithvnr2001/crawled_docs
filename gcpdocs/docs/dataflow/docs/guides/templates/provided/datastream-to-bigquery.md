@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/datastream-to-bigquery/
 title: Datastream to BigQuery (Stream) template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:52.414110+00:00
+fetched_at: 2026-11-11T09:27:59.001952+00:00
 ---
 
 # Datastream to BigQuery (Stream) template  |  Cloud Dataflow  |  Google Cloud Documentation

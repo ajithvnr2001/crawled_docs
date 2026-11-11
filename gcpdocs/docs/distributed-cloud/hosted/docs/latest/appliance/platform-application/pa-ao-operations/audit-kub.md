@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/audit-kub/
 title: Kubernetes cluster (KUB) \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:23.982407+00:00
+fetched_at: 2026-11-11T08:20:35.043893+00:00
 ---
 
 # Kubernetes cluster (KUB)  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

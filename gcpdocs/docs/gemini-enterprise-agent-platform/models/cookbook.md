@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/cookbook/
 title: Generative AI on Gemini Enterprise Agent Platform cookbook \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:02.420064+00:00
+fetched_at: 2026-11-11T08:51:27.387005+00:00
 ---
 
 # Generative AI on Gemini Enterprise Agent Platform cookbook  |  Google Cloud Documentation

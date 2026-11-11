@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:26:39.022873+00:00
+fetched_at: 2026-11-11T09:28:48.731101+00:00
 ---
 
 # APIs and reference  |  Application Design Center  |  Google Cloud Documentation

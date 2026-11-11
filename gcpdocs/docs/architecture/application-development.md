@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/application-development/
 title: Application development resources \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:54.969318+00:00
+fetched_at: 2026-11-11T09:34:13.533198+00:00
 ---
 
 # Application development resources  |  Cloud Architecture Center  |  Google Cloud Documentation

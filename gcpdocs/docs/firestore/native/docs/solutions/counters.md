@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/counters/
 title: Support frequent and distributed counters \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:45.005227+00:00
+fetched_at: 2026-11-11T08:54:02.078154+00:00
 ---
 
 # Support frequent and distributed counters  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -287,7 +287,7 @@ The following code initializes a distributed counter:
         return batch.commit();
     }
     
-    [test.solution-counters.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.solution-counters.js#L7-L21)
+    [test.solution-counters.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.solution-counters.js#L7-L21)
 
 ### Swift
 
@@ -503,7 +503,7 @@ Not applicable, see the counter increment snippet below.
     
     puts "Distributed counter shards collection created."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/distributed_counters.rb#L18-L33)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/distributed_counters.rb#L18-L33)
 
 To increment the counter, choose a random shard and increment the count:
 
@@ -519,7 +519,7 @@ To increment the counter, choose a random shard and increment the count:
         return shard_ref.update("count", firebase.firestore.FieldValue.increment(1));
     }
     
-    [test.solution-counters.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.solution-counters.js#L25-L32)
+    [test.solution-counters.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.solution-counters.js#L25-L32)
 
 ### Swift
 
@@ -696,7 +696,7 @@ Android
     
     puts "Counter incremented."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/distributed_counters.rb#L39-L54)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/distributed_counters.rb#L39-L54)
 
 To get the total count, query for all shards and sum their `count` fields:
 
@@ -715,7 +715,7 @@ To get the total count, query for all shards and sum their `count` fields:
         });
     }
     
-    [test.solution-counters.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.solution-counters.js#L36-L46)
+    [test.solution-counters.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.solution-counters.js#L36-L46)
 
 ### Swift
 
@@ -926,7 +926,7 @@ Android
     
     puts "Count value is #{count}."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/distributed_counters.rb#L60-L74)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/distributed_counters.rb#L60-L74)
 
 ## Limitations
 
@@ -941,6 +941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

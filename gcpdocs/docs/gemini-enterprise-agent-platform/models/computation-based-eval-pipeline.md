@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computation-based-eval-pipeline/
 title: Run a computation-based evaluation pipeline \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:38.166861+00:00
+fetched_at: 2026-11-11T08:27:45.778203+00:00
 ---
 
 # Run a computation-based evaluation pipeline  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Run a computation-based evaluation pipeline Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** For the most updated computation-based evaluation features, see [Define your metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-based-metrics).
+**Note:** For the most updated computation-based evaluation features, see [Define your metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-metrics).
 
 You can evaluate the performance of foundation models and your tuned generative AI models on Gemini Enterprise Agent Platform. The models are evaluated using a set of metrics against an evaluation dataset that you provide. This page explains how computation-based model evaluation through the evaluation pipeline service works, how to create and format the evaluation dataset, and how to perform the evaluation using the Google Cloud console, Agent Platform API, or the Agent Platform SDK for Python.
 
@@ -270,7 +270,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
     import os
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.evaluation import EvalResult, EvalTask
     
     # TODO (Developer) Set environment variables
@@ -282,7 +282,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     def evaluate_model() -> EvalResult:
         """Evaluate the performance of a generative AI model."""
     
-        [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION_ID)
+        [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION_ID)
     
         # Dataset URI containing input prompts and ground truth labels
         dataset_uri = "gs://cloud-samples-data/ai-platform/generative_ai/llm_classification_bp_input_prompts_with_ground_truth.jsonl"
@@ -304,7 +304,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         )
     
         # Evaluate using a modern Gemini model
-        eval_result = eval_task.[evaluate](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
+        eval_result = eval_task.[evaluate](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
             model=MODEL_NAME,
             prompt_template=prompt_template,
         )
@@ -361,7 +361,7 @@ For tuned models, you can also view evaluation results in the Google Cloud conso
 ## What's next
 
   * Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview).
-  * Learn how to [tune a foundation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models).
+  * Learn how to [tune a foundation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning).
 
 
 
@@ -369,6 +369,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

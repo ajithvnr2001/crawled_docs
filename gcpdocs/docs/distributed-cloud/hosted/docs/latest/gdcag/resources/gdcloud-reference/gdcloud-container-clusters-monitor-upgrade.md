@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-container-clusters-monitor-upgrade/
 title: gdcloud container clusters monitor-upgrade \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:46.532041+00:00
+fetched_at: 2026-11-11T09:08:10.729315+00:00
 ---
 
 # gdcloud container clusters monitor-upgrade  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

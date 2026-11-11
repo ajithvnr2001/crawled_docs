@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/resource-hierarchy/
 title: Resource hierarchy \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:59.468457+00:00
+fetched_at: 2026-11-11T12:22:53.517451+00:00
 ---
 
 # Resource hierarchy  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/samples/batch-job-logs/
 title: View logs from Cloud Logging for a job \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:04.408500+00:00
+fetched_at: 2026-11-11T09:20:19.572166+00:00
 ---
 
 # View logs from Cloud Logging for a job  |  Batch  |  Google Cloud Documentation

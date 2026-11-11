@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/resources/gdcloud-reference/gdcloud-dns-managed-zones-create/
 title: gdcloud dns managed-zones create \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:19.684908+00:00
+fetched_at: 2026-11-11T11:44:46.265152+00:00
 ---
 
 # gdcloud dns managed-zones create  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

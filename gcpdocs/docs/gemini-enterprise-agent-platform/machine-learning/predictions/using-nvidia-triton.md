@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-nvidia-triton/
 title: Serving inferences with NVIDIA Triton \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:37.703467+00:00
+fetched_at: 2026-11-11T08:39:57.462662+00:00
 ---
 
 # Serving inferences with NVIDIA Triton  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

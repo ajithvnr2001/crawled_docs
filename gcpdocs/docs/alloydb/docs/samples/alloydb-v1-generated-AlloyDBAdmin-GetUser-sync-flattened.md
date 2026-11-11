@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-GetUser-sync-flattened/
 title: Get a user \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:17.908589+00:00
+fetched_at: 2026-11-11T10:21:25.408625+00:00
 ---
 
 # Get a user  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

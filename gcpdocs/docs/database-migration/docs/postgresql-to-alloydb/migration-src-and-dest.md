@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/
 title: Supported sources and versions \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:54.486616+00:00
+fetched_at: 2026-11-11T09:33:44.630570+00:00
 ---
 
 # Supported sources and versions  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

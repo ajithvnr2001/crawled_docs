@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-tips-phpinfo/
 title: PHP Info \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:10.066654+00:00
+fetched_at: 2026-11-11T08:53:34.555370+00:00
 ---
 
 # PHP Info  |  Cloud Run functions  |  Google Cloud Documentation

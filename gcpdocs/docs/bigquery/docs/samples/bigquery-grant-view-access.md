@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-grant-view-access/
 title: Grant view access \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:00:30.985867+00:00
+fetched_at: 2026-11-11T09:19:48.461910+00:00
 ---
 
 # Grant view access  |  BigQuery  |  Google Cloud Documentation
@@ -57,12 +57,12 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     	// First, we'll add a group to the ACL for the dataset containing the view.  This will allow users within
     	// that group to query the view, but they must have direct access to any tables referenced by the view.
-    	vMeta, err := viewDataset.Metadata(ctx)
+    	vMeta, err[ := viewDataset.Metadat](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_DatasetMetadataToUpdate)a(ctx)
     	if err != nil {
-    		return err
+    		return &err
     	}
-    	vUpdateMeta := bigquery.DatasetMetadataToUpdate{
-    		Access: append(vMeta.Access, &bigquery.AccessEntry{
+    	v[UpdateMeta](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_AccessEntry) := bigquery.DatasetMetadat[aToUpdate](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_OwnerRole_ReaderRole_WriterRole){
+    		Access: append(vMeta.Ac[cess](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_DomainEntity_GroupEmailEntity_UserEmailEntity_SpecialGroupEntity_ViewEntity_IAMMemberEntity_RoutineEntity_DatasetEntity), bigquery.AccessEntry{
     			Role:       bigquery.ReaderRole,
     			EntityType: bigquery.GroupEmailEntity,
     			Entity:     "example-analyst-group@google.com",
@@ -74,13 +74,13 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     	// Now, we'll authorize a specific view against a source dataset, delegating access enforcement.
     	// Once this has been completed, members of the group previously added to the view dataset's ACL
-    	// no longer require access to the source dataset to successfully query the view.
+    	// no longer require access to the source dataset to successfully query the vi[ew.](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_DatasetMetadataToUpdate)
     	srcMeta, err := srcDataset.Metadata(ctx)
-    	if err != nil {
-    		return err
+    	if err != n&il {
+    		re[turn](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_AccessEntry) err
     	}
-    	srcUpdateMeta := bigquery.DatasetMetadataToUpdate{
-    		Access: append(srcMeta.Access, &bigquery.AccessEntry{
+    	srcUpdateMeta := bigquer[y](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_DomainEntity_GroupEmailEntity_UserEmailEntity_SpecialGroupEntity_ViewEntity_IAMMemberEntity_RoutineEntity_DatasetEntity).DatasetMetadataToUpdate{
+    		Access: append(srcMeta.Access, bigquery.AccessEntry{
     			EntityType: bigquery.ViewEntity,
     			View:       view,
     		}),
@@ -99,12 +99,12 @@ Before trying this sample, follow the Java setup instructions in the [BigQuery q
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.bigquery.Acl;
-    import com.google.cloud.bigquery.BigQuery;
-    import com.google.cloud.bigquery.BigQueryException;
-    import com.google.cloud.bigquery.BigQueryOptions;
-    import com.google.cloud.bigquery.Dataset;
-    import com.google.cloud.bigquery.Table;
+    import com.google.cloud.bigquery.[Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.html);
+    import com.google.cloud.bigquery.[BigQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html);
+    import com.google.cloud.bigquery.[BigQueryException](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html);
+    import com.google.cloud.bigquery.[BigQueryOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html);
+    import com.google.cloud.bigquery.[Dataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html);
+    import com.google.cloud.bigquery.[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-biglake/latest/com.google.cloud.bigquery.biglake.v1.Table.html);
     import java.util.ArrayList;
     import java.util.List;
     
@@ -122,26 +122,26 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
       public static void grantViewAccess(String srcDatasetId, String viewDatasetId, String viewId) {
         try {
           // Initialize client that will be used to send requests. This client only needs to be created
-          // once, and can be reused for multiple requests.
-          BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
+          // once, and can be reused[ for mul](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html)tiple reques[ts.](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html)
+          BigQuery bigquery = BigQueryOptions.getDefaultIn[stance](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html)().getService();
     
-          Dataset srcDataset = bigquery.getDataset(srcDatasetId);
-          Dataset viewDataset = bigquery.getDataset(viewDatasetId);
-          Table view = viewDataset.get(viewId);
+          [Dataset sr](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_getDataset_com_google_cloud_bigquery_DatasetId_com_google_cloud_bigquery_BigQuery_DatasetOption____)cDataset = bigquery.ge[tDatase](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html)t(srcDatasetId);
+          D[ataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_getDataset_com_google_cloud_bigquery_DatasetId_com_google_cloud_bigquery_BigQuery_DatasetOption____) viewDataset = bigquery.get[Datas](https://docs.cloud.google.com/java/docs/reference/google-cloud-biglake/latest/com.google.cloud.bigquery.biglake.v1.Table.html)et(viewDatasetId);
+     [   ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html#com_google_cloud_bigquery_Dataset_get_java_lang_String_com_google_cloud_bigquery_BigQuery_TableOption____)  Table view = viewDataset.get(viewId);
           // First, we'll add a group to the ACL for the dataset containing the view. This will allow
           // users within that group to query the view, but they must have direct access to any tables
-          // referenced by the view.
-          List<Acl> viewAcl = new ArrayList<>(viewDataset.getAcl());
-          viewAcl.add(Acl.of(new Acl.Group("example-analyst-group@google.com"), Acl.Role.READER));
+          // <ref>erenced by the view.
+       <>   ListAcl vi[ewAcl](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.DatasetInfo.html#com_google_cloud_bigquery_DatasetInfo_getAcl__) = new ArrayList(viewDat[ase](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.html)t.getAcl[())](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.html);[
+        ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.Group.html)  viewAcl.add(Acl.of(new Acl.Group(&qu[ot;](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.html)example-analyst-group@google.com&q[uot;](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html#com_google_cloud_bigquery_Dataset_toBuilder__)), Acl.Role.READER));
           viewDataset.toBuilder().setAcl(viewAcl).build().update();
           // Now, we'll authorize a specific view against a source dataset, delegating access
           // enforcement. Once this has been completed, members of the group previously added to the
-          // view dataset's ACL no longer require access to the source dataset to successfully query the
-          // view
-          List<Acl> srcAcl = new ArrayList<>(srcDataset.getAcl());
-          srcAcl.add(Acl.of(new Acl.View(view.getTableId())));
+          // view dataset's ACL no longer require access to the source datase<t t>o successfully query th<>e
+          // v[iew](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.DatasetInfo.html#com_google_cloud_bigquery_DatasetInfo_getAcl__)
+          ListAcl srcAcl = n[ew](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.html) ArrayLis[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.html)(sr[cDat](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Acl.View.html)aset.getAcl());
+          srcAcl.add(Acl.of([new Acl.V](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html#com_google_cloud_bigquery_Dataset_toBuilder__)iew(view.getTableId())));
           srcDataset.toBuilder().setAcl(srcAcl).build().update();
-          System.out.println("Grant view access successfully");
+          System.out.prin[tln](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html)("Grant view access successfully");
         } catch (BigQueryException e) {
           System.out.println("Grant view access was not success. \n" + e.toString());
         }
@@ -155,45 +155,45 @@ Before trying this sample, follow the Python setup instructions in the [BigQuery
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    from google.cloud import bigquery
+    from google.cloud import [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)
     
-    client = bigquery.Client()
+    client = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html)()
     
     # To use a view, the analyst requires ACLs to both the view and the source
     # table. Create an authorized view to allow an analyst to use a view
     # without direct access permissions to the source table.
     view_dataset_id = "my-project.my_view_dataset"
     # Make an API request to get the view dataset ACLs.
-    view_dataset = client.get_dataset(view_dataset_id)
+    view_dataset[ = client.g](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_get_dataset)et_dataset(view_dataset_id)
     
     analyst_group_email = "example-analyst-group@google.com"
-    access_entries = view_dataset.access_entries
-    access_entries.append(
-        bigquery.AccessEntry("READER", "groupByEmail", analyst_group_email)
+    access_ent[ries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries) = view_dat[aset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries).access_entries
+    access_[entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).a[ppend](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html)(
+        bigquery.AccessEntry("READER", "groupByEmail&quo[t;](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries), analyst_group_email)
     )
     view_dataset.access_entries = access_entries
     
-    # Make an API request to update the ACLs property of the view dataset.
-    view_dataset = client.update_dataset(view_dataset, ["access_entries"])
+    # Make an API request to update the ACLs property of [the view datas](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)et.
+    view_dataset = client.update_dataset(view_dataset, ["access_entr[ies"](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)])
     print(f"Access to view: {view_dataset.access_entries}")
     
     # Group members of "data_analysts@example.com" now have access to the view,
     # but they require access to the source table to use it. To remove this
     # restriction, authorize the view to access the source dataset.
-    source_dataset_id = "my-project.my_source_dataset"
+    source_dataset_id = "my-project.my_source_dataset"[;](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_get_dataset)
     # Make an API request to set the source dataset ACLs.
     source_dataset = client.get_dataset(source_dataset_id)
     
     view_reference = {
         "projectId": "my-project",
-        "datasetId": "my_view_dataset",
-        "tableId": "my_authorized_view",
+        &qu[ot;datasetId&q](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)u[ot;](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries): "my_view_dat[aset&quo](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)t[;](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html),
+        &quot;tableId": "my_authorized_view"[,
     }
-    access_entries = source_dataset.access_entries
-    access_entries.append(bigquery.AccessEntry(None, "view", view_reference))
+    access_ent](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)ries = source_dataset.access_entries
+    access_entries.append(bigquery.AccessEntry(None, "view", view_referen[ce](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)))
     source_dataset.access_entries = access_entries
     
-    # Make an API request to update the ACLs property of the source dataset.
+    # Make an API request to update the ACLs[ property of t](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)he source dataset.
     source_dataset = client.update_dataset(source_dataset, ["access_entries"])
     print(f"Access to source: {source_dataset.access_entries}")
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/custom-metadata-labels/
 title: Custom metadata labels \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:43.121691+00:00
+fetched_at: 2026-11-11T09:08:26.368280+00:00
 ---
 
 # Custom metadata labels  |  Document AI  |  Google Cloud Documentation

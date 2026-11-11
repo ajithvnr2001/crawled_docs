@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/optimize-ai-ml-workloads-managed-lustre/
 title: Optimize AI and ML workloads with Google Cloud Managed Lustre \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:08.418207+00:00
+fetched_at: 2026-11-11T08:22:46.138008+00:00
 ---
 
 # Optimize AI and ML workloads with Google Cloud Managed Lustre  |  Cloud Architecture Center  |  Google Cloud Documentation

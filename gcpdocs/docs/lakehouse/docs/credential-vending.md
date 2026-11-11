@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/credential-vending/
 title: Credential vending overview \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:53.730947+00:00
+fetched_at: 2026-11-11T08:30:35.937416+00:00
 ---
 
 # Credential vending overview  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Credential vending overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Credential vending mode in the Lakehouse runtime catalog lets you delegate Cloud Storage access to query engines and enforce fine-grained Identity and Access Management (IAM) policies at the catalog, namespace, and table levels for Apache Iceberg tables. Instead of granting users or workloads direct bucket permissions, you configure the Apache Iceberg REST catalog endpoint to vend short-lived, downscoped storage tokens scoped to authorized table paths.
-
-You can manage access policies using the Google Cloud console, the Google Cloud CLI, or the REST API. Credential vending is also required to enable automatic [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable_table_management) for background maintenance tasks such as compaction, snapshot expiration, and garbage collection.
+Credential vending mode in the Lakehouse runtime catalog lets you delegate Cloud Storage access to query engines and enforce fine-grained Identity and Access Management (IAM) policies at the catalog, namespace, and table levels for Apache Iceberg tables. Instead of granting direct bucket permissions, you configure the Apache Iceberg REST catalog endpoint to vend short-lived, downscoped storage tokens for authorized table paths. This mode is also required for automatic [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable-table-management).
 
 ## When to use credential vending
 
@@ -54,7 +52,7 @@ The sequence of operations shown in the preceding diagram is as follows:
 
 
 
-When automatic [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable_table_management) (`gcp.biglake.table-management.enabled`) is enabled, background maintenance tasks such as compaction, snapshot expiration, and garbage collection use the catalog's auto-provisioned service account to authenticate directly to Cloud Storage and update the underlying data files.
+When automatic [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable-table-management) (`gcp.biglake.table-management.enabled`) is enabled, background maintenance tasks such as compaction, snapshot expiration, and garbage collection use the catalog's auto-provisioned service account to authenticate directly to Cloud Storage and update the underlying data files.
 
 ## Supported engines
 
@@ -69,7 +67,7 @@ To use credential vending with query engines, you must configure the Apache Iceb
 
 When credential vending mode is enabled, ensure that the following service accounts have the necessary roles:
 
-  * **Auto-provisioned catalog endpoint service account** : You must grant the Storage Object User role (`roles/storage.objectUser`) to this account on all associated Cloud Storage buckets. Without this access, vended credentials can't read or write to storage. If you use the Google Cloud console, clicking **Set bucket permissions** verifies this role. For the gcloud CLI, Terraform, or the REST API, you must grant this role manually.
+  * **Auto-provisioned catalog endpoint service account** : You must grant the Storage Object User role (`roles/storage.objectUser`) to this account on all associated Cloud Storage buckets. Without this access, vended credentials can't read or write to storage. If you use the Google Cloud console, clicking **Set bucket permissions** verifies this role. For the Google Cloud CLI, Terraform, or the REST API, you must grant this role manually.
   * **Query engine service accounts** : Service accounts running query engine jobs (such as Managed Service for Apache Spark or Dataflow) require the BigLake Editor role (`roles/biglake.editor`) to obtain vended credentials with write scope.
 
 **Note:** Creation of the auto-provisioned catalog endpoint service account is eventually consistent. It takes time for the service account to propagate through the system. If you try to grant roles to the service account immediately after creation, the request might fail. To learn how long it takes, on average, for access changes to propagate, see [Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation).
@@ -140,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/binary-authorization-for-borg/
 title: Binary Authorization for Borg \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:07.710621+00:00
+fetched_at: 2026-11-11T10:08:26.292637+00:00
 ---
 
 # Binary Authorization for Borg  |  Security  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-table-clustered/
 title: Create a clustered table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:19.862166+00:00
+fetched_at: 2026-11-11T08:59:35.848224+00:00
 ---
 
 # Create a clustered table  |  BigQuery  |  Google Cloud Documentation

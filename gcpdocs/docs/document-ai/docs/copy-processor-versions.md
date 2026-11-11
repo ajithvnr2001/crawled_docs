@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/copy-processor-versions/
 title: Copy processor versions and datasets across projects \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:43.831339+00:00
+fetched_at: 2026-11-11T09:07:14.516480+00:00
 ---
 
 # Copy processor versions and datasets across projects  |  Document AI  |  Google Cloud Documentation

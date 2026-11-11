@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/genai-overview/
 title: Generative AI architecture guides \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:39.626505+00:00
+fetched_at: 2026-11-11T08:25:47.184323+00:00
 ---
 
 # Generative AI architecture guides  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/share-notebooks/
 title: Share notebooks \u00a0|\u00a0 Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:59.908388+00:00
+fetched_at: 2026-11-11T11:43:39.541909+00:00
 ---
 
 # Share notebooks  |  Gemini Notebook Enterprise  |  Google Cloud Documentation
@@ -64,9 +64,17 @@ The autocomplete feature for the **Add people and groups** field is a convenienc
 
 ![Add people and groups field in the share notebook dialog.](https://docs.cloud.google.com/static/gemini/enterprise/notebooklm-enterprise/images/share-notebooks-add-people-groups.png)
 
+### Autocomplete with Google identity provider
+
 If you have set up Gemini Notebook Enterprise with the Cloud Identity authentication, then autocomplete is available automatically. (Cloud Identity corresponds to the [**Google identity provider** in the **Identity settings** dropdown](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set-up-notebooklm#set-id-provider).)
 
+### Autocomplete with Workforce Identity Federation
+
 However, if you're using Workforce Identity Federation for authentication, then you must configure Workforce Identity Federation to use extended attributes with System for Cross-domain Identity Management (SCIM). Most likely, you did this when you set up Gemini Notebook Enterprise, see [Set up Gemini Notebook Enterprise](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set-up-notebooklm).
+
+SCIM-based autocomplete requires a dedicated workforce identity pool for each Google Cloud project that uses Gemini Notebook Enterprise. If the same workforce pool is used by more than one project, the identities synced through SCIM aren't imported for those projects, and autocomplete doesn't suggest users or groups. Create one workforce pool per project. The SCIM attribute mapping must produce the same subject as the workforce pool's `google.subject` mapping; see [Example mappings for subject consistency](https://docs.cloud.google.com/iam/docs/workforce-identity-federation-scim#example-claim-mappings). Users and groups appear in autocomplete only after your identity provider has provisioned them through SCIM.
+
+If autocomplete isn't available, you can still share by typing the full email address. The address must exactly match the identity that your identity provider asserts, including letter case.
 
 ## Limitations related to sharing notebooks
 
@@ -75,6 +83,10 @@ Be aware of the following limitations related to sharing notebooks in Gemini Not
   * If your notebook is integrated with Gemini Enterprise and you added sources from Gemini Enterprise search results, then you can't share those notebooks.
 
   * If a notebook is already shared, you can't add sources to it from Gemini Enterprise.
+
+  * A notebook's access list is an IAM allow policy, so the [IAM limit on the number of principals in a policy](https://docs.cloud.google.com/iam/quotas#limits) applies. If you need to share a notebook with many people, share it with a group instead of adding people individually.
+
+  * You can't transfer ownership of a notebook, and Editors and Viewers can't share or delete the notebook. Before a notebook owner leaves your organization, ask them to share the notebooks that others still need with an Editor so the Editor can copy the sources and notes into a new notebook.
 
 
 
@@ -138,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

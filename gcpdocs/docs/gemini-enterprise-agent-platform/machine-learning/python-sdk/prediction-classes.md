@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/prediction-classes/
 title: Prediction classes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:57.191090+00:00
+fetched_at: 2026-11-11T08:39:54.222037+00:00
 ---
 
 # Prediction classes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

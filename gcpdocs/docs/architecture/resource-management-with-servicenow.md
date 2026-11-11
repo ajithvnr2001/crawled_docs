@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/resource-management-with-servicenow/
 title: Reference architecture: Resource management with ServiceNow \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:43:30.609771+00:00
+fetched_at: 2026-11-11T10:14:17.191863+00:00
 ---
 
 # Reference architecture: Resource management with ServiceNow  |  Cloud Architecture Center  |  Google Cloud Documentation

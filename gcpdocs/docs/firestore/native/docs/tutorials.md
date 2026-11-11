@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/tutorials/
 title: Tutorials \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:17.535768+00:00
+fetched_at: 2026-11-11T08:56:38.372435+00:00
 ---
 
 # Tutorials  |  Firestore in Native mode  |  Google Cloud Documentation

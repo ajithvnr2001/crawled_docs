@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/cloud-nat-subnets/
 title: Create external subnets for Cloud NAT \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:40.063411+00:00
+fetched_at: 2026-11-11T11:44:33.520683+00:00
 ---
 
 # Create external subnets for Cloud NAT  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

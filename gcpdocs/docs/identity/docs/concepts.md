@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/concepts/
 title: Concepts \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:31.953920+00:00
+fetched_at: 2026-11-11T08:32:37.556380+00:00
 ---
 
 # Concepts  |  Cloud Identity  |  Google Cloud Documentation

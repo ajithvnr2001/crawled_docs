@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/firestore-mongodb-compatibility/
 title: Conversational analytics for Firestore with MongoDB compatibility \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:32:57.059603+00:00
+fetched_at: 2026-11-11T08:53:54.201058+00:00
 ---
 
 # Conversational analytics for Firestore with MongoDB compatibility  |  Data Agents  |  Google Cloud Documentation

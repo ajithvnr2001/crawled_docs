@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/oidc/
 title: Signing in users with OIDC \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:22.535780+00:00
+fetched_at: 2026-11-11T08:33:57.672755+00:00
 ---
 
 # Signing in users with OIDC  |  Identity Platform  |  Google Cloud Documentation
@@ -134,13 +134,13 @@ To sign in using OAuth:
          
          const provider = new OAuthProvider("oidc.myProvider");
          
-         [auth_oidc_provider_create.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/oidc/auth_oidc_provider_create.js#L8-L10)
+         [auth_oidc_provider_create.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/oidc/auth_oidc_provider_create.js#L8-L10)
 
 ### Web version 8
          
          const provider = new firebase.auth.OAuthProvider('oidc.myProvider');
          
-         [oidc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/oidc.js#L9-L9)
+         [oidc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/oidc.js#L9-L9)
 
   2. Start the sign in flow. You can choose to either use a popup or a redirect.
 
@@ -168,7 +168,7 @@ To sign in using OAuth:
              // ...
            });
          
-         [auth_oidc_signin_popup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/oidc/auth_oidc_signin_popup.js#L8-L26)
+         [auth_oidc_signin_popup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/oidc/auth_oidc_signin_popup.js#L8-L26)
 
 ### Web version 8
          
@@ -183,7 +183,7 @@ To sign in using OAuth:
              // Handle error.
            });
          
-         [oidc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/oidc.js#L15-L24)
+         [oidc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/oidc.js#L15-L24)
 
 ###  Redirect 
 
@@ -196,7 +196,7 @@ To redirect to a sign-in page, call `signInWithRedirect()`:
          const auth = getAuth();
          signInWithRedirect(auth, provider);
          
-         [auth_oidc_signin_redirect.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/oidc/auth_oidc_signin_redirect.js#L8-L11)
+         [auth_oidc_signin_redirect.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/oidc/auth_oidc_signin_redirect.js#L8-L11)
 
 ### Web version 8
          
@@ -204,7 +204,7 @@ To redirect to a sign-in page, call `signInWithRedirect()`:
            // Handle error.
          });
          
-         [oidc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/oidc.js#L30-L32)
+         [oidc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/oidc.js#L30-L32)
 
 Then, call `getRedirectResult()` to get the results when the user returns to your app:
 
@@ -231,7 +231,7 @@ Then, call `getRedirectResult()` to get the results when the user returns to you
              // ...
            });
          
-         [auth_oidc_signin_redirect_result.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/oidc/auth_oidc_signin_redirect_result.js#L8-L27)
+         [auth_oidc_signin_redirect_result.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/oidc/auth_oidc_signin_redirect_result.js#L8-L27)
 
 ### Web version 8
          
@@ -248,7 +248,7 @@ Then, call `getRedirectResult()` to get the results when the user returns to you
              // ...
            });
          
-         [oidc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/oidc.js#L38-L49)
+         [oidc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/oidc.js#L38-L49)
 
 
 
@@ -287,7 +287,7 @@ To sign a user in with an OIDC ID token directly, do the following:
              // ...
            });
          
-         [auth_oidc_direct_sign_in.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/oidc/auth_oidc_direct_sign_in.js#L8-L30)
+         [auth_oidc_direct_sign_in.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/oidc/auth_oidc_direct_sign_in.js#L8-L30)
 
 ### Web version 8
          
@@ -303,7 +303,7 @@ To sign a user in with an OIDC ID token directly, do the following:
              // ...
            });
          
-         [oidc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/oidc.js#L55-L65)
+         [oidc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/oidc.js#L55-L65)
 
 
 
@@ -329,7 +329,7 @@ If a user has already signed in to your app using a different method (such as em
       // ...
     });
     
-    [auth_link_with_popup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/link-multiple-accounts/auth_link_with_popup.js#L8-L20)
+    [auth_link_with_popup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/link-multiple-accounts/auth_link_with_popup.js#L8-L20)
 
 ### Web version 8
     
@@ -344,7 +344,7 @@ If a user has already signed in to your app using a different method (such as em
       // ...
     });
     
-    [link-multiple-accounts.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/link-multiple-accounts.js#L69-L77)
+    [link-multiple-accounts.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/link-multiple-accounts.js#L69-L77)
 
 ## What's next
 

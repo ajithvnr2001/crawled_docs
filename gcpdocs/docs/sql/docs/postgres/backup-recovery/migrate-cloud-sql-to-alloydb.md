@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/backup-recovery/migrate-cloud-sql-to-alloydb/
 title: Migrate from Cloud SQL for PostgreSQL to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T05:43:22.716701+00:00
+fetched_at: 2026-11-11T10:29:11.374236+00:00
 ---
 
 # Migrate from Cloud SQL for PostgreSQL to AlloyDB for PostgreSQL  |  Google Cloud Documentation

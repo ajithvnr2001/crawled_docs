@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/convert-sql/
 title: Convert SQL Server code and schema to PostgreSQL syntax \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:52.541654+00:00
+fetched_at: 2026-11-11T09:34:43.136478+00:00
 ---
 
 # Convert SQL Server code and schema to PostgreSQL syntax  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

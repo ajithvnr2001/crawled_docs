@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/solutions/archive/open-weight-llm-guide/
 title: Open-weight LLM user guide on GDC air-gapped \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:02.085773+00:00
+fetched_at: 2026-11-11T12:23:39.699291+00:00
 ---
 
 # Open-weight LLM user guide on GDC air-gapped  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

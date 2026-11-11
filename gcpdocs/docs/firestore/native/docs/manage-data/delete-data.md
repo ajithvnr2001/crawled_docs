@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/delete-data/
 title: Delete documents and fields \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:09:36.400558+00:00
+fetched_at: 2026-11-11T08:56:33.869724+00:00
 ---
 
 # Delete documents and fields  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ Use the `deleteDoc()` method:
     
     await deleteDoc(doc(db, "cities", "DC"));
     
-    [delete_document.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/delete_document.js#L8-L10)
+    [delete_document.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/delete_document.js#L8-L10)
 
 ### Web version 8
 
@@ -49,7 +49,7 @@ Use the `delete()` method:
         console.error("Error removing document: ", error);
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L514-L518)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L514-L518)
 
 ##### Swift
 
@@ -96,7 +96,7 @@ Use the `delete()` method:
         .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
         .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L405-L408)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L405-L408)
 
 ##### Java  
 Android
@@ -119,7 +119,7 @@ Use the `delete()` method:
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L515-L528)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L515-L528)
 
 ### Dart
 
@@ -250,7 +250,7 @@ Use the `delete()` method:
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.delete
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/delete_data.rb#L24-L25)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/delete_data.rb#L24-L25)
 
 **Warning:** Deleting a document does not delete its subcollections!
 
@@ -278,7 +278,7 @@ Use the `deleteField()` method:
         capital: deleteField()
     });
     
-    [update_delete_field.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/update_delete_field.js#L8-L15)
+    [update_delete_field.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/update_delete_field.js#L8-L15)
 
 ### Web version 8
 
@@ -292,7 +292,7 @@ Use the `FieldValue.delete()` method:
         capital: firebase.firestore.FieldValue.delete()
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L818-L823)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L818-L823)
 
 ##### Swift
 
@@ -347,7 +347,7 @@ Use the `FieldValue.delete()` method:
     
     docRef.update(updates).addOnCompleteListener { }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1103-L1110)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1103-L1110)
 
 ##### Java  
 Android
@@ -365,7 +365,7 @@ Use the `FieldValue.delete()` method:
         // ...
         // ...
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1321-L1332)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1321-L1332)
 
 ### Dart
 
@@ -520,7 +520,7 @@ Use the `firestore.field_delete` method:
     city_ref = firestore.doc "#{collection_path}/BJ"
     city_ref.update({ capital: firestore.field_delete })
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/delete_data.rb#L36-L37)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/delete_data.rb#L36-L37)
 
 ## Delete collections
 
@@ -603,7 +603,7 @@ Deleting collections from the client is not recommended.
       }
     }
     
-    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/acfdc914112fbc32b3ae53ed92ed5cf07dc205dd/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
+    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/b281f5b5024d622d737745e57e51dba3647e43d2/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
 
 ##### Python
     
@@ -766,7 +766,7 @@ Deleting collections from the client is not recommended.
       document_ref.delete
     end
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/delete_data.rb#L48-L55)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/delete_data.rb#L48-L55)
 
 ## Delete data with TTL policies
 
@@ -812,6 +812,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

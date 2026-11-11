@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/pretrained-overview/
 title: Pretrained overview \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:38.297708+00:00
+fetched_at: 2026-11-11T09:07:18.948928+00:00
 ---
 
 # Pretrained overview  |  Document AI  |  Google Cloud Documentation

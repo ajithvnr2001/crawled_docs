@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/kms/rotate-root-key/
 title: Rotate a root key \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:59.202235+00:00
+fetched_at: 2026-11-11T09:28:15.742972+00:00
 ---
 
 # Rotate a root key  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

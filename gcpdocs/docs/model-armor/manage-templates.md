@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/manage-templates/
 title: Create and manage templates \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:12:07.027697+00:00
+fetched_at: 2026-11-11T08:23:25.099456+00:00
 ---
 
 # Create and manage templates  |  Model Armor  |  Google Cloud Documentation
@@ -168,7 +168,8 @@ Run the following command:
          --template-metadata-custom-prompt-safety-error-message="test template prompt evaluation failed" \
          --template-metadata-ignore-partial-invocation-failures \
          --template-metadata-log-operations \
-         --template-metadata-log-sanitize-operations
+         --template-metadata-log-sanitize-operations \
+         --filter-version-selector-alias=filter-version-alias-stable
     
 
 Replace the following:
@@ -1270,7 +1271,8 @@ For example, the following command updates the filter settings and metadata of a
         --template-metadata-custom-prompt-safety-error-message="test template prompt evaluation failed" \
         --template-metadata-ignore-partial-invocation-failures \
         --template-metadata-log-operations \
-        --template-metadata-log-sanitize-operations
+        --template-metadata-log-sanitize-operations \
+        --filter-version-selector-alias=filter-version-alias-stable
     
 
 Replace the following:
@@ -1297,11 +1299,11 @@ Replace the following:
   * `PROJECT_ID`: the ID of the project that the template belongs to.
   * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
   * `TEMPLATE_ID`: the ID of the template.
-  * `UPDATE_MASK`: the fields that you want to update, such as `filterConfig`, `filterConfig.piAndJailbreakFilterSettings`, or `filterConfig.filterRuleSettings`. For more information, see [Update exclusion rules in a template](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#update-template-exclusion-rules). Leaving this field empty updates the entire filter configuration.
+  * `UPDATE_MASK`: the fields that you want to update, such as `filterConfig`, `filterConfig.piAndJailbreakFilterSettings`, `filterConfig.filterRuleSettings`, `templateMetadata`, or `templateMetadata.filterVersionSelector`. For more information, see [Update exclusion rules in a template](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#update-template-exclusion-rules). Leaving this field empty updates the entire filter configuration.
 
 
 
-All other fields are immutable. Attempts made to update other fields (for example, attempts to update the template name) result in an error.
+Immutable fields (for example, the template name) cannot be updated. Attempts made to update immutable fields result in an error.
 
 ###  C# 
 
@@ -2058,6 +2060,12 @@ modalities | Enum | Empty | Determines whether to scan text, images, or both. Le
   * `MODALITY_IMAGE`: Scans [standalone images and images embedded in supported file formats](https://docs.cloud.google.com/model-armor/screen-images).
 
   
+[filter_version_selector](https://docs.cloud.google.com/model-armor/set-filter-version) | Object | `FILTER_VERSION_ALIAS_STABLE` |  Specifies the filter version or alias for the template. In REST requests, use `filterVersionSelector` and specify one of the following mutually exclusive fields:
+
+  * `version`: Pins the template to a specific filter version number, such as `v3` or `v4`.
+  * `alias`: Uses a filter version alias, such as `FILTER_VERSION_ALIAS_STABLE` or `FILTER_VERSION_ALIAS_LATEST`.
+
+  
 [data_residency_compliant](https://docs.cloud.google.com/model-armor/data-residency) | Boolean | True |  Indicates whether the template is subject to strict data residency compliance (in-jurisdiction processing).
 
   * `True`: Disables features that aren't locally supported within the jurisdiction of your template's region to prevent data from leaving the local jurisdiction.
@@ -2079,6 +2087,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

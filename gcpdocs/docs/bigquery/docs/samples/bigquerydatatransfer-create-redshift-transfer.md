@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-create-redshift-transfer/
 title: Load data from Amazon Redshift \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:25:13.059970+00:00
+fetched_at: 2026-11-11T08:29:21.988228+00:00
 ---
 
 # Load data from Amazon Redshift  |  BigQuery  |  Google Cloud Documentation

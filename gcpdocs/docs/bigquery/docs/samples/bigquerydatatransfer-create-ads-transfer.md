@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-create-ads-transfer/
 title: Load data from Google Ads \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:22.546844+00:00
+fetched_at: 2026-11-11T09:16:04.325851+00:00
 ---
 
 # Load data from Google Ads  |  BigQuery  |  Google Cloud Documentation

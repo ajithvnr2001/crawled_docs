@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/regional-deployment-compute-engine/
 title: Regional deployment on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:15.613937+00:00
+fetched_at: 2026-11-11T10:14:17.723309+00:00
 ---
 
 # Regional deployment on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

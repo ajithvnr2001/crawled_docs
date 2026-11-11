@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform/pa-user/set-dbs-backup-repo/
 title: Set up backup repository for database services \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:58.820479+00:00
+fetched_at: 2026-11-11T09:46:19.269796+00:00
 ---
 
 # Set up backup repository for database services  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

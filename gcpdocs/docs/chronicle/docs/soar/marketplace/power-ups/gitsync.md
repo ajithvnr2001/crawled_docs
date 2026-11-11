@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync/
 title: GitSync \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:07:48.556366+00:00
+fetched_at: 2026-11-11T08:20:49.034110+00:00
 ---
 
 # GitSync  |  Google Security Operations  |  Google Cloud Documentation
@@ -69,6 +69,10 @@ To go directly to the guidance matching your current objective, select your work
 
 
 ## Before you begin
+
+**Known issue in GitSync version 53.0 (use version 54.0 or 52.0):** GitSync version 53.0 contains known synchronization issues. Make sure your GitSync integration is running on **version 54.0** or **version 52.0** (version 54.0 restores the stable version 52.0 codebase). 
+
+For rollback and branch compatibility details, see Version 53.0 rollback.
 
 Before configuring and executing GitSync operations, verify your integration version, obtain repository access, and complete the following setup tasks:
 
@@ -205,6 +209,10 @@ Parameter | Description
   
 ## Actions
 
+**Known issue in GitSync version 53.0 (use version 54.0 or 52.0):** GitSync version 53.0 contains known synchronization issues. Make sure your GitSync integration is running on **version 54.0** or **version 52.0** (version 54.0 restores the stable version 52.0 codebase). 
+
+For rollback and branch compatibility details, see Version 53.0 rollback.
+
 For more information about actions, see [ Respond to pending actions from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Run a manual action in your case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case#run-manual-action). 
 
 ### Ping
@@ -247,6 +255,10 @@ Script result name | Value
 `is_success` | `true` or `false`  
   
 ## Jobs
+
+**Known issue in GitSync version 53.0 (use version 54.0 or 52.0):** GitSync version 53.0 contains known synchronization issues. Make sure your GitSync integration is running on **version 54.0** or **version 52.0** (version 54.0 restores the stable version 52.0 codebase). 
+
+For rollback and branch compatibility details, see Version 53.0 rollback.
 
 GitSync provides 16 synchronization job configurations (2 full instance jobs and 7 standalone job pairs) to manage platform assets. These jobs support the full instance-level and targeted standalone synchronization scopes.
 
@@ -726,6 +738,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

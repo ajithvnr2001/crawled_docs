@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/migrate-model/
 title: Migrate to a new model \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:31:13.956643+00:00
+fetched_at: 2026-11-11T08:39:28.188418+00:00
 ---
 
 # Migrate to a new model  |  CX Agent Studio  |  Google Cloud Documentation

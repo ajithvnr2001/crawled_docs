@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/release-notes/
 title: Google Distributed Cloud connected, version 1.12.0 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:50:24.311453+00:00
+fetched_at: 2026-11-11T09:32:28.115535+00:00
 ---
 
 # Google Distributed Cloud connected, version 1.12.0 release notes  |  Google Cloud Documentation
@@ -1131,6 +1131,50 @@ Announcement
 
 This is a patch release of Google Distributed Cloud Edge (version 1.2.2).
 
+## November 07, 2022
+
+Fixed
+
+The following issues have been resolved in this release of Google Distributed Cloud Edge:
+
+  * Google Distributed Cloud Edge nodes no longer become temporarily unresponsive due to excessive memory utilization.
+
+
+
+Announcement
+
+This is a minor release of Google Distributed Cloud Edge (version 1.2.0).
+
+Change
+
+The following changes have been introduced in this release of Google Distributed Cloud Edge:
+
+  * Google Distributed Cloud Edge now ships with the NVIDIA Tesla T4 GPU driver version 470.63.01.
+  * The Network Function operator feature of Google Distributed Cloud Edge has been updated as follows. To learn more, see [Network Function operator](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/network-function). 
+    * The `NodeSystemConfigUpdate` resource now supports additional `sysctls` fields.
+    * The `NodeSystemConfigUpdate` resource now supports fields for specifying the IP address lists and domain lists of private image registries.
+    * The `CustomNetworkInterfaceConfig` resource no longer supports certain previously supported fields.
+    * You can now scope both safe and unsafe `sysctls` parameters to a specific Pod or namespace using the [`tuning` Container Networking Interface (CNI) plug-in](https://www.cni.dev/plugins/current/meta/tuning/).
+    * Webhook-level enforcement of valid field values is now in effect.
+  * The Kubernetes control plane has been updated to version 1.23.5-gke.1505.
+  * The `coredns` service has been updated to version 1.8.6-gke.0.
+
+
+
+Feature
+
+The following new features have been introduced in this release of Google Distributed Cloud Edge:
+
+  * **Anthos VM Runtime replaces Kubevirt in Google Distributed Cloud Edge starting with this release.** To continue using your existing virtual machines, you must shut them down and back them up before your Distributed Cloud Edge deployment is upgraded to release 1.2.0, and then re-create them as described in [Manage virtual machines](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/virtual-machines).
+  * A new Google Distributed Cloud Edge hardware configuration is available. This new configuration supports GPU-based workloads that run on NVIDIA Tesla T4 GPUs in both containers and virtual machines. To order a GPU-enabled configuration, see [Order Google Distributed Cloud Edge](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/order). To learn more about running workloads on GPUs, see [Manage GPU workloads](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/gpu).
+  * Google Distributed Cloud Edge now supports the following networking features: 
+    * (Preview) Cross-project VPN Connections. To learn more, see [Manage cross-project VPN Connections](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/vpn-connections#manage_cross-project_vpn_connections).
+    * (Preview) MacVLAN driver support for creating secondary network interfaces for Pods running containerized workloads. The MacVLAN driver is not supported on Pods running virtual machines. To learn more, see [Configure a secondary network interface on a Pod using the MacVLAN driver](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/network-function#configure_a_secondary_interface_on_a_pod_using_the_macvlan_driver). 
+    * (Preview) Multi-network support for creating secondary network interfaces for Pods. To learn more, see [Configure a secondary network interface on a Pod using Distributed Cloud Edge multi-networking](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/network-function#configure_a_secondary_interface_on_a_pod_using_multi-networking).
+    * (Preview) `ClusterDNS` resource. To learn more, see [ClusterDNS resource](https://docs.cloud.google.com/distributed-cloud/connected/1.12.0/docs/networking#clusterdns_resource).
+
+
+
 ## September 23, 2022
 
 Announcement
@@ -1258,6 +1302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

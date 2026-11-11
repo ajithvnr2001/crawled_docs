@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-ip-addressing/
 title: Understand IP addressing in GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:19.755377+00:00
+fetched_at: 2026-11-11T09:17:47.003700+00:00
 ---
 
 # Understand IP addressing in GKE  |  GKE networking  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ GKE builds upon the Kubernetes networking model, which requires that each compon
 
   * **Pods** : following the Kubernetes "IP-per-Pod" model, GKE assigns each Pod a unique IP address from a Pod CIDR range allocated to the node. In GKE, the VPC network natively routes Pod IP addresses. This built-in routability enables direct communication between Pods—even across different nodes—without requiring Network Address Translation (NAT). All containers within a single Pod share the same IP address and can communicate over `localhost`.
 
-  * **Services (`ClusterIP`)**: GKE assigns each `ClusterIP`, `NodePort`, and `LoadBalancer` Service a stable, internal virtual IP address (the `ClusterIP`). For IPv4 Services, GKE allocates this address from a dedicated secondary IP address range (or from the `34.118.224.0/20` range). For IPv6 Services (in dual-stack and single-stack IPv6 clusters), GKE doesn't use a secondary IP address range; instead, GKE assigns addresses from the Google-owned private `2600:2D00:0:4::0:0/64` IPv6 address range. This `ClusterIP` provides a single, reliable internal endpoint for a group of Pods. When you send traffic to the `ClusterIP`, GKE automatically load balances it to a healthy Pod within that Service.
+  * **Services (`ClusterIP`)**: GKE assigns each `ClusterIP`, `NodePort`, and `LoadBalancer` Service a stable, internal virtual IP address (the `ClusterIP`). For IPv4 Services, GKE allocates this address from a dedicated secondary IP address range (or from the `34.118.224.0/20` range). For IPv6 Services (in dual-stack and single-stack IPv6 clusters), GKE doesn't use a secondary IP address range; instead, GKE allocates each cluster a `/112` range from the Google-owned private `2600:2D00:0:4::0:0/64` IPv6 address range. This `ClusterIP` provides a single, reliable internal endpoint for a group of Pods. When you send traffic to the `ClusterIP`, GKE automatically load balances it to a healthy Pod within that Service.
 
   * **Control plane** : in private clusters, the control plane resides within a Google-managed tenant project and uses its own internal IP address range. This tenant project connects to your VPC network, enabling secure communication between the control plane and the nodes in your cluster's VPC network. This connection typically uses Private Service Connect.
 
@@ -58,7 +58,7 @@ Component | How IP addresses are assigned
 ---|---  
 **Node** | GKE assigns an internal IP address to each node. GKE allocates this IP address from the primary IP address range of the subnet associated with the node's node pool. This subnet can be either the cluster's default subnet or an additional subnet.  
 **Pod** | GKE assigns each Pod a unique IP address from the Pod CIDR range allocated to its node.  
-**Service (ClusterIP)** | GKE assigns each Service a stable virtual IP address (`ClusterIP`). For IPv4 Services, GKE allocates this address from a dedicated secondary IP address range within the cluster's VPC network (or from `34.118.224.0/20`). For IPv6 Services, GKE doesn't use a secondary IP address range. Instead, GKE assigns addresses from the `2600:2D00:0:4::0:0/64` range.  
+**Service (ClusterIP)** | GKE assigns each Service a stable virtual IP address (`ClusterIP`). For IPv4 Services, GKE allocates this address from a dedicated secondary IP address range within the cluster's VPC network (or from `34.118.224.0/20`). For IPv6 Services, GKE doesn't use a secondary IP address range. Instead, GKE allocates each cluster a `/112` range from the `2600:2D00:0:4::0:0/64` range.  
 **Control plane** | In private clusters, the GKE control plane has its own internal IP address range within a Google-managed tenant project. This tenant project connects to your VPC network, typically by using Private Service Connect.  
 **Load balancer** | External load balancers use public IP addresses. Internal load balancers use internal IP addresses from the primary IP address range of the cluster's subnet.  
   
@@ -125,7 +125,7 @@ You can enable dual-stack networking when you create a cluster, or you can updat
 
 #### Single-stack IPv6 (Preview)
 
-A single-stack IPv6 cluster assigns only IPv6 addresses across the entire cluster data plane (Pods, nodes, and Services). This model bypasses private IPv4 address depletion bottlenecks (RFC 1918) while maintaining secure internal or external ingress and egress connectivity. Unlike IPv4 and dual-stack clusters that use alias IP address ranges, single-stack IPv6 clusters allocate a `/96` subrange of IPv6 addresses per node directly from your subnetwork (`/64`), and assign a `/112` address range to Pods on each node. Services (`ClusterIP`) receive addresses from a Google-owned private IPv6 address range (`2600:2D00:0:4::0:0/64`). Single-stack IPv6 clusters also support BYOIP IPv6 address ranges configured by using the BYOIPv6 EAP process.
+A single-stack IPv6 cluster assigns only IPv6 addresses across the entire cluster data plane (Pods, nodes, and Services). This model bypasses private IPv4 address depletion bottlenecks (RFC 1918) while maintaining secure internal or external ingress and egress connectivity. Unlike IPv4 and dual-stack clusters that use alias IP address ranges, single-stack IPv6 clusters allocate a `/96` subrange of IPv6 addresses per node directly from your subnetwork (`/64`), and assign a `/112` address range to Pods on each node. Services (`ClusterIP`) receive addresses from a `/112` range allocated from a Google-owned private IPv6 address range (`2600:2D00:0:4::0:0/64`). Single-stack IPv6 clusters also support [bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip).
 
 To learn more about single-stack IPv6 address allocation and behavior, see [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
 
@@ -143,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

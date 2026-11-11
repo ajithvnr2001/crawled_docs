@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/ip-allowlists-and-regions/
 title: IP allowlists and regions \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:54.968493+00:00
+fetched_at: 2026-11-11T09:34:49.217520+00:00
 ---
 
 # IP allowlists and regions  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

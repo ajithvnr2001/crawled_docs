@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/configure-source-database-one-time/
 title: Configure your source Oracle database for a one-time migration \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:55.905352+00:00
+fetched_at: 2026-11-11T09:35:29.758542+00:00
 ---
 
 # Configure your source Oracle database for a one-time migration  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

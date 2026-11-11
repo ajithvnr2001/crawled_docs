@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.13.0/docs/how-it-works/
 title: How Distributed Cloud connected works \u00a0|\u00a0 Google Distributed Cloud connected \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:58.372072+00:00
+fetched_at: 2026-11-11T08:47:59.489382+00:00
 ---
 
 # How Distributed Cloud connected works  |  Google Distributed Cloud connected  |  Google Cloud Documentation

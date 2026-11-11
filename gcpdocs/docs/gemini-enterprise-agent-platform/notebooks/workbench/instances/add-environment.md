@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/add-environment/
 title: Add a conda environment to a Agent Platform Workbench instance \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:58.876159+00:00
+fetched_at: 2026-11-11T08:51:17.269851+00:00
 ---
 
 # Add a conda environment to a Agent Platform Workbench instance  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

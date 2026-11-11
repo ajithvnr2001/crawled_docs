@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-deepseek-r1-671b-a4-gke-multi-host-vllm/
 title: Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:42:55.428876+00:00
+fetched_at: 2026-11-11T09:49:29.920717+00:00
 ---
 
 # Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -104,13 +104,13 @@ Set up your authentication and environment variables for the tutorial:
 
   2. Export the environment variables that you use throughout this tutorial:
          
-         export PROJECT_ID="YOUR_PROJECT_ID" # Your Google Cloud project ID
+         export PROJECT_ID="YOUR_PROJECT_ID"
          export REGION="YOUR_REGION" # for example, us-central1
          export ZONE="YOUR_ZONE" # for example, us-central1-b
-         export CLUSTER_NAME="YOUR_CLUSTER_NAME" # <= 20 chars; start with a-z; only a-z, 0-9, -
+         export CLUSTER_NAME="YOUR_CLUSTER_NAME" # maximum 20 chars; start with a-z; only a-z, 0-9, -
          export RESERVATION_NAME="YOUR_RESERVATION_NAME" # A4 reservation name or RESERVATION_NAME/reservationBlocks/BLOCK_NAME
-         export HF_TOKEN="YOUR_HF_TOKEN" # Hugging Face access token
-         export MODEL_BUCKET="YOUR_GCS_BUCKET" # Globally unique Cloud Storage bucket name
+         export HF_TOKEN="YOUR_HF_TOKEN"
+         export MODEL_BUCKET="YOUR_GCS_BUCKET"
          export TERRAFORM_BUCKET="${MODEL_BUCKET}-tf-state"
          export CLUSTER_TOOLKIT_VERSION="v1.104.0"
          
@@ -832,6 +832,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

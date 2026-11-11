@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-stateful-instance-group-manager-disk-policy/
 title: Create a MIG with stateful disks that are deleted when its VM gets permanently deleted \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:50:23.325451+00:00
+fetched_at: 2026-11-11T09:20:35.575261+00:00
 ---
 
 # Create a MIG with stateful disks that are deleted when its VM gets permanently deleted  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/troubleshooting/
 title: Troubleshooting Gemini Live API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:52.143693+00:00
+fetched_at: 2026-11-11T08:51:56.738236+00:00
 ---
 
 # Troubleshooting Gemini Live API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

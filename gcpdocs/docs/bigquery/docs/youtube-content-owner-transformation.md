@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/youtube-content-owner-transformation/
 title: YouTube Content Owner report transformation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:37.734865+00:00
+fetched_at: 2026-11-11T09:59:10.501204+00:00
 ---
 
 # YouTube Content Owner report transformation  |  BigQuery  |  Google Cloud Documentation

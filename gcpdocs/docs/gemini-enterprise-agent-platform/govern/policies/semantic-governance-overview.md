@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview/
 title: Semantic governance policies overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:49.190429+00:00
+fetched_at: 2026-11-11T08:51:44.725856+00:00
 ---
 
 # Semantic governance policies overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -131,6 +131,8 @@ Verification and enforcement rely on the **Agent Gateway** , which acts as a run
   4. **Enforcement:** The verdict is added to the model response, removing the proposed tool call, before returning to the agent through the Agent Gateway.
 
 
+
+In a multi-project (hub-and-spoke) architecture, you can provision a single Agent Gateway and Semantic governance policy engine in a central [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) to govern agents deployed across multiple member projects in a management boundary. For setup instructions, see [Govern agents across multiple projects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#cross-project-governance).
 
 ### Supported model providers
 

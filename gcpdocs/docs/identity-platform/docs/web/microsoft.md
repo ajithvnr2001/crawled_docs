@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/microsoft/
 title: Signing in users with Microsoft \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:28.874946+00:00
+fetched_at: 2026-11-11T08:33:58.062509+00:00
 ---
 
 # Signing in users with Microsoft  |  Identity Platform  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ This endpoint supports both personal Microsoft accounts and Azure AD accounts. S
          
          var provider = new firebase.auth.OAuthProvider('microsoft.com');
          
-         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/microsoft-oauth.js#L11-L11)
+         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/microsoft-oauth.js#L11-L11)
 
   2. **Optional:** Add OAuth scopes. Scopes specify what data you are requesting from Microsoft. More sensitive data may require specific scopes. Consult Microsoft's [documentation](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) to determine what scopes your app needs.
 
@@ -127,7 +127,7 @@ To show a pop-up, call `signInWithPopup()`:
              // Handle error.
            });
          
-         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/microsoft-oauth.js#L41-L55)
+         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/microsoft-oauth.js#L41-L55)
 
 To redirect the page, first call `signInWithRedirect()`:
 
@@ -137,7 +137,7 @@ Follow the [best practices](https://docs.cloud.google.com/identity-platform/docs
          
          firebase.auth().signInWithRedirect(provider);
          
-         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/microsoft-oauth.js#L61-L61)
+         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/microsoft-oauth.js#L61-L61)
 
 Then, retrieve the Microsoft token by calling `getRedirectResult()` when your page loads:
 
@@ -159,7 +159,7 @@ Then, retrieve the Microsoft token by calling `getRedirectResult()` when your pa
              // Handle error.
            });
          
-         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/microsoft-oauth.js#L67-L81)
+         [microsoft-oauth.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/microsoft-oauth.js#L67-L81)
 
 
 

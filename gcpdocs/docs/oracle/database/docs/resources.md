@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/resources/
 title: Resources \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:08.624052+00:00
+fetched_at: 2026-11-11T10:28:22.941999+00:00
 ---
 
 # Resources  |  Oracle Database at Google Cloud  |  Google Cloud Documentation

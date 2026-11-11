@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/mysql-dump/
 title: Exporting a MySQL database using mysqldump \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:55.123360+00:00
+fetched_at: 2026-11-11T09:34:00.405028+00:00
 ---
 
 # Exporting a MySQL database using mysqldump  |  Database Migration Service for MySQL  |  Google Cloud Documentation

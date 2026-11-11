@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/mysql/deploying-highly-available-mysql-cluster-with-drbd-on-compute-engine/
 title: Deploying a highly available MySQL 5.6 cluster with DRBD on Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:02:06.790798+00:00
+fetched_at: 2026-11-11T09:14:35.020415+00:00
 ---
 
 # Deploying a highly available MySQL 5.6 cluster with DRBD on Compute Engine  |  Google Cloud Documentation

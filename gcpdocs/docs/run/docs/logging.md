@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/logging/
 title: Logging and viewing logs in Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:03:01.442361+00:00
+fetched_at: 2026-11-11T09:08:32.286061+00:00
 ---
 
 # Logging and viewing logs in Cloud Run  |  Google Cloud Documentation
@@ -21,15 +21,9 @@ Send feedback
 
 #  Logging and viewing logs in Cloud Run Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the logs available when using Cloud Run, and how to view and write logs.
+Cloud Run sends workload logs to [Cloud Logging](https://docs.cloud.google.com/logging/docs) so you can monitor health, inspect traffic, and troubleshoot application errors. Viewing and writing structured logs helps you diagnose runtime issues across your Cloud Run resources.
 
-Cloud Run has several types of logs, and these are automatically sent to [Cloud Logging](https://docs.cloud.google.com/logging/docs):
-
-  * Request logs (services only): logs of requests sent to Cloud Run services. These logs are created automatically.
-  * Container logs (all resources): logs emitted from the instances, typically from your own code, written to supported locations as described in Writing container logs.
-  * System logs (all resource): platform-generated logs containing information about your workloads. These logs are written to `varlog/system`.
-
-
+Cloud Run collects three types of logs. Request logs record incoming requests for services. Container logs capture output from your code across all resources when written to supported locations described in Writing container logs. System logs record platform events for all resources in `varlog/system`.
 
 ## View logs
 
@@ -551,6 +545,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

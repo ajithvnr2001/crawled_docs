@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/querydata/
 title: Query database in natural language with QueryData \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:40.025272+00:00
+fetched_at: 2026-11-11T09:48:34.410078+00:00
 ---
 
 # Query database in natural language with QueryData  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

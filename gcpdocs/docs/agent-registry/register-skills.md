@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-skills/
 title: Register skills \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:16.683064+00:00
+fetched_at: 2026-11-11T09:08:05.539700+00:00
 ---
 
 # Register skills  |  Agent Registry  |  Google Cloud Documentation

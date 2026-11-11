@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster/
 title: Create a self-managed Slurm cluster for AI workloads \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:18.456046+00:00
+fetched_at: 2026-11-11T10:35:52.354811+00:00
 ---
 
 # Create a self-managed Slurm cluster for AI workloads  |  AI Hypercomputer  |  Google Cloud Documentation

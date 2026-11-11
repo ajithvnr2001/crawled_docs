@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/fault-injection-testing/audit-logging/
 title: Fault Injection Testing audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:45:56.809852+00:00
+fetched_at: 2026-11-11T08:56:09.341989+00:00
 ---
 
 # Fault Injection Testing audit logging  |  Google Cloud Documentation

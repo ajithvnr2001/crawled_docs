@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/cuds-recommender/
 title: Get recommendations for committed use discounts (CUDs) \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:17.038786+00:00
+fetched_at: 2026-11-11T09:46:30.446881+00:00
 ---
 
 # Get recommendations for committed use discounts (CUDs)  |  Get started  |  Google Cloud Documentation

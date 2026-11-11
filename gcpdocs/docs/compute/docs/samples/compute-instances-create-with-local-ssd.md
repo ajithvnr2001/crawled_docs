@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-create-with-local-ssd/
 title: Create a VM with a local SSD \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:47.225236+00:00
+fetched_at: 2026-11-11T09:20:56.607185+00:00
 ---
 
 # Create a VM with a local SSD  |  Compute Engine  |  Google Cloud Documentation

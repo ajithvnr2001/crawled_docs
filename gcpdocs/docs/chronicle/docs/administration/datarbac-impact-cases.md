@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact-cases/
 title: Control access to 1P cases and alerts \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:30.875342+00:00
+fetched_at: 2026-11-11T09:28:40.078074+00:00
 ---
 
 # Control access to 1P cases and alerts  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-glossary/
 title: Create and use a glossary \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:09.088868+00:00
+fetched_at: 2026-11-11T11:43:46.975629+00:00
 ---
 
 # Create and use a glossary  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

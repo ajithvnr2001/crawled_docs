@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/text-to-pubsub-stream/
 title: Text Files on Cloud Storage to Pub/Sub (Stream) template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:21.442670+00:00
+fetched_at: 2026-11-11T09:07:36.591655+00:00
 ---
 
 # Text Files on Cloud Storage to Pub/Sub (Stream) template  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-RestartInstance-sync-flattened/
 title: Restart an instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:53.769778+00:00
+fetched_at: 2026-11-11T10:38:04.484658+00:00
 ---
 
 # Restart an instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

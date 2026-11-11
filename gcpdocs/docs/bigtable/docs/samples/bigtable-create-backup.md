@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-backup/
 title: Create a backup \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:28.429483+00:00
+fetched_at: 2026-11-11T09:29:07.254150+00:00
 ---
 
 # Create a backup  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/api-sql-translator/
 title: Translate SQL queries with the translation API \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:17.133058+00:00
+fetched_at: 2026-11-11T09:10:03.066707+00:00
 ---
 
 # Translate SQL queries with the translation API  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bulk-decompress-cloud-storage/
 title: Bulk Decompress Cloud Storage Files template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:57.551064+00:00
+fetched_at: 2026-11-11T09:28:02.236777+00:00
 ---
 
 # Bulk Decompress Cloud Storage Files template  |  Cloud Dataflow  |  Google Cloud Documentation

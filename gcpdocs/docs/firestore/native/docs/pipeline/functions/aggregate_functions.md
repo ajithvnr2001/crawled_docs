@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/aggregate_functions/
 title: Aggregate Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:43.796011+00:00
+fetched_at: 2026-11-11T08:56:31.839733+00:00
 ---
 
 # Aggregate Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ Returns the count of documents from the previous stage where `expression` evalua
       .aggregate(field("ratings").count().as("count"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1286-L1296)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1286-L1296)
 
 ### Web
     
@@ -84,7 +84,7 @@ Returns the count of documents from the previous stage where `expression` evalua
       .aggregate(field("ratings").count().as("count"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2564-L2574)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2564-L2574)
 
 ##### Swift
     
@@ -223,7 +223,7 @@ Returns the number of documents from the previous stage where `expression` evalu
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1304-L1309)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1304-L1309)
 
 ### Web
     
@@ -235,7 +235,7 @@ Returns the number of documents from the previous stage where `expression` evalu
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2582-L2587)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2582-L2587)
 
 ##### Swift
     
@@ -339,7 +339,7 @@ Returns the number of unique non-`NULL`, non-`ABSENT` values of `expression`.
       .aggregate(field("author").countDistinct().as("unique_authors"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1316-L1319)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1316-L1319)
 
 ### Web
     
@@ -349,7 +349,7 @@ Returns the number of unique non-`NULL`, non-`ABSENT` values of `expression`.
       .aggregate(field("author").countDistinct().as("unique_authors"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2594-L2597)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2594-L2597)
 
 ##### Swift
     
@@ -453,7 +453,7 @@ The output will have the same type as the widest input type except in these case
       .aggregate(field("population").sum().as("totalPopulation"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1326-L1329)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1326-L1329)
 
 ### Web
     
@@ -463,7 +463,7 @@ The output will have the same type as the widest input type except in these case
       .aggregate(field("population").sum().as("totalPopulation"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2604-L2607)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2604-L2607)
 
 ##### Swift
     
@@ -562,7 +562,7 @@ The output will have the same type as the input type except in these cases:
       .aggregate(field("population").average().as("averagePopulation"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1336-L1339)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1336-L1339)
 
 ### Web
     
@@ -572,7 +572,7 @@ The output will have the same type as the input type except in these cases:
       .aggregate(field("population").average().as("averagePopulation"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2614-L2617)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2614-L2617)
 
 ##### Swift
     
@@ -669,7 +669,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1346-L1349)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1346-L1349)
 
 ### Web
     
@@ -679,7 +679,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2624-L2627)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2624-L2627)
 
 ##### Swift
     
@@ -776,7 +776,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1356-L1359)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1356-L1359)
 
 ### Web
     
@@ -786,7 +786,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2634-L2637)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2634-L2637)
 
 ##### Swift
     
@@ -925,6 +925,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/create-connection-profiles/
 title: Create a source connection profile \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:00.094039+00:00
+fetched_at: 2026-11-11T09:33:46.388598+00:00
 ---
 
 # Create a source connection profile  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

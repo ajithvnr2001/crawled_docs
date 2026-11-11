@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/resources/
 title: Resources \u00a0|\u00a0 Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:41.895173+00:00
+fetched_at: 2026-11-11T08:24:17.313012+00:00
 ---
 
 # Resources  |  Certificate Manager  |  Google Cloud Documentation

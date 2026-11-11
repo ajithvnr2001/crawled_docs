@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/domains/docs/buy-register-domain/
 title: Quickstart: Register a domain with Cloud Domains \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:00.605207+00:00
+fetched_at: 2026-11-11T09:27:42.637357+00:00
 ---
 
 # Quickstart: Register a domain with Cloud Domains  |  Google Cloud Documentation

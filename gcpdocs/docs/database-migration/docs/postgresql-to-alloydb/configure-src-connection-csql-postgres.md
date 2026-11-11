@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/configure-src-connection-csql-postgres/
 title: Configure network connectivity for Cloud SQL for PostgreSQL sources \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:56.714397+00:00
+fetched_at: 2026-11-11T09:33:46.944574+00:00
 ---
 
 # Configure network connectivity for Cloud SQL for PostgreSQL sources  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

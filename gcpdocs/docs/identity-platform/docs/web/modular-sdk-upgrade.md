@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/modular-sdk-upgrade/
 title: Upgrade to the modular Web SDK (v9) \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:27.054194+00:00
+fetched_at: 2026-11-11T08:33:57.482485+00:00
 ---
 
 # Upgrade to the modular Web SDK (v9)  |  Identity Platform  |  Google Cloud Documentation

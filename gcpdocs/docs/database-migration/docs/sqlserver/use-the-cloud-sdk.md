@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/use-the-cloud-sdk/
 title: Use the gcloud CLI \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:55.172060+00:00
+fetched_at: 2026-11-11T08:25:33.047210+00:00
 ---
 
 # Use the gcloud CLI  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

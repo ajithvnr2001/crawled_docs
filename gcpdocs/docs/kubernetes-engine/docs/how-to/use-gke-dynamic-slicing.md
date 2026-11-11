@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/use-gke-dynamic-slicing/
 title: Schedule dynamic slices with Kueue and TAS \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:49.017625+00:00
+fetched_at: 2026-11-11T12:59:44.567557+00:00
 ---
 
 # Schedule dynamic slices with Kueue and TAS  |  GKE AI/ML  |  Google Cloud Documentation
@@ -55,7 +55,8 @@ Before you start, make sure that you have performed the following tasks:
 
   * Ensure that you have an existing Standard cluster in version 1.35.2-gke.1842000 or later, in the Rapid channel. To create a new cluster, see [Creating a regional cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/creating-a-regional-cluster).
   * Ensure you have sufficient quota for Ironwood (TPU7x) in your region.
-  * If you plan to run multislice workloads, [install JobSet](https://jobset.sigs.k8s.io/docs/installation/) v0.10.1 or later
+  * If you plan to run multislice workloads, [install JobSet](https://jobset.sigs.k8s.io/docs/installation/) v0.10.1 or later.
+  * If you plan to run Ray workloads, [enable the Ray Operator add-on](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/ray-on-gke/how-to/enable-ray-on-gke) on GKE version 1.37 or later. Alternatively, if you manage your own open-source KubeRay installation instead of using the add-on, install KubeRay v1.6.2 or later and the [Ray TPU webhook](https://github.com/ai-on-gke/kuberay-tpu-webhook) v1.4.2 or later.
   * [Request TPU capacity in All Capacity mode](https://docs.cloud.google.com/tpu/docs/request-all-capacity-mode-reservation#confirm_your_capacity_reservation_draft).
 
 
@@ -66,7 +67,7 @@ This section describes the workflow for using dynamic slicing in GKE.
 
   1. [View the topology and health status of All Capacity mode reservations](https://docs.cloud.google.com/tpu/docs/view-all-capacity-topology-tpus).
   2. Enable the slice controller in your cluster.
-  3. Install Kueue, JobSet, and LWS.
+  3. Install Kueue, JobSet, LWS, and KubeRay.
   4. Create TPU node pools.
   5. Configure Kueue to create a Slice custom resource.
   6. Run workloads on dynamic slicing with Kueue.
@@ -109,9 +110,9 @@ The output is similar to the following:
 
 
 
-## Install Kueue, JobSet, and LWS
+## Install Kueue, JobSet, LWS, and KubeRay
 
-If you have already installed Kueue, JobSet, and LWS, you can skip this section.
+If you have already installed Kueue, JobSet, LWS, or KubeRay, you can skip this section.
 
 ### Install Kueue
 
@@ -121,7 +122,7 @@ Follow instructions from the [Kueue documentation](https://kueue.sigs.k8s.io/doc
     kubectl apply --server-side -f https://github.com/kubernetes-sigs/kueue/releases/download/KUEUE_VERSION/manifests.yaml
     
 
-Replace `KUEUE_VERSION` with the required Kueue version based on your topology requirements. For dynamic sub-slicing, use Kueue v0.18.2 or later. For dynamic super-slicing, use Kueue v0.16.6 or later.
+Replace `KUEUE_VERSION` with the required Kueue version based on your workload and topology requirements. For dynamic sub-slicing, use Kueue v0.18.2 or later. For dynamic super-slicing, use Kueue v0.16.6 or later. If you plan to run Ray workloads, use Kueue v0.20.1 or later, or v0.19.8 or later in the v0.19 release series.
 
 ### Install JobSet
 
@@ -144,6 +145,25 @@ Follow instructions from the [LWS documentation](https://lws.sigs.k8s.io/docs/in
     
 
 Replace `LWS_VERSION` with the required LWS version. Use LWS v0.8.0 or later.
+
+### Install KubeRay
+
+If you plan to run Ray workloads, enable the Ray Operator on your cluster. The Ray Operator requires GKE version 1.37 or later:
+    
+    
+    gcloud container clusters update CLUSTER_NAME \
+        --location=LOCATION \
+        --update-addons=RayOperator=ENABLED
+    
+
+Replace the following:
+
+  * `CLUSTER_NAME`: the name of your cluster.
+  * `LOCATION`: the Compute Engine region or zone of your cluster.
+
+
+
+The Ray Operator add-on automatically includes the Ray TPU webhook. If you manage your own open-source KubeRay installation instead of using the add-on, install KubeRay v1.6.2 or later by following the [KubeRay documentation](https://docs.ray.io/en/latest/cluster/kubernetes/). Then, configure TPU worker environment variables and admission by installing the [Ray TPU webhook](https://github.com/ai-on-gke/kuberay-tpu-webhook#install-the-kuberay-tpu-webhook) v1.4.2 or later.
 
 ## Create node pools with incremental provisioning
 
@@ -868,7 +888,7 @@ In this section, you schedule GKE workloads with Kueue and TAS.
          # See the License for the specific language governing permissions and
          # limitations under the License.
          
-         apiVersion: kueue.x-k8s.io/v1beta1
+         apiVersion: kueue.x-k8s.io/v1beta2
          kind: Topology
          metadata:
            name: superslice-topology
@@ -879,11 +899,16 @@ In this section, you schedule GKE workloads with Kueue and TAS.
            - nodeLabel: cloud.google.com/gce-topology-block
            # Label to identify individual TPU sub-blocks (4x4x4 topology).
            - nodeLabel: cloud.google.com/gke-tpu-partition-4x4x4-id
+           # Labels to identify dynamic sub-slice partitions (GKE 1.36.0-gke.3712000+).
+           - nodeLabel: cloud.google.com/gke-tpu-partition-2x4x4-id
+           - nodeLabel: cloud.google.com/gke-tpu-partition-2x2x4-id
+           - nodeLabel: cloud.google.com/gke-tpu-partition-2x2x2-id
+           - nodeLabel: cloud.google.com/gke-tpu-partition-2x2x1-id
            # Standard Kubernetes label for individual nodes.
            # Required to assign Pods to specific VMs.
            - nodeLabel: kubernetes.io/hostname
          ---
-         apiVersion: kueue.x-k8s.io/v1beta1
+         apiVersion: kueue.x-k8s.io/v1beta2
          kind: ResourceFlavor
          metadata:
            name: superslice-rf
@@ -892,21 +917,30 @@ In this section, you schedule GKE workloads with Kueue and TAS.
              cloud.google.com/gke-tpu-accelerator: tpu7x
            topologyName: superslice-topology
          ---
-         apiVersion: kueue.x-k8s.io/v1beta1
+         apiVersion: kueue.x-k8s.io/v1beta2
+         kind: ResourceFlavor
+         metadata:
+           name: default-flavor
+         spec: {}
+         ---
+         apiVersion: kueue.x-k8s.io/v1beta2
          kind: AdmissionCheck
          metadata:
            name: superslice-ac
          spec:
            controllerName: accelerator.gke.io/slice
          ---
-         apiVersion: kueue.x-k8s.io/v1beta1
+         apiVersion: kueue.x-k8s.io/v1beta2
          kind: ClusterQueue
          metadata:
            name: cq
          spec:
            namespaceSelector: {}
-           admissionChecks:
-           - superslice-ac
+           admissionChecksStrategy:
+             admissionChecks:
+             - name: superslice-ac
+           preemption:
+             withinClusterQueue: LowerPriority
            resourceGroups:
            - coveredResources:
              - google.com/tpu
@@ -915,8 +949,18 @@ In this section, you schedule GKE workloads with Kueue and TAS.
                resources:
                - name: google.com/tpu
                  nominalQuota: "999999"  # modeling unlimited quota
+           - coveredResources:
+             - cpu
+             - memory
+             flavors:
+             - name: default-flavor
+               resources:
+               - name: cpu
+                 nominalQuota: "999999"
+               - name: memory
+                 nominalQuota: "999999Gi"
          ---
-         apiVersion: kueue.x-k8s.io/v1beta1
+         apiVersion: kueue.x-k8s.io/v1beta2
          kind: LocalQueue
          metadata:
            name: lq
@@ -935,10 +979,11 @@ In this manifest, you configure Kueue for dynamic slicing by defining the follow
      * **Ironwood (TPU7x) dynamic slice topology (`superslice-topology`)**: the topology defines the levels Kueue considers when it schedules dynamic slicing workloads. These levels are the following: 
        * `cloud.google.com/gce-topology-block` label: this level is required to understand which sub-blocks belong to which blocks, because only sub-blocks from the same block can form a slice.
        * `cloud.google.com/gke-tpu-partition-4x4x4-id` label: this level represents individual Ironwood (TPU7x) sub-blocks (`4x4x4` topology).
+       * `cloud.google.com/gke-tpu-partition-2x4x4-id`, `cloud.google.com/gke-tpu-partition-2x2x4-id`, `cloud.google.com/gke-tpu-partition-2x2x2-id`, and `cloud.google.com/gke-tpu-partition-2x2x1-id` labels: these levels represent dynamic sub-slice partitions within a sub-block and require GKE version 1.36.0-gke.3712000 or later.
        * `kubernetes.io/hostname` label: this level is required to assign Pods to specific VMs and to observe their labels and taints.
-     * **Ironwood (TPU7x) SuperSlice ResourceFlavor (`superslice-rf`)**: the resource flavor for Ironwood (TPU7x) sub-blocks includes the `cloud.google.com/gke-tpu-accelerator: tpu7x` label to match nodes with Ironwood (TPU7x) machines.
+     * **Ironwood (TPU7x) SuperSlice ResourceFlavor (`superslice-rf`) and default ResourceFlavor (`default-flavor`)**: the `superslice-rf` resource flavor includes the `cloud.google.com/gke-tpu-accelerator: tpu7x` label to match nodes with Ironwood (TPU7x) machines. The empty `default-flavor` resource flavor matches CPU-only Pods, such as a Ray head Pod.
      * **SuperSlice AdmissionCheck (`superslice-ac`)**: this admission check tells Kueue not to schedule a workload until the GKE slice controller confirms that the slice has become active. The admission check is first defined and then added to the `ClusterQueue` that handles dynamic slicing workloads.
-     * **ClusterQueue (`cq`) and LocalQueue (`lq`)**: these fields manage `google.com/tpu` resources. The `cq` ClusterQueue includes the `superslice-ac` admission check. The `nominalQuota` field for `google.com/tpu` can be configured in two ways: 
+     * **ClusterQueue (`cq`) and LocalQueue (`lq`)**: these fields manage `google.com/tpu`, `cpu`, and `memory` resources. The `cq` ClusterQueue includes the `superslice-ac` admission check under the `admissionChecksStrategy` section. The `nominalQuota` field can be configured in two ways: 
        * **Specific quota** : set the `nominalQuota` field to match existing capacity for fair-sharing and quota management.
        * **Unlimited quota** : set the `nominalQuota` field to a very high value such as `"999999"`, to model unlimited quota. To focus on TAS and dynamic slicing, this configuration bypasses Kueue's quota management functionality.
 
@@ -983,7 +1028,7 @@ The following section includes examples where the `cloud.google.com/gke-tpu-part
 
 ## Run test workloads on dynamic slicing with Kueue
 
-This section describes how to deploy workloads on dynamic slicing with Kueue and TAS. It includes examples that show how to create a dynamic slice workload and a workload consisting of multiple slices. The workloads are submitted as JobSets.
+This section describes how to deploy workloads on dynamic slicing with Kueue and TAS. It includes examples that show how to create a dynamic slice workload and a workload consisting of multiple slices. The workloads are submitted as JobSets or Ray resources.
 
 ### Example 1: Single workload uses a single dynamic slice
 
@@ -1143,6 +1188,136 @@ The following example demonstrates how to create a workload that uses two dynami
 
 
 In this manifest, you set the `replicas` field to `2` in the `replicatedJobs` section. After you apply the manifest, Kueue attempts to form two separate slices with a `4x8x8` topology. Kueue creates a dynamic slice for each replica defined in `jobset.spec.replicatedJobs[].replicas`. If `n` replicas are specified, Kueue creates `n` dynamic slices for the workload and waits for all slices to become active before admitting the workload.
+
+### Example 3: Run a Ray workload on a dynamic slice
+
+The following example shows you how to run a distributed Ray workload on a dynamic slice by using [KubeRay](https://docs.ray.io/en/latest/cluster/kubernetes/) and Kueue TAS. Before you deploy the workload, ensure that you have installed KubeRay.
+
+This example deploys a RayJob custom resource that requests a `2x2x2` dynamic sub-slice across two `tpu7x-standard-4t` worker hosts (eight chips, 16 logical JAX devices). The RayJob resource runs a Python script that initializes Ray and verifies JAX TPU device allocation across both worker hosts.
+
+  1. Save the following manifest as `rayjob-dynamic-slice.yaml`:
+         
+         apiVersion: ray.io/v1
+         kind: RayJob
+         metadata:
+           generateName: rayjob-tpu7x-dynamic-slice-
+           labels:
+             # Target the Kueue LocalQueue
+             kueue.x-k8s.io/queue-name: lq
+         spec:
+           # Required by Kueue RayJob validating webhook
+           shutdownAfterJobFinishes: true
+           entrypoint: |
+             python -u -c '
+             import os
+             import ray
+         
+             ray.init()
+             print("=== Ray Cluster Initialized ===")
+             print("Cluster resources:", ray.cluster_resources())
+         
+             @ray.remote(resources={"TPU": 4})
+             def check_worker():
+                 import jax
+                 jax.distributed.initialize()
+                 return {
+                     "hostname": os.getenv("HOSTNAME"),
+                     "backend": jax.default_backend(),
+                     "device_count": jax.device_count(),
+                     "local_device_count": jax.local_device_count(),
+                     "devices": [str(d) for d in jax.devices()],
+                 }
+         
+             # Dispatch tasks across both worker hosts in the 2x2x2 subslice
+             futures = [check_worker.remote() for _ in range(2)]
+             results = ray.get(futures)
+             print("=== Worker TPU Devices ===")
+             for r in results:
+                 print(r)
+             '
+           rayClusterSpec:
+             rayVersion: '2.60.0'
+             headGroupSpec:
+               rayStartParams: {}
+               template:
+                 spec:
+                   containers:
+                   - name: ray-head
+                     image: rayproject/ray:2.60.0-py312
+                     resources:
+                       limits:
+                         cpu: "2"
+                         memory: 4Gi
+                       requests:
+                         cpu: "1"
+                         memory: 2Gi
+             workerGroupSpecs:
+             - groupName: tpu-workers
+               replicas: 1
+               minReplicas: 1
+               maxReplicas: 1
+               numOfHosts: 2
+               rayStartParams: {}
+               template:
+                 metadata:
+                   annotations:
+                     # Request the specific GKE TPU subslice topology
+                     cloud.google.com/gke-tpu-slice-topology: 2x2x2
+                 spec:
+                   nodeSelector:
+                     cloud.google.com/gke-tpu-accelerator: tpu7x
+                   tolerations:
+                   - key: "google.com/tpu"
+                     operator: "Equal"
+                     value: "present"
+                     effect: "NoSchedule"
+                   containers:
+                   - name: ray-worker
+                     image: rayproject/ray:2.60.0.b7f425-py312-tpu
+                     resources:
+                       limits:
+                         google.com/tpu: 4
+                       requests:
+                         google.com/tpu: 4
+
+In this manifest, the following applies:
+
+     * `cloud.google.com/gke-tpu-slice-topology: "2x2x2"`: requests a `2x2x2` dynamic sub-slice. The Kueue slice controller webhook automatically injects the required Kueue TAS annotations for the `2x2x2` partition.
+     * `kueue.x-k8s.io/queue-name: lq`: targets the Kueue LocalQueue.
+     * `shutdownAfterJobFinishes: true`: automatically shuts down the Ray cluster when the batch job finishes. Required by Kueue.
+     * `tolerations`: explicitly tolerates the `google.com/tpu=present:NoSchedule` taint so that Kueue TAS validates the PodSet template before admission.
+  2. Create the RayJob from the `rayjob-dynamic-slice.yaml` manifest:
+         
+         kubectl create -f rayjob-dynamic-slice.yaml
+         
+
+  3. Verify that Kueue admitted the workload and the dynamic slice is active:
+         
+         kubectl get slices.accelerator.gke.io
+         
+
+The output confirms that the status of the slice is `ACTIVE`:
+         
+         NAME                                                TYPE    TOPOLOGY   STATE    AGE
+         rayjob-tpu7x-dynamic-slice-tpu-workers-0-046a2cbc   tpu7x   2x2x2      ACTIVE   20s
+         
+
+  4. Verify TPU discovery across workers by inspecting the job submitter logs:
+         
+         kubectl logs -l ray.io/originated-from-crd=RayJob -c ray-job-submitter --tail=-1
+         
+
+In the output, confirm the following details:
+
+     * The `Cluster resources` section includes the `'TPU': 8.0` key-value pair.
+     * The `=== Worker TPU Devices ===` section shows the `backend: 'tpu'` block, with the `device_count: 16` and `local_device_count: 8` key-value pairs for both workers.
+     * The output ends with the `Job 'rayjob-tpu7x-dynamic-slice-...' succeeded` message.
+
+
+
+After you create the RayJob, Kueue queues the workload until the dynamic slice is active, admits the workload, and starts the Ray cluster to run the entrypoint script.
+
+For interactive or long-running Ray clusters, you can deploy a RayCluster custom resource by using the [raycluster-dynamic-slice.yaml](https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/blob/main/ai-ml/gke-tpu-dynamic-slicing/raycluster-dynamic-slice.yaml) sample. Set the `spec.suspend: true` key-value pair so that Kueue provisions the dynamic slice before KubeRay creates worker Pods.
 
 ## Optimize workload scheduling with slice reuse
 
@@ -1334,14 +1509,28 @@ General metrics track operational problems and errors:
 
 To avoid unexpected charges, delete your slices before deleting node pools.
 
-  1. Delete the JobSet. This action triggers Kueue to delete the associated Slice custom resources.
-         
-         kubectl delete jobset JOBSET_NAME
-         
+  1. Delete your workloads. This action triggers Kueue to delete the associated Slice custom resources:
+
+     * For JobSets:
+           
+           kubectl delete jobset JOBSET_NAME
+           
 
 Replace `JOBSET_NAME` with the name of your JobSet, for example, `big-super-slice`.
 
-**Note:** Active Slice custom resources block node pool deletion to ensure resources are cleaned up properly. Deleting the JobSet ensures that Kueue cleans up the Slice custom resources before you proceed with node pool deletion.
+     * For RayJobs:
+           
+           kubectl delete rayjob -l kueue.x-k8s.io/queue-name=lq
+           
+
+     * For RayClusters:
+           
+           kubectl delete raycluster RAY_CLUSTER_NAME
+           
+
+Replace `RAY_CLUSTER_NAME` with the name of your RayCluster.
+
+**Note:** Active Slice custom resources block node pool deletion to help ensure resources are cleaned up properly. Deleting your workloads helps ensure that Kueue cleans up the Slice custom resources before you proceed with node pool deletion.
   2. Delete the TPU node pool:
          
          gcloud container node-pools delete NODE_POOL_NAME \
@@ -1368,6 +1557,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

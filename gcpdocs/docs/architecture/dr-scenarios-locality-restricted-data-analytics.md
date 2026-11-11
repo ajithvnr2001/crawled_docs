@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/dr-scenarios-locality-restricted-data-analytics/
 title: Disaster recovery use cases: locality-restricted data analytics applications \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:09.865572+00:00
+fetched_at: 2026-11-11T08:24:06.883133+00:00
 ---
 
 # Disaster recovery use cases: locality-restricted data analytics applications  |  Cloud Architecture Center  |  Google Cloud Documentation

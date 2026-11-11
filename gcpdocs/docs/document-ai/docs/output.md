@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/output/
 title: Sample processor output \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:38.090379+00:00
+fetched_at: 2026-11-11T09:08:12.293544+00:00
 ---
 
 # Sample processor output  |  Document AI  |  Google Cloud Documentation

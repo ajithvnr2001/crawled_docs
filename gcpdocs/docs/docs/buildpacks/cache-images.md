@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/cache-images/
 title: Speed up builds with cache images \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:16.351170+00:00
+fetched_at: 2026-11-11T09:46:29.170853+00:00
 ---
 
 # Speed up builds with cache images  |  Buildpacks  |  Google Cloud Documentation

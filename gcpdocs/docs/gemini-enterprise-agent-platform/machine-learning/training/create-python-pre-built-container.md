@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container/
 title: Create a Python training application for a prebuilt container \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:46.124098+00:00
+fetched_at: 2026-11-11T08:48:54.138949+00:00
 ---
 
 # Create a Python training application for a prebuilt container  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

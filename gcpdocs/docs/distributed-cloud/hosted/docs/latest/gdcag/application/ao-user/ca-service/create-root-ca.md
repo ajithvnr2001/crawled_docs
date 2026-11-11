@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/ca-service/create-root-ca/
 title: Create a root certificate authority \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:15.830343+00:00
+fetched_at: 2026-11-11T12:23:31.562021+00:00
 ---
 
 # Create a root certificate authority  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

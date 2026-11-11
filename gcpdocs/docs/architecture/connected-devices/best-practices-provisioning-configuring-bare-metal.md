@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/connected-devices/best-practices-provisioning-configuring-bare-metal/
 title: Best practices for automatically provisioning and configuring edge and bare metal systems and servers \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:27.585609+00:00
+fetched_at: 2026-11-11T09:12:06.839621+00:00
 ---
 
 # Best practices for automatically provisioning and configuring edge and bare metal systems and servers  |  Cloud Architecture Center  |  Google Cloud Documentation

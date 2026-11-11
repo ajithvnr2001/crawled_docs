@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-permissions-iam/
 title: Migrate SOAR permissions to IAM \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:30.490856+00:00
+fetched_at: 2026-11-11T08:31:47.301350+00:00
 ---
 
 # Migrate SOAR permissions to IAM  |  Google Security Operations  |  Google Cloud Documentation

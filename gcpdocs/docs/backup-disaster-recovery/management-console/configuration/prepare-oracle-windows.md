@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/prepare-oracle-windows/
 title: Prepare Oracle databases in a Windows environment for Backup and DR on a backup/recovery appliance \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:17.809666+00:00
+fetched_at: 2026-11-11T10:10:52.430339+00:00
 ---
 
 # Prepare Oracle databases in a Windows environment for Backup and DR on a backup/recovery appliance  |  Backup and DR for the management console  |  Google Cloud Documentation

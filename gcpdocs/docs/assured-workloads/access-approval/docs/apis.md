@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-approval/docs/apis/
 title: APIs & Reference \u00a0|\u00a0 Access Approval \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:22:46.657236+00:00
+fetched_at: 2026-11-11T09:15:39.274947+00:00
 ---
 
 # APIs & Reference  |  Access Approval  |  Google Cloud Documentation

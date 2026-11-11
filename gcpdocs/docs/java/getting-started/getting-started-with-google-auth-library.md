@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/getting-started/getting-started-with-google-auth-library/
 title: Get started with Google Auth Library \u00a0|\u00a0 Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:45:06.069665+00:00
+fetched_at: 2026-11-11T09:28:43.633650+00:00
 ---
 
 # Get started with Google Auth Library  |  Java  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ Google Auth Library is an open source authentication client library for Java. Th
 
 By following this guide, you will learn how to:
 
-  * Add the necessary Auth Library dependencies to your project using Maven, Gradle, or Simple Build Tool (SBT).
+  * Add the necessary Google Auth Library dependencies to your project using Maven, Gradle, or Simple Build Tool (SBT).
   * Authenticate using various methods, with a focus on Application Default Credentials (ADC).
   * Configure advanced authentication scenarios, including Workload Identity Federation, Workforce Identity Federation, and service account impersonation.
   * Generate and use downscoped tokens to limit permissions.
@@ -51,17 +51,17 @@ The Google Auth Library for Java consists of four artifacts:
 
 When you use credential configurations, such as JSON, file paths, or streams, from an external source, you must validate them. Providing unvalidated credentials to Google APIs or client libraries for authentication to Google Cloud can compromise the security of your systems and data.
 
-For more information, see [Externally sourced credentials](https://docs.cloud.google.com/java/docs/authentication/external/externally-sourced-credentials). Default Credentials.
+For more information, see [Externally sourced credentials](https://docs.cloud.google.com/java/docs/authentication/external/externally-sourced-credentials).
 
-## Import the Auth Library
+## Import the Google Auth Library
 
-To import the Auth Library, use `com.google.cloud:libraries-bom` or use the Google Auth Library Bill of Materials with Maven or Gradle.
+To import the Google Auth Library, use `com.google.cloud:libraries-bom` or use the Google Auth Library Bill of Materials with Maven or Gradle.
 
 ### Java SDK libraries-bom
 
-To authenticate to a client library in the Java SDK (for example, `google-cloud-datastore`) using the Auth Library, use `libraries-bom`, which will pull in the versions of Auth Library compatible with that client library.
+To authenticate to a client library in the Java SDK (for example, `google-cloud-datastore`) using the Google Auth Library, use `libraries-bom`, which will pull in the versions of the Google Auth Library compatible with that client library.
 
-For example, to import the Auth Library with Maven using a `pom.xml`:
+For example, to import the Google Auth Library with Maven using a `pom.xml`:
     
     
     <dependencyManagement>
@@ -77,11 +77,11 @@ For example, to import the Auth Library with Maven using a `pom.xml`:
     </dependencyManagement>
     
 
-If you don't use `libraries-bom` or other client libraries, import the Auth modules directly with the Google Auth Library Bill of Materials.
+If you don't use `libraries-bom` or other client libraries, import the Google Auth Library modules directly with the Google Auth Library Bill of Materials.
 
 ### Google Auth Library Bill of Materials
 
-You can use the Google Auth Library Bill of Materials to ensure that the Auth modules and relevant transitive dependencies are compatible.
+You can use the Google Auth Library Bill of Materials to ensure that the Google Auth Library modules and relevant transitive dependencies are compatible.
 
 #### Maven
 
@@ -101,7 +101,7 @@ Add the following to your `pom.xml` file:
     </dependencyManagement>
     
 
-In the `<dependencies>` section, you can specify any of the Auth modules that are needed. For example, to include the `google-auth-library-oauth2-http` module, add the following `<dependency>` item:
+In the `<dependencies>` section, you can specify any of the Google Auth Library modules that are needed. For example, to include the `google-auth-library-oauth2-http` module, add the following `<dependency>` item:
     
     
     <dependency>
@@ -132,7 +132,7 @@ To use the BOM with Gradle, add the BOM as a `platform` dependency. Then, add th
 
 #### Scala
 
-Unlike Maven and Gradle, SBT (Scala Build Tool) does not support Maven Bills of Materials (BOMs). As a result, when using Scala, you cannot import the `google-auth-library-bom` to automatically handle compatible versions of the Auth Library modules and their transitive dependencies.
+Unlike Maven and Gradle, SBT (Scala Build Tool) does not support Maven Bills of Materials (BOMs). As a result, when using Scala, you cannot import the `google-auth-library-bom` to automatically handle compatible versions of the Google Auth Library modules and their transitive dependencies.
 
 Instead, you'll need to add each required submodule directly to your `build.sbt` file. It's critical to explicitly specify and align the versions of all `google-auth-library` modules you are using. Failing to keep the versions consistent can lead to version conflicts among transitive dependencies, potentially causing unexpected behavior or runtime errors in your application.
 
@@ -143,9 +143,9 @@ Add this to your dependencies if using SBT:
     libraryDependencies += "com.google.auth" % "google-auth-library-oauth2-http" % "1.30.1"
     
 
-## Auth Library Logging
+## Google Auth Library logging
 
-The Java Auth Library recommends logging using [client library debug logging](https://docs.cloud.google.com/java/docs/troubleshooting#client_library_debug_logging_slf4j). Debug logging will hash sensitive tokens (e.g. access_token, refresh_token, etc) and the values will be masked. Logging with `java.util.logging` is disabled in the Auth Library to prevent leaking of sensitive tokens.
+The Google Auth Library for Java recommends logging using [client library debug logging](https://docs.cloud.google.com/java/docs/troubleshooting#client_library_debug_logging_slf4j). Debug logging will hash sensitive tokens (e.g. access_token, refresh_token, etc) and the values will be masked. Logging with `java.util.logging` is disabled in the Google Auth Library to prevent leaking of sensitive tokens.
 
 Client debug logging functionality is [opt-in](https://docs.cloud.google.com/java/docs/troubleshooting#enable_logging_with_an_environment_variable) and requires [setup](https://docs.cloud.google.com/java/docs/troubleshooting#prerequisite).
 
@@ -178,7 +178,7 @@ The way you use `GoogleCredentials` depends on the client library:
 
 ## Application Default Credentials
 
-The Google Auth Library provides an implementation of [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) for Java. ADC provide a way to get authorization credentials to call Google APIs.
+The Google Auth Library for Java provides an implementation of [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials). ADC provide a way to get authorization credentials to call Google APIs.
 
 Use ADC when your application requires a consistent identity and authorization level, independent of the user. We recommend using ADC to authorize calls to Cloud APIs, especially when building applications on Google Cloud.
 
@@ -354,7 +354,7 @@ If you are using [AWS IMDSv2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
         --enable-imdsv2
     
 
-You can now use the Auth library to call Google Cloud resources from AWS.
+You can now use the Google Auth Library for Java to call Google Cloud resources from AWS.
 
 ### Access resources from Microsoft Azure
 
@@ -382,7 +382,7 @@ Replace the following:
 
 This command generates the configuration file in the specified output file.
 
-You can now use the Auth library to call Google Cloud resources from Azure.
+You can now use the Google Auth Library for Java to call Google Cloud resources from Azure.
 
 ### Access resources from an OIDC identity provider
 
@@ -390,7 +390,7 @@ To access Google Cloud resources from an identity provider that supports [OpenID
 
 As part of that process, you will generate a credential configuration file using the [Google Cloud CLI](https://cloud.google.com/cli/). This file contains non-sensitive metadata that instructs the library how to retrieve external subject tokens and exchange them for service account access tokens.
 
-For OIDC providers, the Auth library can retrieve OIDC tokens from any of the following sources:
+For OIDC providers, the Google Auth Library for Java can retrieve OIDC tokens from any of the following sources:
 
   * A local file (file-sourced credentials)
   * A local server (URL-sourced credentials)
@@ -463,7 +463,7 @@ Replace the following:
 
 
 
-You can now use the Auth library to call Google Cloud resources from an OIDC provider.
+You can now use the Google Auth Library for Java to call Google Cloud resources from an OIDC provider.
 
 ### Access resources using X.509 certificate-sourced credentials
 
@@ -486,7 +486,7 @@ The location where `gcloud` creates the certificate configuration file depends o
 
 #### Default behavior (recommended)
 
-If you omit the `--credential-cert-configuration-output-file` flag, `gcloud` creates the certificate configuration file at a default, well-known location that the Auth library can automatically discover. This approach is suitable for most use cases. The default credential configuration file is named `config.json` and the default certificate configuration file is named `certificate_config.json`.
+If you omit the `--credential-cert-configuration-output-file` flag, `gcloud` creates the certificate configuration file at a default, well-known location that the Google Auth Library can automatically discover. This approach is suitable for most use cases. The default credential configuration file is named `config.json` and the default certificate configuration file is named `certificate_config.json`.
 
 For example, run the following command to create the configuration files using the default behavior:
     
@@ -543,7 +543,7 @@ This command results in:
 
 
 
-You can now use the Auth library to call Google Cloud resources with X.509 certificate-sourced credentials.
+You can now use the Google Auth Library for Java to call Google Cloud resources with X.509 certificate-sourced credentials.
 
 ### Access resources with actor delegation
 
@@ -551,20 +551,20 @@ You can now use the Auth library to call Google Cloud resources with X.509 certi
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-For workloads that use [OIDC workload identity federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) with actor delegation (as defined in [RFC 8693: OAuth 2.0 Token Exchange](https://datatracker.ietf.org/doc/html/rfc8693)), the Auth library exchanges both a third-party **subject token** and a third-party **actor token** from a local JSON file. The subject token represents the principal identity for the request, and the actor token represents the workload or service acting on the subject's behalf.
+For workloads that use [OIDC workload identity federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) with actor delegation (as defined in [RFC 8693: OAuth 2.0 Token Exchange](https://datatracker.ietf.org/doc/html/rfc8693)), the Google Auth Library for Java exchanges both a third-party **subject token** and a third-party **actor token** from a local JSON file. The subject token represents the principal identity for the request, and the actor token represents the workload or service acting on the subject's behalf.
 
 You can use actor delegation in two modes:
 
-  * **Standard actor delegation (without certificate binding):** The Auth library exchanges the subject token and actor token over standard TLS with the Security Token Service (`sts.googleapis.com`) and, if configured, impersonates a service account with `iamcredentials.googleapis.com`.
-  * **Certificate-bound tokens with actor delegation (mTLS):** The Auth library presents an X.509 client certificate over mutual TLS (mTLS) during the token exchange with `sts.mtls.googleapis.com` (and, if configured, service account impersonation with `iamcredentials.mtls.googleapis.com`). Google Cloud verifies that the SHA-256 certificate fingerprint in the token's confirmation (`cnf.x5t#S256`) claim matches the leaf client certificate presented in the mTLS handshake and issues a short-lived access token cryptographically bound to that certificate.
+  * **Standard actor delegation (without certificate binding):** The Google Auth Library exchanges the subject token and actor token over standard TLS with the Security Token Service (`sts.googleapis.com`) and, if configured, impersonates a service account with `iamcredentials.googleapis.com`.
+  * **Certificate-bound tokens with actor delegation (mTLS):** The Google Auth Library presents an X.509 client certificate over mutual TLS (mTLS) during the token exchange with `sts.mtls.googleapis.com` (and, if configured, service account impersonation with `iamcredentials.mtls.googleapis.com`). Google Cloud verifies that the SHA-256 certificate fingerprint in the token's confirmation (`cnf.x5t#S256`) claim matches the leaf client certificate presented in the mTLS handshake and issues a short-lived access token cryptographically bound to that certificate.
 
 **Note:** Cloud Client Libraries for Java (GAPIC clients built on `gax`) support certificate-bound tokens with actor delegation. These libraries automatically negotiate mTLS and present the configured client certificate when calling Google Cloud APIs. If you use low-level HTTP clients directly (such as `NetHttpTransport` with `HttpCredentialsAdapter`), you must manually configure the underlying HTTP transport with the same X.509 client certificate and target `.mtls.googleapis.com` endpoints.
 
 #### Before you begin
 
-Before configuring the Java Auth library, ensure that you have:
+Before configuring the Google Auth Library for Java, ensure that you have the following:
 
-  1. An [OIDC workload identity pool and provider](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) configured for identity delegation (with the actor provider's full resource name authorized in the subject provider's `--actor-providers` configuration) and, optionally, [Context-Aware Access policy enforcement](https://docs.cloud.google.com/access-context-manager/docs/configure_cba_for_workloads) when using certificate-bound tokens.
+  1. An [OIDC workload identity pool and provider](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) configured for actor delegation (with the actor provider's full resource name authorized in the subject provider's `--actor-providers` configuration) and, optionally, [Context-Aware Access policy enforcement](https://docs.cloud.google.com/access-context-manager/docs/configure_cba_for_workloads) when using certificate-bound tokens.
   2. A local background process that continuously refreshes a JSON file containing both the subject token and the actor token before expiration:
          
          {
@@ -584,9 +584,9 @@ Ensure that the tokens meet the following requirements:
             ```
            
 
-     * **Actor token (`aud`, `sub`, and `iss` claims):** The actor token's `aud` claim must be set to the actor provider's full resource URI (`//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>ACTOR_PROVIDER_ID</var>`), and its `sub` (and `iss`) claim must match the values declared in the subject token's `may_act` claim.
+     * **Actor token (`aud`, `sub`, and `iss` claims):** The actor token's `aud` claim must be set to the actor provider's full resource name (`//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>ACTOR_PROVIDER_ID</var>`), and its `sub` (and `iss`) claim must match the values declared in the subject token's `may_act` claim.
 
-     * **Confirmation (`cnf`) claim _(for certificate-bound tokens only)_ :** The JWT payload of the bound token must include a `cnf` claim containing the base64url-encoded SHA-256 thumbprint (`x5t#S256`) of the workload's DER-encoded X.509 leaf certificate. If the subject token is certificate-bound, the actor token must also be certificate-bound, and the client certificate presented in the mTLS handshake must match the actor token's `cnf.x5t#S256` thumbprint:
+     * **Confirmation (`cnf`) claim _(for certificate-bound tokens only)_ :** The JWT payload of the bound token must include a `cnf` claim containing the base64url-encoded SHA-256 certificate fingerprint (`x5t#S256`) of the workload's DER-encoded X.509 leaf certificate. If the subject token is certificate-bound, the actor token must also be certificate-bound, and the client certificate presented in the mTLS handshake must match the actor token's `cnf.x5t#S256` certificate fingerprint:
            
            "cnf": {
               "x5t#S256": "<var>BASE64URL_SHA256_CERT_FINGERPRINT</var>"
@@ -599,94 +599,79 @@ Ensure that the tokens meet the following requirements:
 
 
 
-#### Create the configuration files
+#### Generate configuration files for actor delegation
+
+You can generate the configuration files using the [`gcloud iam workload-identity-pools create-cred-config`](https://cloud.google.com/sdk/gcloud/reference/iam/workload-identity-pools/create-cred-config) command.
 
 ##### Standard actor delegation (without certificate binding)
 
-Create the credential configuration file (`config.json`) referencing the local JSON token file and the field names for both the subject token and the actor token:
+To generate a credential configuration file (`config.json`) for standard actor delegation without certificate binding, run the following command:
     
     
-    {
-      "universe_domain": "googleapis.com",
-      "type": "external_account",
-      "audience": "//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var>",
-      "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
-      "actor_token_type": "urn:ietf:params:oauth:token-type:jwt",
-      "token_url": "https://sts.googleapis.com/v1/token",
-      "service_account_impersonation_url": "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/<var>SERVICE_ACCOUNT_EMAIL</var>:generateAccessToken",
-      "credential_source": {
-        "file": "<var>PATH_TO_TOKENS_JSON</var>",
-        "format": {
-          "type": "json",
-          "subject_token_field_name": "<var>SUBJECT_TOKEN_FIELD_NAME</var>",
-          "actor_token_field_name": "<var>ACTOR_TOKEN_FIELD_NAME</var>"
-        }
-      }
-    }
+    gcloud iam workload-identity-pools create-cred-config \
+        projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var> \
+        --service-account <var>SERVICE_ACCOUNT_EMAIL</var> \
+        --credential-source-file "<var>PATH_TO_TOKENS_JSON</var>" \
+        --credential-source-type "json" \
+        --credential-source-field-name "<var>SUBJECT_TOKEN_FIELD_NAME</var>" \
+        --actor-token-field-name "<var>ACTOR_TOKEN_FIELD_NAME</var>" \
+        --actor-token-type "urn:ietf:params:oauth:token-type:jwt" \
+        --output-file /path/to/config.json
     
 
 ##### Certificate-bound tokens with actor delegation (mTLS)
 
-To configure certificate-bound tokens with actor delegation, create two JSON configuration files:
+To configure certificate-bound tokens with actor delegation, the gcloud CLI generates two separate files when the `--credential-cert-path` and `--credential-cert-private-key-path` flags are specified:
 
+  * **Primary credential configuration file (`config.json`):** Contains the workload identity pool metadata, `.mtls.googleapis.com` endpoints, the path to the JSON token file and field names for the subject and actor tokens, and a reference to the certificate configuration file.
   * **Certificate configuration file (`certificate_config.json`):** Specifies the paths for the workload's X.509 leaf certificate and private key.
-  * **Credential configuration file (`config.json`):** Specifies the audience for the workload identity pool provider, `.mtls.googleapis.com` endpoints, the path to the JSON token file and field names for both the subject token and actor token, and the reference to the certificate configuration.
 
 
-  1. Create the certificate configuration file at the default Google Cloud CLI configuration path (`~/.config/gcloud/certificate_config.json` on Linux and macOS, or `%APPDATA%\gcloud\certificate_config.json` on Windows), or at a custom path:
-         
-         {
-           "cert_configs": {
-             "workload": {
-               "cert_path": "<var>PATH_TO_CERTIFICATE</var>",
-               "key_path": "<var>PATH_TO_PRIVATE_KEY</var>"
-             }
-           }
-         }
-         
+
+If you omit the `--credential-cert-configuration-output-file` flag (recommended), `gcloud` creates `certificate_config.json` at the default Google Cloud CLI configuration path (`~/.config/gcloud/certificate_config.json` on Linux and macOS, or `%APPDATA%\gcloud\certificate_config.json` on Windows) and sets `"use_default_certificate_config": true` in `config.json`:
+    
+    
+    gcloud iam workload-identity-pools create-cred-config \
+        projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var> \
+        --service-account <var>SERVICE_ACCOUNT_EMAIL</var> \
+        --credential-source-file "<var>PATH_TO_TOKENS_JSON</var>" \
+        --credential-source-type "json" \
+        --credential-source-field-name "<var>SUBJECT_TOKEN_FIELD_NAME</var>" \
+        --actor-token-field-name "<var>ACTOR_TOKEN_FIELD_NAME</var>" \
+        --actor-token-type "urn:ietf:params:oauth:token-type:jwt" \
+        --credential-cert-path "<var>PATH_TO_CERTIFICATE</var>" \
+        --credential-cert-private-key-path "<var>PATH_TO_PRIVATE_KEY</var>" \
+        --output-file /path/to/config.json
+    
+
+If you need to store the certificate configuration file in a non-default location, specify the `--credential-cert-configuration-output-file` flag:
+    
+    
+    gcloud iam workload-identity-pools create-cred-config \
+        projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var> \
+        --service-account <var>SERVICE_ACCOUNT_EMAIL</var> \
+        --credential-source-file "<var>PATH_TO_TOKENS_JSON</var>" \
+        --credential-source-type "json" \
+        --credential-source-field-name "<var>SUBJECT_TOKEN_FIELD_NAME</var>" \
+        --actor-token-field-name "<var>ACTOR_TOKEN_FIELD_NAME</var>" \
+        --actor-token-type "urn:ietf:params:oauth:token-type:jwt" \
+        --credential-cert-path "<var>PATH_TO_CERTIFICATE</var>" \
+        --credential-cert-private-key-path "<var>PATH_TO_PRIVATE_KEY</var>" \
+        --credential-cert-configuration-output-file "/custom/path/certificate_config.json" \
+        --output-file /path/to/config.json
+    
 
 Replace the following:
 
-     * **`PATH_TO_CERTIFICATE`:** the path to your PEM-encoded leaf X.509 certificate.
-     * **`PATH_TO_PRIVATE_KEY`:** the path to the corresponding PEM-encoded private key.
-  2. Create the primary credential configuration file (`config.json`):
-         
-         {
-           "universe_domain": "googleapis.com",
-           "type": "external_account",
-           "audience": "//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var>",
-           "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
-           "actor_token_type": "urn:ietf:params:oauth:token-type:jwt",
-           "token_url": "https://sts.mtls.googleapis.com/v1/token",
-           "service_account_impersonation_url": "https://iamcredentials.mtls.googleapis.com/v1/projects/-/serviceAccounts/<var>SERVICE_ACCOUNT_EMAIL</var>:generateAccessToken",
-           "credential_source": {
-             "file": "<var>PATH_TO_TOKENS_JSON</var>",
-             "format": {
-               "type": "json",
-               "subject_token_field_name": "<var>SUBJECT_TOKEN_FIELD_NAME</var>",
-               "actor_token_field_name": "<var>ACTOR_TOKEN_FIELD_NAME</var>"
-             },
-             "certificate": {
-               "use_default_certificate_config": true
-             }
-           }
-         }
-         
-
-If you stored `certificate_config.json` at a custom path instead of the default Google Cloud CLI location, replace `"use_default_certificate_config": true` in the `certificate` block with `"certificate_config_location": "/custom/path/certificate_config.json"`.
-
-
-
-
-In `config.json` (for either mode), replace the following:
-
   * **`PROJECT_NUMBER`:** the Google Cloud project number.
   * **`POOL_ID`:** the workload identity pool ID.
-  * **`OIDC_PROVIDER_ID`:** the OIDC subject provider ID.
-  * **`SERVICE_ACCOUNT_EMAIL`:** optional. The email address of the service account to impersonate. If you use direct resource access instead of service account impersonation, omit the `service_account_impersonation_url` field.
+  * **`OIDC_PROVIDER_ID`:** the OIDC workload identity pool provider ID that authenticates the subject token.
+  * **`SERVICE_ACCOUNT_EMAIL`:** optional. The email of the service account to impersonate. Omit `--service-account` if you use direct resource access.
   * **`PATH_TO_TOKENS_JSON`:** the path to the local JSON file containing both the subject token and the actor token.
   * **`SUBJECT_TOKEN_FIELD_NAME`:** the JSON key in `PATH_TO_TOKENS_JSON` that contains the subject token (for example, `subject_token`).
   * **`ACTOR_TOKEN_FIELD_NAME`:** the JSON key in `PATH_TO_TOKENS_JSON` that contains the actor token (for example, `actor_token`). This key must differ from `SUBJECT_TOKEN_FIELD_NAME`.
+  * **`PATH_TO_CERTIFICATE` _(certificate-bound tokens only)_ :** the path to your PEM-encoded leaf X.509 certificate.
+  * **`PATH_TO_PRIVATE_KEY` _(certificate-bound tokens only)_ :** the path to the corresponding PEM-encoded private key.
 
 
 
@@ -736,9 +721,9 @@ If you stored `certificate_config.json` at a custom location, then set `GOOGLE_A
 
 When your background process rotates tokens (and, for certificate-bound tokens, the workload's X.509 leaf certificate and private key) on disk, keep the following behaviors and requirements in mind:
 
-  * **Atomic updates:** The Auth library reads both the subject token and actor token from the JSON token file in a single read per refresh. Update the JSON token file atomically (for example, by writing to a temporary file and renaming it) so the subject token and actor token stay synchronized. When using certificate-bound tokens, update the certificate, private key, and JSON token file atomically so the `cnf.x5t#S256` thumbprint in the token file stays synchronized with the X.509 certificate on disk.
+  * **Atomic updates:** The Google Auth Library reads both the subject token and actor token from the JSON token file in a single read per refresh. Update the JSON token file atomically (for example, by writing to a temporary file and renaming it) so the subject token and actor token stay synchronized. When using certificate-bound tokens, update the certificate, private key, and JSON token file atomically so the `cnf.x5t#S256` thumbprint in the token file stays synchronized with the X.509 certificate on disk.
   * **Per-cycle certificate pinning _(certificate-bound tokens)_ :** When `IdentityPoolCredentials` refreshes an access token over mTLS, it snapshots the X.509 key store at the start of the refresh cycle and uses the same client certificate across both the Security Token Service `exchangeToken` request and (if configured) the Service Account Credentials API `generateAccessToken` impersonation request.
-  * **Automatic reload on`401 Unauthorized` _(certificate-bound tokens)_ :** If the certificate rotates and an mTLS request returns `401 Unauthorized`, the Auth library automatically reloads the X.509 certificate and private key from disk and retries the token refresh once.
+  * **Automatic reload on`401 Unauthorized` _(certificate-bound tokens)_ :** If the certificate rotates and an mTLS request returns `401 Unauthorized`, the Google Auth Library automatically reloads the X.509 certificate and private key from disk and retries the token refresh once.
 
 
 
@@ -795,7 +780,7 @@ Replace the following:
 
 
 
-The `--executable-timeout-millis` flag is optional; it specifies the duration (in milliseconds) for which the Auth library will wait for the executable to finish. If not provided, it defaults to 30 seconds. The maximum allowed value is two minutes, and the minimum is five seconds.
+The `--executable-timeout-millis` flag is optional; it specifies the duration (in milliseconds) for which the Google Auth Library will wait for the executable to finish. If not provided, it defaults to 30 seconds. The maximum allowed value is two minutes, and the minimum is five seconds.
 
 The optional `--executable-output-file` flag specifies a path to cache the executable's third-party credential response. Caching helps improve performance because the auth libraries first check this file for valid, unexpired credentials before running the executable. If valid, cached credentials exist, the libraries use them, avoiding unnecessary executable runs.
 
@@ -827,7 +812,7 @@ And here's a sample successful executable SAML response:
     }
     
 
-When you specify an output file using the `--executable-output-file` argument in the credential configuration, successful executable responses must include an `expiration_time` field. This allows the Auth Library to effectively cache and manage the validity of the credentials stored in that file.
+When you specify an output file using the `--executable-output-file` argument in the credential configuration, successful executable responses must include an `expiration_time` field. This allows the Google Auth Library to effectively cache and manage the validity of the credentials stored in that file.
 
 Here's a sample executable error response:
     
@@ -868,7 +853,7 @@ The following security practices are recommended:
 
 Because of the complexity of using executable-sourced credentials, we strongly recommend that you use other supported mechanisms, such as file or URL sources, for providing third-party credentials unless they don't meet your specific requirements.
 
-You can now use the Auth library to call Google Cloud resources from an OIDC or SAML provider.
+You can now use the Google Auth Library for Java to call Google Cloud resources from an OIDC or SAML provider.
 
 ### Use a custom supplier with OIDC and SAML
 
@@ -885,8 +870,8 @@ A custom implementation of `IdentityPoolSubjectTokenSupplier` can be used while 
       public String getSubjectToken(ExternalAccountSupplierContext context) throws IOException {
         // Any call to the supplier passes a context object with the requested
         // audience and subject token type.
-        string audience = context.getAudience();
-        string tokenType = context.getSubjectTokenType();
+        String audience = context.getAudience();
+        String tokenType = context.getSubjectTokenType();
     
         try {
           // Return a valid, unexpired token for the requested audience and token type.
@@ -899,7 +884,7 @@ A custom implementation of `IdentityPoolSubjectTokenSupplier` can be used while 
         }
       }
     
-      private String retrieveToken(string tokenType, string audience) {
+      private String retrieveToken(String tokenType, String audience) {
         // Retrieve a subject token of the requested type for the requested audience.
       }
     }
@@ -969,7 +954,7 @@ A custom implementation of `AwsSecurityCredentialsSupplier` can be provided when
         }
       }
     
-      private AwsSecurityCredentials retrieveAwsSecurityCredentials(string audience) {
+      private AwsSecurityCredentials retrieveAwsSecurityCredentials(String audience) {
         // Retrieve Aws security credentials for the requested audience.
       }
     
@@ -1032,7 +1017,7 @@ Configuring a short lifetime (for example, 10 minutes) causes the library to ini
 
 ### Use external account authorized user workforce credentials
 
-[External account authorized user credentials](https://docs.cloud.google.com/iam/docs/workforce-obtaining-short-lived-credentials#browser-based-sign-in) let you to sign in with a web browser to an external identity provider account using the gcloud CLI and create a configuration for the auth library to use.
+[External account authorized user credentials](https://docs.cloud.google.com/iam/docs/workforce-obtaining-short-lived-credentials#browser-based-sign-in) let you to sign in with a web browser to an external identity provider account using the gcloud CLI and create a configuration for the Google Auth Library to use.
 
 To generate an external account authorized user workforce identity configuration, run the following command:
     
@@ -1048,7 +1033,7 @@ Where the following variable needs to be substituted:
 
 This opens a browser flow for you to sign in using the configured third-party identity provider. It then stores the external account authorized user configuration at the well-known ADC location.
 
-The Auth library will then use the provided refresh token from the configuration to generate and refresh an access token to call Google Cloud services.
+The Google Auth Library for Java will then use the provided refresh token from the configuration to generate and refresh an access token to call Google Cloud services.
 
 The default lifetime of the refresh token is one hour. After this, you need to generate a new configuration from the gcloud CLI. You can modify the lifetime by changing the [session duration of the workforce pool](https://docs.cloud.google.com/iam/docs/reference/rest/v1/locations.workforcePools), and you can set it as high as 12 hours.
 
@@ -1359,6 +1344,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

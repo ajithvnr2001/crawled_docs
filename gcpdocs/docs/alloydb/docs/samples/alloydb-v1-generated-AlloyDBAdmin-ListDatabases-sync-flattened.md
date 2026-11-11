@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-ListDatabases-sync-flattened/
 title: List databases in a cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:42.052920+00:00
+fetched_at: 2026-11-11T10:35:44.283453+00:00
 ---
 
 # List databases in a cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

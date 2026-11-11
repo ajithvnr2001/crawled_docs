@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/migrate-tables-without-primary-keys/
 title: Migrate tables without primary keys \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:34.591999+00:00
+fetched_at: 2026-11-11T09:34:48.283592+00:00
 ---
 
 # Migrate tables without primary keys  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

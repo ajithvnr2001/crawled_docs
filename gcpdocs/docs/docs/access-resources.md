@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/access-resources/
 title: Access and resource management \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:12.178012+00:00
+fetched_at: 2026-11-11T10:29:13.142280+00:00
 ---
 
 # Access and resource management  |  Google Cloud Documentation

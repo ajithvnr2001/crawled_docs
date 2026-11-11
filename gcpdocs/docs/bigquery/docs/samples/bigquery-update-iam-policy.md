@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-iam-policy/
 title: Update IAM policy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:41.895965+00:00
+fetched_at: 2026-11-11T09:17:01.642097+00:00
 ---
 
 # Update IAM policy  |  BigQuery  |  Google Cloud Documentation

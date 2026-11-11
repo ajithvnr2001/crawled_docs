@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization/
 title: AI and ML perspective: Cost optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:40:37.925492+00:00
+fetched_at: 2026-11-11T10:14:11.695675+00:00
 ---
 
 # AI and ML perspective: Cost optimization  |  Cloud Architecture Center  |  Google Cloud Documentation

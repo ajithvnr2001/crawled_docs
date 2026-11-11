@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-storage-to-elasticsearch/
 title: Cloud Storage to Elasticsearch template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:53.808006+00:00
+fetched_at: 2026-11-11T09:28:10.980839+00:00
 ---
 
 # Cloud Storage to Elasticsearch template  |  Cloud Dataflow  |  Google Cloud Documentation

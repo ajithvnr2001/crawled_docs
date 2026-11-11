@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/boundaries-and-topology/
 title: Cross-project boundaries \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:26.745078+00:00
+fetched_at: 2026-11-11T09:37:55.257819+00:00
 ---
 
 # Cross-project boundaries  |  Agent Registry  |  Google Cloud Documentation

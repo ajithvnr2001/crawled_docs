@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/regions-capabilities-cross-cloud-connections/
 title: Supported regions and CCI capabilities \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:33:52.574577+00:00
+fetched_at: 2026-11-11T08:30:33.616182+00:00
 ---
 
 # Supported regions and CCI capabilities  |  Lakehouse  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 #  Supported regions and CCI capabilities Stay organized with collections  Save and categorize content based on your preferences. 
 
-This section maps AWS regions to _Google Cloud_ regions for querying remote data and outlines the _Cross-Cloud Interconnect_ (CCI) capabilities.
+Borderless Lakehouse lets you use Cross-Cloud Interconnect to route remote query data reads and background metadata refresh privately across cloud providers. This document outlines supported Cross-Cloud Interconnect capabilities and classifications, and maps Amazon Web Services (AWS) regions to Google Cloud regions to help you optimize query performance.
 
 ## Supported Cross-Cloud Interconnect capabilities
 
 Lakehouse supports routing query data reads, background metadata refresh, or both privately over Cross-Cloud Interconnect depending on whether your network isolation and cost requirements apply to object storage reads, control-plane catalog endpoints, or end-to-end cross-cloud traffic:
 
-  * **Query transport (`--service-directory-name`):** Routes query reads to remote object storage (Amazon S3 on Amazon Web Services (AWS) or Microsoft Azure Data Lake Storage Gen2 on Azure) to help reduce egress costs and provide predictable query throughput.
+  * **Query transport (`--service-directory-name`):** Routes query reads to remote object storage (Amazon S3 on AWS or Microsoft Azure Data Lake Storage Gen2 on Azure) to help reduce egress costs and provide predictable query throughput.
   * **Background metadata refresh (`--metadata-service-directory-name`):** Routes control-plane background metadata refresh and authentication requests from the Lakehouse runtime catalog privately to remote catalog AWS PrivateLink or Azure Private Link endpoints.
   * **Supported catalogs and clouds:**
 
@@ -101,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:17:48.156012+00:00
+fetched_at: 2026-11-11T09:50:20.004466+00:00
 ---
 
 # APIs and reference  |  Cluster Director  |  Google Cloud Documentation

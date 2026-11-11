@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/resources/gdcloud-reference/gdcloud-database-import-sql/
 title: gdcloud database import sql \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:25.281204+00:00
+fetched_at: 2026-11-11T11:44:30.799297+00:00
 ---
 
 # gdcloud database import sql  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/versions-packages/
 title: Preinstalled packages changelog \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:13.817074+00:00
+fetched_at: 2026-11-11T09:47:51.162331+00:00
 ---
 
 # Preinstalled packages changelog  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

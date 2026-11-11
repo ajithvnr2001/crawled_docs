@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:54.025542+00:00
+fetched_at: 2026-11-11T09:33:08.958101+00:00
 ---
 
 # Quotas and limits  |  Database Migration Service  |  Google Cloud Documentation

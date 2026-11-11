@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/authentication/
 title: Authentication basics \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:40.706408+00:00
+fetched_at: 2026-11-11T09:46:53.145948+00:00
 ---
 
 # Authentication basics  |  Get started  |  Google Cloud Documentation

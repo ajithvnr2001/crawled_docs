@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/best-practices/version-control/
 title: Best practices for version control \u00a0|\u00a0 Terraform on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:09.542495+00:00
+fetched_at: 2026-11-11T09:08:27.647902+00:00
 ---
 
 # Best practices for version control  |  Terraform on Google Cloud  |  Google Cloud Documentation

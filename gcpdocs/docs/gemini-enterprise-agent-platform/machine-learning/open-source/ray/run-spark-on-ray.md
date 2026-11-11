@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/run-spark-on-ray/
 title: Run Spark on Ray cluster on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:45.443716+00:00
+fetched_at: 2026-11-11T08:49:16.280039+00:00
 ---
 
 # Run Spark on Ray cluster on Gemini Enterprise Agent Platform  |  Google Cloud Documentation

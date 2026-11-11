@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/global-deployment-compute-engine-spanner/
 title: Global deployment with Compute Engine and Spanner \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:23.192566+00:00
+fetched_at: 2026-11-11T08:47:53.896457+00:00
 ---
 
 # Global deployment with Compute Engine and Spanner  |  Cloud Architecture Center  |  Google Cloud Documentation

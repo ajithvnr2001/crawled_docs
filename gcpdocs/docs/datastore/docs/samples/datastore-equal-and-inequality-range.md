@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-equal-and-inequality-range/
 title: Equality and inequality range filter \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:48.816102+00:00
+fetched_at: 2026-11-11T09:34:25.642431+00:00
 ---
 
 # Equality and inequality range filter  |  Firestore in Datastore mode  |  Google Cloud Documentation

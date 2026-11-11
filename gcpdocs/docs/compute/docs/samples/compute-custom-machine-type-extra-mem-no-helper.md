@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-custom-machine-type-extra-mem-no-helper/
 title: Create a VM with custom machine type and extended memory \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:48:57.023376+00:00
+fetched_at: 2026-11-11T09:18:53.450634+00:00
 ---
 
 # Create a VM with custom machine type and extended memory  |  Compute Engine  |  Google Cloud Documentation

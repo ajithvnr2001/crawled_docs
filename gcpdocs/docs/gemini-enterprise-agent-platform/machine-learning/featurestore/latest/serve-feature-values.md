@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values/
 title: Serve features from online store \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:29.135649+00:00
+fetched_at: 2026-11-11T08:50:53.360663+00:00
 ---
 
 # Serve features from online store  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/listen/
 title: Get real-time updates \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:36.920841+00:00
+fetched_at: 2026-11-11T08:54:07.037261+00:00
 ---
 
 # Get real-time updates  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ Android
         }
     }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L525-L537)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L525-L537)
 
 ##### Java  
 Android
@@ -131,7 +131,7 @@ Android
         }
     });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L681-L697)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L681-L697)
 
 ### Dart
     
@@ -364,7 +364,7 @@ Often, you want your UI to react to changes in the contents of a Firestore docum
       snapshots << snapshot
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_watch.rb#L24-L31)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_watch.rb#L24-L31)
 
 ### Events for local changes
 
@@ -455,7 +455,7 @@ Android
         }
     }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L543-L561)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L543-L561)
 
 ##### Java  
 Android
@@ -482,7 +482,7 @@ Android
         }
     });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L703-L722)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L703-L722)
 
 ### Dart
     
@@ -660,7 +660,7 @@ Android
         // ...
     }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L567-L571)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L567-L571)
 
 ##### Java  
 Android
@@ -676,7 +676,7 @@ Android
         }
     });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L728-L736)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L728-L736)
 
 ### Dart
     
@@ -975,7 +975,7 @@ Android
             Log.d(TAG, "Current cites in CA: $cities")
         }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L625-L640)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L625-L640)
 
 ##### Java  
 Android
@@ -1002,7 +1002,7 @@ Android
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L802-L821)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L802-L821)
 
 ### Dart
     
@@ -1212,7 +1212,7 @@ Android
       end
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_watch.rb#L146-L157)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_watch.rb#L146-L157)
 
 The snapshot handler will receive a new query snapshot every time the query results change (that is, when a document is added, removed, or modified).
 
@@ -1339,7 +1339,7 @@ Android
             }
         }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L646-L661)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L646-L661)
 
 ##### Java  
 Android
@@ -1373,7 +1373,7 @@ Android
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L827-L853)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L827-L853)
 
 ### Dart
     
@@ -1648,7 +1648,7 @@ Android
       end
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_watch.rb#L59-L80)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_watch.rb#L59-L80)
 
 **Important:** The first query snapshot contains `added` events for all existing documents that match the query. This is because you're getting a set of changes that bring your query snapshot current with the initial state of the query. This allows you, for instance, to directly populate your UI from the changes you receive in the first query snapshot, without needing to add special logic for handling the initial state.
 
@@ -1740,7 +1740,7 @@ Android
     // Stop listening to changes
     registration.remove()
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L690-L698)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L690-L698)
 
 ##### Java  
 Android
@@ -1757,7 +1757,7 @@ Android
     // Stop listening to changes
     registration.remove();
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L887-L902)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L887-L902)
 
 ### Dart
     
@@ -1851,7 +1851,7 @@ Android
     
     listener.stop
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_watch.rb#L49-L49)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_watch.rb#L49-L49)
 
 ## Handle listen errors
 
@@ -1933,7 +1933,7 @@ Android
             }
         }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L704-L716)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L704-L716)
 
 ##### Java  
 Android
@@ -1958,7 +1958,7 @@ Android
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L908-L925)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L908-L925)
 
 ### Dart
     
@@ -2113,7 +2113,7 @@ Android
       puts "Listen failed: #{error.message}"
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_watch.rb#L125-L134)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_watch.rb#L125-L134)
 
 ## Pricing
 
@@ -2136,6 +2136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

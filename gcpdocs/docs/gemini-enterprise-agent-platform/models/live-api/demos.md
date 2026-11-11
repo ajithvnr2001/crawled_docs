@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/demos/
 title: Demo apps and resources for using the Gemini Live API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:22.623435+00:00
+fetched_at: 2026-11-11T08:51:58.040994+00:00
 ---
 
 # Demo apps and resources for using the Gemini Live API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

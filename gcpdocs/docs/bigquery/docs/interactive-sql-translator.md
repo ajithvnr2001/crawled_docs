@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator/
 title: Translate queries with the interactive SQL translator \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:29.720145+00:00
+fetched_at: 2026-11-11T10:09:12.166301+00:00
 ---
 
 # Translate queries with the interactive SQL translator  |  BigQuery  |  Google Cloud Documentation

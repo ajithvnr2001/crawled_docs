@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-get-config-info/
 title: Get a transfer configuration \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:28.173360+00:00
+fetched_at: 2026-11-11T08:28:49.873704+00:00
 ---
 
 # Get a transfer configuration  |  BigQuery  |  Google Cloud Documentation

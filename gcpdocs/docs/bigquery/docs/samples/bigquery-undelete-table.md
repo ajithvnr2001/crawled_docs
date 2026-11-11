@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-undelete-table/
 title: Undelete \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:52:25.841332+00:00
+fetched_at: 2026-11-11T09:15:23.635031+00:00
 ---
 
 # Undelete  |  BigQuery  |  Google Cloud Documentation

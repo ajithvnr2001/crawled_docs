@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/use-the-cloud-sdk/
 title: Use the gcloud CLI \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:49.656491+00:00
+fetched_at: 2026-11-11T09:35:02.449425+00:00
 ---
 
 # Use the gcloud CLI  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/workspace-activity/
 title: Collect Google Workspace logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:49.999670+00:00
+fetched_at: 2026-11-11T09:37:09.992973+00:00
 ---
 
 # Collect Google Workspace logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -9613,7 +9613,13 @@ Iterate through log field `events.parameters.msgValue.parameter.msgValue.paramet
 if the `events.parameters.msgValue.parameter.msgValue.parameter.name` log field value is equal to `address` and the `events.parameters.msgValue.parameter.msgValue.parameter.value` log field value is _not_ equal to the `actor.email` log field value, then the `events.parameters.msgValue.parameter.msgValue.parameter.value` log field is mapped to the `network.smtp.mail_from` UDM field.  
 delivery | `events.parameters[delivery].msgValue[message_info].parameter.msgValue[source].parameter.value[from_header_displayname]` | `principal.user.user_display_name` |   
 delivery | `events.parameters[delivery].msgValue[message_info].parameter.msgValue[source].parameter.intValue[user_id]` | `principal.user.userid` |   
-delivery | `events.parameters[delivery].msgValue[message_info].parameter.value[flattened_destinations]` | `additional.fields[flattened_destinations]` |   
+delivery | `events.parameters.msgValue.parameter.value` | `additional.fields[flattened_destinations]` | Iterate through log field `events.parameters`:  
+if the `events.parameters.name` log field value is equal to `message_info`, then  
+Iterate through log field `events.parameters.msgValue.parameter`:   
+if the `events.parameters.msgValue.parameter.name` log field value is equal to `destination`, then  
+Iterate through log field `events.parameters.msgValue.parameter.multiMessageValue`:  
+iterate through log field `events.parameters.msgValue.parameter.multiMessageValue.parameter`:   
+if the `events.parameters.msgValue.parameter.multiMessageValue.parameter.name` log field value is equal to `address` and the `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` log field value matches the regular expression pattern: `^.+@.+$`, then if the `events.parameters.msgValue.parameter.name` log field value is equal to `flattened_destinations` and the `events.parameters.msgValue.parameter.value` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `flattened_destinations` and the `events.parameters.msgValue.parameter.value` log field is mapped to the `additional.fields.value` UDM field.  
 delivery | `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` | `target.application` | Iterate through log field `events.parameters`:  
 if the `events.parameters.name` log field value is equal to `message_info`, then  
 Iterate through log field `events.parameters.msgValue.parameter`:   
@@ -10299,13 +10305,13 @@ delivery | `events.parameters[delivery].msgValue[message_info].parameter.boolVal
 delivery | `events.parameters[delivery].msgValue[message_info].parameter.boolValue[smime_sign_message]` | `additional.fields[smime_sign_message]` |   
 delivery | `events.parameters[delivery].msgValue[message_info].parameter.msgValue[connection_info].parameter.boolValue[spf_pass]` | `security_result.detection_fields[spf_pass]` |   
 delivery | `events.parameters[delivery].msgValue[message_info].parameter.msgValue[connection_info].parameter.boolValue[tls_required_but_unavailable]` | `additional.fields[tls_required_but_unavailable]` |   
-delivery | `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` | `network.email.to` | Iterate through log field `events.parameters`:  
+delivery | `events.parameters.msgValue.parameter.multiMessageValue.parameter.value, events.parameters.msgValue.parameter.value` | `network.email.to` | Iterate through log field `events.parameters`:  
 if the `events.parameters.name` log field value is equal to `message_info`, then  
 Iterate through log field `events.parameters.msgValue.parameter`:   
 if the `events.parameters.msgValue.parameter.name` log field value is equal to `destination`, then  
 Iterate through log field `events.parameters.msgValue.parameter.multiMessageValue`:  
 iterate through log field `events.parameters.msgValue.parameter.multiMessageValue.parameter`:   
-if the `events.parameters.msgValue.parameter.multiMessageValue.parameter.name` log field value is equal to `address`, then the `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` log field is mapped to the `network.email.to` UDM field.  
+if the `events.parameters.msgValue.parameter.multiMessageValue.parameter.name` log field value is equal to `address`, then if the `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` log field value matches the regular expression pattern: `^.+@.+$`, then the `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` log field is mapped to the `network.email.to` UDM field. Otherwise, if the `events.parameters.msgValue.parameter.name` log field value is equal to `flattened_destinations`, then if the `events.parameters.msgValue.parameter.multiMessageValue.parameter.value` log field value is empty and the `events.parameters.msgValue.parameter.value` log field value is _not_ empty, then the recipient email addresses extracted from the `events.parameters.msgValue.parameter.value` log field that match the regular expression pattern: `^.+@.+$` and are _not_ equal to the `actor.email` log field value are mapped to the `network.email.to` UDM field.  
 delivery | `events.parameters[delivery].msgValue[event_info].parameter.msgValue[client_context].parameter.value[client_type]` | `principal.resource.attribute.labels[client_type]` |   
 delivery | `events.parameters[delivery].msgValue[event_info].parameter.msgValue[client_context].parameter.msgValue[session_context].parameter.value[delegate_user_email]` | `principal.user.email_addresses` |   
 delivery | `events.parameters[delivery].msgValue[event_info].parameter.msgValue[client_context].parameter.msgValue[session_context].parameter.value[dusi]` | `additional.fields[dusi]` |   
@@ -14368,6 +14374,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

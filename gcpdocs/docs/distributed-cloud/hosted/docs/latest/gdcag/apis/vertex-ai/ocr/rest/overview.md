@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/ocr/rest/overview/
 title: Vertex AI Optical Character Recognition API \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:39.787633+00:00
+fetched_at: 2026-11-11T08:20:56.555309+00:00
 ---
 
 # Vertex AI Optical Character Recognition API  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

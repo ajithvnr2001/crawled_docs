@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBCSQLAdmin-GetLocation-sync/
 title: Get a location \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:46:40.968672+00:00
+fetched_at: 2026-11-11T10:38:14.747752+00:00
 ---
 
 # Get a location  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

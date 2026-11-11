@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/extrahop/
 title: Collect ExtraHop Reveal(x) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:10:50.965094+00:00
+fetched_at: 2026-11-11T08:22:26.776196+00:00
 ---
 
 # Collect ExtraHop Reveal(x) logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -404,6 +404,10 @@ N/A | `metadata.vendor_name` | Set to `ExtraHop`.
 `detectionID` | `security_result.rule_labels` | Mapped from changelog  
 `event_type` | `STATUS_UPDATE` | Mapped from changelog  
 `prin_url` | `principal.url` | Mapped from changelog  
+`description` | `principal.user.userid` | For Unexpected Service Access detections, extracted from the `description` field, excluding any `@` domain suffix.  
+`description` | `principal.administrative_domain` | For Unexpected Service Access detections, extracted from the `description` field after `@`, if present.  
+`description` | `target.resource.name` | For Unexpected Service Access detections, extracted from the `description` field.  
+`description` | `target.hostname` | For Unexpected Service Access detections, extracted from the `description` field.  
   
 ## Change Log
 
@@ -415,6 +419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

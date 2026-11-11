@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-preemptible-create/
 title: Create a preemptible VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:03:48.370929+00:00
+fetched_at: 2026-11-11T09:20:24.922618+00:00
 ---
 
 # Create a preemptible VM  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/scan-vulnerabilities/
 title: Scan for vulnerabilities \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:08.467462+00:00
+fetched_at: 2026-11-11T10:51:32.842318+00:00
 ---
 
 # Scan for vulnerabilities  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

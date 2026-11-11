@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-add-empty-column/
 title: Add an empty column \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:48:24.510561+00:00
+fetched_at: 2026-11-11T09:09:13.980840+00:00
 ---
 
 # Add an empty column  |  BigQuery  |  Google Cloud Documentation

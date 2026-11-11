@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/multi-cloud-database-management/
 title: Multicloud database management: Architectures, use cases, and best practices \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:00.260280+00:00
+fetched_at: 2026-11-11T08:23:41.242242+00:00
 ---
 
 # Multicloud database management: Architectures, use cases, and best practices  |  Cloud Architecture Center  |  Google Cloud Documentation

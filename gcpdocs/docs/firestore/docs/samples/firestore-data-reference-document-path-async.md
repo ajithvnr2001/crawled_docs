@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-reference-document-path-async/
 title: Create a Firestore document reference from a document path (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:19.984377+00:00
+fetched_at: 2026-11-11T08:57:18.863730+00:00
 ---
 
 # Create a Firestore document reference from a document path (async)  |  Google Cloud Documentation

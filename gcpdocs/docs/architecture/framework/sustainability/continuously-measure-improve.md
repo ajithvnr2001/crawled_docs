@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/continuously-measure-improve/
 title: Continuously measure and improve sustainability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:57:59.210870+00:00
+fetched_at: 2026-11-11T10:14:30.429786+00:00
 ---
 
 # Continuously measure and improve sustainability  |  Cloud Architecture Center  |  Google Cloud Documentation

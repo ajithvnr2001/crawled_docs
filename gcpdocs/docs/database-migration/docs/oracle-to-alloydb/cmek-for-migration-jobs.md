@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/cmek-for-migration-jobs/
 title: Use customer-managed encryption keys (CMEK) for continuous migrations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:10.486619+00:00
+fetched_at: 2026-11-11T09:33:57.852458+00:00
 ---
 
 # Use customer-managed encryption keys (CMEK) for continuous migrations  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-a-catch-all-triage-playbook/
 title: Create a fallback playbook \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:29.899448+00:00
+fetched_at: 2026-11-11T08:31:10.464067+00:00
 ---
 
 # Create a fallback playbook  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection/
 title: Date of birth collection prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:07.567382+00:00
+fetched_at: 2026-11-11T09:32:46.942587+00:00
 ---
 
 # Date of birth collection prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,23 +23,23 @@ Send feedback
 
 #  Date of birth collection prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-This [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) captures and validates a date of birth by collecting month, date, and year.
+This [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) captures and validates a date of birth by collecting the month, date, and year.
 
 ## Limitations
 
 In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component has the following limitations:
 
-  * This component does not support verification of end-user's date of birth via ID verification.
+  * This component does not support verifying the user's date of birth by comparing it with the user's ID.
 
 
 
 ## Recommended agent settings
 
-[Enable DTMF](https://docs.cloud.google.com/dialogflow/cx/docs/concept/parameter#dtmf) to allow users to input numeric values using the telephone keypad.
+[Enable DTMF](https://docs.cloud.google.com/dialogflow/cx/docs/concept/parameter#dtmf) to let users input numeric values using the telephone keypad.
 
-## Additional functionalities
+## Additional features
 
-The following additional functionalities are provided by this prebuilt component:
+This prebuilt component provides the following additional features:
 
   * [Repeat](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#repeat-functionality)
   * [Waiting room](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#waiting-room-functionality)
@@ -49,13 +49,14 @@ The following additional functionalities are provided by this prebuilt component
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called via telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+The sample dialogs show common scenarios that this prebuilt component handles. They demonstrate behavior when the user calls the component using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
 ### Full date of birth
 
-End-user provides complete date of birth in one turn; agent successfully accepts it.
+  1. The user provides the complete date of birth in one turn.
+  2. The agent successfully accepts it.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please provide your date of birth. Please say your birth month, followed by your birth day, and then your birth year.  
 September 9th 1995 |   
@@ -65,9 +66,10 @@ yes |
   
 ### Partial date of birth
 
-End-user provides date of birth by saying month first followed by date and year; agent successfully accepts it.
+  1. The user provides the date of birth by saying the month first, followed by the date and year.
+  2. The agent successfully accepts it.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please provide your date of birth. Please say your birth month, followed by your birth day, and then your birth year.  
 March |   
@@ -81,9 +83,12 @@ yes |
   
 ### Future date validation
 
-This scenario assumes the current date is March 22, 2023. End-user provides a future date of birth; agent validates it and re-prompts end-user to provide the correct date of birth.
+This scenario assumes that the current date is March 22, 2023:
 
-User input | Agent response  
+  1. The user provides a future date of birth.
+  2. The agent validates it and prompts the user to provide the correct date of birth.
+
+User Input | Agent Response  
 ---|---  
 | Please provide your date of birth. Please say your birth month, followed by your birth day, and then your birth year.  
 September 9th 2023 |   
@@ -104,9 +109,10 @@ yes |
   
 ### Invalid date
 
-End-user provides an invalid date of birth such as February 30th 1999 or April 31st 1999; agent validates it and re-prompts end-user to provide the correct date of birth.
+  1. The user provides an invalid date of birth, for example, February 30, 1999, or April 31, 1999.
+  2. The agent validates it and prompts the user to provide the correct date of birth.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please provide your date of birth. Please say your birth month, followed by your birth day, and then your birth year.  
 February 30th 1999 |   
@@ -125,29 +131,31 @@ yes |
   
 ### Unrecognized input
 
-Component exits the flow after the end-user provides unrecognized input three times.
+Component exits the flow after the user provides unrecognized input three times.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please provide your date of birth. Please say your birth month, followed by your birth day, and then your birth year.  
 It's fine |   
 | Sorry, I didn't get that. Can you please say or enter your date of birth again?  
 nice |   
-| Sorry I did not get your date of birth. Let's start with month. Please say which month were you born in?  
+| Sorry I didn't get your date of birth. Let's start with month. Please say which month were you born in?  
 good |   
 | Sorry, I didn't get that. Can you please say or enter the month number again?  
 nice |   
-| Hmm, I still wasn't able to get that. Please make sure you're saying the month. If I am having trouble hearing you, you can also use the keypad to enter the month number.  
+| Hmm, I still wasn't able to get that. Make sure you're saying the month. If I am having trouble hearing you, you can also use the keypad to enter the month number.  
 nice |   
 | Sorry, I'm having difficulty understanding your response.  
   
 ## Date of birth validation
 
-This prebuilt component uses the [IS_DATE](https://docs.cloud.google.com/dialogflow/cx/docs/reference/system-functions#func-isdate) and [IS_FUTURE_DATE](https://docs.cloud.google.com/dialogflow/cx/docs/reference/system-functions#func-isfuturedate) system functions to check whether a collected date is valid and in the past. In addition:
+This prebuilt component uses the [IS_DATE](https://docs.cloud.google.com/dialogflow/cx/docs/reference/system-functions#func-isdate) and [IS_FUTURE_DATE](https://docs.cloud.google.com/dialogflow/cx/docs/reference/system-functions#func-isfuturedate) system functions to check whether a collected date is valid and in the past.
 
-  * Inputs such as "this month", "next month" or "last month" are converted into the appropriate months. For example, if the end-user is interacting with the agent in March, then "this month", "next month" and "last month" are converted into "March", "April" and "February" respectively.
-  * Validates that the year should be four digits. If the year input contains only two digits, the component converts it into a four-digit year. For example, "98" is converted to "1998".
-  * Input such as "this Thursday", "last Thursday", and "next Thursday" are captured as the appropriate month and day and the agent prompts to provide the year. For example, if end-user is interacting with the agent on March 22, 2023, which is a Wednesday, then "this Thursday", "last Thursday", and "next Thursday" are converted into "March 23", "March 16", and "March 30" respectively.
+In addition:
+
+  * Inputs such as "this month", "next month", or "last month" are converted into the appropriate months. For example, if you interact with the agent in March, then "this month", "next month", and "last month" are converted into "March", "April", and "February" respectively.
+  * The component validates that the year has four digits. If the year input contains only two digits, the component converts it into a four-digit year. For example, "98" is converted to "1998".
+  * Inputs such as "this Thursday", "last Thursday", and "next Thursday" are captured as the appropriate month and day, and the agent prompts you to provide the year. For example, if you interact with the agent on March 22, 2023, which is a Wednesday, then "this Thursday", "last Thursday", and "next Thursday" are converted into "March 23", "March 16", and "March 30" respectively.
 
 
 
@@ -164,7 +172,9 @@ Entity Type | prebuilt_components_[component_name]_[entity_type] | prebuilt_comp
   
 ## Output parameters
 
-Output parameters are session parameters that will remain active after exiting the component. These parameters contain important information collected by the component. This prebuilt component provides values for the following output parameters:
+Output parameters are session parameters that remain active after exiting the component. These parameters contain important information collected by the component.
+
+This prebuilt component provides values for the following output parameters:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -179,15 +189,11 @@ dob_collection_dob | This parameter returns an object containing date of birth e
   
 ## Basic setup
 
-To set up this prebuilt component:
-
-  1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
-
-
+To set up this prebuilt component, you can [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
 
 ### Complete
 
-Your agent and should now be set up and ready to test.
+The prebuilt component is now set up and ready to test.
 
 [ Previous arrow_back  Credit card statement  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/credit-card-statement)
 
@@ -197,6 +203,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

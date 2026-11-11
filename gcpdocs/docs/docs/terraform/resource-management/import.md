@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/resource-management/import/
 title: Import your Google Cloud resources into Terraform state \u00a0|\u00a0 Terraform on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:46.355269+00:00
+fetched_at: 2026-11-11T09:07:39.811707+00:00
 ---
 
 # Import your Google Cloud resources into Terraform state  |  Terraform on Google Cloud  |  Google Cloud Documentation

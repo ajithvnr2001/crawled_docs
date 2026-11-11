@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/policies-overview/
 title: DNS policies overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:44.259892+00:00
+fetched_at: 2026-11-11T09:46:34.535734+00:00
 ---
 
 # DNS policies overview  |  Google Cloud Documentation

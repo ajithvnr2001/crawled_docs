@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips/
 title: VPC-native clusters \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:44.634031+00:00
+fetched_at: 2026-11-11T09:17:46.444478+00:00
 ---
 
 # VPC-native clusters  |  GKE networking  |  Google Cloud Documentation
@@ -88,7 +88,7 @@ VPC-native clusters allocate IPv4 addresses for nodes, Pods, and Services as fol
 
   * **Node and Pod IPv6 addresses** : in clusters enabled for dual-stack networking, the node's IPv6 address and all Pod IPv6 addresses originate from the node's designated `/96` IPv6 address range. The node IP address itself is the first `/128` (single IPv6 address) within this range. For more information, see dual-stack networking.
 
-  * **Service IPv6 addresses** : GKE clusters use the `2600:2D00:0:4::0:0/64` IPv6 address range for Services. Google Cloud uses the `2600:2D00:0:4::0:0/64` address range for private purposes and doesn't publish any routes on the public internet for this range. You can't use this range for external IPv6 addresses of your resources.
+  * **Service IPv6 addresses** : GKE allocates each cluster a `/112` IPv6 address range for Services from the `2600:2D00:0:4::0:0/64` IPv6 address range. Google Cloud uses the `2600:2D00:0:4::0:0/64` address range for private purposes and doesn't publish any routes on the public internet for this range. You can't use this range for external IPv6 addresses of your resources.
 
 
 
@@ -98,7 +98,7 @@ VPC-native clusters allocate IPv4 addresses for nodes, Pods, and Services as fol
 In single-stack IPv6 clusters, GKE doesn't use alias IP address ranges. Instead, GKE directly allocates the addresses as follows:
 
   * **Node and Pod IPv6 addresses** : GKE assigns each node a `/96` subrange directly from the cluster subnetwork's `/64` IPv6 CIDR block. Subsequently, GKE assigns Pods that run on a worker node IPv6 addresses from a `/112` subset of the node's `/96` subrange.
-  * **Service IPv6 addresses** : GKE clusters use the `2600:2D00:0:4::0:0/64` IPv6 address range for Services (`ClusterIP`). Google Cloud uses the `2600:2D00:0:4::0:0/64` address range for private purposes and doesn't publish any routes on the public internet for this range. You can't use this range for external IPv6 addresses of your resources.
+  * **Service IPv6 addresses** : GKE allocates each cluster a `/112` IPv6 address range for Services (`ClusterIP`) from the `2600:2D00:0:4::0:0/64` IPv6 address range. Google Cloud uses the `2600:2D00:0:4::0:0/64` address range for private purposes and doesn't publish any routes on the public internet for this range. You can't use this range for external IPv6 addresses of your resources.
 
 
 
@@ -546,6 +546,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

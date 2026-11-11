@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features/
 title: Manage web app features \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:37:22.808390+00:00
+fetched_at: 2026-11-11T08:53:19.163756+00:00
 ---
 
 # Manage web app features  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ Note: Review and approve pending sharing requests before turning on this feature
 **Enable End Users to share with Groups** |  When enabled, users can share custom agents with groups in the organization. Whether the administrator must approve sharing depends on the **Enable agent sharing without admin approval** setting. For more information, see [Share an agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/share-chat-agent). If you use Okta or Microsoft Entra ID as a third-party identity provider with Workforce Identity Federation, [configure SCIM](https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider#configure_workforce_id_federation) to enable autocomplete of group names (and email addresses) when users share agents.  
 **Show license tier badge** |  When enabled, users see the app's [edition](https://docs.cloud.google.com/gemini/enterprise/docs/editions) label (for example, **Standard** or **Plus**) in the web app. This setting is enabled by default and applies to the entire web app.   
 **Model availability** |  You can select the models that users can use in the web app. To enable model selection, you must turn on the **Enable model selector** toggle.  The following Gemini and partner models are available: 
-     * **Gemini models** : Gemini 4 Argon, Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.5 Flash, Gemini 3.1 Pro, and Gemini 2.5 Pro. For more information, see Enable Gemini models. 
+     * **Gemini models** : Gemini 4 Carbon, Gemini 4 Argon, Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.5 Flash, Gemini 3.1 Pro, and Gemini 2.5 Pro. For more information, see Enable Gemini models. 
      * **Partner models** : Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5. For more information, see Enable third-party models.   
 
 
@@ -107,7 +107,8 @@ The following Gemini models are available in the web app:
 
 Model | Default state | Supported locations and notes  
 ---|---|---  
-**Gemini 4 Argon** |  Turned off in `global`, `us`, and `eu` (defaults to on beginning October 27, 2026)  |  To make Gemini 4 Argon available to users, click the **Gemini 4 Argon** toggle to the on position. For unsupported in-country regions, confirm the warning dialog to route traffic to the `global` endpoint. For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).   
+**Gemini 4 Carbon** |  Turned off in `global`, `us`, and `eu` |  To make Gemini 4 Carbon available to users, click the **Gemini 4 Carbon** toggle to the on position. For unsupported in-country regions, confirm the warning dialog to route traffic to the `global` endpoint. For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).   
+**Gemini 4 Argon** |  Turned off in `global`, `us`, and `eu` |  To make Gemini 4 Argon available to users, click the **Gemini 4 Argon** toggle to the on position. For unsupported in-country regions, confirm the warning dialog to route traffic to the `global` endpoint. For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).   
 **Gemini 3.8 Flash** |  Turned on in `global`, `us`, and `eu`, and in `sg` and `europe-west2` |  If you don't want users to use Gemini 3.8 Flash, click the **Gemini 3.8 Flash** toggle to the off position. For unsupported in-country regions, click the **Gemini 3.8 Flash** toggle to the on position and confirm the warning dialog to route traffic to the `global` endpoint.   
 **Gemini 3.7 Flash** | Turned off |  To let users use Gemini 3.7 Flash, click the **Gemini 3.7 Flash** toggle to the on position. For unsupported in-country regions, you must also confirm a warning dialog to route traffic to the `global` endpoint.   
 **Gemini 3.6 Flash** | Turned off |  To let users use Gemini 3.6 Flash, click the **Gemini 3.6 Flash** toggle to the on position. For unsupported in-country regions, you must also confirm a warning dialog to route traffic to the `global` endpoint.   
@@ -233,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

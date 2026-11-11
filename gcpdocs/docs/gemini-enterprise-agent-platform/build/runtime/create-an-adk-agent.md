@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent/
 title: Develop an ADK agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:43.586294+00:00
+fetched_at: 2026-11-11T12:32:06.343857+00:00
 ---
 
 # Develop an ADK agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -365,7 +365,9 @@ You should receive a continuation of the conversation like the following sequenc
 
 By default, [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp) uses an in-memory implementation of agentic memory when running locally and uses [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) after you deploy the agent to Agent Runtime.
 
-When developing your ADK agent, you can include a `PreloadMemoryTool` that controls when the agent retrieves memories and how memories are included in the prompt. The following example agent always retrieves memories at the start of each turn and includes the memories in the system instruction:
+To choose a memory generation callback or a different memory retrieval tool, see [Use Agent Platform Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk).
+
+When developing your ADK agent, you can include a `PreloadMemoryTool` that controls when the agent retrieves memories and how memories are included in the prompt. The following example agent always retrieves memories at the start of each turn and injects them into the model request context before the user turn:
     
     
     from google.adk.agents import Agent
@@ -518,6 +520,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

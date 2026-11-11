@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform/pa-user/list-view-storage-buckets/
 title: List and view storage bucket configurations \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:04.332391+00:00
+fetched_at: 2026-11-11T09:46:44.150090+00:00
 ---
 
 # List and view storage bucket configurations  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

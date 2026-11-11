@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-nested-fields-async/
 title: Add a Firestore document with nested fields (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:44.080598+00:00
+fetched_at: 2026-11-11T08:57:15.168163+00:00
 ---
 
 # Add a Firestore document with nested fields (async)  |  Google Cloud Documentation

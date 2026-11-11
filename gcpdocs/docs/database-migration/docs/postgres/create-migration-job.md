@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/create-migration-job/
 title: Create a migration job to a new destination instance \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:54.586365+00:00
+fetched_at: 2026-11-11T09:35:07.441962+00:00
 ---
 
 # Create a migration job to a new destination instance  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

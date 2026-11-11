@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/getting-support/
 title: Get support \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:40.338647+00:00
+fetched_at: 2026-11-11T09:08:12.151177+00:00
 ---
 
 # Get support  |  Document AI  |  Google Cloud Documentation

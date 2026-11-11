@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/overview/
 title: Document AI overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:38.168489+00:00
+fetched_at: 2026-11-11T09:07:46.482577+00:00
 ---
 
 # Document AI overview  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/self-managed-gke/
 title: Use Filestore agent volumes with self-managed GKE workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:20:34.797551+00:00
+fetched_at: 2026-11-11T08:57:03.636474+00:00
 ---
 
 # Use Filestore agent volumes with self-managed GKE workloads  |  Google Cloud Documentation

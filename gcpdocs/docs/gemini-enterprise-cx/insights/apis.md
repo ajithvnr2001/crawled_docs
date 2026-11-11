@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/apis/
 title: API Reference \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:18:30.430012+00:00
+fetched_at: 2026-11-11T08:49:34.441848+00:00
 ---
 
 # API Reference  |  Customer Experience Insights  |  Google Cloud Documentation

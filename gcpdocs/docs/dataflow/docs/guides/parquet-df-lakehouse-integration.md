@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/parquet-df-lakehouse-integration/
 title: Import Parquet files from storage to borderless Lakehouse using Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:07:08.632823+00:00
+fetched_at: 2026-11-11T09:35:17.164267+00:00
 ---
 
 # Import Parquet files from storage to borderless Lakehouse using Dataflow  |  Google Cloud Documentation
@@ -86,15 +86,19 @@ To improve import efficiency, specify multiple sets of files (_globs_) when you'
 
      2. In the **Iceberg table** field, enter the namespace and table name. For example: NAMESPACE .TABLE_NAME .
 
-     3. Under expand_more**Catalog properties** , configure the following items:
+     3. Optional: In the **Manifest file size** field, enter the number of data files to include in each manifest file. The default is 10,000.
+
+     4. Under expand_more**Catalog properties** , configure the following items:
 
         1. **warehouse** : The Cloud Storage location of your catalog. For example, `gs://CATALOG_PATH`.
 
         2. **header.x-goog-user-project** : Your Google Cloud project ID: PROJECT_ID.
 
-        3. Click **Done**.
+     5. Optional: To let the job update the destination table schema to match your Parquet files, select one or more options in the **Schema evolution** list. For more information, see Configure schema evolution.
 
-     4. If you are migrating from Amazon S3 or Azure Blob Storage you need to provide additional configurations to copy Parquet files to Cloud Storage. This is not required if your files are already in Cloud Storage.
+     6. Click **Done**.
+
+     7. If you are migrating from Amazon S3 or Azure Blob Storage you need to provide additional configurations to copy Parquet files to Cloud Storage. This is not required if your files are already in Cloud Storage.
 
         1. Click the **CopyFilesToGCS** transform section to open it.
 
@@ -125,6 +129,22 @@ To improve import efficiency, specify multiple sets of files (_globs_) when you'
 
 
 If you need to further customize the Dataflow pipeline used to register Parquet files, you can do that using the job builder form or the YAML editor.
+
+### Configure schema evolution
+
+By default, the **IcebergAddFiles** transform doesn't change the destination table schema. Using a batch job, you can turn on schema evolution to inspect each Parquet file's footer and update the table schema before registering files. If the destination table doesn't exist, the job creates the table from the combined schemas of the Parquet files.
+
+To turn on schema evolution in the **IcebergAddFiles** transform section, select one or more options from the **Schema evolution** list:
+
+  * **Add columns** : adds columns from a Parquet file that aren't in the table as optional columns.
+  * **Make columns optional** : changes a required table column to optional when a file omits the column or can contain null values in it.
+  * **Widen column types** : widens a column's data type, such as from `int` to `long`.
+
+
+
+If any data file has an incompatible schema, the pipeline fails without committing schema changes or registering any files. For example, a schema is incompatible if it requires a change that you didn't select or conflicts with the table or another file.
+
+When you select at least one **Schema evolution** option, you can also specify columns that must always be present and non-null, even when **Make columns optional** is selected. Expand **Required columns** , click **Add item** , and enter a value in the **Column name** field. For nested fields, separate field names with periods, such as `address.city`. Files that omit a required column or contain null values in it are sent to the error output.
 
 ### Examine the job output
 
@@ -165,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

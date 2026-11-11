@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/configure-source-database/
 title: Configure your source MySQL database for one-time migrations \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:55.874333+00:00
+fetched_at: 2026-11-11T09:33:11.395111+00:00
 ---
 
 # Configure your source MySQL database for one-time migrations  |  Database Migration Service for MySQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ai-ml/ml-application-operations-architecture-guides/
 title: ML applications and operations architecture guides \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:21:44.814130+00:00
+fetched_at: 2026-11-11T10:14:22.865910+00:00
 ---
 
 # ML applications and operations architecture guides  |  Cloud Architecture Center  |  Google Cloud Documentation

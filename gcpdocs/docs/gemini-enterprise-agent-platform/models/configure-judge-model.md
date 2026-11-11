@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/configure-judge-model/
 title: Configure a judge model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:09.315389+00:00
+fetched_at: 2026-11-11T08:51:26.659010+00:00
 ---
 
 # Configure a judge model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

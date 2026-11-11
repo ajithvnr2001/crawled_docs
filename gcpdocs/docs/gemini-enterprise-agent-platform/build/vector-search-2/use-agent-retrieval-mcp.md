@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/use-agent-retrieval-mcp/
 title: Use the Agent Retrieval remote MCP server to connect to AI and custom applications \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:10.150568+00:00
+fetched_at: 2026-11-11T08:51:49.550840+00:00
 ---
 
 # Use the Agent Retrieval remote MCP server to connect to AI and custom applications  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-actions/
 title: Manage migration jobs \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:39.316827+00:00
+fetched_at: 2026-11-11T09:33:45.238570+00:00
 ---
 
 # Manage migration jobs  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact/
 title: Data RBAC impact on features overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:29.716487+00:00
+fetched_at: 2026-11-11T09:20:10.754557+00:00
 ---
 
 # Data RBAC impact on features overview  |  Google Security Operations  |  Google Cloud Documentation

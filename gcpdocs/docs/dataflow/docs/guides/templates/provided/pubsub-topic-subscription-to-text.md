@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-topic-subscription-to-text/
 title: Pub/Sub Topic or Subscription to Text Files on Cloud Storage template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:24.388016+00:00
+fetched_at: 2026-11-11T09:08:00.888879+00:00
 ---
 
 # Pub/Sub Topic or Subscription to Text Files on Cloud Storage template  |  Cloud Dataflow  |  Google Cloud Documentation

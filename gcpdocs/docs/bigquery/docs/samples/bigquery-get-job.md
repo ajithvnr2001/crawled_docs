@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-job/
 title: Get job properties \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:11.931645+00:00
+fetched_at: 2026-11-11T09:20:29.618186+00:00
 ---
 
 # Get job properties  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/billing-questions/
 title: Billing questions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:37:11.854249+00:00
+fetched_at: 2026-11-11T08:40:37.896787+00:00
 ---
 
 # Billing questions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

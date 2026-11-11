@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:15.784781+00:00
+fetched_at: 2026-11-11T10:28:51.032270+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -48,6 +48,8 @@ To enable Google Cloud CMEK on your Oracle Database@Google Cloud resources, you 
 
 When you provision an Oracle Database@Google Cloud resource, a service account is automatically created which you can use to enable CMEK on that resource only. The service account has no permissions assigned in your project, so you will need to [assign permissions to the service account](https://docs.cloud.google.com/oracle/database/docs/use-cmek) before it can use a key.
 
+Additionally, for Exadata VM Cluster and Exascale VM Cluster, an Identity Connector is also created by default. The Identity Connector is required for using CMEK with your clusters. You can choose to have the Identity Connector created automatically during the creation of the cluster, or enable it manually later.
+
 For an Exadata VM Cluster and Exascale VM Cluster, the service account is managed by Google Cloud, and for an Autonomous AI Database, the service account is managed by Oracle.
 
 ## Pricing
@@ -77,6 +79,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

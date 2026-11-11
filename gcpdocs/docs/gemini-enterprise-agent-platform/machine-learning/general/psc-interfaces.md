@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-interfaces/
 title: About accessing Gemini Enterprise Agent Platform services through Private Service Connect interfaces \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:01.448710+00:00
+fetched_at: 2026-11-11T08:50:43.766465+00:00
 ---
 
 # About accessing Gemini Enterprise Agent Platform services through Private Service Connect interfaces  |  Google Cloud Documentation

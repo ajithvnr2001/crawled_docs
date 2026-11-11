@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-model/
 title: Create a model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:37.574428+00:00
+fetched_at: 2026-11-11T08:59:34.240654+00:00
 ---
 
 # Create a model  |  BigQuery  |  Google Cloud Documentation

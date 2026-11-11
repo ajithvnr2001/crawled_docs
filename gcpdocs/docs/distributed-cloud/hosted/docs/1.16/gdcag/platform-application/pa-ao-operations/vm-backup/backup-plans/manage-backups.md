@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/vm-backup/backup-plans/manage-backups/
 title: Manage virtual machine backups \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:07.047024+00:00
+fetched_at: 2026-11-11T10:51:34.754331+00:00
 ---
 
 # Manage virtual machine backups  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

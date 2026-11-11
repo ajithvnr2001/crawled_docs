@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/configure-dst-connection-public-ip/
 title: Configure public IP connectivity for AlloyDB for PostgreSQL destinations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:05.962790+00:00
+fetched_at: 2026-11-11T09:33:56.890915+00:00
 ---
 
 # Configure public IP connectivity for AlloyDB for PostgreSQL destinations  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/sqlserver-to-bigquery/
 title: SQL Server to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:23.743403+00:00
+fetched_at: 2026-11-11T09:08:13.539615+00:00
 ---
 
 # SQL Server to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation

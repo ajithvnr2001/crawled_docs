@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/encrypt-source-connections/
 title: Configure encryption for source database connections \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:32.010622+00:00
+fetched_at: 2026-11-11T09:34:41.969992+00:00
 ---
 
 # Configure encryption for source database connections  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

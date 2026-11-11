@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/migration-from-v1beta2/
 title: Migrating from V1Beta2 \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:38.372321+00:00
+fetched_at: 2026-11-11T09:08:27.596963+00:00
 ---
 
 # Migrating from V1Beta2  |  Document AI  |  Google Cloud Documentation

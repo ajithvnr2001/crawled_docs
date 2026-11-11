@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/create-plan/policy-settings/
 title: Configure advanced policy settings in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:12.856831+00:00
+fetched_at: 2026-11-11T10:10:50.422191+00:00
 ---
 
 # Configure advanced policy settings in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation

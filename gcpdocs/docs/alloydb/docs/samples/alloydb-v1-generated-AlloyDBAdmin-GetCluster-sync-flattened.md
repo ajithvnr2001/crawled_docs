@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-GetCluster-sync-flattened/
 title: Get a cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:21.525586+00:00
+fetched_at: 2026-11-11T10:36:08.330372+00:00
 ---
 
 # Get a cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

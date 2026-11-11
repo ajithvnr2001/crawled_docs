@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/guide-to-new-instance/
 title: Migrate to a new destination cluster \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:09.776241+00:00
+fetched_at: 2026-11-11T09:33:45.532739+00:00
 ---
 
 # Migrate to a new destination cluster  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

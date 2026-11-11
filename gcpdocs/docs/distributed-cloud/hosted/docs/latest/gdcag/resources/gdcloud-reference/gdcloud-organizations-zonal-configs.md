@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-organizations-zonal-configs/
 title: gdcloud organizations zonal-configs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:39.936035+00:00
+fetched_at: 2026-11-11T10:52:13.011722+00:00
 ---
 
 # gdcloud organizations zonal-configs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

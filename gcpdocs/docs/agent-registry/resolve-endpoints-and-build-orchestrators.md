@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/resolve-endpoints-and-build-orchestrators/
 title: Build multi-agent systems and call A2A agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:28:15.169732+00:00
+fetched_at: 2026-11-11T10:37:38.611159+00:00
 ---
 
 # Build multi-agent systems and call A2A agents  |  Agent Registry  |  Google Cloud Documentation

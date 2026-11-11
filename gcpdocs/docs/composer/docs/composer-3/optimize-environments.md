@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/optimize-environments/
 title: Optimize environment performance and costs \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:48:46.017166+00:00
+fetched_at: 2026-11-11T09:20:49.811204+00:00
 ---
 
 # Optimize environment performance and costs  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

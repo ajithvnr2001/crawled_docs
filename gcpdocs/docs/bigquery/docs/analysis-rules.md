@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analysis-rules/
 title: Restrict data access using analysis rules \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:33:04.582724+00:00
+fetched_at: 2026-11-11T08:39:08.566198+00:00
 ---
 
 # Restrict data access using analysis rules  |  BigQuery  |  Google Cloud Documentation

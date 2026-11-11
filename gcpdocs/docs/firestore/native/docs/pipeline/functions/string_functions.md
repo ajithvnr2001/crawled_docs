@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/string_functions/
 title: String Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:53.062933+00:00
+fetched_at: 2026-11-11T08:56:29.160897+00:00
 ---
 
 # String Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ b"abc" | 3
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1800-L1805)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1804-L1809)
 
 ### Web
     
@@ -91,7 +91,7 @@ b"abc" | 3
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3075-L3080)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3079-L3084)
 
 ##### Swift
     
@@ -200,7 +200,7 @@ value | `char_length(value)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1812-L1817)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1816-L1821)
 
 ### Web
     
@@ -212,7 +212,7 @@ value | `char_length(value)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3087-L3092)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3091-L3096)
 
 ##### Swift
     
@@ -322,7 +322,7 @@ value | prefix | `starts_with(value, prefix)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1824-L1830)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1828-L1834)
 
 ### Web
     
@@ -335,7 +335,7 @@ value | prefix | `starts_with(value, prefix)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3099-L3105)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3103-L3109)
 
 ##### Swift
     
@@ -450,7 +450,7 @@ value | postfix | `ends_with(value, postfix)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1837-L1843)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1841-L1847)
 
 ##### Swift
     
@@ -564,7 +564,7 @@ value | pattern | `like(value, pattern)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1850-L1856)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1854-L1860)
 
 ### Web
     
@@ -577,7 +577,7 @@ value | pattern | `like(value, pattern)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3125-L3131)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3129-L3135)
 
 ##### Swift
     
@@ -704,7 +704,7 @@ value | regexp | `regex_contains(value, regexp)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1863-L1869)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1867-L1873)
 
 ### Web
     
@@ -717,7 +717,7 @@ value | regexp | `regex_contains(value, regexp)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3138-L3144)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3142-L3148)
 
 ##### Swift
     
@@ -915,7 +915,7 @@ value | regexp | `regex_match(value, regexp)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1876-L1882)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1880-L1886)
 
 ### Web
     
@@ -928,7 +928,7 @@ value | regexp | `regex_match(value, regexp)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3151-L3157)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3155-L3161)
 
 ##### Swift
     
@@ -1048,7 +1048,7 @@ arguments | `string_concat(values...)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1889-L1895)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1893-L1899)
 
 ### Web
     
@@ -1061,7 +1061,7 @@ arguments | `string_concat(values...)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3164-L3170)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3168-L3174)
 
 ##### Swift
     
@@ -1180,7 +1180,7 @@ value | substring | `string_contains(value, substring)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1902-L1908)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1906-L1912)
 
 ### Web
     
@@ -1193,7 +1193,7 @@ value | substring | `string_contains(value, substring)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3177-L3183)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3181-L3187)
 
 ##### Swift
     
@@ -1340,7 +1340,7 @@ b"a1c" | b"A1C"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1915-L1921)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1919-L1925)
 
 ### Web
     
@@ -1353,7 +1353,7 @@ b"a1c" | b"A1C"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3190-L3196)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3194-L3200)
 
 ##### Swift
     
@@ -1469,7 +1469,7 @@ b"ABC" | b"abc"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1928-L1934)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1932-L1938)
 
 ### Web
     
@@ -1482,7 +1482,7 @@ b"ABC" | b"abc"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3203-L3209)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3207-L3213)
 
 ##### Swift
     
@@ -1619,7 +1619,7 @@ b"abc" | 0 | 1 | b"a"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1940-L1947)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1944-L1951)
 
 ### Web
     
@@ -1633,7 +1633,7 @@ b"abc" | 0 | 1 | b"a"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3215-L3222)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3219-L3226)
 
 ##### Swift
     
@@ -1760,7 +1760,7 @@ b"abc" | b"cba"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1954-L1959)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1958-L1963)
 
 ### Web
     
@@ -1772,7 +1772,7 @@ b"abc" | b"cba"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3229-L3234)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3233-L3238)
 
 ##### Swift
     
@@ -1984,7 +1984,7 @@ b"C1C2" | "foo" | error
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3241-L3246)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3245-L3250)
 
 ##### Swift
     
@@ -2188,6 +2188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

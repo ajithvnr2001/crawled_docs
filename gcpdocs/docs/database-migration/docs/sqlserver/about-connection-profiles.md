@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/about-connection-profiles/
 title: About connection profiles \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:49.506166+00:00
+fetched_at: 2026-11-11T09:34:40.071110+00:00
 ---
 
 # About connection profiles  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

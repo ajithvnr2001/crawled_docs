@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6/
 title: Create and manage single-stack IPv6 clusters \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:24:26.595980+00:00
+fetched_at: 2026-11-11T09:17:45.737954+00:00
 ---
 
 # Create and manage single-stack IPv6 clusters  |  GKE networking  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ Resource | CIDR block prefix | Description
 Subnetwork | `/64` | Specified as an IPv6-only subnetwork CIDR block.  
 Node | `/96` | Assigned automatically by GKE from the subnetwork CIDR block, providing approximately 4.29 billion unique IPv6 addresses per node.  
 Pod | `/112` | Assigned from a subset of the node's `/96` subrange.  
-Service | `/64` | Assigned automatically by GKE for ClusterIP Services from the `2600:2D00:0:4::0:0/64` IPv6 address range.  
+Service | `/112` | Assigned automatically by GKE for ClusterIP Services from the `2600:2D00:0:4::0:0/64` IPv6 address range.  
   
 ### External and internal IPv6 access types
 
@@ -74,6 +74,7 @@ To use single-stack IPv6 clusters, ensure you meet the following requirements an
 
   * Your cluster must run GKE version 1.37.1-gke.3020000 or later.
   * Your cluster must be a VPC-native cluster that uses GKE Dataplane V2. Single-stack IPv6 clusters don't support route-based clusters.
+  * Your cluster must use a custom-mode VPC network; auto-mode VPC networks aren't supported. Unless you allocate all internal IPv6 subnetworks from an internal [BYOIPv6 sub-prefix](https://docs.cloud.google.com/vpc/docs/create-ipv6-sub-prefixes), the VPC network must have [Unique Local IPv6 Unicast Addresses (ULA) enabled](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#enable-internal-ipv6-network) (`--enable-ula-internal-ipv6`), even if your node subnetwork uses `EXTERNAL` IPv6 addresses, because the required Private Service Connect control plane subnetwork uses `INTERNAL` IPv6 addresses.
   * Single-stack IPv6 clusters support only single-stack IPv6 VM instances as worker nodes, and don't support mixed or dual-stack node pools.
   * You must use Cloud DNS as the cluster DNS provider (`--cluster-dns=clouddns`). Single-stack IPv6 clusters don't support `kube-dns`.
   * Control plane access in single-stack IPv6 clusters uses two distinct paths: 
@@ -108,7 +109,7 @@ Because workloads running in IPv6-only Pods can't reach the standard IPv4 metada
 
 ## Create a single-stack IPv6 cluster
 
-You can create a single-stack IPv6 cluster by using the Google Cloud CLI.
+You can create a single-stack IPv6 cluster by using the Google Cloud CLI or the Google Cloud console.
 
 ### Create a cluster and subnetwork simultaneously
 
@@ -159,7 +160,7 @@ To use pre-existing or custom subnetworks, create the VPC network, the PSC contr
              --region=COMPUTE_REGION
          
 
-Replace `COMPUTE_REGION` with the region where you deploy your cluster (for example, `us-central1`). You can also specify `--stack-type=ipv4_ipv6` for the PSC control plane subnetwork.
+Replace `COMPUTE_REGION` with the region where you deploy your cluster (for example, `us-central1`). You can also specify `--stack-type=ipv4_ipv6` with `--range` for a dual-stack PSC control plane subnetwork.
 
   3. Create the node subnetwork. Choose either internal access (`INTERNAL`) or external access (`EXTERNAL`):
          
@@ -171,6 +172,8 @@ Replace `COMPUTE_REGION` with the region where you deploy your cluster (for exam
          
 
   4. Create the single-stack IPv6 Standard cluster referencing both subnetworks:
+
+### gcloud
          
          gcloud container clusters create CLUSTER_NAME \
              --cluster-version=VERSION \
@@ -183,6 +186,38 @@ Replace `COMPUTE_REGION` with the region where you deploy your cluster (for exam
              --location=COMPUTE_LOCATION
          
 
+### Console
+
+     1. In the Google Cloud console, go to the **Create a Kubernetes cluster** page. 
+
+[Go to Create a Kubernetes cluster](https://console.cloud.google.com/kubernetes/add)
+
+     2. Configure your cluster basics (such as **Name** and **Location type**) as needed.
+     3. From the navigation pane, under **Cluster** , click **Networking**.
+     4. In the **Cluster networking** section:
+
+        * In the **Network** list, select your custom-mode VPC network. If the network contains only IPv6-only subnetworks, the console selects the first compatible subnetwork in the region and opens the **Changes needed** confirmation dialog; review the changes and click **Make changes**.
+        * In the **Node subnet** list, verify that your IPv6-only node subnetwork is selected, or select it. If the **Changes needed** confirmation dialog opens, review the changes and click **Make changes**.
+
+The **Changes needed** dialog lists only the settings that change from their current form state, such as the following from the default configuration:
+
+        * **IP stack type** : set to **IPv6 (single stack)**
+        * **Version** : set to 1.37.1-gke.3020000 or later
+        * **Dataplane V2** : enabled
+        * **DNS provider** : set to Cloud DNS
+        * **Pod and Service address ranges** : cleared
+        * **Private endpoint subnetwork** : set to a compatible internal IPv6 or internal dual-stack subnetwork
+
+Any change listed in the **Changes needed** dialog is applied automatically when you click **Make changes**. If a setting or subnetwork isn't listed in the dialog—for example, in projects with more than 300 subnetworks, where the console pre-fetches only the first 300 subnetworks—select it manually.
+
+     5. To view IP stack and endpoint settings, click **IP Management**.
+
+     6. For **IP Stack type** , select **IPv6 (single stack)** (if it isn't already selected). If the **Changes needed** dialog opens, click **Make changes**.
+
+     7. In the **Private endpoint subnet** list under **IP Stack type** , verify that the internal IPv6 or internal dual-stack subnetwork that you created for the Private Service Connect control plane endpoint is selected, or select a compatible subnetwork.
+
+     8. Click **Create**.
+
 
 
 
@@ -190,9 +225,11 @@ Replace `COMPUTE_REGION` with the region where you deploy your cluster (for exam
 
 Autopilot clusters automatically inherit their stack type from the node subnetwork that you specify. When you select an IPv6-only subnetwork, GKE creates a single-stack IPv6 Autopilot cluster.
 
-  1. Ensure you have created a custom VPC network, an internal PSC subnetwork, and an IPv6-only node subnetwork as described in the previous section.
+  1. Ensure you have created a custom-mode VPC network with ULA internal IPv6 addresses enabled, an internal PSC subnetwork, and an IPv6-only node subnetwork as described in the previous section.
 
   2. Create the Autopilot cluster:
+
+### gcloud
          
          gcloud container clusters create-auto CLUSTER_NAME \
              --cluster-version=VERSION \
@@ -201,6 +238,25 @@ Autopilot clusters automatically inherit their stack type from the node subnetwo
              --private-endpoint-subnetwork=PSC_SUBNET_NAME \
              --location=COMPUTE_LOCATION
          
+
+### Console
+
+     1. In the Google Cloud console, go to the **Create an Autopilot cluster** page. 
+
+[Go to Create an Autopilot cluster](https://console.cloud.google.com/kubernetes/auto/add)
+
+     2. Configure your cluster basics (such as **Name** and **Region**) as needed.
+     3. From the navigation pane, click **Networking**.
+     4. In the **Cluster networking** section:
+
+        * In the **Network** list, select your custom-mode VPC network. If the network contains only IPv6-only subnetworks, the console selects the first compatible subnetwork in the region and opens the **Changes needed** confirmation dialog; review the changes and click **Make changes**.
+        * In the **Node subnet** list, verify that your IPv6-only node subnetwork is selected, or select it. If the **Changes needed** confirmation dialog opens, review the changes and click **Make changes**.
+
+Clicking **Make changes** switches the cluster IP stack type to **IPv6 (single stack)** and automatically applies any other changes listed in the dialog, such as updating the cluster version to 1.37.1-gke.3020000 or later if needed, clearing Pod and Service address ranges, and setting the private endpoint subnetwork. If a setting or subnetwork isn't listed in the dialog—for example, in projects with more than 300 subnetworks, where the console pre-fetches only the first 300 subnetworks—select it manually.
+
+     5. In the **Private endpoint subnet** list, verify that the internal IPv6 or internal dual-stack subnetwork that you created for the Private Service Connect control plane endpoint is selected, or select a compatible subnetwork.
+
+     6. Click **Create**.
 
 
 
@@ -248,7 +304,11 @@ Keep the following in mind:
 
 ### Verify the cluster stack type
 
-After cluster creation finishes, list your clusters to verify that your cluster runs in single-stack IPv6 mode:
+After cluster creation finishes, verify that your cluster runs in single-stack IPv6 mode:
+
+### gcloud
+
+List your clusters:
     
     
     gcloud beta container clusters list
@@ -260,6 +320,26 @@ The output confirms the `STACK_TYPE` column is set to `IPV6`:
     NAME               LOCATION       MASTER_VERSION      MASTER_IP                                 MACHINE_TYPE  NODE_VERSION        NUM_NODES  STACK_TYPE  STATUS
     v6-only-cluster-1  us-central1-c  1.37.0-gke.1000000  gke-3a3234-123456.us-central1-c.gke.goog  e2-medium     1.37.0-gke.1000000  1          IPV6        RUNNING
     
+
+### Console
+
+  1. Go to the **Google Kubernetes Engine** page in the Google Cloud console.
+
+[Go to Google Kubernetes Engine](https://console.cloud.google.com/kubernetes/list)
+
+  2. In the cluster list table, verify that the **Stack type** column displays `IPv6`.
+
+  3. Click the name of your cluster to open the **Cluster details** page.
+
+  4. On the **Details** tab, under **Cluster Networking** , verify the following fields:
+
+     * **Stack type** : `IPv6`
+     * **IPv6 primary range** : the `/64` IPv6 CIDR range of your node subnetwork
+     * **IPv6 access type** : `Internal` or `External`, matching the IPv6 access type of your node subnetwork
+     * **Private control plane's endpoint subnet** : your internal Private Service Connect subnetwork
+     * **IPv6 service range** : the automatically allocated `/64` Service IPv6 address range
+
+
 
 ## Load balancing in single-stack IPv6 clusters
 
@@ -365,7 +445,7 @@ You can configure single-stack IPv6 clusters with secondary network interfaces f
 
 ### Multi-NIC accelerator networking
 
-In Standard single-stack IPv6 clusters, you can attach secondary data networks (`RDMA` or `DIORITE`) to accelerator node pools (GPUs and TPUs) using automated networking (`--accelerator-network-profile=auto`) or manual multi-network configuration (`--additional-node-network`). Secondary interfaces can run on IPv4 subnetworks, dual-stack subnetworks, or IPv6-only subnetworks.
+In Standard single-stack IPv6 clusters, you can attach secondary data networks (such as RDMA or Titanium NICs) to accelerator node pools (GPUs and TPUs) using automated networking (`--accelerator-network-profile=auto`) or manual multi-network configuration (`--additional-node-network`). Secondary interfaces can run on IPv4 subnetworks, dual-stack subnetworks, or IPv6-only subnetworks.
 
 For step-by-step instructions, see [Configure multi-NIC node networks on single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/config-auto-net-for-accelerators#ipv6-multi-nic).
 
@@ -395,7 +475,7 @@ You can't directly convert or in-place update existing IPv4 clusters or dual-sta
 
 ## What's next
 
-  * To learn more about GKE networking, see [GKE network overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/network-overview).
+  * To learn more about GKE networking, see [GKE networking overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/explore-gke-networking-docs-use-cases).
   * To learn how GKE assigns IP addresses, see [Understand IP addressing in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-ip-addressing).
   * To configure Layer 7 load balancing, see [Deploying Gateways](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways).
   * To configure secondary Pod networks, see [Set up multi-network support for Pods](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/setup-multinetwork-support-for-pods). 
@@ -406,6 +486,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

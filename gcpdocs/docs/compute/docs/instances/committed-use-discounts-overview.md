@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview/
 title: Committed use discounts (CUDs) for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:17.900509+00:00
+fetched_at: 2026-11-11T09:12:51.283745+00:00
 ---
 
 # Committed use discounts (CUDs) for Compute Engine  |  Google Cloud Documentation
@@ -146,9 +146,9 @@ vCPUs, memory, and NVIDIA RTX PRO 6000 GPUs of G4 machine series | 16% | 42%
 Local SSD disks attached to supported machine series | 28% | 46%  
 Sole-tenancy premium | 28% | 46%  
 GKE | GKE Standard and GKE Autopilot | 28% | 46%  
-Cloud Run | Cloud Run services with request-based billing | 17% | 17%  
+Cloud Run | Services with request-based billing | 17% | 17%  
 Cloud Run functions | 17% | 17%  
-Cloud Run services with instance-based billing, Cloud Run jobs, and Cloud Run worker pools | 28% | 46%  
+Services with instance-based billing, jobs, worker pools, and instances | 28% | 46%  
 **Note:** The discounts that you receive may differ for Cloud Billing accounts that have [other on-demand compute instance savings in effect](https://docs.cloud.google.com/billing/docs/how-to/cud-analysis-flexible). 
 
 ### How compute flexible commitments work
@@ -368,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

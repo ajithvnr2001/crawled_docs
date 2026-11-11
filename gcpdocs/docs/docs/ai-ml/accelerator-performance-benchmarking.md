@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/ai-ml/accelerator-performance-benchmarking/
 title: AI accelerator performance and benchmarking \u00a0|\u00a0 AI and ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:20.151096+00:00
+fetched_at: 2026-11-11T09:27:55.613641+00:00
 ---
 
 # AI accelerator performance and benchmarking  |  AI and ML  |  Google Cloud Documentation

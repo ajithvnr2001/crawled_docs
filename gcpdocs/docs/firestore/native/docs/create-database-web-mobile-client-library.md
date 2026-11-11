@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-web-mobile-client-library/
 title: Quickstart: Create a Firestore database by using a web or mobile client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:08.780019+00:00
+fetched_at: 2026-11-11T08:57:06.616530+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a web or mobile client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -323,7 +323,7 @@ Create a new collection and a document using the following example code.
       console.error("Error adding document: ", e);
     }
     
-    [add_ada_lovelace.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/add_ada_lovelace.js#L8-L19)
+    [add_ada_lovelace.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/add_ada_lovelace.js#L8-L19)
 
 ### Web version 8
 
@@ -342,7 +342,7 @@ Create a new collection and a document using the following example code.
         console.error("Error adding document: ", error);
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L125-L135)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L125-L135)
 
 ##### Swift
 
@@ -506,7 +506,7 @@ Now add another document to the `users` collection. Notice that this document in
       console.error("Error adding document: ", e);
     }
     
-    [add_alan_turing.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/add_alan_turing.js#L8-L22)
+    [add_alan_turing.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/add_alan_turing.js#L8-L22)
 
 ### Web version 8
 
@@ -527,7 +527,7 @@ Now add another document to the `users` collection. Notice that this document in
         console.error("Error adding document: ", error);
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L155-L167)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L155-L167)
 
 ##### Swift
 
@@ -692,7 +692,7 @@ You can also use the `get` method to retrieve the entire collection.
       console.log(doc.id, "=>", doc.data());
     });
     
-    [get_all_users.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/get_all_users.js#L8-L13)
+    [get_all_users.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/get_all_users.js#L8-L13)
 
 ### Web version 8
 
@@ -705,7 +705,7 @@ You can also use the `get` method to retrieve the entire collection.
         });
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L143-L147)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L143-L147)
 
 ##### Swift
 
@@ -910,6 +910,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

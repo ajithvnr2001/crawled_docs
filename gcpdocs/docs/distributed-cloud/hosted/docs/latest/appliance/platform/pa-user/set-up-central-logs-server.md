@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/set-up-central-logs-server/
 title: Set up central logs server \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:16.844352+00:00
+fetched_at: 2026-11-11T08:48:17.811041+00:00
 ---
 
 # Set up central logs server  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

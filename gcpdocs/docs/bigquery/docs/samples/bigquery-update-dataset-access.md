@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-dataset-access/
 title: Update dataset access \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:07.820788+00:00
+fetched_at: 2026-11-11T09:15:20.028032+00:00
 ---
 
 # Update dataset access  |  BigQuery  |  Google Cloud Documentation

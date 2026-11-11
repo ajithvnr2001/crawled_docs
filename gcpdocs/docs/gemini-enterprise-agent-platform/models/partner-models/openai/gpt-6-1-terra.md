@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/gpt-6-1-terra/
 title: GPT 6.1 Terra \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:56.407547+00:00
+fetched_at: 2026-11-11T08:52:28.658457+00:00
 ---
 
 # GPT 6.1 Terra  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

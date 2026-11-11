@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-import-documents-healthcare-fhir/
 title: Import documents from Healthcare FHIR \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:54.407687+00:00
+fetched_at: 2026-11-11T08:40:18.550181+00:00
 ---
 
 # Import documents from Healthcare FHIR  |  Agent Search  |  Google Cloud Documentation

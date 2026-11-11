@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/using-flex-start-vms-with-slurm-clusters/
 title: Using Flex Start VMs with Slurm cluster \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:58.272200+00:00
+fetched_at: 2026-11-11T09:13:10.331720+00:00
 ---
 
 # Using Flex Start VMs with Slurm cluster  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,16 +25,16 @@ This guide provides instructions for configuring and using Flex Start VMs with S
 
 ## Configuration and cluster creation
 
-Before defining the cluster's configuration, you must first complete the following one-time prerequisite step to ensure the necessary service accounts are authorized to manage Flex Start resources.
+Before you create a cluster that uses Flex Start VMs, make sure that your project has sufficient [preemptible quota](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#preemptible-quotas) for the vCPUs, memory, and accelerators that your Flex Start node pools request. For more information, see [Flex-start VMs quota](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms#quota).
 
 ### Verify permissions for the Google APIs Service Agent
 
-  * Context: Slurm on Gemini Enterprise Agent Platform uses managed instance groups to dynamically provision Flex Start VM instances and manage their lifecycle. The Google APIs Service Agent creates and manages the underlying Compute Engine resources for the managed instance group. As detailed in the [Managed instance groups and IAM documentation](https://docs.cloud.google.com/compute/docs/access/iam#managed-instance-groups-and-iam), this service account requires permissions to create, delete, and list VM instances, as well as permission to attach a service account identity to them.
-  * Action: Check if your Google APIs Service Agent (`PROJECT_NUMBER`@cloudservices.gserviceaccount.com) already has the Editor role (`roles/editor`). 
-    * If "yes": You likely don't need to take further action. The Editor role typically includes all necessary permissions.
-    * If "no": If the default Editor role isn't granted, you have to explicitly grant the following roles to ensure the MIG can function: 
-      * Compute Instance Admin (v1) (`roles/compute.instanceAdmin.v1`) - Required for creating, listing, and deleting VM instances.
-      * Service Account User (`roles/iam.serviceAccountUser`) - Required for attaching a service account to the new VMs.
+You don't need to grant additional IAM roles to the managed instance groups that provision Flex Start VMs. These groups use a Google-managed service agent that is set up automatically when you enable the required APIs. To enable the required APIs, see [Get started](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/get-started).
+
+The managed instance group for the Slurm login nodes uses the Google APIs Service Agent (`PROJECT_NUMBER`@cloudservices.gserviceaccount.com). This service agent has the Editor role (`roles/editor`) by default. If your organization removed this role, then grant the following roles to the Google APIs Service Agent so that it can create the login nodes:
+
+  * Compute Instance Admin (v1) (`roles/compute.instanceAdmin.v1`): lets the service agent create, list, and delete VM instances.
+  * Service Account User (`roles/iam.serviceAccountUser`): lets the service agent attach a service account to the VMs.
 
 
 
@@ -98,7 +98,7 @@ Understanding the lifecycle of Flex Start nodes in a Slurm on Gemini Enterprise 
 
 All Flex Start VMs have a fixed maximum run duration, which is defined by the `flex_start_max_duration` setting.
 
-  * Duration Limit: By default, the `flex_start_max_duration` is set to 7 days. You can override this limit by specifying a custom `flex_start_max_duration` between 30 seconds and a maximum of 7 days (604,800 seconds) in your node pool configuration to better match your expected job runtimes.
+  * Duration Limit: By default, the `flex_start_max_duration` is set to 7 days. You can override this limit by specifying a custom `flex_start_max_duration` between 10 minutes (600 seconds) and 7 days (604,800 seconds) in your node pool configuration to better match your expected job runtimes.
   * Termination: When this limit is reached, Compute Engine strictly terminates the instance.
 
 
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

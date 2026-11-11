@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/service-specific-configs/
 title: Configure Cloud Run and Cloud Run functions services \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:14.498744+00:00
+fetched_at: 2026-11-11T10:08:35.169580+00:00
 ---
 
 # Configure Cloud Run and Cloud Run functions services  |  Buildpacks  |  Google Cloud Documentation

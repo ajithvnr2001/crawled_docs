@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/release-notes/
 title: Capacity Planner release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:18:16.013940+00:00
+fetched_at: 2026-11-11T09:57:07.384948+00:00
 ---
 
 # Capacity Planner release notes  |  Google Cloud Documentation
@@ -216,6 +216,32 @@ For more information, see the following pages:
 
 
 
+## March 28, 2024
+
+Feature
+
+**Preview** : Capacity planner supports the following for data aggregated by organization ID:
+
+  * View and export the actual and forecasted usage data of the VMs and persistent disks in your organization.
+
+  * Generate gcloud CLI commands to create future reservation requests based on the actual or forecasted usage data of your VMs by organization.
+
+
+
+
+For more information, see the following pages:
+
+  * [About Capacity Planner](https://cloud.google.com/capacity-planner/docs/about)
+
+  * [Export usage and forecast data in Capacity Planner](https://cloud.google.com/capacity-planner/docs/export-data)
+
+  * [Reserve capacity from actual or forecasted usage](https://cloud.google.com/capacity-planner/docs/reserve-capacity)
+
+  * [View actual and forecasted usage in Capacity Planner](https://cloud.google.com/capacity-planner/docs/view-data)
+
+
+
+
 ## December 15, 2023
 
 Feature
@@ -264,6 +290,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

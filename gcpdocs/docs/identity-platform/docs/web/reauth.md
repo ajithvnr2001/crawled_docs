@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/reauth/
 title: Reauthenticating users \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:27.501663+00:00
+fetched_at: 2026-11-11T08:33:57.344231+00:00
 ---
 
 # Reauthenticating users  |  Identity Platform  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ Certain sensitive operations—such as deleting an account, updating a user's em
         // ...
       });
     
-    [auth_apple_reauthenticate_popup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/apple/auth_apple_reauthenticate_popup.js#L8-L40)
+    [auth_apple_reauthenticate_popup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/apple/auth_apple_reauthenticate_popup.js#L8-L40)
 
 ### Web version 8
     
@@ -101,7 +101,7 @@ Certain sensitive operations—such as deleting an account, updating a user's em
         // ...
       });
     
-    [apple.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/apple.js#L103-L135)
+    [apple.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/apple.js#L103-L135)
 
 ## Example: `reauthenticateWithCredential()`
 
@@ -123,7 +123,7 @@ Certain sensitive operations—such as deleting an account, updating a user's em
       // ...
     });
     
-    [auth_reauth_with_credential.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/manage/auth_reauth_with_credential.js#L8-L21)
+    [auth_reauth_with_credential.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/manage/auth_reauth_with_credential.js#L8-L21)
 
 ### Web version 8
     
@@ -140,7 +140,7 @@ Certain sensitive operations—such as deleting an account, updating a user's em
       // ...
     });
     
-    [manage.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/manage.js#L140-L150)
+    [manage.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/manage.js#L140-L150)
 
 Send feedback 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/postgresql-transfer/
 title: Load PostgreSQL data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:12.774746+00:00
+fetched_at: 2026-11-11T10:01:39.595328+00:00
 ---
 
 # Load PostgreSQL data into BigQuery  |  Google Cloud Documentation

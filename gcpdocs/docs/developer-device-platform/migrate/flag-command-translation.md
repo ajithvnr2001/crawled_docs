@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/migrate/flag-command-translation/
 title: Firebase Test Lab to Developer Device Platform Command and Flag Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T08:24:32.154503+00:00
+fetched_at: 2026-11-11T08:48:31.494816+00:00
 ---
 
 # Firebase Test Lab to Developer Device Platform Command and Flag Translation  |  Google Cloud Documentation

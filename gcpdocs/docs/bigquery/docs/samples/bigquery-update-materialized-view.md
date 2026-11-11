@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-materialized-view/
 title: Update a materialized view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:11.506957+00:00
+fetched_at: 2026-11-11T09:17:03.449300+00:00
 ---
 
 # Update a materialized view  |  BigQuery  |  Google Cloud Documentation

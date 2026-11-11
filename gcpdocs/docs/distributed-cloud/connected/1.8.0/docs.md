@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.8.0/docs/
 title: Google Distributed Cloud connected, version 1.8.0 documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:28.691543+00:00
+fetched_at: 2026-11-11T08:48:22.873134+00:00
 ---
 
 # Google Distributed Cloud connected, version 1.8.0 documentation  |  Google Cloud Documentation

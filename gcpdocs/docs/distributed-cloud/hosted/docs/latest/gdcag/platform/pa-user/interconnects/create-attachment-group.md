@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/interconnects/create-attachment-group/
 title: Create an attachment group \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:01.478874+00:00
+fetched_at: 2026-11-11T09:08:08.590145+00:00
 ---
 
 # Create an attachment group  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

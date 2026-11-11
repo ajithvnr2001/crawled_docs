@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/geoqueries/
 title: Geo queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:49.945275+00:00
+fetched_at: 2026-11-11T08:54:01.324795+00:00
 ---
 
 # Geo queries  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -100,7 +100,7 @@ For each document you want to index by location, you will need to store a Geohas
       lng: lng
     });
     
-    [fs_geo_add_hash.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-solution-geoqueries/fs_geo_add_hash.js#L8-L22)
+    [fs_geo_add_hash.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-solution-geoqueries/fs_geo_add_hash.js#L8-L22)
 
 ###  Web version 8
     
@@ -121,7 +121,7 @@ For each document you want to index by location, you will need to store a Geohas
       // ...
     });
     
-    [test.solution-geoqueries.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.solution-geoqueries.js#L13-L29)
+    [test.solution-geoqueries.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.solution-geoqueries.js#L13-L29)
 
 ### Swift
 
@@ -250,7 +250,7 @@ Geohashes allow us to approximate area queries by joining a set of queries on th
       }
     }
     
-    [fs_geo_query_hashes.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-solution-geoqueries/fs_geo_query_hashes.js#L8-L48)
+    [fs_geo_query_hashes.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-solution-geoqueries/fs_geo_query_hashes.js#L8-L48)
 
 ###  Web version 8
     
@@ -301,7 +301,7 @@ Geohashes allow us to approximate area queries by joining a set of queries on th
     });
     
     
-    [test.solution-geoqueries.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.solution-geoqueries.js#L35-L81)
+    [test.solution-geoqueries.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.solution-geoqueries.js#L35-L81)
 
 ### Swift
 
@@ -477,6 +477,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

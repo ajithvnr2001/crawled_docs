@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/set-filter-version/
 title: Set the filter version \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:11:55.300188+00:00
+fetched_at: 2026-11-11T08:23:23.371270+00:00
 ---
 
 # Set the filter version  |  Model Armor  |  Google Cloud Documentation
@@ -102,6 +102,27 @@ Template behavior depends on the filter version that's used and follows these ch
 ## Override the default filter version for floor settings
 
 With [floor settings](https://docs.cloud.google.com/model-armor/configure-floor-settings), the [Gemini Enterprise Agent Platform integration](https://docs.cloud.google.com/model-armor/model-armor-vertex-integration) uses the `Stable` filter version by default. To override this setting, specify a template in the `generateContent` call to the Gemini model. To do that, create a template with a specific filter version or alias in the same region where you plan to send the Gemini request.
+
+###  gcloud 
+    
+    
+    gcloud model-armor templates create TEMPLATE_ID \
+        --project=PROJECT_ID \
+        --location=LOCATION \
+        --pi-and-jailbreak-filter-settings-enforcement=enabled \
+        --filter-version-selector-alias=FILTER_VERSION_ALIAS
+    
+
+Replace the following:
+
+  * `TEMPLATE_ID`: the ID of the template to create.
+  * `PROJECT_ID`: the ID of the project that the template belongs to.
+  * `LOCATION`: the region to store the Model Armor template. This region must be the same region where you plan to send the Gemini request; otherwise, Agent Platform receives a `Template not found` error. For a list of regions supported for this integration, see [Integration with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/model-armor/data-residency#agent-platform-integration-drz).
+  * `FILTER_VERSION_ALIAS`: your preferred filter version alias. Use either `filter-version-alias-stable` or `filter-version-alias-latest`.
+
+
+
+###  REST 
     
     
     export TEMPLATE_CONFIG='{
@@ -118,10 +139,10 @@ With [floor settings](https://docs.cloud.google.com/model-armor/configure-floor-
     }'
     
     curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      -d "$TEMPLATE_CONFIG" \
-      "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Content-Type: application/json" \
+        -d "$TEMPLATE_CONFIG" \
+        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
     
 
 Replace the following:
@@ -172,13 +193,34 @@ Replace the following:
 You can configure the filter version for a template in one of two ways:
 
   * **By using an alias** : Use dynamic aliases like `Stable` or `Latest` to have the template automatically use a version number that corresponds to your preferred alias. Doing so eliminates the need for manual updates when the underlying version changes.
-  * **By using a version number** : Use a version number such as `v1` to ensure that a template is set to a specified version, ensuring fixed, unchanged behavior even when aliases are updated.
+  * **By using a version number** : Use a version number such as `v3` or `v4` to ensure that a template is set to a specified version, ensuring fixed, unchanged behavior even when aliases are updated.
 
 
 
 ### Create a template by using a version alias
 
 To create a template by using a specific version alias, run the following command:
+
+###  gcloud 
+    
+    
+    gcloud model-armor templates create TEMPLATE_ID \
+        --project=PROJECT_ID \
+        --location=LOCATION \
+        --pi-and-jailbreak-filter-settings-enforcement=enabled \
+        --filter-version-selector-alias=FILTER_VERSION_ALIAS
+    
+
+Replace the following:
+
+  * `TEMPLATE_ID`: the ID of the template to create.
+  * `PROJECT_ID`: the ID of the project that the template belongs to.
+  * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
+  * `FILTER_VERSION_ALIAS`: your preferred filter version alias. Use either `filter-version-alias-stable` or `filter-version-alias-latest`.
+
+
+
+###  REST 
     
     
     export TEMPLATE_CONFIG='{
@@ -205,7 +247,7 @@ Replace the following:
 
   * `FILTER_VERSION_ALIAS`: your preferred filter version alias. Use either `FILTER_VERSION_ALIAS_STABLE` or `FILTER_VERSION_ALIAS_LATEST`.
   * `PROJECT_ID`: the ID of the project that the template belongs to.
-  * `TEMPLATE_ID`: the ID of the template to be created.
+  * `TEMPLATE_ID`: the ID of the template to create.
   * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
 
 
@@ -233,6 +275,27 @@ The response is similar to the following:
 ### Create a template by using a specific filter version
 
 If you require filter immutability, you can create a template that corresponds to a specific version. To do this, run the following command:
+
+###  gcloud 
+    
+    
+    gcloud model-armor templates create TEMPLATE_ID \
+        --project=PROJECT_ID \
+        --location=LOCATION \
+        --pi-and-jailbreak-filter-settings-enforcement=enabled \
+        --filter-version-selector=FILTER_VERSION_NUMBER
+    
+
+Replace the following:
+
+  * `TEMPLATE_ID`: the ID of the template to create.
+  * `PROJECT_ID`: the ID of the project that the template belongs to.
+  * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
+  * `FILTER_VERSION_NUMBER`: your preferred filter version number, such as `v3` or `v4`.
+
+
+
+###  REST 
     
     
     export TEMPLATE_CONFIG='{
@@ -257,10 +320,10 @@ If you require filter immutability, you can create a template that corresponds t
 
 Replace the following:
 
+  * `FILTER_VERSION_NUMBER`: your preferred filter version number, such as `v3` or `v4`.
   * `PROJECT_ID`: the ID of the project that the template belongs to.
-  * `TEMPLATE_ID`: the ID of the template to be created.
+  * `TEMPLATE_ID`: the ID of the template to create.
   * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
-  * `FILTER_VERSION_NUMBER`: your preferred filter version number (for example, `v1`).
 
 
 
@@ -286,29 +349,84 @@ The response is similar to the following:
 
 ### Update the filter version of a template
 
-To update the filter version or alias for an existing template, run the following command:
-    
-    
-    export TEMPLATE_CONFIG='{
-      "templateMetadata": {
-        "filterVersionSelector": {
-          "alias": "FILTER_VERSION_ALIAS"
-        }
-      }
-    }'
-    
-    curl -X PATCH \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json" \
-        -d "$TEMPLATE_CONFIG" \
-        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=templateMetadata.filterVersionSelector"
-    
+You can update an existing template to use a filter version alias or a specific filter version number:
+
+###  gcloud 
+
+  * To update a template to use a filter version alias, run the following command:
+        
+        gcloud model-armor templates update TEMPLATE_ID \
+            --project=PROJECT_ID \
+            --location=LOCATION \
+            --filter-version-selector-alias=FILTER_VERSION_ALIAS
+        
+
+  * To update a template to use a specific filter version number, run the following command:
+        
+        gcloud model-armor templates update TEMPLATE_ID \
+            --project=PROJECT_ID \
+            --location=LOCATION \
+            --filter-version-selector=FILTER_VERSION_NUMBER
+        
+
+
+
+
+Replace the following:
+
+  * `TEMPLATE_ID`: the ID of the template to update.
+  * `PROJECT_ID`: the ID of the project that the template belongs to.
+  * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
+  * `FILTER_VERSION_ALIAS`: your preferred filter version alias. Use either `filter-version-alias-stable` or `filter-version-alias-latest`.
+  * `FILTER_VERSION_NUMBER`: your preferred filter version number, such as `v3` or `v4`.
+
+
+
+###  REST 
+
+  * To update a template to use a filter version alias, run the following command:
+        
+        export TEMPLATE_CONFIG='{
+          "templateMetadata": {
+            "filterVersionSelector": {
+              "alias": "FILTER_VERSION_ALIAS"
+            }
+          }
+        }'
+        
+        curl -X PATCH \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Content-Type: application/json" \
+            -d "$TEMPLATE_CONFIG" \
+            "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=templateMetadata.filterVersionSelector"
+        
+
+  * To update a template to use a specific filter version number, run the following command:
+        
+        export TEMPLATE_CONFIG='{
+          "templateMetadata": {
+            "filterVersionSelector": {
+              "version": "FILTER_VERSION_NUMBER"
+            }
+          }
+        }'
+        
+        curl -X PATCH \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Content-Type: application/json" \
+            -d "$TEMPLATE_CONFIG" \
+            "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=templateMetadata.filterVersionSelector"
+        
+
+
+
 
 Replace the following:
 
   * `FILTER_VERSION_ALIAS`: your preferred filter version alias. Use either `FILTER_VERSION_ALIAS_STABLE` or `FILTER_VERSION_ALIAS_LATEST`.
+  * `FILTER_VERSION_NUMBER`: your preferred filter version number, such as `v3` or `v4`.
   * `PROJECT_ID`: the ID of the project that the template belongs to.
-  * `TEMPLATE_ID`: the ID of the template to be created.
+  * `TEMPLATE_ID`: the ID of the template to update.
   * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
 
 
@@ -335,7 +453,9 @@ The response is similar to the following:
 
 ## View the filter version used in sanitize operations
 
-The [**Sanitize API** response metadata](https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult) includes information about the filter version that's used during sanitization. You receive a deprecation warning in the sanitize API response 30 days before Google retires the version.
+The [**Sanitize API** response metadata](https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult) includes information about the filter version that's used during sanitization. Similarly, the Google Cloud CLI sanitization commands return this information in their output, and the `gcloud model-armor templates describe` command shows a template's filter version.
+
+You receive a deprecation warning in the sanitize response 30 days before Google retires the version.
 
 The following example shows an API response that includes the filter version:
     
@@ -411,7 +531,7 @@ The following example shows an API response that includes the filter version:
             }
           ]
        }
-      },
+      }
     }
 
 Model Armor generates platform logs for sanitization requests and their responses in Cloud Logging. For more information about the auto-generated audit logs, see [Model Armor audit logging](https://docs.cloud.google.com/model-armor/audit-logging-model-armor).
@@ -420,6 +540,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

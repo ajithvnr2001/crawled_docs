@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon/
 title: Developer's guide to Gemini 4 Argon \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:50.132614+00:00
+fetched_at: 2026-11-11T08:52:00.820316+00:00
 ---
 
 # Developer's guide to Gemini 4 Argon  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

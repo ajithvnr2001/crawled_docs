@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/standard-index-overview/
 title: Standard edition index overview \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:41.663814+00:00
+fetched_at: 2026-11-11T08:56:39.499375+00:00
 ---
 
 # Standard edition index overview  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -196,7 +196,7 @@ To illustrate, examine the following examples from the point of view of index cr
         capital: true, population: 21500000,
         regions: ["jingjinji", "hebei"] });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L403-L424)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L403-L424)
 
 Assuming the default automatic indexing settings, Firestore Standard edition updates one ascending single-field index per field, one descending single- field index per field, and one array-contains single-field index for the array field. Each row in the following table represents an entry in a single-field index:
 
@@ -227,7 +227,7 @@ Using these automatically created single-field indexes, you can run simple queri
     const populationQuery = citiesRef.where("population", "<", 100000);
     const nameQuery = citiesRef.where("name", ">=", "San Francisco");
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L860-L862)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L860-L862)
 
 You can also create `in` and compound equality (`==`) queries:
 
@@ -561,6 +561,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

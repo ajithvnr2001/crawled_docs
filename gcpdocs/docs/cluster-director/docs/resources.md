@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/resources/
 title: Resources \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:17:11.706457+00:00
+fetched_at: 2026-11-11T09:50:15.636335+00:00
 ---
 
 # Resources  |  Cluster Director  |  Google Cloud Documentation

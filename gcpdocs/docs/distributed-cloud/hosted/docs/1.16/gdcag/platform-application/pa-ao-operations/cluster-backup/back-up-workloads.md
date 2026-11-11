@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/cluster-backup/back-up-workloads/
 title: Back up your workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:16.445420+00:00
+fetched_at: 2026-11-11T10:51:21.735714+00:00
 ---
 
 # Back up your workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

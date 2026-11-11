@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/machine-learning/notebooks/
 title: Dataflow ML notebooks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:20.373441+00:00
+fetched_at: 2026-11-11T09:07:33.831644+00:00
 ---
 
 # Dataflow ML notebooks  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataset-component/
 title: Dataset components \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:41.092168+00:00
+fetched_at: 2026-11-11T08:51:08.230441+00:00
 ---
 
 # Dataset components  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

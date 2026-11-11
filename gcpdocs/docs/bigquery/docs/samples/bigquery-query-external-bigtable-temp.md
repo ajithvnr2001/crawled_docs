@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-external-bigtable-temp/
 title: Query Bigtable using a temporary table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:21:53.732595+00:00
+fetched_at: 2026-11-11T09:10:47.224876+00:00
 ---
 
 # Query Bigtable using a temporary table  |  BigQuery  |  Google Cloud Documentation

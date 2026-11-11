@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-MetricsV1Beta3-GetJobMetrics-sync/
 title: Get job metrics \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:05.804340+00:00
+fetched_at: 2026-11-11T09:32:50.571314+00:00
 ---
 
 # Get job metrics  |  Cloud Dataflow  |  Google Cloud Documentation

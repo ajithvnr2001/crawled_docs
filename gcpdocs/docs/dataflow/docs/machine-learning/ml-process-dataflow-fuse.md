@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/machine-learning/ml-process-dataflow-fuse/
 title: Process ML data using Dataflow and Cloud Storage FUSE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:20.487505+00:00
+fetched_at: 2026-11-11T09:08:32.466928+00:00
 ---
 
 # Process ML data using Dataflow and Cloud Storage FUSE  |  Google Cloud Documentation

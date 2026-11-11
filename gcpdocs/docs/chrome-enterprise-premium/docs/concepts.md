@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chrome-enterprise-premium/docs/concepts/
 title: Concepts \u00a0|\u00a0 Chrome Enterprise Premium \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:02.907514+00:00
+fetched_at: 2026-11-11T09:19:17.612541+00:00
 ---
 
 # Concepts  |  Chrome Enterprise Premium  |  Google Cloud Documentation

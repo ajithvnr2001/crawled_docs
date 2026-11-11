@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/stellar-engine/deployment-walkthrough/
 title: Create a landing zone using Stellar Engine \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:26.834072+00:00
+fetched_at: 2026-11-11T09:46:41.134416+00:00
 ---
 
 # Create a landing zone using Stellar Engine  |  Security  |  Google Cloud Documentation

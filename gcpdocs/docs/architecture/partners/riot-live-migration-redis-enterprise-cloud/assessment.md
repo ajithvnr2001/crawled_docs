@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/riot-live-migration-redis-enterprise-cloud/assessment/
 title: Define the scope of your migration to Redis Enterprise Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:24.476262+00:00
+fetched_at: 2026-11-11T09:54:14.865235+00:00
 ---
 
 # Define the scope of your migration to Redis Enterprise Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

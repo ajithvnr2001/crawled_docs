@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/how-to/
 title: How-to guides \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:03:51.045701+00:00
+fetched_at: 2026-11-11T09:28:55.872566+00:00
 ---
 
 # How-to guides  |  Google Security Operations  |  Google Cloud Documentation

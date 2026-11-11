@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-add-iam-binding-for-oslogin/
 title: Add OS login admin permissions for Compute Engine Service Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:35.295636+00:00
+fetched_at: 2026-11-11T09:20:48.043715+00:00
 ---
 
 # Add OS login admin permissions for Compute Engine Service Agent  |  Google Cloud Documentation

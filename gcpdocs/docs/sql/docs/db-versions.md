@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/db-versions/
 title: Database version policies \u00a0|\u00a0 Cloud SQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:47:40.382786+00:00
+fetched_at: 2026-11-11T09:46:18.598216+00:00
 ---
 
 # Database version policies  |  Cloud SQL  |  Google Cloud Documentation

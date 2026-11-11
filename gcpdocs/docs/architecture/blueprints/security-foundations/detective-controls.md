@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/security-foundations/detective-controls/
 title: Detective controls \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:45.739411+00:00
+fetched_at: 2026-11-11T09:12:06.403433+00:00
 ---
 
 # Detective controls  |  Cloud Architecture Center  |  Google Cloud Documentation

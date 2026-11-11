@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/secure-apps-resources-using-context-aware-access/best-practices/
 title: Best practices for securing apps and resources by using context-aware access \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:12.241067+00:00
+fetched_at: 2026-11-11T08:29:32.278843+00:00
 ---
 
 # Best practices for securing apps and resources by using context-aware access  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/configure-src-connection-reverse-proxy/
 title: Use source private IP connectivity with a reverse proxy \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:59.425365+00:00
+fetched_at: 2026-11-11T09:33:56.605597+00:00
 ---
 
 # Use source private IP connectivity with a reverse proxy  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

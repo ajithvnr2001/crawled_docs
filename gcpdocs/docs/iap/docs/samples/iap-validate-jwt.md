@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/samples/iap-validate-jwt/
 title: Securing your app with signed headers \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:21.639112+00:00
+fetched_at: 2026-11-11T08:32:38.866136+00:00
 ---
 
 # Securing your app with signed headers  |  Identity-Aware Proxy  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.13.0/docs/cluster-dns/
 title: Configure DNS for a cluster \u00a0|\u00a0 Google Distributed Cloud connected \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:59.597831+00:00
+fetched_at: 2026-11-11T08:48:06.186039+00:00
 ---
 
 # Configure DNS for a cluster  |  Google Distributed Cloud connected  |  Google Cloud Documentation

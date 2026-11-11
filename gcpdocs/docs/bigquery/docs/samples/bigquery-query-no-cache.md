@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-no-cache/
 title: Disable query cache \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:52:21.284302+00:00
+fetched_at: 2026-11-11T09:11:25.132206+00:00
 ---
 
 # Disable query cache  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/cluster-backup/customize-backup-restore/
 title: Customize backup and restore for an application \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:52.214099+00:00
+fetched_at: 2026-11-11T11:44:10.856371+00:00
 ---
 
 # Customize backup and restore for an application  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

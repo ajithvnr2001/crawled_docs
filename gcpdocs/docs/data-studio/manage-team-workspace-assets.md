@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/manage-team-workspace-assets/
 title: Manage team workspace assets \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:08:50.359545+00:00
+fetched_at: 2026-11-11T09:07:16.696037+00:00
 ---
 
 # Manage team workspace assets  |  Data Studio  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ If you have the appropriate role, you can also remove assets from a team workspa
 
 When you move an asset into a team workspace from **Owned by me** , from a Sandbox, or from a different team workspace, all the members of the new team workspace have access to view and edit that asset.
 
-> When you move an asset from one team workspace into another, people who are not members of the new team workspace will lose access to that asset unless you provide them with access at the level of the individual report or data source.
+> When you move an asset from one team workspace into another team workspace, people who are not members of the new team workspace will lose access to that asset unless you provide them with access at the level of the individual report or data source.
 
 ### Create an asset in a team workspace
 
@@ -114,7 +114,7 @@ To remove multiple assets at once, follow these steps:
 
   1. Navigate to the team workspace that contains the assets that you want to remove.
   2. To select multiple adjacent assets, hold down the Shift key and click the assets. To select multiple non-adjacent assets, hold down the Ctrl key (PC) or the command key (Mac) and click the assets.
-  3. Click **Trash selected items** delete.
+  3. Click **Remove selected items** delete.
   4. In the **Move items to the trash?** dialog, click **Confirm** to move the assets to the trash.
 
 
@@ -144,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

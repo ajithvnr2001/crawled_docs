@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-relax-column/
 title: Relax a column \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:13.332711+00:00
+fetched_at: 2026-11-11T09:16:59.115619+00:00
 ---
 
 # Relax a column  |  BigQuery  |  Google Cloud Documentation

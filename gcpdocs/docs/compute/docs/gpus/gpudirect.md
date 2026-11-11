@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/gpus/gpudirect/
 title: Create an A3 Mega, A3 High, or A3 Edge instance with GPUDirect enabled \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:26.265057+00:00
+fetched_at: 2026-11-11T09:16:48.990869+00:00
 ---
 
 # Create an A3 Mega, A3 High, or A3 Edge instance with GPUDirect enabled  |  Compute Engine  |  Google Cloud Documentation
@@ -334,7 +334,7 @@ Replace the following:
         --network-interface=nic-type=GVNIC,network=NETWORK_NAME_PREFIX-data-net-8,subnet=NETWORK_NAME_PREFIX-data-sub-8,no-address \
         --provisioning-model=FLEX_START \
         --instance-termination-action=TERMINATION_ACTION \
-        --max-run-duration=RUN_DURATION \
+        --max-run-duration=MAX_RUN_DURATION \
         --request-valid-for-duration=VALID_FOR_DURATION
     
 
@@ -347,8 +347,18 @@ Replace the following:
   * `NETWORK_NAME_PREFIX`: the name prefix to use for the VPC networks and subnets.
   * `TERMINATION_ACTION`: whether to stop or delete the VM at the end of its run duration. Specify one of the following values: 
     * To stop the VM: `STOP`
+
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must include the `--discard-local-ssds-at-termination-timestamp=true` flag in the command. This configuration is required for Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, include the following flag:
+          
+          --discard-local-ssds-at-termination-timestamp=true
+          
+
+Otherwise, you must omit this flag; setting this flag to `false` isn't allowed.
+
     * To delete the VM: `DELETE`
-  * `RUN_DURATION`: the maximum time that the VM runs before Compute Engine stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, a value of `30m` defines a time of 30 minutes, and a value of `1h2m3s` defines a time of one hour, two minutes, and three seconds. You can specify a value between 10 minutes and seven days.
+  * `MAX_RUN_DURATION`: the maximum time that the VM runs before Compute Engine stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, a value of `30m` defines a time of 30 minutes, and a value of `1h2m3s` defines a time of one hour, two minutes, and three seconds. You can specify a value between 10 minutes and seven days.
   * `VALID_FOR_DURATION``: the maximum time to wait for provisioning your requested resources. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. Based on the zonal requirements for your workload, specify one of the following durations to help increase your chances that your VM creation request succeeds: 
     * If your workload requires you to create the VM in a specific zone, then specify a duration between 90 seconds (`90s`) and two hours (`2h`). Longer durations give you higher chances of obtaining resources.
     * If the VM can run in any zone within the region, then specify a duration of zero seconds (`0s`). This value specifies that Compute Engine only allocates resources if they are immediately available. If the creation request fails because resources are unavailable, then retry the request in a different zone.
@@ -659,7 +669,7 @@ Replace the following:
         --network-interface=nic-type=GVNIC,network=NETWORK_NAME_PREFIX-data-net-8,subnet=NETWORK_NAME_PREFIX-data-sub-8,no-address \
         --provisioning-model=FLEX_START \
         --instance-termination-action=TERMINATION_ACTION \
-        --max-run-duration=RUN_DURATION \
+        --max-run-duration=MAX_RUN_DURATION \
         --request-valid-for-duration=VALID_FOR_DURATION
     
 
@@ -672,8 +682,18 @@ Replace the following:
   * `NETWORK_NAME_PREFIX`: the name prefix to use for the VPC networks and subnets.
   * `TERMINATION_ACTION`: whether to stop or delete the VM at the end of its run duration. Specify one of the following values: 
     * To stop the VM: `STOP`
+
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must include the `--discard-local-ssds-at-termination-timestamp=true` flag in the command. This configuration is required for Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, include the following flag:
+          
+          --discard-local-ssds-at-termination-timestamp=true
+          
+
+Otherwise, you must omit this flag; setting this flag to `false` isn't allowed.
+
     * To delete the VM: `DELETE`
-  * `RUN_DURATION`: the maximum time that the VM runs before Compute Engine stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, a value of `30m` defines a time of 30 minutes, and a value of `1h2m3s` defines a time of one hour, two minutes, and three seconds. You can specify a value between 10 minutes and seven days.
+  * `MAX_RUN_DURATION`: the maximum time that the VM runs before Compute Engine stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, a value of `30m` defines a time of 30 minutes, and a value of `1h2m3s` defines a time of one hour, two minutes, and three seconds. You can specify a value between 10 minutes and seven days.
   * `VALID_FOR_DURATION`: the maximum time to wait for provisioning your requested resources. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. Based on the zonal requirements for your workload, specify one of the following durations to help increase your chances that your VM creation request succeeds: 
     * If your workload requires you to create the VM in a specific zone, then specify a duration between 90 seconds (`90s`) and two hours (`2h`). Longer durations give you higher chances of obtaining resources.
     * If the VM can run in any zone within the region, then specify a duration of zero seconds (`0s`). This value specifies that Compute Engine only allocates resources if they are immediately available. If the creation request fails because resources are unavailable, then retry the request in a different zone.
@@ -960,7 +980,7 @@ Replace the following:
         --network-interface=nic-type=GVNIC,network=NETWORK_NAME_PREFIX-data-net-4,subnet=NETWORK_NAME_PREFIX-data-sub-4,no-address \
         --provisioning-model=FLEX_START \
         --instance-termination-action=TERMINATION_ACTION \
-        --max-run-duration=RUN_DURATION \
+        --max-run-duration=MAX_RUN_DURATION \
         --request-valid-for-duration=VALID_FOR_DURATION
     
 
@@ -974,8 +994,18 @@ Replace the following:
   * `NETWORK_NAME_PREFIX`: the name prefix to use for the VPC networks and subnets.
   * `TERMINATION_ACTION`: whether to stop or delete the VM at the end of its run duration. Specify one of the following values: 
     * To stop the VM: `STOP`
+
+**Important:** If you set `TERMINATION_ACTION` to `STOP`, then you must include the `--discard-local-ssds-at-termination-timestamp=true` flag in the command. This configuration is required for Flex-start VMs with machine types that [automatically include Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disks_fixed). Preserving Local SSD data isn't supported when a VM reaches the end of its run duration.
+
+For example, include the following flag:
+          
+          --discard-local-ssds-at-termination-timestamp=true
+          
+
+Otherwise, you must omit this flag; setting this flag to `false` isn't allowed.
+
     * To delete the VM: `DELETE`
-  * `RUN_DURATION`: the maximum time that the VM runs before Compute Engine stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, a value of `30m` defines a time of 30 minutes, and a value of `1h2m3s` defines a time of one hour, two minutes, and three seconds. You can specify a value between 10 minutes and seven days.
+  * `MAX_RUN_DURATION`: the maximum time that the VM runs before Compute Engine stops or deletes it. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, a value of `30m` defines a time of 30 minutes, and a value of `1h2m3s` defines a time of one hour, two minutes, and three seconds. You can specify a value between 10 minutes and seven days.
   * `VALID_FOR_DURATION`: the maximum time to wait for provisioning your requested resources. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. Based on the zonal requirements for your workload, specify one of the following durations to help increase your chances that your VM creation request succeeds: 
     * If your workload requires you to create the VM in a specific zone, then specify a duration between 90 seconds (`90s`) and two hours (`2h`). Longer durations give you higher chances of obtaining resources.
     * If the VM can run in any zone within the region, then specify a duration of zero seconds (`0s`). This value specifies that Compute Engine only allocates resources if they are immediately available. If the creation request fails because resources are unavailable, then retry the request in a different zone.
@@ -1199,6 +1229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

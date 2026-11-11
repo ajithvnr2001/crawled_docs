@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/about-data-flow/
 title: About data flow for Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:42.967421+00:00
+fetched_at: 2026-11-11T09:35:31.393747+00:00
 ---
 
 # About data flow for Oracle to Cloud SQL for PostgreSQL  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/layout-parse-quickstart/
 title: Layout parser Quickstart \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:40.214473+00:00
+fetched_at: 2026-11-11T09:08:14.415545+00:00
 ---
 
 # Layout parser Quickstart  |  Document AI  |  Google Cloud Documentation

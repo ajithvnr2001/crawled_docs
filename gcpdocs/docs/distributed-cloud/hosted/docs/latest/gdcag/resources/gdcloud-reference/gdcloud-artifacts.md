@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-artifacts/
 title: gdcloud artifacts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:54.678143+00:00
+fetched_at: 2026-11-11T12:22:54.653726+00:00
 ---
 
 # gdcloud artifacts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

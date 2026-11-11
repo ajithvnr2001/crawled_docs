@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/querydata/
 title: Query database in natural language with QueryData \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:39.483527+00:00
+fetched_at: 2026-11-11T09:59:28.788615+00:00
 ---
 
 # Query database in natural language with QueryData  |  Bigtable  |  Google Cloud Documentation

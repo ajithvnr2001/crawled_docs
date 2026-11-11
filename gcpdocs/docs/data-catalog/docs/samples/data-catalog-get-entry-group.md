@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-catalog/docs/samples/data-catalog-get-entry-group/
 title: Get entry group \u00a0|\u00a0 Data Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:01.272839+00:00
+fetched_at: 2026-11-11T09:32:10.762122+00:00
 ---
 
 # Get entry group  |  Data Catalog  |  Google Cloud Documentation

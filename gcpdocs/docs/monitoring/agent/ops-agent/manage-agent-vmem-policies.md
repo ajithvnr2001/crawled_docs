@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/agent/ops-agent/manage-agent-vmem-policies/
 title: Manage the Ops Agent by using VM Extension Manager policies \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:22.608072+00:00
+fetched_at: 2026-11-11T13:01:06.115903+00:00
 ---
 
 # Manage the Ops Agent by using VM Extension Manager policies  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,66 +21,22 @@ Send feedback
 
 #  Manage the Ops Agent by using VM Extension Manager policies Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can change how a policy manages the Ops Agent by updating the policy. When you update a policy, VM Extension Manager rolls out the changes to all applicable VMs, typically within one minute. Based on how a policy is changed, the Ops Agent might be installed on new VMs or uninstalled from existing VMs.
-
-## Before you begin
-
-Before starting to using VM Extension Manager extension policies, do the following:
-
-  * Grant the roles required to manage VM Extension Manager policies.
-
-  * If you want to use a command-line interface to create and manage extension policies and you haven't already installed Google Cloud CLI, then [install the gcloud](https://docs.cloud.google.com/monitoring/agent/ops-agent/agent-vmem-policies#install-gcloud).
-
-You can create and manage zonal VM extension policies by using the Google Cloud console or the Google Cloud CLI, gcloud. You create and manage global VM extension policies by using gcloud.
-
-
-
-
-### Grant roles required to manage VM Extension Manager policies
-
-To get the permissions that you need to view, modify, and delete VM extension policies, ask your administrator to grant you the following IAM roles on the project: 
-
-  * To view extension policies: 
-    * [VM Extension Policy Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.vmExtensionPolicyViewer) (`roles/compute.vmExtensionPolicyViewer`)
-    * [VM Extension Policy Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.vmExtensionPolicyAdmin) (`roles/compute.vmExtensionPolicyAdmin`)
-  * To modify extension policies: [VM Extension Policy Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.vmExtensionPolicyAdmin) (`roles/compute.vmExtensionPolicyAdmin`) 
-  * To delete extension policies: [VM Extension Policy Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.vmExtensionPolicyAdmin) (`roles/compute.vmExtensionPolicyAdmin`) 
-
-
-
-For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-
-These predefined roles contain the permissions required to view, modify, and delete VM extension policies. To see the exact permissions that are required, expand the **Required permissions** section: 
-
-#### Required permissions
-
-The following permissions are required to view, modify, and delete VM extension policies:
-
-  * To view extension policies: `compute.vmExtensionPolicies.list`
-  * To view details of an extension policy: `compute.vmExtensionPolicies.get`
-  * To modify extension policies: `compute.vmExtensionPolicies.update`
-  * To delete extension policies: `compute.vmExtensionPolicies.delete`
-
-
-
-You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
-
-For more information about IAM roles and permissions in Compute Engine, see [Compute Engine roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/compute).
+To change how an extension policy manages the Ops Agent, update the policy. When you update a policy, VM Extension Manager rolls out the changes to all applicable VMs, typically within one minute. Based on how a policy is modified, the Ops Agent might be installed on new VMs or uninstalled from existing VMs.
 
 ## Modify extensions policies that manage the Ops Agent
 
-To change how a policy manages the Ops Agent, update the policy. When you update a policy, VM Extension Manager rolls out the changes to all applicable VMs, typically within one minute. If you modify inclusion labels, then the Ops Agent might be installed on new VMs or uninstalled from existing VMs based on whether the VMs match the updated labels.
+To change how a policy manages the Ops Agent, update the policy. The following sections show how to change a policy to do the following:
 
-The following sections show how to change a policy to do the following:
-
-  * Update the pinned version of the agent on all VMs
-  * Modify the configuration of the Ops Agent on all VMs
+  * Update the pinned version of the agent on all VMs.
+  * Modify the configuration of the Ops Agent on all VMs.
 
 
+
+The following sections provide examples of update policies for the Ops Agent according to specific criteria by using gcloud or the Google Cloud console. For information about using the Compute Engine API to create and manage extension policies, see the [VM Extension Manager documentation](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager).
 
 ### Update the pinned version of the Ops Agent on all VMs in a zone
 
-To change the pinned version of the Ops Agent on all VMs in a zone, do the following:
+To change the pinned version of the Ops Agent, do the following:
 
 ###  Console 
 
@@ -104,9 +60,11 @@ If you use the search bar to find this page, then select the result whose subhea
 
 ###  gcloud 
 
-To create a zonal or global policy, you can use the gcloud CLI.
+To create or manage a zonal or global policy at the project, folder, or organization level, you can use the gcloud CLI.
 
 ###  Zonal 
+
+**Project level**
 
 Use the [`gcloud compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/update) command with the `--version` option to modify the pinned agent version.
 
@@ -118,7 +76,7 @@ To change the version of the Ops Agent installed on all VMs in a zone by a polic
     gcloud compute zone-vm-extension-policies update POLICY_NAME \
       --project=PROJECT_ID \
       --zone=ZONE \
-      --extensions=ops-agent 
+      --extensions=ops-agent
       --version=ops-agent=VERSION
     
 
@@ -132,9 +90,22 @@ Replace the following variables in the command:
 If you omit the `--version` option, then the policy installs the latest version and updates the Ops Agent when a new version is released, as shown in the example that installs the latest version.
 
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/update") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
+
 
 
 ###  Global 
+
+**Project level**
 
 Use the [`gcloud compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/update) command with the `--version` option to modify the pinned agent version.
 
@@ -145,7 +116,7 @@ To change the version of the Ops Agent installed on all VMs by a global policy, 
     
     gcloud compute global-vm-extension-policies update POLICY_NAME \
       --project=PROJECT_ID \
-      --extensions=ops-agent  \
+      --extensions=ops-agent \
       --rollout-predefined-plan=slow_rollout \
       --version=ops-agent=VERSION
     
@@ -158,6 +129,17 @@ Replace the following variables in the command:
 
 If you omit the `--version` option, then the policy installs the latest version and updates the Ops Agent when a new version is released, as shown in the example that installs the latest version.
 
+
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/update") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 
 
@@ -187,9 +169,11 @@ If you use the search bar to find this page, then select the result whose subhea
 
 ###  gcloud 
 
-To create a zonal or global policy, you can use the gcloud CLI.
+To create or manage a zonal or global policy at the project, folder, or organization level, you can use the gcloud CLI.
 
 ###  Zonal 
+
+**Project level**
 
 Use the [`gcloud compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/update) command with the `--config-from-file` option or the `--config` option to specify a new configuration.
 
@@ -201,7 +185,7 @@ To change the configuration of the Ops Agent installed on all VMs in a zone by a
     gcloud compute zone-vm-extension-policies update POLICY_NAME \
       --project=PROJECT_ID \
       --zone=ZONE \
-      --extensions=ops-agent 
+      --extensions=ops-agent
       --config-from-file=ops-agent="OPS_AGENT_CONFIG_PATH"
     
 
@@ -215,9 +199,22 @@ Replace the following variables in the command:
 Configuration YAML for the Ops Agent can be lengthy. Putting the configuration into a file and passing the file to the gcloud CLI is much less error-prone than attempting to enter properly formatted YAML on the command line.
 
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/update") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
+
 
 
 ###  Global 
+
+**Project level**
 
 Use the [`gcloud compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/update) command with the `--config-from-file` option or the `--config` option to specify a new configuration.
 
@@ -228,7 +225,7 @@ To change the configuration of the Ops Agent installed on all VMs by a policy, u
     
     gcloud compute global-vm-extension-policies update POLICY_NAME \
       --project=PROJECT_ID \
-      --extensions=ops-agent  \
+      --extensions=ops-agent \
       --rollout-predefined-plan=slow_rollout \
       --config-from-file=ops-agent="OPS_AGENT_CONFIG_PATH"
     
@@ -242,14 +239,29 @@ Replace the following variables in the command:
 Configuration YAML for the Ops Agent can be lengthy. Putting the configuration into a file and passing the file to the gcloud CLI is much less error-prone than attempting to enter properly formatted YAML on the command line.
 
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/update") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
+
 
 
 If you provide a custom configuration for the Ops Agent when creating or updating an extension policy, then the policy deploys the Ops Agent with the custom configuration. You don't need to manually restart the agent.
 
 The configuration is stored with the extension policy, so don't include sensitive data like passwords in the configuration. Because the configuration is stored with the extension policy, modifying the configuration file does not change the configuration of the agent. You must update the configuration stored with the policy by using the appropriate `gcloud` command:
 
-  * For zonal policies, use the [ `gcloud compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/update) command.
-  * For global policies, use the [ `gcloud compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/update) command.
+  * For zonal policies, use the one of the following: 
+    * For project-level policies, use the [`gcloud compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/update) command.
+    * For folder- or organization-level policies, use the [ `gcloud preview compute zone-vm-extension-policies` `update`](https://docs.cloud.google.com/monitoring/agent/ops-agent/manage-agent-vmem-policies/<a%20href=https:/docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/update) command.
+  * For global policies, use one of the following: 
+    * For project-level policies, use the [`gcloud compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/update) command.
+    * For folder- or organization-level policies, use the [ `gcloud preview compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/monitoring/agent/ops-agent/manage-agent-vmem-policies/<a%20href=https:/docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/update) command.
 
 
 
@@ -268,6 +280,8 @@ For general information about using the Google Cloud console and the gcloud CLI 
 
 When VMs are created in new zones after a global policy has been created and rolled out, VM Extension Manager does not automatically apply the policy to the VMs in the new zones. To include the VMs in new zones, you must restart the global policy rollout.
 
+**Project level**
+
 To restart a global policy rollout, use the [`gcloud compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/update) command and supply the `--rollout-retry-uuid=UUID` option.
 
 For example, suppose you created and rolled out a global policy by using the following command:
@@ -275,7 +289,7 @@ For example, suppose you created and rolled out a global policy by using the fol
     
     gcloud compute global-vm-extension-policies create POLICY_NAME \
       --project=PROJECT_ID \
-      --extensions=ops-agent  \
+      --extensions=ops-agent \
       --version=ops-agent=2.61.0 \
       --rollout-predefined-plan=slow_rollout \
       --config-from-file=ops-agent="/usr/ops-agent-config.yaml"
@@ -286,7 +300,7 @@ To extend the policy to VMs created in previously unused zones, restart the roll
     
     gcloud compute global-vm-extension-policies update test-policy POLICY_NAME \
       --project=PROJECT_ID \
-      --extensions=ops-agent  \
+      --extensions=ops-agent \
       --version=ops-agent=2.61.0 \
       --rollout-predefined-plan=slow_rollout \
       --config-from-file=ops-agent="/usr/ops-agent-config.yaml" \
@@ -297,7 +311,18 @@ Replace the following variables in the command:
 
   * POLICY_NAME: A name for the VM extension policy.
   * PROJECT_ID: The identifier of the project.
-  * UUID: A universally unique identifier (UUID) that identifies the retry request. You can use any UUID generator to create one. For more information, see [ Retry a rollout ](https://docs.cloud.google.com/compute/docs/vm-extensions/about-global-policies#retry-rollout).
+  * UUID: A universally unique identifier (UUID) that identifies the retry request. You can use any UUID generator to create one. For more information, see [ Retry a rollout](https://docs.cloud.google.com/compute/docs/vm-extensions/about-global-policies#retry-rollout).
+
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To make the preceding changes at the folder or organization level, use [`gcloud preview compute global-vm-extension-policies`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies) commands and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 
 
@@ -305,12 +330,14 @@ Replace the following variables in the command:
 
 To update the zones to which a global policy that excludes some zones in a Google Cloud project, you must use a new custom rollout plan that specifies the zones in which to apply the policy. For information about creating custom rollout plans, see [ About rollout plans](https://docs.cloud.google.com/compute/docs/vm-extensions/create-extension-policy#rollout-plans). To specify a set of zones, use the `locationSelector.includedLocations` field when creating the rollout plan.
 
+**Project level**
+
 To update an extension policy that uses a custom rollout plan, use the following [`gcloud compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/update) command:
     
     
     gcloud compute global-vm-extension-policies update POLICY_NAME \
       --project=PROJECT_ID \
-      --extensions=ops-agent  \
+      --extensions=ops-agent \
       --rollout-custom-plan=projects/PROJECT_ID/locations/global/rolloutPlans/NEW_CUSTOM_PLAN_NAME \
       --rollout-retry-uuid=UUID
     
@@ -320,7 +347,18 @@ Replace the following variables in the command:
   * POLICY_NAME: A name for the VM extension policy.
   * PROJECT_ID: The identifier of the project.
   * NEW_CUSTOM_PLAN_NAME: The name associated with your updated custom rollout plan.
-  * UUID: A universally unique identifier (UUID) that identifies the retry request. You can use any UUID generator to create one. For more information, see [ Retry a rollout ](https://docs.cloud.google.com/compute/docs/vm-extensions/about-global-policies#retry-rollout).
+  * UUID: A universally unique identifier (UUID) that identifies the retry request. You can use any UUID generator to create one. For more information, see [ Retry a rollout](https://docs.cloud.google.com/compute/docs/vm-extensions/about-global-policies#retry-rollout).
+
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `update`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/update") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 
 
@@ -348,7 +386,9 @@ If you use the search bar to find this page, then select the result whose subhea
 
 ###  Zonal 
 
-To delete the VM extension policy that manages the Ops Agent, use the [`gcloud compute zone-vm-extension-policies` `delete`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/delete) command:
+**Project level**
+
+To delete the zonal VM extension policy that manages the Ops Agent, use the [`gcloud compute zone-vm-extension-policies` `delete`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/delete) command:
     
     
     gcloud compute zone-vm-extension-policies delete POLICY_NAME \
@@ -362,9 +402,22 @@ Replace the following variables in the command:
   * PROJECT_ID: The identifier of the project.
   * ZONE: The target zone; for example, `us-central1-f`.
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute zone-vm-extension-policies` `delete`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/delete") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
+
 
 
 ###  Global 
+
+**Project level**
 
 To delete the global VM extension policy that manages the Ops Agent, use the [`gcloud compute global-vm-extension-policies` `delete`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/delete) command:
     
@@ -394,18 +447,33 @@ Replace the following variables in the command:
 
   * POLICY_NAME: A name for the VM extension policy.
   * PROJECT_ID: The identifier of the project.
-  * UUID: A universally unique identifier (UUID) that identifies the retry request. You can use any UUID generator to create one. For more information, see [ Retry a rollout ](https://docs.cloud.google.com/compute/docs/vm-extensions/about-global-policies#retry-rollout).
+  * UUID: A universally unique identifier (UUID) that identifies the retry request. You can use any UUID generator to create one. For more information, see [ Retry a rollout](https://docs.cloud.google.com/compute/docs/vm-extensions/about-global-policies#retry-rollout).
+
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `delete`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/delete") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 
 
-## Retrieve information about VM extension policies
+## View VM extension policies
 
 You can retrieve the following information about existing VM extension policies:
 
-  * A list of all policies in your Google Cloud project.
-  * Configuration information about a specific policy.
+  * A list of all policies in a zone or globally within in your project, folder, or organization.
+  * Configuration information about a specific zonal or global policy within your project, folder, or oganization.
 
 
+
+For information about viewing the state of the installed extensions, see [View extension details and status](https://docs.cloud.google.com/monitoring/agent/ops-agent/view-agent-vmem-extension-state).
+
+### List VM extension policies
 
 ###  Console 
 
@@ -424,9 +492,9 @@ This page lists all the VM extension policies in your project.
 
 ###  Zonal 
 
-## List VM extension policies
+**Project level**
 
-To list information about all VM extension policies in a zone, use the [`gcloud compute zone-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/list) command:
+To list information about all zonal VM extension policies in a zone, use the [`gcloud compute zone-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/list) command:
     
     
     gcloud compute zone-vm-extension-policies list \
@@ -441,9 +509,71 @@ Replace the following variables in the command:
   * ZONE: The target zone; for example, `us-central1-f`.
   * PAGE_SIZE_INTEGER: The number of policies to list per page; for example, `2`. For more information about sorting and filtering options, see [`gcloud compute zone-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/list) .
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute zone-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/list") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 
-## Describe a named VM extension policy
+
+###  Global 
+
+**Project level**
+
+To list information about global VM extension policies, use the [`gcloud compute global-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/list) command:
+    
+    
+    gcloud compute global-vm-extension-policies list \
+      --project=PROJECT_ID \
+      --page-size=PAGE_SIZE_INTEGER
+    
+
+Replace the following variables in the command:
+
+  * PROJECT_ID: The identifier of the project.
+  * PAGE_SIZE_INTEGER: The number of policies to list per page; for example, `2`. For more information about sorting and filtering options, see [`gcloud compute global-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/list) .
+
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/list") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
+
+
+
+For general information about using the Google Cloud console and the gcloud CLI to retrieve information about VM extension policies, see [ View extension details and status](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-details).
+
+### Describe a specific VM extension policy
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **Extension policies** page: 
+
+[Go to **Extension policies**](https://console.cloud.google.com/compute/extensionManager/policies)
+
+If you use the search bar to find this page, then select the result whose subheading is **Compute Engine**.
+
+This page lists all the VM extension policies in your project.
+  2. To view details of a specific extension policy, click the name of the policy.
+
+
+
+###  gcloud 
+
+###  Zonal 
+
+**Project level**
 
 To retrieve the configuration of a named policy in a zone, use the [`gcloud compute zone-vm-extension-policies` `describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/zone-vm-extension-policies/describe) command:
     
@@ -459,30 +589,24 @@ Replace the following variables in the command:
   * PROJECT_ID: The identifier of the project.
   * ZONE: The target zone; for example, `us-central1-f`.
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute zone-vm-extension-policies` `describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/describe") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
+
 
 
 ###  Global 
 
-## List global VM extension policies
+**Project level**
 
-To list information about global VM extension policies, use the [`gcloud compute global-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/list) command:
-    
-    
-    gcloud compute global-vm-extension-policies list \
-      --project=PROJECT_ID \
-      --page-size=PAGE_SIZE_INTEGER
-    
-
-Replace the following variables in the command:
-
-  * PROJECT_ID: The identifier of the project.
-  * PAGE_SIZE_INTEGER: The number of policies to list per page; for example, `2`. For more information about sorting and filtering options, see [`gcloud compute global-vm-extension-policies` `list`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/list) .
-
-
-
-## Describe a named global VM extension policy
-
-To retrieve the configuration of a named policy in a zone, use the [`gcloud compute global-vm-extension-policies` `describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/describe) command:
+To retrieve the configuration of a named global policy, use the [`gcloud compute global-vm-extension-policies` `describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/global-vm-extension-policies/describe) command:
     
     
     gcloud compute global-vm-extension-policies describe POLICY_NAME \
@@ -494,9 +618,20 @@ Replace the following variables in the command:
   * POLICY_NAME: A name for the VM extension policy.
   * PROJECT_ID: The identifier of the project.
 
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/describe") command and make one of the following replacements:
+
+  * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+  * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 
-For general information about using the Google Cloud console and the gcloud CLI to retrieve information about VM extension policies, see [ View extension policies](https://docs.cloud.google.com/compute/docs/vm-extensions/manage-vm-extensions#view-ext-policies).
+
+For general information about using the Google Cloud console and the gcloud CLI to retrieve information about VM extension policies, see [ View extension details and status](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-details).
 
 ## Restart an Ops Agent installed by an extension policy
 
@@ -515,11 +650,13 @@ To restart an Ops Agent that was installed by an extension policy, do one of the
 For example, if a policy with priority 1000 failed to start the Ops Agent on a VM, you could add a label like `status=failed` to the VM. Then [create a new policy](https://docs.cloud.google.com/monitoring/agent/ops-agent/install-agent-vmem-policies#labelled-vms) with a higher priority, like 500. For example, a Google Cloud CLI command might look like the following:
 
 ###  Zonal 
+
+**Project level**
         
         gcloud compute zone-vm-extension-policies create POLICY_NAME \
           --project=PROJECT_ID \
           --zone=ZONE \
-          --extensions=ops-agent  \
+          --extensions=ops-agent \
           --inclusion-labels=status=failed \
           --priority=500 \
           --config-from-file=ops-agent=/usr/ops-agent-config.yaml
@@ -530,12 +667,24 @@ Replace the following variables in the command:
     * POLICY_NAME: A name for the VM extension policy.
     * PROJECT_ID: The identifier of the project.
     * ZONE: The target zone; for example, `us-central1-f`.
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute zone-vm-extension-policies` `create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/vm-extension-policies/create") command and make one of the following replacements:
+
+    * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+    * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 ###  Global 
+
+**Project level**
     
     gcloud compute global-vm-extension-policies create POLICY_NAME \
       --project=PROJECT_ID \
-      --extensions=ops-agent  \
+      --extensions=ops-agent \
       --inclusion-labels=status=failed \
       --priority=500 \
       --config-from-file=ops-agent=/usr/ops-agent-config.yaml \
@@ -546,6 +695,16 @@ Replace the following variables in the command:
 
     * POLICY_NAME: A name for the VM extension policy.
     * PROJECT_ID: The identifier of the project.
+**Folder and organization levels**
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To perform the preceding task at the folder or organization level, use the [ `gcloud preview compute global-vm-extension-policies` `create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/preview/global-vm-extension-policies/create") command and make one of the following replacements:
+
+    * For a folder-level extension policy, replace the  `--project=PROJECT_ID` option with  `--folder=folders/FOLDER_ID`, where FOLDER_ID is the numeric ID of your folder.
+    * For an organization-level extension policy, replace the  `--project=PROJECT_ID` option with  `--organization=organizations/ORGANIZATION_ID`, where ORGANIZATION_ID is the numeric ID of your organization.
 
 After the new policy successfully installs the Ops Agent, delete the policy and remove the label from the VMs. The Ops Agent remains installed on the VM because the original policy is still active.
 
@@ -558,9 +717,12 @@ VM Extension Manager policies use the [Compute Engine guest agent](https://docs.
 
 ## What's next
 
+  * Learn more about managing VM Extension Manager policies: 
+    * [Modify extensions by updating a VM extension policy](https://docs.cloud.google.com/compute/docs/vm-extensions/manage-vm-extensions#update-vm-ext-policy)
+    * [ Monitor VM extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/monitor-vm-extensions)
+    * [ View VM extension logs](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-logs)
   * [Troubleshoot problems in extension policies](https://docs.cloud.google.com/monitoring/agent/ops-agent/troubleshoot-agent-vmem-policies).
   * View detailed information about [configuring the Ops Agent](https://docs.cloud.google.com/monitoring/agent/ops-agent/configuration).
-  * Learn more about [VM Extension Manager](https://docs.cloud.google.com/compute/docs/vm-extensions/about-vm-extension-manager).
 
 
 
@@ -568,6 +730,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

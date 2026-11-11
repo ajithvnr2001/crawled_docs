@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-network-project-network-policies/
 title: gdcloud network project-network-policies \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:32.034385+00:00
+fetched_at: 2026-11-11T09:08:16.972569+00:00
 ---
 
 # gdcloud network project-network-policies  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

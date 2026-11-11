@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-install-libraries/
 title: Install Vertex AI client libraries \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:09.611914+00:00
+fetched_at: 2026-11-11T11:43:38.832435+00:00
 ---
 
 # Install Vertex AI client libraries  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

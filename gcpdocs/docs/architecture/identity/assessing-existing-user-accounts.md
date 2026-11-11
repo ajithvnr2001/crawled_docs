@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/assessing-existing-user-accounts/
 title: Assess existing user accounts \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:13.610364+00:00
+fetched_at: 2026-11-11T10:14:25.176503+00:00
 ---
 
 # Assess existing user accounts  |  Cloud Architecture Center  |  Google Cloud Documentation

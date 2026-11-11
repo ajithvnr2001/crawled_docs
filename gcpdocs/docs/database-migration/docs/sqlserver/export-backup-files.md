@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/export-backup-files/
 title: Prepare your backup files \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:55.328343+00:00
+fetched_at: 2026-11-11T09:34:38.447401+00:00
 ---
 
 # Prepare your backup files  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

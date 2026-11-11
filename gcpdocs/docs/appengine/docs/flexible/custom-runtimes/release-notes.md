@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/release-notes/
 title: App Engine flexible environment custom runtimes release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:48:28.888735+00:00
+fetched_at: 2026-11-11T10:15:06.341019+00:00
 ---
 
 # App Engine flexible environment custom runtimes release notes  |  Google Cloud Documentation
@@ -110,60 +110,12 @@ Feature
 
 You can now use `ssh` to log in to App Engine flexible environment instances that use only [internal IP addresses](https://docs.cloud.google.com/appengine/docs/flexible/disable-external-ip).
 
-## December 13, 2022
-
-Feature
-
-You can now use any configured [service account](https://docs.cloud.google.com/iam/docs/service-accounts) in your Cloud project as the [app-level default service account](https://docs.cloud.google.com/appengine/docs/flexible/configure-service-accounts), while creating and updating your App Engine applications.
-
-## November 09, 2022
-
-Feature
-
-The option to set [IP mode to `internal`](https://cloud.google.com/appengine/docs/flexible/troubleshooter/connectivity-questions#virtual_machines_with_only_internal_ip_addresses_require) for App Engine flexible environment instances is now generally available.
-
-## May 18, 2022
-
-Feature
-
-Specifying a [user-managed service account](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/user-managed-service-accounts) for each App Engine version during deployment is now a [generally available](https://cloud.google.com/products/#general-availability).
-
-## July 19, 2021
-
-Feature
-
-Specifying a [user-managed service account](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/user-managed-service-accounts) for each App Engine version during deployment is now available in preview. This feature lets you grant different privileges to each version, based on the specific tasks it performs, and avoid granting more privileges than necessary.
-
-## June 14, 2021
-
-Feature
-
-App Engine is now available in the `us-west1` (Oregon), `asia-southeast1` (Singapore), and `asia-east1` (Taiwan) regions.
-
-## April 13, 2021
-
-Feature
-
-App Engine is now available in the `europe-central2` region (Warsaw).
-
 ## July 08, 2020
 
 Feature
 
 External HTTP(S) Load Balancing is now supported for App Engine via [Serverless network endpoint groups](https://load-balancing/docs/negs/setting-up-serverless-negs). Notably, this feature allows you to use [Cloud CDN](https://docs.cloud.google.com/cdn) with App Engine.  
 This feature is available in Beta.
-
-## April 20, 2020
-
-Feature
-
-App Engine is now available in the `us-west4` region (Las Vegas, NV).
-
-## April 13, 2020
-
-Change
-
-Quotas for sockets have been removed. There is no longer a limit on the number of socket connections or the amount of data you can send and receive through a socket.
 
 ## March 13, 2020
 
@@ -179,42 +131,6 @@ App Engine is changing the URLs that you use to send requests to your apps. URLs
 
 To ensure a smooth transition, we are slowly updating App Engine to use region IDs. If we haven't updated your Google Cloud project yet, you won't see a region ID for your app. Since the ID is optional for existing apps, you don't need to update URLs or make other changes once the region ID is available for your existing apps.
 
-## April 18, 2019
-
-Feature
-
-  * App Engine is now available in the `asia-northeast2` region (Osaka, Japan).
-
-
-
-## April 15, 2019
-
-Feature
-
-  * App Engine is now available in the `europe-west6` region (Zürich, Switzerland).
-
-
-
-## April 09, 2019
-
-Feature
-
-[Cloud Tasks](https://docs.cloud.google.com/tasks/docs) is now GA and can be used to set up tasks to be performed asychronously, outside of user requests.
-
-## March 04, 2019
-
-Feature
-
-[Cloud Scheduler](https://docs.cloud.google.com/scheduler/docs) is now GA and can be used to set up scheduled units of work (cron jobs).
-
-## October 22, 2018
-
-Feature
-
-  * App Engine is now available in the `asia-east2` region (Hong Kong).
-
-
-
 ## July 10, 2018
 
 Feature
@@ -228,150 +144,6 @@ Feature
 Feature
 
   * App Engine is now available in the `northamerica-northeast1` region (Montréal, Canada).
-
-
-
-## December 14, 2017
-
-Feature
-
-  * Improved access control documentation around deploying apps with IAM roles and service accounts:
-
-    * [Predefined App Engine roles](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/access-control#predefined_app_engine_roles)
-    * [Deploying using IAM roles](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/granting-project-access#deploying_using_iam_roles)
-    * [Require permissions](https://docs.cloud.google.com/appengine/docs/admin-api/access-control#required_permissions)
-
-
-
-## October 31, 2017
-
-Feature
-
-  * App Engine is now available in the `asia-south1` region (Mumbai, India).
-
-
-
-## October 11, 2017
-
-Feature
-
-  * Announced general availability of [App Engine firewall](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/creating-firewalls).
-
-
-
-## October 02, 2017
-
-Feature
-
-  * For the App Engine flexible environment, all responses are now compressed with gzip by default once you redeploy your app. No changes need to be made to your `app.yaml` file.
-
-
-
-## September 26, 2017
-
-Feature
-
-  * For the App Engine flexible environment, billing increments for instances are reduced from per-minute increments to per-second increments. Additionally, the minimum usage cost for instance resources is reduced from 10 minutes to 1 minute.
-
-
-
-## September 18, 2017
-
-Feature
-
-  * [Updated health checks](https://docs.cloud.google.com/appengine/docs/flexible/python/reference/app-yaml#updated_health_checks) are now the default for new projects. To upgrade a project from legacy health checks, run the command `gcloud app update --split-health-checks`.
-
-
-
-Deprecated
-
-Legacy health checks will no longer be available after September 30th, 2018.
-
-## September 13, 2017
-
-Feature
-
-  * You can now use managed certificates to add SSL to your custom domain. Once you map your custom domain to your application, App Engine provisions an SSL certificate automatically and handles renewing the certificate before it expires and revoking it if you remove the custom domain. Managed certificates are in beta. For more information, see [Securing Custom Domains with SSL](https://docs.cloud.google.com/appengine/docs/flexible/python/securing-custom-domains-with-ssl).
-
-
-
-Feature
-
-  * The `gcloud` commands and Admin API methods used to [map custom domains](https://docs.cloud.google.com/appengine/docs/flexible/python/mapping-custom-domains) are now generally available. This includes [`gcloud domains verify`](https://docs.cloud.google.com/sdk/gcloud/reference/domains) and [`apps.authorizedDomains.list`](https://docs.cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.authorizedDomains/list). However, if you want to use managed SSL certificates, use the beta commands and methods that are specified in [Securing Custom Domains with SSL](https://docs.cloud.google.com/appengine/docs/flexible/python/securing-custom-domains-with-ssl).
-
-
-
-Change
-
-  * If you have an existing domain mapping and SSL certificate, then it continues to function as expected. You can also [upgrade to managed SSL certificates](https://docs.cloud.google.com/appengine/docs/flexible/python/securing-custom-domains-with-ssl#updating_to_managed_ssl_certificates).
-
-
-
-## September 05, 2017
-
-Feature
-
-  * App Engine is now available in the `southamerica-east1` region (São Paulo, Brazil).
-
-
-
-## August 23, 2017
-
-Feature
-
-  * Beta release of the [App Engine firewall](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/creating-firewalls).
-
-
-
-## August 01, 2017
-
-Feature
-
-  * App Engine is now available in the `europe-west3` region (Frankfurt, Germany).
-
-
-
-## July 18, 2017
-
-Feature
-
-  * App Engine is now available in the `australia-southeast1` region (Sydney, Australia).
-
-
-
-## July 12, 2017
-
-Change
-
-  * If you use updated health checks, deployments will fail if your application does not reach a ready state.
-
-
-
-Feature
-
-  * You can now use updated health checks, which allow you to use separate checks to confirm that your instance is running and ready to serve content. You must enable updated health checks, which are currently in Beta. For more information, see [Health checks](https://docs.cloud.google.com/appengine/docs/flexible/custom-runtimes/configuring-your-app-with-app-yaml#health_checks).
-
-
-
-## June 06, 2017
-
-Feature
-
-  * You can now use the beta-level features in the Admin API and `gcloud` command-line tool to create and manage your custom domains and SSL certificates.
-
-
-
-Feature
-
-  * App Engine is now available in the `europe-west2` region (London).
-
-
-
-## May 09, 2017
-
-Feature
-
-  * App Engine is now available in the `us-east4` region (North Virginia).
 
 
 
@@ -403,55 +175,6 @@ Feature
 
 
 
-## December 06, 2016
-
-Change
-
-  * New applications that have not been deployed in the flexible environment must specify `env: true` in the `app.yaml` file instead of `vm:true`. Applications that were previously deployed can continue to use `vm:true` but will need to switch to `env:true` in the future. For more details, see [upgrade guide](https://docs.cloud.google.com/appengine/docs/flexible/python/upgrading).
-
-
-
-## November 15, 2016
-
-Feature
-
-This release includes a few key new features:
-
-  * Multi-zonal deployment support.
-  * A modern networking stack with increased throughput.
-  * Custom machine types.
-  * Asia-Northeast1 region availability.
-
-
-
-Feature
-
-There is a new release of the App Engine flexible environment. To choose this environment, use `env:flex` instead of `vm:true` in your `app.yaml` configuration file. You can learn more about the details of this release by visiting the [upgrade guide](https://docs.cloud.google.com/appengine/docs/flexible/python/upgrading).
-
-Change
-
-There are also a few breaking changes:
-
-  * HTTP headers have been changed.
-  * Environment variables have been changed.
-  * There are multiple changes to the `app.yaml` schema.
-
-
-
-For details and a full list of changes, visit the [upgrade guide](https://docs.cloud.google.com/appengine/docs/flexible/python/upgrading).
-
-Deprecated
-
-This release also marks the deprecation of a few features:
-
-  * The python-compat runtime.
-  * The python27 runtime.
-  * The java-compat runtime.
-  * The jetty9-compat runtime.
-  * The [Go App Engine package](https://github.com/golang/appengine) no longer works on the App Engine flexible environment. Instead, use the [`cloud.google.com/go/...` package](https://github.com/GoogleCloudPlatform/google-cloud-go).
-
-
-
 ## May 02, 2016
 
 Feature
@@ -460,33 +183,10 @@ Feature
 
 
 
-## March 24, 2016
-
-Change
-
-  * App Engine Managed VMs is renamed to [App Engine flexible environment](https://docs.cloud.google.com/appengine/docs/flexible).
-
-
-
-## February 03, 2016
-
-Feature
-
-  * Container construction choices for Managed VMs
-
-The `gcloud preview app deploy` (and `mvn gcloud:deploy`) commands upload your artifacts to our servers and build a container to deploy your app to the Managed VM environment.
-
-There are two mechanisms for building the container image remotely. The default behavior is to build the container on a transient Compute Engine Virtual Machine which has Docker installed. Alternatively, you can use the [Cloud Build](https://docs.cloud.google.com/build/docs) service, which is in Beta. To use the Cloud Build service, follow these steps:
-
-    1. [Activate the Cloud Build API](https://support.google.com/cloud/answer/6158841) for your project.
-    2. Use the command `gcloud config set app/use_cloud_build True`. This will cause all invocations of `gcloud preview app deploy` to use the service. To return to the default behavior, use the command `gcloud config set app/use_cloud_build False`.
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

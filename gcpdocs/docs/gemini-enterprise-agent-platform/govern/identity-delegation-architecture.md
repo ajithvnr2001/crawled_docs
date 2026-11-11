@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/identity-delegation-architecture/
 title: Identity delegation architecture \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:37:37.826429+00:00
+fetched_at: 2026-11-11T08:51:45.346906+00:00
 ---
 
 # Identity delegation architecture  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

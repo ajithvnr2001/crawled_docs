@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk-migration/
 title: Agent Runtime SDK migration guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:04.007453+00:00
+fetched_at: 2026-11-11T08:52:44.371712+00:00
 ---
 
 # Agent Runtime SDK migration guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -28,10 +28,10 @@ In version 2.0.1 of the Agent Platform SDK, the `agent_engines` module within th
 At a high level, service client parameters are initialized on a per-client basis, and the client contains the relevant modules for service interactions. Namely,
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=GCP_PROJECT, location=GCP_REGION)
-    [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[create](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(...)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=GCP_PROJECT, location=GCP_REGION)
+    [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[create](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(...)
     
 
 is replaced by
@@ -109,14 +109,14 @@ This section contains code snippets that demonstrate how to migrate your existin
 ###  Before 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
       project=PROJECT,
       location=LOCATION,
       staging_bucket=STAGING_BUCKET,
     )
-    [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[create](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
+    [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[create](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
         local_agent,
         requirements=REQUIREMENTS,
         extra_packages=EXTRA_PACKAGES,
@@ -148,14 +148,14 @@ This section contains code snippets that demonstrate how to migrate your existin
 ###  Before 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
       project=PROJECT,
       location=LOCATION,
       staging_bucket=STAGING_BUCKET,
     )
-    [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[update](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
+    [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[update](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
         resource_name,
         agent_engine=local_agent,
         requirements=REQUIREMENTS,
@@ -189,13 +189,13 @@ This section contains code snippets that demonstrate how to migrate your existin
 ###  Before 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
       project=PROJECT,
       location=LOCATION,
     )
-    agent_engine = [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[get](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(resource_name)
+    agent_engine = [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[get](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(resource_name)
     
 
 ###  After 
@@ -214,13 +214,13 @@ This section contains code snippets that demonstrate how to migrate your existin
 ###  Before 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
       project=PROJECT,
       location=LOCATION,
     )
-    agent_engine = [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[list](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)()
+    agent_engine = [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[list](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)()
     
 
 ###  After 
@@ -247,13 +247,13 @@ This section contains code snippets that demonstrate how to migrate your existin
 Alternatively,
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
       project=PROJECT,
       location=LOCATION,
     )
-    agent_engine = [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[delete](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
+    agent_engine = [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[delete](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
         resource_name,  # Required.
         force=True,  # Optional
     )

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data/
 title: Prepare preference tuning data for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:23.708272+00:00
+fetched_at: 2026-11-11T08:50:00.260219+00:00
 ---
 
 # Prepare preference tuning data for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

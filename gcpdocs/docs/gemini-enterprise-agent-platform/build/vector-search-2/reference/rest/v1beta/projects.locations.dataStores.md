@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores
 title: REST Resource: projects.locations.dataStores \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:37:28.834025+00:00
+fetched_at: 2026-11-11T08:59:27.702362+00:00
 ---
 
 # REST Resource: projects.locations.dataStores  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -71,7 +71,7 @@ The content type of the Documents in a DataStore. All Documents in a DataStore s
 Enums  
 ---  
 `DOCUMENT_TYPE_UNSPECIFIED` | Default value, the document type is not specified.  
-`UNSTRUCTURED` | Text documents: PDF, plain text, Word, PowerPoint and Excel files, optionally with metadata.  
+`UNSTRUCTURED` | Text documents: PDF, HTML, plain text, Markdown, JSON, XML, Word, PowerPoint and Excel files, optionally with metadata.  
 `VIDEO` | Video documents, optionally with metadata.  
   
 ## ProcessingConfig
@@ -213,7 +213,7 @@ JSON representation
 Fields  
 ---  
 `segmentationConfig` |  `object (`[UnstructuredSegmentationConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredSegmentationConfig)`)` Optional. Controls how unstructured documents are split into segments prior to embedding.If unset, defaults to chunk segmentation with a `chunkSize` of 500. If set, exactly one of `chunkSegmentationConfig` or `pageSegmentationConfig` must be set; an empty config is rejected.  
-`parsingConfig` |  `object (`[UnstructuredParsingConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredParsingConfig)`)` Optional. The parsing config, applied to all file types for unstructured document parsing. Plain-text (`.txt`) files are always parsed digitally.If unset, defaults to digital (native text extraction) parsing, or to layout-aware parsing when `embeddingConfig.mode` is `MULTIMODAL`. If set, exactly one of `digitalParsingConfig` or `layoutParsingConfig` must be set; an empty config is rejected.  
+`parsingConfig` |  `object (`[UnstructuredParsingConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredParsingConfig)`)` Optional. The parsing config, applied to all file types for unstructured document parsing. Plain-text (`.txt`), JSON (`.json`) and XML (`.xml`) files are always parsed digitally. Markdown (`.md`) files support only digital parsing: with `layoutParsingConfig`, they fail to import.If unset, defaults to digital (native text extraction) parsing. If set, exactly one of `digitalParsingConfig` or `layoutParsingConfig` must be set; an empty config is rejected.  
 `embeddingConfig` |  `object (`[UnstructuredEmbeddingConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredEmbeddingConfig)`)` Optional. Controls how the per-segment embedding is generated.  
   
 ## UnstructuredSegmentationConfig
@@ -260,7 +260,7 @@ JSON representation
 Fields  
 ---  
 `chunkSize` |  `integer` Optional. The token size limit for each chunk.Supported values: 100-500 (inclusive). If unset, defaults to 500.  
-`includeAncestorHeadings` |  `boolean` Optional. Whether each chunk also includes the headings of the sections it belongs to, so that a chunk taken from the middle of a section keeps its context.Headings are only detected by layout parsing (`layoutParsingConfig`). With digital parsing, and for plain-text files, this setting has no effect.If unset, defaults to false.  
+`includeAncestorHeadings` |  `boolean` Optional. Whether each chunk also includes the headings of the sections it belongs to, so that a chunk taken from the middle of a section keeps its context.Headings are only detected by layout parsing (`layoutParsingConfig`). With digital parsing, and for plain-text, JSON and XML files, this setting has no effect.If unset, defaults to false.  
   
 ## PageSegmentationConfig
 
@@ -268,7 +268,7 @@ This type has no fields.
 
 The page segmentation configurations for unstructured documents. Segments are produced at the page level.
 
-Use with digital parsing. With `layoutParsingConfig`, PDF files fail to import, and Word, PowerPoint and Excel files are split into chunks instead.
+Use with digital parsing. With `layoutParsingConfig`, files fail to import; use `chunkSegmentationConfig` instead.
 
 ## UnstructuredParsingConfig
 
@@ -308,7 +308,7 @@ The digital parsing configurations for unstructured documents. Extracts the text
 
 This type has no fields.
 
-The layout parsing configurations for unstructured documents. Detects the document's structure, such as headings and tables, and runs OCR on PDF files. Required for `includeAncestorHeadings` to have an effect, and for `MULTIMODAL` embedding.
+The layout parsing configurations for unstructured documents. Detects the document's structure, such as headings and tables, and runs OCR on PDF files. Required for `includeAncestorHeadings` to have an effect.
 
 ## UnstructuredEmbeddingConfig
 
@@ -400,6 +400,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

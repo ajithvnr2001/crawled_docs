@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design/
 title: Create a custom voice with voice design \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:03.930411+00:00
+fetched_at: 2026-11-11T08:50:02.194657+00:00
 ---
 
 # Create a custom voice with voice design  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

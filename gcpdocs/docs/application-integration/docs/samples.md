@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/samples/
 title: All Application Integration code samples \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:44:25.475939+00:00
+fetched_at: 2026-11-11T09:30:34.779528+00:00
 ---
 
 # All Application Integration code samples  |  Google Cloud Documentation

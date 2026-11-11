@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/inspect-data-agent/
 title: Test QueryData \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:29.387533+00:00
+fetched_at: 2026-11-11T08:55:04.713292+00:00
 ---
 
 # Test QueryData  |  Data Agents  |  Google Cloud Documentation
@@ -120,22 +120,20 @@ The following example shows a `QueryData` request using `alloydb` database data 
       "parent": "projects/context-set-project/locations/us-central1",
       "prompt": "How many accounts in the Prague region are eligible for loans? A3 contains the data of region.",
       "context": {
-        "datasource_references": [
-          {
-            "alloydb": {
-              "database_reference": {
-                "project_id": "context-set-project",
-                "region": "us-central1",
-                "cluster_id": "sqlgen-magic",
-                "instance_id": "context-set-primary",
-                "database_id": "financial"
-              },
-              "agent_context_reference": {
-                "context_set_id": "projects/context-set-project/locations/us-central1/contextSets/bdf_pg_all_templates"
-              }
+        "datasource_references": {
+          "alloydb": {
+            "database_reference": {
+              "project_id": "context-set-project",
+              "region": "us-central1",
+              "cluster_id": "sqlgen-magic",
+              "instance_id": "context-set-primary",
+              "database_id": "financial"
+            },
+            "agent_context_reference": {
+              "context_set_id": "projects/context-set-project/locations/us-central1/contextSets/bdf_pg_all_templates"
             }
           }
-        ]
+        }
       },
       "generation_options": {
         "generate_query_result": true,
@@ -208,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

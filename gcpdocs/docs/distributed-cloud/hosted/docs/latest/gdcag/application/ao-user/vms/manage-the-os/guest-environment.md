@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-the-os/guest-environment/
 title: Guest environment \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:50.715733+00:00
+fetched_at: 2026-11-11T08:48:26.344593+00:00
 ---
 
 # Guest environment  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-delete-protection-create/
 title: Enable deletion protection for a new VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:48:53.287511+00:00
+fetched_at: 2026-11-11T09:18:24.687871+00:00
 ---
 
 # Enable deletion protection for a new VM  |  Compute Engine  |  Google Cloud Documentation

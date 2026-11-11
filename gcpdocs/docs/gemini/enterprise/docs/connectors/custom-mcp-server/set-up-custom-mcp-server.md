@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server/
 title: Set up your custom MCP server data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:04.498618+00:00
+fetched_at: 2026-11-11T12:22:42.617670+00:00
 ---
 
 # Set up your custom MCP server data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -230,7 +230,7 @@ When you specify scopes, consider the following:
 
   13. Optional: In the **Tag** field, enter a tag to uniquely identify this data connector across versions. This tag is immutable after you create it.
 
-  14. Optional: In the **Sensitive data protection policy** field, enter the resource path of a Sensitive Data Protection policy to inspect and mask sensitive data in requests. Use the following format: `projects/PROJECT_ID/locations/LOCATION/contentPolicies/POLICY_ID`.
+  14. Optional: In the **Sensitive data protection policy** field, enter the resource path of a [Sensitive Data Protection content policy](https://docs.cloud.google.com/sensitive-data-protection/docs/content-policy) to inspect and block sensitive data that Gemini Enterprise retrieves through this data store. Use the following format: `projects/PROJECT_ID/locations/LOCATION/contentPolicies/POLICY_ID`.
 
   15. Click **Create**. Gemini Enterprise creates your data store and displays your data stores on the **Connected Data Stores** page.
 
@@ -313,6 +313,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

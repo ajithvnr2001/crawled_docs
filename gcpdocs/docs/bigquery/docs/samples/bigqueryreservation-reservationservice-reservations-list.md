@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-reservations-list/
 title: List reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:33.752899+00:00
+fetched_at: 2026-11-11T08:30:06.052701+00:00
 ---
 
 # List reservations  |  BigQuery  |  Google Cloud Documentation

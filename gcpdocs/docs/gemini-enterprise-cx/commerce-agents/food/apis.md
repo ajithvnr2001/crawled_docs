@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/apis/
 title: APIs and reference \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:00.814427+00:00
+fetched_at: 2026-11-11T08:38:50.258003+00:00
 ---
 
 # APIs and reference  |  Food Ordering AI Agent  |  Google Cloud Documentation

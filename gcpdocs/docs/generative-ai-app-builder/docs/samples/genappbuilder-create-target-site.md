@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-create-target-site/
 title: Add a website to a data store \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:14.622376+00:00
+fetched_at: 2026-11-11T08:40:21.261848+00:00
 ---
 
 # Add a website to a data store  |  Agent Search  |  Google Cloud Documentation

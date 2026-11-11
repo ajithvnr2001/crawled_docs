@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-list-routines/
 title: List routines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:06.184741+00:00
+fetched_at: 2026-11-11T09:19:10.948598+00:00
 ---
 
 # List routines  |  BigQuery  |  Google Cloud Documentation

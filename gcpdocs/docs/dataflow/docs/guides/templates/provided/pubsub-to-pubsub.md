@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-to-pubsub/
 title: Pub/Sub to Pub/Sub template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:25.206656+00:00
+fetched_at: 2026-11-11T09:08:13.277154+00:00
 ---
 
 # Pub/Sub to Pub/Sub template  |  Cloud Dataflow  |  Google Cloud Documentation

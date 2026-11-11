@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-antigravity-us-public-sector/
 title: Deploy the Antigravity App and Antigravity CLI for US public sector \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:29.777406+00:00
+fetched_at: 2026-11-11T09:45:43.995883+00:00
 ---
 
 # Deploy the Antigravity App and Antigravity CLI for US public sector  |  Security  |  Google Cloud Documentation

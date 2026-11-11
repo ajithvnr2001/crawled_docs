@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/release-notes/
 title: Managed Service for Apache Airflow release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:32.833634+00:00
+fetched_at: 2026-11-11T09:53:43.974681+00:00
 ---
 
 # Managed Service for Apache Airflow release notes  |  Google Cloud Documentation

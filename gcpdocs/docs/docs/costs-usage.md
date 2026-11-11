@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/costs-usage/
 title: Costs and usage management \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:11.134811+00:00
+fetched_at: 2026-11-11T10:08:27.539576+00:00
 ---
 
 # Costs and usage management  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-patch-dicom-store/
 title: Patch DICOM store \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:47.105616+00:00
+fetched_at: 2026-11-11T08:32:42.459110+00:00
 ---
 
 # Patch DICOM store  |  Cloud Healthcare API  |  Google Cloud Documentation

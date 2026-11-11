@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/dns-overview/
 title: General DNS overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:21.667158+00:00
+fetched_at: 2026-11-11T09:46:13.385114+00:00
 ---
 
 # General DNS overview  |  Google Cloud Documentation

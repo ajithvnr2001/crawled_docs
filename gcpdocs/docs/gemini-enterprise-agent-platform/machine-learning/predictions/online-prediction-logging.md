@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging/
 title: Use online inference logging \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:25.483744+00:00
+fetched_at: 2026-11-11T08:40:02.193610+00:00
 ---
 
 # Use online inference logging  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

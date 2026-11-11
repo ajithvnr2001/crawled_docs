@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/clusters/
 title: Work with clusters \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:54:19.371442+00:00
+fetched_at: 2026-11-11T13:07:48.376971+00:00
 ---
 
 # Work with clusters  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation
@@ -62,11 +62,11 @@ In a similar way, to work with the `org-infra` cluster, do the following:
 
 Your GDC Sandbox instance comes with two pre-created Kubernetes clusters, called `user-vm-1` and `user-vm-2`, in the `org-1` organization. Use these clusters for container-based workloads.
 
-Distributed Cloud supports "shared" clusters for running container workloads. For more background, see [Kubernetes cluster configurations](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/platform/pa-user/cluster-configs). The clusters `user-vm-1` and `user-vm-2` are of the "shared" cluster type. GDC Sandbox does not support the "standard" cluster type.
+Distributed Cloud supports "shared" clusters for running container workloads. For more background, see [Kubernetes cluster configurations](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/platform/pa-user/cluster-configs). The clusters `user-vm-1` and `user-vm-2` are of the "shared" cluster type. GDC Sandbox does not support the "standard" cluster type. Because `user-vm-1` and `user-vm-2` are shared multi-tenant clusters, users receive project- and namespace-scoped permissions within attached project namespaces (for example, through the **Namespace Admin** role). Cluster-scoped permissions such as `cluster-admin` and creating `CustomResourceDefinitions` (CRDs), `ClusterRoles`, `ClusterRoleBindings`, or admission webhooks are not granted to GDC Sandbox users.
 
 **Warning:** Don't attempt to create new Kubernetes clusters. GDC Sandbox doesn't support additional clusters.
 
-You can attach clusters to a project when you [create a project](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/create-project).
+Before deploying container workloads in a new project, you must attach `user-vm-1` or `user-vm-2` to the project as described in [Create your first project](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/create-project#attach-clusters).
 
 To work with Kubernetes clusters on the command line, do the following:
 
@@ -85,6 +85,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

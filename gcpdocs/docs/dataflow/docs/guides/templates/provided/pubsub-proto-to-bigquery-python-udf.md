@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-proto-to-bigquery-python-udf/
 title: Pub/Sub Proto to BigQuery with Python UDF template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:47.288587+00:00
+fetched_at: 2026-11-11T09:46:44.940260+00:00
 ---
 
 # Pub/Sub Proto to BigQuery with Python UDF template  |  Cloud Dataflow  |  Google Cloud Documentation

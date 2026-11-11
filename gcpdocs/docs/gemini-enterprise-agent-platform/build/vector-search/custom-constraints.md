@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/custom-constraints/
 title: Create custom constraints for Vector Search \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:29.305560+00:00
+fetched_at: 2026-11-11T08:52:43.131693+00:00
 ---
 
 # Create custom constraints for Vector Search  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

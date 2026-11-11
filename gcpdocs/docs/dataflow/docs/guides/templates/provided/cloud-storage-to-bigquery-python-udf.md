@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-storage-to-bigquery-python-udf/
 title: Cloud Storage Text to BigQuery template with Python UDF \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:54.198392+00:00
+fetched_at: 2026-11-11T09:27:42.016531+00:00
 ---
 
 # Cloud Storage Text to BigQuery template with Python UDF  |  Cloud Dataflow  |  Google Cloud Documentation

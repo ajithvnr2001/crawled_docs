@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-routine-ddl/
 title: Create a routine with DDL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:26.159040+00:00
+fetched_at: 2026-11-11T08:59:30.408142+00:00
 ---
 
 # Create a routine with DDL  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/array_functions/
 title: Array Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:37.424422+00:00
+fetched_at: 2026-11-11T08:56:31.300527+00:00
 ---
 
 # Array Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ arrays | `array_concat(arrays)`
       .select(field("genre").arrayConcat([field("subGenre")]).as("allGenres"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1530-L1533)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1534-L1537)
 
 ##### Swift
     
@@ -209,7 +209,7 @@ array | value | `array_contains(array, value)`
       .select(field("genre").arrayContains(constant("mystery")).as("isMystery"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1540-L1543)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1544-L1547)
 
 ### Web
     
@@ -219,7 +219,7 @@ array | value | `array_contains(array, value)`
       .select(field("genre").arrayContains(constant("mystery")).as("isMystery"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2818-L2821)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2822-L2825)
 
 ##### Swift
     
@@ -330,7 +330,7 @@ array | search_values | `array_contains_all(array, search_values)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1550-L1557)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1554-L1561)
 
 ### Web
     
@@ -344,7 +344,7 @@ array | search_values | `array_contains_all(array, search_values)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2828-L2835)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2832-L2839)
 
 ##### Swift
     
@@ -470,7 +470,7 @@ array | search_values | `array_contains_any(array, search_values)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1564-L1571)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1568-L1575)
 
 ### Web
     
@@ -484,7 +484,7 @@ array | search_values | `array_contains_any(array, search_values)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2842-L2849)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2846-L2853)
 
 ##### Swift
     
@@ -665,7 +665,7 @@ array | `array_length(array)`
       .select(field("genre").arrayLength().as("genreCount"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1578-L1581)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1582-L1585)
 
 ### Web
     
@@ -675,7 +675,7 @@ array | `array_length(array)`
       .select(field("genre").arrayLength().as("genreCount"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2856-L2859)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2860-L2863)
 
 ##### Swift
     
@@ -779,7 +779,7 @@ array | `array_reverse(array)`
       .select(arrayReverse(field("genre")).as("reversedGenres"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1588-L1591)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1592-L1595)
 
 ### Web
     
@@ -789,7 +789,7 @@ array | `array_reverse(array)`
       .select(field("genre").arrayReverse().as("reversedGenres"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2866-L2869)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2870-L2873)
 
 ##### Swift
     
@@ -1245,6 +1245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

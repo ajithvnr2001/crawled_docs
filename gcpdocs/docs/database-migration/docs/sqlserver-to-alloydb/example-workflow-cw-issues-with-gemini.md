@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/example-workflow-cw-issues-with-gemini/
 title: Example workflow: Fix conversion issues in all code objects with Gemini assistance \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:56.079560+00:00
+fetched_at: 2026-11-11T09:34:50.188718+00:00
 ---
 
 # Example workflow: Fix conversion issues in all code objects with Gemini assistance  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

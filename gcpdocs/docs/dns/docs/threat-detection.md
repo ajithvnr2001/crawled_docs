@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/threat-detection/
 title: Advanced threat detection with DNS Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:42.144561+00:00
+fetched_at: 2026-11-11T09:46:44.683289+00:00
 ---
 
 # Advanced threat detection with DNS Armor  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/cancel-order/
 title: Cancel order prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:43:47.172835+00:00
+fetched_at: 2026-11-11T09:32:47.379578+00:00
 ---
 
 # Cancel order prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,11 +23,13 @@ Send feedback
 
 #  Cancel order prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-The cancel order [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) checks a user's authentication level. Once the user has been authenticated, the component provides information about the user's most recent or past orders. The user may then choose to cancel an entire order or cancel specific items in an order. This component uses the [Retail authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail) prebuilt component to authenticate users. The component also uses [Generators](https://docs.cloud.google.com/dialogflow/cx/docs/concept/generative/generators) for post-call summarization.
+The cancel order [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) checks a user's authentication level. After the user has been authenticated, the component provides information about the user's most recent or past orders. The user can then select to cancel an entire order or cancel specific items in an order.
+
+This component uses the [Retail authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail) prebuilt component to authenticate users. The component also uses [Generators](https://docs.cloud.google.com/dialogflow/cx/docs/concept/generative/generators) for post-call summarization.
 
 ## Limitations
 
-In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component has the following limitations:
+In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), you'll find the following limitations for this prebuilt component:
 
   * This component does not encrypt any data.
 
@@ -35,13 +37,15 @@ In addition to the [common prebuilt component limitations](https://docs.cloud.go
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+The sample dialogs show common scenarios that this prebuilt component handles. They demonstrate behavior when the user calls the component using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
 ### Cancel single product in recent order
 
-End-user has been previously authenticated. The agent confirms which items from the most recent order should be cancelled. The agent checks the original method of payment and confirms the cancellation details with the user.
+  1. The user has been previously authenticated.
+  2. The agent confirms which items from the most recent order to cancel.
+  3. The agent checks the original method of payment and confirms the cancellation details with the user.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Are you calling about your most recent order number ending with 12978 containing 5 water bottle and 1 t-shirt placed on 2023-11-09 at 08:00 PM?  
 yes |   
@@ -57,21 +61,23 @@ Please say or enter the product number of the item you want to select, or say "n
 1 |   
 | To verify, you are interested in canceling the google water bottle. Is this correct?  
 yes |   
-| We can see that the available quantity of the product that you have selected is 5. Please specify the quantity of products you wish to cancel.  
+| We can see that the available quantity of the product that you have selected is 5. Please specify the quantity of products you want to cancel.  
 4 |   
-| Please specify the reason for the cancellation. You may say something like: changed my mind, no longer needed, I would like to buy another item, delayed delivery, bought by mistake, want to change payment method, or say others.  
+| Please specify the reason for the cancellation. You can say something like: changed my mind, no longer needed, I would like to buy another item, delayed delivery, bought by mistake, want to change payment method, or say others.  
 I would like to buy another item |   
 | Thank you for letting us know.  
   
 Would you like to cancel another product?  
 no |   
-| For purchases made using your wallet, refunds are credited to the wallet or store credit account. It will take 3 to 5 business days for your refund to appear in your account. Please note that the refund amount will exclude shipping and handling charges.  
+| For purchases made using your wallet, refunds are credited to the wallet or store credit account. It will take 3 to 5 business days for your refund to appear in your account. Note that the refund amount will exclude shipping and handling charges.  
   
 ### Cancel entire order
 
-End-user has been previously authenticated. The agent confirms that the user wants to cancel a specific order, then collects the cancellation reason. The agent checks the original method of payment and confirms the cancellation details with the user.
+  1. The user has been previously authenticated.
+  2. The agent confirms that the user wants to cancel a specific order, then collects the cancellation reason.
+  3. The agent checks the original method of payment and confirms the cancellation details with the user.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Are you calling about your most recent order number ending with 12345 containing 1 shirt placed on 2023-11-10 at 06:00 PM?  
 no |   
@@ -83,9 +89,9 @@ yes |
 yes |   
 | Great, we are done collecting the order ID.  
   
-Do you wish to cancel the entire order?  
+Do you want to cancel the entire order?  
 yes |   
-| Please specify the reason for the cancellation. You may say something like: changed my mind, no longer needed, I would like to buy another item, delayed delivery, bought by mistake, want to change payment method, or say others.  
+| Please specify the reason for the cancellation. You can say something like: changed my mind, no longer needed, I would like to buy another item, delayed delivery, bought by mistake, want to change payment method, or say others.  
 no longer needed |   
 | Thank you for letting us know.  
   
@@ -103,18 +109,18 @@ Webhook | prebuilt_components_[component_name]:[webhook_action] | prebuilt_compo
   
 ## Input parameters
 
-Input parameters are parameters that are used to configure certain behaviors of the component. The parameters will be used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component. Session-scoped parameters may be set either by a calling flow, or on the start page of this component.
+Input parameters are parameters that configure certain behaviors of the component. One or more conditions within the flow use the parameters to determine how the component behaves. You must set flow-scoped parameters on the start page of the component. Session-scoped parameters can be set either by a calling flow or on the start page of this component.
 
 This prebuilt component accepts the following input parameters:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$session.params.phone_number | (optional) User's local phone number, without the country code, used to identify the user. | string  
+$session.params.phone_number | (optional) The user's local phone number, without the country code, used to identify the user. | string  
 $session.params.all_recent_order_id | (optional) This parameter lists order IDs associated with the authenticated user, sorted by the order placement date in descending order. The first element of the array represents the most recent order. If a user has no orders, the value of this parameter is `null`. | List (string)  
 $session.params.email | (optional) The email registered with the account. | string  
-$session.params.user_first_name | (optional) User's first name, used to greet and confirm ownership of the account. | string  
+$session.params.user_first_name | (optional) The user's first name, used to greet and confirm ownership of the account. | string  
   
-This prebuilt component allows the following optional parameters to configure the behavior of the component, including retries.
+This prebuilt component lets you use the following optional parameters to configure the behavior of the component, including retries.
 
 Parameter Name | Description | Format  
 ---|---|---  
@@ -148,19 +154,21 @@ $flow.order_payment_mode_store_credit | Specifies the value of the `order_paymen
 
 ## Output parameters
 
-Output parameters are session parameters that will remain active after exiting the component. These parameters contain important information collected by the component. This prebuilt component provides values for the following output parameters:
+Output parameters are session parameters that stay active after you exit the component. These parameters contain important information collected by the component.
+
+This prebuilt component returns values for the following output parameters:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
-phone_number | User's local phone number, without the country code, used to identify the user. | string  
-all_recent_order_id | This parameter lists order IDs associated with the authenticated user, sorted by the order placement date in descending order. The first element of the array represents the most recent order. If a user has no orders, the value of this parameter is `null`. | List (string)  
+phone_number | The user's local phone number, without the country code, used to identify the user. | string  
+all_recent_order_id | The order IDs associated with the authenticated user, sorted by the order placement date in descending order. The first element of the array represents the most recent order. If a user has no orders, the value of this parameter is `null`. | List (string)  
 email | The email registered with the account. | string  
-user_first_name | User's first name, used to greet and confirm ownership of the account. | string  
-transfer_reason | This parameter indicates the reason the flow exited, if it was not successful. The returned value is one of:  
+user_first_name | The user's first name, used to greet and confirm ownership of the account. | string  
+transfer_reason | The reason the flow exited, if it wasn't successful. The returned value is one of:  
   
-`agent`: the end-user requested a human agent at some point during the conversation.  
+`agent`: the user requested a human agent at some point during the conversation.  
   
-`denial_of_information`: the end-user declined to share information requested by the component.  
+`denial_of_information`: the user declined to share information requested by the component.  
   
 `max_no_input`: the conversation reached the maximum number of retries for no-input events. See [no-input built-in events](https://docs.cloud.google.com/dialogflow/cx/docs/concept/handler#event-built-in).  
   
@@ -172,36 +180,36 @@ transfer_reason | This parameter indicates the reason the flow exited, if it was
   
 ## Generators
 
-This component uses [Generators](https://docs.cloud.google.com/dialogflow/cx/docs/concept/generative/generators) to enable specific parts of the conversation.
+[Generators](https://docs.cloud.google.com/dialogflow/cx/docs/concept/generative/generators) power specific parts of the conversation.
 
 ### Summarization
 
-The `Summarization` generator is used to generate a post-call summary describing the conversation handled by the component.
+The `Summarization` generator generates a post-call summary describing the conversation handled by the component.
 
 ## Basic setup
 
 To set up this prebuilt component:
 
   1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
-  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with configuration describing your external services, see Webhook setup.
+  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) by providing configuration that describes your external services, see Webhook setup.
 
 
 
 ## Webhook setup
 
-In order to use this component, you will need to configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve needed information from your external services.
+To use this component, you need to configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve the required information from your external services.
 
 ### Authentication
 
-If you have not previously configured external services required for authentication, you will need to configure them to enable authentication of users for this component. See [Retail authentication webhook setup](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#webhook-setup) for detailed instructions.
+If you haven't previously configured external services required for authentication, configure them to enable user authentication for this component. For more information about authentication, see the [Retail authentication webhook setup](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#webhook-setup) guide.
 
 ### Get order details
 
-The `prebuilt_components_cancel_order:get_order_details` webhook is used by the component to retrieve order details for a specified order.
+The `prebuilt_components_cancel_order:get_order_details` webhook retrieves order details for a specified order.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
@@ -209,18 +217,18 @@ $flow.order_id | Order ID to retrieve details for. | string
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component retrieves the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
-order_date | Date the order was placed, in `YYYY-MM-DD` format. | string  
-order_time | Time the order was placed, in `HH:MM` format. | string  
+order_date | The date the order was placed, in `YYYY-MM-DD` format. | string  
+order_time | The time the order was placed, in `HH:MM` format. | string  
 order_product_count | The number of unique products within an order. | integer  
 order_payment_mode | Indicates the payment mode used when placing the order. | string  
-cancelable_product_id | List of product IDs for cancelable products within the order. | List (string)  
-cancelable_product_name | List of product names for cancelable products within the order. | List (string)  
-cancelable_product_brand_name | List of brand names for cancelable products within the order. | List (string)  
-cancelable_product_quantity | List of quantities for cancelable products within the order. | List (string)  
+cancelable_product_id | A list of product IDs for cancelable products within the order. | List (string)  
+cancelable_product_name | A list of product names for cancelable products within the order. | List (string)  
+cancelable_product_brand_name | A list of brand names for cancelable products within the order. | List (string)  
+cancelable_product_quantity | A list of quantities for cancelable products within the order. | List (string)  
   
 ####  To configure the Get order details webhook for this component, expand for instructions. 
 
@@ -240,24 +248,24 @@ cancelable_product_quantity | List of quantities for cancelable products within 
 
 ### Get duplicate order details
 
-The `prebuilt_components_retail_services:get_duplicate_order_details` webhook is used by the component to retrieve detailed information in order to distinguish between orders when multiple order numbers have the same last five digits.
+The `prebuilt_components_retail_services:get_duplicate_order_details` webhook lets the component retrieve detailed information to distinguish between orders when multiple order numbers have the same last five digits.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$flow.duplicate_order_id | List containing the last five digits of order numbers shared between one or more orders for the user. | List (string)  
+$flow.duplicate_order_id | A list containing the last five digits of order numbers shared between one or more orders for the user. | List (string)  
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component retrieves the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
-all_order_date | List of order dates for duplicate orders with the specified last five digits in `YYYY-MM-DD` format. Each element in this array corresponds to the same element in the `all_order_time` array. | List (string)  
-all_order_time | List of order times for duplicate orders with the specified last five digits in `HH:MM` format. Each element in this array corresponds to the same element in the `all_order_date` array. | List (string)  
+all_order_date | A list of order dates for duplicate orders with the specified last five digits in `YYYY-MM-DD` format. Each element in this array corresponds to the same element in the `all_order_time` array. | List (string)  
+all_order_time | A list of order times for duplicate orders with the specified last five digits in `HH:MM` format. Each element in this array corresponds to the same element in the `all_order_date` array. | List (string)  
   
 ####  To configure the Get duplicate order details webhook for this component, expand for instructions. 
 
@@ -277,24 +285,24 @@ all_order_time | List of order times for duplicate orders with the specified las
 
 ### Post cancellation details
 
-The `prebuilt_components_cancel_order:post_cancellation_details` webhook is used by the component to submit a cancellation request.
+The component uses the `prebuilt_components_cancel_order:post_cancellation_details` webhook to submit a cancellation request.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$session.params.phone_number | User's local phone number, without the country code, used to identify the user. | string  
+$session.params.phone_number | The user's local phone number, without the country code, used to identify the user. | string  
 $flow.order_id | Order ID to submit a ticket for. | string  
-$flow.cancel_product_id_list | List of product IDs that the user wants to cancel. | List (string)  
-$flow.cancel_product_quantity_list | List of product quantities that the user wants to cancel, corresponding to each element in `$flow.cancel_product_id_list`. | List (string)  
-$flow.cancel_reason_list | List of cancel reasons for each cancelled product, corresponding to each element in `$flow.cancel_product_id_list`. | List (string)  
-$flow.order_refund_mode | The payment mode for refund. Valid values are defined by the `prebuilt_components_cancel_mode_of_refund` entity. | string  
+$flow.cancel_product_id_list | A list of product IDs that the user wants to cancel. | List (string)  
+$flow.cancel_product_quantity_list | A list of product quantities that the user wants to cancel, corresponding to each element in `$flow.cancel_product_id_list`. | List (string)  
+$flow.cancel_reason_list | A list of cancel reasons for each cancelled product, corresponding to each element in `$flow.cancel_product_id_list`. | List (string)  
+$flow.order_refund_mode | The payment mode for the refund. Valid values are defined by the `prebuilt_components_cancel_mode_of_refund` entity. | string  
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component retrieves the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -318,7 +326,7 @@ order_cancellation_ticket_id | Ticket ID for the submitted cancellation. | strin
 
 ### Complete
 
-Your agent and its webhooks should now be set up and ready to test.
+The cancel order prebuilt component and its webhooks are now set up and ready to test.
 
 [ Previous arrow_back  Authentication (Retail)  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail)
 
@@ -328,6 +336,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

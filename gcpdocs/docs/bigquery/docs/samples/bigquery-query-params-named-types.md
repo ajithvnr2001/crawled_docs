@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-params-named-types/
 title: Named parameters and provided types \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:10.357817+00:00
+fetched_at: 2026-11-11T09:10:46.459077+00:00
 ---
 
 # Named parameters and provided types  |  BigQuery  |  Google Cloud Documentation

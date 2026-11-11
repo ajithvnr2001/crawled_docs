@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBCSQLAdmin-RestoreFromCloudSQL-sync-flattened/
 title: Restore a cluster from a Cloud SQL backup \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:46:20.737007+00:00
+fetched_at: 2026-11-11T10:34:01.401363+00:00
 ---
 
 # Restore a cluster from a Cloud SQL backup  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

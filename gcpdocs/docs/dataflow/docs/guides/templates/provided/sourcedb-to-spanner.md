@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/sourcedb-to-spanner/
 title: Sourcedb to Spanner template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:23.254750+00:00
+fetched_at: 2026-11-11T09:08:15.372988+00:00
 ---
 
 # Sourcedb to Spanner template  |  Cloud Dataflow  |  Google Cloud Documentation

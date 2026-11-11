@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/configure-src-connection-self-hosted/
 title: Configure network connectivity to self-hosted PostgreSQL sources \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:06.943880+00:00
+fetched_at: 2026-11-11T09:35:06.753644+00:00
 ---
 
 # Configure network connectivity to self-hosted PostgreSQL sources  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/cluster-backup/manual-restore-overview/
 title: Manual restore overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:14.627193+00:00
+fetched_at: 2026-11-11T10:51:22.540763+00:00
 ---
 
 # Manual restore overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

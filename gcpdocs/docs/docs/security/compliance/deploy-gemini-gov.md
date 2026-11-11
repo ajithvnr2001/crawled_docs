@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-gemini-gov/
 title: Deployment guidance for Gemini for Government \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:30.079859+00:00
+fetched_at: 2026-11-11T09:46:41.303618+00:00
 ---
 
 # Deployment guidance for Gemini for Government  |  Security  |  Google Cloud Documentation

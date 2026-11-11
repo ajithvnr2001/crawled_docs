@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api/
 title: Train an AutoML Edge model using the Agent Platform API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:26.787997+00:00
+fetched_at: 2026-11-11T08:48:58.006823+00:00
 ---
 
 # Train an AutoML Edge model using the Agent Platform API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

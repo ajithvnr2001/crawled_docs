@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices/
 title: Best practices for using Semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:29.400556+00:00
+fetched_at: 2026-11-11T08:51:44.982128+00:00
 ---
 
 # Best practices for using Semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

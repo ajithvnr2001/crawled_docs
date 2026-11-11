@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/bulk-close-alerts/
 title: Close alerts in bulk \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:29.358315+00:00
+fetched_at: 2026-11-11T09:20:47.841469+00:00
 ---
 
 # Close alerts in bulk  |  Google Security Operations  |  Google Cloud Documentation

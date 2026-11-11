@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/best-practices-vpc-design/
 title: Best practices and reference architectures for VPC design \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:14.672345+00:00
+fetched_at: 2026-11-11T08:25:40.171075+00:00
 ---
 
 # Best practices and reference architectures for VPC design  |  Cloud Architecture Center  |  Google Cloud Documentation

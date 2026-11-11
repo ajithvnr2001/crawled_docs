@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_icd10_cm/
 title: Overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:44:26.808085+00:00
+fetched_at: 2026-11-11T08:55:43.524289+00:00
 ---
 
 # Overview  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 **Public preview:** The federated search and actions features are in public preview. This feature is subject to the "Pre-GA Offerings Terms" in the [General Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
 
-The ICD-10 Codes data store for Gemini Enterprise lets you search and validate ICD-10-CM diagnosis codes, billable status, and hierarchy using natural language. End users can do the following without leaving Gemini Enterprise:
+The ICD-10 Codes data store for Gemini Enterprise lets you search and validate International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM) diagnosis codes, billable status, and hierarchy using natural language. End users can do the following without leaving Gemini Enterprise:
 
   * Search ICD-10-CM codes by condition, symptom, or code prefix.
   * Check whether a code is billable or needs more specificity.
@@ -60,13 +60,13 @@ The ICD-10 Codes data store for Gemini Enterprise has the following limitations:
 
   * The ICD-10 Codes data store is supported only in the `global` and `us` locations.
 
-  * The ICD-10 Codes data store covers ICD-10-CM diagnosis codes only. It doesn't cover ICD-10-PCS procedure codes.
+  * The ICD-10 Codes data store covers ICD-10-CM diagnosis codes only. It doesn't cover ICD-10 Procedure Coding System (ICD-10-PCS) codes.
 
   * **Search Icd10 Codes** accepts search terms from 2 to 200 characters.
 
-  * **Validate Icd10 Code** and **Lookup Code Hierarchy** accept a code with a letter, a digit, and a letter or digit, optionally followed by a dot and 1 to 4 letters or digits, for example, `E11`, `E11.9`, or `S82.101A`. Codes are converted to uppercase, and a code without its dot gets one. For example, `E119` becomes `E11.9`.
+  * **Validate Icd10 Code** and **Lookup Code Hierarchy** accept a code of 3 to 8 characters, including the dot, for example, `E11`, `E11.9`, or `S82.101A`. Codes are converted to uppercase. Enter codes with their dot, for example, `E11.9`, not `E119`.
 
-  * If a code doesn't match this format, Gemini Enterprise doesn't send the request and asks the user to correct the code.
+  * If a value is shorter or longer than these limits, Gemini Enterprise doesn't send the request and asks the user to correct the value.
 
 
 
@@ -81,6 +81,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

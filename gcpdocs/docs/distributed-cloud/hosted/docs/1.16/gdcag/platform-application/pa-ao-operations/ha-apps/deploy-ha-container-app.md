@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/ha-apps/deploy-ha-container-app/
 title: Deploy a highly available container application \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:13.618073+00:00
+fetched_at: 2026-11-11T10:51:22.179055+00:00
 ---
 
 # Deploy a highly available container application  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

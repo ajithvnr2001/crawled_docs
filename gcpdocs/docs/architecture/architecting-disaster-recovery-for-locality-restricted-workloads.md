@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/architecting-disaster-recovery-for-locality-restricted-workloads/
 title: Architecting disaster recovery for locality-restricted workloads \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:12.534774+00:00
+fetched_at: 2026-11-11T08:25:19.451911+00:00
 ---
 
 # Architecting disaster recovery for locality-restricted workloads  |  Cloud Architecture Center  |  Google Cloud Documentation

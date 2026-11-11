@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/streaming-data-generator/
 title: Streaming Data Generator template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:22.316504+00:00
+fetched_at: 2026-11-11T09:07:43.755148+00:00
 ---
 
 # Streaming Data Generator template  |  Cloud Dataflow  |  Google Cloud Documentation

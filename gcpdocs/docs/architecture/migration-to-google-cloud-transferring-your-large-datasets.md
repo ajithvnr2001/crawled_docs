@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-to-google-cloud-transferring-your-large-datasets/
 title: Migrate to Google Cloud: Transfer your large datasets \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:40:25.801529+00:00
+fetched_at: 2026-11-11T08:22:39.615671+00:00
 ---
 
 # Migrate to Google Cloud: Transfer your large datasets  |  Cloud Architecture Center  |  Google Cloud Documentation

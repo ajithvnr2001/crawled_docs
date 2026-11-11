@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-batch-write-to-storage/
 title: Output text to Cloud Storage \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:29.025305+00:00
+fetched_at: 2026-11-11T09:34:34.763394+00:00
 ---
 
 # Output text to Cloud Storage  |  Cloud Dataflow  |  Google Cloud Documentation

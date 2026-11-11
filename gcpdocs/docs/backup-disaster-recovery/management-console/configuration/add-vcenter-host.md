@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/add-vcenter-host/
 title: Add vCenter/ESX server hosts to the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:33:04.874875+00:00
+fetched_at: 2026-11-11T10:10:31.064590+00:00
 ---
 
 # Add vCenter/ESX server hosts to the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation

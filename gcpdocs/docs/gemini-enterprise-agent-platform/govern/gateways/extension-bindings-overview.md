@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/extension-bindings-overview/
 title: Extensible policies on Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:42.486474+00:00
+fetched_at: 2026-11-11T08:51:46.082006+00:00
 ---
 
 # Extensible policies on Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

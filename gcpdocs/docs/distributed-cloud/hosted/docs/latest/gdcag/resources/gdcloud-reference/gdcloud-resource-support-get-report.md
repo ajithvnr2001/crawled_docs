@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-resource-support-get-report/
 title: gdcloud resource-support get-report \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:37.222435+00:00
+fetched_at: 2026-11-11T10:29:03.673840+00:00
 ---
 
 # gdcloud resource-support get-report  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup/
 title: Set up Memory Bank \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:41.760784+00:00
+fetched_at: 2026-11-11T12:32:03.492796+00:00
 ---
 
 # Set up Memory Bank  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -134,6 +134,10 @@ Memory Bank supports multi-regional and global endpoints:
   * For global instances, set your location to `global`.
   * For multi-regional instances, set your location to `us` or `eu`.
 
+
+
+To pair a multi-regional instance with a regional ADK runtime, see [Use a multi-regional Memory Bank with a regional runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk#multi-regional-memory-bank).
+
 **Note:** You can't use CMEK if your Memory Bank or Sessions instance is configured to use the `global` endpoint (`location="global"`), because Cloud Key Management Service (Cloud KMS) requires encryption keys to reside within a geographic data residency boundary. Standalone parent instances without a deployed runtime can use CMEK in regional or multi-regional locations (`us` with a `us` key, or `eu` with a `europe` key), whereas instances with a deployed agent on Agent Runtime support CMEK only in single-region locations. For more information, see [CMEK for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#cmek) and [VPC Service Controls for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#vpc-sc).
 
 ## Create or update a Memory Bank instance
@@ -247,7 +251,7 @@ Replace the following:
 
 
 
-For more information about using Memory Bank with ADK, refer to the [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart).
+To try Memory Bank with ADK, see the [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart). To choose memory tools, callbacks, and runtimes, see [Use Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk).
 
 ###  Custom agent 
 
@@ -1057,12 +1061,12 @@ Quickstart
 
 ###  [ Quickstart with Agent Development Kit ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart)
 
-Get started with the Agent Development Kit (ADK). 
+Build an ADK agent that recalls user preferences. 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

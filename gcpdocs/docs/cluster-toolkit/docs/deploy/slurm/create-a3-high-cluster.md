@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/deploy/slurm/create-a3-high-cluster/
 title: Create an A3 High Slurm cluster \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:19.370652+00:00
+fetched_at: 2026-11-11T09:54:06.560330+00:00
 ---
 
 # Create an A3 High Slurm cluster  |  Cluster Toolkit  |  Google Cloud Documentation

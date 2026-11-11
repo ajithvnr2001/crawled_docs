@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/organize-resources/
 title: Organize resources \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:39.791123+00:00
+fetched_at: 2026-11-11T09:27:12.384388+00:00
 ---
 
 # Organize resources  |  Get started  |  Google Cloud Documentation

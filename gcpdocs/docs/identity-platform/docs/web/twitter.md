@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/twitter/
 title: Sign in users with Twitter \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:16.555789+00:00
+fetched_at: 2026-11-11T08:33:57.154341+00:00
 ---
 
 # Sign in users with Twitter  |  Identity Platform  |  Google Cloud Documentation
@@ -59,13 +59,13 @@ We recommend that you don't include `localhost` in your production projects.
          
          const provider = new TwitterAuthProvider();
          
-         [auth_twitter_provider_create.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/twitter/auth_twitter_provider_create.js#L8-L10)
+         [auth_twitter_provider_create.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/twitter/auth_twitter_provider_create.js#L8-L10)
 
 ### Web version 8
          
          var provider = new firebase.auth.TwitterAuthProvider();
          
-         [twitter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/twitter.js#L9-L9)
+         [twitter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/twitter.js#L9-L9)
 
   2. **Optional:** Localize the authentication flow. You can specify a language, or use the device's default language: 
 
@@ -78,7 +78,7 @@ We recommend that you don't include `localhost` in your production projects.
          // To apply the default browser preference instead of explicitly setting it.
          // auth.useDeviceLanguage();
          
-         [auth_set_language_code.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/index/auth_set_language_code.js#L8-L13)
+         [auth_set_language_code.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/index/auth_set_language_code.js#L8-L13)
 
 ### Web version 8
          
@@ -86,7 +86,7 @@ We recommend that you don't include `localhost` in your production projects.
          // To apply the default browser preference instead of explicitly setting it.
          // firebase.auth().useDeviceLanguage();
          
-         [index.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/index.js#L73-L75)
+         [index.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/index.js#L73-L75)
 
   3. **Optional:** Specify additional custom OAuth parameters. These are specific to Twitter, and are typically used to customize the authentication experience. You can't pass parameters reserved by OAuth or Identity Platform. 
 
@@ -96,7 +96,7 @@ We recommend that you don't include `localhost` in your production projects.
            'lang': 'es'
          });
          
-         [auth_twitter_provider_params.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/twitter/auth_twitter_provider_params.js#L8-L10)
+         [auth_twitter_provider_params.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/twitter/auth_twitter_provider_params.js#L8-L10)
 
 ### Web version 8
          
@@ -104,7 +104,7 @@ We recommend that you don't include `localhost` in your production projects.
            'lang': 'es'
          });
          
-         [twitter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/twitter.js#L13-L15)
+         [twitter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/twitter.js#L13-L15)
 
   4. Use the Twitter provider object to sign in the user. You can either open a pop-up window, or redirect the current page. Redirecting is easier for users on mobile devices. 
 
@@ -138,7 +138,7 @@ To show a pop-up, call `signInWithPopup()`:
              // ...
            });
          
-         [auth_twitter_signin_popup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/twitter/auth_twitter_signin_popup.js#L8-L32)
+         [auth_twitter_signin_popup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/twitter/auth_twitter_signin_popup.js#L8-L32)
 
 ### Web version 8
          
@@ -169,7 +169,7 @@ To show a pop-up, call `signInWithPopup()`:
              // ...
            });
          
-         [twitter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/twitter.js#L21-L46)
+         [twitter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/twitter.js#L21-L46)
 
 To redirect the page, first call `signInWithRedirect()`.
 
@@ -182,13 +182,13 @@ Follow the [best practices](https://docs.cloud.google.com/identity-platform/docs
          const auth = getAuth();
          signInWithRedirect(auth, provider);
          
-         [auth_signin_redirect.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/index/auth_signin_redirect.js#L8-L11)
+         [auth_signin_redirect.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/index/auth_signin_redirect.js#L8-L11)
 
 ### Web version 8
          
          firebase.auth().signInWithRedirect(provider);
          
-         [index.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/index.js#L101-L101)
+         [index.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/index.js#L101-L101)
 
 Then, retrieve the Twitter token by calling `getRedirectResult()` when your page loads: 
 
@@ -221,7 +221,7 @@ Then, retrieve the Twitter token by calling `getRedirectResult()` when your page
              // ...
            });
          
-         [auth_twitter_signin_redirect_result.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/twitter/auth_twitter_signin_redirect_result.js#L8-L33)
+         [auth_twitter_signin_redirect_result.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/twitter/auth_twitter_signin_redirect_result.js#L8-L33)
 
 ### Web version 8
          
@@ -254,7 +254,7 @@ Then, retrieve the Twitter token by calling `getRedirectResult()` when your page
              // ...
            });
          
-         [twitter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/twitter.js#L52-L79)
+         [twitter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/twitter.js#L52-L79)
 
 
 
@@ -285,13 +285,13 @@ If you don't want to use the client SDK, you can also handle the sign-in flow ma
          
          const credential = TwitterAuthProvider.credential(accessToken, secret);
          
-         [auth_twitter_provider_credential.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/twitter/auth_twitter_provider_credential.js#L8-L10)
+         [auth_twitter_provider_credential.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/twitter/auth_twitter_provider_credential.js#L8-L10)
 
 ### Web version 8
          
          var credential = firebase.auth.TwitterAuthProvider.credential(accessToken, secret);
          
-         [twitter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/twitter.js#L85-L85)
+         [twitter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/twitter.js#L85-L85)
 
   4. Use the credential to sign in the user with Identity Platform: 
 
@@ -315,7 +315,7 @@ If you don't want to use the client SDK, you can also handle the sign-in flow ma
              // ...
            });
          
-         [auth_signin_credential.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/index/auth_signin_credential.js#L8-L24)
+         [auth_signin_credential.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/index/auth_signin_credential.js#L8-L24)
 
 ### Web version 8
          
@@ -335,7 +335,7 @@ If you don't want to use the client SDK, you can also handle the sign-in flow ma
              // ...
            });
          
-         [index.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/index.js#L81-L95)
+         [index.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/index.js#L81-L95)
 
 
 

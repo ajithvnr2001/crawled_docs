@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/import-index-data-from-big-query/
 title: Import index data from BigQuery \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:24.866351+00:00
+fetched_at: 2026-11-11T08:52:41.907306+00:00
 ---
 
 # Import index data from BigQuery  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

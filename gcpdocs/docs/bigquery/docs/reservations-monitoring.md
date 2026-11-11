@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-monitoring/
 title: Monitor BigQuery reservations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:13:30.837928+00:00
+fetched_at: 2026-11-11T13:07:43.781265+00:00
 ---
 
 # Monitor BigQuery reservations  |  Google Cloud Documentation
@@ -100,13 +100,13 @@ By default, in BigQuery editions capacity-based pricing, all compute charges are
 To help you estimate project-level budgets and perform internal chargebacks, BigQuery provides two ways to track resource consumption across the individual query projects that use the reservation:
 
   * **Informational slot attribution (default):** an informational line item in your billing report that shows the slot hours used per project. Actual compute charges remain billed to the administration project.
-  * **Billed cost attribution (Preview):** an opt-in feature that shifts the actual billed compute charges from the administration project directly to the individual query projects based on their slot usage.
+  * **Billed cost attribution ([Preview](https://cloud.google.com/products#product-launch-stages)):** an opt-in feature that shifts the actual billed compute charges from the administration project directly to the individual query projects based on their slot usage.
 
 
 
 ### Informational slot attribution
 
-By default, the query projects where SQL jobs execute show `$0` for compute spend. However, all [BigQuery Reservations API](https://docs.cloud.google.com/bigquery/docs/reservations-commitments#enabling-reservations-api) customers have an **Analysis Slots Attribution** line item in their Cloud Billing data. This line item is included on the **Billing** page and in the Cloud Billing export.
+By default, the query projects where SQL jobs execute show `$0` for compute spend. However, all [BigQuery Reservations API](https://docs.cloud.google.com/bigquery/docs/reservations-commitments#enabling-reservations-api) customers have an **Analysis Slots Attribution** line item in their Cloud Billing data. This line item is included on the **Billing** page in the Google Cloud console and in the Cloud Billing export.
 
 This line item shows the slot hours used per project. It incurs no cost and doesn't affect your invoice totals.
 
@@ -154,7 +154,7 @@ Replace the following:
 
      * `ADMIN_PROJECT_ID`: the project ID of your administration project.
      * `LOCATION`: the location of your reservation.
-  3. Click play_circle **Run**.
+  3. Click play_circle_filled **Run**.
 
 
 
@@ -963,6 +963,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

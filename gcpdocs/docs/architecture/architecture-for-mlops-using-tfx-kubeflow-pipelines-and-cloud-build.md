@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build/
 title: Architecture for MLOps using TensorFlow Extended, Agent Platform Pipelines, and Cloud Build \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:22.151237+00:00
+fetched_at: 2026-11-11T08:23:58.215292+00:00
 ---
 
 # Architecture for MLOps using TensorFlow Extended, Agent Platform Pipelines, and Cloud Build  |  Cloud Architecture Center  |  Google Cloud Documentation

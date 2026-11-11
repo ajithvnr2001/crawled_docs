@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-to-bigquery/
 title: Pub/Sub to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:27.824917+00:00
+fetched_at: 2026-11-11T09:08:30.337390+00:00
 ---
 
 # Pub/Sub to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-templates/create-instance-templates/
 title: Create instance templates \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:03:13.556076+00:00
+fetched_at: 2026-11-11T09:20:15.373460+00:00
 ---
 
 # Create instance templates  |  Compute Engine  |  Google Cloud Documentation
@@ -376,7 +376,7 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
     	// templateName := "your_template_name"
     
     	ctx := context.Background()
-    	instanceTemplatesClient, err := compute.NewInstanceTemplatesRESTClient(ctx)
+    	instanceTemplatesClient, err := compute.[NewInstanceTemplatesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstanceTemplatesClient_NewInstanceTemplatesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstanceTemplatesRESTClient: %w", err)
     	}
@@ -409,8 +409,8 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
     						AccessConfigs: []*computepb.AccessConfig{
     							{
     								Name:        proto.String("External NAT"),
-    								Type:        proto.String(computepb.AccessConfig_ONE_TO_ONE_NAT.String()),
-    								NetworkTier: proto.String(computepb.AccessConfig_PREMIUM.String()),
+    								Type:        proto.String(computepb.[AccessConfig_ONE_TO_ONE_NAT](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AccessConfig_UNDEFINED_TYPE_AccessConfig_DIRECT_IPV6_AccessConfig_ONE_TO_ONE_NAT).String()),
+    								NetworkTier: proto.String(computepb.[AccessConfig_PREMIUM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AccessConfig_UNDEFINED_NETWORK_TIER_AccessConfig_FIXED_STANDARD_AccessConfig_PREMIUM_AccessConfig_STANDARD_AccessConfig_STANDARD_OVERRIDES_FIXED_STANDARD).String()),
     							},
     						},
     					},
@@ -437,17 +437,17 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.AccessConfig;
-    import com.google.cloud.compute.v1.AccessConfig.NetworkTier;
-    import com.google.cloud.compute.v1.AttachedDisk;
-    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
-    import com.google.cloud.compute.v1.GlobalOperationsClient;
-    import com.google.cloud.compute.v1.InsertInstanceTemplateRequest;
-    import com.google.cloud.compute.v1.InstanceProperties;
-    import com.google.cloud.compute.v1.InstanceTemplate;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient;
-    import com.google.cloud.compute.v1.NetworkInterface;
-    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html);
+    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).NetworkTier;
+    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
+    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
+    import com.google.cloud.compute.v1.[GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html);
+    import com.google.cloud.compute.v1.[InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html);
+    import com.google.cloud.compute.v1.[InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html);
+    import com.google.cloud.compute.v1.[InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html);
+    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -471,15 +471,15 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
        */
       public static void createInstanceTemplate(String projectId, String templateName)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create()) {
     
           String machineType = "e2-standard-4";
           String sourceImage = "projects/debian-cloud/global/images/family/debian-13";
     
           // The template describes the size and source image of the boot disk
           // to attach to the instance.
-          AttachedDisk attachedDisk = AttachedDisk.newBuilder()
-              .setInitializeParams(AttachedDiskInitializeParams.newBuilder()
+          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) attachedDisk = [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+              .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)([AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
                   .setSourceImage(sourceImage)
                   .setDiskType("pd-balanced")
                   .setDiskSizeGb(250).build())
@@ -488,75 +488,75 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
     
           // The template connects the instance to the `default` network,
           // without specifying a subnetwork.
-          NetworkInterface networkInterface = NetworkInterface.newBuilder()
+          [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface = [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
               .setName("global/networks/default")
               // The template lets the instance use an external IP address.
-              .addAccessConfigs(AccessConfig.newBuilder()
+              .[addAccessConfigs](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.Builder.html#com_google_cloud_compute_v1_NetworkInterface_Builder_addAccessConfigs_com_google_cloud_compute_v1_AccessConfig_)([AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).newBuilder()
                   .setName("External NAT")
-                  .setType(AccessConfig.Type.ONE_TO_ONE_NAT.toString())
+                  .setType([AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).Type.ONE_TO_ONE_NAT.toString())
                   .setNetworkTier(NetworkTier.PREMIUM.toString()).build()).build();
     
-          InstanceProperties instanceProperties = InstanceProperties.newBuilder()
+          [InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html) instanceProperties = [InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html).newBuilder()
               .addDisks(attachedDisk)
               .setMachineType(machineType)
               .addNetworkInterfaces(networkInterface).build();
     
-          InsertInstanceTemplateRequest insertInstanceTemplateRequest = InsertInstanceTemplateRequest
+          [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html) insertInstanceTemplateRequest = [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html)
               .newBuilder()
               .setProject(projectId)
-              .setInstanceTemplateResource(InstanceTemplate.newBuilder()
+              .setInstanceTemplateResource([InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html).newBuilder()
                   .setName(templateName)
                   .setProperties(instanceProperties).build()).build();
     
           // Create the Instance Template.
-          Operation response = instanceTemplatesClient.insertAsync(insertInstanceTemplateRequest)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = instanceTemplatesClient.insertAsync(insertInstanceTemplateRequest)
               .get(3, TimeUnit.MINUTES);
     
-          if (response.hasError()) {
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Instance Template creation failed ! ! " + response);
             return;
           }
           System.out
-              .printf("Instance Template Operation Status %s: %s", templateName, response.getStatus());
+              .printf("Instance Template Operation Status %s: %s", templateName, response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     
       public static void createInstanceTemplateWithDiskType(String projectId, String templateName)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create();
-            GlobalOperationsClient globalOperationsClient = GlobalOperationsClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create();
+            [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html) globalOperationsClient = [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html).create()) {
     
-          AttachedDisk disk = AttachedDisk.newBuilder()
-              .setInitializeParams(AttachedDiskInitializeParams.newBuilder()
+          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disk = [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+              .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)([AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
                   .setDiskSizeGb(10)
                   .setDiskType("pd-balanced")
                   .setSourceImage("projects/debian-cloud/global/images/family/debian-13").build())
               .setAutoDelete(true)
               .setBoot(true)
-              .setType(AttachedDisk.Type.PERSISTENT.toString()).build();
+              .setType([AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).Type.PERSISTENT.toString()).build();
     
-          InstanceTemplate instanceTemplate = InstanceTemplate.newBuilder()
+          [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html) instanceTemplate = [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html).newBuilder()
               .setName(templateName)
-              .setProperties(InstanceProperties.newBuilder()
+              .setProperties([InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html).newBuilder()
                   .setMachineType("n1-standard-1")
                   .addDisks(disk)
-                  .addNetworkInterfaces(NetworkInterface.newBuilder()
+                  .addNetworkInterfaces([NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
                       .setName("global/networks/default").build()).build()).build();
     
-          InsertInstanceTemplateRequest insertInstanceTemplateRequest = InsertInstanceTemplateRequest
+          [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html) insertInstanceTemplateRequest = [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html)
               .newBuilder()
               .setProject(projectId)
               .setInstanceTemplateResource(instanceTemplate).build();
     
-          Operation response = instanceTemplatesClient.insertAsync(insertInstanceTemplateRequest)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = instanceTemplatesClient.insertAsync(insertInstanceTemplateRequest)
               .get(3, TimeUnit.MINUTES);
     
-          if (response.hasError()) {
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Instance Template creation failed ! ! " + response);
             return;
           }
           System.out
-              .printf("Instance Template Operation Status %s: %s", templateName, response.getStatus());
+              .printf("Instance Template Operation Status %s: %s", templateName, response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     }
@@ -570,11 +570,11 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
     // const projectId = 'YOUR_PROJECT_ID';
     // const templateName = 'your_template_name';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Create a new instance template with the provided name and a specific instance configuration.
     async function createTemplate() {
-      const instanceTemplatesClient = new compute.InstanceTemplatesClient();
+      const instanceTemplatesClient = new compute.[InstanceTemplatesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await instanceTemplatesClient.insert({
         project: projectId,
@@ -615,7 +615,7 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
         },
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.GlobalOperationsClient();
+      const operationsClient = new compute.[GlobalOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {
@@ -981,7 +981,7 @@ For example, the following command creates an instance template based on `my-sou
     	// templateName := "your_template_name"
     
     	ctx := context.Background()
-    	instanceTemplatesClient, err := compute.NewInstanceTemplatesRESTClient(ctx)
+    	instanceTemplatesClient, err := compute.[NewInstanceTemplatesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstanceTemplatesClient_NewInstanceTemplatesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstanceTemplatesRESTClient: %w", err)
     	}
@@ -999,7 +999,7 @@ For example, the following command creates an instance template based on `my-sou
     						// your template is based on.
     						DeviceName: proto.String("disk-1"),
     						// Replace the original boot disk image used in your instance with a Rocky Linux image.
-    						InstantiateFrom: proto.String(computepb.DiskInstantiationConfig_CUSTOM_IMAGE.String()),
+    						InstantiateFrom: proto.String(computepb.[DiskInstantiationConfig_CUSTOM_IMAGE](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_DiskInstantiationConfig_UNDEFINED_INSTANTIATE_FROM_DiskInstantiationConfig_ATTACH_READ_ONLY_DiskInstantiationConfig_BLANK_DiskInstantiationConfig_CUSTOM_IMAGE_DiskInstantiationConfig_DEFAULT_DiskInstantiationConfig_DO_NOT_INCLUDE_DiskInstantiationConfig_SOURCE_IMAGE_DiskInstantiationConfig_SOURCE_IMAGE_FAMILY).String()),
     						CustomImage:     proto.String("projects/rocky-linux-cloud/global/images/family/rocky-linux-8"),
     						// Override the auto_delete setting.
     						AutoDelete: proto.Bool(true),
@@ -1027,14 +1027,14 @@ For example, the following command creates an instance template based on `my-sou
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.DiskInstantiationConfig;
-    import com.google.cloud.compute.v1.DiskInstantiationConfig.InstantiateFrom;
-    import com.google.cloud.compute.v1.GlobalOperationsClient;
-    import com.google.cloud.compute.v1.InsertInstanceTemplateRequest;
-    import com.google.cloud.compute.v1.InstanceTemplate;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.SourceInstanceParams;
+    import com.google.cloud.compute.v1.[DiskInstantiationConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.html);
+    import com.google.cloud.compute.v1.[DiskInstantiationConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.html).[InstantiateFrom](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.InstantiateFrom.html);
+    import com.google.cloud.compute.v1.[GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html);
+    import com.google.cloud.compute.v1.[InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html);
+    import com.google.cloud.compute.v1.[InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[SourceInstanceParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SourceInstanceParams.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -1061,47 +1061,47 @@ For example, the following command creates an instance template based on `my-sou
       public static void createTemplateFromInstance(String projectId, String templateName,
           String instance)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create();
-            GlobalOperationsClient globalOperationsClient = GlobalOperationsClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create();
+            [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html) globalOperationsClient = [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html).create()) {
     
-          SourceInstanceParams sourceInstanceParams = SourceInstanceParams.newBuilder()
-              .addDiskConfigs(DiskInstantiationConfig.newBuilder()
+          [SourceInstanceParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SourceInstanceParams.html) sourceInstanceParams = [SourceInstanceParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SourceInstanceParams.html).newBuilder()
+              .[addDiskConfigs](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SourceInstanceParams.Builder.html#com_google_cloud_compute_v1_SourceInstanceParams_Builder_addDiskConfigs_com_google_cloud_compute_v1_DiskInstantiationConfig_)([DiskInstantiationConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.html).newBuilder()
                   // Device name must match the name of a disk attached to the instance you are
                   // basing your template on.
                   .setDeviceName("disk-1")
                   // Replace the original boot disk image used in your instance
                   // with a Rocky Linux image.
-                  .setInstantiateFrom(InstantiateFrom.CUSTOM_IMAGE.toString())
-                  .setCustomImage(
+                  .[setInstantiateFrom](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.Builder.html#com_google_cloud_compute_v1_DiskInstantiationConfig_Builder_setInstantiateFrom_java_lang_String_)([InstantiateFrom](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.InstantiateFrom.html).CUSTOM_IMAGE.toString())
+                  .[setCustomImage](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DiskInstantiationConfig.Builder.html#com_google_cloud_compute_v1_DiskInstantiationConfig_Builder_setCustomImage_java_lang_String_)(
                       String.format("projects/%s/global/images/family/%s", "rocky-linux-cloud",
                           "rocky-linux-8"))
                   // Override the AutoDelete setting.
                   .setAutoDelete(true).build())
               .build();
     
-          InstanceTemplate instanceTemplate = InstanceTemplate.newBuilder()
+          [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html) instanceTemplate = [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html).newBuilder()
               .setName(templateName)
               .setSourceInstance(instance)
-              .setSourceInstanceParams(sourceInstanceParams)
+              .[setSourceInstanceParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.Builder.html#com_google_cloud_compute_v1_InstanceTemplate_Builder_setSourceInstanceParams_com_google_cloud_compute_v1_SourceInstanceParams_)(sourceInstanceParams)
               .build();
     
-          InsertInstanceTemplateRequest insertInstanceTemplateRequest = InsertInstanceTemplateRequest
+          [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html) insertInstanceTemplateRequest = [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html)
               .newBuilder()
               .setProject(projectId)
               .setInstanceTemplateResource(instanceTemplate)
               .build();
     
-          Operation operation = instanceTemplatesClient.insertCallable()
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) operation = instanceTemplatesClient.insertCallable()
               .futureCall(insertInstanceTemplateRequest).get(3, TimeUnit.MINUTES);
     
-          Operation response = globalOperationsClient.wait(projectId, operation.getName());
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = globalOperationsClient.wait(projectId, operation.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getName__)());
     
-          if (response.hasError()) {
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Instance Template creation failed ! ! " + response);
             return;
           }
           System.out.printf("Instance Template creation operation status %s: %s", templateName,
-              response.getStatus());
+              response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     }
@@ -1116,12 +1116,12 @@ For example, the following command creates an instance template based on `my-sou
     // const instance = 'projects/project/zones/zone/instances/instance';
     // const templateName = 'your_template_name';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Create a new instance template based on an existing instance.
     // This new template specifies a different boot disk.
     async function createTemplateFromInstance() {
-      const instanceTemplatesClient = new compute.InstanceTemplatesClient();
+      const instanceTemplatesClient = new compute.[InstanceTemplatesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await instanceTemplatesClient.insert({
         project: projectId,
@@ -1146,7 +1146,7 @@ For example, the following command creates an instance template based on `my-sou
         },
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.GlobalOperationsClient();
+      const operationsClient = new compute.[GlobalOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {
@@ -1170,7 +1170,7 @@ For example, the following command creates an instance template based on `my-sou
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -1237,7 +1237,7 @@ For example, the following command creates an instance template based on `my-sou
         Returns:
             InstanceTemplate object that represents the new instance template.
         """
-        disk = compute_v1.DiskInstantiationConfig()
+        disk = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DiskInstantiationConfig](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DiskInstantiationConfig.html)()
         # Device name must match the name of a disk attached to the instance you are
         # basing your template on.
         disk.device_name = "disk-1"
@@ -1247,20 +1247,20 @@ For example, the following command creates an instance template based on `my-sou
         # Override the auto_delete setting.
         disk.auto_delete = True
     
-        template = compute_v1.InstanceTemplate()
+        template = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceTemplate](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.InstanceTemplate.html)()
         template.name = template_name
         template.source_instance = instance
-        template.source_instance_params = compute_v1.SourceInstanceParams()
+        template.source_instance_params = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[SourceInstanceParams](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.SourceInstanceParams.html)()
         template.source_instance_params.disk_configs = [disk]
     
-        template_client = compute_v1.InstanceTemplatesClient()
-        operation = template_client.insert(
+        template_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceTemplatesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html)()
+        operation = template_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html#google_cloud_compute_v1_services_instance_templates_InstanceTemplatesClient_insert)(
             project=project_id, instance_template_resource=template
         )
     
         wait_for_extended_operation(operation, "instance template creation")
     
-        return template_client.get(project=project_id, instance_template=template_name)
+        return template_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html#google_cloud_compute_v1_services_instance_templates_InstanceTemplatesClient_get)(project=project_id, instance_template=template_name)
     
     
 
@@ -1793,7 +1793,7 @@ The output is similar to the following:
     	// templateName := "your_template_name"
     
     	ctx := context.Background()
-    	instanceTemplatesClient, err := compute.NewInstanceTemplatesRESTClient(ctx)
+    	instanceTemplatesClient, err := compute.[NewInstanceTemplatesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstanceTemplatesClient_NewInstanceTemplatesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstanceTemplatesRESTClient: %w", err)
     	}
@@ -1846,15 +1846,15 @@ The output is similar to the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.AttachedDisk;
-    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
-    import com.google.cloud.compute.v1.GlobalOperationsClient;
-    import com.google.cloud.compute.v1.InsertInstanceTemplateRequest;
-    import com.google.cloud.compute.v1.InstanceProperties;
-    import com.google.cloud.compute.v1.InstanceTemplate;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient;
-    import com.google.cloud.compute.v1.NetworkInterface;
-    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
+    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
+    import com.google.cloud.compute.v1.[GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html);
+    import com.google.cloud.compute.v1.[InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html);
+    import com.google.cloud.compute.v1.[InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html);
+    import com.google.cloud.compute.v1.[InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html);
+    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -1885,11 +1885,11 @@ The output is similar to the following:
       public static void createTemplateWithSubnet(String projectId, String network, String subnetwork,
           String templateName)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create();
-            GlobalOperationsClient globalOperationsClient = GlobalOperationsClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create();
+            [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html) globalOperationsClient = [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html).create()) {
     
-          AttachedDisk disk = AttachedDisk.newBuilder()
-              .setInitializeParams(AttachedDiskInitializeParams.newBuilder()
+          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disk = [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+              .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)([AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
                   .setSourceImage(
                       String.format("projects/%s/global/images/family/%s", "debian-cloud", "debian-13"))
                   .setDiskSizeGb(250).build())
@@ -1897,36 +1897,36 @@ The output is similar to the following:
               .setBoot(true)
               .build();
     
-          InstanceProperties instanceProperties = InstanceProperties.newBuilder()
+          [InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html) instanceProperties = [InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html).newBuilder()
               .addDisks(disk)
               .setMachineType("e2-standard-4")
-              .addNetworkInterfaces(NetworkInterface.newBuilder()
+              .addNetworkInterfaces([NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
                   .setNetwork(network)
                   .setSubnetwork(subnetwork).build())
               .build();
     
-          InstanceTemplate instanceTemplate = InstanceTemplate.newBuilder()
+          [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html) instanceTemplate = [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html).newBuilder()
               .setName(templateName)
               .setProperties(instanceProperties)
               .build();
     
-          InsertInstanceTemplateRequest insertInstanceTemplateRequest = InsertInstanceTemplateRequest
+          [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html) insertInstanceTemplateRequest = [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html)
               .newBuilder()
               .setProject(projectId)
               .setInstanceTemplateResource(instanceTemplate)
               .build();
     
-          Operation operation = instanceTemplatesClient.insertCallable()
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) operation = instanceTemplatesClient.insertCallable()
               .futureCall(insertInstanceTemplateRequest).get(3, TimeUnit.MINUTES);
     
-          Operation response = globalOperationsClient.wait(projectId, operation.getName());
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = globalOperationsClient.wait(projectId, operation.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getName__)());
     
-          if (response.hasError()) {
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Template creation from subnet failed ! ! " + response);
             return;
           }
           System.out.printf("Template creation from subnet operation status %s: %s", templateName,
-              response.getStatus());
+              response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     }
@@ -1942,11 +1942,11 @@ The output is similar to the following:
     // const subnetwork = 'projects/project/regions/region/subnetworks/subnetwork';
     // const templateName = 'your_template_name';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Create an instance template that uses a provided subnet.
     async function createTemplateWithSubnet() {
-      const instanceTemplatesClient = new compute.InstanceTemplatesClient();
+      const instanceTemplatesClient = new compute.[InstanceTemplatesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await instanceTemplatesClient.insert({
         project: projectId,
@@ -1980,7 +1980,7 @@ The output is similar to the following:
         },
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.GlobalOperationsClient();
+      const operationsClient = new compute.[GlobalOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {
@@ -2004,7 +2004,7 @@ The output is similar to the following:
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -2074,8 +2074,8 @@ The output is similar to the following:
         """
         # The template describes the size and source image of the book disk to
         # attach to the instance.
-        disk = compute_v1.AttachedDisk()
-        initialize_params = compute_v1.AttachedDiskInitializeParams()
+        disk = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AttachedDisk](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AttachedDisk.html)()
+        initialize_params = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AttachedDiskInitializeParams](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AttachedDiskInitializeParams.html)()
         initialize_params.source_image = (
             "projects/debian-cloud/global/images/family/debian-13"
         )
@@ -2084,25 +2084,25 @@ The output is similar to the following:
         disk.auto_delete = True
         disk.boot = True
     
-        template = compute_v1.InstanceTemplate()
+        template = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceTemplate](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.InstanceTemplate.html)()
         template.name = template_name
-        template.properties = compute_v1.InstanceProperties()
-        template.properties.disks = [disk]
+        template.properties = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceProperties](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.InstanceProperties.html)()
+        template.properties.[disks](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.html) = [disk]
         template.properties.machine_type = "e2-standard-4"
     
         # The template connects the instance to the specified network and subnetwork.
-        network_interface = compute_v1.NetworkInterface()
+        network_interface = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[NetworkInterface](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.NetworkInterface.html)()
         network_interface.network = network
         network_interface.subnetwork = subnetwork
         template.properties.network_interfaces = [network_interface]
     
-        template_client = compute_v1.InstanceTemplatesClient()
-        operation = template_client.insert(
+        template_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceTemplatesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html)()
+        operation = template_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html#google_cloud_compute_v1_services_instance_templates_InstanceTemplatesClient_insert)(
             project=project_id, instance_template_resource=template
         )
         wait_for_extended_operation(operation, "instance template creation")
     
-        return template_client.get(project=project_id, instance_template=template_name)
+        return template_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html#google_cloud_compute_v1_services_instance_templates_InstanceTemplatesClient_get)(project=project_id, instance_template=template_name)
     
     
 
@@ -2140,6 +2140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

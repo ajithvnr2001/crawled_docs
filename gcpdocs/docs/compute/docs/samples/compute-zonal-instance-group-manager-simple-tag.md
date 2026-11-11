@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-zonal-instance-group-manager-simple-tag/
 title: Create a zonal MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:23.426556+00:00
+fetched_at: 2026-11-11T09:14:23.188371+00:00
 ---
 
 # Create a zonal MIG  |  Compute Engine  |  Google Cloud Documentation

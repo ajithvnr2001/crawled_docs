@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/
 title: About supervised fine-tuning for Translation LLM models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:24.073741+00:00
+fetched_at: 2026-11-11T08:49:13.049588+00:00
 ---
 
 # About supervised fine-tuning for Translation LLM models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,8 +62,8 @@ User data, such as the transformed dataset and the tuned model, is stored in the
 
   * If you use the Vertex AI SDK, you can specify the region at initialization. For example:
         
-        import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-        [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project='myproject', location='us-central1')
+        import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+        [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project='myproject', location='us-central1')
         
 
   * If you create a supervised fine-tuning job by sending a POST request using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method, then you use the URL to specify the region where the tuning job runs. For example, in the following URL, you specify a region by replacing both instances of `TUNING_JOB_REGION` with the region where the job runs.

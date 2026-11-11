@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/implement-two-tower-retrieval-large-scale-candidate-generation/
 title: Implement two-tower retrieval for large-scale candidate generation \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:57:32.773939+00:00
+fetched_at: 2026-11-11T08:25:48.986758+00:00
 ---
 
 # Implement two-tower retrieval for large-scale candidate generation  |  Cloud Architecture Center  |  Google Cloud Documentation

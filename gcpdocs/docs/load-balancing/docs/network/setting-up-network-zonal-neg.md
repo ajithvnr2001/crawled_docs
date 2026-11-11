@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/network/setting-up-network-zonal-neg/
 title: Set up a regional external passthrough Network Load Balancer with zonal NEGs \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:08.857672+00:00
+fetched_at: 2026-11-11T10:32:45.007542+00:00
 ---
 
 # Set up a regional external passthrough Network Load Balancer with zonal NEGs  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -734,77 +734,68 @@ Create a forwarding rule to handle IPv6 traffic. Use the IPv6 address range rese
 
 **Note:** Policy routing in the guest OS is only required when the zonal NEG endpoints are associated with a secondary (non-`nic0`) network interface (such as `nic1` in this tutorial). If your zonal NEG endpoints point to the VM's primary network interface (`nic0`), the VM's default routing table automatically routes egress traffic through `nic0`, in which case you can skip this section.
 
-For backend service-based regional external passthrough Network Load Balancers with `GCE_VM_IP` zonal NEG backends, the load balancer delivers packets (both client traffic and [health check probes](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#hc-packet-dest)) with the destination IP address set to the load balancer's forwarding rule IP address. The packets arrive through the network interface in the VPC subnet associated with the NEG (in this example, `nic1` in `lb-subnet`).
+For a backend service-based regional external passthrough Network Load Balancer with `GCE_VM_IP` zonal NEG backends, the load balancer delivers packets (both client traffic and [health check probes](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#hc-packet-dest)) with the destination IP address set to the load balancer's forwarding rule IP address. The packets arrive through the network interface in the VPC subnet associated with the NEG (in this example, `nic1` in `lb-subnet`).
 
-By default, a Linux-based Google Cloud VM has a single main routing table where the default route points to the primary interface, `nic0` (`ens4`). When the backend VM replies to requests addressed to the load balancer's IP address received on `nic1` (`ens5`), the VM tries to send the replies back through the default gateway on `nic0`, resulting in asymmetric routing and causing connections to fail.
+By default, a Linux-based Google Cloud VM has a single main routing table where the default route points to the primary interface, `nic0` (`ens4`). When the backend VM replies to requests addressed to the load balancer's IP address received on `nic1` (`ens5`), the VM sends the replies back through the default gateway on `nic0`. This results in asymmetric routing and causes connections to fail.
 
-To resolve this, you must set up source-based policy routing in the guest OS of each backend VM that serves as an endpoint for the NEG. This ensures that outgoing responses to both client traffic and health check probes (with source IP set to the load balancer's IP address) exit through the same network interface (`nic1`) on which they were received.
+To resolve this, you must set up source-based policy routing in the guest OS of each backend VM that serves as an endpoint for the NEG. Policy routing ensures that outgoing responses to both client traffic and health check probes (with source IP set to the load balancer's IP address) exit through the same network interface (`nic1`) on which they were received.
 
 For each backend VM (`vm-a1`, `vm-a2`, `vm-c1`, and `vm-c2`), perform the following steps:
 
   1. Connect to the backend VM by using [SSH](https://docs.cloud.google.com/compute/docs/connect/standard-ssh#connect_to_vms).
-
   2. Create the following variables.
 
 **For IPv4 traffic** :
 
-     * `NIC1_GATEWAY_IPV4`: IPv4 address of the gateway for `nic1`
+     * `NIC1_GATEWAY_IPV4`: IPv4 address of the gateway for `nic1`.
      * `LB_IPV4`: IPv4 address of the load balancer's forwarding rule.
     
     NIC1_GATEWAY_IPV4=$(curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/1/gateway)
     LB_IPV4=LOAD_BALANCER_EXTERNAL_IPV4
-    
 
-Replace LOAD_BALANCER_EXTERNAL_IPV4 with the IPv4 address configured for the forwarding rule of the load balancer.
+Replace `LOAD_BALANCER_EXTERNAL_IPV4 ` with the IPv4 address configured for the forwarding rule of the load balancer. 
 
 **For IPv6 traffic** :
 
-     * `NIC1_GATEWAY_IPV6`: IPv6 address of the gateway for `nic1`
+     * `NIC1_GATEWAY_IPV6`: IPv6 address of the gateway for `nic1`.
      * `LB_IPV6`: IPv6 address of the load balancer's forwarding rule.
     
     NIC1_GATEWAY_IPV6=$(curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/1/gateway-ipv6)
     LB_IPV6=LOAD_BALANCER_EXTERNAL_IPV6
-    
 
-Replace LOAD_BALANCER_EXTERNAL_IPV6 with the IPv6 address configured for the forwarding rule of the load balancer.
+Replace `LOAD_BALANCER_EXTERNAL_IPV6` with the IPv6 address configured for the forwarding rule of the load balancer.
 
   3. Add the policy routing rules.
 
-Run the following commands to create a custom routing table and add the necessary routing rules.
+Run the following commands to create a custom routing table and add the necessary routing rules. 
 
-     1. Create a custom routing table named `route-nic1`. This table will hold routes specific to the `nic1` interface.
+     1. Create a custom routing table named `route-nic1`. This table holds routes specific to the `nic1` interface. 
             
             echo "1 route-nic1" | sudo tee -a /etc/iproute2/rt_tables
-            
 
-     2. Add a default route to the `route-nic1` table. This route directs traffic to the gateway of `nic1` through the interface corresponding to `nic1` (typically `ens5` or `eth1`).
+     2. Add a default route to the `route-nic1` table. This route directs traffic to the gateway of `nic1` through the interface corresponding to `nic1` (typically `ens5` or `eth1`). 
 
 **For IPv4 traffic** :
             
             sudo ip route add default via $NIC1_GATEWAY_IPV4 dev ens5 table route-nic1
-            
 
 **For IPv6 traffic** :
             
             sudo ip -6 route add default via $NIC1_GATEWAY_IPV6 dev ens5 table route-nic1
-            
 
-**Note:** Replace `ens5` with the actual interface name for `nic1` on your VM, if it differs.
      3. Add a policy routing rule to decide when to use the `route-nic1` table.
 
-Because passthrough load balancers preserve the destination IP address (the load balancer's VIP) when forwarding packets to the VM, the VM must respond with the source IP address set to the load balancer's IP address for both client traffic and health check probes.
+Because passthrough load balancers preserve the destination IP address (the load balancer's VIP) when forwarding packets to the VM, the VM must respond with the source IP address set to the load balancer's IP address for both client traffic and health check probes. 
 
-Add a rule instructing the VM to use the `route-nic1` routing table for any outgoing packets with a source IP address matching the load balancer's IP address. This ensures that all responses to both client traffic and health check probes exit through `nic1`.
+Add a rule instructing the VM to use the `route-nic1` routing table for any outgoing packets with a source IP address matching the load balancer's IP address. This ensures that all responses to both client traffic and health check probes exit through `nic1`. 
 
 **For IPv4 traffic** :
             
             sudo ip rule add from $LB_IPV4/32 table route-nic1
-            
 
 **For IPv6 traffic** :
             
             sudo ip rule -6 add from $LB_IPV6/96 table route-nic1
-            
 
 
 
@@ -1143,6 +1134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

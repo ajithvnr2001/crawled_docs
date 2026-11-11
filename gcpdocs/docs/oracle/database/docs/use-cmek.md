@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/use-cmek/
 title: Use CMEK \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:07.957239+00:00
+fetched_at: 2026-11-11T10:28:21.932689+00:00
 ---
 
 # Use CMEK  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -23,13 +23,14 @@ Send feedback
 
 This page describes how to enable Google Cloud CMEK with Oracle Database@Google Cloud. [Google Cloud CMEK](https://docs.cloud.google.com/oracle/database/docs/cmek#google-cloud-cmek-overview) uses [Cloud Key Management Service](https://docs.cloud.google.com/kms/docs) encryption keys.
 
-**Important:** To enable CMEK on Exadata VM Clusters created before October 1, 2025, and Exascale VM Clusters created before July 30, 2026, contact [Cloud Customer Care](https://cloud.google.com/support-hub).
+**Important:** To enable CMEK on Exadata VM Clusters created before October 1, 2025, and Exascale VM Clusters created before July 30, 2026, try to [enable the Identity Connector manually](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#enable-identity-connector). If it doesn't work, contact [Cloud Customer Care](https://cloud.google.com/support-hub).
 
 ## Before you begin
 
 Ensure that the following requirements are met before enabling Google Cloud CMEK on an Oracle Database@Google Cloud resource:
 
   * Enable the Cloud Key Management Service API for the project that will store your encryption keys. [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=cloudkms.googleapis.com)
+
   * Have the following Identity and Access Management (IAM) permissions to work with Cloud KMS keys:
 
     * To create new encryption key rings and keys:
@@ -57,7 +58,28 @@ For information about how to grant roles and permissions, see [Access control wi
 
   * [Create a Cloud KMS key ring](https://docs.cloud.google.com/kms/docs/create-key-ring) and a [key](https://docs.cloud.google.com/kms/docs/create-key#create-symmetric). Oracle Database@Google Cloud supports only multi-region symmetric keys.
 
-  * Have sufficient permissions to work with Oracle Database@Google Cloud resources. For more information, see [Oracle Database@Google Cloud predefined roles](https://docs.cloud.google.com/oracle/database/docs/iam-overview#oracle-db-predefined).
+  * Have sufficient permissions to work with Oracle Database@Google Cloud resources.
+
+    * For Exadata VM Clusters:
+
+      * `oracledatabase.cloudVmClusters.enableIdentityConnector`
+      * `oracledatabase.cloudVmClusters.disableIdentityConnector`
+
+These permissions are included in the following IAM roles:
+
+      * Oracle Database@Google Cloud admin (`roles/oracledatabase.admin`)
+      * Oracle Database@Google Cloud VM Cluster admin (`roles/oracledatabase.cloudVmClusterAdmin`)
+    * For Exascale VM Clusters:
+
+      * `oracledatabase.exadbVmClusters.enableIdentityConnector`
+      * `oracledatabase.exadbVmClusters.disableIdentityConnector`
+
+These permissions are included in the following IAM roles:
+
+      * Oracle Database@Google Cloud admin (`roles/oracledatabase.admin`)
+      * Oracle Database@Google Cloud Exascale Infrastructure VM Cluster admin (`roles/oracledatabase.exadbVmClusterAdmin`)
+
+For more information, see [Oracle Database@Google Cloud predefined roles](https://docs.cloud.google.com/oracle/database/docs/iam-overview#oracle-db-predefined).
 
 
 
@@ -75,7 +97,9 @@ The workflow to enable Google Cloud CMEK for an Oracle Database@Google Cloud res
 
 Oracle Database@Google Cloud automatically creates a service account for your resource as a part of the provisioning process. For more information, see [About Service accounts](https://docs.cloud.google.com/oracle/database/docs/cmek#about_service_accounts).
 
-  3. Grant the service account access to the key:
+  3. (Applicable only for Exadata VM Clusters and Exascale VM Clusters): If you didn't enable the Identity Connector during resource provisioning, enable it now. For more information, see [Enable the Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#enable-identity-connector).
+
+  4. Grant the service account access to the key:
 
      * Enable CMEK on an Exadata VM Cluster
      * Enable CMEK on an Exascale VM Cluster
@@ -89,39 +113,50 @@ Oracle Database@Google Cloud automatically creates a service account for your re
 
 To enable CMEK on an Exadata VM Cluster, do the following:
 
-  1. Go to the **Dedicated infrastructure** page.
+  1. [Enable the Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#enable-exadata-cluster-connector) if not done already.
+  2. Go to the **Dedicated infrastructure** page.
 
 [Go to Dedicated infrastructure](https://console.cloud.google.com/oracle/exadata/)
 
-  2. Select the **Exadata VM Clusters** tab.
+  3. Select the **Exadata VM Clusters** tab.
 
-  3. Click the name of the cluster for which you want to enable CMEK.
+  4. Click the name of the cluster for which you want to enable CMEK.
 
-  4. Go to the **Google-managed service account** section and check the **Status**.
+  5. Go to the **Identity Connector** section, and verify that the **Status** shows `Connected`.
 
-If the **Status** shows `Disconnected`, contact [Customer care](https://cloud.google.com/support-hub). If it shows `Connected` and a Principal ID, proceed with the next steps.
+If the **Status** shows `Disconnected`, do the following:
 
-  5. Copy the Principal ID to be used in the subsequent steps.
+     1. Click **View details** to read the Oracle Cloud Infrastructure (OCI) message.
+     2. If you use VPC Service Controls, check the egress rule. For more information, see [Configure VPC Service Controls](https://docs.cloud.google.com/oracle/database/docs/configure-vpc-service-controls).
+     3. After fixing the cause, the status of the Identity Connector updates within 24 hours.
+
+You can also manually trigger a refresh through the OCI console, by going to your cluster's Identity Connector details.
+
+     4. If the status still shows `Disconnected`, contact [Cloud Customer Care](https://cloud.google.com/support-hub).
+
+If the Identity Connector's **Status** shows `Connected` and a Principal ID, proceed with the next steps.
+
+  6. Copy the Principal ID to be used in the subsequent steps.
 
 The Principal ID generated during provisioning is unique to the Exadata VM Cluster and has no permissions set by default. To enable Oracle databases access to Google Cloud services, grant permissions to the principal ID by following the next steps.
 
-  6. Go to the **Cloud KMS key management** page.
+  7. Go to the **Cloud KMS key management** page.
 
 [Go to Cloud KMS key management](https://console.cloud.google.com/security/kms)
 
-  7. Select the key ring to which your key belongs.
+  8. Select the key ring to which your key belongs.
 
-  8. Select the key to grant permissions.
+  9. Select the key to grant permissions.
 
-  9. Click **Add principal**.
+  10. Click **Add principal**.
 
-  10. In the **New principals** field, paste the Principal ID you had copied.
+  11. In the **New principals** field, paste the Principal ID you had copied.
 
-  11. Assign the following roles to the principal:
+  12. Assign the following roles to the principal:
 
      * `Cloud KMS CryptoKey Encrypter/Decrypter`
      * `Cloud KMS Viewer`
-  12. Click **Save**.
+  13. Click **Save**.
 
 
 
@@ -140,12 +175,12 @@ To view encryption details of a Exadata VM Cluster, do the following:
 
   3. Click the name of the cluster.
 
-  4. On the **Cluster details** page, go to the **Google-managed service account**.
-
-You can view the Principal ID and the key. You can view the encryption details of your databases in the OCI console. For more information, refer to the Oracle documentation.
+  4. On the **Cluster details** page, go to the **Identity Connector** section.
 
 
 
+
+You can view the encryption details of your databases in the OCI console. For more information, refer to the Oracle documentation.
 
 ### Rotate a key on a Exadata VM Cluster
 
@@ -157,39 +192,50 @@ For a database on your Exadata VM Cluster, you can rotate the key through the OC
 
 To enable CMEK on an Exascale VM Cluster, do the following:
 
-  1. Go to the **Exascale infrastructure** page.
+  1. [Enable the Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#enable-exascale-cluster-connector) if not done already.
+  2. Go to the **Exascale infrastructure** page.
 
 [Go to Exascale Infrastructure](https://console.cloud.google.com/oracle/exascale/)
 
-  2. Select the **VM Clusters** tab.
+  3. Select the **VM Clusters** tab.
 
-  3. Click the name of the cluster for which you want to enable CMEK.
+  4. Click the name of the cluster for which you want to enable CMEK.
 
-  4. Go to the **Google-managed service account** section and check the **Status**.
+  5. Go to the **Identity Connector** section, and verify that the **Status** shows `Connected`.
 
-If the **Status** shows `Disconnected`, contact [Customer care](https://cloud.google.com/support-hub). If it shows `Connected` and a Principal ID, proceed with the next steps.
+If the **Status** shows `Disconnected`, do the following:
 
-  5. Copy the Principal ID to be used in the subsequent steps.
+     1. Click **View details** to read the Oracle Cloud Infrastructure (OCI) message.
+     2. If you use VPC Service Controls, check the egress rule. For more information, see [Configure VPC Service Controls](https://docs.cloud.google.com/oracle/database/docs/configure-vpc-service-controls).
+     3. After fixing the cause, the status of the Identity Connector updates within 24 hours.
+
+You can also manually trigger a refresh through the OCI console, by going to your cluster's Identity Connector details.
+
+     4. If the status still shows `Disconnected`, contact [Cloud Customer Care](https://cloud.google.com/support-hub).
+
+If the Identity Connector's **Status** shows `Connected` and a Principal ID, proceed with the next steps.
+
+  6. Copy the Principal ID to be used in the subsequent steps.
 
 The Principal ID generated during provisioning is unique to the Exascale VM Cluster and has no permissions set by default. To enable Oracle databases access to Google Cloud services, grant permissions to the principal ID by following the next steps.
 
-  6. Go to the **Cloud KMS key management** page.
+  7. Go to the **Cloud KMS key management** page.
 
 [Go to Cloud KMS key management](https://console.cloud.google.com/security/kms)
 
-  7. Select the key ring to which your key belongs.
+  8. Select the key ring to which your key belongs.
 
-  8. Select the key to grant permissions.
+  9. Select the key to grant permissions.
 
-  9. Click **Add principal**.
+  10. Click **Add principal**.
 
-  10. In the **New principals** field, paste the Principal ID you had copied.
+  11. In the **New principals** field, paste the Principal ID you had copied.
 
-  11. Assign the following roles to the principal:
+  12. Assign the following roles to the principal:
 
      * `Cloud KMS CryptoKey Encrypter/Decrypter`
      * `Cloud KMS Viewer`
-  12. Click **Save**.
+  13. Click **Save**.
 
 
 
@@ -208,12 +254,12 @@ To view encryption details of an Exascale VM Cluster, do the following:
 
   3. Click the name of the cluster.
 
-  4. On the **Cluster details** page, go to the **Google-managed service account**.
-
-You can view the Principal ID and the key. You can view the encryption details of your databases in the OCI console. For more information, refer to the Oracle documentation.
+  4. On the **Cluster details** page, go to the **Identity Connector** section.
 
 
 
+
+You can view the encryption details of your databases in the OCI console. For more information, refer to the Oracle documentation.
 
 ### Rotate a key on an Exascale VM Cluster
 
@@ -332,7 +378,7 @@ If one of these conditions is not met, the service agent does not decrypt the da
 
 You can [enable a Cloud KMS key](https://docs.cloud.google.com/kms/docs/enable-disable#enable) which is in the disabled [state](https://docs.cloud.google.com/kms/docs/key-states). The resource's data becomes accessible as soon as this change propagates to your resource.
 
-To disable a Cloud KMS key, you must first switch to Oracle-managed encryption. Then, you can [disable the Cloud KMS key](https://docs.cloud.google.com/oracle/database/docs/\(/kms/docs/enable-disable#disable\)).
+To disable a Cloud KMS key, you must first switch to Oracle-managed encryption. Then, you can [disable the Cloud KMS key](https://docs.cloud.google.com/kms/docs/enable-disable#disable).
 
 For an Exadata VM Cluster, you can switch the encryption type through the OCI console. For more information, refer to the Oracle documentation.
 
@@ -348,6 +394,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

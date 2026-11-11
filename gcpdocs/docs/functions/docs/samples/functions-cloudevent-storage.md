@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-storage/
 title: Cloud Storage (2nd Gen) \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:15:19.212140+00:00
+fetched_at: 2026-11-11T08:56:58.339755+00:00
 ---
 
 # Cloud Storage (2nd Gen)  |  Cloud Run functions  |  Google Cloud Documentation

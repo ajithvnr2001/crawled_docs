@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability/
 title: AI and ML perspective: Reliability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:40:39.120848+00:00
+fetched_at: 2026-11-11T12:40:38.330189+00:00
 ---
 
 # AI and ML perspective: Reliability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -185,7 +185,7 @@ The following sections provide guidance to help ensure seamless communication an
 
 #### Standardized and comprehensive documentation
 
-Regardless of the interface protocol that you choose, standardized documentation is crucial. The [OpenAPI Specification](https://swagger.io/specification/) describes RESTful APIs. Use OpenAPI to document your AI and ML APIs: paths, methods, parameters, request-response formats that are linked to JSON schemas, and security. Comprehensive API documentation helps to improve discoverability and client integration. For API authoring and visualization, use UI tools like [Swagger Editor](https://swagger.io/open-source/swagger-editor/). To accelerate development and ensure consistency, you can generate client SDKs and server stubs by using AI-assisted coding tools like [Gemini Code Assist](https://codeassist.google/products/business). Integrate OpenAPI documentation into your CI/CD flow.
+Regardless of the interface protocol that you choose, standardized documentation is crucial. The [OpenAPI Specification](https://swagger.io/specification/) describes RESTful APIs. Use OpenAPI to document your AI and ML APIs: paths, methods, parameters, request-response formats that are linked to JSON schemas, and security. Comprehensive API documentation helps to improve discoverability and client integration. For API authoring and visualization, use UI tools like [Swagger Editor](https://swagger.io/open-source/swagger-editor/). To accelerate development and ensure consistency, you can generate client SDKs and server stubs by using an AI-assisted IDE like [Antigravity](https://antigravity.google/product/antigravity-ide/). Integrate OpenAPI documentation into your CI/CD flow.
 
 #### Interaction with Google Cloud managed services like Agent Platform
 

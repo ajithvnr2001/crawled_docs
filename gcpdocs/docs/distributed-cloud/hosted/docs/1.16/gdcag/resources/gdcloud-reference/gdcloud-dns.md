@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/resources/gdcloud-reference/gdcloud-dns/
 title: gdcloud dns \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:16.950039+00:00
+fetched_at: 2026-11-11T11:44:39.790456+00:00
 ---
 
 # gdcloud dns  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

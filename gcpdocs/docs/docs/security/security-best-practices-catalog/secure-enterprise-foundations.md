@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/security-best-practices-catalog/secure-enterprise-foundations/
 title: Secure enterprise foundation controls \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:11.104738+00:00
+fetched_at: 2026-11-11T08:47:20.925182+00:00
 ---
 
 # Secure enterprise foundation controls  |  Security  |  Google Cloud Documentation

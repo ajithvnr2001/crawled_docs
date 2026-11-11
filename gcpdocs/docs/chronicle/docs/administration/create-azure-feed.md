@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/create-azure-feed/
 title: Create an Azure Event Hub feed \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:34.559921+00:00
+fetched_at: 2026-11-11T09:28:41.181252+00:00
 ---
 
 # Create an Azure Event Hub feed  |  Google Security Operations  |  Google Cloud Documentation

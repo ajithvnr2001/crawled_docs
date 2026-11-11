@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-spanner-to-cloud-storage/
 title: Spanner to Cloud Storage Text template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:56.026482+00:00
+fetched_at: 2026-11-11T09:27:39.778708+00:00
 ---
 
 # Spanner to Cloud Storage Text template  |  Cloud Dataflow  |  Google Cloud Documentation

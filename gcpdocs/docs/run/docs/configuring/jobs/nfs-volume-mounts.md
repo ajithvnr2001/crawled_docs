@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/jobs/nfs-volume-mounts/
 title: Configure NFS volume mounts for jobs \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:02:46.257159+00:00
+fetched_at: 2026-11-11T13:07:48.761175+00:00
 ---
 
 # Configure NFS volume mounts for jobs  |  Cloud Run  |  Google Cloud Documentation
@@ -29,6 +29,7 @@ Mounting the NFS file share as a volume in Cloud Run presents the file share as 
 
   * Cloud Run does not support NFS locking. NFS volumes are automatically mounted in no-lock mode.
   * Disallowed paths: Cloud Run does not allow you to mount a volume at `/dev`, `/proc`, or `/sys`, or on their subdirectories.
+  * NFS server compatibility: Cloud Run periodically updates the NFS client on its instances. If you use your own NFS server, keep it on a current, supported release so that mounts continue to work after these updates. For current compatibility issues, see [Known issues](https://docs.cloud.google.com/run/docs/known-issues).
 
 
 
@@ -283,6 +284,7 @@ If you experience problems, check the following:
   * Your Cloud Run service is connected to the VPC network that the NFS server is on.
   * There are no firewall rules preventing Cloud Run from reaching the NFS server.
   * If your container needs to write data, ensure the NFS share permissions are configured to allow writes from your container's user.
+  * If mounting a self-managed NFS server fails with `mount.nfs: mount system call failed` or `input/output error`, check whether the server runs NFS-Ganesha 3.x or earlier. For details and fixes, see [Known issues](https://docs.cloud.google.com/run/docs/known-issues#nfs-ganesha-mount-failure).
 
 
 
@@ -354,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

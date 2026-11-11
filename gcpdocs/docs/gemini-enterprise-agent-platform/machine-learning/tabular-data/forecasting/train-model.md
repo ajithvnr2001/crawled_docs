@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model/
 title: Train a forecast model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:47.368721+00:00
+fetched_at: 2026-11-11T08:49:00.693079+00:00
 ---
 
 # Train a forecast model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

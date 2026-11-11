@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/trigger-pubsub/
 title: Trigger a pipeline run with Pub/Sub \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:37:35.061603+00:00
+fetched_at: 2026-11-11T08:51:01.798131+00:00
 ---
 
 # Trigger a pipeline run with Pub/Sub  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview/
 title: What is Gemini Notebook Enterprise? \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:48.977374+00:00
+fetched_at: 2026-11-11T08:52:50.743332+00:00
 ---
 
 # What is Gemini Notebook Enterprise?  |  Google Cloud Documentation

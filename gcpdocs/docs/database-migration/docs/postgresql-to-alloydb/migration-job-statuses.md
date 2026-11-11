@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-statuses/
 title: Migration job status codes \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:09.942249+00:00
+fetched_at: 2026-11-11T09:33:44.564333+00:00
 ---
 
 # Migration job status codes  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

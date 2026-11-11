@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/ai-ml/generative-ai/generative-ai-or-traditional-ai/
 title: When to use generative AI or traditional AI \u00a0|\u00a0 AI and ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:19.570345+00:00
+fetched_at: 2026-11-11T09:27:35.420278+00:00
 ---
 
 # When to use generative AI or traditional AI  |  AI and ML  |  Google Cloud Documentation

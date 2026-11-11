@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/solutions/open-weight-models/ollama/gemma/
 title: Gemma models with Ollama user guide on GDC air-gapped \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:06.020966+00:00
+fetched_at: 2026-11-11T11:44:36.383279+00:00
 ---
 
 # Gemma models with Ollama user guide on GDC air-gapped  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

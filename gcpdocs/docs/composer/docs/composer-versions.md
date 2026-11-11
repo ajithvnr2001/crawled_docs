@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-versions/
 title: Managed Service for Apache Airflow version list \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:37.978867+00:00
+fetched_at: 2026-11-11T09:47:15.471497+00:00
 ---
 
 # Managed Service for Apache Airflow version list  |  Google Cloud Documentation

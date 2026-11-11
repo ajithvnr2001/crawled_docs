@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk/
 title: Process documents with Gemini layout parser \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:40.081890+00:00
+fetched_at: 2026-11-11T08:47:18.647458+00:00
 ---
 
 # Process documents with Gemini layout parser  |  Document AI  |  Google Cloud Documentation

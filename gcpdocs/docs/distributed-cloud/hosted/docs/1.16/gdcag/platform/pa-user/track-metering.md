@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform/pa-user/track-metering/
 title: Observability tracking for workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:57.649221+00:00
+fetched_at: 2026-11-11T09:46:42.813495+00:00
 ---
 
 # Observability tracking for workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

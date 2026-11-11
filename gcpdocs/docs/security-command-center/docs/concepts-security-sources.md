@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/concepts-security-sources/
 title: Choose the services to enable \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:00:34.399862+00:00
+fetched_at: 2026-11-11T09:28:57.453128+00:00
 ---
 
 # Choose the services to enable  |  Security Command Center  |  Google Cloud Documentation
@@ -889,36 +889,47 @@ Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.co
 
 Agent Platform Threat Detection provides runtime threat detection for agents deployed to Agent Runtime. It monitors running agents for potential attacks and generates findings in Security Command Center.
 
-Agent Platform Threat Detection can generate findings for Agent Runtime including the following categories:
+Agent Platform Threat Detection can generate findings for Agent Runtime, including the following categories:
 
-  * **Command and Control** : Steganography Tool Detected
-  * **Credential Access** : Find Google Cloud Credentials
-  * **Credential Access** : GPG Key Reconnaissance
-  * **Credential Access** : Search Private Keys or Passwords
-  * **Defense Evasion** : Base64 ELF File Command Line
-  * **Defense Evasion** : Base64 Encoded Python Script Executed
-  * **Defense Evasion** : Base64 Encoded Shell Script Executed
-  * **Defense Evasion** : Launch Code Compiler Tool In Container
-  * **Execution** : Netcat Remote Code Execution in Container
-  * **Execution** : Possible Arbitrary Command Execution through CUPS (CVE-2024-47177)
-  * **Execution** : Possible Remote Command Execution Detected
-  * **Execution** : Program Run with Disallowed HTTP Proxy Env
-  * **Execution** : Socat Reverse Shell Detected
-  * **Execution** : Suspicious OpenSSL Shared Object Loaded
-  * **Exfiltration** : Launch Remote File Copy Tools in Container
-  * **Impact** : Detect Malicious Cmdlines
-  * **Impact** : Remove Bulk Data from Disk
-  * **Impact** : Suspicious crypto mining activity using the Stratum Protocol
-  * **Privilege Escalation** : Abuse of Sudo For Privilege Escalation (CVE-2019-14287)
-  * **Privilege Escalation** : Polkit Local Privilege Escalation Vulnerability (CVE-2021-4034)
-  * **Privilege Escalation** : Sudo Potential Privilege Escalation (CVE-2021-3156)
-  * **Execution** : Malicious Python executed
-  * **Execution** : Container Escape
-  * **Execution** : Kubernetes Attack Tool Execution
-  * **Execution** : Local Reconnaissance Tool Execution
-  * **Impact** : Malicious Script Executed
-  * **Impact** : Malicious URL Observed
-  * **Execution** : Unexpected Child Shell
+  * [ `Command and Control: Steganography Tool Detected`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-steganography-tool-detected)
+  * [ `Credential Access: Find Google Cloud Credentials`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-find-gcp-credentials)
+  * [ `Credential Access: GPG Key Reconnaissance`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-gpg-key-reconnaissance)
+  * [ `Credential Access: Search Private Keys or Passwords`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-search-private-keys-or-passwords)
+  * [ `Defense Evasion: Base64 ELF File Command Line`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-base64-elf-file-cmdline)
+  * [ `Defense Evasion: Base64 Encoded Python Script Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-base64-encoded-python-script-executed)
+  * [ `Defense Evasion: Base64 Encoded Shell Script Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-base64-encoded-shell-script-executed)
+  * [ `Defense Evasion: Launch Code Compiler Tool In Container`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-launch-code-compiler-tool-in-container)
+  * [ `Execution: Added Malicious Binary Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-added-malicious-binary-executed)
+  * [ `Execution: Added Malicious Library Loaded`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-added-malicious-library-loaded)
+  * [ `Execution: Added Malicious Skill Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-added-malicious-skill-executed)
+  * [ `Execution: Added Malicious Skill Loaded`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-added-malicious-skill-loaded)
+  * [ `Execution: Built in Malicious Binary Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-built-in-malicious-binary-executed)
+  * [ `Execution: Container Escape`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-container-escape)
+  * [ `Execution: Fileless Execution in /memfd:`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-fileless-execution-detection-memfd)
+  * [ `Execution: Kubernetes Attack Tool Execution`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-kubernetes-attack-tool-execution)
+  * [ `Execution: Local Reconnaissance Tool Execution`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-local-reconnaissance-tool-execution)
+  * [ `Execution: Malicious Python Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-malicious-python-executed)
+  * [ `Execution: Modified Malicious Binary Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-modified-malicious-binary-executed)
+  * [ `Execution: Modified Malicious Library Loaded`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-modified-malicious-library-loaded)
+  * [ `Execution: Modified Malicious Skill Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-modified-malicious-skill-executed)
+  * [ `Execution: Modified Malicious Skill Loaded`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-modified-malicious-skill-loaded)
+  * [ `Execution: Netcat Remote Code Execution in Container`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-netcat-remote-code-execution-in-container)
+  * [ `Execution: Possible Arbitrary Command Execution through CUPS (CVE-2024-47177)`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-possible-arbitrary-command-execution-through-cups)
+  * [ `Execution: Possible Remote Command Execution Detected`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-possible-remote-command-execution-detected)
+  * [ `Execution: Program Run with Disallowed HTTP Proxy Env`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-program-run-with-disallowed-http-proxy-env)
+  * [ `Execution: Socat Reverse Shell Detected`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-socat-reverse-shell-detected)
+  * [ `Execution: Suspicious OpenSSL Shared Object Loaded`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-suspicious-openssl-shared-object-loaded)
+  * [ `Exfiltration: Launch Remote File Copy Tools in Container`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-launch-remote-file-copy-tools-in-container)
+  * [ `Impact: Detect Malicious Cmdlines`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-detect-malicious-cmdlines)
+  * [ `Impact: Remove Bulk Data from Disk`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-remove-bulk-data-from-disk)
+  * [ `Impact: Suspicious crypto mining activity using the Stratum Protocol`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-detect-crypto-miners-using-stratum-protocol)
+  * [ `Malicious Script Executed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-malicious-script-executed)
+  * [ `Malicious URL Observed`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-malicious-url-observed)
+  * [ `Privilege Escalation: Attempt to Abuse Sudo For Privilege Escalation (CVE-2019-14287)`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-abuse-sudo-for-privilege-escalation)
+  * [ `Privilege Escalation: Polkit Local Privilege Escalation Vulnerability (CVE-2021-4034)`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-polkit-local-privilege-escalation-vulnerability)
+  * [ `Privilege Escalation: Sudo Potential Privilege Escalation (CVE-2021-3156)`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-sudo-potential-privilege-escalation)
+  * [ `Reverse Shell`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-reverse-shell)
+  * [ `Unexpected Child Shell`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-unexpected-child-shell)
 
 
 
@@ -1530,6 +1541,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

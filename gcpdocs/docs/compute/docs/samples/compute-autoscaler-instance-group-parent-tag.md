@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-autoscaler-instance-group-parent-tag/
 title: Create a Compute Engine managed instance group with schedule-based autoscaling \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:55.843439+00:00
+fetched_at: 2026-11-11T09:18:55.684637+00:00
 ---
 
 # Create a Compute Engine managed instance group with schedule-based autoscaling  |  Google Cloud Documentation

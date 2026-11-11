@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.13.0/docs/bastion/
 title: Configure a bastion host \u00a0|\u00a0 Google Distributed Cloud connected \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:00.331768+00:00
+fetched_at: 2026-11-11T08:47:14.764922+00:00
 ---
 
 # Configure a bastion host  |  Google Distributed Cloud connected  |  Google Cloud Documentation

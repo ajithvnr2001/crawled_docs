@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0/
 title: Muse Wonder \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:32.116595+00:00
+fetched_at: 2026-11-11T08:52:30.248097+00:00
 ---
 
 # Muse Wonder  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-reservation-bound-instance/
 title: Create an instance with the reservation-bound model \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:16.934986+00:00
+fetched_at: 2026-11-11T09:14:46.148921+00:00
 ---
 
 # Create an instance with the reservation-bound model  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/data-model/
 title: Data model \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:38.305020+00:00
+fetched_at: 2026-11-11T08:57:06.827658+00:00
 ---
 
 # Data model  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ You may notice that documents look a lot like JSON. In fact, they basically are.
 
 ![](https://docs.cloud.google.com/static/firestore/native/docs/images/structure-data.png)
 
-Documents live in collections, which are simply containers for documents. For example, you could have a `users` collection to contain your various users, each represented by a document:
+Documents live in collections, which are containers for documents. For example, you could have a `users` collection to contain your various users, each represented by a document:
 
   * collections_bookmark users
 
@@ -104,7 +104,7 @@ Every document in Firestore is uniquely identified by its location within the da
     
     const alovelaceDocumentRef = doc(db, 'users', 'alovelace');
     
-    [doc_reference.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/doc_reference.js#L8-L10)
+    [doc_reference.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/doc_reference.js#L8-L10)
 
 ### Web version 8
 
@@ -113,7 +113,7 @@ Every document in Firestore is uniquely identified by its location within the da
     
     var alovelaceDocumentRef = db.collection('users').doc('alovelace');
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L195-L195)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L195-L195)
 
 ##### Swift
 
@@ -240,7 +240,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     document_ref = firestore.col("users").doc("alovelace")
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/data_model.rb#L22-L22)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/data_model.rb#L22-L22)
 
 A reference is a lightweight object that just points to a location in your database. You can create a reference whether or not data exists there, and creating a reference does not perform any network operations.
 
@@ -253,7 +253,7 @@ You can also create references to _collections_ :
     
     const usersCollectionRef = collection(db, 'users');
     
-    [collection_reference.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/collection_reference.js#L8-L10)
+    [collection_reference.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/collection_reference.js#L8-L10)
 
 ### Web version 8
 
@@ -262,7 +262,7 @@ You can also create references to _collections_ :
     
     var usersCollectionRef = db.collection('users');
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L201-L201)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L201-L201)
 
 ##### Swift
 
@@ -386,7 +386,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     collection_ref = firestore.col "users"
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/data_model.rb#L31-L31)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/data_model.rb#L31-L31)
 
 **Note:** _Collection references_ and _document references_ are two distinct types of references and let you perform different operations. For example, you could use a collection reference for querying the documents in the collection, and you could use a document reference to read or write an individual document.
 
@@ -399,7 +399,7 @@ For convenience, you can also create references by specifying the path to a docu
     
     const alovelaceDocumentRef = doc(db, 'users/alovelace');
     
-    [doc_reference_alternative.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/doc_reference_alternative.js#L8-L10)
+    [doc_reference_alternative.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/doc_reference_alternative.js#L8-L10)
 
 ### Web version 8
 
@@ -408,7 +408,7 @@ For convenience, you can also create references by specifying the path to a docu
     
     var alovelaceDocumentRef = db.doc('users/alovelace');
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L207-L207)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L207-L207)
 
 ##### Swift
 
@@ -534,7 +534,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     document_path_ref = firestore.doc "users/alovelace"
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/data_model.rb#L40-L40)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/data_model.rb#L40-L40)
 
 ## Hierarchical Data
 
@@ -604,7 +604,7 @@ In this example, you would create a reference to a message in the subcollection 
     
     const messageRef = doc(db, "rooms", "roomA", "messages", "message1");
     
-    [subcollection_reference.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/subcollection_reference.js#L8-L10)
+    [subcollection_reference.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/subcollection_reference.js#L8-L10)
 
 ### Web version 8
 
@@ -614,7 +614,7 @@ In this example, you would create a reference to a message in the subcollection 
     var messageRef = db.collection('rooms').doc('roomA')
                     .collection('messages').doc('message1');
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L213-L214)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L213-L214)
 
 ##### Swift
 
@@ -766,7 +766,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     message_ref = firestore.col("rooms").doc("roomA").col("messages").doc("message1")
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/data_model.rb#L49-L49)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/data_model.rb#L49-L49)
 
 Notice the alternating pattern of collections and documents. Your collections and documents must always follow this pattern. You cannot reference a collection in a collection or a document in a document.
 
@@ -778,10 +778,24 @@ Documents in subcollections can contain subcollections as well, allowing you to 
   
 When you delete a document that has subcollections, those subcollections are not deleted. For example, there may be a document located at `coll/doc/subcoll/subdoc` even though the document `coll/doc` no longer exists. If you want to delete documents in subcollections when deleting a parent document, you must do so manually, as shown in [Delete Collections](https://docs.cloud.google.com/firestore/native/docs/manage-data/delete-data#collections).
 
+### Collection groups
+
+A _collection group_ consists of all collections in a database that share the same collection ID, regardless of where they are in the document hierarchy. This includes both root-level collections and subcollections nested at any depth.
+
+For example, if your database has a root-level `messages` collection and both `roomA` and `roomB` in the `rooms` collection also contain `messages` subcollections, all of the following belong to the `messages` collection group:
+
+  * `messages`
+  * `rooms/roomA/messages`
+  * `rooms/roomB/messages`
+
+
+
+By default, queries retrieve results from a single collection. To retrieve documents across all collections in a collection group at once, use [collection group queries](https://docs.cloud.google.com/firestore/native/docs/query-data/queries#collection-group-query).
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

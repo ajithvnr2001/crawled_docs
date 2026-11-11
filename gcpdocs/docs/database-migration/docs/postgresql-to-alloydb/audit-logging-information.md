@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/audit-logging-information/
 title: Database Migration Service audit logging information \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:01.970775+00:00
+fetched_at: 2026-11-11T09:33:47.812112+00:00
 ---
 
 # Database Migration Service audit logging information  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

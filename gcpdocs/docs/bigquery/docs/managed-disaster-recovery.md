@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery/
 title: Managed disaster recovery \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:51.212940+00:00
+fetched_at: 2026-11-11T10:00:49.551099+00:00
 ---
 
 # Managed disaster recovery  |  BigQuery  |  Google Cloud Documentation

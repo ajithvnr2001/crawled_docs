@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/manage-access-levels/
 title: Manage access levels \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:52.875845+00:00
+fetched_at: 2026-11-11T08:22:03.139063+00:00
 ---
 
 # Manage access levels  |  Access Context Manager  |  Google Cloud Documentation
@@ -111,7 +111,6 @@ Parameters
 ---  
 `pageSize` |  `number` By default, the list of [ access levels](https://docs.cloud.google.com/access-context-manager/docs/overview#access-levels) returned by `accessLevels.list` is paginated. Each page is limited to 100 access levels.  You can use this parameter to modify the number of access levels that are returned per page.   
 `pageToken` |  `string` If the number of access levels returned by your call exceeded the page size, the response body includes a page token.  You can use this parameter in a subsequent call to obtain the next page of results.   
-`accessLevelFormat` |  `enum([LevelFormat](https://docs.cloud.google.com/access-context-manager/docs/reference/rest/v1/LevelFormat))` Normally, access levels are returned as they are defined, either as `BasicLevel` or `CustomLevel`.  You can specify the value `CEL` for this parameter to return `BasicLevels` as `CustomLevels` in Cloud Common Expression Language.   
   
 ### Response body
 
@@ -252,12 +251,6 @@ Replace the following:
 ### Request body
 
 The request body must be empty.
-
-### Optional parameters
-
-Optionally, include the `accessLevelFormat` query parameter. Normally, access levels are returned as they are defined, either as `BasicLevel` or `CustomLevel`.
-
-You can specify the value `CEL` for this parameter to return `BasicLevels` as `CustomLevels` in Cloud Common Expression Language.
 
 ### Response body
 
@@ -514,6 +507,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

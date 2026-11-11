@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-mig-with-a3-high-mega/
 title: Create an AI-optimized A3 High or A3 Mega MIG \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:33:09.254323+00:00
+fetched_at: 2026-11-11T11:44:22.027507+00:00
 ---
 
 # Create an AI-optimized A3 High or A3 Mega MIG  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -396,7 +396,7 @@ A3 Mega or A3 High (8 GPUs) instances support multiple provisioning models for r
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -420,9 +420,10 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `RESERVATION`: either the reservation name or a specific block within a reservation. To get the reservation name or the available blocks, see [View reserved capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/view-reserved-capacity). Based on your requirement for instance placement, choose one of the following: 
@@ -450,7 +451,7 @@ Before you run the command, review all of the following steps to determine wheth
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -474,9 +475,10 @@ Complete the following steps:
 
      * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
      * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
      * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+     * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
      * `RESERVATION_AFFINITY`: which reservations the instance is allowed to consume, if possible. Specify one of the following:
@@ -516,7 +518,7 @@ Before you run the command, review all of the following steps to determine wheth
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -539,9 +541,10 @@ Complete the following steps:
 
      * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
      * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
      * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+     * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
      * `RESERVATION_AFFINITY`: which reservations the instance is allowed to consume, if possible. Specify one of the following:
@@ -567,7 +570,7 @@ Complete the following steps:
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -590,9 +593,10 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `RUN_DURATION`: the duration you want the requested VMs to run. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, specify `30m` for 30 minutes or `1d2h3m4s` for one day, two hours, three minutes, and four seconds. The value must be between 10 minutes and seven days. 
@@ -607,7 +611,7 @@ Replace the following:
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -629,9 +633,10 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `TERMINATION_ACTION`: the action to take when Compute Engine preempts the instance, either `STOP` (default) or `DELETE`.
@@ -674,7 +679,7 @@ A3 Mega or A3 High (8 GPUs) instances support multiple provisioning models for r
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -763,10 +768,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -798,7 +804,7 @@ Additionally, for a single block, create the MIG by applying a workload policy t
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -886,10 +892,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -930,7 +937,7 @@ Replace the following:
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1014,10 +1021,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1046,7 +1054,7 @@ Replace the following:
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1131,10 +1139,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1155,7 +1164,7 @@ Replace the following:
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1238,10 +1247,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Mega machine series, we strongly recommend that you either use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update) or use the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use either `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image or use `rocky-linux-accelerator-cloud` for the `rocky-linux-8-optimized-gcp-nvidia-580` Rocky Linux image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1261,6 +1271,8 @@ To create a regional instance template, use the [ `gcloud compute instance-templ
 
 The parameters that you need to specify depend on the [consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models) that you are using for this deployment. Select the tab that corresponds to your consumption option.
 
+**Important:** For A3 High VMs, unless you use the `a3-highgpu-8g` machine type, [only Flex-start VMs and Spot VMs are supported](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#consumption_option_availability_by_machine_type). 
+
 ### Reservation
 
 A3 Mega or A3 High (8 GPUs) instances support multiple provisioning models for reservations. Select the tab that corresponds to the [type of reservation](https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type) that you want to consume.
@@ -1284,7 +1296,7 @@ A3 Mega or A3 High (8 GPUs) instances support multiple provisioning models for r
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -1304,9 +1316,10 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `RESERVATION`: either the reservation name or a specific block within a reservation. To get the reservation name or the available blocks, see [View reserved capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/view-reserved-capacity). Based on your requirement for instance placement, choose one of the following: 
@@ -1334,7 +1347,7 @@ Before you run the command, review all of the following steps to determine wheth
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -1354,9 +1367,10 @@ Complete the following steps:
 
      * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
      * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
      * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+     * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
      * `RESERVATION_AFFINITY`: which reservations the instance is allowed to consume, if possible. Specify one of the following:
@@ -1396,7 +1410,7 @@ Before you run the command, review all of the following steps to determine wheth
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -1415,9 +1429,10 @@ Complete the following steps:
 
      * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
      * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
      * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+     * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
      * `RESERVATION_AFFINITY`: which reservations the instance is allowed to consume, if possible. Specify one of the following:
@@ -1443,7 +1458,7 @@ Complete the following steps:
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -1462,9 +1477,10 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `RUN_DURATION`: the duration you want the requested VMs to run. You must format the value as the number of days, hours, minutes, or seconds followed by `d`, `h`, `m`, and `s` respectively. For example, specify `30m` for 30 minutes or `1d2h3m4s` for one day, two hours, three minutes, and four seconds. The value must be between 10 minutes and seven days. 
@@ -1479,7 +1495,7 @@ Replace the following:
         --image-family=IMAGE_FAMILY \
         --image-project=IMAGE_PROJECT \
         --instance-template-region=REGION \
-        --boot-disk-type=hyperdisk-balanced \
+        --boot-disk-type=DISK_TYPE \
         --boot-disk-size=DISK_SIZE \
         --scopes=cloud-platform \
         --network-interface=nic-type=GVNIC,network=GVNIC_NAME_PREFIX-net-0,subnet=GVNIC_NAME_PREFIX-sub-0 \
@@ -1497,9 +1513,10 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `TERMINATION_ACTION`: the action to take when Compute Engine preempts the instance, either `STOP` (default) or `DELETE`.
@@ -1513,6 +1530,8 @@ Replace the following:
 To create a regional instance template, make a `POST` request to the [ `regionInstanceTemplates.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionInstanceTemplates/insert).
 
 The parameters that you need to specify depend on the [consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models) that you are using for this deployment. Select the tab that corresponds to your consumption option.
+
+**Important:** For A3 High VMs, unless you use the `a3-highgpu-8g` machine type, [only Flex-start VMs and Spot VMs are supported](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#consumption_option_availability_by_machine_type). 
 
 ### Reservation
 
@@ -1542,7 +1561,7 @@ A3 Mega or A3 High (8 GPUs) instances support multiple provisioning models for r
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1611,10 +1630,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1646,7 +1666,7 @@ Additionally, for a single block, create the MIG by applying a workload policy t
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1714,10 +1734,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1758,7 +1779,7 @@ Replace the following:
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1822,10 +1843,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1854,7 +1876,7 @@ Replace the following:
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -1919,10 +1941,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -1943,7 +1966,7 @@ Replace the following:
             "boot": true,
             "initializeParams": {
               "diskSizeGb": "DISK_SIZE",
-              "diskType": "hyperdisk-balanced",
+              "diskType": "DISK_TYPE",
               "sourceImage": "projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY"
             },
             "mode": "READ_WRITE",
@@ -2006,10 +2029,11 @@ Replace the following:
 
   * `INSTANCE_TEMPLATE_NAME`: the name of the instance template.
   * `MACHINE_TYPE`: the machine type to use for the A3 Mega or A3 High (8 GPUs) instance. For more information, see [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus) in the Compute Engine documentation.
-  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). **Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
-  * `IMAGE_PROJECT`: the project ID of the OS image. 
+  * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 High machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
+  * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
   * `REGION`: the region where you want to create the instance template. Specify a region in which the machine type that you want to use is available. For information about regions, see [GPU availability by regions and zones](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-table).
   * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
+  * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
   * `NETWORK_PROJECT_ID`: the project ID of the network.
   * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNIC NICs.
   * `REGION`: the region of the subnetwork.
@@ -2765,6 +2789,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

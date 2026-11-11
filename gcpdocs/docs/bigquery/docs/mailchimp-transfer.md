@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/mailchimp-transfer/
 title: Load Mailchimp data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:09.683848+00:00
+fetched_at: 2026-11-11T10:00:54.070623+00:00
 ---
 
 # Load Mailchimp data into BigQuery  |  Google Cloud Documentation

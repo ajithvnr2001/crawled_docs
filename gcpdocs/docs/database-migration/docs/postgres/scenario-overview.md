@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/scenario-overview/
 title: Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:09.157141+00:00
+fetched_at: 2026-11-11T09:33:48.809054+00:00
 ---
 
 # Database Migration Service for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/domains/docs/deprecations/feature-deprecations/
 title: Deprecations and shut down features \u00a0|\u00a0 Cloud Domains \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:00.305017+00:00
+fetched_at: 2026-11-11T09:27:42.913482+00:00
 ---
 
 # Deprecations and shut down features  |  Cloud Domains  |  Google Cloud Documentation

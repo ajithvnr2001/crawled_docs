@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vm-boot-disks/replace-a-boot-disk/
 title: Replace a boot disk \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:50.222244+00:00
+fetched_at: 2026-11-11T08:48:13.576669+00:00
 ---
 
 # Replace a boot disk  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

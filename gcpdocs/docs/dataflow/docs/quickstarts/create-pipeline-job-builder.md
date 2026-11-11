@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/quickstarts/create-pipeline-job-builder/
 title: Quickstart: Run a pipeline by using the job builder \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:20.769216+00:00
+fetched_at: 2026-11-11T08:47:07.829091+00:00
 ---
 
 # Quickstart: Run a pipeline by using the job builder  |  Cloud Dataflow  |  Google Cloud Documentation

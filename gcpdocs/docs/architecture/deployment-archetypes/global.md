@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/deployment-archetypes/global/
 title: Google Cloud global deployment archetype \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:11.653701+00:00
+fetched_at: 2026-11-11T09:12:50.302761+00:00
 ---
 
 # Google Cloud global deployment archetype  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/iam/predefined-role-permissions/
 title: Predefined role permissions for projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:10.761563+00:00
+fetched_at: 2026-11-11T11:43:42.141283+00:00
 ---
 
 # Predefined role permissions for projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

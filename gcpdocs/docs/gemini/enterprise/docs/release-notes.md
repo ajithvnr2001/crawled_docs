@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes/
 title: Gemini Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:33.074647+00:00
+fetched_at: 2026-11-11T08:53:16.859890+00:00
 ---
 
 # Gemini Enterprise release notes  |  Google Cloud Documentation
@@ -28,6 +28,21 @@ This page documents production updates to Gemini Enterprise. Check this page for
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gemini-enterprise-release-notes.xml) directly. 
+
+## November 10, 2026
+
+Feature
+
+**Gemini Enterprise: Gemini 4 Carbon available in web app, mobile app, Workflow Builder, and AI developer tools**
+
+Gemini 4 Carbon is generally available (GA) for the Gemini Enterprise web app, mobile app, Workflow Builder, and AI developer tools.
+
+  * **Location availability** : Supported in `global`, `us`, and `eu` multi-regions, with data residency and ML processing support in `us` and `eu`. For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).
+  * **App availability** : Turned off by default. Gemini 4 Carbon is supported in the web app and mobile app. For more information about turning on the model, see [Manage features on the web app](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features).
+  * **Workflow Builder** : Gemini 4 Carbon is available in Workflow Builder. For more information, see [Workflow Builder](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder).
+  * **AI developer tools** : Enabled by default for licensed users when **Antigravity authorized models** uses the default selection. If your organization specifies a custom model list, an administrator must manually select Gemini 4 Carbon. For more information, see [Configure AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings).
+
+
 
 ## November 06, 2026
 
@@ -3934,6 +3949,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

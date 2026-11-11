@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-log-helloworld/
 title: Hello World Cloud Function \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:46.424466+00:00
+fetched_at: 2026-11-11T08:56:58.846621+00:00
 ---
 
 # Hello World Cloud Function  |  Cloud Run functions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/gcmvsp/network-security/
 title: Network security guidelines \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:24.934491+00:00
+fetched_at: 2026-11-11T09:27:55.681307+00:00
 ---
 
 # Network security guidelines  |  Security  |  Google Cloud Documentation

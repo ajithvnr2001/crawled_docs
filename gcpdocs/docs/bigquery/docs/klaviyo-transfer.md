@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/klaviyo-transfer/
 title: Load Klaviyo data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:10.677944+00:00
+fetched_at: 2026-11-11T10:09:09.068680+00:00
 ---
 
 # Load Klaviyo data into BigQuery  |  Google Cloud Documentation

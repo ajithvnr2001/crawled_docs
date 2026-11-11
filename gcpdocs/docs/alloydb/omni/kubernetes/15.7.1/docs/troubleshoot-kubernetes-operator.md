@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.1/docs/troubleshoot-kubernetes-operator/
 title: Troubleshoot the AlloyDB Omni Kubernetes operator \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:42:13.349569+00:00
+fetched_at: 2026-11-11T10:32:19.420318+00:00
 ---
 
 # Troubleshoot the AlloyDB Omni Kubernetes operator  |  AlloyDB Omni for Kubernetes: 15.7.1  |  Google Cloud Documentation
@@ -175,7 +175,7 @@ The following are examples of `criticalIncidents`:
 You can also retrieve the status by extracting specific fields in JSON format:
     
     
-    kubectl get dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME -n DB_CLUSTER_NAMESPACE -o jsonpath='{.status.criticalIncidents}9; | jq
+    kubectl get dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME -n DB_CLUSTER_NAMESPACE -o jsonpath='{.status.criticalIncidents}' | jq
     
 
 The output is similar to the following:
@@ -240,7 +240,7 @@ To find the `Certificate` resources that this issue affects, run the following c
     
     kubectl get certificates.cert-manager.io --all-namespaces \
         -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.name}{"\t"}{.status.conditions[*].message}{"\n"}{end}' \
-        | grep ";CSR not signed by referenced private key"
+        | grep "CSR not signed by referenced private key"
     
 
 The output lists the namespace, the name, and the status condition messages of each affected `Certificate` resource. If you view an affected `Certificate` resource in YAML format, its `status` field is similar to the following:
@@ -465,7 +465,7 @@ If `PG_VERSION.disabled` files exist, restore `PG_VERSION` across both the root 
              --namespace DB_CLUSTER_NAMESPACE -- \
              sh -c 'find /pgdata/db -type f -name "PG_VERSION.disabled" | while read -r f; do
                target="${f%.disabled}"
-               if [ -f "$target" ]; then rm -f "$f&quot;; else mv "$f" "$target"; fi
+               if [ -f "$target" ]; then rm -f "$f"; else mv "$f" "$target"; fi
              done'
          
 
@@ -842,7 +842,7 @@ The easiest way to fix HA issues is to disable and then re-enable HA by setting 
   1. Manually delete the standby instances.
   2. Connect to the primary database. Query the current replication slots and delete any replication slots of standbys you want to delete:
          
-         select pg_drop_replication_slot(&#39;REPLICATION_SLOT_NAME');
+         select pg_drop_replication_slot('REPLICATION_SLOT_NAME');
          
 
   3. Delete any replication profiles from the primary instance that you want to delete.
@@ -918,6 +918,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/machine-learning/ml-data/
 title: Dataflow ML in ML workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:20.996099+00:00
+fetched_at: 2026-11-11T08:47:07.179339+00:00
 ---
 
 # Dataflow ML in ML workflows  |  Google Cloud Documentation

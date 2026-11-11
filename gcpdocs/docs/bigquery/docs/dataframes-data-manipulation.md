@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/dataframes-data-manipulation/
 title: Manipulate data with BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:09:57.211833+00:00
+fetched_at: 2026-11-11T12:40:37.929587+00:00
 ---
 
 # Manipulate data with BigQuery DataFrames  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manipulate data with BigQuery DataFrames
 
-BigQuery DataFrames lets you manipulate data using familiar pandas syntax patterns without transferring datasets out of your data warehouse. Because these operations are executed server-side, you can inspect, manipulate, and apply complex calculations directly on data stored within BigQuery.
+BigQuery DataFrames lets you manipulate data using familiar pandas syntax patterns without transferring datasets out of BigQuery. Because these operations are executed server-side, you can inspect, manipulate, and apply complex calculations directly on data stored within BigQuery.
 
 For more information about supported functions, see the [`bigframes.bigquery`](https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.html#module-bigframes.bigquery) library.
 
@@ -46,13 +46,13 @@ When you perform end user authentication in an interactive environment like a no
 
 ## pandas API
 
-A notable feature of BigQuery DataFrames is that the [`bigframes.pandas` API](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.html#module-bigframes.pandas) is designed to be similar to APIs in the pandas library. This design lets you employ familiar syntax patterns for data manipulation tasks. Operations defined through the BigQuery DataFrames API are executed server-side, operating directly on data stored within BigQuery and eliminating the need to transfer datasets out of BigQuery.
+The [`bigframes.pandas` API](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.html#module-bigframes.pandas) is designed to be similar to APIs in the pandas library. This design lets you use familiar syntax patterns for data manipulation tasks. Operations defined through the BigQuery DataFrames API are executed server-side, operating directly on data stored within BigQuery and eliminating the need to transfer datasets out of BigQuery.
 
 To check which pandas APIs are supported by BigQuery DataFrames, see [Supported pandas APIs](https://dataframes.bigquery.dev/supported_pandas_apis.html).
 
 ## Inspect and manipulate data
 
-You can use the [`bigframes.pandas`](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.html#module-bigframes.pandas) API to perform data inspection and calculation operations. The following code sample uses the [`bigframes.pandas`](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.html#module-bigframes.pandas) library to inspect the `body_mass_g` column, calculate the mean `body_mass`, and calculate the mean `body_mass` by `species`:
+You can use the [`bigframes.pandas`](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.html#module-bigframes.pandas) API to perform data inspection and calculation operations. The following example uses the [`bigframes.pandas`](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.html#module-bigframes.pandas) library to inspect the `body_mass_g` column, calculate the mean `body_mass`, and calculate the mean `body_mass` by `species`:
     
     
     import bigframes.pandas as bpd
@@ -192,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-process-specialized-document/
 title: Process a document using a Specialized processor \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:06:18.530440+00:00
+fetched_at: 2026-11-11T12:49:46.363000+00:00
 ---
 
 # Process a document using a Specialized processor  |  Document AI  |  Google Cloud Documentation
@@ -38,12 +38,12 @@ For more information, see the [Document AI Java API reference documentation](htt
 To authenticate to Document AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.documentai.v1beta3.Document;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceClient;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceSettings;
-    import com.google.cloud.documentai.v1beta3.ProcessRequest;
-    import com.google.cloud.documentai.v1beta3.ProcessResponse;
-    import com.google.cloud.documentai.v1beta3.RawDocument;
+    import com.google.cloud.documentai.v1.[Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html);
+    import com.google.cloud.documentai.v1.[ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html);
+    import com.google.cloud.documentai.v1.[ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html);
+    import com.google.cloud.documentai.v1.[RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html);
     import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import java.io.IOException;
     import java.nio.file.Files;
@@ -72,9 +72,9 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         // the "close" method on the client to safely clean up any remaining background
         // resources.
         String endpoint = String.format("%s-documentai.googleapis.com:443", location);
-        DocumentProcessorServiceSettings settings =
-            DocumentProcessorServiceSettings.newBuilder().setEndpoint(endpoint).build();
-        try (DocumentProcessorServiceClient client = DocumentProcessorServiceClient.create(settings)) {
+        [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html) settings =
+            [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html).newBuilder().setEndpoint(endpoint).build();
+        try ([DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html) client = [DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html).create(settings)) {
           // The full resource name of the processor, e.g.:
           // projects/project-id/locations/location/processor/processor-id
           // You must create new processors in the Cloud Console first
@@ -87,36 +87,36 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // Convert the image data to a Buffer and base64 encode it.
           [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html) content = [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(imageFileData);
     
-          RawDocument document =
-              RawDocument.newBuilder().setContent(content).setMimeType("application/pdf").build();
+          [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html) document =
+              [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html).newBuilder().setContent(content).setMimeType("application/pdf").build();
     
           // Configure the process request.
-          ProcessRequest request =
-              ProcessRequest.newBuilder().setName(name).setRawDocument(document).build();
+          [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html) request =
+              [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html).newBuilder().setName(name).[setRawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.Builder.html#com_google_cloud_documentai_v1_ProcessRequest_Builder_setRawDocument_com_google_cloud_documentai_v1_RawDocument_)(document).build();
     
           // Recognizes text entities in the PDF document
-          ProcessResponse result = client.processDocument(request);
-          Document documentResponse = result.getDocument();
+          [ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html) result = client.processDocument(request);
+          [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html) documentResponse = result.[getDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html#com_google_cloud_documentai_v1_ProcessResponse_getDocument__)();
     
           System.out.println("Document processing complete.");
     
-          // Read fields specificly from the specalized US drivers license processor:
+          // Read fields specifically from the specialized US drivers license processor:
           // https://cloud.google.com/document-ai/docs/processors-list#processor_us-driver-license-parser
-          // retriving data from other specalized processors follow a similar pattern.
+          // retrieving data from other specialized processors follow a similar pattern.
           // For a complete list of processors see:
           // https://cloud.google.com/document-ai/docs/processors-list
           //
           // OCR and other data is also present in the quality processor's response.
           // Please see the OCR and other samples for how to parse other data in the
           // response.
-          for (Document.Entity entity : documentResponse.getEntitiesList()) {
+          for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Entity](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Entity.html) entity : documentResponse.[getEntitiesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html#com_google_cloud_documentai_v1_Document_getEntitiesList__)()) {
             // Fields detected. For a full list of fields for each processor see
             // the processor documentation:
             // https://cloud.google.com/document-ai/docs/processors-list
             String entityType = entity.getType();
-            // some other value formats in addition to text are availible
+            // some other value formats in addition to text are available
             // e.g. dates: `entity.getNormalizedValue().getDateValue().getYear()`
-            // check for normilized value with `entity.hasNormalizedValue()`
+            // check for normalized value with `entity.hasNormalizedValue()`
             String entityTextValue = escapeNewlines(entity.getTextAnchor().getContent());
             float entityConfidence = entity.getConfidence();
             System.out.printf(

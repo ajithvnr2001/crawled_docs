@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/resources/gdcloud-reference/gdcloud-artifacts-pull/
 title: gdcloud artifacts pull \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:17.562722+00:00
+fetched_at: 2026-11-11T09:08:33.711483+00:00
 ---
 
 # gdcloud artifacts pull  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

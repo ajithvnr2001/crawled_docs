@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/create-threat-detector/
 title: Create a DNS threat detector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:21.451129+00:00
+fetched_at: 2026-11-11T10:08:31.832571+00:00
 ---
 
 # Create a DNS threat detector  |  Google Cloud Documentation

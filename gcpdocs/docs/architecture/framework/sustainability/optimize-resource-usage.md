@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/optimize-resource-usage/
 title: Optimize resource usage for sustainability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:06.034416+00:00
+fetched_at: 2026-11-11T10:14:29.805336+00:00
 ---
 
 # Optimize resource usage for sustainability  |  Cloud Architecture Center  |  Google Cloud Documentation

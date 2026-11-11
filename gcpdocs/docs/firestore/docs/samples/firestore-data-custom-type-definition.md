@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-custom-type-definition/
 title: Use a custom type on the client for Firestore documents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:57.961731+00:00
+fetched_at: 2026-11-11T08:57:22.511755+00:00
 ---
 
 # Use a custom type on the client for Firestore documents  |  Google Cloud Documentation

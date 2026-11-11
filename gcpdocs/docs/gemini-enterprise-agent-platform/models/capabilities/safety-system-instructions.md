@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/safety-system-instructions/
 title: System instructions for safety \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:28.645954+00:00
+fetched_at: 2026-11-11T08:52:21.623624+00:00
 ---
 
 # System instructions for safety  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

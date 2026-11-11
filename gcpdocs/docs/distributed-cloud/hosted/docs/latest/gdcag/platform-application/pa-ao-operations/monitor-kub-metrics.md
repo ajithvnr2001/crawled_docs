@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/monitor-kub-metrics/
 title: Monitor Kubernetes cluster health metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:42.788085+00:00
+fetched_at: 2026-11-11T10:28:57.861466+00:00
 ---
 
 # Monitor Kubernetes cluster health metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

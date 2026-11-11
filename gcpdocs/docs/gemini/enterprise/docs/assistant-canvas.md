@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/assistant-canvas/
 title: Create documents, slides, and web apps in Canvas \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:13.658505+00:00
+fetched_at: 2026-11-11T08:55:24.796817+00:00
 ---
 
 # Create documents, slides, and web apps in Canvas  |  Gemini Enterprise  |  Google Cloud Documentation

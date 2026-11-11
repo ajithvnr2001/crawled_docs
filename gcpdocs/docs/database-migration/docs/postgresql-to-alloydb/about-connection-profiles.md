@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/about-connection-profiles/
 title: About connection profiles \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:59.822841+00:00
+fetched_at: 2026-11-11T09:33:48.149866+00:00
 ---
 
 # About connection profiles  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

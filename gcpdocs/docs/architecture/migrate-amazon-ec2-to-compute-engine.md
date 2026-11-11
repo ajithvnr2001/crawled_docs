@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-amazon-ec2-to-compute-engine/
 title: Migrate from AWS to Google Cloud: Migrate from Amazon EC2 to Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:13.040144+00:00
+fetched_at: 2026-11-11T08:22:06.813766+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Migrate from Amazon EC2 to Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-guide/
 title: Migrate from self-managed SQL Server using Distributed Availability Groups \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:09.088505+00:00
+fetched_at: 2026-11-11T09:34:38.207773+00:00
 ---
 
 # Migrate from self-managed SQL Server using Distributed Availability Groups  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

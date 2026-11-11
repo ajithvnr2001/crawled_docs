@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-flex-start-vm/
 title: Create a Flex-start VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:04.800179+00:00
+fetched_at: 2026-11-11T09:14:40.605346+00:00
 ---
 
 # Create a Flex-start VM  |  Compute Engine  |  Google Cloud Documentation

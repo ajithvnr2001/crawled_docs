@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/configure-source-database/
 title: Configure your source PostgreSQL database for continuous migrations \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:59.336813+00:00
+fetched_at: 2026-11-11T09:35:07.156981+00:00
 ---
 
 # Configure your source PostgreSQL database for continuous migrations  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

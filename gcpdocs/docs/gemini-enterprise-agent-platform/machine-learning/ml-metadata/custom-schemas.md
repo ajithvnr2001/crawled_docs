@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/custom-schemas/
 title: Create and use custom schemas \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:06.961165+00:00
+fetched_at: 2026-11-11T08:49:24.628162+00:00
 ---
 
 # Create and use custom schemas  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview/
 title: Gen AI evaluation service overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:37:08.084598+00:00
+fetched_at: 2026-11-11T08:52:20.697744+00:00
 ---
 
 # Gen AI evaluation service overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -203,7 +203,7 @@ Alternatively, the following code shows how to complete an evaluation with the G
     
     
     from vertexai import Client
-    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
+    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
     import pandas as pd
     
     client = Client(project=PROJECT_ID, location=LOCATION)
@@ -217,12 +217,12 @@ Alternatively, the following code shows how to complete an evaluation with the G
     })
     
     # Get responses from one or multiple models
-    eval_dataset = client.[evals](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.html).[run_inference](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_run_inference)(model="gemini-2.5-flash", src=prompts_df)
+    eval_dataset = client.[evals](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.html).[run_inference](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_run_inference)(model="gemini-2.5-flash", src=prompts_df)
     
     # Define the evaluation metrics and run the evaluation job
-    eval_result = client.[evals](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.html).[evaluate](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
+    eval_result = client.[evals](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.html).[evaluate](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
         dataset=eval_dataset,
-        metrics=[[types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).RubricMetric.GENERAL_QUALITY]
+        metrics=[[types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).RubricMetric.GENERAL_QUALITY]
     )
     
     # View the evaluation results

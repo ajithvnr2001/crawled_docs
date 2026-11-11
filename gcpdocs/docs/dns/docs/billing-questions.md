@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:22.918030+00:00
+fetched_at: 2026-11-11T09:46:14.013749+00:00
 ---
 
 # Billing questions  |  Cloud DNS  |  Google Cloud Documentation

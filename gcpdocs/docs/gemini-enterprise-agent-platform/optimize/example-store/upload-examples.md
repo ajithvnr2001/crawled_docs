@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/upload-examples/
 title: Upload examples \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:18.052825+00:00
+fetched_at: 2026-11-11T08:50:07.812782+00:00
 ---
 
 # Upload examples  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -85,10 +85,10 @@ Before you use the Python samples on this page, you must install and initialize 
 
   2. Use the following code sample to import and initialize the SDK for Example Store.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai.preview import example_stores
          
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
            project="PROJECT_ID",
            location="LOCATION"
          )

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform/pa-user/set-bucket-lifecycle-policy/
 title: Set object lifecycle policy for storage buckets \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:59.492481+00:00
+fetched_at: 2026-11-11T09:46:37.660225+00:00
 ---
 
 # Set object lifecycle policy for storage buckets  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

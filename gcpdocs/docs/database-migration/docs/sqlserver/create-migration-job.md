@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/create-migration-job/
 title: Create a migration job \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:57.091504+00:00
+fetched_at: 2026-11-11T09:34:38.692317+00:00
 ---
 
 # Create a migration job  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

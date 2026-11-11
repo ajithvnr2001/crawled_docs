@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataproc-component/
 title: Managed Service for Apache Spark components \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:20.183404+00:00
+fetched_at: 2026-11-11T08:51:08.814934+00:00
 ---
 
 # Managed Service for Apache Spark components  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

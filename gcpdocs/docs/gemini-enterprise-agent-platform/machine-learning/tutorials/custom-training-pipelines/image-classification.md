@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/custom-training-pipelines/image-classification/
 title: Fine-tune an image classification model with custom data on Gemini Enterprise Agent Platform Pipelines \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:08.516123+00:00
+fetched_at: 2026-11-11T08:51:34.863580+00:00
 ---
 
 # Fine-tune an image classification model with custom data on Gemini Enterprise Agent Platform Pipelines  |  Google Cloud Documentation

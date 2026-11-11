@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/change-history/
 title: Work with change history \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:44:09.820107+00:00
+fetched_at: 2026-11-11T08:30:35.616906+00:00
 ---
 
 # Work with change history  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Work with change history Stay organized with collections  Save and categorize content based on your preferences. 
 
-Change history lets you track the history of rows appended to [Apache Iceberg managed tables (formerly BigLake tables for Apache Iceberg in BigQuery)](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). You can use the GoogleSQL [`APPENDS`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#appends) table-valued function (TVF) to view all rows appended to a table during a specified time range, such as rows added through `CREATE TABLE` DDL statements, `INSERT` and `MERGE` DML statements, batch load jobs, and streaming ingestion.
-
-Apache Iceberg managed tables use [BigQuery change history concepts and capabilities](https://docs.cloud.google.com/bigquery/docs/change-history) to let you process incremental additions made to your tables. Understanding what rows have been appended to a table can help you incrementally maintain a table replica outside of BigQuery, audit historical data additions, or trigger downstream pipelines without requiring full table scans or costly copies.
+Change history lets you track rows appended to [Apache Iceberg managed tables (formerly BigLake tables for Apache Iceberg in BigQuery)](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery) using [BigQuery change history concepts and capabilities](https://docs.cloud.google.com/bigquery/docs/change-history). By using the GoogleSQL [`APPENDS`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/time-series-functions#appends) table-valued function (TVF), you can process incremental additions over a specified time range. This helps you maintain a table replica outside of BigQuery, audit historical data additions, or trigger downstream pipelines without full table scans or costly copies.
 
 ## Required permissions
 
@@ -69,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

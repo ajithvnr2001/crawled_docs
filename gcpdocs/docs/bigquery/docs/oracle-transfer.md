@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/oracle-transfer/
 title: Load Oracle data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:09.474092+00:00
+fetched_at: 2026-11-11T10:00:31.072197+00:00
 ---
 
 # Load Oracle data into BigQuery  |  Google Cloud Documentation

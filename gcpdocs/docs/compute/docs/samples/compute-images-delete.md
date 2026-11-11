@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-images-delete/
 title: Delete a disk image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:14.918265+00:00
+fetched_at: 2026-11-11T09:18:50.980818+00:00
 ---
 
 # Delete a disk image  |  Compute Engine  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// imageName := "your_image"
     
     	ctx := context.Background()
-    	imagesClient, err := compute.[NewImagesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_ImagesClient_NewImagesRESTClient)(ctx)
+    	imagesClient, err := compute.NewImagesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewImagesRESTClient: %w", err)
     	}
@@ -86,8 +86,8 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
-    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.ImagesClient;
+    import com.google.cloud.compute.v1.Operation;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -113,14 +113,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `imagesClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) imagesClient = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create()) {
-          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = imagesClient.deleteAsync(project, imageName).get(3, TimeUnit.MINUTES);
+        try (ImagesClient imagesClient = ImagesClient.create()) {
+          Operation response = imagesClient.deleteAsync(project, imageName).get(3, TimeUnit.MINUTES);
     
-          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+          if (response.hasError()) {
             System.out.println("Image deletion failed ! ! " + response);
             return;
           }
-          System.out.printf("Operation Status for Image Name %s: %s ", imageName, response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
+          System.out.printf("Operation Status for Image Name %s: %s ", imageName, response.getStatus());
         }
       }
     }
@@ -138,7 +138,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
+    from google.cloud import compute_v1
     
     
     def wait_for_extended_operation(
@@ -197,8 +197,8 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             project_id: project ID or project number of the Cloud project you use.
             image_name: name of the image you want to delete.
         """
-        image_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ImagesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html)()
-        operation = image_client.[delete](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html#google_cloud_compute_v1_services_images_ImagesClient_delete)(project=project_id, image=image_name)
+        image_client = compute_v1.ImagesClient()
+        operation = image_client.delete(project=project_id, image=image_name)
         wait_for_extended_operation(operation, "image deletion")
     
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/resource-planning-overview/
 title: Resource planning overview \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:39.550670+00:00
+fetched_at: 2026-11-11T09:46:50.260406+00:00
 ---
 
 # Resource planning overview  |  Get started  |  Google Cloud Documentation

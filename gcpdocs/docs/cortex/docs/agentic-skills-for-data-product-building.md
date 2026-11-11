@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cortex/docs/agentic-skills-for-data-product-building/
 title: Build data products with agent skills \u00a0|\u00a0 Google Cloud Cortex Framework \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:43.914264+00:00
+fetched_at: 2026-11-11T10:07:52.319591+00:00
 ---
 
 # Build data products with agent skills  |  Google Cloud Cortex Framework  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ Google Cloud Cortex Framework exposes its agentic capabilities through a set of 
 
 The following steps outline the structured developer workflow for using agentic skills to create a custom data product.
 
-### Step 1: Step 1: Provide requirements and context
+### Step 1: Provide requirements and context
 
 Using your AI coding assistant's chat interface, provide a prompt that describes your specific data requirements. For example:
 
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

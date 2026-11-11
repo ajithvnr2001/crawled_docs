@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/create-alert-rules/
 title: Create alert rules \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:47.943728+00:00
+fetched_at: 2026-11-11T12:23:20.020393+00:00
 ---
 
 # Create alert rules  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

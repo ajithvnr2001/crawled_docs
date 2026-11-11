@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migration-fidelity/
 title: Migration fidelity \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:54.642157+00:00
+fetched_at: 2026-11-11T09:34:01.579171+00:00
 ---
 
 # Migration fidelity  |  Database Migration Service for MySQL  |  Google Cloud Documentation

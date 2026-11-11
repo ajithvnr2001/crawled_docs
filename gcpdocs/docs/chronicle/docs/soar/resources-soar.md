@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/resources-soar/
 title: SOAR Resources \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:02:43.710265+00:00
+fetched_at: 2026-11-11T08:32:27.521598+00:00
 ---
 
 # SOAR Resources  |  Google Security Operations  |  Google Cloud Documentation

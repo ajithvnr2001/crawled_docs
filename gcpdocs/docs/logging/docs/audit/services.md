@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/audit/services/
 title: Google Cloud services with audit logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:26.309616+00:00
+fetched_at: 2026-11-11T13:07:46.507041+00:00
 ---
 
 # Google Cloud services with audit logs  |  Cloud Logging  |  Google Cloud Documentation
@@ -62,6 +62,7 @@ Google Cloud services with audit logs | Service Name
 [Google Distributed Cloud](https://docs.cloud.google.com/distributed-cloud/edge/latest/docs/audit-logging-edgenetwork) | `edgenetwork.googleapis.com`  
 [Google Distributed Cloud](https://docs.cloud.google.com/distributed-cloud/edge/latest/docs/audit-logging-edgecontainer) | `edgecontainer.googleapis.com`  
 [Earth Engine API](https://developers.google.com/earth-engine/cloud/audit_logging) | `earthengine.googleapis.com`  
+[Fault Injection Testing](https://docs.cloud.google.com/fault-injection-testing/audit-logging) | `faulttesting.googleapis.com`  
 [Google Health API](https://developers.google.com/health/audit-logging) | `health.googleapis.com`  
 [Security posture](https://docs.cloud.google.com/security-command-center/docs/audit-logging-securityposture) | `securityposture.googleapis.com`  
 [Personalized Service Health](https://docs.cloud.google.com/service-health/docs/audit-logging) | `servicehealth.googleapis.com`  
@@ -120,6 +121,7 @@ Google Cloud services with audit logs | Service Name
 [Cloud Billing](https://docs.cloud.google.com/billing/docs/audit-logging) | `cloudbilling.googleapis.com`  
 [Cloud Build](https://docs.cloud.google.com/build/docs/securing-builds/audit-logs) | `cloudbuild.googleapis.com`  
 [Cloud Number Registry](https://docs.cloud.google.com/number-registry/audit-logging) | `cloudnumberregistry.googleapis.com`  
+[Cloud OAuth API](https://docs.cloud.google.com/iam/docs/audit-logging/audit-logging-cloudoauth) | `cloudoauth.googleapis.com`  
 [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/how-to/audit-logging) | `composer.googleapis.com`  
 [Cloud Customer Care](https://docs.cloud.google.com/support/docs/audit-logging) | `cloudsupport.googleapis.com`  
 [Cloud Data Fusion](https://docs.cloud.google.com/data-fusion/docs/how-to/audit-logging) | `datafusion.googleapis.com`  
@@ -205,6 +207,7 @@ Google Cloud services with audit logs | Service Name
 [Migrate to Virtual Machines](https://docs.cloud.google.com/migrate/virtual-machines/docs/5.0/migrate/audit-logging) | `vmmigration.googleapis.com`  
 [Model Armor](https://docs.cloud.google.com/security-command-center/docs/audit-logging-model-armor) | `modelarmor.googleapis.com`  
 [Network Connectivity Center](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/audit-logging) | `networkconnectivity.googleapis.com`  
+[Network Services API](https://docs.cloud.google.com/service-mesh/docs/audit-logging-networkservices) | `networkservices.googleapis.com`  
 [Organization Policy](https://docs.cloud.google.com/resource-manager/docs/organization-policy/audit-logging) | `orgpolicy.googleapis.com`  
 [Policy Simulator](https://docs.cloud.google.com/policy-intelligence/docs/audit-logging/simulator-audit-logging) | `policysimulator.googleapis.com`  
 [Policy Analyzer](https://docs.cloud.google.com/policy-intelligence/docs/audit-logging/policyanalyzer-audit-logging) | `policyanalyzer.googleapis.com`  
@@ -270,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

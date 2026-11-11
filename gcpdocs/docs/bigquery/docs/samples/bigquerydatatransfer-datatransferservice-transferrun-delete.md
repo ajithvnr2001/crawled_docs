@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-datatransferservice-transferrun-delete/
 title: Delete a transfer run \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:07.393136+00:00
+fetched_at: 2026-11-11T08:28:13.858581+00:00
 ---
 
 # Delete a transfer run  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/gcmvsp/
 title: Google Cloud minimum viable secure platform \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:06.536000+00:00
+fetched_at: 2026-11-11T10:07:53.756080+00:00
 ---
 
 # Google Cloud minimum viable secure platform  |  Security  |  Google Cloud Documentation

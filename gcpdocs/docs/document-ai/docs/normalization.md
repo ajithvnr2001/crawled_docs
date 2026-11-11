@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/normalization/
 title: Normalization \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:38.243870+00:00
+fetched_at: 2026-11-11T09:07:10.867893+00:00
 ---
 
 # Normalization  |  Document AI  |  Google Cloud Documentation

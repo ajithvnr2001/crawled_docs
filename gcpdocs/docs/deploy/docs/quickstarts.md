@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/quickstarts/
 title: Quickstarts \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:51.563962+00:00
+fetched_at: 2026-11-11T08:22:03.261230+00:00
 ---
 
 # Quickstarts  |  Cloud Deploy  |  Google Cloud Documentation

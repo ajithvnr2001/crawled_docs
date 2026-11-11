@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-jsonstreamwriter-default/
 title: Append records using default client \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:25:40.282683+00:00
+fetched_at: 2026-11-11T09:59:02.036628+00:00
 ---
 
 # Append records using default client  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/manage-node-pools/
 title: Manage node pools \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:39.240832+00:00
+fetched_at: 2026-11-11T12:23:08.102092+00:00
 ---
 
 # Manage node pools  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

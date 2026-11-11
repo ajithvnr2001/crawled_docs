@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/metrics-vais/
 title: Agent Search (VAIS) \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:11.348196+00:00
+fetched_at: 2026-11-11T10:51:37.363969+00:00
 ---
 
 # Agent Search (VAIS)  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

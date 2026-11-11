@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-pubsub-unit-test/
 title: Pub/Sub unit tests \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:28.725366+00:00
+fetched_at: 2026-11-11T08:53:36.238968+00:00
 ---
 
 # Pub/Sub unit tests  |  Cloud Run functions  |  Google Cloud Documentation

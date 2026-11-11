@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/web-serving-overview/
 title: Website hosting \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:43:29.493383+00:00
+fetched_at: 2026-11-11T10:14:15.005034+00:00
 ---
 
 # Website hosting  |  Cloud Architecture Center  |  Google Cloud Documentation

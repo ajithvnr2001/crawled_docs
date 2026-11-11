@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/mysql-change-data-capture-to-bigquery/
 title: Change Data Capture from MySQL to BigQuery using Debezium and Pub/Sub (Stream) template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:47.775794+00:00
+fetched_at: 2026-11-11T09:27:16.583810+00:00
 ---
 
 # Change Data Capture from MySQL to BigQuery using Debezium and Pub/Sub (Stream) template  |  Cloud Dataflow  |  Google Cloud Documentation

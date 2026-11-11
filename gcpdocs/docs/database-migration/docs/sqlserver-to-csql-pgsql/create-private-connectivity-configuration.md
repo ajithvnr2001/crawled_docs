@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/create-private-connectivity-configuration/
 title: Create a private connectivity configuration for the source database \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:52.123204+00:00
+fetched_at: 2026-11-11T09:34:42.276597+00:00
 ---
 
 # Create a private connectivity configuration for the source database  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

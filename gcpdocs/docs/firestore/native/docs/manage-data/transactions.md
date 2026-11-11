@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/transactions/
 title: Transactions and batched writes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:34.403452+00:00
+fetched_at: 2026-11-11T08:56:33.069340+00:00
 ---
 
 # Transactions and batched writes  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ The following example shows how to create and run a transaction:
       console.log("Transaction failed: ", e);
     }
     
-    [transaction.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/transaction.js#L8-L23)
+    [transaction.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/transaction.js#L8-L23)
 
 ### Web version 8
 
@@ -99,7 +99,7 @@ The following example shows how to create and run a transaction:
         console.log("Transaction failed: ", error);
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L526-L549)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L526-L549)
 
 ##### Swift
 
@@ -462,7 +462,7 @@ Android
       tx.update city_ref, { population: new_population }
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L23-L29)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L23-L29)
 
 ### Passing information out of transactions
 
@@ -498,7 +498,7 @@ Do not modify application state inside of your transaction functions. Doing so w
       console.error(e);
     }
     
-    [transaction_promise.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/transaction_promise.js#L8-L33)
+    [transaction_promise.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/transaction_promise.js#L8-L33)
 
 ### Web version 8
 
@@ -529,7 +529,7 @@ Do not modify application state inside of your transaction functions. Doing so w
         console.error(err);
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L556-L578)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L556-L578)
 
 ##### Swift
 
@@ -958,7 +958,7 @@ Android
       puts "Sorry! Population is too big."
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L40-L54)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L40-L54)
 
 ### Transaction failure
 
@@ -1006,7 +1006,7 @@ If you do not need to read any documents in your operation set, you can execute 
     // Commit the batch
     await batch.commit();
     
-    [write_batch.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/write_batch.js#L8-L26)
+    [write_batch.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/write_batch.js#L8-L26)
 
 ### Web version 8
 
@@ -1033,7 +1033,7 @@ If you do not need to read any documents in your operation set, you can execute 
         // ...
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L271-L291)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L271-L291)
 
 ##### Swift
 
@@ -1443,7 +1443,7 @@ Android
       b.delete "#{collection_path}/LA"
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L64-L73)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L64-L73)
 
 Like transactions, batched writes are atomic. Unlike transactions, batched writes do not need to ensure that read documents remain un-modified which leads to fewer failure cases. They are not subject to retries or to failures from too many retries. Batched writes execute even when the user's device is offline.
 
@@ -1537,6 +1537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

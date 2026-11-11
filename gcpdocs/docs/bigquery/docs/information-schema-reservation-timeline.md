@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-reservation-timeline/
 title: RESERVATIONS_TIMELINE view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:25:06.111707+00:00
+fetched_at: 2026-11-11T08:38:35.978631+00:00
 ---
 
 # RESERVATIONS_TIMELINE view  |  BigQuery  |  Google Cloud Documentation
@@ -80,6 +80,12 @@ If there are any autoscale or reservation changes during this minute, the array 
 `scaling_mode` | `STRING` | The scaling mode for the reservation, which determines how the reservation scales from baseline to `max_slots`. This field is specified by users for using the [reservation predictability feature](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management#predictable).  
 `period_autoscale_slot_seconds` | `INTEGER` | The total slot seconds charged by autoscale for a specific minute (each data row corresponds to one minute).  
 `is_creation_region` | `BOOLEAN` | Specifies if the current region is the location where the reservation was created. This location is used to determine the pricing of the baseline reservation slots. For a failover [disaster recovery (DR)](https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery) reservation, a `TRUE` value indicates the original primary location, while for a non-DR reservation, a `TRUE` value denotes the reservation's location. For a non-failover reservation, this value is always `TRUE`. For a failover reservation, the value depends on the region: `TRUE` for the original primary and `FALSE` for the original secondary.  
+`scheduling_policy` | `STRUCT` |  The default [project caps](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management#scheduling-policies) for each project using the reservation, or `NULL` if none are configured. Fields include the following:
+
+  * `max_slots`: the default limit on the slot consumption of queries running for each project using the reservation, or `NULL` if unset.
+  * `concurrency`: the default limit on the number of simultaneous queries admitted for each project using the reservation, or `NULL` if unset.
+
+  
   
 For stability, we recommend that you explicitly list columns in your information schema queries instead of using a wildcard (`SELECT *`). Explicitly listing columns prevents queries from breaking if the underlying schema changes.
 
@@ -228,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/hybrid-multicloud-patterns-and-practices/tiered-hybrid-pattern/
 title: Tiered hybrid pattern \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:02.340933+00:00
+fetched_at: 2026-11-11T10:14:28.569772+00:00
 ---
 
 # Tiered hybrid pattern  |  Cloud Architecture Center  |  Google Cloud Documentation

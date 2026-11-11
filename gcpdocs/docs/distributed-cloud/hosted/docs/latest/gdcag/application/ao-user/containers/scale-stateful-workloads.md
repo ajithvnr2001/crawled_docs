@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/scale-stateful-workloads/
 title: Scale stateful workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:12.303808+00:00
+fetched_at: 2026-11-11T11:43:40.044316+00:00
 ---
 
 # Scale stateful workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

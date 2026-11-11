@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/how-to/
 title: How-to guides \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:19.901885+00:00
+fetched_at: 2026-11-11T09:36:24.788467+00:00
 ---
 
 # How-to guides  |  API Gateway  |  Google Cloud Documentation

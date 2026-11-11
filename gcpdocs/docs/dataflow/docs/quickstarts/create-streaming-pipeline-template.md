@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/quickstarts/create-streaming-pipeline-template/
 title: Quickstart: Create a streaming pipeline using a Dataflow template \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:20.204722+00:00
+fetched_at: 2026-11-11T09:07:39.040553+00:00
 ---
 
 # Quickstart: Create a streaming pipeline using a Dataflow template  |  Google Cloud Documentation

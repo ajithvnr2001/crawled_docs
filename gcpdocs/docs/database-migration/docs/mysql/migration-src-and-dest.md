@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migration-src-and-dest/
 title: Supported source and destination databases \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:10.005850+00:00
+fetched_at: 2026-11-11T09:34:00.548414+00:00
 ---
 
 # Supported source and destination databases  |  Database Migration Service for MySQL  |  Google Cloud Documentation

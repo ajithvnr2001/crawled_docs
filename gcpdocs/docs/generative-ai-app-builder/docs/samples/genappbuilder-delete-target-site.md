@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-delete-target-site/
 title: Remove website from data store \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:14.540760+00:00
+fetched_at: 2026-11-11T08:40:20.461219+00:00
 ---
 
 # Remove website from data store  |  Agent Search  |  Google Cloud Documentation

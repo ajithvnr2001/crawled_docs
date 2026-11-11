@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/overview/
 title: Notebooks \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:56.682556+00:00
+fetched_at: 2026-11-11T08:49:53.421470+00:00
 ---
 
 # Notebooks  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

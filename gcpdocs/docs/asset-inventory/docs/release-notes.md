@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/release-notes/
 title: Cloud Asset Inventory release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:39.553988+00:00
+fetched_at: 2026-11-11T09:56:58.441223+00:00
 ---
 
 # Cloud Asset Inventory release notes  |  Google Cloud Documentation
@@ -27,6 +27,17 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/asset-release-notes.xml) directly. 
 
+## November 10, 2026
+
+Feature
+
+The following resource type is publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), and [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds) APIs.
+
+  * Cloud Key Management Service 
+    * `cloudkms.googleapis.com/KajPolicyConfig`
+
+
+
 ## November 09, 2026
 
 Feature
@@ -35,6 +46,21 @@ The following resource type is publicly available through the [ExportAssets](htt
 
   * Dataflow 
     * `dataflow.googleapis.com/Snapshot`
+
+
+
+Feature
+
+The following resource types are publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds), and Search ([SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources), [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies)) APIs.
+
+  * Apigee 
+    * `apigee.googleapis.com/Deployment`
+    * `apigee.googleapis.com/EndpointAttachment`
+    * `apigee.googleapis.com/EnvironmentGroup`
+    * `apigee.googleapis.com/EnvironmentGroupAttachment`
+    * `apigee.googleapis.com/SharedFlow`
+    * `apigee.googleapis.com/SharedFlowRevision`
+    * `apigee.googleapis.com/TargetServer`
 
 
 
@@ -3979,6 +4005,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

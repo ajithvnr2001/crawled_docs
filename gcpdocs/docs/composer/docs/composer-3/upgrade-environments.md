@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/upgrade-environments/
 title: Upgrade environments \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:25.835050+00:00
+fetched_at: 2026-11-11T08:54:33.171853+00:00
 ---
 
 # Upgrade environments  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -259,7 +259,7 @@ Example:
     
     gcloud composer environments check-upgrade example-environment \
       --location us-central1 \
-      --airflow-version 2.11.1-build.21
+      --airflow-version 2.11.1-build.22
     
 
 Example output:
@@ -267,7 +267,7 @@ Example output:
     
     Waiting for [projects/example-project/locations/us-central1/environments/
     example-environment] to be checked for PyPI package conflicts when upgrading
-    to composer-3-airflow-2.11.1-build.21. Operation [projects/example-project/locations/
+    to composer-3-airflow-2.11.1-build.22. Operation [projects/example-project/locations/
     us-central1/operations/04d0e8b2-...]...done.
     ...
     
@@ -431,7 +431,7 @@ For example:
     gcloud composer environments update \
       example-environment \
       --location us-central1 \
-      --airflow-version 2.11.1-build.21
+      --airflow-version 2.11.1-build.22
     
 
 ###  API 
@@ -457,7 +457,7 @@ For example:
     {
       "config": {
         "softwareConfig": {
-          "imageVersion": "composer-3-airflow-2.11.1-build.21"
+          "imageVersion": "composer-3-airflow-2.11.1-build.22"
         }
       }
     }
@@ -499,7 +499,7 @@ Example:
     
       config {
         software_config {
-          image_version = "composer-3-airflow-2.11.1-build.21"
+          image_version = "composer-3-airflow-2.11.1-build.22"
         }
       }
     }
@@ -628,7 +628,7 @@ Example:
     gcloud composer environments update \
       example-environment \
       --location us-central1 \
-      --airflow-version 2.11.1-build.21
+      --airflow-version 2.11.1-build.22
     
 
 ###  API 
@@ -654,7 +654,7 @@ For example:
     {
       "config": {
         "softwareConfig": {
-          "imageVersion": "composer-3-airflow-2.11.1-build.21"
+          "imageVersion": "composer-3-airflow-2.11.1-build.22"
         }
       }
     }
@@ -696,7 +696,7 @@ Example:
     
       config {
         software_config {
-          image_version = "composer-3-airflow-2.11.1-build.21"
+          image_version = "composer-3-airflow-2.11.1-build.22"
         }
       }
     }
@@ -719,6 +719,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

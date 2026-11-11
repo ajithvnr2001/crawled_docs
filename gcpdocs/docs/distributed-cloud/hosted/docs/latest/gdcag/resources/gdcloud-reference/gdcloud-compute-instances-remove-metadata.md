@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-compute-instances-remove-metadata/
 title: gdcloud compute instances remove-metadata \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:51.052394+00:00
+fetched_at: 2026-11-11T09:08:12.559773+00:00
 ---
 
 # gdcloud compute instances remove-metadata  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

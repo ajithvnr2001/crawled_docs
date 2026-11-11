@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-keys/docs/resources/
 title: Resources \u00a0|\u00a0 API Keys API Documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:42:57.141851+00:00
+fetched_at: 2026-11-11T09:31:53.733422+00:00
 ---
 
 # Resources  |  API Keys API Documentation  |  Google Cloud Documentation

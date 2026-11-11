@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-delete-entity/
 title: Delete task \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:41:45.534782+00:00
+fetched_at: 2026-11-11T09:34:25.465247+00:00
 ---
 
 # Delete task  |  Firestore in Datastore mode  |  Google Cloud Documentation
@@ -144,7 +144,7 @@ To authenticate to Datastore mode, set up Application Default Credentials. For m
     def delete_task task_id
       require "google/cloud/datastore"
     
-      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
     
       task = datastore.find "Task", task_id
     

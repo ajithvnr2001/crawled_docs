@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/scenario-overview/
 title: Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:07.982512+00:00
+fetched_at: 2026-11-11T09:33:58.897041+00:00
 ---
 
 # Database Migration Service for MySQL  |  Google Cloud Documentation

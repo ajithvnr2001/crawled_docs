@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-owner-size-tag-query/
 title: Example datastore owner size tag query \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:10.602563+00:00
+fetched_at: 2026-11-11T09:34:21.373364+00:00
 ---
 
 # Example datastore owner size tag query  |  Firestore in Datastore mode  |  Google Cloud Documentation

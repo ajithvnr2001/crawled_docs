@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-inequality-sort-invalid-not-first/
 title: Inequality sort invalid because it's not first \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:51.613284+00:00
+fetched_at: 2026-11-11T09:34:24.017326+00:00
 ---
 
 # Inequality sort invalid because it's not first  |  Firestore in Datastore mode  |  Google Cloud Documentation

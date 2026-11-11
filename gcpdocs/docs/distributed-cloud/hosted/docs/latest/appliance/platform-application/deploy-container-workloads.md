@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/deploy-container-workloads/
 title: Deploy a containerized web server app \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:24.815100+00:00
+fetched_at: 2026-11-11T08:48:29.654702+00:00
 ---
 
 # Deploy a containerized web server app  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

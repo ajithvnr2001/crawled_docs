@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/blog/posts/from-research-to-production-accelerate-oss-llm-with-eagle-3-on-vertex/
 title: From research to production: Accelerate OSS LLM with EAGLE-3 on Vertex \u00a0|\u00a0 Cloud AI Engineering Blog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:34.351254+00:00
+fetched_at: 2026-11-11T08:51:23.320447+00:00
 ---
 
 # From research to production: Accelerate OSS LLM with EAGLE-3 on Vertex  |  Cloud AI Engineering Blog  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-avro-to-bigquery/
 title: Pub/Sub Avro to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:47.683891+00:00
+fetched_at: 2026-11-11T09:27:19.406652+00:00
 ---
 
 # Pub/Sub Avro to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation

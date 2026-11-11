@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-cursor-pagination-async/
 title: Use start cursors and limits to paginate Firestore collections (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:03.194588+00:00
+fetched_at: 2026-11-11T08:57:12.478380+00:00
 ---
 
 # Use start cursors and limits to paginate Firestore collections (async)  |  Google Cloud Documentation

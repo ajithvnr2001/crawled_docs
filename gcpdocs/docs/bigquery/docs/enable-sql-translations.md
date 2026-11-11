@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/enable-sql-translations/
 title: Enable SQL translations for BigQuery migrations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:16.091385+00:00
+fetched_at: 2026-11-11T09:15:25.116891+00:00
 ---
 
 # Enable SQL translations for BigQuery migrations  |  Google Cloud Documentation

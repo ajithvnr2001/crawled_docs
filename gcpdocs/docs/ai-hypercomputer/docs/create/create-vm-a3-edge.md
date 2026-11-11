@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a3-edge/
 title: Create an AI-optimized instance with A3 Edge \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:33:03.725652+00:00
+fetched_at: 2026-11-11T11:44:21.530477+00:00
 ---
 
 # Create an AI-optimized instance with A3 Edge  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -380,7 +380,7 @@ Based on the zonal requirements for your workload, specify one of the following 
      1. Click **Change**. The **Boot disk configuration** pane opens.
      2. On the **Public images** tab, select a recommended image. For a list of recommended images, see [Operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support).
 
-**Tip:** We recommend using [accelerator OS images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#accelerator-os-images) for AI-optimized workloads. Unless you have unique GPU driver requirements, these images install all required GPU drivers automatically. For more information about GPU driver requirements, see Install GPU drivers in this document. 
+For the A3 Edge machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [turn off automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
 
      3. Optional: To configure the boot disk size, see either the [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
 
@@ -770,7 +770,7 @@ Complete the following steps:
      * `INSTANCE_NAME`: the name of the VM.
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
      * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Edge machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
      * `NETWORK_PROJECT_ID`: the project ID of the network.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNICs.
@@ -894,7 +894,7 @@ Complete the following steps:
      * `INSTANCE_NAME`: the name of the VM.
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
      * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Edge machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
      * `NETWORK_PROJECT_ID`: the project ID of the network.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNICs.
@@ -1011,7 +1011,7 @@ Complete the following steps:
      * `INSTANCE_NAME`: the name of the VM.
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
      * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Edge machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
      * `NETWORK_PROJECT_ID`: the project ID of the network.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNICs.
@@ -1142,7 +1142,7 @@ Complete the following steps:
      * `INSTANCE_NAME`: the name of the VM.
      * `DISK_SIZE`: the size of the boot disk in GB. For more information, see either [Google Cloud Hyperdisk size limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#size-limits) or [Persistent Disk size limits](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk#size_limits) based on the type of disk.
      * `DISK_TYPE`: the type of the boot disk. For this machine series, we recommend that you use `hyperdisk-balanced`. For more information about the supported disk types for your machine type, see [GPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) in the Compute Engine documentation. 
-     * `IMAGE_PROJECT`: the project ID of the OS image. 
+     * `IMAGE_PROJECT`: the project ID of the OS image. For example, use `cos-cloud` for the `cos-121-lts` or later Container-Optimized OS image. 
      * `IMAGE_FAMILY`: the image family of the OS image that you want to use. For a list of all supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support). For the A3 Edge machine series, we strongly recommend that you use the `cos-121-lts` or later Container-Optimized OS image and [disable automatic updates](https://docs.cloud.google.com/container-optimized-os/docs/concepts/auto-update). 
      * `NETWORK_PROJECT_ID`: the project ID of the network.
      * `GVNIC_NAME_PREFIX`: the name prefix that you specified when creating the standard VPC networks and subnets that use gVNICs.
@@ -1186,6 +1186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

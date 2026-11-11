@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/stream-cloud-logs-to-datadog/
 title: Stream logs from Google Cloud to Datadog \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:25.211654+00:00
+fetched_at: 2026-11-11T09:54:18.082098+00:00
 ---
 
 # Stream logs from Google Cloud to Datadog  |  Cloud Architecture Center  |  Google Cloud Documentation

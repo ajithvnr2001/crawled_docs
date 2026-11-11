@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-flash/
 title: Developer's guide to Gemini 3.8 Flash \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:33.359237+00:00
+fetched_at: 2026-11-11T13:07:46.675038+00:00
 ---
 
 # Developer's guide to Gemini 3.8 Flash  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document covers what's new with 3.8 Flash, how it fits within the Gemini mo
 
 The Gemini Flash line is the primary agentic workhorse model in the Gemini 3 family, bridging the gap between deep-reasoning Gemini Pro models and high-throughput Gemini Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
 
-In comparison to 3.7 Flash, 3.8 Flash delivers better accuracy and more reliable performance at the cost of higher token consumption. However, 3.8 Flash also comes with effort control through thinking levels for you to modulate this consumption. At the medium thinking level, you can still solve complex agentic tasks while reducing token consumption. You can also use lower thinking levels for latency-sensitive tasks to avoid the compute overhead entirely. If you want to optimize for compute efficiency, consider using 3.7 Flash.
+In comparison to 3.7 Flash, 3.8 Flash delivers better accuracy and more reliable performance at the cost of higher token consumption. However, 3.8 Flash also comes with effort control through thinking levels for you to modulate this consumption. At the medium thinking level, you can still solve complex agentic tasks while reducing token consumption. You can also use lower thinking levels for latency-sensitive tasks to avoid the compute overhead entirely.
 
 ### Model specifications and comparisons
 
@@ -187,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

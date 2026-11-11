@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/configure-disaster-recovery/
 title: Configure disaster recovery for a cluster \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:38.637601+00:00
+fetched_at: 2026-11-11T11:44:35.117402+00:00
 ---
 
 # Configure disaster recovery for a cluster  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

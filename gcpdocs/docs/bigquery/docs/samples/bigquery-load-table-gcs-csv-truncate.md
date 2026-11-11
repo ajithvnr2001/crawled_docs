@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-gcs-csv-truncate/
 title: Load a CSV file to replace a table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:00.425608+00:00
+fetched_at: 2026-11-11T09:11:23.152460+00:00
 ---
 
 # Load a CSV file to replace a table  |  BigQuery  |  Google Cloud Documentation

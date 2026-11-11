@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/edge-public-cloud/release-notes/
 title: Apigee Edge for Public Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:36:17.992488+00:00
+fetched_at: 2026-11-11T10:51:32.914268+00:00
 ---
 
 # Apigee Edge for Public Cloud release notes  |  Google Cloud Documentation
@@ -59,6 +59,20 @@ rss_feed Subscribe:
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-edge-public-cloud-release-notes.xml) directly. 
 
+## November 11, 2026
+
+Announcement
+
+On November 11, 2026, we began releasing Edge UI updates for Apigee Edge for Public Cloud.
+
+Fixed
+
+Bug ID | Component | Description  
+---|---|---  
+**392653797, 399185014** | Edge UI | Fixed an issue where navigating to the App Details or New App pages in organizations with a large number of API products experienced slowness or UI freezing during the initial page load. The Edge UI now fetches API products on demand when you open the **Add Product** dialog, improving initial page load performance.  
+**576859695** | Edge UI | Fixed an issue in the Analytics Error Code Analysis dashboard where `504 Gateway Timeout` responses caused by target timeouts were excluded from the **Proxy errors** charts. Target timeout `504` responses are now counted under **Proxy errors**.  
+**188163219** | Edge UI | Fixed a UI formatting issue in the Analytics Custom Reports list view so that dimensions display without overlapping.  
+  
 ## November 05, 2026
 
 Announcement
@@ -198,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

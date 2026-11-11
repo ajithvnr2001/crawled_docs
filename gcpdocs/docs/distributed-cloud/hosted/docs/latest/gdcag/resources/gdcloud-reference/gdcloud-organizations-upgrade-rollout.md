@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-organizations-upgrade-rollout/
 title: gdcloud organizations upgrade rollout \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:40.110092+00:00
+fetched_at: 2026-11-11T10:28:57.194234+00:00
 ---
 
 # gdcloud organizations upgrade rollout  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models/
 title: Gemini Enterprise Agent Platform open models for MaaS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:59.830123+00:00
+fetched_at: 2026-11-11T08:51:54.908691+00:00
 ---
 
 # Gemini Enterprise Agent Platform open models for MaaS  |  Google Cloud Documentation

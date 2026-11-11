@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options/
 title: Consumption options \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:28.621060+00:00
+fetched_at: 2026-11-11T08:39:45.268013+00:00
 ---
 
 # Consumption options  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

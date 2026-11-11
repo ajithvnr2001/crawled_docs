@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/setup/
 title: Hello tabular data: Set up your project and environment \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:30.607977+00:00
+fetched_at: 2026-11-11T08:51:31.037892+00:00
 ---
 
 # Hello tabular data: Set up your project and environment  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

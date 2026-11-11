@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/use-dataflow-mcp/
 title: Use the Dataflow remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:47:20.082857+00:00
+fetched_at: 2026-11-11T08:20:42.678783+00:00
 ---
 
 # Use the Dataflow remote MCP server  |  Google Cloud Documentation

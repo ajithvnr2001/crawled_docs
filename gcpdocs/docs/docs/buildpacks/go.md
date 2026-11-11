@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/go/
 title: Building a Go application \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:16.009957+00:00
+fetched_at: 2026-11-11T09:45:43.413454+00:00
 ---
 
 # Building a Go application  |  Buildpacks  |  Google Cloud Documentation

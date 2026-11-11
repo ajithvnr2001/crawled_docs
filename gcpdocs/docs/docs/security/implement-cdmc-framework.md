@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/implement-cdmc-framework/
 title: Implement CDMC controls in BigQuery \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:24.712474+00:00
+fetched_at: 2026-11-11T09:27:55.276043+00:00
 ---
 
 # Implement CDMC controls in BigQuery  |  Security  |  Google Cloud Documentation

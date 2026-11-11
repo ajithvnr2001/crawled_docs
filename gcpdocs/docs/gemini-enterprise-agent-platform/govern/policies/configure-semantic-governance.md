@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance/
 title: Configure semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:02.038056+00:00
+fetched_at: 2026-11-11T08:51:45.615993+00:00
 ---
 
 # Configure semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -98,6 +98,27 @@ To verify an existing agent is eligible, confirm that its reasoning engine's `sp
         | grep -q '^agents.global.' \
         && echo "Eligible" || echo "Not eligible"
     
+
+#### (Optional) Govern agents across multiple projects
+
+In a multi-project (hub-and-spoke) architecture, you can deploy a single Agent Gateway and Semantic governance policy engine in a central **management project** to govern Agent Runtime agents deployed across one or more **member projects** in the same region (for more information about this architecture, see [Agent Gateway deployment patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#deployment-patterns)). To configure cross-project governance, do the following:
+
+  1. **Configure a management boundary with`AGENT_MANAGEMENT`:** Configure a [cross-project management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) (`Boundary` and `CapabilityConfig` with the `AGENT_MANAGEMENT` capability) on your parent folder or organization in Resource Manager, designating your central governance project as the [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) and your agent workload projects as [member projects](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#member-projects). This boundary configuration enables Agent Registry in the management project to automatically discover Agent Runtime agents across all member projects with their attested `RuntimeIdentity` (`principal://...`) intact.
+
+  2. **Grant cross-project gateway access:** In the management project, grant `networkservices.agentGateways.get` and `networkservices.operations.get` (for example, using the custom `ar_agw_cross_project_sa` role) to the Agent Runtime service agent of each member project, as described in [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#route-traffic).
+
+  3. **Bind member project agents to the central gateway:** Deploy each member project agent with `identity_type=AGENT_IDENTITY` and set `agent_to_anywhere_config.agent_gateway` to the Agent Gateway resource in the management project (`projects/MANAGEMENT_PROJECT_ID/locations/LOCATION/agentGateways/GATEWAY_NAME`).
+
+  4. **Provision the policy engine and create policies in the management project:** In the **management project** , complete the following sections on this page:
+
+     * Provision and enable the Semantic governance policy engine
+     * Connect the policy engine to Agent Gateway
+     * Create a policy
+
+Because a Semantic governance policy engine evaluates only policies created in its own project, only policies defined in the management project apply to member project agents bound to the management project's Agent Gateway. You don't need to provision a separate policy engine or create policies in the member projects.
+
+
+
 
 #### Supported model providers
 
@@ -532,7 +553,7 @@ To create a policy, you need your agent's unique ID from the [Agent Registry](ht
         --location=LOCATION
     
 
-The agent ID is the last segment of the `name` field (for example, `agentregistry-00000000-0000-0000-abcd-012345678901`). Use this value for the `AGENT_ID` segment of the fully qualified agent name — `projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID` — that the following commands pass to `--agent`.
+The agent ID is the last segment of the `name` field (for example, `agentregistry-00000000-0000-0000-abcd-012345678901`). Use this value for the `AGENT_ID` segment of the fully qualified agent name — `projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID` — that the following commands pass to `--agent`. In a cross-project management boundary, listing agents on the management project returns auto-discovered agents from all member projects with their resource names scoped to the management project.
 
 Before running Semantic governance policy commands, set the regional API endpoint override:
     
@@ -907,7 +928,7 @@ Error name | Description | Suggested action
 `SEMANTIC_GOVERNANCE_POLICY_CONSTRAINT_REQUIRED` | The `natural_language_constraint` field is missing. | Provide your business rules in plain English in the constraint field.  
 `SEMANTIC_GOVERNANCE_POLICY_AGENT_INVALID_NAME` | The agent resource name is malformed. | Verify the format: `projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID`.  
 `SEMANTIC_GOVERNANCE_POLICY_AGENT_UNSUPPORTED_REGION` | The region specified for the agent is not supported by Agent Registry. | Use a region supported by both Agent Registry and Semantic governance policy.  
-`SEMANTIC_GOVERNANCE_POLICY_AGENT_NOT_FOUND` | The specified agent couldn't be found. | Verify that the agent exists in the Agent Registry for the specified project and location.  
+`SEMANTIC_GOVERNANCE_POLICY_AGENT_NOT_FOUND` | The specified agent couldn't be found. | Verify that the agent exists in the Agent Registry for the specified project and location. For agents in a different project, configure a management boundary with `AGENT_MANAGEMENT` so the agent is auto-discovered in the management project.  
 `SEMANTIC_GOVERNANCE_POLICY_AGENT_NOT_CONFIGURED` | The agent lacks a valid `RuntimeIdentity`. | Configure your agent with a valid runtime identity before applying a policy.  
 `SEMANTIC_GOVERNANCE_POLICY_MCP_SERVER_NOT_FOUND` | The specified MCP server couldn't be found. | Verify that the MCP server is registered in the Agent Registry for the project.  
 `SEMANTIC_GOVERNANCE_POLICY_MCP_SERVER_INVALID_NAME` | The MCP server resource name is malformed. | Verify the format: `projects/PROJECT_ID/locations/LOCATION/mcpServers/SERVER_ID`.  

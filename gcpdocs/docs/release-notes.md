@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:34.326833+00:00
+fetched_at: 2026-11-11T09:18:46.140590+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -26,6 +26,422 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 ## November 10, 2026
 
+**Agent Platform Workbench**
+
+Feature
+
+**Antigravity CLI in Agent Platform Workbench instances**
+
+[Preview](https://cloud.google.com/products#product-launch-stages): The Antigravity CLI is available in Agent Platform Workbench instances that use a Debian 12 (`workbench-instances-2603`) or later image. The Antigravity CLI is the terminal surface of Google Antigravity, an AI agent that works in a terminal. New instances have it turned on by default. You can use the Antigravity CLI to do tasks like the following:
+
+  * Create, explain, edit, check, and run notebooks.
+  * Create a Jupyter kernel with the packages that you need.
+  * Run shell commands and Google Cloud commands, such as `gcloud` and `bq`.
+  * Write the code for a notebook cell from a description, with the `%%agy` cell magic.
+
+
+
+The Antigravity CLI asks for your approval before it edits a file or runs a command. To turn it off for an instance, set the `enable-antigravity` metadata key to `false`. To get started, see [Use the Antigravity CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/antigravity-cli).
+
+**BigQuery**
+
+Feature
+
+You can use [graph measures](https://docs.cloud.google.com/bigquery/docs/graph-measures) to lock an aggregation to a key in order to perform complex aggregations without overcounting. [Measure expressions](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#measure_type) can include the following:
+
+  * Aggregate function calls
+  * Expressions within aggregate functions
+  * Conditional logic within aggregate functions
+  * Conditional distinct counting
+  * Scalar operations and expressions outside of aggregate functions
+  * Combinations of measures wrapped in the `AGG` function
+
+
+
+To query measures, you transform your graph into a flattened table by using the [`GRAPH_EXPAND` TVF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-queries#graph_expand), and then query measures in that table with the [`AGG` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions#agg). The `GRAPH_EXPAND` function now supports multiple fact tables. To view the output schema of the `GRAPH_EXPAND` function, use the [`BQ.SHOW_GRAPH_EXPAND_SCHEMA` system procedure](https://docs.cloud.google.com/bigquery/docs/reference/system-procedures#bqshow_graph_expand_schema).
+
+You can define [extensions](https://docs.cloud.google.com/bigquery/docs/graph-schema-overview#specify_options) in the `OPTIONS` clause of the labels and properties in your graphs, which are string pairs that represent custom metadata for natural language querying.
+
+Measures and graphs are supported in Data Studio through the [BigQuery connector](https://docs.cloud.google.com/data-studio/connect-to-google-bigquery). Measures and graphs are also automatically cataloged in Knowledge Catalog, which makes them searchable by natural language or domain synonyms.
+
+These features are [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+BigQuery [generative AI functions](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview#locations) now support the `gemini-4-carbon` model. This model is [generally available](https://cloud.google.com/products#product-launch-stages).
+
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource type is publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), and [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds) APIs.
+
+  * Cloud Key Management Service 
+    * `cloudkms.googleapis.com/KajPolicyConfig`
+
+
+
+**Cloud Logging**
+
+Feature
+
+VM Extension Manager extension policies for the Ops Agent are now available at the folder and organization levels in [Preview](https://docs.cloud.google.com/products#product-launch-stages). Extension policies provide zonal and global Ops Agent installation, version upgrades, and configuration management. For more information, see [VM Extension Manager policies for the Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent/agent-vmem-policies).
+
+In addition, new read-only APIs are available in [Preview](https://docs.cloud.google.com/products#product-launch-stages) for querying the details and status of installed VM extensions. For more information, see [View extension details and status](https://docs.cloud.google.com/logging/docs/agent/ops-agent/view-agent-vmem-extension-state).
+
+**Cloud Monitoring**
+
+Feature
+
+VM Extension Manager extension policies for the Ops Agent are now available at the folder and organization levels in [Preview](https://docs.cloud.google.com/products#product-launch-stages). Extension policies provide zonal and global Ops Agent installation, version upgrades, and configuration management. For more information, see [VM Extension Manager policies for the Ops Agent](https://docs.cloud.google.com/monitoring/agent/ops-agent/agent-vmem-policies).
+
+In addition, new read-only APIs are available in [Preview](https://docs.cloud.google.com/products#product-launch-stages) for querying the details and status of installed VM extensions. For more information, see [View extension details and status](https://docs.cloud.google.com/monitoring/agent/ops-agent/view-agent-vmem-extension-state).
+
+**Cloud SDK**
+
+Breaking
+
+## 593.0.0 (2026-11-10)
+
+### Breaking Changes
+
+  * **(App Lifecycle Manager)** Updated `--evaluation-spec` flag of `gcloud beta app-lifecycle-manager flags create` and `gcloud beta app-lifecycle-manager flags update` to use `defaultVariant`, `defaultAllocation`, `variantId`, and `allocationId` instead of deprecated `defaultTarget` and `target`.
+
+
+
+### Google Cloud CLI
+
+  * Made bundled Python a required component on Windows (x86 and x86_64). `gcloud components update` and `gcloud components install` now install it if it is missing.
+
+
+
+### Agent Identity
+
+  * Promoted `gcloud agent-identity auth-providers authorizations get-iam-policy`, `gcloud agent-identity auth-providers authorizations set-iam-policy`, `gcloud agent-identity auth-providers authorizations add-iam-policy-binding`, `gcloud agent-identity auth-providers authorizations remove-iam-policy-binding`, and `gcloud agent-identity auth-providers authorizations test-iam-permissions` to GA.
+  * Added `--xaa-auth-provider-id-token-input-jag`, `--xaa-auth-provider-id-token-input-jag-additional-claims`, `--xaa-auth-provider-client-secret-id`, `--xaa-auth-provider-client-secret`, `--xaa-auth-provider-client-assertion-jwt-id`, `--xaa-auth-provider-custom-issuer-token-url`, `--xaa-auth-provider-custom-issuer`, `--xaa-auth-provider-additional-parameters`, `--connector-reference-auth-provider`, and `--connector-reference-auth-provider-authorization-details` flags to `gcloud agent-identity auth-providers create` and `gcloud agent-identity auth-providers update` to configure Cross-App Access and Connector Reference auth providers.
+
+
+
+### AlloyDB
+
+  * Added `--[no-]enable-psc-auto-dns` and `--[no-]enable-psc-auto-connection-policy` flags to `gcloud alloydb instances create`, `gcloud alloydb instances create-secondary`, and `gcloud alloydb instances update` to control automatic creation of DNS records and service connection policies for Private Service Connect (PSC) auto connections.
+
+
+
+### App Lifecycle Manager
+
+  * Added `--application-template-component`, `--application-template-component-revision`, `--composite-ref-application-template`, and `--composite-ref-revision` flags to `gcloud beta app-lifecycle-manager unit-kinds create` and `update`.
+  * Added `--clear-application-template-component` to `gcloud beta app-lifecycle-manager unit-kinds update`.
+  * Promoted `gcloud app-lifecycle-manager` command group to GA.
+
+
+
+### Audit Manager
+
+  * Added `--parameter-overrides` flag to `gcloud audit-manager audit-reports generate`, `gcloud audit-manager audit-scopes generate`, and `gcloud audit-manager audit-schedules create` to override parameters of parameterized cloud controls.
+
+
+
+### BigLake
+
+  * Added `--snowflake-user-identity-federation-role` flag to `gcloud beta biglake iceberg catalogs create` and `gcloud beta biglake iceberg catalogs update` to support user identity federation for Snowflake federated catalogs.
+
+
+
+### BigQuery
+
+  * Added a build status guidance message to `bq query` output when creating or replacing a Python user-defined function (UDF) via DDL.
+  * Fixed an issue where specifying a regional endpoint (`--api`) for BigQuery or BigQuery Reservation commands could fail to load the bundled discovery document or crash on empty server discovery responses.
+  * Added build status columns for Python user-defined functions in `bq show --routine`.
+  * Added `--condition_expression`, `--condition_title`, and `--condition_description` flags in `bq mk --reservation_assignment` and `bq update --reservation_assignment`.
+  * Removed the deprecated `--multi_region_auxiliary` flag from `bq mk --reservation` and `bq mk --capacity_commitment`, and the `multiRegionAuxiliary` column from reservation and capacity commitment output.
+  * Updated the bundled `yaml` (`PyYAML`) dependency to package the Python 3 library directly and removed the legacy Python 2 compatibility shim.
+
+
+
+### Cloud Backup DR
+
+  * Promoted `gcloud backup-dr restore-templates` command group to GA.
+  * Promoted `gcloud backup-dr restore-template-executions` command group to GA.
+  * Promoted `gcloud backup-dr restore-verification-plans` command group to GA.
+  * Promoted `gcloud backup-dr restore-verification-plan-associations` command group to GA.
+
+
+
+### Cloud Bigtable
+
+  * Rebuild with go.opentelemetry.io/otel/sdk 1.45.0 to fix CVE-2026-81870.
+
+
+
+### Cloud Bigtable Emulator
+
+  * Rebuild cbt-emulator with go 1.26.9.
+
+
+
+### Cloud IAM
+
+  * Added `--actor-token-field-name` and `--actor-token-type` flags and support for combining `--credential-source-file` with `--credential-cert-path` to `gcloud iam workload-identity-pools create-cred-config` to enable certificate-bound OAuth 2.0 token exchanges and actor token delegation.
+
+
+
+### Cloud Key Management Service
+
+  * Updated `gcloud kms locations list` to include the `HSM_SINGLE_TENANT_AVAILABLE` column in the default table output.
+
+
+
+### Cloud Memorystore
+
+  * Added `ipVersion` key to `--endpoints` flag of `gcloud beta memorystore instances create` to support IPv6 Private Service Connect auto-created endpoints.
+
+
+
+### Cloud Run
+
+  * Added `--[no-]ambient-networking` and `--ambient-scope` flags for Cloud Run services, allowing users to enable ambient networking and choose a `regional` (default) or `global` scope. These flags are available in `gcloud beta run deploy`, `gcloud beta run services update`, and `gcloud beta run multi-region-services update`.
+
+
+
+### Cloud Shell
+
+  * Deprecated `gcloud cloud-shell get-mount-command`. It will be removed in a future release.
+
+
+
+### Cloud Spanner
+
+  * Added `gcloud alpha spanner databases wait-for-reencryption` to wait for background CMEK re-encryption to finish.
+  * `gcloud spanner databases update` now provides instructions to wait until background re-encryption finishes when using the `--kms-keys` or `--clear-kms-keys` flags.
+
+
+
+### Cloud Storage
+
+  * Fixed an issue with `gcloud storage rsync` on Windows where incorrect file sorting caused unchanged files to be re-copied or deleted.
+
+
+
+### Cloud Workstations
+
+  * Promoted `--disk-provisioned-iops` and `--disk-provisioned-throughput` flags of `gcloud workstations configs create` and `gcloud workstations configs update` to GA.
+
+
+
+### Cluster Director
+
+  * Added `gcloud cluster-director clusters export` and `gcloud cluster-director clusters import` commands to export and import Cluster Director cluster configurations.
+  * Fixed an issue in `gcloud cluster-director clusters update` where `startupScript`, `labels`, and `bootDisk` values specified under `computeInstance` in `--update-slurm-node-sets` were ignored.
+  * Promoted `--managed-instance-groups` flag of `gcloud cluster-director clusters create` and `--add-managed-instance-groups`, `--update-managed-instance-groups`, and `--remove-managed-instance-groups` flags of `gcloud cluster-director clusters update` to beta to support configuring Compute Engine managed instance group orchestration on clusters.
+
+
+
+### Compute Engine
+
+  * Promoted `--svsm-config` flag to GA in `gcloud compute instances create`, `gcloud compute instances bulk create`, `gcloud compute instances create-with-container`, and `gcloud compute instance-templates create`.
+  * Added support for regional backend services to `--service-lb-policy` flag of `gcloud compute backend-services create`.
+  * Promoted `--linked-custom-hardware` flag of `gcloud compute routers add-bgp-peer` to beta.
+  * Promoted `--require-specific-reservation` flag in `gcloud compute reservations update` to GA.
+  * Promoted `--content-type`, `--http-status`, `--backend-service`, and `--backend-bucket` flags to GA in `gcloud compute url-maps invalidate-cdn-cache` to support cache invalidation by the new matchers.
+  * Updated `--host` flag in `gcloud compute url-maps invalidate-cdn-cache` to support wildcard hostnames (e.g. `*.example.com`).
+
+
+
+### Config Connector
+
+  * Updated Google Cloud Config Connector to version 1.160.0. See Config Connector Overview for more details <https://cloud.google.com/config-connector/docs/overview>.
+
+
+
+### Database Migration
+
+  * Added `--schemas-filter`, `--tables-filter`, `--excluded-schemas-filter`, and `--excluded-tables-filter` flags to `gcloud database-migration migration-jobs create` and `update` commands to support schema- and table-level object filtering and exclusion.
+
+
+
+### Device Run
+
+  * Added `--target-app`, `--pre-target-apps`, and `--post-target-apps` flags to `gcloud beta device-run sessions submit instrumentation` to specify the application under test and the applications to install before and after it.
+  * Deprecated `--apps` flag of `gcloud beta device-run sessions submit instrumentation`. Use `--target-app`, `--pre-target-apps`, and `--post-target-apps` instead.
+
+
+
+### Eventarc
+
+  * Fixed issue where `gcloud eventarc triggers list` failed when listing triggers without event filters.
+
+
+
+### GKE Hub
+
+  * Added `--auto-rollout-scope` and `--ignored-clusters-selector` flags to `gcloud container fleet|hub rolloutsequences create` and `update` commands.
+  * Added `--clear-ignored-clusters-selector` flag to `gcloud container fleet|hub rolloutsequences update` command.
+  * Added `--read-only` flag to `gcloud container fleet|hub memberships register` to register a non-GKE cluster with a `READ_ONLY` membership type, which skips cluster mutations and the Connect agent installation.
+
+
+
+### Kubernetes Engine
+
+  * Added `--default-compute-class` flag to `gcloud container clusters create` and `gcloud container clusters update`.
+  * Updated `gcloud container clusters create` to reject more flags that only configure the default node pool, such as `--boot-disk-kms-key` and `--workload-metadata`, when used with `--num-nodes=0`.
+  * Fixed `gcloud container clusters describe` suggesting a node upgrade for clusters that have no node pools.
+  * Updated `gcloud container clusters upgrade` to fail with a clear error when the cluster has no node pools and neither `--master` nor `--node-pool` is specified.
+  * Updated `gcloud container clusters update` to fail with a clear error when `--enable-autoscaling` is specified without `--node-pool` for a cluster that has no node pools.
+  * Updated `gcloud container clusters resize` to fail with a clear error for clusters that have no node pools.
+  * Updated `gcloud container clusters list` and `gcloud container clusters create` to show `0` in the `NUM_NODES` column for clusters without nodes, instead of leaving it empty.
+  * Updated default kubectl from 1.35.9 to 1.36.6.
+  * Removed kubectl version 1.31 as extended support has expired.
+  * Additional kubectl versions: 
+    * 1.32.13
+    * 1.33.13
+    * 1.34.13
+    * 1.35.10
+    * 1.36.6
+    * 1.37.2
+  * Fixed an issue where `gcloud beta container clusters create` and `gcloud alpha container clusters create` with `--stack-type=ipv6` required `--enable-ip-alias` for `--enable-private-nodes` and rejected `--no-enable-ip-alias`. IP aliases do not apply to IPv6-only clusters, so `--no-enable-ip-alias` is now ignored with a warning.
+
+
+
+### Looker
+
+  * Promoted `--workforce-auth-enabled` and `--google-auth-enabled` flags to GA for `gcloud looker instances create` and `gcloud looker instances update`.
+
+
+
+### Model Armor
+
+  * Added `--filter-version-selector` and `--filter-version-selector-alias` flags to `gcloud model-armor templates create` and `gcloud model-armor templates update`.
+
+
+
+### Network Connectivity
+
+  * Promoted `--export-psc-published-services-and-regional-google-apis` and `--export-psc-global-google-apis` flags of `gcloud network-connectivity hubs create` and `gcloud network-connectivity hubs update` commands to GA.
+
+
+
+### Network Management
+
+  * Added `--source-datastream-private-connection` flag to `gcloud network-management connectivity-tests`.
+
+
+
+### Network Services
+
+  * Added `gcloud beta network-services express-links` which manages Network Services ExpressLink resources.
+
+
+
+### Oracle Database
+
+  * Added `gcloud oracle-database cloud-vm-clusters enable-identity-connector`, `gcloud oracle-database cloud-vm-clusters disable-identity-connector`, `gcloud oracle-database exadb-vm-clusters enable-identity-connector` and `gcloud oracle-database exadb-vm-clusters disable-identity-connector` commands to manage the Workload Identity Connector of Exadata and Exascale VM Clusters.
+  * Added `--identity-connector-disabled` flag to `gcloud oracle-database cloud-vm-clusters create` and `gcloud oracle-database exadb-vm-clusters create` to opt out of provisioning the Workload Identity Connector.
+
+
+
+### Secure Source Manager
+
+  * Added `--enable-vulnerability-scanning` argument to `gcloud source-manager repos create` and `gcloud source-manager repos update` commands.
+
+
+
+### Service Health
+
+  * Added `gcloud beta service-health impacts` command group to list and describe asset impacts under a project.
+
+
+
+Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
+
+**Compute Engine**
+
+Feature
+
+For your regional managed instance groups (MIGs), you can view planned instance allocations across zones and machine types, check the number of instances waiting for capacity, and configure alerts based on this data. Compute Engine records these details in instance distribution logs in Cloud Logging when you create a regional MIG or increase its target size. For more information, see [View instance distribution logs](https://docs.cloud.google.com/compute/docs/instance-groups/view-instance-distribution-logs).
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: Gemini 4 Carbon available in web app, mobile app, Workflow Builder, and AI developer tools**
+
+Gemini 4 Carbon is generally available (GA) for the Gemini Enterprise web app, mobile app, Workflow Builder, and AI developer tools.
+
+  * **Location availability** : Supported in `global`, `us`, and `eu` multi-regions, with data residency and ML processing support in `us` and `eu`. For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).
+  * **App availability** : Turned off by default. Gemini 4 Carbon is supported in the web app and mobile app. For more information about turning on the model, see [Manage features on the web app](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features).
+  * **Workflow Builder** : Gemini 4 Carbon is available in Workflow Builder. For more information, see [Workflow Builder](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder).
+  * **AI developer tools** : Enabled by default for licensed users when **Antigravity authorized models** uses the default selection. If your organization specifies a custom model list, an administrator must manually select Gemini 4 Carbon. For more information, see [Configure AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings).
+
+
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Cross-project governance for semantic governance policies**
+
+You can use semantic governance policies in a multi-project (hub-and-spoke) architecture to centrally govern agents deployed across multiple Google Cloud projects. When you configure a Resource Manager management boundary with the `AGENT_MANAGEMENT` capability, Agent Registry in the central management project automatically discovers agents across all member projects with their runtime identities intact. You can then provision a single Agent Gateway and semantic governance policy engine in the management project to author and enforce policies across member project agents.
+
+For more information, see [Govern agents across multiple projects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#cross-project-governance) and [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology).
+
+Fixed
+
+**CodeMender updates (v0.20.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Bug fixes** : 
+    * Fixed patch application failures during validation on large repositories and projects with mixed LF and CRLF line endings.
+    * Fixed scan error handling to properly surface permission denied errors when scanning unreadable directories instead of reporting zero findings.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
+Feature
+
+**Gemini 4 Carbon and Gemini 4 Carbon for cyber (GA)**
+
+[Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) (`gemini-4-carbon`) and [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) (`gemini-4-carbon-cyber-permissive`) are [generally available (GA)](https://cloud.google.com/products#product-launch-stages). Gemini 4 Carbon is Google's frontier model for complex, real-world tasks across coding, finance, legal, cybersecurity, and science, with a unified 1,048,576-token input and output limit, long decodes up to 1,048,576 tokens using `continuation_token`, configurable thinking levels (`LOW`, `MEDIUM`, and `HIGH`), implicit context caching with durable caching, Microsoft Office and OpenDocument file inputs, and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) support. Gemini 4 Carbon for cyber is a defensive cybersecurity variant available behind the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist.
+
+**Google Cloud Contact Center as a Service**
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where numbers on the inbound blocklist weren't blocked when calling a direct line.
+
+  * Fixed an issue where Telnyx calls became stuck in a queue indefinitely if a hang-up notification was lost during high-load periods.
+
+  * Fixed an issue where callback calls that were abandoned while waiting in a queue were incorrectly recorded as system failures instead of end-user hang-ups, and didn't maintain their first-in, first-out priority order when transitioning between queue groups.
+
+  * Fixed an issue where the call adapter incorrectly redialed a call immediately after hang-up, causing the participant status to fail and the mandatory disposition panel to close prematurely.
+
+  * Fixed an issue where auto-answer calls entered an infinite re-offer loop to the same agent if a connection timeout occurred, preventing over-capacity deflection from triggering.
+
+  * Fixed an issue where scheduled callback redials were placed after their maximum deferral deadline, causing calls to reach customers later than promised.
+
+  * Fixed an issue where an agent's next status prematurely cleared and didn't appear in **Agent Monitoring** if a voice call's wrap-up ended while they still had active chats.
+
+  * Fixed an issue where the logout confirmation dialog on the **Agents** page appeared in English when the CCaaS portal language was set to French Canadian (`fr_CA`).
+
+  * Fixed an issue where virtual-agent-to-virtual-agent chat transfers failed if the transfer turn also ended the conversation.
+
+  * Fixed an issue in the **Agents** view where the team filter incorrectly displayed agents from unrelated teams due to stale data records.
+
+  * Fixed an issue where the `{ACCOUNT_ID}` placeholder resolved to an empty string during virtual agent chats, causing CRM API request failures.
+
+  * Fixed an issue where large, unbounded date range queries on the Manager API `calls` endpoint caused request timeouts. Requests to this endpoint now require a bounded date range.
+
+  * Fixed an issue where loading holiday settings or ending a call in the agent desktop caused significant system slowness due to inefficient database lookups.
+
+  * Fixed an issue where retrieving agent call history caused significant performance delays and system instability.
+
+
+
+
 **Model Armor**
 
 Feature
@@ -33,6 +449,38 @@ Feature
 Model Armor image screening is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
 
 You can extract and screen images embedded within supported rich text documents (PDF, Word, Excel, and PowerPoint). Pricing for image screening is in effect and converts processed images into tokens based on image size. For more information, see [Screen images](https://docs.cloud.google.com/model-armor/screen-images), [Pricing](https://docs.cloud.google.com/model-armor/overview#pricing), and [Token calculation and pricing for images](https://docs.cloud.google.com/model-armor/screen-images#tokens).
+
+**Network Connectivity Center**
+
+Fixed
+
+[IPv6 dynamic routes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/spoke-filters-overview) (Preview) traffic sent to hybrid spokes from VPC spokes will incur Advanced Data Networking (ADN) charges at the same rate as IPv4 traffic. For detailed pricing information, see [Network Connectivity Center pricing](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/pricing#ncc-pricing).
+
+**Service Health**
+
+Feature
+
+Personalized Service Health supports **resource-level impact** in [Preview](https://docs.cloud.google.com/products#product-launch-stages) for supported products through the Service Health `v1beta` API and the `gcloud beta` CLI.
+
+For more information, see [Impacted resources](https://docs.cloud.google.com/service-health/docs/concepts#impacted-resources) and [List impacted resources in a project](https://docs.cloud.google.com/service-health/docs/project-events#list-impacted-resources).
+
+**Spanner**
+
+Feature
+
+Spanner [parameterized views](https://docs.cloud.google.com/spanner/docs/parameterized-views) are now generally available ([GA](https://docs.cloud.google.com/products#product-launch-stages)). Parameterized views let you dynamically filter data based on session context parameters passed with queries, helping you isolate tenant data and restrict data access in AI agent and LLM applications.
+
+For more information, see [Create a parameterized view](https://docs.cloud.google.com/spanner/docs/create-manage-views#create-parameterized-view) and [Use parameterized views](https://docs.cloud.google.com/spanner/docs/use-parameterized-views).
+
+**Vertex AI Search**
+
+Feature
+
+**Agent Search: Search-as-you-type for custom search apps (Preview)**
+
+You can configure schema fields to support search-as-you-type in custom search apps. Search-as-you-type returns a refreshed set of ranked documents on every keystroke before a user finishes typing a full query. Unlike autocomplete, which suggests query strings, search-as-you-type returns matching documents so that users can browse an updating result list and find the right result mid-query.
+
+This feature is in Public Preview. For more information, see [Configure field settings](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-field-settings).
 
 ## November 09, 2026
 
@@ -342,6 +790,12 @@ For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](ht
 
 This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-080](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-080) ([ISTIO-SECURITY-2026-009](https://istio.io/latest/news/security/istio-security-2026-009/)).
 
+**Colab Enterprise**
+
+Feature
+
+Python 3.13 is now available in Colab Enterprise and is the latest Python version. Runtime templates that are configured to use the latest Python version, including default runtime templates, now create runtimes that use Python 3.13. Existing runtimes keep their current Python version. For more information, see [Python versions](https://docs.cloud.google.com/colab/docs/runtimes#python).
+
 **Compute Engine**
 
 Feature
@@ -363,7 +817,21 @@ Feature
 
 You can limit how many actions run concurrently within a single [workflow execution](https://docs.cloud.google.com/dataform/docs/trigger-execution#limit-concurrent-actions) or [workflow configuration schedule](https://docs.cloud.google.com/dataform/docs/schedule-runs#create-workflow-configuration). This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
+**Firestore with MongoDB compatibility**
+
+Feature
+
+Firestore with MongoDB compatibility offers conversational analytics, which lets you query operational data using natural language. This feature is powered by the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Conversational analytics for Firestore with MongoDB compatibility](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/firestore-mongodb-compatibility).
+
 **Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini 3.8 Flash regional support in Canada and Japan**
+
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) (`gemini-3.8-flash`) is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) in Canada (`northamerica-northeast1`) and Japan (`asia-northeast1`). On Gemini Enterprise Agent Platform, both regions support regional endpoints, in-region ML processing for data residency, and Provisioned Throughput.
+
+For more information, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) and [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency).
 
 Feature
 
@@ -383,7 +851,7 @@ Feature
 
 **Meta Muse models in Preview**
 
-[Muse Wonder 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) (`meta/muse-wonder-1.0`), [Muse Ember 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) (`meta/muse-ember-1.0`), and [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) (`meta/muse-spark-1.3`) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint through the OpenAI-compatible Responses API. Muse Wonder 1.0 and Muse Spark 1.3 accept text, image, and PDF inputs, and Muse Ember 1.0 accepts text and image inputs. All three models support reasoning, function calling, structured output, and a 1M-token context window.
+[Muse Wonder from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) (`meta/muse-wonder-1.0`), [Muse Ember from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) (`meta/muse-ember-1.0`), and [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) (`meta/muse-spark-1.3`) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint through the OpenAI-compatible Responses API. Muse Wonder and Muse Spark 1.3 accept text, image, and PDF inputs, and Muse Ember accepts text and image inputs. All three models support reasoning, function calling, structured output, and a 1M-token context window.
 
 For more information, see [Muse models from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta).
 
@@ -415,25 +883,52 @@ Agent Substrate is an infrastructure layer designed for large-scale, high-densit
 
 For more information, see [About Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate).
 
+**Managed Service for Apache Spark**
+
+Announcement
+
+Managed Service for Apache Spark (formerly Google Cloud Serverless for Apache Spark): [Runtime version 4.0](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-4.0) is generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This version includes the following components:
+
+  * Apache Spark 4.2.0
+  * BigQuery Connector 0.46.0
+  * Cloud Storage Connector 4.0.7
+  * Java 25
+  * Python 3.13
+  * Scala 2.13.17
+
+
+
+Runtime 4.0 also introduces the following changes:
+
+  * Batch workloads run in the [premium tier](https://docs.cloud.google.com/managed-spark/docs/tiers) and use [Lightning Engine](https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine-serverless) by default.
+  * [Memory shapes](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-4.0#memory-shapes) determine the memory of drivers and executors. The default `highmem` memory shape provides 7.75 GiB of memory per vCPU.
+  * Premium tier workloads that use the default driver configuration are eligible to run the driver on a [fast-startup VM](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-4.0#fast-startup-driver), which reduces startup time.
+  * The [Lakehouse runtime catalog](https://docs.cloud.google.com/managed-spark/docs/guides/create-lakehouse#default-catalog) is the default Spark catalog for batch workloads and interactive sessions.
+  * Workloads that don't use GPUs consume the [Data Compute Units quota](https://docs.cloud.google.com/managed-spark/quotas-serverless#dataproc-serverless-dcu-quota) instead of Compute Engine CPU and disk quotas.
+
+
+
+Runtime 4.0 doesn't support some features of earlier runtimes, such as SparkR batches, Jupyter sessions, and the Persistent History Server. For more information, see [Unsupported functionality and behavior changes](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-4.0#unsupported).
+
 **Memorystore for Redis**
 
 Feature
 
 Memorystore for Redis supports the `CLIENT` command and the following subcommands:
 
-  * CLIENT | CACHING
-  * CLIENT | GETNAME
-  * CLIENT | GETREDIR
-  * CLIENT | HELP
-  * CLIENT | ID
-  * CLIENT | INFO
-  * CLIENT | KILL
-  * CLIENT | LIST
-  * CLIENT | NO-TOUCH
-  * CLIENT | REPLY
-  * CLIENT | SETNAME
-  * CLIENT | TRACKING
-  * CLIENT | TRACKINGINFO
+  * `CLIENT` | `CACHING`
+  * `CLIENT` | `GETNAME`
+  * `CLIENT` | `GETREDIR`
+  * `CLIENT` | `HELP`
+  * `CLIENT` | `ID`
+  * `CLIENT` | `INFO`
+  * `CLIENT` | `KILL`
+  * `CLIENT` | `LIST`
+  * `CLIENT` | `NO-TOUCH`
+  * `CLIENT` | `REPLY`
+  * `CLIENT` | `SETNAME`
+  * `CLIENT` | `TRACKING`
+  * `CLIENT` | `TRACKINGINFO`
 
 
 
@@ -1246,6 +1741,80 @@ An issue has been fixed in the System Activity **Conversational Analytics** dash
 Feature
 
 The [filters as tiles](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters_as_tiles) feature is now generally available.
+
+**Managed Service for Apache Airflow**
+
+Announcement
+
+A new Managed Service for Apache Airflow release has started on **November 06, 2026**. Get ready for upcoming changes and features as we roll out the new release to all regions. This release is in progress at the moment. Listed changes and features might not be available in some regions yet.
+
+Feature
+
+_(Available without upgrading)_ Managed Airflow now supports [setting Custom Organization Policy constraints](https://docs.cloud.google.com/composer/docs/composer-3/create-custom-constraints) on Airflow configuration overrides and web server network access controls.
+
+You can define policies on the following fields of the `composer.googleapis.com/Environment` resource:
+
+  * `resource.config.softwareConfig.airflowConfigOverrides`
+  * `resource.config.webServerNetworkAccessControl.allowedIpRanges.description`
+  * `resource.config.webServerNetworkAccessControl.allowedIpRanges.value`
+
+
+
+Feature
+
+[Upgrade rollbacks](https://docs.cloud.google.com/composer/docs/composer-3/upgrade-environments#rollback) are available in Managed Airflow (Gen 3). You can roll back an environment upgrade if you encounter degraded performance, Airflow bugs, or compatibility issues with your DAGs, plugins, or dependencies.
+
+This feature is now available in all regions supported by Managed Airflow. The feature was announced previously and has finished gradually rolling out.
+
+Feature
+
+[Database retention](https://docs.cloud.google.com/composer/docs/composer-3/configure-db-retention) in Managed Airflow (Gen 3) now includes new Airflow 3 metadata tables, and updated retention logs to report the exact number of removed rows.
+
+This feature is now available in all regions supported by Managed Airflow. The feature was announced previously and has finished gradually rolling out.
+
+Fixed
+
+Startup failure logs for Airflow workloads in Managed Airflow (Gen 3) now include entries for KubernetesPodOperator and KubernetesExecutor workloads. This update extends the [previous change](https://docs.cloud.google.com/composer/docs/release-notes?e=48754805#October_13_2026).
+
+The fix will gradually roll out to all Managed Airflow Gen 3 environments. You can upgrade your environment to receive this update immediately.
+
+Fixed
+
+Fixed an issue where DAG file processor crashes caused the `composer.googleapis.com/environment/dag_processing/parse_error_count` metric to stop returning data.
+
+Fixed
+
+_(Available without upgrading)_ Fixed an issue where DAG details (description, schedule, and start date) were missing, and task listings failed. This issue occurred in environments where the `[core]compress_serialized_dags` Airflow configuration option was set to `True`.
+
+Fixed
+
+Fixed an issue where saving and loading snapshots failed in Managed Airflow (Gen 3) environments that had a large number of custom PyPI packages installed.
+
+Change
+
+The `apache-airflow-providers-cncf-kubernetes` package was [upgraded to version 10.25.0](https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/changelog.html). For changes in other packages, see the [preinstalled packages changelog](https://cloud.google.com/composer/docs/versions-packages).
+
+Change
+
+New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3) are available in Managed Airflow (Gen 3):
+
+  * [composer-3-airflow-3.3.1-build.6](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-6)
+  * [composer-3-airflow-3.2.2-build.10](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-10)
+  * [composer-3-airflow-2.11.1-build.23](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-23) (default)
+
+
+
+Change
+
+New [images](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2) are available in Managed Airflow (Gen 2):
+
+  * [composer-2.17.17-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-17-airflow-2-11-1) (default)
+
+
+
+Deprecated
+
+The following Managed Airflow versions and builds have reached their [end of support period](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-deprecation-and-support): composer-3-airflow-2.9.3-build.39, composer-3-airflow-2.9.3-build.38, composer-3-airflow-2.9.3-build.37, composer-3-airflow-2.10.5-build.19, composer-3-airflow-2.10.5-build.18, composer-3-airflow-2.10.5-build.17, composer-2.15.3-airflow-2.9.3, composer-2.15.3-airflow-2.10.5, composer-2.15.2-airflow-2.9.3, composer-2.15.2-airflow-2.10.5, composer-2.15.1-airflow-2.9.3, composer-2.15.1-airflow-2.10.5, composer-2.15.0-airflow-2.9.3, composer-2.15.0-airflow-2.10.5.
 
 **VPC Service Controls**
 
@@ -6068,6 +6637,18 @@ Security
 
 A vulnerability (CVE-2026-85299) about incorrect authorization in Compute Engine was discovered and has been addressed. For more information, see the [GCP-2026-073 security bulletin](https://docs.cloud.google.com/compute/docs/security-bulletins#gcp-2026-073).
 
+**Developer Connect**
+
+Feature
+
+The Developer Connect Model Context Protocol (MCP) server is available in [Preview](https://docs.cloud.google.com/products#product-launch-stages).
+
+AI applications and coding assistants can use the Developer Connect MCP server to read commits, diffs, file blame, and pull requests. They can also open, update, and comment on pull requests in repositories that you link from GitHub, GitHub Enterprise, GitLab, and GitLab Enterprise.
+
+The same operations are available as `GitRepositoryLink` methods in the [Developer Connect REST API](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks).
+
+For more information, see the [Developer Connect MCP reference](https://docs.cloud.google.com/developer-connect/docs/api/reference/mcp).
+
 **Gemini Enterprise Agent Platform**
 
 Feature
@@ -9538,7 +10119,7 @@ Deprecated
 
 **Face detection model update**
 
-The emotion label response in the Cloud Vision API is deprecated. Going forward, the Cloud Vision API face detection (`FACE_DETECTION` feature) will return `UNKNOWN` for all emotion-related labels.
+The emotion label response for face detection (`FACE_DETECTION`) in the Cloud Vision API is deprecated. Effective October 15, 2026, the `joyLikelihood`, `sorrowLikelihood`, `angerLikelihood`, and `surpriseLikelihood` fields in [`FaceAnnotation`](https://docs.cloud.google.com/vision/docs/reference/rest/v1/AnnotateImageResponse#FaceAnnotation) return `UNKNOWN` for new projects and projects without recent Face Detection usage. Beginning January 14, 2027, these fields will permanently return `UNKNOWN` for all projects.
 
 **Compute Engine**
 
@@ -15653,6 +16234,12 @@ You must migrate your clusters to managed Cloud Service Mesh by March 1, 2028. r
 
 For more details on the deprecation schedule, see [Deprecations](https://docs.cloud.google.com/service-mesh/deprecations).
 
+**Colab Enterprise**
+
+Feature
+
+You can now use the Google Cloud console to set an existing runtime template as the default runtime template for a project and region, with or without accelerators. New default runtimes in that project and region use the template's configuration. For more information, see [Set a runtime template as the default runtime template](https://docs.cloud.google.com/colab/docs/runtimes#set-default-runtime-template).
+
 **Compute Engine**
 
 Feature
@@ -21224,106 +21811,10 @@ Fixed
 
 Fixed the %%bigquery notebook cell magic, which returned an error instead of query results in JupyterLab 4.
 
-## September 11, 2026
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: New data stores and support for new actions (Preview)**
-
-The following data stores are available in Public Preview in Gemini Enterprise:
-
-  * [D&B Risk Analytics](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d_b_risk_analytics) (actions supported)
-  * [Finnhub](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/finnhub)
-  * [Grafana](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/grafana)
-
-
-
-You can search and read data from these data stores, and perform actions using natural language.
-
-Additionally, the following data store supports new actions in Public Preview:
-
-  * [Clay](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/clay): Find and enrich company, find and enrich contacts at company, and find and enrich list of contacts.
-
-
-
-**Google Cloud Contact Center as a Service**
-
-Announcement
-
-**Google Cloud CCaaS 6.12**
-
-We've released version 6.12 of Google Cloud CCaaS.
-
-The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://docs.cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
-
-Feature
-
-**Cold transfers auto-resume**
-
-When an agent performs a cold transfer, the call now resumes at the moment the receiving agent answers the call. The receiving agent no longer needs to manually take the caller off hold. This eliminates the silence that previously occurred between an agent answering a call and taking the caller off hold.
-
-For more information, see [Cold transfers](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-adapter-transfer#cold-transfer).
-
-Feature
-
-**Hubspot: Configure Do Not Call by phone number**
-
-In HubSpot integrations, you can now configure Do Not Call for specific phone numbers instead of for an entire contact or company record. Opt-out matching is no longer case-sensitive.
-
-Administrators: There's a new **Do Not Call Configuration** section in the **CRM** pane, located at **Settings > Developer Settings** (with **HubSpot** selected).
-
-For more information, see [Configure Do Not Call for HubSpot](https://docs.cloud.google.com/contact-center/ccai-platform/docs/hubspot-do-not-call).
-
-Feature
-
-**Agent desktop: New network diagnostics tool**
-
-The agent desktop has a new network diagnostics tool in the navigation menu that displays network strength and diagnostics information. This tool can help you quickly assess your network's health and troubleshoot connection issues.
-
-For more information, see [Get network diagnostic information](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-desktop-use-agent-desktop#get-network-diagnostic-information).
-
-Feature
-
-**Agent desktop: Open from the CCaaS portal**
-
-You can now access the Agent Desktop using the new **Apps** menu. In the CCaaS portal, click **Apps > Agent Desktop** to open the Agent Desktop in a new browser tab. This lets you move between the portal and the Agent Desktop without ending your portal session.
-
-For more information, see [Open the agent desktop](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-desktop-use-agent-desktop#open-agent-desktop).
-
-**Google Kubernetes Engine**
-
-Feature
-
-Agent Substrate on GKE is now available for evaluation and non-production use. Production support is offered on an allowlist basis under a limited GA program.
-
-Agent Substrate runs agentic workloads at scale on GKE clusters. To reduce resource usage, Agent Substrate suspends idle agents and takes a snapshot of the agent's active memory (RAM) and local files. When a suspended agent is triggered, the system restores the agent's state onto an available sandbox with sub-second latency.
-
-Agent Substrate improves on the capabilities of Agent Sandbox by bypassing the bottlenecks of the standard Kubernetes control plane to run significantly more concurrent agents per machine.
-
-For more information, see [About GKE Substrate](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-substrate/about-agent-substrate).
-
-**Google SecOps**
-
-Deprecated
-
-**Deprecation of write permissions from the chronicle.readonly OAuth scope**
-
-Effective January 25, 2027, **write** permissions will be removed from the `chronicle.readonly` OAuth scope, restricting it strictly to **read** operations. You can continue using `chronicle.readonly` for read operations. Make sure you update any workflows performing **write** operations to use the `chronicle` OAuth scope.
-
-**Google SecOps SIEM**
-
-Deprecated
-
-**Deprecation of write permissions from the chronicle.readonly OAuth scope**
-
-Effective January 25, 2027, **write** permissions will be removed from the `chronicle.readonly` OAuth scope, restricting it strictly to **read** operations. You can continue using `chronicle.readonly` for read operations. Make sure you update any workflows performing **write** operations to use the `chronicle` OAuth scope.
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

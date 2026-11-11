@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/xdit/
 title: Serve Diffusion Transformer models using xDiT container on Cloud GPUs \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:40.781851+00:00
+fetched_at: 2026-11-11T08:50:15.132835+00:00
 ---
 
 # Serve Diffusion Transformer models using xDiT container on Cloud GPUs  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -94,10 +94,10 @@ For flexibility and customization, use the Colab Enterprise notebook examples to
 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai import model_garden
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=<YOUR_PROJECT_ID>, location=<REGION>)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=<YOUR_PROJECT_ID>, location=<REGION>)
     
     model = model_garden.OpenModel("black-forest-labs/FLUX.1-schnell")
     endpoint = model.deploy()
@@ -201,10 +201,10 @@ Model Garden provides default xDiT parallelization configurations for supported 
 To view the default deployment configuration for a model, such as "black-forest-labs/FLUX.1-schnell", you can run the following code snippet:
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai import model_garden
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=<YOUR_PROJECT_ID>, location=<REGION>)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=<YOUR_PROJECT_ID>, location=<REGION>)
     
     model = model_garden.OpenModel("black-forest-labs/FLUX.1-schnell")
     deploy_options = model.list_deploy_options()
@@ -247,11 +247,11 @@ The `list_deploy_options()` method returns the container specifications, includi
 To customize the parallelism strategy, you can override these environment variables when deploying the model. The following example demonstrates how to modify the RING_DEGREE and ULYSSES_DEGREE for a 2-GPU setup, changing the parallelism approach:
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai import model_garden
     
     # Replace with your project ID and region
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="<YOUR_PROJECT_ID>", location="<REGION>")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="<YOUR_PROJECT_ID>", location="<REGION>")
     
     model = model_garden.OpenModel("black-forest-labs/FLUX.1-schnell")
     

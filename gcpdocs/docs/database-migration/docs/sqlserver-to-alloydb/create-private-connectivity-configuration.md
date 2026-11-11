@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/create-private-connectivity-configuration/
 title: Create a private connectivity configuration for the source database \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:56.340471+00:00
+fetched_at: 2026-11-11T09:34:50.992818+00:00
 ---
 
 # Create a private connectivity configuration for the source database  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

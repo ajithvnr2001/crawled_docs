@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers/
 title: Create triggers from Pub/Sub events \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:28.529269+00:00
+fetched_at: 2026-11-11T12:59:43.916489+00:00
 ---
 
 # Create triggers from Pub/Sub events  |  Cloud Run  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ When configuring the trigger, you link the trigger to a specific Pub/Sub topic. 
 
 You can configure this trigger in two ways:
 
-  * **Direct Pub/Sub trigger (Recommended)** : Route messages directly to your service or function using Pub/Sub. You manage the subscription directly, and your service or function receives the standard Pub/Sub push request. Use this if you need simpler configuration and lower latency.
+  * **Direct Pub/Sub trigger (Recommended)** : Route messages directly to your service or function using Pub/Sub. You manage the subscription directly, and your service or function receives the standard Pub/Sub push request. Use this if you need simpler configuration.
   * **Eventarc-based trigger** : Route Pub/Sub messages to your service or function using Eventarc. You manage Pub/Sub triggers the same way as [other Eventarc sources](https://docs.cloud.google.com/run/docs/triggering/trigger-with-events), and your service or function receives events as CloudEvents. Use this if you need Eventarc's advanced filtering or routing features.
 
 
@@ -56,6 +56,7 @@ Grant the required IAM roles and permissions. If you are configuring an Eventarc
 To get the permissions that you need to trigger from Pub/Sub events, ask your administrator to grant you the following IAM roles on your project: 
 
   * [Cloud Run Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.admin) (`roles/run.admin`)
+  * [Pub/Sub Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/pubsub#pubsub.editor) (`roles/pubsub.editor`)
   * [Logs View Accessor ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewAccessor) (`roles/logging.viewAccessor`)
   * [Project IAM Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`)
   * [Service Account Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountAdmin) (`roles/iam.serviceAccountAdmin`)
@@ -250,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

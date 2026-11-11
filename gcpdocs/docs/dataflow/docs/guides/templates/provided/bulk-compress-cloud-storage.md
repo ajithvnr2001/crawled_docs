@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bulk-compress-cloud-storage/
 title: Bulk Compress Cloud Storage Files template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:58.508907+00:00
+fetched_at: 2026-11-11T09:27:40.203693+00:00
 ---
 
 # Bulk Compress Cloud Storage Files template  |  Cloud Dataflow  |  Google Cloud Documentation

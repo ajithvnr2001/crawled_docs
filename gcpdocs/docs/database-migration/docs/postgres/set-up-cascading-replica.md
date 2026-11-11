@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/set-up-cascading-replica/
 title: Set up cascading read replicas for a Cloud SQL destination instance \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:59.536617+00:00
+fetched_at: 2026-11-11T09:33:48.445603+00:00
 ---
 
 # Set up cascading read replicas for a Cloud SQL destination instance  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

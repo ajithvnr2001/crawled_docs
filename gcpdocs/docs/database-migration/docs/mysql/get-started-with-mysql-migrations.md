@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/get-started-with-mysql-migrations/
 title: Get started with MySQL homogeneous migrations \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:04.166439+00:00
+fetched_at: 2026-11-11T09:33:09.569400+00:00
 ---
 
 # Get started with MySQL homogeneous migrations  |  Database Migration Service for MySQL  |  Google Cloud Documentation

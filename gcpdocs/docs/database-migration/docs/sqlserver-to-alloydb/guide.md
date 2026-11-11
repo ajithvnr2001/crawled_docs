@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/guide/
 title: Migrate your SQL Server database to AlloyDB for PostgreSQL \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:34.837920+00:00
+fetched_at: 2026-11-11T09:34:49.435507+00:00
 ---
 
 # Migrate your SQL Server database to AlloyDB for PostgreSQL  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/access-control/
 title: Database Migration Service IAM roles and permissions for PostgreSQL \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:07.767440+00:00
+fetched_at: 2026-11-11T09:35:07.691992+00:00
 ---
 
 # Database Migration Service IAM roles and permissions for PostgreSQL  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

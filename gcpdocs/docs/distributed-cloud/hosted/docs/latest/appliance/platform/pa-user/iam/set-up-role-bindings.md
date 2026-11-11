@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/iam/set-up-role-bindings/
 title: Grant and revoke access \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:21.614856+00:00
+fetched_at: 2026-11-11T08:48:18.008862+00:00
 ---
 
 # Grant and revoke access  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:46.990433+00:00
+fetched_at: 2026-11-11T09:19:02.217970+00:00
 ---
 
 # Resources  |  Cloud Build  |  Google Cloud Documentation

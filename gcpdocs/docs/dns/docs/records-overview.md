@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/records-overview/
 title: DNS records overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:43.531657+00:00
+fetched_at: 2026-11-11T09:46:34.768055+00:00
 ---
 
 # DNS records overview  |  Google Cloud Documentation

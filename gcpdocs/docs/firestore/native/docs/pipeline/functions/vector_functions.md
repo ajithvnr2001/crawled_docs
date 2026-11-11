@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/vector_functions/
 title: Vector Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:58.308410+00:00
+fetched_at: 2026-11-11T08:56:28.370524+00:00
 ---
 
 # Vector Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ Returns the cosine distance between `x` and `y`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2082-L2088)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2102-L2108)
 
 ### Web
     
@@ -65,7 +65,7 @@ Returns the cosine distance between `x` and `y`.
       .select(
         field("embedding").cosineDistance(sampleVector).as("cosineDistance")));
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3356-L3360)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3377-L3381)
 
 ##### Swift
     
@@ -176,7 +176,7 @@ Returns the dot product of `x` and `y`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2095-L2101)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2115-L2121)
 
 ### Web
     
@@ -189,7 +189,7 @@ Returns the dot product of `x` and `y`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3367-L3373)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3388-L3394)
 
 ##### Swift
     
@@ -298,7 +298,7 @@ Computes the euclidean distance between `x` and `y`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2108-L2114)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2128-L2134)
 
 ### Web
     
@@ -311,7 +311,7 @@ Computes the euclidean distance between `x` and `y`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3380-L3386)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3401-L3407)
 
 ##### Swift
     
@@ -435,7 +435,7 @@ Returns the number of elements in a `VECTOR`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L2121-L2126)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2141-L2146)
 
 ### Web
     
@@ -447,7 +447,7 @@ Returns the number of elements in a `VECTOR`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3393-L3398)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3414-L3419)
 
 ##### Swift
     
@@ -536,6 +536,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

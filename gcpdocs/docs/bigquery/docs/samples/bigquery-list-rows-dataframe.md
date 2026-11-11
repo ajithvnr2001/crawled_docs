@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-list-rows-dataframe/
 title: Download table data to DataFrame \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:01.158956+00:00
+fetched_at: 2026-11-11T09:20:19.225694+00:00
 ---
 
 # Download table data to DataFrame  |  BigQuery  |  Google Cloud Documentation

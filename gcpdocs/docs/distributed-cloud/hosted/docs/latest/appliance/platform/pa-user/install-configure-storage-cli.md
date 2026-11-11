@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/install-configure-storage-cli/
 title: Configure the storage CLI \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:21.049832+00:00
+fetched_at: 2026-11-11T08:20:42.253988+00:00
 ---
 
 # Configure the storage CLI  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

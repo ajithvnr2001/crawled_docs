@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/configure-src-connection-self-hosted/
 title: Configure network connectivity to self-hosted SQL Server sources \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:56.660353+00:00
+fetched_at: 2026-11-11T09:34:51.593270+00:00
 ---
 
 # Configure network connectivity to self-hosted SQL Server sources  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

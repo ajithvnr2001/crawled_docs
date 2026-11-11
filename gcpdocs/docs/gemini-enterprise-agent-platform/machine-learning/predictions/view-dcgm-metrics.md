@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/view-dcgm-metrics/
 title: View Vertex AI Inference DCGM metrics \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:22.259055+00:00
+fetched_at: 2026-11-11T08:39:56.406326+00:00
 ---
 
 # View Vertex AI Inference DCGM metrics  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

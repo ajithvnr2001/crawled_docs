@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/ai-ml-energy-efficiency/
 title: Optimize AI and ML workloads for energy efficiency \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:33:28.363954+00:00
+fetched_at: 2026-11-11T10:14:30.801187+00:00
 ---
 
 # Optimize AI and ML workloads for energy efficiency  |  Cloud Architecture Center  |  Google Cloud Documentation

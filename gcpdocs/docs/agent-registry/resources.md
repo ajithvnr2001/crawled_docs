@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/resources/
 title: Resources \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:11.266771+00:00
+fetched_at: 2026-11-11T10:37:38.888347+00:00
 ---
 
 # Resources  |  Agent Registry  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/configure-src-connection-reverse-proxy/
 title: Use source private IP connectivity with a reverse proxy \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:04.253051+00:00
+fetched_at: 2026-11-11T09:35:29.436879+00:00
 ---
 
 # Use source private IP connectivity with a reverse proxy  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

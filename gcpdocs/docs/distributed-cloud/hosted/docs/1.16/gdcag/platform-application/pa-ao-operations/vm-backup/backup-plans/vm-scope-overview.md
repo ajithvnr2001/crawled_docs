@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/vm-backup/backup-plans/vm-scope-overview/
 title: VM backup plan overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:07.799910+00:00
+fetched_at: 2026-11-11T10:51:39.245751+00:00
 ---
 
 # VM backup plan overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

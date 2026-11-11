@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/configure-src-connection-managed-clouds/
 title: Configure network connectivity to managed Oracle sources \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:42.616840+00:00
+fetched_at: 2026-11-11T09:35:29.686711+00:00
 ---
 
 # Configure network connectivity to managed Oracle sources  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-llama-3-1-405b-a4-gke-sglang/
 title: Serve Llama 3.1 405B on GKE with PD disaggregation using Dynamo and SGLang on A4 VMs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:46:09.435658+00:00
+fetched_at: 2026-11-11T09:48:29.597903+00:00
 ---
 
 # Serve Llama 3.1 405B on GKE with PD disaggregation using Dynamo and SGLang on A4 VMs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -100,10 +100,10 @@ Export the environment variables that you use throughout this tutorial:
     
     
     export PROJECT_ID="YOUR_PROJECT_ID"
-    export REGION="YOUR_REGION"
-    export ZONE="YOUR_ZONE"
-    export CLUSTER_NAME="YOUR_CLUSTER_NAME"
-    export RESERVATION_NAME="YOUR_RESERVATION_NAME"
+    export REGION="YOUR_REGION" # for example, us-central1
+    export ZONE="YOUR_ZONE" # for example, us-central1-b
+    export CLUSTER_NAME="YOUR_CLUSTER_NAME" # maximum 20 chars; start with a-z; only a-z, 0-9, -
+    export RESERVATION_NAME="YOUR_RESERVATION_NAME" # A4 reservation name or RESERVATION_NAME/reservationBlocks/BLOCK_NAME
     export GCS_BUCKET="YOUR_BUCKET_NAME"
     export HF_TOKEN="YOUR_HF_TOKEN"
     export CLUSTER_TOOLKIT_VERSION="v1.104.0"
@@ -889,6 +889,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

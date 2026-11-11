@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/get-started-with-alloydb-migrations/
 title: Get started with PostgreSQL to AlloyDB for PostgreSQL migrations \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:00.491376+00:00
+fetched_at: 2026-11-11T09:33:45.673694+00:00
 ---
 
 # Get started with PostgreSQL to AlloyDB for PostgreSQL migrations  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

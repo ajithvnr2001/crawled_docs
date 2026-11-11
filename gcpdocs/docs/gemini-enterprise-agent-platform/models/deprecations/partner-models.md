@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models/
 title: Partner model deprecations \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:39.174156+00:00
+fetched_at: 2026-11-11T08:39:43.154476+00:00
 ---
 
 # Partner model deprecations  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/getting-started/
 title: Get started with .NET \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:51.566554+00:00
+fetched_at: 2026-11-11T09:08:03.996450+00:00
 ---
 
 # Get started with .NET  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-custom-machine-type-update-memory/
 title: Add memory to an existing VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:38.005103+00:00
+fetched_at: 2026-11-11T09:19:06.005368+00:00
 ---
 
 # Add memory to an existing VM  |  Compute Engine  |  Google Cloud Documentation

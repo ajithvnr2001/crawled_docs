@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd/
 title: Integrate with CI/CD \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:15.472780+00:00
+fetched_at: 2026-11-11T08:53:07.360864+00:00
 ---
 
 # Integrate with CI/CD  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

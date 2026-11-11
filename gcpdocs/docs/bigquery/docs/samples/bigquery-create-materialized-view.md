@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-materialized-view/
 title: Create materialized view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:20.557546+00:00
+fetched_at: 2026-11-11T08:59:33.351094+00:00
 ---
 
 # Create materialized view  |  BigQuery  |  Google Cloud Documentation

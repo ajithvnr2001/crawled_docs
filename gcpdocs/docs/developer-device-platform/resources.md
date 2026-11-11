@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/resources/
 title: Resources \u00a0|\u00a0 Developer Device Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:53.127472+00:00
+fetched_at: 2026-11-11T08:20:38.303906+00:00
 ---
 
 # Resources  |  Developer Device Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/dr-scenarios-for-data/
 title: Disaster recovery scenarios for data \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:17.250354+00:00
+fetched_at: 2026-11-11T08:25:21.476015+00:00
 ---
 
 # Disaster recovery scenarios for data  |  Cloud Architecture Center  |  Google Cloud Documentation

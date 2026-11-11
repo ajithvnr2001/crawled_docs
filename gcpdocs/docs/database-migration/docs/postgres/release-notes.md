@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/release-notes/
 title: Database Migration Service release notes \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:00.284140+00:00
+fetched_at: 2026-11-11T09:33:48.701240+00:00
 ---
 
 # Database Migration Service release notes  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

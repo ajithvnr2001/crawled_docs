@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/spanner-to-sourcedb/
 title: Spanner Change Streams to Source Database template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:24.146286+00:00
+fetched_at: 2026-11-11T09:07:37.387266+00:00
 ---
 
 # Spanner Change Streams to Source Database template  |  Cloud Dataflow  |  Google Cloud Documentation

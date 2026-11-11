@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train/
 title: Run serverless training jobs on a persistent resource \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:48.031990+00:00
+fetched_at: 2026-11-11T08:52:08.055497+00:00
 ---
 
 # Run serverless training jobs on a persistent resource  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-spot-check/
 title: Check if a given instance is Spot VM or not \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:48:57.622065+00:00
+fetched_at: 2026-11-11T09:20:24.717047+00:00
 ---
 
 # Check if a given instance is Spot VM or not  |  Compute Engine  |  Google Cloud Documentation

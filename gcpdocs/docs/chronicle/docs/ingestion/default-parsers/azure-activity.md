@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/azure-activity/
 title: Collect Microsoft Azure Activity and Entra ID logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:50:44.157104+00:00
+fetched_at: 2026-11-11T10:29:00.590636+00:00
 ---
 
 # Collect Microsoft Azure Activity and Entra ID logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -183,7 +183,7 @@ Each diagnostic setting streams to a single Event Hub, so create one diagnostic 
   4. After configuring each setting, click **Save**.
 
 
-**Note:** Configure only the categories you want to ingest. If you do not need a category, omit it from the diagnostic setting and skip the corresponding feed. It may take several minutes for logs to begin streaming to the Event Hubs.
+**Note:** Configure only the categories you want to ingest. If you don't need a category, omit it from the diagnostic setting and skip the corresponding feed. It may take several minutes for logs to begin streaming to the Event Hubs.
 
 ### (Optional) Create dedicated consumer groups
 
@@ -228,7 +228,7 @@ For each row in the table:
      * **Azure SAS Token** (optional): Alternative authentication to the Event Hub when your security policy forbids sharing the **Event Hub Connection String** ; leave blank when you provide the connection string above.
      * **Asset namespace** : The [asset namespace](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces).
      * **Ingestion labels** : The label to be applied to the events from this feed.
-**Note:** Google SecOps manages its own checkpointing for Azure Event Hub feeds. Only the **Event Hub Connection String** (or, in its place, **Azure SAS Token**) is required; the **Azure Storage Connection String** and **Azure Storage Container Name** fields are legacy checkpointing fields that do not affect ingestion and should be left blank in standard deployments.
+**Note:** Google SecOps manages its own checkpointing for Azure Event Hub feeds. Only the **Event Hub Connection String** (or, in its place, **Azure SAS Token**) is required; the **Azure Storage Connection String** and **Azure Storage Container Name** fields are legacy checkpointing fields that don't affect ingestion and should be left blank in standard deployments.
   9. Click **Next**.
 
   10. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
@@ -282,6 +282,32 @@ Setting | Value
   1. In the same Storage Account, select **Endpoints** from the left navigation.
   2. Copy and save the **Blob service** endpoint URL. 
      * Example: `https://secops-azure-logs.blob.core.windows.net/`
+
+
+
+#### Configure the Storage Account firewall (optional)
+
+Skip this step if the storage account allows public network access from all networks.
+
+If you restrict network access to the storage account, the following two services must still reach the storage account:
+
+  * **Azure Monitor** writes the Azure Activity and Entra ID logs through the diagnostic settings. Azure Monitor is a trusted Microsoft service, so it needs the trusted services exception. Without this exception, the diagnostic settings cannot write logs to the storage account.
+  * **Storage Transfer Service (STS)** reads the logs for Google SecOps. The Microsoft Azure Blob Storage V2 feed transfers data only through STS workers, so allow the STS IP ranges. The ranges are published in [ipranges.json](https://www.gstatic.com/storage-transfer-service/ipranges.json) as `ipv4Prefix` values.
+
+
+
+To configure the storage account firewall, complete the following steps:
+
+  1. In the **Azure portal** , go to the **Storage Account** you just created.
+  2. In the service menu, under **Security + networking** , select **Networking**.
+  3. Select **Manage** , select **Enable** , and then select **Enabled from selected networks**.
+  4. Click **Save**.
+  5. Under **Resource settings: Virtual networks, IP addresses, and exceptions** , select **View**.
+  6. In the box with the placeholder text **IPv4 address or CIDR** , enter each `ipv4Prefix` value from `ipranges.json`.
+  7. Under **Exceptions** , select **Allow Azure services on the trusted services list to access this storage account**.
+  8. Click **Save**.
+
+**Note:** STS can start using new IP ranges. A new range appears in `ipranges.json` at least seven days before STS uses it, so check the file at least weekly and add new ranges to the firewall. For details, see [Enable STS access for Amazon S3 and Azure Storage](https://docs.cloud.google.com/chronicle/docs/administration/feed-management#enable_sts_access_for_amazon_s3_and_azure_storage).
 
 
 
@@ -369,7 +395,7 @@ Google SecOps uses a unique service account to read data from your Azure Blob St
 The Google SecOps service account needs **Storage Blob Data Reader** role on your storage account.
 
   1. In the **Azure portal** , go to **Storage accounts**.
-  2. Click on your storage account name (for example, `secops-azure-logs`).
+  2. Click your storage account name (for example, `secops-azure-logs`).
   3. Go to the **Access Control (IAM)** tab.
   4. Click **\+ Add > Add role assignment**.
   5. In the **Role** tab, search for and select **Storage Blob Data Reader**.
@@ -467,7 +493,7 @@ Repeat the following steps for each Entra ID log type you configured in the diag
 **Note:** Include the trailing slash (/) at the end of the URI.
      * **Source deletion option** : Select according to your preference.
      * **Maximum File Age** : 180 days (default).
-     * From the authentication dropdown (defaults to **Access/Shared key**), select the method you want to use and provide the corresponding credential:
+     * From the authentication drop-down (defaults to **Access/Shared key**), select the method you want to use and provide the corresponding credential:
 
        * **Access/Shared key** : In the **Key** field, paste a storage account access key (**Key 1** or **Key 2**) captured earlier.
        * **SAS token** : In the **Token** field, paste a shared access signature (SAS) token issued for the container.
@@ -574,6 +600,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-get-deny-policy/
 title: Get a deny policy \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:10:23.605525+00:00
+fetched_at: 2026-11-11T08:34:16.591876+00:00
 ---
 
 # Get a deny policy  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -97,9 +97,9 @@ To learn how to install and use the client library for IAM, see [IAM client libr
 To authenticate to IAM, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.iam.v2.[GetPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.GetPolicyRequest.html);
+    import com.google.iam.v2.[GetPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.GetPolicyRequest.html);
     import com.google.iam.v2.[PoliciesClient](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PoliciesClient.html);
-    import com.google.iam.v2.[Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html);
+    import com.google.iam.v2.[Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html);
     import java.io.IOException;
     import java.net.URLEncoder;
     import java.nio.charset.StandardCharsets;
@@ -142,10 +142,10 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
           String policyParent = String.format("policies/%s/denypolicies/%s", attachmentPoint, policyId);
     
           // Specify the policyParent and execute the GetPolicy request.
-          [GetPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.GetPolicyRequest.html) getPolicyRequest =
-              [GetPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.GetPolicyRequest.html).newBuilder().setName(policyParent).build();
+          [GetPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.GetPolicyRequest.html) getPolicyRequest =
+              [GetPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.GetPolicyRequest.html).newBuilder().setName(policyParent).build();
     
-          [Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html) policy = policiesClient.getPolicy(getPolicyRequest);
+          [Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html) policy = policiesClient.getPolicy(getPolicyRequest);
           System.out.printf("Retrieved the deny policy: %s : %s%n", policyId, policy);
         }
       }

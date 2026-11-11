@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/internal/setting-up-internal-zonal-neg/
 title: Set up an internal passthrough Network Load Balancer with zonal NEGs \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:50.749903+00:00
+fetched_at: 2026-11-11T10:32:51.994420+00:00
 ---
 
 # Set up an internal passthrough Network Load Balancer with zonal NEGs  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -60,15 +60,16 @@ This guide shows you how to configure and test an internal passthrough Network L
      * VMs `vm-c1` and `vm-c2` in zone `us-west1-c`
   4. Two backend zonal NEGs, `neg-a` in zone `us-west1-a`, and `neg-c` in zone `us-west1-c`. Each NEG will have the following endpoints: 
      * `neg-a` contains these two endpoints: 
-       * Internal IP address of VM `vm-a1`
-       * Internal IP address of VM `vm-a2`
+       * `nic1` of VM `vm-a1` identified by its primary internal IP address
+       * `nic1` of VM `vm-a2` identified by its primary internal IP address
      * `neg-c` contains these two endpoints: 
-       * Internal IP address of VM `vm-c1`
-       * Internal IP address of VM `vm-c2`
+       * `nic1` of VM `vm-c1` identified by its primary internal IP address
+       * `nic1` of VM `vm-c2` identified by its primary internal IP address
   5. One client VM (`vm-client`) in `us-west1-a` to test connections
   6. The following internal passthrough Network Load Balancer components: 
      * An internal backend service in the `us-west1` region to manage connection distribution to the two zonal NEGs
      * An internal forwarding rule and internal IP address for the frontend of the load balancer
+  7. Source-based policy routing in the guest OS of the backend VMs if the non-`nic0` interface (in this example, `nic1`) receives the load balancer traffic.
 
 
 
@@ -229,7 +230,7 @@ External IP addresses are not required for backend VMs; however, they are useful
 
 Ensure that server software running on your VMs is listening on the IP address of the load balancer's internal forwarding rule.
 
-For instructional simplicity, these backend VMs run Debian GNU Linux 10.
+Each VM is created with two network interfaces, `nic0` and `nic1`. This example uses `nic1`, which is associated with the `lb-network` VPC network and `lb-subnet` subnet. Use this `lb-network` network and `lb-subnet` subnet to create the zonal NEGs later in this procedure.
 
 ###  Console 
 
@@ -249,9 +250,13 @@ For instructional simplicity, these backend VMs run Debian GNU Linux 10.
   7. Click **Advanced options** and make the following changes:
 
      * Click **Networking** and add the following **Network tags** : `allow-ssh` and `allow-health-check`
-     * Click **Edit** edit under **Network interfaces** and make the following changes then click **Done** : 
+     * For **Network interfaces** , click **Add network interface** and make the following changes:
+
+**For IPv4-only backends** :
+
        * **Network** : `lb-network`
        * **Subnet** : `lb-subnet`
+       * **IP stack type** : `IPv4 (single-stack)`
        * **Primary internal IP** : Ephemeral (automatic)
        * **External IP** : Ephemeral
      * Click **Management**. In the **Startup script** field, copy and paste the following script contents. The script contents are identical for all four VMs:
@@ -264,26 +269,30 @@ For instructional simplicity, these backend VMs run Debian GNU Linux 10.
            apt-get install apache2 -y
            a2ensite default-ssl
            a2enmod ssl
+           # Define file path variables
            file_ports="/etc/apache2/ports.conf"
            file_http_site="/etc/apache2/sites-available/000-default.conf"
            file_https_site="/etc/apache2/sites-available/default-ssl.conf"
+           # Define port configuration variables
            http_listen_prts="Listen 80\nListen 8008\nListen 8080\nListen 8088"
            http_vh_prts="*:80 *:8008 *:8080 *:8088"
            https_listen_prts="Listen 443\nListen 8443"
            https_vh_prts="*:443 *:8443"
+           # Define hostname variable
            vm_hostname="$(curl -H "Metadata-Flavor:Google" \
            http://metadata.google.internal/computeMetadata/v1/instance/name)"
            echo "Page served from: $vm_hostname" | \
            tee /var/www/html/index.html
-           echo "Page served from: $vm_hostname" | \
-           tee /var/www/html/index.html
+           # Update Apache ports config
            prt_conf="$(cat "$file_ports")"
            prt_conf_2="$(echo "$prt_conf" | sed "s|Listen 80|${http_listen_prts}|")"
            prt_conf="$(echo "$prt_conf_2" | sed "s|Listen 443|${https_listen_prts}|")"
            echo "$prt_conf" | tee "$file_ports"
+           # Update HTTP VirtualHost config
            http_site_conf="$(cat "$file_http_site")"
            http_site_conf_2="$(echo "$http_site_conf" | sed "s|*:80|${http_vh_prts}|")"
            echo "$http_site_conf_2" | tee "$file_http_site"
+           # Update HTTPS VirtualHost config
            https_site_conf="$(cat "$file_https_site")"
            https_site_conf_2="$(echo "$https_site_conf" | sed "s|_default_:443|${https_vh_prts}|")"
            echo "$https_site_conf_2" | tee "$file_https_site"
@@ -310,7 +319,8 @@ Create the four VMs by running the following command four times, using these fou
             --image-family=debian-12 \
             --image-project=debian-cloud \
             --tags=allow-ssh,allow-health-check \
-            --subnet=lb-subnet \
+            --network-interface=network=default,subnet=default,stack-type=IPV4_ONLY \
+            --network-interface=network=lb-network,subnet=lb-subnet,stack-type=IPV4_ONLY \
             --metadata=startup-script='#! /bin/bash
         if [ -f /etc/startup_script_completed ]; then
         exit 0
@@ -319,24 +329,30 @@ Create the four VMs by running the following command four times, using these fou
         apt-get install apache2 -y
         a2ensite default-ssl
         a2enmod ssl
+        # Define file path variables
         file_ports="/etc/apache2/ports.conf"
         file_http_site="/etc/apache2/sites-available/000-default.conf"
         file_https_site="/etc/apache2/sites-available/default-ssl.conf"
+        # Define port configuration variables
         http_listen_prts="Listen 80\nListen 8008\nListen 8080\nListen 8088"
         http_vh_prts="*:80 *:8008 *:8080 *:8088"
         https_listen_prts="Listen 443\nListen 8443"
         https_vh_prts="*:443 *:8443"
+        # Define hostname variable
         vm_hostname="$(curl -H "Metadata-Flavor:Google" \
         http://metadata.google.internal/computeMetadata/v1/instance/name)"
         echo "Page served from: $vm_hostname" | \
         tee /var/www/html/index.html
+        # Update Apache ports config
         prt_conf="$(cat "$file_ports")"
         prt_conf_2="$(echo "$prt_conf" | sed "s|Listen 80|${http_listen_prts}|")"
         prt_conf="$(echo "$prt_conf_2" | sed "s|Listen 443|${https_listen_prts}|")"
         echo "$prt_conf" | tee "$file_ports"
+        # Update HTTP VirtualHost config
         http_site_conf="$(cat "$file_http_site")"
         http_site_conf_2="$(echo "$http_site_conf" | sed "s|*:80|${http_vh_prts}|")"
         echo "$http_site_conf_2" | tee "$file_http_site"
+        # Update HTTPS VirtualHost config
         https_site_conf="$(cat "$file_https_site")"
         https_site_conf_2="$(echo "$https_site_conf" | sed "s|_default_:443|${https_vh_prts}|")"
         echo "$https_site_conf_2" | tee "$file_https_site"
@@ -498,6 +514,62 @@ These steps configure all of the [internal passthrough Network Load Balancer com
 
 
 
+## Configure policy routing in the guest OS
+
+**Note:** Policy routing in the guest OS is only required when the zonal NEG endpoints are associated with a secondary (non-`nic0`) network interface (such as `nic1` in this tutorial). If your zonal NEG endpoints point to the VM's primary network interface (`nic0`), the VM's default routing table automatically routes egress traffic through `nic0`, in which case you can skip this section.
+
+For an internal passthrough Network Load Balancer with `GCE_VM_IP` zonal NEG backends, the load balancer delivers packets (both client traffic and [health check probes](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#hc-packet-dest)) with the destination IP address set to the load balancer's forwarding rule IP address. The packets arrive through the network interface in the VPC subnet associated with the NEG (in this example, `nic1` in `lb-subnet`).
+
+By default, a Linux-based Google Cloud VM has a single main routing table where the default route points to the primary interface, `nic0` (`ens4`). When the backend VM replies to requests addressed to the load balancer's IP address received on `nic1` (`ens5`), the VM sends the replies back through the default gateway on `nic0`. This results in asymmetric routing and causes connections to fail.
+
+To resolve this, you must set up source-based policy routing in the guest OS of each backend VM that serves as an endpoint for the NEG. Policy routing ensures that outgoing responses to both client traffic and health check probes (with source IP set to the load balancer's IP address) exit through the same network interface (`nic1`) on which they were received.
+
+For each backend VM (`vm-a1`, `vm-a2`, `vm-c1`, and `vm-c2`), perform the following steps:
+
+  1. Connect to the backend VM by using [SSH](https://docs.cloud.google.com/compute/docs/connect/standard-ssh#connect_to_vms).
+  2. Create the following variables.
+
+**For IPv4 traffic** :
+
+     * `NIC1_GATEWAY_IPV4`: IPv4 address of the gateway for `nic1`.
+     * `LB_IPV4`: IPv4 address of the load balancer's forwarding rule.
+    
+    NIC1_GATEWAY_IPV4=$(curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/1/gateway)
+    LB_IPV4=LOAD_BALANCER_INTERNAL_IPV4
+
+Replace ` LOAD_BALANCER_INTERNAL_IPV4 ` with the IPv4 address configured for the forwarding rule of the load balancer. 
+
+  3. Add the policy routing rules.
+
+Run the following commands to create a custom routing table and add the necessary routing rules. 
+
+     1. Create a custom routing table named `route-nic1`. This table holds routes specific to the `nic1` interface. 
+            
+            echo "1 route-nic1" | sudo tee -a /etc/iproute2/rt_tables
+
+     2. Add a default route to the `route-nic1` table. This route directs traffic to the gateway of `nic1` through the interface corresponding to `nic1` (typically `ens5` or `eth1`). 
+
+**For IPv4 traffic** :
+            
+            sudo ip route add default via $NIC1_GATEWAY_IPV4 dev ens5 table route-nic1
+
+     3. Add a policy routing rule to decide when to use the `route-nic1` table.
+
+Because passthrough load balancers preserve the destination IP address (the load balancer's VIP) when forwarding packets to the VM, the VM must respond with the source IP address set to the load balancer's IP address for both client traffic and health check probes. 
+
+Add a rule instructing the VM to use the `route-nic1` routing table for any outgoing packets with a source IP address matching the load balancer's IP address. This ensures that all responses to both client traffic and health check probes exit through `nic1`. 
+
+**For IPv4 traffic** :
+            
+            sudo ip rule add from $LB_IPV4/32 table route-nic1
+
+
+
+
+After you complete these steps on all backend VMs, the health checks succeed, and the load balancer routes traffic to the backends.
+
+To learn more about policy routes, see [Configure routing for an additional network interface](https://docs.cloud.google.com/vpc/docs/configure-routing-additional-interface).
+
 ## Test the load balancer
 
 This test contacts the load balancer from a separate client VM; that is, not from a backend VM of the load balancer. The expected behavior is for traffic to be distributed among the four backend VMs [because no session affinity has been configured](https://docs.cloud.google.com/load-balancing/docs/internal#traffic_distribution).
@@ -574,6 +646,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

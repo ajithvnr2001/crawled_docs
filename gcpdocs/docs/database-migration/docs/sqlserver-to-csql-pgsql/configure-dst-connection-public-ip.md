@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/configure-dst-connection-public-ip/
 title: Configure public IP connectivity for Cloud SQL for PostgreSQL destinations \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:33.325253+00:00
+fetched_at: 2026-11-11T09:34:44.420124+00:00
 ---
 
 # Configure public IP connectivity for Cloud SQL for PostgreSQL destinations  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/build-context-sets/
 title: Build and optimize context sets with the context engineering agent \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:40.734965+00:00
+fetched_at: 2026-11-11T08:55:05.432230+00:00
 ---
 
 # Build and optimize context sets with the context engineering agent  |  Data Agents  |  Google Cloud Documentation

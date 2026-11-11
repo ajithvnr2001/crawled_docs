@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generative-ai-overview/
 title: Generative AI overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:35:47.174830+00:00
+fetched_at: 2026-11-11T10:01:27.563057+00:00
 ---
 
 # Generative AI overview  |  BigQuery  |  Google Cloud Documentation

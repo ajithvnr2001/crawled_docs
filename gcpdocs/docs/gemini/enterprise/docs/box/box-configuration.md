@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/box/box-configuration/
 title: Box configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:48.745203+00:00
+fetched_at: 2026-11-11T08:54:16.340130+00:00
 ---
 
 # Box configuration  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ This page describes how to set up and configure a third-party configuration befo
 `Manage users` | Required to fetch the list of users, enabling retrieval of files, comments, and tasks from individual user accounts for ingestion. The administrator service account does not inherently possess access to all user-owned files. The [as-user header](https://developer.box.com/guides/authentication/jwt/as-user/) enables the system to make API requests as the specific user to access their data.  
 `Manage enterprise properties` | Necessary for incremental sync functionality, as it facilitates the use of the [Enterprise event stream](https://developer.box.com/guides/events/enterprise-events/for-enterprise/) to track changes for ingestion.  
 `Manage groups` | Required to fetch the list of groups and their members. This is critical for access control during ingestion.  
-**Note:** If you only intend to use the data store for search and not to perform any actions that modify content in Box, you can limit the scope to **Read all files and folders stored in Box**. The **Write all files and folders stored in Box** scope is required for [Supported Actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/box/index.md#supported-actions) that involve updating content in Box.
+**Note:** If you only intend to use the data store for search and not to perform any actions that modify content in Box, you can limit the scope to **Read all files and folders stored in Box**. The **Write all files and folders stored in Box** scope is required for [Supported Actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/box#supported-actions) that involve updating content in Box.
   3. In the **Add and manage public keys** section, click **Generate a public/private keypair**.
 
      * The **public key** is automatically uploaded to the console with an ID, used when creating a connection.
@@ -130,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

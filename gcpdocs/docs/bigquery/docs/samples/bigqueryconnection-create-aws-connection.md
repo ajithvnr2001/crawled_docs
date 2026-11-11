@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryconnection-create-aws-connection/
 title: Create an AWS connection \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:26.020552+00:00
+fetched_at: 2026-11-11T09:16:41.543648+00:00
 ---
 
 # Create an AWS connection  |  BigQuery  |  Google Cloud Documentation

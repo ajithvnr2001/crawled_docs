@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-amazon-s3-to-cloud-storage/
 title: Migrate from AWS to Google Cloud: Migrate from Amazon S3 to Cloud Storage \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:08.796973+00:00
+fetched_at: 2026-11-11T08:25:53.792142+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Migrate from Amazon S3 to Cloud Storage  |  Cloud Architecture Center  |  Google Cloud Documentation

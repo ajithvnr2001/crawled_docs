@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/add-data/
 title: Add and update data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:07.969263+00:00
+fetched_at: 2026-11-11T08:56:37.810381+00:00
 ---
 
 # Add and update data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -306,7 +306,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     puts "Created Cloud Firestore client with given project ID."
     
-    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/quickstart.rb#L19-L26)
+    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/quickstart.rb#L19-L26)
 
 ## Set a document
 
@@ -631,7 +631,7 @@ Use the `set()` method:
     
     city_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L24-L32)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L24-L32)
 
 If the document does not exist, it will be created. If the document does exist, its contents will be overwritten with the newly provided data, unless you specify that the data should be merged into the existing document, as follows:
 
@@ -837,7 +837,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/LA"
     city_ref.set({ capital: false }, merge: true)
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L43-L44)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L43-L44)
 
 If you're not sure whether the document exists, pass the option to merge the new data with any existing document to avoid overwriting entire documents. For documents that contain maps, if you specify a set with a field that contains an empty map, the map field of the target document is overwritten.
 
@@ -1271,7 +1271,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     doc_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L55-L70)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L55-L70)
 
 ### Custom objects
 
@@ -2083,7 +2083,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/new-city-id"
     city_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L86-L87)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L86-L87)
 
 If there isn't a meaningful ID for the document, Firestore can auto-generate an ID for you. You can call the following language-specific `add()` methods:
 
@@ -2377,7 +2377,7 @@ Use the `add()` method:
     added_doc_ref = cities_ref.add data
     puts "Added document with ID: #{added_doc_ref.document_id}."
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L98-L106)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L98-L106)
 
 The examples show adding data to a top-level collection like `cities`. Firestore also supports subcollections inside documents such as `cities/LA/landmarks`. The same `set()`, `add()`, and `update()` methods apply when working with subcollections.
 
@@ -2607,7 +2607,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     added_doc_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L121-L126)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L121-L126)
 
 In the backend, `.add(...)` and `.doc().set(...)` are equivalent, so you can use either option.
 
@@ -2901,7 +2901,7 @@ Use the `update()` method:
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.update({ capital: true })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L145-L146)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L145-L146)
 
 ### Server Timestamp
 
@@ -3134,7 +3134,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/new-city-id"
     city_ref.update({ timestamp: firestore.field_server_time })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L218-L219)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L218-L219)
 
 When updating multiple timestamp fields inside of a [transaction](https://docs.cloud.google.com/firestore/native/docs/manage-data/transactions), each field receives the same server timestamp value.
 
@@ -3556,7 +3556,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     # Update age and favorite color
     frank_ref.update({ age: 13, "favorites.color": "Red" })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L183-L198)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L183-L198)
 
 Dot notation allows you to update a single nested field without overwriting other nested fields. If you update a nested field without dot notation, you will overwrite the entire map field, as shown in the following example:
 
@@ -4067,7 +4067,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.update({ population: firestore.field_increment(50) })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/add_data.rb#L239-L240)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/add_data.rb#L239-L240)
 
 Increment operations are useful for implementing counters. Note that updating a single document too quickly can [lead to contention or errors](https://docs.cloud.google.com/firestore/native/docs/best-practices#updates_to_a_single_document). If you need to update your counter at a very high rate, see the [Distributed counters](https://docs.cloud.google.com/firestore/native/docs/solutions/counters) page.
 
@@ -4075,6 +4075,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

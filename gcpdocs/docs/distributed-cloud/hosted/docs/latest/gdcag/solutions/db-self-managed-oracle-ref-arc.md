@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/solutions/db-self-managed-oracle-ref-arc/
 title: Self-managed Oracle database reference architecture \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:00.506435+00:00
+fetched_at: 2026-11-11T12:23:41.652666+00:00
 ---
 
 # Self-managed Oracle database reference architecture  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/list-view-storage-buckets/
 title: View and list storage bucket configurations \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:20.080980+00:00
+fetched_at: 2026-11-11T08:48:27.113036+00:00
 ---
 
 # View and list storage bucket configurations  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

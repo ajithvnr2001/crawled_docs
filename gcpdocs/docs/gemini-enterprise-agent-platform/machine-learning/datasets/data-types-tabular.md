@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular/
 title: Data types and transformations \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:18.142345+00:00
+fetched_at: 2026-11-11T08:51:42.663128+00:00
 ---
 
 # Data types and transformations  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

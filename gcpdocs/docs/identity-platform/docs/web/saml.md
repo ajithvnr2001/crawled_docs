@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/saml/
 title: Signing in users with SAML \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:27.420494+00:00
+fetched_at: 2026-11-11T08:33:56.930372+00:00
 ---
 
 # Signing in users with SAML  |  Identity Platform  |  Google Cloud Documentation
@@ -222,13 +222,13 @@ When you sign a user in, the client SDK handles the authentication handshake, th
          
          const provider = new SAMLAuthProvider("saml.myProvider");
          
-         [auth_saml_provider_create.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/saml/auth_saml_provider_create.js#L8-L10)
+         [auth_saml_provider_create.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/saml/auth_saml_provider_create.js#L8-L10)
 
 ### Web version 8
          
          const provider = new firebase.auth.SAMLAuthProvider('saml.myProvider');
          
-         [saml.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/saml.js#L9-L9)
+         [saml.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/saml.js#L9-L9)
 
   2. Start the sign in flow. You can choose to either use a dialog or a redirect.
 
@@ -256,7 +256,7 @@ When you sign a user in, the client SDK handles the authentication handshake, th
              // ...
            });
          
-         [auth_saml_signin_popup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/saml/auth_saml_signin_popup.js#L8-L26)
+         [auth_saml_signin_popup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/saml/auth_saml_signin_popup.js#L8-L26)
 
 ### Web version 8
          
@@ -274,7 +274,7 @@ When you sign a user in, the client SDK handles the authentication handshake, th
              // ...
            });
          
-         [saml.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/saml.js#L15-L27)
+         [saml.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/saml.js#L15-L27)
 
 ###  Redirect 
 
@@ -287,13 +287,13 @@ To redirect to a sign-in page, call `signInWithRedirect()`:
          const auth = getAuth();
          signInWithRedirect(auth, provider);
          
-         [auth_saml_signin_redirect.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/saml/auth_saml_signin_redirect.js#L8-L11)
+         [auth_saml_signin_redirect.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/saml/auth_saml_signin_redirect.js#L8-L11)
 
 ### Web version 8
          
          firebase.auth().signInWithRedirect(provider);
          
-         [saml.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/saml.js#L33-L33)
+         [saml.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/saml.js#L33-L33)
 
 Then, call `getRedirectResult()` to get the results when the user returns to your app:
 
@@ -320,7 +320,7 @@ Then, call `getRedirectResult()` to get the results when the user returns to you
              // ...
            });
          
-         [auth_saml_signin_redirect_result.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/saml/auth_saml_signin_redirect_result.js#L8-L27)
+         [auth_saml_signin_redirect_result.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/saml/auth_saml_signin_redirect_result.js#L8-L27)
 
 ### Web version 8
          
@@ -337,7 +337,7 @@ Then, call `getRedirectResult()` to get the results when the user returns to you
              // ...
            });
          
-         [saml.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/saml.js#L39-L50)
+         [saml.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/saml.js#L39-L50)
 
   3. Retrieve the user attributes associated with the SAML provider from the ID token using the `firebase.sign_in_attributes` claim. Make sure to verify the ID token using the Admin SDK when you send it to your server.
 
@@ -378,7 +378,7 @@ The following code snippet shows how to link a user's Google Account to the SAML
       // ...
     });
     
-    [auth_link_with_popup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/auth-next/link-multiple-accounts/auth_link_with_popup.js#L8-L20)
+    [auth_link_with_popup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/auth-next/link-multiple-accounts/auth_link_with_popup.js#L8-L20)
 
 ### Web version 8
     
@@ -393,7 +393,7 @@ The following code snippet shows how to link a user's Google Account to the SAML
       // ...
     });
     
-    [link-multiple-accounts.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/auth/link-multiple-accounts.js#L69-L77)
+    [link-multiple-accounts.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/auth/link-multiple-accounts.js#L69-L77)
 
 ## What's next
 

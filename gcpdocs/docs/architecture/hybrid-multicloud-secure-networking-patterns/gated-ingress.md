@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/hybrid-multicloud-secure-networking-patterns/gated-ingress/
 title: Gated ingress \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:20:28.139429+00:00
+fetched_at: 2026-11-11T10:14:26.536978+00:00
 ---
 
 # Gated ingress  |  Cloud Architecture Center  |  Google Cloud Documentation

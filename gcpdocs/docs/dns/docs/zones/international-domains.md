@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/zones/international-domains/
 title: Create a zone with an Internationalized Domain Name \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:20.939499+00:00
+fetched_at: 2026-11-11T09:46:49.850332+00:00
 ---
 
 # Create a zone with an Internationalized Domain Name  |  Cloud DNS  |  Google Cloud Documentation

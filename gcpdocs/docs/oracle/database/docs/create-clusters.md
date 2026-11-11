@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/create-clusters/
 title: Create Exadata VM Cluster \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:07:27.594009+00:00
+fetched_at: 2026-11-11T10:28:49.932845+00:00
 ---
 
 # Create Exadata VM Cluster  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -153,13 +153,24 @@ For more information on how to generate SSH keys, see [Generate SSH keys](https:
 
      3. Select the **Enable incident logs and trace collection** checkbox to enable incident logging for your cluster.
 
-  16. In the **Advanced fields** section, do the following:
+  16. In the **Identity Connector** section, do the following:
+
+Identity Connector lets your cluster connect to Google Cloud services, such as Cloud Key Management Service and Customer-managed encryption keys (CMEK).
+
+Identity Connector is enabled by default.
+
+If you don't want to enable Identity Connector now, you can disable it by clicking the **Identity Connector enabled** toggle to the off position.
+
+You can also [enable Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#enable-exadata-cluster-connector) after provisioning the cluster.
+
+**Note:** The Identity Connector is set up as a part of the cluster creation. In some cases, the cluster can be created successfully even if the Identity Connector setup fails. If the Identity Connector status shows `Not enabled` after the cluster is created, check the **Operations** tab on the **Exadata VM Cluster details** page for any errors in the setup. Then, try [enabling the Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#enable-identity-connector) again. Also, if your project is in a VPC Service Controls perimeter, the Identity Connector can't connect until you add the required egress rule. For more information, see [Configure VPC Service Controls](https://docs.cloud.google.com/oracle/database/docs/configure-vpc-service-controls).
+  17. In the **Advanced fields** section, do the following:
 
      1. From the **Timezone** drop-down, select the timezone you'd like to use for diagnostic collection. This timezone is used for event timestamps.
 
      2. In the **SCAN Listener Port (TCP/IP)** field, enter a value to assign a SCAN listener port to your cluster. The port value can range from 1,024 to 8,000, and the default value is 1,521.
 
-  17. Click **Create** to create the Exadata VM Cluster.
+  18. Click **Create** to create the Exadata VM Cluster.
 
 
 
@@ -223,6 +234,12 @@ Replace the following:
 
   * VM_BACKUP_STORAGE_TYPE: Optional. Specifies whether VM backups are stored on the local DB server or Exascale Storage. Accepted values are `VM_BACKUP_STORAGE_TYPE_LOCAL` (default) and `VM_BACKUP_STORAGE_TYPE_EXASCALE`.
 
+  * `--identity-connector-disabled` (Optional): include this flag to create the cluster without the Identity Connector. If this flag is not specified, the Identity Connector is created by default.
+
+Identity Connector lets your cluster connect to Google Cloud services, such as Cloud Key Management Service and Customer-managed encryption keys (CMEK).
+
+You can also enable the Identity Connector after provisioning the cluster. For setup considerations, including VPC Service Controls, see [Enable and disable Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector).
+
 
 
 
@@ -239,11 +256,12 @@ To create an Exadata VM Cluster, run the following `curl` command:
     '{
       "exadata_infrastructure": "projects/PROJECT_ID/locations/REGION/cloudExadataInfrastructures/EXADATA_INSTANCE_ID",
       "displayName": "DISPLAY_NAME",
+      "identityConnectorDisabled": IDENTITY_CONNECTOR_DISABLED,
+      "odb_network": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID",
+      "odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/CLIENT_SUBNET_ID",
+      "backup_odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/BACKUP_SUBNET_ID",
+      "odb_dns_zone": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbDnsZones/DOMAIN_ID",
       "properties": {
-        "odb_network": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID",
-        "odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/CLIENT_SUBNET_ID",
-        "backup_odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/BACKUP_SUBNET_ID",
-        "odb_dns_zone": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbDnsZones/DOMAIN_ID",
         "licenseType": "LICENSE_TYPE",
         "ssh_public_keys": ["SSH_PUBLIC_KEY"],
         "cpu_core_count": CPU_CORE_COUNT,
@@ -253,10 +271,6 @@ To create an Exadata VM Cluster, run the following `curl` command:
         "vm_backup_storage_type": "VM_BACKUP_STORAGE_TYPE"
        }
     }'
-    
-    
-    
-    --odb-dns-zone=projects/PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbDnsZones/DOMAIN_ID \
     
 
 Replace the following:
@@ -269,7 +283,14 @@ Replace the following:
     * REGION: the region of your Exadata Database.
     * EXADATA_INSTANCE_ID: the ID of your Exadata Database.
   * DISPLAY_NAME: a name for your Exadata VM Cluster to be displayed in the Google Cloud console.
-  * For `odb_network`, `odb_subnet`, `backup_odb_subnet`, and `odb_dns_zone` properties, replace the following: 
+  * IDENTITY_CONNECTOR_DISABLED (Optional): set to `true` to create the cluster without the Identity Connector. If not specified, the Identity Connector is created by default.
+
+Identity Connector lets your cluster connect to Google Cloud services, such as Cloud Key Management Service and Customer-managed encryption keys (CMEK).
+
+You can also enable the Identity Connector after provisioning the cluster. For setup considerations, including VPC Service Controls, see [Enable and disable Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector).
+
+  * For `odb_network`, `odb_subnet`, `backup_odb_subnet`, and `odb_dns_zone` properties, replace the following:
+
     * ODB_NETWORK_PROJECT_ID: the ID of your Google Cloud project which contains your ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
     * REGION: the region of your ODB Network.
     * ODB_NETWORK_ID: the ID of your ODB Network.
@@ -277,12 +298,19 @@ Replace the following:
     * BACKUP_SUBNET_ID: the ID of your backup ODB Subnet.
     * DOMAIN_ID: the ID of your DNS domain.
   * LICENSE_TYPE: the license type associated with your Oracle Database@Google Cloud order. Only accepted values are `bring-your-own-license` or `license-included`.
+
   * SSH_PUBLIC_KEY: the SSH public keys for your cluster. You can enter a single value for a single key, or an array of values for multiple keys.
+
   * CPU_CORE_COUNT: the number of enabled CPU cores required for your cluster.
+
   * GI_VERSION: the grid infrastructure version for your cluster.
+
   * HOSTNAME_PREFIX: the prefix you want to use to generate hostnames for the cluster. This prefix can only contain letters, numbers, or hyphens, and must start with a letter. The maximum allowed length is 12 characters.
+
   * VM_FILE_SYSTEM_STORAGE_TYPE: Optional. Specifies whether VM file system storage (VM images) is stored on the local DB server or Exascale Storage. Accepted values are `VM_FILE_SYSTEM_STORAGE_TYPE_LOCAL` (default) and `VM_FILE_SYSTEM_STORAGE_TYPE_EXASCALE`.
+
   * VM_BACKUP_STORAGE_TYPE: Optional. Specifies whether VM backups are stored on the local DB server or Exascale Storage. Accepted values are `VM_BACKUP_STORAGE_TYPE_LOCAL` (default) and `VM_BACKUP_STORAGE_TYPE_EXASCALE`.
+
 
 
 
@@ -735,6 +763,12 @@ Replace the following:
 
   * VM_BACKUP_STORAGE_TYPE: Optional. Specifies whether VM backups are stored on the local DB server or Exascale Storage. Accepted values are `VM_BACKUP_STORAGE_TYPE_LOCAL` (default) and `VM_BACKUP_STORAGE_TYPE_EXASCALE`.
 
+  * `--identity-connector-disabled` (Optional): include this flag to create the cluster without the Identity Connector. If this flag is not specified, the Identity Connector is created by default.
+
+Identity Connector lets your cluster connect to Google Cloud services, such as Cloud Key Management Service and Customer-managed encryption keys (CMEK).
+
+You can also enable the Identity Connector after provisioning the cluster. For setup considerations, including VPC Service Controls, see [Enable and disable Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector).
+
 
 
 
@@ -751,11 +785,12 @@ To create a cluster on an Exascale Storage Vault, run the following `curl` comma
     '{
       "exadata_infrastructure": "projects/PROJECT_ID/locations/REGION/cloudExadataInfrastructures/EXADATA_INSTANCE_ID",
       "displayName": "DISPLAY_NAME",
+      "identityConnectorDisabled": IDENTITY_CONNECTOR_DISABLED,
       "exascale_db_storage_vault": "projects/PROJECT_ID/locations/REGION/exascaleDbStorageVaults/VAULT_ID",
+      "odb_network": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID",
+      "odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/CLIENT_SUBNET_ID",
+      "backup_odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/BACKUP_SUBNET_ID",
       "properties": {
-        "odb_network": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID",
-        "odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/CLIENT_SUBNET_ID",
-        "backup_odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/BACKUP_SUBNET_ID",
         "licenseType": "LICENSE_TYPE",
         "ssh_public_keys": ["SSH_PUBLIC_KEY"],
         "cpu_core_count": CPU_CORE_COUNT,
@@ -780,23 +815,38 @@ Replace the following:
     * REGION: the region of your Exadata Database.
     * EXADATA_INSTANCE_ID: the ID of your Exadata Database.
   * DISPLAY_NAME: a name for your Exadata VM Cluster to be displayed in the Google Cloud console.
-  * For `exascale_db_storage_vault` parameter, replace the following: 
+  * IDENTITY_CONNECTOR_DISABLED (Optional): set to `true` to create the cluster without the Identity Connector. If not specified, the Identity Connector is created by default.
+
+Identity Connector lets your cluster connect to Google Cloud services, such as Cloud Key Management Service and Customer-managed encryption keys (CMEK).
+
+You can also enable the Identity Connector after provisioning the cluster. For setup considerations, including VPC Service Controls, see [Enable and disable Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector).
+
+  * For `exascale_db_storage_vault` parameter, replace the following:
+
     * PROJECT_ID: the ID of your Google Cloud project which contains the Exascale Storage.
     * REGION: the region of the Exascale Storage.
     * VAULT_ID: the ID of the Exascale Storage Vault.
-  * For `odb_network`, `odb_subnet`, and `backup_odb_subnet` properties, replace the following: 
+  * For `odb_network`, `odb_subnet`, and `backup_odb_subnet` properties, replace the following:
+
     * ODB_NETWORK_PROJECT_ID: the ID of your Google Cloud project which contains your ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
     * REGION: the region of your ODB Network.
     * ODB_NETWORK_ID: the ID of your ODB Network.
     * CLIENT_SUBNET_ID: the ID of your client ODB Subnet.
     * BACKUP_SUBNET_ID: the ID of your backup ODB Subnet.
   * LICENSE_TYPE: the license type associated with your Oracle Database@Google Cloud order. Only accepted values are `bring-your-own-license` or `license-included`.
+
   * SSH_PUBLIC_KEY: the SSH public keys for your cluster. You can enter a single value for a single key, or an array of values for multiple keys.
+
   * CPU_CORE_COUNT: the number of enabled CPU cores required for your cluster.
+
   * GI_VERSION: the grid infrastructure version for your cluster.
+
   * HOSTNAME_PREFIX: the prefix you want to use to generate hostnames for the cluster. This prefix can only contain letters, numbers, or hyphens, and must start with a letter. The maximum allowed length is 12 characters.
+
   * TOTAL_RAM_GB: the total amount of RAM to be assigned to the cluster. If you're creating a cluster that consists of 2 VMs, divide this number by 2 to get the amount of RAM assigned to each VM.
+
   * TOTAL_LOCAL_DISK_GB: the total amount of local storage to be assigned to the cluster. If creating a cluster that consists of 2 VMs, divide this number by 2 to get the amount of local disk storage that is to be assigned to each VM. This storage is used for the `/u02` file system on each VM.
+
   * DB_SERVER_OCIDS: a comma-separated list of Oracle Cloud Identifiers (OCIDs) of the database servers on the Exadata Infrastructure instance.
 
 You can retrieve the OCIDs of your database servers by using the following command:
@@ -835,6 +885,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

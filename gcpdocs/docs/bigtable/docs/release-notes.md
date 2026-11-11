@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/release-notes/
 title: Bigtable release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:17.818711+00:00
+fetched_at: 2026-11-11T09:58:30.997373+00:00
 ---
 
 # Bigtable release notes  |  Google Cloud Documentation
@@ -33,6 +33,43 @@ Feature
 
 You can use the Google Cloud console to create and manage Apache Avro schema bundles for your Bigtable tables. You can also view Avro schema bundle definitions in Bigtable Studio. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas).
 
+Libraries
+
+### Java
+
+#### [1.95.0](https://github.com/googleapis/google-cloud-java/compare/v1.94.0...v1.95.0) (2026-11-02)
+
+##### Bug Fixes
+
+  * **bigtable:** avoid mutating Query in-place in createPointReadCallable ([#14797](https://github.com/googleapis/google-cloud-java/issues/14797)) ([1b1c6a7](https://github.com/googleapis/google-cloud-java/commit/1b1c6a72fb29dd7a8e04b6ddb2e402603ad6ac90))
+  * **bigtable:** check isOk and getRejected first in RetryingVRpc.shouldRetry ([#14795](https://github.com/googleapis/google-cloud-java/issues/14795)) ([d821bd3](https://github.com/googleapis/google-cloud-java/commit/d821bd3e81aacea3b8aeb7adf471b88e47cb3764))
+  * **bigtable:** check remaining deadline on client-initiated retries in RetryingVRpc ([#14796](https://github.com/googleapis/google-cloud-java/issues/14796)) ([a04e24c](https://github.com/googleapis/google-cloud-java/commit/a04e24c1beb3558a6c7f93aab6293beb0c4428c9))
+  * **bigtable:** Fix empty RowResult semantics in TestProxy. ([#14810](https://github.com/googleapis/google-cloud-java/issues/14810)) ([1d2fb9a](https://github.com/googleapis/google-cloud-java/commit/1d2fb9a698f0c3eae14f8c0d06afea2440d5aca0))
+  * **bigtable:** include reversed in Query equals, hashCode, and toString ([#14799](https://github.com/googleapis/google-cloud-java/issues/14799)) ([fe9232b](https://github.com/googleapis/google-cloud-java/commit/fe9232bb7fa3debbafe067e453a156a5dd8fbd2a))
+  * **bigtable:** pass cell value size to RowBuilder.startCell in RowBuilderShim ([#14800](https://github.com/googleapis/google-cloud-java/issues/14800)) ([cfa7949](https://github.com/googleapis/google-cloud-java/commit/cfa7949755b23c7e86acb798d87ff6a11a426d7f))
+  * **bigtable:** reject empty split points in RowSetUtil and clarify QueryPaginator Javadoc ([#14811](https://github.com/googleapis/google-cloud-java/issues/14811)) ([1bc507f](https://github.com/googleapis/google-cloud-java/commit/1bc507f80adc6b85af4761420f5408cb6acb15f7))
+  * **bigtable:** remove legacy PollingConfiguration migration in ClientConfigurationManager ([#14822](https://github.com/googleapis/google-cloud-java/issues/14822)) ([95ead45](https://github.com/googleapis/google-cloud-java/commit/95ead459480137a07d5b62ad75ff9978ecb8099a))
+  * **bigtable:** resolve session diversion through a single shared rule ([#14738](https://github.com/googleapis/google-cloud-java/issues/14738)) ([00f7bea](https://github.com/googleapis/google-cloud-java/commit/00f7bea135eb77de710e71c97ae5be3a2829886d))
+  * **bigtable:** respect query limit smaller than pageSize and avoid mutating Query in QueryPaginator ([#14821](https://github.com/googleapis/google-cloud-java/issues/14821)) ([cecd09e](https://github.com/googleapis/google-cloud-java/commit/cecd09e27d3511de8def4983a94cf7823a248af3))
+
+
+
+##### Documentation
+
+  * **bigtable:** document that skipped large rows count towards row limit ([#14801](https://github.com/googleapis/google-cloud-java/issues/14801)) ([91d60e0](https://github.com/googleapis/google-cloud-java/commit/91d60e05e5c81d47288c53f55e25961169c2b3c5))
+
+
+
+### Java
+
+#### [1.96.0](https://github.com/googleapis/google-cloud-java/compare/v1.95.0...v1.96.0) (2026-11-05)
+
+##### Bug Fixes
+
+  * **bigtable:** allow non-default service accounts for session DirectAccess ([#14926](https://github.com/googleapis/google-cloud-java/issues/14926)) ([9f4a76a](https://github.com/googleapis/google-cloud-java/commit/9f4a76acfb576048729c2f35a768531eba1dad5c))
+
+
+
 ## November 06, 2026
 
 Feature
@@ -48,6 +85,20 @@ Bigtable offers conversational analytics, which lets you query your operational 
 Feature
 
 The QueryData tool lets you query the data in your database using conversational language and build data agents. This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [QueryData tool overview](https://docs.cloud.google.com/gemini/data-agents/querydata/bigtable/data-agent-overview).
+
+## November 02, 2026
+
+Libraries
+
+### Node.js
+
+#### [7.5.1](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.5.0...bigtable-v7.5.1) (2026-10-28)
+
+##### Bug Fixes
+
+  * **bigtable:** Use ReadonlyMap for EncodedKeyMap implements clause ([#9709](https://github.com/googleapis/google-cloud-node/issues/9709)) ([f803bff](https://github.com/googleapis/google-cloud-node/commit/f803bff4714360aa7c05387251bcb319536ae3f3))
+
+
 
 ## October 30, 2026
 
@@ -66,6 +117,108 @@ You can configure Bigtable tables with microsecond timestamp granularity to capt
 Feature
 
 You can [use Apache Avro schema bundles](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas) to query individual fields within Avro records stored as serialized bytes in Bigtable. You can [query your Avro data](https://docs.cloud.google.com/bigtable/docs/query-avro-data) using GoogleSQL for Bigtable, continuous materialized views, and logical views. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+## October 26, 2026
+
+Libraries
+
+### Python
+
+#### [2.50.2](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.50.1...google-cloud-bigtable-v2.50.2) (2026-10-22)
+
+##### Bug Fixes
+
+  * **bigtable:** preserve resource labels on batcher metrics ([#18712](https://github.com/googleapis/google-cloud-python/issues/18712)) ([f18cc6b](https://github.com/googleapis/google-cloud-python/commit/f18cc6b4086a3a1ea38c5bd45ccca79d927185ab))
+  * **bigtable:** resolve O(n^2) bottleneck in ReadRowsQuery.add_range ([#18706](https://github.com/googleapis/google-cloud-python/issues/18706)) ([5ac7cc6](https://github.com/googleapis/google-cloud-python/commit/5ac7cc6b1168fa674340e11598bc6e5866a53c16))
+
+
+
+### Java
+
+#### [1.94.0](https://github.com/googleapis/google-cloud-java/compare/v1.93.0...v1.94.0) (2026-10-22)
+
+##### Features
+
+  * **bigtable:** add per-method session diversion configuration ([#14681](https://github.com/googleapis/google-cloud-java/issues/14681)) ([042dd3e](https://github.com/googleapis/google-cloud-java/commit/042dd3eeff4b60fc5be076de58e0015d2fa65c67))
+  * **bigtable:** support SessionCheckAndMutateRow on the session client ([#14565](https://github.com/googleapis/google-cloud-java/issues/14565)) ([86de9c1](https://github.com/googleapis/google-cloud-java/commit/86de9c171da56be0b442a9bba023c1c625c3d9b2))
+  * **bigtable:** support SessionReadModifyWriteRow on the session client ([#14585](https://github.com/googleapis/google-cloud-java/issues/14585)) ([8e653b2](https://github.com/googleapis/google-cloud-java/commit/8e653b2b3c7ebe6031b89f5610b502deafe95f01))
+
+
+
+## October 19, 2026
+
+Libraries
+
+### Python
+
+#### [2.50.1](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.50.0...google-cloud-bigtable-v2.50.1) (2026-10-15)
+
+##### Bug Fixes
+
+  * **bigtable:** avoid hang when batcher not closed on process exit ([#18610](https://github.com/googleapis/google-cloud-python/issues/18610)) ([7674c91](https://github.com/googleapis/google-cloud-python/commit/7674c91a81a984e01166f72a8895cb18c8a8216b))
+  * **bigtable:** fix authentication scopes for metrics exporter ([#18609](https://github.com/googleapis/google-cloud-python/issues/18609)) ([722d34e](https://github.com/googleapis/google-cloud-python/commit/722d34e519dbb8305c4a48ac83790078f5ff9d57))
+
+
+
+## October 12, 2026
+
+Libraries
+
+### Node.js
+
+#### [7.4.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.3.0...bigtable-v7.4.0) (2026-10-07)
+
+##### Features
+
+  * **tools:** Add individual CLI flags for Bun monkey patches ([#9533](https://github.com/googleapis/google-cloud-node/issues/9533)) ([a5eec89](https://github.com/googleapis/google-cloud-node/commit/a5eec894b054e0605fd8e79591a88393bb2697c6))
+
+
+
+### Python
+
+#### [2.50.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.49.0...google-cloud-bigtable-v2.50.0) (2026-10-08)
+
+##### Features
+
+  * update API sources and regenerate ([#18593](https://github.com/googleapis/google-cloud-python/issues/18593)) ([d0505e8](https://github.com/googleapis/google-cloud-python/commit/d0505e8bc7615f2c649d3e25ebc7e3ccca45f22b))
+
+
+
+### Node.js
+
+#### [7.5.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.4.0...bigtable-v7.5.0) (2026-10-08)
+
+##### Features
+
+  * Update API sources and regenerate ([#9554](https://github.com/googleapis/google-cloud-node/issues/9554)) ([8b6837a](https://github.com/googleapis/google-cloud-node/commit/8b6837a9757cc8bb281e0611b173cb19b58d4ac5))
+
+
+
+## October 05, 2026
+
+Libraries
+
+### Python
+
+#### [2.48.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.47.0...google-cloud-bigtable-v2.48.0) (2026-09-29)
+
+##### Features
+
+  * **bigtable:** Reroute Mutations Batcher to use data client ([#18200](https://github.com/googleapis/google-cloud-python/issues/18200)) ([0b488a3](https://github.com/googleapis/google-cloud-python/commit/0b488a395542e9c76f535e82a7298fabaee8f4af))
+  * declare Python3.15 support ([05b0c34](https://github.com/googleapis/google-cloud-python/commit/05b0c342683b2b0e1b8dccd201ec86ec89612edc))
+
+
+
+### Python
+
+#### [2.49.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.48.0...google-cloud-bigtable-v2.49.0) (2026-10-01)
+
+##### Features
+
+  * declare Python3.15 support ([8775794](https://github.com/googleapis/google-cloud-python/commit/8775794508e17150023c8e7152543410014458bf))
+  * update API sources and regenerate ([#18513](https://github.com/googleapis/google-cloud-python/issues/18513)) ([7d7adca](https://github.com/googleapis/google-cloud-python/commit/7d7adcaee688603077ea53abec678130045c20ed))
+
+
 
 ## October 01, 2026
 
@@ -99,11 +252,76 @@ Libraries
 
 
 
+### Java
+
+#### [1.92.0](https://github.com/googleapis/google-cloud-java/compare/v1.91.0...v1.92.0) (2026-09-23)
+
+##### Bug Fixes
+
+  * **bigtable:** don't notify config listeners while holding the manager lock ([#14294](https://github.com/googleapis/google-cloud-java/issues/14294)) ([4426ccd](https://github.com/googleapis/google-cloud-java/commit/4426ccdd45a82e9b10bc8f6f2174cecbcd9254d7))
+  * **bigtable:** fall back to classic path when per-RPC CallCredentials are set on session path ([#14477](https://github.com/googleapis/google-cloud-java/issues/14477)) ([57bacb0](https://github.com/googleapis/google-cloud-java/commit/57bacb006a74b0465d0601abd97536d801b92854))
+  * **bigtable:** fix abnormal session closures and scale-up in session pool ([#14431](https://github.com/googleapis/google-cloud-java/issues/14431)) ([6361ecd](https://github.com/googleapis/google-cloud-java/commit/6361ecddb460882f9ea82e877fca475a7699c087))
+
+
+
+### Python
+
+#### [2.47.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.46.0...google-cloud-bigtable-v2.47.0) (2026-09-24)
+
+##### Features
+
+  * update API sources and regenerate ([#18446](https://github.com/googleapis/google-cloud-python/issues/18446)) ([54f1019](https://github.com/googleapis/google-cloud-python/commit/54f10190a4ab7b3772010bf9006de55266f74da9))
+
+
+
 ## September 22, 2026
 
 Feature
 
 You can use the Google Cloud console to create and manage protobuf schemas (schema bundles) for your Bigtable tables. You can also view schema bundle definitions in Bigtable Studio. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Create and manage protobuf schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas).
+
+## September 21, 2026
+
+Libraries
+
+### Node.js
+
+#### [7.3.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.2.0...bigtable-v7.3.0) (2026-09-15)
+
+##### Features
+
+  * PNPM workspace ([#8973](https://github.com/googleapis/google-cloud-node/issues/8973)) ([1ea27c9](https://github.com/googleapis/google-cloud-node/commit/1ea27c9c9bf4e4cbf79381321dcb9bce7951a76f))
+
+
+
+### Python
+
+#### [2.45.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.44.0...google-cloud-bigtable-v2.45.0) (2026-09-14)
+
+##### Features
+
+  * **bigtable:** Rerouted MutateRows to use the data client ([#18195](https://github.com/googleapis/google-cloud-python/issues/18195)) ([3bbcbdf](https://github.com/googleapis/google-cloud-python/commit/3bbcbdf1a62dd10ab96f72e5c8198cffe9174ac7))
+
+
+
+### Python
+
+#### [2.46.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.45.0...google-cloud-bigtable-v2.46.0) (2026-09-17)
+
+##### Features
+
+  * **bigtable:** Rerouted RowSet and RowRange to use ReadRows from data client ([#18196](https://github.com/googleapis/google-cloud-python/issues/18196)) ([1857302](https://github.com/googleapis/google-cloud-python/commit/1857302d5c602087b9a782c62694c33013eb77ea))
+  * Rerouted ReadRows to data client ([#18198](https://github.com/googleapis/google-cloud-python/issues/18198)) ([934cd2d](https://github.com/googleapis/google-cloud-python/commit/934cd2da82be8b835192baa222e3a2ab5aa4b8d1))
+  * update API sources and regenerate ([#18396](https://github.com/googleapis/google-cloud-python/issues/18396)) ([e9f8e59](https://github.com/googleapis/google-cloud-python/commit/e9f8e590b7b395e660cc5437535166dfb920d246))
+  * update API sources and regenerate. ([e9f8e59](https://github.com/googleapis/google-cloud-python/commit/e9f8e590b7b395e660cc5437535166dfb920d246))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** Added rst_stream exception handling for ReadRows. ([#18197](https://github.com/googleapis/google-cloud-python/issues/18197)) ([f30df60](https://github.com/googleapis/google-cloud-python/commit/f30df60eda27810cec277663dff532a158c999f3))
+
+
 
 ## September 14, 2026
 
@@ -255,6 +473,34 @@ Libraries
 
 
 
+### Java
+
+#### [1.91.0](https://github.com/googleapis/google-cloud-java/compare/v1.90.0...v1.91.0) (2026-09-04)
+
+##### Features
+
+  * **bigtable:** Option to disable direct access fallback ([#14193](https://github.com/googleapis/google-cloud-java/issues/14193)) ([5b6a974](https://github.com/googleapis/google-cloud-java/commit/5b6a97473af68c0556f333836265fe977f4eda5b))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** truncate client generated timestamps on the emulator c… ([#14234](https://github.com/googleapis/google-cloud-java/issues/14234)) ([94e680f](https://github.com/googleapis/google-cloud-java/commit/94e680fcb47db4fbd008f5b458563fdc733ead3b))
+
+
+
+### Python
+
+#### [2.44.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.43.0...google-cloud-bigtable-v2.44.0) (2026-09-03)
+
+##### Features
+
+  * **bigtable:** Rerouted CheckAndMutateRows and ReadModifyWriteRows to data client ([#18190](https://github.com/googleapis/google-cloud-python/issues/18190)) ([990f86e](https://github.com/googleapis/google-cloud-python/commit/990f86e45df15c594e82d19d6fe482f12d128430))
+  * **bigtable:** Rerouted DirectRow.commit to use mutate_row ([#18191](https://github.com/googleapis/google-cloud-python/issues/18191)) ([7126a54](https://github.com/googleapis/google-cloud-python/commit/7126a548e4231ae5f5e49599d53d84a94b9302ca))
+  * update API sources and regenerate ([#18267](https://github.com/googleapis/google-cloud-python/issues/18267)) ([813a5c1](https://github.com/googleapis/google-cloud-python/commit/813a5c17cbe42b3a8386e7ad7475a3d7ada33842))
+
+
+
 ## September 01, 2026
 
 Feature
@@ -295,11 +541,89 @@ Libraries
 
 
 
+### Python
+
+#### [2.43.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.42.0...google-cloud-bigtable-v2.43.0) (2026-08-21)
+
+##### Features
+
+  * update sources and regenerate ([#18164](https://github.com/googleapis/google-cloud-python/issues/18164)) ([5ff8274](https://github.com/googleapis/google-cloud-python/commit/5ff8274ac2eb9375e918dff68303d3abdc3e6d6f))
+
+
+
+##### Documentation
+
+  * **handwritten:** centralize CONTRIBUTING.rst pointers ([#17642](https://github.com/googleapis/google-cloud-python/issues/17642)) ([23b9499](https://github.com/googleapis/google-cloud-python/commit/23b94994bd5251493b81d91657d1f79a5d3c4b97))
+
+
+
+### Java
+
+#### [1.90.0](https://github.com/googleapis/google-cloud-java/compare/v1.89.0...v1.90.0) (2026-08-24)
+
+##### Features
+
+  * **bigtable:** enable microsecond timestamps in client ([#14057](https://github.com/googleapis/google-cloud-java/issues/14057)) ([57aaf8d](https://github.com/googleapis/google-cloud-java/commit/57aaf8d00d53b636e68837ddcf8a464fbc3f62de))
+  * **bigtable:** route single-entry MutateRows through a point-write c… ([#14028](https://github.com/googleapis/google-cloud-java/issues/14028)) ([a403703](https://github.com/googleapis/google-cloud-java/commit/a40370311cd2b14d1ecdf4b62c82d570b956c68f))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** remove heartbeat miss logging ([#14054](https://github.com/googleapis/google-cloud-java/issues/14054)) ([ec17637](https://github.com/googleapis/google-cloud-java/commit/ec17637ad7d6825e68c0fa9fe1d6d981d6435d8e))
+
+
+
+## August 24, 2026
+
+Libraries
+
+### Python
+
+#### [2.42.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.41.0...google-cloud-bigtable-v2.42.0) (2026-08-19)
+
+##### Features
+
+  * **bigtable:** client side metrics handlers ([#16760](https://github.com/googleapis/google-cloud-python/issues/16760)) ([43b786c](https://github.com/googleapis/google-cloud-python/commit/43b786c2c5f5f42d5caa3fa596a7368be09fd3a3))
+  * **bigtable:** initialize internal data client in classic client ([#18080](https://github.com/googleapis/google-cloud-python/issues/18080)) ([92008e2](https://github.com/googleapis/google-cloud-python/commit/92008e2788f086790f1976198fa43a1f902eef25))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** data client should acknowledge all mutations in batch ([#18124](https://github.com/googleapis/google-cloud-python/issues/18124)) ([e7f6a34](https://github.com/googleapis/google-cloud-python/commit/e7f6a34309fac7640b8f74c56108bec48b7bf711))
+  * **bigtable:** report swallowed batch flush errors and unacknowledged entries ([#18122](https://github.com/googleapis/google-cloud-python/issues/18122)) ([2fe5bdc](https://github.com/googleapis/google-cloud-python/commit/2fe5bdccd0fc964edc3427e25f86a4eab3c8267b))
+  * **bigtable:** standardize client side metrics ([#17899](https://github.com/googleapis/google-cloud-python/issues/17899)) ([a69e2cb](https://github.com/googleapis/google-cloud-python/commit/a69e2cbc939320fef18eb61daa8c248edf325c5b))
+  * **bigtable:** surface batcher flush errors and disable timer ([#18145](https://github.com/googleapis/google-cloud-python/issues/18145)) ([fac536e](https://github.com/googleapis/google-cloud-python/commit/fac536ea024f8f7a52e00fcc003d0fce1945b1f9))
+  * bump grpcio to 1.59.0; require Python 3.10+ ([#17351](https://github.com/googleapis/google-cloud-python/issues/17351)) ([a53487a](https://github.com/googleapis/google-cloud-python/commit/a53487a009c21912ea6c99fe3a5e0e52a26b31ef))
+
+
+
 ## August 20, 2026
 
 Feature
 
 You can use the `allow_incomplete_view` query hint in SQL queries to read data from a continuous materialized view before its initial population finishes. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Read data during initial population](https://docs.cloud.google.com/bigtable/docs/reads#read-during-initial-population).
+
+## August 17, 2026
+
+Libraries
+
+### Node.js
+
+#### [7.2.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.1.0...bigtable-v7.2.0) (2026-08-12)
+
+##### Features
+
+  * **ci:** Implement sharding for unit test performance ([#9021](https://github.com/googleapis/google-cloud-node/issues/9021)) ([1d977b5](https://github.com/googleapis/google-cloud-node/commit/1d977b5fab9c7d7ee25487bbbe95ae296a12e7b0))
+
+
+
+##### Bug Fixes
+
+  * Ensure node 22 dependencies are up to date so they get the latest patches for core and handwritten libraries ([#9116](https://github.com/googleapis/google-cloud-node/issues/9116)) ([fad57ff](https://github.com/googleapis/google-cloud-node/commit/fad57ff4b9164712426a041fc61db035859f9043))
+
+
 
 ## August 12, 2026
 
@@ -361,6 +685,64 @@ Libraries
 
 
 
+### Node.js
+
+#### [7.1.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v7.0.0...bigtable-v7.1.0) (2026-08-05)
+
+##### Features
+
+  * **bigtable:** Split gapic and proto usage from the handwritten library into bigtable-api ([#8934](https://github.com/googleapis/google-cloud-node/issues/8934)) ([f63f914](https://github.com/googleapis/google-cloud-node/commit/f63f914e69106f581448837f5ee212ab71f85775))
+
+
+
+### Node.js
+
+#### [7.0.0](https://github.com/googleapis/google-cloud-node/compare/bigtable-v6.5.1...bigtable-v7.0.0) (2026-08-04)
+
+##### � BREAKING CHANGES
+
+  * Update bigtable to minimum Node version of 22. ([#9042](https://github.com/googleapis/google-cloud-node/issues/9042))
+
+
+
+##### Features
+
+  * Update bigtable to minimum Node version of 22. ([#9042](https://github.com/googleapis/google-cloud-node/issues/9042)) ([86406b7](https://github.com/googleapis/google-cloud-node/commit/86406b733caaf63439d0007996898920302c7aad)), refs [#8985](https://github.com/googleapis/google-cloud-node/issues/8985)
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** Test resource leaks, timestamp clamping ([#9059](https://github.com/googleapis/google-cloud-node/issues/9059)) ([0712c05](https://github.com/googleapis/google-cloud-node/commit/0712c05113745b0512bf78097c0eb416cac38488))
+  * Remove kokoro bigtable system tests ([#8319](https://github.com/googleapis/google-cloud-node/issues/8319)) ([66f5c91](https://github.com/googleapis/google-cloud-node/commit/66f5c91d832a90e50401eaf4cac0dfe3069c1b66))
+
+
+
+## August 03, 2026
+
+Libraries
+
+### Java
+
+#### [1.89.0](https://github.com/googleapis/google-cloud-java/compare/v1.88.0...v1.89.0) (2026-07-29)
+
+##### Features
+
+  * **bigtable:** add view_parameters support to BoundStatement ([#13673](https://github.com/googleapis/google-cloud-java/issues/13673)) ([d5cc437](https://github.com/googleapis/google-cloud-java/commit/d5cc43776effc4efa3d3d9bf526fcb4e64535601))
+  * **bigtable:** BigtableDataClientFactory session support ([#13829](https://github.com/googleapis/google-cloud-java/issues/13829)) ([284ce13](https://github.com/googleapis/google-cloud-java/commit/284ce13bae39082764d571dc5d2c06d528638354))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** add materialized view routing param to ReadRows and Sa… ([#13918](https://github.com/googleapis/google-cloud-java/issues/13918)) ([4ddf250](https://github.com/googleapis/google-cloud-java/commit/4ddf2500d842a5b7a981e80974fa8b48fa191142))
+  * **bigtable:** bound SessionPoolImpl lock to prevent pod-wide wedge ([#13890](https://github.com/googleapis/google-cloud-java/issues/13890)) ([ed87a68](https://github.com/googleapis/google-cloud-java/commit/ed87a68f51e2d6dec1f7357e977d1dce8914ce01))
+  * **bigtable:** fix session creation leaks ([#13887](https://github.com/googleapis/google-cloud-java/issues/13887)) ([d586d07](https://github.com/googleapis/google-cloud-java/commit/d586d070ddeee36ef0803713998e13565389e880))
+  * **bigtable:** prevent ClientConfigurationManagerTest from wedging on… ([#13907](https://github.com/googleapis/google-cloud-java/issues/13907)) ([725086d](https://github.com/googleapis/google-cloud-java/commit/725086d5e749ab60035e4a6f3826039121c871d6))
+  * **bigtable:** stop installing DirectpathEnforcer on the directpath pool ([#13880](https://github.com/googleapis/google-cloud-java/issues/13880)) ([5f2e056](https://github.com/googleapis/google-cloud-java/commit/5f2e056bc4e3903cbfc98c4183fe1636531db444))
+
+
+
 ## July 30, 2026
 
 Feature
@@ -413,11 +795,45 @@ Libraries
 
 
 
+## July 20, 2026
+
+Libraries
+
+### Python
+
+#### [2.41.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.40.0...google-cloud-bigtable-v2.41.0) (2026-07-16)
+
+##### Features
+
+  * **bigtable:** support materialized views in the data client ([#17676](https://github.com/googleapis/google-cloud-python/issues/17676)) ([2c3c213](https://github.com/googleapis/google-cloud-python/commit/2c3c213998b3f3aa1cf490dfbf824d160544b732))
+
+
+
 ## July 14, 2026
 
 Feature
 
 AI agents can use the [`list_hot_tablets` Model Context Protocol (MCP) tool](https://docs.cloud.google.com/bigtable/docs/reference/admin/mcp/bigtable/mcp/tools_list/list_hot_tablets) to programmatically query Bigtable cluster health to isolate resource-intensive tablets (hot tablets) and detect overutilized node CPUs. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
+## July 13, 2026
+
+Libraries
+
+### Java
+
+#### [1.88.0](https://github.com/googleapis/google-cloud-java/compare/v1.87.1...v1.88.0) (2026-07-06)
+
+##### Features
+
+  * **bigtable:** route point read rows to shim ([#13542](https://github.com/googleapis/google-cloud-java/issues/13542)) ([2c7e5f5](https://github.com/googleapis/google-cloud-java/commit/2c7e5f530ebb5628a8c04d49be9019a0a66dfdca))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** honour session_load override when server-returned session_load is 0 ([#13629](https://github.com/googleapis/google-cloud-java/issues/13629)) ([b56f9b8](https://github.com/googleapis/google-cloud-java/commit/b56f9b854f9ba110606b2f123b989d6ca758c6a2))
+
+
 
 ## July 09, 2026
 
@@ -444,6 +860,48 @@ You can use Organization Policy Service custom constraints to manage specific op
 Feature
 
 Bigtable supports direct connectivity, which bypasses the Google frontend and optimizes performance for application traffic that meets certain criteria. For more information, see [Direct connectivity](https://docs.cloud.google.com/bigtable/docs/performance#direct-connectivity).
+
+## June 29, 2026
+
+Libraries
+
+### Python
+
+#### [2.40.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.39.0...google-cloud-bigtable-v2.40.0) (2026-06-25)
+
+##### Features
+
+  * regenerate google-cloud-bigtable ([#17575](https://github.com/googleapis/google-cloud-python/issues/17575)) ([bd782cf](https://github.com/googleapis/google-cloud-python/commit/bd782cf279ae700f56d40702d4ef25ef89e2ff9b))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** populate Value type in _format_execute_query_view_params ([#17547](https://github.com/googleapis/google-cloud-python/issues/17547)) ([8cb77d9](https://github.com/googleapis/google-cloud-python/commit/8cb77d99103ba94d6e4ff488ddcdbccd37b2770c))
+
+
+
+### Python
+
+#### [2.39.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.38.0...google-cloud-bigtable-v2.39.0) (2026-06-22)
+
+##### Features
+
+  * added client side metric instrumentation to read_rows and mutate_rows ([#16758](https://github.com/googleapis/google-cloud-python/issues/16758)) ([4005e66](https://github.com/googleapis/google-cloud-python/commit/4005e660a38fd770f8754af1cd07d6d8aa9ed60e))
+  * **bigtable:** add client side metric instrumentation to basic rpcs ([#16712](https://github.com/googleapis/google-cloud-python/issues/16712)) ([636af26](https://github.com/googleapis/google-cloud-python/commit/636af26677af5be906220ad39d670e74daca58e0))
+  * **bigtable:** add view_parameters support to execute_query ([#17382](https://github.com/googleapis/google-cloud-python/issues/17382)) ([2695aad](https://github.com/googleapis/google-cloud-python/commit/2695aad5c2949e20e77ae9dd432c6fc8ef787952))
+  * support row_range in sample_row_keys method ([#17330](https://github.com/googleapis/google-cloud-python/issues/17330)) ([384724c](https://github.com/googleapis/google-cloud-python/commit/384724c2d4c955e15274e9824bcdb93c685b79f6)), closes [#17329](https://github.com/googleapis/google-cloud-python/issues/17329)
+  * update API sources and regenerate ([#17431](https://github.com/googleapis/google-cloud-python/issues/17431)) ([2e75c78](https://github.com/googleapis/google-cloud-python/commit/2e75c78cdd09d4472ed412a2e925196effaea9fd))
+  * update googleapis and regenerate ([33ba3af](https://github.com/googleapis/google-cloud-python/commit/33ba3afe520e2f64ac7464f1b4ee31c0624a65ac))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** ensure deadline is respected for read_rows_sharded ([#17352](https://github.com/googleapis/google-cloud-python/issues/17352)) ([6cc890b](https://github.com/googleapis/google-cloud-python/commit/6cc890b5b9088e19afc7dd3dfbb64c72309feb80))
+  * require Python 3.10+ ([#17245](https://github.com/googleapis/google-cloud-python/issues/17245)) ([200b0d3](https://github.com/googleapis/google-cloud-python/commit/200b0d324df924c69c358203350fb01a08e41ad9))
+
+
 
 ## June 24, 2026
 
@@ -509,6 +967,27 @@ Libraries
 
 
 
+## June 08, 2026
+
+Libraries
+
+### Java
+
+#### [1.87.0](https://github.com/googleapis/google-cloud-java/compare/v1.86.0...v1.87.0) (2026-06-03)
+
+##### Bug Fixes
+
+  * **bigtable:** Don't invoke unknown delegate code while holding a lock ([#13202](https://github.com/googleapis/google-cloud-java/issues/13202)) ([a7e859e](https://github.com/googleapis/google-cloud-java/commit/a7e859e63216115e1c25954ca0c3ed179ccff8f3))
+  * **bigtable:** Ensure that FallbackChannelPool locks doesnt leak to alien listeners ([#13195](https://github.com/googleapis/google-cloud-java/issues/13195)) ([c8e615e](https://github.com/googleapis/google-cloud-java/commit/c8e615e535bf68189b2950785da058dcc9f5a895))
+  * **bigtable:** make heartbeat interval volatile ([#13217](https://github.com/googleapis/google-cloud-java/issues/13217)) ([279918e](https://github.com/googleapis/google-cloud-java/commit/279918e5cc84dcffab8ef1ca03fd3cf41d6d3850))
+  * **bigtable:** make ignoreError volatile ([#13218](https://github.com/googleapis/google-cloud-java/issues/13218)) ([e5e5f14](https://github.com/googleapis/google-cloud-java/commit/e5e5f14167789a6134f4b70c143c9bb9a80944fe))
+  * **bigtable:** prune older AFEs first ([#13215](https://github.com/googleapis/google-cloud-java/issues/13215)) ([114e77b](https://github.com/googleapis/google-cloud-java/commit/114e77b8e846fd43c580900706c0318c56710f35))
+  * **bigtable:** recycle channel on consecutive new stream failures ([#13245](https://github.com/googleapis/google-cloud-java/issues/13245)) ([842f64e](https://github.com/googleapis/google-cloud-java/commit/842f64eb515857e9324af9095527ade43cca34bf))
+  * **bigtable:** resolve check-then-act race condition in VRpcImpl ([#13196](https://github.com/googleapis/google-cloud-java/issues/13196)) ([9853dd5](https://github.com/googleapis/google-cloud-java/commit/9853dd517d50f073b5641fb4371d9cfc0f1847fc))
+  * **bigtable:** resolve deadlock in ClientConfigurationManager when notifying callbacks ([#13192](https://github.com/googleapis/google-cloud-java/issues/13192)) ([c98e53d](https://github.com/googleapis/google-cloud-java/commit/c98e53d612c4a72f475b4aad6ab848cfe539904d))
+
+
+
 ## June 01, 2026
 
 Libraries
@@ -548,6 +1027,32 @@ Feature
 
 You can enable [row-affinity routing](https://docs.cloud.google.com/bigtable/docs/routing#row-affinity) for a standard app profile in the Google Cloud console. For more information, see [Create a standard app profile](https://docs.cloud.google.com/bigtable/docs/configuring-app-profiles#create-standard-app-profile).
 
+Libraries
+
+### Node.js
+
+#### [6.5.1](https://github.com/googleapis/google-cloud-node/compare/bigtable-v6.5.0...bigtable-v6.5.1) (2026-05-11)
+
+##### Bug Fixes
+
+  * Bump all node submodules ([#8178](https://github.com/googleapis/google-cloud-node/issues/8178)) ([9fd76ef](https://github.com/googleapis/google-cloud-node/commit/9fd76eff87b1cf02db6205f141449b31e8ab7d8f))
+
+
+
+## May 11, 2026
+
+Libraries
+
+### Python
+
+#### [v2.38.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.37.0...google-cloud-bigtable-v2.38.0) (2026-05-07)
+
+##### Features
+
+  * Add ValueBitmask to the filter DSL (#16981) ([3f429f23](https://github.com/googleapis/google-cloud-python/commit/3f429f23))
+
+
+
 ## May 07, 2026
 
 Feature
@@ -577,6 +1082,10 @@ Long-running clients using DirectAccess may observe steady heap growth caused by
 
 
 
+
+### Python
+
+#### [v2.37.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.36.0...google-cloud-bigtable-v2.37.0) (2026-04-30)
 
 ## April 30, 2026
 
@@ -705,6 +1214,25 @@ Libraries
 ### Go
 
 #### [v1.45.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.44.0...bigtable/v1.45.0) (2026-03-31)
+
+### Python
+
+#### [v2.36.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigtable-v2.35.0...google-cloud-bigtable-v2.36.0) (2026-04-02)
+
+##### Features
+
+  * add TieredStorageConfig to table admin api (PiperOrigin-RevId: 863493708) ([778ae571](https://github.com/googleapis/google-cloud-python/commit/778ae571))
+
+  * add data model for client side metrics (#1187) ([db8d5286](https://github.com/googleapis/google-cloud-python/commit/db8d5286))
+
+
+
+
+##### Bug Fixes
+
+  * allow empty location for cluster update (#1258) ([c163cb3e](https://github.com/googleapis/google-cloud-python/commit/c163cb3e))
+
+
 
 ## March 30, 2026
 
@@ -6065,6 +6593,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

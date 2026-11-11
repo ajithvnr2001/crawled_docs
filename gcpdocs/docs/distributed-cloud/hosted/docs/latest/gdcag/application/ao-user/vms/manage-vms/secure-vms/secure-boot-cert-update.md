@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/secure-vms/secure-boot-cert-update/
 title: Update Secure Boot certificates on a VM \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:47.610711+00:00
+fetched_at: 2026-11-11T08:48:16.285814+00:00
 ---
 
 # Update Secure Boot certificates on a VM  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

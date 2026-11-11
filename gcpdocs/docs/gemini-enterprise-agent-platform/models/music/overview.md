@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/overview/
 title: Lyria | AI Music Generator \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:53.049466+00:00
+fetched_at: 2026-11-11T08:50:18.398914+00:00
 ---
 
 # Lyria | AI Music Generator  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

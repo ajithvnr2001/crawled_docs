@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview/
 title: Database Migration Service for PostgreSQL to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:02.653057+00:00
+fetched_at: 2026-11-11T09:33:43.476391+00:00
 ---
 
 # Database Migration Service for PostgreSQL to AlloyDB for PostgreSQL  |  Google Cloud Documentation

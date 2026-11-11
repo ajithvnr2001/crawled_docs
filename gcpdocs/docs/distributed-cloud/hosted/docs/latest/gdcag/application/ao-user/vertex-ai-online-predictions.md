@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-online-predictions/
 title: Learn about online predictions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:08.099724+00:00
+fetched_at: 2026-11-11T12:23:06.939095+00:00
 ---
 
 # Learn about online predictions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

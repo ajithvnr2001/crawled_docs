@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform/pa-user/query-and-view-logs/
 title: Query and view logs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:00.116441+00:00
+fetched_at: 2026-11-11T09:46:42.249106+00:00
 ---
 
 # Query and view logs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

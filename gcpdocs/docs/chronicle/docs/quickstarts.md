@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/quickstarts/
 title: Quickstarts \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:12:00.093870+00:00
+fetched_at: 2026-11-11T09:28:41.331241+00:00
 ---
 
 # Quickstarts  |  Google Security Operations  |  Google Cloud Documentation

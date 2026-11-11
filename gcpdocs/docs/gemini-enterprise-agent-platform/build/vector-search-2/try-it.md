@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it/
 title: Agent Retrieval interactive demo \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:34:48.292959+00:00
+fetched_at: 2026-11-11T08:51:48.926475+00:00
 ---
 
 # Agent Retrieval interactive demo  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

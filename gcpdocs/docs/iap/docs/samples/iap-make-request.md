@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/samples/iap-make-request/
 title: Authenticate from a service account \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:09:43.925666+00:00
+fetched_at: 2026-11-11T08:32:39.185624+00:00
 ---
 
 # Authenticate from a service account  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -48,22 +48,22 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
         /// Makes a request to a IAP secured application by first obtaining
         /// an OIDC token.
         /// </summary>
-        /// <param name="iapClie>ntId"The client ID observed on 
-        /// https://console.cloud.google.com/apis/cre<dentia>ls. /para<m
-        /// param >name="uri&quo<t;HTTP> URI to f<etch./param
-        /// param name>="cancellationToken"The token to propagate o<perati>on cancel< notifi>cations./param
-        /// ret<urnsThe >HTTP response message.</returns
-        public> async TaskHttpResponseMessage InvokeRequestAsync(
+        /// <param name="iapClientId">The client ID observed on 
+        /// https://console.cloud.google.com/apis/credentials. </param>
+        /// <param name="uri">HTTP URI to fetch.</param>
+        /// <param name="cancellationToken">The token to propagate operation cancel notifications.</param>
+        /// <returns>The HTTP response message.</returns>
+        public async Task<HttpResponseMessage> InvokeRequestAsync(
             string iapClientId, string uri, CancellationToken cancellationToken = default)
         {
             // Get the OidcToken.
             // You only need to do this once in your application
-            // as long as you can keep a reference to th[e returne](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcToken.html)d OidcToken.
-            OidcToken oidcToken = await GetOidcTokenAsync(iapClientId, cancellationToken);
+            // as long as you can keep a reference to the returned OidcToken.
+            [OidcToken](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcToken.html) oidcToken = await GetOidcTokenAsync(iapClientId, cancellationToken);
     
             // Before making an HTTP request, always obtain the string token from the OIDC token,
             // the OIDC token will refresh the string token if it expires.
-            s[tring](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcToken.html#Google_Apis_Auth_OAuth2_OidcToken_GetAccessTokenAsync_System_Threading_CancellationToken_) token = await oidcToken.GetAccessTokenAsync(cancellationToken);
+            string token = await oidcToken.[GetAccessTokenAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcToken.html#Google_Apis_Auth_OAuth2_OidcToken_GetAccessTokenAsync_System_Threading_CancellationToken_)(cancellationToken);
     
             // Include the OIDC token in an Authorization: Bearer header to 
             // IAP-secured resource
@@ -71,23 +71,23 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
             // For simplicity we are building the HttpClient directly.
             using HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            return await httpClient.GetAsync(<uri, ca>ncellationToken);
+            return await httpClient.GetAsync(uri, cancellationToken);
         }
     
-        /// summary
-        /// Obtains an OIDC token for< authent>ication a<n IAP request.
-        /// />summary
-        /// param name="iapClientId"The client ID observed on 
-        /// h<ttps:/>/console.<cloud.google.com/apis/credenti>als. /param
-        /// param name="cancellationToken<">The token< to pro>pagate operation cancel no<tificati>ons./param
-        /// ret<urnsThe H>TTP response message./returns
-        public async TaskOidcToken GetOidcTokenAsync(string iapClientId, CancellationToken cancellationToken)
+        /// <summary>
+        /// Obtains an OIDC token for authentication an IAP request.
+        /// </summary>
+        /// <param name="iapClientId">The client ID observed on 
+        /// https://console.cloud.google.com/apis/credentials. </param>
+        /// <param name="cancellationToken">The token to propagate operation cancel notifications.</param>
+        /// <returns>The HTTP response message.</returns>
+        public async Task<OidcToken> GetOidcTokenAsync(string iapClientId, CancellationToken cancellationToken)
         {
-       [     ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html)// Obtain the application defau[lt credentials.<](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html)/span>
-     [       ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html#Google_Apis_Auth_OAuth2_GoogleCredential_GetApplicationDefaultAsync)GoogleCredential credential = await GoogleCredential.GetApplicationDefaultAsync(cancellationToken);
+            // Obtain the application default credentials.
+            [GoogleCredential](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html) credential = await [GoogleCredential](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html).[GetApplicationDefaultAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html#Google_Apis_Auth_OAuth2_GoogleCredential_GetApplicationDefaultAsync)(cancellationToken);
     
-            // Request an OIDC token for the [Cloud IAP-secured](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html#Google_Apis_Auth_OAuth2_GoogleCredential_GetOidcTokenAsync_Google_Apis_Auth_OAuth2_OidcTokenOptions_System_Threading_CancellationToken_) [client ID.](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcTokenOptions.html)
-          [ ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcTokenOptions.html#Google_Apis_Auth_OAuth2_OidcTokenOptions_FromTargetAudience_System_String_)return await credential.GetOidcTokenAsync(OidcTokenOptions.FromTargetAudience(iapClientId), cancellationToken);
+            // Request an OIDC token for the Cloud IAP-secured client ID.
+           return await credential.[GetOidcTokenAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.GoogleCredential.html#Google_Apis_Auth_OAuth2_GoogleCredential_GetOidcTokenAsync_Google_Apis_Auth_OAuth2_OidcTokenOptions_System_Threading_CancellationToken_)([OidcTokenOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcTokenOptions.html).[FromTargetAudience](https://docs.cloud.google.com/dotnet/docs/reference/Google.Apis/latest/Google.Apis.Auth.OAuth2.OidcTokenOptions.html#Google_Apis_Auth_OAuth2_OidcTokenOptions_FromTargetAudience_System_String_)(iapClientId), cancellationToken);
         }
     }
     
@@ -153,22 +153,22 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
     public class BuildIapRequest {
       private static final String IAM_SCOPE = "https://www.googleapis.com/auth/iam";
     
-      private sta[tic](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpTransport.html) final HttpTransport httpTransp[ort](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.javanet.NetHttpTransport.html) = new NetHttpTransport();
+      private static final [HttpTransport](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpTransport.html) httpTransport = new [NetHttpTransport](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.javanet.NetHttpTransport.html)();
     
       private BuildIapRequest() {}
     
-      priva[te](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html) static IdTokenProvider getIdTokenProvider() throws IOExcept[ion](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html) {
-        GoogleCredentials credentials [=
-            GoogleC](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html)r[edentials.getApplicat](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html#com_google_auth_oauth2_GoogleCredentials_getApplicationDefault__)ionDefault().createScoped(Collections.singleton(IAM_SCOPE));
+      private static [IdTokenProvider](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html) getIdTokenProvider() throws IOException {
+        [GoogleCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html) credentials =
+            [GoogleCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html).[getApplicationDefault](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html#com_google_auth_oauth2_GoogleCredentials_getApplicationDefault__)().createScoped(Collections.singleton(IAM_SCOPE));
     
         Preconditions.checkNotNull(credentials, "Expected to load credentials");
         Preconditions.checkState(
-            cre[dentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html) instanceof IdTokenProvider,
+            credentials instanceof [IdTokenProvider](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html),
             String.format(
                 "Expected credentials that can provide id tokens, got %s instead",
-                credentials.getClas[s](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html)().getName()));
+                credentials.getClass().getName()));
     
-        return (IdTokenProvider) credentials;
+        return ([IdTokenProvider](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html)) credentials;
       }
     
       /**
@@ -177,23 +177,23 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
        * @param request Request to add authorization header
        * @param iapClientId OAuth 2.0 client ID for IAP protected resource
        * @return Clone of request with Bearer style authorization header with ID Token.
-       * @throws IOException exception creating I[D Token](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html)
+       * @throws IOException exception creating ID Token
        */
-      public stati[c](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html) HttpRequest buildIapRequest(HttpRequest request, String iapClientId)
-      [    ](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html)throws IOException {
+      public static [HttpRequest](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html) buildIapRequest([HttpRequest](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html) request, String iapClientId)
+          throws IOException {
     
-        IdTokenProvider idTokenProvide[r](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.html) = getIdTokenProvider();
-        IdTokenCred[entials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.html) credentials =
-            IdTokenCredenti[als](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.Builder.html#com_google_auth_oauth2_IdTokenCredentials_Builder_setIdTokenProvider_com_google_auth_oauth2_IdTokenProvider_).newBuilder()
-                .setIdTokenProvider([idTokenProvider)
-    ](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.Builder.html#com_google_auth_oauth2_IdTokenCredentials_Builder_setTargetAudience__org_jspecify_annotations_Nullable_java_lang_String_)            .setTargetAudience(iapClientI[d](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequestInitializer.html))
+        [IdTokenProvider](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenProvider.html) idTokenProvider = getIdTokenProvider();
+        [IdTokenCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.html) credentials =
+            [IdTokenCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.html).newBuilder()
+                .[setIdTokenProvider](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.Builder.html#com_google_auth_oauth2_IdTokenCredentials_Builder_setIdTokenProvider_com_google_auth_oauth2_IdTokenProvider_)(idTokenProvider)
+                .[setTargetAudience](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.IdTokenCredentials.Builder.html#com_google_auth_oauth2_IdTokenCredentials_Builder_setTargetAudience__org_jspecify_annotations_Nullable_java_lang_String_)(iapClientId)
                 .build();
     
-        HttpRequestInitializer[ httpRequestInitialize](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.http.HttpCredentialsAdapter.html)r = new HttpCredentialsAdapter(credentials);
+        [HttpRequestInitializer](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequestInitializer.html) httpRequestInitializer = new [HttpCredentialsAdapter](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.http.HttpCredentialsAdapter.html)(credentials);
     
-        [return httpTransport](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpTransport.html#com_google_api_client_http_HttpTransport_createRequestFactory__)
-            .createRequestFactory(httpRequestInitializer)
-    [        .buildRe](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html#com_google_api_client_http_HttpRequest_getRequestMethod__)quest(reques[t](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html#com_google_api_client_http_HttpRequest_getUrl__).getRequestMethod[(), reques](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html#com_google_api_client_http_HttpRequest_getContent__)t.getUrl(), request.getContent());
+        return httpTransport
+            .[createRequestFactory](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpTransport.html#com_google_api_client_http_HttpTransport_createRequestFactory__)(httpRequestInitializer)
+            .buildRequest(request.[getRequestMethod](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html#com_google_api_client_http_HttpRequest_getRequestMethod__)(), request.[getUrl](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html#com_google_api_client_http_HttpRequest_getUrl__)(), request.[getContent](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html#com_google_api_client_http_HttpRequest_getContent__)());
       }
     }
 
@@ -208,17 +208,17 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
     // const url = 'https://some.iap.url';
     // const targetAudience = 'IAP_CLIENT_ID.apps.googleusercontent.com';
     
-    const {GoogleA[uth](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/overview.html)} = require(';google-auth-library&[#39;](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauth.html));
-    const auth = new GoogleAuth();
+    const {GoogleAuth} = require('[google-auth-library](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/overview.html)');
+    const auth = new [GoogleAuth](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauth.html)();
     
     async function request() {
-      console.info(`request IAP ${url} with target audience ${targetAudience}`);[
-      c](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/overview.html)o[nst client = awa](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauth.html)it auth.getIdTokenClient(targetAudience);
+      console.info(`request IAP ${url} with target audience ${targetAudience}`);
+      const client = await [auth](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/overview.html).[getIdTokenClient](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauth.html)(targetAudience);
       const res = await client.fetch(url);
       console.info(res.data);
-    >}
+    }
     
-    request().catch(err = {
+    request().catch(err => {
       console.error(err.message);
       process.exitCode = 1;
     });
@@ -250,14 +250,14 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
     
         // create the HTTP client
         $client = new Client([
-            'handle>r' = $stack,
-            >'auth' = 'google_auth'
+            'handler' => $stack,
+            'auth' => 'google_auth'
         ]);
     
         // make the request
-    >    $response = $client-get($url);
-        print('Printing out response b>ody:');
-        print($response-getBody());
+        $response = $client->get($url);
+        print('Printing out response body:');
+        print($response->getBody());
     }
 
 ### Python
@@ -328,11 +328,11 @@ To authenticate to IAP, set up Application Default Credentials. For more informa
     require "googleauth"
     require "faraday"
     
-    # The client ID as the target audience[ for IAP](https://docs.cloud.google.com/ruby/docs/reference/googleauth/latest/Google-Auth-Credentials.html)
-    id_[token_c](https://docs.cloud.google.com/ruby/docs/reference/googleauth/latest/Google-Auth-Credentials.html)reds = Google::Auth::Credentials.default target_audience:[ clien](https://docs.cloud.google.com/ruby/docs/reference/googleauth/latest/Google-Auth-Credentials.html)t_id
+    # The client ID as the target audience for IAP
+    id_token_creds = Google::Auth::[Credentials](https://docs.cloud.google.com/ruby/docs/reference/googleauth/latest/Google-Auth-Credentials.html).[default](https://docs.cloud.google.com/ruby/docs/reference/googleauth/latest/Google-Auth-Credentials.html) target_audience: client_id
     
     headers = {}
-    id_token_creds.client.apply! headers
+    id_token_creds.[client](https://docs.cloud.google.com/ruby/docs/reference/googleauth/latest/Google-Auth-Credentials.html).apply! headers
     
     resp = Faraday.get url, nil, headers
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-named-key/
 title: Named key \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:37.237132+00:00
+fetched_at: 2026-11-11T09:34:22.235228+00:00
 ---
 
 # Named key  |  Firestore in Datastore mode  |  Google Cloud Documentation

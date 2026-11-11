@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/hipaa/
 title: HIPAA compliance on Google Cloud and Google Workspace \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:07.930656+00:00
+fetched_at: 2026-11-11T10:29:09.279975+00:00
 ---
 
 # HIPAA compliance on Google Cloud and Google Workspace  |  Security  |  Google Cloud Documentation

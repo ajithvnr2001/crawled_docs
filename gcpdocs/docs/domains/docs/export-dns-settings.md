@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/domains/docs/export-dns-settings/
 title: Migrate your Google Domains DNS settings to Cloud DNS or another provider \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:00.401960+00:00
+fetched_at: 2026-11-11T09:27:30.124717+00:00
 ---
 
 # Migrate your Google Domains DNS settings to Cloud DNS or another provider  |  Google Cloud Documentation

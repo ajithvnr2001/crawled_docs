@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/filestore-for-gke/
 title: About Filestore support for Google Kubernetes Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:33:06.665032+00:00
+fetched_at: 2026-11-11T08:57:48.189816+00:00
 ---
 
 # About Filestore support for Google Kubernetes Engine  |  Google Cloud Documentation

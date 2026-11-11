@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/troubleshooting/
 title: Troubleshoot Cloud Run issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T05:59:50.664851+00:00
+fetched_at: 2026-11-11T13:07:49.395444+00:00
 ---
 
 # Troubleshoot Cloud Run issues  |  Google Cloud Documentation
@@ -694,6 +694,7 @@ Error | Suggested remedy
 `mount.nfs: Protocol not supported` | Some base images, such as `debian` and [`adoptopenjdk/openjdk11`](https://hub.docker.com/r/adoptopenjdk/openjdk11), are missing the [nfs-kernel-server](https://github.com/kubernetes-sigs/blob-csi-driver/issues/220) dependency.  
 `mount.nfs: Connection timed out` | If the connection times out, make sure you are providing the correct IP address of the filestore instance.  
 `mount.nfs: access denied by server while mounting IP_ADDRESS:/FILESHARE` | If access was denied by the server, make sure the file share name is correct.  
+`mount.nfs: mount system call failed` or `input/output error` | If your NFS server runs NFS-Ganesha 3.x or earlier, the server rejects an NFSv4.2 attribute that the Cloud Run NFS client requests. Upgrade the server to NFS-Ganesha 4.0 or later, or limit it to NFSv4.1. For details, see [Known issues](https://docs.cloud.google.com/run/docs/known-issues#nfs-ganesha-mount-failure).  
 **Note:** To include all the logs from the mount process, use the `--verbose` flag in combination with the `mount` command:   
 `mount --verbose -o nolock $IP_ADDRESS:/$FILESHARE_NAME $MNT_DIR`.
 
@@ -1045,6 +1046,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

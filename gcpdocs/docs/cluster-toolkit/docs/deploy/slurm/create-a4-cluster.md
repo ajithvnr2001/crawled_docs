@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/deploy/slurm/create-a4-cluster/
 title: Create an A4 Slurm cluster \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:33:04.991182+00:00
+fetched_at: 2026-11-11T09:54:06.748751+00:00
 ---
 
 # Create an A4 Slurm cluster  |  Cluster Toolkit  |  Google Cloud Documentation

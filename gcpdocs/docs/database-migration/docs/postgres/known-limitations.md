@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/known-limitations/
 title: Known limitations \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:04.059483+00:00
+fetched_at: 2026-11-11T09:35:05.507585+00:00
 ---
 
 # Known limitations  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/best-practices/
 title: Best practices for Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:22.510222+00:00
+fetched_at: 2026-11-11T10:08:39.965346+00:00
 ---
 
 # Best practices for Cloud DNS  |  Google Cloud Documentation

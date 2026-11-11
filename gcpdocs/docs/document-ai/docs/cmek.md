@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:44.002051+00:00
+fetched_at: 2026-11-11T09:08:11.470259+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Document AI  |  Google Cloud Documentation

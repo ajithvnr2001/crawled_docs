@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/migration-from-vs-1_0/
 title: Migrate from Vector Search 1.0 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:56.622499+00:00
+fetched_at: 2026-11-11T08:51:51.284630+00:00
 ---
 
 # Migrate from Vector Search 1.0  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

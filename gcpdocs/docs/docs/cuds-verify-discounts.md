@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/cuds-verify-discounts/
 title: Verify spend-based CUD savings after migration \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:16.810956+00:00
+fetched_at: 2026-11-11T09:27:48.483714+00:00
 ---
 
 # Verify spend-based CUD savings after migration  |  Get started  |  Google Cloud Documentation

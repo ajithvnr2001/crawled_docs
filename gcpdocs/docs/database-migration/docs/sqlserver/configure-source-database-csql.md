@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/configure-source-database-csql/
 title: Configure your source Cloud SQL for SQL Server instance \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:43:10.059792+00:00
+fetched_at: 2026-11-11T09:34:39.230525+00:00
 ---
 
 # Configure your source Cloud SQL for SQL Server instance  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

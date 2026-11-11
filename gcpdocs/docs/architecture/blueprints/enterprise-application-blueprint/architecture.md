@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/enterprise-application-blueprint/architecture/
 title: Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:17.500995+00:00
+fetched_at: 2026-11-11T10:14:20.737673+00:00
 ---
 
 # Cloud Architecture Center  |  Google Cloud Documentation

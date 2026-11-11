@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/application-hosting/
 title: Application hosting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:11.598215+00:00
+fetched_at: 2026-11-11T09:46:07.291488+00:00
 ---
 
 # Application hosting  |  Google Cloud Documentation

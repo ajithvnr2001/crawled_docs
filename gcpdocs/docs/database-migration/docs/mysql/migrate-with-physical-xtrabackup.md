@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migrate-with-physical-xtrabackup/
 title: Migrate your databases by using a Percona XtraBackup physical file \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:09.350985+00:00
+fetched_at: 2026-11-11T09:34:02.046676+00:00
 ---
 
 # Migrate your databases by using a Percona XtraBackup physical file  |  Database Migration Service for MySQL  |  Google Cloud Documentation

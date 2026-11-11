@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-reservationgroups-list/
 title: List reservation groups \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:25:00.703253+00:00
+fetched_at: 2026-11-11T08:30:44.294744+00:00
 ---
 
 # List reservation groups  |  BigQuery  |  Google Cloud Documentation

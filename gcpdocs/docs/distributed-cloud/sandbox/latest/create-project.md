@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/create-project/
 title: Create your first project \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:29.797027+00:00
+fetched_at: 2026-11-11T13:07:46.151860+00:00
 ---
 
 # Create your first project  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation
@@ -87,11 +87,11 @@ Optional: Create more users that have more granular access using the GDC console
 
 
 
-### Attach clusters (optional)
+## Attach clusters
 
-Optionally, you can attach a Kubernetes cluster to your project. Your instance comes with two clusters for container-based workloads, `user-vm-1` and `user-vm-2`, as described in [Working with clusters](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/clusters).
+Before deploying Kubernetes container workloads in your project, you must attach a Kubernetes cluster to the project so that your project namespace and project-scoped role bindings (such as **Namespace Admin**) are created on the cluster. Your instance comes with two shared clusters for container-based workloads, `user-vm-1` and `user-vm-2`, as described in [Work with clusters](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/clusters).
 
-To attach a cluster to your project, see [Attach projects to a cluster](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/platform-application/pa-ao-operations/cluster#attach-project-to-cluster) in the Distributed Cloud documentation.
+To attach a cluster to your project in the GDC console, see [Attach projects to a cluster](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/platform-application/pa-ao-operations/cluster#attach-project-to-cluster) in the Distributed Cloud documentation.
 
 ## What's next
 
@@ -101,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vms-in-bulk-g4/
 title: Create AI-optimized G4 VMs in bulk \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:39:17.983752+00:00
+fetched_at: 2026-11-11T10:35:49.435556+00:00
 ---
 
 # Create AI-optimized G4 VMs in bulk  |  AI Hypercomputer  |  Google Cloud Documentation

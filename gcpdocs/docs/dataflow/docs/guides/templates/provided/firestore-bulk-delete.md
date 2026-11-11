@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/firestore-bulk-delete/
 title: Firestore Bulk Delete template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:50.339354+00:00
+fetched_at: 2026-11-11T09:27:16.140983+00:00
 ---
 
 # Firestore Bulk Delete template  |  Cloud Dataflow  |  Google Cloud Documentation

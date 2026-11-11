@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationsubtask-get/
 title: Get a migration subtask \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:42:07.572589+00:00
+fetched_at: 2026-11-11T08:28:13.102965+00:00
 ---
 
 # Get a migration subtask  |  BigQuery  |  Google Cloud Documentation

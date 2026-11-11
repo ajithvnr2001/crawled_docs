@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/multi-agent-private-networking-patterns/
 title: Multi-agent private networking patterns in Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:06.911701+00:00
+fetched_at: 2026-11-11T08:22:08.791503+00:00
 ---
 
 # Multi-agent private networking patterns in Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Multi-agent private networking patterns in Google Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-04-16 UTC
+Last reviewed 2026-11-09 UTC
 
 This document provides guidance to help you design private networking infrastructure that supports a publicly accessible, multi-agent, [Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs) app with private connections between agents, subagents, and tools. The network design provides private connections for agents that are hosted in Agent Runtime on Gemini Enterprise Agent Platform, Cloud Run, Google Kubernetes Engine (GKE), on-premises data centers, or in other clouds. The design also supports connectivity to agents that run in internet locations.
 
@@ -31,9 +31,9 @@ The intended audience for this document includes architects, developers, and adm
 
 ## Multi-agent design pattern
 
-A multi-agent Gemini Enterprise app requires a custom agent to serve as an orchestrator or _root_ agent for connections to tools and subagents. To implement private connections to tools and subagents that are hosted in Google Cloud or on-premises, the design uses a VPC network with private IP addresses. The root agent is hosted within Google's infrastructure, using Agent Engine, Cloud Run, or GKE. The multi-agent design pattern highlights these interactions:
+A multi-agent Gemini Enterprise app requires a custom agent to serve as an orchestrator or _root_ agent for connections to tools and subagents. To implement private connections to tools and subagents that are hosted in Google Cloud or on-premises, the design uses a VPC network with private IP addresses. The root agent is hosted within Google's infrastructure, using Agent Runtime, Cloud Run, or GKE. The multi-agent design pattern highlights these interactions:
 
-  1. **Gemini Enterprise app interacting with custom root agents**. [ Gemini Enterprise apps](https://docs.cloud.google.com/gemini/enterprise/docs/apps-data-stores) present a managed user interface with built-in security functions that expose custom agent functionality. Custom-built root agents are registered with Gemini Enterprise and they're made available in apps to end users. The custom root agent acts as a top-level workflow orchestrator and it delegates specialized tasks to subagents. This architecture uses custom root agents that are hosted on Agent Runtime on Gemini Enterprise Agent Platform, Cloud Run, or GKE.
+  1. **Gemini Enterprise app interacting with custom root agents**. [ Gemini Enterprise apps](https://docs.cloud.google.com/gemini/enterprise/docs/apps-data-stores) present a managed user interface with built-in security functions that expose custom agent functionality. Custom-built root agents are registered with Gemini Enterprise and they're made available in apps to end users. The custom root agent acts as a top-level workflow orchestrator and it delegates specialized tasks to subagents. This architecture uses custom root agents that are hosted on Agent Runtime, Cloud Run, or GKE.
   2. **Root agents interacting with subagents and tools**. The core of the AI system workflow and business logic resides in the root agent and in specialized subagents. The flexibility in the agent framework, runtime, and hosting platform allows for different options to connect root agents to subagents and tools through the VPC network. By using VPC networking for this part of the architecture, agents can use private networking paths that you define that expose other private endpoints, enterprise security controls, and broader network reachability.
 
 
@@ -54,7 +54,7 @@ This high-level multi-agent design pattern highlights the networking components 
 
 ### Shared VPC
 
-The multi-agent design pattern uses Shared VPC to centralize networking and security authority and responsibility. This design provides developers with environments that help fulfill an organization's security needs. We recommend that you use Shared VPC to centralize to simplify your network and security configurations.
+The multi-agent design pattern uses Shared VPC to centralize networking and security authority and responsibility. This design provides developers with environments that help fulfill an organization's security needs. We recommend that you use Shared VPC to centralize and simplify your network and security configurations.
 
 In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) architecture, a _host project_ contains the shared network resources, including VPC networks, Cloud Routers, subnets, firewalls, and Cloud DNS. Administrators can grant _service projects_ access to use these resources. Service projects contain the agent runtime resources, including Agent Runtime, Cloud Run, GKE, Gemini Enterprise, and app-specific load balancers.
 
@@ -110,7 +110,7 @@ When you register a root agent with Gemini Enterprise, you can deploy that agent
 To make requests to custom agents, Gemini Enterprise uses the Gemini Enterprise Agent Platform [Discovery Engine Service Account](https://docs.cloud.google.com/iam/docs/service-agents#discovery-engine-service-account) identity. The network path and authorization mechanisms differ based on the hosting platform that you use:
 
   * **Custom agents on Agent Runtime** : The Agent Platform Discovery Engine service agent includes the necessary Agent Platform Identity and Access Management (IAM) roles to invoke Agent Runtime resources as a built-in feature. The system routes requests that are made to the Agent Platform API service over the Google network as an internal API call.
-  * **Custom agents on Cloud Run** : Gemini Enterprise apps use the Agent Platform Discovery Engine service agent identity to make calls to the stable `run.app` URL that's registered from the agent card. In order for the AI agent Cloud Run service to authorize these calls, you must grant the Cloud Run Invoker IAM role (`roles/run.invoker`) to the Discovery Engine Service Agent. Requests to Cloud Run are routed over the Google production network to the [Google Front End (GFE) for Cloud Run](https://docs.cloud.google.com/run/docs/securing/security) ingress.
+  * **Custom agents on Cloud Run** : Gemini Enterprise apps use the Agent Platform Discovery Engine service agent identity to make calls to the default `.run.app` URL that's registered from the agent card, attaching the service agent's OIDC ID token in the `X-Serverless-Authorization` [authentication header](https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-an-a2a-agent#auth-headers). In order for the AI agent Cloud Run service to authorize these calls, you must grant the Cloud Run Invoker IAM role (`roles/run.invoker`) to the Discovery Engine Service Agent. Requests to Cloud Run are routed over the Google production network to the [Google Front End (GFE) for Cloud Run](https://docs.cloud.google.com/run/docs/securing/security) ingress.
   * **Custom agents on GKE** : Gemini Enterprise apps use the Agent Platform Discovery Engine service agent identity to make calls to the URL that's registered from the agent card. Public DNS must be able to resolve the hostname to an external IP address that's managed by the Gateway. We recommend that you use the `gke-l7-regional-external-managed` [load balancer](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities) or the `gke-l7-global-external-managed` load balancer. For added security, we recommend that Gemini Enterprise calls a GKE hosted A2A agent by using Identity-Aware Proxy (IAP). In order for IAP to authorize these calls, you must grant the IAP-secured Web App User IAM role (`roles/iap.httpsResourceAccessor`) to the Discovery Engine service agent. The Google production network routes requests to GKE to the GFE for external Application Load Balancer ingress.
 
 To secure [GKE Ingress](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/ingress) from Gemini Enterprise, see the IAP and Google Cloud Armor sections later in this document.
@@ -157,10 +157,10 @@ To connect agents to resources that are inside of your VPC network, Agent Runtim
 
 To deploy Agent Runtime VPC network egress, see these resources:
 
-  * [Using Private Service Connect interface with Agent Runtime](https://docs.cloud.google.com/agent-builder/agent-engine/private-service-connect-interface).
-  * Deploy an agent: [Configure Private Service Connect interface](https://docs.cloud.google.com/agent-builder/agent-engine/deploy#psc-i).
+  * [Using Private Service Connect interface with Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface).
+  * Deploy an agent: [Configure Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#psc-i).
   * Set up a Private Service Connect interface for Agent Platform resources: [Set up a private DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#dns-peering).
-  * Deploy an agent: [Define environment variables](https://docs.cloud.google.com/agent-builder/agent-engine/deploy#environment-variables) for explicit proxy.
+  * Deploy an agent: [Define environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#environment-variables) for explicit proxy.
 
 
 
@@ -189,17 +189,17 @@ If you use Private Google Access or Private Service Connect for Google APIs, you
 
 #### Additional Agent Runtime network considerations
 
-Agent Runtime egress that uses Private Service Connect interfaces can only route to RFC 1918 IP address ranges in the VPC network. For specific destination ranges that aren't routable by Agent Runtime egress, see [Subnetwork IP range requirements](https://docs.cloud.google.com/agent-builder/agent-engine/private-service-connect-interface#subnetwork-ip-range-requirements). To reach non-routable IP address range destinations, use an explicit proxy configuration on the agents and deploy proxy resources that use a routable IP address in the VPC network.
+Agent Runtime egress that uses Private Service Connect interfaces can only route to RFC 1918 IP address ranges in the VPC network. For specific destination ranges that aren't routable by Agent Runtime egress, see [Subnetwork IP range requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#subnetwork-ip-range-requirements). To reach non-routable IP address range destinations, use an explicit proxy configuration on the agents and deploy proxy resources that use a routable IP address in the VPC network.
 
 When Agent Runtime is deployed _without_ a Private Service Connect interface, it has access to the internet by default. To protect against data exfiltration, disable the default access by enabling VPC Service Controls.
 
 When Agent Runtime is deployed with a Private Service Connect interface, direct internet egress is disabled, regardless of VPC Service Controls. If you need your agent to access a destination that Agent Runtime can't normally reach, such as the internet, do the following:
 
-  1. Configure Secure Web Proxy in an [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) subnet of your VPC network. You must configure the proxy in [explicit proxy routing mode](https://docs.cloud.google.com/secure-web-proxy/docs/overview#explicit-proxy-routing).
+  1. Configure Secure Web Proxy in an RFC 1918 subnet of your VPC network. You must configure the proxy in [explicit proxy routing mode](https://docs.cloud.google.com/secure-web-proxy/docs/overview#deployment-modes).
   2. Create a Cloud DNS record for the Secure Web Proxy hostname.
   3. Configure [DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#dns-peering) for Agent Runtime to support agent DNS query resolution to the private address of the Secure Web Proxy in the VPC network.
   4. When you deploy agents do the following: 
-     1. Define [environment variables](https://docs.cloud.google.com/agent-builder/agent-engine/deploy#environment-variables) to use the explicit proxy by specifying the Secure Web Proxy hostname and port.
+     1. Define [environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#environment-variables) to use the explicit proxy by specifying the Secure Web Proxy hostname and port.
      2. If you're accessing a private destination, configure a private DNS zone for that destination.
 
 
@@ -364,7 +364,7 @@ You can help protect traffic that leaves your GKE cluster by using the following
   * Model Armor
   * [Cloud NGFW](https://docs.cloud.google.com/firewall/docs/about-firewalls)
   * [GKE network policies](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/network-policy)
-  * [Private GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/legacy/network-isolation)
+  * [Private GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/latest/network-isolation)
 
 
 
@@ -397,7 +397,7 @@ If you don't use a Gateway to send traffic from your VPC network to your GKE ser
   * [Cloud NGFW](https://docs.cloud.google.com/firewall/docs/about-firewalls)
   * [GKE network policies](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/network-policy)
   * [GKE network isolation](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/network-isolation)
-  * [Private GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/legacy/network-isolation)
+  * [Private GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/latest/network-isolation)
 
 
 
@@ -429,7 +429,7 @@ Cloud NGFW can be applied on the VPC network to enforce firewall policy based on
 
 #### Default deny egress policy
 
-Implementing a default deny strategy is a security best practice that adheres to the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). This strategy ensures that only network traffic that's explicitly allowed is permitted, while all other traffic is blocked by default. This implementation is achieved by structuring firewall rules with high-priority `ALLOW` rules for known, legitimate flows and a low-priority, catch-all `DENY` rule. All tiers of Cloud NGFW allow rules based on source and destination IP address ranges.
+Implementing a default deny strategy is a security best practice that adheres to the [principle of least privilege](https://docs.cloud.google.com/iam/docs/using-iam-securely#least_privilege). This strategy ensures that only network traffic that's explicitly allowed is permitted, while all other traffic is blocked by default. This implementation is achieved by structuring firewall rules with high-priority `ALLOW` rules for known, legitimate flows and a low-priority, catch-all `DENY` rule. All tiers of Cloud NGFW allow rules based on source and destination IP address ranges.
 
 Firewall policy rules can effectively match source traffic from the Agent Runtime [network attachment](https://docs.cloud.google.com/vpc/docs/configure-security-network-attachments#producer-to-consumer-ingress) subnet and from the Cloud Run [Direct VPC egress](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc#restrict-access) subnet.
 
@@ -471,7 +471,7 @@ For additional implementation considerations or limitations that might be applic
 
 To access AI apps that are hosted on GKE and that are protected by IAP, principal user identities must be granted the IAP-secured Web App User IAM role (`roles/iap.httpsResourceAccessor`) on the IAP-protected backend service resource. We recommend that you configure a custom service account as the identity for deployed agents. Using a custom service account lets you assign permissions more precisely according to the principle of least privilege.
 
-Only grant the IAP-secured Web App User IAM role directly to the service accounts of agents that are allowed to access other agents and tools that are hosted on the GKE [`BackendConfig`](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) custom resource. To allow Gemini Enterprise apps access, grant permissions by binding the IAM role [Discovery Engine Service Account](https://docs.cloud.google.com/iam/docs/service-agents#discovery-engine-service-account) (`roles/discoveryengine.serviceAgent`) for your Gemini Enterprise project.
+Only grant the IAP-secured Web App User IAM role directly to the service accounts of agents that are allowed to access other agents and tools that are hosted on the GKE service that's targeted by the [`GCPBackendPolicy`](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_iap) (or [`BackendConfig`](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) for Ingress) custom resource. To allow Gemini Enterprise apps access, grant permissions by binding the IAM role [Discovery Engine Service Account](https://docs.cloud.google.com/iam/docs/service-agents#discovery-engine-service-account) (`roles/discoveryengine.serviceAgent`) for your Gemini Enterprise project.
 
 ### VPC Service Controls
 
@@ -487,9 +487,9 @@ To secure the interaction between Gemini Enterprise and Cloud Run across project
 
 
 
-Cloud Run services are secured by IAM. Callers must be authenticated and they must have the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) IAM role (`roles/run.invoker`) on the target service. The role is checked by validating a token from the Authorization header. To successfully call the Cloud Run service, service accounts, such as those used by [ Gemini Enterprise](https://docs.cloud.google.com/iam/docs/service-agents#discovery-engine-service-account), must also be granted the Cloud Run Invoker role.
+Cloud Run services are secured by IAM. Callers must be authenticated and they must have the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) IAM role (`roles/run.invoker`) on the target service. The role is checked by validating a token from the `Authorization` header (or the `X-Serverless-Authorization` header when [Gemini Enterprise calls a default `.run.app` URL](https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-an-a2a-agent#auth-headers)). To successfully call the Cloud Run service, service accounts, such as those used by [ Gemini Enterprise](https://docs.cloud.google.com/iam/docs/service-agents#discovery-engine-service-account), must also be granted the Cloud Run Invoker role.
 
-When Gemini Enterprise and Cloud Run are deployed in different projects, a VPC Service Controls perimeter is required in order to set Cloud Run ingress to Internal. Without this perimeter, cross-project calls from Gemini are treated as external traffic, which forces you to set Cloud Run ingress to All—which leaves the service exposed to the public internet.
+When Gemini Enterprise and Cloud Run are deployed in different projects, a VPC Service Controls perimeter is required in order to set Cloud Run ingress to Internal. Without this perimeter, cross-project calls from Gemini Enterprise are treated as external traffic, which forces you to set Cloud Run ingress to All—which leaves the service exposed to the public internet.
 
   * Cloud Run ingress `all` is supported when both of these are _true_ : 
     * VPC Service Controls isn't enabled.
@@ -519,7 +519,7 @@ Model Armor is a regional service that's accessed privately through regional [Pr
 
 To enable access for agents, configure the following components in every region where the Model Armor service is required:
 
-  1. Create or identify an [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) subnet in the VPC network region where the Model Armor service resides.
+  1. Create or identify an RFC 1918 subnet in the VPC network region where the Model Armor service resides.
   2. Create a [regional endpoint](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints#create-regional-endpoint) in the RFC 1918 subnet.
   3. Create a [Cloud DNS private zone](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints#configure-dns) and a record for the Model Armor regional endpoint hostname (for example, `modelarmor.us-central1.rep.googleapis.com`) that resolves to the IP address of the regional endpoint.
   4. For Agent Runtime interoperability, establish [DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#dns-peering) from Agent Runtime to the Cloud DNS private zone that's associated with your VPC network. When agents make requests to Model Armor, Cloud DNS resolves the hostname requests to the IP address of the Private Service Connect regional endpoint in the VPC network. This step isn't required for agents that are hosted in Cloud Run and GKE.
@@ -544,7 +544,7 @@ For more information about enabling Model Armor, see these resources:
 
 Cloud Armor can be deployed in an agent network architecture in the following scenarios:
 
-  * **Cloud Run with internal Application Load Balancer** : Protect agents and tools that run on Cloud Run by using an internal Application Load Balancer with serverless NEG backends. Apply [backend security policies](https://docs.cloud.google.com/armor/docs/security-policy-overview#expandable-2) to the serverless NEG to enforce WAF rules for internal traffic and rate limiting. To control agent communications, you can define additional custom rules based on IP addresses and headers.
+  * **Cloud Run with internal Application Load Balancer** : Protect agents and tools that run on Cloud Run by using an internal Application Load Balancer with serverless NEG backends. Apply [backend security policies](https://docs.cloud.google.com/armor/docs/security-policy-overview#policy-types) to the serverless NEG to enforce WAF rules for internal traffic and rate limiting. To control agent communications, you can define additional custom rules based on IP addresses and headers.
   * **Gateway** : Protect agents and tools that run on GKE by using a Gateway resource definition for a global or regional external Application Load Balancer with zonal NEG backends. Use the [Kubernetes Gateway API](https://docs.cloud.google.com/armor/docs/integrating-cloud-armor#armor-with-gke-gateway) to apply the `GCPBackendPolicy` resource with the defined Cloud Armor security policy. If you use a regional external Application Load Balancer, Cloud Armor supports [backend security policies](https://docs.cloud.google.com/armor/docs/security-policy-overview#backend-policies) with WAF rules, IP address and geo-based controls, and rate limiting. Global external Application Load Balancers support backend security policies and additional [edge security policies](https://docs.cloud.google.com/armor/docs/security-policy-overview#edge-policies) with [Google Cloud Armor Adaptive Protection](https://docs.cloud.google.com/armor/docs/adaptive-protection-overview) and [ Google Threat Intelligence](https://docs.cloud.google.com/chronicle/docs/detection).
 
 
@@ -553,7 +553,7 @@ Cloud Armor can be deployed in an agent network architecture in the following sc
 
 [Secure Web Proxy](https://docs.cloud.google.com/secure-web-proxy/docs/overview) is a regional managed service that's deployed within the VPC network to filter HTTP/S traffic that originates within the VPC network or within any connected networks. It acts as a centralized proxy and security enforcement point to provide granular control and visibility for outbound internet traffic. It also acts as an explicit proxy for internal service communications.
 
-Secure Web Proxy supports three [deployment modes](https://docs.cloud.google.com/secure-web-proxy/docs/overview#deployment-modes): explicit proxy routing mode, Private Service Connect service attachment mode, and next hop mode. We recommend that you use Secure Web Proxy in [explicit proxy routing mode](https://docs.cloud.google.com/secure-web-proxy/docs/overview#explicit-proxy-routing), which is the focus of this document. In this mode, HTTP clients must be explicitly configured to point directly to the Secure Web Proxy IP address or hostname.
+Secure Web Proxy supports three [deployment modes](https://docs.cloud.google.com/secure-web-proxy/docs/overview#deployment-modes): explicit proxy routing mode, Private Service Connect service attachment mode, and next hop mode. We recommend that you use Secure Web Proxy in [explicit proxy routing mode](https://docs.cloud.google.com/secure-web-proxy/docs/overview#deployment-modes), which is the focus of this document. In this mode, HTTP clients must be explicitly configured to point directly to the Secure Web Proxy IP address or hostname.
 
 To deploy Secure Web Proxy in your VPC network, you must configure a frontend subnet and a [proxy-only subnet](https://docs.cloud.google.com/secure-web-proxy/docs/initial-setup-steps#create_a_proxy_subnet). Secure Web Proxy is a fully managed service. When Secure Web Proxy is deployed, it automatically deploys and configures Cloud Router and Cloud NAT in your VPC network for specific integration with the proxy resource. This configuration mandates that any outbound requests must pass through Secure Web Proxy before they egress to the internet.
 
@@ -561,11 +561,11 @@ Using Secure Web Proxy as an explicit proxy supports agent requests that come fr
 
 #### Explicit proxy routing
 
-Agent Runtime egress requires that you use an explicit proxy configuration in order for agents to reach internet destinations or [non-routable IP address ranges](https://docs.cloud.google.com/agent-builder/agent-engine/private-service-connect-interface#subnetwork-ip-range-requirements) in the VPC network. For Agent Runtime interoperability, we recommend that you configure the Secure Web Proxy resource with an RFC 1918 IP address from a frontend subnet in the VPC network. With this configuration, Secure Web Proxy becomes directly reachable from Agent Runtime. It can then proxy any connections to non-routable IP address destinations that are in the VPC network or in connected networks.
+Agent Runtime egress requires that you use an explicit proxy configuration in order for agents to reach internet destinations or [non-routable IP address ranges](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#subnetwork-ip-range-requirements) in the VPC network. For Agent Runtime interoperability, we recommend that you configure the Secure Web Proxy resource with an RFC 1918 IP address from a frontend subnet in the VPC network. With this configuration, Secure Web Proxy becomes directly reachable from Agent Runtime. It can then proxy any connections to non-routable IP address destinations that are in the VPC network or in connected networks.
 
 To support agent hosting platform use of Secure Web Proxy in explicit routing mode, configure these networking resources:
 
-  1. Create or identify an [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) subnet in the VPC network to host the Secure Web Proxy resource.
+  1. Create or identify an RFC 1918 subnet in the VPC network to host the Secure Web Proxy resource.
   2. Create a Cloud DNS record for the Secure Web Proxy hostname (for example, `swp.example.com`) that resolves to the IP address of the Secure Web Proxy resource.
   3. For Agent Runtime interoperability, establish [DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#dns-peering) from Agent Runtime to the Cloud DNS private zone that's associated with your VPC network. When agents make requests to Secure Web Proxy, Cloud DNS resolves the hostname requests to the IP address of the Secure Web Proxy resource in the VPC network. This step isn't required for agents that are hosted in Cloud Run and GKE.
 
@@ -575,16 +575,23 @@ To support agent hosting platform use of Secure Web Proxy in explicit routing mo
 
 The standard way to configure agent apps to use an HTTP(S) proxy is by setting these environment variables:
 
-  * `HTTP_PROXY`: The URL of the explicit proxy server for HTTP traffic (for example, [`http://swp.example.com:8888`](http://swp.example.com:8888)). This setup uses the HTTP `CONNECT` method from the client to the proxy. Even though HTTP is specified, TLS encryption is maintained end-to-end through the proxy from the agent runtime to the target endpoint.
-  * `HTTPS_PROXY`: The URL of the explicit proxy server for HTTPS traffic (for example, [`https://swp.example.com:8888`](https://swp.example.com:8888)). Like the `HTTP_PROXY` setting, the `HTTPS_PROXY` setting uses TLS by default. However, you can provide an additional layer of encryption by enabling your own TLS encryption on top of the default TLS. For more information, see Certificate Authority Service.
+  * `HTTP_PROXY`: The URL of the explicit proxy server for HTTP traffic (for example, `http://swp.example.com:8888`). This setup uses the HTTP `CONNECT` method from the client to the proxy. Even though HTTP is specified, TLS encryption is maintained end-to-end through the proxy from the agent runtime to the target endpoint.
+  * `HTTPS_PROXY`: The URL of the explicit proxy server for HTTPS traffic (for example, `https://swp.example.com:8888`). Like the `HTTP_PROXY` setting, the `HTTPS_PROXY` setting uses TLS by default. However, you can provide an additional layer of encryption by enabling your own TLS encryption on top of the default TLS. For more information, see Certificate Authority Service.
   * `NO_PROXY`: A comma-separated list of hostnames or IP addresses that shouldn't go through the proxy. For example, if you add `metadata.google.internal` and `169.254.169.254` to the `NO_PROXY` list, then workloads can directly access the metadata service for authentication and authorization to Google APIs and services.
 
 
 
 When you use the `env_vars` argument to set variables during deployment, they become available within the agent runtime environment (for example, when you use `os.environ` in Python). Most standard HTTP client libraries automatically discover and use these environment variables to route traffic through the specified proxy. This approach is common for Python apps and HTTP client libraries like [`requests`](https://requests.readthedocs.io/en/latest/user/advanced/#proxies). When you deploy agents, define environment variables for using Secure Web Proxy for any private domains that the agents need to reach. Ensure that any private domain destinations are also included in Cloud DNS.
 
-The following example shows a Agent Runtime proxy deployment from an [agent object](https://docs.cloud.google.com/agent-builder/agent-engine/deploy#create-agent-engine):
+The following example shows a Agent Runtime proxy deployment from an [agent object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance):
     
+    
+    import agentplatform
+    
+    client = agentplatform.Client(
+        project="PROJECT_ID",
+        location="LOCATION",
+    )
     
     ## specify environment variables (dictionary)
     env_vars = {
@@ -594,7 +601,7 @@ The following example shows a Agent Runtime proxy deployment from an [agent obje
         "NO_PROXY": "localhost,127.0.0.1,metadata.google.internal,169.254.169.254,.googleapis.com,run.app,.gcr.io,.pkg.dev,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.internal"
     }
     
-    remote_agent = aiplatform.agent_engines.create(
+    remote_agent = client.runtimes.create(
         agent=local_agent,
         config={
             "display_name": "Example agent using proxy",
@@ -649,7 +656,7 @@ To apply the `ConfigMap` keys to the Pods, use the `envFrom` field in the contai
 
 ### CA Service
 
-[CA Service (CA Service)](https://docs.cloud.google.com/certificate-authority-service/docs/ca-service-overview) is required when Secure Web Proxy or Cloud NGFW is configured for TLS inspection. When TLS inspection is enabled and a workload's destination uses TLS, CA Service creates and signs a certificate for that destination. When the encrypted traffic for the real destination arrives at Secure Web Proxy or Cloud NGFW, it decrypts the packet, inspects it, and then enforces policies. If the policies allow the packet, the service re-encrypts the packet for the final destination. You can also use CA Service to provide certificates to other Google managed services.
+[CA Service](https://docs.cloud.google.com/certificate-authority-service/docs/ca-service-overview) is required when Secure Web Proxy or Cloud NGFW is configured for TLS inspection. When TLS inspection is enabled and a workload's destination uses TLS, CA Service creates and signs a certificate for that destination. When the encrypted traffic for the real destination arrives at Secure Web Proxy or Cloud NGFW, it decrypts the packet, inspects it, and then enforces policies. If the policies allow the packet, the service re-encrypts the packet for the final destination. You can also use CA Service to provide certificates to other Google managed services.
 
 CA Service is a managed service. After CA Service is configured, it handles leaf certificate signing until the root CA certificate expires. Root CA certificates must be updated to ensure that they don't expire.
 
@@ -774,7 +781,7 @@ The following table provides resources to help you protect traffic when Agent Ru
 
 Destination agent (data path) | Security control  
 ---|---  
-Cloud Run (Private Service Connect GoogleAPIs) | 
+Cloud Run (Private Service Connect for Google APIs) | 
 
   * VPC Service Controls
   * Model Armor
@@ -868,7 +875,7 @@ Internet through VPC network |
   * [Secure Web Proxy](https://docs.cloud.google.com/secure-web-proxy/docs/overview)
 
   
-Agent Runtime Private Service Connect for Google APIs  | 
+Agent Runtime (Private Service Connect for Google APIs)  | 
 
   * VPC Service Controls
   * Model Armor
@@ -894,9 +901,9 @@ The following list outlines the hosting platforms and defense-in-depth controls 
 ## What's next
 
   * Read about how to build your agentic system: 
-    * [Choose your agentic AI architecture components](https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components). 
-      * [Choose a design pattern for your agentic AI system](https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system).
-      * [Multi-agent AI system in Google Cloud](https://docs.cloud.google.com/architecture/multiagent-ai-system).
+    * [Choose your agentic AI architecture components](https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components).
+    * [Choose a design pattern for your agentic AI system](https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system).
+    * [Multi-agent AI system in Google Cloud](https://docs.cloud.google.com/architecture/multiagent-ai-system).
   * For more reference architectures, diagrams, and best practices, explore the [Cloud Architecture Center](https://docs.cloud.google.com/architecture). 
 
 
@@ -926,6 +933,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-04-16 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-04-16 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment/
 title: Set up ADC for a local development environment \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:17.856402+00:00
+fetched_at: 2026-11-11T09:45:43.084644+00:00
 ---
 
 # Set up ADC for a local development environment  |  Authentication  |  Google Cloud Documentation

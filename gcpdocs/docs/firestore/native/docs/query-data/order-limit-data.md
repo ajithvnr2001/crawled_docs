@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/order-limit-data/
 title: Order and limit data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:09:31.744540+00:00
+fetched_at: 2026-11-11T08:54:05.139221+00:00
 ---
 
 # Order and limit data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ For example, you could query for the first 3 cities alphabetically with:
     
     const q = query(citiesRef, orderBy("name"), limit(3));
     
-    [order_and_limit.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/order_and_limit.js#L8-L10)
+    [order_and_limit.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/order_and_limit.js#L8-L10)
 
 ### Web version 8
 
@@ -51,7 +51,7 @@ For example, you could query for the first 3 cities alphabetically with:
     
     citiesRef.orderBy("name").limit(3);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L929-L929)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L929-L929)
 
 ##### Swift
 
@@ -170,7 +170,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("name").limit(3)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L25-L25)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/order_limit_data.rb#L25-L25)
 
 You could also sort in descending order to get the _last_ 3 cities:
 
@@ -181,7 +181,7 @@ You could also sort in descending order to get the _last_ 3 cities:
     
     const q = query(citiesRef, orderBy("name", "desc"), limit(3));
     
-    [order_and_limit_desc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/order_and_limit_desc.js#L8-L10)
+    [order_and_limit_desc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/order_and_limit_desc.js#L8-L10)
 
 ### Web version 8
 
@@ -190,7 +190,7 @@ You could also sort in descending order to get the _last_ 3 cities:
     
     citiesRef.orderBy("name", "desc").limit(3);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L936-L936)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L936-L936)
 
 ##### Swift
 
@@ -307,7 +307,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("name", "desc").limit(3)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L40-L40)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/order_limit_data.rb#L40-L40)
 
 You can also order by multiple fields. For example, if you wanted to order by state, and within each state order by population in descending order:
 
@@ -318,7 +318,7 @@ You can also order by multiple fields. For example, if you wanted to order by st
     
     const q = query(citiesRef, orderBy("state"), orderBy("population", "desc"));
     
-    [order_multiple.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/order_multiple.js#L8-L10)
+    [order_multiple.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/order_multiple.js#L8-L10)
 
 ### Web version 8
 
@@ -327,7 +327,7 @@ You can also order by multiple fields. For example, if you wanted to order by st
     
     citiesRef.orderBy("state").orderBy("population", "desc");
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L943-L943)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L943-L943)
 
 ##### Swift
 
@@ -448,7 +448,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("state").order("population", "desc")
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L55-L55)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/order_limit_data.rb#L55-L55)
 
 You can combine `where()` filters with `orderBy()` and `limit()`. In the following example, the queries define a population threshold, sort by population in ascending order, and return only the first few results that exceed the threshold:
 
@@ -459,7 +459,7 @@ You can combine `where()` filters with `orderBy()` and `limit()`. In the followi
     
     const q = query(citiesRef, where("population", ">", 100000), orderBy("population"), limit(2));
     
-    [filter_and_order.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/filter_and_order.js#L8-L10)
+    [filter_and_order.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/filter_and_order.js#L8-L10)
 
 ### Web version 8
 
@@ -468,7 +468,7 @@ You can combine `where()` filters with `orderBy()` and `limit()`. In the followi
     
     citiesRef.where("population", ">", 100000).orderBy("population").limit(2);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L950-L950)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L950-L950)
 
 ##### Swift
 
@@ -613,7 +613,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.where("population", ">", 2_500_000).order("population").limit(2)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/order_limit_data.rb#L70-L70)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/order_limit_data.rb#L70-L70)
 
 However, if you have a filter with a range comparison (`<`, `<=`, `>`, `>=`), your first ordering must be on the same field, see the list of `orderBy()` limitations below.
 
@@ -654,6 +654,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

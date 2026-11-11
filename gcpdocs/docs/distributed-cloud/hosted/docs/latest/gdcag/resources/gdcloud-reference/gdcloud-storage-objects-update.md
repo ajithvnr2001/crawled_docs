@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-storage-objects-update/
 title: gdcloud storage objects update \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:34.964106+00:00
+fetched_at: 2026-11-11T10:28:57.987431+00:00
 ---
 
 # gdcloud storage objects update  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

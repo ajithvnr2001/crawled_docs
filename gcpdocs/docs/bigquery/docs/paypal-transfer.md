@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/paypal-transfer/
 title: Load PayPal data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:13.306650+00:00
+fetched_at: 2026-11-11T10:01:40.923669+00:00
 ---
 
 # Load PayPal data into BigQuery  |  Google Cloud Documentation

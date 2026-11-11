@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/delete-persistent-storage/
 title: Delete persistent storage \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:13.645477+00:00
+fetched_at: 2026-11-11T11:43:45.955073+00:00
 ---
 
 # Delete persistent storage  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

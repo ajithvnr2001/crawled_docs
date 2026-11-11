@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/console-appearance/
 title: Change the appearance of the Google Cloud console \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:39.983968+00:00
+fetched_at: 2026-11-11T09:27:21.565353+00:00
 ---
 
 # Change the appearance of the Google Cloud console  |  Get started  |  Google Cloud Documentation

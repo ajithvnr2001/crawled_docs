@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/queries/
 title: Query and filter data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:10:21.133843+00:00
+fetched_at: 2026-11-11T08:54:08.797608+00:00
 ---
 
 # Query and filter data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ To get started, write some data about cities so we can look at different ways to
         capital: true, population: 21500000,
         regions: ["jingjinji", "hebei"] });
     
-    [example_data.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/example_data.js#L8-L31)
+    [example_data.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/example_data.js#L8-L31)
 
 ### Web version 8
 
@@ -87,7 +87,7 @@ To get started, write some data about cities so we can look at different ways to
         capital: true, population: 21500000,
         regions: ["jingjinji", "hebei"] });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L403-L424)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L403-L424)
 
 ##### Swift
 
@@ -861,7 +861,7 @@ Android
       }
     )
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L23-L78)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L23-L78)
 
 ## Simple queries
 
@@ -877,7 +877,7 @@ The following query returns all cities with state `CA`:
     // Create a query against the collection.
     const q = query(citiesRef, where("state", "==", "CA"));
     
-    [simple_queries.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/simple_queries.js#L8-L13)
+    [simple_queries.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/simple_queries.js#L8-L13)
 
 ### Web version 8
 
@@ -890,7 +890,7 @@ The following query returns all cities with state `CA`:
     // Create a query against the collection.
     var query = citiesRef.where("state", "==", "CA");
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L841-L845)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L841-L845)
 
 ##### Swift
 
@@ -1068,7 +1068,7 @@ Android
       puts "Document #{city.document_id} returned by query state=CA."
     end
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L89-L95)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L89-L95)
 
 The following query returns all the capital cities:
 
@@ -1080,7 +1080,7 @@ The following query returns all the capital cities:
     
     const q = query(citiesRef, where("capital", "==", true));
     
-    [simple_queries_again.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/simple_queries_again.js#L8-L11)
+    [simple_queries_again.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/simple_queries_again.js#L8-L11)
 
 ### Web version 8
 
@@ -1091,7 +1091,7 @@ The following query returns all the capital cities:
     
     var query = citiesRef.where("capital", "==", true);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L851-L853)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L851-L853)
 
 ##### Swift
 
@@ -1246,7 +1246,7 @@ Android
       puts "Document #{city.document_id} returned by query capital=true."
     end
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L105-L111)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L105-L111)
 
 ### Execute a query
 
@@ -1265,7 +1265,7 @@ After creating a query object, use the `get()` function to retrieve the results:
       console.log(doc.id, " => ", doc.data());
     });
     
-    [get_multiple.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/get_multiple.js#L8-L16)
+    [get_multiple.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/get_multiple.js#L8-L16)
 
 ### Web version 8
 
@@ -1284,7 +1284,7 @@ After creating a query object, use the `get()` function to retrieve the results:
             console.log("Error getting documents: ", error);
         });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L673-L683)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L673-L683)
 
 ##### Swift
 
@@ -1553,7 +1553,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "#{city.document_id} data: #{city.data}."
     end
     
-    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/get_data.rb#L96-L102)
+    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/get_data.rb#L96-L102)
 
 See [Get Data](https://docs.cloud.google.com/firestore/native/docs/query-data/get-data) for more information on retrieving query results. You can also [add a listener](https://docs.cloud.google.com/firestore/native/docs/query-data/listen) to a query to get the current results and listen for future updates.
 
@@ -1583,7 +1583,7 @@ For example:
     const populationQuery = query(citiesRef, where("population", "<", 100000));
     const nameQuery = query(citiesRef, where("name", ">=", "San Francisco"));
     
-    [example_filters.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/example_filters.js#L8-L10)
+    [example_filters.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/example_filters.js#L8-L10)
 
 ### Web version 8
 
@@ -1594,7 +1594,7 @@ For example:
     const populationQuery = citiesRef.where("population", "<", 100000);
     const nameQuery = citiesRef.where("name", ">=", "San Francisco");
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L860-L862)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L860-L862)
 
 ##### Swift
 
@@ -1741,7 +1741,7 @@ Android
     population_query = cities_ref.where "population", ">", 1_000_000
     name_query       = cities_ref.where "name", ">=", "San Francisco"
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L123-L125)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L123-L125)
 
 ### Not equal (`!=`)
 
@@ -1752,7 +1752,7 @@ Use the not equal (`!=`) operator to return documents where the given field exis
     
     const notCapitalQuery = query(citiesRef, where("capital", "!=", false));
     
-    [simple_query_not_equal.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/simple_query_not_equal.js#L8-L8)
+    [simple_query_not_equal.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/simple_query_not_equal.js#L8-L8)
 
 ### Web version 8
 
@@ -1761,7 +1761,7 @@ Use the not equal (`!=`) operator to return documents where the given field exis
     
     citiesRef.where("capital", "!=", false);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L866-L866)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L866-L866)
 
 ##### Swift
 
@@ -1860,7 +1860,7 @@ Android
     cities_ref = firestore.col collection_path
     query = cities_ref.where "capital", "!=", false
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L239-L240)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L239-L240)
 
 This query returns every `city` document where the `capital` field exists with a value other than `false` or `null`. This includes `city` documents where the `capital` field value equals `true` or any non-boolean value besides `null`.
 
@@ -1889,7 +1889,7 @@ You can use the `array-contains` operator to filter based on array values. For e
     import { query, where } from "firebase/firestore";  
     const q = query(citiesRef, where("regions", "array-contains", "west_coast"));
     
-    [array_contains_filter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/array_contains_filter.js#L8-L9)
+    [array_contains_filter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/array_contains_filter.js#L8-L9)
 
 ### Web version 8
 
@@ -1898,7 +1898,7 @@ You can use the `array-contains` operator to filter based on array values. For e
     
     citiesRef.where("regions", "array-contains", "west_coast");
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L873-L873)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L873-L873)
 
 ##### Swift
 
@@ -2030,7 +2030,7 @@ Android
     cities_ref = firestore.col collection_path
     cities = cities_ref.where "regions", "array-contains", "west_coast"
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L281-L282)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L281-L282)
 
 This query returns every `city` document where the `regions` field is an array that contains `west_coast`. If the array has multiple instances of the value you query on, the document is included in the results only once.
 
@@ -2047,7 +2047,7 @@ Use the `in` operator to combine up to 30 equality (`==`) clauses on the same fi
     
     const q = query(citiesRef, where('country', 'in', ['USA', 'Japan']));
     
-    [in_filter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/in_filter.js#L8-L10)
+    [in_filter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/in_filter.js#L8-L10)
 
 ### Web version 8
 
@@ -2056,7 +2056,7 @@ Use the `in` operator to combine up to 30 equality (`==`) clauses on the same fi
     
     citiesRef.where('country', 'in', ['USA', 'Japan']);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L888-L888)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L888-L888)
 
 ##### Swift
 
@@ -2194,7 +2194,7 @@ Android
     cities_ref = firestore.col collection_path
     usr_or_japan = cities_ref.where "country", "in", ["USA", "Japan"]
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L211-L212)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L211-L212)
 
 This query returns every `city` document where the `country` field is set to `USA` or `Japan`. From the example data, this includes the `SF`, `LA`, `DC`, and `TOK` documents.
 
@@ -2209,7 +2209,7 @@ Use the `not-in` operator to combine up to 10 not equal (`!=`) clauses on the sa
     
     const q = query(citiesRef, where('country', 'not-in', ['USA', 'Japan']));
     
-    [not_in_filter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/not_in_filter.js#L8-L10)
+    [not_in_filter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/not_in_filter.js#L8-L10)
 
 ### Web version 8
 
@@ -2218,7 +2218,7 @@ Use the `not-in` operator to combine up to 10 not equal (`!=`) clauses on the sa
     
     citiesRef.where('country', 'not-in', ['USA', 'Japan']);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L892-L892)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L892-L892)
 
 ##### Swift
 
@@ -2326,7 +2326,7 @@ Android
     cities_ref = firestore.col collection_path
     usr_or_japan = cities_ref.where "country", "not_in", ["USA", "Japan"]
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L253-L254)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L253-L254)
 
 This query returns every `city` document where the `country` field exists and is not set to `USA`, `Japan`, or `null`. From the example data, this includes the `London` and `Hong Kong` documents.
 
@@ -2346,7 +2346,7 @@ Use the `array-contains-any` operator to combine up to 30 `array-contains` claus
     const q = query(citiesRef, 
       where('regions', 'array-contains-any', [['west_coast'], ['east_coast']]));
     
-    [array_contains_any_filter.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/array_contains_any_filter.js#L8-L11)
+    [array_contains_any_filter.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/array_contains_any_filter.js#L8-L11)
 
 ### Web version 8
 
@@ -2356,7 +2356,7 @@ Use the `array-contains-any` operator to combine up to 30 `array-contains` claus
     citiesRef.where('regions', 'array-contains-any',
         [['west_coast'], ['east_coast']]);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L880-L881)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L880-L881)
 
 ##### Swift
 
@@ -2506,7 +2506,7 @@ Android
     cities_ref = firestore.col collection_path
     costal_cities = cities_ref.where "regions", "array-contains-any", ["west_coast", "east_coast"]
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L267-L268)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L267-L268)
 
 This query returns every city document where the `regions` field is an array that contains `west_coast` or `east_coast`. From the example data, this includes the `SF`, `LA`, and `DC` documents.
 
@@ -2523,7 +2523,7 @@ You can use an array value as a comparison value for `in`, but unlike `array-con
     
     const q = query(citiesRef, where('regions', 'in', [['west_coast'], ['east_coast']]));
     
-    [in_filter_with_array.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/in_filter_with_array.js#L8-L10)
+    [in_filter_with_array.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/in_filter_with_array.js#L8-L10)
 
 ### Web version 8
 
@@ -2533,7 +2533,7 @@ You can use an array value as a comparison value for `in`, but unlike `array-con
     citiesRef.where('regions', 'in',
         [['west_coast'], ['east_coast']]);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L896-L897)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L896-L897)
 
 ##### Swift
 
@@ -2669,7 +2669,7 @@ Android
     cities_ref = firestore.col collection_path
     exactly_one_cost = cities_ref.where "regions", "in", [["west_coast"], ["east_coast"]]
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L225-L226)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L225-L226)
 
 This query returns every city document where the `regions` field is an array that contains exactly one element of either `west_coast` or `east_coast`. From the example data, only the `DC` document qualifies with its `regions` field of `["east_coast"]`. The `SF` document, however, does not match because its `regions` field is `["west_coast", "norcal"]`.
 
@@ -2696,7 +2696,7 @@ You can combine constraints with a logical `AND` by chaining multiple equality o
     const q1 = query(citiesRef, where("state", "==", "CO"), where("name", "==", "Denver"));
     const q2 = query(citiesRef, where("state", "==", "CA"), where("population", "<", 1000000));
     
-    [chain_filters.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/chain_filters.js#L8-L11)
+    [chain_filters.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/chain_filters.js#L8-L11)
 
 ### Web version 8
 
@@ -2706,7 +2706,7 @@ You can combine constraints with a logical `AND` by chaining multiple equality o
     const q1 = citiesRef.where("state", "==", "CO").where("name", "==", "Denver");
     const q2 = citiesRef.where("state", "==", "CA").where("population", "<", 1000000);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L904-L905)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L904-L905)
 
 ##### Swift
 
@@ -2859,7 +2859,7 @@ Android
     
     chained_query = cities_ref.where("state", "=", "CA").where("name", "=", "San Francisco")
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L145-L145)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L145-L145)
 
 ## `OR` queries
 
@@ -3080,7 +3080,7 @@ You can combine `OR` queries with compound queries to filter on combinations of 
       )
     ));
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore-next/test.firestore.js#L1125-L1131)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore-next/test.firestore.js#L1125-L1131)
 
 ### Web version 8
 
@@ -3288,7 +3288,7 @@ For example, you can create a `landmarks` collection group by adding a landmarks
         })
     ]);
     
-    [fs_collection_group_query_data_setup.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/fs_collection_group_query_data_setup.js#L8-L53)
+    [fs_collection_group_query_data_setup.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/fs_collection_group_query_data_setup.js#L8-L53)
 
 ### Web version 8
 
@@ -3340,7 +3340,7 @@ For example, you can create a `landmarks` collection group by adding a landmarks
         })
     ]);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L1040-L1083)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L1040-L1083)
 
 ##### Swift
 
@@ -4544,7 +4544,7 @@ Android
       }
     )
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L295-L365)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L295-L365)
 
 We can use the simple and compound query described earlier to query a single city's `landmarks` subcollection, but you might also want to retrieve results from every city's `landmarks` subcollection at once.
 
@@ -4561,7 +4561,7 @@ The `landmarks` collection group consists of all collections with the ID `landma
         console.log(doc.id, ' => ', doc.data());
     });
     
-    [fs_collection_group_query.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/fs_collection_group_query.js#L8-L14)
+    [fs_collection_group_query.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/fs_collection_group_query.js#L8-L14)
 
 ### Web version 8
 
@@ -4575,7 +4575,7 @@ The `landmarks` collection group consists of all collections with the ID `landma
         });
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L1090-L1095)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L1090-L1095)
 
 ##### Swift
 
@@ -4784,7 +4784,7 @@ Android
       puts "#{museum[:type]} name is #{museum[:name]}."
     end
     
-    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/query_data.rb#L369-L372)
+    [query_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/query_data.rb#L369-L372)
 
 Before using a collection group query, you must create an index that supports your collection group query. [You can create an index through an error message, the console, or the Firebase CLI](https://docs.cloud.google.com/firestore/native/docs/query-data/indexing).
 
@@ -4952,6 +4952,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

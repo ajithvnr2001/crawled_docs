@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/create-harbor-instances/
 title: Create Harbor registry instances \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:45.831435+00:00
+fetched_at: 2026-11-11T10:29:05.244074+00:00
 ---
 
 # Create Harbor registry instances  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

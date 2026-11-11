@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/troubleshoot-agent-vmem-policies/
 title: Troubleshoot VM Extension Manager policies for the Ops Agent \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:30:05.371354+00:00
+fetched_at: 2026-11-11T12:59:45.567301+00:00
 ---
 
 # Troubleshoot VM Extension Manager policies for the Ops Agent  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 To diagnose problems with VM Extension Manager policies that manage the Ops Agent, use the troubleshooting techniques described in this document. For information about troubleshooting the Ops Agent, see [Troubleshoot the Ops Agent](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/troubleshooting).
 
-## ``gcloud compute zone-vm-extension-policies`` commands fail
+## A command for an extension policy fails
 
-When a ``gcloud compute zone-vm-extension-policies`` command fails, the response includes troubleshooting suggestions. Correct any errors in the command flags or arguments suggested by the error message.
+When a VM extension-policy command fails, the response includes troubleshooting suggestions. Correct any errors in the command flags or arguments suggested by the error message.
 
 If the output of the command mentions insufficient IAM permissions, then review the necessary roles and permissions described in [Grant the roles required to use VM Extension Manager](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/install-agent-vmem-policies#grant-roles-vmem).
 
@@ -190,7 +190,13 @@ To stop or restart an Ops Agent managed by VM Extension Manager, you must uninst
 
 ## Additional troubleshooting information
 
-For more information about troubleshooting the creation and use of VM Extension Manager policies, see [Troubleshoot VM extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/manage-vm-extensions#troubleshooting).
+For more information about troubleshooting the creation and use of VM Extension Manager policies, see the following:
+
+  * [Troubleshoot VM extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/troubleshoot-vm-extensions)
+  * [ Monitor VM extensions](https://docs.cloud.google.com/compute/docs/vm-extensions/monitor-vm-extensions)
+  * [ View VM extension logs](https://docs.cloud.google.com/compute/docs/vm-extensions/view-vm-extension-logs)
+
+
 
 For more information about troubleshooting the Ops Agent, see [Troubleshoot the Ops Agent](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/troubleshooting).
 
@@ -198,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

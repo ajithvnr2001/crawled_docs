@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/logging/
 title: View migration logs \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:58.504563+00:00
+fetched_at: 2026-11-11T09:33:12.899427+00:00
 ---
 
 # View migration logs  |  Database Migration Service  |  Google Cloud Documentation

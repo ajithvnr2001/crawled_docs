@@ -1,20 +1,25 @@
 ---
 url: https://docs.cloud.google.com/run/docs/known-issues/
-title: Google Cloud Documentation
+title: Known issues in Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T05:56:46.165562+00:00
+fetched_at: 2026-11-11T10:38:20.464004+00:00
 ---
 
-# Google Cloud Documentation
+# Known issues in Cloud Run  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/run/docs/known-issues/
 
+  * [ Home ](https://docs.cloud.google.com/)
+  * [ Documentation ](https://docs.cloud.google.com/docs)
+  * [ Application hosting ](https://docs.cloud.google.com/docs/application-hosting)
+  * [ Cloud Run ](https://docs.cloud.google.com/run/docs)
+  * [ Guides ](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run)
 
 
 
-Stay organized with collections  Save and categorize content based on your preferences. 
+Send feedback 
 
-Known issues in Cloud Run
+#  Known issues in Cloud Run Stay organized with collections  Save and categorize content based on your preferences. 
 
 This document lists known issues, limitations, and unsupported features in Cloud Run.
 
@@ -28,6 +33,19 @@ Or filter the known issues:
 
 Category | Issue and workaround  
 ---|---  
+Connectivity and security | 
+
+### NFS volume mounts fail with NFS-Ganesha versions earlier than 4.0
+
+Cloud Run instances can fail to start when they mount an [NFS volume](https://docs.cloud.google.com/run/docs/configuring/services/nfs-volume-mounts) served by NFS-Ganesha 3.x or earlier, such as the default NFS-Ganesha package on Debian 11. The NFS client on Cloud Run instances requests an NFSv4.2 file attribute during mount. RFC 8881 requires NFS servers to ignore attributes they don't support, but these NFS-Ganesha releases return an `NFS4ERR_BADXDR` error instead, so the mount fails with an input/output error. Filestore, the Linux kernel NFS server, and NFS-Ganesha 4.0 and later are not affected.  To resolve this issue, upgrade your server to NFS-Ganesha 4.0 or later, for example by moving to Debian 12 or later. If you can't upgrade right away, limit NFS-Ganesha to NFSv4.1 and earlier by adding the following to `/etc/ganesha/ganesha.conf` and restarting NFS-Ganesha: 
+    
+    
+    NFSv4 {
+        Minor_Versions = 0, 1;
+    }
+    
+
+If you don't need to manage your own NFS server, consider [Filestore](https://docs.cloud.google.com/filestore/docs).   
 Connectivity and security | 
 
 ### SSH connections fail when cold-starting a multi-container Cloud Run service
@@ -105,9 +123,9 @@ Serving |
 Cloud Run might use the request sent to the service endpoint to start an instance. Before the startup probe results are known, Cloud Run might also assign the request to the instance. If the probe passes, then the instance will process the request at the `receiveTimestamp` listed in the Cloud Run request log. If the probe fails, then Cloud Run logs failure without entering the service's code.   
 Connectivity and security | 
 
-### Custom domain mappings require enabled `` URLs
+### Custom domain mappings require enabled `run.app` URLs
 
-You can only map custom domains for Cloud Run services that have a default `` URL. Until this issue is resolved, if you've [disabled the default `` URL](https://docs.cloud.google.com/run/docs/securing/ingress#disable-url), we recommend that you enable the default `` URL, map the custom domain, and then disable the default `` URL again.   
+You can only map custom domains for Cloud Run services that have a default `run.app` URL. Until this issue is resolved, if you've [disabled the default `run.app` URL](https://docs.cloud.google.com/run/docs/securing/ingress#disable-url), we recommend that you enable the default `run.app` URL, map the custom domain, and then disable the default `run.app` URL again.   
 Connectivity and security | 
 
 ### Serverless VPC Access doesn't support IPv6
@@ -156,8 +174,10 @@ The Cloud Run feature of connecting to Cloud SQL instances is not supported for 
   
 top
 
+Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/titan-hardware-chip/
 title: Titan hardware chip \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:23.860714+00:00
+fetched_at: 2026-11-11T09:46:22.546770+00:00
 ---
 
 # Titan hardware chip  |  Security  |  Google Cloud Documentation

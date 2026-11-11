@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/GcsSource/
 title: GcsSource \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:36:54.744171+00:00
+fetched_at: 2026-11-11T08:59:28.159539+00:00
 ---
 
 # GcsSource  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -45,13 +45,13 @@ SourceFormat specifies the format of the input content. This enum can be used in
 
 Enums  
 ---  
-`SOURCE_FORMAT_UNSPECIFIED` | Default value. Each input URI names a file to import, or a pattern that matches files to import (see `ImportDocumentsRequest.gcs_source`). Each file is imported as a separate Document.An `UNSTRUCTURED` DataStore accepts PDF (`.pdf`), plain text (`.txt`), Word (`.docx`), PowerPoint (`.pptx`) and Excel (`.xlsx`, `.xlsm`) files of up to 200 MB (200,000,000 bytes). A `VIDEO` DataStore accepts video files of up to 600 GB that the service can decode and that are at most 15 hours long. A file that doesn't meet these requirements is reported in the error report rather than failing the import.  
+`SOURCE_FORMAT_UNSPECIFIED` | Default value. Each input URI names a file to import, or a pattern that matches files to import (see `ImportDocumentsRequest.gcs_source`). Each file is imported as a separate Document.An `UNSTRUCTURED` DataStore accepts PDF (`.pdf`), HTML (`.html`), plain text (`.txt`), Markdown (`.md`), JSON (`.json`), XML (`.xml`), Word (`.docx`), PowerPoint (`.pptx`) and Excel (`.xlsx`, `.xlsm`) files of up to 200 MB (200,000,000 bytes). A `VIDEO` DataStore accepts video files of up to 600 GB that the service can decode and that are at most 15 hours long. A file that doesn't meet these requirements is reported in the error report rather than failing the import.  
 `SOURCE_FORMAT_DOCUMENT_JSON` | Each input URI names a JSON Lines file: one Document per line, in the JSON format of the Document resource. Each line must set `name`, which gives the Document ID, and `content.gcs_uri`, and can set `metadata`, which must conform to the DataStore's `documentMetadataSchema`. Patterns are not supported in the input URIs.The files that the lines reference must meet the same requirements as for `SOURCE_FORMAT_UNSPECIFIED`. Lines that can't be parsed or that don't conform are reported in the error report and skipped.  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

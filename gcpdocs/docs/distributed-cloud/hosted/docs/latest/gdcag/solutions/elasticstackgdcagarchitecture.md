@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/solutions/elasticstackgdcagarchitecture/
 title: Solution reference architecture: Deploying Elastic Stack's generative AI features on GDC air-gapped \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:00.638737+00:00
+fetched_at: 2026-11-11T12:23:41.398033+00:00
 ---
 
 # Solution reference architecture: Deploying Elastic Stack's generative AI features on GDC air-gapped  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

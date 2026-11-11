@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/use-the-cloud-sdk/
 title: Use the gcloud CLI \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:54.338772+00:00
+fetched_at: 2026-11-11T09:33:48.748824+00:00
 ---
 
 # Use the gcloud CLI  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

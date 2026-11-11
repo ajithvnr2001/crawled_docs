@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/ai/accelerate-with-ce/
 title: Accelerate vector search with the columnar engine \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:58:13.981557+00:00
+fetched_at: 2026-11-11T09:39:30.453715+00:00
 ---
 
 # Accelerate vector search with the columnar engine  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation
@@ -70,7 +70,7 @@ After enabling the columnar engine, you can add an existing index to the cache u
 To add an index to the columnar engine, run the following query:
     
     
-    SELECT google_columnar_engine_add_index(&#39;INDEX_NAME');
+    SELECT google_columnar_engine_add_index('INDEX_NAME');
     
 
 Replace `INDEX_NAME` with the name of your vector index.
@@ -94,7 +94,7 @@ The following is an example of an execution plan for a query that uses a ScaNN i
     --This contains details about ScaNN's usage from the columnar engine. Example:
     ------------------------------------------------------------------------------------------------------
      Index Scan using scann_idx on t t_1 (actual rows=100 loops=1)
-          Ord<e>r By: (val = '[0.5,0.5,0.5,0.5]'::vector)
+          Order By: (val <=> '[0.5,0.5,0.5,0.5]'::vector)
           Limit: 100
           ScaNN Info: (... columnar engine nodes hit=6...)
           Columnar Engine ScaNN Info: (index found=true)
@@ -114,8 +114,8 @@ The following is an example of an execution plan for a query that uses an HNSW i
     
     --This contains details about HNSW's usage from the columnar engine. Example:
     ------------------------------------------------------------------------------------------------------
-     Limit (actual rows=5 l>oops=1)
-       -  Index Scan using hnsw_idx on documents (actual rows=5 loops=1)
+     Limit (actual rows=5 loops=1)
+       ->  Index Scan using hnsw_idx on documents (actual rows=5 loops=1)
              Order By: (embedding '[0.1, 0.2, 0.3, 0.4, 0.5]'::vector)
              Columnar Engine HNSW Info: (index found=true elements_from_ce=385 elements_from_disk=0)
              Columnar Check: table is not in the columnar store
@@ -134,17 +134,17 @@ To manage the lifecycle of your cached indexes, run the SQL command for your sel
 
   * To refresh the cache manually, run the following command:
         
-        SELECT google_columnar_engine_refresh_index(&#39;INDEX_NAME');
+        SELECT google_columnar_engine_refresh_index('INDEX_NAME');
         
 
   * To verify index status, run the following command:
         
-        SELECT google_columnar_engine_verify(&#39;INDEX_NAME');
+        SELECT google_columnar_engine_verify('INDEX_NAME');
         
 
   * To drop the index from the cache, run the following command:
         
-        SELECT google_columnar_engine_drop_index(&#39;INDEX_NAME');
+        SELECT google_columnar_engine_drop_index('INDEX_NAME');
         
 
   * To view active indexes, run the following command:
@@ -181,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

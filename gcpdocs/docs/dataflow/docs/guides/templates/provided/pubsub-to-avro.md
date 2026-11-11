@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-to-avro/
 title: Pub/Sub to Avro Files on Cloud Storage template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:45.187529+00:00
+fetched_at: 2026-11-11T09:28:11.602973+00:00
 ---
 
 # Pub/Sub to Avro Files on Cloud Storage template  |  Cloud Dataflow  |  Google Cloud Documentation

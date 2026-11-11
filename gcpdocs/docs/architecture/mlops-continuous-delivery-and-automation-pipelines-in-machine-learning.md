@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning/
 title: MLOps: Continuous delivery and automation pipelines in machine learning \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:02.076753+00:00
+fetched_at: 2026-11-11T08:22:45.746517+00:00
 ---
 
 # MLOps: Continuous delivery and automation pipelines in machine learning  |  Cloud Architecture Center  |  Google Cloud Documentation

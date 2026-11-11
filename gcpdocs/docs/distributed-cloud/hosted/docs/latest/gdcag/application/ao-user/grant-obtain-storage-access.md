@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/grant-obtain-storage-access/
 title: Grant and obtain storage bucket access for projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:22.314871+00:00
+fetched_at: 2026-11-11T12:49:42.185489+00:00
 ---
 
 # Grant and obtain storage bucket access for projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

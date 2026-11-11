@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-process-ocr-document/
 title: Process a document using a Document OCR processor \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:06:08.407709+00:00
+fetched_at: 2026-11-11T12:49:46.780141+00:00
 ---
 
 # Process a document using a Document OCR processor  |  Document AI  |  Google Cloud Documentation
@@ -39,12 +39,12 @@ For more information, see the [Document AI Java API reference documentation](htt
 To authenticate to Document AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.documentai.v1beta3.Document;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceClient;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceSettings;
-    import com.google.cloud.documentai.v1beta3.ProcessRequest;
-    import com.google.cloud.documentai.v1beta3.ProcessResponse;
-    import com.google.cloud.documentai.v1beta3.RawDocument;
+    import com.google.cloud.documentai.v1.[Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html);
+    import com.google.cloud.documentai.v1.[ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html);
+    import com.google.cloud.documentai.v1.[ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html);
+    import com.google.cloud.documentai.v1.[RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html);
     import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import java.io.IOException;
     import java.nio.file.Files;
@@ -74,9 +74,9 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         // the "close" method on the client to safely clean up any remaining background
         // resources.
         String endpoint = String.format("%s-documentai.googleapis.com:443", location);
-        DocumentProcessorServiceSettings settings =
-            DocumentProcessorServiceSettings.newBuilder().setEndpoint(endpoint).build();
-        try (DocumentProcessorServiceClient client = DocumentProcessorServiceClient.create(settings)) {
+        [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html) settings =
+            [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html).newBuilder().setEndpoint(endpoint).build();
+        try ([DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html) client = [DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html).create(settings)) {
           // The full resource name of the processor, e.g.:
           // projects/project-id/locations/location/processor/processor-id
           // You must create new processors in the Cloud Console first
@@ -89,16 +89,16 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // Convert the image data to a Buffer and base64 encode it.
           [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html) content = [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(imageFileData);
     
-          RawDocument document =
-              RawDocument.newBuilder().setContent(content).setMimeType("application/pdf").build();
+          [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html) document =
+              [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html).newBuilder().setContent(content).setMimeType("application/pdf").build();
     
           // Configure the process request.
-          ProcessRequest request =
-              ProcessRequest.newBuilder().setName(name).setRawDocument(document).build();
+          [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html) request =
+              [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html).newBuilder().setName(name).[setRawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.Builder.html#com_google_cloud_documentai_v1_ProcessRequest_Builder_setRawDocument_com_google_cloud_documentai_v1_RawDocument_)(document).build();
     
           // Recognizes text entities in the PDF document
-          ProcessResponse result = client.processDocument(request);
-          Document documentResponse = result.getDocument();
+          [ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html) result = client.processDocument(request);
+          [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html) documentResponse = result.[getDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html#com_google_cloud_documentai_v1_ProcessResponse_getDocument__)();
     
           System.out.println("Document processing complete.");
     
@@ -108,14 +108,14 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // https://googleapis.dev/java/google-cloud-document-ai/latest/index.html
     
           // Get all of the document text as one big string
-          String text = documentResponse.getText();
+          String text = documentResponse.[getText](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html#com_google_cloud_documentai_v1_Document_getText__)();
           System.out.printf("Full document text: '%s'\n", escapeNewlines(text));
     
           // Read the text recognition output from the processor
-          List<Document.Page> pages = documentResponse.getPagesList();
+          List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html)> pages = documentResponse.[getPagesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html#com_google_cloud_documentai_v1_Document_getPagesList__)();
           System.out.printf("There are %s page(s) in this document.\n", pages.size());
     
-          for (Document.Page page : pages) {
+          for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html) page : pages) {
             System.out.printf("Page %d:\n", page.getPageNumber());
             printPageDimensions(page.getDimension());
             printDetectedLanguages(page.getDetectedLanguagesList());
@@ -127,64 +127,64 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         }
       }
     
-      private static void printPageDimensions(Document.Page.Dimension dimension) {
+      private static void printPageDimensions([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Dimension](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Dimension.html) dimension) {
         String unit = dimension.getUnit();
         System.out.printf("    Width: %.1f %s\n", dimension.getWidth(), unit);
         System.out.printf("    Height: %.1f %s\n", dimension.getHeight(), unit);
       }
     
       private static void printDetectedLanguages(
-          List<Document.Page.DetectedLanguage> detectedLangauges) {
+          List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[DetectedLanguage](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.DetectedLanguage.html)> detectedLangauges) {
         System.out.println("    Detected languages:");
-        for (Document.Page.DetectedLanguage detectedLanguage : detectedLangauges) {
+        for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[DetectedLanguage](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.DetectedLanguage.html) detectedLanguage : detectedLangauges) {
           String languageCode = detectedLanguage.getLanguageCode();
           float confidence = detectedLanguage.getConfidence();
           System.out.printf("        %s (%.2f%%)\n", languageCode, confidence * 100.0);
         }
       }
     
-      private static void printParagraphs(List<Document.Page.Paragraph> paragraphs, String text) {
+      private static void printParagraphs(List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Paragraph](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Paragraph.html)> paragraphs, String text) {
         System.out.printf("    %d paragraphs detected:\n", paragraphs.size());
-        Document.Page.Paragraph firstParagraph = paragraphs.get(0);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Paragraph](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Paragraph.html) firstParagraph = paragraphs.get(0);
         String firstParagraphText = getLayoutText(firstParagraph.getLayout().getTextAnchor(), text);
         System.out.printf("        First paragraph text: %s\n", escapeNewlines(firstParagraphText));
-        Document.Page.Paragraph lastParagraph = paragraphs.get(paragraphs.size() - 1);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Paragraph](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Paragraph.html) lastParagraph = paragraphs.get(paragraphs.size() - 1);
         String lastParagraphText = getLayoutText(lastParagraph.getLayout().getTextAnchor(), text);
         System.out.printf("        Last paragraph text: %s\n", escapeNewlines(lastParagraphText));
       }
     
-      private static void printBlocks(List<Document.Page.Block> blocks, String text) {
+      private static void printBlocks(List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Block](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Block.html)> blocks, String text) {
         System.out.printf("    %d blocks detected:\n", blocks.size());
-        Document.Page.Block firstBlock = blocks.get(0);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Block](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Block.html) firstBlock = blocks.get(0);
         String firstBlockText = getLayoutText(firstBlock.getLayout().getTextAnchor(), text);
         System.out.printf("        First block text: %s\n", escapeNewlines(firstBlockText));
-        Document.Page.Block lastBlock = blocks.get(blocks.size() - 1);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Block](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Block.html) lastBlock = blocks.get(blocks.size() - 1);
         String lastBlockText = getLayoutText(lastBlock.getLayout().getTextAnchor(), text);
         System.out.printf("        Last block text: %s\n", escapeNewlines(lastBlockText));
       }
     
-      private static void printLines(List<Document.Page.Line> lines, String text) {
+      private static void printLines(List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Line](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Line.html)> lines, String text) {
         System.out.printf("    %d lines detected:\n", lines.size());
-        Document.Page.Line firstLine = lines.get(0);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Line](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Line.html) firstLine = lines.get(0);
         String firstLineText = getLayoutText(firstLine.getLayout().getTextAnchor(), text);
         System.out.printf("        First line text: %s\n", escapeNewlines(firstLineText));
-        Document.Page.Line lastLine = lines.get(lines.size() - 1);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Line](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Line.html) lastLine = lines.get(lines.size() - 1);
         String lastLineText = getLayoutText(lastLine.getLayout().getTextAnchor(), text);
         System.out.printf("        Last line text: %s\n", escapeNewlines(lastLineText));
       }
     
-      private static void printTokens(List<Document.Page.Token> tokens, String text) {
+      private static void printTokens(List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Token](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Token.html)> tokens, String text) {
         System.out.printf("    %d tokens detected:\n", tokens.size());
-        Document.Page.Token firstToken = tokens.get(0);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Token](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Token.html) firstToken = tokens.get(0);
         String firstTokenText = getLayoutText(firstToken.getLayout().getTextAnchor(), text);
         System.out.printf("        First token text: %s\n", escapeNewlines(firstTokenText));
-        Document.Page.Token lastToken = tokens.get(tokens.size() - 1);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Token](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Token.html) lastToken = tokens.get(tokens.size() - 1);
         String lastTokenText = getLayoutText(lastToken.getLayout().getTextAnchor(), text);
         System.out.printf("        Last token text: %s\n", escapeNewlines(lastTokenText));
       }
     
       // Extract shards from the text field
-      private static String getLayoutText(Document.TextAnchor textAnchor, String text) {
+      private static String getLayoutText([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[TextAnchor](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.TextAnchor.html) textAnchor, String text) {
         if (textAnchor.getTextSegmentsList().size() > 0) {
           int startIdx = (int) textAnchor.getTextSegments(0).getStartIndex();
           int endIdx = (int) textAnchor.getTextSegments(0).getEndIndex();

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-create-session/
 title: Create a session \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:52.562800+00:00
+fetched_at: 2026-11-11T08:40:21.942564+00:00
 ---
 
 # Create a session  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/local-ssd/
 title: About Local SSD disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:50:05.213429+00:00
+fetched_at: 2026-11-11T09:20:39.003632+00:00
 ---
 
 # About Local SSD disks  |  Compute Engine  |  Google Cloud Documentation

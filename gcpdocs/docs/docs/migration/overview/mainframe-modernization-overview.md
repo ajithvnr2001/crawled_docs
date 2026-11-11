@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/overview/mainframe-modernization-overview/
 title: Mainframe modernization overview \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:38.907245+00:00
+fetched_at: 2026-11-11T09:46:54.721034+00:00
 ---
 
 # Mainframe modernization overview  |  Migration  |  Google Cloud Documentation

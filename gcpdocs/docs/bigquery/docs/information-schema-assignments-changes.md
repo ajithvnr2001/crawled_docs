@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-assignments-changes/
 title: ASSIGNMENT_CHANGES view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:23:08.936277+00:00
+fetched_at: 2026-11-11T08:38:35.503293+00:00
 ---
 
 # ASSIGNMENT_CHANGES view  |  BigQuery  |  Google Cloud Documentation
@@ -50,13 +50,20 @@ Column name | Data type | Value
 `project_number` | `INTEGER` | Number of the administration project.  
 `assignment_id` | `STRING` | ID that uniquely identifies the assignment.  
 `reservation_name` | `STRING` | Name of the reservation that the assignment uses.  
-`job_type` | `STRING` | The type of job that can use the reservation. Can be `PIPELINE` or `QUERY`.  
+`job_type` | `STRING` | The type of job that can use the reservation. Can be `PIPELINE`, `QUERY`, `CONTINUOUS`, `ML_EXTERNAL`, or `BACKGROUND`. When `assignment_type` is `SCHEDULING_POLICY`, this value is `JOB_TYPE_UNSPECIFIED`.  
 `assignee_id` | `STRING` | ID that uniquely identifies the assignee resource.  
 `assignee_number` | `INTEGER` | Number that uniquely identifies the assignee resource.  
 `assignee_type` | `STRING` | Type of assignee resource. Can be `organization`, `folder` or `project`.  
 `action` | `STRING` | Type of event that occurred with the assignment. Can be `CREATE`, `UPDATE`, or `DELETE`.  
 `user_email` | `STRING` | Email address of the user or subject of the [workforce identity federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation) that made the change. `google` for changes made by Google. `NULL` if the email address is unknown.   
 `state` | `STRING` | State of the assignment. Can be `PENDING` or `ACTIVE`.  
+`assignment_type` | `STRING` | Type of the assignment. Can be `RESERVATION_SELECTION` for assignments that route jobs to a reservation, or `SCHEDULING_POLICY` for [project caps and scheduling policy overrides](https://docs.cloud.google.com/bigquery/docs/reservations-assignments#scheduling-policy-assignments). If a change to a reservation-selection assignment occurred before `assignment_type` tracking was supported, this value is `NULL`.   
+`scheduling_policy` | `STRUCT` |  Project-specific [project caps and scheduling policy overrides](https://docs.cloud.google.com/bigquery/docs/reservations-assignments#scheduling-policy-assignments) for `assignee_id` within the reservation, or `NULL` if `assignment_type` isn't `SCHEDULING_POLICY`. Fields include the following:
+
+  * `max_slots`: the limit on the slot consumption of queries running for `assignee_id` in the reservation, or `NULL` if unset.
+  * `concurrency`: the limit on the number of simultaneous queries admitted for `assignee_id` in the reservation, or `NULL` if unset.
+
+  
   
 For stability, we recommend that you explicitly list columns in your information schema queries instead of using a wildcard (`SELECT *`). Explicitly listing columns prevents queries from breaking if the underlying schema changes.
 
@@ -180,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

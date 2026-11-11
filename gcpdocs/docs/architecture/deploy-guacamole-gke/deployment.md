@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/deploy-guacamole-gke/deployment/
 title: Deploy Apache Guacamole on GKE and Cloud SQL \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:18.953730+00:00
+fetched_at: 2026-11-11T09:13:30.419601+00:00
 ---
 
 # Deploy Apache Guacamole on GKE and Cloud SQL  |  Cloud Architecture Center  |  Google Cloud Documentation

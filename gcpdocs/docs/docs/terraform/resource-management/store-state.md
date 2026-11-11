@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/resource-management/store-state/
 title: Store Terraform state in a Cloud Storage bucket \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:46.078475+00:00
+fetched_at: 2026-11-11T09:07:15.702778+00:00
 ---
 
 # Store Terraform state in a Cloud Storage bucket  |  Google Cloud Documentation

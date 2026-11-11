@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/jdbc-to-bigquery/
 title: Java Database Connectivity (JDBC) to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:50.981927+00:00
+fetched_at: 2026-11-11T09:46:48.433322+00:00
 ---
 
 # Java Database Connectivity (JDBC) to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation

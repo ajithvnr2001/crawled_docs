@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform-application/pa-ao-operations/harbor-backup/harbor-backup-overview/
 title: Overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:12.969144+00:00
+fetched_at: 2026-11-11T10:51:28.157328+00:00
 ---
 
 # Overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

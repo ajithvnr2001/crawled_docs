@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/migrate/migration-skill/
 title: Migrate from Firebase Test Lab and Flank to Developer Device Platform with AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T08:24:35.146848+00:00
+fetched_at: 2026-11-11T08:48:31.866388+00:00
 ---
 
 # Migrate from Firebase Test Lab and Flank to Developer Device Platform with AI  |  Google Cloud Documentation

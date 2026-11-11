@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/colab/docs/release-notes/
 title: Colab Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:42:06.798631+00:00
+fetched_at: 2026-11-11T09:53:42.906978+00:00
 ---
 
 # Colab Enterprise release notes  |  Google Cloud Documentation
@@ -27,11 +27,37 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/colabenterprise-release-notes.xml) directly. 
 
+## November 09, 2026
+
+Feature
+
+Python 3.13 is now available in Colab Enterprise and is the latest Python version. Runtime templates that are configured to use the latest Python version, including default runtime templates, now create runtimes that use Python 3.13. Existing runtimes keep their current Python version. For more information, see [Python versions](https://docs.cloud.google.com/colab/docs/runtimes#python).
+
+## September 28, 2026
+
+Feature
+
+You can now use the Google Cloud console to set an existing runtime template as the default runtime template for a project and region, with or without accelerators. New default runtimes in that project and region use the template's configuration. For more information, see [Set a runtime template as the default runtime template](https://docs.cloud.google.com/colab/docs/runtimes#set-default-runtime-template).
+
 ## July 13, 2026
 
 Security
 
 A Missing Authorization vulnerability was discovered in repositories in BigQuery, Dataform, and Colab Enterprise. An authenticated attacker could potentially escalate permissions and perform cross-tenant repository takeover. For more information, see the [GCP-2026-047](https://docs.cloud.google.com/support/bulletins#gcp-2026-047) security bulletin.
+
+## June 18, 2026
+
+Feature
+
+Colab Enterprise is now available in the following regions:
+
+  * Berlin, Germany (`europe-west10`)
+  * Delhi, India (`asia-south2`)
+  * Paris, France (`europe-west9`)
+
+
+
+For more information, see [Colab Enterprise locations](https://docs.cloud.google.com/colab/docs/locations).
 
 ## May 26, 2026
 
@@ -306,6 +332,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

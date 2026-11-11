@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/enterprise/production/
 title: Create a production foundation \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:41.080137+00:00
+fetched_at: 2026-11-11T09:27:24.066980+00:00
 ---
 
 # Create a production foundation  |  Get started  |  Google Cloud Documentation

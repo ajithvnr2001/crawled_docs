@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/jupyterlab-sessions-serverless/
 title: Use the JupyterLab extension to develop serverless Spark workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:13:29.197687+00:00
+fetched_at: 2026-11-11T13:07:47.144655+00:00
 ---
 
 # Use the JupyterLab extension to develop serverless Spark workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -185,7 +185,7 @@ You must restart the extension for the changes to take effect.
 
 ## Create a Managed Service for Apache Spark runtime template
 
-Managed Service for Apache Spark runtime templates (called _runtime profiles_ on the [Serverless (Runtime Profiles)](https://console.cloud.google.com/dataproc/runtimeProfiles) page in the Google Cloud console and _session templates_ in the Google Cloud CLI and Dataproc API) contain configuration settings for executing Spark code in a session. You can create and manage runtime templates using JupyterLab, the [Google Cloud console](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-console), or the Google Cloud CLI.
+Managed Service for Apache Spark runtime templates (called _runtime profiles_ on the [Serverless Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles) page in the Google Cloud console and _session templates_ in the Google Cloud CLI and Dataproc API) contain configuration settings for executing Spark code in a session. You can create and manage runtime templates using JupyterLab, the [Google Cloud console](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-console), or the Google Cloud CLI.
 
 ### JupyterLab
 
@@ -613,6 +613,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

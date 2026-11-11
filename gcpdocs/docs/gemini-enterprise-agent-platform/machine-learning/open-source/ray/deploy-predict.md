@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/deploy-predict/
 title: Deploy a model on Gemini Enterprise Agent Platform to get inferences \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:44.449777+00:00
+fetched_at: 2026-11-11T08:49:18.077250+00:00
 ---
 
 # Deploy a model on Gemini Enterprise Agent Platform to get inferences  |  Google Cloud Documentation

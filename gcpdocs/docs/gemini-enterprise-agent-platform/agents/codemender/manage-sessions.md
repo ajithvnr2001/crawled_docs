@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions/
 title: Manage sessions and export reports \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:28.315387+00:00
+fetched_at: 2026-11-11T08:53:07.678727+00:00
 ---
 
 # Manage sessions and export reports  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

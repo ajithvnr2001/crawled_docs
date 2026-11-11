@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/resources/
 title: Resources \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:32.872753+00:00
+fetched_at: 2026-11-11T08:38:48.341847+00:00
 ---
 
 # Resources  |  Food Ordering AI Agent  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/configure-vpc-service-controls/
 title: Configure VPC Service Controls \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:15.625141+00:00
+fetched_at: 2026-11-11T10:28:50.178091+00:00
 ---
 
 # Configure VPC Service Controls  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -41,6 +41,25 @@ This guide also explains how you can use VPC Service Controls with [Google Cloud
 
 Enabling VPC Service Controls perimeter before creating an Exadata VM Cluster or an Exascale VM Cluster might cause service account attachment to fail, and log a VPC Service Controls violation. Additionally, if VPC Service Controls perimeter is enabled after creating an Exadata VM Cluster or Exascale VM Cluster, VPC Service Controls violation error might be logged continuously. These VPC Service Controls violation errors (with Google-managed Workload Identity pool in the `principalSubject` of the audit log) don't affect the functionality of Oracle Database@Google Cloud, and can be safely ignored. This is applicable only if you use Oracle-managed encryption keys.
 
+To avoid these violations, we recommend the following order to configure your service perimeter:
+
+  1. In your Google Cloud project, create the first cluster with the Identity Connector enabled.
+
+  2. Copy the Workload identity pool of the cluster. For more information, see [View Identity Connector information](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#view-identity-connector).
+
+  3. [Configure the egress rule](https://docs.cloud.google.com/oracle/database/docs/configure-vpc-service-controls#vpcsc-cluster) for the cluster.
+
+  4. Wait for the status of the Identity Connector to become `Connected`. It can take up to 24 hours.
+
+You can also manually trigger a refresh through the OCI console, by going to your cluster's **Identity Connector** section.
+
+
+
+
+Since the clusters in the same project share the same workload identity pool, any new clusters that you create in the project later are also covered by the egress rule.
+
+**Note:** If you don't use Google Cloud CMEK, then you can avoid these violations entirely by turning off the Identity Connector at the time of creation of a cluster, or by disabling it manually. For more information, see [Disable the Identity Connector](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#disable-identity-connector).
+
 ## Before you begin
 
   * Set up your [Oracle Database@Google Cloud environment](https://docs.cloud.google.com/oracle/database/docs/setup-oracle-database-environment).
@@ -76,18 +95,16 @@ If you plan to use [Google Cloud CMEK](https://docs.cloud.google.com/oracle/data
         * `sts.googleapis.com`
         * `iamcredentials.googleapis.com`
         * `cloudkms.googleapis.com`
-  2. Configure ingress and egress rules for Exadata VM Cluster.
+  2. Configure ingress and egress rules for Exadata VM Clusters and Exascale VM Clusters.
 
-  3. Configure ingress and egress rules for Exascale VM Cluster.
-
-  4. Configure ingress and egress rules for Autonomous AI Database.
+  3. Configure ingress and egress rules for Autonomous AI Database.
 
 
 
 
-### Configure ingress and egress rules for Exadata VM Cluster
+### Configure ingress and egress rules for Exadata VM Clusters and Exascale VM Clusters
 
-To configure the service perimeter for Exadata VM Clusters, add the following **egress** rule as per the [Egress rules reference](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#egress-rules-reference):
+To configure the service perimeter for Exadata VM Clusters and Exascale VM Clusters, add the following **egress** rule as per the [Egress rules reference](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#egress-rules-reference):
 
 Egress rule attribute | Value  
 ---|---  
@@ -97,36 +114,10 @@ From: Identities |  Add a principal identifier in the following format:
         principalSet://iam.googleapis.com/WORKLOAD_IDENTITY_POOL/*
         
 
-You can obtain the WORKLOAD_IDENTITY_POOL as follows:
+To obtain the WORKLOAD_IDENTITY_POOL, follow the steps described in [View Identity Connector information](https://docs.cloud.google.com/oracle/database/docs/enable-disable-identity-connector#view-identity-connector). Alternatively, you can obtain the value as follows:
 
   1. In the OCI console, go to the **VM Cluster information** page.
-  2. Click the value of the **Identity connector** field.
-  3. From the **Identity Connector** page, copy the value of the **Workload Identity Pool** field.
-
-**Note:** If you want to restrict just one project, then make sure that it's the host project that contains the ODB Network and the ODB Subnets.   
-To Service | `iamcredentials.googleapis.com`  
-To Methods |  `*` **Note:** This service doesn't support method-level VPC Service Controls restrictions.   
-To Resources: Projects | Project ID: `gcp-sa-oci`  
-Project name: `gcp-sa-oci`  
-  
-For instructions about how to add an egress rule, see [Configuring ingress and egress policies](https://docs.cloud.google.com/vpc-service-controls/docs/configuring-ingress-egress-policies).
-
-### Configure ingress and egress rules for Exascale VM Cluster
-
-To configure the service perimeter for Exascale VM Clusters, add the following **egress** rule as per the [Egress rules reference](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#egress-rules-reference):
-
-Egress rule attribute | Value  
----|---  
-From: Identities |  Add a principal identifier in the following format:
-    
-    
-        principalSet://iam.googleapis.com/WORKLOAD_IDENTITY_POOL/*
-        
-
-You can obtain the WORKLOAD_IDENTITY_POOL as follows:
-
-  1. In the OCI console, go to the **VM Cluster information** page.
-  2. Click the value of the **Identity connector** field.
+  2. Click the value of the **Identity Connector** field.
   3. From the **Identity Connector** page, copy the value of the **Workload Identity Pool** field.
 
 **Note:** If you want to restrict just one project, then make sure that it's the host project that contains the ODB Network and the ODB Subnets.   
@@ -216,6 +207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

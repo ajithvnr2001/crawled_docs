@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-featuregroup/
 title: Delete a feature group \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:08.068783+00:00
+fetched_at: 2026-11-11T08:48:39.137920+00:00
 ---
 
 # Delete a feature group  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

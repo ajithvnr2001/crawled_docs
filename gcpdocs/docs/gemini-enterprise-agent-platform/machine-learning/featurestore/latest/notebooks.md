@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/notebooks/
 title: Vertex AI Feature Store notebooks \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:31.972940+00:00
+fetched_at: 2026-11-11T08:50:53.694269+00:00
 ---
 
 # Vertex AI Feature Store notebooks  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

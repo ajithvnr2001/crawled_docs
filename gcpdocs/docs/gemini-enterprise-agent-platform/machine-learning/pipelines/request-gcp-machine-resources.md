@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/request-gcp-machine-resources/
 title: Learn how to request Google Cloud machine resources in Gemini Enterprise Agent Platform Pipelines \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:33:57.723690+00:00
+fetched_at: 2026-11-11T08:51:02.564308+00:00
 ---
 
 # Learn how to request Google Cloud machine resources in Gemini Enterprise Agent Platform Pipelines  |  Google Cloud Documentation

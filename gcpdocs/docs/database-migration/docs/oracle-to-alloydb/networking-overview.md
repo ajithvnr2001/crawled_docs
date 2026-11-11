@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/networking-overview/
 title: Network connectivity for heterogeneous Oracle to AlloyDB for PostgreSQL migrations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:09.373506+00:00
+fetched_at: 2026-11-11T09:35:33.329381+00:00
 ---
 
 # Network connectivity for heterogeneous Oracle to AlloyDB for PostgreSQL migrations  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

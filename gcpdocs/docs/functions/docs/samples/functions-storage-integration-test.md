@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-storage-integration-test/
 title: Cloud Storage integration tests \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:03:50.223784+00:00
+fetched_at: 2026-11-11T08:53:35.595985+00:00
 ---
 
 # Cloud Storage integration tests  |  Cloud Run functions  |  Google Cloud Documentation

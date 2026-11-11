@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/cross-cloud-data-access-codelab/
 title: Set up cross-cloud data access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:59.920106+00:00
+fetched_at: 2026-11-11T08:30:36.011584+00:00
 ---
 
 # Set up cross-cloud data access  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Set up cross-cloud data access Stay organized with collections  Save and categorize content based on your preferences. 
 
-Learn how to set up cross-cloud data access to unify data silos across Amazon Web Services (AWS), Google Cloud, and [AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview) without complex ETL.
-
-You use [borderless Lakehouse](https://docs.cloud.google.com/lakehouse/docs/introduction) as the central intelligence hub, AlloyDB as an operational data source, and [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc-serverless/docs/overview) for high-performance vectorized processing. Finally, you use Gemini to derive powerful business insights from your lakehouse.
+Cross-cloud data access lets you unify data across Amazon Web Services (AWS), Google Cloud, and [AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview) without complex ETL pipelines. In this codelab, you use [borderless Lakehouse](https://docs.cloud.google.com/lakehouse/docs/introduction) for analytics, AlloyDB as an operational source, and [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/serverless-overview) for vectorized processing, and then analyze the data with Gemini.
 
 ## Scenario
 
@@ -68,6 +66,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

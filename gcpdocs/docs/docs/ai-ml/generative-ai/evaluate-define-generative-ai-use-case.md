@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/ai-ml/generative-ai/evaluate-define-generative-ai-use-case/
 title: Evaluate and define your generative AI business use case \u00a0|\u00a0 AI and ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:19.372562+00:00
+fetched_at: 2026-11-11T09:27:55.000269+00:00
 ---
 
 # Evaluate and define your generative AI business use case  |  AI and ML  |  Google Cloud Documentation

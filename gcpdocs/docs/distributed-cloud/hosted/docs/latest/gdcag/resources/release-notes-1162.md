@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/release-notes-1162/
 title: Google Distributed Cloud air-gapped 1.16.2 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:04.431384+00:00
+fetched_at: 2026-11-11T12:23:32.553780+00:00
 ---
 
 # Google Distributed Cloud air-gapped 1.16.2 release notes  |  Google Cloud Documentation
@@ -132,6 +132,12 @@ The following issues are identified:
 
 
 
+**Platform authentication**
+
+  * Authentication to tenant organizations fails with a database connection reset error in `ais-storage` pods after upgrading to 1.16.2. 
+
+
+
 **Security Information and Event Management (SIEM)**
 
   * Subcomponent `siem-aas-global` fails to reconcile in the org management plane. 
@@ -186,6 +192,9 @@ The following issues are identified:
 **Vulnerability management**
 
   * During an upgrade from 1.16.1 to 1.16.2, the `lcm.private.gdc.goog/opsservices` label is removed from OIRv2 `opsservices` APIs. 
+
+  * Tenable Nessus offline plugin updates fail due to a missing detached signature file. 
+
 
 
 
@@ -304,6 +313,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-10 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

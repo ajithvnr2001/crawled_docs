@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/mcp/
 title: Looker-managed MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:14.891774+00:00
+fetched_at: 2026-11-11T13:07:47.632907+00:00
 ---
 
 # Looker-managed MCP server  |  Google Cloud Documentation
@@ -446,7 +446,7 @@ Looker (Google Cloud core) instances also track Looker-managed MCP server activi
 ## Limitations
 
   * **Fine-grained scopes:** OAuth scopes are not yet supported for the managed MCP server. Access control relies on the global tool allowlist and the user's base permissions.
-  * **Dynamic registration:** Dynamic Client Registration is not supported in the preview.
+  * **Dynamic registration** : Dynamic client registration isn't supported.
   * **Client refresh:** Changes to the tool allowlist are not automatically pushed to connected clients. Users must wait 30 seconds after making a change to the tool list and then reconnect their client to refresh the tool manifest. See your client's documentation for information about how to reconnect to the MCP server.
   * **Server capacity** : During the preview phase, the managed MCP server is configured with a fixed capacity to help us gather performance data. During periods of peak usage, you may experience occasional timeouts. This is expected behavior.
 
@@ -460,6 +460,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/code-conversion-with-gemini/
 title: Convert Oracle code and schema with Gemini assistance \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:34:58.923318+00:00
+fetched_at: 2026-11-11T09:35:30.264082+00:00
 ---
 
 # Convert Oracle code and schema with Gemini assistance  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/create-custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:02:33.776384+00:00
+fetched_at: 2026-11-11T09:12:54.806265+00:00
 ---
 
 # Create custom organization policy constraints  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -395,7 +395,7 @@ After you apply the policy, wait for about two minutes for Google Cloud to start
     
     gcloud composer environments create ENVIRONMENT_NAME \
       --location=LOCATION \
-      --image-version="composer-2.17.16-airflow-2.11.1" \
+      --image-version="composer-2.17.17-airflow-2.11.1" \
       --environment-size=medium
     
 
@@ -412,7 +412,7 @@ To address the previous error, create a small-sized environment. For example:
     
     gcloud composer environments create ENVIRONMENT_NAME \
       --location=LOCATION \
-      --image-version="composer-2.17.16-airflow-2.11.1" \
+      --image-version="composer-2.17.17-airflow-2.11.1" \
       --environment-size=small
     
 
@@ -465,6 +465,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

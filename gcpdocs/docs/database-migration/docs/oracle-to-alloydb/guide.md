@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/guide/
 title: Migrate your Oracle database to AlloyDB for PostgreSQL \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:04.786798+00:00
+fetched_at: 2026-11-11T09:33:55.578507+00:00
 ---
 
 # Migrate your Oracle database to AlloyDB for PostgreSQL  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

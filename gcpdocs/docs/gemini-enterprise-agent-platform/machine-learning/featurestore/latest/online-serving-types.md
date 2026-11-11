@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types/
 title: Online serving types \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:59:51.810644+00:00
+fetched_at: 2026-11-11T08:50:54.008692+00:00
 ---
 
 # Online serving types  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

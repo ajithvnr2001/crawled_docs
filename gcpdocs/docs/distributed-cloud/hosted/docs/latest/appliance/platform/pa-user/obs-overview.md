@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/obs-overview/
 title: Monitoring and logging overview \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:18.756201+00:00
+fetched_at: 2026-11-11T08:48:17.230060+00:00
 ---
 
 # Monitoring and logging overview  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

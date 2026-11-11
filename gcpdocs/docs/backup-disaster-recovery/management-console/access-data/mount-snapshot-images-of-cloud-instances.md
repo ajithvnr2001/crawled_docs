@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/access-data/mount-snapshot-images-of-cloud-instances/
 title: Mount backups of Compute Engine instances in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:33:04.967271+00:00
+fetched_at: 2026-11-11T10:10:15.775279+00:00
 ---
 
 # Mount backups of Compute Engine instances in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation

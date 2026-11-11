@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-search-public-kg/
 title: Search for an entity (Basic) \u00a0|\u00a0 Enterprise Knowledge Graph \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:10.770820+00:00
+fetched_at: 2026-11-11T08:37:35.066490+00:00
 ---
 
 # Search for an entity (Basic)  |  Enterprise Knowledge Graph  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/hybrid-multicloud-secure-networking-patterns/handover-pattern/
 title: Handover patterns \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:29:21.892793+00:00
+fetched_at: 2026-11-11T10:14:26.282579+00:00
 ---
 
 # Handover patterns  |  Cloud Architecture Center  |  Google Cloud Documentation

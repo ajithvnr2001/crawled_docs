@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/set-up-dns-records-domain-name/
 title: Quickstart: Set up DNS records for a domain name with Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:44.509078+00:00
+fetched_at: 2026-11-11T09:46:35.520625+00:00
 ---
 
 # Quickstart: Set up DNS records for a domain name with Cloud DNS  |  Google Cloud Documentation

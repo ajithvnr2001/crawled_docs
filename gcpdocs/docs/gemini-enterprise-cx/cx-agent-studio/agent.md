@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent/
 title: Agents \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:13.680192+00:00
+fetched_at: 2026-11-11T08:49:52.338519+00:00
 ---
 
 # Agents  |  CX Agent Studio  |  Google Cloud Documentation

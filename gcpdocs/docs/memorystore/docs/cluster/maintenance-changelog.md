@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/maintenance-changelog/
 title: Memorystore for Redis Cluster maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:40.927200+00:00
+fetched_at: 2026-11-11T13:07:42.478565+00:00
 ---
 
 # Memorystore for Redis Cluster maintenance changelogs  |  Google Cloud Documentation
@@ -183,6 +183,7 @@ All clusters in Memorystore for Redis Cluster | Set the Redis host OS version to
 
 #### 2026
 
+  * [CVE-2026-103111](https://nvd.nist.gov/vuln/detail/CVE-2026-103111)
   * [CVE-2026-98405](https://nvd.nist.gov/vuln/detail/CVE-2026-98405)
   * [CVE-2026-98402](https://nvd.nist.gov/vuln/detail/CVE-2026-98402)
   * [CVE-2026-98401](https://nvd.nist.gov/vuln/detail/CVE-2026-98401)
@@ -358,7 +359,19 @@ All clusters in Memorystore for Redis Cluster | Set the Redis host OS version to
   * [CVE-2026-89453](https://nvd.nist.gov/vuln/detail/CVE-2026-89453)
   * [CVE-2026-89451](https://nvd.nist.gov/vuln/detail/CVE-2026-89451)
   * [CVE-2026-89448](https://nvd.nist.gov/vuln/detail/CVE-2026-89448)
+  * [CVE-2026-89161](https://nvd.nist.gov/vuln/detail/CVE-2026-89161)
+  * [CVE-2026-89160](https://nvd.nist.gov/vuln/detail/CVE-2026-89160)
+  * [CVE-2026-89158](https://nvd.nist.gov/vuln/detail/CVE-2026-89158)
+  * [CVE-2026-89157](https://nvd.nist.gov/vuln/detail/CVE-2026-89157)
+  * [CVE-2026-89156](https://nvd.nist.gov/vuln/detail/CVE-2026-89156)
+  * [CVE-2026-86145](https://nvd.nist.gov/vuln/detail/CVE-2026-86145)
   * [CVE-2026-86140](https://nvd.nist.gov/vuln/detail/CVE-2026-86140)
+  * [CVE-2026-84445](https://nvd.nist.gov/vuln/detail/CVE-2026-84445)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-81872](https://nvd.nist.gov/vuln/detail/CVE-2026-81872)
+  * [CVE-2026-81871](https://nvd.nist.gov/vuln/detail/CVE-2026-81871)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
   * [CVE-2026-81005](https://nvd.nist.gov/vuln/detail/CVE-2026-81005)
   * [CVE-2026-81002](https://nvd.nist.gov/vuln/detail/CVE-2026-81002)
   * [CVE-2026-81000](https://nvd.nist.gov/vuln/detail/CVE-2026-81000)
@@ -386,6 +399,22 @@ All clusters in Memorystore for Redis Cluster | Set the Redis host OS version to
   * [CVE-2026-49265](https://nvd.nist.gov/vuln/detail/CVE-2026-49265)
   * [CVE-2026-49264](https://nvd.nist.gov/vuln/detail/CVE-2026-49264)
   * [CVE-2026-15308](https://nvd.nist.gov/vuln/detail/CVE-2026-15308)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+
+
+
+#### 2024
+
+  * [CVE-2024-28085](https://nvd.nist.gov/vuln/detail/CVE-2024-28085)
+  * [CVE-2024-2961](https://nvd.nist.gov/vuln/detail/CVE-2024-2961)
+  * [CVE-2024-0553](https://nvd.nist.gov/vuln/detail/CVE-2024-0553)
+
+
+
+#### 2023
+
+  * [CVE-2023-5981](https://nvd.nist.gov/vuln/detail/CVE-2023-5981)
 
 
 
@@ -2542,6 +2571,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

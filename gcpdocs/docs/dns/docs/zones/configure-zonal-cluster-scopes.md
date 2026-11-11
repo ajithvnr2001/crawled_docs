@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/zones/configure-zonal-cluster-scopes/
 title: Configure a zonal GKE cluster-scoped zone \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:21.267072+00:00
+fetched_at: 2026-11-11T09:46:30.695316+00:00
 ---
 
 # Configure a zonal GKE cluster-scoped zone  |  Cloud DNS  |  Google Cloud Documentation

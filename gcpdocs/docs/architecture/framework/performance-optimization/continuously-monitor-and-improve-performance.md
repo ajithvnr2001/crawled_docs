@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/performance-optimization/continuously-monitor-and-improve-performance/
 title: Continuously monitor and improve performance \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:33:34.146530+00:00
+fetched_at: 2026-11-11T10:14:12.280897+00:00
 ---
 
 # Continuously monitor and improve performance  |  Cloud Architecture Center  |  Google Cloud Documentation

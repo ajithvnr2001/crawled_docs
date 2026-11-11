@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax/
 title: Options section syntax \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:35.156796+00:00
+fetched_at: 2026-11-11T08:28:55.461721+00:00
 ---
 
 # Options section syntax  |  Google Security Operations  |  Google Cloud Documentation

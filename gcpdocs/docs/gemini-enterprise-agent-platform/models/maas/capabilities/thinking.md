@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking/
 title: Thinking for open models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:32.422984+00:00
+fetched_at: 2026-11-11T08:51:55.173312+00:00
 ---
 
 # Thinking for open models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

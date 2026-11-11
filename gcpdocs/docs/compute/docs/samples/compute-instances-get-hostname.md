@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-get-hostname/
 title: Get the hostname of a Compute Engine instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:03:47.322175+00:00
+fetched_at: 2026-11-11T09:21:08.781441+00:00
 ---
 
 # Get the hostname of a Compute Engine instance  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// instanceName := "your_instance_name"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
+    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -77,8 +77,8 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.Instance;
-    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
+    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
     import java.io.IOException;
     
     public class GetInstanceHostname {
@@ -95,14 +95,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       // Retrieves the hostname of the Google Cloud VM instance.
       public static void getInstanceHostname(String projectId, String zone, String instanceName)
           throws IOException {
-        try (InstancesClient instancesClient = InstancesClient.create()) {
+        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
     
-          Instance instance = instancesClient.get(projectId, zone, instanceName);
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instance = instancesClient.get(projectId, zone, instanceName);
     
-          if (instance.hasHostname()) {
+          if (instance.[hasHostname](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_hasHostname__)()) {
             // If a custom hostname is not set, the output for instance.getHostname() will be undefined.
             System.out.printf("Custom Hostname for the instance %s is: %s", instanceName,
-                instance.getHostname());
+                instance.[getHostname](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_getHostname__)());
           }
         }
       }
@@ -123,10 +123,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const zone = 'europe-central2-b'
     // const instanceName = 'YOUR_INSTANCE_NAME'
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     async function getInstanceHostname() {
-      const instancesClient = new compute.InstancesClient();
+      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [instance] = await instancesClient.get({
         project: projectId,
@@ -146,7 +146,7 @@ Before trying this sample, follow the Python setup instructions in the [Compute 
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def get_hostname(project_id: str, zone: str, instance_name: str) -> str:
@@ -161,8 +161,8 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         Returns:
             The hostname of an instance.
         """
-        instance_client = compute_v1.InstancesClient()
-        instance = instance_client.get(
+        instance_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)()
+        instance = instance_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)(
             project=project_id, zone=zone, instance=instance_name
         )
         return instance.hostname

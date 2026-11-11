@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/redirect-best-practices/
 title: Best practices for using signInWithRedirect on browsers that block third-party storage access \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:15.861239+00:00
+fetched_at: 2026-11-11T08:33:57.023159+00:00
 ---
 
 # Best practices for using signInWithRedirect on browsers that block third-party storage access  |  Identity Platform  |  Google Cloud Documentation

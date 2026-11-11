@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-pubsub-unit-test/
 title: Cloud Pub/Sub (2nd Gen) Unit Test \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:49.808821+00:00
+fetched_at: 2026-11-11T08:56:59.228308+00:00
 ---
 
 # Cloud Pub/Sub (2nd Gen) Unit Test  |  Cloud Run functions  |  Google Cloud Documentation

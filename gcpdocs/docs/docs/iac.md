@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/iac/
 title: Infrastructure as code \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:09.782737+00:00
+fetched_at: 2026-11-11T10:07:54.223429+00:00
 ---
 
 # Infrastructure as code  |  Google Cloud Documentation

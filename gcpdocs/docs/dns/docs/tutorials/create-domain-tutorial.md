@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/tutorials/create-domain-tutorial/
 title: Tutorial: Set up a domain by using Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:21.092573+00:00
+fetched_at: 2026-11-11T09:46:51.492478+00:00
 ---
 
 # Tutorial: Set up a domain by using Cloud DNS  |  Google Cloud Documentation

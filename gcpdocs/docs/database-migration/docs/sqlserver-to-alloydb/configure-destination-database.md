@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/configure-destination-database/
 title: Create and configure your destination AlloyDB for PostgreSQL instance \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:36.740180+00:00
+fetched_at: 2026-11-11T09:34:53.081932+00:00
 ---
 
 # Create and configure your destination AlloyDB for PostgreSQL instance  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation

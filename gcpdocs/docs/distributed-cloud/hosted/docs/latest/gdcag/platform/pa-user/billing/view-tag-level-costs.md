@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/billing/view-tag-level-costs/
 title: View tag-level billing costs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:36.089419+00:00
+fetched_at: 2026-11-11T10:51:20.667988+00:00
 ---
 
 # View tag-level billing costs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

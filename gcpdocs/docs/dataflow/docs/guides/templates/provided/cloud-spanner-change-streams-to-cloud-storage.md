@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-spanner-change-streams-to-cloud-storage/
 title: Spanner change streams to Cloud Storage template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:56.201118+00:00
+fetched_at: 2026-11-11T09:46:45.123366+00:00
 ---
 
 # Spanner change streams to Cloud Storage template  |  Cloud Dataflow  |  Google Cloud Documentation

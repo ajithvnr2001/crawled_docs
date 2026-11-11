@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-to-gcp-getting-started/
 title: Migrate to Google Cloud: Get started \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:08.164872+00:00
+fetched_at: 2026-11-11T08:22:44.014627+00:00
 ---
 
 # Migrate to Google Cloud: Get started  |  Cloud Architecture Center  |  Google Cloud Documentation

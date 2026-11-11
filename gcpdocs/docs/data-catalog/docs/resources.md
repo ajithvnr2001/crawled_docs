@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-catalog/docs/resources/
 title: Resources \u00a0|\u00a0 Data Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:47.626372+00:00
+fetched_at: 2026-11-11T09:36:04.289858+00:00
 ---
 
 # Resources  |  Data Catalog  |  Google Cloud Documentation

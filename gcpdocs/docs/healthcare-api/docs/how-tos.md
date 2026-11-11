@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/
 title: How-to guides \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:02:21.871235+00:00
+fetched_at: 2026-11-11T08:32:26.723279+00:00
 ---
 
 # How-to guides  |  Cloud Healthcare API  |  Google Cloud Documentation

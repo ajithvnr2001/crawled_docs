@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/create-global-subnet-elb/
 title: Create a global subnet for external load balancing \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:47.587824+00:00
+fetched_at: 2026-11-11T12:22:29.954618+00:00
 ---
 
 # Create a global subnet for external load balancing  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

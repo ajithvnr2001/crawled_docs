@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/audit-logging/
 title: Database Migration Service audit logging information \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:30.276138+00:00
+fetched_at: 2026-11-11T09:34:39.338766+00:00
 ---
 
 # Database Migration Service audit logging information  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

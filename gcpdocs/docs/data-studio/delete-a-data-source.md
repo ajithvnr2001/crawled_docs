@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/delete-a-data-source/
 title: Delete a data source \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:02:44.188778+00:00
+fetched_at: 2026-11-11T08:22:27.856516+00:00
 ---
 
 # Delete a data source  |  Data Studio  |  Google Cloud Documentation
@@ -73,7 +73,7 @@ To remove multiple reusable data sources from the home page list at once, follow
   1. [Sign in to Data Studio.](https://datastudio.google.com)
   2. Locate the data sources that you want to remove.
   3. To select multiple adjacent data sources, hold down the Shift key and click the data sources. To select multiple non-adjacent data sources, hold down the Ctrl key (PC) or the command key (Mac) and click the data sources.
-  4. Click **Trash selected items** ![Remove.](https://docs.cloud.google.com/static/data-studio/images/deletegrey6002x48dp-2020-09-22.png).
+  4. Click **Remove selected items** ![Remove.](https://docs.cloud.google.com/static/data-studio/images/deletegrey6002x48dp-2020-09-22.png).
   5. In the **Move items to the trash?** dialog, click **Confirm** to move the data sources to the Trash.
 
 
@@ -119,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

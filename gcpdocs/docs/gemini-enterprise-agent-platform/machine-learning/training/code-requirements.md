@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements/
 title: Prepare training code \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:37:10.791015+00:00
+fetched_at: 2026-11-11T08:48:55.467935+00:00
 ---
 
 # Prepare training code  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/create-a-vm/create-manage-windows-vm/
 title: Create and manage Windows VMs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:53.162967+00:00
+fetched_at: 2026-11-11T08:48:05.121648+00:00
 ---
 
 # Create and manage Windows VMs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

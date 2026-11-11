@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-grounded-generation-streaming/
 title: Grounded Generation with streaming output \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:04:26.348719+00:00
+fetched_at: 2026-11-11T08:40:19.993887+00:00
 ---
 
 # Grounded Generation with streaming output  |  Agent Search  |  Google Cloud Documentation

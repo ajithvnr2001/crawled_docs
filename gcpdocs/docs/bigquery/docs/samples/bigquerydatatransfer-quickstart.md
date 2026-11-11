@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-quickstart/
 title: List data sources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:24:49.402656+00:00
+fetched_at: 2026-11-11T08:27:35.946147+00:00
 ---
 
 # List data sources  |  BigQuery  |  Google Cloud Documentation

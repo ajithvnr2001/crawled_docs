@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/list-storage-objects/
 title: List storage objects \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:20.160762+00:00
+fetched_at: 2026-11-11T08:48:22.593506+00:00
 ---
 
 # List storage objects  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

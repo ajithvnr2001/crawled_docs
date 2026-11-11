@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/all_functions/
 title: All Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:09:59.860211+00:00
+fetched_at: 2026-11-11T08:56:36.559092+00:00
 ---
 
 # All Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ Returns the count of documents from the previous stage where `expression` evalua
       .aggregate(field("ratings").count().as("count"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1286-L1296)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1286-L1296)
 
 ### Web
     
@@ -84,7 +84,7 @@ Returns the count of documents from the previous stage where `expression` evalua
       .aggregate(field("ratings").count().as("count"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2564-L2574)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2564-L2574)
 
 ##### Swift
     
@@ -223,7 +223,7 @@ Returns the number of documents from the previous stage where `expression` evalu
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1304-L1309)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1304-L1309)
 
 ### Web
     
@@ -235,7 +235,7 @@ Returns the number of documents from the previous stage where `expression` evalu
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2582-L2587)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2582-L2587)
 
 ##### Swift
     
@@ -339,7 +339,7 @@ Returns the number of unique non-`NULL`, non-`ABSENT` values of `expression`.
       .aggregate(field("author").countDistinct().as("unique_authors"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1316-L1319)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1316-L1319)
 
 ### Web
     
@@ -349,7 +349,7 @@ Returns the number of unique non-`NULL`, non-`ABSENT` values of `expression`.
       .aggregate(field("author").countDistinct().as("unique_authors"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2594-L2597)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2594-L2597)
 
 ##### Swift
     
@@ -453,7 +453,7 @@ The output will have the same type as the widest input type except in these case
       .aggregate(field("population").sum().as("totalPopulation"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1326-L1329)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1326-L1329)
 
 ### Web
     
@@ -463,7 +463,7 @@ The output will have the same type as the widest input type except in these case
       .aggregate(field("population").sum().as("totalPopulation"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2604-L2607)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2604-L2607)
 
 ##### Swift
     
@@ -562,7 +562,7 @@ The output will have the same type as the input type except in these cases:
       .aggregate(field("population").average().as("averagePopulation"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1336-L1339)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1336-L1339)
 
 ### Web
     
@@ -572,7 +572,7 @@ The output will have the same type as the input type except in these cases:
       .aggregate(field("population").average().as("averagePopulation"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2614-L2617)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2614-L2617)
 
 ##### Swift
     
@@ -669,7 +669,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1346-L1349)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1346-L1349)
 
 ### Web
     
@@ -679,7 +679,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2624-L2627)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2624-L2627)
 
 ##### Swift
     
@@ -776,7 +776,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1356-L1359)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1356-L1359)
 
 ### Web
     
@@ -786,7 +786,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2634-L2637)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2634-L2637)
 
 ##### Swift
     
@@ -1008,7 +1008,7 @@ INT64.MIN | -1 | `[error]`
       .select(field("soldBooks").add(field("unsoldBooks")).as("totalBooks"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1366-L1369)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1366-L1369)
 
 ### Web
     
@@ -1018,7 +1018,7 @@ INT64.MIN | -1 | `[error]`
       .select(field("soldBooks").add(field("unsoldBooks")).as("totalBooks"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2644-L2647)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2644-L2647)
 
 ##### Swift
     
@@ -1125,7 +1125,7 @@ INT64.MIN | 1 | `[error]`
       .select(field("price").subtract(constant(storeCredit)).as("totalCost"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1376-L1380)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1376-L1380)
 
 ### Web
     
@@ -1136,7 +1136,7 @@ INT64.MIN | 1 | `[error]`
       .select(field("price").subtract(constant(storeCredit)).as("totalCost"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2654-L2658)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2654-L2658)
 
 ##### Swift
     
@@ -1249,7 +1249,7 @@ FLOAT64.MAX | FLOAT64.MAX | `+inf`
       .select(field("price").multiply(field("soldBooks")).as("revenue"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1387-L1390)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1387-L1390)
 
 ### Web
     
@@ -1259,7 +1259,7 @@ FLOAT64.MAX | FLOAT64.MAX | `+inf`
       .select(field("price").multiply(field("soldBooks")).as("revenue"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2665-L2668)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2665-L2668)
 
 ##### Swift
     
@@ -1368,7 +1368,7 @@ x | y | `divide(x, y)`
       .select(field("ratings").divide(field("soldBooks")).as("reviewRate"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1397-L1400)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1397-L1400)
 
 ### Web
     
@@ -1378,7 +1378,7 @@ x | y | `divide(x, y)`
       .select(field("ratings").divide(field("soldBooks")).as("reviewRate"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2675-L2678)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2675-L2678)
 
 ##### Swift
     
@@ -1493,7 +1493,7 @@ x | y | `mod(x, y)`
       .select(field("unsoldBooks").mod(constant(displayCapacity)).as("warehousedBooks"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1407-L1411)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1407-L1411)
 
 ### Web
     
@@ -1504,7 +1504,7 @@ x | y | `mod(x, y)`
       .select(field("unsoldBooks").mod(constant(displayCapacity)).as("warehousedBooks"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2685-L2689)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2685-L2689)
 
 ##### Swift
     
@@ -1624,7 +1624,7 @@ number | `ceil(number)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1418-L1424)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1418-L1424)
 
 ### Web
     
@@ -1637,7 +1637,7 @@ number | `ceil(number)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2696-L2702)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2696-L2702)
 
 ##### Swift
     
@@ -1767,7 +1767,7 @@ number | `floor(number)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1431-L1436)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1431-L1436)
 
 ### Web
     
@@ -1779,7 +1779,7 @@ number | `floor(number)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2709-L2714)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2709-L2714)
 
 ##### Swift
     
@@ -1905,7 +1905,7 @@ number | places | `round(number, places)`
       .aggregate(field("partialRevenue").sum().as("totalRevenue"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1443-L1447)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1443-L1447)
 
 ### Web
     
@@ -1916,7 +1916,7 @@ number | places | `round(number, places)`
       .aggregate(field("partialRevenue").sum().as("totalRevenue"))
       );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2721-L2725)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2721-L2725)
 
 ##### Swift
     
@@ -2095,7 +2095,7 @@ base | exponent | `pow(base, exponent)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1454-L1472)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1454-L1472)
 
 ### Web
     
@@ -2120,7 +2120,7 @@ base | exponent | `pow(base, exponent)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2732-L2750)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2732-L2750)
 
 ##### Swift
     
@@ -2330,7 +2330,7 @@ number | `sqrt(number)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1479-L1497)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1479-L1497)
 
 ### Web
     
@@ -2355,7 +2355,7 @@ number | `sqrt(number)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2757-L2775)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2757-L2775)
 
 ##### Swift
     
@@ -2544,7 +2544,7 @@ exponent | `exp(exponent)`
       .select(field("rating").exp().as("expRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1504-L1507)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1504-L1507)
 
 ### Web
     
@@ -2554,7 +2554,7 @@ exponent | `exp(exponent)`
       .select(field("rating").exp().as("expRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2782-L2785)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2782-L2785)
 
 ##### Swift
     
@@ -2663,7 +2663,7 @@ number | `ln(number)`
       .select(field("rating").ln().as("lnRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1514-L1517)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1514-L1517)
 
 ### Web
     
@@ -2673,7 +2673,7 @@ number | `ln(number)`
       .select(field("rating").ln().as("lnRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2792-L2795)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2792-L2795)
 
 ##### Swift
     
@@ -2896,7 +2896,7 @@ arrays | `array_concat(arrays)`
       .select(field("genre").arrayConcat([field("subGenre")]).as("allGenres"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1530-L1533)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1534-L1537)
 
 ##### Swift
     
@@ -3001,7 +3001,7 @@ array | value | `array_contains(array, value)`
       .select(field("genre").arrayContains(constant("mystery")).as("isMystery"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1540-L1543)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1544-L1547)
 
 ### Web
     
@@ -3011,7 +3011,7 @@ array | value | `array_contains(array, value)`
       .select(field("genre").arrayContains(constant("mystery")).as("isMystery"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2818-L2821)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2822-L2825)
 
 ##### Swift
     
@@ -3122,7 +3122,7 @@ array | search_values | `array_contains_all(array, search_values)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1550-L1557)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1554-L1561)
 
 ### Web
     
@@ -3136,7 +3136,7 @@ array | search_values | `array_contains_all(array, search_values)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2828-L2835)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2832-L2839)
 
 ##### Swift
     
@@ -3262,7 +3262,7 @@ array | search_values | `array_contains_any(array, search_values)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1564-L1571)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1568-L1575)
 
 ### Web
     
@@ -3276,7 +3276,7 @@ array | search_values | `array_contains_any(array, search_values)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2842-L2849)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2846-L2853)
 
 ##### Swift
     
@@ -3457,7 +3457,7 @@ array | `array_length(array)`
       .select(field("genre").arrayLength().as("genreCount"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1578-L1581)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1582-L1585)
 
 ### Web
     
@@ -3467,7 +3467,7 @@ array | `array_length(array)`
       .select(field("genre").arrayLength().as("genreCount"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2856-L2859)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2860-L2863)
 
 ##### Swift
     
@@ -3571,7 +3571,7 @@ array | `array_reverse(array)`
       .select(arrayReverse(field("genre")).as("reversedGenres"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1588-L1591)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1592-L1595)
 
 ### Web
     
@@ -3581,7 +3581,7 @@ array | `array_reverse(array)`
       .select(field("genre").arrayReverse().as("reversedGenres"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2866-L2869)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2870-L2873)
 
 ##### Swift
     
@@ -4070,7 +4070,7 @@ Returns `TRUE` if `x` and `y` are equal, and `FALSE` otherwise.
       .select(field("rating").equal(5).as("hasPerfectRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1598-L1601)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1602-L1605)
 
 ### Web
     
@@ -4080,7 +4080,7 @@ Returns `TRUE` if `x` and `y` are equal, and `FALSE` otherwise.
       .select(field("rating").equal(5).as("hasPerfectRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2876-L2879)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2880-L2883)
 
 ##### Swift
     
@@ -4188,7 +4188,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").greaterThan(4).as("hasHighRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1608-L1611)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1612-L1615)
 
 ### Web
     
@@ -4198,7 +4198,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").greaterThan(4).as("hasHighRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2886-L2889)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2890-L2893)
 
 ##### Swift
     
@@ -4306,7 +4306,7 @@ NaN | 0L | `FALSE`
       .select(field("published").greaterThanOrEqual(1900).as("publishedIn20thCentury"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1618-L1621)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1622-L1625)
 
 ### Web
     
@@ -4316,7 +4316,7 @@ NaN | 0L | `FALSE`
       .select(field("published").greaterThanOrEqual(1900).as("publishedIn20thCentury"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2896-L2899)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2900-L2903)
 
 ##### Swift
     
@@ -4428,7 +4428,7 @@ NaN | 0L | `FALSE`
       .select(field("published").lessThan(1923).as("isPublicDomainProbably"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1628-L1631)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1632-L1635)
 
 ### Web
     
@@ -4438,7 +4438,7 @@ NaN | 0L | `FALSE`
       .select(field("published").lessThan(1923).as("isPublicDomainProbably"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2906-L2909)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2910-L2913)
 
 ##### Swift
     
@@ -4546,7 +4546,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").lessThanOrEqual(2).as("hasBadRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1638-L1641)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1642-L1645)
 
 ### Web
     
@@ -4556,7 +4556,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").lessThanOrEqual(2).as("hasBadRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2916-L2919)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2920-L2923)
 
 ##### Swift
     
@@ -4661,7 +4661,7 @@ NaN | NaN | `FALSE`
       .select(field("title").notEqual("1984").as("not1984"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1648-L1651)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1652-L1655)
 
 ### Web
     
@@ -4671,7 +4671,7 @@ NaN | NaN | `FALSE`
       .select(field("title").notEqual("1984").as("not1984"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2926-L2929)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2930-L2933)
 
 ##### Swift
     
@@ -4815,7 +4815,7 @@ Returns `TRUE` if `value` is not the absent value.
       .select(field("rating").exists().as("hasRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1658-L1661)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1662-L1665)
 
 ### Web
 
@@ -4827,7 +4827,7 @@ Returns `TRUE` if `value` is not the absent value.
       .select(field("rating").exists().as("hasRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2936-L2939)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2940-L2943)
 
 ##### Swift
     
@@ -5137,7 +5137,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1668-L1674)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1672-L1678)
 
 ### Web
     
@@ -5150,7 +5150,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2946-L2952)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2950-L2956)
 
 ##### Swift
     
@@ -5280,7 +5280,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1681-L1687)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1685-L1691)
 
 ### Web
     
@@ -5293,7 +5293,7 @@ Returns `NULL` if the result can't be derived due to any of the given values bei
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2959-L2965)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2963-L2969)
 
 ##### Swift
     
@@ -5425,7 +5425,7 @@ Returns `NULL` if any of the given values are `ABSENT` or `NULL`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2972-L2978)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2976-L2982)
 
 ### Web
     
@@ -5438,7 +5438,7 @@ Returns `NULL` if any of the given values are `ABSENT` or `NULL`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2972-L2978)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2976-L2982)
 
 ##### Swift
     
@@ -5586,7 +5586,7 @@ Returns the logical NOT of a boolean value.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2985-L2991)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2989-L2995)
 
 ### Web
     
@@ -5599,7 +5599,7 @@ Returns the logical NOT of a boolean value.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2985-L2991)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2989-L2995)
 
 ##### Swift
     
@@ -5719,7 +5719,7 @@ Evaluates and returns the `false_case` if the condition resolves to `FALSE`, `NU
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2998-L3006)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3002-L3010)
 
 ### Web
     
@@ -5734,7 +5734,7 @@ Evaluates and returns the `false_case` if the condition resolves to `FALSE`, `NU
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2998-L3006)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3002-L3010)
 
 ##### Swift
     
@@ -5935,7 +5935,7 @@ NaN | [1L, NaN, 3L] | `TRUE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3013-L3019)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3017-L3023)
 
 ### Web
     
@@ -5948,7 +5948,7 @@ NaN | [1L, NaN, 3L] | `TRUE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3013-L3019)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3017-L3023)
 
 ##### Swift
     
@@ -6070,7 +6070,7 @@ NaN | [1L, NaN, 3L] | `FALSE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3026-L3032)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3030-L3036)
 
 ### Web
     
@@ -6083,7 +6083,7 @@ NaN | [1L, NaN, 3L] | `FALSE`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3026-L3032)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3030-L3036)
 
 ##### Swift
     
@@ -6208,7 +6208,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2634-L2637)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2634-L2637)
 
 ### Web
     
@@ -6218,7 +6218,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate(field("price").maximum().as("maximumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2634-L2637)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2634-L2637)
 
 ##### Swift
     
@@ -6334,7 +6334,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2624-L2627)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2624-L2627)
 
 ### Web
     
@@ -6344,7 +6344,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate(field("price").minimum().as("minimumPrice"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2624-L2627)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2624-L2627)
 
 ##### Swift
     
@@ -6471,7 +6471,7 @@ Returns the value in a map given a specified key. Returns an `ABSENT` value if t
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1788-L1793)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1792-L1797)
 
 ### Web
     
@@ -6483,7 +6483,7 @@ Returns the value in a map given a specified key. Returns an `ABSENT` value if t
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3063-L3068)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3067-L3072)
 
 ##### Swift
     
@@ -6714,7 +6714,7 @@ b"abc" | 3
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1800-L1805)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1804-L1809)
 
 ### Web
     
@@ -6726,7 +6726,7 @@ b"abc" | 3
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3075-L3080)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3079-L3084)
 
 ##### Swift
     
@@ -6835,7 +6835,7 @@ value | `char_length(value)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1812-L1817)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1816-L1821)
 
 ### Web
     
@@ -6847,7 +6847,7 @@ value | `char_length(value)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3087-L3092)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3091-L3096)
 
 ##### Swift
     
@@ -6957,7 +6957,7 @@ value | prefix | `starts_with(value, prefix)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1824-L1830)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1828-L1834)
 
 ### Web
     
@@ -6970,7 +6970,7 @@ value | prefix | `starts_with(value, prefix)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3099-L3105)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3103-L3109)
 
 ##### Swift
     
@@ -7085,7 +7085,7 @@ value | postfix | `ends_with(value, postfix)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1837-L1843)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1841-L1847)
 
 ##### Swift
     
@@ -7199,7 +7199,7 @@ value | pattern | `like(value, pattern)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1850-L1856)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1854-L1860)
 
 ### Web
     
@@ -7212,7 +7212,7 @@ value | pattern | `like(value, pattern)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3125-L3131)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3129-L3135)
 
 ##### Swift
     
@@ -7339,7 +7339,7 @@ value | regexp | `regex_contains(value, regexp)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1863-L1869)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1867-L1873)
 
 ### Web
     
@@ -7352,7 +7352,7 @@ value | regexp | `regex_contains(value, regexp)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3138-L3144)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3142-L3148)
 
 ##### Swift
     
@@ -7550,7 +7550,7 @@ value | regexp | `regex_match(value, regexp)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1876-L1882)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1880-L1886)
 
 ### Web
     
@@ -7563,7 +7563,7 @@ value | regexp | `regex_match(value, regexp)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3151-L3157)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3155-L3161)
 
 ##### Swift
     
@@ -7683,7 +7683,7 @@ arguments | `string_concat(values...)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1889-L1895)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1893-L1899)
 
 ### Web
     
@@ -7696,7 +7696,7 @@ arguments | `string_concat(values...)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3164-L3170)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3168-L3174)
 
 ##### Swift
     
@@ -7815,7 +7815,7 @@ value | substring | `string_contains(value, substring)`
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1902-L1908)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1906-L1912)
 
 ### Web
     
@@ -7828,7 +7828,7 @@ value | substring | `string_contains(value, substring)`
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3177-L3183)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3181-L3187)
 
 ##### Swift
     
@@ -7975,7 +7975,7 @@ b"a1c" | b"A1C"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1915-L1921)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1919-L1925)
 
 ### Web
     
@@ -7988,7 +7988,7 @@ b"a1c" | b"A1C"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3190-L3196)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3194-L3200)
 
 ##### Swift
     
@@ -8104,7 +8104,7 @@ b"ABC" | b"abc"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1928-L1934)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1932-L1938)
 
 ### Web
     
@@ -8117,7 +8117,7 @@ b"ABC" | b"abc"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3203-L3209)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3207-L3213)
 
 ##### Swift
     
@@ -8254,7 +8254,7 @@ b"abc" | 0 | 1 | b"a"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1940-L1947)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1944-L1951)
 
 ### Web
     
@@ -8268,7 +8268,7 @@ b"abc" | 0 | 1 | b"a"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3215-L3222)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3219-L3226)
 
 ##### Swift
     
@@ -8395,7 +8395,7 @@ b"abc" | b"cba"
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1954-L1959)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1958-L1963)
 
 ### Web
     
@@ -8407,7 +8407,7 @@ b"abc" | b"cba"
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3229-L3234)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3233-L3238)
 
 ##### Swift
     
@@ -8619,7 +8619,7 @@ b"C1C2" | "foo" | error
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3241-L3246)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3245-L3250)
 
 ##### Swift
     
@@ -8920,7 +8920,7 @@ Converts `input` (interpreted as the number of microseconds since `1970-01-01 00
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1986-L1991)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2006-L2011)
 
 ### Web
     
@@ -8932,7 +8932,7 @@ Converts `input` (interpreted as the number of microseconds since `1970-01-01 00
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3261-L3266)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3281-L3286)
 
 ##### Swift
     
@@ -9045,7 +9045,7 @@ Converts `input` (interpreted as the number of milliseconds since `1970-01-01 00
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1998-L2003)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2018-L2023)
 
 ### Web
     
@@ -9057,7 +9057,7 @@ Converts `input` (interpreted as the number of milliseconds since `1970-01-01 00
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3273-L3278)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3293-L3298)
 
 ##### Swift
     
@@ -9170,7 +9170,7 @@ Converts `input` (interpreted as the number of seconds since `1970-01-01 00:00:0
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2010-L2015)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2030-L2035)
 
 ### Web
     
@@ -9182,7 +9182,7 @@ Converts `input` (interpreted as the number of seconds since `1970-01-01 00:00:0
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3285-L3290)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3305-L3310)
 
 ##### Swift
     
@@ -9308,7 +9308,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2022-L2027)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2042-L2047)
 
 ### Web
     
@@ -9320,7 +9320,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3297-L3302)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3317-L3322)
 
 ##### Swift
     
@@ -9444,7 +9444,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2034-L2039)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2054-L2059)
 
 ### Web
     
@@ -9456,7 +9456,7 @@ Throws an error if the resulting timestamp does not fit within the `TIMESTAMP` r
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3309-L3314)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3329-L3334)
 
 ##### Swift
     
@@ -9571,7 +9571,7 @@ Converts `input` to the number of microseconds since `1970-01-01 00:00:00 UTC`. 
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2046-L2051)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2066-L2071)
 
 ### Web
     
@@ -9583,7 +9583,7 @@ Converts `input` to the number of microseconds since `1970-01-01 00:00:00 UTC`. 
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3321-L3326)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3341-L3346)
 
 ##### Swift
     
@@ -9692,7 +9692,7 @@ Converts `input` to the number of milliseconds since `1970-01-01 00:00:00 UTC`. 
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2058-L2063)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2078-L2083)
 
 ### Web
     
@@ -9704,7 +9704,7 @@ Converts `input` to the number of milliseconds since `1970-01-01 00:00:00 UTC`. 
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3333-L3338)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3353-L3358)
 
 ##### Swift
     
@@ -9813,7 +9813,7 @@ Converts `input` to the number of seconds since `1970-01-01 00:00:00 UTC`. Trunc
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2070-L2075)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2090-L2095)
 
 ### Web
     
@@ -9825,7 +9825,7 @@ Converts `input` to the number of seconds since `1970-01-01 00:00:00 UTC`. Trunc
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3345-L3350)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3365-L3370)
 
 ##### Swift
     
@@ -10039,7 +10039,7 @@ ABSENT | `NULL`
       .select(field("title").notEqual("1984").as("not1984"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1648-L1651)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1652-L1655)
 
 ### Web
     
@@ -10049,7 +10049,7 @@ ABSENT | `NULL`
       .select(field("title").notEqual("1984").as("not1984"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2926-L2929)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2930-L2933)
 
 ##### Swift
     
@@ -10207,7 +10207,7 @@ Returns the cosine distance between `x` and `y`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2082-L2088)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2102-L2108)
 
 ### Web
     
@@ -10218,7 +10218,7 @@ Returns the cosine distance between `x` and `y`.
       .select(
         field("embedding").cosineDistance(sampleVector).as("cosineDistance")));
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3357-L3361)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3377-L3381)
 
 ##### Swift
     
@@ -10329,7 +10329,7 @@ Returns the dot product of `x` and `y`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2095-L2101)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2115-L2121)
 
 ### Web
     
@@ -10342,7 +10342,7 @@ Returns the dot product of `x` and `y`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3368-L3374)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3388-L3394)
 
 ##### Swift
     
@@ -10451,7 +10451,7 @@ Computes the euclidean distance between `x` and `y`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2108-L2114)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2128-L2134)
 
 ### Web
     
@@ -10464,7 +10464,7 @@ Computes the euclidean distance between `x` and `y`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3381-L3387)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3401-L3407)
 
 ##### Swift
     
@@ -10588,7 +10588,7 @@ Returns the number of elements in a `VECTOR`.
       )
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L2121-L2126)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L2141-L2146)
 
 ### Web
     
@@ -10600,7 +10600,7 @@ Returns the number of elements in a `VECTOR`.
       )
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L3394-L3399)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L3414-L3419)
 
 ##### Swift
     
@@ -10689,6 +10689,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

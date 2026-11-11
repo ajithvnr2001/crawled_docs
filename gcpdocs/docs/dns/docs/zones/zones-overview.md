@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/zones/zones-overview/
 title: DNS zones overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:20.059485+00:00
+fetched_at: 2026-11-11T09:46:36.916392+00:00
 ---
 
 # DNS zones overview  |  Google Cloud Documentation

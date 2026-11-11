@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:47.863854+00:00
+fetched_at: 2026-11-11T08:32:16.617227+00:00
 ---
 
 # Resources  |  Cloud Healthcare API  |  Google Cloud Documentation

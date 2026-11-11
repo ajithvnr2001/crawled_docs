@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/create-downscoped-short-lived-credentials/
 title: Create a downscoped short-lived credential \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:01:58.657267+00:00
+fetched_at: 2026-11-11T10:51:47.037910+00:00
 ---
 
 # Create a downscoped short-lived credential  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -89,9 +89,10 @@ The following is an example of a Credential Access Boundary:
             "availablePermissions": [
               "inRole:ROLE_ID"
             ],
-            "availableResource": "//storage.googleapis.com/projects/_/buckets/BUCKET_NAME"
-             "availabilityCondition": {
-                "expression" : "CONDITION"
+            "availableResource": "//storage.googleapis.com/projects/_/buckets/BUCKET_NAME",
+            "availabilityCondition": {
+              "expression" : "CONDITION"
+            }
           }
         ]
       }
@@ -809,43 +810,31 @@ The following example shows how a token consumer can provide a refresh handler t
 
 #### Exchange and refresh the access token manually
 
-A token broker can use the Security Token Service API to exchange an access token for a downscoped access token. It can then provide the downscoped token to a token consumer.
+A token broker can call the [`sts.token`](https://docs.cloud.google.com/iam/docs/reference/sts/rest/v1/TopLevel/token) method in the Security Token Service API (`POST https://sts.googleapis.com/v1/token`) to exchange an OAuth 2.0 access token for a downscoped access token, and then provide the downscoped token to a token consumer.
 
-To exchange the access token, use the following HTTP method and URL:
+The following `curl` command exchanges an access token by using a JSON-formatted Credential Access Boundary file:
     
     
-    POST https://sts.googleapis.com/v1/token
+    curl https://sts.googleapis.com/v1/token \
+        --header "Content-Type: application/x-www-form-urlencoded" \
+        --request POST \
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
+        --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
+        --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:access_token" \
+        --data-urlencode "subject_token=ORIGINAL_TOKEN" \
+        --data-urlencode "options=$(cat ACCESS_BOUNDARY_FILE)"
     
 
-Set the `Content-Type` header in the request to `application/x-www-form-urlencoded`. Include the following fields in the request body:
+Replace the following:
 
-Fields  
----  
-`grant_type` |  `string` Use the value `urn:ietf:params:oauth:grant-type:token-exchange`.   
-`options` |  `string` A JSON-formatted Credential Access Boundary, encoded with [percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding).   
-`requested_token_type` |  `string` Use the value `urn:ietf:params:oauth:token-type:access_token`.   
-`subject_token` |  `string` The OAuth 2.0 access token that you want to exchange.   
-`subject_token_type` |  `string` Use the value `urn:ietf:params:oauth:token-type:access_token`.   
-  
-The response is a JSON object that contains the following fields:
+  * `ORIGINAL_TOKEN`: the OAuth 2.0 access token that you want to exchange.
+  * `ACCESS_BOUNDARY_FILE`: the path to the file that contains the JSON-formatted Credential Access Boundary, such as `./access-boundary.json`.
 
-Fields  
----  
-`access_token` |  `string` A downscoped OAuth 2.0 access token that respects the Credential Access Boundary.   
-`expires_in` |  `number` The amount of time until the downscoped token expires, in seconds.  This field is included only if the original access token represents a service account. When this field is not included, the downscoped token has the same time to expire as the original access token.   
-`issued_token_type` |  `string` Contains the value `urn:ietf:params:oauth:token-type:access_token`.   
-`token_type` |  `string` Contains the value `Bearer`.   
-  
-For example, if a JSON-formatted Credential Access Boundary is stored in the file `./access-boundary.json`, you can use the following [`curl`](https://curl.haxx.se/) command to exchange the access token. Replace `original-token` with the original access token:
-    
-    
-    curl -H "Content-Type:application/x-www-form-urlencoded" \
-        -X POST \
-        https://sts.googleapis.com/v1/token \
-        -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token_type=urn:ietf:params:oauth:token-type:access_token&requested_token_type=urn:ietf:params:oauth:token-type:access_token&subject_token=original-token" \
-        --data-urlencode "options=$(cat ./access-boundary.json)"
 
-The response is similar to the following example:
+
+For complete details about the request parameters and response fields, see the [`sts.token` REST API reference](https://docs.cloud.google.com/iam/docs/reference/sts/rest/v1/TopLevel/token).
+
+The output is similar to the following:
     
     
     {
@@ -855,6 +844,8 @@ The response is similar to the following example:
       "expires_in": 3600
     }
     
+
+The `expires_in` field appears only when the original access token represents a service account. When the original access token represents a user account, the response omits `expires_in`, and the downscoped token expires at the same time as the original access token.
 
 When a token consumer requests a downscoped token, the token broker responds with both the downscoped token and the number of seconds until it expires. If the token has expired, the server rejects the request. To refresh the downscoped token, the consumer can request a downscoped token from the broker before the existing token expires.
 
@@ -875,6 +866,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

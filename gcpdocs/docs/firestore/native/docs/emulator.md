@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/emulator/
 title: Use Firestore emulator locally \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:50.097105+00:00
+fetched_at: 2026-11-11T08:56:43.788808+00:00
 ---
 
 # Use Firestore emulator locally  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -124,7 +124,7 @@ The following examples demonstrate how to connect the Android, Apple platforms, 
     const db = getFirestore();
     connectFirestoreEmulator(db, '127.0.0.1', 8080);
     
-    [fs_emulator_connect.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/emulator-suite/fs_emulator_connect.js#L8-L12)
+    [fs_emulator_connect.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/emulator-suite/fs_emulator_connect.js#L8-L12)
 
 ### Web version 8
 
@@ -137,7 +137,7 @@ The following examples demonstrate how to connect the Android, Apple platforms, 
       db.useEmulator("127.0.0.1", 8080);
     }
     
-    [emulator-suite.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/emulator-suite.js#L6-L10)
+    [emulator-suite.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/emulator-suite.js#L6-L10)
 
 The Firestore in Native Mode emulator clears database contents when shut down. Since the offline cache of the Firestore SDK is not automatically cleared, you may want to disable local persistence in your emulator configuration to avoid discrepancies between the emulated database and local caches; in the Web SDK, persistence is disabled by default.
 
@@ -187,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

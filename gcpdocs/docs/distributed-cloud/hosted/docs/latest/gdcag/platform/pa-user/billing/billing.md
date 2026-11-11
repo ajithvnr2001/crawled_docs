@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/billing/billing/
 title: Access Billing reports \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:37.913660+00:00
+fetched_at: 2026-11-11T11:44:24.994876+00:00
 ---
 
 # Access Billing reports  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

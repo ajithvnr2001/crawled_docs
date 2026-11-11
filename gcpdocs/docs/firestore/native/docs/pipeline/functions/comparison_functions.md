@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/comparison_functions/
 title: Comparison Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:06:49.510358+00:00
+fetched_at: 2026-11-11T08:56:30.361328+00:00
 ---
 
 # Comparison Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ Returns `TRUE` if `x` and `y` are equal, and `FALSE` otherwise.
       .select(field("rating").equal(5).as("hasPerfectRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1598-L1601)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1602-L1605)
 
 ### Web
     
@@ -74,7 +74,7 @@ Returns `TRUE` if `x` and `y` are equal, and `FALSE` otherwise.
       .select(field("rating").equal(5).as("hasPerfectRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2876-L2879)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2880-L2883)
 
 ##### Swift
     
@@ -182,7 +182,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").greaterThan(4).as("hasHighRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1608-L1611)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1612-L1615)
 
 ### Web
     
@@ -192,7 +192,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").greaterThan(4).as("hasHighRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2886-L2889)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2890-L2893)
 
 ##### Swift
     
@@ -300,7 +300,7 @@ NaN | 0L | `FALSE`
       .select(field("published").greaterThanOrEqual(1900).as("publishedIn20thCentury"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1618-L1621)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1622-L1625)
 
 ### Web
     
@@ -310,7 +310,7 @@ NaN | 0L | `FALSE`
       .select(field("published").greaterThanOrEqual(1900).as("publishedIn20thCentury"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2896-L2899)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2900-L2903)
 
 ##### Swift
     
@@ -422,7 +422,7 @@ NaN | 0L | `FALSE`
       .select(field("published").lessThan(1923).as("isPublicDomainProbably"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1628-L1631)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1632-L1635)
 
 ### Web
     
@@ -432,7 +432,7 @@ NaN | 0L | `FALSE`
       .select(field("published").lessThan(1923).as("isPublicDomainProbably"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2906-L2909)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2910-L2913)
 
 ##### Swift
     
@@ -540,7 +540,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").lessThanOrEqual(2).as("hasBadRating"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1638-L1641)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1642-L1645)
 
 ### Web
     
@@ -550,7 +550,7 @@ NaN | 0L | `FALSE`
       .select(field("rating").lessThanOrEqual(2).as("hasBadRating"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2916-L2919)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2920-L2923)
 
 ##### Swift
     
@@ -655,7 +655,7 @@ NaN | NaN | `FALSE`
       .select(field("title").notEqual("1984").as("not1984"))
       .execute();
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-temp/test.firestore.js#L1648-L1651)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-temp/test.firestore.js#L1652-L1655)
 
 ### Web
     
@@ -665,7 +665,7 @@ NaN | NaN | `FALSE`
       .select(field("title").notEqual("1984").as("not1984"))
     );
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/26874dbbb01f2545ea82fe7bdbfb4adcee87ee4c/firestore-next/test.firestore.js#L2926-L2929)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/f2cfba64460622d7a54369af810442c8d16238fc/firestore-next/test.firestore.js#L2930-L2933)
 
 ##### Swift
     
@@ -779,6 +779,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

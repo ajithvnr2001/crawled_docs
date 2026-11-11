@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-template-create/
 title: Create an instance template \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:49:10.655911+00:00
+fetched_at: 2026-11-11T09:15:03.123806+00:00
 ---
 
 # Create an instance template  |  Compute Engine  |  Google Cloud Documentation

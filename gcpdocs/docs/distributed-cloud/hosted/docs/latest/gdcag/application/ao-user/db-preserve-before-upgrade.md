@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-preserve-before-upgrade/
 title: Preserve database clusters before an upgrade \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:58:24.196487+00:00
+fetched_at: 2026-11-11T12:49:44.214827+00:00
 ---
 
 # Preserve database clusters before an upgrade  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client/
 title: Evaluate generative AI agents using the GenAI Client in Agent Platform SDK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:57:42.329647+00:00
+fetched_at: 2026-11-11T08:51:25.967470+00:00
 ---
 
 # Evaluate generative AI agents using the GenAI Client in Agent Platform SDK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

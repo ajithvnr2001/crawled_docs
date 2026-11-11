@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview/
 title: Overview of persistent resources \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:00.802438+00:00
+fetched_at: 2026-11-11T08:52:09.963166+00:00
 ---
 
 # Overview of persistent resources  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

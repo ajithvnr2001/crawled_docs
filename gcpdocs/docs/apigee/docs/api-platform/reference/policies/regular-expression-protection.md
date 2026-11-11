@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/regular-expression-protection/
 title: RegularExpressionProtection policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:56:50.423893+00:00
+fetched_at: 2026-11-11T10:11:39.174158+00:00
 ---
 
 # RegularExpressionProtection policy  |  Apigee  |  Google Cloud Documentation
@@ -42,15 +42,15 @@ The [regex-protection sample on GitHub](https://github.com/apigee/api-platform-s
 ### JavaScript include attack protection
     
     
-    <RegularExpressionProtection name="JsonPathRegExProtection">
-        <Source>request</Source>
-        <JSONPayload escapeSlashCharacter="true">
-           <JSONPath>
-              <Expression>$</Expression>
-              <Pattern><![CDATA[ <\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*> ]]></Pattern>
-           </JSONPath>
-        </JSONPayload>
-     </RegularExpressionProtection>
+    <RegularExpressionProtection name="JsonPathRegExProtec>tion&<quot;<>/span>
+        Sou<rcerequ>est/S<ource
+        JSONPayload escapeSlashCharac>ter=&quo<t;true&q>uot;
+          < JSONPath
+    > <         Ex>pression$/E<xpressi><on
+          <    Pattern![>CD>AT<A[< \s*script\b[^]*[>^]+><\s*\/\s*>script\s<* ]]/Patt>ern
+     <      /JSONP>at<h
+        /JSONPayload
+     /Regular>ExpressionProtection
 
 The sample above illustrates how to use the RegularExpressionProtection policy to evaluate JSON payloads for JavaScript include attacks. Specifically, the content extracted by `<JSONPath>`/`<Expression>` is evaluated against the regular expression in `<JSONPath>`/`<Pattern>`.
 
@@ -68,16 +68,16 @@ It's a common use case to do case-insensitive matching. Here's an example of how
 ### Form parameter checks
     
     
-    <RegularExpressionProtection name="REP-Formparam">
-      <Source>request</Source>
-      <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
-      <FormParam name="firstname">
-        <Pattern><![CDATA[[-+=$%&]]]></Pattern>
-      </FormParam>
-      <FormParam name="lastname">
-        <Pattern><![CDATA[[-+=$%&]]]></Pattern>
-      </FormParam>
-    </RegularExpressionProtection>
+    <RegularExpressionProtection name="REP-Formp>ara<m">;
+      Sou<rcerequ>est</Source
+      IgnoreUnresolve>dVari<ablesfalse/IgnoreUnresolve>dVa<riables
+      FormParam name=&>quot;<firstna><me"
+        P&att><ern![CDA>TA[<[-+=$%]]]/>Pat<tern
+      /FormParam
+      FormP>aram <name=&q><uot;lastname&q&uot><;
+        Pa>tte<rn![CDATA[>[<-+=$%]]]/Pattern
+      /FormPara>m
+    /RegularExpressionProtection
 
 This RegularExpressionProtection policy configuration will evaluate form parameters for the occurrence of special chatacters, within the set `[-+=$%&]`. This policy will have an effect only when the content-type header in the request is `application/x-www-form-urlencoded`. The policy configuration uses a CDATA (character data) section to wrap the regular expressions, because of the presence of the & character, which is special in XML. 
 
@@ -158,54 +158,54 @@ The element reference describes the elements and attributes of the RegularExpres
 **NOTE:** In this topic "`REGEX PATTERN`" stands in for a valid Regular Expression pattern used to perform the desired matching. Apigee follows the same Regex rules as the classes in the [java.util.regex package](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) in the Java language.
     
     
-    <RegularExpressionProtection async="false" continueOnError="false" enabled="true" name="Regular-Expression-Protection-1">
-       <DisplayName>Regular Expression Protection 1</DisplayName>
-       <Source>response</Source>
-       <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
-       <URIPath>
-         <Pattern>REGEX PATTERN</Pattern>
-         <Pattern>REGEX PATTERN</Pattern>
-       </URIPath>
-       <QueryParam name="a-query-param">
-         <Pattern>REGEX PATTERN</Pattern>
-         <Pattern>REGEX PATTERN</Pattern>
-       </QueryParam>
-       <Header name="a-header">
-         <Pattern>REGEX PATTERN</Pattern>
-         <Pattern>REGEX PATTERN</Pattern>
-       </Header>
-       <FormParam name="a-form-param">
-         <Pattern>REGEX PATTERN</Pattern>
-         <Pattern>REGEX PATTERN</Pattern>
-       </FormParam>
-       <Variable name="request.content">
-         <Pattern>REGEX PATTERN</Pattern>
-         <Pattern>REGEX PATTERN</Pattern>
-       </Variable>
+    <RegularExpressionProtection async="false" continueOnError="false" enabled="true" name=&qu>ot;R<egular-Expr>ession-Protection-1"
+       Di<splayNameReg>ular< Expre>ssion Pr<otectio>n 1/<DisplayName
+       Sourceresp>onse/<Source
+       IgnoreUnresolved>Vari<ablesfa>lse/Ig<noreUnr>esolvedVariab<les
+       U>RIPath<
+         P>atternREGEX P<ATTERN/P>atte<rn
+         >Patt<ernREGEX PATTERN/Pattern
+       /UR>IPath
+    <   Quer>yParam name=&<quot;a-q>uery-p<aram&qu>ot;
+         Patt<ernREGEX> PAT<TERN/Patter>n
+      <   PatternREGEX PATTER>N/Patt<ern
+       >/QueryParam
+     <  Header> name=<"a>-header"<
+         Pa>tter<nREGEX >PATT<ERN/Pattern
+         PatternREGEX> PATTE<RN/Patt>ern
+       /Heade<r
+       For>mParam< name=&>quot;a-form-p<aram&quo>t;
+     <    Patter>nREG<EX PATTERN/Pattern
+         Pattern>REGEX <PATTERN>/Pattern
+       /<FormPara>m
+       V<ariable> name="r<equest.c>onte<nt"<>/span>
+        < PatternRE>GEX PA<TTERN/Patt>ern
+        < PatternREGEX PATTERN/Pat>tern
+       /Variable
        <XMLPayload>
-         <Namespaces>
-           <Namespace prefix="apigee">http://www.apigee.com</Namespace>
-         </Namespaces>
-         <XPath>
-           <Expression>/apigee:Greeting/apigee:User</Expression>
-           <Type>string</Type>
-           <Pattern>REGEX PATTERN</Pattern>
-           <Pattern>REGEX PATTERN</Pattern>
-         </XPath>
-       </XMLPayload>
-       <JSONPayload>
-         <JSONPath>
-           <Expression>$.store.book[*].author</Expression>
-           <Pattern>REGEX PATTERN</Pattern>
-           <Pattern>REGEX PATTERN</Pattern>
-         </JSONPath>
-        </JSONPayload>
-    </RegularExpressionProtection>
+         <Namespaces
+    >      < Name>space pr<efix=">;apigee"http://www.apig<ee.com/Name>space
+      <   />Namesp<aces<>/span>
+         XPa<th
+        >   Expression</apigee:>Greeting</apigee>:User/Express<ion
+        >   Typ<estrin>g/Ty<pe
+           P>atte<rnREGEX PAT>TERN/P<attern
+     >      Pa<tternREGEX> PATTERN/Pattern
+         </XPath
+       />XMLPaylo<ad
+       J>SONPayload
+      <   JSONP>ath
+        <   Expr>ession$.store<.book[*]>.autho<r/Express>ion
+     <      Patter>n<REGEX PATTERN/Pattern
+          > PatternREGEX PATTERN/Pattern
+         /JSONPath
+        /JSONPayload
+    /RegularExpressionProtection
 
 ## <RegularExpressionProtection> attributes
     
     
-    <RegularExpressionProtection async="false" continueOnError="false" enabled="true" name="Regular-Expression-Protection-1">
+    <RegularExpressionProtection async="false" continueOnError="false" enabled="true" name=&qu>ot;Regular-Expression-Protection-1"
 
 The following table describes attributes that are common to all policy parent elements:
 
@@ -283,10 +283,10 @@ Specifies that information needs to be extracted from the request URI path and e
 Specifies that information needs to be extracted from the request query parameter and evaluated against the regular expressions provided. You must provide at least one `<Pattern>` element specifying a regular expression pattern to match.
     
     
-    <QueryParam name="a-query-param">
-      <Pattern>REGEX PATTERN</Pattern>
-      <Pattern>REGEX PATTERN</Pattern>
-    </QueryParam>
+    <QueryParam name="a-query-p>ara<m">
+      PatternREG<EX PATTE>RN/<Pattern>
+      PatternREG<EX PATTE>R<N/Pattern
+    />QueryParam
 
 **Default:** | N/A  
 ---|---  
@@ -304,10 +304,10 @@ name | Name of the request query parameter from which information needs to be ex
 Specifies that information needs to be extracted from the request and response headers and evaluated against the regular expressions provided. You must provide at least one `<Pattern>` element specifying a regular expression pattern to match.
     
     
-    <Header name="a-header">
-      <Pattern>REGEX PATTERN</Pattern>
-      <Pattern>REGEX PATTERN</Pattern>
-    </Header>
+    <Header name="a-he>ade<r">
+      PatternREG<EX PATTE>RN/<Pattern>
+      PatternREG<EX PATTE>R<N/Patte>rn
+    /Header
 
 **Default:** | N/A  
 ---|---  
@@ -325,10 +325,10 @@ name |  Name of the request and response header from which information needs to 
 Specifies that information needs to be extracted from the request form parameter and evaluated against the regular expressions provided. You must provide at least one `<Pattern>` element specifying a regular expression pattern to match.
     
     
-    <FormParam name="a-form-param">
-       <Pattern>REGEX PATTERN</Pattern>
-       <Pattern>REGEX PATTERN</Pattern>
-    </FormParam>
+    <FormParam name="a-form-p>aram<"
+    >   PatternREG<EX PATTE>RN/P<attern
+    >   PatternREG<EX PATTE>R<N/Pattern
+    >/FormParam
 
 **Default:** | N/A  
 ---|---  
@@ -346,10 +346,10 @@ name |  Name of the request form parameter from which information needs to be ex
 Specifies that information needs to be extracted from the given variable and evaluated against the regular expressions provided.
     
     
-    <Variable name="request.content">
-       <Pattern>REGEX PATTERN</Pattern>
-       <Pattern>REGEX PATTERN</Pattern>
-    </Variable>
+    <Variable name="request.con>tent<"
+    >   PatternREG<EX PATTE>RN/P<attern
+    >   PatternREG<EX PATTE>R<N/Pattern>
+    /Variable
 
 **Default:** | N/A  
 ---|---  
@@ -369,15 +369,15 @@ Specifies that information needs to be extracted from an XML payload and evaluat
     
     <XMLPayload>
        <Namespaces>
-          <Namespace prefix="apigee">http://www.apigee.com</Namespace>
-       </Namespaces>
-       <XPath>
-          <Expression>/apigee:Greeting/apigee:User</Expression>
-          <Type>string</Type>
-          <Pattern>REGEX PATTERN</Pattern>
-          <Pattern>REGEX PATTERN</Pattern>
-       </XPath>
-    </XMLPayload>
+          <Namespace prefix="ap>igee"http://www.<apigee.com>/Nam<espace
+       />Name<space>s
+       XP<ath
+          >Expression/apigee:Greeting/a<pigee:User/>Express<ion<>/span>
+          <Types>tring/T<ype
+       >   PatternREG<EX PATTE>RN/Patt<ern
+       >   PatternREG<EX PATTE>RN/P<attern>
+    <   /XPath
+    />XMLPayload
 
 **Default:** | N/A  
 ---|---  
@@ -391,15 +391,15 @@ Specifies the namespaces to be used in the XPath evaluation.
     
     <XMLPayload>
        <Namespaces>
-          <Namespace prefix="apigee">http://www.apigee.com</Namespace>
-       </Namespaces>
-       <XPath>
-          <Expression>/apigee:Greeting/apigee:User</Expression>
-          <Type>string</Type>
-          <Pattern>REGEX PATTERN</Pattern>
-          <Pattern>REGEX PATTERN</Pattern>
-       </XPath>
-    </XMLPayload>
+          <Namespace prefix="ap>igee"http://www.<apigee.com>/Nam<espace
+       />Name<space>s
+       XP<ath
+          >Expression/apigee:Greeting/a<pigee:User/>Express<ion<>/span>
+          <Types>tring/T<ype
+       >   PatternREG<EX PATTE>RN/Patt<ern
+       >   PatternREG<EX PATTE>RN/P<attern>
+    <   /XPath
+    />XMLPayload
 
 **Default:** | N/A  
 ---|---  
@@ -413,8 +413,8 @@ Specifies each namespace to be used in the XPath evaluation.
     
     
     <Namespaces>
-       <Namespace prefix="apigee">http://www.apigee.com</Namespace>
-    </Namespaces>
+       <Namespace prefix="ap>igee"http://www.<apigee.com>/<Namespace
+    />Namespaces
 
 **Default:** | N/A  
 ---|---  
@@ -615,6 +615,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

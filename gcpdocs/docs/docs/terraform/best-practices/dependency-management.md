@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/best-practices/dependency-management/
 title: Best practices on dependency management \u00a0|\u00a0 Terraform on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:09.794447+00:00
+fetched_at: 2026-11-11T08:47:29.898245+00:00
 ---
 
 # Best practices on dependency management  |  Terraform on Google Cloud  |  Google Cloud Documentation

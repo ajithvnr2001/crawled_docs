@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/evaluate/
 title: Evaluate performance \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:51:40.790537+00:00
+fetched_at: 2026-11-11T09:07:14.076857+00:00
 ---
 
 # Evaluate performance  |  Document AI  |  Google Cloud Documentation

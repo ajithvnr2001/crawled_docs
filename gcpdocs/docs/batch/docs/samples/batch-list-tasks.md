@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/samples/batch-list-tasks/
 title: List tasks \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:22:36.407325+00:00
+fetched_at: 2026-11-11T09:20:23.695576+00:00
 ---
 
 # List tasks  |  Batch  |  Google Cloud Documentation

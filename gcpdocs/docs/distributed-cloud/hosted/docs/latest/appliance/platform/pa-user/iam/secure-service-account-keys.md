@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/iam/secure-service-account-keys/
 title: Secure service account keys \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:59:21.139664+00:00
+fetched_at: 2026-11-11T08:48:18.131733+00:00
 ---
 
 # Secure service account keys  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

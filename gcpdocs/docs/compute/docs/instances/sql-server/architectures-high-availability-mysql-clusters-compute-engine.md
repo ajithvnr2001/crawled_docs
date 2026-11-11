@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/sql-server/architectures-high-availability-mysql-clusters-compute-engine/
 title: Architectures for high availability of MySQL clusters on Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:19.454093+00:00
+fetched_at: 2026-11-11T09:13:26.911888+00:00
 ---
 
 # Architectures for high availability of MySQL clusters on Compute Engine  |  Google Cloud Documentation

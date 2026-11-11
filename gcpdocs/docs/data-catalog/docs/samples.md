@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-catalog/docs/samples/
 title: All Data Catalog code samples \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:25.332189+00:00
+fetched_at: 2026-11-11T09:31:05.320698+00:00
 ---
 
 # All Data Catalog code samples  |  Google Cloud Documentation

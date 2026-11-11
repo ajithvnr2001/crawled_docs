@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/single-agent-ai-system-adk-cloud-run/
 title: Single-agent AI system using ADK and Cloud Run \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T16:58:13.376956+00:00
+fetched_at: 2026-11-11T10:14:15.680974+00:00
 ---
 
 # Single-agent AI system using ADK and Cloud Run  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-disk-create-empty-disk/
 title: Create an empty disk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:47:57.145412+00:00
+fetched_at: 2026-11-11T09:19:22.114836+00:00
 ---
 
 # Create an empty disk  |  Compute Engine  |  Google Cloud Documentation

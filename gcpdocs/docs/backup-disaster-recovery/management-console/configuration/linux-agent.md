@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/linux-agent/
 title: Install the Backup and DR agent on a Linux host for appliance-managed backups \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:13.055802+00:00
+fetched_at: 2026-11-11T10:10:53.908149+00:00
 ---
 
 # Install the Backup and DR agent on a Linux host for appliance-managed backups  |  Backup and DR for the management console  |  Google Cloud Documentation

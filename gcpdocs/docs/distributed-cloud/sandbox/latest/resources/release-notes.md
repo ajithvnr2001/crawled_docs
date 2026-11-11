@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/resources/release-notes/
 title: Release notes \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:25.195667+00:00
+fetched_at: 2026-11-11T10:08:32.450611+00:00
 ---
 
 # Release notes  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation

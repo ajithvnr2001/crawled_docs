@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/php/
 title: Building a PHP application \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:15.782321+00:00
+fetched_at: 2026-11-11T09:45:43.205399+00:00
 ---
 
 # Building a PHP application  |  Buildpacks  |  Google Cloud Documentation

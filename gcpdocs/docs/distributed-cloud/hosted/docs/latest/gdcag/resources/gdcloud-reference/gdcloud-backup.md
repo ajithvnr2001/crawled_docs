@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-backup/
 title: gdcloud backup \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:50.921559+00:00
+fetched_at: 2026-11-11T12:23:44.021044+00:00
 ---
 
 # gdcloud backup  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/solutions/open-weight-models/vllm/mistral/
 title: Mistral models with vLLM user guide on GDC air-gapped \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:03.036509+00:00
+fetched_at: 2026-11-11T11:44:44.582024+00:00
 ---
 
 # Mistral models with vLLM user guide on GDC air-gapped  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

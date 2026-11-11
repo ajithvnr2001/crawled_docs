@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-overview/
 title: About Distributed Availability Group (DAG) migrations \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:55.455740+00:00
+fetched_at: 2026-11-11T09:34:37.675681+00:00
 ---
 
 # About Distributed Availability Group (DAG) migrations  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/geography-and-regions/
 title: Geography and regions \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:15.908114+00:00
+fetched_at: 2026-11-11T09:27:33.295349+00:00
 ---
 
 # Geography and regions  |  Get started  |  Google Cloud Documentation

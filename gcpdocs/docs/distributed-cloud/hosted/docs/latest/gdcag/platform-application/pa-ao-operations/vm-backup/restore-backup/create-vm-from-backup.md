@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/vm-backup/restore-backup/create-vm-from-backup/
 title: Create a VM from a backup \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:45.615162+00:00
+fetched_at: 2026-11-11T11:44:11.884450+00:00
 ---
 
 # Create a VM from a backup  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

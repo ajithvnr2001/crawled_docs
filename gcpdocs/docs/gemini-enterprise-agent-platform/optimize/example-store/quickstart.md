@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/quickstart/
 title: Example Store with Gemini quickstart \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:47.443547+00:00
+fetched_at: 2026-11-11T08:50:08.420469+00:00
 ---
 
 # Example Store with Gemini quickstart  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

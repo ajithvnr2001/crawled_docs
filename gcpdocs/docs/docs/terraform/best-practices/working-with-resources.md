@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/best-practices/working-with-resources/
 title: Best practices when working with Google Cloud resources \u00a0|\u00a0 Terraform on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:52:08.920900+00:00
+fetched_at: 2026-11-11T08:47:24.755687+00:00
 ---
 
 # Best practices when working with Google Cloud resources  |  Terraform on Google Cloud  |  Google Cloud Documentation

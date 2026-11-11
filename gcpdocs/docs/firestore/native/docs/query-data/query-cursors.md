@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/query-cursors/
 title: Paginate data with query cursors \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:28.767701+00:00
+fetched_at: 2026-11-11T08:54:04.600026+00:00
 ---
 
 # Paginate data with query cursors  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ For example, if you use `startAt(A)` in a query, it returns the entire alphabet.
     
     const q = query(citiesRef, orderBy("population"), startAt(1000000));
     
-    [order_and_start.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/order_and_start.js#L8-L10)
+    [order_and_start.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/order_and_start.js#L8-L10)
 
 ### Web version 8
 
@@ -56,7 +56,7 @@ For example, if you use `startAt(A)` in a query, it returns the entire alphabet.
     
     citiesRef.orderBy("population").startAt(1000000);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L973-L973)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L973-L973)
 
 ##### Swift
 
@@ -124,7 +124,7 @@ Android
     cities_ref = db.collection("cities")
     query_start_at = cities_ref.order_by("population").start_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L617-L618)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L617-L618)
 
 ##### Python  
 (Async)
@@ -133,7 +133,7 @@ Android
     cities_ref = db.collection("cities")
     query_start_at = cities_ref.order_by("population").start_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L597-L598)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L597-L598)
 
 ##### C++
     
@@ -190,7 +190,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("population").start_at(1_000_000)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/paginate_data.rb#L25-L25)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/paginate_data.rb#L25-L25)
 
 Similarly, use the `endAt()` or `endBefore()` methods to define an end point for your query results.
 
@@ -201,7 +201,7 @@ Similarly, use the `endAt()` or `endBefore()` methods to define an end point for
     
     const q = query(citiesRef, orderBy("population"), endAt(1000000));
     
-    [order_and_end.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/order_and_end.js#L8-L10)
+    [order_and_end.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/order_and_end.js#L8-L10)
 
 ### Web version 8
 
@@ -210,7 +210,7 @@ Similarly, use the `endAt()` or `endBefore()` methods to define an end point for
     
     citiesRef.orderBy("population").endAt(1000000);
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L980-L980)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L980-L980)
 
 ##### Swift
 
@@ -278,7 +278,7 @@ Android
     cities_ref = db.collection("cities")
     query_end_at = cities_ref.order_by("population").end_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L627-L628)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L627-L628)
 
 ##### Python  
 (Async)
@@ -287,7 +287,7 @@ Android
     cities_ref = db.collection("cities")
     query_end_at = cities_ref.order_by("population").end_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L607-L608)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L607-L608)
 
 ##### C++
     
@@ -344,7 +344,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("population").end_at(1_000_000)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/paginate_data.rb#L40-L40)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/paginate_data.rb#L40-L40)
 
 ## Use a document snapshot to define the query cursor
 
@@ -364,7 +364,7 @@ For example, take a snapshot of a "San Francisco" document in your data set of c
     const biggerThanSf = query(citiesRef, orderBy("population"), startAt(docSnap));
     // ...
     
-    [start_doc.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/start_doc.js#L8-L15)
+    [start_doc.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/start_doc.js#L8-L15)
 
 ### Web version 8
 
@@ -382,7 +382,7 @@ For example, take a snapshot of a "San Francisco" document in your data set of c
         // ...
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L986-L995)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L986-L995)
 
 ##### Swift
 
@@ -500,7 +500,7 @@ Android
         db.collection("cities").order_by("population").start_at(snapshot)
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L637-L642)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L637-L642)
 
 ##### Python  
 (Async)
@@ -513,7 +513,7 @@ Android
         db.collection("cities").order_by("population").start_at(snapshot)
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L617-L622)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L617-L622)
 
 ##### C++
     
@@ -598,7 +598,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     snapshot = doc_ref.get
     query = cities_ref.order("population").start_at(snapshot)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/paginate_data.rb#L102-L104)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/paginate_data.rb#L102-L104)
 
 ## Paginate a query
 
@@ -624,7 +624,7 @@ Paginate queries by combining query cursors with the `limit()` method. For examp
         startAfter(lastVisible),
         limit(25));
     
-    [paginate.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/paginate.js#L8-L23)
+    [paginate.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/paginate.js#L8-L23)
 
 ### Web version 8
 
@@ -648,7 +648,7 @@ Paginate queries by combining query cursors with the `limit()` method. For examp
               .limit(25);
     });
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L1017-L1032)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L1017-L1032)
 
 ##### Swift
 
@@ -840,7 +840,7 @@ Android
     # Use the query for pagination
     # ...
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L651-L667)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L651-L667)
 
 ##### Python  
 (Async)
@@ -864,7 +864,7 @@ Android
     # Use the query for pagination
     # ...
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L634-L650)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L634-L650)
 
 ##### C++
     
@@ -1027,7 +1027,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "Document #{city.document_id} returned by paginated query cursor."
     end
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/paginate_data.rb#L54-L68)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/paginate_data.rb#L54-L68)
 
 ## Set cursor based on multiple fields
 
@@ -1060,7 +1060,7 @@ To start at a specific Springfield, you could add the state as a secondary condi
        orderBy("state"),
        startAt("Springfield", "Missouri"));
     
-    [start_multiple_orderby.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/snippets/firestore-next/test-firestore/start_multiple_orderby.js#L8-L19)
+    [start_multiple_orderby.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/snippets/firestore-next/test-firestore/start_multiple_orderby.js#L8-L19)
 
 ### Web version 8
 
@@ -1079,7 +1079,7 @@ To start at a specific Springfield, you could add the state as a secondary condi
        .orderBy("state")
        .startAt("Springfield", "Missouri");
     
-    [test.firestore.js](https://github.com/firebase/snippets-web/blob/7055a148689c9a4631824e2b880482e16151e4fb/firestore/test.firestore.js#L1001-L1011)
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/fbccd85f8f796d18ccf4b6b844298ccdfb4b772f/firestore/test.firestore.js#L1001-L1011)
 
 ##### Swift
 
@@ -1199,7 +1199,7 @@ Android
         .start_at({"name": "Springfield", "state": "Missouri"})
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-client/snippets.py#L808-L817)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-client/snippets.py#L808-L817)
 
 ##### Python  
 (Async)
@@ -1219,7 +1219,7 @@ Android
         .start_at({"name": "Springfield", "state": "Missouri"})
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/548ceb3c05476f1256e7c27526e9636ac683e2ee/firestore/cloud-async-client/snippets.py#L659-L671)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/be26e325ad7eb023874c9a4245e277dfaa27f3c8/firestore/cloud-async-client/snippets.py#L659-L671)
 
 ##### C++
     
@@ -1306,12 +1306,12 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     # Will return "Springfield, Missouri" and "Springfield, Wisconsin"
     query2 = firestore.col(collection_path).order("name").order("state").start_at(["Springfield", "Missouri"])
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce50d0ba13f0164e015eda73bb33b6640e0471d0/google-cloud-firestore/samples/paginate_data.rb#L80-L84)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/e9a5999d0f5521106ad3946bbd355da624a79855/google-cloud-firestore/samples/paginate_data.rb#L80-L84)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

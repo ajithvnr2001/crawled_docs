@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-log-stackdriver/
 title: Process Cloud Audit Logs with Cloud Functions \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:05:02.856048+00:00
+fetched_at: 2026-11-11T08:56:58.940420+00:00
 ---
 
 # Process Cloud Audit Logs with Cloud Functions  |  Cloud Run functions  |  Google Cloud Documentation
@@ -23,6 +23,14 @@ If you are creating a new function, see the [Console Quickstart](https://docs.cl
 #  Process Cloud Audit Logs with Cloud Functions Stay organized with collections  Save and categorize content based on your preferences. 
 
 This sample demonstrates how to process Cloud Audit Logs using Cloud Functions. It extracts and prints the method name, resource name, and initiator email from each log entry.
+
+## Explore further
+
+For detailed documentation that includes this code sample, see the following: 
+
+  * [Trigger functions from log entries](https://docs.cloud.google.com/run/docs/triggering/trigger-functions-from-log-entries)
+
+
 
 ## Code sample
 

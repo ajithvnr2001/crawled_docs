@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/use-the-cloud-sdk/
 title: Use the gcloud CLI \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T12:42:57.775814+00:00
+fetched_at: 2026-11-11T09:33:43.383478+00:00
 ---
 
 # Use the gcloud CLI  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-observability-logger/
 title: Observability audit logger \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:55:51.010612+00:00
+fetched_at: 2026-11-11T10:29:04.259174+00:00
 ---
 
 # Observability audit logger  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/vllm/use-vllm-tpu/
 title: Serve open models using vLLM TPU on Cloud TPU \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:36:00.178645+00:00
+fetched_at: 2026-11-11T08:50:15.450179+00:00
 ---
 
 # Serve open models using vLLM TPU on Cloud TPU  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

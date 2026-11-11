@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/overview/app-modernization-overview/
 title: Application modernization overview \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:39.377960+00:00
+fetched_at: 2026-11-11T09:46:54.645470+00:00
 ---
 
 # Application modernization overview  |  Migration  |  Google Cloud Documentation

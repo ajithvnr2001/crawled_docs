@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/audit-logging/
 title: Agent Registry audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T17:34:16.016866+00:00
+fetched_at: 2026-11-11T09:38:15.578884+00:00
 ---
 
 # Agent Registry audit logging  |  Google Cloud Documentation

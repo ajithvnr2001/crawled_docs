@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-images-create-from-snapshot/
 title: Create an image from a snapshot \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:03:47.122847+00:00
+fetched_at: 2026-11-11T09:19:07.792967+00:00
 ---
 
 # Create an image from a snapshot  |  Compute Engine  |  Google Cloud Documentation
@@ -52,13 +52,13 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	storageLocations := []string{}
     
     	ctx := context.Background()
-    	imagesClient, err := compute.NewImagesRESTClient(ctx)
+    	imagesClient, err := compute.[NewImagesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_ImagesClient_NewImagesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewImagesRESTClient: %w", err)
     	}
     	defer imagesClient.Close()
     
-    	snapshotsClient, err := compute.NewSnapshotsRESTClient(ctx)
+    	snapshotsClient, err := compute.[NewSnapshotsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_SnapshotsClient_NewSnapshotsRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewSnapshotsRESTClient: %w", err)
     	}
@@ -104,12 +104,12 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.GuestOsFeature;
-    import com.google.cloud.compute.v1.Image;
-    import com.google.cloud.compute.v1.ImagesClient;
-    import com.google.cloud.compute.v1.InsertImageRequest;
-    import com.google.cloud.compute.v1.Snapshot;
-    import com.google.cloud.compute.v1.SnapshotsClient;
+    import com.google.cloud.compute.v1.[GuestOsFeature](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GuestOsFeature.html);
+    import com.google.cloud.compute.v1.[Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html);
+    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
+    import com.google.cloud.compute.v1.[InsertImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertImageRequest.html);
+    import com.google.cloud.compute.v1.[Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html);
+    import com.google.cloud.compute.v1.[SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html);
     import java.io.IOException;
     import java.util.ArrayList;
     import java.util.List;
@@ -146,7 +146,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       }
     
       // Creates an image based on a snapshot.
-      public static Image createImageFromSnapshot(String projectId, String sourceSnapshotName,
+      public static [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) createImageFromSnapshot(String projectId, String sourceSnapshotName,
                                                   String imageName, String sourceProjectId,
                                                   List<String> guestOsFeatures, String storageLocation)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
@@ -155,36 +155,36 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         }
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (ImagesClient imagesClient = ImagesClient.create();
-             SnapshotsClient snapshotsClient = SnapshotsClient.create()) {
-          Snapshot snapshot = snapshotsClient.get(sourceProjectId, sourceSnapshotName);
+        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) imagesClient = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create();
+             [SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html) snapshotsClient = [SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html).create()) {
+          [Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html) snapshot = snapshotsClient.get(sourceProjectId, sourceSnapshotName);
     
-          Image.Builder imageResource = Image.newBuilder()
+          [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html).Builder imageResource = [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html).newBuilder()
                   .setName(imageName)
-                  .setSourceSnapshot(snapshot.getSelfLink());
+                  .setSourceSnapshot(snapshot.[getSelfLink](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html#com_google_cloud_compute_v1_Snapshot_getSelfLink__)());
     
           if (storageLocation != null) {
             imageResource.addStorageLocations(storageLocation);
           }
           if (guestOsFeatures != null) {
             for (String feature : guestOsFeatures) {
-              GuestOsFeature.Builder guestOsFeatureBuilder = GuestOsFeature.newBuilder()
+              [GuestOsFeature](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GuestOsFeature.html).Builder guestOsFeatureBuilder = [GuestOsFeature](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GuestOsFeature.html).newBuilder()
                       .setType(feature);
     
               imageResource.addGuestOsFeatures(guestOsFeatureBuilder);
             }
           }
     
-          InsertImageRequest request = InsertImageRequest.newBuilder()
+          [InsertImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertImageRequest.html) request = [InsertImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertImageRequest.html).newBuilder()
                   .setProject(projectId)
                   .setRequestId(UUID.randomUUID().toString())
                   .setImageResource(imageResource)
                   .build();
           imagesClient.insertCallable().futureCall(request).get(60, TimeUnit.SECONDS);
     
-          Image image = imagesClient.get(projectId, imageName);
+          [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) image = imagesClient.get(projectId, imageName);
     
-          System.out.printf("Image '%s' has been created successfully", image.getName());
+          System.out.printf("Image '%s' has been created successfully", image.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html#com_google_cloud_compute_v1_Image_getName__)());
     
           return image;
         }
@@ -205,7 +205,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -286,13 +286,13 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         if source_project_id is None:
             source_project_id = project_id
     
-        snapshot_client = compute_v1.SnapshotsClient()
-        image_client = compute_v1.ImagesClient()
-        src_snapshot = snapshot_client.get(
+        snapshot_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[SnapshotsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.snapshots.SnapshotsClient.html)()
+        image_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ImagesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html)()
+        src_snapshot = snapshot_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.snapshots.SnapshotsClient.html#google_cloud_compute_v1_services_snapshots_SnapshotsClient_get)(
             project=source_project_id, snapshot=source_snapshot_name
         )
     
-        image = compute_v1.Image()
+        image = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Image](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Image.html)()
         image.name = image_name
         image.source_snapshot = src_snapshot.self_link
     
@@ -301,14 +301,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
         if guest_os_features:
             image.guest_os_features = [
-                compute_v1.GuestOsFeature(type_=feature) for feature in guest_os_features
+                [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[GuestOsFeature](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.GuestOsFeature.html)(type_=feature) for feature in guest_os_features
             ]
     
-        operation = image_client.insert(project=project_id, image_resource=image)
+        operation = image_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html#google_cloud_compute_v1_services_images_ImagesClient_insert)(project=project_id, image_resource=image)
     
         wait_for_extended_operation(operation, "image creation from snapshot")
     
-        return image_client.get(project=project_id, image=image_name)
+        return image_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html#google_cloud_compute_v1_services_images_ImagesClient_get)(project=project_id, image=image_name)
     
     
 

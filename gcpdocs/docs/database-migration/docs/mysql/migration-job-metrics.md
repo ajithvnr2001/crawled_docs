@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migration-job-metrics/
 title: Migration job metrics \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:07.766614+00:00
+fetched_at: 2026-11-11T09:34:00.855047+00:00
 ---
 
 # Migration job metrics  |  Database Migration Service for MySQL  |  Google Cloud Documentation

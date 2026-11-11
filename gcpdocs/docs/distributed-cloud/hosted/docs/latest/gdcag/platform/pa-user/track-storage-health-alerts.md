@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/track-storage-health-alerts/
 title: Track storage health alerts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:56:28.693028+00:00
+fetched_at: 2026-11-11T11:44:46.919870+00:00
 ---
 
 # Track storage health alerts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

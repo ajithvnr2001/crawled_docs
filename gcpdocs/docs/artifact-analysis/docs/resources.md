@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-analysis/docs/resources/
 title: Resources \u00a0|\u00a0 Artifact Analysis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:47.161040+00:00
+fetched_at: 2026-11-11T10:11:07.373481+00:00
 ---
 
 # Resources  |  Artifact Analysis  |  Google Cloud Documentation

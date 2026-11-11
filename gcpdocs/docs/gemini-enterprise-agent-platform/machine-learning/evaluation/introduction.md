@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction/
 title: Model evaluation in Agent Platform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T19:01:08.655473+00:00
+fetched_at: 2026-11-11T08:51:39.223457+00:00
 ---
 
 # Model evaluation in Agent Platform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

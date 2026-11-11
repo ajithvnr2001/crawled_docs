@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/valkey/maintenance-changelog/
 title: Memorystore for Valkey maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:41.706927+00:00
+fetched_at: 2026-11-11T13:07:47.483069+00:00
 ---
 
 # Memorystore for Valkey maintenance changelogs  |  Google Cloud Documentation
@@ -479,6 +479,20 @@ All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-12
   * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
   * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
   * [CVE-2026-0864](https://nvd.nist.gov/vuln/detail/CVE-2026-0864)
+
+
+
+#### 2024
+
+  * [CVE-2024-28085](https://nvd.nist.gov/vuln/detail/CVE-2024-28085)
+  * [CVE-2024-2961](https://nvd.nist.gov/vuln/detail/CVE-2024-2961)
+  * [CVE-2024-0553](https://nvd.nist.gov/vuln/detail/CVE-2024-0553)
+
+
+
+#### 2023
+
+  * [CVE-2023-39804](https://nvd.nist.gov/vuln/detail/CVE-2023-39804)
 
 
 
@@ -1903,6 +1917,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-10 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-10 UTC."],[],[]] 

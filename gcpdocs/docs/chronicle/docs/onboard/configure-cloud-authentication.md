@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/onboard/configure-cloud-authentication/
 title: Configure Google Cloud identity \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T14:04:36.131849+00:00
+fetched_at: 2026-11-11T09:11:30.685686+00:00
 ---
 
 # Configure Google Cloud identity  |  Google Security Operations  |  Google Cloud Documentation

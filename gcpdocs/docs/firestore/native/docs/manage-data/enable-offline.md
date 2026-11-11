@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/enable-offline/
 title: Enable offline data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:05:41.263410+00:00
+fetched_at: 2026-11-11T12:58:49.688766+00:00
 ---
 
 # Enable offline data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Enable offline data
 
-Firestore supports offline data persistence. This feature caches a copy of the Firestore data that your app is actively using, so your app can access the data when the device is offline. You can write, read, listen to, and query the cached data.
+Firestore supports offline data persistence through its integration with Firebase. This optional feature caches a copy of the Firestore data that your app actively uses, which lets your app access the data while the device is offline. You can write, read, listen to, and query the cached data on mobile devices or in a web browser.
 
 When the device comes back online, Firestore synchronizes any local changes made by your app to the Firestore backend. For multiple changes to the same document, it's last write wins.
 
@@ -32,11 +32,13 @@ When the device comes back online, Firestore synchronizes any local changes made
 
 
 
-To use offline persistence, you don't need to make any changes to the code that you use to access Firestore data. With offline persistence enabled, the Firestore client library automatically manages online and offline data access and synchronizes local data when the device is back online.
+To use offline persistence, you don't need to change how your code accesses Firestore data. When you enable offline persistence, Firebase coordinates with Firestore to automatically manage online and offline data access and synchronize local data when the device is back online.
+
+Offline persistence requires the Firebase integration for mobile and web app development. The Firestore server-side client libraries for C#, Go, Java, Node.js, PHP, Python, and Ruby don't support offline persistence. If Firebase isn't approved for use within your organization, then use these server-side client libraries to avoid being dependent upon Firebase.
 
 ## Configure offline persistence
 
-When you initialize Firestore, you can enable or disable offline persistence:
+When you initialize a Firestore client, you can enable or disable offline persistence in the following ways:
 
   * For Android and Apple platforms, offline persistence is enabled by default. To disable persistence, set the `PersistenceEnabled` option to `false`.
   * For the web, offline persistence is disabled by default. To enable persistence, call the `enablePersistence` method. Firestore's cache isn't automatically cleared between sessions. Consequently, if your web app handles sensitive information, make sure to ask the user if they're on a trusted device before enabling persistence.
@@ -152,7 +154,7 @@ Android
     }
     db.firestoreSettings = settings
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L113-L119)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L113-L119)
 
 ##### Java  
 Android
@@ -168,7 +170,7 @@ Android
         .build();
     db.setFirestoreSettings(settings);
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L135-L143)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L135-L143)
 
 ### Dart
     
@@ -399,7 +401,7 @@ Android
             }
         }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1055-L1074)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1055-L1074)
 
 ##### Java  
 Android
@@ -428,7 +430,7 @@ Android
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1266-L1287)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1266-L1287)
 
 ### Dart
     
@@ -582,7 +584,7 @@ Android
         // ...
     }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1039-L1042)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1039-L1042)
 
 ##### Java  
 Android
@@ -597,7 +599,7 @@ Android
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1242-L1249)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1242-L1249)
 
 ### Dart
     
@@ -667,7 +669,7 @@ Android
         // ...
     }
     
-    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1046-L1049)
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L1046-L1049)
 
 ##### Java  
 Android
@@ -682,7 +684,7 @@ Android
                 }
             });
     
-    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/4d625814cc35f931646387cd6211a213382b9740/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1253-L1260)
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/6503fc665854029664513823c84d23069426c4be/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L1253-L1260)
 
 ### Dart
     
@@ -697,6 +699,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-09 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

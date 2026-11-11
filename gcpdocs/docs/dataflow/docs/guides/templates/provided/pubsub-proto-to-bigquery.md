@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/pubsub-proto-to-bigquery/
 title: Pub/Sub Proto to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:46.728991+00:00
+fetched_at: 2026-11-11T09:27:17.112222+00:00
 ---
 
 # Pub/Sub Proto to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/migrate-existing-dns-setup/
 title: Migrate an existing Cloud DNS forwarding setup to outbound endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:45.369456+00:00
+fetched_at: 2026-11-11T09:46:27.509640+00:00
 ---
 
 # Migrate an existing Cloud DNS forwarding setup to outbound endpoints  |  Google Cloud Documentation

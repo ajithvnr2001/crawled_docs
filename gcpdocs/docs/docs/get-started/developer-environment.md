@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/developer-environment/
 title: Set up a local development environment \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:39.939471+00:00
+fetched_at: 2026-11-11T09:46:44.336244+00:00
 ---
 
 # Set up a local development environment  |  Get started  |  Google Cloud Documentation

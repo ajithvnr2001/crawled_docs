@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-params-structs/
 title: Struct parameters \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:21:58.156244+00:00
+fetched_at: 2026-11-11T09:11:58.392408+00:00
 ---
 
 # Struct parameters  |  BigQuery  |  Google Cloud Documentation

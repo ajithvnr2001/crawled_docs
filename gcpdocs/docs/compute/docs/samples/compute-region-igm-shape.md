@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-region-igm-shape/
 title: Create a regional MIG with a target distribution shape \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:03:42.791226+00:00
+fetched_at: 2026-11-11T09:20:24.005835+00:00
 ---
 
 # Create a regional MIG with a target distribution shape  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github/
 title: Save a notebook to GitHub \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:58:05.588940+00:00
+fetched_at: 2026-11-11T08:51:13.343858+00:00
 ---
 
 # Save a notebook to GitHub  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

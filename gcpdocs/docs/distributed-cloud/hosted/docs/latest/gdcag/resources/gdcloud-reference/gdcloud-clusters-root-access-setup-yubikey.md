@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-clusters-root-access-setup-yubikey/
 title: gdcloud clusters root-access setup-yubikey \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:56.536663+00:00
+fetched_at: 2026-11-11T09:46:22.704716+00:00
 ---
 
 # gdcloud clusters root-access setup-yubikey  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

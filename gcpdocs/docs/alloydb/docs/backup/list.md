@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/backup/list/
 title: View a list of backups \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:19:20.326383+00:00
+fetched_at: 2026-11-11T09:27:24.267319+00:00
 ---
 
 # View a list of backups  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -55,7 +55,7 @@ To view a list of backups, use the [`gcloud alloydb backups list`](https://docs.
     
     gcloud alloydb backups list \
     --region=REGION_ID \
-    --filter=clusters/CLUSTER_ID \
+    --filter="cluster_name:clusters/CLUSTER_ID" \
     --project=PROJECT_ID
 
 Replace the following:
@@ -75,12 +75,12 @@ To list backups in all your clusters within the specified regions, omit this arg
 
 Note that the `NAME` column in the output table displays the full name of each backup, which includes its project ID and location. The backup's ID is the substring following `/backups/` in its name.
 
-For example, if a backup has a name of `/projects/myproject/locations/us-central1/backups/bkp-1`, the backup's ID is `bkp-1`.
+For example, if a backup has a name of `projects/myproject/locations/us-central1/backups/bkp-1`, the backup's ID is `bkp-1`.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-11 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-11 UTC."],[],[]] 

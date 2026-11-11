@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/identity-and-identifiers/
 title: Identity and identifiers \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:56:34.300785+00:00
+fetched_at: 2026-11-11T10:37:40.660242+00:00
 ---
 
 # Identity and identifiers  |  Agent Registry  |  Google Cloud Documentation

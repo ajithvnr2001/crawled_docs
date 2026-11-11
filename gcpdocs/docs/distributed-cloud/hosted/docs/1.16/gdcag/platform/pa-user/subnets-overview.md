@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/1.16/gdcag/platform/pa-user/subnets-overview/
 title: Subnets and IP addresses in GDC \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:57.976027+00:00
+fetched_at: 2026-11-11T09:27:10.399962+00:00
 ---
 
 # Subnets and IP addresses in GDC  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

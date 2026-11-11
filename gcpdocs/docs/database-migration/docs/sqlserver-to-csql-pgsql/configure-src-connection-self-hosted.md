@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/configure-src-connection-self-hosted/
 title: Configure network connectivity to self-hosted SQL Server sources \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:35:33.191635+00:00
+fetched_at: 2026-11-11T09:34:43.229854+00:00
 ---
 
 # Configure network connectivity to self-hosted SQL Server sources  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

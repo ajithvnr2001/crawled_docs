@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/iterate-generate-text-calls/
 title: Handle quota errors by calling ML.GENERATE_TEXT iteratively \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T18:38:27.302356+00:00
+fetched_at: 2026-11-11T10:09:11.322975+00:00
 ---
 
 # Handle quota errors by calling ML.GENERATE_TEXT iteratively  |  BigQuery  |  Google Cloud Documentation

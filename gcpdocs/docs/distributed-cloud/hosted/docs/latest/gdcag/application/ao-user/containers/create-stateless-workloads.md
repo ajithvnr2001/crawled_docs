@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/create-stateless-workloads/
 title: Create stateless workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:57:14.269852+00:00
+fetched_at: 2026-11-11T11:43:44.791209+00:00
 ---
 
 # Create stateless workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

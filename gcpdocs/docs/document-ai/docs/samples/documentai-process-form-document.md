@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-process-form-document/
 title: Process a document using a Form Parser processor \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T07:06:17.421050+00:00
+fetched_at: 2026-11-11T12:49:47.313568+00:00
 ---
 
 # Process a document using a Form Parser processor  |  Document AI  |  Google Cloud Documentation
@@ -38,12 +38,12 @@ For more information, see the [Document AI Java API reference documentation](htt
 To authenticate to Document AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.documentai.v1beta3.Document;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceClient;
-    import com.google.cloud.documentai.v1beta3.DocumentProcessorServiceSettings;
-    import com.google.cloud.documentai.v1beta3.ProcessRequest;
-    import com.google.cloud.documentai.v1beta3.ProcessResponse;
-    import com.google.cloud.documentai.v1beta3.RawDocument;
+    import com.google.cloud.documentai.v1.[Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html);
+    import com.google.cloud.documentai.v1.[DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html);
+    import com.google.cloud.documentai.v1.[ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html);
+    import com.google.cloud.documentai.v1.[ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html);
+    import com.google.cloud.documentai.v1.[RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html);
     import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import java.io.IOException;
     import java.nio.file.Files;
@@ -73,9 +73,9 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         // the "close" method on the client to safely clean up any remaining background
         // resources.
         String endpoint = String.format("%s-documentai.googleapis.com:443", location);
-        DocumentProcessorServiceSettings settings =
-            DocumentProcessorServiceSettings.newBuilder().setEndpoint(endpoint).build();
-        try (DocumentProcessorServiceClient client = DocumentProcessorServiceClient.create(settings)) {
+        [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html) settings =
+            [DocumentProcessorServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceSettings.html).newBuilder().setEndpoint(endpoint).build();
+        try ([DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html) client = [DocumentProcessorServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.DocumentProcessorServiceClient.html).create(settings)) {
           // The full resource name of the processor, e.g.:
           // projects/project-id/locations/location/processor/processor-id
           // You must create new processors in the Cloud Console first
@@ -88,16 +88,16 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // Convert the image data to a Buffer and base64 encode it.
           [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html) content = [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(imageFileData);
     
-          RawDocument document =
-              RawDocument.newBuilder().setContent(content).setMimeType("application/pdf").build();
+          [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html) document =
+              [RawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.RawDocument.html).newBuilder().setContent(content).setMimeType("application/pdf").build();
     
           // Configure the process request.
-          ProcessRequest request =
-              ProcessRequest.newBuilder().setName(name).setRawDocument(document).build();
+          [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html) request =
+              [ProcessRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.html).newBuilder().setName(name).[setRawDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessRequest.Builder.html#com_google_cloud_documentai_v1_ProcessRequest_Builder_setRawDocument_com_google_cloud_documentai_v1_RawDocument_)(document).build();
     
           // Recognizes text entities in the PDF document
-          ProcessResponse result = client.processDocument(request);
-          Document documentResponse = result.getDocument();
+          [ProcessResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html) result = client.processDocument(request);
+          [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html) documentResponse = result.[getDocument](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.ProcessResponse.html#com_google_cloud_documentai_v1_ProcessResponse_getDocument__)();
     
           System.out.println("Document processing complete.");
     
@@ -107,25 +107,25 @@ To authenticate to Document AI, set up Application Default Credentials. For more
           // https://googleapis.dev/java/google-cloud-document-ai/latest/index.html
     
           // Get all of the document text as one big string
-          String text = documentResponse.getText();
+          String text = documentResponse.[getText](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html#com_google_cloud_documentai_v1_Document_getText__)();
           System.out.printf("Full document text: '%s'\n", removeNewlines(text));
     
           // Read the text recognition output from the processor
-          List<Document.Page> pages = documentResponse.getPagesList();
+          List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html)> pages = documentResponse.[getPagesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html#com_google_cloud_documentai_v1_Document_getPagesList__)();
           System.out.printf("There are %s page(s) in this document.\n", pages.size());
     
-          for (Document.Page page : pages) {
+          for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html) page : pages) {
             System.out.printf("\n\n**** Page %d ****\n", page.getPageNumber());
     
-            List<Document.Page.Table> tables = page.getTablesList();
+            List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html)> tables = page.getTablesList();
             System.out.printf("Found %d table(s):\n", tables.size());
-            for (Document.Page.Table table : tables) {
+            for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html) table : tables) {
               printTableInfo(table, text);
             }
     
-            List<Document.Page.FormField> formFields = page.getFormFieldsList();
+            List<Document.[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[FormField](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.FormField.html)> formFields = page.getFormFieldsList();
             System.out.printf("Found %d form fields:\n", formFields.size());
-            for (Document.Page.FormField formField : formFields) {
+            for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[FormField](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.FormField.html) formField : formFields) {
               String fieldName = getLayoutText(formField.getFieldName().getTextAnchor(), text);
               String fieldValue = getLayoutText(formField.getFieldValue().getTextAnchor(), text);
               System.out.printf(
@@ -135,15 +135,15 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         }
       }
     
-      private static void printTableInfo(Document.Page.Table table, String text) {
-        Document.Page.Table.TableRow firstBodyRow = table.getBodyRows(0);
+      private static void printTableInfo([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html) table, String text) {
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html).[TableRow](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableRow.html) firstBodyRow = table.getBodyRows(0);
         int columnCount = firstBodyRow.getCellsCount();
         System.out.printf(
             "    Table with %d columns and %d rows:\n", columnCount, table.getBodyRowsCount());
     
-        Document.Page.Table.TableRow headerRow = table.getHeaderRows(0);
+        [Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html).[TableRow](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableRow.html) headerRow = table.getHeaderRows(0);
         StringBuilder headerRowText = new StringBuilder();
-        for (Document.Page.Table.TableCell cell : headerRow.getCellsList()) {
+        for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html).[TableCell](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableCell.html) cell : headerRow.getCellsList()) {
           String columnName = getLayoutText(cell.getLayout().getTextAnchor(), text);
           headerRowText.append(String.format("%s | ", removeNewlines(columnName)));
         }
@@ -151,7 +151,7 @@ To authenticate to Document AI, set up Application Default Credentials. For more
         System.out.printf("        Collumns: %s\n", headerRowText.toString());
     
         StringBuilder firstRowText = new StringBuilder();
-        for (Document.Page.Table.TableCell cell : firstBodyRow.getCellsList()) {
+        for ([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[Page](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.html).[Table](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.html).[TableCell](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableCell.html) cell : firstBodyRow.getCellsList()) {
           String cellText = getLayoutText(cell.getLayout().getTextAnchor(), text);
           firstRowText.append(String.format("%s | ", removeNewlines(cellText)));
         }
@@ -160,7 +160,7 @@ To authenticate to Document AI, set up Application Default Credentials. For more
       }
     
       // Extract shards from the text field
-      private static String getLayoutText(Document.TextAnchor textAnchor, String text) {
+      private static String getLayoutText([Document](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.html).[TextAnchor](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.TextAnchor.html) textAnchor, String text) {
         if (textAnchor.getTextSegmentsList().size() > 0) {
           int startIdx = (int) textAnchor.getTextSegments(0).getStartIndex();
           int endIdx = (int) textAnchor.getTextSegments(0).getEndIndex();

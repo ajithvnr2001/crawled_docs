@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/file-format-conversion/
 title: File Format Conversion (Avro, Parquet, CSV) template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:53:50.495048+00:00
+fetched_at: 2026-11-11T09:28:12.736336+00:00
 ---
 
 # File Format Conversion (Avro, Parquet, CSV) template  |  Cloud Dataflow  |  Google Cloud Documentation

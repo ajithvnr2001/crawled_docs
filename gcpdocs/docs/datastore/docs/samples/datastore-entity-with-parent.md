@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-entity-with-parent/
 title: Entity with parent \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:21.374188+00:00
+fetched_at: 2026-11-11T09:34:25.365956+00:00
 ---
 
 # Entity with parent  |  Firestore in Datastore mode  |  Google Cloud Documentation

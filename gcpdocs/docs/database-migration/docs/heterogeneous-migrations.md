@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/heterogeneous-migrations/
 title: Heterogeneous migrations \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T11:36:10.186912+00:00
+fetched_at: 2026-11-11T09:33:12.593028+00:00
 ---
 
 # Heterogeneous migrations  |  Database Migration Service  |  Google Cloud Documentation

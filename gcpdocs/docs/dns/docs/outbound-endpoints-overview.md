@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview/
 title: Outbound endpoints overview \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T05:54:44.577088+00:00
+fetched_at: 2026-11-11T10:08:23.968465+00:00
 ---
 
 # Outbound endpoints overview  |  Cloud DNS  |  Google Cloud Documentation
