@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create/
 title: Create | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:38:30.715774+00:00
+fetched_at: 2026-11-11T06:36:54.354973+00:00
 ---
 
 # Create | Sarvam API Docs
@@ -113,7 +113,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)[ListNext](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)[ListNext](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -195,6 +195,7 @@ YesNo
   * [List Voices](https://docs.sarvam.ai/api-reference/voice-cloning/list-voices)
   * [Get Voice](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)
   * [Delete Voice](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)
+  * [Detect Watermark](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)
   * [Create](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)
   * [List](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)
   * [Get](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/get)

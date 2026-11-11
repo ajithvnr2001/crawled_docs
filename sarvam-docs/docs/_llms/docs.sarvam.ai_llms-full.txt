@@ -341,8 +341,8 @@ Community
   - [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt.md)
   - [Introduction](https://docs.sarvam.ai/api-reference/conversations.md)
 - [Changelog](https://docs.sarvam.ai/changelog/llms.txt): Track API and product updates
+  - [November 9, 2026](https://docs.sarvam.ai/changelog/2026/11/9.md)
   - [November 7, 2026](https://docs.sarvam.ai/changelog/2026/11/7.md)
   - [November 6, 2026](https://docs.sarvam.ai/changelog/2026/11/6.md)
   - [November 3, 2026](https://docs.sarvam.ai/changelog/2026/11/3.md)
   - [October 31, 2026](https://docs.sarvam.ai/changelog/2026/10/31.md)
-  - [October 30, 2026](https://docs.sarvam.ai/changelog/2026/10/30.md)

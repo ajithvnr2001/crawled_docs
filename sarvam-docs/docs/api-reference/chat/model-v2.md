@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/model-v2/
 title: Get Model V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:38:52.583821+00:00
+fetched_at: 2026-11-11T06:37:00.065261+00:00
 ---
 
 # Get Model V2 | Sarvam API Docs
@@ -194,6 +194,7 @@ YesNo
   * [List Voices](https://docs.sarvam.ai/api-reference/voice-cloning/list-voices)
   * [Get Voice](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)
   * [Delete Voice](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)
+  * [Detect Watermark](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)
   * [Create](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)
   * [List](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)
   * [Get](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/get)

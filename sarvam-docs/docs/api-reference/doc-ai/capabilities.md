@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/capabilities/
 title: Get Capabilities | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:38:42.637707+00:00
+fetched_at: 2026-11-11T06:36:58.116351+00:00
 ---
 
 # Get Capabilities | Sarvam API Docs
@@ -245,6 +245,7 @@ YesNo
   * [List Voices](https://docs.sarvam.ai/api-reference/voice-cloning/list-voices)
   * [Get Voice](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)
   * [Delete Voice](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)
+  * [Detect Watermark](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)
   * [Create](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)
   * [List](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)
   * [Get](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/get)

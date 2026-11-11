@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/start/
 title: Batch - Start Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:38:23.367048+00:00
+fetched_at: 2026-11-11T06:36:51.769743+00:00
 ---
 
 # Batch - Start Job | Sarvam API Docs
@@ -257,6 +257,7 @@ YesNo
   * [List Voices](https://docs.sarvam.ai/api-reference/voice-cloning/list-voices)
   * [Get Voice](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)
   * [Delete Voice](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)
+  * [Detect Watermark](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)
   * [Create](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)
   * [List](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)
   * [Get](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/get)

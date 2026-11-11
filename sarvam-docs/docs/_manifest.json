@@ -1,27 +1,31 @@
 {
   "base": "https://docs.sarvam.ai",
-  "total_seeds": 595,
-  "sitemap_count": 586,
+  "total_seeds": 597,
+  "sitemap_count": 588,
   "llms_files": [
     "https://docs.sarvam.ai/llms.txt",
     "https://docs.sarvam.ai/llms-full.txt"
   ],
-  "visited": 1197,
+  "visited": 1199,
   "failed": 2,
   "stats": {
-    "ok": 1197,
+    "ok": 1199,
     "fail": 0,
     "skipped_existing": 0,
-    "by_method": {},
-    "by_host": {}
+    "by_method": {
+      "scrapling+scrapegraph": 2
+    },
+    "by_host": {
+      "docs.sarvam.ai": 2
+    }
   },
-  "elapsed_sec": 5.0,
+  "elapsed_sec": 5.6,
   "out_root": "/data/opencode/crawled_docs/sarvam-docs/docs",
   "tools": [
     "scrapling (Fetcher)",
     "crawl4ai (AsyncWebCrawler fallback)",
     "scrapegraph-ai (cleanup_html/convert_to_md)"
   ],
-  "generated_at": "2026-11-10T06:38:04.799961+00:00",
-  "last_verified": "2026-11-10"
+  "generated_at": "2026-11-11T06:36:46.107455+00:00",
+  "last_verified": "2026-11-11"
 }

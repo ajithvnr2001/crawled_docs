@@ -1154,3 +1154,5 @@
 {"url": "https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b/", "file": "api/token-factory/models/qwen-3-8-27b.md", "title": "Qwen 3.8 27B | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2/", "file": "api/token-factory/models/embeddinggemma-2.md", "title": "EmbeddingGemma 2 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/doc-ai/", "file": "doc-ai.md", "title": "Welcome to Document AI | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/11/9/", "file": "changelog/2026/11/9.md", "title": "November 9, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark/", "file": "api-reference/voice-cloning/detect-watermark.md", "title": "Detect Watermark | Sarvam API Docs", "method": "scrapling+scrapegraph"}

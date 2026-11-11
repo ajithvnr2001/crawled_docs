@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/create-voice/
 title: Create Voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T06:38:08.896033+00:00
+fetched_at: 2026-11-11T06:36:47.754906+00:00
 ---
 
 # Create Voice | Sarvam API Docs
@@ -211,6 +211,7 @@ YesNo
       * [GETList VoicesBeta](https://docs.sarvam.ai/api-reference/voice-cloning/list-voices)
       * [GETGet VoiceBeta](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)
       * [DELDelete VoiceBeta](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)
+      * [POSTDetect WatermarkBeta](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)
 
     * Pronunciation Dictionary
 
@@ -273,6 +274,7 @@ YesNo
   * [List Voices](https://docs.sarvam.ai/api-reference/voice-cloning/list-voices)
   * [Get Voice](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)
   * [Delete Voice](https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice)
+  * [Detect Watermark](https://docs.sarvam.ai/api-reference/voice-cloning/detect-watermark)
   * [Create](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)
   * [List](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/list)
   * [Get](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/get)
