@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/facebook-login/
 title: Facebook \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:03.169682+00:00
+fetched_at: 2026-11-11T09:00:59.757035+00:00
 ---
 
 # Facebook · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Facebook
 
-Last updated Sep 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/facebook-login/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExample API Configuration
 
@@ -48,7 +48,7 @@ Use these steps to set up Facebook as your identity provider.
 
   10. Fill in the **App ID** and **App Secret** obtained from Facebook.
 
-  11. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
+  11. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
 
   12. Select **Save**.
 
@@ -62,7 +62,7 @@ Use these steps to set up Facebook as your identity provider.
          
          https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
   17. Select **Save Changes**.
 

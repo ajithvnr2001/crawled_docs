@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/account/account-security/leaked-password-notifications/
 title: Leaked Password Notifications \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:19.337915+00:00
+fetched_at: 2026-11-11T09:01:03.079240+00:00
 ---
 
 # Leaked Password Notifications · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Accounts
 
 # Leaked Password Notifications
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/account/account-security/leaked-password-notifications/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Cloudflare automatically checks if your password has been compromised when you log in to the Cloudflare dashboard. Every time you log in to your account, we will securely verify through threat intelligence sources to confirm if your password has been leaked in a past data breach.
 
@@ -34,9 +34,7 @@ Cloudflare does not have additional information about the specific breach or Int
 
 Popular online tools such as [Have I Been Pwned ↗︎](https://haveibeenpwned.com/) can help you better understand where your external accounts were attacked. If you reused this password in other systems, it is recommended that you reset it in those as well.
 
-If your password is found in a data breach, we will email you information on how to reset your password and prompt you to do so in the Cloudflare dashboard.
-
-Your first three login attempts will warn you of the need to reset your password. After three attempts, you will be required to reset your password to log in to Cloudflare.
+If your password is found in a data breach, we will email you information on how to reset your password and block login until you reset it.
 
 Users leveraging [Single Sign-On (SSO)](https://developers.cloudflare.com/fundamentals/manage-members/dashboard-sso/) or [two-factor authentication (2FA)](https://developers.cloudflare.com/fundamentals/user-profiles/2fa/) will not be subject to these requirements given the higher level of security provided by those features.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google/
 title: Google \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:03.720812+00:00
+fetched_at: 2026-11-11T09:00:59.927255+00:00
 ---
 
 # Google · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Google
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up Google as an identity providerTest your connectionExample API ConfigTroubleshooting Error 401: deleted_client
 
@@ -56,7 +56,7 @@ You do not need to be a Google Cloud Platform user to integrate Google as an ide
          
          https://<your-team-name>.cloudflareaccess.com
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
   8. Under **Authorized redirect URIs** , in the **URIs** field, enter the following URL:
          
@@ -70,7 +70,7 @@ You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cl
 
   12. Input the Client ID (**App ID** in the Cloudflare dashboard) and Client Secret fields generated previously.
 
-  13. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
+  13. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
 
   14. Select **Save**.
 

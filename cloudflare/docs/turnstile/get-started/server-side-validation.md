@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
 title: Validate the token \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:03.657100+00:00
+fetched_at: 2026-11-11T09:01:02.204000+00:00
 ---
 
 # Validate the token · Cloudflare Turnstile docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-23T16:40:03.657100+00:00
 
 # Validate the token
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewProcessSiteverify API overview Request formatBasic validation examplesAdvanced validation techniquesAPI response format Response fields Error codes referenceImplementationTestingBest practices Security Performance Error handling
+OverviewProcessSiteverify API overview Request format Token reuse and network convergenceBasic validation examplesAdvanced validation techniquesAPI response format Response fields Error codes referenceImplementationTestingBest practices Security Performance Error handling
 
 Learn how to securely validate Turnstile tokens on your server using the Siteverify API.
 
@@ -32,7 +32,7 @@ Server-side validation is required because:
 
   * **Tokens can be forged.** An attacker can submit any string to your form endpoint without completing a challenge.
   * **Tokens expire.** Each token is valid for 300 seconds (5 minutes) after generation.
-  * **Tokens are single-use.** Each token can only be validated once. A replayed token will be rejected with the `timeout-or-duplicate` error code.
+  * **Tokens are intended for single use.** A replayed token is rejected with the `timeout-or-duplicate` error code after the earlier redemption becomes visible. Refer to Token reuse and network convergence.
 
 
 
@@ -70,7 +70,7 @@ Parameter | Required | Description
 
   * Maximum length: 2048 characters
   * Validity period: 300 seconds (5 minutes) from generation
-  * Single use: Each token can only be validated once
+  * Single use: Tokens are intended for one validation, subject to network convergence
   * Automatic expiry: Tokens automatically expire and cannot be reused
 
 
@@ -78,6 +78,14 @@ Parameter | Required | Description
 The validation token issued by Turnstile is valid for five minutes. If a user submits the form after this period, the token is considered expired. In this scenario, the server-side verification API will return a failure, and the `error-codes` field in the response will include `timeout-or-duplicate`.
 
 To ensure a successful validation, the visitor must initiate the request and submit the token to your backend within the five-minute window. Otherwise, the Turnstile widget needs to be refreshed to generate a new token. This can be done using the `turnstile.reset` function.
+
+### Token reuse and network convergence
+
+Turnstile tokens are intended for single use, but token-reuse detection is eventually consistent. Redemption state takes time to propagate across Cloudflare's global network.
+
+The service-level objective is to reject at least **99% of repeat validation requests received five seconds or more after the first successful validation**. Intentional retries using the same `idempotency_key` are excluded.
+
+Multiple validations submitted close together may succeed before redemption state propagates across the network. This includes both concurrent requests and closely spaced sequential requests.
 
 * * *
 
@@ -575,7 +583,7 @@ Error code | Description | Action required
 `missing-input-response` | Response parameter was not provided | Ensure token is included  
 `invalid-input-response` | Token is invalid, malformed, or expired | User should retry the challenge  
 `bad-request` | Request is malformed | Check request format and parameters  
-`timeout-or-duplicate` | Token has already been validated | Each token can only be used once  
+`timeout-or-duplicate` | Token has expired or has already been validated | Generate a new token for a new validation request  
 `internal-error` | Internal error occurred | Retry the request  
   
 * * *

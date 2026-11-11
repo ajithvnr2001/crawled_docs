@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/pingone-oidc/
 title: PingOne \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:05.667802+00:00
+fetched_at: 2026-11-11T09:00:59.398009+00:00
 ---
 
 # PingOne · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # PingOne
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/pingone-oidc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up PingOne as an OIDC provider 1\. Create an application in PingOne 2\. Add PingOne to Cloudflare OneExample API configuration
 
@@ -52,7 +52,7 @@ The PingOne cloud platform from PingIdentity provides SSO identity management. C
          
          https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
   10. Select **Save**.
 
@@ -65,7 +65,7 @@ You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cl
   2. Under **Your identity providers** , select **Add new identity provider**.
   3. Select **PingOne**.
   4. Input the **Client ID** , **Client Secret** , and **Environment ID** generated previously.
-  5. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
+  5. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
   6. (Optional) To enable SCIM, refer to [Synchronize users and groups](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/#synchronize-users-and-groups).
   7. (Optional) Under **Optional configurations** , enter [custom OIDC claims](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/#custom-oidc-claims) that you wish to add to your users' identity.
   8. Select **Save**.

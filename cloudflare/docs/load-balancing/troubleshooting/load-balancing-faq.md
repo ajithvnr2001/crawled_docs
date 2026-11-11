@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/troubleshooting/load-balancing-faq/
 title: FAQs \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:06.777823+00:00
+fetched_at: 2026-11-11T09:01:02.627695+00:00
 ---
 
 # FAQs · Cloudflare Load Balancing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:06.777823+00:00
 
 # FAQs
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/troubleshooting/load-balancing-faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewWhy is my origin receiving so many health monitor requests? Multiple Health Monitor Regions Low intervals for health monitor requestsWhy is my endpoint or pool considered unhealthy?Why does my load balancer route traffic to a secondary pool when the primary pool is still healthy?What happens when a pool or endpoint becomes unhealthy?What is the difference between Load Balancing and Health Checks?Why do I see different numbers of requests in Load Balancing Analytics?I'm seeing a specific error code for my load balancer or monitor.Related resources
 
@@ -83,6 +83,8 @@ When a pool or endpoint becomes unhealthy, traffic may be rerouted to other heal
 1 - Pools with **All-Datacenters** monitoring and the monitor fails in a specific data center. In this case, all traffic will be steered away from impacted endpoints in that datacenter until the monitor succeeds again. These instances are reflected in LB request analytics as steering away from an unhealthy endpoint or pool.
 
 2 - Pools with FQDN endpoint addresses and the recursive DNS lookup fails in a specific data center. In this case, only requests for which the DNS request fails will be steered away from impacted endpoints. This could be sporadic, especially if upstream authoritative resolvers occasionally time out or fail, when the local DNS cache TTL expires and a remote lookup is required in the hot path. This also appears in LB request analytics as steering away from an unhealthy endpoint, and the resolved endpoint IP will be missing from the request log.
+
+A specific case of this failure occurs when the endpoint hostname has a DNS answer that exceeds 512 bytes over UDP — for example, a hostname that resolves to many A records. The monitor performs an uncached DNS lookup on every health check using UDP by default and does not fall back to TCP when the response is truncated. The monitor reports `DNS Unknown Host` even though the hostname resolves correctly for clients. For more information, refer to [DNS Unknown Host](https://developers.cloudflare.com/load-balancing/troubleshooting/common-error-codes/#dns-unknown-host).
 
 To avoid these scenarios:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/magic-transit/reference/traffic-steering/
 title: Traffic steering \u00b7 Cloudflare Magic Transit docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:11.556783+00:00
+fetched_at: 2026-11-11T09:01:03.510442+00:00
 ---
 
 # Traffic steering · Cloudflare Magic Transit docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:11.556783+00:00
 
 # Traffic steering
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMagic Transit Virtual Network routing table Allowed IP ranges Default routing Route prioritization Set priority and weights for static routes Set priority for BGP routes Change route priorities with BGP attributesUnified Routing mode Compare routing modes How to upgrade to Unified RoutingScoping routes to specific regions Region codes and associated regionsMagic Transit prefix mapping Map route prefixes smaller than /24 Map route prefixes bigger than onboarded prefixesEqual-cost multi-path routing Examples ECMP and bandwidth utilizationBGP information Release status BGP architecture BGP peering with the Magic Transit network routing table BGP route distribution and convergence BGP timers and settings BGP capabilities and limitations Tunnel health checks
 
@@ -274,7 +274,7 @@ The minimum advertising prefix is `/24`, but because Cloudflare uses anycast tun
 
 If you have multiple onboarded `/24` subnets that belong to a larger contiguous block, you can configure a summary static route for the corresponding supernet (like a `/23` or a `/22`) instead of adding each `/24` individually. This eliminates the need to configure each `/24` route, as all traffic will be routed through the same GRE tunnels.
 
-For example, if you have two tunnels:
+For example, if you have two subnets:
 
   * `192.0.2.0/24`
   * `192.0.3.0/24`

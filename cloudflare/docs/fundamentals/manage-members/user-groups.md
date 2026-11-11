@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/manage-members/user-groups/
 title: User Groups \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:23.386620+00:00
+fetched_at: 2026-11-11T09:01:03.362916+00:00
 ---
 
 # User Groups · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:23.386620+00:00
 
 # User Groups
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/manage-members/user-groups/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a User Group manually Assign a Permission PolicyCreate a User Group with SCIM Set up permissions for User GroupsInspect Group Members
 
@@ -26,14 +26,11 @@ User Groups are a collection of [account members](https://developers.cloudflare.
 
 Note
 
-User Group permissions are inherited by each member of the group but are not currently reflected in the role field on the **Members** page. To view a member’s full set of permissions, check both:
+User Group permissions are inherited by each member of the group.
 
-  * The **Members** page for any directly assigned policies
-  * The **Groups** tab to identify which groups the member belongs to, and the policies applied to those groups
+To view a member's effective permissions, open that member's details from the **Members** page. The member details view shows both directly assigned policies and policies inherited from User Groups.
 
-
-
-Cloudflare is actively working on improving this experience to make inherited and direct permissions easier to view.
+Use the **Groups** tab when you need to review or change the policies assigned to the group itself.
 
 ## Create a User Group manually
 
@@ -306,7 +303,7 @@ Example responsecurl
       "messages": []
     }
 
-[PreviousRole scopes](https://developers.cloudflare.com/fundamentals/manage-members/scope/)[NextSet up dashboard SSO](https://developers.cloudflare.com/fundamentals/manage-members/dashboard-sso/)
+[PreviousRole scopes](https://developers.cloudflare.com/fundamentals/manage-members/scope/)[NextOverview](https://developers.cloudflare.com/fundamentals/user-profiles/)
 
 Was this helpful?
 

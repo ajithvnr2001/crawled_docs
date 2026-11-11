@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/observability/metrics-analytics/
 title: Metrics and analytics \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:15.977621+00:00
+fetched_at: 2026-11-11T09:01:02.402895+00:00
 ---
 
 # Metrics and analytics · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:18:15.977621+00:00
 
 # Metrics and analytics
 
-Last updated Jun 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workflows/observability/metrics-analytics/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMetrics Labels and dimensions Event typesView metrics in the dashboardQuery via the GraphQL API Examples
 
@@ -61,7 +61,7 @@ The possible values for `eventType` are documented below:
 
 #### Workflows-level status labels
 
-  * `WORKFLOW_QUEUED` \- the Workflow is queued, but not currently running. This can happen when you are at the [concurrency limit](https://developers.cloudflare.com/workflows/reference/limits/) and new instances are waiting for currently running instances to complete.
+  * `WORKFLOW_QUEUED` \- the Workflow is queued, but not currently running. This can happen when your account is at its [concurrency limit](https://developers.cloudflare.com/workflows/reference/limits/), or the Workflow is at its own [concurrency limit](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits), and new instances are waiting for currently running instances to complete.
   * `WORKFLOW_START` \- the Workflow has started and is running.
   * `WORKFLOW_SUCCESS` \- the Workflow finished without errors.
   * `WORKFLOW_FAILURE` \- the Workflow failed due to errors (exhausting retries, errors thrown, etc).

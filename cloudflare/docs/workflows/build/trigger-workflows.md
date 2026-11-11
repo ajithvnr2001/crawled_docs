@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/trigger-workflows/
 title: Trigger Workflows \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.104947+00:00
+fetched_at: 2026-11-11T09:01:02.469472+00:00
 ---
 
 # Trigger Workflows · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:30.104947+00:00
 
 # Trigger Workflows
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkers API (Bindings) Schedule a Workflow directly Inspect a Workflow's status Explicitly pause a Workflow Resume a Workflow Stop a Workflow Restart a Workflow Delete Workflow instances Trigger a Workflow from another WorkflowREST API (HTTP)Command line (CLI)
 
@@ -58,7 +58,7 @@ To bind to a Workflow from your Workers code, you need to define a [binding](htt
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-16",
+    	"compatibility_date": "2026-11-10",
     	"workflows": [
     		{
     			// The name of the Workflow
@@ -79,7 +79,7 @@ To bind to a Workflow from your Workers code, you need to define a [binding](htt
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-16"
+    compatibility_date = "2026-11-10"
     
     [[workflows]]
     name = "workflows-tutorial"
@@ -99,7 +99,7 @@ If you want to create Workflow instances on a recurring interval, add a `schedul
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-16",
+    	"compatibility_date": "2026-11-10",
     	"workflows": [
     		{
     			"name": "workflows-tutorial",
@@ -116,7 +116,7 @@ If you want to create Workflow instances on a recurring interval, add a `schedul
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-16"
+    compatibility_date = "2026-11-10"
     
     [[workflows]]
     name = "workflows-tutorial"
@@ -139,6 +139,8 @@ Scheduled instances include the matching cron expression and scheduled trigger t
     }
 
 On [Workers Paid](https://developers.cloudflare.com/workers/platform/pricing/#workers), Workflow instances created by `schedules` can run for up to one hour per cron firing without consuming a Workflow concurrency slot. If the instance pauses or sleeps after that window, the instance yields and enters the normal concurrency queue upon resume. It resumes when a concurrency slot is available.
+
+This also applies to a Workflow with a [concurrency limit](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits): instances created by `schedules` are not held back by the limit during the one-hour window. After the window, the instance yields and is queued until both your account and the Workflow have a free slot.
 
 Use the latest Wrangler release when configuring Workflow schedules. If your local Wrangler schema does not recognize `schedules` yet, update Wrangler before deploying.
 
@@ -240,7 +242,7 @@ Calling `resume` on an instance that is not currently paused will have no effect
 
 Caution
 
-If you have reached the maximum concurrent instances for your Workflow, resuming an instance may not restart it immediately. The instance will be queued until a concurrency slot becomes available.
+If you have reached the maximum concurrent instances for your account, or the [concurrency limit](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits) set on your Workflow, resuming an instance may not restart it immediately. The instance will be queued until a concurrency slot becomes available.
 
 ### Stop a Workflow
 

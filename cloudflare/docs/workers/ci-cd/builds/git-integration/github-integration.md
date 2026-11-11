@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/
 title: GitHub integration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T09:25:00.755751+00:00
+fetched_at: 2026-11-11T09:01:02.115571+00:00
 ---
 
 # GitHub integration · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-09T09:25:00.755751+00:00
 
 # GitHub integration
 
-Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewFeatures Pull request comment Check runManage access Organizational access Remove access Reinstall the Cloudflare GitHub App
+OverviewFeatures Pull request comment Check runManage access Install and authorize the app Repository access Organizational access Remove access Reinstall the Cloudflare GitHub App
 
 Cloudflare supports connecting your GitHub repository to your Cloudflare Worker, and will automatically deploy your code every time you push a change.
 
@@ -68,6 +68,38 @@ Note that when using [build watch paths](https://developers.cloudflare.com/worke
 
 You can deploy projects to Cloudflare Workers from your company or side project on GitHub using the [Cloudflare Workers & Pages GitHub App ↗︎](https://github.com/apps/cloudflare-workers-and-pages).
 
+### Install and authorize the app
+
+To connect a repository, the Cloudflare Workers & Pages app must be installed on the GitHub account or organization that owns it, and you must authorize the app with your own GitHub user. These are separate steps, and they appear on separate tabs in your GitHub settings.
+
+![Authorize: tells Cloudflare who you are, once per person, listed under Authorized GitHub Apps. Install: decides which repositories Cloudflare can access, listed under Installed GitHub Apps.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1800,height=392,format=webp/_astro/github-authorize-vs-install.DsQ5aSYE.png)
+
+| Install the app | Authorize the app  
+---|---|---  
+What it does | Gives Cloudflare access to repositories on a GitHub account or organization. | Tells Cloudflare who you are on GitHub, so you only see the accounts and repositories you can access.  
+Who does it | An owner of the GitHub account or organization, or a member with the [GitHub App manager role ↗︎](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers). | Each person who connects a repository from Cloudflare, once.  
+Choose repositories | Yes. Select **All repositories** or **Only select repositories**. | No.  
+Where to find it on GitHub | [Installed GitHub Apps ↗︎](https://github.com/settings/installations). For an organization, select **Switch settings context** first. | [Authorized GitHub Apps ↗︎](https://github.com/settings/apps/authorizations)  
+How to undo it | Select **Configure** , then **Uninstall**. | Select **Revoke**.  
+  
+Cloudflare asks you to authorize the app when needed. To install the app on another GitHub account or organization, select **Add GitHub account** when you connect a repository.
+
+For more information, refer to [About using GitHub Apps ↗︎](https://docs.github.com/en/apps/using-github-apps/about-using-github-apps) in the GitHub documentation.
+
+### Repository access
+
+When you connect a GitHub repository, you only see the GitHub accounts and repositories you can access on GitHub.
+
+The first time you connect a repository, Cloudflare sends you to GitHub to authorize the Cloudflare Workers & Pages app. You need to do this once, even if someone else on your Cloudflare account already connected GitHub. If the app is not installed on any GitHub account you can access, you also install it on your own GitHub account or an organization.
+
+The account list shows your own GitHub account and organizations where you can access at least one repository, if the app is installed on them. GitHub accounts that belong to other users are not listed, even if they have given you access to one of their repositories.
+
+Authorizing the app is separate from installing it. If your own GitHub account or an organization is missing from the list, select **Add GitHub account** and install the app on it.
+
+Existing repository connections keep building.
+
+To switch GitHub users, revoke the app on the [Authorized GitHub Apps page ↗︎](https://github.com/settings/apps/authorizations) and connect again.
+
 ### Organizational access
 
 When authorizing Cloudflare Workers to access a GitHub account, you can specify access to your individual account or an organization that you belong to on GitHub.
@@ -76,7 +108,7 @@ To add Cloudflare Workers installation to an organization, your user account mus
 
 GitHub security consideration
 
-A GitHub account should only point to one Cloudflare account. If you are setting up Cloudflare with GitHub for your organization, Cloudflare recommends that you limit the scope of the application to only the repositories you intend to build with Pages. To modify these permissions, go to the [Applications page ↗︎](https://github.com/settings/installations) on GitHub and select **Switch settings context** to access your GitHub organization settings. Then, select **Cloudflare Workers & Pages** > For **Repository access** , select **Only select repositories** > select your repositories.
+A GitHub account should only point to one Cloudflare account. If you are setting up Cloudflare with GitHub for your organization, Cloudflare recommends that you limit the scope of the application to only the repositories you intend to build with Workers. To modify these permissions, go to the [Applications page ↗︎](https://github.com/settings/installations) on GitHub and select **Switch settings context** to access your GitHub organization settings. Then, select **Cloudflare Workers & Pages** > For **Repository access** , select **Only select repositories** > select your repositories.
 
 ### Remove access
 

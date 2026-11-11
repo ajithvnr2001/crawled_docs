@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/local-development/
 title: Local Development \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:56.942735+00:00
+fetched_at: 2026-11-11T09:01:02.650320+00:00
 ---
 
 # Local Development · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:56.942735+00:00
 
 # Local Development
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesStart a local development sessionManage Workflows locallyLocal ExplorerKnown Issues
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/workers-api/
 title: Workers API \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:10.695236+00:00
+fetched_at: 2026-11-11T09:01:02.600029+00:00
 ---
 
 # Workers API · Cloudflare Workflows docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-05T09:11:10.695236+00:00
 
 # Workers API
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWorkflowEntrypoint runWorkflowEventWorkflowStep stepWorkflowStepConfigRollback optionsWorkflowStepContextWorkflow step limitsDefault instance retentionWorkflow jurisdictionDeclare Workflows in exports Call a Workflow through ctx.exportsNonRetryableErrorCall Workflows from Workers Bind from Pages Cross-script callsWorkflow create createBatch deleteBatch getWorkflowInstanceCreateOptionsWorkflowInstance id status pause resume restart terminate delete sendEvent subscribe InstanceStatus
+OverviewWorkflowEntrypoint runWorkflowEventWorkflowStep stepWorkflowStepConfigRollback optionsWorkflowStepContextWorkflow step limitsWorkflow concurrency limitsDefault instance retentionWorkflow jurisdictionDeclare Workflows in exports Call a Workflow through ctx.exportsNonRetryableErrorCall Workflows from Workers Bind from Pages Cross-script callsWorkflow create createBatch deleteBatch getWorkflowInstanceCreateOptionsWorkflowInstance id status pause resume restart terminate delete sendEvent subscribe InstanceStatus
 
 This guide details the Workflows API within Cloudflare Workers, including methods, types, and usage examples.
 
@@ -384,6 +384,35 @@ Each workflow on Workers Paid supports 10,000 steps by default. You can increase
 
 Note that Workflows on Workers Free have a limit of 1,024 steps. Refer to [Workflow limits](https://developers.cloudflare.com/workflows/reference/limits/) for more information.
 
+## Workflow concurrency limits
+
+To cap how many instances of a single Workflow run at the same time, configure `limit` within the `concurrency` property of your Workflow definition in your Wrangler configuration:
+    
+    
+    {
+    	"workflows": [
+    		{
+    			"name": "my-workflow",
+    			"binding": "MY_WORKFLOW",
+    			"class_name": "MyWorkflow",
+    			"concurrency": {
+    				"limit": 10,
+    			},
+    		},
+    	],
+    }
+    
+    
+    [[workflows]]
+    name = "my-workflow"
+    binding = "MY_WORKFLOW"
+    class_name = "MyWorkflow"
+    
+      [workflows.concurrency]
+      limit = 10
+
+Instances above the limit are queued and start automatically as running instances finish. The limit cannot be higher than your account's [concurrency limit](https://developers.cloudflare.com/workflows/reference/limits/). Refer to [Concurrency limits](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits) for how limits are applied, and how to change or remove them.
+
 ## Default instance retention
 
 By default, the state of a finished Workflow instance is retained for 3 days on the Workers Free plan. On the Workers Paid plan, instance state is retained for 7 days by default. Workflows created before the [Workers Paid default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/) keep their existing 30-day default. To retain instances for a different period, up to your account's [retention limit](https://developers.cloudflare.com/workflows/reference/limits/), configure `default_retention` on the Workflow binding in your Wrangler configuration:
@@ -450,7 +479,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-05",
+    	"compatibility_date": "2026-11-10",
     	"exports": {
     		"MyWorkflow": {
     			"type": "workflow",
@@ -466,14 +495,14 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-05"
+    compatibility_date = "2026-11-10"
     
     [exports.MyWorkflow]
     type = "workflow"
     name = "billing-workflow"
     schedules = [ "0 * * * *" ]
 
-A `workflow` export accepts the same settings as a `workflows` binding: `limits`, `schedules`, `default_retention`, and `jurisdiction`. When you run `wrangler deploy`, Wrangler creates or updates the Workflow with these settings. Refer to [Workflow exports](https://developers.cloudflare.com/workers/wrangler/configuration/#workflow-exports) for the full list of fields.
+A `workflow` export accepts the same settings as a `workflows` binding: `limits`, `concurrency`, `schedules`, `default_retention`, and `jurisdiction`. When you run `wrangler deploy`, Wrangler creates or updates the Workflow with these settings. Refer to [Workflow exports](https://developers.cloudflare.com/workers/wrangler/configuration/#workflow-exports) for the full list of fields.
 
 You can declare the same Workflow as both a binding and an export. Both declarations must use the same class. They cannot set the same setting to different values.
 
@@ -592,7 +621,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-05",
+    	"compatibility_date": "2026-11-10",
     	"workflows": [
     		{
     			// name of your workflow
@@ -611,7 +640,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-05"
+    compatibility_date = "2026-11-10"
     
     [[workflows]]
     name = "workflows-starter"
@@ -637,7 +666,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-05",
+    	"compatibility_date": "2026-11-10",
     	"workflows": [
     		{
     			// name of your workflow
@@ -659,7 +688,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-05"
+    compatibility_date = "2026-11-10"
     
     [[workflows]]
     name = "billing-workflow"

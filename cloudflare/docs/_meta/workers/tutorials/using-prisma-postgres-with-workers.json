@@ -3,8 +3,5 @@
   "file": "workers/tutorials/using-prisma-postgres-with-workers.md",
   "title": "Set up and use a Prisma Postgres database \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:18:02.811139+00:00",
-  "html_len": 250851,
-  "md_len": 9978,
-  "depth": 0
+  "fetched_at": "2026-11-11T09:01:03.009415+00:00"
 }

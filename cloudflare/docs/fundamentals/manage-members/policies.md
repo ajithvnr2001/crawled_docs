@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/manage-members/policies/
 title: Policies \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:23.028719+00:00
+fetched_at: 2026-11-11T09:01:03.439252+00:00
 ---
 
 # Policies · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:23.028719+00:00
 
 # Policies
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/manage-members/policies/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewManage policiesViewing Effective Permissions
 
@@ -53,14 +53,11 @@ Cloudflare supports assigning permissions to members both directly and through [
 
 Note
 
-To understand a member’s full access, check both the **Members** and **User Groups** views:
+To understand a member's full access, open that member's details from the **Members** page.
 
-  * The **Members** view shows only the permissions explicitly assigned to the user.
-  * Permissions inherited through [User Groups](https://developers.cloudflare.com/fundamentals/manage-members/user-groups/) are not shown on the Members page. To see these, go to the Groups tab, find the groups the user belongs to, and review the policies assigned to each group.
+The member details view shows all permission policies associated with the member, including policies inherited through [User Groups](https://developers.cloudflare.com/fundamentals/manage-members/user-groups/).
 
-
-
-Cloudflare is actively working on improvements to consolidate this view in a future update.
+Use the **Groups** tab when you need to review or change the policies assigned to a group itself.
 
 [PreviousManage](https://developers.cloudflare.com/fundamentals/manage-members/manage/)[NextRoles](https://developers.cloudflare.com/fundamentals/manage-members/roles/)
 

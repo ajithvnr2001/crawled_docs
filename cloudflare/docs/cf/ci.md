@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/ci/
 title: Use cf in CI \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:46.551251+00:00
+fetched_at: 2026-11-11T09:01:00.733743+00:00
 ---
 
 # Use cf in CI · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:05:46.551251+00:00
 
 # Use cf in CI
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cf/ci/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy from GitHub ActionsProvide credentials Use a .env file for local automationPin the cf versionUnderstand non-interactive behavior Commit the project configurationBuild once, then deploy the buildCheck pull requests with a dry runDeploy previews from CITurn off telemetryRelated resources
 
@@ -205,7 +205,20 @@ npmyarnpnpm
     
     pnpm cf previews deploy
 
-The preview name defaults to the current branch. In GitHub Actions, `cf` reads `GITHUB_HEAD_REF` or `GITHUB_REF_NAME`. In GitLab CI/CD, it reads `CI_COMMIT_REF_NAME`. Otherwise, it uses the current Git branch. On a detached checkout without these variables, pass the preview name as an argument. For the output and options, refer to [Deploy a preview](https://developers.cloudflare.com/cf/projects/#deploy-a-preview).
+The preview name defaults to the current branch. In GitHub Actions, `cf` reads `GITHUB_HEAD_REF` or `GITHUB_REF_NAME`. In GitLab CI/CD, it reads `CI_COMMIT_REF_NAME`. Otherwise, it uses the current Git branch. On a detached checkout without these variables, pass `--preview-name`:
+
+npmyarnpnpm
+    
+    
+    npx cf previews deploy --preview-name my-feature
+    
+    
+    yarn cf previews deploy --preview-name my-feature
+    
+    
+    pnpm cf previews deploy --preview-name my-feature
+
+You can also use `--preview-name` to override the detected branch name. For the output and options, refer to [Deploy a preview](https://developers.cloudflare.com/cf/projects/#deploy-a-preview).
 
 ## Turn off telemetry
 

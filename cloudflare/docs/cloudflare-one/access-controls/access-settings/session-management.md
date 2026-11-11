@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/session-management/
 title: Session management \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:23.835845+00:00
+fetched_at: 2026-11-11T09:00:59.200856+00:00
 ---
 
 # Session management · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:23.835845+00:00
 
 # Session management
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSession durations Global session duration Policy session duration Application session duration Cloudflare One Client session duration MFA session duration Order of enforcementRevoke user sessions Per-Application Per-User Subsequent LoginsLog out as a userAJAX
 
@@ -221,6 +221,17 @@ To log out of Access, the end user can visit either of the following URLs:
 This action revokes the user's session across all applications. Access will immediately clear the authorization cookie from the user's browser, and all previously issued tokens will stop being accepted in 20-30 seconds. The only difference between these two URLs is which domain the authorization cookie is deleted from. For example, going to `<your-application-domain>/cdn-cgi/access/logout` will remove the application cookie and make the logout action feel more instantaneous.
 
 You can use these URLs to create custom logout buttons or links directly within your application.
+
+Redirect after logout
+
+To redirect users after logout, append the `returnTo` query parameter to either logout URL. For example, to redirect to `https://app.example.com/signed-out`:
+    
+    
+    https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/logout?returnTo=https%3A%2F%2Fapp.example.com%2Fsigned-out
+
+Use your team domain or an application domain in the same Access account as the destination. Access validates the destination and rejects unrelated domains, such as `?returnTo=google.com`, with a `400` response (`Invalid redirect URL`).
+
+URL-encode the destination, especially if it contains query parameters. If you omit the scheme, Access uses `https://`.
 
 Note
 

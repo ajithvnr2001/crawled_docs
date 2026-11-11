@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/awscognito-oidc/
 title: Amazon Cognito \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:01.640559+00:00
+fetched_at: 2026-11-11T09:01:00.053364+00:00
 ---
 
 # Amazon Cognito · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Amazon Cognito
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/awscognito-oidc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSet up Amazon Cognito (OIDC) 1\. Obtain Amazon Cognito settings 2\. Add Amazon Cognito as an identity providerExample API Configuration
 
@@ -77,7 +77,7 @@ To retrieve those values:
             
             https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
      2. Select **Identity providers** to use with this app client. At minimum, enable **Cognito user pool** as a provider.
 
@@ -97,19 +97,12 @@ You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cl
 ### 2\. Add Amazon Cognito as an identity provider
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Integrations** > **Identity providers**.
-
   2. Under **Your identity providers** , select **Add new identity provider**.
-
   3. Select **OpenID Connect**.
-
   4. Name your identity provider and fill in the required fields with the information obtained from Amazon Cognito.
-
-  5. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
-
+  5. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
   6. (Optional) Under **Optional configurations** , enter [custom OIDC claims](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/#custom-oidc-claims) that you wish to add to users' identity.
-
   7. Select **Save**.
-
 
 
 
@@ -132,7 +125,7 @@ To [test](https://developers.cloudflare.com/cloudflare-one/integrations/identity
     	"name": "Amazon Cognito example"
     }
 
-[PreviousActive Directory (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/adfs/)[NextAWS IAM (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/aws-saml/)
+[PreviousActive Directory (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/adfs/)[Nextauthentik (OIDC)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/authentik-oidc/)
 
 Was this helpful?
 

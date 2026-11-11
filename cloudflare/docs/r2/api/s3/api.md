@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/s3/api/
 title: S3 API compatibility \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:39.777030+00:00
+fetched_at: 2026-11-11T09:00:59.134735+00:00
 ---
 
 # S3 API compatibility · Cloudflare R2 docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-15T14:53:39.777030+00:00
 
 # S3 API compatibility
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow to read this pageBucket regionChecksum TypesBucket-level operations Implemented bucket-level operations Unimplemented bucket-level operationsObject-level operations Implemented object-level operations Unimplemented object-level operations
 
@@ -293,7 +293,9 @@ Below is a list of implemented object-level operations. Refer to the Feature col
 
 **UploadPart:** Uploading to the same part number replaces the previous part. If a subsequent upload to the same part fails, the original part is lost and must be re-uploaded.
 
-**Conditional operations:** The conditional headers on `PutObject` (such as `If-Match` and `If-None-Match`) are evaluated atomically against the committed bucket state, as part of the same write that commits the object. For example, when multiple clients concurrently issue `PutObject` with `If-None-Match: *` for a previously absent key, at most one write succeeds and the others fail with `412 PreconditionFailed`. Refer to [Consistency model](https://developers.cloudflare.com/r2/reference/consistency/#conditional-writes) for details, including how negative reads interact with in-flight writes.
+**Conditional operations:** The conditional headers on `PutObject` (such as `If-Match` and `If-None-Match`) are evaluated atomically against the committed bucket state, as part of the same write that commits the object. For example, when multiple clients concurrently issue `PutObject` with `If-None-Match: *` for a previously absent key, at most one write succeeds while its object exists, and every other write evaluated while that object exists fails with `412 PreconditionFailed`. Refer to [Consistency model](https://developers.cloudflare.com/r2/reference/consistency/#conditional-writes) for details, including how negative reads interact with in-flight writes.
+
+The same atomic guarantees apply to the conditional headers on `CompleteMultipartUpload`. To create a multipart object only if its key does not exist, send `If-None-Match: *` on `CompleteMultipartUpload`. Conditional headers on `CreateMultipartUpload` are not retained with the upload and are not re-evaluated at completion. Refer to [Conditional operations](https://developers.cloudflare.com/r2/api/s3/conditional-operations/) for details.
 
 API Name | Feature  
 ---|---  
@@ -420,7 +422,12 @@ API Name | Feature
 ✅️ max-uploads   
 ✅ prefix   
 ✅ upload-id-marker  
-✅ [CreateMultipartUpload ↗︎](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html) | ✅ System Metadata:   
+✅ [CreateMultipartUpload ↗︎](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html) | ✅ Conditional Operations:   
+✅ If-Match   
+✅ If-Modified-Since   
+✅ If-None-Match   
+✅ If-Unmodified-Since   
+✅ System Metadata:   
 ✅ Content-Type   
 ✅ Cache-Control   
 ✅ Content-Disposition   
@@ -459,7 +466,12 @@ API Name | Feature
 ❌ x-amz-grant-write-acp   
 ❌ Bucket Owner:   
 ❌ x-amz-expected-bucket-owner  
-✅ [CompleteMultipartUpload ↗︎](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html) | ❌ Bucket Owner:   
+✅ [CompleteMultipartUpload ↗︎](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html) | ✅ Conditional Operations:   
+✅ If-Match   
+✅ If-Modified-Since   
+✅ If-None-Match   
+✅ If-Unmodified-Since   
+❌ Bucket Owner:   
 ❌ x-amz-expected-bucket-owner   
 ❌ Request Payer:   
 ❌ x-amz-request-payer  
@@ -582,7 +594,7 @@ API Name | Feature
 ❌ [DeleteObjectTagging ↗︎](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html) | ❌ Bucket Owner:   
 ❌ x-amz-expected-bucket-owner  
   
-[PreviousWorkers API reference](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/)[NextExtensions](https://developers.cloudflare.com/r2/api/s3/extensions/)
+[PreviousWorkers API reference](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/)[NextConditional operations](https://developers.cloudflare.com/r2/api/s3/conditional-operations/)
 
 Was this helpful?
 

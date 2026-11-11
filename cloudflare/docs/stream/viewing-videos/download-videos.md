@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/viewing-videos/download-videos/
 title: Download video or audio \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:49.650994+00:00
+fetched_at: 2026-11-11T09:01:03.157111+00:00
 ---
 
 # Download video or audio · Cloudflare Stream docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:49.650994+00:00
 
 # Download video or audio
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGenerate downloadable MP4 filesGenerate downloadable M4A filesGet download linksCustomize download file nameRetrieve downloadsDelete downloadsSecure video downloadsBilling for MP4 downloads
 
@@ -39,6 +39,8 @@ You can enable MP4 support on a per video basis by following the steps below:
 
 
 You can enable downloads for an uploaded video once it is ready to view by making an HTTP request to either the `/downloads` or `/downloads/default` endpoint.
+
+MP4 downloads are not supported for [live recordings longer than four hours](https://developers.cloudflare.com/stream/stream-live/download-stream-live-videos/).
 
 To get notified when a video is ready to view, refer to [Using webhooks](https://developers.cloudflare.com/stream/manage-video-library/using-webhooks/#notifications).
     

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/
 title: Deployment management \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:03.123393+00:00
+fetched_at: 2026-11-11T09:01:01.894293+00:00
 ---
 
 # Deployment management · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:18:03.123393+00:00
 
 # Deployment management
 
-Last updated Jul 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewUpload a version without deploying Via Wrangler Via the Cloudflare dashboardDeploy an uploaded version Via Wrangler Via the Cloudflare dashboard Via Infrastructure as CodeLimits Deployments limit First upload Service worker syntax Durable Object migrations
+OverviewUpload a version without deploying Via Wrangler Via the Cloudflare dashboardDeploy an uploaded version Via Wrangler Via the Cloudflare dashboard Via Infrastructure as CodeIn-flight requestsLimits Deployments limit First upload Service worker syntax Durable Object migrations
 
 By default, a new version is created and immediately deployed to 100% of traffic when you use any of the following:
 
@@ -109,6 +109,16 @@ You can also set the traffic percentage to less than 100% to start a [gradual de
 ### Via Infrastructure as Code
 
 You can also create versions and deployments directly with the API, library SDKs, and Terraform. Refer to [Infrastructure as Code](https://developers.cloudflare.com/workers/platform/infrastructure-as-code/) for examples.
+
+## In-flight requests
+
+A deployment changes which versions receive new requests. Requests already executing can continue running the version that accepted them. Deploying new code does not update code in an invocation that has already started.
+
+A successful deployment does not confirm that earlier invocations or their external operations have completed. If a release requires earlier work to finish, coordinate that in your application before making incompatible data or configuration changes.
+
+Existing requests remain subject to the [invocation duration rules](https://developers.cloudflare.com/workers/platform/limits/#duration) and [`ctx.waitUntil()` limits](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil). The grace period for [Workers runtime updates](https://developers.cloudflare.com/workers/platform/limits/#runtime-updates) applies when Cloudflare updates the runtime, rather than when you deploy your code.
+
+Durable Objects have separate [code update behavior](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/).
 
 ## Limits
 

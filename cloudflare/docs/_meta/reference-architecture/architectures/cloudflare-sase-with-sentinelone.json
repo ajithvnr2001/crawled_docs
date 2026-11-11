@@ -1,10 +1,7 @@
 {
   "url": "https://developers.cloudflare.com/reference-architecture/architectures/cloudflare-sase-with-sentinelone/",
   "file": "reference-architecture/architectures/cloudflare-sase-with-sentinelone.md",
-  "title": "Enhancing security posture with SentinelOne and Cloudflare One \u00b7 Cloudflare Reference Architecture docs",
+  "title": "SentinelOne and Cloudflare \u2014 An AI-driven security ecosystem for autonomous, risk-based protection \u00b7 Cloudflare Reference Architecture docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:14:38.759589+00:00",
-  "html_len": 160227,
-  "md_len": 16319,
-  "depth": 0
+  "fetched_at": "2026-11-11T09:01:03.050963+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/features/guardrails/
 title: Guardrails \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:36.124985+00:00
+fetched_at: 2026-11-11T09:01:01.476669+00:00
 ---
 
 # Guardrails · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:36.124985+00:00
 
 # Guardrails
 
-Last updated Sep 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/features/guardrails/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up guardrails Check policy requirements Start a guarded session with Puppeteer REST APIAdd allowed hostnamesUse a domain set Allow common CDN hostnames Use a hosted hostname listBlock all web requestsVerify blocked requestsUse guardrails with Live View
 
@@ -33,6 +33,8 @@ This allows you to:
 
 
 Session guardrails apply to browser sessions created with [Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/), or [Chrome DevTools Protocol (CDP)](https://developers.cloudflare.com/browser-run/cdp/). They are unavailable for [Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/).
+
+Guardrails do not apply to `http://` requests for hostnames that you route to an [outbound Worker](https://developers.cloudflare.com/browser-run/features/outbound-workers/) with `outboundByHost`. Those requests go to your Worker instead of the network, and your Worker decides what to fetch and return.
 
 ## Set up guardrails
 

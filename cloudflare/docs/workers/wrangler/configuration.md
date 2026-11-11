@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/configuration/
 title: Configuration - Wrangler \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:47.481631+00:00
+fetched_at: 2026-11-11T09:01:01.847034+00:00
 ---
 
 # Configuration - Wrangler · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:47.481631+00:00
 
 # Configuration
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Flagship Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
 
@@ -1459,6 +1459,10 @@ To bind Workflows to your Worker, assign an array of the below object to the `wo
     * `success_retention` `string | number` optional — How long to retain instances that complete successfully or are terminated, as a duration string such as `"3 days"` or a whole number of milliseconds.
     * `error_retention` `string | number` optional — How long to retain instances that end in an errored state, as a duration string such as `"7 days"` or a whole number of milliseconds.
     * Retention is capped at the [retention limit](https://developers.cloudflare.com/workflows/reference/limits/) for your account.
+  * `concurrency` `object` optional
+    * `limit` `number` optional — The maximum number of instances of this Workflow that can run at the same time. Must be a positive integer, no higher than your account's [concurrency limit](https://developers.cloudflare.com/workflows/reference/limits/). Instances above the limit are queued. Refer to [Concurrency limits](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits).
+    * Cannot be combined with `script_name`.
+    * Requires Wrangler 4.127.0 or above.
   * `jurisdiction` `string` optional
     * The jurisdiction that the instances of this Workflow run and store data in. Valid values: `"eu"`, `"fedramp"`, `"us"`. Refer to [Data location](https://developers.cloudflare.com/workflows/reference/data-location/).
     * Set when the Workflow is created, and cannot be changed afterwards. Cannot be combined with `script_name`.
@@ -1501,6 +1505,8 @@ Each Workflow entry in `exports` is keyed by the name of a class that extends `W
     * The name of the Workflow. Two entries in `exports` cannot use the same name.
   * `limits` `object` optional
     * `steps` `number` optional — The maximum number of steps a Workflow instance can run. Refer to [Workflow step limits](https://developers.cloudflare.com/workflows/build/workers-api/#workflow-step-limits).
+  * `concurrency` `object` optional
+    * `limit` `number` optional — The maximum number of instances of this Workflow that can run at the same time. Accepts the same values as the `workflows` binding. Refer to [Concurrency limits](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits).
   * `schedules` `string | string[]` optional
     * One or more cron schedules that create new instances of this Workflow automatically. Refer to [Schedule a Workflow directly](https://developers.cloudflare.com/workflows/build/trigger-workflows/#schedule-a-workflow-directly).
   * `default_retention` `object` optional
@@ -2161,7 +2167,7 @@ It is possible to control how `.env` files are loaded in local development by se
 
 Note
 
-If you're using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), `alias` is replaced Vite's [`resolve.alias` ↗︎](https://vite.dev/config/shared-options.html#resolve-alias).
+If you are using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/) or the [Workers Vitest integration](https://developers.cloudflare.com/workers/testing/vitest-integration/), `alias` is replaced by Vite's [`resolve.alias` ↗︎](https://vite.dev/config/shared-options.html#resolve-alias).
 
 You can configure Wrangler to replace all calls to import a particular package with a module of your choice, by configuring the `alias` field:
     

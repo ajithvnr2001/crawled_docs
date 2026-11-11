@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/wrangler/reference/
 title: Wrangler to cf reference \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:48.251724+00:00
+fetched_at: 2026-11-11T09:01:01.080519+00:00
 ---
 
 # Wrangler to cf reference · Cloudflare CLI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:48.251724+00:00
 
 # Wrangler to cf reference
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cf/wrangler/reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCommands Commands not yet supportedConfiguration fieldsBuild settingsConvert environments to modesConvert Durable Object migrationsComplete example
 
@@ -92,7 +92,6 @@ Hyperdrive `localConnectionString` | `dev: { connectionString }` on `bindings.hy
 `limits` | `worker.limits` | Keys become camelCase, such as `cpuMs`.  
 `placement` | `worker.placement` | —  
 `tail_consumers` | `worker.tailConsumers` | —  
-`streaming_tail_consumers` | `worker.tailConsumers` | Each entry gets `streaming: true`.  
 `workers_dev` | `worker.workersDev` | —  
 `preview_urls` | `worker.previewUrls` | —  
 `env.<NAME>` | A `case` in `switch (ctx.mode)` | Refer to Convert environments to modes.  
@@ -405,9 +404,9 @@ env: { (env reference)
 
 `env`OptionalLink to env
 
-`env?: Record<string, Binding>`
+`env?: Record<string, Binding | false | null | undefined>`
 
-Bindings exposed on the Worker's `env` object. Construct entries with `bindings.kv(...)`, `bindings.r2(...)`, etc.
+Bindings exposed on the Worker's `env` object. Construct entries with `bindings.kv(...)`, `bindings.r2(...)`, etc. Entries set to `false`, `null`, or `undefined` are omitted, which allows bindings to be included conditionally.
 
 ENVIRONMENT: bindings.text("production"), (text reference)
 

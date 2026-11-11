@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/
 title: Generic OIDC \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:21.026915+00:00
+fetched_at: 2026-11-11T09:00:59.823774+00:00
 ---
 
 # Generic OIDC · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Generic OIDC
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create an application in your identity provider2\. Add an OIDC provider to Cloudflare One3\. Test the connectionSynchronize users and groups Prerequisites 1\. Enable SCIM in Cloudflare One 2\. Configure SCIM in the IdP 3\. Verify SCIM provisioningOptional configurations Custom OIDC claimsSupported algorithms for generic OIDC tokens
 
@@ -36,18 +36,15 @@ Cloudflare Access has a generic OpenID Connect (OIDC) connector to help you inte
          
          https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
-  3. Copy the content of these fields:
+  3. Copy the **Client ID** and **Client secret** from the application's settings in your identity provider.
 
-     * Client ID
-     * Client secret
-     * Auth URL: The `authorization_endpoint` URL of your IdP
-     * Token URL: The `token_endpoint` URL of your IdP
-     * Certificate URL: The `jwks_uri` endpoint of your IdP to allow the IdP keys to sign the tokens
+  4. Open your identity provider's **OIDC discovery endpoint** , sometimes called the "well-known URL". Copy these endpoint URLs:
 
-You can find these values on your identity provider's **OIDC discovery endpoint**. Some providers call this the "well-known URL".
-
+     * Auth URL: The `authorization_endpoint` URL.
+     * Token URL: The `token_endpoint` URL.
+     * Certificate URL: The `jwks_uri` URL. Access retrieves the IdP's public keys from this endpoint to verify token signatures.
 
 
 
@@ -61,7 +58,7 @@ You can find these values on your identity provider's **OIDC discovery endpoint*
 
   4. Name your identity provider and fill in the required fields with the information obtained from your identity provider.
 
-  5. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
+  5. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
 
   6. (Optional) To enable SCIM, refer to Synchronize users and groups.
 
@@ -237,9 +234,9 @@ You can specify a custom **Email claim** name that Access will use to identify u
 
 #### Multi-record OIDC claims
 
-Cloudflare Access extends support for multi-record OIDC claims. These claims are parsed out and can be individually referenced in policies. This feature enables granular access control and precise user authorization in applications.
+Access supports OIDC claims with multiple values. Policies can match individual values, but cannot match part of a value.
 
-Cloudflare Access does not support partial OIDC claim value references or OIDC scopes.
+OAuth scopes are separate from claim matching. For a generic OIDC provider, use `config.scopes` in the [Identity Providers API](https://developers.cloudflare.com/api/resources/zero_trust/subresources/identity_providers/methods/create/) to request additional scopes from your IdP. Requesting a scope does not create an Access policy rule.
 
 ## Supported algorithms for generic OIDC tokens
 

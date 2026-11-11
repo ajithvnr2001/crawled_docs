@@ -3,8 +3,5 @@
   "file": "cloudflare-one/email-security/policies/inbound/blocked-senders.md",
   "title": "Blocked senders \u00b7 Cloudflare One docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:08:34.343599+00:00",
-  "html_len": 281646,
-  "md_len": 4550,
-  "depth": 0
+  "fetched_at": "2026-11-11T09:01:01.434174+00:00"
 }

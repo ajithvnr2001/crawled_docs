@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/tools/lists/lists-api/
 title: Lists API \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:12.102229+00:00
+fetched_at: 2026-11-11T09:01:03.463345+00:00
 ---
 
 # Lists API · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ Additional tools
 
 # Lists API
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/tools/lists/lists-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedRate limiting for Lists API requests CrowdSec-managed lists
 
@@ -58,11 +58,11 @@ If a write operation is still being processed — which happens asynchronously �
 
 ### CrowdSec-managed lists
 
-Lists that are kept up to date by a CrowdSec integration have a stricter limit: you can perform one bulk operation on each of these lists every 24 hours.
+Lists that are kept up to date by a CrowdSec integration have a stricter limit: you can perform at most one bulk operation every 24 hours across all CrowdSec-managed lists in your account.
 
-If you exceed this limit, the API rejects the request with a `429` HTTP status code and error code `10040`. The response does not include an `operation_id`, because the request is rejected before the bulk operation is created.
+If you exceed this limit, the API rejects the request with a `429` HTTP status code and error code `10040`. Because this limit applies at the account level, submitting an update to any CrowdSec-managed list starts the 24-hour cooldown for all CrowdSec-managed lists on the account. The response does not include an `operation_id`, because the request is rejected before the bulk operation is created.
 
-To avoid hitting this limit, schedule automated updates to run at most once every 24 hours, or use a separate custom list for more frequent updates.
+To avoid hitting this limit, schedule automated CrowdSec updates to run at most once every 24 hours per account, or use a separate custom list that is not managed by CrowdSec for more frequent updates.
 
 [PreviousUse lists in expressions](https://developers.cloudflare.com/waf/tools/lists/use-in-expressions/)[NextJSON object](https://developers.cloudflare.com/waf/tools/lists/lists-api/json-object/)
 

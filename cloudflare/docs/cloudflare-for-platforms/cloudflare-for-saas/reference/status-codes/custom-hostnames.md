@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/status-codes/custom-hostnames/
 title: Status codes - Custom hostnames \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:01.208124+00:00
+fetched_at: 2026-11-11T09:01:03.112890+00:00
 ---
 
 # Status codes - Custom hostnames · Cloudflare for Platforms docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:01.208124+00:00
 
 # Custom hostnames
 
-Last updated Sep 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/status-codes/custom-hostnames/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSuccess codesError codes
 
@@ -94,7 +94,7 @@ publicsuffix: invalid public suffix`:suffix`for domain`:domain`
 400 | 1444 | The certificate chain that you uploaded has multiple leaf certificates. Check your input and try again.  
 400 | 1445 | The certificate chain that you uploaded has no leaf certificates. Check your input and try again.  
 400 | 1446 | The certificate that you uploaded does not include the custom hostname - `:custom_hostname`. Review your input and try again.  
-400 | 1447 | The certificate that you uploaded does not use a supported signature algorithm. Only SHA-256/ECDSA, SHA-256/RSA, and SHA-1/RSA signature algorithms are supported. Review your input and try again.  
+400 | 1447 | The certificate that you uploaded does not use a supported signature algorithm. Only SHA-256, SHA-384, or SHA-512 with RSA or ECDSA, and SHA-1 with RSA, signature algorithms are supported. Review your input and try again.  
 400 | 1448 | Custom hostnames with wildcards are not supported for certificates managed by Cloudflare. Review your input and try again.  
 400 | 1449 | The request input `bundle_method` must be one of: ubiquitous, optimal, force.  
 401 | 1000 | Unable to extract bearer token  

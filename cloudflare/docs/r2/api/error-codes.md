@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/error-codes/
 title: Error codes \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:03.267596+00:00
+fetched_at: 2026-11-11T09:00:59.057760+00:00
 ---
 
 # Error codes · Cloudflare R2 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:03.267596+00:00
 
 # Error codes
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow errors are returnedError code reference Authentication and authorization errors Bucket errors Object errors Upload and request errors Multipart upload errors Service errors
 
@@ -86,7 +86,7 @@ Error Code | S3 Code | HTTP Status | Details | Recommended Fix
 10014 | InvalidDigest | 400 | Checksum header format is malformed. | Ensure checksums are properly encoded (base64 for SHA/CRC checksums).  
 10037 | BadDigest | 400 | Provided checksum does not match the uploaded content. | Verify data integrity and retry the upload.  
 10039 | InvalidRange | 416 | Requested byte range is not satisfiable. | Ensure the range start is less than object size. Check `Range` header format.  
-10031 | PreconditionFailed | 412 | Conditional headers (`If-Match`, `If-Unmodified-Since`, etc.) were not satisfied. | Object's ETag or modification time does not match your condition. Refetch and retry. Refer to [conditional operations](https://developers.cloudflare.com/r2/api/s3/extensions/#conditional-operations-in-putobject).  
+10031 | PreconditionFailed | 412 | Conditional headers (`If-Match`, `If-Unmodified-Since`, etc.) were not satisfied. | Object's ETag or modification time does not match your condition. Refetch and retry. Refer to [conditional operations](https://developers.cloudflare.com/r2/api/s3/conditional-operations/).  
   
 ### Multipart upload errors
 

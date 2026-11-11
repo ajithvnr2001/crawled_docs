@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/email-security/policies/inbound/blocked-content/
 title: Blocked content \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:34.211547+00:00
+fetched_at: 2026-11-11T09:01:01.324855+00:00
 ---
 
 # Blocked content · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:34.211547+00:00
 
 # Blocked content
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/email-security/policies/inbound/blocked-content/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow blocked content worksCreate a blocked content policy Allowed regex modifiersEdit a blocked content policyDelete a blocked content policy
 
@@ -44,18 +44,21 @@ To create a blocked content policy:
   2. Select **Email security**.
   3. Select **Policies & rules**, then go to **Inbound** > **Blocked content**.
   4. Select **Create a policy**.
-  5. In **Step 1 - Name your policy** , enter a policy name and, optionally, a description in **Note**.
+  5. In **Step 1 - Name your policy** , enter a policy name and, optionally, a description in **Note**. 
+     * (Optional) Set an expiration date for the policy. 
+       * After the selected date passes, the policy expires and no longer applies.
+       * The expiration option is available to all Email security customers, regardless of plan.
   6. In **Step 2 - Build the pattern** , configure the content to block: 
      * **Scope** : Choose where to look for the content. Select one of the following: 
        * **Subject only** : Match the pattern in the email subject line only.
        * **Body only** : Match the pattern in the email body only.
        * **Subject and body** : Match the pattern in both the subject and body.
      * **Pattern** : Enter a regular expression that defines the content to block. For example, entering `pay` will match content containing that pattern.
-     * **Exact word match** : Select this option to only match the exact word. For example, `pay` would match "pay" or "PAY", but not "payment" or "payable". Case is insensitive.
+     * **Activate policy** : Select this option to activate the policy and start blocking content.
   7. In **Step 3 - Validate your policy** , review and test your policy: 
      * **Review potential matches** : Displays a list of words that your pattern could match.
      * **Test specific content against your regular expression** : Enter a sample text and select **Test policy** to verify whether your policy catches the expected content.
-  8. Select **Create policy**.
+  8. Select **Save**.
 
 
 

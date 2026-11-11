@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/subscribe-to-instance-events/
 title: Subscribe to instance events \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:14.547213+00:00
+fetched_at: 2026-11-11T09:01:02.365990+00:00
 ---
 
 # Subscribe to instance events · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:18:14.547213+00:00
 
 # Subscribe to instance events
 
-Last updated Sep 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workflows/build/subscribe-to-instance-events/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSubscribe to all eventsFilter eventsResume from a cursorSensitive outputsDispose of a subscriptionEvent fields Workflow lifecycle events Step and attempt events Sleep and wait events Rollback events
 
@@ -314,7 +314,7 @@ Event type | Emitted when
   
 For method signatures and option types, refer to [`WorkflowInstance.subscribe()`](https://developers.cloudflare.com/workflows/build/workers-api/#subscribe).
 
-[PreviousEvents and parameters](https://developers.cloudflare.com/workflows/build/events-and-parameters/)[NextLocal Development](https://developers.cloudflare.com/workflows/build/local-development/)
+[PreviousConcurrency limits](https://developers.cloudflare.com/workflows/build/concurrency-limits/)[NextLocal Development](https://developers.cloudflare.com/workflows/build/local-development/)
 
 Was this helpful?
 

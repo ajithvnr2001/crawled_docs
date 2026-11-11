@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace/
 title: Google Workspace \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:21.369822+00:00
+fetched_at: 2026-11-11T09:00:59.520709+00:00
 ---
 
 # Google Workspace · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Google Workspace
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up Google Workspace as an identity provider 1\. Configure Google Workspace 2\. Add Google Workspace to Cloudflare OneAuthentication options API configurationTroubleshooting Error 401: deleted_client Redirect loop when protecting Google apps with Access Group membership not reflected in Access policies Use multiple Google Workspace domains in Access policies
 
@@ -76,7 +76,7 @@ To use Google's built-in SCIM provisioning, follow the [Google Workspace (SAML/S
          
          https://<your-team-name>.cloudflareaccess.com
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
   12. Under **Authorized redirect URIs** , in the **URIs** field, enter the following URL:
          
@@ -99,7 +99,7 @@ You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cl
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Integrations** > **Identity providers**.
   2. Select **Add new identity provider** and select **Google Workspace**.
   3. Input the Client ID (**App ID** in the Cloudflare dashboard) and Client Secret fields generated previously. Additionally, enter the domain of your Google Workspace account.
-  4. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
+  4. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/). PKCE will be performed on all login attempts.
   5. (Optional) Under **Optional configurations** , enter [custom OIDC claims](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/#custom-oidc-claims) that you wish to add to your user's identity.
   6. (Optional) Under **Authentication options** , choose a **Google prompt** and turn on **Use previous email as a login hint**.
   7. Select **Save**. To complete setup, you must visit the generated link. If you are not the Google Workspace administrator, share the link with the administrator.

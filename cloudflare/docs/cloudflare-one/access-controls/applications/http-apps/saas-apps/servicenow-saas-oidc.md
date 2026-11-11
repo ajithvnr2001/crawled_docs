@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/servicenow-saas-oidc/
 title: ServiceNow (OIDC) \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:17.517865+00:00
+fetched_at: 2026-11-11T09:01:00.273349+00:00
 ---
 
 # ServiceNow (OIDC) · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:17.517865+00:00
 
 # ServiceNow (OIDC)
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/servicenow-saas-oidc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Add a SaaS application to Cloudflare One2\. Add the Multiple Provider Single Sign-On Installer Plugin to ServiceNow3\. Add and Test an OIDC SSO provider in ServiceNow4\. Test the integration
 
@@ -44,7 +44,7 @@ This guide covers how to configure [ServiceNow ↗︎](https://docs.servicenow.c
   5. Select **Add application**.
   6. In **Scopes** , select the attributes that you want Access to send in the ID token.
   7. In **Redirect URLs** , enter `https://<INSTANCE-NAME>.service-now.com/navpage.do`.
-  8. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
+  8. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if your SaaS application supports it. Configure the SaaS application to use PKCE as well.
   9. Copy the **Client secret** and **Client ID**.
   10. Configure [Access policies](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/) for the application.
   11. (Optional) In **Experience settings** , configure [App Launcher settings](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/app-launcher/) by turning on **Enable App in App Launcher** and, in **App Launcher URL** , entering `https://<INSTANCE-NAME>.service-now.com`.

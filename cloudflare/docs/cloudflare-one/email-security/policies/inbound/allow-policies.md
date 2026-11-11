@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/email-security/policies/inbound/allow-policies/
 title: Allow policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:34.094680+00:00
+fetched_at: 2026-11-11T09:01:01.259821+00:00
 ---
 
 # Allow policies · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:34.094680+00:00
 
 # Allow policies
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/email-security/policies/inbound/allow-policies/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow allow policies work Accept senderConfigure allow policies Use case 1 Use case 2 Use case 3 CSV uploadsExport allow policiesEdit allow policyDelete allow policy
 
@@ -238,15 +238,19 @@ To configure allow policies:
            * **Trust sender** : Messages will bypass all detections and link following.
            * **Exempt recipient** : Message to this recipient will bypass all detections.
            * **Accept sender** : Messages from this sender will be exempted from Spam, Spoof, and Bulk dispositions. Refer to Allow policy configuration use cases for use case examples on how to configure allow policies for accept sender.
-       * **Rule type** : Specify the scope of your policy. Choose one of the following: 
-         * **Email addresses** : Must be a valid email. Enter an email address whose emails are going to be exempted.
-         * **IP addresses** : This is the IP address of the email server. Any email address sent from this email server is going to be allowed. The IP address can only be IPv4. IPv6 and CIDR are invalid entries.
-         * **Domains** : Must be a valid domain.
-       * **Regular expressions** : Must be valid Java expressions. Regular expressions are matched with fields related to the sender email address (envelope from, header from, reply-to), the originating IP address, and the server name for the email. For example, you can enter `.*@domain\.com` to exempt any email address that ends with `domain.com`.
-       * **(Recommended) Sender verification** : This option enforces DMARC, SPF, or DKIM authentication. If you choose to enable this option, Email security will only honor policies that pass authentication. 
+         * **Rule type** : Specify the scope of your policy. Choose one of the following: 
+           * **Email addresses** : Must be a valid email. Enter an email address whose emails are going to be exempted.
+           * **IP addresses** : This is the IP address of the email server. Any email address sent from this email server is going to be allowed. The IP address can only be IPv4. IPv6 and CIDR are invalid entries.
+           * **Domains** : Must be a valid domain.
+         * **Regular expressions** : Must be valid Java expressions. Regular expressions are matched with fields related to the sender email address (envelope from, header from, reply-to), the originating IP address, and the server name for the email. For example, you can enter `.*@domain\.com` to exempt any email address that ends with `domain.com`.
+         * **(Recommended) Sender verification** : This option enforces DMARC, SPF, or DKIM authentication. If you choose to enable this option, Email security will only honor policies that pass authentication.
+         * **Expires at** : This selection is optional. After the selected date, Email Security no longer applies the policy. Email Security deletes expired policies after 90 days.
          * **Notes** : Provide additional information about your allow policy.
-       * **Uploading an allow policy** : Upload a file no larger than 150 KB. The file can only contain `Values`, `Rule Type`, `Is Regex`, `Sender Verification`, `Trusted Sender`, `Exempt Recipient`, `Acceptable Sender`, and `Notes` fields. The first row must be a header row. Refer to CSV uploads for an example file.
-  6. Select **Save**.
+       * **Uploading an allow policy** : Upload a file no larger than 150 KB. The file can only contain `Values`, `Rule Type`, `Is Regex`, `Sender Verification`, `Trusted Sender`, `Exempt Recipient`, `Acceptable Sender`, `Expires at` and `Notes` fields. The first row must be a header row. Refer to CSV uploads for an example file.
+  6. (Optional) Set an expiration date for the policy. 
+     * After the selected date passes, the policy expires and no longer applies.
+     * The expiration option is available to all Email security customers, regardless of plan.
+  7. Select **Save**.
 
 
 
@@ -300,13 +304,15 @@ Do not use email addresses or email domains for this policy as they can be easil
 
 ### CSV uploads
 
-You can upload a file no larger than 150 KB. The file can only contain `Values`, `Rule Type`, `Is Regex`, `Sender Verification`, `Trusted Sender`, `Exempt Recipient`, `Acceptable Sender`, and `Notes` fields. The first row must be a header row.
+You can upload a file no larger than 150 KB. The file can only contain `Values`, `Rule Type`, `Is Regex`, `Sender Verification`, `Trusted Sender`, `Exempt Recipient`, `Acceptable Sender`, `Expires at` and `Notes` fields. The first row must be a header row.
+
+`Expires at` is optional. Leave it blank or enter a future date in `YYYY-MM-DD` format. You cannot use today's date. Email Security sets expiration to 23:59:59.999 on the selected date.
 
 An example file would look like this:
     
     
-    Values, Rule Type, Is Regex, Sender Verification, Trusted Sender, Exempt Recipient, Acceptable Sender, Notes
-    whale@notaphish.com, EMAIL, false, true, true, false, true, not a phish
+    Values, Rule Type, Is Regex, Sender Verification, Trusted Sender, Exempt Recipient, Acceptable Sender, Expires at, Notes
+    whale@notaphish.com, EMAIL, false, true, true, false, true, 2036-12-31, not a phish
 
 ## Export allow policies
 

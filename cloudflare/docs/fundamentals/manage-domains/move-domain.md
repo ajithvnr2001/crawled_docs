@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/manage-domains/move-domain/
 title: Move a domain between Cloudflare accounts \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:22.368841+00:00
+fetched_at: 2026-11-11T09:01:02.925889+00:00
 ---
 
 # Move a domain between Cloudflare accounts · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:22.368841+00:00
 
 # Move a domain between Cloudflare accounts
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/manage-domains/move-domain/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirementsTransfer your domainIssue new certificates
 
@@ -50,7 +50,9 @@ To transfer a domain from one Cloudflare account to another, you will need:
 
 Caution
 
-Before transferring an active Cloudflare domain to another Cloudflare account, you must remove any [DNSSEC configurations](https://developers.cloudflare.com/dns/dnssec/) and [add-ons or subscriptions](https://developers.cloudflare.com/billing/manage/cancel-subscription/).
+Before transferring an active Cloudflare domain to another Cloudflare account, you must remove any [DNSSEC configurations](https://developers.cloudflare.com/dns/dnssec/) and disable any [zone holds](https://developers.cloudflare.com/fundamentals/account/account-security/zone-holds/).
+
+Keep any [add-ons or subscriptions](https://developers.cloudflare.com/billing/manage/cancel-subscription/) on the zone in your previous account until the domain is **Active** in the new account. Canceling them before the transfer is complete might cause downtime for your applications.
 
 We also recommend [exporting](https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records) the DNS records of your zone while it is in the previous account. Then, you can [import](https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#import-records) the correct DNS records into the new account. If you miss this step, Cloudflare will import your proxied DNS records, which might cause your domain to experience a [1000 error](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/).
 
@@ -64,6 +66,7 @@ The domain transfer process depends on your DNS settings. If Cloudflare is your 
   2. [Add the domain](https://developers.cloudflare.com/fundamentals/manage-domains/add-site/) to the account (as if you were adding it for the first time).
   3. Log in to your domain registrar account and [update the nameservers](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/) to the provided Cloudflare nameservers.
   4. Finalize the nameserver update by selecting your domain in the dashboard > **Overview** > **Re-check now**.
+  5. After the domain is **Active** in the new account, [cancel any add-ons or subscriptions](https://developers.cloudflare.com/billing/manage/cancel-subscription/) on the zone in your previous account.
 
 
 

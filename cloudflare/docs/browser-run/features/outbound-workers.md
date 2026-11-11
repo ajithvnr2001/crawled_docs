@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/features/outbound-workers/
 title: Outbound Workers \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:49.438416+00:00
+fetched_at: 2026-11-11T09:01:01.590320+00:00
 ---
 
 # Outbound Workers · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:49.438416+00:00
 
 # Outbound Workers
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure the bindingsRoute requests by hostnameConstraintsNext steps
 
@@ -255,6 +255,7 @@ Outbound routing lasts until the browser session closes. It also applies when a 
   * Use `outboundByHost` with Browser Run binding methods only. It is not supported by REST endpoints or legacy HTTP-only bindings.
   * You cannot add or change outbound routes after `acquire()` or `launch()`. To use different routes, start a new session.
   * Outbound routing applies to the hostnames in the map. Requests to other hostnames use the browser's normal network path.
+  * Session [guardrails](https://developers.cloudflare.com/browser-run/features/guardrails/) do not check hostnames in `outboundByHost`, and they do not limit the requests that your outbound Worker makes with `fetch()`.
 
 
 

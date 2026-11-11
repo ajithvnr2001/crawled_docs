@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/reference/limits/
 title: Limits \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:09.953995+00:00
+fetched_at: 2026-11-11T09:01:02.064797+00:00
 ---
 
 # Limits · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:09.953995+00:00
 
 # Limits
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview waiting instances do not count towards instance concurrency limits Cron-triggered instances on Workers Paid Increasing Workflow step limits Increasing Workflow CPU limits Increasing Workflow subrequest limitsWall time limits by invocation type
 
@@ -43,11 +43,12 @@ Maximum `step.sleep` duration | 365 days (1 year) | 365 days (1 year)
 Maximum steps per Workflow 4 | 1,024 | 10,000 (default) / configurable up to 25,000  
 Maximum Workflow executions | 100,000 per day [shared with Workers daily limit](https://developers.cloudflare.com/workers/platform/limits/#account-plan-limits) | Unlimited  
 Concurrent Workflow instances (executions) per account 5 | 100 | 50,000  
-Maximum Workflow instance creation rate 6 | 100 per second 7 | 300 per second per account 7, 100 per second per workflow  
+Concurrent Workflow instances (executions) per Workflow 6 | No limit by default; configurable up to the account limit | No limit by default; configurable up to the account limit  
+Maximum Workflow instance creation rate 7 | 100 per second 8 | 300 per second per account 8, 100 per second per workflow  
 Maximum number of [queued instances](https://developers.cloudflare.com/workflows/observability/metrics-analytics/#event-types) | 100,000 | 2,000,000  
-Retention limit for completed Workflow instance state | 3 days | 7 days (default) / configurable up to 30 days 8  
-Maximum length of a Workflow name 9 | 64 characters | 64 characters  
-Maximum length of a Workflow instance ID 9 | 100 characters | 100 characters  
+Retention limit for completed Workflow instance state | 3 days | 7 days (default) / configurable up to 30 days 9  
+Maximum length of a Workflow name 10 | 64 characters | 64 characters  
+Maximum length of a Workflow instance ID 10 | 100 characters | 100 characters  
 Maximum number of subrequests per Workflow instance | 50/request | 10,000/request (default) / configurable up to 10 million  
 Maximum number of retries per step | 10,000 | 10,000  
   
@@ -59,7 +60,7 @@ In JavaScript Workflows, if you need to persist large binary output from a step,
 
 ### `waiting` instances do not count towards instance concurrency limits
 
-Instances that are in a `waiting` state — either sleeping via `step.sleep`, waiting for a retry, or waiting for an event via `step.waitForEvent` — do **not** count towards concurrency limits. This means you can have millions of Workflow instances sleeping or waiting for events simultaneously, as only actively `running` instances count toward the 10,000 concurrent instance limit. However, if there are 10,000 concurrent instances actively running, an instance that has been in a `waiting` state will be queued instead of resuming immediately. When an instance transitions from `running` to `waiting`, other `queued` instances will be scheduled (usually the oldest queued instance, on a best-effort basis). This state transition may not occur if the wait duration is very short.
+Instances that are in a `waiting` state — either sleeping via `step.sleep`, waiting for a retry, or waiting for an event via `step.waitForEvent` — do **not** count towards concurrency limits. This means you can have millions of Workflow instances sleeping or waiting for events simultaneously, as instances in the `waiting` state do not count toward your account's concurrent instance limit, or toward any [concurrency limit](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits) set on the Workflow. However, if your account or the Workflow is already at its concurrency limit, an instance that has been in a `waiting` state will be queued instead of resuming immediately. When an instance transitions from `running` to `waiting`, other `queued` instances will be scheduled (usually the oldest queued instance, on a best-effort basis). This state transition may not occur if the wait duration is very short.
 
 For example, consider a Workflow that does some work, waits for 30 days, and then continues with more work:
 
@@ -110,7 +111,7 @@ While a given Workflow instance is waiting for 30 days, it will transition to th
 
 On [Workers Paid](https://developers.cloudflare.com/workers/platform/pricing/#workers), Workflow instances created by `schedules` can run for up to one hour per cron firing without consuming a Workflow concurrency slot.
 
-After that budget is used, the instance yields and enters the normal concurrency queue. It resumes when a concurrency slot is available. The instance does not fail, time out, or terminate because it used this cron concurrency budget.
+After that budget is used, the instance yields and enters the normal concurrency queue. It resumes when a concurrency slot is available. The instance does not fail, time out, or terminate because it used this cron concurrency budget. During the budget, the instance is also not held back by a [Workflow's concurrency limit](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits).
 
 The following limits apply to Workflow `schedules`:
 
@@ -206,15 +207,17 @@ Incoming HTTP request | Unlimited | No hard limit while the client remains conne
 
   4. `step.sleep` does not count towards the maximum steps limit ↩
 
-  5. Only instances with a `running` state count towards the concurrency limits. Instances in the `waiting` state are excluded from these limits. Workers Paid cron-triggered Workflow instances have a separate one-hour cron concurrency budget per firing. ↩
+  5. Instances in the `waiting` or `paused` state do not count towards the concurrency limits. Workers Paid cron-triggered Workflow instances have a separate one-hour cron concurrency budget per firing. ↩
 
-  6. Each instance created or restarted counts towards this limit ↩
+  6. By default, each Workflow can use all of your account's concurrency. To cap the number of instances of a single Workflow that run at once, set a [concurrency limit](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits). Instances above the limit are queued. ↩
 
-  7. Workflows will return a HTTP 429 rate limited error if you exceed the rate of new Workflow instance creation. ↩ ↩2
+  7. Each instance created or restarted counts towards this limit ↩
 
-  8. On the Workers Free plan, Workflow instance state and logs are retained for 3 days. On the Workers Paid plan, instance state and logs are retained for 7 days by default, and you can configure retention up to 30 days. Workflows created before the [Workers Paid default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/) keep their existing 30-day default. You can change the retention period by setting [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) on the Workflow binding, or [`retention`](https://developers.cloudflare.com/workflows/build/workers-api/#workflowinstancecreateoptions) on an individual instance. ↩
+  8. Workflows will return a HTTP 429 rate limited error if you exceed the rate of new Workflow instance creation. ↩ ↩2
 
-  9. Match pattern: _`^[a-zA-Z0-9_][a-zA-Z0-9-_]\*$`_ ↩ ↩2
+  9. On the Workers Free plan, Workflow instance state and logs are retained for 3 days. On the Workers Paid plan, instance state and logs are retained for 7 days by default, and you can configure retention up to 30 days. Workflows created before the [Workers Paid default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/) keep their existing 30-day default. You can change the retention period by setting [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) on the Workflow binding, or [`retention`](https://developers.cloudflare.com/workflows/build/workers-api/#workflowinstancecreateoptions) on an individual instance. ↩
+
+  10. Match pattern: _`^[a-zA-Z0-9_][a-zA-Z0-9-_]\*$`_ ↩ ↩2
 
 
 

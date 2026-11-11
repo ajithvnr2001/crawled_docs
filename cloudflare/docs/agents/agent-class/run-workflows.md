@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/run-workflows/
 title: Run Workflows \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:52.632349+00:00
+fetched_at: 2026-11-11T09:01:02.898583+00:00
 ---
 
 # Run Workflows · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:52.632349+00:00
 
 # Run Workflows
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick start 1\. Define a Workflow 2\. Start a Workflow from an Agent 3\. Configure WranglerAgentWorkflow class Type parameters Properties Instance methods (non-durable) Step methods (durable) DefaultProgress typeAgent workflow methods runWorkflow(workflowName, params, options?) sendWorkflowEvent(workflowName, instanceId, event) getWorkflowStatus(workflowName, instanceId) getWorkflow(instanceId) getWorkflows(criteria?) deleteWorkflow(instanceId) deleteWorkflows(criteria?) terminateWorkflow(instanceId) pauseWorkflow(instanceId) resumeWorkflow(instanceId) restartWorkflow(instanceId, options?) approveWorkflow(instanceId, options?) rejectWorkflow(instanceId, options?) migrateWorkflowBinding(oldName, newName)Lifecycle callbacksWorkflow tracking Status valuesExamples Human-in-the-loop approval Retry with backoff State synchronization Custom progress types Cleanup strategyBidirectional communication Workflow to Agent Agent to WorkflowBest practicesLimitationsRelated resources
 
@@ -176,7 +176,7 @@ Use `runWorkflow()` to start and track workflows:
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
+    	"compatibility_date": "2026-11-10",
     	"durable_objects": {
     		"bindings": [{ "name": "MY_AGENT", "class_name": "MyAgent" }],
     	},
@@ -195,7 +195,7 @@ Use `runWorkflow()` to start and track workflows:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-11-10"
     
     [[durable_objects.bindings]]
     name = "MY_AGENT"
@@ -1162,6 +1162,7 @@ Maximum steps | 10,000 per workflow (default) / configurable up to 25,000
 State size | 10 MB per workflow  
 Event wait time | 1 year maximum  
 Step execution time | 30 minutes per step  
+Concurrent instances | Account limit by default / configurable [per workflow](https://developers.cloudflare.com/workflows/build/concurrency-limits/#per-workflow-concurrency-limits)  
   
 Workflows cannot open WebSocket connections directly. Use `broadcastToClients()` to communicate with connected clients through the Agent.
 

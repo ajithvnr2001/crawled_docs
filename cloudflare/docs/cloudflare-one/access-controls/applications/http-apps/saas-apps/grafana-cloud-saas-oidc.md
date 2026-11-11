@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/grafana-cloud-saas-oidc/
 title: Grafana Cloud \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:15.496311+00:00
+fetched_at: 2026-11-11T09:01:00.340054+00:00
 ---
 
 # Grafana Cloud · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:15.496311+00:00
 
 # Grafana Cloud
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/grafana-cloud-saas-oidc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Add a SaaS application to Cloudflare One2\. Add a SSO provider to Grafana Cloud3\. Test the integration
 
@@ -45,7 +45,7 @@ This guide covers how to configure [Grafana Cloud ↗︎](https://grafana.com/do
   6. Select **Add application**.
   7. In **Scopes** , select the attributes that you want Access to send in the ID token.
   8. In **Redirect URLs** , enter `https://<your-grafana-domain>/login/generic_oauth`.
-  9. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
+  9. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if your SaaS application supports it. Configure the SaaS application to use PKCE as well.
   10. Copy the **Client secret** , **Client ID** , **Token endpoint** , and **Authorization endpoint**.
   11. Configure [Access policies](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/) for the application.
   12. (Optional) In **Experience settings** , configure [App Launcher settings](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/app-launcher/) by turning on **Enable App in App Launcher** and, in **App Launcher URL** , entering `https://<your-grafana-domain>/login`.

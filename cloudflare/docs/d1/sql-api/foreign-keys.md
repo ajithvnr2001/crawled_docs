@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/sql-api/foreign-keys/
 title: Define foreign keys \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:39.525146+00:00
+fetched_at: 2026-11-11T09:01:02.673372+00:00
 ---
 
 # Define foreign keys · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:39.525146+00:00
 
 # Define foreign keys
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/sql-api/foreign-keys/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefer foreign key constraintsDefine a foreign key relationshipForeign key actionsNext Steps
 
@@ -38,7 +38,7 @@ D1's foreign key enforcement is equivalent to SQLite's `PRAGMA foreign_keys = on
 
 Instead, D1 allows you to call `PRAGMA defer_foreign_keys = on` or `off`, which allows you to violate foreign key constraints temporarily (until the end of the current transaction).
 
-Calling `PRAGMA defer_foreign_keys = off` does not disable foreign key enforcement outside of the current transaction. If you have not resolved outstanding foreign key violations at the end of your transaction, it will fail with a `FOREIGN KEY constraint failed` error.
+Calling `PRAGMA defer_foreign_keys = on` does not disable foreign key enforcement outside of the current transaction. If you have not resolved outstanding foreign key violations at the end of your transaction, it will fail with a `FOREIGN KEY constraint failed` error.
 
 To defer foreign key enforcement, set `PRAGMA defer_foreign_keys = on` at the start of your transaction, or ahead of changes that would violate constraints:
     
@@ -49,10 +49,9 @@ To defer foreign key enforcement, set `PRAGMA defer_foreign_keys = on` at the st
     -- Run your CREATE TABLE or ALTER TABLE / COLUMN statements
     ALTER TABLE users ...
     
-    -- This is implicit if not set by the end of the transaction.
-    PRAGMA defer_foreign_keys = off
+    -- Outstanding foreign key violations are checked when the transaction ends.
 
-You can also explicitly set `PRAGMA defer_foreign_keys = off` immediately after you have resolved outstanding foreign key constraints. If there are still outstanding foreign key constraints, you will receive a `FOREIGN KEY constraint failed` error and will need to resolve the violation.
+Do not set `PRAGMA defer_foreign_keys = off` to check that you have resolved outstanding foreign key violations. As in SQLite, setting it to `off` discards any outstanding violations instead of reporting them, so the transaction commits even if rows still violate a constraint. To find violations before the transaction ends, run [`PRAGMA foreign_key_check`](https://developers.cloudflare.com/d1/sql-api/sql-statements/#pragma-foreign_key_check).
 
 ## Define a foreign key relationship
 

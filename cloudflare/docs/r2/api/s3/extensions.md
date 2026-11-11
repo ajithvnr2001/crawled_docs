@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/s3/extensions/
 title: Extensions \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:39.903943+00:00
+fetched_at: 2026-11-11T09:00:59.084211+00:00
 ---
 
 # Extensions · Cloudflare R2 docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-15T14:53:39.903943+00:00
 
 # Extensions
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewExtended metadata using UnicodeAuto-creating buckets on uploadPutObject and CreateMultipartUpload cf-create-bucket-if-missing Conditional operations in PutObjectCopyObject MERGE metadata directiveListBuckets Conditional operations in CopyObject for the destination object
+OverviewExtended metadata using UnicodeAuto-creating buckets on uploadPutObject and CreateMultipartUpload cf-create-bucket-if-missingCreateMultipartUpload Conditional headersCopyObject MERGE metadata directiveListBuckets Conditional operations in CopyObject for the destination object
 
 R2 implements some extensions on top of the basic S3 API. This page outlines these additional, available features. Some of the functionality described in this page requires setting a custom header. For examples on how to do so, refer to [Configure custom headers](https://developers.cloudflare.com/r2/examples/aws/custom-header).
 
@@ -73,13 +73,13 @@ This is only useful if you are creating buckets on demand because you do not kno
 
 Add a `cf-create-bucket-if-missing` header with the value `true` to implicitly create the bucket if it does not exist yet. Refer to Auto-creating buckets on upload for a more detailed explanation of when to add this header.
 
-### Conditional operations in `PutObject`
+## CreateMultipartUpload
 
-`PutObject` supports the standard S3 conditional headers `If-Match`, `If-None-Match`, `If-Modified-Since`, and `If-Unmodified-Since`. `If-None-Match: *` in particular is commonly used to implement "create-once" semantics: the write only succeeds if the key does not exist yet.
+### Conditional headers
 
-These conditions are evaluated atomically, as part of the same write that commits the object. If two or more clients concurrently issue `PutObject` with `If-None-Match: *` for a previously absent key, at most one request succeeds and every other request fails with a `412 PreconditionFailed` error code. Competing conditional writes can never both observe success.
+R2 supports `If-Match`, `If-None-Match`, `If-Modified-Since`, and `If-Unmodified-Since` on `CreateMultipartUpload`. R2 evaluates these conditions against the destination object when the upload is initiated. Amazon S3 does not support conditional headers on this operation.
 
-A negative read (`NoSuchKey`) is not proof that a prior write failed if that write's outcome is unknown — an in-flight write may still commit after the read returns. Refer to [Consistency model](https://developers.cloudflare.com/r2/reference/consistency/#negative-reads-and-in-flight-writes) for details.
+These conditions are not retained for upload completion. To enforce a condition when the object is committed, also send it on `CompleteMultipartUpload`. Refer to [Conditions on `CreateMultipartUpload`](https://developers.cloudflare.com/r2/api/s3/conditional-operations/#conditions-on-createmultipartupload) for details.
 
 ## CopyObject
 
@@ -132,7 +132,7 @@ These headers work akin to the similarly named conditional headers supported on 
 
 The `x-amz-copy-source-if-...` headers are guaranteed to be checked when the source object for the copy operation is selected, and the `cf-copy-destination-if-...` headers are guaranteed to be checked when the object is committed to the bucket state. However, the time at which the source object is selected for copying, and the point in time when the destination object is committed to the bucket state are not necessarily the same. This means that the `cf-copy-destination-if-...` headers are not atomic in relation to the `x-amz-copy-source-if...` headers.
 
-[PreviousS3 API compatibility](https://developers.cloudflare.com/r2/api/s3/api/)[NextPresigned URLs](https://developers.cloudflare.com/r2/api/s3/presigned-urls/)
+[PreviousConditional operations](https://developers.cloudflare.com/r2/api/s3/conditional-operations/)[NextPresigned URLs](https://developers.cloudflare.com/r2/api/s3/presigned-urls/)
 
 Was this helpful?
 

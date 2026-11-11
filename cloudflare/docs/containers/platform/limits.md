@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/platform/limits/
 title: Limits and Instance Types \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:23.967092+00:00
+fetched_at: 2026-11-11T09:01:00.849268+00:00
 ---
 
 # Limits and Instance Types · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:23.967092+00:00
 
 # Limits and Instance Types
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstance Types Custom Instance TypesAccount limitsOutbound HTTP request body sizeSnapshot limits
 
@@ -51,17 +51,17 @@ In addition to the predefined instance types, you can configure custom instance 
 
 Refer to the [Wrangler configuration documentation](https://developers.cloudflare.com/workers/wrangler/configuration/#custom-instance-types) or [scheduling policy documentation](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#choose-an-instance-size-at-runtime) for examples.
 
-Custom instance types have the following constraints:
+Custom instance types using the `durable_object` scheduling policy have the following minimums:
 
-Resource | Limit  
+Resource | Minimum  
 ---|---  
-Minimum vCPU | 1  
-Maximum vCPU | 4  
-Maximum Memory | 12 GiB  
-Maximum Disk | 20 GB  
-Memory to vCPU ratio | Minimum 3 GiB memory per vCPU  
+vCPU | 1/16 (`0.0625`)  
+Memory | 256 MiB  
+Disk | 2 GB (`2000` MB)  
   
-For workloads requiring less than 1 vCPU, use the predefined instance types such as `lite` or `basic`.
+Maximum resources per instance are subject to your account limits.
+
+If you encounter different constraints, your application may be using the legacy `default` scheduling policy. [Migrate to the `durable_object` scheduling policy](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/) to use these minimums.
 
 ## Account limits
 
@@ -69,6 +69,9 @@ The following limits apply per account:
 
 Resource | Limit  
 ---|---  
+vCPU per instance | 4  
+Memory per instance | 12 GiB  
+Disk per instance | 20 GB  
 Concurrent memory | 6 TiB  
 Concurrent vCPU | 1,500  
 Concurrent disk | 30 TB  

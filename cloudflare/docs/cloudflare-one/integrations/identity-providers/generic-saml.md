@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-saml/
 title: Generic SAML 2.0 \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:03.438129+00:00
+fetched_at: 2026-11-11T09:00:59.644202+00:00
 ---
 
 # Generic SAML 2.0 · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Generic SAML 2.0
 
-Last updated Sep 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-saml/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create an application in your identity provider (Optional) Upload SAML metadata2\. Add a SAML identity provider to Cloudflare One3\. Test the connectionSynchronize users and groups Prerequisites 1\. Enable SCIM in Cloudflare One 2\. Configure SCIM in the IdP 3\. Verify SCIM provisioningOptional configurations Encrypt SAML assertions Sign SAML authentication request Require fresh authentication at the identity provider Email attribute name SAML headers and attributes
 
@@ -49,7 +49,7 @@ The typical setup requirements are:
          
          https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
 
-You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
+You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Zero Trust** > **Settings** > **Team name and domain** > **Team name**.
 
   3. Set the **Name ID/Email format** to `emailAddress`.
   4. (Optional) Set the signature policy to _Always Sign_.
@@ -236,7 +236,7 @@ If you rotate again before updating your IdP with the current certificate, the p
 
 ### Sign SAML authentication request
 
-This optional configuration signs the [Access JWT](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/) with the Cloudflare Access public key to ensure that the JWT is coming from a legitimate source. The Cloudflare public key can be obtained at `https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/certs`.
+This option signs the SAML authentication request that Access sends to your identity provider. Access signs the request with its private key. Your IdP verifies the signature with the corresponding public certificate. This setting does not control Access JWT signing. For setup instructions, refer to [Signed AuthN requests](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/signed_authn/).
 
 ### Require fresh authentication at the identity provider
 

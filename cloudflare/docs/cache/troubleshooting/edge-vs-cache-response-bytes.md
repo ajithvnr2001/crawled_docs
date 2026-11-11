@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/troubleshooting/edge-vs-cache-response-bytes/
 title: edgeResponseBytes and cacheResponseBytes discrepancy \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:46.327869+00:00
+fetched_at: 2026-11-11T09:01:01.968188+00:00
 ---
 
 # edgeResponseBytes and cacheResponseBytes discrepancy · Cloudflare Cache (CDN) docs
@@ -18,9 +18,18 @@ fetched_at: 2026-10-08T07:05:46.327869+00:00
 
 # edgeResponseBytes and cacheResponseBytes discrepancy
 
-Last updated Jun 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/troubleshooting/edge-vs-cache-response-bytes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-In [HTTP request logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/), `cacheResponseBytes` reflects the uncompressed response size from cache or origin. `edgeResponseBytes` reflects the final compressed response size sent to the client. Because Cloudflare applies compression (gzip, Brotli) before delivering to the client, `edgeResponseBytes` is typically smaller than `cacheResponseBytes`.
+In [HTTP request logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/), `cacheResponseBytes` and `edgeResponseBytes` both count the response body as Cloudflare delivered it to the client. They differ only in which response headers they count:
+
+  * `cacheResponseBytes`: the response headers Cloudflare received from cache or origin, plus the response body as delivered to the client.
+  * `edgeResponseBytes`: the response headers sent to the client, after any header modifications, plus the response body as delivered to the client.
+
+
+
+Neither field records the body size as received from the origin. If the origin sends a pre-compressed body (for example, `Content-Encoding: gzip` or `br`) and the client accepts that encoding, both fields count the compressed body. If Cloudflare decompresses the body, for example because the client does not accept the encoding or a feature needs to modify the HTML, both fields count the body as delivered: uncompressed, or re-compressed.
+
+Because both fields count the same body, any difference between `edgeResponseBytes` and `cacheResponseBytes` comes from response headers. The header size counted in `cacheResponseBytes` can be larger than the headers your origin sent.
 
 [PreviousBot Management cookie causes cache bypass in O2O setups](https://developers.cloudflare.com/cache/troubleshooting/bot-management-o2o-cache-bypass/)[NextAlways Online](https://developers.cloudflare.com/cache/troubleshooting/always-online/)
 

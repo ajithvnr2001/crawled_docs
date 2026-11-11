@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/citrixadc-saml/
 title: Citrix ADC (SAML) \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:02.447994+00:00
+fetched_at: 2026-11-11T09:00:59.456323+00:00
 ---
 
 # Citrix ADC (SAML) · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Citrix ADC (SAML)
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/citrixadc-saml/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up Citrix ADC (SAML)Add a new profile
 

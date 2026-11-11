@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/salesforce-saas-oidc/
 title: Salesforce (OIDC) \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:16.816248+00:00
+fetched_at: 2026-11-11T09:01:00.464735+00:00
 ---
 
 # Salesforce (OIDC) · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:16.816248+00:00
 
 # Salesforce (OIDC)
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/salesforce-saas-oidc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Add a SaaS application to Cloudflare One2\. Add a SSO provider to Salesforce3\. Enable Single Sign-On in Salesforce
 
@@ -44,7 +44,7 @@ This guide covers how to configure [Salesforce ↗︎](https://help.salesforce.c
   5. Select **Add application**.
   6. In **Scopes** , select the attributes that you want Access to send in the ID token.
   7. In **Redirect URLs** , enter the callback URL obtained from Salesforce (`https://<your-domain>.my.salesforce.com/services/authcallback/<URL Suffix>`). Refer to Add a SSO provider to Salesforce for instructions on obtaining this value.
-  8. (Optional) Enable [Proof of Key Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if the protocol is supported by your IdP. PKCE will be performed on all login attempts.
+  8. (Optional) Enable [Proof Key for Code Exchange (PKCE) ↗︎](https://www.oauth.com/oauth2-servers/pkce/) if your SaaS application supports it. Configure the SaaS application to use PKCE as well.
   9. Copy the following values: 
      * **Client ID**
      * **Client Secret**

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/migration-guides/scim-virtual-groups-migration/
 title: SCIM v1 to v2 Migration \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.200456+00:00
+fetched_at: 2026-11-11T09:01:03.385126+00:00
 ---
 
 # SCIM v1 to v2 Migration · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Reference
 
 # SCIM v1 to v2 Migration
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMigration stepsMore resources
 
@@ -36,13 +36,13 @@ While customers could add or remove members from these groups within their IdP, 
 
 
 
-With the GA of [User Groups](https://developers.cloudflare.com/changelog/post/2025-06-23-user-groups-ga/), Virtual Groups are now deprecated. Customers should migrate to [User Groups](https://developers.cloudflare.com/fundamentals/manage-members/user-groups/), which provide a more flexible and scalable way to assign and manage policies. To maintain SCIM synchronization with the Cloudflare Dashboard, we strongly recommend migrating to **SCIM User Groups**.
+With the GA of [User Groups](https://developers.cloudflare.com/changelog/post/2025-06-23-user-groups-ga/), Virtual Groups are deprecated. Customers should migrate to [User Groups](https://developers.cloudflare.com/fundamentals/manage-members/user-groups/), which provide a more flexible and scalable way to assign and manage policies. To keep SCIM synchronization with the Cloudflare dashboard, migrate to **SCIM User Groups**.
 
 If you have never synced a group linked to a `CF-<accountID>-<Role Name>` Virtual Group from your IdP to Cloudflare, no action is needed.
 
 ## Migration steps
 
-  1. **Create a new SCIM integration** in your IdP using an [Account Owned Token](https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/) provisioned in Cloudflare.
+  1. **Create a new SCIM integration** in your IdP using an [Account API token](https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/) provisioned in Cloudflare.
   2. **Assign users & groups to your new Application** in your IdP, following a naming convention that aligns with your internal processes.
   3. **Sync groups to Cloudflare** and verify they appear in the **User Groups** pane of the Cloudflare Dashboard.
   4. **Attach permission policies** to the new User Groups so members inherit the correct access upon assignment to the group.
@@ -53,9 +53,9 @@ If you have never synced a group linked to a `CF-<accountID>-<Role Name>` Virtua
 
 ## More resources
 
-  * [User Groups changelog](https://developers.cloudflare.com/changelog/post/2025-06-02-user-groups-beta/)
+  * [User Groups GA changelog](https://developers.cloudflare.com/changelog/post/2025-06-23-user-groups-ga/)
   * [User Groups documentation](https://developers.cloudflare.com/fundamentals/manage-members/user-groups/)
-  * [Create an Account Owned Token](https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/#create-an-account-owned-token)
+  * [Create an Account API token](https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/#create-an-account-owned-token)
   * [SCIM provisioning setup guide](https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/)
 
 

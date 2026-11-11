@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/
 title: Cloudflare Cookies \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.179387+00:00
+fetched_at: 2026-11-11T09:01:01.019236+00:00
 ---
 
 # Cloudflare Cookies · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Reference
 
 # Cloudflare Cookies
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUnderstanding the Cloudflare Cookies __cflb cookie for Cloudflare Load Balancer session affinity __cf_bm cookie for Cloudflare bot products __cfseq cookie for Cloudflare bot products cf_clearance cookie for Cloudflare bot products cf_ob_info and cf_use_ob cookie for Cloudflare Always Online __cfwaitingroom for Cloudflare Waiting Room __cfruid to support Cloudflare Rate Limiting (previous version) _cfuvid for Rate Limiting Rules Additional cookies used by the Challenge Platform Cloudflare Access cookies
 
@@ -58,6 +58,8 @@ The `Set-Cookie` header attributes for the `__cf_bm` cookie may use different ca
 
 A separate `__cf_bm` cookie is generated for each site that an end user visits, as Cloudflare does not track users from site to site or from session to session. The `__cf_bm` cookie is generated independently by Cloudflare, and does not correspond to any user ID or other identifiers in a customer's web application.
 
+For HTTPS requests from compatible browsers, the `__cf_bm` cookie is set with `SameSite=None; Secure; Partitioned` to preserve Bot Management state when content from a Cloudflare-protected site is loaded in a third-party context. The browser stores the cookie in a partition keyed to the top-level site, so the cookie is not shared across unrelated sites. For details, refer to [Partitioned cookies (CHIPS)](https://developers.cloudflare.com/waf/troubleshooting/samesite-cookie-interaction/#partitioned-cookies-chips).
+
 Note
 
 Bot Management is available to Enterprise customers as an add-on service. Contact your Cloudflare account team to enable Bot Management for your site. Non-Enterprise customers can enable [Bot Fight Mode or Super Bot Fight Mode](https://developers.cloudflare.com/bots/).
@@ -72,7 +74,7 @@ You can disable the `__cf_bm` cookie using the `bm_cookie_enabled` field [via th
 
 The `cf_clearance` cookie is required for [JavaScript detections](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/). JavaScript detections are stored in the `cf_clearance` cookie.
 
-The `cf_clearance` cookie is set with `SameSite=None; Secure; Partitioned` so that challenge state is preserved across cross-site requests while complying with [CHIPS ↗ ↗︎](https://developers.google.com/privacy-sandbox/cookies/chips). When the cookie is issued inside a third-party context, it is stored in a partition keyed to the top-level site and is not shared across embedding sites. For details, refer to [Partitioned cookies (CHIPS) and `cf_clearance`](https://developers.cloudflare.com/waf/troubleshooting/samesite-cookie-interaction/#partitioned-cookies-chips-and-cf_clearance).
+The `cf_clearance` cookie is set with `SameSite=None; Secure; Partitioned` so that challenge state is preserved across cross-site requests while complying with [CHIPS ↗ ↗︎](https://developers.google.com/privacy-sandbox/cookies/chips). When the cookie is issued inside a third-party context, it is stored in a partition keyed to the top-level site and is not shared across embedding sites. For details, refer to [Partitioned cookies (CHIPS)](https://developers.cloudflare.com/waf/troubleshooting/samesite-cookie-interaction/#partitioned-cookies-chips).
 
 ### cf_ob_info and cf_use_ob cookie for Cloudflare Always Online
 

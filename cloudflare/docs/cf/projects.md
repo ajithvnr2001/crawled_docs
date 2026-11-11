@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/projects/
 title: Develop, build, and deploy \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:31.818461+00:00
+fetched_at: 2026-11-11T09:01:00.698613+00:00
 ---
 
 # Develop, build, and deploy · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-30T08:19:31.818461+00:00
 
 # Develop, build, and deploy
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow cf runs your projectAutomatic configurationStart developmentBuildDeployModesDeploy a prebuilt buildUpload a versionDeploy triggersDeploy a previewProfile Worker startupGenerate typesLocal resource dataWhich configuration each command readsTroubleshooting No dev server is installed Dependencies are not installed Arguments are rejected A framework rejects --mode A prebuilt deploy rejects the mode Build Output is missing Preview output reaches a production deploy The preview name cannot be determined A local command has no local equivalent
 
@@ -307,10 +307,10 @@ Deploy the project as a Worker Preview:
 
 The command builds the project with `isPreview` set to `true`, so a function-form `cloudflare.config.ts` can return preview-specific settings. It then uploads the preview and prints the result as JSON. Previews in `cf` can change during the beta.
 
-The preview name defaults to the current branch. `cf` reads the branch from Workers Builds, GitHub Actions, or GitLab CI/CD, and then from Git. On a detached `HEAD` with no CI branch, pass a name:
+The preview name defaults to the current branch. `cf` reads the branch from Workers Builds, GitHub Actions, or GitLab CI/CD, and then from Git. To override the branch name, pass `--preview-name`. This flag is required on a detached `HEAD` with no CI branch:
     
     
-    cf previews deploy my-feature
+    cf previews deploy --preview-name my-feature
 
 The command accepts `--mode`, `--worker`, and `--prebuilt`. With `--prebuilt`, Build Output must come from a preview build, and the mode rule applies. There is no `--dry-run`, and the command needs credentials.
 
@@ -431,7 +431,10 @@ The existing Build Output came from `cf previews deploy`. Run the suggested comm
     
     We couldn't determine a Preview name from CI or Git.
 
-`cf previews deploy` found no branch name, for example on a detached `HEAD`. Pass a name: `cf previews deploy <PREVIEW_NAME>`.
+`cf previews deploy` found no branch name, for example on a detached `HEAD`. Pass a name with `--preview-name`:
+    
+    
+    cf previews deploy --preview-name <PREVIEW_NAME>
 
 ### A local command has no local equivalent
     

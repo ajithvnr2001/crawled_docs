@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/
 title: Runtime \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:23.903672+00:00
+fetched_at: 2026-11-11T09:01:02.239135+00:00
 ---
 
 # Runtime · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-30T08:19:23.903672+00:00
 
 # Runtime
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIf you use a harnessCompose the runtime yourselfLifecycleRoutingCapabilitiesObservability
 
@@ -172,7 +172,7 @@ To write your own capability, refer to [Build a capability](https://developers.c
 
 
 
-[PreviousDurable recovery](https://developers.cloudflare.com/agents/harnesses/think/recovery/)[NextOverview](https://developers.cloudflare.com/agents/runtime/lifecycle/)
+[PreviousLong-running agents](https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/)[NextOverview](https://developers.cloudflare.com/agents/runtime/lifecycle/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/tunnel/features/locally-managed-tunnels/configuration-file/
 title: Configuration file \u00b7 Cloudflare Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:01.901181+00:00
+fetched_at: 2026-11-11T09:01:03.192026+00:00
 ---
 
 # Configuration file · Cloudflare Docs
@@ -22,7 +22,7 @@ Features
 
 # Configuration file
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/tunnel/features/locally-managed-tunnels/configuration-file/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFile structure for published applications How traffic is matched Services Origin configuration Validate ingress rules Test ingress rulesUpdate a configuration file
 
@@ -59,7 +59,9 @@ In `cloudflared` version `2026.10.0` and later, you can normalize URLs before ma
 
 Normalization removes dot segments (`.` and `..`) according to [RFC 3986 ↗︎](https://www.rfc-editor.org/rfc/rfc3986#section-5.2.4). It also converts backslashes to forward slashes and merges repeated slashes.
 
-Normalization is off by default in version `2026.10.0`. To turn it on, set [`--disable-path-normalization=false`](https://developers.cloudflare.com/tunnel/reference/run-parameters/#disable-path-normalization) before `run`.
+Version `2026.11.0` and later also removes semicolon-delimited path parameters for ingress matching. Test rules that match paths containing semicolons, as normalization may change which rule matches.
+
+Normalization is off by default in versions `2026.10.0` and `2026.11.0`. To turn it on, set [`--disable-path-normalization=false`](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/run-parameters/#disable-path-normalization) before `run`.
 
 Test your path-based routing before the [planned default change](https://developers.cloudflare.com/changelog/post/2026-10-22-cloudflared-path-normalization/). Configurations without rules requiring Access validation are unaffected.
 

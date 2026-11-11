@@ -3,8 +3,5 @@
   "file": "cloudflare-one/integrations/identity-providers/adfs.md",
   "title": "Active Directory (SAML) \u00b7 Cloudflare One docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:09:01.849039+00:00",
-  "html_len": 299338,
-  "md_len": 11046,
-  "depth": 0
+  "fetched_at": "2026-11-11T09:01:00.408016+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/troubleshooting/common-error-codes/
 title: Common error codes \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:06.657586+00:00
+fetched_at: 2026-11-11T09:01:02.712401+00:00
 ---
 
 # Common error codes · Cloudflare Load Balancing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:06.657586+00:00
 
 # Common error codes
 
-Last updated Sep 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/troubleshooting/common-error-codes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTCP connection failed Cause SolutionHTTP timeout occurred Cause SolutionResponse code mismatch error Cause Solution Alternate cause SolutionResponse body mismatch error Cause SolutionTLS untrusted certificate error Cause SolutionTLS name mismatch error Cause SolutionTLS protocol error Cause SolutionTLS unrecognized name error Cause SolutionNo route to host error Cause SolutionExceeded quota error Cause SolutionTCP Timeout Cause SolutionTLS Handshake Failure Cause SolutionNetwork Unreachable Cause SolutionHTTP Invalid Response Cause SolutionDNS Unknown Host Cause SolutionConnection Reset by Peer Cause SolutionMonitor Config Error Cause SolutionDNS Internal Cause SolutionLoad Balancing Not Enabled Cause SolutionValidation failed error Cause SolutionObject referenced by other objects Cause SolutionOther Failure Cause Solution
 
@@ -226,11 +226,18 @@ Ensure the endpoint responds to requests and that no applications have crashed o
 
 ### Cause
 
-The endpoint hostname does not exist.
+The endpoint hostname does not exist, or the monitor's DNS resolver could not obtain a usable response for the hostname.
+
+A common cause of the second scenario is a DNS answer that exceeds 512 bytes over UDP — for example, a hostname that resolves to a large number of A records (typically 20 or more). The load balancer monitor performs an uncached DNS lookup on every health check using UDP by default. If the DNS response is too large and the resolver does not fall back to TCP, the lookup fails and the monitor reports `DNS Unknown Host` — even though the hostname resolves correctly for clients.
 
 ### Solution
 
-Confirm the endpoint resolves to an IP address.
+  * **Confirm the hostname exists:** verify it resolves to at least one IP address using `dig` or `nslookup`.
+  * **If the hostname resolves correctly for clients but the monitor still reports this error:** use an individual IP address as the pool endpoint instead of a hostname. This eliminates the DNS lookup from the health check path entirely. If you cannot use a bare IP address, use a hostname for which Cloudflare is authoritative (primary or secondary DNS).
+
+
+
+For more information on DNS lookup failures with FQDN endpoints, refer to [What happens when a pool or endpoint becomes unhealthy?](https://developers.cloudflare.com/load-balancing/troubleshooting/load-balancing-faq/#what-happens-when-a-pool-or-endpoint-becomes-unhealthy)
 
 * * *
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:57.660811+00:00
+fetched_at: 2026-11-11T09:01:01.544079+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:57.660811+00:00
 
 # Configuration
 
-Last updated Aug 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/testing/vitest-integration/configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPIs cloudflareTest(options) buildPagesASSETSBinding(assetsPath) readD1Migrations(migrationsPath)CloudflareTestOptionsDynamic configuration with injectSourcelessWorkerOptions
 
@@ -145,7 +145,7 @@ Options passed directly to `cloudflareTest()`.
       * Are not affected by global mocks defined in your tests.
   * `wrangler`: `{ configPath?: string; environment?: string; }` optional
 
-    * Path to [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/) to load `main`, [compatibility settings](https://developers.cloudflare.com/workers/configuration/compatibility-dates/) and [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) from. These options will be merged with the `miniflare` option above, with `miniflare` values taking precedence. For example, if your Wrangler configuration defined a [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) named `SERVICE` to a Worker named `service`, but you included `serviceBindings: { SERVICE(request) { return new Response("body"); } }` in the `miniflare` option, all requests to `SERVICE` in tests would return `body`. Note `configPath` accepts both `.toml` and `.json` files.
+    * Path to [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/) to load `main`, [compatibility settings](https://developers.cloudflare.com/workers/configuration/compatibility-dates/) and [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) from. These options will be merged with the `miniflare` option above, with `miniflare` values taking precedence. For example, if your Wrangler configuration defined a [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) named `SERVICE` to a Worker named `service`, but you included `serviceBindings: { SERVICE(request) { return new Response("body"); } }` in the `miniflare` option, all requests to `SERVICE` in tests would return `body`. Note `configPath` accepts both `.toml` and `.json` files. The Wrangler [`alias`](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) field is not read. Set the same aliases in Vite's [`resolve.alias` ↗︎](https://vite.dev/config/shared-options.html#resolve-alias) in your Vitest configuration.
 
     * The environment option can be used to specify the [Wrangler environment](https://developers.cloudflare.com/workers/wrangler/environments/) to pick up bindings and variables from.
 
