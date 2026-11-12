@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/intents/url-expander/implementation-guide/
 title: URL Expander intent implementation guide - Apps inside Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:04.840763+00:00
+fetched_at: 2026-11-12T17:47:20.751565+00:00
 ---
 
 # URL Expander intent implementation guide - Apps inside Canva - Canva Developers SDK Documentation
@@ -212,10 +212,10 @@ For detailed information on URL pattern requirements and best practices, see [UR
 
 ### Step 4: Register the intent
 
-During the preview period, you must install and use the beta version of the Canva intents package. Make sure you do this before updating your code to use the intent:
+During the preview period, install the Canva intents package using the `preview` dist-tag before updating your code to use the intent:
     
     
-    npm install @canva/intents@beta
+    npm install @canva/intents@preview
 
 SHELL
 

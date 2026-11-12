@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/integrating-canva/
 title: How apps work in Canva - Apps inside Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:01.687936+00:00
+fetched_at: 2026-11-12T17:47:20.855487+00:00
 ---
 
 # How apps work in Canva - Apps inside Canva - Canva Developers SDK Documentation
@@ -160,12 +160,12 @@ This isn't a common occurrence. It's just potentially confusing if you're not aw
 
 To ensure we're developing the best possible APIs, we want to get them in the hands of developers sooner rather than later. We do this by releasing preview versions of the APIs that anyone can play around with.
 
-Canva provides a preview of the APIs through [the npm package registry⁠(opens in a new tab or window)](https://www.npmjs.com/). You can install an available preview API package by using npm with the `beta` dist-tag. The following npm command demonstrates how to install the preview `@canva/design` package:
+Canva provides a preview of the APIs through [the npm package registry⁠(opens in a new tab or window)](https://www.npmjs.com/). You can install an available preview API package by using npm with the `preview` dist-tag. The following npm command demonstrates how to install the preview `@canva/design` package:
     
     
-    npm install @canva/design@beta
+    npm install @canva/design@preview
 
-BASH
+SHELL
 
 Copy
 
@@ -178,10 +178,10 @@ TS
 
 Copy
 
-If a preview method reaches a stable release, you can then install the latest package version, and continue using the method without changing the import declaration. Confirm your package version by running `npm list`, and checking for the `beta` tag:
+If a preview method reaches a stable release, you can then install the latest package version, and continue using the method without changing the import declaration. Confirm your installed package version by running `npm list`:
     
     
-    npm list -a @canva/design@beta
+    npm list -a @canva/design
     
     
     
@@ -194,15 +194,17 @@ If a preview method reaches a stable release, you can then install the latest pa
     
         └── @canva/design@1.10.0
 
-BASH
+SHELL
 
 Copy
 
-A preview accessed through the `beta` dist-tag exposes new methods and modified versions of existing methods. They're documented alongside the stable APIs, but we make sure to highlight anything that's only available as a preview.
+Preview versions use a `-beta.N` version suffix.
+
+A preview accessed through the `preview` dist-tag exposes new methods and modified versions of existing methods. They're documented alongside the stable APIs, but we make sure to highlight anything that's only available as a preview.
 
 If you're planning on using a preview package, be aware that:
 
-  * Anything imported with the `beta` dist-tag package may experience breaking changes at short notice. You should not rely on the methods remaining available or continuing to behave in the same way.
+  * Anything imported with the `preview` dist-tag package may experience breaking changes at short notice. You should not rely on the methods remaining available or continuing to behave in the same way.
   * If an app depends on the preview package, it won't be approved for release during Canva's [app review process](https://www.canva.dev/docs/apps/app-review-process/). You'll have to wait for the API to be moved into one of the stable packages.
 
 

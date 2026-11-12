@@ -1,11 +1,11 @@
 ---
 url: https://www.canva.dev/docs/apps/api/preview/intents-changelog/
-title: Changelog for @canva/intents@beta - Beta API reference - Canva Developers SDK Documentation
+title: Changelog for @canva/intents@preview - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T17:30:39.088053+00:00
+fetched_at: 2026-11-12T17:47:20.897583+00:00
 ---
 
-# Changelog for @canva/intents@beta - Beta API reference - Canva Developers SDK Documentation
+# Changelog for @canva/intents@preview - Beta API reference - Canva Developers SDK Documentation
 
 > Source: https://www.canva.dev/docs/apps/api/preview/intents-changelog/
 
@@ -85,9 +85,9 @@ Error: Test
 
 [initTestEnvironment](https://www.canva.dev/docs/apps/api/preview/error-test-init-test-environment/)
 
-# Changelog for @canva/intents@beta
+# Changelog for @canva/intents@preview
 
-The latest changes for the Canva Apps SDK @canva/intents@beta package.
+The latest changes for the Canva Apps SDK @canva/intents@preview package.
 
 Copy page
 
