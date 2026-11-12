@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:05.828048+00:00
+fetched_at: 2026-11-12T15:52:24.025720+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -38,7 +38,9 @@ Back to top
   * OpenAI
   * Openrouter
   * Pika
+  * Pixverse
   * Pruna
+  * Quiver
   * Qwen
   * Recraft
   * Runway
@@ -71,7 +73,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 Find by output
 
-Video (81)
+Video (87)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -87,7 +89,6 @@ Video (81)
   * [Dreamina Seedance 2.5 260628](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code): `byteplus/dreamina-seedance-2-5-260628`
   * [Seedance 1.0 Pro 250528](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-0-pro-250528/code): `byteplus/seedance-1-0-pro-250528`
   * [Seedance 1.0 Pro Fast 251015](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-0-pro-fast-251015/code): `byteplus/seedance-1-0-pro-fast-251015`
-  * [Seedance 1.5 Pro 251215](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-5-pro-251215/code): `byteplus/seedance-1-5-pro-251215`
   * [Crystal Video Upscaler](https://docs.comfy.org/development/comfy-router/models/fal/crystal-video-upscaler/code): `fal/crystal-video-upscaler`
   * [FLUX 3 Max](https://docs.comfy.org/development/comfy-router/models/fal/flux-3-max/code): `fal/flux-3-max`
   * [H3 Max Turbo](https://docs.comfy.org/development/comfy-router/models/fal/h3-max-turbo/code): `fal/h3-max-turbo`
@@ -107,6 +108,10 @@ Video (81)
   * [Videos Lip Sync](https://docs.comfy.org/development/comfy-router/models/kling/videos-lip-sync/code): `kling/videos-lip-sync`
   * [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
+  * [LTX Video Alpha Gen](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-alpha-gen/code): `ltx/ltx-video-alpha-gen`
+  * [LTX Video To Video Hdr](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-to-video-hdr/code): `ltx/ltx-video-to-video-hdr`
+  * [LTX Video To Video Reframe](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-to-video-reframe/code): `ltx/ltx-video-to-video-reframe`
+  * [LTX Video Upscale](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-upscale/code): `ltx/ltx-video-upscale`
   * [Ray 3.2](https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code): `luma_2/ray-3.2`
   * [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
   * [Image To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/image-to-video/code): `moonvalley/image-to-video`
@@ -118,6 +123,9 @@ Video (81)
   * [Pika H3 Flex Reference To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-reference-to-video/code): `pika/pika-h3-flex-reference-to-video`
   * [Pika H3 Flex Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-text-to-video/code): `pika/pika-h3-flex-text-to-video`
   * [Pika Soundtrack](https://docs.comfy.org/development/comfy-router/models/pika/pika-soundtrack/code): `pika/pika-soundtrack`
+  * [V3.5](https://docs.comfy.org/development/comfy-router/models/pixverse/v3-5/code): `pixverse/v3.5`
+  * [V6 Max](https://docs.comfy.org/development/comfy-router/models/pixverse/v6-max/code): `pixverse/v6-max`
+  * [V6](https://docs.comfy.org/development/comfy-router/models/pixverse/v6/code): `pixverse/v6`
   * [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
   * [Aleph 2](https://docs.comfy.org/development/comfy-router/models/runway/aleph2/code): `runway/aleph2`
   * [Gen 4 Turbo](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code): `runway/gen4_turbo`
@@ -157,7 +165,7 @@ Video (81)
 
 
 
-Image (117)
+Image (121)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [Erase V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code): `bfl/erase-v1`
@@ -220,12 +228,16 @@ Image (117)
   * [Uni 1](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code): `luma_2/uni-1`
   * [Photon 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-1/code): `luma/photon-1`
   * [Photon Flash 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-flash-1/code): `luma/photon-flash-1`
+  * [MiniMax H3 Image Highspeed](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image-highspeed/code): `minimax/minimax-h3-image-highspeed`
+  * [MiniMax H3 Image](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image/code): `minimax/minimax-h3-image`
   * [GPT Image 1.5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1-5/code): `openai/gpt-image-1.5`
   * [GPT Image 2.5 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-flare/code): `openai/gpt-image-2.5-flare`
   * [GPT Image 2.5 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code): `openai/gpt-image-2.5-sunburst`
   * [GPT Image 2.6 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-flare/code): `openai/gpt-image-2.6-flare`
   * [GPT Image 2.6 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code): `openai/gpt-image-2.6-sunburst`
   * [GPT Image 2](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code): `openai/gpt-image-2`
+  * [Arrow 2 Telos](https://docs.comfy.org/development/comfy-router/models/quiver/arrow-2-telos/code): `quiver/arrow-2-telos`
+  * [Arrow 2](https://docs.comfy.org/development/comfy-router/models/quiver/arrow-2/code): `quiver/arrow-2`
   * [Qwen Image 3.0 Pro](https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0-pro/code): `qwen/qwen-image-3.0-pro`
   * [Qwen Image 3.0](https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0/code): `qwen/qwen-image-3.0`
   * [Recraft V2](https://docs.comfy.org/development/comfy-router/models/recraft/recraftv2/code): `recraft/recraftv2`
@@ -288,7 +300,6 @@ Audio (47)
   * [Dreamina Seedance 2.5 260628](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code): `byteplus/dreamina-seedance-2-5-260628`
   * [Seed Audio 1.0 Multilingual](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0-multilingual/code): `byteplus/seed-audio-1.0-multilingual`
   * [Seed Audio 1.0](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0/code): `byteplus/seed-audio-1.0`
-  * [Seedance 1.5 Pro 251215](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-5-pro-251215/code): `byteplus/seedance-1-5-pro-251215`
   * [Eleven Multilingual V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-multilingual-v2/code): `elevenlabs/eleven_multilingual_v2`
   * [Eleven Sfx V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v2/code): `elevenlabs/eleven_sfx_v2`
   * [Eleven V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v3/code): `elevenlabs/eleven_v3`
@@ -304,6 +315,7 @@ Audio (47)
   * [Higgsfield Kling 3 Pro](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-pro/code): `higgsfield/higgsfield-kling-3-pro`
   * [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
+  * [LTX Video Upscale](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-upscale/code): `ltx/ltx-video-upscale`
   * [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
   * [Pika H3 Flex Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-image-to-video/code): `pika/pika-h3-flex-image-to-video`
   * [Pika H3 Flex Reference To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-reference-to-video/code): `pika/pika-h3-flex-reference-to-video`
@@ -500,7 +512,6 @@ Model| ID| Input| Output
 [Seed Audio 1.0](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0/code)| `byteplus/seed-audio-1.0`| Text| Audio  
 [Seedance 1.0 Pro 250528](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-0-pro-250528/code)| `byteplus/seedance-1-0-pro-250528`| Text, Image| Video  
 [Seedance 1.0 Pro Fast 251015](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-0-pro-fast-251015/code)| `byteplus/seedance-1-0-pro-fast-251015`| Text, Image| Video  
-[Seedance 1.5 Pro 251215](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-5-pro-251215/code)| `byteplus/seedance-1-5-pro-251215`| Text, Image| Video + Audio  
 [Seedream 4.0 250828](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-4-0-250828/code)| `byteplus/seedream-4-0-250828`| Text, Image| Image  
 [Seedream 4.5 251128](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-4-5-251128/code)| `byteplus/seedream-4-5-251128`| Text, Image| Image  
 [Seedream 5.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-260128/code)| `byteplus/seedream-5-0-260128`| Text, Image| Image  
@@ -658,6 +669,10 @@ Model| ID| Input| Output
 ---|---|---|---  
 [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code)| `ltx/ltx-2-5-fast`| Text| Video + Audio  
 [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code)| `ltx/ltx-2-5-pro`| Text| Video + Audio  
+[LTX Video Alpha Gen](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-alpha-gen/code)| `ltx/ltx-video-alpha-gen`| Video| Video  
+[LTX Video To Video Hdr](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-to-video-hdr/code)| `ltx/ltx-video-to-video-hdr`| Video| Video  
+[LTX Video To Video Reframe](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-to-video-reframe/code)| `ltx/ltx-video-to-video-reframe`| Video| Video  
+[LTX Video Upscale](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-upscale/code)| `ltx/ltx-video-upscale`| Video| Video + Audio  
   
 ## 
 
@@ -705,6 +720,8 @@ MiniMax
 
 Model| ID| Input| Output  
 ---|---|---|---  
+[MiniMax H3 Image Highspeed](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image-highspeed/code)| `minimax/minimax-h3-image-highspeed`| Text, Image| Image  
+[MiniMax H3 Image](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image/code)| `minimax/minimax-h3-image`| Text, Image| Image  
 [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code)| `minimax/minimax-h3`| Text, Image| Video + Audio  
   
 ## 
@@ -782,11 +799,34 @@ Model| ID| Input| Output
 
 ​
 
+Pixverse
+
+Model| ID| Input| Output  
+---|---|---|---  
+[V3.5](https://docs.comfy.org/development/comfy-router/models/pixverse/v3-5/code)| `pixverse/v3.5`| Text| Video  
+[V6 Max](https://docs.comfy.org/development/comfy-router/models/pixverse/v6-max/code)| `pixverse/v6-max`| Text| Video  
+[V6](https://docs.comfy.org/development/comfy-router/models/pixverse/v6/code)| `pixverse/v6`| Text| Video  
+  
+## 
+
+​
+
 Pruna
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code)| `pruna/p-video-2`| Text, Image, Audio| Video + Audio  
+  
+## 
+
+​
+
+Quiver
+
+Model| ID| Input| Output  
+---|---|---|---  
+[Arrow 2 Telos](https://docs.comfy.org/development/comfy-router/models/quiver/arrow-2-telos/code)| `quiver/arrow-2-telos`| Text, Image| Image  
+[Arrow 2](https://docs.comfy.org/development/comfy-router/models/quiver/arrow-2/code)| `quiver/arrow-2`| Text, Image| Image  
   
 ## 
 

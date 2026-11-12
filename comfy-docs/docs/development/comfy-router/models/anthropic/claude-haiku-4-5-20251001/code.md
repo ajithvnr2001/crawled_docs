@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/anthropic/claude-haiku-4-5-20251001/code/
 title: Use Claude Haiku 4.5 20251001 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:46.595107+00:00
+fetched_at: 2026-11-12T15:52:23.559260+00:00
 ---
 
 # Use Claude Haiku 4.5 20251001 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:46.595107+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/anthropic/claude-haiku-4-5-20251001/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -257,7 +259,7 @@ stream
 
 boolean
 
-When true, the response is a `text/event-stream` of Anthropic message events instead of a single JSON body.
+On the Comfy Router route `POST /v2/models/anthropic/{model}`, `stream` is INERT: Router SETTLES it to `false` before dispatch and always returns the completed message as one JSON document. On the v1 `POST /proxy/anthropic/v1/messages` route, `true` makes the response a `text/event-stream` of Anthropic message events instead of a single JSON body. Send `stream` false or omit it on Router; the `text/event-stream` half of the `/proxy/` operation’s 200 has no Router counterpart.
 
 ​
 
@@ -466,26 +468,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/anthropic/claude-haiku-4-5-20251001/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/anthropic/claude-haiku-4-5-20251001/code)
 
-[Use Claude Fable 5 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5/code)[Use Claude Opus 4.6 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-opus-4-6/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Claude Fable 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5/code)[Claude Opus 4.6](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-opus-4-6/code)

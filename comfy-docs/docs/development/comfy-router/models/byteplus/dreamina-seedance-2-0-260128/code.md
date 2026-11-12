@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code/
 title: Use Dreamina Seedance 2.0 260128 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:43.094744+00:00
+fetched_at: 2026-11-12T15:52:19.973089+00:00
 ---
 
 # Use Dreamina Seedance 2.0 260128 with Comfy Router - ComfyUI
@@ -213,6 +213,7 @@ This model is served by Comfy Router directly unless the request names another p
   * **Comfy** (default): `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128`
   * **fal** , as `fal/fal-seedance-2.0`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128?model_provider=fal`
   * **Higgsfield** , as `higgsfield/higgsfield-seedance-2.0`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128?model_provider=higgsfield`
+  * **Kelly** , as `kelly/kelly-seedance-2.0`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128?model_provider=kelly`
   * **Pika** , as `pika/pika-seedance-2.0`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128?model_provider=pika`
   * **Runware** , as `runware/runware-seedance-2.0`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128?model_provider=runware`
   * **WaveSpeed** , as `wavespeed/wavespeed-seedance-2.0`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-260128?model_provider=wavespeed`
@@ -273,7 +274,7 @@ content[].draft_task
 
 object
 
-Seedance 2.5 only. The Draft task to render as the final video. It must be the only content item. The final video reuses the Draft task’s prompt, input assets, duration, ratio, seed, generate_audio and omni_reference_task_type; do not send them again. resolution defaults to and only supports 1080p.
+Seedance 2.5 only. The Draft task to render as the final video. It must be the only content item. The final video reuses the Draft task’s prompt, input assets, duration, ratio, seed, generate_audio and omni_reference_task_type; do not send them again. Set resolution on this request for the final’s output tier, including 4k; when it is omitted the final is 1080p.
 
 ​
 
@@ -363,15 +364,15 @@ boolean
 
 default:"false"
 
-Seedance 2.5 only. Generates a 480p Draft video; resolution must be 480p. Pass the returned task ID in a `draft_task` content item to render the final 1080p video. The Draft task ID stays valid for 7 days.
+Seedance 2.5 only. Generates a 480p Draft video; resolution must be 480p. Pass the returned task ID in a `draft_task` content item to render the final video. That request sets the final’s resolution, including 4k; when resolution is omitted the final is 1080p. The Draft task ID stays valid for 7 days.
 
 ​
 
 duration
 
-`-1` | object
+integer
 
-Video duration in seconds. Seedance 2.5: [4,30] or -1 (auto; video editing tasks support only -1). Seedance 2.0, 2.0 fast & 2.0 mini: [4,15] or -1 (auto). Seedance 1.5 pro: [4,12] or -1. Seedance 1.0: [2,12].Range: `2` to `30`
+Video duration in seconds. Seedance 2.0, 2.0 fast and 2.0 mini: [4,15] or -1 (auto).Possible values: `-1`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`
 
 ​
 
@@ -401,6 +402,14 @@ The ID of the model to call. Supported models: seedance-1-5-pro-251215, seedance
 
 ​
 
+omni_reference_task_type
+
+string
+
+Seedance 2.5 only. The task the reference media is used for. Omitted means auto: the model infers the task from the prompt and the reference media, and a setting that conflicts with its reading (such as `duration` or `ratio` on what it reads as an edit) is resolved only after generation has started, which is billed. reference: Generates a new video of the requested `duration`, guided by the reference images, videos and audio. edit: Changes the connected reference video. The output keeps the source clip’s own length and aspect ratio, so send `duration: -1` and omit `ratio` (or send `adaptive`). extend: Continues the reference video. The output is only the newly generated segment, of the requested `duration`; its aspect ratio follows the clip. An explicit value is validated by the provider at submit (`InvalidParameter.TaskTypeConstraint` / `TaskTypeMismatch`), so a value that does not fit the request fails before generation starts and is not billed; auto has no such check. That check runs on the native BytePlus leg only: an alternate provider leg (on fallback, or picked with `model_provider`) has no task-type field, drops the value, and that provider infers the task itself, as with auto. The drop is disclosed in `X-Comfy-Router-Dropped-Params`, on the synchronous run route’s response and on the queued submit’s `201`. The queued route has no fallback, so it reaches an alternate leg only through `model_provider`.Possible values: `reference`, `edit`, `extend`
+
+​
+
 output_format
 
 string
@@ -423,7 +432,7 @@ resolution
 
 string
 
-Video resolution. Seedance 2.5, 2.0, 2.0 fast & 2.0 mini, 1.5 pro, 1.0 lite default: 720p. Seedance 1.0 pro & pro-fast default: 1080p. Note: Seedance 2.0, 2.0 fast & 2.0 mini do not support 1080p. Seedance 2.5 supports 480p, 720p, and 1080p.Possible values: `480p`, `720p`, `1080p`, `4k`
+Video resolution. Seedance 2.5, 2.0, 2.0 fast & 2.0 mini, 1.5 pro, 1.0 lite default: 720p. Seedance 1.0 pro & pro-fast default: 1080p. Note: Seedance 2.0, 2.0 fast & 2.0 mini do not support 1080p. Seedance 2.5 supports 480p, 720p, 1080p, and 4k.Possible values: `480p`, `720p`, `1080p`, `4k`
 
 ​
 

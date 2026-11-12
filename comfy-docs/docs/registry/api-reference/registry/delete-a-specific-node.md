@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/delete-a-specific-node/
 title: Delete a specific node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:08.789286+00:00
+fetched_at: 2026-11-12T15:52:17.601133+00:00
 ---
 
 # Delete a specific node - ComfyUI
