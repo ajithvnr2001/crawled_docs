@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/volumetric-abuse-detection/
 title: Volumetric Abuse Detection \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:19.638803+00:00
+fetched_at: 2026-11-12T09:30:26.581799+00:00
 ---
 
 # Volumetric Abuse Detection · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:19.638803+00:00
 
 # Volumetric Abuse Detection
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/volumetric-abuse-detection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcess Requirements Rate limiting recommendation calculation Create rate limitsAPISpecial cases Rate limit by JWT claim Rate limit by user tierLimitationsAvailability
 
@@ -121,7 +121,7 @@ A configured session identifier alone does not guarantee a recommendation. Cloud
 
 ## Availability
 
-Volumetric Abuse Detection is only available for Enterprise customers. If you are an Enterprise customer interested in this product, contact your account team.
+Volumetric Abuse Detection requires the paid API Shield add-on on an Enterprise plan.
 
 [PreviousDiscovery](https://developers.cloudflare.com/api-shield/security/api-discovery/)[NextSequence Analytics](https://developers.cloudflare.com/api-shield/security/sequence-analytics/)
 

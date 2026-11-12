@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/
 title: Migrate from Vercel to Cloudflare Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:45.990114+00:00
+fetched_at: 2026-11-12T09:30:25.752889+00:00
 ---
 
 # Migrate from Vercel to Cloudflare Workers · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-06T09:03:45.990114+00:00
 
 # Migrate from Vercel to Cloudflare Workers
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose your frameworkBefore you beginMigrate a static site or single-page applicationMap Vercel features to CloudflareMove environment variables and secretsRestore caching for hashed assetsReplace ISR and edge cachingAdd a custom domainRoll back a deploymentDelete your Vercel appTroubleshooting
 

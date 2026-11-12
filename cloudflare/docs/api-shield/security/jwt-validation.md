@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/jwt-validation/
 title: JSON Web Tokens validation \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:18.779771+00:00
+fetched_at: 2026-11-12T09:30:26.970382+00:00
 ---
 
 # JSON Web Tokens validation · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:18.779771+00:00
 
 # JSON Web Tokens validation
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/jwt-validation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcess Add a token validation configuration Act on JWT validation results Add a JWT validation ruleSpecial cases Validate two JWTs with different identity providers on a single request Support a migration from one identity provider to another JSON Web Tokens with the Bearer prefix Rate limit by JWT claim Rate limit by user tier Ignore OPTIONS pre-flight CORS requestsAvailabilityLimitations
 
@@ -198,7 +198,7 @@ If you expect web browsers to be valid clients of your API, and to prevent block
 
 ## Availability
 
-JWT validation is available for all API Shield customers. Enterprise customers who have not purchased API Shield can preview [API Shield as a non-contract service ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/security/api-shield) in the Cloudflare dashboard or by contacting your account team.
+JWT validation requires the paid API Shield add-on on an Enterprise plan.
 
 * * *
 

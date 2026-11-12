@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/configuration/
 title: Configuration - Wrangler \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:01.847034+00:00
+fetched_at: 2026-11-12T09:30:24.156888+00:00
 ---
 
 # Configuration - Wrangler · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:01:01.847034+00:00
 
 # Configuration
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Flagship Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
 
@@ -48,7 +48,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-10",
+    	"compatibility_date": "2026-11-12",
     	"workers_dev": false,
     	"route": {
     		"pattern": "example.org/*",
@@ -83,7 +83,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-10"
+    compatibility_date = "2026-11-12"
     workers_dev = false
     
     [route]

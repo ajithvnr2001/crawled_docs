@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/how-to/deploy-worker/
 title: Deploy a Browser Run Worker \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:36.954918+00:00
+fetched_at: 2026-11-12T09:30:28.385057+00:00
 ---
 
 # Deploy a Browser Run Worker · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:36.954918+00:00
 
 # Deploy a Browser Run Worker
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/how-to/deploy-worker/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRelated resources
 
@@ -31,7 +31,9 @@ By following this guide, you will create a Worker that uses the Browser Run API 
 
 Node.js version manager
 
-Use a Node version manager like [Volta ↗︎](https://volta.sh/) or [nvm ↗︎](https://github.com/nvm-sh/nvm) to avoid permission issues and change Node.js versions. [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), discussed later in this guide, requires a Node version of `16.17.0` or later.
+Use [Vite+ (`vp env`) ↗︎](https://viteplus.dev/guide/env) to install and manage Node.js versions.
+
+For supported Node.js versions, refer to the [Wrangler system requirements](https://developers.cloudflare.com/workers/wrangler/install-and-update/#install-wrangler).
 
 #### 1\. Create a Worker project
 
@@ -56,6 +58,7 @@ For setup, select the following options:
   * For _Which template would you like to use?_ , choose `Worker only`.
   * For _Which language do you want to use?_ , choose `JavaScript / TypeScript`.
   * For _Do you want to use git for version control?_ , choose `Yes`.
+  * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
   * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 
@@ -103,8 +106,9 @@ Update your [Wrangler configuration file](https://developers.cloudflare.com/work
     	"$schema": "./node_modules/wrangler/config-schema.json",
     	"name": "browser-worker",
     	"main": "src/index.js",
+    	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-12",
     	"compatibility_flags": ["nodejs_compat"],
     	"browser": {
     		"binding": "MYBROWSER"
@@ -122,8 +126,9 @@ Update your [Wrangler configuration file](https://developers.cloudflare.com/work
     "$schema" = "./node_modules/wrangler/config-schema.json"
     name = "browser-worker"
     main = "src/index.js"
+    upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-12"
     compatibility_flags = [ "nodejs_compat" ]
     
     [browser]
@@ -238,7 +243,7 @@ To take your first screenshot, go to the following URL:
 
 ## Related resources
 
-  * Other [Puppeteer examples ↗︎](https://github.com/cloudflare/puppeteer/tree/main/examples)
+  * Other [Puppeteer examples](https://developers.cloudflare.com/browser-run/examples/#browser-automation-examples)
 
 
 

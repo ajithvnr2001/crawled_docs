@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/
 title: Serving a subdirectory \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:04.212770+00:00
+fetched_at: 2026-11-12T09:30:23.488236+00:00
 ---
 
 # Serving a subdirectory · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-29T08:14:04.212770+00:00
 
 # Serving a subdirectory
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Set `assets.base_path` to serve static assets from a URL subpath. The files remain at the root of `assets.directory`.
 
@@ -67,6 +67,10 @@ Set `assets.base_path` to `/blog` in your Wrangler configuration file:
     base_path = "/blog"
 
 Requests to `example.com/blog/` serve `dist/index.html`. Requests to `example.com/blog/posts/post1` serve `dist/posts/post1.html`.
+
+Your Worker's [routes](https://developers.cloudflare.com/workers/configuration/routing/routes/) must include the base path. For example, if your Worker only runs on `example.com/api/*`, requests to `example.com/blog/` do not reach your Worker or its static assets.
+
+If you build with the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), also set Vite's `base` option to `/blog/`. Refer to [Serve assets from a URL path prefix](https://developers.cloudflare.com/workers/vite-plugin/reference/static-assets/#serve-assets-from-a-url-path-prefix).
 
 Requests outside `/blog` do not resolve static assets. Requests made through the [assets binding](https://developers.cloudflare.com/workers/static-assets/binding/#binding) also use the mounted public path. Forwarding the original request works unchanged. When constructing a request, include `/blog` in its pathname, for example, `env.ASSETS.fetch("https://assets.local/blog/posts/post1")`.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/management-and-monitoring/endpoint-labels/
 title: Endpoint labeling service \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:17.884472+00:00
+fetched_at: 2026-11-12T09:30:27.282498+00:00
 ---
 
 # Endpoint labeling service · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:17.884472+00:00
 
 # Endpoint labeling service
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/management-and-monitoring/endpoint-labels/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCategories Managed labels Risk labelsAnalytics GraphQL Analytics API LogpushCreate a labelApply a label to an individual endpointBulk apply labels to multiple endpointsAvailability
 
@@ -252,7 +252,7 @@ Alternatively, you can create a user-defined label via **Security** > **Web Asse
 
 ## Availability
 
-User-defined endpoint labels are available to all customers. Managed endpoint labels require an API Shield subscription.
+User-defined endpoint labels are available to all customers. Managed endpoint labels require the paid API Shield add-on on an Enterprise plan.
 
 [PreviousSchema learning](https://developers.cloudflare.com/api-shield/management-and-monitoring/endpoint-management/schema-learning/)[NextSession identifiers](https://developers.cloudflare.com/api-shield/management-and-monitoring/session-identifiers/)
 

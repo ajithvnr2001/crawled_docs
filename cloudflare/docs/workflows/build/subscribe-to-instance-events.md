@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/subscribe-to-instance-events/
 title: Subscribe to instance events \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:02.365990+00:00
+fetched_at: 2026-11-12T09:30:24.265877+00:00
 ---
 
 # Subscribe to instance events · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:01:02.365990+00:00
 
 # Subscribe to instance events
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSubscribe to all eventsFilter eventsResume from a cursorSensitive outputsDispose of a subscriptionEvent fields Workflow lifecycle events Step and attempt events Sleep and wait events Rollback events
 

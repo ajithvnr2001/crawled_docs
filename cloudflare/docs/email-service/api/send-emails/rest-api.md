@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
 title: REST API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:23.194845+00:00
+fetched_at: 2026-11-12T09:30:27.777604+00:00
 ---
 
 # REST API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # REST API
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthenticationRequest exampleAttachmentsCustom headersResponseError responsesRelated resources
 
@@ -82,21 +82,21 @@ For inline images and file uploads, refer to [Email attachments](https://develop
 
 ## Custom headers
 
-Set custom headers for threading, list management, or tracking. Refer to the [email headers reference](https://developers.cloudflare.com/email-service/reference/headers/) for the full list of allowed headers.
+Set custom headers for threading or tracking. Refer to the [email headers reference](https://developers.cloudflare.com/email-service/reference/headers/) for the full list of allowed headers.
     
     
     curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/send" \
       --header "Authorization: Bearer <API_TOKEN>" \
       --header "Content-Type: application/json" \
       --data '{
-        "to": "user@example.com",
-        "from": "notifications@yourdomain.com",
-        "subject": "Your weekly digest",
-        "html": "<h1>Weekly Digest</h1>",
+        "to": "customer@example.com",
+        "from": "support@yourdomain.com",
+        "subject": "Re: Support request #12345",
+        "html": "<p>Your support request has been updated.</p>",
         "headers": {
-          "List-Unsubscribe": "<https://yourdomain.com/unsubscribe?id=abc123>",
-          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
-          "X-Campaign-ID": "weekly-digest-2026-03"
+          "In-Reply-To": "<original-message-id@yourdomain.com>",
+          "References": "<original-message-id@yourdomain.com>",
+          "X-Case-ID": "12345"
         }
       }'
 

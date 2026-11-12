@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/custom-domains/
 title: Custom domains \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:28.475070+00:00
+fetched_at: 2026-11-12T09:30:26.741774+00:00
 ---
 
 # Custom domains · Cloudflare Pages docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:12:28.475070+00:00
 
 # Custom domains
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/configuration/custom-domains/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAdd a custom domain Add a custom apex domain Add a custom subdomainDelete a custom domainDisable access to *.pages.dev subdomainCachingKnown issues CAA records Change DNS entry away from Pages and then back againRelevant resources
+OverviewAdd a custom domain Add a custom apex domain Add a custom subdomainDelete a custom domainDisable access to *.pages.dev subdomainZone settingsCachingKnown issues CAA records Change DNS entry away from Pages and then back againRelevant resources
 
 When deploying your Pages project, you may wish to point custom domains (or subdomains) to your site.
 
@@ -107,6 +107,22 @@ To disable access to your project's provided `*.pages.dev` subdomain:
 
 
 
+
+## Zone settings
+
+When a [proxied CNAME record](https://developers.cloudflare.com/dns/proxy-status/) points your custom domain to Pages, requests pass through your zone before reaching your Pages project. Your configured Web Application Firewall (WAF), Redirect Rules, Transform Rules, Cache Rules, and Bot Management settings apply according to your plan and configuration.
+
+A block, redirect, or cached response in your zone can end a request before it reaches Pages. Requests that continue to Pages also use Cloudflare-managed Pages settings.
+
+Some settings are managed separately from your zone:
+
+Setting | Pages behavior  
+---|---  
+Minimum Transport Layer Security (TLS) version and cipher suites | Pages manages these settings for the custom hostname. Your zone's [minimum TLS version](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/minimum-tls/#availability) and [cipher suites](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/#limitations) settings do not apply. You cannot customize these settings for Pages hostnames.  
+Browser Integrity Check | Pages can block a request even when you turn off or skip Browser Integrity Check in your zone. Refer to [Browser Integrity Check on Pages](https://developers.cloudflare.com/pages/platform/known-issues/#browser-integrity-check).  
+Early Hints | Pages enables Early Hints independently of your zone's setting. Refer to [Early Hints](https://developers.cloudflare.com/pages/configuration/early-hints/#disable-early-hints-on-pages).  
+  
+With a DNS-only record or an external DNS provider, requests do not pass through your zone's HTTP settings. Pages-managed settings still apply.
 
 ## Caching
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/management-and-monitoring/endpoint-management/
 title: Endpoint Management \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:26.594784+00:00
+fetched_at: 2026-11-12T09:30:27.118463+00:00
 ---
 
 # Endpoint Management · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:26.594784+00:00
 
 # Endpoint Management
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess Review discovered operations Add operations from Schema validation Add operations manually Edit operations Start profile learning Delete operations manuallyOperation analysisUsing the Cloudflare APISensitive Data DetectionLimitations
 
@@ -32,7 +32,7 @@ Cloudflare discovered operations are only added to the inventory. To start profi
 
 Schema Profile availability
 
-Customers with API Security already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without API Security. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
+Customers with the API Security entitlement already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without the API Security entitlement. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
 
 Note
 

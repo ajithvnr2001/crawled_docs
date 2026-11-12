@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/how-to/extract-brand-kit/
 title: Extract a brand kit from any website \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.699811+00:00
+fetched_at: 2026-11-12T09:30:28.208058+00:00
 ---
 
 # Extract a brand kit from any website · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.699811+00:00
 
 # Extract a brand kit from any website
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a Worker project2\. Install Puppeteer3\. Create a KV namespace4\. Configure Browser Run5\. Write the in-page extraction script6\. Drive the browser and return the brand kit7\. Test the extractor8\. DeployExtend the extractorProduction considerationsRelated resources
 
@@ -113,7 +113,7 @@ Add a Browser Run binding, the KV namespace, and the [Node.js compatibility flag
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-11-12",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -133,7 +133,7 @@ Add a Browser Run binding, the KV namespace, and the [Node.js compatibility flag
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-12"
     compatibility_flags = ["nodejs_compat"]
     
     # Browser Run binding — driven by Puppeteer.
@@ -723,7 +723,7 @@ Note
   * [Cloudflare's Puppeteer fork](https://developers.cloudflare.com/browser-run/puppeteer/)
   * [Browser Run limits](https://developers.cloudflare.com/browser-run/limits/)
   * [Workers KV](https://developers.cloudflare.com/kv/)
-  * [Other Puppeteer examples ↗︎](https://github.com/cloudflare/puppeteer/tree/main/examples)
+  * [Other Puppeteer examples](https://developers.cloudflare.com/browser-run/examples/#browser-automation-examples)
 
 
 

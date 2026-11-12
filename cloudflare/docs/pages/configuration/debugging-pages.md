@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/debugging-pages/
 title: Debugging Pages \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:05.168049+00:00
+fetched_at: 2026-11-12T09:30:26.644228+00:00
 ---
 
 # Debugging Pages · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:04:05.168049+00:00
 
 # Debugging Pages
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCheck your build log Initializing build environment Cloning git repository Building application Deploying to Cloudflare's global networkDifferences between pages.dev and custom domainsDomain stuck in verification Blocked HTTP validation Missing CAA records Zone holds Missing index.html on the root pages.dev URLResources
 
@@ -104,11 +104,13 @@ If you are not using Functions or have reviewed that your Functions configuratio
 
 ## Differences between `pages.dev` and custom domains
 
-If your custom domain is proxied ([orange-clouded](https://developers.cloudflare.com/dns/proxy-status/#benefits)) through Cloudflare, your zone's settings, like caching, will apply.
+If your custom domain is [proxied](https://developers.cloudflare.com/dns/proxy-status/) through Cloudflare, requests use both [your zone's settings and Pages-managed settings](https://developers.cloudflare.com/pages/configuration/custom-domains/#zone-settings). If behavior differs from your `pages.dev` domain, review the security, redirect, transform, and cache rules that match your custom hostname.
 
-If you are experiencing issues with new content not being shown, go to **Rules** > **Page Rules** in the Cloudflare dashboard and check for a Page Rule with **Cache Everything** enabled. If present, remove this rule as Pages handles its own cache.
+If new content does not appear after a deployment, check for Cache Rules or legacy Page Rules, such as **Cache Everything** , that cache responses on your custom domain. Refer to [Caching and performance](https://developers.cloudflare.com/pages/configuration/serving-pages/#caching-and-performance) for guidance on changing these rules and purging stale content.
 
-If you are experiencing errors on your custom domain but not on your `pages.dev` domain, go to **DNS** > **Records** in the Cloudflare dashboard and set the DNS record for your project to be **DNS Only** (grey cloud). If the error persists, review your zone's configuration.
+A DNS-only comparison bypasses your zone's HTTP settings, including security rules, but still uses Pages-managed settings. It does not isolate every custom domain issue. [Custom domains for branch aliases](https://developers.cloudflare.com/pages/how-to/custom-branch-aliases/) require proxied DNS records. Unproxied records route to the production branch instead.
+
+If a request returns [Error 1010](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/), check [Browser Integrity Check on Pages](https://developers.cloudflare.com/pages/platform/known-issues/#browser-integrity-check). Turning off or skipping this check in your zone does not turn it off in Pages.
 
 ## Domain stuck in verification
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/graphql-protection/
 title: GraphQL malicious query protection \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:18.248727+00:00
+fetched_at: 2026-11-12T09:30:26.839214+00:00
 ---
 
 # GraphQL malicious query protection · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:18.248727+00:00
 
 # GraphQL malicious query protection
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/graphql-protection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityLimitations
 
@@ -28,7 +28,7 @@ GraphQL malicious query protection scans your GraphQL traffic for queries that c
 
 ## Availability
 
-GraphQL malicious query protection is available for all API Shield customers. Enterprise customers who have not purchased API Shield can preview [API Shield as a non-contract service ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/security/api-shield) in the Cloudflare dashboard or by contacting your account team.
+GraphQL malicious query protection requires the paid API Shield add-on on an Enterprise plan.
 
 ## Limitations
 

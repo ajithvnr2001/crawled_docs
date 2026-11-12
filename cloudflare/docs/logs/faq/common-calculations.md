@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/faq/common-calculations/
 title: Common calculations FAQ \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:01.494652+00:00
+fetched_at: 2026-11-12T09:30:25.585377+00:00
 ---
 
 # Common calculations FAQ · Cloudflare Logs docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:01:01.494652+00:00
 
 # Common calculations FAQ
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview How can I calculate bytes served by the origin from Cloudflare Logs? How do I calculate bandwidth usage for my zone?
 
@@ -33,6 +33,8 @@ To approximate bytes served by the origin, use the `CacheResponseBytes` field in
 ### How do I calculate bandwidth usage for my zone?
 
 Bandwidth (or data transfer) can be calculated by adding the `EdgeResponseBytes` field in HTTP request logs. There are some types of requests that are not factored into bandwidth calculations. In order to only include relevant requests in calculations, add the filter `ClientRequestSource = 'eyeball'`.
+
+`EdgeResponseBytes` counts response bytes when Cloudflare sends them, so for requests that the client cancels before the response is complete, it can include data the client never received. Refer to [Responses the client stops reading](https://developers.cloudflare.com/cache/troubleshooting/edge-vs-cache-response-bytes/#responses-the-client-stops-reading).
 
 Was this helpful?
 

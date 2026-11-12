@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/vite-plugin/reference/static-assets/
 title: Static Assets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:04.354760+00:00
+fetched_at: 2026-11-12T09:30:23.755138+00:00
 ---
 
 # Static Assets · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-29T08:14:04.354760+00:00
 
 # Static Assets
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewConfigurationFeaturesHeaders and redirects
+OverviewConfiguration Serve assets from a URL path prefixFeaturesHeaders and redirects
 
 This guide focuses on the areas of working with static assets that are unique to the Vite plugin. For more general documentation, see [Static Assets](https://developers.cloudflare.com/workers/static-assets/).
 
@@ -60,7 +60,37 @@ The `assets` configuration should be used, however, if you wish to set [routing 
     [assets]
     not_found_handling = "single-page-application"
 
-To serve built assets from a URL path prefix, set `assets.base_path` in your Wrangler configuration or `worker.assets.basePath` in [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/). Refer to [Serving a subdirectory](https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/).
+### Serve assets from a URL path prefix
+
+To serve built assets from a URL path prefix, set `assets.base_path` in your Wrangler configuration file or `worker.assets.basePath` in [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/).
+
+You must also set Vite's [`base` ↗︎](https://vite.dev/config/shared-options#base) option to the same path, with a trailing slash. Otherwise, your built HTML references JavaScript and CSS files at the root of your domain, and those requests do not match your static assets.
+
+For example, to serve your application from `/app/`:
+    
+    
+    {
+    	"assets": {
+    		"base_path": "/app"
+    	}
+    }
+    
+    
+    [assets]
+    base_path = "/app"
+
+vite.config.tsts
+    
+    
+    import { cloudflare } from "@cloudflare/vite-plugin";
+    import { defineConfig } from "vite";
+    
+    export default defineConfig({
+    	base: "/app/",
+    	plugins: [cloudflare()],
+    });
+
+For more information, refer to [Serving a subdirectory](https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/).
 
 ## Features
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/reference/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:01.750636+00:00
+fetched_at: 2026-11-12T09:30:26.190262+00:00
 ---
 
 # Troubleshooting · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:01.750636+00:00
 
 # Troubleshooting
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequests without resizing enabledError responses from resizingWarnings from resizing cache-control is too restrictiveLimitsAuthorization and cookies are not supportedCaching and purging Purge when using URL rewrite rules
 
@@ -51,7 +51,7 @@ When resizing fails, the response body contains an error message explaining the 
   * 9420 — The origin server redirected to an invalid URL. Confirm settings at your origin and try again.
   * 9421 — The origin server redirected too many times. Confirm settings at your origin and try again.
   * 9422 - The transformation request is rejected because the usage limit was reached. If you need to request more than 5,000 unique transformations, upgrade to an Images Paid plan.
-  * 9432 — The Images Binding is not available using legacy billing. Your account is using the legacy Image Resizing subscription. To bind Images to your Worker, you will need to update your plan to the Images subscription in the dashboard.
+  * 9432 — The request was rejected as invalid. The response body contains the specific reason. Common causes include a malformed or incomplete [Images binding](https://developers.cloudflare.com/images/optimization/binding/) request (for example, a missing image, an invalid output format, quality, or background value, or too many transforms), an overlay image that could not be fetched, or a mismatch between the `Content-Length` header and the response body returned by the origin. This error is also returned when an account on the legacy Image Resizing subscription uses the Images binding. To use the binding, switch to the Images subscription in the dashboard.
   * 9504, 9505, & 9510 — The origin server could not be contacted because the origin server may be down or overloaded. Try again later.
   * 9519 - The origin server could not be reached for an unexpected reason (e.g. DNS resolution failure). Ensure the origin is reachable via public DNS.
   * 9523 — The `/cdn-cgi/image/` resizing service could not perform resizing. This may happen when an image has invalid format. Use correctly formatted image and try again.

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/
 title: Overview \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:17.343150+00:00
+fetched_at: 2026-11-12T09:30:27.413072+00:00
 ---
 
 # Overview · Cloudflare API Shield docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:05:17.343150+00:00
 
 # Cloudflare API Shield
 
-Last updated Aug 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy care about API security?FeaturesUse Schema ProfilesAvailabilityRelated products
 
@@ -67,11 +67,11 @@ Use API Shield for API inventory, OpenAPI governance, profile export, automation
 
 ## Availability
 
-Cloudflare API Security products are available to Enterprise customers only. Anyone can set up [Mutual TLS](https://developers.cloudflare.com/api-shield/security/mtls/) with a Cloudflare-managed certificate authority.
+Unless specified otherwise on a feature page, API Shield features require the paid API Shield add-on on an Enterprise plan. Anyone can set up [Mutual TLS](https://developers.cloudflare.com/api-shield/security/mtls/) with a Cloudflare-managed certificate authority.
 
-The full API Shield security suite is available as an Enterprise paid add-on. Refer to [API Shield plans](https://developers.cloudflare.com/api-shield/plans/) for feature-specific availability.
+Refer to [API Shield plans](https://developers.cloudflare.com/api-shield/plans/) for resource limits by zone plan.
 
-Customers with API Security already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without API Security. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
+Customers with the API Security entitlement already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without the API Security entitlement. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
 
 Note
 

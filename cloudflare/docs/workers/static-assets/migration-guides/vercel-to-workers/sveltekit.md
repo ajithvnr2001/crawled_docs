@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/sveltekit/
 title: Migrate SvelteKit from Vercel to Cloudflare Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:45.045432+00:00
+fetched_at: 2026-11-12T09:30:24.479738+00:00
 ---
 
 # Migrate SvelteKit from Vercel to Cloudflare Workers · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-06T09:03:45.045432+00:00
 
 # Migrate SvelteKit from Vercel to Cloudflare Workers
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you beginMigrate with a coding agentMigrate manuallyKnown issuesRelated resources
+OverviewBefore you beginMigrate with a coding agentMigrate manuallyTroubleshootingRelated resources
 
 This guide moves a [SvelteKit ↗︎](https://svelte.dev/docs/kit) application from Vercel to Cloudflare Workers. You replace `@sveltejs/adapter-vercel` or `@sveltejs/adapter-auto` with [`@sveltejs/adapter-cloudflare` ↗︎](https://svelte.dev/docs/kit/adapter-cloudflare).
 
@@ -52,11 +52,11 @@ Copy this prompt into your coding agent. The agent stops before it deploys.
     
     Migrate this SvelteKit app from Vercel to Cloudflare Workers (Workers with Static Assets, not Pages).
     
-    0. Detect the package manager from the lockfile (<pm>) and install dependencies. If the lockfile comes from an older package manager major version, regenerate it in its own commit. With pnpm 10 or later, run `pnpm approve-builds esbuild workerd` if an install reports ERR_PNPM_IGNORED_BUILDS. If package.json has no "name", add one.
+    0. Detect the package manager from the lockfile (<pm>) and install dependencies. If the lockfile comes from an older package manager major version, regenerate it in its own commit. With pnpm 10 or later, run `pnpm approve-builds --all` if an install reports ERR_PNPM_IGNORED_BUILDS. Run it again after you install wrangler, which adds workerd. If package.json has no "name", add one.
     1. Detect the installed @sveltejs/kit version from node_modules/@sveltejs/kit/package.json.
        - 2.x or 3.x: keep that major version. Do not combine the hosting move with a SvelteKit major upgrade.
        - Earlier than 2 (1.x or 1.0.0-next.*): no Cloudflare Workers adapter supports it. Upgrade to the latest SvelteKit 2 in a separate commit, and keep the current adapter. Target @sveltejs/kit@^2, svelte@^5 (keep the legacy syntax), vite@^7, @sveltejs/vite-plugin-svelte@^6, typescript@^5, and svelte-check@^4. `npx sv migrate` is interactive and has no codemod for pre-1.0 APIs, so make these changes by hand:
-         - kit.methodOverride and POST, PATCH, or DELETE exports in +page.server become named `export const actions`, with `action="?/name"`.
+         - kit.methodOverride and POST, PATCH, or DELETE exports in +page.server become named `export const actions`, with `action="?/name"`. Delete kit.methodOverride from svelte.config.js, because SvelteKit 2 rejects it.
          - Custom form enhance functions become `enhance` from $app/forms.
          - $app/env becomes $app/environment.
          - `export const hydrate` and `export const router` become `csr`.
@@ -144,7 +144,7 @@ On SvelteKit 3, pass the adapter to the `sveltekit()` plugin in `vite.config.js`
          	"name": "<YOUR_PROJECT_NAME>",
          	"main": ".svelte-kit/cloudflare/_worker.js",
          	// Set this to today's date
-         	"compatibility_date": "2026-11-06",
+         	"compatibility_date": "2026-11-12",
          	"assets": {
          		"binding": "ASSETS",
          		"directory": ".svelte-kit/cloudflare",
@@ -158,7 +158,7 @@ On SvelteKit 3, pass the adapter to the `sveltekit()` plugin in `vite.config.js`
          name = "<YOUR_PROJECT_NAME>"
          main = ".svelte-kit/cloudflare/_worker.js"
          # Set this to today's date
-         compatibility_date = "2026-11-06"
+         compatibility_date = "2026-11-12"
          
          [assets]
          binding = "ASSETS"
@@ -233,7 +233,7 @@ Pre-1.0 SvelteKit applications need these changes when you upgrade to SvelteKit 
 
 Pre-1.0 API | SvelteKit 2 replacement  
 ---|---  
-`kit.methodOverride` and `POST`/`PATCH`/`DELETE` exports | Named form actions with `action="?/name"`  
+`kit.methodOverride` and `POST`/`PATCH`/`DELETE` exports | Named form actions with `action="?/name"`. Remove `kit.methodOverride` from `svelte.config.js`.  
 Custom form `enhance` helpers | `enhance` from `$app/forms`  
 `$app/env` | `$app/environment`  
 `export const hydrate` and `export const router` | `export const csr`  
@@ -244,9 +244,10 @@ Self-closing non-void tags, such as `<button />` | `<button></button>`
   
 After the upgrade, cookies set by SvelteKit include `Secure` and `SameSite=Lax`. Cross-site form submissions return `403`.
 
-## Known issues
+## Troubleshooting
 
   * **The build fails with`Cannot read properties of undefined (reading 'assets')`.** You installed adapter version 8 on SvelteKit 2. Install `@sveltejs/adapter-cloudflare@^7`.
+  * **The build fails with`Unexpected option config.kit.methodOverride`.** SvelteKit 2 removed `methodOverride`. Delete it from `svelte.config.js` and use named form actions.
   * **The build fails with`Types file not found`.** Run `npx wrangler types` before you build.
   * **Cron jobs have no scheduled handler.** `adapter-cloudflare` does not export a `scheduled()` handler. Use a separate Worker with a [Cron Trigger](https://developers.cloudflare.com/workers/configuration/cron-triggers/) that calls an authenticated endpoint.
   * **Prerendered pages skip your hooks.** Workers serves prerendered pages as static assets, so `hooks.server.js` does not run for them. Vercel behaves the same way.

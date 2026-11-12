@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/
 title: Multipart upload metadata \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:04.283928+00:00
+fetched_at: 2026-11-12T09:30:23.669464+00:00
 ---
 
 # Multipart upload metadata · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:04.283928+00:00
 
 # Multipart upload metadata
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample metadataAttributesAdditional attributes: Workers Script Upload APIAdditional attributes: Version Upload APIBindings
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/examples/email-sending/recipients/
 title: Specify recipients \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:14.222217+00:00
+fetched_at: 2026-11-12T09:30:27.357943+00:00
 ---
 
 # Specify recipients · Cloudflare Email Service docs
@@ -24,7 +24,7 @@ Examples
 
 Specify multiple recipients, CC and BCC, and named addresses when sending with Email Service.
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/examples/email-sending/recipients/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMultiple recipientsCC and BCCNamed recipientsMixed plain and named recipientsNext steps
 
@@ -34,11 +34,11 @@ Email Service lets you specify recipients in several ways — multiple recipient
     
     
     const response = await env.EMAIL.send({
-    	to: ["user1@example.com", "user2@example.com", "user3@example.com"],
-    	from: { email: "newsletter@yourdomain.com", name: "Newsletter Team" },
-    	subject: "Monthly Newsletter",
-    	html: "<h1>This month's updates</h1>",
-    	text: "This month's updates",
+    	to: ["customer@example.com", "accounts@example.com"],
+    	from: { email: "orders@yourdomain.com", name: "Orders" },
+    	subject: "Order #12345 confirmed",
+    	html: "<h1>Your order is confirmed</h1>",
+    	text: "Your order is confirmed.",
     });
     
     
@@ -46,30 +46,30 @@ Email Service lets you specify recipients in several ways — multiple recipient
       --header "Authorization: Bearer <API_TOKEN>" \
       --header "Content-Type: application/json" \
       --data '{
-        "to": ["user1@example.com", "user2@example.com"],
-        "from": { "address": "newsletter@yourdomain.com", "name": "Newsletter Team" },
-        "subject": "Monthly Newsletter",
-        "html": "<h1>This month'\''s updates</h1>",
-        "text": "This month'\''s updates"
+        "to": ["customer@example.com", "accounts@example.com"],
+        "from": { "address": "orders@yourdomain.com", "name": "Orders" },
+        "subject": "Order #12345 confirmed",
+        "html": "<h1>Your order is confirmed</h1>",
+        "text": "Your order is confirmed."
       }'
 
 List every recipient in the `To` header and pass one `--mail-rcpt` flag per address.
     
     
     cat > mail.txt <<EOF
-    From: Newsletter Team <newsletter@yourdomain.com>
-    To: user1@example.com, user2@example.com
-    Subject: Monthly Newsletter
+    From: Orders <orders@yourdomain.com>
+    To: customer@example.com, accounts@example.com
+    Subject: Order #12345 confirmed
     
-    This month's updates
+    Your order is confirmed.
     EOF
     
     curl --ssl-reqd \
       --url "smtps://smtp.mx.cloudflare.net:465" \
       --user "api_token:<API_TOKEN>" \
-      --mail-from "newsletter@yourdomain.com" \
-      --mail-rcpt "user1@example.com" \
-      --mail-rcpt "user2@example.com" \
+      --mail-from "orders@yourdomain.com" \
+      --mail-rcpt "customer@example.com" \
+      --mail-rcpt "accounts@example.com" \
       --upload-file mail.txt
 
 ## CC and BCC
@@ -174,9 +174,9 @@ Combine plain addresses and named addresses in the same `to` field.
     const response = await env.EMAIL.send({
     	to: ["plain@example.com", { email: "jane@example.com", name: "Jane Doe" }],
     	from: "support@yourdomain.com",
-    	subject: "Team update",
-    	html: "<h1>Monthly update</h1>",
-    	text: "Monthly update",
+    	subject: "Support request #12345 updated",
+    	html: "<h1>Your support request was updated</h1>",
+    	text: "Your support request was updated.",
     });
     
     
@@ -189,18 +189,18 @@ Combine plain addresses and named addresses in the same `to` field.
           { "address": "jane@example.com", "name": "Jane Doe" }
         ],
         "from": "support@yourdomain.com",
-        "subject": "Team update",
-        "html": "<h1>Monthly update</h1>",
-        "text": "Monthly update"
+        "subject": "Support request #12345 updated",
+        "html": "<h1>Your support request was updated</h1>",
+        "text": "Your support request was updated."
       }'
     
     
     cat > mail.txt <<EOF
     From: support@yourdomain.com
     To: plain@example.com, Jane Doe <jane@example.com>
-    Subject: Team update
+    Subject: Support request #12345 updated
     
-    Monthly update
+    Your support request was updated.
     EOF
     
     curl --ssl-reqd \
@@ -220,7 +220,7 @@ Combine plain addresses and named addresses in the same `to` field.
 
 
 
-[PreviousWorkers API](https://developers.cloudflare.com/email-service/api/route-emails/email-handler/)[NextUser signup flow](https://developers.cloudflare.com/email-service/examples/email-sending/signup-flow/)
+[PreviousSuppression lists](https://developers.cloudflare.com/email-service/concepts/suppressions/)[NextUser signup flow](https://developers.cloudflare.com/email-service/examples/email-sending/signup-flow/)
 
 Was this helpful?
 

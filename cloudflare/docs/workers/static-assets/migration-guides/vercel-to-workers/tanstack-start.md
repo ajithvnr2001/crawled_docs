@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/tanstack-start/
 title: Migrate TanStack Start from Vercel to Cloudflare Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:45.286868+00:00
+fetched_at: 2026-11-12T09:30:24.840873+00:00
 ---
 
 # Migrate TanStack Start from Vercel to Cloudflare Workers · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-06T09:03:45.286868+00:00
 
 # Migrate TanStack Start from Vercel to Cloudflare Workers
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you beginMigrate with a coding agentMigrate manuallyKnown issuesRelated resources
+OverviewBefore you beginMigrate with a coding agentMigrate manuallyTroubleshootingRelated resources
 
 This guide moves a [TanStack Start ↗︎](https://tanstack.com/start) application from Vercel to Cloudflare Workers. On Vercel, TanStack Start runs through the Nitro Vite plugin. On Workers, the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/) replaces it.
 
@@ -116,7 +116,7 @@ vite.config.tsts
          	"name": "<YOUR_PROJECT_NAME>",
          	"main": "@tanstack/react-start/server-entry",
          	// Set this to today's date
-         	"compatibility_date": "2026-11-06",
+         	"compatibility_date": "2026-11-12",
          	"observability": {
          		"enabled": true,
          	},
@@ -126,7 +126,7 @@ vite.config.tsts
          name = "<YOUR_PROJECT_NAME>"
          main = "@tanstack/react-start/server-entry"
          # Set this to today's date
-         compatibility_date = "2026-11-06"
+         compatibility_date = "2026-11-12"
          
          [observability]
          enabled = true
@@ -197,7 +197,7 @@ npmyarnpnpm
 
 To add [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/), [Queues](https://developers.cloudflare.com/queues/), or [Durable Objects](https://developers.cloudflare.com/durable-objects/), create a custom server entrypoint. For more information, refer to [Custom entrypoints](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/#custom-entrypoints).
 
-## Known issues
+## Troubleshooting
 
   * **Assets are not cached.** Without `public/_headers`, Workers serves files in `/assets/` with `max-age=0, must-revalidate`.
   * **The server function format changes after a lockfile re-resolve.** Re-resolving dependencies can upgrade `seroval`, which changes the server function wire format. Convert old lockfiles instead.

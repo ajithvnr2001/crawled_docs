@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/how-to/pdf-generation/
 title: Generate PDFs Using HTML and CSS \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:36.890921+00:00
+fetched_at: 2026-11-12T09:30:27.937174+00:00
 ---
 
 # Generate PDFs Using HTML and CSS · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:36.890921+00:00
 
 # Generate PDFs Using HTML and CSS
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/how-to/pdf-generation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Define HTML and CSS2\. Load HTML and CSS Into Browser3\. Generate and Return PDFConclusionCustom fonts
 
@@ -196,19 +196,19 @@ Now that you have your fully styled HTML document, you can take the contents and
     const browser = await puppeteer.launch(env.BROWSER);
     const page = await browser.newPage();
 
-The [`page.setContent()` ↗︎](https://github.com/cloudflare/puppeteer/blob/main/docs/api/puppeteer.page.setcontent.md) function can then be used to set the page's HTML contents from a string, so you can pass in your created document directly like so:
+The [`page.setContent()` ↗︎](https://pptr.dev/api/puppeteer.page.setcontent) function can then be used to set the page's HTML contents from a string, so you can pass in your created document directly like so:
     
     
     await page.setContent(document);
 
 ## 3\. Generate and Return PDF
 
-With your Browser Run instance now rendering your provided HTML and CSS, you can use the [`page.pdf()` ↗︎](https://github.com/cloudflare/puppeteer/blob/main/docs/api/puppeteer.page.pdf.md) command to generate a PDF file and return it to the client.
+With your Browser Run instance now rendering your provided HTML and CSS, you can use the [`page.pdf()` ↗︎](https://pptr.dev/api/puppeteer.page.pdf) command to generate a PDF file and return it to the client.
     
     
     let pdf = page.pdf({ printBackground: true });
 
-The `page.pdf()` call supports a [number of options ↗︎](https://github.com/cloudflare/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md), including setting the dimensions of the generated PDF to a specific paper size, setting specific margins, and allowing fully-transparent backgrounds. For now, you are only overriding the `printBackground` option to allow your `body` background styles to show up.
+The `page.pdf()` call supports a [number of options ↗︎](https://pptr.dev/api/puppeteer.pdfoptions), including setting the dimensions of the generated PDF to a specific paper size, setting specific margins, and allowing fully-transparent backgrounds. For now, you are only overriding the `printBackground` option to allow your `body` background styles to show up.
 
 Now that you have your PDF data, return it to the client in the `Response` with an `application/pdf` content type:
     

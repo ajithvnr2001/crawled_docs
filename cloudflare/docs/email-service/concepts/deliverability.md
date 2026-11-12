@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/concepts/deliverability/
 title: Email deliverability \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:32.820749+00:00
+fetched_at: 2026-11-12T09:30:27.662281+00:00
 ---
 
 # Email deliverability · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-27T07:31:32.820749+00:00
 
 Understand bounce handling and reputation management for optimal email delivery.
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBounces Hard bounces Soft bouncesReputation management Best practices Build reputation for a new domain
 
@@ -72,7 +72,7 @@ Cloudflare automatically manages:
 
 ### Best practices
 
-#### Content and list hygiene
+#### Content and recipient hygiene
 
 Avoid content that can trigger spam-detection or can be perceived as unwanted content:
 
@@ -82,10 +82,10 @@ Avoid content that can trigger spam-detection or can be perceived as unwanted co
 
 
 
-Ensure that your email lists are clean and contain intended recipients:
+Ensure that you send only to intended recipients:
 
   * Validate emails before sending
-  * Implement double opt-in for subscriptions
+  * Send only messages tied to a recipient's transaction
   * Remove hard bounced addresses immediately
 
 
@@ -103,12 +103,12 @@ Ensure that your deliverability stays above key metrics to avoid affecting your 
 Each domain builds its own deliverability reputation with inbox providers. Use separate domains or subdomains for different types of email so that one category does not affect the reputation of another. For example:
 
   * `notifications.yourdomain.com` for transactional emails (order confirmations, password resets)
-  * `marketing.yourdomain.com` for marketing and promotional emails
+  * `support.yourdomain.com` for replies to support requests
   * `yourdomain.com` for important account-related communications
 
 
 
-This way, if marketing emails generate higher complaint rates, your transactional email deliverability is not impacted. Each domain can be onboarded separately through [domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/).
+If notification replies receive more complaints, a separate domain helps protect support deliverability. Onboard each domain separately through [domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/).
 
 ### Build reputation for a new domain
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/sequence-analytics/
 title: Sequence Analytics \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:19.240356+00:00
+fetched_at: 2026-11-12T09:30:26.687320+00:00
 ---
 
 # Sequence Analytics · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:19.240356+00:00
 
 # Sequence Analytics
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/sequence-analytics/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcess Sequence building Sequence scoring Secure your API Repeated sequencesAvailabilityLimitations
 
@@ -63,7 +63,7 @@ To facilitate exploration, Sequence Analytics collapses successive requests to t
 
 ## Availability
 
-Sequence Analytics is available for all API Shield customers. Pro, Business, and Enterprise customers who have not purchased API Shield can get started by [enabling the API Shield trial ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/security/api-shield) in the Cloudflare dashboard or contacting your account manager.
+Sequence Analytics requires the paid API Shield add-on on an Enterprise plan. Pro, Business, and Enterprise customers without the add-on can get started by [enabling the API Shield trial ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/security/api-shield) in the Cloudflare dashboard or contacting their account team.
 
 ## Limitations
 

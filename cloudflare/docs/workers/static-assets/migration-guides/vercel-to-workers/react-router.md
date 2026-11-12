@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/react-router/
 title: Migrate React Router and Remix from Vercel to Cloudflare Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:44.949669+00:00
+fetched_at: 2026-11-12T09:30:25.432788+00:00
 ---
 
 # Migrate React Router and Remix from Vercel to Cloudflare Workers · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-06T09:03:44.949669+00:00
 
 # Migrate React Router and Remix from Vercel to Cloudflare Workers
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you beginMigrate with a coding agentMigrate manually Upgrade Remix v2 to React Router v7 Move React Router to WorkersKnown issuesRelated resources
+OverviewBefore you beginMigrate with a coding agentMigrate manually Upgrade Remix v2 to React Router v7 Move React Router to WorkersTroubleshootingRelated resources
 
 This guide moves a Remix v2 or [React Router ↗︎](https://reactrouter.com/) v7 application from Vercel to Cloudflare Workers. React Router v7 framework mode is the successor to Remix. Cloudflare supports Remix applications through React Router and the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/).
 
@@ -64,7 +64,7 @@ Copy this prompt into your coding agent. The agent stops before it deploys.
     2. Remove Vercel:
        - Delete vercel.json and .vercel/. Uninstall @vercel/remix, @vercel/react-router, @vercel/analytics, and @vercel/speed-insights. Remove their components.
        - Remove vercelPreset() from react-router.config.ts and vite.config.ts.
-       - If app/entry.server.(t|j)sx re-exports @vercel/react-router/entry.server, uses renderToPipeableStream, or imports node:stream, replace it with an entry that uses renderToReadableStream. Use https://github.com/cloudflare/templates/blob/main/react-router-starter-template/app/entry.server.tsx as the reference. If there is no entry.server file, the default entry works.
+       - If app/entry.server.(t|j)sx re-exports @vercel/react-router/entry.server, uses renderToPipeableStream, or imports node:stream, replace it with an entry that uses renderToReadableStream. Use https://github.com/cloudflare/templates/blob/main/react-router-starter-template/app/entry.server.tsx as the reference. If there is no entry.server file, create app/entry.server.tsx from that reference. The default entry that React Router uses when the file is missing calls renderToPipeableStream, which fails on Workers.
        - Remove route-level Vercel configuration (`export const config = { runtime, regions, maxDuration, memory }`).
        - List other @vercel/* usage and propose Cloudflare equivalents without rewriting them.
     3. Install @cloudflare/vite-plugin, wrangler, and vite@^7 as dev dependencies. The plugin requires Vite 6.1 or later. Add cloudflare({ viteEnvironment: { name: "ssr" } }) before reactRouter() in vite.config.ts. In react-router.config.ts, set `future: { v8_viteEnvironmentApi: true }`. React Router versions earlier than 7.10 name this flag unstable_viteEnvironmentApi.
@@ -138,7 +138,7 @@ npmyarnpnpmbun
          
          bun add -d @cloudflare/vite-plugin wrangler vite@^7
 
-  2. Remove `vercelPreset()`, `vercel.json`, `<Analytics />`, `<SpeedInsights />`, and any route `export const config`. If `vercelPreset()` generated `app/entry.server.jsx`, delete that file too.
+  2. Remove `vercelPreset()`, `vercel.json`, `<Analytics />`, `<SpeedInsights />`, and any route `export const config`. If `vercelPreset()` generated `app/entry.server.jsx`, delete that file too, and create a Workers entry in step 8.
 
   3. Add the Cloudflare plugin to `vite.config.ts`, before `reactRouter()`:
 
@@ -195,7 +195,7 @@ workers/app.tsts
          	"name": "<YOUR_PROJECT_NAME>",
          	"main": "./workers/app.ts",
          	// Set this to today's date
-         	"compatibility_date": "2026-11-06",
+         	"compatibility_date": "2026-11-12",
          	"observability": {
          		"enabled": true,
          	},
@@ -206,7 +206,7 @@ workers/app.tsts
          name = "<YOUR_PROJECT_NAME>"
          main = "./workers/app.ts"
          # Set this to today's date
-         compatibility_date = "2026-11-06"
+         compatibility_date = "2026-11-12"
          upload_source_maps = true
          
          [observability]
@@ -219,7 +219,7 @@ public/_headerstxt
          /assets/*
            Cache-Control: public, max-age=31536000, immutable
 
-  8. If your application had a Node.js `entry.server` file, replace it with one that uses `renderToReadableStream`. For a reference, refer to the [React Router starter template ↗︎](https://github.com/cloudflare/templates/blob/main/react-router-starter-template/app/entry.server.tsx).
+  8. Create `app/entry.server.tsx` with an entry that uses `renderToReadableStream`. Replace your existing `entry.server` file if it uses Node.js streams. If you have no `entry.server` file, you still need this file, because the React Router default entry uses `renderToPipeableStream`. For a reference, refer to the [React Router starter template ↗︎](https://github.com/cloudflare/templates/blob/main/react-router-starter-template/app/entry.server.tsx).
 
   9. Read bindings in loaders and actions from `context.cloudflare.env`:
 
@@ -268,12 +268,13 @@ npmyarnpnpm
 
 
 
-## Known issues
+## Troubleshooting
 
   * **The build fails with`Could not load virtual:react-router/server-manifest`.** Either the `v8_viteEnvironmentApi` future flag is missing, or `vercelPreset()` is still configured.
   * **React Router 7.10 or later rejects`unstable_viteEnvironmentApi`.** The flag was renamed to `v8_viteEnvironmentApi`. Some starter templates still use the old name.
   * **The install fails with`ERESOLVE`.** `@vercel/remix` pins Remix 2, and `@cloudflare/vite-plugin` requires Vite 6.1 or later. Remove `@vercel/remix`, upgrade Vite, and reinstall from a clean lockfile.
   * **The codemod fails with`Registry error: HTTP request failed`.** This happens behind TLS-inspecting proxies. Use `npx codemod@0.18.13 remix/2/react-router/upgrade --no-interactive`.
+  * **Every SSR route returns`500` with `renderToPipeableStream is not a function`.** The application has no `app/entry.server.tsx`, so React Router uses its Node.js default entry. Create an entry that uses `renderToReadableStream`, based on the [React Router starter template ↗︎](https://github.com/cloudflare/templates/blob/main/react-router-starter-template/app/entry.server.tsx). Static assets and `.data` requests still succeed, so check an SSR route.
   * **Remix`?_data` requests stop working.** React Router v7 uses `/<route>.data` endpoints. Browser tabs that loaded the old bundle can fail one navigation after the cutover.
 
 

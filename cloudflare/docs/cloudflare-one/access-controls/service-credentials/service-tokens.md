@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/
 title: Service tokens \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:20.006968+00:00
+fetched_at: 2026-11-12T09:30:25.016522+00:00
 ---
 
 # Service tokens · Cloudflare One docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-04T08:48:20.006968+00:00
 
 # Service tokens
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCreate a service token Client Secret formatTag service tokens Add or edit tags Authorize service tokens by tagConnect your service to Access RequestStrict service token authenticationRotate service token secretsRenew service tokensManage inactive service tokensTurn a service token on or offRevoke service tokensSet a token expiration alert
+OverviewCreate a service token Client Secret formatTag service tokens Add or edit tags Authorize service tokens by tagConnect your service to Access RequestStrict service token authenticationRotate service token secretsRecover a leaked service tokenRenew service tokensManage inactive service tokensTurn a service token on or offRevoke service tokensSet a token expiration alertReceive leaked service token alerts
 
 You can provide automated systems with service tokens to authenticate against your Cloudflare One policies. Cloudflare Access will generate service tokens that consist of a Client ID and a Client Secret. Automated systems or applications can then use these values to reach an application protected by Access.
 
@@ -338,6 +338,8 @@ Rotate a service token secret when you suspect exposure or as part of regular cr
 
 You can set a grace period during which both secrets work. Use this period to update your services before Access revokes the previous secret.
 
+For a token reported as leaked, the previous secret must expire immediately. You cannot use a rotation grace period.
+
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Service credentials** > **Service Tokens**.
 
 [ Go to ****↗](https://one.dash.cloudflare.com/?to=/:account/access/service-auth/service-tokens)
@@ -365,6 +367,32 @@ Rotate a service tokenbash
     	}'
 
 To revoke the previous secret immediately, omit `previous_client_secret_expires_at` from the request.
+
+## Recover a leaked service token
+
+Cloudflare can receive service token leak reports from secret scanning partners, such as GitHub. A token reported as leaked cannot be re-enabled until you rotate its secret.
+
+To recover a disabled token after a leak report:
+
+  1. Rotate the token's secret. In the dashboard, select **Rotate secret** — the current secret is revoked immediately. In an API rotation request, omit `previous_client_secret_expires_at`.
+  2. Replace the leaked secret in your services with the new Client Secret. The Client ID stays the same.
+  3. Turn the token on again. Rotation does not automatically re-enable a disabled token.
+
+
+
+Remove the exposed secret from the location identified in the report. Removing it does not replace rotation: the secret may already have been copied.
+
+The service token API returns these read-only fields when available:
+
+Field | Description  
+---|---  
+`leak_reported_at` | When a secret scanning partner reported the leak.  
+`leak_reporter` | The secret scanning partner that reported the leak.  
+`leak_report_url` | Where the secret was found, if provided by the reporter.  
+  
+Rotation clears the token's leak metadata. Review [admin activity logs](https://developers.cloudflare.com/cloudflare-one/insights/logs/dashboard-logs/admin-activity-logs/) for the audit history.
+
+Attempting to re-enable a token before rotation returns `409`. Requesting a future `previous_client_secret_expires_at` when rotating a leaked token returns `400`. The leaked secret is discarded immediately and cannot be restored by extending its expiration.
 
 ## Renew service tokens
 
@@ -578,6 +606,12 @@ To configure a service token expiration alert:
 
 
 Your alert has been set and is now visible on the **Notifications** page.
+
+## Receive leaked service token alerts
+
+Cloudflare sends an email when a secret scanning partner, such as GitHub, reports a leaked service token. To restore access, rotate the leaked secret and re-enable the token.
+
+Cloudflare automatically creates a leaked service token alert. By default, it emails account Super Administrators and the token creator, when their email address is available. You can [edit the alert](https://developers.cloudflare.com/notifications/get-started/#manage-alerts) to change its email recipients.
 
 [PreviousMutual TLS](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/mutual-tls-authentication/)[NextApp Launcher](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/app-launcher/)
 

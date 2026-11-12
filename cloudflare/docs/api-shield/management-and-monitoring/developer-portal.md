@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/management-and-monitoring/developer-portal/
 title: Build developer portals \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:17.838545+00:00
+fetched_at: 2026-11-12T09:30:27.524123+00:00
 ---
 
 # Build developer portals · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:17.838545+00:00
 
 # Build developer portals
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/management-and-monitoring/developer-portal/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Custom domainsAvailabilityLimitations
 
@@ -56,7 +56,7 @@ To create a vanity domain instead of using the pages.dev domain, refer to the [P
 
 ## Availability
 
-Building developer portals is available to all API Shield subscribers. This feature uses Cloudflare Pages to host the resulting portal. Refer to [Pages](https://developers.cloudflare.com/pages/) for any limitations of your current subscription plan.
+Building developer portals requires the paid API Shield add-on on an Enterprise plan. This feature uses Cloudflare Pages to host the resulting portal. Refer to [Pages](https://developers.cloudflare.com/pages/) for any limitations of your current subscription plan.
 
 ## Limitations
 

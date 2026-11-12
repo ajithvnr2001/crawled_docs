@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/stagehand/
 title: Stagehand \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.214942+00:00
+fetched_at: 2026-11-12T09:30:27.851499+00:00
 ---
 
 # Stagehand · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-13T08:48:33.214942+00:00
 
 # Stagehand
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse Stagehand in a Worker with Workers AI 1\. Set up your project 2\. Configure your Worker 3\. Write the Worker code 4\. Build the project 5\. Deploy to Cloudflare WorkersUse Cloudflare AI Gateway with Workers AIUse a third-party modelUse Cloudflare AI Gateway with a third-party modelStagehand API
 
@@ -43,7 +43,7 @@ Output:
 
 If instead you want to skip the steps and get started right away, select **Deploy to Cloudflare** below.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/playwright/tree/main/packages/playwright-cloudflare/examples/stagehand)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/browser-run/tree/main/packages/playwright-cloudflare/examples/stagehand)
 
 After you deploy, you can interact with the Worker using this URL pattern:
     
@@ -72,7 +72,7 @@ Your Worker configuration must include the `nodejs_compat` compatibility flag an
     	"upload_source_maps": true,
     	"compatibility_flags": ["nodejs_compat"],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-12",
     	"observability": {
     		"enabled": true
     	},
@@ -90,7 +90,7 @@ Your Worker configuration must include the `nodejs_compat` compatibility flag an
     upload_source_maps = true
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-12"
     
     [observability]
     enabled = true
@@ -125,7 +125,7 @@ If you are not using the Cloudflare Vite plugin, you need to include the followi
 
 ### 3\. Write the Worker code
 
-Copy [workersAIClient.ts ↗︎](https://github.com/cloudflare/playwright/blob/main/packages/playwright-cloudflare/examples/stagehand/src/worker/workersAIClient.ts) to your project.
+Copy [workersAIClient.ts ↗︎](https://github.com/cloudflare/browser-run/blob/main/packages/playwright-cloudflare/examples/stagehand/src/worker/workersAIClient.ts) to your project.
 
 Then, in your Worker code, import the `workersAIClient.ts` file and use it to configure a new `Stagehand` instance:
 

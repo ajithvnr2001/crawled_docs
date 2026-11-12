@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/authentication-posture/
 title: Authentication Posture \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:18.128069+00:00
+fetched_at: 2026-11-12T09:30:27.157722+00:00
 ---
 
 # Authentication Posture · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:18.128069+00:00
 
 # Authentication Posture
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/authentication-posture/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcess Examine an endpoint's authentication details Stop unauthenticated traffic with CloudflareLimitationsAvailability
 
@@ -71,7 +71,7 @@ Authentication Posture can only apply when customers accurately set up session i
 
 ## Availability
 
-Authentication Posture is available for all Enterprise customers with an API Shield subscription.
+Authentication Posture requires the paid API Shield add-on on an Enterprise plan.
 
 [PreviousAPI](https://developers.cloudflare.com/api-shield/security/schema-validation/api/)[NextBOLA vulnerability detection](https://developers.cloudflare.com/api-shield/security/bola-vulnerability-detection/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/playwright/
 title: Playwright \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:21.215684+00:00
+fetched_at: 2026-11-12T09:30:28.058578+00:00
 ---
 
 # Playwright · Cloudflare Browser Run docs
@@ -17,15 +17,15 @@ fetched_at: 2026-10-31T08:10:21.215684+00:00
 
 # Playwright
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse Playwright in a Worker Take a screenshot Trace Assertions Storage state Keep Alive Session Reuse Set a custom user agentLocal debugging with headful mode (experimental)Session management List open sessions List recent sessions Active limitsPlaywright API
 
 [Playwright ↗︎](https://playwright.dev/) is an open-source package developed by Microsoft that can do browser automation tasks; it is commonly used to write frontend tests, create screenshots, or crawl pages.
 
-The Workers team forked a [version of Playwright ↗︎](https://github.com/cloudflare/playwright) that was modified to be compatible with [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Browser Run](https://developers.cloudflare.com/browser-run/).
+The Workers team forked a [version of Playwright ↗︎](https://github.com/cloudflare/browser-run/tree/main/packages/playwright-cloudflare) that was modified to be compatible with [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Browser Run](https://developers.cloudflare.com/browser-run/).
 
-Our version is open sourced and can be found in [Cloudflare's fork of Playwright ↗︎](https://github.com/cloudflare/playwright). The npm package can be installed from [npmjs ↗︎](https://www.npmjs.com/) as [@cloudflare/playwright ↗︎](https://www.npmjs.com/package/@cloudflare/playwright):
+Our version is open sourced and can be found in [Cloudflare's fork of Playwright ↗︎](https://github.com/cloudflare/browser-run/tree/main/packages/playwright-cloudflare). The npm package can be installed from [npmjs ↗︎](https://www.npmjs.com/) as [@cloudflare/playwright ↗︎](https://www.npmjs.com/package/@cloudflare/playwright):
 
 npmyarnpnpmbun
     
@@ -43,15 +43,15 @@ npmyarnpnpmbun
 
 Note
 
-Concurrent connections require [`@cloudflare/playwright` v1.3.0 ↗︎](https://github.com/cloudflare/playwright/releases/tag/v1.3.0) or later. Older versions use the legacy single-connection workflow.
+Concurrent connections require [`@cloudflare/playwright` v1.3.0 ↗︎](https://www.npmjs.com/package/@cloudflare/playwright/v/1.3.0) or later. Older versions use the legacy single-connection workflow.
 
 ## Use Playwright in a Worker
 
-In this [example ↗︎](https://github.com/cloudflare/playwright/tree/main/packages/playwright-cloudflare/examples/todomvc), you will run Playwright tests in a Cloudflare Worker using the [todomvc ↗︎](https://demo.playwright.dev/todomvc) application.
+In this [example ↗︎](https://github.com/cloudflare/browser-run/tree/main/packages/playwright-cloudflare/examples/todomvc), you will run Playwright tests in a Cloudflare Worker using the [todomvc ↗︎](https://demo.playwright.dev/todomvc) application.
 
 If you want to skip the steps and get started quickly, select **Deploy to Cloudflare** below.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/playwright/tree/main/packages/playwright-cloudflare/examples/todomvc)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/browser-run/tree/main/packages/playwright-cloudflare/examples/todomvc)
 
 Make sure you have the [browser binding](https://developers.cloudflare.com/browser-run/reference/wrangler/#bindings) configured in your Wrangler configuration file:
 
@@ -67,7 +67,7 @@ To use the latest version of `@cloudflare/playwright`, your Worker configuration
     	"workers_dev": true,
     	"compatibility_flags": ["nodejs_compat"],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-31",
+    	"compatibility_date": "2026-11-12",
     	"upload_source_maps": true,
     	"browser": {
     		"binding": "MYBROWSER",
@@ -81,7 +81,7 @@ To use the latest version of `@cloudflare/playwright`, your Worker configuration
     workers_dev = true
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-31"
+    compatibility_date = "2026-11-12"
     upload_source_maps = true
     
     [browser]
@@ -243,7 +243,7 @@ Then, add the KV namespace to your Wrangler configuration file:
     	"upload_source_maps": true,
     	"compatibility_flags": ["nodejs_compat"],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-31",
+    	"compatibility_date": "2026-11-12",
     	"browser": {
     		"binding": "MYBROWSER",
     	},
@@ -261,7 +261,7 @@ Then, add the KV namespace to your Wrangler configuration file:
     upload_source_maps = true
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-31"
+    compatibility_date = "2026-11-12"
     
     [browser]
     binding = "MYBROWSER"

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
 title: System environment variables \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:13.500594+00:00
+fetched_at: 2026-11-12T09:30:23.161082+00:00
 ---
 
 # System environment variables · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:18:13.500594+00:00
 
 # System environment variables
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/wrangler/system-environment-variables/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSupported environment variables Example output fileExample .env fileDeprecated global variables
+OverviewSupported environment variables Example output fileCustom API headersExample .env fileDeprecated global variables
 
 System environment variables are local environment variables that can change Wrangler's behavior. There are three ways to set system environment variables:
 
@@ -88,6 +88,9 @@ Wrangler supports the following environment variables:
   * `CLOUDFLARE_API_BASE_URL` `string` optional
 
     * The default value is `"https://api.cloudflare.com/client/v4"`.
+  * `CLOUDFLARE_API_HEADERS` `string` optional
+
+    * A JSON object of custom HTTP headers for Cloudflare API requests. Configured values override existing request headers.
   * `WRANGLER_LOG` `string` optional
 
     * Options for Logging levels are `"none"`, `"error"`, `"warn"`, `"info"`, `"log"` and `"debug"`. Levels are case-insensitive and default to `"log"`. If an invalid level is specified, Wrangler will fallback to the default. Logs can include requests to Cloudflare's API, any usage data being collected, and more verbose error logs.
@@ -96,7 +99,7 @@ Wrangler supports the following environment variables:
     * A file or directory path where Wrangler will write debug logs. If the path ends in `.log`, Wrangler will consider this the path to a file where all logs will be written. Otherwise, Wrangler will treat the path as a directory where it will write one or more log files using a timestamp for the filenames.
   * `WRANGLER_LOG_SANITIZE` `boolean` optional
 
-    * Options for this are `true` and `false`. Defaults to `true`. Controls whether Wrangler will sanitize any sensitive information from logs written to the console or to a log file. Sensitive information includes API tokens, email addresses, account IDs, and more.
+    * Options for this are `true` and `false`. Defaults to `true`. Controls whether Wrangler will sanitize any sensitive information from logs written to the console or to a log file. Sensitive information includes API tokens, email addresses, account IDs, and more. Header values outside the diagnostic allowlist remain redacted, regardless of this setting.
   * `FORCE_COLOR` `string` optional
 
     * By setting this to `0`, you can disable Wrangler's colorised output, which makes it easier to read with some terminal setups. For example, `FORCE_COLOR=0`.
@@ -152,6 +155,22 @@ Other entry types include:
 
 
 
+## Custom API headers
+
+Set `CLOUDFLARE_API_HEADERS` to a JSON object of HTTP header names and string values. For example, to send `X-Custom-Header: value` with Cloudflare API requests, set this variable in your shell or CI environment:
+    
+    
+    export CLOUDFLARE_API_HEADERS='{"X-Custom-Header":"value"}'
+
+In PowerShell, use:
+    
+    
+    $env:CLOUDFLARE_API_HEADERS = '{"X-Custom-Header":"value"}'
+
+Then run your Wrangler or `cf` command. These headers apply to Cloudflare API requests. They do not apply to local emulation or OAuth requests.
+
+Configured values override existing request headers, including authentication headers. Header names are case-insensitive. The following headers are protected and cannot be set through this variable: `Host`, `Content-Type`, `Content-Encoding`, `Content-Length`, `Connection`, `Transfer-Encoding`, `Upgrade`, `TE`, and `Trailer`.
+
 ## Example `.env` file
 
 The following is an example `.env` file:
@@ -179,7 +198,7 @@ The following variables are deprecated. Use the new variables listed above to pr
 
 
 
-[PreviousEnvironments](https://developers.cloudflare.com/workers/wrangler/environments/)[NextOverview](https://developers.cloudflare.com/workers/vite-plugin/)
+[PreviousEnvironments](https://developers.cloudflare.com/workers/wrangler/environments/)[NextGet started](https://developers.cloudflare.com/workers/vite-plugin/get-started/)
 
 Was this helpful?
 

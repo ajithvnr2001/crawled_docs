@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/platform/limits/
 title: Limits and Instance Types \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:00.849268+00:00
+fetched_at: 2026-11-12T09:30:23.405098+00:00
 ---
 
 # Limits and Instance Types · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:01:00.849268+00:00
 
 # Limits and Instance Types
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstance Types Custom Instance TypesAccount limitsOutbound HTTP request body sizeSnapshot limits
 
@@ -72,9 +72,9 @@ Resource | Limit
 vCPU per instance | 4  
 Memory per instance | 12 GiB  
 Disk per instance | 20 GB  
-Concurrent memory | 6 TiB  
-Concurrent vCPU | 1,500  
-Concurrent disk | 30 TB  
+Concurrent memory | 60 TiB  
+Concurrent vCPU | 15,000  
+Concurrent disk | 300 TB  
 Image size | Same as instance disk space  
 Total image storage per account | 50 GB 1  
   

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/plans/
 title: Plans \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:18.016091+00:00
+fetched_at: 2026-11-12T09:30:27.064192+00:00
 ---
 
 # Plans · Cloudflare API Shield docs
@@ -17,13 +17,21 @@ fetched_at: 2026-10-08T07:05:18.016091+00:00
 
 # Plans
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/plans/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Customers with API Security already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without API Security. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
+OverviewResource limits by zone plan
+
+Note
+
+Unless a feature page states otherwise, API Shield features require the paid API Shield add-on on an Enterprise plan.
+
+Customers with the API Security entitlement already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without the API Security entitlement. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
 
 To subscribe to API Shield, upgrade to an Enterprise plan and contact your account team.
 
-Existing operation and uploaded schema limits remain based on your zone plan. These limits do not determine Application Profiles availability.
+## Resource limits by zone plan
+
+The following operation and uploaded schema limits are based on your zone plan. These limits do not determine availability for Application Profiles or other API Shield features.
 
 The uploaded schema allowance counts schemas enabled for validation. Cloudflare calculates schema size after processing an upload, so it may differ from the original file size.
 

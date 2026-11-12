@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/schema-validation/
 title: Schema validation \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:19.037119+00:00
+fetched_at: 2026-11-12T09:30:26.915334+00:00
 ---
 
 # Schema validation · Cloudflare API Shield docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:19.037119+00:00
 
 # Schema validation
 
-Last updated Oct 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/schema-validation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure an uploaded schema Upload a schema Manage uploaded schemas Add a fallthrough ruleSpecificationsLimitations Body size for validation Required fields Notes on validated and supported fieldsBody inspection Form-urlencoded bodiesTroubleshooting Resolve a OneOf constraint violationAvailability
 
@@ -298,7 +298,7 @@ To fix this, compare the sampled request with its schema definition. The request
 
 ## Availability
 
-Customers with API Security already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without API Security. Interested customers can contact their account team to express interest. Closed-beta access does not imply future plan availability or pricing.
+Customers with the API Security entitlement already have access to Schema Profiles through Schema Learning and Schema Validation. Cloudflare is opening a closed beta to invited Enterprise customers without the API Security entitlement. Interested customers can contact their account team to express interest. Closed beta access does not imply future plan availability or pricing.
 
 [PreviousBring your own CA ↗︎](https://developers.cloudflare.com/ssl/client-certificates/byo-ca/)[NextAPI](https://developers.cloudflare.com/api-shield/security/schema-validation/api/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/get-started/
 title: Getting started \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.290131+00:00
+fetched_at: 2026-11-12T09:30:26.054139+00:00
 ---
 
 # Getting started · Cloudflare Workers KV docs
@@ -19,7 +19,7 @@ fetched_at: 2026-10-13T08:48:37.290131+00:00
 
 Create a basic key-value store which stores the notification configuration of all users in an application, where each user may have `enabled` or `disabled` notifications.
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick startPrerequisites1\. Create a Worker project2\. Create a KV namespace KV Instant namespaces3\. Bind your Worker to your KV namespace4\. Interact with your KV namespace 4.1. Write a value 4.2. Get a value5\. Access your KV namespace from your Worker6\. Deploy your WorkerSummaryNext steps
 
@@ -134,6 +134,35 @@ For example: `CI=true npm create cloudflare@latest kv-tutorial --type=simple --g
 
 A [KV namespace](https://developers.cloudflare.com/kv/concepts/kv-namespaces/) is a key-value database replicated to Cloudflare's global network.
 
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+You can use the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/) to create a new KV namespace. It also has commands to put, list, get, and delete keys within your KV namespace.
+
+Note
+
+KV operations are scoped to your account. If you have not used `cf` before, [install it and sign in](https://developers.cloudflare.com/cf/get-started/) first.
+
+To create a KV namespace via `cf`:
+
+  1. Open your terminal and run the following command:
+         
+         cf kv namespaces create --title <NAMESPACE_TITLE>
+
+The `cf kv namespaces create` command creates a namespace with the title you pass to `--title`.
+
+For this tutorial, use the title `USERS_NOTIFICATION_CONFIG`.
+         
+         cf kv namespaces create --title USERS_NOTIFICATION_CONFIG
+
+  2. `cf` prints the new namespace as JSON. Keep its `id` value. You need it to bind the namespace to your Worker in the next step.
+
+
+
+
+Wrangler
+
 You can use [Wrangler](https://developers.cloudflare.com/workers/wrangler/) to create a new KV namespace. You can also use it to perform operations such as put, list, get, and delete within your KV namespace.
 
 Note
@@ -187,6 +216,17 @@ Workers KV Instant is currently in private beta. To enroll, contact your Cloudfl
 
 Use Workers KV Instant for small, read-heavy application configurations values that update infrequently and are proactively propagated across Cloudflare's network.
 
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+To optionally create a KV Instant namespace named `APP_CONFIG` with the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/), pass `--namespace-mode instant`:
+    
+    
+    cf kv namespaces create --title APP_CONFIG --namespace-mode instant
+
+Wrangler
+
 To optionally create a KV Instant namespace named `APP_CONFIG` with [Wrangler](https://developers.cloudflare.com/workers/wrangler/), pass `--experimental-mode instant`:
 
 npmyarnpnpm
@@ -199,11 +239,6 @@ npmyarnpnpm
     
     
     pnpm wrangler@latest kv namespace create APP_CONFIG --experimental-mode instant
-
-To create the namespace with [Cloudflare CLI](https://developers.cloudflare.com/cf/), pass `--namespaceMode instant`:
-    
-    
-    cf kv namespaces create --title APP_CONFIG --namespaceMode instant
 
 Alternatively, create it through the API with `mode: "instant"`:
 

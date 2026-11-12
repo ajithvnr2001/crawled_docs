@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/static-site/
 title: Migrate a static site or SPA from Vercel to Cloudflare Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:45.107019+00:00
+fetched_at: 2026-11-12T09:30:25.306966+00:00
 ---
 
 # Migrate a static site or SPA from Vercel to Cloudflare Workers · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-06T09:03:45.107019+00:00
 
 # Migrate a static site or SPA from Vercel to Cloudflare Workers
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginMigrate your siteRelated resources
 
@@ -44,7 +44,7 @@ For a static site:
          {
          	"name": "<your-project-name>",
          	// Set this to today's date
-         	"compatibility_date": "2026-11-06",
+         	"compatibility_date": "2026-11-12",
          	"assets": {
          		"directory": "<your-build-directory>",
          	},
@@ -52,7 +52,7 @@ For a static site:
          
          name = "<your-project-name>"
          # Set this to today's date
-         compatibility_date = "2026-11-06"
+         compatibility_date = "2026-11-12"
          
          [assets]
          directory = "<your-build-directory>"
@@ -62,7 +62,7 @@ For a single-page application, add `not_found_handling`:
          {
          	"name": "<your-project-name>",
          	// Set this to today's date
-         	"compatibility_date": "2026-11-06",
+         	"compatibility_date": "2026-11-12",
          	"assets": {
          		"directory": "<your-build-directory>",
          		"not_found_handling": "single-page-application",
@@ -71,7 +71,7 @@ For a single-page application, add `not_found_handling`:
          
          name = "<your-project-name>"
          # Set this to today's date
-         compatibility_date = "2026-11-06"
+         compatibility_date = "2026-11-12"
          
          [assets]
          directory = "<your-build-directory>"

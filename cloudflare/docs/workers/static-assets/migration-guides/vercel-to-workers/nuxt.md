@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/nuxt/
 title: Migrate Nuxt from Vercel to Cloudflare Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:44.853928+00:00
+fetched_at: 2026-11-12T09:30:25.537810+00:00
 ---
 
 # Migrate Nuxt from Vercel to Cloudflare Workers · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-06T09:03:44.853928+00:00
 
 # Migrate Nuxt from Vercel to Cloudflare Workers
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you beginMigrate with a coding agentMigrate manuallyFix stacked cache headersKnown issuesRelated resources
+OverviewBefore you beginMigrate with a coding agentMigrate manuallyFix stacked cache headersTroubleshootingRelated resources
 
 This guide moves a [Nuxt ↗︎](https://nuxt.com/) application from Vercel to Cloudflare Workers. Nuxt selects its Vercel preset automatically on Vercel. On Workers, you set the Nitro `cloudflare_module` preset instead.
 
@@ -100,7 +100,7 @@ Use today's date, or any date after `2025-07-17`.
          	"$schema": "node_modules/wrangler/config-schema.json",
          	"name": "<YOUR_PROJECT_NAME>",
          	// Set this to today's date
-         	"compatibility_date": "2026-11-06",
+         	"compatibility_date": "2026-11-12",
          	"observability": {
          		"enabled": true,
          	},
@@ -109,7 +109,7 @@ Use today's date, or any date after `2025-07-17`.
          "$schema" = "node_modules/wrangler/config-schema.json"
          name = "<YOUR_PROJECT_NAME>"
          # Set this to today's date
-         compatibility_date = "2026-11-06"
+         compatibility_date = "2026-11-12"
          
          [observability]
          enabled = true
@@ -191,7 +191,7 @@ nuxt.config.tsts
 
 If your project has a `public/_headers` file, merge its rules into the generated file instead of overwriting them.
 
-## Known issues
+## Troubleshooting
 
   * **`nuxt dev` has no bindings.** Your `compatibilityDate` is earlier than `2025-07-17`. Check that `.nuxt/nitro.json` contains `"preset": "cloudflare-dev"`.
   * **The build warns that`main` and `assets` are overridden.** Remove `main` and `assets` from your Wrangler configuration file.

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/puppeteer/
 title: Puppeteer \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:20.956882+00:00
+fetched_at: 2026-11-12T09:30:27.601159+00:00
 ---
 
 # Puppeteer · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-31T08:10:20.956882+00:00
 
 # Puppeteer
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse Puppeteer in a Worker Keep Alive Set a custom user agentLocal debugging with headful mode (experimental)Element selectionSession management List open sessions List recent sessions Active limitsPuppeteer API
 
@@ -25,9 +25,9 @@ OverviewUse Puppeteer in a Worker Keep Alive Set a custom user agentLocal debugg
 
 Puppeteer typically connects to a local Chrome or Chromium browser using the DevTools port. Refer to the [Puppeteer API documentation on the `Puppeteer.connect()` method ↗︎](https://pptr.dev/api/puppeteer.puppeteer.connect) for more information.
 
-The Workers team forked a version of Puppeteer and patched it to connect to the Workers Browser Run API instead. After connecting, the developers can then use the full [Puppeteer API ↗︎](https://github.com/cloudflare/puppeteer/blob/main/docs/api/index.md) as they would on a standard setup.
+The Workers team forked a version of Puppeteer and patched it to connect to the Workers Browser Run API instead. After connecting, the developers can then use the full [Puppeteer API ↗︎](https://pptr.dev/api) as they would on a standard setup.
 
-Our version is open sourced and can be found in [Cloudflare's fork of Puppeteer ↗︎](https://github.com/cloudflare/puppeteer). The npm can be installed from [npmjs ↗︎](https://www.npmjs.com/) as [@cloudflare/puppeteer ↗︎](https://www.npmjs.com/package/@cloudflare/puppeteer):
+Our version is open sourced and can be found in [Cloudflare's fork of Puppeteer ↗︎](https://github.com/cloudflare/browser-run/tree/main/packages/puppeteer-cloudflare). The npm can be installed from [npmjs ↗︎](https://www.npmjs.com/) as [@cloudflare/puppeteer ↗︎](https://www.npmjs.com/package/@cloudflare/puppeteer):
 
 npmyarnpnpmbun
     
@@ -45,7 +45,7 @@ npmyarnpnpmbun
 
 Note
 
-The current version is [`@cloudflare/puppeteer` v1.1.0 ↗︎](https://github.com/cloudflare/puppeteer/releases/tag/v1.1.0), based on [Puppeteer v22.13.1 ↗︎](https://pptr.dev/chromium-support).
+The current version is [`@cloudflare/puppeteer` v2.0.0 ↗︎](https://github.com/cloudflare/browser-run/releases/tag/cloudflare-puppeteer-v2.0.0), based on [Puppeteer v25.10.0 ↗︎](https://pptr.dev/chromium-support).
 
 ## Use Puppeteer in a Worker
 
@@ -217,7 +217,7 @@ You should also be able to access this information in the dashboard, albeit with
 
 ## Puppeteer API
 
-The full Puppeteer API can be found in the [Cloudflare's fork of Puppeteer ↗︎](https://github.com/cloudflare/puppeteer/blob/main/docs/api/index.md).
+The full Puppeteer API can be found in the [Puppeteer API reference ↗︎](https://pptr.dev/api).
 
 [PreviousPlaywright MCP](https://developers.cloudflare.com/browser-run/playwright/playwright-mcp/)[NextStagehand](https://developers.cloudflare.com/browser-run/stagehand/)
 
