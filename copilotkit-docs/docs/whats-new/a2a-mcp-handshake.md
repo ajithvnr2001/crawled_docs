@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/whats-new/a2a-mcp-handshake/
 title: A2A and MCP Handshake
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:51.872236+00:00
+fetched_at: 2026-11-12T10:54:00.324464+00:00
 ---
 
 # A2A and MCP Handshake

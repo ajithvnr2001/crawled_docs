@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/human-in-the-loop/
 title: HITL Overview
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:58.618984+00:00
+fetched_at: 2026-11-12T10:54:05.625521+00:00
 ---
 
 # HITL Overview

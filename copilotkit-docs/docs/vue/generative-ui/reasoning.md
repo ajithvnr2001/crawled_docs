@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/generative-ui/reasoning/
 title: Reasoning
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:59.187228+00:00
+fetched_at: 2026-11-12T10:54:06.548827+00:00
 ---
 
 # Reasoning

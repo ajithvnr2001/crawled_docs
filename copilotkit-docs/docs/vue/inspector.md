@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/inspector/
 title: Inspector
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:58.278888+00:00
+fetched_at: 2026-11-12T10:54:05.746040+00:00
 ---
 
 # Inspector

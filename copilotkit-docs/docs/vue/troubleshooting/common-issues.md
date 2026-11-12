@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/troubleshooting/common-issues/
 title: Common Copilot Issues
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:53.336349+00:00
+fetched_at: 2026-11-12T10:54:01.534133+00:00
 ---
 
 # Common Copilot Issues

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/human-in-the-loop/governed-actions/
 title: Governed Action Approval UI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:58.728721+00:00
+fetched_at: 2026-11-12T10:54:06.057388+00:00
 ---
 
 # Governed Action Approval UI

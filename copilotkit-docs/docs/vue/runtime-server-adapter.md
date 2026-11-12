@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/runtime-server-adapter/
 title: Deploy to any runtime
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:55.435681+00:00
+fetched_at: 2026-11-12T10:54:02.670846+00:00
 ---
 
 # Deploy to any runtime

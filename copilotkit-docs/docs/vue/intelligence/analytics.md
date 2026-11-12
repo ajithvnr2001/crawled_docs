@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/analytics/
 title: Product Analytics
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:58.194961+00:00
+fetched_at: 2026-11-12T10:54:05.235076+00:00
 ---
 
 # Product Analytics

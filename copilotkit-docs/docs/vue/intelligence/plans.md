@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/plans/
 title: Plans
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:57.179074+00:00
+fetched_at: 2026-11-12T10:54:04.155890+00:00
 ---
 
 # Plans

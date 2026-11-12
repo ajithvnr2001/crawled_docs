@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/whats-new/mcp-apps-support/
 title: Full MCP Apps Support
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:51.622513+00:00
+fetched_at: 2026-11-12T10:54:00.207789+00:00
 ---
 
 # Full MCP Apps Support

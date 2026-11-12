@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/quickstart/
 title: Connect Intelligence in 5 minutes
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:57.450114+00:00
+fetched_at: 2026-11-12T10:54:04.467476+00:00
 ---
 
 # Connect Intelligence in 5 minutes

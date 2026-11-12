@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/channels/
 title: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:57.688574+00:00
+fetched_at: 2026-11-12T10:54:05.359769+00:00
 ---
 
 # Channels
@@ -138,7 +138,7 @@ SlackTeams
 
 ### Your agent backend
 
-[CopilotKit](https://docs.copilotkit.ai/slack)[Langchain DeepAgents](https://docs.copilotkit.ai/slack/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/slack/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/slack/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/slack/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/slack/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/slack/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/slack/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/slack/ag2)[Agno](https://docs.copilotkit.ai/slack/agno)[LlamaIndex](https://docs.copilotkit.ai/slack/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/slack/crewai-crews)[![](https://docs.copilotkit.ai/logos/google-antigravity.svg)Google Antigravity](https://docs.copilotkit.ai/slack/google-antigravity)
+[CopilotKit](https://docs.copilotkit.ai/slack)[Langchain DeepAgents](https://docs.copilotkit.ai/slack/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/slack/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/slack/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/slack/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/slack/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/slack/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/slack/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/slack/ag2)[Agno](https://docs.copilotkit.ai/slack/agno)[LlamaIndex](https://docs.copilotkit.ai/slack/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/slack/crewai-crews)[Google Antigravity](https://docs.copilotkit.ai/slack/google-antigravity)[OpenAI Agents SDK (Python)](https://docs.copilotkit.ai/slack/openai-agents-python)
 
 ## Where to go next#
 

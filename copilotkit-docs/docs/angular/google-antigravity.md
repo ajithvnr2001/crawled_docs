@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/google-antigravity/
 title: Google Antigravity
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:41.868784+00:00
+fetched_at: 2026-11-12T10:53:58.843104+00:00
 ---
 
 # Google Antigravity
@@ -15,7 +15,7 @@ fetched_at: 2026-11-11T10:40:41.868784+00:00
 
 [](https://docs.copilotkit.ai/)
 
-FrontendAngular![](https://docs.copilotkit.ai/logos/google-antigravity.svg)Agent backendGoogle Antigravity
+FrontendAngularAgent backendGoogle Antigravity
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 

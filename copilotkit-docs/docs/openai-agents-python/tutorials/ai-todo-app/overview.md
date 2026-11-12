@@ -1,0 +1,132 @@
+---
+url: https://docs.copilotkit.ai/openai-agents-python/tutorials/ai-todo-app/overview/
+title: Overview
+method: scrapling+scrapegraph
+fetched_at: 2026-11-12T10:53:49.369185+00:00
+---
+
+# Overview
+
+> Source: https://docs.copilotkit.ai/openai-agents-python/tutorials/ai-todo-app/overview/
+
+[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
+
+[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
+
+[](https://docs.copilotkit.ai/)
+
+FrontendReactAgent backendOpenAI Agents SDK (Python)
+
+[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
+
+[Introduction](https://docs.copilotkit.ai/openai-agents-python)[Quickstart](https://docs.copilotkit.ai/openai-agents-python/quickstart)[Build with agents](https://docs.copilotkit.ai/openai-agents-python/build-with-agents)[Intelligence](https://docs.copilotkit.ai/openai-agents-python/intelligence/overview)
+
+Basics
+
+Chat
+
+Threads
+
+[Frontend-tools](https://docs.copilotkit.ai/openai-agents-python/frontend-tools)
+
+Generative UI
+
+Controlled
+
+Declarative
+
+Open-ended
+
+Interactivity
+
+Shared state
+
+Human-in-the-loop
+
+[WebMCP](https://docs.copilotkit.ai/openai-agents-python/webmcp)
+
+Agent capabilities
+
+[Sub-agents](https://docs.copilotkit.ai/openai-agents-python/multi-agent/subagents)
+
+Intelligence
+
+[Overview](https://docs.copilotkit.ai/openai-agents-python/intelligence/overview)
+
+Get started
+
+Features
+
+AG-UI Streams
+
+[Automatic Learning](https://docs.copilotkit.ai/openai-agents-python/learning)
+
+[User Memories](https://docs.copilotkit.ai/openai-agents-python/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/openai-agents-python/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/openai-agents-python/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/openai-agents-python/intelligence/analytics)[Channels](https://docs.copilotkit.ai/openai-agents-python/intelligence/channels)
+
+Hosting
+
+Backend
+
+Runtime
+
+Deployment
+
+Debugging
+
+Learn
+
+Concepts
+
+[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
+
+Other
+
+Contributing
+
+Troubleshooting
+
+[Open-source telemetry](https://docs.copilotkit.ai/openai-agents-python/telemetry)[Community frameworks](https://docs.copilotkit.ai/openai-agents-python/community-frameworks)
+
+Talk to an engineer
+
+[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
+
+On this page
+
+[OpenAI Agents SDK (Python)](https://docs.copilotkit.ai/openai-agents-python)TutorialsTutorial: AI Todo App
+
+# Overview
+
+Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+
+View prompt
+
+Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+
+⏱ 5 minutes · Easy
+
+## What you'll learn#
+
+In this tutorial, you'll take a simple todo list app and supercharge it with a copilot. You'll learn:
+
+  * How to embed an in-app copilot with a chat UI
+  * How to use `useAgentContext` to let your copilot read your app's state
+  * How to use `useFrontendTool` to let your copilot execute tools
+
+
+
+## Try it out#
+
+An interactive example of the end result:
+
+### [View source code on GitHubBrowse the starter and final code for this tutorial.](https://github.com/CopilotKit/CopilotKit/tree/main/examples/starters/todos-app?ref=docs-tutorial)
+
+### [Next: Check out the repo →Clone the starter app and get it running locally.](https://docs.copilotkit.ai/tutorials/ai-todo-app/step-1-checkout-repo)
+
+### On this page
+
+What you'll learnTry it out

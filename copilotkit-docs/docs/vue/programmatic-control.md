@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/programmatic-control/
 title: Programmatic Control
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:55.087135+00:00
+fetched_at: 2026-11-12T10:54:02.755016+00:00
 ---
 
 # Programmatic Control

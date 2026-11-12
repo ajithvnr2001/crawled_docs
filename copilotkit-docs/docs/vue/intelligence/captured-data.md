@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/captured-data/
 title: Captured data
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:57.777100+00:00
+fetched_at: 2026-11-12T10:54:05.309693+00:00
 ---
 
 # Captured data

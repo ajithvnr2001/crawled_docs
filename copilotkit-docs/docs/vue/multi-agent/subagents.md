@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/multi-agent/subagents/
 title: Sub-Agents
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:55.814631+00:00
+fetched_at: 2026-11-12T10:54:03.248208+00:00
 ---
 
 # Sub-Agents

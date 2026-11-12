@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/troubleshooting/event-inspector/
 title: AG-UI Event Inspector
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:52.966805+00:00
+fetched_at: 2026-11-12T10:54:01.424726+00:00
 ---
 
 # AG-UI Event Inspector

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/learning/
 title: Automatic Learning
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:55.939687+00:00
+fetched_at: 2026-11-12T10:54:03.333942+00:00
 ---
 
 # Automatic Learning

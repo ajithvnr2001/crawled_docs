@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/headless-threads/
 title: Headless Threads
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:58.667594+00:00
+fetched_at: 2026-11-12T10:54:06.779755+00:00
 ---
 
 # Headless Threads

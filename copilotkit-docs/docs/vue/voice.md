@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/voice/
 title: Voice
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T09:53:53.010139+00:00
+fetched_at: 2026-11-12T10:54:00.567163+00:00
 ---
 
 # Voice
