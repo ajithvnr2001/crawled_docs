@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/pika/pika-music/code/
 title: Use Pika Music with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:40.146109+00:00
+fetched_at: 2026-11-13T15:12:13.782326+00:00
 ---
 
 # Use Pika Music with Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `pika/pika-music`, served by Comfy Router from Pika. **Input:** Text, Audio · **Output:** Audio
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `pika/pika-music` **Endpoint:** `POST https://api.comfy.org/v2/models/pika/pika-music`
 
@@ -177,19 +173,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 clean_reference_audio
 
@@ -199,8 +185,6 @@ default:"false"
 
 Clean the reference audio before use.
 
-​
-
 duration
 
 number
@@ -209,15 +193,11 @@ default:"30"
 
 Length of the music in seconds, 10 to 360.Range: `10` to `360`
 
-​
-
 lyrics
 
 string
 
 Lyrics to sing.
-
-​
 
 mode
 
@@ -227,8 +207,6 @@ default:"\"text_to_music\""
 
 Generation mode: text_to_music, voice_conditioned_text_to_music or music_cover.Possible values: `text_to_music`, `voice_conditioned_text_to_music`, `music_cover`
 
-​
-
 prompt
 
 string
@@ -237,15 +215,11 @@ required
 
 Description of the music.
 
-​
-
 reference_audio
 
 string
 
 URL of a voice reference. It needs `voice_consent_attested` set to true.
-
-​
 
 rewrite_prompt
 
@@ -255,8 +229,6 @@ default:"false"
 
 Expand a short prompt with a model before generation.
 
-​
-
 seed
 
 integer
@@ -265,15 +237,11 @@ default:"-1"
 
 Seed for reproducible output, -1 to 2147483647. -1 picks a random seed.Range: `-1` to `2147483647`
 
-​
-
 source_audio
 
 string
 
 URL of the source song for `music_cover`.
-
-​
 
 voice_consent_attested
 
@@ -285,13 +253,7 @@ Attests that the caller has the rights to clone the voice in `reference_audio`.
 
 Generated from the schema Router serves at `GET /v2/models/pika/pika-music/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 error
 
@@ -299,15 +261,11 @@ object
 
 Set on a `failed` job.
 
-​
-
 error.code
 
 string
 
 Machine-readable failure code, such as invalid_input, content_moderation or provider_error.
-
-​
 
 error.message
 
@@ -315,15 +273,11 @@ string
 
 Diagnostic text.
 
-​
-
 id
 
 string
 
 Job id used to poll for status.
-
-​
 
 model_id
 
@@ -331,15 +285,11 @@ string
 
 The Pika catalog entry the job ran.
 
-​
-
 output
 
 object
 
 The finished job’s media, set when `status` is `completed`.
-
-​
 
 output.audio
 
@@ -347,15 +297,11 @@ object
 
 One generated media file.
 
-​
-
 output.audio.content_type
 
 string
 
 MIME type of the file.
-
-​
 
 output.audio.url
 
@@ -363,15 +309,11 @@ string
 
 Download URL of the generated file.
 
-​
-
 output.media_type
 
 string
 
 Which field carries the file: video or audio.
-
-​
 
 output.video
 
@@ -379,15 +321,11 @@ object
 
 One generated media file.
 
-​
-
 output.video.content_type
 
 string
 
 MIME type of the file.
-
-​
 
 output.video.url
 
@@ -395,15 +333,11 @@ string
 
 Download URL of the generated file.
 
-​
-
 status
 
 string
 
 Job status: queued, running, completed or failed.
-
-​
 
 usage
 
@@ -411,17 +345,9 @@ object
 
 Units Pika reported for the job.
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -431,11 +357,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -451,11 +373,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -477,4 +395,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/pika/pika-music/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/pika/pika-music/code)
 
-[Pika 2.5 Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-text-to-video/code)[Pika Sfx](https://docs.comfy.org/development/comfy-router/models/pika/pika-sfx/code)
+[Pika H3 Flex Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-text-to-video/code)[Pika Sfx](https://docs.comfy.org/development/comfy-router/models/pika/pika-sfx/code)

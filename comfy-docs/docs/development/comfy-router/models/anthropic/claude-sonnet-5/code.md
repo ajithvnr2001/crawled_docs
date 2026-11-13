@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5/code/
 title: Use Claude Sonnet 5 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:48.542640+00:00
+fetched_at: 2026-11-13T15:12:24.504868+00:00
 ---
 
 # Use Claude Sonnet 5 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:48.542640+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `anthropic/claude-sonnet-5`, served by Comfy Router from Anthropic. **Input:** Text, Image · **Output:** Text
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `anthropic/claude-sonnet-5` **Endpoint:** `POST https://api.comfy.org/v2/models/anthropic/claude-sonnet-5`
 
@@ -191,19 +189,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 max_tokens
 
@@ -213,8 +201,6 @@ required
 
 Maximum number of tokens to generate before stopping.
 
-​
-
 messages
 
 object[]
@@ -222,8 +208,6 @@ object[]
 required
 
 Conversation turns. See Anthropic Messages API docs for the full content-block taxonomy.
-
-​
 
 messages[].content
 
@@ -233,8 +217,6 @@ required
 
 Either a string shorthand or an array of content blocks (text, image, document, tool_use, tool_result, …).
 
-​
-
 messages[].role
 
 string
@@ -243,23 +225,17 @@ required
 
 Possible values: `user`, `assistant`
 
-​
-
 model
 
 string
 
 Anthropic model identifier (e.g. `claude-sonnet-4-5`, `claude-opus-4-7`).
 
-​
-
 stream
 
 boolean
 
-When true, the response is a `text/event-stream` of Anthropic message events instead of a single JSON body.
-
-​
+On the Comfy Router route `POST /v2/models/anthropic/{model}`, `stream` is INERT: Router SETTLES it to `false` before dispatch and always returns the completed message as one JSON document. On the v1 `POST /proxy/anthropic/v1/messages` route, `true` makes the response a `text/event-stream` of Anthropic message events instead of a single JSON body. Send `stream` false or omit it on Router; the `text/event-stream` half of the `/proxy/` operation’s 200 has no Router counterpart.
 
 system
 
@@ -269,49 +245,31 @@ Top-level system prompt. Either a string or an array of content blocks; both rea
 
 Generated from the schema Router serves at `GET /v2/models/anthropic/claude-sonnet-5/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 id
 
 string
 
-​
-
 model
 
 string
-
-​
 
 role
 
 string
 
-​
-
 stop_reason
 
 string
-
-​
 
 stop_sequence
 
 string
 
-​
-
 type
 
 string
-
-​
 
 usage
 
@@ -319,51 +277,35 @@ object
 
 Token usage for an Anthropic Messages API call.
 
-​
-
 usage.cache_creation
 
 object
 
 Per-TTL breakdown of cache-write input tokens for an Anthropic Messages API call.
 
-​
-
 usage.cache_creation.ephemeral_1h_input_tokens
 
 integer
-
-​
 
 usage.cache_creation.ephemeral_5m_input_tokens
 
 integer
 
-​
-
 usage.cache_creation_input_tokens
 
 integer
-
-​
 
 usage.cache_read_input_tokens
 
 integer
 
-​
-
 usage.input_tokens
 
 integer
 
-​
-
 usage.output_tokens
 
 integer
-
-​
 
 content
 
@@ -373,15 +315,11 @@ required
 
 The reply’s content blocks, in order. Present on every completed message; empty when the turn produced nothing.
 
-​
-
 content[].text
 
 string
 
 The block’s text. Present on `text` blocks and absent on every other kind.
-
-​
 
 content[].type
 
@@ -389,17 +327,9 @@ string
 
 The block kind. `text` is the one that carries `text`; `thinking`, `redacted_thinking`, `tool_use`, `server_tool_use` and the tool-result blocks are the others Anthropic sends today, and the list is open.
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -413,11 +343,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -440,11 +366,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -466,26 +388,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/anthropic/claude-sonnet-5/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/anthropic/claude-sonnet-5/code)
 
-[Use Claude Sonnet 5.5 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5-5/code)[Use SwitchX with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Claude Sonnet 5.5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5-5/code)[SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code)

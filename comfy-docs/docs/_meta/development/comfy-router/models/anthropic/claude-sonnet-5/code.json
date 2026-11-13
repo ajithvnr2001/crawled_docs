@@ -3,8 +3,5 @@
   "file": "development/comfy-router/models/anthropic/claude-sonnet-5/code.md",
   "title": "Use Claude Sonnet 5 with Comfy Router - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:48.542901+00:00",
-  "html_len": 680538,
-  "md_len": 12390,
-  "depth": 0
+  "fetched_at": "2026-11-13T15:12:24.505432+00:00"
 }

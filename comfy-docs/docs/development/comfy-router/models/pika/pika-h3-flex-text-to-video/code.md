@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-text-to-video/code/
 title: Use Pika H3 Flex Text To Video with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:28.448109+00:00
+fetched_at: 2026-11-13T15:12:13.974307+00:00
 ---
 
 # Use Pika H3 Flex Text To Video with Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `pika/pika-h3-flex-text-to-video`, served by Comfy Router from Pika. **Input:** Text · **Output:** Video + Audio
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `pika/pika-h3-flex-text-to-video` **Endpoint:** `POST https://api.comfy.org/v2/models/pika/pika-h3-flex-text-to-video`
 
@@ -177,27 +173,15 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 aspect_ratio
 
 string
 
 Output aspect ratio. `auto` picks one from the prompt and the media inputs. Omit it to let Pika choose: `auto` when `rewrite` is on, else the first media input’s ratio, else 16:9.Possible values: `auto`, `21:9`, `16:9`, `3:2`, `4:3`, `5:4`, `1:1`, `4:5`, `3:4`, `2:3`, `9:16`, `9:21`
-
-​
 
 channel_mode
 
@@ -207,8 +191,6 @@ default:"\"mono\""
 
 Audio stems only. `mono` downmixes before separation; `stereo` keeps both channels. The video’s audio does not change.Possible values: `stereo`, `mono`
 
-​
-
 duration
 
 integer
@@ -216,8 +198,6 @@ integer
 default:"5"
 
 Video length in whole seconds, 5 to 15.Range: `5` to `15`
-
-​
 
 output_mode
 
@@ -227,8 +207,6 @@ default:"\"video\""
 
 `video` returns the video only. `audio-stems` also returns Dialogue, Music and Effect WAV stems in `output.stems`, and adds Pika’s per-second stem separation charge.Possible values: `video`, `audio-stems`
 
-​
-
 prompt
 
 string
@@ -236,8 +214,6 @@ string
 required
 
 Text prompt describing the video and its audio.
-
-​
 
 resolution
 
@@ -247,8 +223,6 @@ default:"\"768p\""
 
 Output resolution. 480p and 768p are native. 1080p, 2k and 4k generate at 768p and then upscale, keeping the audio and frame rate.Possible values: `480p`, `768p`, `1080p`, `2k`, `4k`
 
-​
-
 rewrite
 
 boolean
@@ -256,8 +230,6 @@ boolean
 default:"true"
 
 Improve the prompt before generation. Set it to false to use the prompt as written.
-
-​
 
 seed
 
@@ -269,13 +241,7 @@ Seed for the video, 0 or more.Range: `0` to `…`Format: `int64`
 
 Generated from the schema Router serves at `GET /v2/models/pika/pika-h3-flex-text-to-video/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 error
 
@@ -283,15 +249,11 @@ object
 
 Set on a `failed` job.
 
-​
-
 error.code
 
 string
 
 Machine-readable failure code, such as invalid_input, content_moderation or provider_error.
-
-​
 
 error.message
 
@@ -299,15 +261,11 @@ string
 
 Diagnostic text.
 
-​
-
 id
 
 string
 
 Job id used to poll for status.
-
-​
 
 model_id
 
@@ -315,15 +273,11 @@ string
 
 The Pika catalog entry the job ran.
 
-​
-
 output
 
 object
 
 The finished job’s media, set when `status` is `completed`.
-
-​
 
 output.audio
 
@@ -331,15 +285,11 @@ object
 
 One generated media file.
 
-​
-
 output.audio.content_type
 
 string
 
 MIME type of the file.
-
-​
 
 output.audio.url
 
@@ -347,15 +297,11 @@ string
 
 Download URL of the generated file.
 
-​
-
 output.media_type
 
 string
 
 Which field carries the file: video or audio.
-
-​
 
 output.video
 
@@ -363,15 +309,11 @@ object
 
 One generated media file.
 
-​
-
 output.video.content_type
 
 string
 
 MIME type of the file.
-
-​
 
 output.video.url
 
@@ -379,15 +321,11 @@ string
 
 Download URL of the generated file.
 
-​
-
 status
 
 string
 
 Job status: queued, running, completed or failed.
-
-​
 
 usage
 
@@ -395,17 +333,9 @@ object
 
 Units Pika reported for the job.
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -415,11 +345,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -435,11 +361,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 

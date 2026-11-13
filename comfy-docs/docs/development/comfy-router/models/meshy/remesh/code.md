@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/meshy/remesh/code/
 title: Use Remesh with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:21.202238+00:00
+fetched_at: 2026-11-13T15:12:15.444613+00:00
 ---
 
 # Use Remesh with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:21.202238+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/meshy/remesh/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `meshy/remesh`, served by Comfy Router from Meshy. **Input:** 3D · **Output:** 3D
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `meshy/remesh` **Endpoint:** `POST https://api.comfy.org/v2/models/meshy/remesh`
 
@@ -187,19 +185,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 convert_format_only
 
@@ -209,15 +197,11 @@ default:"false"
 
 If true, only changes the format of the input model file, ignoring other inputs like topology, resize_height, and target_polycount.
 
-​
-
 input_task_id
 
 string
 
 The ID of the completed Image to 3D or Text to 3D task you wish to remesh. Required if model_url is not provided.
-
-​
 
 model_url
 
@@ -225,15 +209,11 @@ string
 
 A publicly accessible URL or data URI to a 3D model. Supported formats glb, gltf, obj, fbx, stl. Required if input_task_id is not provided.
 
-​
-
 origin_at
 
 string
 
 Position of the origin.Possible values: `bottom`, `center`, “
-
-​
 
 resize_height
 
@@ -243,8 +223,6 @@ default:"0"
 
 Resize the model to a certain height measured in meters. 0 means no resizing.
 
-​
-
 target_formats
 
 `glb`, `fbx`, `obj`, `usdz`, `blend`, `stl`[]
@@ -253,8 +231,6 @@ default:"[\"glb\"]"
 
 A list of target formats for the remeshed model.
 
-​
-
 target_polycount
 
 integer
@@ -262,8 +238,6 @@ integer
 default:"30000"
 
 Specify the target number of polygons in the generated model. Valid range is 100 to 300,000.Range: `100` to `300000`
-
-​
 
 topology
 
@@ -275,13 +249,7 @@ Specify the topology of the generated model.Possible values: `quad`, `triangle`
 
 Generated from the schema Router serves at `GET /v2/models/meshy/remesh/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 created_at
 
@@ -289,15 +257,11 @@ integer
 
 Timestamp of when the task was created, in milliseconds.Format: `int64`
 
-​
-
 finished_at
 
 integer
 
 Timestamp of when the task was finished, in milliseconds. 0 if not finished.Format: `int64`
-
-​
 
 id
 
@@ -307,15 +271,11 @@ required
 
 Unique identifier for the task.
 
-​
-
 model_urls
 
 object
 
 Downloadable URLs to the remeshed 3D model files.
-
-​
 
 model_urls.blend
 
@@ -323,15 +283,11 @@ string
 
 Downloadable URL to the Blender file.
 
-​
-
 model_urls.fbx
 
 string
 
 Downloadable URL to the FBX file.
-
-​
 
 model_urls.glb
 
@@ -339,15 +295,11 @@ string
 
 Downloadable URL to the GLB file.
 
-​
-
 model_urls.obj
 
 string
 
 Downloadable URL to the OBJ file.
-
-​
 
 model_urls.stl
 
@@ -355,15 +307,11 @@ string
 
 Downloadable URL to the STL file.
 
-​
-
 model_urls.usdz
 
 string
 
 Downloadable URL to the USDZ file.
-
-​
 
 preceding_tasks
 
@@ -371,23 +319,17 @@ integer
 
 The count of preceding tasks. Only meaningful when status is PENDING.
 
-​
-
 progress
 
 integer
 
 Progress of the task. 0 if not started, 100 when succeeded.Range: `0` to `100`
 
-​
-
 started_at
 
 integer
 
 Timestamp of when the task was started, in milliseconds. 0 if not started.Format: `int64`
-
-​
 
 status
 
@@ -397,15 +339,11 @@ required
 
 Possible values: `SUCCEEDED`
 
-​
-
 task_error
 
 object
 
 Error object that contains the error message if the task failed.
-
-​
 
 task_error.message
 
@@ -413,25 +351,15 @@ string
 
 Detailed error message.
 
-​
-
 type
 
 string
 
 Type of the Remesh task.Possible values: `remesh`
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -447,11 +375,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -470,11 +394,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -496,26 +416,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/meshy/remesh/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/meshy/remesh/code)
 
-[Use Meshy 7 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7/code)[Use Rigging with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/meshy/rigging/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Meshy 7](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7/code)[Rigging](https://docs.comfy.org/development/comfy-router/models/meshy/rigging/code)

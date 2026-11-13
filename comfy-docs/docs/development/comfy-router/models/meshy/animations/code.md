@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/meshy/animations/code/
 title: Use Animations with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:19.541288+00:00
+fetched_at: 2026-11-13T15:12:16.156889+00:00
 ---
 
 # Use Animations with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:19.541288+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/meshy/animations/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `meshy/animations`, served by Comfy Router from Meshy. **Input:** 3D · **Output:** 3D
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `meshy/animations` **Endpoint:** `POST https://api.comfy.org/v2/models/meshy/animations`
 
@@ -187,19 +185,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 action_id
 
@@ -209,15 +197,11 @@ required
 
 The identifier of the animation action to apply.
 
-​
-
 post_process
 
 object
 
 Parameters for post-processing animation files.
-
-​
 
 post_process.fps
 
@@ -227,8 +211,6 @@ default:"30"
 
 The target frame rate. Default is 30. Applicable only when operation_type is change_fps.Possible values: `24`, `25`, `30`, `60`
 
-​
-
 post_process.operation_type
 
 string
@@ -236,8 +218,6 @@ string
 required
 
 The type of operation to perform.Possible values: `change_fps`, `fbx2usdz`, `extract_armature`
-
-​
 
 rig_task_id
 
@@ -249,13 +229,7 @@ The id of a successfully completed rigging task (from POST /openapi/v1/rigging).
 
 Generated from the schema Router serves at `GET /v2/models/meshy/animations/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 created_at
 
@@ -263,23 +237,17 @@ integer
 
 Timestamp of when the task was created, in milliseconds.Format: `int64`
 
-​
-
 expires_at
 
 integer
 
 Timestamp of when the task result expires, in milliseconds.Format: `int64`
 
-​
-
 finished_at
 
 integer
 
 Timestamp of when the task was finished, in milliseconds. 0 if not finished.Format: `int64`
-
-​
 
 id
 
@@ -289,15 +257,11 @@ required
 
 Unique identifier for the task.
 
-​
-
 preceding_tasks
 
 integer
 
 The count of preceding tasks. Only meaningful when status is PENDING.
-
-​
 
 progress
 
@@ -305,15 +269,11 @@ integer
 
 Progress of the task (0-100).Range: `0` to `100`
 
-​
-
 result
 
 object
 
 Contains the output animation URLs if the task SUCCEEDED.
-
-​
 
 result.animation_fbx_url
 
@@ -321,15 +281,11 @@ string
 
 Downloadable URL for the animation in FBX format.
 
-​
-
 result.animation_glb_url
 
 string
 
 Downloadable URL for the animation in GLB format.
-
-​
 
 result.processed_animation_fps_fbx_url
 
@@ -337,15 +293,11 @@ string
 
 Downloadable URL for the animation with changed FPS in FBX format.
 
-​
-
 result.processed_armature_fbx_url
 
 string
 
 Downloadable URL for the processed armature in FBX format.
-
-​
 
 result.processed_usdz_url
 
@@ -353,15 +305,11 @@ string
 
 Downloadable URL for the processed animation in USDZ format.
 
-​
-
 started_at
 
 integer
 
 Timestamp of when the task was started, in milliseconds. 0 if not started.Format: `int64`
-
-​
 
 status
 
@@ -371,15 +319,11 @@ required
 
 Possible values: `SUCCEEDED`
 
-​
-
 task_error
 
 object
 
 Error object that contains the error message if the task failed.
-
-​
 
 task_error.message
 
@@ -387,25 +331,15 @@ string
 
 Detailed error message.
 
-​
-
 type
 
 string
 
 Type of the Animation task.Possible values: `animate`
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -418,11 +352,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -441,11 +371,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -467,26 +393,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/meshy/animations/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/meshy/animations/code)
 
-[Use Uni 1 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code)[Use Meshy 5 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-5/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Uni 1](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code)[Meshy 6](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-6/code)

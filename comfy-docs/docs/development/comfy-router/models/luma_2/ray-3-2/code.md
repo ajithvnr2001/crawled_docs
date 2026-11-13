@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code/
 title: Use Ray 3.2 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:45.005576+00:00
+fetched_at: 2026-11-13T15:12:16.259555+00:00
 ---
 
 # Use Ray 3.2 with Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `luma_2/ray-3.2`, served by Comfy Router from Luma 2. **Input:** Text, Image, Video · **Output:** Video
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `luma_2/ray-3.2` **Endpoint:** `POST https://api.comfy.org/v2/models/luma_2/ray-3.2`
 
@@ -189,19 +185,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 aspect_ratio
 
@@ -209,15 +195,11 @@ string
 
 Output aspect ratio. The ray-3.2 video models support the subset 9:16, 3:4, 1:1, 4:3, 16:9, 21:9.Possible values: `3:1`, `2:1`, `21:9`, `16:9`, `3:2`, `4:3`, `1:1`, `3:4`, `2:3`, `9:16`, `1:2`, `1:3`
 
-​
-
 image_ref
 
 object[]
 
 Reference images for style/content guidance. Up to 9 for type ‘image’, up to 8 for type ‘image_edit’.
-
-​
 
 image_ref[].data
 
@@ -225,15 +207,11 @@ string
 
 Base64-encoded image or video data
 
-​
-
 image_ref[].generation_id
 
 string
 
 UUID of a prior completed generation to reuse as the source. Used by ray-3.2 video_edit / video_reframe.
-
-​
 
 image_ref[].media_type
 
@@ -241,15 +219,11 @@ string
 
 MIME type. Required with data (and with url for video sources, e.g. video/mp4 on video_edit / video_reframe).
 
-​
-
 image_ref[].url
 
 string
 
 Publicly accessible image or video URL
-
-​
 
 model
 
@@ -257,15 +231,11 @@ string
 
 Model to use. uni-1 / uni-1-max for image generation, ray-3.2 for video generation, editing, and reframing.
 
-​
-
 output_format
 
 string
 
 Output image formatPossible values: `png`, `jpeg`
-
-​
 
 prompt
 
@@ -275,15 +245,11 @@ required
 
 Text prompt
 
-​
-
 source
 
 object
 
 Reference to an image or video. Used for style/content guidance, guided generation, video-edit/video-reframe sources, and guide keyframes. Provide exactly one of generation_id, url, or data.
-
-​
 
 source.data
 
@@ -291,15 +257,11 @@ string
 
 Base64-encoded image or video data
 
-​
-
 source.generation_id
 
 string
 
 UUID of a prior completed generation to reuse as the source. Used by ray-3.2 video_edit / video_reframe.
-
-​
 
 source.media_type
 
@@ -307,15 +269,11 @@ string
 
 MIME type. Required with data (and with url for video sources, e.g. video/mp4 on video_edit / video_reframe).
 
-​
-
 source.url
 
 string
 
 Publicly accessible image or video URL
-
-​
 
 style
 
@@ -323,15 +281,11 @@ string
 
 Style presetPossible values: `auto`, `manga`
 
-​
-
 type
 
 string
 
 The kind of generation to perform. image/image_edit are produced by the uni-1 / uni-1-max models; video/video_edit/video_reframe are produced by the ray-3.2 model.Possible values: `image`, `image_edit`, `video`, `video_edit`, `video_reframe`
-
-​
 
 video
 
@@ -339,15 +293,11 @@ object
 
 Video output settings for ray-3.2. Only the fields that affect validation and billing are modelled here; additional fields (edit controls, source_position) are forwarded to Luma untouched.
 
-​
-
 video.duration
 
 string
 
 Clip duration for ray-3.2 video / video_edit. Defaults to 5s. HDR generation (type video) is restricted to 5s.Possible values: `5s`, `10s`
-
-​
 
 video.end_frame
 
@@ -355,15 +305,11 @@ object
 
 Reference to an image or video. Used for style/content guidance, guided generation, video-edit/video-reframe sources, and guide keyframes. Provide exactly one of generation_id, url, or data.
 
-​
-
 video.end_frame.data
 
 string
 
 Base64-encoded image or video data
-
-​
 
 video.end_frame.generation_id
 
@@ -371,15 +317,11 @@ string
 
 UUID of a prior completed generation to reuse as the source. Used by ray-3.2 video_edit / video_reframe.
 
-​
-
 video.end_frame.media_type
 
 string
 
 MIME type. Required with data (and with url for video sources, e.g. video/mp4 on video_edit / video_reframe).
-
-​
 
 video.end_frame.url
 
@@ -387,15 +329,11 @@ string
 
 Publicly accessible image or video URL
 
-​
-
 video.exr_export
 
 boolean
 
 Not available yet: requests with exr_export=true are rejected with 400 until Luma ships EXR delivery. Will export an EXR file alongside the MP4 (requires hdr true). Rejected for video_reframe.
-
-​
 
 video.hdr
 
@@ -403,15 +341,11 @@ boolean
 
 Render in HDR. Requires 720p/1080p. Rejected for video_reframe.
 
-​
-
 video.keyframe_indexes
 
 integer[]
 
 Output-frame positions for `keyframes`, same length; 0–120 for 5s, 0–240 for 10s. Forwarded untouched.
-
-​
 
 video.keyframes
 
@@ -419,15 +353,11 @@ object[]
 
 Guide-frame images (1–64), mutually exclusive with start_frame/end_frame. Billed at the requested duration; a keyframes request is never a single-keyframe extend.
 
-​
-
 video.keyframes[].data
 
 string
 
 Base64-encoded image or video data
-
-​
 
 video.keyframes[].generation_id
 
@@ -435,15 +365,11 @@ string
 
 UUID of a prior completed generation to reuse as the source. Used by ray-3.2 video_edit / video_reframe.
 
-​
-
 video.keyframes[].media_type
 
 string
 
 MIME type. Required with data (and with url for video sources, e.g. video/mp4 on video_edit / video_reframe).
-
-​
 
 video.keyframes[].url
 
@@ -451,15 +377,11 @@ string
 
 Publicly accessible image or video URL
 
-​
-
 video.loop
 
 boolean
 
 Loop the generated clip. Create-only (type video).
-
-​
 
 video.resolution
 
@@ -467,15 +389,11 @@ string
 
 Output resolution for ray-3.2 video. Defaults to 720p. 360p is the draft tier. HDR requires 720p or 1080p.Possible values: `360p`, `540p`, `720p`, `1080p`
 
-​
-
 video.start_frame
 
 object
 
 Reference to an image or video. Used for style/content guidance, guided generation, video-edit/video-reframe sources, and guide keyframes. Provide exactly one of generation_id, url, or data.
-
-​
 
 video.start_frame.data
 
@@ -483,15 +401,11 @@ string
 
 Base64-encoded image or video data
 
-​
-
 video.start_frame.generation_id
 
 string
 
 UUID of a prior completed generation to reuse as the source. Used by ray-3.2 video_edit / video_reframe.
-
-​
 
 video.start_frame.media_type
 
@@ -499,15 +413,11 @@ string
 
 MIME type. Required with data (and with url for video sources, e.g. video/mp4 on video_edit / video_reframe).
 
-​
-
 video.start_frame.url
 
 string
 
 Publicly accessible image or video URL
-
-​
 
 web_search
 
@@ -517,13 +427,7 @@ Enable web search grounding
 
 Generated from the schema Router serves at `GET /v2/models/luma_2/ray-3.2/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 created_at
 
@@ -531,15 +435,11 @@ string
 
 Creation timestamp
 
-​
-
 failure_code
 
 string
 
 Machine-readable failure code for programmatic handlingPossible values: `content_moderated`, `generation_failed`, `budget_exhausted`, `output_not_found`
-
-​
 
 failure_reason
 
@@ -547,15 +447,11 @@ string
 
 Human-readable failure description, populated only on a FAILED generation. `null` on a successful one.
 
-​
-
 id
 
 string
 
 Generation identifier
-
-​
 
 model
 
@@ -563,15 +459,11 @@ string
 
 Model used
 
-​
-
 output
 
 object[]
 
 A generated output entry
-
-​
 
 output[].type
 
@@ -579,15 +471,11 @@ string
 
 Media type (e.g. image)
 
-​
-
 output[].url
 
 string
 
 Presigned URL (1hr expiry)
-
-​
 
 state
 
@@ -595,25 +483,15 @@ string
 
 Current state of the generationPossible values: `queued`, `processing`, `completed`, `failed`
 
-​
-
 type
 
 string
 
 The kind of generation to perform. image/image_edit are produced by the uni-1 / uni-1-max models; video/video_edit/video_reframe are produced by the ray-3.2 model.Possible values: `image`, `image_edit`, `video`, `video_edit`, `video_reframe`
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -626,11 +504,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -650,11 +524,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 

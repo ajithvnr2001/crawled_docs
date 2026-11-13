@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/krea/krea-3/code/
 title: Use Krea 3 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:12.107624+00:00
+fetched_at: 2026-11-13T15:12:15.959442+00:00
 ---
 
 # Use Krea 3 with Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `krea/krea-3`, served by Comfy Router from Krea. **Input:** Text, Image · **Output:** Image
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `krea/krea-3` **Endpoint:** `POST https://api.comfy.org/v2/models/krea/krea-3`
 
@@ -173,19 +169,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 aspect_ratio
 
@@ -193,15 +179,11 @@ string
 
 1:1, 4:5, 3:4, 2:3, 9:16, 5:4, 4:3, 3:2, 16:9 or 21:9. Use with resolution; omit for automatic framing.
 
-​
-
 image_urls
 
 string[]
 
 Input image URLs, up to 8. More than 8 entries is rejected before any fetch (400 on /proxy/krea; Comfy Router’s schema check answers 422 first). The image_url returned by uploading the image to POST /proxy/krea/assets (multipart form field `file`) is always accepted. Whether other public https URLs are accepted depends on the environment: where they are not, any link that is not an https URL on the host app-uploads.krea.ai is rejected with 400 saying ‘image_urls must be image_url values returned by POST /proxy/krea/assets’, so upload the image instead; where they are, any public https image URL is accepted, and a URL that is malformed or not https is rejected with 400 (a URL whose port is numeric but out of range is not caught by this check and can fail with a 502 instead). For a well-formed https URL in that case, a reference the caller can fix is rejected with 400 naming its host: its host does not resolve or is not publicly reachable when checked before the fetch, it redirects more than the allowed number of times, to a URL that is not https, or to a host that is not publicly reachable, it returns a 4xx other than 408 or 429, it is not an image, it is an image in a format that cannot be read, its image size header is not within the first 2 MiB, or a response with no declared length or chunked encoding ends before its image size header. Any other failure fetching it fails with a 502 error on POST /proxy/krea (Comfy Router answers it with 500 internal_error): a transient DNS, TLS or connection failure, a timeout, an origin 408, 429, 5xx or other non-200 status, or a host that passed that check but does not resolve or is not publicly reachable when the fetch connects. Some of these clear on retry (a resolver error, timeout, dropped connection, an origin answering 5xx, 408 or 429, or a host whose DNS answer switches to a non-public address between the host check and the connection, which on retry can succeed or get the 400 for a non-public host); others fail the same way every time, for example a TLS certificate the fetch does not trust (self-signed, expired or for the wrong host name), or an origin answering a 2xx other than 200 or a 3xx the fetch does not follow (such as 204, 206, 300, 304 or 305, or a 301, 302, 303, 307 or 308 with no Location), so if a retry fails the same way, upload the image instead. A request queued through Comfy Router does not retry such a failure when any of its image_urls is not an app-uploads.krea.ai link, so resubmit it yourself if the cause can clear. Where other URLs are not accepted, an app-uploads.krea.ai link that is not a live upload fails with a 5xx error; where they are, it is rejected with 400 like any other unreachable reference. While a server has not yet learned which applies, any https URL with a host that is not an app-uploads.krea.ai link, public or not, fails with a 503 error that is safe to retry (a queued request is retried on it automatically). A queued request’s 400 carries only the generic invalid_input detail, so it shows neither the host nor the wording above, and the queue does not retry it. A queued 400 can come from any field, not only image_urls (for example an unsupported resolution or thinking_mode), so check the other fields first. If they are valid, upload each image to POST /proxy/krea/assets and resubmit with those image_url values and a new Idempotency-Key (or none): reusing the key with a changed body is refused with 409 invalid_input, which says nothing about the images, and reusing it with the same body is answered 201 with the original request_id and Idempotent-Replayed: true, so it does not start a new run, and its result URL returns the same 400 (its status URL answers 200 with error_type invalid_input). Where other public https URLs are accepted, if that resubmit also fails with 400, the image itself is the problem (for example it is not a supported image, or its image size header is not within the first 2 MiB). Where they are not, the same uploaded image fails with a 5xx (500 internal_error on Comfy Router) instead of that 400, and the image is still the problem, so uploading it again does not help. Only the first 2 MiB of each image is read to find its size, so an image whose size information cannot be read inside that window (such as a JPEG with over 2 MiB of embedded metadata, or a paletted PNG whose transparency data, or with none the start of its first image-data chunk, sits past 2 MiB, such as after over 2 MiB of text or color-profile chunks) is rejected with 400 saying its image size header is not within the first 2 MiB, uploaded or not; re-save it without the large metadata, or save a paletted PNG as a non-paletted PNG. Send an internationalized host in its ASCII (punycode) form; a non-ASCII host name is rejected as not existing. Omit for text-to-image.
-
-​
 
 model
 
@@ -209,13 +191,9 @@ string
 
 berry (default, quality) or jam (speed).
 
-​
-
 negative_prompt
 
 string
-
-​
 
 prompt
 
@@ -225,15 +203,11 @@ required
 
 What to generate. With image_urls, the editing instruction; describe what should change and what should stay the same.
 
-​
-
 regional_edit
 
 boolean
 
 Set true for a local edit that keeps the rest of the image. Needs model berry and at least one image in image_urls.
-
-​
 
 resolution
 
@@ -243,13 +217,9 @@ required
 
 1k or 2k.
 
-​
-
 seed
 
 integer
-
-​
 
 thinking_mode
 
@@ -259,13 +229,7 @@ fast (default), high or ultra. High and ultra plan complex edits in more detail 
 
 Generated from the schema Router serves at `GET /v2/models/krea/krea-3/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 completed_at
 
@@ -275,8 +239,6 @@ required
 
 Format: `date-time`
 
-​
-
 created_at
 
 string (date-time)
@@ -285,15 +247,11 @@ required
 
 Format: `date-time`
 
-​
-
 error
 
 object
 
 Set only when status is failed. A cancelled job carries none.
-
-​
 
 error.code
 
@@ -303,23 +261,17 @@ required
 
 Why the job failed: content_policy, invalid_request, validation_failed, model_unavailable, insufficient_balance, timeout, auto_cancelled, provider_error, internal or node_app_node_failed. Treat an unknown code as internal.
 
-​
-
 error.message
 
 string
 
 Optional. Free-form provider text for provider_error and internal.
 
-​
-
 error.param
 
 string
 
 The request parameter to change, present with invalid_request and validation_failed.
-
-​
 
 job_id
 
@@ -329,8 +281,6 @@ required
 
 Format: `uuid`
 
-​
-
 result
 
 object
@@ -339,15 +289,11 @@ required
 
 The finished generation. Not nullable here, unlike on `KreaJob`: a terminal job whose `result` carries no `urls` is answered as a Comfy Router error, so a `200` always carries it.
 
-​
-
 result.style_id
 
 string
 
 Set by loraTraining jobs rather than by a generation; a `200` for these models carries `urls`.
-
-​
 
 result.urls
 
@@ -357,8 +303,6 @@ required
 
 The generated images, as downloadable links. At least one, because a `completed` job with an empty `urls` is `success_without_output` and never reaches this document.
 
-​
-
 status
 
 string
@@ -367,17 +311,9 @@ required
 
 Always `completed` on this document: it is the only status Router reports as a success, and Krea’s vocabulary is matched without a case fold.Possible values: `completed`
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -386,11 +322,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -406,11 +338,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 

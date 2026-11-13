@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0/code/
 title: Use Seed Audio 1.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:59.516853+00:00
+fetched_at: 2026-11-13T15:12:21.569079+00:00
 ---
 
 # Use Seed Audio 1.0 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:59.516853+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `byteplus/seed-audio-1.0`, served by Comfy Router from BytePlus. **Input:** Text · **Output:** Audio
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `byteplus/seed-audio-1.0` **Endpoint:** `POST https://api.comfy.org/v2/models/byteplus/seed-audio-1.0`
 
@@ -183,19 +181,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 audio_config
 
@@ -203,15 +191,11 @@ object
 
 Output audio configuration.
 
-​
-
 audio_config.enable_subtitle
 
 boolean
 
 Whether to enable the subtitle service. When enabled, the response includes utterance- and word-level timestamps (default: false).
-
-​
 
 audio_config.format
 
@@ -219,15 +203,11 @@ string
 
 Output audio format: wav (default), mp3, pcm or ogg_opus.Possible values: `wav`, `mp3`, `pcm`, `ogg_opus`
 
-​
-
 audio_config.loudness_rate
 
 integer
 
 -50 to 100; 100 means 2.0x volume, -50 means 0.5x volume (default: 0).Range: `-50` to `100`
-
-​
 
 audio_config.pitch_rate
 
@@ -235,15 +215,11 @@ integer
 
 -12 to 12 (default: 0).Range: `-12` to `12`
 
-​
-
 audio_config.sample_rate
 
 integer
 
 Output sample rate: 8000, 16000, 24000 (default), 32000, 44100 or 48000.Possible values: `8000`, `16000`, `24000`, `32000`, `44100`, `48000`
-
-​
 
 audio_config.speech_rate
 
@@ -251,15 +227,11 @@ integer
 
 -50 to 100; 100 means 2.0x speed, -50 means 0.5x speed (default: 0).Range: `-50` to `100`
 
-​
-
 model
 
 string
 
 Model identifier. Supported models: seed-audio-1.0 and seed-audio-1.0-multilingual. A direct v1 call to POST /proxy/byteplus/api/v3/tts/create MUST supply it — the proxy refuses any other value, and an omitted one, with a 400. It is NOT in this schema’s `required` list because Comfy Router fills it from the `{model}` path segment of /v2/models/byteplus/{model}, so a Router caller omits it.
-
-​
 
 references
 
@@ -267,15 +239,11 @@ object[]
 
 Reference resources. Omit for text-only generation. Up to 3 audio references (each up to 30 seconds and 10 MB decoded; wav, mp3, pcm or ogg_opus) or exactly 1 image reference (up to 10 MB decoded; jpeg, png or webp). Image references cannot be mixed with audio references. Those ceilings are BytePlus’s and are stated in DECODED bytes: base64 inflates an asset by about 4/3, and a Comfy Router call is capped at 100 MiB for the whole JSON document, so an inline `audio_data`/`image_data` reference sent to /v2/models/byteplus/{model} may carry roughly 75 MB decoded before the transport limit refuses it. BytePlus’s own 10 MB per-reference ceiling is therefore what binds first for any single inlined reference, and three audio references at that ceiling now fit in one body; use `audio_url`/`image_url` to keep large assets out of the request entirely.
 
-​
-
 references[].audio_data
 
 string
 
 Base64-encoded reference audio.
-
-​
 
 references[].audio_url
 
@@ -283,15 +251,11 @@ string
 
 URL of a remote reference audio file.
 
-​
-
 references[].image_data
 
 string
 
 Base64-encoded reference image.
-
-​
 
 references[].image_url
 
@@ -299,15 +263,11 @@ string
 
 URL of a remote reference image.
 
-​
-
 references[].speaker
 
 string
 
 Voice ID. Can be a supported Doubao TTS voice or a voice-clone voice ID.
-
-​
 
 text_prompt
 
@@ -317,15 +277,11 @@ required
 
 Prompt or text to synthesize (1 to 3,000 characters; an empty string is refused). When audio references are provided, reference them by order using @Audio1, @Audio2 and @Audio3.
 
-​
-
 watermark
 
 object
 
 Watermark configuration object. An empty object is accepted.
-
-​
 
 watermark.aigc_metadata
 
@@ -333,15 +289,11 @@ object
 
 Implicit watermark. Adds metadata to the synthesized audio header.
 
-​
-
 watermark.aigc_metadata.content_producer
 
 string
 
 Name or code of the synthesis service provider.
-
-​
 
 watermark.aigc_metadata.content_propagator
 
@@ -349,15 +301,11 @@ string
 
 Name or code of the content distribution service provider.
 
-​
-
 watermark.aigc_metadata.enable
 
 boolean
 
 Whether to enable the implicit watermark (default: false).
-
-​
 
 watermark.aigc_metadata.produce_id
 
@@ -365,15 +313,11 @@ string
 
 Content production ID.
 
-​
-
 watermark.aigc_metadata.propagate_id
 
 string
 
 Content distribution ID.
-
-​
 
 watermark.aigc_watermark
 
@@ -383,13 +327,7 @@ Explicit watermark switch. Adds an audio rhythm marker at the end of the synthes
 
 Generated from the schema Router serves at `GET /v2/models/byteplus/seed-audio-1.0/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 audio
 
@@ -397,15 +335,11 @@ string
 
 Generated audio data, Base64-encoded.
 
-​
-
 code
 
 integer
 
 Status code. Refer to the official error-code document for details.
-
-​
 
 duration
 
@@ -413,15 +347,11 @@ number
 
 Duration after speed or post-processing, in seconds.Format: `double`
 
-​
-
 message
 
 string
 
 Status details.
-
-​
 
 original_duration
 
@@ -429,15 +359,11 @@ number
 
 Original model output duration in seconds. Used for billing and capped at 120 seconds.Format: `double`
 
-​
-
 subtitle
 
 object
 
 Subtitle information for the audio. Present only when audio_config.enable_subtitle is set to true in the request.
-
-​
 
 subtitle.sentences
 
@@ -445,15 +371,11 @@ object[]
 
 Utterance-level subtitle information.
 
-​
-
 subtitle.sentences[].end_time
 
 integer
 
 Segment end time, in milliseconds from the beginning of the audio.
-
-​
 
 subtitle.sentences[].start_time
 
@@ -461,15 +383,11 @@ integer
 
 Segment start time, in milliseconds from the beginning of the audio.
 
-​
-
 subtitle.sentences[].text
 
 string
 
 The complete text of the segment.
-
-​
 
 subtitle.text
 
@@ -477,15 +395,11 @@ string
 
 Subtitle text corresponding to the audio.
 
-​
-
 subtitle.words
 
 object[]
 
 Word-level subtitle information.
-
-​
 
 subtitle.words[].end_time
 
@@ -493,15 +407,11 @@ integer
 
 Segment end time, in milliseconds from the beginning of the audio.
 
-​
-
 subtitle.words[].start_time
 
 integer
 
 Segment start time, in milliseconds from the beginning of the audio.
-
-​
 
 subtitle.words[].text
 
@@ -509,25 +419,15 @@ string
 
 The complete text of the segment.
 
-​
-
 url
 
 string
 
 Temporary audio URL, valid for 2 hours.
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -539,11 +439,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -554,11 +450,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -580,26 +472,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/byteplus/seed-audio-1-0/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/byteplus/seed-audio-1-0/code)
 
-[Use Seed Audio 1.0 Multilingual with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0-multilingual/code)[Use Seedance 1.0 Pro 250528 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-0-pro-250528/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Seed Audio 1.0 Multilingual](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0-multilingual/code)[Seedance 1.0 Pro 250528](https://docs.comfy.org/development/comfy-router/models/byteplus/seedance-1-0-pro-250528/code)

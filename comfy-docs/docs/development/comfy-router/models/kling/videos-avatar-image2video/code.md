@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/videos-avatar-image2video/code/
 title: Use Videos Avatar Image 2video with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:52.683365+00:00
+fetched_at: 2026-11-13T15:12:16.632711+00:00
 ---
 
 # Use Videos Avatar Image 2video with Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `kling/videos-avatar-image2video`, served by Comfy Router from Kling. **Input:** Image, Audio · **Output:** Video
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `kling/videos-avatar-image2video` **Endpoint:** `POST https://api.comfy.org/v2/models/kling/videos-avatar-image2video`
 
@@ -181,19 +177,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 audio_id
 
@@ -201,23 +187,17 @@ string
 
 Audio ID Generated via TTS API. Only supports 2-300 second audio generated within the last 30 days. Either audio_id or sound_file must be provided (mutually exclusive).
 
-​
-
 callback_url
 
 string (uri)
 
 The callback notification address for the result of this task. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.Format: `uri`
 
-​
-
 external_task_id
 
 string
 
 Customized Task ID. Must be unique within a single user account. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.
-
-​
 
 image
 
@@ -227,8 +207,6 @@ required
 
 Avatar Reference Image. Supports Base64 encoding or image URL. Supported formats: .jpg/.jpeg/.png. Max 10MB, min 300px width/height, aspect ratio between 1:2.5 and 2.5:1.
 
-​
-
 mode
 
 string
@@ -237,15 +215,11 @@ default:"\"std\""
 
 Video generation mode. std: Standard Mode (cost-effective), pro: Professional Mode (longer duration, higher quality).Possible values: `std`, `pro`
 
-​
-
 prompt
 
 string
 
 Positive text prompt. Can define avatar actions, emotions, and camera movements.
-
-​
 
 sound_file
 
@@ -253,13 +227,9 @@ string
 
 Sound File. Supports Base64-encoded audio or accessible audio URL. Accepted formats: .mp3/.wav/.m4a/.aac (max 5MB), 2-300 seconds. Either audio_id or sound_file must be provided (mutually exclusive).
 
-​
-
 watermark_info
 
 object
-
-​
 
 watermark_info.enabled
 
@@ -269,13 +239,7 @@ Whether to generate watermarked results simultaneously.
 
 Generated from the schema Router serves at `GET /v2/models/kling/videos-avatar-image2video/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 code
 
@@ -283,13 +247,9 @@ integer
 
 Error code
 
-​
-
 data
 
 object
-
-​
 
 data.created_at
 
@@ -297,15 +257,11 @@ integer
 
 Task creation time, Unix timestamp in milliseconds
 
-​
-
 data.final_unit_deduction
 
 string
 
 The deduction units of task
-
-​
 
 data.task_id
 
@@ -313,31 +269,21 @@ string
 
 Task ID
 
-​
-
 data.task_info
 
 object
-
-​
 
 data.task_info.external_task_id
 
 string
 
-​
-
 data.task_result
 
 object
 
-​
-
 data.task_result.videos
 
 object[]
-
-​
 
 data.task_result.videos[].duration
 
@@ -345,15 +291,11 @@ string
 
 Total video duration in seconds
 
-​
-
 data.task_result.videos[].id
 
 string
 
 Generated video ID
-
-​
 
 data.task_result.videos[].url
 
@@ -361,15 +303,11 @@ string (uri)
 
 URL for generated videoFormat: `uri`
 
-​
-
 data.task_result.videos[].watermark_url
 
 string (uri)
 
 URL for generated video with watermark, hotlink protection formatFormat: `uri`
-
-​
 
 data.task_status
 
@@ -377,15 +315,11 @@ string
 
 Task StatusPossible values: `submitted`, `processing`, `succeed`, `failed`
 
-​
-
 data.task_status_msg
 
 string
 
 Task status information, displaying the failure reason when the task fails
-
-​
 
 data.updated_at
 
@@ -393,19 +327,13 @@ integer
 
 Task update time, Unix timestamp in milliseconds
 
-​
-
 data.watermark_info
 
 object
 
-​
-
 data.watermark_info.enabled
 
 boolean
-
-​
 
 message
 
@@ -413,25 +341,15 @@ string
 
 Error message
 
-​
-
 request_id
 
 string
 
 Request ID
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -442,11 +360,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -472,11 +386,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 

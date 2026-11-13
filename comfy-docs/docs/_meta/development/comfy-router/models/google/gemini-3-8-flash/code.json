@@ -3,8 +3,5 @@
   "file": "development/comfy-router/models/google/gemini-3-8-flash/code.md",
   "title": "Use Gemini 3.8 Flash with Comfy Router - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:07.850420+00:00",
-  "html_len": 946366,
-  "md_len": 30024,
-  "depth": 0
+  "fetched_at": "2026-11-13T15:12:19.096189+00:00"
 }

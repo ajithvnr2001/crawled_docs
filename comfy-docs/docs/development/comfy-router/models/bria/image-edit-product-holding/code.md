@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-product-holding/code/
 title: Use Image Edit Product Holding with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:27.701591+00:00
+fetched_at: 2026-11-13T15:12:23.255945+00:00
 ---
 
 # Use Image Edit Product Holding with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:27.701591+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-product-holding/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `bria/image-edit-product-holding`, served by Comfy Router from Bria. **Input:** Image, Text · **Output:** Image
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `bria/image-edit-product-holding` **Endpoint:** `POST https://api.comfy.org/v2/models/bria/image-edit-product-holding`
 
@@ -171,19 +169,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 aspect_ratio
 
@@ -191,23 +179,17 @@ string
 
 Output image aspect ratio, one of “1:1”, “2:3”, “3:2”, “3:4”, “4:3”, “4:5”, “5:4”, “9:16” or “16:9”. Defaults to the aspect ratio of person_image.
 
-​
-
 instruction
 
 string
 
 Optional extra direction for this shot, for example “Replace the paper coffee cup in her right hand with the can, logo facing the camera”. Send only the detail you want to steer, not a full prompt.
 
-​
-
 output_type
 
 string
 
 Output image format, “png” or “jpeg”.
-
-​
 
 person_image
 
@@ -217,8 +199,6 @@ required
 
 The photo of the person to edit. Publicly available URL or Base64-encoded. Accepted formats JPEG, JPG, PNG, WEBP.
 
-​
-
 product_images
 
 string[]
@@ -227,23 +207,17 @@ required
 
 One to three images of the product, such as packaging, a second angle, or a companion item. Each entry is a publicly available URL or Base64-encoded, same as person_image.
 
-​
-
 seed
 
 integer
 
 Seed for deterministic generation. If omitted, a random seed is used.
 
-​
-
 sync
 
 boolean
 
 Must be false or omitted. Bria’s synchronous mode (true) is refused rather than forwarded, on Comfy Router and on this operation’s own `/proxy/` route: Comfy Router fixes the return mode before dispatch and polls for the result inside the call, and the `/proxy/` route returns the request_id and status_url to poll.
-
-​
 
 visual_output_content_moderation
 
@@ -253,13 +227,7 @@ If true, returns 422 on visual output moderation failure.
 
 Generated from the schema Router serves at `GET /v2/models/bria/image-edit-product-holding/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 error
 
@@ -267,15 +235,11 @@ object
 
 Error object (only present when status is ERROR)
 
-​
-
 error.code
 
 integer
 
 Error code.
-
-​
 
 error.details
 
@@ -283,15 +247,11 @@ string
 
 Additional error details.
 
-​
-
 error.message
 
 string
 
 Error message.
-
-​
 
 request_id
 
@@ -299,15 +259,11 @@ string
 
 Unique identifier for the request.
 
-​
-
 result
 
 object
 
 Result object (only present when status is COMPLETED)
-
-​
 
 result.image_url
 
@@ -315,15 +271,11 @@ string
 
 URL of the generated/edited image.
 
-​
-
 result.prompt
 
 string
 
 Original prompt.
-
-​
 
 result.refined_prompt
 
@@ -331,15 +283,11 @@ string
 
 Refined version of the prompt, or null on a COMPLETED generation Bria did not refine. Nullable because the key is PRESENT carrying null rather than omitted; observed live on bria/image-edit-gen-fill.
 
-​
-
 result.seed
 
 integer
 
 Seed used for generation.
-
-​
 
 result.structured_instruction
 
@@ -347,15 +295,11 @@ string
 
 The structured instruction, a JSON document serialized as a string, that `/v2/structured_instruction/generate` returns. That operation fills neither URL.
 
-​
-
 result.structured_prompt
 
 string
 
 The detailed JSON structured prompt.
-
-​
 
 result.video_url
 
@@ -363,25 +307,15 @@ string
 
 URL of the generated video.
 
-​
-
 status
 
 string
 
 Current status of the request.Possible values: `IN_PROGRESS`, `COMPLETED`, `ERROR`, `UNKNOWN`
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -392,11 +326,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -408,11 +338,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 

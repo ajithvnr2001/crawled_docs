@@ -1,0 +1,146 @@
+---
+url: https://docs.comfy.org/tutorials/partner-nodes/lightricks/ltx-video-vfx/
+title: LTX Video VFX in ComfyUI: Reframe, Upscale and SDR to HDR - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-13T15:12:12.915387+00:00
+---
+
+# LTX Video VFX in ComfyUI: Reframe, Upscale and SDR to HDR - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/partner-nodes/lightricks/ltx-video-vfx/
+
+## On this page
+
+Back to top
+
+  * Reframe
+  * Upscale
+  * SDR to HDR
+  * AlphaGen
+  * Get started
+
+
+
+Lightricks
+
+# LTX Video VFX in ComfyUI: Reframe, Upscale and SDR to HDR
+
+Copy pageCopy page
+
+Run the LTX Video VFX partner nodes in ComfyUI: reframe a clip to a new aspect ratio, upscale it to 1080p, 4K or 8K, convert SDR to HDR, or pull an alpha matte.
+
+Copy pageCopy page
+
+**LTX Video VFX** is a set of Lightricks video nodes that work on a finished clip instead of generating a new one. One node reframes the shot to another aspect ratio, one upscales it, one converts it from SDR to HDR, and one pulls a grayscale alpha matte. Each node takes one video and returns one video. These are cloud API nodes. They need a Comfy account with credits and download no local model. Reframe and upscale rebuild the picture at the new size rather than stretching the source, so detail survives the change. See [Partner Node pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing) for the per-second rate.
+
+## Reframe
+
+Reframing rebuilds the area outside the source video to match it, so the subject stays in shot instead of being cropped away. Use it to turn a vertical clip into a widescreen cut, or to reshape footage for another platform.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Reframe: LTX VFX” in Template Library
+
+## man_black_horse_surreal.mp4
+
+Load into the `LoadVideo` node that feeds the LTX Video Reframe node
+
+  * **Resolution** : 720p or 1080p presets at 1:1, 4:5, 5:4, 9:16 and 16:9. Default is 1080x1920 (9:16)
+  * **Placement** : `center` by default. `top`, `bottom`, `left` and `right` anchor the source to that edge, and `custom` takes `x`, `y` and `width` as fractions of the output frame. The source must stay inside the frame and can be enlarged at most 2x
+  * **Limits** : up to 60 seconds and 1800 frames, each side 64 to 4096 pixels
+
+
+
+## Upscale
+
+Upscaling renders the clip at a larger size and keeps its aspect ratio, frame rate and audio. The output is as large as fits in the chosen target, turned for portrait clips. ![LTX Video Upscale workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ltx_video_upscale-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Upscale: LTX VFX” in Template Library
+
+## desert_cave_caravan.mp4
+
+Load into the `LoadVideo` node that feeds the LTX Video Upscale node
+
+  * **Resolution** : `1080p`, `4k` (default) or `8k`
+  * **Limits** : short side at least 480 pixels, up to 7680x4320. Up to 2401 frames at 1080p, 601 at 4k and 241 at 8k
+
+
+
+## SDR to HDR
+
+SDR to HDR converts a standard-dynamic-range clip into 10-bit HDR (BT.2020, HLG) at the same resolution. The node returns the picture only, so the template rebuilds the clip with the original audio from the source video.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “SDR to HDR: LTX VFX” in Template Library
+
+## sky_citadel_ring_collapse.mp4
+
+Load into the `LoadVideo` node that feeds the LTX Video SDR to HDR node
+
+  * **Limits** : up to 3840x2160 in either orientation. Up to 273 frames at 1080p, 193 at 1440p and 65 at 4K
+
+
+
+## AlphaGen
+
+AlphaGen extracts a grayscale matte that matches the input frame for frame, with white as the foreground. The output is a video, so send it through **Get Video Components** and **Image to Mask** to use it as a mask. The audio track is not kept. There is no template for this node yet: add it from the node library and connect your own `LoadVideo`.
+
+  * **Limits** : up to 10 seconds, at most 3840x2160 in either orientation
+
+
+
+## Get started
+
+  1. Update ComfyUI to the latest version
+  2. Go to Template Library and search for `LTX VFX`, then drag a template into the canvas
+  3. Replace the sample clip in the **Load Video** node with your own, set the target resolution on Reframe or Upscale, then click **Queue**
+
+
+
+To use the Partner Nodes, you need to ensure that you are logged in properly and using a permitted network environment. Please refer to the [Partner Nodes Overview](https://docs.comfy.org/tutorials/partner-nodes/overview) section of the documentation to understand the specific requirements for using the Partner Nodes.
+
+  * Local users
+
+  * Cloud users
+
+
+
+
+Make sure your ComfyUI is updated.
+
+  * [Download ComfyUI](https://www.comfy.org/download)
+  * [Update Guide](https://docs.comfy.org/installation/update_comfyui)
+
+Workflows in this guide can be found in the [Workflow Templates](https://docs.comfy.org/interface/features/template). If you can’t find them in the template, your ComfyUI may be outdated.If nodes are missing when loading a workflow, possible reasons:
+
+  1. You are not using the latest ComfyUI version (Nightly version)
+  2. Some nodes failed to import at startup
+
+
+
+  * [Cloud](https://cloud.comfy.org) will update after ComfyUI stable release.
+
+So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/lightricks/ltx-video-vfx.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/lightricks/ltx-video-vfx)
+
+[Ltx 2 5](https://docs.comfy.org/tutorials/partner-nodes/lightricks/ltx-2-5)[Luma Text to Video](https://docs.comfy.org/tutorials/partner-nodes/luma/luma-text-to-video)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code/
 title: Use SwitchX with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:48.791576+00:00
+fetched_at: 2026-11-13T15:12:24.226314+00:00
 ---
 
 # Use SwitchX with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:48.791576+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `beeble/switchx`, served by Comfy Router from Beeble. **Input:** Image, Video, Text · **Output:** Image + Video
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `beeble/switchx` **Endpoint:** `POST https://api.comfy.org/v2/models/beeble/switchx`
 
@@ -183,19 +181,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 alpha_mode
 
@@ -205,23 +193,17 @@ required
 
 Alpha mode: auto, fill, custom, or selectPossible values: `auto`, `fill`, `custom`, `select`
 
-​
-
 alpha_uri
 
 string
 
 URI of a custom alpha matte. Required when alpha_mode is custom or select. Ignored for auto or fill.
 
-​
-
 callback_url
 
 string
 
 HTTPS URL for webhook notification on completion or failure.
-
-​
 
 generation_type
 
@@ -231,15 +213,11 @@ required
 
 Output type: image or videoPossible values: `image`, `video`
 
-​
-
 idempotency_key
 
 string
 
 Idempotency key for safe retries. If a job with the same key already exists for your account, the API returns the existing job’s status instead of creating a duplicate.
-
-​
 
 max_resolution
 
@@ -249,23 +227,17 @@ default:"1080"
 
 Maximum output resolution: 720 or 1080 (default: 1080).
 
-​
-
 prompt
 
 string
 
 Text description of desired output (max 2,000 chars). At least one of prompt or reference_image_uri is required.
 
-​
-
 reference_image_uri
 
 string
 
 URI of the reference image for style transfer. Accepts the same URI types as source_uri.
-
-​
 
 source_uri
 
@@ -277,13 +249,7 @@ URI of the source image or video. Accepts beeble://uploads/{id}/{filename}, http
 
 Generated from the schema Router serves at `GET /v2/models/beeble/switchx/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 alpha_mode
 
@@ -291,15 +257,11 @@ string
 
 auto, fill, custom, or select
 
-​
-
 completed_at
 
 string
 
 ISO 8601 timestamp when the job completed or failed.
-
-​
 
 created_at
 
@@ -307,23 +269,17 @@ string
 
 ISO 8601 timestamp when the job was created.
 
-​
-
 error
 
 string
 
 Error message (present when status is failed).
 
-​
-
 generation_type
 
 string
 
 image or video
-
-​
 
 id
 
@@ -333,15 +289,11 @@ required
 
 Job identifier (swx_…)
 
-​
-
 modified_at
 
 string
 
 ISO 8601 timestamp of the last status change.
-
-​
 
 output
 
@@ -349,15 +301,11 @@ object
 
 Signed URLs for SwitchX job outputs.
 
-​
-
 output.alpha
 
 string
 
 Alpha matte URL.
-
-​
 
 output.render
 
@@ -365,23 +313,17 @@ string
 
 Composited output URL.
 
-​
-
 output.source
 
 string
 
 Preprocessed source URL.
 
-​
-
 progress
 
 integer
 
 Progress percentage (0-100).
-
-​
 
 status
 
@@ -391,15 +333,11 @@ required
 
 Current job status.Possible values: `in_queue`, `processing`, `completed`, `failed`
 
-​
-
 webhook
 
 object
 
 Webhook delivery status for a SwitchX job.
-
-​
 
 webhook.attempts
 
@@ -407,15 +345,11 @@ integer
 
 Number of delivery attempts so far.
 
-​
-
 webhook.last_error
 
 string
 
 Error message from the last failed delivery attempt.
-
-​
 
 webhook.status
 
@@ -423,17 +357,9 @@ string
 
 pending, delivered, or failed
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -445,11 +371,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -469,11 +391,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -495,26 +413,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/beeble/switchx/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/beeble/switchx/code)
 
-[Use Claude Sonnet 5 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5/code)[Use Erase V1 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Claude Sonnet 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5/code)[Erase V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code)

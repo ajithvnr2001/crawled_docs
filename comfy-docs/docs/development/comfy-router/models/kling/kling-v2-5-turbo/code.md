@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code/
 title: Use Kling V2.5 Turbo with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:53.105567+00:00
+fetched_at: 2026-11-13T15:12:17.031446+00:00
 ---
 
 # Use Kling V2.5 Turbo with Comfy Router - ComfyUI
@@ -34,13 +34,9 @@ Call kling/kling-v2-5-turbo through Comfy Router: endpoint, request shape and th
 
 Copy pageCopy page
 
-API Reference for `kling/kling-v2-5-turbo`, served by Comfy Router from Kling. **Input:** Text · **Output:** Video
+API Reference for `kling/kling-v2-5-turbo`, served by Comfy Router from Kling. **Input:** Image, Text · **Output:** Video
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `kling/kling-v2-5-turbo` **Endpoint:** `POST https://api.comfy.org/v2/models/kling/kling-v2-5-turbo`
 
@@ -181,19 +177,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 aspect_ratio
 
@@ -203,27 +189,19 @@ default:"\"16:9\""
 
 Video aspect ratioPossible values: `16:9`, `9:16`, `1:1`
 
-​
-
 callback_url
 
 string (uri)
 
 The callback notification address. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.Format: `uri`
 
-​
-
 camera_control
 
 object
 
-​
-
 camera_control.config
 
 object
-
-​
 
 camera_control.config.horizontal
 
@@ -231,15 +209,11 @@ number
 
 Controls camera’s movement along horizontal axis (x-axis). Negative indicates left, positive indicates right.Range: `-10` to `10`
 
-​
-
 camera_control.config.pan
 
 number
 
 Controls camera’s rotation in vertical plane (x-axis). Negative indicates downward rotation, positive indicates upward rotation.Range: `-10` to `10`
-
-​
 
 camera_control.config.roll
 
@@ -247,15 +221,11 @@ number
 
 Controls camera’s rolling amount (z-axis). Negative indicates counterclockwise, positive indicates clockwise.Range: `-10` to `10`
 
-​
-
 camera_control.config.tilt
 
 number
 
 Controls camera’s rotation in horizontal plane (y-axis). Negative indicates left rotation, positive indicates right rotation.Range: `-10` to `10`
-
-​
 
 camera_control.config.vertical
 
@@ -263,23 +233,17 @@ number
 
 Controls camera’s movement along vertical axis (y-axis). Negative indicates downward, positive indicates upward.Range: `-10` to `10`
 
-​
-
 camera_control.config.zoom
 
 number
 
 Controls change in camera’s focal length. Negative indicates narrower field of view, positive indicates wider field of view.Range: `-10` to `10`
 
-​
-
 camera_control.type
 
 string
 
 Predefined camera movements type. simple: Customizable camera movement. down_back: Camera descends and moves backward. forward_up: Camera moves forward and tilts up. right_turn_forward: Rotate right and move forward. left_turn_forward: Rotate left and move forward.Possible values: `simple`, `down_back`, `forward_up`, `right_turn_forward`, `left_turn_forward`
-
-​
 
 cfg_scale
 
@@ -289,8 +253,6 @@ default:"0.5"
 
 Flexibility in video generation. The higher the value, the lower the model’s degree of flexibility, and the stronger the relevance to the user’s prompt.Range: `0` to `1`Format: `float`
 
-​
-
 duration
 
 string
@@ -299,25 +261,11 @@ default:"\"5\""
 
 Video length in secondsPossible values: `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`
 
-​
-
 external_task_id
 
 string
 
 Customized Task ID. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.
-
-​
-
-mode
-
-string
-
-default:"\"std\""
-
-Video generation mode. std: Standard Mode, which is cost-effective. pro: Professional Mode, generates videos with longer duration but higher quality output.Possible values: `std`, `pro`
-
-​
 
 model_name
 
@@ -325,15 +273,11 @@ string
 
 Model name. Omit it or send null when using Comfy Router; the model is selected by the request path. A supplied name must match that path.
 
-​
-
 multi_prompt
 
 object[]
 
 Information about each storyboard, such as prompts and duration. Supports up to 6 storyboards, with a minimum of 1. Required when multi_shot is true and shot_type is customize.
-
-​
 
 multi_prompt[].duration
 
@@ -341,23 +285,17 @@ string
 
 Duration of this storyboard in seconds. Must not exceed total task duration and must not be less than 1. Sum of all storyboard durations equals total task duration.
 
-​
-
 multi_prompt[].index
 
 integer
 
 Shot sequence number
 
-​
-
 multi_prompt[].prompt
 
 string
 
 Prompt word for this storyboard. Maximum length 512 characters.
-
-​
 
 multi_shot
 
@@ -367,15 +305,11 @@ default:"false"
 
 Whether to generate multi-shot video. When true, the prompt parameter is invalid. When false, the shot_type and multi_prompt parameters are invalid.
 
-​
-
 negative_prompt
 
 string
 
 Negative text prompt. It is recommended to supplement negative prompt information through negative sentences directly within positive prompts.
-
-​
 
 prompt
 
@@ -383,15 +317,11 @@ string
 
 Positive text prompt. Use <<<voice_1>>> to specify a voice matching the voice_list parameter order. A task can reference up to 2 tones. When specifying a tone, the sound parameter value must be on.
 
-​
-
 shot_type
 
 string
 
 Storyboard method. Required when the multi_shot parameter is set to true.Possible values: `customize`, `intelligence`
-
-​
 
 sound
 
@@ -401,15 +331,11 @@ default:"\"off\""
 
 Whether to generate sound simultaneously when generating videos. Only V2.6 and subsequent versions of the model support this parameter.Possible values: `on`, `off`
 
-​
-
 voice_list
 
 object[]
 
 List of voices referenced when generating videos. Supports up to 2 voices; reference them in `prompt` as <<<voice_1>>> and <<<voice_2>>> in list order. Requires `sound` set to “on”, which only V2.6 and subsequent versions of the model support; on an earlier model, or with `sound` left at its “off” default, voices are not applied.
-
-​
 
 voice_list[].voice_id
 
@@ -419,15 +345,11 @@ required
 
 Voice ID returned through the voice customization API or a system preset voice ID.
 
-​
-
 watermark_info
 
 object
 
 Whether to generate watermarked results simultaneously. Custom watermark is not supported at this time.
-
-​
 
 watermark_info.enabled
 
@@ -435,15 +357,29 @@ boolean
 
 true means generate watermark, false means do not generate.
 
+image
+
+string
+
+Reference Image - URL or Base64 encoded string, cannot exceed 10MB, resolution not less than 300*300px, aspect ratio between 1:2.5 ~ 2.5:1. Base64 should not include data:image prefix.
+
+image_tail
+
+string
+
+Reference Image - End frame control. URL or Base64 encoded string, cannot exceed 10MB, resolution not less than 300*300px. Base64 should not include data:image prefix. Cannot be used simultaneously with dynamic_masks/static_mask or camera_control.
+
+mode
+
+string
+
+default:"\"std\""
+
+Video generation mode. std: Standard Mode, which is cost-effective. pro: Professional Mode, generates videos with longer duration but higher quality output.Possible values: `std`, `pro`
+
 Generated from the schema Router serves at `GET /v2/models/kling/kling-v2-5-turbo/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 code
 
@@ -451,13 +387,9 @@ integer
 
 Error code
 
-​
-
 data
 
 object
-
-​
 
 data.created_at
 
@@ -465,15 +397,11 @@ integer
 
 Task creation time, Unix timestamp in milliseconds
 
-​
-
 data.final_unit_deduction
 
 string
 
 The deduction units of task
-
-​
 
 data.task_id
 
@@ -481,31 +409,21 @@ string
 
 Task ID
 
-​
-
 data.task_info
 
 object
-
-​
 
 data.task_info.external_task_id
 
 string
 
-​
-
 data.task_result
 
 object
 
-​
-
 data.task_result.videos
 
 object[]
-
-​
 
 data.task_result.videos[].duration
 
@@ -513,15 +431,11 @@ string
 
 Total video duration in seconds
 
-​
-
 data.task_result.videos[].id
 
 string
 
 Generated video ID
-
-​
 
 data.task_result.videos[].url
 
@@ -529,15 +443,11 @@ string (uri)
 
 URL for generated videoFormat: `uri`
 
-​
-
 data.task_result.videos[].watermark_url
 
 string (uri)
 
 URL for generated video with watermark, hotlink protection formatFormat: `uri`
-
-​
 
 data.task_status
 
@@ -545,15 +455,11 @@ string
 
 Task StatusPossible values: `submitted`, `processing`, `succeed`, `failed`
 
-​
-
 data.task_status_msg
 
 string
 
 Task status information, displaying the failure reason when the task fails
-
-​
 
 data.updated_at
 
@@ -561,19 +467,13 @@ integer
 
 Task update time, Unix timestamp in milliseconds
 
-​
-
 data.watermark_info
 
 object
 
-​
-
 data.watermark_info.enabled
 
 boolean
-
-​
 
 message
 
@@ -581,25 +481,15 @@ string
 
 Error message
 
-​
-
 request_id
 
 string
 
 Request ID
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -610,11 +500,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -640,11 +526,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
