@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/agent-runner/
 title: AgentRunner and persistence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:32.205757+00:00
+fetched_at: 2026-11-13T10:48:41.483171+00:00
 ---
 
 # AgentRunner and persistence

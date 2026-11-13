@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/copilot-runtime/
 title: Copilot Runtime
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:31.641740+00:00
+fetched_at: 2026-11-13T10:48:41.033684+00:00
 ---
 
 # Copilot Runtime

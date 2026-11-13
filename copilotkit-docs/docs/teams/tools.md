@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/tools/
 title: Microsoft Teams: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:35.575533+00:00
+fetched_at: 2026-11-13T10:48:44.707969+00:00
 ---
 
 # Microsoft Teams: Tools and context

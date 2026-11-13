@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/runtime-endpoints/
 title: Runtime HTTP endpoints
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:31.921637+00:00
+fetched_at: 2026-11-13T10:48:41.310181+00:00
 ---
 
 # Runtime HTTP endpoints

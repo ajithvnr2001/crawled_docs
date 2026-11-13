@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/render-and-carousel/
 title: Microsoft Teams + AWS Strands (Python): Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:36.047004+00:00
+fetched_at: 2026-11-13T10:48:44.967036+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Render and carousel

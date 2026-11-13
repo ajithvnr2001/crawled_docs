@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/threads-import/
 title: Add AG-UI Streams to Existing Threads
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:35.411945+00:00
+fetched_at: 2026-11-13T10:48:44.592944+00:00
 ---
 
 # Add AG-UI Streams to Existing Threads

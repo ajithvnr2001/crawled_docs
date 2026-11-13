@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/custom-agent/
 title: Use any model router
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:32.075738+00:00
+fetched_at: 2026-11-13T10:48:41.411934+00:00
 ---
 
 # Use any model router

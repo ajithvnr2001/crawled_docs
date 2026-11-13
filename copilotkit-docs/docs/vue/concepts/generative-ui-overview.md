@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/concepts/generative-ui-overview/
 title: Generative UI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:29.457606+00:00
+fetched_at: 2026-11-13T10:48:39.152363+00:00
 ---
 
 # Generative UI

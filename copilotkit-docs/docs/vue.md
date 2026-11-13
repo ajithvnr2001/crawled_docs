@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/
 title: Vue quickstart
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:33.189795+00:00
+fetched_at: 2026-11-13T10:48:42.503449+00:00
 ---
 
 # Vue quickstart

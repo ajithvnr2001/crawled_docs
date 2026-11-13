@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/ai-powered-textarea/overview/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:33.998422+00:00
+fetched_at: 2026-11-13T10:48:43.380879+00:00
 ---
 
 # CopilotKit: bring your agent into any app
@@ -168,6 +168,14 @@ ReactReact SPAVueReact NativeAngularSlackTeams
 
 ### Your agent backend
 
-[CopilotKit](https://docs.copilotkit.ai/quickstart)[Langchain DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)[![](https://docs.copilotkit.ai/logos/google-antigravity.svg)Google Antigravity](https://docs.copilotkit.ai/google-antigravity)
+[CopilotKit](https://docs.copilotkit.ai/quickstart)[Langchain DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)[Google Antigravity](https://docs.copilotkit.ai/google-antigravity)[OpenAI Agents SDK (Python)](https://docs.copilotkit.ai/openai-agents-python)
+
+Built with CopilotKit
+
+## OpenBot
+
+The modular, self-hostable workspace for AI coworkers, built on CopilotKit and AG-UI. Bring any agent, then choose the models, tools and infrastructure it runs on. It’s enterprise-ready with governance built in, like SSO and SCIM, boundaries, a full audit trail and more.
+
+[Explore OpenBot ](https://open.bot)[OpenBot for Business ](https://open.bot/business)[Setup guide for builders ](https://open.bot/builders#start)
 
 [View on GitHub](https://github.com/CopilotKit/CopilotKit)Start building 

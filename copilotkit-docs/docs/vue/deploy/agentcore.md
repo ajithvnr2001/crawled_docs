@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/deploy/agentcore/
 title: AWS AgentCore
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:29.143864+00:00
+fetched_at: 2026-11-13T10:48:38.769659+00:00
 ---
 
 # AWS AgentCore

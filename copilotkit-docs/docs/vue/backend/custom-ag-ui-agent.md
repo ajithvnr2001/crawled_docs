@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/custom-ag-ui-agent/
 title: Write your own AG-UI agent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:31.806119+00:00
+fetched_at: 2026-11-13T10:48:40.959211+00:00
 ---
 
 # Write your own AG-UI agent

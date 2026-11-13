@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/self-managed-agents/
 title: Self-managed agents
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:31.420138+00:00
+fetched_at: 2026-11-13T10:48:40.895568+00:00
 ---
 
 # Self-managed agents

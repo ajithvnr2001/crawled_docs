@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/custom-look-and-feel/css/
 title: CSS Customization
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:29.006552+00:00
+fetched_at: 2026-11-13T10:48:38.867297+00:00
 ---
 
 # CSS Customization

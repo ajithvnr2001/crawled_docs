@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/threads-and-state/
 title: Microsoft Teams: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:35.677240+00:00
+fetched_at: 2026-11-13T10:48:44.752771+00:00
 ---
 
 # Microsoft Teams: Threads and state

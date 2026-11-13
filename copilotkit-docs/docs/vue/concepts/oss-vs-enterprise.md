@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/concepts/oss-vs-enterprise/
 title: Open source vs Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:29.412439+00:00
+fetched_at: 2026-11-13T10:48:38.719907+00:00
 ---
 
 # Open source vs Intelligence

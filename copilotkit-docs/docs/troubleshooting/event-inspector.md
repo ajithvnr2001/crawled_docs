@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/event-inspector/
 title: AG-UI Event Inspector
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:34.442291+00:00
+fetched_at: 2026-11-13T10:48:44.342336+00:00
 ---
 
 # AG-UI Event Inspector

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/custom-look-and-feel/slots/
 title: Slots (Subcomponents)
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:29.081444+00:00
+fetched_at: 2026-11-13T10:48:38.929852+00:00
 ---
 
 # Slots (Subcomponents)

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/debug-mode/
 title: Debug Mode
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:35.240355+00:00
+fetched_at: 2026-11-13T10:48:44.391219+00:00
 ---
 
 # Debug Mode

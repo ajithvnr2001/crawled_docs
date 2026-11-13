@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/ag-ui/
 title: Connect AG-UI agents
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:32.120807+00:00
+fetched_at: 2026-11-13T10:48:41.519416+00:00
 ---
 
 # Connect AG-UI agents
