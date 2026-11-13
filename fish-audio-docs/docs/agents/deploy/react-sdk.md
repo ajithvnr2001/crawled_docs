@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/react-sdk/
 title: React SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:42.236245+00:00
+fetched_at: 2026-11-13T15:33:48.128955+00:00
 ---
 
 # React SDK - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:42.236245+00:00
 > Source: https://docs.fish.audio/agents/deploy/react-sdk/
 
 ## On this page
+
+Back to top
 
   * Install
   * Quick start
@@ -49,11 +51,7 @@ Create session tokens on your backend.
 
 Connect with just an agent id, no backend.
 
-## 
-
-​
-
-Install
+## Install
 
 npm
 
@@ -75,11 +73,7 @@ yarn
 
 Requires React 18 or later. The package re-exports the Web SDK’s main exports (`AgentSession`, `FishAgentError`, and their types), so app code can import everything from `@fishaudio/agent-react`.
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 A minimal call UI: start a call, show what the agent is doing, mute, hang up. This example connects to a [public agent](https://docs.fish.audio/agents/deploy/public-agents) by id.
 
@@ -132,11 +126,7 @@ App.tsx
 
 Call `startSession` from a user gesture (such as a click handler) so the browser allows microphone capture and audio playback.
 
-### 
-
-​
-
-Connect to a private agent
+### Connect to a private agent
 
 For agents that are not public, your backend creates the session with your API key (`POST /v1/agent/sessions`) and returns the response to the browser. Pass it to `startSession` unchanged.
     
@@ -148,11 +138,7 @@ For agents that are not public, your backend creates the session with your API k
 
 See [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) for the backend side. `startSession` accepts the same options as `AgentSession.start` in the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk#options), including [`clientTools`](https://docs.fish.audio/agents/build/client-tools). Session settings such as [`overrides`](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) and `dynamicVariables` apply when you connect with an `agentId`; with a `sessionToken`, your backend sets them in its session-creation request instead.
 
-### 
-
-​
-
-Next.js
+### Next.js
 
 The SDK only touches browser APIs when a session starts, so importing it in Server Components is safe, but any component that calls the hooks needs the `"use client"` directive. Create session tokens in a Route Handler so your API key stays on the server:
 
@@ -201,11 +187,7 @@ app/call-button.tsx
 
 Start calls made from a user interaction are safe under React Strict Mode’s effect replay.
 
-## 
-
-​
-
-`useConversation(defaults?)`
+## `useConversation(defaults?)`
 
 Owns one session’s lifecycle and re-renders on its state changes. `defaults` is merged into every `startSession(overrides?)` call, with `overrides` winning per key. Put long-lived options such as `clientTools`, `callbacks`, or a public `agentId` in `defaults`, and per-call values such as a freshly fetched `sessionToken` in `overrides`. The latest render’s `defaults` are used, so inline objects are fine.
     
@@ -222,11 +204,7 @@ Owns one session’s lifecycle and re-renders on its state changes. `defaults` i
     };
     
 
-### 
-
-​
-
-Returned value
+### Returned value
 
 Field| Type| Description  
 ---|---|---  
@@ -247,11 +225,7 @@ Field| Type| Description
   
 For transcripts, tool-call events, and error handling, subscribe to events on `session` or pass `callbacks` in `defaults`. See the [Web SDK event reference](https://docs.fish.audio/agents/deploy/web-sdk#events).
 
-### 
-
-​
-
-Lifecycle details
+### Lifecycle details
 
   * **Double-start safe.** If a session is already live, `startSession` resolves with its id instead of starting a second one; two concurrent calls (a double-click) share one start.
   * **Hangup-during-start safe.** Calling `endSession` while a start is still waiting on session creation, the microphone permission, or the realtime connection marks the conversation ended and waits for that start to settle; a late connection is closed before the hook exposes it. A `startSession` requested during that cleanup waits, then creates a fresh session. If another `endSession` cancels that queued restart, it rejects with an error whose `name` is `"AbortError"`.
@@ -271,11 +245,7 @@ Lifecycle details
 
 
 
-## 
-
-​
-
-Share one session across components
+## Share one session across components
 
 Wrap your tree in `AgentSessionProvider` when several components need the same conversation: call controls in the header, a transcript panel elsewhere. The provider hosts one `useConversation(options)`, so its `options` prop takes the hook’s `defaults`.
 
@@ -332,11 +302,7 @@ Hook| Purpose
   
 The session-consuming hooks and components (`useAgentMessages`, `useAudioLevels`, `<AgentAudioVisualizer />`) all resolve their session the same way: pass one explicitly (`useAgentMessages(session)`) or omit the argument to use the surrounding provider’s. Passing `null` explicitly means “no session”; it does not fall back to the provider.
 
-## 
-
-​
-
-Chat log with `useAgentMessages`
+## Chat log with `useAgentMessages`
 
 `useAgentMessages(session?)` returns the conversation as a live list of `ChatMessage` entries in order, aggregated from the session’s transcript events so you do not have to reduce them yourself:
 
@@ -401,11 +367,7 @@ Voice and text chat panel
 
 If you only want finalized messages in order, without streaming updates, subscribe to the session’s [`message` event](https://docs.fish.audio/agents/deploy/web-sdk#events) directly instead.
 
-## 
-
-​
-
-Audio levels and visualizer
+## Audio levels and visualizer
 
 `useAudioLevels(session?, fps?)` returns polled `{ input, output }` levels in `0` to `1`: `input` is the microphone, `output` is the agent’s voice. It samples 20 times per second by default; raise `fps` for snappier meters, lower it to reduce re-renders. Both are `0` before the session connects.
 
@@ -441,11 +403,7 @@ Prop| Type| Default| Description
   
 For a fully custom visualization, build on `useAudioLevels` or the session’s frequency-data methods from the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk#audio-controls).
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Web SDK
 

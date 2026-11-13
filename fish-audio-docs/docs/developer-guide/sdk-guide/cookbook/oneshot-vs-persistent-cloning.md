@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/oneshot-vs-persistent-cloning/
 title: One-shot vs persistent cloning: pick the right approach - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:55.512898+00:00
+fetched_at: 2026-11-13T15:33:43.187563+00:00
 ---
 
 # One-shot vs persistent cloning: pick the right approach - Fish Audio
@@ -31,11 +31,7 @@ Choose between instant per-request cloning and a saved, reusable voice model
 
 Copy pageCopy page
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -59,11 +55,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-## 
-
-​
-
-Recipe
+## Recipe
 
 There are two ways to clone a voice. Pick by how often you’ll reuse it:
 
@@ -151,11 +143,7 @@ JavaScript
 
 One-shot re-sends the reference bytes on every request, so it’s ideal for one-off or rarely-repeated voices. Once a voice is used more than a handful of times, switch to a persistent model to skip the per-call upload.
 
-## 
-
-​
-
-Train a persistent voice once, reuse forever
+## Train a persistent voice once, reuse forever
 
 Call [`voices.create`](https://docs.fish.audio/api-reference/sdk/python/resources#create) to train a model, then pass `voice.id` as `reference_id`. The same id works from any process and across SDK and REST.
     
@@ -177,11 +165,7 @@ Already have a trained voice id? Skip training and pass it directly:
     audio = client.tts.convert(text="Hello again.", reference_id="<voice-id>", model="s2.1-pro-free")
     
 
-## 
-
-​
-
-Which to choose
+## Which to choose
 
 | One-shot| Persistent  
 ---|---|---  
@@ -192,11 +176,7 @@ Best for| One-off or experimental clones| Voices reused many times or across ser
   
 For either path, give the reference 10–30 s of clean speech and make the transcript match the audio exactly (including punctuation) for the best prosody.
 
-## 
-
-​
-
-Related
+## Related
 
   * [Instant voice cloning](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/instant-voice-cloning)
   * [Voice Cloning guide](https://docs.fish.audio/features/voice-cloning)

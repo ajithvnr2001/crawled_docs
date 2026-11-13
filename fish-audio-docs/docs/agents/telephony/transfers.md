@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/transfers/
 title: Call Transfers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:45.196123+00:00
+fetched_at: 2026-11-13T15:33:46.501832+00:00
 ---
 
 # Call Transfers - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:45.196123+00:00
 > Source: https://docs.fish.audio/agents/telephony/transfers/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Configure destinations
@@ -59,36 +61,20 @@ When a caller needs a person, the agent can transfer the call. Configure one or 
 **What the human hears first**|  The caller, directly.| The agent’s briefing: who is calling and what they need.  
 **Recording & analysis**| Stop at the handoff: nothing after it appears in [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis).| Recording continues after the human joins, capturing the full call audio; the transcript (and therefore analysis) covers only the agent’s segment, up to the merge.  
   
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * A phone number bound to your agent, answering inbound calls. See [Inbound calls](https://docs.fish.audio/agents/telephony/inbound-calls).
   * The number must support transfers. Numbers purchased from the platform inventory (`provider: "twilio"`) do; see [Phone numbers](https://docs.fish.audio/agents/telephony/phone-numbers). [Imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) support cold transfers when the carrier honors SIP REFER to the destination (on Twilio, enable Call Transfer and allow PSTN transfers on the trunk), and warm transfers when a termination is configured.
 
 
 
-## 
+## Configure destinations
 
-​
-
-Configure destinations
-
-### 
-
-​
-
-In the console
+### In the console
 
 On the agent’s **Phone** page, under **Inbound calls** , turn on **Call transfer** and fill in each destination: a name, the phone number, when to transfer there, its announcement, and the mode. A **Warm** destination also gets a handoff choice and the warm transfer settings. With more than one destination, each needs a distinct name. Changes take effect on live calls after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-### 
-
-​
-
-Through the API
+### Through the API
 
 Transfer destinations live in the `conversation` section of the [agent config](https://docs.fish.audio/agents/build/configuration), as `transfer_destinations`. An empty list disables transfers; the list is replaced as a whole on every write.
 
@@ -165,21 +151,13 @@ Field| Description
   
 Destination numbers must be E.164 and are limited to a set of supported countries. A number outside the list is rejected with `422 Unprocessable Entity` and an error naming the allowed country codes. The transfer card in the console shows the current list. A missing label, or two labels that differ only in case, is rejected the same way. There is no cap on the number of destinations, but every description is part of the agent’s tool instructions on every turn, so keep the list to what a receptionist could hold in their head.
 
-## 
-
-​
-
-How the agent decides to transfer
+## How the agent decides to transfer
 
 Configuring a destination is what enables the built-in `_transfer_call` tool: an empty destination list removes it. Unlike the toggled [system tools](https://docs.fish.audio/agents/build/system-tools), you won’t find it in the `tools` config section; it ships automatically on phone sessions whenever a valid destination exists. Your system prompt decides when the agent transfers. Only when it says nothing about transfers does the built-in default apply, which is conservative: the agent transfers when the caller asks for a person, or when the request clearly needs one and the agent cannot help further. A switchboard agent should say so plainly, for example “Route the caller to the right team as soon as you know what they need; do not try to answer billing or technical questions yourself.” With several destinations, the tool gains a `destination` argument listing every label, and its instructions carry each destination’s description. The agent picks the destination whose description matches what the caller needs based on the conversation so far, asks one short question when the need is unclear, and otherwise takes the closest match. Write descriptions the way you would brief a receptionist: what the team handles, in the caller’s words.
 
 The prompt can loosen the policy as well as tighten it: “Transfer to a human whenever the caller mentions a refund” or “Never transfer before collecting the caller’s name and account number.” See [Tools](https://docs.fish.audio/agents/build/tools) for how the agent chooses between its tools.
 
-## 
-
-​
-
-The transfer announcement
+## The transfer announcement
 
 Right before a call is transferred, the agent says one short sentence so the caller knows what is happening, for example “One moment, I’m connecting you to billing.” The **Transfer announcement** setting on each destination chooses where that sentence comes from.
 
@@ -197,19 +175,11 @@ These apply to every option:
 
 
 
-### 
-
-​
-
-In the console
+### In the console
 
 On each destination card, the **Transfer announcement** control sits above the transfer mode. Choosing **Fixed message** shows a field for the line.
 
-### 
-
-​
-
-Through the API
+### Through the API
 
 Set `announcement_mode` on the destination, plus `announcement_message` for `fixed`. The message can use [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables), filled in when the session starts. Since the destination list is replaced as a whole on every write, send every destination you want to keep, not just the one you are changing.
 
@@ -256,11 +226,7 @@ Off
 
 To return to the default, set `announcement_mode` to `generated` or leave it out. As with every config edit, the change takes effect on live calls after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-### 
-
-​
-
-Questions before transferring
+### Questions before transferring
 
 If the agent tries to transfer while its announcement asks the caller something, for example “Before I connect you, what is your account number?”, the transfer is held back. The agent asks the question in its reply, waits for the answer, and transfers after that. This applies to every announcement option, since a question means the agent has not asked it yet. This is on by default. To let the agent transfer with a question, turn off **Don’t transfer on a question** on the **Call transfer** card, or set `conversation.transfer_refuse_questions` to `false`. It is one setting for the whole agent, not part of the destination list, so you can change it without resending your destinations.
     
@@ -271,19 +237,11 @@ If the agent tries to transfer while its announcement asks the caller something,
       --data '{ "conversation": { "transfer_refuse_questions": false } }'
     
 
-## 
-
-​
-
-What happens on a cold transfer
+## What happens on a cold transfer
 
 The agent says its announcement and, once that finishes playing, the call is handed to the carrier. The caller hears a dial tone while the destination rings; the agent drops out and its session ends at the handoff. If the handoff is refused (the destination is unreachable, or the number doesn’t support transfers), the agent stays on the line, apologizes, and keeps helping. It can attempt the transfer again later.
 
-## 
-
-​
-
-What happens on a warm transfer
+## What happens on a warm transfer
 
 1
 
@@ -311,27 +269,15 @@ With `warm_connect: "confirm"` the merge waits for the human to agree, with `bri
 
 If the human cannot be reached, declines, or the consult call hits voicemail, the caller comes off hold and the agent apologizes and continues helping. To keep the agent from briefing a voicemail or a phone menu, turn on Wait for a person to answer. It can retry if the caller asks. If the caller hangs up while on hold, the agent briefly tells the human what happened and ends the consult call.
 
-### 
-
-​
-
-Customizing the briefing
+### Customizing the briefing
 
 By default the agent introduces itself, reads out the caller’s number, relays the notes, and asks whether the person can take the call. A warm destination’s briefing instructions replace that introduction. The notes generated from the conversation and the handoff itself stay as they are: the agent still waits for a yes (or connects right away with `direct`), so the text only has to say what you want relayed and how. The text is rendered with [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) when the session starts, so it can carry facts the conversation may not mention. A custom text is spoken as written, so if it should include the caller’s number, put it in yourself with `{{system.caller_number_spoken}}`, which arrives pre-grouped for speech (`+1; 4 1 5; 5 5 5; 0 1 2 3`) so the voice reads it digit by digit in any language; see [Reading a number out loud](https://docs.fish.audio/agents/build/dynamic-variables#reading-a-number-out-loud). Two things to keep in mind. The variables are filled in once, when the session is created, so an order number the caller mentions later reaches the colleague only through the notes. And a withheld caller ID renders as an empty string, so write the text to read well without it.
 
-#### 
-
-​
-
-In the console
+#### In the console
 
 On the destination card, choosing **Warm** shows a **Briefing instructions** field beneath the handoff choice. Leave it empty to keep the default introduction.
 
-#### 
-
-​
-
-Through the API
+#### Through the API
 
 Set `warm_briefing_instructions` on the destination; it is ignored on cold destinations.
 
@@ -356,30 +302,18 @@ Custom briefing
       }'
     
 
-## 
-
-​
-
-Warm transfer settings
+## Warm transfer settings
 
 These settings apply to each warm destination. In the console, they appear on the destination card once you choose **Warm**. Leave a timeout empty to keep its default. Through the API, set them on the destination. Like every config edit, changes take effect on live calls after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-### 
-
-​
-
-Timeouts
+### Timeouts
 
 Console| API field| Range| Default| What it does  
 ---|---|---|---|---  
 **Ring timeout (seconds)**| `warm_ring_timeout_seconds`| 5 to 120| 30| How long the human’s phone rings. When it runs out, the transfer counts as unanswered and the caller comes back to the agent. Set it shorter than the time your team’s voicemail takes to pick up, so an unanswered call comes back instead of reaching voicemail.  
 **Confirm timeout (seconds)**| `warm_confirm_timeout_seconds`| 10 to 300| 60| `confirm` and `briefing` only. How long the agent waits, after the human answers, for the call to be taken. When it runs out, the agent ends the consult call and the caller comes back to the agent. The agent never cuts its briefing short, and the human always gets at least 10 seconds to reply after it.  
   
-### 
-
-​
-
-Waiting for a person to answer
+### Waiting for a person to answer
 
 With **Wait for a person to answer** on, the agent says nothing after the human’s line answers. It waits for the other side to speak, then works out what answered:
 
@@ -423,11 +357,7 @@ Request
 
 Since the destination list is replaced as a whole on every write, send every destination you want to keep.
 
-## 
-
-​
-
-Caller ID on transfers
+## Caller ID on transfers
 
 When the agent transfers a call, your team member’s phone shows a caller ID. You choose which number it shows:
 
@@ -438,22 +368,14 @@ Option| Your team sees| Good for
   
 The choice is set on each phone number, and applies to every transfer on that number, cold and warm. It is available on numbers you bought on Fish Audio. For imported numbers, see [Imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip#caller-id-on-transfers). If the caller hides their number, a warm transfer shows the agent’s number instead.
 
-### 
-
-​
-
-In the console
+### In the console
 
   * **For all numbers of an agent** : open the agent’s **Phone** page and use the **Show the caller’s number on transfers** switch in the **Call transfer** section.
   * **For one number** : on the **Phone numbers** page, open the number’s menu and choose **Transfer caller ID**.
 
 Only team owners and admins can change it. You don’t need to publish the agent.
 
-### 
-
-​
-
-Through the API
+### Through the API
 
 Set `transfer_caller_id` on the number: `original_caller` shows the caller’s number, `agent_number` shows the agent’s number.
 
@@ -468,11 +390,7 @@ Request
 
 The caller ID is a setting on the number, not part of the agent, so it needs no publish and rolling back the agent leaves it as it is. Warm transfers use a new choice from the next call. The response is the updated number, with `caller_id_sync_status` normally `synced`, which means cold transfers use the new choice too. If it reads `pending` or `error`, the change has not reached the phone carrier yet and cold transfers still use the previous choice. Send `{ "retry_caller_id_sync": true }` to try again. The older boolean `cold_transfer_use_original_caller` still works, but it is deprecated. Use `transfer_caller_id` instead.
 
-## 
-
-​
-
-Transfer results
+## Transfer results
 
 Every transfer attempt is recorded on the session, including the ones that failed:
 
@@ -481,11 +399,7 @@ Every transfer attempt is recorded on the session, including the ones that faile
 
 A session with a successful transfer ends with `end_reason` `escalated`, however the call goes after the handoff. A failed attempt does not make the session `escalated`. What the agent does after a failure is described under cold and warm transfers.
 
-### 
-
-​
-
-Outcomes
+### Outcomes
 
 `outcome`| Mode| What happened  
 ---|---|---  
@@ -505,11 +419,7 @@ Outcomes
   
 `outcome` is `null` while an attempt is in progress. New values may be added, so don’t reject ones you don’t recognize.
 
-### 
-
-​
-
-Why a call did not connect
+### Why a call did not connect
 
 `dial_failed` and `refer_failed` carry `dial_status`, which groups the carrier’s answer the same way as an [outbound call’s](https://docs.fish.audio/agents/telephony/outbound-calls#the-dial-outcome) `dial_status`:
 
@@ -521,11 +431,7 @@ Why a call did not connect
   
 `sip_status` is the carrier’s final SIP response code as received, and `null` when the carrier gave none. When a cold handoff rings past the time limit with the caller still on the line, the attempt is `refer_failed` with `dial_status` `no_answer` and no `sip_status`.
 
-### 
-
-​
-
-After a successful transfer
+### After a successful transfer
 
 `merged` and `referred` items carry three facts about the call between the caller and your team member:
 
@@ -537,30 +443,18 @@ Field| Warm| Cold
   
 The end reason is `caller_hangup`, `transfer_target_hangup`, `conversation_timeout` (the agent’s [maximum call duration](https://docs.fish.audio/agents/build/configuration#call-duration) was reached, counted from the start of the call), `connection_lost` (a line dropped), or `null` when the platform could not tell. See [After the transfer](https://docs.fish.audio/agents/monitor/conversation-history#after-the-transfer). A warm transfer’s values are there once the call ends. On a cold transfer the platform leaves the call at the handoff, so the values come from the carrier’s call record and appear up to about an hour after the call ends. They never appear for cold transfers on [imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip), because that call record stays with your carrier.
 
-## 
-
-​
-
-Limitations
+## Limitations
 
   * **Phone calls only** : web and SDK sessions have no phone leg to hand off, so the `_transfer_call` tool never ships for them.
   * **Supported countries** : destination numbers are limited to an allowlist of country codes.
 
 
 
-## 
-
-​
-
-Billing
+## Billing
 
 Time after a transfer is billed separately from agent time, at a cold or warm transfer rate per minute. The agent rate stops when the call is handed over (cold) or when the caller and the person are joined (warm); from that point the call is billed as transfer minutes. Current rates are on the [Pricing](https://docs.fish.audio/agents/pricing) page.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Inbound calls
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/client-tools/
 title: Client Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:24.106060+00:00
+fetched_at: 2026-11-13T15:33:49.560626+00:00
 ---
 
 # Client Tools - Fish Audio
@@ -38,11 +38,7 @@ Client tools run inside your application, not on Fish Audio’s servers. You dec
 
 Client tools need code on your side. For tools that call an HTTP endpoint from Fish Audio’s side, use [webhook tools](https://docs.fish.audio/agents/build/webhook-tools). For built-in capabilities like hanging up, see [system tools](https://docs.fish.audio/agents/build/system-tools).
 
-## 
-
-​
-
-How it works
+## How it works
 
 1
 
@@ -68,11 +64,7 @@ Your result goes back to the agent
 
 The handler’s return value is JSON-serialized and sent back, and the agent continues with the result, unless the tool is fire-and-forget.
 
-## 
-
-​
-
-Declare a client tool
+## Declare a client tool
 
 Client tools sit alongside webhook tools in the agent’s tool list. A declaration looks like this:
 
@@ -106,11 +98,7 @@ Field| Description
   
 A parameter that is not in `required` may be missing from the call altogether, so read it defensively in your handler. To always receive a key, give it a `default`, which the platform fills in before the call reaches you when the tool is `strict`.
 
-### 
-
-​
-
-Naming rules
+### Naming rules
 
 Tool names must match `^[a-zA-Z][a-zA-Z0-9_-]{0,63}$`: start with a letter, then letters, digits, underscores, or hyphens, up to 64 characters total.
 
@@ -119,11 +107,7 @@ Tool names must match `^[a-zA-Z][a-zA-Z0-9_-]{0,63}$`: start with a letter, then
 
 
 
-## 
-
-​
-
-Handle the call in your app
+## Handle the call in your app
 
 Register handlers with the `clientTools` option when starting a session, or later with `registerClientTool`:
 
@@ -166,11 +150,7 @@ Handler signature
 
 Parameter values are produced by the model. Validate them in your handler before acting on them, just as you would any external input.
 
-### 
-
-​
-
-What the agent receives
+### What the agent receives
 
 Handler outcome| Result  
 ---|---  
@@ -182,27 +162,15 @@ Returns a value that cannot be sent: larger than about 60 KB serialized (`MAX_CL
   
 The agent is never left hanging: while `expects_response` is `true` the agent suspends that tool call until your result arrives or the timeout fires, then continues either way. Errors and timeouts return to the model as tool errors, so the agent can recover in conversation (“I couldn’t open that page. Let me try something else”). Keep results small: they travel over the realtime data channel, which caps a message at 64 KB, and the model reads the whole result on every turn. Return a summary or a reference (an id, a URL) rather than a large payload. To change the handler timeout, pass `clientToolTimeoutMs` (in milliseconds) when starting the session. Note there is a second, server-side deadline: the agent stops waiting after the tool’s `timeout_seconds` (default 30 s, settable 1–120 on the tool), and a handler result arriving after that is ignored, so `clientToolTimeoutMs` can only tighten the client-side deadline, not extend the agent’s wait.
 
-## 
-
-​
-
-Fire-and-forget tools
+## Fire-and-forget tools
 
 Set `expects_response` to `false` for tools that are pure side effects: the agent triggers your handler and keeps talking without waiting. Any return value is ignored. This suits UI actions where confirmation adds nothing: scrolling, opening a panel, firing an analytics event. If the agent should react to the outcome (“the page is open, now walk the user through it”), keep `expects_response: true`.
 
-## 
-
-​
-
-Observe tool activity
+## Observe tool activity
 
 Every tool call (client and webhook alike) emits `toolCallStarted`, `toolCallCompleted`, and `toolCallFailed` events on the session, with the call ID, tool name, and payloads. The events are on by default; sessions created with `tool_events: false` don’t emit them. Use them to render tool activity in your UI. See the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) for the event reference.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Web SDK
 

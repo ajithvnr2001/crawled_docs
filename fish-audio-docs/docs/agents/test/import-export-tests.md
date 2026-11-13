@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/import-export-tests/
 title: Import and Export Tests - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:03.007703+00:00
+fetched_at: 2026-11-13T15:33:46.080369+00:00
 ---
 
 # Import and Export Tests - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:03.007703+00:00
 > Source: https://docs.fish.audio/agents/test/import-export-tests/
 
 ## On this page
+
+Back to top
 
   * The export format
   * Export tests to files
@@ -36,11 +38,7 @@ A test has one JSON format for reading and writing. [Get Test](https://docs.fish
 
 
 
-## 
-
-​
-
-The export format
+## The export format
 
 An exported test contains every field of its [test type](https://docs.fish.audio/agents/test/agent-tests#test-types), plus:
 
@@ -51,11 +49,7 @@ Field| On import
   
 Tools appear as `{"id", "name", "type"}` wherever a test references them: `referenced_tool`, `simulation.assertions`, `simulation.tool_mocks.tools`, and `simulation.tool_mocks.real_tools`. Webhook and client tool ids belong to your team. Integration tool ids, such as `google_calendar:create_event`, are the same in every team. Every call to Create Test creates a new test, so importing the same file twice gives you two copies.
 
-## 
-
-​
-
-Export tests to files
+## Export tests to files
 
 This script saves every test attached to an agent as `tests/<test_id>.json`. Drop the `agent_id` parameter to export your whole test library instead.
 
@@ -81,11 +75,7 @@ export-tests.sh
     done
     
 
-## 
-
-​
-
-Import into the same team
+## Import into the same team
 
 Within one team, tool ids stay valid, so the files import as they are:
 
@@ -111,11 +101,7 @@ Each test is attached to the agents in its `agent_ids`. To attach the copies to 
 
 All agents in `agent_ids` must be in the same workspace, and the test is created there.
 
-## 
-
-​
-
-Import into another team
+## Import into another team
 
 Webhook and client tool ids from the source team mean nothing in the target team, so each reference has to point at the target team’s tool of the same name first.
 
@@ -160,11 +146,7 @@ import-into-team.sh
 
 Integration tool ids are left as they are, since they are the same in every team.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Agent tests
 

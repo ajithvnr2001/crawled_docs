@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/widget/
 title: Widget - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:42.831295+00:00
+fetched_at: 2026-11-13T15:33:47.661584+00:00
 ---
 
 # Widget - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:42.831295+00:00
 > Source: https://docs.fish.audio/agents/deploy/widget/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Two-line embed
@@ -36,11 +38,7 @@ Copy pageCopy page
 
 The widget is the zero-code way to put your agent on a website. A `<fish-agent>` custom element renders the complete experience (a floating launcher that expands into a voice-first chat card with live transcript, typing during the call, and inline tool activity), and a single script tag registers it. Under the hood it runs the same sessions as the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk), so everything downstream (history, analysis, webhooks) works unchanged.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * An agent with a [published version](https://docs.fish.audio/agents/deploy/versions-publishing).
   * **Public access** enabled on the agent, with your site’s origin on the allowed-origins list. See [Public agents](https://docs.fish.audio/agents/deploy/public-agents). `localhost` and `127.0.0.1` count as different origins.
@@ -48,11 +46,7 @@ Prerequisites
 
 
 
-## 
-
-​
-
-Two-line embed
+## Two-line embed
 
 Add the element and the script anywhere on the page:
     
@@ -67,11 +61,7 @@ Add the element and the script anywhere on the page:
 
 `@fishaudio/agent-widget-embed` is the widget pre-bundled as one IIFE file that registers `<fish-agent>` on load.
 
-## 
-
-​
-
-Install from npm
+## Install from npm
 
 Bundlers can install the element instead: `npm install @fishaudio/agent-widget`, then call `registerWidget()` once. Importing the package has no side effects.
     
@@ -80,11 +70,7 @@ Bundlers can install the element instead: `npm install @fishaudio/agent-widget`,
     registerWidget(); // defines <fish-agent>
     
 
-### 
-
-​
-
-React
+### React
 
 React apps get a real component: `<FishAgentWidget>` registers and renders the element with camelCase props, object props serialized for you, and the page events as callback props. `clientTools` is just a prop:
     
@@ -102,11 +88,7 @@ React apps get a real component: `<FishAgentWidget>` registers and renders the e
 
 Every attribute below has a camelCase prop; `dynamicVariables` and `textContents` take objects, and `onCall(options)` still runs last for anything else. Importing the entry also types the raw `<fish-agent>` element in JSX, for pages that use the CDN script and install the package only for its types.
 
-## 
-
-​
-
-Attributes
+## Attributes
 
 Attribute| Description  
 ---|---  
@@ -125,11 +107,7 @@ Attribute| Description
 `server-url`| Fish API base override. Default `https://api.fish.audio`.  
 `text-contents`| JSON overriding any UI string (keys in `DEFAULT_TEXTS` of `@fishaudio/agent-widget`).  
   
-## 
-
-​
-
-Private agents
+## Private agents
 
 Keep the agent non-public and set `sessionTokenProvider` instead of an `agent-id`. It’s a JS property on the element (functions can’t be attributes), called before every session start: fetch the session token from your backend (with whatever auth headers, payload, or credentials the request needs) and return the JSON; it’s used verbatim.
     
@@ -154,11 +132,7 @@ React apps pass the same function as a prop:
 
 Your backend holds the API key and creates the session with `POST /v1/agent/sessions`; origin checks, user auth, and rate limiting on that endpoint are yours. See [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) for the token flow and a backend example.
 
-## 
-
-​
-
-Theming
+## Theming
 
 Set CSS custom properties on the element. The widget’s internals live in a shadow root: page CSS can’t leak in, but every `--fish-*` token is public:
     
@@ -184,11 +158,7 @@ Property| Controls
   
 Also available: `--fish-accent-text`, `--fish-bg`, `--fish-text`, `--fish-text-secondary`, `--fish-border`, `--fish-bubble-agent-bg/-text`, `--fish-bubble-user-bg/-text`, `--fish-danger`, `--fish-live`, `--fish-fab-size`, `--fish-font`.
 
-## 
-
-​
-
-Page events
+## Page events
 
 The element dispatches `CustomEvent`s (bubbling, composed):
 
@@ -211,19 +181,11 @@ Inbound: dispatch `fish-agent:expand` on the element or `document` to open the p
       });
     
 
-## 
-
-​
-
-Console settings and precedence
+## Console settings and precedence
 
 On load, the widget anonymously fetches the agent’s console widget settings from `GET /v1/agent/agents/{agent_id}/widget`, the same public-plus-origin gate as session creation, so it only answers for public agents to allowed origins. Settings resolve with a fixed precedence: **HTML attribute > console widget config > built-in default**. The endpoint being unreachable never breaks the widget: it renders from attributes and defaults.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Public agents
 

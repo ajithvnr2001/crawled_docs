@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/core-features/emotions/
 title: Emotion Control - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:29.352531+00:00
+fetched_at: 2026-11-13T15:33:43.641494+00:00
 ---
 
 # Emotion Control - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:29.352531+00:00
 > Source: https://docs.fish.audio/developer-guide/core-features/emotions/
 
 ## On this page
+
+Back to top
 
   * Overview
   * How It Works
@@ -62,21 +64,13 @@ Copy pageCopy page
 
 Drop text with the markers below into the `text` field and send a real request to hear the emotion.
 
-## 
-
-​
-
-Overview
+## Overview
 
 Fish Audio models support 64+ emotional expressions and voice styles that can be controlled through text markers in your input. Add natural pauses, laughter, and other human-like elements to make speech more engaging and realistic.
 
 This page shows S2 usage with `[bracket]` cues. If you use the deprecated S1 model, wrap markers in parentheses instead; see S1 (legacy) syntax below for the full list, or the [Models Overview](https://docs.fish.audio/developer-guide/models-pricing/models-overview#s2-natural-language-control).
 
-## 
-
-​
-
-How It Works
+## How It Works
 
 Add emotional or stylistic cues in square brackets within your text:
     
@@ -88,17 +82,9 @@ Add emotional or stylistic cues in square brackets within your text:
 
 The S2 TTS models will interpret these markers and adjust the voice accordingly.
 
-## 
+## Complete Emotion Reference
 
-​
-
-Complete Emotion Reference
-
-### 
-
-​
-
-Basic Emotions (24 expressions)
+### Basic Emotions (24 expressions)
 
 Emotion| Tag| Description| Example Context  
 ---|---|---|---  
@@ -127,11 +113,7 @@ Grateful| `[grateful]`| Thankful, appreciative| Thanks, appreciation
 Curious| `[curious]`| Inquisitive, interested| Questions, exploration  
 Sarcastic| `[sarcastic]`| Ironic, mocking| Humor, criticism  
   
-### 
-
-​
-
-Advanced Emotions (25 expressions)
+### Advanced Emotions (25 expressions)
 
 Emotion| Tag| Description| Example Context  
 ---|---|---|---  
@@ -161,19 +143,11 @@ Compassionate| `[compassionate]`| Showing deep care| Support, help
 Determined| `[determined]`| Resolved, decided| Goals, commitments  
 Resigned| `[resigned]`| Accepting defeat| Giving up, acceptance  
   
-## 
-
-​
-
-Sound & Delivery Markers
+## Sound & Delivery Markers
 
 These markers aren’t emotions. They shape _how_ a line is delivered, add natural human sounds, or layer in ambient effects. Combine them with the emotion cues above.
 
-### 
-
-​
-
-Tone Markers (6 expressions)
+### Tone Markers (6 expressions)
 
 Control volume, intensity, and emphasis. Place `[emphasis]` right before the word or phrase you want to stress:
     
@@ -190,11 +164,7 @@ Whispering| `[whispering]`| Very soft, secretive| Secrets, quiet scenes
 Soft| `[soft tone]`| Gentle, quiet| Comfort, lullabies  
 Emphasis| `[emphasis]`| Stress a word/phrase| Highlighting key words  
   
-### 
-
-​
-
-Audio Effects (11 expressions)
+### Audio Effects (11 expressions)
 
 Add natural human sounds:
 
@@ -212,11 +182,7 @@ Yawning| `[yawning]`| Tired sound| yawn
 Snoring| `[snoring]`| Sleep sound| zzz  
 Clear Throat| `[clear throat]`| Throat-clearing sound| ahem  
   
-### 
-
-​
-
-Special Effects
+### Special Effects
 
 Additional markers for atmosphere and context:
 
@@ -230,17 +196,9 @@ Long Pause| `[long-break]`| Extended pause in speech
   
 You can also use natural expressions like “Ha,ha,ha” for laughter without tags.
 
-## 
+## Usage Guidelines
 
-​
-
-Usage Guidelines
-
-### 
-
-​
-
-Placement Rules
+### Placement Rules
 
 **For S2:**
 
@@ -256,17 +214,9 @@ Placement Rules
     What a [warm and happy] wonderful day!
     
 
-## 
+## Advanced Techniques
 
-​
-
-Advanced Techniques
-
-### 
-
-​
-
-Combining Effects
+### Combining Effects
 
 You can layer multiple emotions for complex expressions:
     
@@ -276,11 +226,7 @@ You can layer multiple emotions for complex expressions:
     [excited][laughing] We won! Ha ha!
     
 
-### 
-
-​
-
-Emotion Transitions
+### Emotion Transitions
 
 Create natural emotional progressions:
     
@@ -292,11 +238,7 @@ Create natural emotional progressions:
     [determined] I'm going to make it work!
     
 
-### 
-
-​
-
-Background Effects
+### Background Effects
 
 Add atmospheric sounds:
     
@@ -306,11 +248,7 @@ Add atmospheric sounds:
     The crowd loved it [crowd laughing]
     
 
-### 
-
-​
-
-Intensity Modifiers
+### Intensity Modifiers
 
 Fine-tune emotional intensity with descriptive modifiers:
     
@@ -320,11 +258,7 @@ Fine-tune emotional intensity with descriptive modifiers:
     [extremely angry] This is unacceptable!
     
 
-## 
-
-​
-
-Language Support
+## Language Support
 
 All 13 supported languages can use emotion markers. For sentence-level control, cues usually work best at the sentence start in these languages:
 
@@ -332,17 +266,9 @@ All 13 supported languages can use emotion markers. For sentence-level control, 
 
 
 
-## 
+## Best Practices
 
-​
-
-Best Practices
-
-### 
-
-​
-
-Do’s
+### Do’s
 
   * Use one primary emotion per sentence
   * Test different emotion combinations
@@ -353,11 +279,7 @@ Do’s
 
 
 
-### 
-
-​
-
-Don’ts
+### Don’ts
 
   * Don’t overuse emotion tags in short text
   * Don’t mix conflicting emotions
@@ -367,17 +289,9 @@ Don’ts
 
 
 
-## 
+## Common Use Cases
 
-​
-
-Common Use Cases
-
-### 
-
-​
-
-Customer Service
+### Customer Service
     
     
     [friendly] Hello! How can I help you today?
@@ -386,11 +300,7 @@ Customer Service
     [grateful] Thank you for your patience!
     
 
-### 
-
-​
-
-Storytelling
+### Storytelling
     
     
     [narrator] Once upon a time...
@@ -399,11 +309,7 @@ Storytelling
     [relieved][sighing] No one answered. Phew.
     
 
-### 
-
-​
-
-Educational Content
+### Educational Content
     
     
     [enthusiastic] Welcome to today's lesson!
@@ -412,11 +318,7 @@ Educational Content
     [proud] Excellent work!
     
 
-### 
-
-​
-
-Marketing & Sales
+### Marketing & Sales
     
     
     [excited] Introducing our newest product!
@@ -425,17 +327,9 @@ Marketing & Sales
     [satisfied] Join thousands of happy customers!
     
 
-## 
+## Troubleshooting
 
-​
-
-Troubleshooting
-
-### 
-
-​
-
-Emotion Not Working?
+### Emotion Not Working?
 
   1. **Check placement** \- Put the cue where the emotion or effect should begin
   2. **Keep wording clear** \- Use concise natural language descriptions
@@ -443,11 +337,7 @@ Emotion Not Working?
 
 
 
-### 
-
-​
-
-Unnatural Sound?
+### Unnatural Sound?
 
   * Space out emotional changes
   * Use appropriate intensity
@@ -456,11 +346,7 @@ Unnatural Sound?
 
 
 
-### 
-
-​
-
-Performance Notes
+### Performance Notes
 
   * Emotion markers don’t count toward token limits
   * No additional latency for emotion processing
@@ -469,17 +355,9 @@ Performance Notes
 
 
 
-## 
+## Quick Reference Tables
 
-​
-
-Quick Reference Tables
-
-### 
-
-​
-
-Emotion Intensity Scale
+### Emotion Intensity Scale
 
 Base Emotion| Mild| Moderate| Intense  
 ---|---|---|---  
@@ -489,11 +367,7 @@ Angry| frustrated| angry| furious
 Scared| nervous| scared| terrified  
 Excited| interested| excited| ecstatic  
   
-### 
-
-​
-
-Common Combinations
+### Common Combinations
 
 Scenario| Emotion Combo| Example  
 ---|---|---  
@@ -503,11 +377,7 @@ Sad Sigh| `[sad][sighing]`| ”I wish things were different. Sigh.”
 Excited Laugh| `[excited][laughing]`| ”We did it! Ha ha!”  
 Nervous Question| `[nervous][uncertain]`| ”Are you sure about this?”  
   
-## 
-
-​
-
-S1 (legacy) syntax
+## S1 (legacy) syntax
 
 S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro`. The API does not convert `(parenthesis)` tags to `[bracket]` cues, so rewrite them in S2 syntax. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
 
@@ -612,11 +482,7 @@ Crowd Laughter| `(crowd laughing)`| Large group laughing
 Short Pause| `(break)`| Brief pause in speech  
 Long Pause| `(long-break)`| Extended pause in speech  
   
-## 
-
-​
-
-See Also
+## See Also
 
   * [API Reference](https://docs.fish.audio/api-reference/introduction) \- Implementation details
   * [Text-to-Speech Guide and Best Practices](https://docs.fish.audio/features/text-to-speech)

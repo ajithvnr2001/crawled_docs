@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/python/errors/
 title: Errors & Retries - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:56.136098+00:00
+fetched_at: 2026-11-13T15:33:43.014722+00:00
 ---
 
 # Errors & Retries - Fish Audio
@@ -32,11 +32,7 @@ Exception types, retry strategy, and timeouts in the Fish Audio Python SDK
 
 Copy pageCopy page
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -60,11 +56,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-## 
-
-​
-
-Exception hierarchy
+## Exception hierarchy
 
 Every SDK error inherits from [`FishAudioError`](https://docs.fish.audio/api-reference/sdk/python/exceptions#fishaudioerror-objects). HTTP failures raise [`APIError`](https://docs.fish.audio/api-reference/sdk/python/exceptions#apierror-objects) or one of its subclasses, which expose `.status`, `.message`, and `.body`.
 
@@ -81,11 +73,7 @@ Exception| Raised when| Notes
   
 Invalid request parameters come back as an `APIError` with `status == 422`. Catch `APIError`, not a separate `ValidationError` (none is raised at runtime).
 
-## 
-
-​
-
-Handling errors
+## Handling errors
 
 Install the Python SDK first: `pip install fish-audio-sdk`.
 
@@ -138,11 +126,7 @@ Asynchronous
     asyncio.run(main())
     
 
-## 
-
-​
-
-Retries
+## Retries
 
 The Python client does **not** retry automatically. Add your own backoff where it matters, typically around `RateLimitError` and `ServerError`:
     
@@ -166,11 +150,7 @@ The Python client does **not** retry automatically. Add your own backoff where i
 
 `RequestOptions` accepts a `max_retries` field, but the current client does not act on it. Use an explicit loop like the one above.
 
-## 
-
-​
-
-Timeouts
+## Timeouts
 
 The request timeout is set on the client (seconds; default `240`):
     
@@ -194,11 +174,7 @@ Override headers or timeout for a single request with `request_options`:
 
 If you inject your own `httpx_client`, the client-level `timeout`, `base_url`, and `Authorization` header are **not** applied to it. Configure those on the client you pass in.
 
-## 
-
-​
-
-Related
+## Related
 
   * [Exceptions API reference](https://docs.fish.audio/api-reference/sdk/python/exceptions)
   * [Real-time WebSocket](https://docs.fish.audio/features/realtime-streaming): `WebSocketError` handling

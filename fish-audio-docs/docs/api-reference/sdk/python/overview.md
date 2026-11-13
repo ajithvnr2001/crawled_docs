@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/overview/
 title: Overview - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:54.593965+00:00
+fetched_at: 2026-11-13T15:33:45.104869+00:00
 ---
 
 # Overview - Fish Audio
@@ -42,29 +42,17 @@ Copy pageCopy page
 
 ![python.png](https://raw.githubusercontent.com/fishaudio/fish-audio-python/refs/heads/main/.github/assets/python.png)
 
-# 
-
-​
-
-Fish Audio Python SDK
+# Fish Audio Python SDK
 
 [![PyPI version](https://img.shields.io/pypi/v/fish-audio-sdk.svg)](https://badge.fury.io/py/fish-audio-sdk) [![Python Version](https://img.shields.io/badge/python-3.9+-blue)](https://pypi.org/project/fish-audio-sdk/) [![PyPI - Downloads](https://img.shields.io/pypi/dm/fish-audio-sdk)](https://pypi.org/project/fish-audio-sdk/) [![codecov](https://img.shields.io/codecov/c/github/fishaudio/fish-audio-python)](https://codecov.io/gh/fishaudio/fish-audio-python) [![License](https://img.shields.io/github/license/fishaudio/fish-audio-python)](https://github.com/fishaudio/fish-audio-python/blob/main/LICENSE) The official Python library for the Fish Audio API **Documentation:** [Python SDK Guide](https://docs.fish.audio/developer-guide/sdk-guide/python/) | [API Reference](https://docs.fish.audio/api-reference/sdk/python/)
 
 > [!IMPORTANT]
 > 
-> ## 
-> 
-> ​
-> 
-> Changes to PyPI Versioning
+> ## Changes to PyPI Versioning
 > 
 > For existing users on Fish Audio Python SDK, please note that the starting version is now `1.0.0`. The last version before this was `2025.6.3`. You may need to adjust your version constraints accordingly. The original API in the `fish_audio_sdk` package has NOT been removed, but you will not receive any updates if you continue using the old versioning scheme. The simplest fix is to update your dependency to `fish-audio-sdk>=1.0.0` to continue receiving updates, or by pinning to a specific version like `fish-audio-sdk==1.0.0` when installing via your package manager. There are no changes to the API itself in this transition. If you’re using the legacy `fish_audio_sdk` and would like to switch to the newer, more robust `fishaudio` package, see the [migration guide](https://docs.fish.audio/archive/python-sdk-legacy/migration-guide) to upgrade.
 
-## 
-
-​
-
-Installation
+## Installation
     
     
     pip install fish-audio-sdk
@@ -73,11 +61,7 @@ Installation
     pip install fish-audio-sdk[utils]
     
 
-## 
-
-​
-
-Authentication
+## Authentication
 
 Get your API key from [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=python-sdk&utm_content=get-api-key):
     
@@ -93,11 +77,7 @@ Or provide directly:
     client = FishAudio(api_key="your_api_key")
     
 
-## 
-
-​
-
-Quick Start
+## Quick Start
 
 Most examples on this page pass `model="s2.1-pro-free"`, the free model, so they work before you add API credit. Without `model=`, the SDK uses a paid model. **Synchronous:**
     
@@ -131,17 +111,9 @@ Most examples on this page pass `model="s2.1-pro-free"`, the free model, so they
     asyncio.run(main())
     
 
-## 
+## Core Features
 
-​
-
-Core Features
-
-### 
-
-​
-
-Text-to-Speech
+### Text-to-Speech
 
 **With custom voice:**
     
@@ -194,11 +166,7 @@ Text-to-Speech
 
 [Learn more](https://docs.fish.audio/features/text-to-speech)
 
-### 
-
-​
-
-Speech-to-Text
+### Speech-to-Text
     
     
     from fishaudio.core import RequestOptions
@@ -223,11 +191,7 @@ Speech-to-Text
 
 [Learn more](https://docs.fish.audio/features/speech-to-text)
 
-### 
-
-​
-
-Real-time Streaming
+### Real-time Streaming
 
 Stream dynamically generated text for conversational AI and live applications: **Synchronous:**
     
@@ -265,11 +229,7 @@ Stream dynamically generated text for conversational AI and live applications: *
 
 [Learn more](https://docs.fish.audio/features/realtime-streaming)
 
-### 
-
-​
-
-Voice Cloning
+### Voice Cloning
 
 **Instant cloning:**
     
@@ -308,11 +268,7 @@ Voice Cloning
 
 [Learn more](https://docs.fish.audio/features/voice-cloning)
 
-## 
-
-​
-
-Resource Clients
+## Resource Clients
 
 Resource| Description| Key Methods  
 ---|---|---  
@@ -321,11 +277,7 @@ Resource| Description| Key Methods
 `client.voices`| Voice management| `list()`, `get()`, `create()`, `update()`, `delete()`  
 `client.account`| Account info| `get_credits()`, `get_package()`  
   
-## 
-
-​
-
-Error Handling
+## Error Handling
     
     
     from fishaudio.exceptions import (
@@ -350,11 +302,7 @@ Error Handling
         print(f"SDK error: {e}")
     
 
-## 
-
-​
-
-Resources
+## Resources
 
   * **Documentation:** [SDK Guide](https://docs.fish.audio/developer-guide/sdk-guide/python/) | [API Reference](https://docs.fish.audio/api-reference/sdk/python/)
   * **Package:** [PyPI](https://pypi.org/project/fish-audio-sdk/) | [GitHub](https://github.com/fishaudio/fish-audio-python)
@@ -362,11 +310,7 @@ Resources
 
 
 
-## 
-
-​
-
-License
+## License
 
 This project is licensed under the Apache-2.0 License - see the [LICENSE](https://docs.fish.audio/LICENSE) file for details.
 

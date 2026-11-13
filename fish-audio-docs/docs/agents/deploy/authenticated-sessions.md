@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 title: Authenticated Sessions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:53.824821+00:00
+fetched_at: 2026-11-13T15:33:48.356976+00:00
 ---
 
 # Authenticated Sessions - Fish Audio
@@ -46,11 +46,7 @@ Client| Where the token goes
   
 No backend, and anyone may talk to the agent? A [public agent](https://docs.fish.audio/agents/deploy/public-agents) lets the SDK create sessions with just an `agentId`: no token involved, gated by an origin allowlist and rate limits.
 
-## 
-
-​
-
-Create a token on your backend
+## Create a token on your backend
 
 Your backend exchanges your API key for a single-conversation token.
 
@@ -150,11 +146,7 @@ More on what the SDK can do once connected is in the [Web SDK](https://docs.fish
 
 `overrides`, `dynamic_variables`, `tool_events`, `timezone`, and `context` belong in your backend’s creation request. The SDK forwards these options (and its `language` shorthand for `overrides.language`) only in [public agent](https://docs.fish.audio/agents/deploy/public-agents) mode.
 
-## 
-
-​
-
-Request fields
+## Request fields
 
 Field| Type| Description  
 ---|---|---  
@@ -173,11 +165,7 @@ Field| Type| Description
   
 Unknown fields (top-level or inside `overrides`) are rejected with `422`.
 
-## 
-
-​
-
-Overrides
+## Overrides
 
 `overrides` replaces parts of the agent’s published configuration for one session:
 
@@ -221,11 +209,7 @@ the conversation language, taking precedence over the configured [speaking langu
 
 On [public agents](https://docs.fish.audio/agents/deploy/public-agents), keyless (browser-created) sessions may override only `language` and `voice_id`. The prompt-shaping fields are rejected with `400` regardless of the agent. Create the session from your backend to use them. Everything else on the request is not an override: `dynamic_variables`, `timezone`, `record_audio`, and `tool_events` are separate top-level fields. Session length is not settable per session: `max_duration_seconds` comes from the agent’s [conversation configuration](https://docs.fish.audio/agents/build/configuration#call-duration).
 
-## 
-
-​
-
-Response
+## Response
 
 JSON
     
@@ -250,11 +234,7 @@ Field| Description
   
 Treat the response as opaque and pass it to `start()` unmodified. If the SDK does not recognize the `transport` value, it fails fast with an `unsupported_transport` error asking you to upgrade the SDK.
 
-## 
-
-​
-
-Token lifetime
+## Token lifetime
 
   * A session token is **single-use** : `start()` consumes it once to establish the conversation.
   * On network drops the SDK reconnects at the transport level; it never re-creates the session, so you never need a fresh token mid-call.
@@ -262,11 +242,7 @@ Token lifetime
 
 
 
-## 
-
-​
-
-Ending sessions from your backend
+## Ending sessions from your backend
 
 A session normally ends from the client side: the user disconnects, or the agent [hangs up](https://docs.fish.audio/agents/build/system-tools). To force-end a live session server-side, call the end endpoint with your API key and the `session_id` from the creation response:
 
@@ -279,19 +255,11 @@ Request
 
 The call terminates and the response is `204`. The session record stays readable in [conversation history](https://docs.fish.audio/agents/monitor/conversation-history), along with the transcript and recording when the agent [stores them](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored). The same endpoint ends in-progress [phone calls](https://docs.fish.audio/agents/telephony/inbound-calls) too.
 
-## 
-
-​
-
-Keep API keys on the server
+## Keep API keys on the server
 
 Your API key grants full access to every resource in your team: agents, sessions, tools, phone numbers. Never embed it in a browser, mobile app, or any code you ship to users. The only credential that belongs in a client is the session token, and the only credential-free path is a public agent ID.
 
-## 
-
-​
-
-Error responses
+## Error responses
 
 Session creation fails with standard HTTP statuses; the SDK surfaces them as a `FishAgentError` with `statusCode` set.
 
@@ -307,11 +275,7 @@ Status| Meaning
   
 The complete status-code reference for every `/v1/agent` endpoint (error shapes, `400` vs `422`, conflict semantics) is on [Agents API errors](https://docs.fish.audio/api-reference/agent-errors).
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Public agents
 

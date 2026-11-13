@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/resources/
 title: Resources - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:47.427119+00:00
+fetched_at: 2026-11-13T15:33:44.765924+00:00
 ---
 
 # Resources - Fish Audio
@@ -61,19 +61,11 @@ Copy pageCopy page
 
 Copy pageCopy page
 
-# 
-
-​
-
-fishaudio.resources.voices
+# fishaudio.resources.voices
 
 Voice management namespace client. Install the Python SDK first: `pip install fish-audio-sdk`.
 
-## 
-
-​
-
-VoicesClient Objects
+## VoicesClient Objects
     
     
     class VoicesClient()
@@ -81,11 +73,7 @@ VoicesClient Objects
 
 Synchronous voice management operations.
 
-#### 
-
-​
-
-list
+#### list
     
     
     def list(
@@ -131,11 +119,7 @@ List available voices/models. **Arguments** :
     tagged = client.voices.list(tags=["male", "english"])
     
 
-#### 
-
-​
-
-get
+#### get
     
     
     def get(voice_id: str,
@@ -156,11 +140,7 @@ Get voice by ID. **Arguments** :
     print(voice.title, voice.description)
     
 
-#### 
-
-​
-
-create
+#### create
     
     
     def create(*,
@@ -204,11 +184,7 @@ Create/clone a new voice. **Arguments** :
     print(f"Created: {voice.id}")
     
 
-#### 
-
-​
-
-update
+#### update
     
     
     def update(voice_id: str,
@@ -242,11 +218,7 @@ Update voice metadata. **Arguments** :
     )
     
 
-#### 
-
-​
-
-delete
+#### delete
     
     
     def delete(voice_id: str,
@@ -266,11 +238,7 @@ Delete a voice. **Arguments** :
     client.voices.delete("voice_id_here")
     
 
-## 
-
-​
-
-AsyncVoicesClient Objects
+## AsyncVoicesClient Objects
     
     
     class AsyncVoicesClient()
@@ -278,11 +246,7 @@ AsyncVoicesClient Objects
 
 Asynchronous voice management operations.
 
-#### 
-
-​
-
-list
+#### list
     
     
     async def list(
@@ -302,11 +266,7 @@ list
 
 List available voices/models (async). See sync version for details.
 
-#### 
-
-​
-
-get
+#### get
     
     
     async def get(voice_id: str,
@@ -316,11 +276,7 @@ get
 
 Get voice by ID (async). See sync version for details.
 
-#### 
-
-​
-
-create
+#### create
     
     
     async def create(*,
@@ -338,11 +294,7 @@ create
 
 Create/clone a new voice (async). See sync version for details.
 
-#### 
-
-​
-
-update
+#### update
     
     
     async def update(voice_id: str,
@@ -357,11 +309,7 @@ update
 
 Update voice metadata (async). See sync version for details.
 
-#### 
-
-​
-
-delete
+#### delete
     
     
     async def delete(voice_id: str,
@@ -371,19 +319,11 @@ delete
 
 Delete a voice (async). See sync version for details.
 
-# 
-
-​
-
-fishaudio.resources.account
+# fishaudio.resources.account
 
 Account namespace client for billing and credits.
 
-## 
-
-​
-
-AccountClient Objects
+## AccountClient Objects
     
     
     class AccountClient()
@@ -391,11 +331,7 @@ AccountClient Objects
 
 Synchronous account operations.
 
-#### 
-
-​
-
-get_credits
+#### get_credits
     
     
     def get_credits(*,
@@ -421,11 +357,7 @@ Get API credit balance. **Arguments** :
         print("Free credits available!")
     
 
-#### 
-
-​
-
-get_package
+#### get_package
     
     
     def get_package(*,
@@ -444,11 +376,7 @@ Get package information. **Arguments** :
     print(f"Balance: {package.balance}/{package.total}")
     
 
-## 
-
-​
-
-AsyncAccountClient Objects
+## AsyncAccountClient Objects
     
     
     class AsyncAccountClient()
@@ -456,11 +384,7 @@ AsyncAccountClient Objects
 
 Asynchronous account operations.
 
-#### 
-
-​
-
-get_credits
+#### get_credits
     
     
     async def get_credits(
@@ -487,11 +411,7 @@ Get API credit balance (async). **Arguments** :
         print("Free credits available!")
     
 
-#### 
-
-​
-
-get_package
+#### get_package
     
     
     async def get_package(*,
@@ -511,19 +431,11 @@ Get package information (async). **Arguments** :
     print(f"Balance: {package.balance}/{package.total}")
     
 
-# 
-
-​
-
-fishaudio.resources.tts
+# fishaudio.resources.tts
 
 TTS (Text-to-Speech) namespace client.
 
-## 
-
-​
-
-TTSClient Objects
+## TTSClient Objects
     
     
     class TTSClient()
@@ -531,11 +443,7 @@ TTSClient Objects
 
 Synchronous TTS operations.
 
-#### 
-
-​
-
-stream
+#### stream
     
     
     def stream(*,
@@ -577,11 +485,7 @@ Stream text-to-speech audio chunks. **Arguments** :
     audio = client.tts.stream(text="Hello world").collect()
     
 
-#### 
-
-​
-
-convert
+#### convert
     
     
     def convert(*,
@@ -626,11 +530,7 @@ Convert text to speech and return complete audio as bytes. This is a convenience
     save(audio, "output.mp3")
     
 
-#### 
-
-​
-
-stream_websocket
+#### stream_websocket
     
     
     def stream_websocket(
@@ -720,11 +620,7 @@ Stream text and receive audio in real-time via WebSocket. Perfect for conversati
             f.write(audio_chunk)
     
 
-## 
-
-​
-
-AsyncTTSClient Objects
+## AsyncTTSClient Objects
     
     
     class AsyncTTSClient()
@@ -732,11 +628,7 @@ AsyncTTSClient Objects
 
 Asynchronous TTS operations.
 
-#### 
-
-​
-
-stream
+#### stream
     
     
     async def stream(
@@ -780,11 +672,7 @@ Stream text-to-speech audio chunks (async). **Arguments** :
     audio = await stream.collect()
     
 
-#### 
-
-​
-
-convert
+#### convert
     
     
     async def convert(*,
@@ -829,11 +717,7 @@ Convert text to speech and return complete audio as bytes (async). This is a con
     save(audio, "output.mp3")
     
 
-#### 
-
-​
-
-stream_websocket
+#### stream_websocket
     
     
     async def stream_websocket(text_stream: AsyncIterable[Union[str, TextEvent,
@@ -921,19 +805,11 @@ Stream text and receive audio in real-time via WebSocket (async). Perfect for co
             await f.write(audio_chunk)
     
 
-# 
-
-​
-
-fishaudio.resources.realtime
+# fishaudio.resources.realtime
 
 Real-time WebSocket streaming helpers.
 
-#### 
-
-​
-
-iter_websocket_audio
+#### iter_websocket_audio
     
     
     def iter_websocket_audio(ws) -> Iterator[bytes]
@@ -949,11 +825,7 @@ Process WebSocket audio messages (sync). Receives messages from WebSocket, yield
 
 
 
-#### 
-
-​
-
-aiter_websocket_audio
+#### aiter_websocket_audio
     
     
     async def aiter_websocket_audio(ws) -> AsyncIterator[bytes]
@@ -969,19 +841,11 @@ Process WebSocket audio messages (async). Receives messages from WebSocket, yiel
 
 
 
-# 
-
-​
-
-fishaudio.resources.asr
+# fishaudio.resources.asr
 
 ASR (Automatic Speech Recognition) namespace client.
 
-## 
-
-​
-
-ASRClient Objects
+## ASRClient Objects
     
     
     class ASRClient()
@@ -989,11 +853,7 @@ ASRClient Objects
 
 Synchronous ASR operations.
 
-#### 
-
-​
-
-transcribe
+#### transcribe
     
     
     def transcribe(
@@ -1025,11 +885,7 @@ Transcribe audio to text. **Arguments** :
         print(f"{segment.start}-{segment.end}: {segment.text}")
     
 
-## 
-
-​
-
-AsyncASRClient Objects
+## AsyncASRClient Objects
     
     
     class AsyncASRClient()
@@ -1037,11 +893,7 @@ AsyncASRClient Objects
 
 Asynchronous ASR operations.
 
-#### 
-
-​
-
-transcribe
+#### transcribe
     
     
     async def transcribe(

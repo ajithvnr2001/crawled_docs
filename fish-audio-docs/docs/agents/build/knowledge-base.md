@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/knowledge-base/
 title: Knowledge Base - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:40.171579+00:00
+fetched_at: 2026-11-13T15:33:49.207534+00:00
 ---
 
 # Knowledge Base - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:40.171579+00:00
 > Source: https://docs.fish.audio/agents/build/knowledge-base/
 
 ## On this page
+
+Back to top
 
   * Add sources
     * Upload validation
@@ -38,11 +40,7 @@ Copy pageCopy page
 
 The knowledge base is a workspace-wide document library. Add a source once (an uploaded Markdown or plain-text file) and attach it to any number of agents. In conversation, the agent draws on attached sources to answer questions its [instructions](https://docs.fish.audio/agents/build/configuration) alone can’t cover: product details, policies, FAQs, procedures.
 
-## 
-
-​
-
-Add sources
+## Add sources
 
 Sources come in two scopes:
 
@@ -53,27 +51,15 @@ To attach a shared source to an agent, open the agent’s **Knowledge base** tab
 
 PDF, Office, and scanned documents are not supported. Convert them to Markdown or plain text first.
 
-### 
-
-​
-
-Upload validation
+### Upload validation
 
 Files are validated, parsed, and indexed as part of the upload itself. When the upload succeeds, the source is immediately available to attached agents. If the file is empty, over 1 MB, or not UTF-8 text, the upload is rejected with an error and nothing is created.
 
-### 
-
-​
-
-Folders
+### Folders
 
 Group sources into folders with **New folder** , and rename sources from the row menu. Deleting a folder never deletes its sources. Anything inside moves back to **All sources**.
 
-## 
-
-​
-
-Share sources across agents
+## Share sources across agents
 
 Workspace sources belong to the workspace, not to a single agent (agent-private files offer only **Edit** and **Delete**). In the library, the **Used by** column shows how many agents attach each source, and **Manage access** lists every agent with a toggle:
 
@@ -84,43 +70,23 @@ Editing a source propagates to every agent that attaches it. Each attached agent
 
 **Delete** removes a source from _all_ agents that reference it, not just the one you’re editing. To remove a source from a single agent, detach it with **Manage access** instead.
 
-## 
+## How your agent uses knowledge
 
-​
-
-How your agent uses knowledge
-
-### 
-
-​
-
-Small corpora are inlined
+### Small corpora are inlined
 
 If the total size of an agent’s attached sources is **8 KB or less** , the full content is inlined into the agent’s instructions. This is the fastest path: the agent has everything up front, with zero per-turn lookup cost.
 
 Inlined knowledge produces no retrieval events. If your corpus is small and you don’t see retrieval activity, nothing is wrong.
 
-### 
-
-​
-
-Larger corpora are searched per turn
+### Larger corpora are searched per turn
 
 Above 8 KB, the agent searches attached sources on every turn, using the user’s latest message as the query, and injects the best-matching passages into that turn’s context. The search runs under a fixed time budget: if it can’t complete in time, the turn is answered without retrieved context. Retrieval never delays the agent’s reply.
 
-### 
-
-​
-
-Publishing pins revisions
+### Publishing pins revisions
 
 When you [publish](https://docs.fish.audio/agents/deploy/versions-publishing) an agent, the published version pins the then-current revision of every attached source. Sessions read the pinned revisions, so edits you make mid-call never leak into an in-progress conversation. Publish again to roll updated content out.
 
-## 
-
-​
-
-Limits
+## Limits
 
 Limit| Value  
 ---|---  
@@ -131,11 +97,7 @@ Inline threshold| 8 KB total attached content
   
 Attaching more than 100 sources to one agent is rejected with `422`.
 
-## 
-
-​
-
-Manage sources over the API
+## Manage sources over the API
 
 Knowledge sources are exposed at `/v1/agent/knowledge-sources`. Only workspace sources appear on this surface. Agent-private files are a console-only convenience:
 
@@ -175,11 +137,7 @@ Check dependents
 
 Only the `source` file part is required on create: `name` falls back to the uploaded file’s name.
 
-### 
-
-​
-
-Attach sources to an agent
+### Attach sources to an agent
 
 Attach sources through the agent’s configuration. `knowledge_source_ids` replaces the whole attached list. Attaching sources also turns the knowledge base on, unless you send `enabled: false` with them to attach now and switch on later. Publish for the change to reach live sessions.
 
@@ -203,11 +161,7 @@ Field| Rules
   
 `DELETE` returns `409` while the source is still attached to any agent, in its draft or its published version. Call the dependents endpoint to see which agents use it, then detach it from each (remove its id from `knowledge_base.knowledge_source_ids` in an agent update) and republish any agent whose published version still references it. Deleting from the console instead removes the source from all agents at once, after a confirmation.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Agent configuration
 

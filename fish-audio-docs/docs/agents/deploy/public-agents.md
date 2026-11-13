@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/public-agents/
 title: Public Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T15:15:40.944640+00:00
+fetched_at: 2026-11-13T15:33:48.194502+00:00
 ---
 
 # Public Agents - Fish Audio
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 A public agent accepts sessions straight from the browser: the SDK calls the session endpoint with just an `agent_id`, no API key and no server of your own. The platform gates access with three controls: an agent-level public switch (off by default), a required origin allowlist, and rate limiting. Use this mode for demos, marketing pages, and support bubbles where standing up a backend isn’t worth it. For production apps with their own users, [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) are usually the better fit. See when to use session tokens instead.
 
-## 
-
-​
-
-Enable public access
+## Enable public access
 
 1
 
@@ -60,11 +56,7 @@ Add allowed origins
 
 On the same page, list every web origin that may start sessions under **Allowed origins** (`allowed_origins` in the API). The allowlist is **required** : a request whose `Origin` doesn’t match any entry is rejected with `403`.
 
-## 
-
-​
-
-Start a session from the browser
+## Start a session from the browser
 
 Pass `agentId` to the SDK and it creates the session directly with the Fish Audio API, then connects the audio.
 
@@ -93,11 +85,7 @@ API (curl)
 
 The response is the same session token an authenticated request returns. The SDK consumes it internally. Everything else (events, methods, client tools) works exactly as in the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk).
 
-## 
-
-​
-
-Origin matching
+## Origin matching
 
 An entry matches only on **exact scheme + host + port**. The host is case-insensitive, and a trailing slash on an entry is tolerated.
 
@@ -116,21 +104,13 @@ Allowlist entry| Browser origin| Allowed
     http://127.0.0.1:5173
     
 
-## 
-
-​
-
-Rate limiting
+## Rate limiting
 
 Public session creation is rate limited on two dimensions at once: per **client IP** and per **agent**. Either limit being exceeded rejects the request. Sessions started on a public agent are billed to the workspace that owns the agent, at the standard [conversation rate](https://docs.fish.audio/agents/pricing).
 
 If legitimate traffic outgrows these limits, or you need per-user quotas, move to [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions): your backend becomes the gate, and the platform-side public limits no longer apply.
 
-## 
-
-​
-
-Treat public input as untrusted
+## Treat public input as untrusted
 
 On the public path, the entire session request originates in the visitor’s browser. The platform enforces its own guardrails (public sessions accept only the `language` and `voice_id` [overrides](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides), rejecting everything else with `400`), but anything that passes through verbatim is attacker-controllable:
 
@@ -139,11 +119,7 @@ On the public path, the entire session request originates in the visitor’s bro
 
 For trusted attribution (a verified `end_user_id`, server-set metadata), create sessions from your backend instead.
 
-## 
-
-​
-
-Errors
+## Errors
 
 Public-mode failures surface as `FishAgentError` codes on `AgentSession.start()`:
 
@@ -154,11 +130,7 @@ Code| Meaning
 `insufficient_credit`| The agent owner’s account has no Agent credit left (HTTP `402`). Top up to resume.  
 `session_request_failed`| Other creation failures, for example the agent has no published version.  
   
-## 
-
-​
-
-When to use session tokens instead
+## When to use session tokens instead
 
 Public mode trades control for zero setup. Prefer the `sessionToken` flow (your backend calls the session endpoint with an API key and hands the token to the browser) when any of these apply:
 
@@ -169,11 +141,7 @@ Public mode trades control for zero setup. Prefer the `sessionToken` flow (your 
 
 The SDK call changes by one field: pass `{ sessionToken }` instead of `{ agentId }`. See [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) for the full flow.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Authenticated sessions
 

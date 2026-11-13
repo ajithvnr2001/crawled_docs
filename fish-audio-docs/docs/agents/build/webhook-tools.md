@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/webhook-tools/
 title: Webhook Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:43:30.960657+00:00
+fetched_at: 2026-11-13T15:33:48.589505+00:00
 ---
 
 # Webhook Tools - Fish Audio
@@ -44,11 +44,7 @@ A webhook tool lets your agent call an HTTP endpoint mid-conversation (look up a
 
 Tools are workspace-level resources shared across agents. Removing a tool from an agent **detaches** it: the tool stays in your workspace and remains attached to other agents. Editing a tool updates every agent that uses it, and those agents show unpublished changes until you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-## 
-
-​
-
-Create a webhook tool
+## Create a webhook tool
 
 In the Builder, open **Tools** and choose **Add tool → Webhook**. A tool created from the Builder is attached to the current agent immediately; use the tool’s **Access** tab to enable it for other agents.
 
@@ -88,11 +84,7 @@ Set response handling
 
 Choose a timeout (1–120 seconds, or up to 300 for background tools; default 30) and how errors are surfaced to the agent.
 
-## 
-
-​
-
-Parameters and validation
+## Parameters and validation
 
 A tool’s parameters are a [JSON Schema](https://json-schema.org/) object (draft 2020-12) with the standard meaning of every keyword. The Builder form and the JSON editor produce the same schema, so the form covers flat parameters and you switch to JSON for `pattern`, `default`, nested objects, or arrays.
 
@@ -132,11 +124,7 @@ Tools created before validation existed keep the schema they always had, with ev
 
 Over the API, send the schema as `parameters`. The older `arguments` list is still accepted: each entry becomes a required string parameter and the tool stays in `legacy` mode. A tool created with `parameters` starts in `strict` mode unless you set `parameter_mode` yourself. Reads return both `parameters` and `arguments`, and a single request cannot carry both.
 
-## 
-
-​
-
-Argument templating
+## Argument templating
 
 Reference any declared parameter with `{{name}}`: in the URL, in header values, or in the body template. The platform substitutes the values the agent supplies before sending the request. [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables-in-webhook-tools) work in the same places: your custom variables, such as a customer id returned by the inbound call webhook, and system variables such as `{{system.session_id}}`, `{{system.caller_number}}` or `{{system.today}}`. They are filled when the session starts, before the agent supplies any argument. An argument wins over a custom variable of the same name.
 
@@ -156,11 +144,7 @@ Body template
     }
     
 
-### 
-
-​
-
-Values in a JSON body
+### Values in a JSON body
 
 When the body is JSON, what happens to a value depends on where its placeholder sits:
 
@@ -182,11 +166,7 @@ If the agent passes `She said "call me back"` as `note`, the request body contai
 
 A placeholder outside a string is not checked. If its value isn’t valid JSON in that spot, the body isn’t either. Put text values in quotes.
 
-## 
-
-​
-
-Authentication headers
+## Authentication headers
 
 Each header has a kind that identifies what it carries:
 
@@ -200,11 +180,7 @@ Header values are sent exactly as you store them. The Builder’s Bearer and Bas
 
 Bearer and Basic authorization values are write-only. The API accepts them on create and update but never echoes them when you read the tool back: credential headers return `value: null`, with `has_secret: true` confirming a secret is stored. To rotate a secret, submit a new value.
 
-## 
-
-​
-
-Execution modes
+## Execution modes
 
 `execution_mode` decides whether the agent waits for your endpoint (default `blocking`):
 
@@ -230,11 +206,7 @@ A few things to know about background calls:
 
 Client tools have their own lighter-weight equivalent: the [`expects_response` switch](https://docs.fish.audio/agents/build/client-tools), which makes a client tool fire-and-forget.
 
-## 
-
-​
-
-Timeouts and error handling
+## Timeouts and error handling
 
 `timeout_seconds` caps how long the platform waits for your endpoint: 1–120 seconds, default 30. Background tools may go up to 300 seconds, since they don’t hold up the conversation while they run. For blocking tools especially, keep endpoints fast and lower the timeout so a slow backend can’t stall the call. `error_handling` controls what the agent learns when a call fails (default `passthrough`):
 
@@ -245,27 +217,15 @@ Option| What the agent sees
   
 Use `hide` when error responses might leak internal details you don’t want spoken aloud. Under `fire_and_forget` the agent never learns about failures at all, whichever option is set.
 
-## 
-
-​
-
-Mock responses
+## Mock responses
 
 A tool can store mock responses: canned payloads, each with a `name`, a `status_code` (100–599), a `content_type`, and a `body`. Mocks are saved with the tool’s configuration for test scenarios. [Simulation tests](https://docs.fish.audio/agents/test/agent-tests#tool-mocks) that mock all tools answer the tool with its first mock response. Live calls always hit the real endpoint.
 
-## 
-
-​
-
-Test your tool
+## Test your tool
 
 The tool editor’s **Test** tab fires a real request at your endpoint. Fill in the arguments as JSON (pre-filled with a sample based on your declared arguments) and send. You get back the status code, latency, response headers, and response body. A failing test never blocks saving the tool. There is no live call behind a test, so custom variables and `{{system.*}}` placeholders have no value: in header values and the body template they render empty unless you add the values to the arguments JSON, for example `{"patient_id": "pt_123"}` for a custom variable or a nested object such as `{"system": {"caller_number": "+15551234567"}}` for a system variable. The URL is sent exactly as saved; placeholders in it are not substituted by a test request. Response bodies are captured up to 64 KB; larger bodies are cut off and flagged with `response_truncated`.
 
-## 
-
-​
-
-Create tools via the API
+## Create tools via the API
 
 `POST /v1/agent/tools` creates a tool in your workspace. Tools created this way are not attached to any agent. Enable them per agent afterwards.
 
@@ -300,11 +260,7 @@ Create a webhook tool
       }'
     
 
-## 
-
-​
-
-Escalate to a ticket mid-call
+## Escalate to a ticket mid-call
 
 When the agent can’t resolve an issue, the strongest close is a ticket opened while the caller is still on the line, with the ticket number read back aloud. The `create_ticket` tool above is the entire integration. What makes it work is the prompt around it and the response your endpoint returns. **Set the escalation policy in the prompt.** The tool description says what the tool does; the [system prompt](https://docs.fish.audio/agents/build/configuration) says when escalating is the right move:
 
@@ -330,11 +286,7 @@ Ticket numbers get spoken aloud: short, pronounceable IDs survive text-to-speech
 
 An in-call ticket depends on the model choosing to escalate. For a safety net that catches every unresolved call (including those where the agent never called the tool), pair this with [auto-ticketing from post-call analysis](https://docs.fish.audio/agents/monitor/webhooks#auto-ticket-unresolved-calls).
 
-## 
-
-​
-
-Limits
+## Limits
 
 Field| Limit  
 ---|---  
@@ -351,19 +303,11 @@ Mock response `status_code`| 100–599
 Background calls in flight| 10 per conversation  
 Test response capture| first 64 KB (`response_truncated` set beyond that)  
   
-### 
-
-​
-
-URL restrictions
+### URL restrictions
 
 Endpoint URLs must use `http` or `https`. Requests to localhost, private network ranges, and cloud metadata endpoints are rejected, and URLs may not embed credentials. Hostnames that only a private network could resolve are rejected as well: single-label names such as `http://api/`, and names under `.local`, `.internal`, `.svc` or `.arpa`. The Builder validates the URL as you type; the API enforces the same rules.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Client tools
 

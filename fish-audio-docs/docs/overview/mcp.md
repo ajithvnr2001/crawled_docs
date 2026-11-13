@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/overview/mcp/
 title: MCP Server - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:01.114033+00:00
+fetched_at: 2026-11-13T15:33:42.193397+00:00
 ---
 
 # MCP Server - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:52:01.114033+00:00
 > Source: https://docs.fish.audio/overview/mcp/
 
 ## On this page
+
+Back to top
 
   * Connect
   * Try it
@@ -37,11 +39,7 @@ The Fish Audio MCP server gives AI agents direct access to your Fish Audio accou
 
 
 
-## 
-
-​
-
-Connect
+## Connect
 
   * Claude Code
 
@@ -92,21 +90,13 @@ Go to `Settings → Cascade → MCP Servers → View raw config` (`~/.codeium/wi
     }
     
 
-## 
-
-​
-
-Try it
+## Try it
 
 Once connected, ask in plain language and the agent picks the right tools. Click a card to copy its prompt; the copied text also names the server, so the agent can help you connect it if you have not yet.
 
 In coding agents like Claude Code and Codex, tools compose with the shell: the agent can download generated audio, images, and videos with `curl`, upload local recordings for transcription or reference images for editing, or batch-generate a directory of scripts.
 
-## 
-
-​
-
-Tools
+## Tools
 
 The [tools reference](https://docs.fish.audio/overview/mcp/tools) lists what each tool does, by area:
 
@@ -124,11 +114,7 @@ The [tools reference](https://docs.fish.audio/overview/mcp/tools) lists what eac
 
 The tools the server exposes, with the exact tool names and what each one does.
 
-## 
-
-​
-
-Credits
+## Credits
 
 Tool or area| Cost  
 ---|---  
@@ -139,11 +125,7 @@ Images and video| The price in the estimate
   
 In UTF-8, English letters, digits, and basic punctuation are one byte each, and most Chinese, Japanese, and Korean characters are three. Voice search and cloning, uploads, Story Studio import and editing, estimates and quotes, and the asset library are free. Speech and Story Studio audio in another team’s [professional voice clone](https://docs.fish.audio/overview/platform/create-voice/professional-voice-clone) cost double, and failed generations are refunded.
 
-## 
-
-​
-
-Good to know
+## Good to know
 
   * Add [audio tags](https://docs.fish.audio/developer-guide/core-features/emotions) in square brackets inside the text to control delivery, such as `[whispering]`, `[excited]`, or `[laughing]`.
   * If no voice is specified, a curated default voice for the requested language is used.

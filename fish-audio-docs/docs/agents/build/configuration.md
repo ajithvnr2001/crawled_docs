@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/configuration/
 title: Configuration - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:53.944072+00:00
+fetched_at: 2026-11-13T15:33:49.493008+00:00
 ---
 
 # Configuration - Fish Audio
@@ -46,11 +46,7 @@ Copy pageCopy page
 
 Configuration is the Builder’s home tab: define how your agent behaves, how it opens each conversation, and how it paces its turns. Every edit is saved to the agent’s **draft** automatically. Callers only hear your changes after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing). New to Agents? Start with the [Quickstart](https://docs.fish.audio/agents/quickstart).
 
-## 
-
-​
-
-System prompt
+## System prompt
 
 The system prompt sets the personality, goals, and guardrails that steer every reply. It is capped at **32,000 tokens**. The API rejects longer prompts with `422 Unprocessable Entity`. Keeping it under **2,000 tokens** is recommended: shorter prompts cut latency and cost, and hold the model’s attention better. It can also be replaced for a single session by sending `overrides.system_prompt` when [creating the session](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides). To personalize the prompt per session without replacing it, write `{{placeholders}}`: [custom variables](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables) such as `{{customer_name}}` take the values you pass when creating the session, and [system variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables) such as `{{system.caller_number}}` or `{{system.today}}` are filled in by the platform.
 
@@ -62,11 +58,7 @@ Keep the prompt focused:
 
 
 
-## 
-
-​
-
-First message
+## First message
 
 Choose how the agent opens each conversation:
 
@@ -78,25 +70,13 @@ Mode| Behavior| Field on the wire
   
 `first_message` and `first_message_prompt` can each hold up to 10,000 characters. The active mode (`first_message_mode`: `off`, `fixed`, or `prompt`) decides what callers hear. Both fields accept the same `{{placeholders}}` as the system prompt (see [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables)), and both can be replaced for a single session by sending `overrides.first_message` or `overrides.first_message_prompt` when [creating the session](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides).
 
-## 
-
-​
-
-Voice
+## Voice
 
 The Voice panel selects the voice your agent speaks with (`voice_id`) and its speaking language (`speaking_language`, one of the [52 supported languages](https://docs.fish.audio/agents/build/voice-language#speaking-language)). It also holds the text-to-speech model (`tts_model`), expressive delivery (`expressive`) and the speech recognition settings, which the API keeps in their own `asr` section: the recognition model (`asr.model`) and the multilingual recognition switch (`asr.multilingual`). See [Voice & language](https://docs.fish.audio/agents/build/voice-language) for all of them.
 
-## 
+## Conversation settings
 
-​
-
-Conversation settings
-
-### 
-
-​
-
-Turn-taking
+### Turn-taking
 
 `conversation.response_wait_ms` (300–2000, default `550`) is how long the agent waits after the caller pauses before it starts talking. In the Builder this is the **Response wait** slider, with Fast (0.45 s), Balanced (0.55 s), and Patient (0.9 s) shortcuts. When the agent thinks the caller is mid-sentence it waits longer, up to `conversation.response_max_wait_ms` (600–4000). Leave it `null` (the default) to follow the response wait plus 0.5 s; send `0` to clear an explicit value back to automatic. A max wait below the response wait is rejected with `422`. `conversation.eagerness` is the same setting as a preset and still works: writing `relaxed`, `balanced`, or `eager` sets the response wait to 900, 550, or 450 ms, and reads report the preset that matches the current wait.
 
@@ -104,11 +84,7 @@ A short answer such as “yes” normally lands on the fast path. When the agent
 
 `conversation.speculative_response` (default `true`) lets the agent start preparing its reply while the caller may still be speaking; the draft is discarded if they continue, and tools never run before the caller’s turn is confirmed. Turn it off if your [custom LLM](https://docs.fish.audio/agents/build/custom-llm) bills per token and you would rather not pay for discarded drafts. With it off, the response wait is added directly to every reply.
 
-### 
-
-​
-
-Interruptions
+### Interruptions
 
   * `conversation.interruptible` (default `true`): Whether the caller can barge in while the agent is speaking.
   * `conversation.interruption_sensitivity` sets how much caller speech counts as an interruption: 
@@ -119,11 +95,7 @@ Interruptions
 
 
 
-### 
-
-​
-
-Echo guard
+### Echo guard
 
 Callers’ devices and the phone network normally cancel the agent’s echo, but in a few calls (under 3%) some echo gets through in the agent’s first seconds and cuts it off. `conversation.echo_guard` (**Echo guard** in the Builder) prevents this. For 3 seconds after the agent first starts talking, the caller can’t interrupt it, and what the caller says over the agent is dropped. [Keypad entries](https://docs.fish.audio/agents/telephony/keypad#keypad-input) and the [web SDK](https://docs.fish.audio/agents/deploy/web-sdk)’s `interrupt()` still work. Each [channel](https://docs.fish.audio/agents/build/dynamic-variables#system-variables) has its own key. Set it to `true`, `false`, or `null` for the default.
 
@@ -135,69 +107,37 @@ Key| Builder label| Default
   
 Turn it off if callers should be able to interrupt the agent within those 3 seconds.
 
-### 
-
-​
-
-Call duration
+### Call duration
 
 `conversation.max_duration_seconds` (60–3600, default `1800`) ends the session automatically when the limit is reached.
 
 [Preview calls](https://docs.fish.audio/agents/test/preview-calls) in the Builder are capped at 10 minutes or this setting, whichever is lower.
 
-### 
-
-​
-
-Recording
+### Recording
 
 `conversation.record_audio` (default `true`) stores per-speaker audio for [playback and download](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored), with a per-session override on the [session request](https://docs.fish.audio/agents/deploy/authenticated-sessions). In the console this lives under your agent’s **Settings**. Make sure callers are informed and consent where your jurisdiction requires it.
 
-### 
-
-​
-
-Timezone
+### Timezone
 
 `conversation.timezone` is the default IANA timezone (like `Asia/Tokyo`) the agent uses for dates and times in conversation. Leave it empty for **automatic** : each session follows the caller’s device or phone number, falling back to UTC. Set one when your agent serves a single region regardless of who calls. A per-session `timezone` on the [session request](https://docs.fish.audio/agents/build/time-timezone) overrides this. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone) for the full resolution order.
 
-## 
-
-​
-
-Context
+## Context
 
 The `context` section holds the facts the platform tells your agent on its own, one switch each. Guardrails constrain what the agent does, context switches add to what it knows.
 
-### 
-
-​
-
-Current date and time
+### Current date and time
 
 `context.current_time` (default `false`) tells the agent today’s date when a session starts and the current time before every reply, in the agent’s timezone. In the Builder this is the **Current date & time** toggle under the time zone. Turn it on for scheduling, reminders, or any prompt that says “tomorrow” or “next Tuesday”. Leave it off when the prompt states its own date, for example a role-play set on a fictional day. Agents created before the switch existed have it on, which was their behavior. A session request’s `context.current_time` overrides the agent’s setting in either direction. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone).
 
-## 
-
-​
-
-Autosave and publishing
+## Autosave and publishing
 
 There is no Save button. Each change is written to the agent’s draft moments after you stop editing, and the **Saving… / Saved** indicator at the bottom-left of the page shows the current state. If a save fails, the Builder tells you and keeps your pending edits so nothing is lost. Drafts never affect live traffic: active integrations keep using the last published version until you press **Publish** , which snapshots the draft as a new immutable version. The Publish button lights up whenever the draft differs from what is published. See [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-## 
-
-​
-
-Configure through the API
+## Configure through the API
 
 The same draft is readable and writable over REST, which is useful for provisioning agents from your own systems.
 
-### 
-
-​
-
-Read the draft
+### Read the draft
 
 Request
     
@@ -246,11 +186,7 @@ Response (abridged)
 
 The response also includes the `tools`, `knowledge_base`, `analysis`, and `webhooks` sections, each covered on its own page. `config_hash` identifies this draft revision; a mismatch with the published version is what marks an agent as having unpublished changes.
 
-### 
-
-​
-
-Update sections
+### Update sections
 
 `PATCH` takes a partial body and deep-merges it into the draft: send only the sections and fields you want to change, and everything else keeps its value. Fields that hold a list (`webhooks.post_call` among them) are replaced as a whole, so send the complete list whenever you change one.
     
@@ -266,11 +202,7 @@ Update sections
 
 The response includes the draft’s new `config_hash`. Values outside the documented limits (a system prompt over 32,000 tokens, `max_duration_seconds` outside 60–3600) are rejected with `422 Unprocessable Entity` and the draft is left unchanged.
 
-### 
-
-​
-
-Config sections
+### Config sections
 
 Section| What it holds| Documented in  
 ---|---|---  
@@ -286,11 +218,7 @@ Section| What it holds| Documented in
 `variables`| Default values for the `{{placeholders}}` in the configured text and what a placeholder without a value does| [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables#default-values)  
 `llm`| Conversation model settings, including a custom LLM endpoint and fallback models| [Custom LLM](https://docs.fish.audio/agents/build/custom-llm), [LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback)  
   
-## 
-
-​
-
-Going further
+## Going further
 
 ## Voice & language
 

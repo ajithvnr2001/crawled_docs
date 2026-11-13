@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/text-to-speech/
 title: Text to Speech - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.460992+00:00
+fetched_at: 2026-11-13T15:33:42.350546+00:00
 ---
 
 # Text to Speech - Fish Audio
@@ -56,11 +56,7 @@ Every parameter for `POST /v1/tts`.
 
 Ready-made recipes: streaming, telephony, and more.
 
-## 
-
-​
-
-When to use it
+## When to use it
 
 ## Voiceovers & narration
 
@@ -78,11 +74,7 @@ Read content aloud, phone menus, notifications.
 
 Speak in a [cloned voice](https://docs.fish.audio/features/voice-cloning) you own.
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Send text, get back audio. Choose your implementation: Install the Python SDK first: `pip install fish-audio-sdk`.
 
@@ -128,11 +120,7 @@ JavaScript
     await writeFile("hello.mp3", Buffer.concat(chunks));
     
 
-## 
-
-​
-
-Use a specific voice
+## Use a specific voice
 
 Pass a **voice model id** (`reference_id`). Find ids in the [Voice Library](https://docs.fish.audio/overview/platform) or create your own via [Voice Cloning](https://docs.fish.audio/features/voice-cloning).
 
@@ -160,17 +148,9 @@ API (curl)
       --output out.mp3
     
 
-## 
+## Implementation details
 
-​
-
-Implementation details
-
-### 
-
-​
-
-Models
+### Models
 
   * **`s2.1-pro`** : recommended for production, with improved quality, latency, and throughput over S2-Pro.
   * **`s2.1-pro-free`** : the same model at $0 for testing, prototyping, development, and smaller businesses, without TTFA or DPA guarantees.
@@ -180,11 +160,7 @@ Models
 
 In the API, select with the `model` request header; requests without it use `s2.1-pro`. The Python SDK always sends a model and defaults to `model="s2-pro"`. See [Choosing a Model](https://docs.fish.audio/developer-guide/models-pricing/choosing-a-model).
 
-### 
-
-​
-
-Output formats
+### Output formats
 
 `mp3` (default), `wav`, `pcm`, `opus`. Set `format` (and optionally `mp3_bitrate`, `sample_rate`).
 
@@ -210,11 +186,7 @@ API (curl)
       --output out.wav
     
 
-### 
-
-​
-
-Speed & prosody
+### Speed & prosody
 
 Adjust speech speed (0.5–2.0) and volume.
 
@@ -235,11 +207,7 @@ API (curl)
       --output out.mp3
     
 
-### 
-
-​
-
-Generation methods (Python)
+### Generation methods (Python)
 
 The Python SDK exposes three ways to generate, depending on whether you have the full text upfront and how you want to consume the audio:
 
@@ -259,11 +227,7 @@ Method| Returns| Use it for
 
 For real-time text streaming with `stream_websocket()`, see [Realtime Streaming](https://docs.fish.audio/features/realtime-streaming).
 
-### 
-
-​
-
-Instant voice cloning (reference audio)
+### Instant voice cloning (reference audio)
 
 Instead of a saved `reference_id`, pass raw audio plus its transcript to clone a voice on the fly, with no training step. Best with a clean 10–30s sample.
     
@@ -279,11 +243,7 @@ Instead of a saved `reference_id`, pass raw audio plus its transcript to clone a
 
 To reuse a voice across many requests, [clone it once](https://docs.fish.audio/features/voice-cloning) and pass the resulting `reference_id` instead.
 
-### 
-
-​
-
-Format & bitrate
+### Format & bitrate
 
 Pick a format for your delivery channel, and tune bitrate to trade size against quality:
 
@@ -303,11 +263,7 @@ Format| Notes
     )
     
 
-### 
-
-​
-
-Latency & chunk length
+### Latency & chunk length
 
 `latency` trades stability for speed; `chunk_length` controls how much text the engine batches before it starts generating.
 
@@ -339,11 +295,7 @@ API (curl)
       --output out.mp3
     
 
-### 
-
-​
-
-Direct API (MessagePack)
+### Direct API (MessagePack)
 
 `POST /v1/tts` also accepts a MessagePack body (`Content-Type: application/msgpack`), the path the [API reference](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech) is built around. Use it to send binary reference audio in the request without base64 overhead, or when you don’t want the SDK.
     
@@ -369,11 +321,7 @@ Direct API (MessagePack)
 
 If the `model` header is omitted or set to an unrecognized value, the request falls back to `s2.1-pro`. JSON and MessagePack accept the same fields.
 
-### 
-
-​
-
-Advanced generation tuning
+### Advanced generation tuning
 
 For finer control, `TTSConfig` exposes the model’s sampling parameters. The defaults are well-tuned. Reach for these only when you need to dial in determinism or curb artifacts.
     
@@ -394,11 +342,7 @@ For finer control, `TTSConfig` exposes the model’s sampling parameters. The de
 
 Define a `TTSConfig` once and pass it to many `convert()` calls. See the [full field list](https://docs.fish.audio/api-reference/sdk/python/types#ttsconfig-objects) for every parameter and default.
 
-### 
-
-​
-
-Language
+### Language
 
 `language` is an optional BCP-47 tag for the language of your text, such as `en`, `es-MX`, `zh-CN`, or `zh-TW`. It is case-insensitive, and `_` is read as `-`. It is used only by text normalization (how numbers, dates, units, and symbols are spelled out before synthesis) and by word-timestamp alignment. It is not passed to the speech model and does not change the voice, accent, or audio quality. A wrong tag only changes how those tokens are spelled out. The official SDKs don’t expose `language` yet, so send it in the request body:
 
@@ -422,11 +366,7 @@ API (curl)
 
 The same field is accepted by `POST /v1/tts` (JSON and MessagePack), the with-timestamps HTTP and SSE routes, and the [WebSocket](https://docs.fish.audio/api-reference/endpoint/websocket/tts-live) start event as `request.language`. On WebSocket, it applies to the whole session.
 
-### 
-
-​
-
-Supported normalization languages
+### Supported normalization languages
 
 Text normalization has dedicated rules for the languages below. Tags match case-insensitively, and `_` is read as `-`.
 
@@ -447,20 +387,18 @@ Russian| `ru`, `ru-RU`
 Arabic| `ar`, `ar-SA`, `ar-AE`, `ar-EG`  
 Turkish| `tr`, `tr-TR`  
 Tagalog (Filipino)| `tl`, `tl-PH`, `fil`, `fil-PH`  
+Swedish| `sv`, `sv-SE`, `sv-FI`  
+Malay| `ms`, `ms-MY`  
   
 Each row has its own rules, so the tag you pick changes the readings. For example, with `es` or `es-ES`, `$300` is read as “trescientos dólares” and the `0.9` in `0.9%` as “cero coma nueve”. With `es-MX`, they are read as “trescientos pesos” and “cero punto nueve”. In the same way, `zh-TW` uses Traditional Chinese rules, not the Simplified Chinese ones.
 
-  * Any other tag skips normalization, with no error, and the text is still synthesized as written. Today that includes `zh-HK`, `yue`, `pt-PT`, `es-419`, and `es-US`.
-  * With `language` unset, the language of each chunk is auto-detected among the languages above. Chinese written mostly in Traditional characters uses the Traditional Chinese rules. Portuguese, Turkish, and Tagalog are detected only when the detection is confident, so set `language` for short texts in these languages. Chunks whose language can’t be detected are synthesized without normalization.
+  * Any other tag skips normalization, with no error, and the text is still synthesized as written. Today that includes `zh-HK`, `yue`, `pt-PT`, `es-419`, `es-US`, and `id`.
+  * With `language` unset, the language of each chunk is auto-detected among the languages above. Chinese written mostly in Traditional characters uses the Traditional Chinese rules. Portuguese, Turkish, Tagalog, and Malay are detected only when the detection is confident, so set `language` for short texts in these languages. Malay is close to Indonesian, so many longer Malay sentences are missed as well, and a missed sentence can have its numbers read with another language’s rules; for text entirely in Malay, set `language` to `ms` regardless of length. Chunks whose language can’t be detected are synthesized without normalization.
   * The list grows over time as normalization rules are added.
 
 
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Stream as it generates
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/protocol/
 title: Wire Protocol - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:43:30.840126+00:00
+fetched_at: 2026-11-13T15:33:48.008226+00:00
 ---
 
 # Wire Protocol - Fish Audio
@@ -42,11 +42,7 @@ Everything the SDKs do rides a small, versioned wire protocol: two JSON message 
 
 This is an escape hatch. For web and React apps, use the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) or [React SDK](https://docs.fish.audio/agents/deploy/react-sdk) instead. They implement everything below (connection, reconnection, message parsing, tool dispatch) and stay current as the protocol evolves.
 
-## 
-
-​
-
-The protocol package
+## The protocol package
 
 Every message shape on this page is published as TypeScript definitions in `@fishaudio/agent-protocol`, with zero runtime dependencies. This page documents the protocol as of package version **0.1.0**. The package is the source of truth for shapes; this page fixes the semantics.
 
@@ -56,11 +52,7 @@ npm
     npm install @fishaudio/agent-protocol
     
 
-## 
-
-​
-
-Connect to a session
+## Connect to a session
 
 Create a session server-side ([authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions)), then connect to the transport named in the response. [Public agents](https://docs.fish.audio/agents/deploy/public-agents) can create sessions without the `Authorization` header.
 
@@ -90,11 +82,7 @@ The response is a discriminated union on `transport`. The `livekit` arm carries 
 
 If you receive a `transport` value you don’t recognize, fail with an explicit “unsupported transport” error. New transport arms may be introduced, each with its own payload.
 
-## 
-
-​
-
-Channels
+## Channels
 
 Once connected, a session uses these channels. The two `*-event` topics carry reliable [data packets](https://docs.livekit.io/home/client/data/messages/): one complete JSON object per packet.
 
@@ -168,17 +156,9 @@ Connect and wire up all channels
     await send({ type: 'user.message', text: "What's my balance?" });
     
 
-## 
+## Agent events: `agent-event`
 
-​
-
-Agent events: `agent-event`
-
-### 
-
-​
-
-`client_tool.call`
+### `client_tool.call`
 
 The agent wants to run a [client tool](https://docs.fish.audio/agents/build/client-tools) in your app.
 
@@ -196,11 +176,7 @@ client_tool.call
 
 Run the tool, then publish a `client_tool.result` with the same `callId`. While `expectsResponse` is `true`, the agent suspends the model’s tool call until your result arrives or the tool’s configured timeout elapses (default 30 seconds, configurable from 1 to 120). When `expectsResponse` is `false`, the call is fire-and-forget: the agent continues immediately and any result you send is ignored.
 
-### 
-
-​
-
-Tool lifecycle: `tool.started`, `tool.completed`, `tool.failed`
+### Tool lifecycle: `tool.started`, `tool.completed`, `tool.failed`
 
 Each tool the agent invokes emits one `tool.started`, resolved by exactly one terminal message (`tool.completed` or `tool.failed`) with the same `callId`. Terminal messages repeat `toolName` and `toolSource`, so a client that missed the start can still render a complete entry.
 
@@ -215,11 +191,7 @@ Field| Type| Notes
   
 These events are on by default and their payloads travel to the end user’s client. Pass `tool_events: false` when creating the session to keep tool data off the wire: the session then receives none of the three.
 
-### 
-
-​
-
-`error`
+### `error`
 
 error
     
@@ -229,11 +201,7 @@ error
 
 `code` is a coarse category only: `provider_error` (an upstream model or voice provider failed) or `internal_error` (the runtime failed). The message deliberately carries no raw error detail.
 
-### 
-
-​
-
-`session.ended`
+### `session.ended`
 
 session.ended
     
@@ -243,11 +211,7 @@ session.ended
 
 Sent once, right before the server ends the call (before the agent leaves the room or the room is deleted), so a client learns the cause instead of inferring it from the disconnect. `reason` is `user_hangup` (the user hung up, or a backend ended the session through the API), `agent_hangup` (the agent hung up or the workflow reached an end node), `conversation_timeout` (the session reached its maximum duration), `escalated` (the call was transferred to a human), or `internal_error` (from 1.0.0: the runtime itself failed and closed the session, for example its process was stopped for exceeding its memory limit). The values match `end_reason` on the [session record](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason); treat the set as open, per the compatibility rules. A call that drops without this message has no announced reason: the SDKs report `connection_lost` once reconnection fails.
 
-## 
-
-​
-
-Client events: `client-event`
+## Client events: `client-event`
 
 Publish these on the `client-event` topic. The agent ignores malformed JSON and unknown types.
 
@@ -280,11 +244,7 @@ client_tool.result
 
 
 
-## 
-
-​
-
-Transcription and agent state
+## Transcription and agent state
 
 These ride the transport’s built-in mechanisms rather than custom messages. **Transcription** arrives as [text streams](https://docs.livekit.io/home/client/data/text-streams/) on the `lk.transcription` topic. Segments are identified by the `lk.segment_id` stream attribute; `lk.transcription_final: "true"` marks a segment as final. Roles are distinguished by sender identity: the user’s segments are sent under the user’s own participant identity, the agent’s under the agent participant.
 
@@ -293,11 +253,7 @@ These ride the transport’s built-in mechanisms rather than custom messages. **
 
 **Agent state** is published as the sticky `lk.agent.state` [participant attribute](https://docs.livekit.io/home/client/state/participant-attributes/) with values `initializing`, `idle`, `listening`, `thinking`, and `speaking`. Sticky means a client that connects late or reconnects reads the current value immediately. The SDKs derive their three public modes from this attribute plus transcript segment open/close.
 
-## 
-
-​
-
-Compatibility rules
+## Compatibility rules
 
   1. **Ignore unknown`type` values and unknown fields.** This is required consumer behavior and the foundation of forward compatibility.
   2. **Evolution is additive-only.** Published fields never change name or meaning and are never removed; new fields are always optional. A semantic change ships as a new `type`.
@@ -305,11 +261,7 @@ Compatibility rules
 
 
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Web SDK
 

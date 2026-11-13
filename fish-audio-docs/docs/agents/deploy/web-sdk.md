@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/web-sdk/
 title: Web SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:43:31.103061+00:00
+fetched_at: 2026-11-13T15:33:47.278480+00:00
 ---
 
 # Web SDK - Fish Audio
@@ -43,11 +43,7 @@ Copy pageCopy page
 
 `@fishaudio/agent-client` runs a live voice conversation with your agent from any web page: open the microphone, stream audio both ways, and react to typed events for transcripts, agent state, and tool calls. The SDK handles the realtime transport (WebRTC) internally. Using React? [`@fishaudio/agent-react`](https://docs.fish.audio/agents/deploy/react-sdk) wraps this SDK in hooks and a provider.
 
-## 
-
-​
-
-Install
+## Install
 
 npm
 
@@ -67,11 +63,7 @@ yarn
     yarn add @fishaudio/agent-client
     
 
-## 
-
-​
-
-Start a session
+## Start a session
 
 `AgentSession.start()` creates the session, connects, and opens the microphone in one call. Authenticate one of two ways:
 
@@ -105,11 +97,7 @@ Private agent
 
 `start()` resolves once the realtime connection is up and rejects with a `FishAgentError` if session creation, the microphone permission, or the connection fails. Call it from a user gesture (a click handler): browsers only grant the microphone and audio playback inside one.
 
-### 
-
-​
-
-Options
+### Options
 
 Option| Type| Description  
 ---|---|---  
@@ -146,11 +134,7 @@ Callbacks shorthand
     });
     
 
-## 
-
-​
-
-Session lifecycle
+## Session lifecycle
 
 A session moves through a fixed state machine, surfaced by the `statusChange` event and the `session.status` property:
 
@@ -178,11 +162,7 @@ Events are not replayed after a reconnect. Anything emitted while you were in `r
 
 The session also exposes `sessionId` (use it to look up the [conversation record](https://docs.fish.audio/agents/monitor/conversation-history) later), `status`, `mode`, `isSpeaking`, `micMuted`, and `endReason` as properties.
 
-## 
-
-​
-
-Events
+## Events
 
 The session is a typed event emitter: subscribe with `session.on(event, handler)`, remove with `off`, or use `once`.
 
@@ -216,11 +196,7 @@ Subscribe to events
     session.on("disconnect", ({ reason }) => showCallEnded(reason));
     
 
-### 
-
-​
-
-Transcript semantics
+### Transcript semantics
 
 Transcripts on both sides arrive as **segments** , one segment per utterance or response, identified by `segmentId`:
 
@@ -230,19 +206,11 @@ Transcripts on both sides arrive as **segments** , one segment per utterance or 
 
 A listener attached late misses the events fired before it subscribed. `session.getTranscript()` returns every segment so far, as `{ segmentId, role, text, final }` in conversation order: seed your UI from it, then keep applying live events by `segmentId`.
 
-### 
-
-​
-
-Tool call lifecycle
+### Tool call lifecycle
 
 Every tool the agent runs (webhook, client, or system tool) emits one `toolCallStarted`, resolved by exactly one `toolCallCompleted` or `toolCallFailed` with the same `callId`. `input` and `output` are JSON strings truncated at 4 KB; parse them only when the matching `*Truncated` flag is `false`. These events carry tool arguments and results into the end user’s browser: to keep them off the client, start with `toolEvents: false`, or create the session with `tool_events: false` on your backend.
 
-## 
-
-​
-
-Agent modes
+## Agent modes
 
 `session.mode` (and the `modeChange` event) tracks what the agent is doing, for driving an orb or status indicator:
 
@@ -254,11 +222,7 @@ Mode| Meaning
   
 `session.isSpeaking` is a convenience boolean for the `speaking` mode. Mode does not react to the user’s own speech. For instant “the mic hears you” feedback, poll `getInputVolume()` locally.
 
-## 
-
-​
-
-Send text
+## Send text
 
 Users can type instead of talking, in the same session:
 
@@ -283,11 +247,7 @@ Text input
 
 Text-only replies are not paced to audio playback: the transcript streams as fast as it generates. Messages sent right after `start()` resolves, before the agent has finished joining, are held and delivered in order once it is ready.
 
-## 
-
-​
-
-Audio controls
+## Audio controls
 
 Method / property| Description  
 ---|---  
@@ -315,11 +275,7 @@ Audio visualizer
     session.on("disconnect", () => cancelAnimationFrame(rafId));
     
 
-## 
-
-​
-
-Client tools
+## Client tools
 
 Register handlers for tools of type `client` declared on the agent. The agent calls them mid-conversation and your return value goes back to the model:
 
@@ -342,11 +298,7 @@ Register a client tool
 
 Handlers can be sync or async; a thrown error or a timeout (default 15 s, set with `clientToolTimeoutMs`) is returned to the agent as a tool error. See [Client tools](https://docs.fish.audio/agents/build/client-tools) for declaration, naming rules, result size, and dispatch semantics.
 
-## 
-
-​
-
-Errors
+## Errors
 
 Failures surface as `FishAgentError`: thrown from `AgentSession.start()` when the session can’t be created, emitted on the `error` event otherwise. Each carries a `code`, an optional `statusCode` (set on session-creation HTTP errors), and `cause`.
 
@@ -383,11 +335,7 @@ Handle errors
     }
     
 
-## 
-
-​
-
-End the session
+## End the session
 
 Hang up
     
@@ -397,19 +345,11 @@ Hang up
 
 Calling `end()` more than once, or while a previous call is still finishing, is safe. `endReason` stays readable on the ended session.
 
-## 
-
-​
-
-Underlying connection
+## Underlying connection
 
 The session API is transport-neutral: the server picks the transport when it creates the session, `livekit` (WebRTC) today. For needs the session API does not cover yet, such as connection-quality telemetry, `session.getRoom()` returns the live [livekit-client `Room`](https://docs.livekit.io/reference/client-sdk-js/), or `undefined` once the session has ended. Prefer the session API where one exists: code built on the `Room` couples to this SDK’s transport choice and its pinned livekit-client major, with no compatibility promise across SDK versions. See [Wire protocol](https://docs.fish.audio/agents/deploy/protocol) for the messages underneath.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## React SDK
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/pronunciation-dictionaries/
 title: Pronunciation Dictionaries - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T15:15:41.744899+00:00
+fetched_at: 2026-11-13T15:33:44.057788+00:00
 ---
 
 # Pronunciation Dictionaries - Fish Audio
@@ -39,11 +39,7 @@ Create, preview, and publish pronunciation dictionaries in the web app and use t
 
 Copy pageCopy page
 
-## 
-
-​
-
-Overview
+## Overview
 
 Pronunciation dictionaries are available in the [Fish Audio web app](https://fish.audio/app/pronunciation-dictionary) and the [TTS API](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech). Use them when the same names, brands, acronyms, or technical terms appear across many requests and you want consistent pronunciation without adding phoneme tags to every script, or when a term should always be read as different text. Create and publish a dictionary in the web app or with the API, then reference its dictionary ID and version ID in your TTS requests. For rules that only apply to one request, send an inline dictionary instead.
 
@@ -51,11 +47,7 @@ Pronunciation dictionaries are available in the [Fish Audio web app](https://fis
 
 Create rules, preview how they sound, and publish reusable versions.
 
-## 
-
-​
-
-When To Use It
+## When To Use It
 
 Use a pronunciation dictionary for:
 
@@ -67,11 +59,7 @@ Use a pronunciation dictionary for:
 
 Avoid broad entries for common words unless every occurrence should be read the same way. If pronunciation depends on context, use a longer phrase as the key or place a [phoneme tag](https://docs.fish.audio/developer-guide/core-features/fine-grained-control#phoneme-control) directly in the text.
 
-## 
-
-​
-
-Create and Publish a Dictionary
+## Create and Publish a Dictionary
 
   1. Sign in to [Pronunciation dictionary](https://fish.audio/app/pronunciation-dictionary) and select **New Dictionary**. Enter a name and an optional description, then select **Create Dictionary**.
   2. Select **Add a new rule**. Enter the written word or phrase in **Input**. Choose the rule type: **Phoneme** to enter its phoneme pronunciation in **Output** , or **Alias** to enter the replacement text that should be spoken instead. Turn on **Case sensitive** if capitalization should affect matching.
@@ -85,11 +73,7 @@ Unpublished edits do not change a published version. After publishing an update,
 
 Open **Version history** to inspect published versions and compare their rules.
 
-### 
-
-​
-
-Import and Export Rules
+### Import and Export Rules
 
 You can upload an existing `.pls`, `.xml`, or `.txt` file when creating a dictionary, or use **Import PLS** in the editor. In a PLS file, `<phoneme>` entries become phoneme rules and `<alias>` entries become alias rules. PLS files exported from Fish Audio before alias rules existed stored every rule as `<alias>`; they still import as phoneme rules. Imported pronunciations must use one of the phoneme formats below. IPA values are imported as written, with one pair of surrounding `/` delimiters removed; importing a file does not convert between formats, so IPA rules only take effect on models that accept IPA. For a `.txt` file, put one rule on each line, separating the input and output with a comma or tab:
     
@@ -100,11 +84,7 @@ You can upload an existing `.pls`, `.xml`, or `.txt` file when creating a dictio
 
 Text imports create phoneme rules and default to case-insensitive matching. Review the rules, preview them, and publish any changes before using the version in TTS. To export a published dictionary as a PLS file, select **Download** from its **More actions** menu.
 
-## 
-
-​
-
-Manage Dictionaries with the API
+## Manage Dictionaries with the API
 
 Everything the web app does with dictionaries is also available through the [pronunciation dictionary API](https://docs.fish.audio/api-reference/endpoint/pronunciation-dictionary/list-dictionaries), authenticated with your [API key](https://docs.fish.audio/developer-guide/getting-started/api-key). An API key works on the dictionaries of the team it belongs to. Create a dictionary, then publish its first version. The response of each call includes an `id`:
     
@@ -134,11 +114,7 @@ The `id` of the dictionary and the `id` of the new version are the `id` and `ver
 
 
 
-## 
-
-​
-
-Write Pronunciation Rules
+## Write Pronunciation Rules
 
 Each rule maps the written text (`key`, shown as **Input** in the web app) to a `value` (shown as **Output**). The rule’s `type` decides what the value means:
     
@@ -151,11 +127,7 @@ Each rule maps the written text (`key`, shown as **Input** in the web app) to a 
     }
     
 
-### 
-
-​
-
-Rule Types
+### Rule Types
 
 `type`| `value` is| During synthesis, the key is replaced by  
 ---|---|---  
@@ -175,19 +147,11 @@ Rule Types
 
 Alias values go through the same text normalization as the rest of the request, so numbers, dates, and symbols in a value are read the same way they would be in the input text.
 
-### 
-
-​
-
-Keys
+### Keys
 
 `key` is a literal substring to match in the TTS input, not a regular expression or a whole-word pattern. Use the spelling, spacing, and punctuation you expect in the text. A short key can also match inside a longer word, so include enough context to avoid unintended replacements. `case_sensitive` defaults to `false`, which ignores ASCII capitalization when matching. Set it to `true` when a rule should only match the exact capitalization you entered. Managed dictionaries reject duplicate keys; when case sensitivity is off, keys that differ only by case count as duplicates.
 
-### 
-
-​
-
-Phoneme Values
+### Phoneme Values
 
 For a `phoneme` rule, `value` is the phoneme string that should replace the key during synthesis. Do not include `<|phoneme_start|>` or `<|phoneme_end|>`; the synthesis pipeline wraps phoneme values internally. Use the same phoneme notation as manual phoneme control:
 
@@ -198,11 +162,7 @@ Language| Value format| Example
 [Japanese](https://docs.fish.audio/developer-guide/core-features/fine-grained-control/japanese)| OpenJTalk-style romaji with pitch digits| `ha0shi1ga0`  
 Any language, on drama-3 models| IPA| `kuːbərˈnɛtiːz`  
   
-## 
-
-​
-
-Use a Published Dictionary
+## Use a Published Dictionary
 
 After publishing a dictionary, pass its dictionary ID and version ID in `pronunciation_dictionary`. Set `FISH_API_KEY` to your [API key](https://docs.fish.audio/developer-guide/getting-started/api-key), and replace the placeholder IDs with the values copied from the web app:
     
@@ -227,11 +187,7 @@ After publishing a dictionary, pass its dictionary ID and version ID in `pronunc
 
 `reference_id` selects the voice; it is separate from the dictionary ID. Find a voice ID in the [Voice Library](https://fish.audio/app/discovery). Always send an explicit `version`. Use the copied version ID, not the display number such as `V1` or the string `latest`. Publishing a new version does not automatically update existing requests.
 
-## 
-
-​
-
-Inline Dictionaries
+## Inline Dictionaries
 
 Pass inline dictionaries directly in a TTS request when the rules are request-specific:
     
@@ -270,11 +226,7 @@ Pass inline dictionaries directly in a TTS request when the rules are request-sp
 
 Inline dictionaries are best for temporary overrides, generated scripts, or per-customer terms that you do not need to manage as reusable platform resources.
 
-## 
-
-​
-
-Request Limits and Matching
+## Request Limits and Matching
 
 The TTS API accepts either managed references or inline dictionaries in one request. Do not mix both forms in the same `pronunciation_dictionary` array. Send pronunciation dictionaries with `application/json` or `application/msgpack`. Nested dictionary arrays are not representable in `multipart/form-data`.
 
@@ -289,11 +241,7 @@ Keys and values must be nonempty and must not contain `<|phoneme_start|>` or `<|
 
 If a dictionary ID or version ID cannot be resolved, the API skips that reference and continues synthesis. A successful audio response does not prove that the dictionary was applied. Check the IDs and listen to representative text when testing a new version.
 
-## 
-
-​
-
-Practical Tips
+## Practical Tips
 
   * Write `key` as the listener-facing surface form, not as a regex or pattern.
   * For phoneme rules, write `value` as phonemes only, without marker tokens.

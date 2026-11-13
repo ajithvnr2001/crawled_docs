@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/introduction/
 title: Introduction - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:54.193825+00:00
+fetched_at: 2026-11-13T15:33:45.158821+00:00
 ---
 
 # Introduction - Fish Audio
@@ -36,83 +36,43 @@ How to use the Fish Audio API
 
 Copy pageCopy page
 
-## 
+## Welcome
 
-​
+You can generate a new API key on [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=api-reference&utm_content=get-api-key). If an API key is exposed, delete it on [API Keys](https://fish.audio/app/api-keys/) and create a new one. Anyone who finds an exposed key can also revoke it with the [/apikey/revoke endpoint](https://docs.fish.audio/api-reference/endpoint/apikey/revoke-api-keys), without signing in.
 
-Welcome
-
-You can generate a new API key on [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=api-reference&utm_content=get-api-key).
-
-## 
-
-​
-
-Quick Start
+## Quick Start
 
 See our [Quick Start](https://docs.fish.audio/developer-guide/getting-started/quickstart) guide to generate audio in under 2 minutes.
 
-## 
-
-​
-
-Errors
+## Errors
 
 Errors return a JSON body with a `message` and a `status`; some endpoints add fields. Errors from the network edge in front of the API, such as some `413` or `5xx` responses, may not have a JSON body. See [Errors](https://docs.fish.audio/api-reference/errors) for the full status-code table, retry guidance, and SDK exception handling.
 
-## 
-
-​
-
-OpenAPI Schema
+## OpenAPI Schema
 
 Fish Audio publishes a canonical OpenAPI schema at <https://api.fish.audio/openapi.json>. When working with AI coding agents or IDE assistants, mention this schema URL as part of your prompt or project context so the agent can understand Fish Audio’s endpoints, request and response models, authentication requirements, and supported parameters directly from the machine-readable API contract.
 
-## 
-
-​
-
-Distributed Tracing
+## Distributed Tracing
 
 Fish Audio inference APIs accept the W3C `traceparent` header so your business-side trace and Fish Audio’s inference-side trace can share the same trace ID. See [Tracing & Performance Analysis](https://docs.fish.audio/api-reference/observability) for supported endpoints, examples, and enterprise performance analysis details.
 
-## 
-
-​
-
-Create a Voice Clone
+## Create a Voice Clone
 
 Use our [/model endpoint](https://docs.fish.audio/api-reference/endpoint/model/create-model) to create a voice clone model.
 
-## 
-
-​
-
-Generate Speech
+## Generate Speech
 
 Use our [/v1/tts endpoint](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech) to generate speech.
 
-## 
-
-​
-
-Design a Voice
+## Design a Voice
 
 Use our [/v1/voice-design endpoint](https://docs.fish.audio/api-reference/endpoint/openapi-v1/voice-design) to generate candidate voices from a prompt.
 
-## 
-
-​
-
-Real-time Streaming
+## Real-time Streaming
 
 Use our [Python SDK](https://docs.fish.audio/features/realtime-streaming) or [JavaScript SDK](https://docs.fish.audio/features/realtime-streaming) for real-time audio streaming with WebSocket.
 
-## 
-
-​
-
-Rate Limits
+## Rate Limits
 
 You can find the rate limits for each endpoint in the [Rate Limits](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits) section.
 

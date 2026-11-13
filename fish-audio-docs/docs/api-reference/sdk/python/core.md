@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/core/
 title: Core - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:47.161440+00:00
+fetched_at: 2026-11-13T15:33:44.853596+00:00
 ---
 
 # Core - Fish Audio
@@ -51,19 +51,11 @@ Copy pageCopy page
 
 Copy pageCopy page
 
-# 
-
-​
-
-fishaudio.core.client_wrapper
+# fishaudio.core.client_wrapper
 
 HTTP client wrapper for managing requests and authentication. Install the Python SDK first: `pip install fish-audio-sdk`.
 
-## 
-
-​
-
-BaseClientWrapper Objects
+## BaseClientWrapper Objects
     
     
     class BaseClientWrapper()
@@ -71,11 +63,7 @@ BaseClientWrapper Objects
 
 Base wrapper with shared logic for sync/async clients.
 
-#### 
-
-​
-
-get_headers
+#### get_headers
     
     
     def get_headers(
@@ -84,11 +72,7 @@ get_headers
 
 Build headers including authentication and user agent.
 
-## 
-
-​
-
-ClientWrapper Objects
+## ClientWrapper Objects
     
     
     class ClientWrapper(BaseClientWrapper)
@@ -96,11 +80,7 @@ ClientWrapper Objects
 
 Wrapper for httpx.Client that handles authentication and error handling.
 
-#### 
-
-​
-
-request
+#### request
     
     
     def request(method: str,
@@ -123,11 +103,7 @@ Make an HTTP request with error handling. **Arguments** :
 
 
 
-#### 
-
-​
-
-client
+#### client
     
     
     @property
@@ -136,11 +112,7 @@ client
 
 Get underlying httpx.Client for advanced usage (e.g., WebSockets).
 
-#### 
-
-​
-
-close
+#### close
     
     
     def close() -> None
@@ -148,11 +120,7 @@ close
 
 Close the HTTP client.
 
-## 
-
-​
-
-AsyncClientWrapper Objects
+## AsyncClientWrapper Objects
     
     
     class AsyncClientWrapper(BaseClientWrapper)
@@ -160,11 +128,7 @@ AsyncClientWrapper Objects
 
 Wrapper for httpx.AsyncClient that handles authentication and error handling.
 
-#### 
-
-​
-
-request
+#### request
     
     
     async def request(method: str,
@@ -187,11 +151,7 @@ Make an async HTTP request with error handling. **Arguments** :
 
 
 
-#### 
-
-​
-
-client
+#### client
     
     
     @property
@@ -200,11 +160,7 @@ client
 
 Get underlying httpx.AsyncClient for advanced usage (e.g., WebSockets).
 
-#### 
-
-​
-
-close
+#### close
     
     
     async def close() -> None
@@ -212,19 +168,11 @@ close
 
 Close the HTTP client.
 
-# 
-
-​
-
-fishaudio.core.request_options
+# fishaudio.core.request_options
 
 Request-level options for API calls.
 
-## 
-
-​
-
-RequestOptions Objects
+## RequestOptions Objects
     
     
     class RequestOptions()
@@ -239,11 +187,7 @@ Options that can be provided on a per-request basis to override client defaults.
 
 
 
-#### 
-
-​
-
-get_timeout
+#### get_timeout
     
     
     def get_timeout() -> Optional[httpx.Timeout]
@@ -251,19 +195,11 @@ get_timeout
 
 Convert timeout to httpx.Timeout if set.
 
-# 
-
-​
-
-fishaudio.core.iterators
+# fishaudio.core.iterators
 
 Audio stream wrappers with collection utilities.
 
-## 
-
-​
-
-AudioStream Objects
+## AudioStream Objects
     
     
     class AudioStream()
@@ -284,11 +220,7 @@ Wrapper for sync audio byte streams with collection utilities. This class wraps 
         process_chunk(chunk)
     
 
-#### 
-
-​
-
-__init__
+#### __init__
     
     
     def __init__(iterator: Iterator[bytes])
@@ -300,11 +232,7 @@ Initialize the audio iterator wrapper. **Arguments** :
 
 
 
-#### 
-
-​
-
-__iter__
+#### __iter__
     
     
     def __iter__() -> Iterator[bytes]
@@ -312,11 +240,7 @@ __iter__
 
 Allow direct iteration over audio chunks.
 
-#### 
-
-​
-
-collect
+#### collect
     
     
     def collect() -> bytes
@@ -330,11 +254,7 @@ Collect all audio chunks into a single bytes object. This consumes the iterator 
         f.write(audio)
     
 
-## 
-
-​
-
-AsyncAudioStream Objects
+## AsyncAudioStream Objects
     
     
     class AsyncAudioStream()
@@ -356,11 +276,7 @@ Wrapper for async audio byte streams with collection utilities. This class wraps
         await process_chunk(chunk)
     
 
-#### 
-
-​
-
-__init__
+#### __init__
     
     
     def __init__(async_iterator: AsyncIterator[bytes])
@@ -372,11 +288,7 @@ Initialize the async audio iterator wrapper. **Arguments** :
 
 
 
-#### 
-
-​
-
-__aiter__
+#### __aiter__
     
     
     def __aiter__() -> AsyncIterator[bytes]
@@ -384,11 +296,7 @@ __aiter__
 
 Allow direct async iteration over audio chunks.
 
-#### 
-
-​
-
-collect
+#### collect
     
     
     async def collect() -> bytes
@@ -403,19 +311,11 @@ Collect all audio chunks into a single bytes object. This consumes the async ite
         f.write(audio)
     
 
-# 
-
-​
-
-fishaudio.core.websocket_options
+# fishaudio.core.websocket_options
 
 WebSocket-level options for WebSocket connections.
 
-## 
-
-​
-
-WebSocketOptions Objects
+## WebSocketOptions Objects
     
     
     class WebSocketOptions()
@@ -431,11 +331,7 @@ Options for configuring WebSocket connections. These options are passed directly
 
 **Notes** : Parameter descriptions adapted from httpx_ws documentation.
 
-#### 
-
-​
-
-to_httpx_ws_kwargs
+#### to_httpx_ws_kwargs
     
     
     def to_httpx_ws_kwargs() -> dict[str, Any]
@@ -443,11 +339,7 @@ to_httpx_ws_kwargs
 
 Convert to kwargs dict for httpx_ws aconnect_ws/connect_ws.
 
-# 
-
-​
-
-fishaudio.core.omit
+# fishaudio.core.omit
 
 OMIT sentinel for distinguishing None from not-provided parameters.
 

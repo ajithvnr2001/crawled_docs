@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/operations/
 title: Operations - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.154348+00:00
+fetched_at: 2026-11-13T15:33:42.828478+00:00
 ---
 
 # Operations - Fish Audio
@@ -34,11 +34,7 @@ Copy pageCopy page
 
 Running the Helm platform once it is live. For the single-container platform, see [All-in-One container](https://docs.fish.audio/developer-guide/self-hosting/all-in-one). Commands and troubleshooting are in your deployment guide.
 
-## 
-
-​
-
-Ownership
+## Ownership
 
 Area| Owner  
 ---|---  
@@ -50,27 +46,15 @@ Incident response| Joint during the deployment window, yours after handoff
   
 Agree an escalation path before production traffic starts.
 
-## 
-
-​
-
-Monitoring signals
+## Monitoring signals
 
 Prometheus is the metrics baseline. Watch request success, latency, and time-to-first-audio; pod readiness and restarts, Redis included; CPU and memory against requests and limits, and GPU use; shared storage; image pull failures; and the license’s time to expiry. The services export it as a metric and log warnings well before the license lapses. Centralize logs, keep Kubernetes events long enough to investigate a bad rollout, and redact secrets before sharing logs outside your environment.
 
-## 
-
-​
-
-Scaling
+## Scaling
 
 Capacity is set in the release configuration (replicas, resource requests, and per-worker concurrency) and applied with `helm upgrade`. Autoscaling on load is included and off by default; your deployment guide covers turning it on. Add a GPU replica only when a GPU is actually free: a pod that requests one on a full cluster stays `Pending`. Validate every change at your expected concurrency, and allow minutes for a new GPU worker to become ready.
 
-## 
-
-​
-
-Backup and retention
+## Backup and retention
 
 Back up:
 
@@ -82,19 +66,11 @@ Back up:
 
 Compile and model caches on shared storage do not need backing up. Losing them costs a slow first start, nothing more.
 
-## 
-
-​
-
-Upgrades
+## Upgrades
 
 Take the new version from **Developer → Self Host** and follow its deployment runbook, which covers rollback. Talk to your account team before skipping versions or upgrading production.
 
-## 
-
-​
-
-Escalating to Fish Audio
+## Escalating to Fish Audio
 
 Include:
 

@@ -3,8 +3,5 @@
   "file": "agents/telephony/transfers.md",
   "title": "Call Transfers - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:46:45.196468+00:00",
-  "html_len": 542015,
-  "md_len": 30131,
-  "depth": 0
+  "fetched_at": "2026-11-13T15:33:46.521825+00:00"
 }

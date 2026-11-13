@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/introduction/
 title: Introduction - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T15:24:40.173161+00:00
+fetched_at: 2026-11-13T15:33:43.119948+00:00
 ---
 
 # Introduction - Fish Audio
@@ -34,11 +34,7 @@ Copy pageCopy page
 
 Fish Audio Enterprise can be deployed into infrastructure you control: your own cloud account, an on-premise data center, or a network with no internet access at all. Fish Audio delivers each model’s container images and Helm chart through a private registry; you own the cluster, the network boundary, and the data. The self-hosted stack runs the same speech engine as the hosted API, so requests, audio formats, and voice behavior match what you already build against.
 
-## 
-
-​
-
-Why self-host
+## Why self-host
 
 Reason| What it gives you  
 ---|---  
@@ -47,11 +43,7 @@ Single-tenant isolation| Dedicated GPUs and queues. Capacity is not shared with 
 Security posture| Voice traffic never leaves your network. The offline modes need no outbound access at runtime and run on disconnected networks.  
 Data sovereignty| Input text, generated audio, and reference voices stay inside your boundary and under your own retention policy.  
   
-## 
-
-​
-
-Platforms
+## Platforms
 
 Each model ships on two platforms. Your agreement decides which ones your team gets, and in which modes; **Developer → Self Host** shows them.
 
@@ -66,11 +58,7 @@ Guide| [Kubernetes deployment](https://docs.fish.audio/developer-guide/self-host
   
 The GPUs each model needs are on [Models](https://docs.fish.audio/developer-guide/self-hosting/models). On either platform, ingress, DNS, TLS, external load balancing, and network allowlists are yours to choose and configure.
 
-## 
-
-​
-
-Billing
+## Billing
 
 Both platforms come in either billing mode:
 
@@ -80,11 +68,7 @@ Usage| Authorized and billed per request against Fish Audio| Recorded in a signe
 Network needed at runtime| Outbound HTTPS to Fish Audio| None, so it can run air-gapped — see [Air-gapped deployments](https://docs.fish.audio/developer-guide/self-hosting/air-gapped)  
 Request token| A [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) with credit| Any stable, non-empty token, one per tenant, recorded as the billing identity and not checked: control access in front of the deployment  
   
-## 
-
-​
-
-Supported APIs
+## Supported APIs
 
 A self-hosted deployment serves:
 
@@ -94,11 +78,7 @@ A self-hosted deployment serves:
 
 Other Fish Audio products are hosted-only unless your agreement says otherwise.
 
-## 
-
-​
-
-Getting access
+## Getting access
 
 1
 
@@ -118,11 +98,7 @@ Create a deploy token
 
 Sign in to fish.audio and open **Developer → Self Host** to see the models, platforms, and modes your team is granted and to create the token that authenticates against the registry. See [Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access).
 
-## 
-
-​
-
-Next steps
+## Next steps
 
 ## Models
 

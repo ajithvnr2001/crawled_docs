@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/system-tools/
 title: System Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:40.062147+00:00
+fetched_at: 2026-11-13T15:33:49.038812+00:00
 ---
 
 # System Tools - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:40.062147+00:00
 > Source: https://docs.fish.audio/agents/build/system-tools/
 
 ## On this page
+
+Back to top
 
   * Toggle in the Builder
   * Toggle via the API
@@ -38,27 +40,15 @@ Hang up call| `hang_up_call`| Lets the agent end the call itself.
   
 Unlike [webhook tools](https://docs.fish.audio/agents/build/webhook-tools), system tools are not workspace resources shared across agents. The on/off state is stored per agent.
 
-## 
-
-​
-
-Toggle in the Builder
+## Toggle in the Builder
 
 Open your agent’s **Tools** page in the Builder. The **System tools** card holds the **Hang up call** switch.
 
-## 
-
-​
-
-Toggle via the API
+## Toggle via the API
 
 Over the REST API, system tool switches are part of the agent’s configuration, in the same `tools` section that holds its attached webhook tools. See [Configuration](https://docs.fish.audio/agents/build/configuration) for reading and updating an agent’s config.
 
-## 
-
-​
-
-Farewell
+## Farewell
 
 The agent hangs up by calling the built-in `_end_call` tool, and the call ends once the agent finishes speaking. Choose what callers hear before that:
 
@@ -85,11 +75,7 @@ In every mode, anything the agent says in the same reply as the `_end_call` call
       }'
     
 
-### 
-
-​
-
-Questions before hanging up
+### Questions before hanging up
 
 Turn on **Don’t hang up on a question** to stop the agent from hanging up on a question. With it on, if the `message` the caller would hear contains a question mark, for example “Is there anything else I can help you with?”, the `_end_call` call fails and the call stays open. The agent asks the question in its reply, waits for the answer, and calls `_end_call` again after that. The switch is under **Hang up call** on the **Tools** page and appears when **Farewell** is **Generated**. Over the API, set `tools.system_tools.hang_up_call_refuse_questions` to `true`:
     
@@ -102,19 +88,11 @@ Turn on **Don’t hang up on a question** to stop the agent from hanging up on a
 
 The switch has no effect with a **Fixed message** or **Off**. Agent tests and simulations follow the same setting.
 
-## 
-
-​
-
-Transfer call
+## Transfer call
 
 `_transfer_call` has no switch of its own: it is enabled automatically once the agent has a transfer destination configured, and only on phone sessions (web sessions have no call to transfer). See [Transfers](https://docs.fish.audio/agents/telephony/transfers) for configuring destinations and everything else about transfers.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Tools overview
 

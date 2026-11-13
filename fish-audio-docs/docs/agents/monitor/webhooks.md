@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/webhooks/
 title: Webhooks - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:43:31.299583+00:00
+fetched_at: 2026-11-13T15:33:47.166796+00:00
 ---
 
 # Webhooks - Fish Audio
@@ -41,11 +41,7 @@ Copy pageCopy page
 
 Point your agent at one or more endpoints on your server and Fish Audio calls them when things happen: `call.ended` the moment a session reaches a terminal state, `call.analyzed` with the transcript once [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis) settles, and, on [outbound phone calls](https://docs.fish.audio/agents/telephony/outbound-calls), `phone_call.dial_finished` as soon as the dial attempt resolves. Use them to write results into your CRM, ticketing system, or data warehouse without polling the sessions API. Inbound phone calls also have an inbound call webhook that runs before the agent answers, so your server can look up the caller and hand back the values for the prompt’s `{{placeholders}}`.
 
-## 
-
-​
-
-Events
+## Events
 
 Event| Fires| Payload  
 ---|---|---  
@@ -57,11 +53,7 @@ For a given session, `call.ended` is sent first, and every answered production c
 
 Only `call.analyzed` carries the transcript. To read it while the call is still running, or again later, use `GET /v1/agent/sessions/{session_id}`. See [conversation history](https://docs.fish.audio/agents/monitor/conversation-history).
 
-## 
-
-​
-
-Configure the endpoint
+## Configure the endpoint
 
 Webhooks live in the `webhooks` section of your agent’s configuration. `post_call` is a list, so one agent can fan events out to several systems at once (the section’s other entry, `conversation_init`, is the inbound call webhook). Set them in the console on your agent’s **Webhooks** page, or via the config API:
 
@@ -122,11 +114,7 @@ Field| Rules
   
 Webhook settings are part of the agent configuration, so they follow the draft-and-publish flow: [publish](https://docs.fish.audio/agents/deploy/versions-publishing) for changes to apply to production calls.
 
-## 
-
-​
-
-Payload
+## Payload
 
 Every payload carries the `event` name, a unique `event_id`, and a `session` object with the session facts. Note the field names differ from the [sessions API](https://docs.fish.audio/agents/monitor/conversation-history), which uses `session_id` / `started_at` / `ended_at` for the same facts. `call.ended` adds `ended_reason` and `llm_endpoint_errors`. `call.analyzed` adds the `analysis` entity and the transcript `items`. `phone_call.dial_finished` adds top-level `dial_status` and `answered_by`. The `session` object is the same on every event. The `phone_call.dial_finished` example shows it in full, the others are shortened.
 
@@ -245,11 +233,7 @@ phone_call.dial_finished
 
 `event_id` is `evt_` followed by 32 hex characters. It identifies one event. Every endpoint and every retry of that event gets the same value, and it is also sent in the `X-Fish-Webhook-Id` header. Use it to drop duplicates. See Idempotency. `items` on `call.analyzed` is the same timeline as `items` in [`GET /v1/agent/sessions/{session_id}`](https://docs.fish.audio/agents/monitor/conversation-history#get-a-session): messages, tool calls, tool results, and transfers, in the order they happened. See [Item types](https://docs.fish.audio/agents/monitor/conversation-history#item-types) for the fields. `items` is `[]` when the session’s content was already deleted by data retention, and `null` when it could not be read. In that case, fetch the session from the sessions API. `ended_reason` is the same value as `session.end_reason` and uses the [sessions API vocabulary](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason): `user_hangup`, `agent_hangup`, `escalated`, `conversation_timeout`, `heartbeat_timeout`, `agent_join_timeout`, `internal_error`, or `llm_endpoint_failure`. `call.ended` is only sent for sessions in which a participant connected, so the never-connected reasons (`room_join_timeout`, `cancelled`, `dial_failed`) do not appear here; query the sessions API with `status=failed` for those. A caller who connected and waited for an agent that never joined does produce `call.ended`, with `session.status` set to `failed` and `ended_reason` set to `agent_join_timeout`. In the rare case the reason is not settled yet at delivery time, both fields are `null`. New values may be added; treat unrecognized values as informational rather than rejecting the event. `call.ended` also carries `llm_endpoint_errors`. It lists the failures of your [custom LLM](https://docs.fish.audio/agents/build/custom-llm#see-what-your-endpoint-returned) endpoint during the session, in the same shape as the [sessions API](https://docs.fish.audio/agents/monitor/conversation-history#llm-endpoint-errors). It is empty on platform models. It is `null` in the rare case the list could not be read at delivery time. `dial_status` is `answered`, `busy`, `no_answer`, or `failed`. `answered_by` is deprecated: answering-machine detection has been removed, so it is `unknown` once the call is answered and `null` before (older events may carry `human` or `voicemail`). Both facts also appear on the session, alongside `direction` (`inbound` or `outbound`) and `batch_call_id` (reserved, always `null` today); these session fields are present in every webhook payload, with the dial fields `null` on inbound sessions. The `phone_call.dial_finished` snapshot is taken when the dial resolves, so on an answered call `conversation_ended_at` and `duration_seconds` are still `null`. The final numbers arrive with `call.ended`. `caller_number`, `dialed_number` and `sip_call_id` carry the same values as on the [sessions API](https://docs.fish.audio/agents/monitor/conversation-history): the E.164 numbers of the call (person-centric on outbound calls, so `caller_number` is the party you dialed) and the SIP `Call-ID` of the call’s INVITE. All three are empty strings on web sessions, and `sip_call_id` is also empty on an unanswered outbound dial. How to use it against your carrier’s records: [Match calls with your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records). `call_sid` is the carrier’s id of the call. Today that is Twilio’s CallSid on an inbound call through a Twilio number. It is the same value the inbound call webhook request carries, so you can join that request to the session. It is an empty string on web sessions, outbound calls, and calls through your own SIP trunk. `end_user_id` and `metadata` are echoed exactly as you set them when creating the session. Use them to correlate the event with records in your own system. `branch_id` is an internal configuration-lineage identifier and is safe to ignore. What lands in `summary`, `data`, and `criteria_results` is defined by your [analysis configuration](https://docs.fish.audio/agents/monitor/post-call-analysis). The example shows a `completed` analysis. `analysis.status` can also be `skipped` (nothing to analyze: the caller never spoke, or analysis is disabled) or `error` (the run failed, with the cause in `analysis.error`); both arrive with `summary: null` and empty `data` / `criteria_results`. Check the status before reading results.
 
-## 
-
-​
-
-Verify the signature
+## Verify the signature
 
 When an entry has a `secret`, every request to that endpoint carries a signature header with the send time and an HMAC-SHA256 of `{timestamp}.{raw_body}`, keyed with that entry’s own secret:
     
@@ -324,11 +308,7 @@ Reject requests with a missing or invalid signature. Without verification, anyon
 
 Future scheme revisions would ship under a new element (`v2=…`) alongside `v1`. Parse the elements you know and ignore the rest, as the snippets above do.
 
-## 
-
-​
-
-Delivery semantics
+## Delivery semantics
 
 Property| Behavior  
 ---|---  
@@ -350,19 +330,11 @@ Deliveries can arrive more than once, and a retry can arrive after a later event
 
 [Preview calls](https://docs.fish.audio/agents/test/preview-calls) made from the Builder never trigger webhooks. To test end to end, run a real session against your published agent.
 
-### 
-
-​
-
-Idempotency
+### Idempotency
 
 At-least-once delivery means the same event can arrive more than once. Retries of one event carry an identical body, so store each `event_id` you process and drop any event whose `event_id` you have already seen. A skipped or failed analysis can be re-run from the console. The recovered result arrives as a new `call.analyzed` with a new `event_id` and a newer `analysis.finished_at`. It supersedes the earlier one, so keep the `call.analyzed` with the latest `finished_at` for each `session.id`.
 
-### 
-
-​
-
-Forward compatibility
+### Forward compatibility
 
 Payloads change additively. This applies to every webhook on this page, including the inbound call webhook request.
 
@@ -372,11 +344,7 @@ Payloads change additively. This applies to every webhook on this page, includin
 
 Parse payloads without rejecting unknown fields. A receiver that validates against a strict schema breaks when a field is added. Treat an enum value you don’t recognize as a generic case instead of failing.
 
-## 
-
-​
-
-Inbound call webhook
+## Inbound call webhook
 
 `webhooks.conversation_init` is a single endpoint called while an [inbound phone call](https://docs.fish.audio/agents/telephony/inbound-calls) is being set up, before the agent answers. It receives the caller’s number and returns `dynamic_variables` that fill the `{{placeholders}}` in the agent’s published prompt and first message, so the agent can greet a known customer by name or pick up an open order. In the console it is the **Inbound call webhook** on the agent’s Webhooks page. Only inbound phone calls use it. Web sessions and outbound calls carry their [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) on the request that creates them, and [preview calls](https://docs.fish.audio/agents/test/preview-calls) never call it.
 
@@ -405,11 +373,7 @@ Field| Rules
   
 Send `"conversation_init": null` to remove the endpoint. Like the rest of the configuration, the change applies to phone calls after the next [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-### 
-
-​
-
-Request
+### Request
 
 The platform sends one `POST` with a JSON body:
 
@@ -430,11 +394,7 @@ call.inbound
 
 `caller_number` and `dialed_number` are E.164. `caller_number` is an empty string when the carrier withholds the caller’s number, and `call_sid` is empty when the call did not come through a Twilio number. To match this request with the call, keep `call_sid`. Once the call is connected, `GET /v1/agent/sessions?call_sid=…` returns its session, and post-call webhooks carry the same value. This works only when `call_sid` is not empty, that is for calls through a Twilio number. During the call, webhook tools can send the session id with `{{system.session_id}}`. New fields can be added to this request, see Forward compatibility.
 
-### 
-
-​
-
-Response
+### Response
 
 Respond with a `2xx` status and a JSON object whose `dynamic_variables` follow the same rules as on session creation: names match `[A-Za-z][A-Za-z0-9_]*`, values are strings (up to 100,000 characters), numbers, or booleans, and at most 500 entries totaling 1 MiB are read.
 
@@ -459,11 +419,7 @@ System prompt
     with {{open_orders}} open orders. Greet them by name.
     
 
-### 
-
-​
-
-Failure behavior
+### Failure behavior
 
 The endpoint can personalize a call but never block one. The caller is waiting while the request runs, so keep the handler fast and the timeout short. Whenever the call connects without your variables, every placeholder falls back to its configured [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values), so give each one a default that reads well on its own.
 
@@ -474,11 +430,7 @@ Timeout| The call connects on the defaults; the request is not retried
 Connection error or non-`2xx` response| One immediate retry, then the call connects on the defaults  
 Body is not a JSON object| The call connects on the defaults  
   
-## 
-
-​
-
-Auto-ticket unresolved calls
+## Auto-ticket unresolved calls
 
 `call.analyzed` closes the loop on conversations the agent couldn’t: judge every call with a success criterion, and open a ticket in your helpdesk whenever the verdict isn’t `success`. First give the agent’s [analysis configuration](https://docs.fish.audio/agents/monitor/post-call-analysis) a criterion that captures resolution:
 
@@ -610,11 +562,7 @@ Python (FastAPI)
 
 Post-call ticketing is silent: the caller has already hung up. When the caller should leave the call holding a ticket number, have the agent open it mid-call with a [webhook tool](https://docs.fish.audio/agents/build/webhook-tools#escalate-to-a-ticket-mid-call), and keep this recipe as the safety net behind it.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Post-call analysis
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/integrations/slng/
 title: SLNG - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:32.374923+00:00
+fetched_at: 2026-11-13T15:33:43.401035+00:00
 ---
 
 # SLNG - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:32.374923+00:00
 > Source: https://docs.fish.audio/developer-guide/integrations/slng/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Available models
@@ -32,11 +34,7 @@ Copy pageCopy page
 
 Run Fish Audio’s real-time speech models closer to your users with [SLNG](https://slng.ai), our **preferred provider for regional hosting**. Europe and Australia are available now, with more regions coming soon. Generate speech through its HTTP API or stream audio in real time over WebSocket.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * A SLNG account with an [API key](https://docs.slng.ai/authentication)
   * `curl` for the HTTP example
@@ -50,11 +48,7 @@ Set your SLNG API key in the environment before running the examples:
 
 Both HTTP and WebSocket requests authenticate with `Authorization: Bearer <SLNG_API_KEY>`.
 
-## 
-
-​
-
-Available models
+## Available models
 
 Choose a model and use its endpoint path with `https://api.slng.ai` for HTTP or `wss://api.slng.ai` for WebSocket. Each model’s API references describe its supported request fields and response format.
 
@@ -64,19 +58,11 @@ S2.1 Pro| `/v1/tts/slng/fish/tts:s2.1-pro`| [HTTP POST](https://docs.slng.ai/api
   
 The examples below use S2.1 Pro in Europe (`eu`). See Regions for availability, region selection, and requests for additional regions.
 
-## 
-
-​
-
-Voices
+## Voices
 
 Browse [SLNG’s official Fish Audio voice list](https://docs.slng.ai/voices/fish-audio) for available voices and audio samples. Set `reference_id` to the `Voice ID` listed for your chosen voice. The examples use `9a9cf47702da476aa4629e2506d4a857` (Hannah). For voice cloning with inline reference audio, SLNG accepts `references` containing audio bytes and their transcripts through MessagePack requests.
 
-## 
-
-​
-
-REST API
+## REST API
 
 Synthesize a complete utterance with a single request:
     
@@ -96,11 +82,7 @@ Synthesize a complete utterance with a single request:
 
 The response contains binary audio in the requested format. Supported formats are `mp3`, `wav`, `pcm`, and `opus`.
 
-## 
-
-​
-
-WebSocket streaming
+## WebSocket streaming
 
 Send text incrementally and receive audio chunks over a persistent connection. SLNG’s Fish Audio WebSocket endpoint uses **MessagePack** for both outgoing and incoming messages. MessagePack is a binary serialization format that can carry audio bytes directly.
     
@@ -156,11 +138,7 @@ Send text incrementally and receive audio chunks over a persistent connection. S
 
 Use a `flush` event to synthesize buffered text while keeping the session open. The `stop` event ends input and lets the server finish synthesis.
 
-## 
-
-​
-
-Regions
+## Regions
 
 Current and upcoming regional availability for Fish Audio through SLNG:
 

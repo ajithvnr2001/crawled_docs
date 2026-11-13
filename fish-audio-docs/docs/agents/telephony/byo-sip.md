@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:46.855602+00:00
+fetched_at: 2026-11-13T15:33:46.609819+00:00
 ---
 
 # Bring Your Own Number - Fish Audio
@@ -45,11 +45,7 @@ Copy pageCopy page
 
 If your numbers already live at a carrier, you can connect them to your agents without porting anything. Point the carrier’s SIP trunk at Fish Audio and import the number: it stays with your carrier, who keeps billing you for the telephone-network legs, and on Fish Audio the calls bill as ordinary agent sessions. Imported numbers carry no monthly rental and no telephony charges of any kind: no phone surcharge, no transfer fees; the call bills like a web session. This works with any carrier or PBX that speaks SIP trunking: Twilio Elastic SIP Trunking, Asterisk or FreePBX, and most SIP providers. It is also the only way to use non-US/CA numbers, which the purchasable inventory does not cover.
 
-## 
-
-​
-
-How it works
+## How it works
 
 A SIP trunk has two directions, and carriers name them from the carrier’s point of view. **Origination** is traffic your carrier originates towards Fish Audio: an inbound call. **Termination** is traffic your carrier terminates for Fish Audio: an outbound call the platform hands to your carrier or PBX to complete. Twilio’s trunk configuration uses the same two words, and so do the fields below.
 
@@ -64,36 +60,20 @@ Origination URI
     sip:1pv316az391.sip.livekit.cloud;transport=tcp
     
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * A number at your carrier and access to its SIP trunk configuration.
   * Team owner or admin role (console), or an API key.
 
 
 
-## 
+## Import the number
 
-​
-
-Import the number
-
-### 
-
-​
-
-In the console
+### In the console
 
 On the workspace **Phone numbers** page, choose **Import number**. Enter the number in E.164 format, set at least one inbound authentication factor, and optionally fill in the **Outbound calling (termination)** section, including any **Custom SIP headers** (one `X-Name: value` per line). The same form is available later from the number’s row menu as **Edit configuration**.
 
-### 
-
-​
-
-Through the API
+### Through the API
 
 Import with the same endpoint that purchases numbers, using the `sip` provider variant:
 
@@ -139,11 +119,7 @@ At least one inbound factor (digest credentials and/or allowed addresses) is req
 
 Digest passwords are stored only in the underlying trunk objects and are never echoed back by the API.
 
-## 
-
-​
-
-Inbound authentication
+## Inbound authentication
 
 The SIP endpoint is shared, so an import must prove that calls really come from your trunk:
 
@@ -152,17 +128,9 @@ The SIP endpoint is shared, so an import must prove that calls really come from 
 
 Set both when your carrier supports it.
 
-## 
+## Carrier walkthroughs
 
-​
-
-Carrier walkthroughs
-
-### 
-
-​
-
-Twilio Elastic SIP Trunking
+### Twilio Elastic SIP Trunking
 
 1
 
@@ -200,11 +168,7 @@ Allow transfers (optional)
 
 For [cold transfers](https://docs.fish.audio/agents/telephony/transfers), enable **Call Transfer (SIP REFER)** in the trunk’s settings and also allow transfers to the PSTN. If transfers are limited to SIP destinations, Twilio rejects every transfer to a phone number, so transfers to phone numbers won’t work. To choose the caller ID your team sees on a cold transfer, set **Caller ID for Transfer Target** : **Transferee** shows the caller’s number, **Transferor** shows your imported number.
 
-### 
-
-​
-
-Asterisk, FreePBX, and other SIP platforms
+### Asterisk, FreePBX, and other SIP platforms
 
   * Route the number’s inbound calls to `sip:1pv316az391.sip.livekit.cloud;transport=tcp`.
   * Configure digest credentials on the trunk and pass the same pair as `inbound_auth_username` and `inbound_auth_password`; add your PBX’s public IPs to `inbound_allowed_addresses` for defense in depth.
@@ -212,11 +176,7 @@ Asterisk, FreePBX, and other SIP platforms
 
 
 
-## 
-
-​
-
-Outbound calls and transfers
+## Outbound calls and transfers
 
 What an imported number can do depends on whether you configured a termination:
 
@@ -229,11 +189,7 @@ What an imported number can do depends on whether you configured a termination:
   
 The number object reports this as `supports_outbound`. Place calls with the same API as purchased numbers; see [Outbound calls](https://docs.fish.audio/agents/telephony/outbound-calls).
 
-### 
-
-​
-
-Caller ID on transfers
+### Caller ID on transfers
 
 Imported numbers don’t have the [caller ID choice](https://docs.fish.audio/agents/telephony/transfers#caller-id-on-transfers) that bought numbers have. Instead:
 
@@ -242,11 +198,7 @@ Imported numbers don’t have the [caller ID choice](https://docs.fish.audio/age
 
 
 
-### 
-
-​
-
-Custom SIP headers
+### Custom SIP headers
 
 `termination_headers` lets you tag every INVITE the platform sends through your termination, for example to identify the tenant or pick a route on your PBX:
     
@@ -259,11 +211,7 @@ Custom SIP headers
 
 The headers ride along on outbound calls and on warm-transfer consult legs, since both dial through the termination. Cold transfers hand the call off on the inbound leg and do not carry them. Names must be `X-` tokens or `User-to-User`, so the request’s own fields (`From`, `To`, `Via`) cannot be overridden, and `X-Fish-` is reserved for headers the platform sets itself. Values are 1 to 1024 printable ASCII characters (128 for `User-to-User`). Header names are case-insensitive, so a map with two spellings of the same name is rejected. Values that change per call, such as a campaign or account id, go on the call instead: [`sip_headers`](https://docs.fish.audio/agents/telephony/outbound-calls#per-call-sip-headers) on the outbound call request is merged over these number-level headers. For matching calls to sessions you do not need a header of your own; see Match calls with your SIP records.
 
-## 
-
-​
-
-Match calls with your SIP records
+## Match calls with your SIP records
 
 Your carrier, SBC or PBX keeps its own record of every call: a CDR, a log line, a recording file. Two identifiers let you line those records up with Fish Audio sessions, one in each direction, and neither needs any configuration.
 
@@ -303,11 +251,7 @@ The `X-Fish-Session-Id` header is only sent through your own trunk. Calls from p
     }
     
 
-## 
-
-​
-
-Update the configuration
+## Update the configuration
 
 Change any part of an imported number’s trunk configuration in place: rotate digest credentials, adjust the allowed addresses, or add, change, and remove the termination. In the console, open **Edit configuration** from the number’s row menu; over the API, `PUT` the full desired configuration:
 
@@ -337,27 +281,15 @@ The body is the import payload without `phone_number`, `label`, and `agent_id`, 
 
 Updates apply in place: routing is never interrupted, and calls already in progress are unaffected. The response is the updated number object; for imported numbers it carries the non-secret configuration (`inbound_auth_username`, `inbound_allowed_addresses`, `termination_uri`, `termination_transport`, `termination_auth_username`, `termination_headers`) alongside `supports_outbound`.
 
-## 
-
-​
-
-Billing
+## Billing
 
 Imported numbers are free on Fish Audio: no monthly rental, no phone surcharge, no transfer fees. Calls on them bill like web sessions (see [Pricing](https://docs.fish.audio/agents/pricing)). Your carrier continues to bill you directly for its side of the traffic.
 
-## 
-
-​
-
-Release
+## Release
 
 Releasing an imported number (`DELETE /v1/agent/phone-numbers/$PHONE_NUMBER_ID`) disconnects it from Fish Audio and returns `204`. The number itself stays yours at the carrier; you can import it again later.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Inbound calls
 

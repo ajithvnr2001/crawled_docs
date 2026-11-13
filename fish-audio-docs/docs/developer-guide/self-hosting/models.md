@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/models/
 title: Models - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T15:24:40.543415+00:00
+fetched_at: 2026-11-13T15:33:42.872582+00:00
 ---
 
 # Models - Fish Audio
@@ -31,32 +31,20 @@ Copy pageCopy page
 
 Each model is delivered on its own: its own Helm chart, All-in-One images, versions, and deployment guide. Your agreement grants each model separately, and **Developer → Self Host** lists the ones your team can install. The rest of this section applies to every model; this page covers where they differ.
 
-## 
-
-​
-
-At a glance
+## At a glance
 
 Model| Request header| GPU types| GPUs per deployment  
 ---|---|---|---  
 S2.1 Pro| `model: s2.1-pro`| H100, H200, or B300| Two; one in the All-in-One’s Single-GPU mode, at lower throughput  
 Drama 3| `model: drama-3`| H200 or B300 recommended| At least two or three, depending on the GPU  
   
-## 
-
-​
-
-S2.1 Pro
+## S2.1 Pro
 
   * **The first start compiles for your GPU.** The result is cached on shared storage on Helm, and on the volume on the All-in-One, so later starts are quicker. Moving to a different GPU type compiles once more.
 
 
 
-## 
-
-​
-
-Drama 3
+## Drama 3
 
 [Drama 3](https://docs.fish.audio/features/text-to-speech/drama-3) is a much larger model than S2.1 Pro and needs more resources, GPUs above all; your deployment guide has the sizing. For a GPU other than H200 or B300, check with Fish Audio before you plan around it.
 

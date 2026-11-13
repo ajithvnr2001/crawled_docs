@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/capabilities/
 title: Compatibility - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.211353+00:00
+fetched_at: 2026-11-13T15:33:44.478272+00:00
 ---
 
 # Compatibility - Fish Audio
@@ -39,19 +39,11 @@ Copy pageCopy page
 
 Everything under `https://api.fish.audio/compat` follows the contract on this page.
 
-## 
-
-​
-
-How parameters are handled
+## How parameters are handled
 
 **Unsupported options return an explicit error, never a silent no-op.** Every parameter is either **mapped** to the native equivalent (`stability` → temperature, `speed` → speech rate, bitrates snap to a tier), **ignored** when it doesn’t affect synthesis (`similarity_boost`, `style`, `seed`), or **refused** with a 4xx in the protocol’s own error format when honoring it would change the response content or structure (full list). Unknown JSON fields are ignored, matching OpenAI behavior.
 
-## 
-
-​
-
-What each protocol supports
+## What each protocol supports
 
 Two protocols: OpenAI at `/v1` (equivalently `/api/v1` and `/openai/v1`; the OpenAI, OpenRouter, and Groq SDKs all speak it), and ElevenLabs at `/elevenlabs`.
 
@@ -70,11 +62,7 @@ Model catalog| Yes (list; no retrieve-by-id)| Yes
   
 Voices are always Fish voice IDs. Empty or `default` selects the model’s default voice, and anything that isn’t a real voice ID, preset names (`nova`, `echo`, `Rachel`, …) included, is a 400. One exception: lowercase `alloy` matches a real Fish voice and synthesizes as an unrelated voice, not OpenAI’s Alloy (`Alloy` is refused). Where to find voice IDs: [Voices](https://docs.fish.audio/developer-guide/getting-started/migration#voices).
 
-## 
-
-​
-
-Audio formats
+## Audio formats
 
 Codec| Sample rates (kHz)  
 ---|---  
@@ -86,19 +74,11 @@ Requesting a sample rate resamples the audio; a rate the codec doesn’t take is
 
 **WAV responses carry a placeholder header: trust the byte count, not the header.** The RIFF size field reads `4294967076` and the `data` chunk size `4294967040` however short the clip is, on buffered responses and streams alike. Anything that reads the header gets the duration wrong: Python’s `wave` module reports a one-second clip as 13.5 hours; players that decode to end-of-stream are unaffected. For a correct duration use the response length, re-mux (`ffmpeg -i in.wav -c copy out.wav`), or request MP3 or Opus.
 
-### 
-
-​
-
-Bitrate snapping
+### Bitrate snapping
 
 MP3 is encoded at 64, 128, or 192 kbps. An out-of-tier request snaps **up** to the nearest tier (`mp3_32000_32` → 64 kbps at 32 kHz); anything above 192 kbps is a 400. To pick the tier exactly, set it as a Fish-native parameter; a non-tier value there is refused too. Opus bitrate is automatic: requested values are accepted and ignored.
 
-## 
-
-​
-
-What is explicitly refused
+## What is explicitly refused
 
 Each returns a 4xx in the protocol’s own error format (or, on WebSockets, an in-band error event):
 
@@ -114,11 +94,7 @@ OpenAI Realtime| `audio/pcmu`, `audio/pcma`; any `turn_detection` with a type (`
   
 ElevenLabs STT refuses `diarize` and `tag_audio_events`. For speaker turns and event tags, use the native [Speech to Text API](https://docs.fish.audio/features/speech-to-text#multi-speaker-conversations) with `transcribe-1-pro`. On OpenAI transcription, `languages`, `keywords`, `prompt`, and `temperature` are in the ignored tier. Booleans count as requested only when true: `false`, `"False"`, `0`, `none`, and `off` are treated as unset, so SDK defaults never trigger a refusal.
 
-## 
-
-​
-
-Placeholder values
+## Placeholder values
 
 Protocol fields with no Fish counterpart are filled with neutral constants; don’t build logic on them:
 
@@ -129,19 +105,11 @@ Protocol fields with no Fish counterpart are filled with neutral constants; don�
 
 
 
-## 
-
-​
-
-Reaching Fish-native parameters
+## Reaching Fish-native parameters
 
 The full native TTS parameter set (`temperature`, `top_p`, `chunk_length`, `latency`, `normalize`, `prosody`, reference audio) is reachable on **synthesis endpoints** , in two ways. One exception: **reference audio is not available on the timestamped ElevenLabs endpoints** (`…/with-timestamps`, `…/stream/with-timestamps`, the `stream-input` WebSocket): a 400 on the REST variants, an in-band error frame at flush time on the WebSocket.
 
-### 
-
-​
-
-`provider.options` in the request body
+### `provider.options` in the request body
 
 On OpenAI-protocol speech and chat-synthesis requests, a `provider.options.fish-audio` block sets the corresponding native TTS fields:
 
@@ -188,11 +156,7 @@ curl
 
 Inline `references` (base64 audio plus its transcript) enable zero-shot voice cloning through any OpenAI SDK.
 
-### 
-
-​
-
-`X-Fish-*` request headers
+### `X-Fish-*` request headers
 
 On every synthesis endpoint (OpenAI `POST /v1/audio/speech` and chat synthesis, the ElevenLabs endpoints, and OpenAI Realtime synthesis sessions, including their WebSocket handshakes), an `X-Fish-<Param>` header sets the corresponding native TTS field:
 
@@ -240,11 +204,7 @@ Values parse as JSON when possible, and headers win over mapped values. Neither 
 
 Synthesis on the Compatible APIs defaults to `latency: "low"` (streaming-optimized). For maximum quality on non-interactive workloads, set `X-Fish-Latency: normal`; your explicit value always wins.
 
-## 
-
-​
-
-Limits and operational contract
+## Limits and operational contract
 
 Limit| Value| On excess  
 ---|---|---  
@@ -271,11 +231,7 @@ The 32 MiB frame limit bounds one WebSocket message, not a session. On a Realtim
 
 
 
-## 
-
-​
-
-Known client-side limitations
+## Known client-side limitations
 
   * **OpenAI Realtime** : the endpoint speaks the GA event names (`response.output_audio.*`). Current `openai` packages emit these; very old beta-era clients expecting `response.audio.*` will not match.
   * **ElevenLabs Python`convert_realtime`**: pass `model_id` and `voice_settings` explicitly. Left to the SDK’s `OMIT` sentinel, `model_id` reaches the handshake URL as the literal `model_id=Ellipsis` (a 400) and `voice_settings` raises `AttributeError` on the first frame. The SDK also force-upgrades `http://` base URLs to `wss://`.

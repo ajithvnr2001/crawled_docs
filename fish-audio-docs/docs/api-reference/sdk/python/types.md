@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/types/
 title: Types - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:47.511655+00:00
+fetched_at: 2026-11-13T15:33:44.573688+00:00
 ---
 
 # Types - Fish Audio
@@ -48,19 +48,11 @@ Copy pageCopy page
 
 Copy pageCopy page
 
-# 
-
-​
-
-fishaudio.types.voices
+# fishaudio.types.voices
 
 Voice and model management types.
 
-## 
-
-​
-
-Sample Objects
+## Sample Objects
     
     
     class Sample(BaseModel)
@@ -75,11 +67,7 @@ A sample audio for a voice model. **Attributes** :
 
 
 
-## 
-
-​
-
-Author Objects
+## Author Objects
     
     
     class Author(BaseModel)
@@ -93,11 +81,7 @@ Voice model author information. **Attributes** :
 
 
 
-## 
-
-​
-
-Voice Objects
+## Voice Objects
     
     
     class Voice(BaseModel)
@@ -129,19 +113,11 @@ A voice model. Represents a TTS voice that can be used for synthesis. **Attribut
 
 
 
-# 
-
-​
-
-fishaudio.types.account
+# fishaudio.types.account
 
 Account-related types (credits, packages, etc.).
 
-## 
-
-​
-
-Credits Objects
+## Credits Objects
     
     
     class Credits(BaseModel)
@@ -159,11 +135,7 @@ User’s API credit balance. **Attributes** :
 
 
 
-## 
-
-​
-
-Package Objects
+## Package Objects
     
     
     class Package(BaseModel)
@@ -182,19 +154,11 @@ User’s prepaid package information. **Attributes** :
 
 
 
-# 
-
-​
-
-fishaudio.types.tts
+# fishaudio.types.tts
 
 TTS-related types.
 
-## 
-
-​
-
-ReferenceAudio Objects
+## ReferenceAudio Objects
     
     
     class ReferenceAudio(BaseModel)
@@ -207,11 +171,7 @@ Reference audio for voice cloning/style. **Attributes** :
 
 
 
-## 
-
-​
-
-Prosody Objects
+## Prosody Objects
     
     
     class Prosody(BaseModel)
@@ -225,11 +185,7 @@ Speech prosody settings (speed and volume). **Attributes** :
 
 
 
-#### 
-
-​
-
-from_speed_override
+#### from_speed_override
     
     
     @classmethod
@@ -245,11 +201,7 @@ Create Prosody with speed override, preserving volume from base. **Arguments** :
 
 **Returns** : New Prosody instance with overridden speed
 
-## 
-
-​
-
-TTSConfig Objects
+## TTSConfig Objects
     
     
     class TTSConfig(BaseModel)
@@ -277,11 +229,7 @@ TTS generation configuration. Reusable configuration for text-to-speech requests
 
 
 
-## 
-
-​
-
-TTSRequest Objects
+## TTSRequest Objects
     
     
     class TTSRequest(BaseModel)
@@ -310,11 +258,7 @@ Request parameters for text-to-speech generation. This model is used internally 
 
 
 
-## 
-
-​
-
-StartEvent Objects
+## StartEvent Objects
     
     
     class StartEvent(BaseModel)
@@ -327,11 +271,7 @@ WebSocket start event to initiate TTS streaming. **Attributes** :
 
 
 
-## 
-
-​
-
-TextEvent Objects
+## TextEvent Objects
     
     
     class TextEvent(BaseModel)
@@ -344,11 +284,7 @@ WebSocket event to send a text chunk for synthesis. **Attributes** :
 
 
 
-## 
-
-​
-
-FlushEvent Objects
+## FlushEvent Objects
     
     
     class FlushEvent(BaseModel)
@@ -360,11 +296,7 @@ WebSocket event to force immediate audio generation from buffered text. Use this
 
 
 
-## 
-
-​
-
-CloseEvent Objects
+## CloseEvent Objects
     
     
     class CloseEvent(BaseModel)
@@ -376,19 +308,11 @@ WebSocket event to end the streaming session. **Attributes** :
 
 
 
-# 
-
-​
-
-fishaudio.types.shared
+# fishaudio.types.shared
 
 Shared types used across the SDK.
 
-## 
-
-​
-
-PaginatedResponse Objects
+## PaginatedResponse Objects
     
     
     class PaginatedResponse(BaseModel, Generic[T])
@@ -401,11 +325,7 @@ Generic paginated response. **Attributes** :
 
 
 
-#### 
-
-​
-
-warn_if_deprecated_model
+#### warn_if_deprecated_model
     
     
     def warn_if_deprecated_model(model: str) -> None
@@ -413,19 +333,11 @@ warn_if_deprecated_model
 
 Emit a deprecation warning if a legacy model is used.
 
-# 
-
-​
-
-fishaudio.types.asr
+# fishaudio.types.asr
 
 ASR (Automatic Speech Recognition) related types.
 
-## 
-
-​
-
-ASRSegment Objects
+## ASRSegment Objects
     
     
     class ASRSegment(BaseModel)
@@ -439,11 +351,7 @@ A timestamped segment of transcribed text. **Attributes** :
 
 
 
-## 
-
-​
-
-ASRResponse Objects
+## ASRResponse Objects
     
     
     class ASRResponse(BaseModel)
@@ -457,11 +365,7 @@ Response from speech-to-text transcription. **Attributes** :
 
 
 
-#### 
-
-​
-
-duration
+#### duration
 
 Duration in seconds
 

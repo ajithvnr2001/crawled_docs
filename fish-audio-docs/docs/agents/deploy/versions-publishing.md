@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/versions-publishing/
 title: Versions & Publishing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T12:07:52.492860+00:00
+fetched_at: 2026-11-13T15:33:47.829026+00:00
 ---
 
 # Versions & Publishing - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-24T12:07:52.492860+00:00
 > Source: https://docs.fish.audio/agents/deploy/versions-publishing/
 
 ## On this page
+
+Back to top
 
   * Draft vs. published
   * Publish from the Builder
@@ -45,11 +47,7 @@ Preview calls talk to the draft, not the live version.
 
 Manage drafts, publishing, and version history programmatically.
 
-## 
-
-​
-
-Draft vs. published
+## Draft vs. published
 
 | Draft| Published version  
 ---|---|---  
@@ -61,11 +59,7 @@ An agent that has never been published cannot take production sessions: session 
 
 Phone number settings are not part of the agent, so they are not versioned. Which agent a number is bound to, its [transfer caller ID](https://docs.fish.audio/agents/telephony/transfers#caller-id-on-transfers), and an [imported number’s SIP configuration](https://docs.fish.audio/agents/telephony/byo-sip#update-the-configuration) live on the number. Changes to them apply from the next call without publishing, and publishing or rolling back the agent never changes them.
 
-## 
-
-​
-
-Publish from the Builder
+## Publish from the Builder
 
 1
 
@@ -87,11 +81,7 @@ Click **Publish**. Any pending edits are saved first, then the draft is snapshot
 
 New sessions use the newly published version from that point on. To hear a change before it goes live, run a [preview call](https://docs.fish.audio/agents/test/preview-calls). Previews always use the draft.
 
-## 
-
-​
-
-Publish via the API
+## Publish via the API
 
 Configuration edits (`PATCH`) go to the draft; a separate `publish` call rolls them out. A `version_title` and `version_description` are optional and make the version history easier to audit:
 
@@ -117,11 +107,7 @@ Publish
 
 The publish response includes the new `version_number`.
 
-## 
-
-​
-
-Version history
+## Version history
 
 List published versions, or fetch the complete configuration snapshot of any one of them, including the version currently serving production:
 
@@ -153,11 +139,7 @@ Fetching a single version returns the full configuration as it was published. Be
 
 Version snapshots never echo credential secrets. Write-only fields (such as webhook secrets and tool authorization headers) return a `has_secret: true` marker instead of the value, and the custom LLM [`api_key` and `headers`](https://docs.fish.audio/agents/build/custom-llm) read back as `null`, in every version including historical ones.
 
-## 
-
-​
-
-Restore a previous version
+## Restore a previous version
 
 Roll back by copying an old snapshot back into the draft: read the version you want, then `PATCH` its sections into the draft config.
 
@@ -179,19 +161,11 @@ Roll back by copying an old snapshot back into the draft: read the version you w
 
 Patching updates the draft. It does **not** publish. Review or [preview](https://docs.fish.audio/agents/test/preview-calls) the restored draft, then publish it as a new version; the rollback becomes part of the linear history, so the audit trail stays intact. Because snapshots never echo secrets (see above), credential fields keep their current draft values unless you set them again explicitly. Phone number settings, such as the transfer caller ID, stay as they are.
 
-## 
-
-​
-
-Clone an agent
+## Clone an agent
 
 Cloning creates a new agent from an existing one’s **draft** configuration. In the console, open the agents list and choose **Clone** from the agent’s row menu. The clone starts with a copy of the source’s current draft. Published versions do not carry over: the new agent is unpublished until you publish it yourself. Use clones to template a base configuration across many agents, or to experiment without risking an agent that is already live.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Agent configuration
 

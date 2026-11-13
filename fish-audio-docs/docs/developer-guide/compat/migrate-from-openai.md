@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-openai/
 title: Migrate from OpenAI - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.752257+00:00
+fetched_at: 2026-11-13T15:33:44.316158+00:00
 ---
 
 # Migrate from OpenAI - Fish Audio
@@ -71,11 +71,7 @@ Model catalog| ✓
 TTS character timestamps| –  
 Voice library listing| –  
   
-## 
-
-​
-
-Text to speech
+## Text to speech
 
 `POST /v1/audio/speech` These samples use the free `fish-audio/s2.1-pro-free` model, so they work before you add API credit. Use `fish-audio/s2.1-pro` in production; the OpenAI model names below map to it.
 
@@ -142,11 +138,7 @@ Differences from OpenAI:
 
 Your existing model names carry over: `tts-1`, `tts-1-hd`, and `gpt-4o-mini-tts` are accepted as aliases for `fish-audio/s2.1-pro`. A name that is neither a known alias nor a Fish model is refused with a 400, never silently substituted.
 
-## 
-
-​
-
-Transcription
+## Transcription
 
 `POST /v1/audio/transcriptions`
 
@@ -191,11 +183,7 @@ In `verbose_json`, the Whisper-engine internals (`avg_logprob`, `no_speech_prob`
 
 The OpenAI SDK’s `client.audio.translations` has no counterpart here: `POST /v1/audio/translations` is a 404. Transcribe in the source language and translate the text downstream.
 
-## 
-
-​
-
-Chat-modality audio
+## Chat-modality audio
 
 `POST /v1/chat/completions` serves TTS and STT in the chat-completions shape, for SDKs and frameworks that only speak chat: LangChain, Vercel AI SDK, and similar. For **speech output** , request the audio modality; the last user message’s text is synthesized:
 
@@ -244,11 +232,7 @@ curl
 
 With `stream: true` the audio arrives over SSE in base64 chunks that are safe to concatenate as they come. For **speech input** , put an `input_audio` content part in the last user message; the reply’s `content` is the transcript. Two refusals on this endpoint: `n` must be 1, and one call cannot combine audio input with audio output.
 
-## 
-
-​
-
-Realtime WebSocket
+## Realtime WebSocket
 
 `wss://api.fish.audio/compat/v1/realtime?model=fish-audio/s2.1-pro` The SDK derives the WebSocket URL from the same client:
     
@@ -280,11 +264,7 @@ Realtime WebSocket
 
 The essentials: the endpoint speaks the Realtime **GA** event names, you drive turn detection yourself (`input_audio_buffer.commit` ends an utterance; server-side VAD is refused, not ignored), and transcription runs over the same socket or in a dedicated transcription session. The full event list, format and voice rules, and transcription-session handshakes are in the [Realtime protocol reference](https://docs.fish.audio/developer-guide/compat/realtime-protocol).
 
-## 
-
-​
-
-Error handling
+## Error handling
 
 Errors map to your SDK’s typed exceptions (`AuthenticationError`, `RateLimitError`, `APIStatusError`, …). The envelope carries the HTTP status as an integer `code`:
     
@@ -300,11 +280,7 @@ Errors map to your SDK’s typed exceptions (`AuthenticationError`, `RateLimitEr
 
 Errors from the Fish Audio API keep their original status (for example 402 when your account is out of credit) and carry `type: "provider_error"` plus `"metadata": {"provider_name": "fish-audio"}`. Errors from the compatibility layer itself carry no `metadata`. Rate limits return 429 with a `Retry-After` header. Authentication produces both kinds, and the `type` tells you which problem you have. No key, or a header that can’t be parsed, is a 401 with `type: "authentication_error"` and no `metadata`: nothing was checked against your account. A key that fails validation is a 401 with `type: "provider_error"` and `metadata.provider_name: "fish-audio"`: the key itself is invalid. Both surface as your SDK’s `AuthenticationError`. `GET /v1/models` is unauthenticated and answers even without a key, so it is not a way to check whether a key is valid.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Compatibility
 

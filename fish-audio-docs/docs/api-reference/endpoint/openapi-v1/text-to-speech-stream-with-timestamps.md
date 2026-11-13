@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-stream-with-timestamps/
 title: Text to Speech Stream with Timestamps - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:21.519655+00:00
+fetched_at: 2026-11-13T15:33:45.281601+00:00
 ---
 
 # Text to Speech Stream with Timestamps - Fish Audio
@@ -515,11 +515,7 @@ This endpoint returns `text/event-stream`. Each SSE `message` event contains one
 
 Use this endpoint when you need both progressive audio delivery and text-to-audio alignment data, such as karaoke-style highlighting, word or phrase progress indicators, captions synchronized to generated speech, or timeline editing.
 
-## 
-
-​
-
-How the Stream Works
+## How the Stream Works
 
 The response is a Server-Sent Events stream. Every event includes:
 
@@ -535,11 +531,7 @@ Field| Type| Description
 
 Store alignments in a map keyed by `chunk_seq`. On every non-null `alignment`, replace the stored value for that key. Do not collect every non-null alignment as a separate final result.
 
-## 
-
-​
-
-Alignment Shape
+## Alignment Shape
 
 Each non-null `alignment` contains the current cumulative timing segments for a single text chunk:
     
@@ -569,11 +561,7 @@ Each non-null `alignment` contains the current cumulative timing segments for a 
 
 `start` and `end` are measured in seconds from the start of that text chunk’s generated audio. Add `chunk_audio_offset_sec` to get timestamps on the complete audio timeline. `alignment` can be `null` before the first snapshot is available or when alignment is unavailable. After a snapshot exists, later audio events may repeat the latest snapshot so clients can continue using a simple latest-wins update model.
 
-## 
-
-​
-
-Minimal Request
+## Minimal Request
     
     
     curl --no-buffer --request POST \
@@ -589,11 +577,7 @@ Minimal Request
       }'
     
 
-## 
-
-​
-
-Parsing the Stream
+## Parsing the Stream
 
 The stream payload uses standard SSE framing. Parse each `data:` line as JSON, append every decoded `audio_base64` chunk to your audio buffer, and replace the latest alignment snapshot for `chunk_seq` whenever `alignment` is non-null.
 
@@ -697,11 +681,7 @@ The stream payload uses standard SSE framing. Parse each `data:` line as JSON, a
     const audio = Buffer.concat(audioChunks);
     
 
-## 
-
-​
-
-Handling Split Content Chunks
+## Handling Split Content Chunks
 
 Long input can produce multiple text chunks. Treat audio and alignment as two related streams:
 
@@ -762,11 +742,7 @@ For example, if an event has `chunk_audio_offset_sec: 16.24`, add `16.24` second
     }
     
 
-## 
-
-​
-
-Format Guidance
+## Format Guidance
 
 For timestamped streaming, we recommend `opus` with the default 48 kHz sample rate when your client supports it. Opus is designed for streaming and gives the best balance of quality, latency, and bandwidth for this endpoint. `wav` and `pcm` avoid lossy codec artifacts and are straightforward to align, but they produce much larger payloads. Use them when you need uncompressed audio, direct sample-level processing, or a playback pipeline that already expects raw audio.
 
@@ -775,8 +751,6 @@ Use `mp3` only when broad playback compatibility is more important than the clea
 This endpoint accepts the same TTS request fields as the [Text to Speech API](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech), including `reference_id`, `references`, `prosody`, `temperature`, `top_p`, `chunk_length`, `format`, and `latency`.
 
 #### Authorizations
-
-​
 
 Authorization
 
@@ -789,8 +763,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Headers
-
-​
 
 model
 
@@ -818,8 +790,6 @@ application/jsonapplication/msgpackapplication/jsonapplication/msgpack
 
 Request body for streaming text-to-speech synthesis with timestamp alignment. The request fields match the standard TTS endpoint, but the response is delivered as a Server-Sent Events stream. Each SSE payload includes an audio chunk and, when available, the latest cumulative alignment snapshot for a `chunk_seq`. Clients should concatenate `audio_base64` chunks in arrival order and replace the stored alignment for each `chunk_seq` whenever a newer snapshot is received.
 
-​
-
 text
 
 string
@@ -827,8 +797,6 @@ string
 required
 
 Text to convert to speech.
-
-​
 
 temperature
 
@@ -840,8 +808,6 @@ Controls expressiveness. Higher is more varied, lower is more consistent.
 
 Required range: `0 <= x <= 1`
 
-​
-
 top_p
 
 number
@@ -852,8 +818,6 @@ Controls diversity via nucleus sampling.
 
 Required range: `0 <= x <= 1`
 
-​
-
 references
 
 ReferenceAudio · object[]ReferenceAudio · object[][]ReferenceAudio · object[]ReferenceAudio · object[][]
@@ -862,15 +826,11 @@ Single speaker: array of reference audio samples
 
 Show child attributes
 
-​
-
 reference_id
 
 stringstring[]stringstring[]
 
 Single speaker: voice model ID string
-
-​
 
 prosody
 
@@ -879,8 +839,6 @@ ProsodyControl · object | null
 Speed and volume adjustments for the output.
 
 Show child attributes
-
-​
 
 chunk_length
 
@@ -892,8 +850,6 @@ Text segment size for processing.
 
 Required range: `100 <= x <= 300`
 
-​
-
 normalize
 
 boolean
@@ -901,8 +857,6 @@ boolean
 default:true
 
 Rewrites numbers, dates, units and symbols as spoken words before synthesis, improving stability. Uses `language` when it is set and otherwise detects the language of each text chunk.
-
-​
 
 language
 
@@ -917,8 +871,6 @@ Pattern: `^[A-Za-z0-9_-]*$`
 Example:
 
 `"en"`
-
-​
 
 format
 
@@ -938,15 +890,11 @@ Available options:
 
 `opus`
 
-​
-
 sample_rate
 
 integer | null
 
 Audio sample rate in Hz. When null, uses the format's default (44100 Hz for most formats, 48000 Hz for opus).
-
-​
 
 mp3_bitrate
 
@@ -963,8 +911,6 @@ Available options:
 `128`, 
 
 `192`
-
-​
 
 opus_bitrate
 
@@ -986,8 +932,6 @@ Available options:
 
 `64000`
 
-​
-
 latency
 
 enum<string>
@@ -1004,8 +948,6 @@ Available options:
 
 `balanced`
 
-​
-
 max_new_tokens
 
 integer
@@ -1014,8 +956,6 @@ default:1024
 
 Maximum audio tokens to generate per text chunk.
 
-​
-
 repetition_penalty
 
 number
@@ -1023,8 +963,6 @@ number
 default:1.2
 
 Penalty for repeating audio patterns. Values above 1.0 reduce repetition.
-
-​
 
 min_chunk_length
 
@@ -1036,8 +974,6 @@ Minimum characters before splitting into a new chunk.
 
 Required range: `0 <= x <= 100`
 
-​
-
 condition_on_previous_chunks
 
 boolean
@@ -1045,8 +981,6 @@ boolean
 default:true
 
 Use previous audio as context for voice consistency.
-
-​
 
 early_stop_threshold
 
@@ -1058,15 +992,11 @@ Early stopping threshold for batch processing.
 
 Required range: `0 <= x <= 1`
 
-​
-
 features
 
 string[]
 
 Optional request-scoped TTS feature flags forwarded verbatim to the inference backend. Use ["quality-guard"] to enable the quality guard for this synthesis request. Feature availability is determined by the inference backend.
-
-​
 
 pronunciation_dictionary
 
@@ -1093,8 +1023,6 @@ Server-Sent Events stream. Each `message` event contains a JSON payload with one
 
 One Server-Sent Events message payload for streaming TTS with timestamps. Each event contains one audio chunk. Concatenate all `audio_base64` chunks in arrival order to reconstruct the complete audio. `alignment` is the latest cumulative timestamp snapshot for the reported `chunk_seq`; clients should replace the previous snapshot for that chunk instead of appending segments.
 
-​
-
 audio_base64
 
 string
@@ -1103,8 +1031,6 @@ required
 
 Base64 encoded audio chunk. Concatenate every chunk in event order to reconstruct the full audio.
 
-​
-
 content
 
 string
@@ -1112,8 +1038,6 @@ string
 required
 
 Text content described by this event's latest alignment snapshot. Long input may be split into multiple content chunks in one stream.
-
-​
 
 alignment
 
@@ -1125,8 +1049,6 @@ Latest cumulative timestamp snapshot for `chunk_seq`. When present, replace the 
 
 Show child attributes
 
-​
-
 chunk_seq
 
 integer
@@ -1136,8 +1058,6 @@ required
 Sequence number of the text chunk described by `alignment`. Clients should bucket alignment snapshots by this value.
 
 Required range: `x >= 0`
-
-​
 
 chunk_audio_offset_sec
 

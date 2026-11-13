@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits/
 title: Pricing & Rate Limits - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T15:15:41.654118+00:00
+fetched_at: 2026-11-13T15:33:43.067945+00:00
 ---
 
 # Pricing & Rate Limits - Fish Audio
@@ -34,19 +34,11 @@ Understand Fish Audio pricing plans, usage costs, and API rate limits
 
 Copy pageCopy page
 
-## 
-
-​
-
-API Pricing
+## API Pricing
 
 The Fish Audio API uses pay-as-you-go pricing based on actual usage. There are no subscription fees or monthly minimums for API access.
 
-### 
-
-​
-
-Text-to-Speech (TTS) Models
+### Text-to-Speech (TTS) Models
 
 TTS pricing is based on the size of input text, measured in millions of UTF-8 bytes.
 
@@ -62,11 +54,7 @@ Model Name| Price (USD)
 
 Through November 30, 2026 (until December 1, 00:00 PT / 08:00 UTC), `drama-3` is billed at a launch promotion price of $10.00 / M UTF-8 bytes, 80% off the list price above. See [Drama 3](https://docs.fish.audio/features/text-to-speech/drama-3). S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro` and billed as `s2.1-pro`, at the same price. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
 
-### 
-
-​
-
-Automatic Speech Recognition (ASR) Models
+### Automatic Speech Recognition (ASR) Models
 
 Model Name| Price (USD)  
 ---|---  
@@ -88,11 +76,7 @@ For recordings, we recommend `transcribe-1-pro`, which handles multi-speaker con
 
 
 
-### 
-
-​
-
-Voice Design
+### Voice Design
 
 Model Name| Price (USD)  
 ---|---  
@@ -106,19 +90,11 @@ Model Name| Price (USD)
 
 
 
-## 
-
-​
-
-Rate Limits
+## Rate Limits
 
 These limits help us ensure fair usage and maintain service quality for all users.
 
-### 
-
-​
-
-Concurrent Request Limits
+### Concurrent Request Limits
 
 Tier| Spending Threshold| Concurrent Requests  
 ---|---|---  
@@ -131,11 +107,7 @@ Concurrency tiers unlock as soon as your total prepaid amount reaches the thresh
 
 Speech-to-text requests count against the same concurrency limit as your other API requests, shared by all API keys on your account. Each `/v1/asr` request holds one slot until its response is returned, which for long `transcribe-1-pro` recordings can be several minutes. When you are at the limit, the [native API](https://docs.fish.audio/api-reference/introduction), including `POST /v1/asr`, returns 429 without a `Retry-After` header. Retry with exponential backoff.
 
-### 
-
-​
-
-Convert Concurrency to QPS or QPM
+### Convert Concurrency to QPS or QPM
 
 Fish Audio rate limits are based on **concurrent requests** : the number of requests that can be in progress at the same time. This is different from QPS (queries per second) or QPM (queries per minute), which measure how many requests complete over time. The conversion depends on how long your Fish Audio request occupies a concurrency slot. Short interactive requests can produce much higher QPM from the same concurrency tier than long-form synthesis requests. Use this planning formula:
     
@@ -168,11 +140,7 @@ Treat these numbers as examples, not guarantees. Your actual QPS and QPM depend 
 
 Please reach out to our team to enable enterprise volume pricing, rate limits, and billing.
 
-## 
-
-​
-
-Support
+## Support
 
 Need help? Check out these resources:
 

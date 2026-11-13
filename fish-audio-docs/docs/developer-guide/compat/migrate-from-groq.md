@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-groq/
 title: Migrate from Groq - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.354008+00:00
+fetched_at: 2026-11-13T15:33:44.396128+00:00
 ---
 
 # Migrate from Groq - Fish Audio
@@ -69,11 +69,7 @@ TTS character timestamps| –
 Speech translation| –  
 Voice library listing| –  
   
-## 
-
-​
-
-Text to speech
+## Text to speech
 
 Python
 
@@ -133,11 +129,7 @@ TypeScript
 
 The transcription side types `response_format` as `json | text | verbose_json`, so `srt`/`vtt` need the same cast, and the SDK hands the subtitle document back as a plain string even though the method is typed to return `Transcription`.
 
-## 
-
-​
-
-Transcription
+## Transcription
 
 Python
 
@@ -173,11 +165,7 @@ curl
 
 `verbose_json`, word-level timestamp granularity, and the subtitle formats (`srt`, `vtt`) work as they do on the OpenAI protocol; details and placeholder-field caveats in [Migrate from OpenAI](https://docs.fish.audio/developer-guide/compat/migrate-from-openai#transcription); `srt`/`vtt` need the SDK type cast shown above. Translation has no counterpart: Fish has no translation model, so `client.audio.translations` returns a 404. Transcribe in the source language and translate the text downstream.
 
-## 
-
-​
-
-Model catalog
+## Model catalog
 
 Python
 
@@ -203,19 +191,11 @@ curl
 
 Entries follow the OpenRouter model schema: `id` and `created` are populated, but the Groq SDK’s other declared `Model` fields (`object`, `owned_by`, `active`, `context_window`) come back `undefined`, and the richer Fish fields (`pricing`, `architecture`, `supported_parameters`) are present but untyped. Listing only: there is no per-model route, so `models.retrieve(...)` returns a 404.
 
-## 
-
-​
-
-Error handling
+## Error handling
 
 Errors map to the Groq SDK’s typed exceptions (`AuthenticationError`, `RateLimitError`, …) with the same envelope as the OpenAI protocol: the HTTP status as an integer `error.code` on every error. Failures from the Fish Audio API keep their original status with `type: "provider_error"` and add `metadata.provider_name: "fish-audio"`; errors from the compatibility layer itself carry no `metadata`.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Migrate from OpenAI
 

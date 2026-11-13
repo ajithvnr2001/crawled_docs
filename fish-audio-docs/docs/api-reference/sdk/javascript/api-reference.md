@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/javascript/api-reference/
 title: JavaScript SDK Reference - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.128636+00:00
+fetched_at: 2026-11-13T15:33:45.365241+00:00
 ---
 
 # JavaScript SDK Reference - Fish Audio
@@ -64,11 +64,7 @@ Complete reference for Fish Audio JavaScript SDK
 
 Copy pageCopy page
 
-## 
-
-​
-
-Client
+## Client
 
 Import and initialize the client:
     
@@ -77,17 +73,9 @@ Import and initialize the client:
     const fishAudio = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
     
 
-## 
+## Text to Speech
 
-​
-
-Text to Speech
-
-### 
-
-​
-
-convert()
+### convert()
 
 Generate speech from text.
     
@@ -98,11 +86,7 @@ Generate speech from text.
 Parameters: `request` (TTSRequest), `model?` (Backends)   
 Returns: `Promise<ReadableStream<Uint8Array>>`
 
-### 
-
-​
-
-convertRealtime()
+### convertRealtime()
 
 Realtime streaming TTS over WebSocket.
     
@@ -114,17 +98,9 @@ Realtime streaming TTS over WebSocket.
 Parameters: `request` (TTSRequest with `text: ""`), `textStream` (`AsyncIterable<string>`), `backend?` (Backends)   
 Returns: `RealtimeConnection` (`EventEmitter`-like connection) emitting `RealtimeEvents`
 
-## 
+## Speech to Text
 
-​
-
-Speech to Text
-
-### 
-
-​
-
-convert()
+### convert()
 
 Transcribe audio to text.
     
@@ -139,17 +115,9 @@ Transcribe audio to text.
 Parameters: `request` (STTRequest), `requestOptions?` (for example `headers` and `timeoutInSeconds`)   
 Returns: `STTResponse` Select the model with the `model` header in `requestOptions.headers`. Without it, the request is served and billed as `transcribe-1`. See [Speech to Text](https://docs.fish.audio/features/speech-to-text).
 
-## 
+## Voices
 
-​
-
-Voices
-
-### 
-
-​
-
-search()
+### search()
 
 List/search available voice models.
     
@@ -160,11 +128,7 @@ List/search available voice models.
 Parameters: `request?` (ModelListRequest)   
 Returns: `ModelListResponse`
 
-### 
-
-​
-
-get()
+### get()
 
 Get model details.
     
@@ -175,11 +139,7 @@ Get model details.
 Parameters: `voiceId` (string)   
 Returns: `ModelEntity`
 
-### 
-
-​
-
-ivc.create()
+### ivc.create()
 
 Create a new voice model from audio samples.
     
@@ -190,11 +150,7 @@ Create a new voice model from audio samples.
 Parameters: `request` (ModelCreateRequest)   
 Returns: `ModelEntity`
 
-### 
-
-​
-
-update()
+### update()
 
 Update model metadata.
     
@@ -205,11 +161,7 @@ Update model metadata.
 Parameters: `voiceId` (string), `request` (UpdateModelRequest)   
 Returns: `UpdateVoiceResponse`
 
-### 
-
-​
-
-delete()
+### delete()
 
 Delete a model.
     
@@ -220,17 +172,9 @@ Delete a model.
 Parameters: `voiceId` (string)   
 Returns: `DeleteVoiceResponse`
 
-## 
+## User
 
-​
-
-User
-
-### 
-
-​
-
-get_api_credit()
+### get_api_credit()
 
 Check API credit balance.
     
@@ -240,11 +184,7 @@ Check API credit balance.
 
 Returns: `APICreditResponse`
 
-### 
-
-​
-
-get_package()
+### get_package()
 
 Get subscription package details.
     
@@ -254,17 +194,9 @@ Get subscription package details.
 
 Returns: `PackageResponse`
 
-## 
+## Request Classes
 
-​
-
-Request Classes
-
-### 
-
-​
-
-TTSRequest
+### TTSRequest
 
 Text-to-speech parameters.
     
@@ -280,11 +212,7 @@ Text-to-speech parameters.
 
 Fields: `text`, `reference_id`, `references`, `format`, `mp3_bitrate`, `opus_bitrate`, `sample_rate`, `prosody`, `latency`, `chunk_length`, `normalize`, `temperature`, `top_p`
 
-### 
-
-​
-
-STTRequest
+### STTRequest
 
 Speech-to-text parameters.
     
@@ -294,11 +222,7 @@ Speech-to-text parameters.
 
 Fields: `audio`, `language?`, `ignore_timestamps?`
 
-### 
-
-​
-
-ReferenceAudio
+### ReferenceAudio
 
 Reference audio for voice cloning.
     
@@ -308,11 +232,7 @@ Reference audio for voice cloning.
 
 Fields: `audio`, `text`
 
-### 
-
-​
-
-Prosody
+### Prosody
 
 Speed and volume control.
     
@@ -322,11 +242,7 @@ Speed and volume control.
 
 Fields: `speed` (0.5–2.0), `volume` (-20 to 20)
 
-### 
-
-​
-
-Backends
+### Backends
 
 The backend model to use.
     
@@ -336,17 +252,9 @@ The backend model to use.
 
 The API also accepts `s2.1-pro` and `s2.1-pro-free`; the SDK’s `Backends` type has not been updated yet, so pass them with a type assertion (for example `'s2.1-pro' as Backends`) or call the [REST API](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech) directly.
 
-## 
+## Response Classes
 
-​
-
-Response Classes
-
-### 
-
-​
-
-STTResponse
+### STTResponse
 
 Transcription result.
     
@@ -356,57 +264,29 @@ Transcription result.
     response.segments  // ASRSegment[]
     
 
-### 
-
-​
-
-ASRSegment
+### ASRSegment
 
 Timestamped text segment. Fields: `text` (string), `start` (number, seconds), `end` (number, seconds)
 
-### 
-
-​
-
-ModelEntity
+### ModelEntity
 
 Voice model information. Fields: `_id`, `title`, `description`, `visibility`, `created_at`, `updated_at`, `tags`
 
-### 
-
-​
-
-ModelListResponse
+### ModelListResponse
 
 List response for voices. Fields: `items` (ModelEntity[]), `total` (number)
 
-### 
-
-​
-
-APICreditResponse
+### APICreditResponse
 
 API credit information. Fields: `_id` (string), `user_id` (string), `credit` (string), `created_at` (string), `updated_at` (string), `has_phone_sha256` (boolean), `has_free_credit?` (boolean)
 
-### 
-
-​
-
-PackageResponse
+### PackageResponse
 
 Subscription package details. Fields: `user_id` (string), `type` (string), `total` (number), `balance` (number), `created_at` (string), `updated_at` (string), `finished_at` (string)
 
-## 
+## WebSocket Classes
 
-​
-
-WebSocket Classes
-
-### 
-
-​
-
-RealtimeEvents
+### RealtimeEvents
 
 Events emitted by `convertRealtime` connections.
 
@@ -417,63 +297,31 @@ Event| Meaning
 `ERROR`| Error occurred  
 `CLOSE`| Connection closed  
   
-## 
+## Event Classes
 
-​
-
-Event Classes
-
-### 
-
-​
-
-StartEvent
+### StartEvent
 
 Stream start event. Fields: `event` (“start”), `request` (TTSRequest)
 
-### 
-
-​
-
-TextEvent
+### TextEvent
 
 Text chunk event. Fields: `event` (“text”), `text` (string)
 
-### 
-
-​
-
-FlushEvent
+### FlushEvent
 
 Flush text chunks event. Fields: `event` (“flush”)
 
-### 
-
-​
-
-CloseEvent
+### CloseEvent
 
 Stream close event. Fields: `event` (“stop”)
 
-## 
+## Exceptions
 
-​
-
-Exceptions
-
-### 
-
-​
-
-FishAudioError
+### FishAudioError
 
 Generic error with status code, body, rawResponse.
 
-### 
-
-​
-
-FishAudioTimeoutError
+### FishAudioTimeoutError
 
 Connection timeout error.
 

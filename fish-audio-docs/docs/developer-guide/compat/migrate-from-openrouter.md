@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-openrouter/
 title: Migrate from OpenRouter - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.555320+00:00
+fetched_at: 2026-11-13T15:33:43.981640+00:00
 ---
 
 # Migrate from OpenRouter - Fish Audio
@@ -76,11 +76,7 @@ Chat-modality audio & Realtime| via the OpenAI SDK
 TTS character timestamps| –  
 Voice library listing| –  
   
-## 
-
-​
-
-Text to speech
+## Text to speech
 
 Node
 
@@ -135,11 +131,7 @@ curl
 
 The response is a `ReadableStream`: audio bytes arrive as they are synthesized. The optional `voice` field takes a voice ID from your Fish voice library (omitted or empty = model default; see [Voices](https://docs.fish.audio/developer-guide/getting-started/migration#voices)). `input_references` (OpenRouter’s first-class field for stateless voice cloning, reference audio plus its transcript) is supported: no saved voice model required. Both SDKs carry the field on their `SpeechRequest` type (`inputReferences` in TypeScript, `input_references` in Python).
 
-### 
-
-​
-
-`temperature`, `top_p`, `repetition_penalty`
+### `temperature`, `top_p`, `repetition_penalty`
 
 These three sit **at the top level of the speech request body** , next to `model` and `input` (no `provider.options` wrapper required), matching what the catalog advertises in each model’s `supported_parameters`.
     
@@ -156,11 +148,7 @@ These three sit **at the top level of the speech request body** , next to `model
 
 Neither SDK’s speech type declares them, so they still have to go around the typed request: as raw JSON via `fetch`, or through the OpenAI SDK’s `extra_body`. The same three are also reachable through `provider.options.fish-audio` and the `X-Fish-*` headers, and if you set a value two ways the more specific one wins: **`X-Fish-*` header beats `provider.options`, and `provider.options` beats the top level.** Everything else in the Fish parameter set (`latency`, `chunk_length`, `normalize`, `prosody`, references) is available only through those two channels, not at the top level. See [Fish-native parameters](https://docs.fish.audio/developer-guide/compat/capabilities#reaching-fish-native-parameters).
 
-## 
-
-​
-
-Transcription
+## Transcription
 
 Node
 
@@ -206,11 +194,7 @@ curl
 
 JSON bodies with base64 `input_audio` also work, matching OpenRouter’s schema. For word-level timing, ask for `response_format="verbose_json"` together with `timestamp_granularities=["word"]`. For speaker turns, long recordings, and inline emotion cues, use `transcribe-1-pro` on the native [Speech to Text API](https://docs.fish.audio/features/speech-to-text) instead.
 
-## 
-
-​
-
-Model catalog
+## Model catalog
 
 Node
 
@@ -245,19 +229,11 @@ curl
 
 Entries validate against the OpenRouter `Model` schema: **every required field is present, and the ones with no Fish counterpart are explicitly`null` rather than missing**, so SDK model validation passes and `model.context_length` reads as `None`/`null` instead of raising. Four fields are always `null`: `context_length`, `default_parameters`, `per_request_limits`, and `supported_voices`. Six optional ones (`alias_target`, `benchmarks`, `expiration_date`, `hugging_face_id`, `knowledge_cutoff`, and `reasoning`) are simply absent; don’t write code that expects the key to exist. Filter with `output_modalities=speech` or `text` to list one direction only.
 
-## 
-
-​
-
-Error handling
+## Error handling
 
 Errors use the OpenRouter envelope, with the HTTP status as an integer in `error.code`. Failures from the Fish Audio API surface as `type: "provider_error"` with their original status and `metadata.provider_name: "fish-audio"`; errors from the compatibility layer itself carry no `metadata`, just `code`, `message`, and `type`.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Compatibility
 

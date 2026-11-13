@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/client/
 title: Client - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:46.931350+00:00
+fetched_at: 2026-11-13T15:33:44.930594+00:00
 ---
 
 # Client - Fish Audio
@@ -39,19 +39,11 @@ Copy pageCopy page
 
 Copy pageCopy page
 
-# 
-
-​
-
-fishaudio.client
+# fishaudio.client
 
 Main Fish Audio client classes. Install the Python SDK first: `pip install fish-audio-sdk`.
 
-## 
-
-​
-
-FishAudio Objects
+## FishAudio Objects
     
     
     class FishAudio()
@@ -75,11 +67,7 @@ Synchronous Fish Audio API client. **Example** :
     print(f"Found {voices.total} voices")
     
 
-#### 
-
-​
-
-__init__
+#### __init__
     
     
     def __init__(*,
@@ -98,11 +86,7 @@ Initialize Fish Audio client. **Arguments** :
 
 
 
-#### 
-
-​
-
-tts
+#### tts
     
     
     @property
@@ -111,11 +95,7 @@ tts
 
 Access TTS (text-to-speech) operations.
 
-#### 
-
-​
-
-asr
+#### asr
     
     
     @property
@@ -124,11 +104,7 @@ asr
 
 Access ASR (speech-to-text) operations.
 
-#### 
-
-​
-
-voices
+#### voices
     
     
     @property
@@ -137,11 +113,7 @@ voices
 
 Access voice management operations.
 
-#### 
-
-​
-
-account
+#### account
     
     
     @property
@@ -150,11 +122,7 @@ account
 
 Access account/billing operations.
 
-#### 
-
-​
-
-close
+#### close
     
     
     def close() -> None
@@ -162,11 +130,7 @@ close
 
 Close the HTTP client.
 
-## 
-
-​
-
-AsyncFishAudio Objects
+## AsyncFishAudio Objects
     
     
     class AsyncFishAudio()
@@ -193,11 +157,7 @@ Asynchronous Fish Audio API client. **Example** :
     asyncio.run(main())
     
 
-#### 
-
-​
-
-__init__
+#### __init__
     
     
     def __init__(*,
@@ -216,11 +176,7 @@ Initialize async Fish Audio client. **Arguments** :
 
 
 
-#### 
-
-​
-
-tts
+#### tts
     
     
     @property
@@ -229,11 +185,7 @@ tts
 
 Access TTS (text-to-speech) operations.
 
-#### 
-
-​
-
-asr
+#### asr
     
     
     @property
@@ -242,11 +194,7 @@ asr
 
 Access ASR (speech-to-text) operations.
 
-#### 
-
-​
-
-voices
+#### voices
     
     
     @property
@@ -255,11 +203,7 @@ voices
 
 Access voice management operations.
 
-#### 
-
-​
-
-account
+#### account
     
     
     @property
@@ -268,11 +212,7 @@ account
 
 Access account/billing operations.
 
-#### 
-
-​
-
-close
+#### close
     
     
     async def close() -> None

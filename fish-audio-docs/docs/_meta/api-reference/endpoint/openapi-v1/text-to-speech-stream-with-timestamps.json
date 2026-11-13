@@ -3,8 +3,5 @@
   "file": "api-reference/endpoint/openapi-v1/text-to-speech-stream-with-timestamps.md",
   "title": "Text to Speech Stream with Timestamps - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:21.521383+00:00",
-  "html_len": 703717,
-  "md_len": 40202,
-  "depth": 0
+  "fetched_at": "2026-11-13T15:33:45.282094+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-voice-agent/
 title: Build a realtime voice agent: streaming speech in, reply, speech out - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:46:33.182165+00:00
+fetched_at: 2026-11-13T15:33:43.285239+00:00
 ---
 
 # Build a realtime voice agent: streaming speech in, reply, speech out - Fish Audio
@@ -42,11 +42,7 @@ This guide is for building your own voice agent on the realtime speech-to-text A
 
 `transcribe-stream-1` is in preview.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -78,11 +74,7 @@ Install a WebSocket client and a MessagePack library:
 
 Read [Transcribe a live audio stream](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription) first if you have not used the realtime endpoint before.
 
-## 
-
-​
-
-How a conversation flows
+## How a conversation flows
 
 A voice agent has to answer three questions while audio streams in: has the user finished, is a sound the user talking to the agent at all, and is the user interrupting or just saying “mm-hm”? In the default `auto` mode, the server answers them with events. This is what the recipe below receives for a 15-second clip in which the user asks a question, says “uh-huh” while the agent answers, and then interrupts:
 
@@ -100,11 +92,7 @@ Elapsed| Server event| What the agent does
   
 Elapsed times are measured from the start of the script, which connects about 0.6 seconds before the audio starts.
 
-## 
-
-​
-
-Recipe
+## Recipe
 
 The microphone is a WAV file streamed in real time, and `think()` and `speak()` are placeholders for your LLM and your text-to-speech playback. Everything else is the agent loop as you would ship it.
 
@@ -293,19 +281,11 @@ Run it with your API key in `FISH_API_KEY`:
 
 The recipe keeps a reply’s full text in its history even when the user interrupts it. In production, keep only the part the user heard.
 
-## 
-
-​
-
-Decide when to answer
+## Decide when to answer
 
 Answer a turn when `committed.user_turn` is `true` and its text, without speaker tags and [sound tags](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#sound-tags) (already removed with `results.diarize: false` and `results.tag_audio_events: false`), is not empty. Do not decide by `reason`: a turn can end for several reasons, and non-user turns end with `eot` too. If `user_turn` is ever missing, treat it as `true`. A turn with `user_turn: false` is not the user talking to your agent: usually background noise, a TV or another person nearby (`turn_kind: "other"`), or an acknowledgement while your agent was speaking (`turn_kind: "backchannel"`). Its text can be shown dimmed in a transcript, or left out. In `auto` mode, short pauses in the middle of a sentence usually do not end the turn: the server judges from what was said and how whether the speaker has finished. A speaker who stops mid-sentence and does not go on has the turn ended about 2 seconds later. `silence_timeout_ms` (default 5000) is only a safety net.
 
-## 
-
-​
-
-Start early with eager end of turn
+## Start early with eager end of turn
 
 With `turn_detection.eager: true`, the server sends `eager_end_of_turn` once the turn has probably ended, before `committed`. Its text is exactly what `committed` will say unless `turn_resumed` follows, so you can start your LLM on it:
 
@@ -315,11 +295,7 @@ With `turn_detection.eager: true`, the server sends `eager_end_of_turn` once the
 
 Not every turn has an `eager_end_of_turn`, and it can come right before `committed`, so your agent must also work without it. In the clip above, the eager signal came about half a second before the final transcript.
 
-## 
-
-​
-
-Tell the server when your agent speaks
+## Tell the server when your agent speaks
 
 Send `agent_speaking` so the server can tell an acknowledgement from an interruption:
 
@@ -330,11 +306,7 @@ Send `agent_speaking` so the server can tell an acknowledgement from an interrup
 
 Without `agent_speaking`, every acknowledgement takes the turn, and you have to tell “mm-hm” from an interruption yourself.
 
-## 
-
-​
-
-Handle interruptions and backchannels
+## Handle interruptions and backchannels
 
 While your agent is speaking:
 
@@ -346,11 +318,7 @@ While your agent is speaking:
 
 In `vad` and `manual` mode there is no `user_turn_taken` or `user_backchannel`: stop on `speech_start` instead.
 
-## 
-
-​
-
-Give the model context
+## Give the model context
 
 The server uses the conversation to recognize names and follow-ups:
 
@@ -379,11 +347,7 @@ The server uses the conversation to recognize names and follow-ups:
     }
     
 
-## 
-
-​
-
-Capture audio well
+## Capture audio well
 
   * **Keep echo cancellation on.** Without it, the agent’s own voice reaches the microphone, opens turns and can be taken for the user. In a browser, request `echoCancellation: true` from `getUserMedia`. Some echo can remain even with echo cancellation. It is usually committed as a non-user turn, but it still opens turns (`speech_start`) while your agent speaks, which is why ducks need a cap. If the start of most replies is ducked, echo is leaking: check echo cancellation, or test with headphones.
   * **Turn automatic gain control off where you can** (`autoGainControl: false` in a browser), so quiet background sound is not amplified between phrases.
@@ -394,27 +358,15 @@ Capture audio well
 
 
 
-## 
-
-​
-
-Languages
+## Languages
 
 Turn detection, including eager end of turn, backchannel detection and background awareness, works on speech in every language. In some languages, a turn can end a little later after the speaker stops. For faster turns, use `vad` mode (500 ms or more is a good start for `silence_timeout_ms`), or end turns yourself with `finalize`.
 
-## 
-
-​
-
-Connect your LLM and speech
+## Connect your LLM and speech
 
 Replace `think()` with a call to your LLM, and `speak()` with text to speech and playback. To start speaking before the LLM has finished, stream its tokens into the [TTS WebSocket](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-llm-to-speech) and play audio chunks as they arrive. Send `agent_speaking: false` when the last chunk has played, not when synthesis ends.
 
-## 
-
-​
-
-Related
+## Related
 
   * [Realtime Speech to Text](https://docs.fish.audio/features/speech-to-text/realtime)
   * [Transcribe a live audio stream](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription)

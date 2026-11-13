@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/endpoint/openapi-v1/speech-to-text/
 title: Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:40:52.373618+00:00
+fetched_at: 2026-11-13T15:33:45.952463+00:00
 ---
 
 # Speech to Text - Fish Audio
@@ -373,11 +373,7 @@ cURL
 
 This BETA endpoint transcribes one audio file per request. Send the audio as `multipart/form-data` (a file upload) or `application/msgpack`. Base64-encoded audio in a JSON body is not supported.
 
-## 
-
-​
-
-Select a model
+## Select a model
 
 Send `POST https://api.fish.audio/v1/asr` with `Authorization: Bearer <API_KEY>` and a **`model` HTTP header** that selects the model. The request is synchronous: the response arrives when the whole file has been transcribed.
 
@@ -388,11 +384,7 @@ Header value| Use it for
   
 Send `model: transcribe-1-pro` with every request, written exactly, in lowercase. If the header is missing, or its value is not an exact match (for example `Transcribe-1-Pro` or `transcribe-1pro`), the request is served and billed as `transcribe-1`, and no error is returned. If you expected `transcribe-1-pro` but the transcript has no speaker markers and you did not send `diarize=false`, check the header. This applies to the API playground on this page too: set its `model` header to `transcribe-1-pro`. The model belongs in the header for both multipart and MessagePack requests; a `model` field in the request body is ignored. See Limits for recording length and request size. To link the request to your own distributed trace, also send a W3C `traceparent` header. See [Tracing & Performance Analysis](https://docs.fish.audio/api-reference/observability).
 
-## 
-
-​
-
-Request fields
+## Request fields
 
 Multipart and MessagePack bodies use the same field names. Multipart values are text; MessagePack values are typed.
 
@@ -414,11 +406,7 @@ In multipart forms, send `true` or `false` for `ignore_timestamps`. Any value ot
 
 **If you use`transcribe-1`:** send `audio`, `language`, and `ignore_timestamps`. The other fields apply to `transcribe-1-pro`; send them only with `model: transcribe-1-pro`.
 
-### 
-
-​
-
-Examples
+### Examples
     
     
     curl --request POST https://api.fish.audio/v1/asr \
@@ -442,11 +430,7 @@ This request returns word-level `segments` and `speaker_turns`. For a two-person
 
 Let your HTTP client set the multipart `Content-Type` and boundary. For MessagePack, set `Content-Type: application/msgpack` and encode `audio` as binary bytes. See the [Speech to Text guide](https://docs.fish.audio/features/speech-to-text#direct-api-messagepack) for an example.
 
-## 
-
-​
-
-Read the response
+## Read the response
 
 A successful response (HTTP 200) is a JSON object:
 
@@ -464,11 +448,7 @@ A field that is not returned is absent from the JSON, never `null`. Do not depen
 
 Both SDKs select `transcribe-1-pro` through the `model` header. In Python, pass `request_options=RequestOptions(additional_headers={"model": "transcribe-1-pro"})` to `asr.transcribe()`. In JavaScript, pass `{ headers: { model: "transcribe-1-pro" } }` as the second argument to `speechToText.convert()`. The Python SDK currently returns only `text`, `duration`, and `segments`, and neither SDK can send `tag_audio_events`, `diarize`, or the speaker-count hints. To use them, call the API directly, as in the examples above. The JavaScript SDK returns the whole response body, but its `STTResponse` type declares only `text`, `duration`, and `segments`.
 
-### 
-
-​
-
-Multi-speaker response format
+### Multi-speaker response format
 
 `transcribe-1-pro` marks speaker changes **inside the`text` string** with `<|speaker:N|>` markers. The label `N` identifies the speaker for the text that follows, up to the next marker. A repeated label means that speaker is speaking again.
 
@@ -492,11 +472,7 @@ This illustrative response has two speakers and three turns. With `ignore_timest
 
 Read this as speaker 0 saying `你好。`, speaker 1 saying `[高兴]很开心认识你。`, and speaker 0 saying `我也是。`. The `[高兴]` cue describes the delivery of speaker 1’s speech. There is no separate emotion field; the cues are part of the text.
 
-### 
-
-​
-
-Speaker turns
+### Speaker turns
 
 With `ignore_timestamps=false`, `transcribe-1-pro` also returns the turns as a structured `speaker_turns` array, unless you send `diarize=false`. When you request timestamps, prefer `speaker_turns` over parsing `text`.
 
@@ -543,19 +519,11 @@ This illustrative response is the same conversation with `ignore_timestamps=fals
 
 See the [Speech to Text guide](https://docs.fish.audio/features/speech-to-text#multi-speaker-conversations) for parsing examples.
 
-### 
-
-​
-
-Segments
+### Segments
 
 A segment is usually one word; in Chinese and Japanese it is usually one character, or a few. Segment text has no punctuation and no speaker markers or cues, and can be normalized (for example `35` for `3.5`), so it does not always match `text` character for character. A segment can have `start` equal to `end`. Segments are not speaker turns and carry no speaker ID.
 
-### 
-
-​
-
-Language
+### Language
 
   * `language` is optional. The language is detected automatically whether or not you send a hint, and a hint does not force the transcript into that language.
   * Use a lowercase ISO 639-1 code such as `en`, `zh`, or `ja`. Other forms, such as `en-US` or `English`, may be rejected with 400.
@@ -564,11 +532,7 @@ Language
 
 
 
-## 
-
-​
-
-Limits
+## Limits
 
   * **Audio length:** up to 60 minutes per request. Longer audio returns 400 with code `audio_too_long`.
   * **Request size:** for long recordings, send compressed audio such as MP3, Opus, or AAC. An hour of 128 kbps MP3 is about 55 MiB. A request that is too large returns 413.
@@ -576,11 +540,7 @@ Limits
 
 **If you use`transcribe-1`:** it is designed for short recordings; for recordings longer than a few minutes, use `transcribe-1-pro`. It accepts up to 50 MiB per request; keep MP3 and Opus files under 25 MiB. A request that exceeds the size limit returns 413 or 400. A long request can fail with 503 if it exceeds the processing-time limit. Retry, and if it keeps failing, use `transcribe-1-pro` or split the audio.
 
-### 
-
-​
-
-Processing time and timeouts
+### Processing time and timeouts
 
   * Processing time grows with the length of the recording. Long `transcribe-1-pro` recordings can take several minutes.
   * Set your HTTP client’s timeout accordingly. The official SDKs’ default timeout can be too short for long recordings, and many HTTP libraries default to even less (httpx defaults to 5 seconds). For long recordings, use a generous timeout, for example 15 minutes: `httpx.Timeout(900.0, connect=10.0)` with httpx, `RequestOptions(timeout=900)` with the Python SDK, or `{ timeoutInSeconds: 900 }` with the JavaScript SDK.
@@ -590,22 +550,14 @@ Processing time and timeouts
 
 
 
-## 
-
-​
-
-Supported audio formats
+## Supported audio formats
 
   * `transcribe-1-pro` accepts WAV, MP3, AAC (including M4A/MP4), FLAC, Ogg (Opus or Vorbis), WebM/Matroska, and MOV, including browser recordings. For a video file, it uses the first audio track. Send the original file bytes; no conversion is needed.
   * Not supported: AIFF, CAF, WMA, AMR, AC-3, and raw (headerless) PCM. These return 400.
 
 **If you use`transcribe-1`:** it accepts WAV, MP3, AAC (including M4A/MP4), FLAC, and Ogg (Opus or Vorbis). Browser WebM recordings (for example, from `MediaRecorder`) may not be accepted; convert them to Ogg/Opus, MP3, or WAV first.
 
-## 
-
-​
-
-Errors
+## Errors
 
 Error responses have one of these shapes:
 
@@ -656,8 +608,6 @@ Other 4xx (not 429)| `upstream_rejected`| Rare: the request was rejected during 
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -669,8 +619,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Headers
-
-​
 
 model
 
@@ -690,8 +638,6 @@ Available options:
 
 multipart/form-dataapplication/msgpackmultipart/form-dataapplication/msgpack
 
-​
-
 audio
 
 file
@@ -700,15 +646,11 @@ required
 
 Audio file to be converted to text
 
-​
-
 language
 
 string | null
 
 Optional hint. The language is auto-detected regardless; the detected language is returned as `language_code`.
-
-​
 
 ignore_timestamps
 
@@ -726,15 +668,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 text
 
 string
 
 required
-
-​
 
 duration
 
@@ -744,8 +682,6 @@ required
 
 Duration of the audio in seconds
 
-​
-
 segments
 
 ASRSegment · object[]
@@ -754,15 +690,11 @@ required
 
 Show child attributes
 
-​
-
 language_code
 
 string | null
 
 Detected language as an ISO 639-1 code (e.g. `en`, `ja`). Omitted if no language is detected.
-
-​
 
 language
 

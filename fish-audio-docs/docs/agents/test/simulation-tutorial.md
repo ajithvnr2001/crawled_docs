@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/simulation-tutorial/
 title: Tutorial: Simulate a Rescheduling Call - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:04.156909+00:00
+fetched_at: 2026-11-13T15:33:45.840078+00:00
 ---
 
 # Tutorial: Simulate a Rescheduling Call - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:04.156909+00:00
 > Source: https://docs.fish.audio/agents/test/simulation-tutorial/
 
 ## On this page
+
+Back to top
 
   * 1\. Decide what can go wrong
   * 2\. Write the scenario
@@ -40,11 +42,7 @@ This tutorial builds one complete [Simulation test](https://docs.fish.audio/agen
 
 
 
-## 
-
-​
-
-1\. Decide what can go wrong
+## 1\. Decide what can go wrong
 
 Start from the failures you care about, not from the happy path. For rescheduling, these are the ones that cost a real clinic money or trust:
 
@@ -58,11 +56,7 @@ Claims a confirmation text was sent when it failed| A mock that returns an error
   
 Judge-scored conditions cover what the agent says. Assertions cover what the agent does, and they are checked exactly, with no LLM involved.
 
-## 
-
-​
-
-2\. Write the scenario
+## 2\. Write the scenario
 
 The scenario is the simulated user’s brief, in four sections:
     
@@ -75,11 +69,7 @@ The scenario is the simulated user’s brief, in four sections:
 
 Two lines do most of the work. “Only give the date of birth when asked” means a pass proves the agent asked for it. “Do not mention Friday until the agent says Thursday is unavailable” forces the agent to find the alternative itself instead of being handed it. The ending gives the conversation a clear finish, so it doesn’t run to the turn limit. Set **Max turns** to 16, enough for verification, two availability checks, and a confirmation, with room to spare.
 
-## 
-
-​
-
-3\. Write the success conditions
+## 3\. Write the success conditions
 
 Each condition is one observable behaviour the judge checks against the whole transcript:
 
@@ -92,11 +82,7 @@ Honest about the text| If sending the confirmation text failed, the agent did no
   
 Write conditions the transcript can prove or disprove. “The agent was helpful” gives the judge nothing to check. If the transcript lacks evidence either way, the verdict is **Unknown** and the run is flagged **Needs review**.
 
-## 
-
-​
-
-4\. Mock the tools
+## 4\. Mock the tools
 
 Keep the default strategy, **Mock all** , so no call reaches your real endpoints. Then add entries that steer the conversation:
 
@@ -116,11 +102,7 @@ Tool| Condition| Result
 
 Under **Mock all** , a call that neither a test entry nor the tool’s own mock response answers fails, and the run is marked **Needs review** with a **No mock** badge. That is intentional: a run that left the path you prepared never passes by accident.
 
-## 
-
-​
-
-5\. Add assertions
+## 5\. Add assertions
 
 Under **Advanced** , add checks on what the agent actually did:
 
@@ -130,19 +112,11 @@ Under **Advanced** , add checks on what the agent actually did:
 
 Any failed assertion fails the run, whatever the judge decided.
 
-## 
-
-​
-
-6\. Pick the channel and the repeat count
+## 6\. Pick the channel and the repeat count
 
 Set **Channel** to **Phone inbound** , so the agent speaks the way it does on real calls, for example repeating dates and times back. Set **Repeat** to 5. Simulated users vary from run to run, and five runs show whether a pass is reliable or lucky.
 
-## 
-
-​
-
-7\. Create the test
+## 7\. Create the test
 
   * Dashboard
 
@@ -247,11 +221,7 @@ reschedule-test.json
     }
     
 
-## 
-
-​
-
-8\. Run it and read the result
+## 8\. Run it and read the result
 
 On the agent’s **Tests** page, click **Run all**. Over the API, start a batch with [Run Tests](https://docs.fish.audio/api-reference/endpoint/agent/run-tests) and poll [Get Test Batch](https://docs.fish.audio/api-reference/endpoint/agent/get-test-batch) until `completed` is `true`. Each run takes up to a few minutes. Every run shows each success condition with its verdict and the judge’s reasoning, each assertion with **Passed** or **Failed** , and the transcript with every tool call marked by where its answer came from. Here is what common failures mean:
 
@@ -266,11 +236,7 @@ What you see| What it usually means
   
 Once the test passes reliably, keep it attached. Every future prompt or tool change runs against it before you publish, and you can run it from CI as shown in [Run tests from the API and CI](https://docs.fish.audio/agents/test/agent-tests#run-tests-from-the-api-and-ci).
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Agent tests
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/agent-errors/
 title: Agents API Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T15:15:41.091383+00:00
+fetched_at: 2026-11-13T15:33:45.741315+00:00
 ---
 
 # Agents API Errors - Fish Audio
@@ -60,11 +60,7 @@ The exceptions to that shape:
 
 
 
-## 
-
-​
-
-Status codes
+## Status codes
 
 Status| Meaning| What to do  
 ---|---|---  
@@ -80,11 +76,7 @@ Status| Meaning| What to do
 `502`| An upstream dependency (conversation gateway, telephony provider) failed| Retry; for a failed phone-number purchase the row stays visible with status `error` and is safe to release.  
 `503`| A platform dependency is temporarily unavailable| Retry with backoff.  
   
-## 
-
-​
-
-400 vs 422
+## 400 vs 422
 
 `422` is field-level validation: unknown fields (the public surface rejects them), length caps, enum values, invalid IANA timezones, dynamic-variable naming. `400` is semantic: an [override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) not enabled for the agent, mutually exclusive pagination parameters (`page` \+ `cursor`), an undecodable cursor, a page offset past 100,000 rows, or a knowledge upload that isn’t UTF-8 plain text. Two quirks worth coding around:
 
@@ -93,11 +85,7 @@ Status| Meaning| What to do
 
 
 
-## 
-
-​
-
-403: what was refused
+## 403: what was refused
 
 Message| Cause  
 ---|---  
@@ -107,19 +95,11 @@ Message| Cause
 `Agent is unavailable`| The agent’s owner can’t serve public sessions right now for a reason other than credit (that is `402`); visitors deliberately can’t tell why.  
 `Phone number limit reached for this team (N)`| The team holds its maximum of live numbers; release one first.  
   
-## 
-
-​
-
-404: anti-enumeration
+## 404: anti-enumeration
 
 A resource that exists but belongs to another team returns the **identical** `404` body as one that never existed. This applies to agents, sessions, tools, knowledge sources, phone numbers, and versions. Released phone numbers and deleted knowledge sources behave the same. Never use `404` vs `403` to probe for existence. The recording endpoint adds one more meaning: `Recording not found` on a real session means it was [never recorded](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored).
 
-## 
-
-​
-
-409: conflicts
+## 409: conflicts
 
 Message| Cause and fix  
 ---|---  
@@ -128,27 +108,15 @@ Message| Cause and fix
 `Tool is attached to N agent(s)…`| Deletion is blocked while any agent’s **draft** references the tool (published snapshots are frozen copies and don’t block): detach, then delete.  
 `This number is already on the platform`| The number is held by a team already; pick another from [search](https://docs.fish.audio/api-reference/endpoint/agent/search-available-phone-numbers).  
   
-## 
-
-​
-
-Billing and rate limits
+## Billing and rate limits
 
 Exactly two endpoints charge before acting, and both can return `402 Out of API credit`: [`POST /v1/agent/sessions`](https://docs.fish.audio/api-reference/endpoint/agent/create-agent-session) (API-key and anonymous public callers alike) and [`POST /v1/agent/phone-numbers`](https://docs.fish.audio/api-reference/endpoint/agent/purchase-phone-number) (the first rental day). A public session whose agent owner is out of credit gets the same `402`, which the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk#errors) reports as `insufficient_credit`. Usage is settled after each call and never fails a request. `429` applies only to anonymous session creation on [public agents](https://docs.fish.audio/agents/deploy/public-agents), in fixed per-minute windows per agent and per client IP. API-key traffic is not rate limited on this surface; your backend is the gate.
 
-## 
-
-​
-
-5xx
+## 5xx
 
 `502` names the failing upstream in the message: the conversation gateway (`Agent gateway is unreachable`) or the telephony provider (`Twilio refused the request: …`). Retrying is safe. A failed phone-number purchase leaves the row visible with status `error`, refunds the day charge, and can be released; a failed release keeps the number live so releasing again retries. `503` means a platform dependency was briefly unreachable; retry with backoff.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Authenticated sessions
 

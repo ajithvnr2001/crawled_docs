@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/integrations/livekit/
 title: LiveKit - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:31.721487+00:00
+fetched_at: 2026-11-13T15:33:43.454264+00:00
 ---
 
 # LiveKit - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:31.721487+00:00
 > Source: https://docs.fish.audio/developer-guide/integrations/livekit/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Installation
@@ -33,22 +35,14 @@ Copy pageCopy page
 
 [LiveKit Agents](https://github.com/livekit/agents) is an open source framework for building real-time voice and multimodal AI agents. It handles streaming audio pipelines, turn detection, interruptions, and LLM orchestration so you can focus on your agent’s behavior. Fish Audio integrates with LiveKit through the `fishaudio` plugin, providing text-to-speech synthesis with support for both chunked and real-time WebSocket streaming modes.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * A [Fish Audio account](https://fish.audio) with an API key
   * Python 3.9 or higher
 
 
 
-## 
-
-​
-
-Installation
+## Installation
 
 Install LiveKit Agents with Fish Audio support:
     
@@ -56,11 +50,7 @@ Install LiveKit Agents with Fish Audio support:
     pip install "livekit-agents[fishaudio]"
     
 
-## 
-
-​
-
-Configuration
+## Configuration
 
 Set your Fish Audio API key as an environment variable:
     
@@ -68,11 +58,7 @@ Set your Fish Audio API key as an environment variable:
     export FISH_API_KEY=your_api_key_here
     
 
-## 
-
-​
-
-Basic usage
+## Basic usage
 
 Add Fish Audio TTS to your LiveKit agent:
     
@@ -87,11 +73,7 @@ Add Fish Audio TTS to your LiveKit agent:
     )
     
 
-### 
-
-​
-
-Key parameters
+### Key parameters
 
 Parameter| Description  
 ---|---  
@@ -104,11 +86,7 @@ Parameter| Description
 `base_url`| Custom API endpoint (default: `https://api.fish.audio`)  
 `latency_mode`| `normal` (~500ms) or `balanced` (~300ms, default)  
   
-### 
-
-​
-
-Streaming modes
+### Streaming modes
 
 The plugin supports two synthesis modes:
     
@@ -120,11 +98,7 @@ The plugin supports two synthesis modes:
     stream = tts.stream()
     
 
-## 
-
-​
-
-Resources
+## Resources
 
   * [LiveKit Agents Documentation](https://docs.livekit.io/agents/)
   * [LiveKit GitHub](https://github.com/livekit/agents)

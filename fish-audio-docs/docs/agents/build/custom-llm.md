@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/custom-llm/
 title: Custom LLM - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:43:31.403966+00:00
+fetched_at: 2026-11-13T15:33:49.419054+00:00
 ---
 
 # Custom LLM - Fish Audio
@@ -34,11 +34,7 @@ Copy pageCopy page
 
 By default your agent generates replies with a Fish Audio platform model. With a custom LLM, every reply comes from an endpoint you host instead, whether that is your own fine-tuned model, your own memory and conversation logic, or a proxy inside your VPC. Fish Audio keeps running the rest of the call, including speech recognition, voice synthesis, interruption handling, [tool](https://docs.fish.audio/agents/build/tools) execution, recordings, and billing.
 
-## 
-
-​
-
-How it works
+## How it works
 
 Your endpoint speaks the standard OpenAI [chat completions](https://platform.openai.com/docs/api-reference/chat) protocol. The platform sends `POST {base_url}/chat/completions` with `stream: true` and reads the reply as server-sent events, so if your prototype already runs against another voice-agent platform through a custom LLM, the same server works here unchanged. Each conversation turn, your endpoint receives the same fully assembled context a platform model would see. The `messages` array carries the system prompt with [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) and [session overrides](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) applied, the complete conversation history, and any retrieved [knowledge](https://docs.fish.audio/agents/build/knowledge-base), and the agent’s tools are included in OpenAI function format. When your model returns `tool_calls`, the platform executes the tool and calls you again with the result. A few extra top-level fields ride each request body so your server can look up its own state:
 
@@ -50,11 +46,7 @@ Field| Content
   
 If your server proxies requests to an upstream provider such as OpenAI, consider removing `session_id`, `user_id`, and `fishaudio_extra_body` from the body first. Some upstream APIs reject parameters they don’t recognize.
 
-### 
-
-​
-
-Example request
+### Example request
 
 Suppose the session was created from your backend with `end_user_id: "user-42"` and `llm_extra_body: {"chat_id": "chat-9"}`, the agent has one webhook tool `lookup_order`, and the user has just asked about an order. Your endpoint receives:
     
@@ -124,11 +116,7 @@ When your model returns a `lookup_order` tool call, the platform executes it and
 
 Reply to that request with the spoken answer as ordinary `delta.content` chunks ending in `finish_reason: "stop"`. Requests authenticate with `Authorization: Bearer <your API key>`. If your endpoint needs other headers, add them with `headers`. The endpoint must use `https` on a publicly reachable host, and must support function calling if the agent has tools configured.
 
-## 
-
-​
-
-Point the agent at your endpoint
+## Point the agent at your endpoint
 
 To set it up in the console:
 
@@ -174,11 +162,7 @@ Field| Rules
   
 The console doesn’t show or edit headers, so set them through the API. Saving the endpoint in the console keeps them, and **Run test** sends them while the base URL matches the saved one. Once [published](https://docs.fish.audio/agents/deploy/versions-publishing), every session of the agent generates on your endpoint, whether it starts from the web, a phone call, or a [preview call](https://docs.fish.audio/agents/test/preview-calls) in the Builder. Rotating the key or headers works the same way as any other config change. Patch the new values into the draft, then publish; sessions started after the publish use them. Send `{ "llm": { "custom": null } }` to switch back to platform models.
 
-## 
-
-​
-
-Failure behavior
+## Failure behavior
 
 By default (`llm.fallback` at `platform`), a custom LLM never falls back to another model. A platform model answering with the wrong persona and no memory would be worse than a failed turn. To opt in, set `llm.fallback.mode` to `manual` and list the models to try when your endpoint fails. Platform models and other endpoints both work. Your endpoint can also be a fallback entry for another agent. See [LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback).
 
@@ -188,11 +172,7 @@ By default (`llm.fallback` at `platform`), a custom LLM never falls back to anot
 
 
 
-### 
-
-​
-
-See what your endpoint returned
+### See what your endpoint returned
 
 Every failed generation is recorded, whether or not the call ended because of it. You can find them in three places:
 
@@ -220,11 +200,7 @@ Voice conversations are latency sensitive:
 
 
 
-## 
-
-​
-
-Limitations
+## Limitations
 
   * Single Turn and Tool [agent tests](https://docs.fish.audio/agents/test/agent-tests) are not supported. A scripted test run refuses to execute rather than substitute a platform model for yours. Simulation tests run on your endpoint.
   * The prompt-level safety guardrails still ride the assembled context, but your model decides whether to honor them.

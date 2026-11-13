@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/llm-fallback/
 title: LLM Fallback - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:53.704644+00:00
+fetched_at: 2026-11-13T15:33:48.912739+00:00
 ---
 
 # LLM Fallback - Fish Audio
@@ -45,11 +45,7 @@ Every reply tries the agent’s own model first. That is the model in `llm.model
 
 Instead of the call going silent, the platform retries the reply on another model. A switch only affects the reply that failed. The next reply tries the agent’s own model again.
 
-## 
-
-​
-
-Modes
+## Modes
 
 `llm.fallback.mode` picks the behavior:
 
@@ -61,11 +57,7 @@ Mode| Behavior
   
 With `manual` you choose which models back up the agent, in what order, and with what timing.
 
-## 
-
-​
-
-Configure manual fallback
+## Configure manual fallback
 
 Set `llm.fallback` on the agent’s draft configuration through [`PATCH /v1/agent/agents/{agent_id}/config`](https://docs.fish.audio/agents/build/configuration#configure-through-the-api). It works like any other `llm` field.
     
@@ -100,11 +92,7 @@ Set `llm.fallback` on the agent’s draft configuration through [`PATCH /v1/agen
 
 Changes take effect for new sessions after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-### 
-
-​
-
-`models`
+### `models`
 
 1 to 3 entries, tried in the order you list them. Each entry names one model:
 
@@ -124,11 +112,7 @@ Rules:
 
 
 
-### 
-
-​
-
-Timeouts
+### Timeouts
 
 Each entry in `models` can set two timeouts. `primary` sets the same two for the agent’s own model.
 
@@ -144,11 +128,7 @@ When `total_timeout_ms` runs out:
 
 These numbers are starting points, not thresholds. A shorter `ttft_timeout_ms` reaches a fallback sooner. It also switches away from a model that was about to answer.
 
-### 
-
-​
-
-Run a fallback in parallel
+### Run a fallback in parallel
 
 The first entry in `models` can set `parallel.kick_in_ms`. Range 300–10,000, default 1500.
 
@@ -159,11 +139,7 @@ The first entry in `models` can set `parallel.kick_in_ms`. Range 300–10,000, d
 
 Parallel trades cost for latency. Both requests bill their own tokens, whichever reply is used.
 
-## 
-
-​
-
-What triggers a switch
+## What triggers a switch
 
 A reply moves to the next model on:
 
@@ -174,38 +150,22 @@ A reply moves to the next model on:
 
 
 
-## 
-
-​
-
-What doesn’t switch
+## What doesn’t switch
 
   * **The agent choosing silence.** A model that finishes normally with an empty reply is the agent staying quiet on purpose. Nothing switches.
   * **A reply already playing.** Once the caller hears the answer, a problem finishing it counts as a failed reply.
 
 
 
-## 
-
-​
-
-Per-session override
+## Per-session override
 
 A session can replace the agent’s fallback configuration for that conversation only. See [`overrides.llm.fallback`](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides).
 
-## 
-
-​
-
-See which model answered
+## See which model answered
 
 The session detail endpoint reports every switch and which model wrote each reply. See [Conversation History](https://docs.fish.audio/agents/monitor/conversation-history#llm-fallbacks). The console’s **Conversations** view shows the same: each switch in the timeline, and which model answered each turn.
 
-## 
-
-​
-
-Billing
+## Billing
 
   * Each reply is billed by the model that answered it, at that model’s rate.
   * A reply from a [custom LLM](https://docs.fish.audio/agents/build/custom-llm#point-the-agent-at-your-endpoint) endpoint has no LLM charge. Main model or fallback.
@@ -213,11 +173,7 @@ Billing
 
 
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Custom LLM
 

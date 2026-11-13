@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/tools/
 title: Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:24.183739+00:00
+fetched_at: 2026-11-13T15:33:48.427672+00:00
 ---
 
 # Tools - Fish Audio
@@ -45,11 +45,7 @@ Your application executes the tool through the SDK.
 
 Built-in capabilities you switch on per agent.
 
-## 
-
-​
-
-Choose a tool type
+## Choose a tool type
 
 Type| Executed by| Use it for  
 ---|---|---  
@@ -59,11 +55,7 @@ Type| Executed by| Use it for
   
 Webhook and client tools are **custom tools** : you define a name, a description, and parameters, and the agent fills in the parameter values when it calls. A tool can check every call against its parameter schema before it runs, see [Parameters and validation](https://docs.fish.audio/agents/build/webhook-tools#parameters-and-validation). System tools are ready-made. Enable them with a switch on each agent.
 
-## 
-
-​
-
-Where tools live
+## Where tools live
 
 Custom tools are **workspace resources** , not part of a single agent. Define a `lookup_order` tool once and attach it to your support, sales, and after-hours agents. You manage them in two places:
 
@@ -74,22 +66,14 @@ Custom tools are **workspace resources** , not part of a single agent. Define a 
 
 Editing a shared tool updates the draft of **every** agent that uses it. Those agents show unpublished changes until they are published again. See [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-## 
-
-​
-
-Detach vs. delete
+## Detach vs. delete
 
   * **Detach** is agent-scoped. Removing a tool from an agent in the Builder leaves the tool (and its other attachments) untouched.
   * **Delete** is workspace-wide. Deleting a tool from the library in the console detaches it from every agent that uses it, and those agents show unpublished changes.
 
 Over the API, `DELETE` is stricter: it returns `409` while the tool is still attached to any agent. List the tool’s dependent agents first and detach it from each one.
 
-## 
-
-​
-
-Manage tools over the API
+## Manage tools over the API
 
 Every endpoint requires your API key. See the [API introduction](https://docs.fish.audio/api-reference/introduction).
 
@@ -135,11 +119,7 @@ Parameters can be referenced anywhere in the request with `{{name}}` placeholder
 
 The response lists each dependent agent’s `agent_id` and `name`, plus a `total` count. Field-level configuration (custom headers, request body templates, timeouts, error handling, and mock responses) is covered in [Webhook tools](https://docs.fish.audio/agents/build/webhook-tools).
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Test it live
 

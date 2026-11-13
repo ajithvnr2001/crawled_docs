@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/overview/
 title: Deploy Your Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:41.917191+00:00
+fetched_at: 2026-11-13T15:33:48.260856+00:00
 ---
 
 # Deploy Your Agent - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:41.917191+00:00
 > Source: https://docs.fish.audio/agents/deploy/overview/
 
 ## On this page
+
+Back to top
 
   * Where users meet your agent
   * Who may start sessions
@@ -38,11 +40,7 @@ Every surface runs the same agent with the same published configuration, and the
 
 Publishing gates every channel: sessions always run the agent’s **published** configuration, and creating a session against an agent that has never been published fails. [Publish](https://docs.fish.audio/agents/deploy/versions-publishing) before wiring up any channel.
 
-## 
-
-​
-
-Where users meet your agent
+## Where users meet your agent
 
 In increasing order of integration effort:
 
@@ -62,11 +60,7 @@ Bind a number and callers dial straight in.
 
 On a stack the SDKs don’t cover, implement the [wire protocol](https://docs.fish.audio/agents/deploy/protocol) directly.
 
-## 
-
-​
-
-Who may start sessions
+## Who may start sessions
 
 The widget and the SDKs each work with **either** access mode; pick per agent. Phone numbers skip this decision entirely: inbound calls connect through [telephony](https://docs.fish.audio/agents/telephony/inbound-calls), not a browser session.
 
@@ -85,11 +79,7 @@ Requires| Agent set to public + allowed origins| Your own backend endpoint
 Session parameters set by| The SDK (`overrides`, `dynamicVariables`, `language`, `toolEvents` options)| Your backend, in the creation request  
 Best for| Demos, marketing pages, low-friction embeds| Production apps with signed-in users  
   
-## 
-
-​
-
-Still deciding?
+## Still deciding?
 
 You are building| Start with  
 ---|---  
@@ -101,11 +91,7 @@ A phone line callers dial in to| [Phone numbers](https://docs.fish.audio/agents/
 Server-side session creation and history retrieval| [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) and [conversation history](https://docs.fish.audio/agents/monitor/conversation-history)  
 A client on a stack the SDKs don’t cover| [Wire protocol](https://docs.fish.audio/agents/deploy/protocol)  
   
-## 
-
-​
-
-How a browser session starts
+## How a browser session starts
 
 For private agents, your backend creates the session. Your API key never ships to the browser. The browser SDK takes the resulting session token and handles audio and transport from there.
 
@@ -132,11 +118,7 @@ Agents marked [public](https://docs.fish.audio/agents/deploy/public-agents) skip
 
 For phone calls there is no client integration: assign a number, and inbound calls connect directly to your agent, which can [transfer callers](https://docs.fish.audio/agents/telephony/transfers) to another number mid-call. See [Phone numbers](https://docs.fish.audio/agents/telephony/phone-numbers).
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Versions & publishing
 

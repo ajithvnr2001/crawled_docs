@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/preview-calls/
 title: Preview Calls - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:03.161747+00:00
+fetched_at: 2026-11-13T15:33:45.684716+00:00
 ---
 
 # Preview Calls - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:03.161747+00:00
 > Source: https://docs.fish.audio/agents/test/preview-calls/
 
 ## On this page
+
+Back to top
 
   * Start a preview call
   * During the call
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 Preview calls let you hold a live voice conversation with your agent without leaving the Builder. Every call runs against your current **draft** configuration: edit the system prompt, pick a different voice, and call again to hear the difference immediately, no publish required.
 
-## 
-
-​
-
-Start a preview call
+## Start a preview call
 
 1
 
@@ -66,17 +64,9 @@ Once connected, the status pill shows **Live** with a running call timer. The ag
 
 The panel stays connected while you switch between Builder sections, so you can read your configuration mid-call. Navigating away from the Builder (back to the agent list, for example) hangs up. If the call fails to connect, the panel shows an error state and lets you retry; a connection drop mid-call simply ends the call.
 
-## 
+## During the call
 
-​
-
-During the call
-
-### 
-
-​
-
-Live transcript
+### Live transcript
 
 The panel shows both sides of the conversation as it happens:
 
@@ -85,21 +75,13 @@ The panel shows both sides of the conversation as it happens:
 
 
 
-### 
-
-​
-
-Tool calls
+### Tool calls
 
 When the agent invokes a [tool](https://docs.fish.audio/agents/build/tools), the call appears inline in the transcript as a compact entry that flips from running to done or failed. Expand an entry to inspect the exact arguments the model sent and the response it received, as formatted JSON truncated at 4 KB.
 
 Preview calls run your real configuration. [Webhook tools](https://docs.fish.audio/agents/build/webhook-tools) send real HTTP requests to your endpoints. Point them at a staging environment if you want to avoid side effects while testing.
 
-### 
-
-​
-
-Controls
+### Controls
 
 Control| Behavior  
 ---|---  
@@ -107,11 +89,7 @@ Mute| Toggles your microphone without ending the call
 End call| Ends the call and returns the panel to its ready state  
 Timer| Shows elapsed time; preview calls are capped at 10 minutes (600 seconds), or the agent’s configured maximum call duration, whichever is lower  
   
-## 
-
-​
-
-Drafts, not published versions
+## Drafts, not published versions
 
 Preview calls and production sessions read different configurations:
 
@@ -124,11 +102,7 @@ This makes preview the fast inner loop: tweak the prompt, call, listen, repeat, 
 
 After a config change, hang up and start a new call. A preview call reflects the draft as it stood when the session was created.
 
-## 
-
-​
-
-After the call
+## After the call
 
 Preview sessions are built for iteration, not record-keeping:
 
@@ -138,11 +112,7 @@ Preview sessions are built for iteration, not record-keeping:
 
 
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Agent tests
 
@@ -166,4 +136,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/test/preview-calls.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/test/preview-calls)
 
-[Custom LLM](https://docs.fish.audio/agents/build/custom-llm)[Agent Tests](https://docs.fish.audio/agents/test/agent-tests)
+[LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback)[Agent Tests](https://docs.fish.audio/agents/test/agent-tests)

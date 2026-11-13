@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/inbound-calls/
 title: Inbound Calls - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:55.100028+00:00
+fetched_at: 2026-11-13T15:33:46.843808+00:00
 ---
 
 # Inbound Calls - Fish Audio
@@ -45,11 +45,7 @@ Review transcripts, tool calls, and recordings.
 
 Get notified when calls end and analysis completes.
 
-## 
-
-​
-
-Set up inbound calling
+## Set up inbound calling
 
 1
 
@@ -89,11 +85,7 @@ Unbind
 
 The number-to-agent binding is resolved on each incoming call, so a rebind takes effect on the next call, useful for moving a number from a staging agent to a production agent.
 
-## 
-
-​
-
-Phone sessions in history
+## Phone sessions in history
 
 Every answered call becomes a session with `source: "phone"` (`"whatsapp"` for [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp)) and these attribution fields:
 
@@ -142,11 +134,7 @@ System prompt
     The caller is calling from {{system.caller_number}}. Confirm the last four digits before discussing the account.
     
 
-## 
-
-​
-
-Personalize calls before the agent answers
+## Personalize calls before the agent answers
 
 Inbound calls have no session-creation request to carry [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables), so the agent has a dedicated hook instead: the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook). When configured, the platform posts the caller’s number to your endpoint while the call is being set up, and the `dynamic_variables` you return fill the `{{placeholders}}` in the published prompt and first message before the agent speaks. They fill [webhook tool](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables-in-webhook-tools) requests too, so a lookup tool can send the caller’s record id without the agent repeating it.
 
@@ -158,11 +146,7 @@ First message
 
 Set it on the agent’s **Webhooks** page in the console (**Inbound call webhook**) or through `webhooks.conversation_init` in the config API, then publish. A slow or failing endpoint never blocks the call: after the configured timeout (up to 8 seconds, default 5) the call connects and every placeholder takes its configured [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values) (`Hi there, thanks for calling Acme.`). Set a default for each placeholder the first message depends on, or set the agent’s `on_missing` to `reject` if the call must not connect without them. To have callers pick an option before the agent answers, the way a phone menu does, add a [keypad menu](https://docs.fish.audio/agents/telephony/keypad). The choice fills a variable the same way.
 
-## 
-
-​
-
-Phone sessions behave like any session
+## Phone sessions behave like any session
 
 Nothing about a phone call needs special handling downstream:
 
@@ -174,11 +158,7 @@ Nothing about a phone call needs special handling downstream:
 
 
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Phone numbers
 

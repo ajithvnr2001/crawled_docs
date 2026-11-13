@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/quickstart/
 title: Quick Start - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:54.502792+00:00
+fetched_at: 2026-11-13T15:33:43.734964+00:00
 ---
 
 # Quick Start - Fish Audio
@@ -32,21 +32,13 @@ Generate your first AI voice with Fish Audio in under 5 minutes
 
 Copy pageCopy page
 
-## 
-
-​
-
-Overview
+## Overview
 
 This guide will walk you through generating your first text-to-speech audio with Fish Audio. By the end, you’ll have converted text into natural-sounding speech using our API.
 
 **Already using the OpenAI, OpenRouter, ElevenLabs, or Groq SDK?** Swap in a Fish Audio base URL and API key and it keeps working. [Migrate to Fish Audio](https://docs.fish.audio/developer-guide/getting-started/migration) has the URL for each SDK.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -70,11 +62,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-## 
-
-​
-
-Your First TTS Request
+## Your First TTS Request
 
 The examples on this page use the free [`s2.1-pro-free`](https://docs.fish.audio/developer-guide/models-pricing/models-overview) model, so they work on a new account before you add any API credit. Choose your preferred method to generate speech:
 
@@ -260,11 +248,7 @@ The audio has been saved as `welcome.mp3`. You can play it by:
     start welcome.mp3
     
 
-## 
-
-​
-
-If your first request fails
+## If your first request fails
 
 Status| Likely cause| Fix  
 ---|---|---  
@@ -275,11 +259,7 @@ Status| Likely cause| Fix
   
 See [Errors](https://docs.fish.audio/api-reference/errors) for the full table and retry handling.
 
-## 
-
-​
-
-Customizing Your Voice
+## Customizing Your Voice
 
 The examples above use the default voice. To use a different voice, add the `reference_id` parameter with a model ID from [fish.audio](https://fish.audio). You can find the model ID in the URL or use the copy button when viewing any voice. Choose a voice to try:
 
@@ -362,11 +342,7 @@ Then generate speech with your chosen voice:
     console.log("✓ Audio saved to custom_voice.mp3");
     
 
-## 
-
-​
-
-Support
+## Support
 
 Need help? Check out these resources:
 

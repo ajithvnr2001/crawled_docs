@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/
 title: Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:56.687421+00:00
+fetched_at: 2026-11-13T15:33:42.733628+00:00
 ---
 
 # Speech to Text - Fish Audio
@@ -60,11 +60,7 @@ Every parameter for `POST /v1/asr`.
 
 Captions, batch transcription, and more.
 
-## 
-
-​
-
-Choose an ASR model
+## Choose an ASR model
 
 Model| Use it for  
 ---|---  
@@ -84,11 +80,7 @@ Field| Purpose
   
 If you use `transcribe-1`, select it with `model: transcribe-1` and send only `audio`, `language`, and `ignore_timestamps`. The other fields apply to `transcribe-1-pro` only.
 
-## 
-
-​
-
-When to use it
+## When to use it
 
 ## Captions & subtitles
 
@@ -106,11 +98,7 @@ Turn short utterances into text your app can act on.
 
 Make audio and video content readable.
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key) and set `FISH_API_KEY` in your environment. For the Python examples, [install the Fish Audio SDK](https://docs.fish.audio/developer-guide/sdk-guide/quickstart). Every example on this page selects `transcribe-1-pro`. The examples below also request timestamps. Install the Python SDK first: `pip install fish-audio-sdk`.
 
@@ -173,11 +161,7 @@ The response contains `text`, `duration` (seconds), `segments`, and `request_id`
 
 The Python SDK selects Pro through `RequestOptions.additional_headers`; `asr.transcribe()` has no `model` argument, and it cannot send the `transcribe-1-pro` fields such as `diarize`. The JavaScript example calls the REST API directly so the header is explicit. For multipart uploads, let your HTTP client set `Content-Type` and its boundary.
 
-## 
-
-​
-
-Read the timestamps
+## Read the timestamps
 
 Request timestamps with `ignore_timestamps=false`. The default is `true`, which skips them. Timestamps add processing time. In multipart forms, send `true` or `false`: any other value, including `1` or an empty value, is read as `false` and turns timestamps on. Each segment is `{ "text", "start", "end" }`, with times in **seconds**. Segments are word-level: a segment is usually one word, or in Chinese and Japanese usually one character or a few. Segment text has no punctuation and no speaker markers or cues, and can be normalized (for example `35` for `3.5`), so it does not always match `text` character for character. A segment can have `start` equal to `end`. `segments` is an empty array, never omitted, when you do not request timestamps, when no speech is found, or when timing is temporarily unavailable. Segments are not speaker turns; to see who spoke when, use `speaker_turns`.
 
@@ -214,19 +198,11 @@ For captions, group consecutive segments into caption-sized cues instead of writ
 
 In the Python SDK, segment timestamps are **on by default**. Pass `include_timestamps=False` to skip them. That’s the _inverse_ of the API/JavaScript flag `ignore_timestamps`.
 
-## 
-
-​
-
-Multi-speaker conversations
+## Multi-speaker conversations
 
 `transcribe-1-pro` supports recordings with multiple speakers, such as interviews, meetings, and calls. Send the recording as one audio file. Speaker labels are consistent within one response, not across requests, so do not split a conversation into several requests.
 
-### 
-
-​
-
-Speaker markers
+### Speaker markers
 
 Pro identifies speakers with **inline`<|speaker:N|>` markers in the response’s `text` string**, where `N` is a numeric speaker label. A marker assigns the following text to that speaker until the next marker. The same label can appear again when that speaker resumes talking. Markers usually have a space on each side (`<|speaker:0|> 你好。 <|speaker:1|> ...`); do not rely on exact spacing. Any text before the first marker belongs to the first turn. Unless you send `diarize=false`, a transcript with no marker comes from a single speaker; treat it as speaker 0. To get `text` without markers, send `diarize=false` (see Speaker options). For example, this illustrative response contains three turns from two speakers. It uses `ignore_timestamps=true`, so `segments` is empty:
     
@@ -271,11 +247,7 @@ Treat speaker labels as identifiers within that response, not as names or identi
 
 When you request timestamps, prefer `speaker_turns` over parsing `text`.
 
-### 
-
-​
-
-Speaker turns
+### Speaker turns
 
 With `ignore_timestamps=false`, `transcribe-1-pro` also returns `speaker_turns`, a list of who spoke when. The field is present when `ignore_timestamps=false` and `diarize` is not `false`; otherwise it is absent. Speaker identification is a `transcribe-1-pro` feature. This illustrative response is the same conversation with timestamps requested:
     
@@ -320,11 +292,7 @@ With `ignore_timestamps=false`, `transcribe-1-pro` also returns `speaker_turns`,
 
 
 
-### 
-
-​
-
-Speaker options
+### Speaker options
 
 These `transcribe-1-pro` fields control speaker identification:
 
@@ -371,11 +339,7 @@ API (curl)
       --form num_speakers=2 | jq '.speaker_turns'
     
 
-## 
-
-​
-
-Emotion and vocal-event cues
+## Emotion and vocal-event cues
 
 Pro can retain cues about how speech sounds alongside the spoken words. These appear as inline bracketed text, such as `[高兴]` (happy) or `[laughter]`, in the response’s `text` field and in the turn text of `speaker_turns`. For example, a transcript might contain:
     
@@ -385,17 +349,9 @@ Pro can retain cues about how speech sounds alongside the spoken words. These ap
 
 These are annotations inferred from the audio, not words you need to add to the request. The API has no separate `emotion` field or fixed emotion enum; preserve the returned text when your application needs these cues. To get a transcript without cues, send `tag_audio_events=false` (`transcribe-1-pro`). Cues are then removed from `text` and `speaker_turns`; timestamps and billing do not change. Word timestamps ignore speaker markers and cues. Read `text` for the annotated transcript and `segments` for timed speech; the segment text may therefore differ from the full transcript.
 
-## 
+## Implementation details
 
-​
-
-Implementation details
-
-### 
-
-​
-
-Language
+### Language
 
 `language` is optional. The language is detected automatically whether or not you send a hint, and a hint does not force the transcript into that language. With `transcribe-1-pro`, the hint does not change the transcript; it matters only when the language cannot be determined, as described below. Use a lowercase ISO 639-1 code such as `en`, `zh`, or `ja`. Other forms, such as `en-US` or `English`, may be rejected with 400. The response reports the language in two fields, which are omitted when unknown (never `null`):
 
@@ -430,19 +386,11 @@ API (curl)
       --form language=zh
     
 
-### 
-
-​
-
-Input audio
+### Input audio
 
 `transcribe-1-pro` accepts WAV, MP3, AAC (including M4A/MP4), FLAC, Ogg (Opus or Vorbis), WebM/Matroska, and MOV, including browser recordings, and uses the first audio track of a video file. Send the original file bytes; no conversion is needed. Not supported: AIFF, CAF, WMA, AMR, AC-3, and raw (headerless) PCM. These return 400. Send audio as `multipart/form-data` (a file upload, shown above) or `application/msgpack` (see Direct API). Base64-encoded audio in a JSON body is not supported. If you use `transcribe-1`, send WAV, MP3, AAC (including M4A/MP4), FLAC, or Ogg (Opus or Vorbis), and convert WebM recordings (for example, from a browser’s MediaRecorder) to Ogg/Opus, MP3, or WAV first, or use `transcribe-1-pro`.
 
-### 
-
-​
-
-Limits
+### Limits
 
 These limits apply to `transcribe-1-pro`:
 
@@ -452,19 +400,11 @@ These limits apply to `transcribe-1-pro`:
 
 If you use `transcribe-1`, send up to 50 MiB per request and keep MP3 and Opus files under 25 MiB; a request that exceeds the size limit returns 413 or 400. `transcribe-1` is designed for short recordings; for recordings longer than a few minutes, use `transcribe-1-pro`. A long request can fail with 503 if it exceeds the processing-time limit. Retry, and if it keeps failing, use `transcribe-1-pro` or split the audio.
 
-### 
-
-​
-
-Long recordings
+### Long recordings
 
 With `transcribe-1-pro`, send the whole recording, up to 60 minutes, in one request. Timestamps and speaker labels cover the whole recording. Do not split conversations: speaker labels are consistent only within one response. Long recordings can take several minutes, so raise your client timeout and retry on 5xx errors. You are billed for the full duration of the recording once. If you use `transcribe-1`, keep each request short. For a long recording, use `transcribe-1-pro`, or split the audio into shorter clips, transcribe each, and offset each clip’s `start`/`end` by where it began in the full recording. Check that each response covers the complete clip before combining transcripts.
 
-### 
-
-​
-
-Processing time and timeouts
+### Processing time and timeouts
 
 Each request returns only when the whole file has been transcribed. Processing time grows with the length of the recording, and timestamps add to it. Long `transcribe-1-pro` recordings can take several minutes. Set your HTTP client’s timeout accordingly. The official SDKs’ default timeout can be too short for long recordings, and many HTTP libraries default to even less. To wait up to 15 minutes, as several examples on this page do:
 
@@ -506,19 +446,11 @@ Each request returns only when the whole file has been transcribed. Processing t
 
 These values are examples, not a server guarantee. If a long request fails with a 5xx error or the connection drops, retry it. Each request also holds one of your account’s concurrent request slots until its response is returned; see [concurrent request limits](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits#concurrent-request-limits).
 
-### 
-
-​
-
-Request IDs
+### Request IDs
 
 `transcribe-1-pro` returns a unique `request_id` in the response body, both on success and on its own errors, and the same value in the `x-request-id` response header. Platform and network-edge errors do not carry it. Log it, and include it when you contact support. The Python SDK does not return it on success; read it with a direct API call, or from the error body as shown in Errors.
 
-### 
-
-​
-
-Errors
+### Errors
 
 The error body depends on where the error comes from:
 
@@ -563,11 +495,7 @@ Retry 429 and 5xx responses with exponential backoff; 429 responses have no `Ret
 
 If you use `transcribe-1`, its errors are JSON with `status` and `message`; rely only on these two fields.
 
-### 
-
-​
-
-Async transcription
+### Async transcription
 
 The Python SDK ships an async client with the same surface, useful when you’re transcribing many files concurrently or already running inside an event loop. Use `AsyncFishAudio` and `await` the call:
     
@@ -612,11 +540,7 @@ To run several files in parallel, gather the coroutines:
         print(result.text)
     
 
-### 
-
-​
-
-Direct API (MessagePack)
+### Direct API (MessagePack)
 
 `POST /v1/asr` also accepts a [MessagePack](https://msgpack.org) body instead of multipart form data, the same path the API reference links to for low-overhead, server-side calls. Calling the API directly also gives you the response fields the Python SDK does not return. Pack the audio bytes and options into one payload and set `Content-Type: application/msgpack`:
     
@@ -651,11 +575,7 @@ Direct API (MessagePack)
 
 The response is the same as for multipart: `text`, `duration` (seconds), `segments`, and `request_id`, plus `speaker_turns` when timestamps are requested, and `language_code` and `language` when the language is known. Model selection stays in the HTTP header for both formats. MessagePack values are typed: send booleans for `ignore_timestamps` and `tag_audio_events`, integers for speaker counts, and a boolean or `"auto"` for `diarize`.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Transcribe live audio
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/keypad/
 title: Keypad Menu and Input - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:55.377603+00:00
+fetched_at: 2026-11-13T15:33:46.772376+00:00
 ---
 
 # Keypad Menu and Input - Fish Audio
@@ -48,17 +48,9 @@ Callers can use their phone keypad in two ways:
 
 Both are off by default and only apply to phone calls; [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp) carry no key presses.
 
-## 
+## Keypad menu
 
-​
-
-Keypad menu
-
-### 
-
-​
-
-What the caller hears
+### What the caller hears
 
 1
 
@@ -86,17 +78,9 @@ The variable is filled and the agent’s first message plays with the choice in 
 
 While the menu runs, the agent doesn’t reply. What the caller says or presses still goes into the transcript and into the agent’s context, so the agent knows it once the conversation starts.
 
-### 
+### Set up the menu
 
-​
-
-Set up the menu
-
-#### 
-
-​
-
-In the console
+#### In the console
 
 On the agent’s **Phone** page, turn on the **Keypad menu** card and fill it in:
 
@@ -113,11 +97,7 @@ Setting| What it does
   
 Then [publish](https://docs.fish.audio/agents/deploy/versions-publishing). Calls always use the published configuration.
 
-#### 
-
-​
-
-Through the API
+#### Through the API
 
 Set `conversation.keypad_menu` in the config, then publish:
     
@@ -160,11 +140,7 @@ Field| Default| Description
   
 `keypad_menu` is replaced as a whole: fields you leave out go back to their defaults, and `{}` resets the menu. An enabled menu needs a prompt and at least one option, with no key used twice. The prompt and retry message can’t use the menu’s own `{{variable}}`, because it has no value while the menu plays. A request that breaks these rules returns `422`.
 
-### 
-
-​
-
-Use the choice
+### Use the choice
 
 The menu’s variable works like any [custom variable](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables). Write `{{department}}` (your variable’s name) in:
 
@@ -198,19 +174,11 @@ First message prompt
     Don't greet the caller again. Confirm they want {{department}} and ask how you can help.
     
 
-#### 
-
-​
-
-Sessions without the menu
+#### Sessions without the menu
 
 Outbound calls, [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp), web and API sessions, preview calls, and agent tests skip the menu. There the variable takes the menu’s fallback value, so texts that mention it read well. Without a fallback value it renders like any other custom variable, from its [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values) and then `on_missing`; with neither, `on_missing: reject` rejects the session.
 
-### 
-
-​
-
-See what callers chose
+### See what callers chose
 
 Phone sessions report how the menu ended in `keypad_menu`, on [`GET /v1/agent/sessions`](https://docs.fish.audio/agents/monitor/conversation-history) (list and detail) and on the `session` of the `call.ended` and `call.analyzed` [webhooks](https://docs.fish.audio/agents/monitor/webhooks):
     
@@ -240,17 +208,9 @@ Field| Description
   
 `keypad_menu` is `null` when the call had no menu, while the call is still in progress, when the caller hung up before the menu ended, and after the session’s content is deleted under the agent’s [data retention](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored). Keys pressed during the menu also appear in the transcript, as a user message like `Keypad entry: 2`.
 
-## 
+## Keypad input
 
-​
-
-Keypad input
-
-### 
-
-​
-
-How digits reach the agent
+### How digits reach the agent
 
 When keypad input is on, the keys a caller types are grouped into entries. An entry ends when the caller presses the end key (which is not part of the entry), pauses for the configured time, or reaches 50 keys. The agent receives each entry as one user message:
     
@@ -277,11 +237,7 @@ When keypad input is off, the agent doesn’t respond to keys pressed during the
 
 Typed digits are plain text in the transcript and in what the model sees. Don’t use keypad input to collect PINs, card numbers, or other secrets.
 
-### 
-
-​
-
-Set up keypad input
+### Set up keypad input
 
 On the agent’s **Configuration** page, open **Keypad input** , turn on **Accept keypad input** , and pick:
 
@@ -311,35 +267,19 @@ Field| Default| Description
 `terminator`| `#`| `#`, `*`, or `none` (pause only).  
 `inter_digit_timeout_seconds`| `2`| 1 to 10.  
   
-## 
-
-​
-
-Key tones and speech
+## Key tones and speech
 
 A key press also makes a tone in the caller’s audio. On calls with a keypad menu or keypad input, these tones are never transcribed as speech and never interrupt the agent. A turn that starts with real speech still reaches the agent, even if the caller presses a key partway through it.
 
-## 
-
-​
-
-Phone line requirements
+## Phone line requirements
 
 Key presses can arrive as RFC 4733 telephone events or as tones in the caller’s audio, and the platform accepts both. This includes callers whose carrier only sends tones, which is common on international calls. Numbers you get from Fish Audio need no setup. With [your own SIP trunk](https://docs.fish.audio/agents/telephony/byo-sip), make sure your carrier or PBX either negotiates `telephone-event` in SDP or passes the tones through in the audio. A PBX that removes the tones without sending events delivers no key presses.
 
-## 
-
-​
-
-Test with a real call
+## Test with a real call
 
 Preview calls in the Builder and agent tests don’t run the keypad menu or keypad input. Publish the agent, bind it to a number, and call it from a phone.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Dynamic variables
 

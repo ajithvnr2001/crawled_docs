@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/requirements/
 title: Requirements - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T15:24:40.001457+00:00
+fetched_at: 2026-11-13T15:33:42.785964+00:00
 ---
 
 # Requirements - Fish Audio
@@ -34,11 +34,7 @@ Copy pageCopy page
 
 These are the baselines Fish Audio deploys against. Throughput and time-to-first-audio depend on your GPU, text length, and concurrency, so confirm sizing with your account team and measure on your own hardware before you commit to a capacity plan.
 
-## 
-
-​
-
-Hardware
+## Hardware
 
 Requirement| Detail  
 ---|---  
@@ -50,11 +46,7 @@ GPU count| **Two** in most deployments: one for the inference worker, one for th
 MIG| Disable MIG unless the configuration has been validated with Fish Audio.  
 NVIDIA driver| Must support CUDA 13.x and your card’s compute capability.  
   
-## 
-
-​
-
-Network
+## Network
 
 Traffic| Requirement  
 ---|---  
@@ -63,17 +55,9 @@ Billing| With online billing, every request is authorized over HTTPS against the
 Voice sync| Optional. When turned on, the deployment downloads voices from Fish Audio over HTTPS.  
 Inbound| Your own ingress, load balancer, or private endpoint, with DNS and TLS in place before production traffic.  
   
-## 
+## Platform-specific requirements
 
-​
-
-Platform-specific requirements
-
-### 
-
-​
-
-Helm (Kubernetes)
+### Helm (Kubernetes)
 
 Requirement| Detail  
 ---|---  
@@ -87,11 +71,7 @@ Pod Security| The namespace must permit `hostPath` volumes for every service on 
   
 The shared mount is created with `DirectoryOrCreate`. A node that is missing it silently gets a local directory instead, and the deployment looks healthy while data splits across nodes. Verify the mount, and that it is writable, on **every** node before installing.
 
-### 
-
-​
-
-All-in-One (Docker)
+### All-in-One (Docker)
 
 Requirement| Detail  
 ---|---  
@@ -99,11 +79,7 @@ Docker| Docker Engine 24 or newer, with the NVIDIA Container Toolkit installed a
 CPU and RAM| 32 vCPU and 128 GiB minimum; 48 to 64 vCPU and 192 GiB recommended.  
 Disk| For S2.1 Pro, 100 GB free to pull the image, or 120 GB to load it from a file; Drama 3 needs more. Plus a persistent volume for caches, voices, and the usage ledger; local disk is enough.  
   
-## 
-
-​
-
-Next step
+## Next step
 
 Once the platform checks pass, authenticate to the Fish Audio registry in [Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access).
 

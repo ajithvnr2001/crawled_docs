@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/voice-design/
 title: Voice Design - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:40.984798+00:00
+fetched_at: 2026-11-13T15:33:42.135488+00:00
 ---
 
 # Voice Design - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:40.984798+00:00
 > Source: https://docs.fish.audio/features/voice-design/
 
 ## On this page
+
+Back to top
 
   * When to use it
   * Quick start
@@ -44,11 +46,7 @@ Voice Design is billed per successful generation request.
 
 Create a reusable voice model from reference audio.
 
-## 
-
-​
-
-When to use it
+## When to use it
 
 ## Explore voice concepts
 
@@ -66,11 +64,7 @@ Use generated candidates to choose a voice direction before longer TTS productio
 
 Get generated audio directly without creating batches, samples, or voice models.
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Send a JSON request with a prompt and receive generated candidates. The current candidate audio payload is WAV bytes encoded as base64.
 
@@ -148,11 +142,7 @@ JavaScript
     console.log(candidates[0].sample_rate, candidates[0].duration_ms);
     
 
-## 
-
-​
-
-Prompt and preview text
+## Prompt and preview text
 
 `instruction` is the main voice design prompt. Describe the voice, age, delivery, tone, accent, pacing, and context in natural language.
     
@@ -167,11 +157,7 @@ Prompt and preview text
 
 `reference_text` is optional. When you provide it, candidates read that text so you can compare voices on the same line. Keep it short; the API accepts up to 300 characters.
 
-## 
-
-​
-
-Parameters
+## Parameters
 
 Field| Default| Notes  
 ---|---|---  
@@ -187,11 +173,7 @@ Field| Default| Notes
   
 Voice Design accepts JSON only. Do not send MessagePack, multipart form data, inline reference audio, or service-internal fields such as `features`, `features_json_file`, or `include_audio_base64`.
 
-## 
-
-​
-
-Response
+## Response
 
 The response contains one or more generated candidates:
     
@@ -213,11 +195,7 @@ The response contains one or more generated candidates:
 
 Use `index` to preserve the order returned by the model. `id` is a stable candidate identifier for this response. Optional fields such as `text`, `instruct`, and `language` appear only when available.
 
-## 
-
-​
-
-Billing and errors
+## Billing and errors
 
 Voice Design is billed once per successful generation request, not once per candidate. Authentication errors, validation errors, insufficient API credit, concurrency limits, upstream service errors, and empty candidate responses are not billed. For the full error format and retry guidance, see [Errors](https://docs.fish.audio/api-reference/errors).
 
@@ -227,4 +205,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/features/voice-design.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/features/voice-design)
 
-[Speech to Text](https://docs.fish.audio/features/speech-to-text)[Voice Cloning](https://docs.fish.audio/features/voice-cloning)
+[Realtime](https://docs.fish.audio/features/speech-to-text/realtime)[Voice Cloning](https://docs.fish.audio/features/voice-cloning)

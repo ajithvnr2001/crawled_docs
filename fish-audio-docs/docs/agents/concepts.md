@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/concepts/
 title: Core Concepts - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:46.599325+00:00
+fetched_at: 2026-11-13T15:33:48.812899+00:00
 ---
 
 # Core Concepts - Fish Audio
@@ -39,11 +39,7 @@ Copy pageCopy page
 
 Four nouns cover the whole platform. A **workspace** holds everything your team builds. An **agent** is a voice assistant you configure. Publishing an agent’s draft creates an immutable **version**. And every conversation with an agent (from your app, a phone call, or the console) is a **session**.
 
-## 
-
-​
-
-Workspaces
+## Workspaces
 
 A workspace is the isolation boundary for everything you create. Agents, tools, knowledge sources, and tests all belong to a workspace, and nothing in it is visible from any other workspace. Tools, knowledge sources, and tests are **workspace-level resources** , not per-agent ones: create a webhook tool once and attach it to as many agents as you like. Access controls in the console decide which agents can use each shared resource. Your API key belongs to your team: requests under `/v1/agent/*` can read and write agent resources across all of your team’s workspaces, and each resource carries its `workspace_id`. Resources created through the API land in the key owner’s default workspace:
 
@@ -56,19 +52,11 @@ List your team's agents
 
 Create keys under [API keys](https://fish.audio/app/api-keys/) in the console.
 
-## 
-
-​
-
-Agents
+## Agents
 
 An agent is a bundle of configuration: a system prompt that steers behavior, a first-message policy, a [voice and speaking language](https://docs.fish.audio/agents/build/voice-language), attached [tools](https://docs.fish.audio/agents/build/tools), and [knowledge sources](https://docs.fish.audio/agents/build/knowledge-base). You assemble it in the Builder (the console page you land on after creating an agent) or through the API at `/v1/agent/agents`. Creating an agent takes only a name. Everything else is configured afterward, so start minimal and iterate.
 
-## 
-
-​
-
-Drafts and published versions
+## Drafts and published versions
 
 Every agent has exactly one **draft** and any number of immutable **published versions**.
 
@@ -90,11 +78,7 @@ Keep iterating
 
 Continue editing the draft without affecting live conversations. When you’re ready, publish again. The version number increments.
 
-### 
-
-​
-
-Live vs. Draft
+### Live vs. Draft
 
 The agent list shows one of two states:
 
@@ -105,11 +89,7 @@ Badge| Meaning
   
 Editing the draft of a Live agent does not change its badge. The Builder shows an unpublished-changes indicator next to **Publish** instead.
 
-### 
-
-​
-
-Which configuration runs
+### Which configuration runs
 
   * [Preview calls](https://docs.fish.audio/agents/test/preview-calls) in the Builder always run the **current draft** , so you can hear changes before anyone else does.
   * Sessions from the SDK, phone calls, and public agent links run the **latest published version**.
@@ -118,19 +98,11 @@ Which configuration runs
 
 This split is the core workflow: iterate on the draft, verify with a preview call, then publish to roll the change out to real traffic.
 
-### 
-
-​
-
-Restore and clone
+### Restore and clone
 
 Past versions stay in the agent’s history. Review them or restore one back into the draft from [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing). **Clone** creates a new agent from an existing one’s current draft: prompt, voice, and tool and knowledge attachments carry over (shared resources are referenced, not copied). The clone is named `{name} copy`, starts as Draft, and does not inherit the source’s publish history.
 
-## 
-
-​
-
-Sessions
+## Sessions
 
 A session is one conversation between one user and one agent. Sessions start from four places:
 
@@ -152,11 +124,7 @@ Anyone talks to an agent you’ve shared publicly.
 
 Except [preview calls](https://docs.fish.audio/agents/test/preview-calls), which are ephemeral and never enter history, every session appears in [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history) and `/v1/agent/sessions` (with its transcript, and its recording when the agent [records audio](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored)) and can trigger [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis) when configured.
 
-## 
-
-​
-
-Cascade vs. full duplex
+## Cascade vs. full duplex
 
 An agent speaks in one of two ways, set by its [text-to-speech model](https://docs.fish.audio/agents/build/voice-language#text-to-speech-model). In both, speech recognition transcribes the caller and the LLM writes the reply from your prompt, tools, and knowledge sources. They differ in how the reply is spoken.
 
@@ -175,21 +143,13 @@ Delivery controls| Speaking speed, expressive mode, pronunciation dictionaries| 
   
 New agents start on Live 3. Switch to the cascade for languages other than English, for the closest match to a cloned voice, or for control over delivery.
 
-## 
-
-​
-
-Deleting resources
+## Deleting resources
 
 Deletion is immediate and, from the console, cannot be undone: a deleted agent disappears from lists, the Builder, and all API responses. The same applies to tools, knowledge sources, and tests.
 
 Names are freed on deletion: you can immediately create a new agent (or tool) with the same name.
 
-## 
-
-​
-
-Where everything lives
+## Where everything lives
 
 Concept| Console| API resource  
 ---|---|---  
@@ -200,11 +160,7 @@ Tool| Builder **Tools** page| [`/v1/agent/tools`](https://docs.fish.audio/api-re
 Knowledge source| Builder **Knowledge base** page| [`/v1/agent/knowledge-sources`](https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-sources)  
 Phone number| **Phone numbers** page| [`/v1/agent/phone-numbers`](https://docs.fish.audio/api-reference/endpoint/agent/list-phone-numbers)  
   
-## 
-
-​
-
-Going further
+## Going further
 
 ## Quickstart
 

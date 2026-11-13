@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/pricing/
 title: Pricing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:46.660979+00:00
+fetched_at: 2026-11-13T15:33:46.997534+00:00
 ---
 
 # Pricing - Fish Audio
@@ -39,17 +39,9 @@ Copy pageCopy page
 
 Agents cost **$0.07 per minute** of conversation, with a small number of add-ons for telephony and token-billed models. Every account starts with a $5 trial balance, and everything after that is charged against your API credit. Current promotions, concurrency limits, and plans are on the [pricing page](https://fish.audio/plan/?plans=agent).
 
-## 
+## Rates
 
-​
-
-Rates
-
-### 
-
-​
-
-Per-session charges
+### Per-session charges
 
 These charges apply while a web session or phone call is running.
 
@@ -61,11 +53,7 @@ Phone call surcharge| +$0.01 per minute| Added to the conversation rate on phone
   
 Usage is counted per second. A plus sign marks a charge on top of the conversation rate. Calls on [imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) and [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp) carry no phone surcharge and no transfer fees. They bill like web sessions.
 
-### 
-
-​
-
-Transfers
+### Transfers
 
 When the agent [transfers](https://docs.fish.audio/agents/telephony/transfers) a phone call to a person, the conversation rate and phone surcharge stop, and the rest of the call is billed at a transfer rate instead:
 
@@ -74,11 +62,7 @@ Item| Price| Notes
 Cold transfer| $0.015 per minute| Starts when the agent hands the call to the person  
 Warm transfer| $0.025 per minute| Starts when the caller and the person are joined. The hold and briefing before that bill as part of the conversation. The joined call is still recorded  
   
-### 
-
-​
-
-Monthly fees
+### Monthly fees
 
 These charges apply whether or not your agent takes any calls.
 
@@ -88,11 +72,7 @@ Phone number rental| $1.20 per month| Charged in daily slices while you hold the
   
 [Imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) and [WhatsApp Business numbers](https://docs.fish.audio/agents/telephony/whatsapp) carry no rental.
 
-### 
-
-​
-
-LLM models
+### LLM models
 
 The LLM your agent runs is chosen in the Builder. The basic models are:
 
@@ -102,11 +82,7 @@ The LLM your agent runs is chosen in the Builder. The basic models are:
 
 Every model has a per-token cost. For now the conversation rate covers it for the basic models as a promotional offer, so they carry no separate charge. Every other model is billed on token usage. Prices are expressed in USD per 1 million tokens, with separate rates for input tokens, output tokens, and cached input. These rates are determined by the LLM providers and may change. Refer to the provider’s documentation for current pricing. What a minute costs on such a model therefore depends on your agent: how long the system prompt and retrieved knowledge are, how much conversation history the model re-reads on every turn, how often it is called, and how verbose its replies are. The Builder shows an estimated per-minute figure next to each token-billed model, computed from your current prompt and typical agent behavior. The estimate does not account for prompt caching, and actual charges are based on token usage. After a conversation, each message in the dashboard’s conversation view shows its model requests and token cost. A [custom LLM](https://docs.fish.audio/agents/build/custom-llm) endpoint carries no LLM charge.
 
-### 
-
-​
-
-Simulation tests
+### Simulation tests
 
 A [Simulation test](https://docs.fish.audio/agents/test/agent-tests#simulation-tests) has the agent talk to a simulated user in text, then an LLM judge scores the conversation. There is no conversation rate. Each run that ends in **Pass** or **Fail** is charged:
 
@@ -123,11 +99,7 @@ Gemma 4 26B| $0.10| $0.05| $0.30
   
 The other models are billed at the same rates as in conversations. The result of each run shows what it was charged, and the [Agents billing page](https://fish.audio/app/agents/billing) itemizes the platform fee and each participant’s tokens.
 
-### 
-
-​
-
-Outbound destinations
+### Outbound destinations
 
 The standard phone surcharge applies to inbound calls and most outbound calls. Outbound calls to the destinations below replace it with a rate that depends on the number dialed:
 
@@ -141,11 +113,7 @@ Mexico (mobile means the legacy `+52 1`)| +$0.02 per minute| +$0.05 per minute
   
 The countries purchased numbers can call are listed under [allowed destinations](https://docs.fish.audio/agents/telephony/outbound-calls#allowed-destinations).
 
-## 
-
-​
-
-Trial balance
+## Trial balance
 
 Every account starts with a one-time **$5 trial balance** , about 70 minutes of conversation at the list rate. It pays for real usage at the normal rates:
 
@@ -156,19 +124,11 @@ Every account starts with a one-time **$5 trial balance** , about 70 minutes of 
 
 
 
-## 
-
-​
-
-Billing
+## Billing
 
 Usage is charged to your **API credit** , the same prepaid balance as the Fish Audio speech APIs. Sessions are charged when they end, Simulation test runs when they finish, and number rental is charged daily. Every charge is listed on the [Agents billing page](https://fish.audio/app/agents/billing).
 
-## 
-
-​
-
-Examples
+## Examples
 
 The examples use the list rate.
 
@@ -187,11 +147,7 @@ LLM usage: the session’s tokens at the LLM’s rates| $0.35 + LLM usage
 Simulation test run with 6 agent replies| Platform fee 6 × $0.003 = $0.018  
 LLM usage: the agent’s, the simulated user’s, and the judge’s tokens| $0.018 + LLM usage  
   
-## 
-
-​
-
-Going further
+## Going further
 
 ## Quickstart
 

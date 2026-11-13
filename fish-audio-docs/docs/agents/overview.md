@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/overview/
 title: Agents Overview - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:44.124560+00:00
+fetched_at: 2026-11-13T15:33:47.728445+00:00
 ---
 
 # Agents Overview - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:44.124560+00:00
 > Source: https://docs.fish.audio/agents/overview/
 
 ## On this page
+
+Back to top
 
   * Three surfaces, one agent
   * From draft to production
@@ -43,11 +45,7 @@ Agents, drafts, versions, sessions: the mental model.
 
 Pick the right surface for your app.
 
-## 
-
-​
-
-Three surfaces, one agent
+## Three surfaces, one agent
 
 Surface| What it does| Start here  
 ---|---|---  
@@ -62,11 +60,7 @@ All three operate on the same agents. The core console workflow (creating agents
       --header "Authorization: Bearer $FISH_API_KEY"
     
 
-## 
-
-​
-
-From draft to production
+## From draft to production
 
 1
 
@@ -98,11 +92,7 @@ Monitor
 
 Review transcripts, tool calls, and recordings in [conversation history](https://docs.fish.audio/agents/monitor/conversation-history), let [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis) summarize and evaluate every call, and push results to your backend with [webhooks](https://docs.fish.audio/agents/monitor/webhooks).
 
-## 
-
-​
-
-Capabilities
+## Capabilities
 
 ## Prompt & voice
 

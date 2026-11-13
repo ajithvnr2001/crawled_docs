@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/post-call-analysis/
 title: Post-call Analysis - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:43.202535+00:00
+fetched_at: 2026-11-13T15:33:47.371598+00:00
 ---
 
 # Post-call Analysis - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:43.202535+00:00
 > Source: https://docs.fish.audio/agents/monitor/post-call-analysis/
 
 ## On this page
+
+Back to top
 
   * What a run produces
     * Summary
@@ -46,17 +48,9 @@ Analysis is embedded in every session detail response.
 
 Get notified the moment a conversation is analyzed.
 
-## 
+## What a run produces
 
-​
-
-What a run produces
-
-### 
-
-​
-
-Summary
+### Summary
 
 A concise recap of the conversation, enabled by default.
 
@@ -67,11 +61,7 @@ A concise recap of the conversation, enabled by default.
 
 Summaries and rationales are always written in the configured language, even when the conversation happened in another one, so downstream systems see consistent output.
 
-### 
-
-​
-
-Data fields
+### Data fields
 
 Structured values extracted from the transcript, up to **20 fields** per agent. Each field is:
 
@@ -84,11 +74,7 @@ Property| Description
   
 When the conversation doesn’t contain the information, the field’s value is `null` with a rationale explaining why.
 
-### 
-
-​
-
-Success criteria
+### Success criteria
 
 Up to **10 criteria** per agent, each a `name` plus a `description` (up to 500 characters) stating what a successful conversation looks like, such as “The agent resolved the caller’s issue or set clear next steps.” Every criterion gets a three-state verdict with a rationale:
 
@@ -100,11 +86,7 @@ Up to **10 criteria** per agent, each a `name` plus a `description` (up to 500 c
 
 The `unknown` state is deliberate: rather than forcing an ambiguous call into a binary verdict, the model tells you it couldn’t judge, so your success-rate numbers stay honest.
 
-## 
-
-​
-
-Configure analysis
+## Configure analysis
 
 Open your agent’s **Analysis** page in the Builder. Three cards (Summary, Data fields, and Criteria) autosave to the draft as you edit. You can also set the `analysis` section of the configuration via the API:
     
@@ -140,11 +122,7 @@ Open your agent’s **Analysis** page in the Builder. Three cards (Summary, Data
 
 Like all configuration, edits land in the [draft](https://docs.fish.audio/agents/deploy/versions-publishing). Preview calls use the draft immediately; production sessions pick up analysis changes after you **publish**. To disable analysis entirely, turn the summary off and leave both lists empty. Conversations then finish with analysis status `skipped` and no LLM call is made.
 
-## 
-
-​
-
-When analysis runs
+## When analysis runs
 
 Analysis starts automatically when a conversation ends: production sessions from any source, and preview calls when you end them. A run moves through these statuses:
 
@@ -160,11 +138,7 @@ Results are typically ready within seconds of the conversation ending.
 
 Production sessions are analyzed against the agent version pinned when the session started; editing your criteria afterwards never changes how past conversations were judged.
 
-## 
-
-​
-
-Read the results
+## Read the results
 
 In the Builder, analysis appears in the call panel after a preview call ends. Programmatically, the [session detail](https://docs.fish.audio/agents/monitor/conversation-history) response embeds it under `analysis`:
     
@@ -205,11 +179,7 @@ In the Builder, analysis appears in the call panel after a preview call ends. Pr
 
 To push results into your CRM or data warehouse as soon as they’re ready, configure a [post-call webhook](https://docs.fish.audio/agents/monitor/webhooks). `call.analyzed` fires as soon as the run settles, whatever the outcome, with `analysis.status` telling you which of the terminal statuses above it reached.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Conversation history
 

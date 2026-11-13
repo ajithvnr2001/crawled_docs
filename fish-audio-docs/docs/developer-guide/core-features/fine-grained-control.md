@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/
 title: Fine-grained Control - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:29.537165+00:00
+fetched_at: 2026-11-13T15:33:43.539897+00:00
 ---
 
 # Fine-grained Control - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:29.537165+00:00
 > Source: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/
 
 ## On this page
+
+Back to top
 
   * Getting Started
   * Phoneme Control
@@ -38,21 +40,13 @@ Put your phoneme or paralanguage tags into the `text` field and send a real requ
 
 Create, preview, and publish pronunciation rules in the web app, then reuse them across TTS requests.
 
-## 
-
-​
-
-Getting Started
+## Getting Started
 
 To use fine-grained control, you can use either our SDK, API, or Playground. SDK/API: Phoneme tags are preserved by text normalization, so you can keep the default normalization behavior for pronunciation control. Set `"normalize": false` only when you want to prevent normalization from rewriting the surrounding text, such as numbers, dates, or URLs. Normalization detects the language of each text chunk. To choose the rules yourself, for example Mexican rather than Spain Spanish readings, set the API field `"language"` to a BCP-47 tag such as `"es-MX"`. It affects only normalization and word timestamps, not the voice or accent. See [Language](https://docs.fish.audio/features/text-to-speech#language) and [Supported normalization languages](https://docs.fish.audio/features/text-to-speech#supported-normalization-languages). Playground: You can use V1.6 Control Model, without setting any other options.
 
 Disabling normalization may reduce the stability of reading numbers, dates, and URLs. You’ll need to handle these cases manually for best results.
 
-## 
-
-​
-
-Phoneme Control
+## Phoneme Control
 
 Phoneme control allows you to specify exact pronunciations for words, characters, or short phrases. Wrap the desired pronunciation in `<|phoneme_start|>` and `<|phoneme_end|>` tags. The replacement scope depends on the language:
 
@@ -74,11 +68,7 @@ Tone-number pinyin examples for multi-character words, tones, and polyphonic cha
 
 OpenJTalk romaji phonemes with pitch accent digits.
 
-### 
-
-​
-
-Quick Examples
+### Quick Examples
 
 English:
     
@@ -98,27 +88,15 @@ Japanese:
     <|phoneme_start|>ha0shi1ga0<|phoneme_end|>見えます。
     
 
-## 
-
-​
-
-Paralanguage
+## Paralanguage
 
 Paralanguage controls allow you to add natural speech elements and pauses to make the generated speech sound more human-like. There are two main types of controls:
 
-### 
-
-​
-
-Pause Words
+### Pause Words
 
 You can use common pause words like “um”, “uh”, “嗯”, “啊” to control the rhythm of the speech.
 
-### 
-
-​
-
-Special Effects
+### Special Effects
 
 The following special effects can be added using parentheses:
 

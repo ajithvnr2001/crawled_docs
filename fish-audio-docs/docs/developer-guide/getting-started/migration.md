@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/migration/
 title: Migrate to Fish Audio - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.657631+00:00
+fetched_at: 2026-11-13T15:33:43.901505+00:00
 ---
 
 # Migrate to Fish Audio - Fish Audio
@@ -330,11 +330,7 @@ curl
 
 Full guide: [Migrate from Groq](https://docs.fish.audio/developer-guide/compat/migrate-from-groq), covering transcription, the model catalog, and what each feature supports.
 
-## 
-
-​
-
-From a framework
+## From a framework
 
 Frameworks that speak the OpenAI protocol work the same way: point them at `/compat/v1`:
 
@@ -381,11 +377,7 @@ Vercel AI SDK
 
 Building a voice agent with Pipecat or LiveKit? Fish Audio has [native integrations](https://docs.fish.audio/developer-guide/integrations/pipecat) for those.
 
-## 
-
-​
-
-Models
+## Models
 
 Model| What it is  
 ---|---  
@@ -397,11 +389,7 @@ Model| What it is
   
 `transcribe-1` needs no language hint. The `language` field in a transcription response echoes what you sent: empty when you sent none, never a detection result (the [ElevenLabs protocol](https://docs.fish.audio/developer-guide/compat/migrate-from-elevenlabs#speech-to-text) echoes `language_code` the same way). For speaker turns, long recordings, and inline emotion cues, use `transcribe-1-pro` on the native [Speech to Text API](https://docs.fish.audio/features/speech-to-text).
 
-## 
-
-​
-
-Voices
+## Voices
 
 The examples above use the model’s default voice. To pick a specific one, pass a **voice ID** : browse the [Voice Library](https://docs.fish.audio/overview/platform) and copy the id of any voice, or make your own with [Voice Cloning](https://docs.fish.audio/features/voice-cloning) or [Voice Design](https://docs.fish.audio/features/voice-design). Vendor preset names (`nova`, `echo`, `Rachel`, …) don’t exist here.
     
@@ -410,11 +398,7 @@ The examples above use the model’s default voice. To pick a specific one, pass
     voice_id="9a9cf47702da476aa4629e2506d4a857"   # ElevenLabs
     
 
-## 
-
-​
-
-Going further
+## Going further
 
 Wondering whether an option you rely on is supported? See [Compatibility](https://docs.fish.audio/developer-guide/compat/capabilities). Starting fresh instead? The [native API](https://docs.fish.audio/api-reference/introduction) and [official SDK](https://docs.fish.audio/developer-guide/sdk-guide/quickstart) expose every Fish Audio capability directly.
 

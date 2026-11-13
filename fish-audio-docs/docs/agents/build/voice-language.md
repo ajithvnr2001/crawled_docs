@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/voice-language/
 title: Voice & Language - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:46.772202+00:00
+fetched_at: 2026-11-13T15:33:48.726535+00:00
 ---
 
 # Voice & Language - Fish Audio
@@ -55,11 +55,7 @@ Browse public voices and manage your own.
 
 Create a custom voice, then use it here. See [Voice Cloning](https://docs.fish.audio/features/voice-cloning).
 
-## 
-
-​
-
-Pick a voice in the Builder
+## Pick a voice in the Builder
 
 The voice picker on the **Configuration** page has two levels: a curated list for a fast start, and the full Voice Library when you want something specific.
 
@@ -87,11 +83,7 @@ Publish
 
 Draft changes don’t affect live sessions until you **Publish**. See [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-## 
-
-​
-
-Use any voice model
+## Use any voice model
 
 The agent’s voice is a **voice model id** (`voice_id`): the same ids used as `reference_id` in [Text to Speech](https://docs.fish.audio/features/text-to-speech). Any public voice model from the Voice Library works, including:
 
@@ -100,11 +92,7 @@ The agent’s voice is a **voice model id** (`voice_id`): the same ids used as `
 
 
 
-## 
-
-​
-
-Set the voice via API
+## Set the voice via API
 
 Voice settings live in the `voice` section of the agent’s configuration. Patches are partial: only the fields you send change, and the result is saved to the draft:
 
@@ -123,11 +111,7 @@ API (curl)
 
 `voice.speaking_language` lives in the same section and is patched the same way. As in the Builder, API edits land in the draft. Publish to roll them out.
 
-## 
-
-​
-
-Speaking language
+## Speaking language
 
 **Speaking language** sets the language for the agent’s conversations (`voice.speaking_language` on the wire). Every session converses in this language. Any of the 52 languages below can be chosen.
 
@@ -166,11 +150,7 @@ The voice model and the speaking language are independent settings: picking a vo
 
 Both settings can also be replaced for a single session: send `overrides.voice_id` or `overrides.language` on the session request. See [Overrides](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides).
 
-## 
-
-​
-
-Text-to-speech model
+## Text-to-speech model
 
 **Text-to-speech model** picks the Fish Audio model that renders the agent’s voice (`voice.tts_model` on the wire). Every voice from the Voice Library works with either model. The same selector offers Live 3, a full-duplex model set with `voice.engine`.
 
@@ -196,11 +176,7 @@ API (curl)
 
 The model applies to everything the agent speaks in voice and phone sessions. As with every voice setting, the change lands in the draft: publish to roll it out.
 
-### 
-
-​
-
-Live 3 (full duplex)
+### Live 3 (full duplex)
 
 **Live 3** is Fish Audio’s full-duplex speech model. Instead of speaking the reply once the caller finishes, it listens while it speaks and decides on its own when to acknowledge, wait, respond, or stop. See [Cascade vs. full duplex](https://docs.fish.audio/agents/concepts#cascade-vs-full-duplex).
 
@@ -228,11 +204,7 @@ To switch back, pick Drama 3 or S2.1 Pro in the selector, or set `voice.engine` 
 
 Live 3 speaks English only. Sessions in another speaking language, including a per-session [language override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides), speak through the agent’s text-to-speech model instead. In English sessions, the agent answers in English even when the caller switches language.
 
-#### 
-
-​
-
-Voices
+#### Voices
 
 Live 3 has its own voices. The Builder’s voice picker lists the ones that fit the current situation prompt under **Live 3 voices** , with samples. Set one via the API with `voice.live3_voice`:
 
@@ -243,11 +215,7 @@ Drive-thru only| `Maddie`, `Brianna`, `Ethan`, `Tyler`
   
 The drive-thru voices need `voice.live3_prompt` set to `DT`. With any other situation, including the default, Live 3 doesn’t start and the session speaks through the text-to-speech model. You can also pick a Voice Library voice or one of your clones. Setting `voice_id` clears `voice.live3_voice` unless the same request sets it. Live 3 recreates the voice from a sample, so it sounds close to, but not exactly like, the same voice on Drama 3 or S2.1 Pro. If Live 3 can’t use the voice, the session speaks as Clara.
 
-#### 
-
-​
-
-Situation prompt
+#### Situation prompt
 
 `voice.live3_prompt` sets the situation the model speaks in, which tunes its pacing, backchannels, and turn-taking. In the Builder it is the **Situation prompt** selector, shown once Live 3 is on.
 
@@ -258,11 +226,7 @@ empty (default)| Phone support, same as `P2`
 `DT`| Drive-thru  
 `AIR`| Airline  
   
-#### 
-
-​
-
-What else changes
+#### What else changes
 
   * Speech recognition is fixed to Fish Transcribe Stream 1 (see Speech recognition model).
   * Speaking speed, expressive mode, and pronunciation dictionaries apply only to Drama 3 and S2.1 Pro. Live 3 sets its own pacing and delivery.
@@ -271,11 +235,7 @@ What else changes
 
 
 
-## 
-
-​
-
-Speech recognition model
+## Speech recognition model
 
 **Speech recognition** picks the model that transcribes what callers say (`asr.model` on the wire). Latency is the typical wait from the caller’s last word to the transcript. The agent starts its reply after that.
 
@@ -303,11 +263,7 @@ API (curl)
 
 Speech recognition applies to spoken sessions (voice calls and phone). As with every voice setting, the change lands in the draft: publish to roll it out. To use a different model for a single session, pass `overrides.asr.model` when you [create the session](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) from your backend.
 
-## 
-
-​
-
-Multilingual recognition
+## Multilingual recognition
 
 **Multilingual recognition** lets the agent understand callers who switch to another language partway through a conversation. With it off, speech recognition listens only for the speaking language. That is more accurate when every caller speaks the same language, and it keeps short or accented phrases from being transcribed as another language. It is off by default. Toggle it with the **Multilingual recognition** switch in the Builder’s voice section, or via the API (`asr.multilingual`, default `false`):
 
@@ -326,11 +282,7 @@ API (curl)
 
 Which languages a caller can switch between depends on the speech recognition model. With Deepgram Nova-3, a speaking language outside its switching set stays locked even with the setting on. With ElevenLabs Scribe v2, turning the setting off steers recognition toward the speaking language rather than locking it. With Fish Transcribe Stream 1, recognition follows whichever language the caller speaks, so the setting has no effect. To lock it, use strict language.
 
-## 
-
-​
-
-Strict language
+## Strict language
 
 **Strict language** keeps the agent from understanding any language other than its speaking language. When speech recognition detects that the caller spoke another language, the agent receives `[unintelligible speech]` instead of the transcript and answers as if it did not catch what was said. It applies whether multilingual recognition is on or off. It is off by default. Turn it on via the API (`asr.strict_language`, default `false`):
 
@@ -351,11 +303,7 @@ With the ElevenLabs Scribe v2 models and Fish Transcribe Stream 1, speech in ano
 
 Language is detected per utterance, so a short or heavily accented phrase in the speaking language can occasionally be detected as another language and replaced with `[unintelligible speech]` too. Only turn on strict language when you explicitly need to stop the agent from understanding other languages.
 
-## 
-
-​
-
-Speaking speed
+## Speaking speed
 
 **Speaking speed** sets how fast the agent talks, as a multiplier from `0.5` (half speed) to `2.0` (double speed). The default is `1.0`. Many English-language agents sound more natural at a slightly faster rate, such as `1.2`. Set it with the **Speaking speed** slider in the Builder’s voice section, or via the API (`voice.speed`, default `1.0`):
 
@@ -374,11 +322,7 @@ API (curl)
 
 The rate applies to everything the agent speaks in voice and phone sessions. As with every voice setting, the change lands in the draft: publish to roll it out.
 
-## 
-
-​
-
-Expressive mode
+## Expressive mode
 
 **Expressive mode** makes the agent steer its own delivery: it opens sentences with emotion cues, adds natural pauses and emphasis, laughs where it genuinely fits, and speaks the way people talk, with contractions and the occasional “um”. You get lively, emotionally aware speech without writing any delivery rules into your prompt. It is on by default. Toggle it with the **Expressive mode** switch in the Builder’s voice section, or via the API (`voice.expressive`, default `true`):
 
@@ -399,11 +343,7 @@ The delivery cues are rendered by the voice model. They are never spoken and nev
 
 Keep your system prompt about **what** the agent says: who it is, what it knows, what it should do. With expressive mode on, **how** it sounds is handled for you.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Agent configuration
 

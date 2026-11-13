@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/realtime/
 title: Realtime Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:46:34.410050+00:00
+fetched_at: 2026-11-13T15:33:42.415554+00:00
 ---
 
 # Realtime Speech to Text - Fish Audio
@@ -61,11 +61,7 @@ Stream a file or a browser microphone.
 
 Turn-taking, interruptions and backchannels.
 
-## 
-
-​
-
-When to use it
+## When to use it
 
 ## Voice agents
 
@@ -95,11 +91,7 @@ Session length| Up to 60 minutes| Recordings up to 60 minutes
   
 The realtime endpoints of the [compatible APIs](https://docs.fish.audio/developer-guide/compat/capabilities) are separate from this endpoint. They use manual commit and have no server-side turn detection.
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 The SDKs do not wrap this endpoint; you connect with any WebSocket client and exchange MessagePack messages.
 
@@ -144,11 +136,7 @@ Send `audio_done`. The server commits the last turn, sends `session_done` and cl
 
 [Transcribe a live audio stream](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription) has complete, tested clients in Python and Node.js, and a browser microphone page with a server relay.
 
-## 
-
-​
-
-How a session works
+## How a session works
 
 Audio is divided into turns. A turn opens when voice activity begins (`speech_start`), usually before the server knows what the sound is: the user speaking, a short acknowledgement, noise or another voice. It ends with exactly one `committed` message, which holds the final transcript and says why the turn ended. In between, you can receive live `draft` text and turn signals that tell you what the turn is. In the default `auto` mode, with `results.drafts` and `turn_detection.eager` turned on as in the example above:
     
@@ -171,51 +159,27 @@ Audio is divided into turns. A turn opens when voice activity begins (`speech_st
 
 So do not stop your agent on `speech_start` or on a `draft`: noise opens turns and gets drafts too. Wait for `user_turn_taken`. In `vad` and `manual` mode there is no `user_turn_taken`: every turn is a user turn, so stop on `speech_start` there (see Turn detection modes).
 
-## 
-
-​
-
-Smart Turn Detection
+## Smart Turn Detection
 
 In the default `auto` mode, the server’s turn detection decides when a turn ends, from what was said and how, not from silence alone.
 
-### 
-
-​
-
-Eager end of turn
+### Eager end of turn
 
 With `turn_detection.eager: true`, you receive `eager_end_of_turn` as soon as the turn has probably ended, before the final transcript. Its text is exactly the text `committed` will have, unless `turn_resumed` follows because the user went on. A voice agent can start its LLM on the eager text and save that time.
 
-### 
-
-​
-
-Backchannel detection
+### Backchannel detection
 
 Tell the server when your agent is speaking with `agent_speaking`. While it speaks, a short “mm-hm”, “yeah”, “right” or “uh-huh” from the user produces `user_backchannel`: the agent keeps talking. A real interruption produces `user_turn_taken`: the agent stops.
 
-### 
-
-​
-
-Background awareness
+### Background awareness
 
 Noise, a TV or side conversations usually become non-user turns, committed with `user_turn: false`, so your agent does not answer them.
 
-### 
-
-​
-
-Room to think
+### Room to think
 
 Short pauses in the middle of a sentence usually do not end the turn, so people can stop to think. When a speaker stops mid-sentence and does not go on, the turn ends about 2 seconds later. As a further safety net, a user turn with no voice activity for `silence_timeout_ms` (default 5 seconds) always ends.
 
-## 
-
-​
-
-History Aware Transcription
+## History Aware Transcription
 
 The server uses the conversation to recognize names and follow-ups.
 
@@ -226,11 +190,7 @@ The server uses the conversation to recognize names and follow-ups.
 
 
 
-## 
-
-​
-
-Turn detection modes
+## Turn detection modes
 
 Mode| A turn ends when| Use it for  
 ---|---|---  
@@ -240,19 +200,11 @@ Mode| A turn ends when| Use it for
   
 Eager end of turn, backchannel detection and background awareness are available in `auto` mode, when the session starts in `auto` (the default). In `vad` and `manual` mode, and after a later switch to `auto` from another mode, every turn is a user turn. See [Turn detection modes](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#turn-detection-modes) for details.
 
-## 
-
-​
-
-Languages
+## Languages
 
 Smart Turn Detection, including eager end of turn, backchannel detection and background awareness, works on speech in every language. In some languages, a turn can end a little later after the speaker stops. `draft`, `eager_end_of_turn` and `committed` carry the language of their own text as `language_code` when it can be identified, one of 29 [supported codes](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#language).
 
-## 
-
-​
-
-Latency
+## Latency
 
 Measured on the production service with synthetic speech:
 
@@ -262,57 +214,29 @@ Measured on the production service with synthetic speech:
 
 Your network and how you send audio add to these times. Each result also waits for the message that carries its audio, on average half a message: about 50 ms with 100 ms messages and 20 ms with 40 ms messages. Send audio as you capture it, in 20–40 ms messages.
 
-## 
+## Implementation details
 
-​
-
-Implementation details
-
-### 
-
-​
-
-Audio
+### Audio
 
 Send 16-bit little-endian PCM, mono, at 8000, 12000, 16000, 22050, 24000, 32000, 44100 or 48000 Hz. The server converts the sample rate, so you never need to resample. Compressed formats such as Opus or MP3 are not accepted on this endpoint.
 
-### 
-
-​
-
-Speakers
+### Speakers
 
 Transcripts contain speaker tags such as `<|speaker:0|>`, stable within a session. Strip them, or send `results.diarize: false` for plain text. Whitespace right after a tag can vary, so trim the text after you strip the tags. Transcripts can also contain sound tags such as `[laughter]` or `[pause]`. Strip them too, or send `results.tag_audio_events: false` to remove them; see [Sound tags](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#sound-tags).
 
-### 
-
-​
-
-Keys and browsers
+### Keys and browsers
 
 Your API key travels in a request header. Connect from your server, never from a web page. To transcribe a browser microphone, relay the audio through your server, as shown in the [quickstart](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription#capture-from-a-browser-microphone).
 
-### 
-
-​
-
-Limits
+### Limits
 
 A session lasts up to 60 minutes and a turn up to 60 seconds. Each open connection counts against the same concurrency limit as your other API requests, from the moment it opens until it closes, even while you send no audio; see [Concurrent request limits](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits#concurrent-request-limits). See [Limits](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#limits) for the full list.
 
-### 
-
-​
-
-Pricing
+### Pricing
 
 `transcribe-stream-1` costs $0.36 per hour, billed per second of session duration as its own line item, Realtime ASR. See [ASR pricing](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits#automatic-speech-recognition-asr-models).
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Build a voice agent
 

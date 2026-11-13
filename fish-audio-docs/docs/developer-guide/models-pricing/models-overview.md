@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/models-pricing/models-overview/
 title: Models Overview - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:30.365430+00:00
+fetched_at: 2026-11-13T15:33:42.938539+00:00
 ---
 
 # Models Overview - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:37:30.365430+00:00
 > Source: https://docs.fish.audio/developer-guide/models-pricing/models-overview/
 
 ## On this page
+
+Back to top
 
   * Available Models
     * Recommended Model
@@ -43,19 +45,11 @@ Explore Fish Audio’s speech generation and transcription models and their capa
 
 Copy pageCopy page
 
-## 
-
-​
-
-Available Models
+## Available Models
 
 Fish Audio offers text-to-speech models for voice generation and ASR models for audio transcription.
 
-### 
-
-​
-
-Recommended Model
+### Recommended Model
 
 ## s2.1-pro
 
@@ -69,11 +63,7 @@ Recommended Model
 
 
 
-### 
-
-​
-
-Free Development Model
+### Free Development Model
 
 ## s2.1-pro-free
 
@@ -87,11 +77,7 @@ Free Development Model
 
 
 
-### 
-
-​
-
-Previous S2 Model
+### Previous S2 Model
 
 ## s2-pro
 
@@ -108,11 +94,7 @@ Previous S2 Model
 
 We recommend using `s2.1-pro` for production projects. Use `s2.1-pro-free` when you want the same model for evaluation, prototyping, development, and smaller businesses without TTFA or DPA guarantees.
 
-### 
-
-​
-
-Deprecated Model
+### Deprecated Model
 
 S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro`. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
 
@@ -126,11 +108,7 @@ S1 is deprecated and will be retired on December 31, 2026. After that date, requ
 
 
 
-## 
-
-​
-
-Speech-to-Text Models
+## Speech-to-Text Models
 
 We recommend `transcribe-1-pro` for transcribing recordings. Both file models use `POST /v1/asr`, and you select one with the `model` HTTP header, written exactly as shown. Send `model: transcribe-1-pro` with every request: if the header is missing or its value is not an exact match, the request is served and billed as `transcribe-1`, and no error is returned. To transcribe live audio, use `transcribe-stream-1` on the realtime WebSocket, `wss://api.fish.audio/v1/asr/realtime`, where it is the default model.
 
@@ -144,17 +122,9 @@ Pro labels speakers with inline `<|speaker:N|>` markers in `text`, alongside emo
 
 **If you use`transcribe-1`:** it is designed for short recordings; for recordings longer than a few minutes, use `transcribe-1-pro`. Speaker markers, speaker turns, and emotion and vocal-event cues are `transcribe-1-pro` features, so send the Pro request fields above only with `model: transcribe-1-pro`.
 
-## 
+## Model Specifications
 
-​
-
-Model Specifications
-
-### 
-
-​
-
-Fish Audio S1 Performance Metrics
+### Fish Audio S1 Performance Metrics
 
   * **Word Error Rate (WER)** : 0.008 (0.8%)
   * **Character Error Rate (CER)** : 0.004 (0.4%)
@@ -163,27 +133,15 @@ Fish Audio S1 Performance Metrics
 
 
 
-## 
+## Supported Languages
 
-​
-
-Supported Languages
-
-### 
-
-​
-
-S2.1-Pro and S2-Pro
+### S2.1-Pro and S2-Pro
 
 S2.1-Pro supports 83 languages, while S2-Pro supports 80+ languages. Both use automatic language detection and support inline emotion and paralinguistic cues.
 
 Language detection is automatic - simply provide text in your target language.
 
-### 
-
-​
-
-S1
+### S1
 
 S1 supports text-to-speech generation in 13 languages with full emotional expression capabilities.
     
@@ -193,19 +151,11 @@ S1 supports text-to-speech generation in 13 languages with full emotional expres
     Russian, Dutch, Italian, Polish, Portuguese
     
 
-## 
-
-​
-
-Voice Styles and Emotions
+## Voice Styles and Emotions
 
 Fish Audio models support emotional expressions and voice styles that can be controlled through text markers in your input.
 
-### 
-
-​
-
-S2.1-Pro and S2-Pro Natural Language Control
+### S2.1-Pro and S2-Pro Natural Language Control
 
 S2.1-Pro and S2-Pro treat `[bracket]` tags as standard text rather than dedicated control tokens. Through training on massive datasets, the models learned implicit mappings between natural language descriptions and acoustic variations. You can use any descriptive expression and the model will interpret it, such as `[whispers sweetly]` or `[laughing nervously]`. Common examples include:
     
@@ -216,19 +166,11 @@ S2.1-Pro and S2-Pro treat `[bracket]` tags as standard text rather than dedicate
 
 S2 cues can be placed anywhere in your text to control emotion at specific positions. For example: `"I can't believe it [gasp] you actually did it [laugh]"`
 
-### 
-
-​
-
-S1 Voice Styles and Emotions
+### S1 Voice Styles and Emotions
 
 S1 supports 64+ emotional expressions using `(parenthesis)` syntax. S2 does not interpret these tags, so convert them to `[bracket]` syntax when you [migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1#convert-emotion-tags).
 
-### 
-
-​
-
-Basic Emotions (24 expressions)
+### Basic Emotions (24 expressions)
     
     
     (angry) (sad) (excited) (surprised) (satisfied) (delighted)
@@ -237,11 +179,7 @@ Basic Emotions (24 expressions)
     (grateful) (confident) (interested) (curious) (confused) (joyful)
     
 
-### 
-
-​
-
-Advanced Emotions (25 expressions)
+### Advanced Emotions (25 expressions)
     
     
     (disdainful) (unhappy) (anxious) (hysterical) (indifferent)
@@ -251,21 +189,13 @@ Advanced Emotions (25 expressions)
     (hesitating) (yielding) (painful) (awkward) (amused)
     
 
-### 
-
-​
-
-Tone Markers (5 expressions)
+### Tone Markers (5 expressions)
     
     
     (in a hurry tone) (shouting) (screaming) (whispering) (soft tone)
     
 
-### 
-
-​
-
-Audio Effects (10 expressions)
+### Audio Effects (10 expressions)
     
     
     (laughing) (chuckling) (sobbing) (crying loudly) (sighing)
@@ -274,11 +204,7 @@ Audio Effects (10 expressions)
 
 You can also use natural expressions like “Ha,ha,ha” for laughter. Experiment with combinations to achieve the perfect emotional tone for your application.
 
-## 
-
-​
-
-Support
+## Support
 
 Need help? Check out these resources:
 

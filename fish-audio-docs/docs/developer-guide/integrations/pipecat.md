@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/integrations/pipecat/
 title: Pipecat - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:32.044953+00:00
+fetched_at: 2026-11-13T15:33:43.340972+00:00
 ---
 
 # Pipecat - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:32.044953+00:00
 > Source: https://docs.fish.audio/developer-guide/integrations/pipecat/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Installation
@@ -33,22 +35,14 @@ Copy pageCopy page
 
 [Pipecat](https://github.com/pipecat-ai/pipecat) is an open source framework for building voice and multimodal conversational AI. It handles the orchestration of audio, AI services, and conversation pipelines so you can focus on what makes your agent unique. Fish Audio integrates with Pipecat through `FishAudioTTSService`, which provides real-time text-to-speech synthesis using WebSocket streaming for low-latency conversational applications.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * A [Fish Audio account](https://fish.audio) with an API key
   * Python 3.9 or higher
 
 
 
-## 
-
-​
-
-Installation
+## Installation
 
 Install Pipecat with Fish Audio support:
     
@@ -56,11 +50,7 @@ Install Pipecat with Fish Audio support:
     pip install "pipecat-ai[fish]"
     
 
-## 
-
-​
-
-Configuration
+## Configuration
 
 Set your Fish Audio API key as an environment variable:
     
@@ -68,11 +58,7 @@ Set your Fish Audio API key as an environment variable:
     export FISH_API_KEY=your_api_key_here
     
 
-## 
-
-​
-
-Basic usage
+## Basic usage
 
 Add `FishAudioTTSService` to your Pipecat pipeline:
     
@@ -90,11 +76,7 @@ Add `FishAudioTTSService` to your Pipecat pipeline:
     )
     
 
-### 
-
-​
-
-Key parameters
+### Key parameters
 
 Parameter| Description  
 ---|---  
@@ -103,11 +85,7 @@ Parameter| Description
 `model_id`| TTS model version (default: `s2.1-pro`)  
 `output_format`| Audio format: `pcm`, `mp3`, `wav`, or `opus`  
   
-### 
-
-​
-
-Prosody controls
+### Prosody controls
 
 Customize speech characteristics with `InputParams`:
     
@@ -120,11 +98,7 @@ Customize speech characteristics with `InputParams`:
     )
     
 
-## 
-
-​
-
-Resources
+## Resources
 
   * [Pipecat Documentation](https://docs.pipecat.ai/server/services/tts/fish)
   * [Pipecat GitHub](https://github.com/pipecat-ai/pipecat)

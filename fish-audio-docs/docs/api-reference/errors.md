@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/errors/
 title: Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:57.270237+00:00
+fetched_at: 2026-11-13T15:33:45.424329+00:00
 ---
 
 # Errors - Fish Audio
@@ -37,11 +37,7 @@ Fish Audio errors come back as JSON with a `message` and a `status`:
 
 (A request whose body can’t be parsed returns a plain-text parse error instead.) Some endpoints add fields. For example, `transcribe-1-pro` speech-to-text errors also include `code` and `request_id`; see [Speech to Text errors](https://docs.fish.audio/api-reference/endpoint/openapi-v1/speech-to-text#errors). Errors returned by the network edge in front of the API, such as some `413` or `5xx` responses, may not be JSON.
 
-## 
-
-​
-
-Status codes
+## Status codes
 
 Status| Meaning| What to do  
 ---|---|---  
@@ -53,11 +49,7 @@ Status| Meaning| What to do
 `429`| Too many requests, for example when your account is at its [concurrency limit](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits#concurrent-request-limits)| Back off and retry (see below).  
 `5xx`| Server error| Retry with backoff; if it persists, contact support.  
   
-## 
-
-​
-
-Retries
+## Retries
 
 Retry `429` and `5xx` with exponential backoff. Don’t retry other `4xx` codes; they won’t succeed without a change to the request. Install the Python SDK first: `pip install fish-audio-sdk`.
     
@@ -81,11 +73,7 @@ Retry `429` and `5xx` with exponential backoff. Don’t retry other `4xx` codes;
                 raise                            # 4xx: fix the request
     
 
-## 
-
-​
-
-Handling errors in the SDKs
+## Handling errors in the SDKs
 
 Both SDKs raise typed exceptions you can branch on. The base class carries the status and the parsed body.
 

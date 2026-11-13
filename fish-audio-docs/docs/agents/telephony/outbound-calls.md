@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/outbound-calls/
 title: Outbound Calls - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:45.612690+00:00
+fetched_at: 2026-11-13T15:33:46.399261+00:00
 ---
 
 # Outbound Calls - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:45.612690+00:00
 > Source: https://docs.fish.audio/agents/telephony/outbound-calls/
 
 ## On this page
+
+Back to top
 
   * Place a call
     * Request fields
@@ -46,11 +48,7 @@ Get the dial outcome pushed to your backend.
 
 Personalize the call with per-call values.
 
-## 
-
-​
-
-Place a call
+## Place a call
 
 1
 
@@ -88,11 +86,7 @@ The request returns `201` as soon as the dial is dispatched:
 
 This endpoint requires an API key; there is no anonymous variant. See the [API reference](https://docs.fish.audio/api-reference/endpoint/agent/create-phone-call) for the full schema.
 
-### 
-
-​
-
-Request fields
+### Request fields
 
 Field| Description  
 ---|---  
@@ -107,11 +101,7 @@ Field| Description
   
 The session’s [time and timezone context](https://docs.fish.audio/agents/build/time-timezone) resolves from the destination number when the agent has no fixed timezone configured, so “tomorrow morning” means the callee’s morning.
 
-### 
-
-​
-
-Per-call SIP headers
+### Per-call SIP headers
 
 When the from-number is an imported SIP number, `sip_headers` adds headers to the INVITE the platform sends through your termination, so your SBC or PBX can route the call or tag its CDR with a value that changes per call: a campaign id, an account id, a consent reference.
     
@@ -124,19 +114,11 @@ When the from-number is an imported SIP number, `sip_headers` adds headers to th
 
 They follow the same rules as the number’s [`termination_headers`](https://docs.fish.audio/agents/telephony/byo-sip#custom-sip-headers) and are merged over them, so a per-call header replaces a number-level header of the same name. The same headers ride on a warm-transfer consult leg placed during the call. Every INVITE through your termination also carries `X-Fish-Session-Id` with the session id, so the SIP side can be joined to the platform side without any header of your own. Platform-purchased numbers refuse `sip_headers` with `422 sip_headers_unsupported`: the shared trunk terminates on the carrier and nothing downstream would read them. `sip_headers` is not `metadata`: it leaves the platform for your SIP network, while `metadata` is only echoed back to you.
 
-### 
-
-​
-
-Retry safely with an Idempotency-Key
+### Retry safely with an Idempotency-Key
 
 Outbound dials spend money and ring real phones, so put an `Idempotency-Key` header on every create. For 24 hours, repeating the same key with the same body returns the call already placed instead of dialing again. The same key with a **different** body is refused with `422 idempotency_key_reuse`, and a retry that races an in-flight first attempt gets `409 idempotency_key_conflict`; back off and retry the same request. If the create fails with an ambiguous network error, retry with the same key: you get the placed session back if the first attempt went through.
 
-## 
-
-​
-
-The dial outcome
+## The dial outcome
 
 Ringing is never billed; metering starts when the callee answers. A call that is never answered is not billed and not analyzed. You learn how the dial ended in either of two ways:
 
@@ -159,19 +141,11 @@ Field| Values
   
 Once answered, `sip_call_id` holds the SIP `Call-ID` of the leg the platform placed. It is `null` while ringing and on unanswered dials. See [Match calls with your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records). On outbound sessions the attribution fields are person-centric: `caller_number` is the human you dialed and `dialed_number` is your workspace number. The same values reach the agent as `{{system.caller_number}}` and `{{system.dialed_number}}`, so a CRM lookup tool can use `https://crm.example.com/contacts?phone={{system.caller_number}}` without a per-call variable; see [System variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables). Everything else about the session (transcript, recording, [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis), `call.ended` and `call.analyzed` webhooks, hang-up via `POST /v1/agent/sessions/{session_id}/end`) works exactly as for [inbound calls](https://docs.fish.audio/agents/telephony/inbound-calls).
 
-## 
-
-​
-
-Allowed destinations
+## Allowed destinations
 
 Calls from purchased numbers can reach fixed-line and mobile numbers in the US, Canada, Japan, the UK, Italy, Australia and Mexico. Premium-rate numbers (for example UK `09`, Japan `0570` and `0990`, Australia `19`, Mexico `900`) and other service numbers such as toll-free lines are refused. The phone surcharge depends on the country and on whether the number is fixed-line or mobile; see the [pricing page](https://docs.fish.audio/agents/pricing). Calls from [imported BYO numbers](https://docs.fish.audio/agents/telephony/byo-sip) dial out through your own trunk, so the country allowlist does not apply. Numbers that live on the platform can never be dialed, so an agent cannot call another agent’s number.
 
-## 
-
-​
-
-Errors
+## Errors
 
 Unlike most [Agents API errors](https://docs.fish.audio/api-reference/agent-errors), phone-call errors carry a machine-readable `reason` alongside the `message`:
     
@@ -197,11 +171,7 @@ Status| Reason| Cause
   
 `502` and `503` follow the [general guidance](https://docs.fish.audio/api-reference/agent-errors#5xx): retrying is safe, especially with an `Idempotency-Key`.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Webhooks
 

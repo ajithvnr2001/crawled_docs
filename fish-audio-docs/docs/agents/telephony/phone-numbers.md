@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/phone-numbers/
 title: Phone Numbers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:55.272562+00:00
+fetched_at: 2026-11-13T15:33:46.231604+00:00
 ---
 
 # Phone Numbers - Fish Audio
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 Phone numbers connect your agents to the telephone network. Each number lives in a workspace within your team (purchases land in your default workspace) and is bound to at most one agent: calls to the number are answered by that agent. The `/v1/agent/phone-numbers` API covers the whole lifecycle: search the purchasable inventory, buy a number (or [import one you already own](https://docs.fish.audio/agents/telephony/byo-sip)), bind it to an agent, and release it when you no longer need it.
 
-## 
-
-​
-
-Search available numbers
+## Search available numbers
 
 Search the purchasable inventory for a number to buy.
 
@@ -62,11 +58,7 @@ Parameter| Description
   
 A listed number can still be claimed by someone else before you buy it.
 
-## 
-
-​
-
-Purchase a number
+## Purchase a number
 
 Buy a number from the inventory with the same `provider` that listed it.
 
@@ -99,11 +91,7 @@ Already have a number at your own carrier? The same endpoint imports it with `pr
 
 A WhatsApp Business number is connected in the console from your own Meta app and then listed here with `provider: "whatsapp"`. See [WhatsApp Business Calling](https://docs.fish.audio/agents/telephony/whatsapp).
 
-## 
-
-​
-
-List your numbers
+## List your numbers
 
 Returns your team’s phone numbers across its workspaces, newest first; each carries its `workspace_id`.
 
@@ -141,11 +129,7 @@ Field| Description
 `agent_id`| The agent that answers calls to this number; `null` when unbound  
 `status`| `provisioning`, `active`, or `error`  
   
-## 
-
-​
-
-Get a single number
+## Get a single number
 
 Request
     
@@ -156,11 +140,7 @@ Request
 
 Returns the same number object as the list endpoint.
 
-## 
-
-​
-
-Bind or unbind an agent
+## Bind or unbind an agent
 
 `PATCH` the number with an `agent_id` to change which agent answers it. Binding is resolved per call, so the change applies from the next inbound call.
 
@@ -186,11 +166,7 @@ Omitted fields are left unchanged. Only an explicit `"agent_id": null` unbinds t
 
 Re-binding is how you promote an agent behind a stable number: point the number at a staging agent while you iterate, then `PATCH` it over to the production agent when you’re ready. The number itself never changes.
 
-## 
-
-​
-
-Label your numbers
+## Label your numbers
 
 Labels are free-form text for keeping an inventory readable: by team, region, campaign, or environment.
 
@@ -205,11 +181,7 @@ Request
 
 The response is the updated number object.
 
-## 
-
-​
-
-Release a number
+## Release a number
 
 Release a number back to the provider’s inventory. Returns `204`, daily billing stops, and the number disappears from the API immediately.
 
@@ -222,11 +194,7 @@ Request
 
 Releasing is irreversible. Anyone, including other platforms, can buy the number afterwards, so callers who saved it may reach a stranger.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Inbound calls
 

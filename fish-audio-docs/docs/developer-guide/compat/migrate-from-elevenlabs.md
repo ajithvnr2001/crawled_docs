@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-elevenlabs/
 title: Migrate from ElevenLabs - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:56.966685+00:00
+fetched_at: 2026-11-13T15:33:44.209703+00:00
 ---
 
 # Migrate from ElevenLabs - Fish Audio
@@ -78,11 +78,7 @@ Voice library & model catalog| ✓
 Diarization / redaction / webhooks| –  
 μ-law / A-law output| –  
   
-## 
-
-​
-
-Text to speech
+## Text to speech
 
 Python
 
@@ -121,19 +117,11 @@ curl
 
 `convert`, `stream`, `convert_with_timestamps`, and `stream_with_timestamps` all work. `voice_settings` maps onto Fish’s synthesis controls: `speed` sets the speech rate, and `stability` becomes Fish `temperature = 1 − stability`. The vendor-specific tuning knobs (`similarity_boost`, `style`, `use_speaker_boost`, `seed`) are accepted and ignored, never an error. `language_code` is passed on as Fish’s [`language`](https://docs.fish.audio/features/text-to-speech#language) field: it picks the text-normalization rules (how numbers, dates and symbols are spelled out) and the word-timestamp language, and does not change the voice.
 
-### 
-
-​
-
-Output formats
+### Output formats
 
 `mp3_*`, `pcm_*`, `opus_*`, and `wav_*` (a Fish Audio extension) work at the supported sample rates: 32000 or 44100 for `mp3_*`, 48000 for `opus_*`. The 22.05 kHz family (`mp3_22050_32`, `pcm_22050`, …) is refused. The sample-rate segment of the format name is honored; the `mp3_*` bitrate segment snaps **up** to the nearest Fish tier ([details](https://docs.fish.audio/developer-guide/compat/capabilities#bitrate-snapping)), while Opus bitrate is automatic. `ulaw_*` and `alaw_*` return a 400.
 
-### 
-
-​
-
-Timestamps
+### Timestamps
 
 The `with-timestamps` variants return the official shapes: REST uses snake_case keys in **seconds** ; the WebSocket uses camelCase keys in **milliseconds** (`charStartTimesMs`). That asymmetry matches ElevenLabs’ own API. Character timings are interpolated from Fish segment timestamps at millisecond precision.
 
@@ -142,11 +130,7 @@ The `with-timestamps` variants return the official shapes: REST uses snake_case 
 
 
 
-## 
-
-​
-
-Realtime input streaming (WebSocket)
+## Realtime input streaming (WebSocket)
 
 `wss://api.fish.audio/compat/elevenlabs/v1/text-to-speech/{voice_id}/stream-input` The official protocol, unchanged:
 
@@ -182,11 +166,7 @@ An `output_format` that is invalid on its face (`ulaw_*`, or a name that can’t
 
 Pass both `model_id` and `voice_settings` explicitly with `convert_realtime`. Both default to the SDK’s `OMIT` sentinel (`Ellipsis`), and each fails its own way: `model_id` goes into the handshake URL as the literal string `model_id=Ellipsis` and comes back a 400, while `voice_settings` opens the socket fine and then raises `AttributeError` as the first frame is serialized. Both are quirks of the SDK itself.The same SDK force-upgrades `http://` base URLs to `wss://`, so it cannot be pointed at a plaintext endpoint, including a local test proxy.
 
-## 
-
-​
-
-Speech to text
+## Speech to text
 
 Python
 
@@ -249,11 +229,7 @@ For speaker turns and event tags, use the native [Speech to Text API](https://do
 
 Booleans count as requested only when true: `False`, `"False"`, `0`, and `off` are treated as unset, so default SDK serialization never trips any of these.
 
-### 
-
-​
-
-Realtime STT
+### Realtime STT
 
 The realtime WebSocket (`/v1/speech-to-text/realtime`) supports `commit_strategy=manual` only: stream `input_audio_chunk` messages and set `commit: true` to receive the committed transcript. Your application decides the segment boundaries, so `commit_strategy=vad` is refused at the handshake instead of leaving a session waiting.
 
@@ -261,11 +237,7 @@ The realtime WebSocket (`/v1/speech-to-text/realtime`) supports `commit_strategy
 
 Audio goes in the `audio_base_64` field of an `input_audio_chunk` message; other message shapes are ignored by design. Each commit answers with a `committed_transcript` message followed by `committed_transcript_with_timestamps`.
 
-## 
-
-​
-
-Voice library
+## Voice library
 
 Your Fish voice library and the model catalog are available in the ElevenLabs shapes:
 
@@ -303,11 +275,7 @@ Telling the two failure kinds apart: examples worth logging differently
 
 `voice_not_found` and `provider_error` are the easy pair to confuse. Looking up a voice that isn’t yours (`GET /v1/voices/{id}`) gives you `voice_not_found` with a 404. Naming that same voice in a _synthesis_ request instead fails as a 400 `provider_error` carrying “Reference not found”.So `{"status": "invalid_request", "message": "unsupported output_format \"ulaw_8000\""}` reports a parameter that is never accepted, while `{"status": "provider_error", "message": "Invalid sample rate 22050 for format audio/mpeg…"}` comes from synthesis itself.
 
-## 
-
-​
-
-Going further
+## Going further
 
 ## Compatibility
 

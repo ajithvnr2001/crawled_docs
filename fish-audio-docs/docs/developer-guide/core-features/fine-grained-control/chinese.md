@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/chinese/
 title: Chinese Phoneme Control - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:29.931957+00:00
+fetched_at: 2026-11-13T15:33:44.119587+00:00
 ---
 
 # Chinese Phoneme Control - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:29.931957+00:00
 > Source: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/chinese/
 
 ## On this page
+
+Back to top
 
   * Overview
   * Tone Numbers
@@ -30,11 +32,7 @@ Control Chinese pronunciation with tone-number pinyin
 
 Copy pageCopy page
 
-## 
-
-​
-
-Overview
+## Overview
 
 Chinese phoneme control uses pinyin with tone numbers, also known as tone3 pinyin. Wrap one syllable in each `<|phoneme_start|>` and `<|phoneme_end|>` tag.
     
@@ -44,11 +42,7 @@ Chinese phoneme control uses pinyin with tone numbers, also known as tone3 pinyi
 
 This format is especially useful for polyphonic characters, names, and domain-specific terms where the default reading may be ambiguous.
 
-## 
-
-​
-
-Tone Numbers
+## Tone Numbers
 
 Put the tone number at the end of each pinyin syllable:
 
@@ -62,11 +56,7 @@ Tone| Example| Description
   
 Use lowercase pinyin and keep punctuation outside the phoneme tag.
 
-## 
-
-​
-
-Multi-character Words
+## Multi-character Words
 
 For a multi-character word, place adjacent phoneme tags in the same order as the original characters:
     
@@ -81,11 +71,7 @@ You can also tag only the ambiguous character and leave the rest of the sentence
     请把这个字读作<|phoneme_start|>hang2<|phoneme_end|>。
     
 
-## 
-
-​
-
-Polyphonic Characters
+## Polyphonic Characters
 
 For polyphonic characters, choose the pinyin that matches the phrase meaning:
     
@@ -104,11 +90,7 @@ For polyphonic characters, choose the pinyin that matches the phrase meaning:
     快乐: <|phoneme_start|>kuai4<|phoneme_end|><|phoneme_start|>le4<|phoneme_end|>
     
 
-## 
-
-​
-
-Generate Pinyin
+## Generate Pinyin
 
 The training pipeline uses the `pypinyin` dictionary and converts entries to tone3 pinyin. The helper below mirrors that behavior for single characters:
     
@@ -136,11 +118,7 @@ The training pipeline uses the `pypinyin` dictionary and converts entries to ton
 
 Phrase-level words can require a phrase dictionary or manual selection. For example, `重` should be `chong2` in `重庆` but `zhong4` in `重要`.
 
-## 
-
-​
-
-Practical Tips
+## Practical Tips
 
   * Use one phoneme tag per Chinese character or syllable.
   * Keep Chinese punctuation, brackets, and spaces outside the tag.
