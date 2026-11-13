@@ -1,10 +1,7 @@
 {
   "url": "https://www.canva.dev/docs/apps/api/preview/app-middleware-changelog/",
   "file": "apps/api/preview/app-middleware-changelog.md",
-  "title": "Changelog for @canva/app-middleware@beta - Beta API reference - Canva Developers SDK Documentation",
+  "title": "Changelog for @canva/app-middleware@preview - Beta API reference - Canva Developers SDK Documentation",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T13:55:09.392944+00:00",
-  "html_len": 114764,
-  "md_len": 10194,
-  "depth": 0
+  "fetched_at": "2026-11-13T17:25:44.516817+00:00"
 }

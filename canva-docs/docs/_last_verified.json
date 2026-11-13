@@ -1,14 +1,14 @@
 {
-  "date": "2026-11-12",
-  "at": "2026-11-12T17:47:15.462856+00:00",
+  "date": "2026-11-13",
+  "at": "2026-11-13T17:25:38.842929+00:00",
   "new": 0,
-  "stale_total": 166,
-  "refreshed_stale": 166,
+  "stale_total": 159,
+  "refreshed_stale": 159,
   "manifest_urls": 1156,
   "no_lastmod_pool": 271,
   "rotated": 271,
   "linked_new": 0,
   "aliases_recorded": 58,
-  "targets": 437,
+  "targets": 430,
   "total_index": 1334
 }

@@ -1,11 +1,11 @@
 ---
 url: https://www.canva.dev/docs/apps/api/preview/app-middleware-changelog/
-title: Changelog for @canva/app-middleware@beta - Beta API reference - Canva Developers SDK Documentation
+title: Changelog for @canva/app-middleware@preview - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:09.392708+00:00
+fetched_at: 2026-11-13T17:25:44.516817+00:00
 ---
 
-# Changelog for @canva/app-middleware@beta - Beta API reference - Canva Developers SDK Documentation
+# Changelog for @canva/app-middleware@preview - Beta API reference - Canva Developers SDK Documentation
 
 > Source: https://www.canva.dev/docs/apps/api/preview/app-middleware-changelog/
 
@@ -85,9 +85,9 @@ Error: Test
 
 [initTestEnvironment](https://www.canva.dev/docs/apps/api/preview/error-test-init-test-environment/)
 
-# Changelog for @canva/app-middleware@beta
+# Changelog for @canva/app-middleware@preview
 
-The latest changes for the Canva Apps SDK @canva/app-middleware@beta package.
+The latest changes for the Canva Apps SDK @canva/app-middleware@preview package.
 
 Copy page
 
