@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/cloudflare-ray-id/
 title: Cloudflare Ray ID \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:33.602310+00:00
+fetched_at: 2026-11-13T09:17:05.937583+00:00
 ---
 
 # Cloudflare Ray ID · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:33.602310+00:00
 
 # Cloudflare Ray ID
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLook up Ray IDs Security events Observability Logs Logs Server logs
 
@@ -45,6 +45,10 @@ Additionally, you can [add filters](https://developers.cloudflare.com/waf/analyt
 ![Example of adding a new filter in Security Events for the Block action](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=929,height=281,format=webp/_astro/events-add-filter.DDUuZ0g7.png)
 
 Please note that Security Events may use sampled data to improve performance. If sampled data is applied to your search, you might not see all events, and filters might not return the expected results. To display more events, select a smaller timeframe.
+
+Note
+
+If a Ray ID does not appear in Security Events, this does not necessarily mean that Cloudflare did not act on the request. Sampling may omit the event from the results.
 
 ### Observability Logs
 

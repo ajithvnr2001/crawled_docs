@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/data-source/website/
 title: Website \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:38.924428+00:00
+fetched_at: 2026-11-13T09:17:09.452025+00:00
 ---
 
 # Website · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:38.924428+00:00
 
 # Website
 
-Last updated Aug 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/data-source/website/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedHow website crawling worksStorageConfiguration Path filtering Rendering modeAllow AI Search through WAFLimits
 
@@ -51,7 +51,7 @@ Refer to [Parse types](https://developers.cloudflare.com/ai-search/configuration
 
 ## Storage
 
-Crawled pages are stored in built-in storage automatically.
+Crawled pages are stored in built-in storage automatically. AI Search keeps the Markdown of each indexed page, which counts toward [AI Search storage](https://developers.cloudflare.com/ai-search/platform/limits-pricing/#how-storage-is-measured).
 
 To see the items parsed from your website, [list the instance's items](https://developers.cloudflare.com/ai-search/api/items/workers-binding/#itemslist) with the Items API, or open the **Items** tab in the dashboard (**AI** > **AI Search** > your instance > **Items**).
 

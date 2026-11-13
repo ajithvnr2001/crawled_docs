@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/
 title: Syncing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:20.253705+00:00
+fetched_at: 2026-11-13T09:17:09.568589+00:00
 ---
 
 # Syncing · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:20.253705+00:00
 
 # Syncing
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExternal data sources Sync interval Trigger syncs from automated pipelinesBuilt-in storageControlsPerformanceAutomatic pausing for inactive instancesBest practices
 
@@ -30,7 +30,7 @@ AI Search automatically indexes your content for search. How indexing works depe
 
 ## External data sources
 
-For instances connected to a [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/) or [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/), AI Search creates jobs to sync your data source. Jobs run automatically on a schedule, every 24 hours by default, and process new, modified, or deleted files to keep your search index up to date.
+For instances connected to a [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/), [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/), or [D1 database](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/), AI Search creates jobs to sync your data source. Jobs run automatically on a schedule, every 24 hours by default, and process new, modified, or deleted files to keep your search index up to date.
 
 You can view job status and history in the **Jobs** tab in the dashboard or using the [Instances API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/).
 
@@ -79,7 +79,7 @@ The total time to index depends on the number and type of files. Factors that af
 
 ## Automatic pausing for inactive instances
 
-If an instance receives no search request for 31 days, AI Search automatically pauses its scheduled sync jobs. This applies only to external data sources (website or R2), since built-in storage has no sync jobs. This avoids unnecessary requests to your data source to rescan and sync your instance when it is not being used.
+If an instance receives no search request for 31 days, AI Search automatically pauses its scheduled sync jobs. This applies only to external data sources (website, R2, or D1), since built-in storage has no sync jobs. This avoids unnecessary requests to your data source to rescan and sync your instance when it is not being used.
 
 A paused instance stays fully searchable, but source changes are not picked up while sync jobs are paused. After the instance receives search or chat traffic again, AI Search automatically resumes scheduled sync jobs during its activity checks. You can also resume manually with the **Resume indexing** control. Refer to Controls.
 
@@ -88,7 +88,7 @@ A paused instance stays fully searchable, but source changes are not picked up w
 To ensure smooth and reliable indexing:
 
   * Make sure your files are within the [size limit](https://developers.cloudflare.com/ai-search/configuration/data-source/#file-limits) and in a [supported format](https://developers.cloudflare.com/ai-search/configuration/data-source/#supported-file-types) to avoid being skipped.
-  * For R2-backed instances, keep your [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) valid to prevent indexing failures.
+  * For R2-backed and D1-backed instances, keep your [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) valid to prevent indexing failures.
   * Regularly clean up outdated or unnecessary content to stay within [instance limits](https://developers.cloudflare.com/ai-search/platform/limits-pricing/).
 
 

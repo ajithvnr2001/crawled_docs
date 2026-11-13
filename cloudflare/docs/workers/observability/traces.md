@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/traces/
 title: Traces \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:36.655656+00:00
+fetched_at: 2026-11-13T09:17:06.358229+00:00
 ---
 
 # Traces · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:17:36.655656+00:00
 
 # Traces
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/observability/traces/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview What is Workers tracing? Automatic instrumentation Custom spans How to enable tracing Exporting OpenTelemetry traces to a 3rd party destination Sampling Limits and pricing
+Overview What is Workers tracing? Automatic instrumentation Custom spans How to enable tracing Exporting OpenTelemetry traces to a 3rd party destination Sampling Limits and pricing Data location
 
 ### What is Workers tracing?
 
@@ -133,6 +133,12 @@ Sampling is [head-based ↗︎](https://opentelemetry.io/docs/concepts/sampling/
 Workers traces have seven-day retention. Beginning December 1, 2026, stored traces contribute to account-level ingestion and storage usage under [Cloudflare Observability pricing](https://developers.cloudflare.com/observability/pricing/).
 
 Sampling reduces the number of spans ingested and stored, which reduces billable usage.
+
+### Data location
+
+Cloudflare-stored Workers traces follow your account's [Customer Metadata Boundary](https://developers.cloudflare.com/data-localization/metadata-boundary/) setting when one is configured. If no boundary is configured, traces may be stored in Cloudflare's core data centers globally.
+
+Viewing availability is subject to the Customer Metadata Boundary limitations listed in [Data Localization compatibility](https://developers.cloudflare.com/data-localization/compatibility/).
 
 [PreviousWorkers Logpush](https://developers.cloudflare.com/workers/observability/logs/logpush/)[NextCustom spans](https://developers.cloudflare.com/workers/observability/traces/custom-spans/)
 

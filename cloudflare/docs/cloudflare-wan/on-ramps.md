@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-wan/on-ramps/
 title: On-ramps \u00b7 Cloudflare WAN docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:30.802042+00:00
+fetched_at: 2026-11-13T09:17:15.140213+00:00
 ---
 
 # On-ramps · Cloudflare WAN docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:10:30.802042+00:00
 
 # On-ramps
 
-Last updated Aug 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-wan/on-ramps/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 To on-ramp your network traffic to Cloudflare WAN (formerly Magic WAN), you can use [Cloudflare One Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/), a lightweight software package you can install in corporate network locations to automatically connect and steer any IP traffic.
 
@@ -31,12 +31,12 @@ Additional compatible on-ramps include:
 
   * [WARP](https://developers.cloudflare.com/cloudflare-wan/zero-trust/cloudflare-one-client/): Protect corporate devices by securely and privately sending traffic from those devices to Cloudflare's global network, where Cloudflare Gateway can apply advanced web filtering.
 
-  * [Multi-Cloud Networking](https://developers.cloudflare.com/cloudflare-wan/configuration/multi-cloud-networking/): Automatically create on-ramps from your cloud networks to Cloudflare WAN.
-
   * [Network on-ramp partnerships ↗︎](https://www.cloudflare.com/network-onramp-partners/): Refer to our [third-party integration tutorials](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/) for guidance on configuring the most asked for third-party products.
 
 
 
+
+To connect cloud networks using IPsec tunnels or Cloud Interconnect, refer to [Cloud networking](https://developers.cloudflare.com/cloudflare-wan/reference/cloud-networking/).
 
 [PreviousGet started](https://developers.cloudflare.com/cloudflare-wan/get-started/)[NextOverview](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/
 title: Service bindings - RPC (WorkerEntrypoint) \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:42.466306+00:00
+fetched_at: 2026-11-13T09:17:11.158514+00:00
 ---
 
 # Service bindings - RPC (WorkerEntrypoint) · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:42.466306+00:00
 
 # RPC (WorkerEntrypoint)
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExampleThe WorkerEntrypoint Class Bindings (env) Lifecycle methods (ctx) Fetching static assetsNamed entrypointsFurther reading
 
@@ -40,28 +40,41 @@ You can also use RPC to communicate between Workers and [Durable Objects](https:
 
 For example, the following Worker implements the public method `add(a, b)`:
 
-For example, if Worker B implements the public method `add(a, b)`:
+The TypeScript example below uses a separate directory for each Worker:
+    
+    
+    rpc-example/
+    ├── worker-a/
+    │   ├── src/index.ts
+    │   └── wrangler.jsonc
+    └── worker-b/
+        ├── src/index.ts
+        └── wrangler.jsonc
+
+Worker B implements the public method `add(a, b)`:
     
     
     {
     	"$schema": "./node_modules/wrangler/config-schema.json",
-    	"name": "worker_b",
-    	"main": "./src/workerB.js"
+    	"name": "worker-b",
+    	"main": "./src/index.ts",
+    	// Set this to today's date
+    	"compatibility_date": "2026-11-13",
+    	"upload_source_maps": true
     }
     
     
     "$schema" = "./node_modules/wrangler/config-schema.json"
-    name = "worker_b"
-    main = "./src/workerB.js"
+    name = "worker-b"
+    main = "./src/index.ts"
+    # Set this to today's date
+    compatibility_date = "2026-11-13"
+    upload_source_maps = true
     
     
     import { WorkerEntrypoint } from "cloudflare:workers";
     
     export default class extends WorkerEntrypoint {
-    	async fetch() {
-    		return new Response("Hello from Worker B");
-    	}
-    
     	add(a, b) {
     		return a + b;
     	}
@@ -71,22 +84,15 @@ For example, if Worker B implements the public method `add(a, b)`:
     import { WorkerEntrypoint } from "cloudflare:workers";
     
     export default class extends WorkerEntrypoint {
-    	async fetch() {
-    		return new Response("Hello from Worker B");
-    	}
-    
     	add(a: number, b: number) {
     		return a + b;
     	}
     }
     
     
-    from workers import WorkerEntrypoint, Response
+    from workers import WorkerEntrypoint
     
     class Default(WorkerEntrypoint):
-        async def fetch(self, request):
-            return Response("Hello from Worker B")
-    
         def add(self, a: int, b: int) -> int:
             return a + b
 
@@ -95,42 +101,63 @@ Worker A can declare a [binding](https://developers.cloudflare.com/workers/runti
     
     {
     	"$schema": "./node_modules/wrangler/config-schema.json",
-    	"name": "worker_a",
-    	"main": "./src/workerA.js",
+    	"name": "worker-a",
+    	"main": "./src/index.ts",
+    	// Set this to today's date
+    	"compatibility_date": "2026-11-13",
+    	"upload_source_maps": true,
     	"services": [
     		{
     			"binding": "WORKER_B",
-    			"service": "worker_b"
+    			"service": "worker-b"
     		}
     	]
     }
     
     
     "$schema" = "./node_modules/wrangler/config-schema.json"
-    name = "worker_a"
-    main = "./src/workerA.js"
+    name = "worker-a"
+    main = "./src/index.ts"
+    # Set this to today's date
+    compatibility_date = "2026-11-13"
+    upload_source_maps = true
     
     [[services]]
     binding = "WORKER_B"
-    service = "worker_b"
+    service = "worker-b"
 
-Making it possible for Worker A to call the `add()` method from Worker B:
+For TypeScript, generate Worker A's binding types from both configuration files. Run the following command from the `worker-a` directory:
+
+npmyarnpnpm
+    
+    
+    npx wrangler types -c ./wrangler.jsonc -c ../worker-b/wrangler.jsonc
+    
+    
+    yarn wrangler types -c ./wrangler.jsonc -c ../worker-b/wrangler.jsonc
+    
+    
+    pnpm wrangler types -c ./wrangler.jsonc -c ../worker-b/wrangler.jsonc
+
+Passing both files lets Wrangler resolve Worker B's default export. The generated `Env` interface types `WORKER_B` as a `Service` with the `add()` method. Do not set `entrypoint` to `default`; omitting `entrypoint` selects the default export.
+
+Worker A can then call `add()`:
     
     
     export default {
-    	async fetch(request, env) {
+    	async fetch(_request, env) {
     		const result = await env.WORKER_B.add(1, 2);
-    		return new Response(result);
+    		return new Response(result.toString());
     	},
     };
     
     
     export default {
-    	async fetch(request, env) {
+    	async fetch(_request, env): Promise<Response> {
     		const result = await env.WORKER_B.add(1, 2);
-    		return new Response(result);
+    		return new Response(result.toString());
     	},
-    };
+    } satisfies ExportedHandler<Env>;
     
     
     from workers import WorkerEntrypoint, Response
@@ -139,6 +166,19 @@ Making it possible for Worker A to call the `add()` method from Worker B:
         async def fetch(self, request):
             result = await self.env.WORKER_B.add(1, 2)
             return Response(f"Result: {result}")
+
+To run both TypeScript Workers locally, run the following command from the `rpc-example` directory. The first configuration is the primary Worker and is available at `http://localhost:8787`.
+
+npmyarnpnpm
+    
+    
+    npx wrangler dev -c ./worker-a/wrangler.jsonc -c ./worker-b/wrangler.jsonc
+    
+    
+    yarn wrangler dev -c ./worker-a/wrangler.jsonc -c ./worker-b/wrangler.jsonc
+    
+    
+    pnpm wrangler dev -c ./worker-a/wrangler.jsonc -c ./worker-b/wrangler.jsonc
 
 You do not need to learn, implement, or think about special protocols to use the RPC system. The client, in this case Worker A, calls Worker B and tells it to execute a specific procedure using specific arguments that the client provides. This is accomplished with standard JavaScript classes.
 
@@ -212,6 +252,8 @@ You can use any type of [binding](https://developers.cloudflare.com/workers/runt
 ### Lifecycle methods (`ctx`)
 
 The [`ctx`](https://developers.cloudflare.com/workers/runtime-apis/context) object is exposed as a class property of the `WorkerEntrypoint` class.
+
+If the calling Worker's execution context ends, the called Worker's RPC execution context is canceled. This can happen when the original client disconnects. Refer to [Request cancellation](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/#request-cancellation) for the request chain, and [RPC lifecycle](https://developers.cloudflare.com/workers/runtime-apis/rpc/lifecycle/#end-of-event-handler--execution-context) for RPC object lifetimes.
 
 For example, you can extend the lifetime of the invocation context by calling the `waitUntil()` method:
     

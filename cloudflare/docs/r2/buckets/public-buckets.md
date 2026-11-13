@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/buckets/public-buckets/
 title: Public buckets \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:44.402002+00:00
+fetched_at: 2026-11-13T09:17:08.489187+00:00
 ---
 
 # Public buckets · Cloudflare R2 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:44.402002+00:00
 
 # Public buckets
 
-Last updated Sep 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/buckets/public-buckets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustom domains Caching Access control Minimum TLS Version & Cipher SuitesAdd your domain to CloudflareConnect a bucket to a custom domainDisable domain accessRemove domainPublic development URL Enable public development URL Disable public development URL
 
@@ -38,6 +38,8 @@ To use features like [WAF custom rules](https://developers.cloudflare.com/waf/cu
 Note
 
 Currently, public buckets do not let you list the bucket contents at the root of your (sub) domain.
+
+To test public object access on your machine, use the [local public bucket endpoint](https://developers.cloudflare.com/r2/local-development/#serve-objects-publicly). It does not require enabling public access on a deployed bucket.
 
 ## Custom domains
 

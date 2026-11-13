@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:01.544079+00:00
+fetched_at: 2026-11-13T09:17:06.468784+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -22,13 +22,27 @@ fetched_at: 2026-11-11T09:01:01.544079+00:00
 
 # Configuration
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPIs cloudflareTest(options) buildPagesASSETSBinding(assetsPath) readD1Migrations(migrationsPath)CloudflareTestOptionsDynamic configuration with injectSourcelessWorkerOptions
 
 The Workers Vitest integration provides additional configuration on top of Vitest's usual options using the `cloudflareTest()` Vite plugin.
 
-An example configuration would be:
+An example configuration for a project with a [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/) file would be:
+    
+    
+    import { cloudflareTest } from "@cloudflare/vitest-plugin";
+    import { defineConfig } from "vitest/config";
+    
+    export default defineConfig({
+    	plugins: [
+    		cloudflareTest({
+    			config: true,
+    		}),
+    	],
+    });
+
+If your project uses a [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/), set the `wrangler` option instead of `config`:
     
     
     import { cloudflareTest } from "@cloudflare/vitest-plugin";
@@ -54,7 +68,7 @@ The following APIs are exported from the `@cloudflare/vitest-plugin` package.
 
 ### `cloudflareTest(options)`
 
-A Vite plugin that configures Vitest to use the Workers integration with the correct module resolution settings, and provides type checking for CloudflareTestOptions. Add this to the `plugins` array in your Vitest config alongside [`defineConfig()` ↗︎](https://vitest.dev/config/file.html) from Vitest.
+A Vite plugin that configures Vitest to use the Workers integration with the correct module resolution settings, and provides type checking for CloudflareTestOptions. Add this to the `plugins` array in your Vitest config alongside [`defineConfig()` ↗︎](https://vitest.dev/config/) from Vitest.
 
 It also accepts an optionally-`async` function returning `options`.
     
@@ -97,7 +111,7 @@ Exported from `@cloudflare/vitest-plugin/config`. Creates a Pages ASSETS binding
 
 ### `readD1Migrations(migrationsPath)`
 
-Exported from `@cloudflare/vitest-plugin/config`. Reads all [D1 migrations](https://developers.cloudflare.com/d1/reference/migrations/) stored at `migrationsPath` and returns them ordered by migration number. Each migration will have its contents split into an array of individual SQL queries. Call the [`applyD1Migrations()`](https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/#d1) function inside a test or [setup file ↗︎](https://vitest.dev/config/#setupfiles) to apply migrations. Refer to the [D1 recipe ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-plugin-examples/d1) for an example project using migrations.
+Exported from `@cloudflare/vitest-plugin/config`. Reads all [D1 migrations](https://developers.cloudflare.com/d1/reference/migrations/) stored at `migrationsPath` and returns them ordered by migration number. Each migration will have its contents split into an array of individual SQL queries. Call the [`applyD1Migrations()`](https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/#d1) function inside a test or [setup file ↗︎](https://vitest.dev/config/setupfiles) to apply migrations. Refer to the [D1 recipe ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-plugin-examples/d1) for an example project using migrations.
     
     
     import path from "node:path";
@@ -127,14 +141,22 @@ Exported from `@cloudflare/vitest-plugin/config`. Reads all [D1 migrations](http
 
 Options passed directly to `cloudflareTest()`.
 
+  * `config`: `boolean | string` optional
+
+    * Load the entry point, [compatibility settings](https://developers.cloudflare.com/workers/configuration/compatibility-dates/), [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/), triggers, and exports from a [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/) file. Pass `true` to load `cloudflare.config.ts` from the project root, or pass a path to the file relative to the project root. You cannot use `config` together with `wrangler`.
+
+    * If `cloudflare.config.ts` exports a function, it receives the Vitest mode as `ctx.mode`, which defaults to `test`. To use a different mode, run `vitest --mode <MODE>`. Refer to [Select a mode](https://developers.cloudflare.com/cf/projects/cloudflare-config/#select-a-mode) for more information.
+
   * `main`: string optional
 
-    * Entry point to Worker run in the same isolate/context as tests. This option is required to use Durable Objects without an explicit `scriptName` if classes are defined in the same Worker. This file goes through Vite transforms and can be TypeScript. Note that `import module from "<path-to-main>"` inside tests gives exactly the same `module` instance as is used internally for `exports` and Durable Object bindings. If `wrangler.configPath` is defined and this option is not, it will be read from the `main` field in that configuration file.
+    * Entry point to Worker run in the same isolate/context as tests. This option is required to use Durable Objects without an explicit `scriptName` if classes are defined in the same Worker. This file goes through Vite transforms and can be TypeScript. Note that `import module from "<path-to-main>"` inside tests gives exactly the same `module` instance as is used internally for `exports` and Durable Object bindings. If this option is not set, the integration uses the entry point from your configuration file: `main` in a Wrangler configuration file, or `entrypoint` in `cloudflare.config.ts`.
   * `miniflare`: `SourcelessWorkerOptions & { workers?: WorkerOptions\[]; }` optional
 
     * Use this to provide configuration information that is typically stored within the [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/), such as [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/), [compatibility dates](https://developers.cloudflare.com/workers/configuration/compatibility-dates/), and [compatibility flags](https://developers.cloudflare.com/workers/configuration/compatibility-flags/). The `WorkerOptions` interface is defined [here ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare#interface-workeroptions). Use the `main` option above to configure the entry point, instead of the Miniflare `script`, `scriptPath`, or `modules` options.
 
       * If no `compatibility_date` is provided, then the test will use the latest locally available date.
+    * If you also set `config` or `wrangler`, these options are merged with the configuration from that file, and `miniflare` values take precedence.
+
     * If your project makes use of multiple Workers, you can configure auxiliary Workers that run in the same `workerd` process as your tests and can be bound to. Auxiliary Workers are configured using the `workers` array, containing regular Miniflare [`WorkerOptions` ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare#interface-workeroptions) objects. Note that unlike the `main` Worker, auxiliary Workers:
 
       * Cannot have TypeScript entrypoints. You must compile auxiliary Workers to JavaScript first. You can use the [`wrangler deploy --dry-run --outdir dist`](https://developers.cloudflare.com/workers/wrangler/commands/general/#deploy) command for this.
@@ -145,7 +167,7 @@ Options passed directly to `cloudflareTest()`.
       * Are not affected by global mocks defined in your tests.
   * `wrangler`: `{ configPath?: string; environment?: string; }` optional
 
-    * Path to [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/) to load `main`, [compatibility settings](https://developers.cloudflare.com/workers/configuration/compatibility-dates/) and [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) from. These options will be merged with the `miniflare` option above, with `miniflare` values taking precedence. For example, if your Wrangler configuration defined a [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) named `SERVICE` to a Worker named `service`, but you included `serviceBindings: { SERVICE(request) { return new Response("body"); } }` in the `miniflare` option, all requests to `SERVICE` in tests would return `body`. Note `configPath` accepts both `.toml` and `.json` files. The Wrangler [`alias`](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) field is not read. Set the same aliases in Vite's [`resolve.alias` ↗︎](https://vite.dev/config/shared-options.html#resolve-alias) in your Vitest configuration.
+    * Path to [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/) to load `main`, [compatibility settings](https://developers.cloudflare.com/workers/configuration/compatibility-dates/) and [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) from. These options will be merged with the `miniflare` option above, with `miniflare` values taking precedence. For example, if your Wrangler configuration defined a [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) named `SERVICE` to a Worker named `service`, but you included `serviceBindings: { SERVICE(request) { return new Response("body"); } }` in the `miniflare` option, all requests to `SERVICE` in tests would return `body`. Note `configPath` accepts both `.toml` and `.json` files. The Wrangler [`alias`](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) field is not read. Set the same aliases in Vite's [`resolve.alias` ↗︎](https://vite.dev/config/shared-options.html#resolve-alias) in your Vitest configuration. You cannot use `wrangler` together with `config`.
 
     * The environment option can be used to specify the [Wrangler environment](https://developers.cloudflare.com/workers/wrangler/environments/) to pick up bindings and variables from.
 
@@ -154,7 +176,7 @@ Options passed directly to `cloudflareTest()`.
 
 ## Dynamic configuration with `inject`
 
-You can pass an `async` function to `cloudflareTest()` that receives an `inject` function. This allows you to define `miniflare` configuration based on injected values from [`globalSetup` ↗︎](https://vitest.dev/config/#globalsetup) scripts. Use this if you have a value in your configuration that is dynamically generated and only known at runtime of your tests. For example, a global setup script might start an upstream server on a random port. This port could be `provide()`d and then `inject()`ed in the configuration for an external service binding or [Hyperdrive](https://developers.cloudflare.com/hyperdrive/). Refer to the [Hyperdrive recipe ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-plugin-examples/hyperdrive) for an example project using this provide/inject approach.
+You can pass an `async` function to `cloudflareTest()` that receives an `inject` function. This allows you to define `miniflare` configuration based on injected values from [`globalSetup` ↗︎](https://vitest.dev/config/globalsetup) scripts. Use this if you have a value in your configuration that is dynamically generated and only known at runtime of your tests. For example, a global setup script might start an upstream server on a random port. This port could be `provide()`d and then `inject()`ed in the configuration for an external service binding or [Hyperdrive](https://developers.cloudflare.com/hyperdrive/). Refer to the [Hyperdrive recipe ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-plugin-examples/hyperdrive) for an example project using this provide/inject approach.
 
 Illustrative example
     

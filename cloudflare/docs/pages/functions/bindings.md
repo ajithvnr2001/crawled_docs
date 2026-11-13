@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/functions/bindings/
 title: Bindings \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:32.281745+00:00
+fetched_at: 2026-11-13T09:17:11.753739+00:00
 ---
 
 # Bindings · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:32.281745+00:00
 
 # Bindings
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/functions/bindings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKV namespaces Interact with your KV namespaces locallyDurable Objects Interact with your Durable Object namespaces locallyR2 buckets Interact with your R2 buckets locallyD1 databases Interact with your D1 databases locallyVectorize indexes Use Vectorize index bindingsWorkers AI Use Workers AI bindings Interact with your Workers AI binding locallyService bindings Interact with your Service bindings locallyQueue Producers Interact with your Queue Producer binding locallyHyperdrive configs Interact with your Hyperdrive binding locallyAnalytics Engine Interact with your Analytics Engine binding locallyEnvironment variables Interact with your environment variables locallySecrets Local development with secrets
 
@@ -563,6 +563,8 @@ Below is an example of how to use Service bindings in your Function. In the foll
     	return context.env.SERVICE.fetch(context.request);
     };
 
+If the browser disconnects from your Pages Function, the Function can stop waiting for the Worker it calls. That Worker may also report Client Disconnected. Refer to [Choose when work should stop](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/#choose-when-work-should-stop) to decide whether to stop the work or keep it running.
+
 ### Interact with your Service bindings locally
 
 You can interact with your Service bindings locally in one of two ways:
@@ -656,13 +658,13 @@ PostgreSQL drivers like [`Postgres.js` ↗︎](https://github.com/porsager/postg
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08"
+    	"compatibility_date": "2026-11-13"
     }
     
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-13"
 
 [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) is a service for connecting to your existing databases from Cloudflare Workers and Pages Functions.
 

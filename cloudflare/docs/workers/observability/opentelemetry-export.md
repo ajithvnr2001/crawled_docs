@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/opentelemetry-export/
 title: OpenTelemetry export \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:36.268683+00:00
+fetched_at: 2026-11-13T09:17:06.155640+00:00
 ---
 
 # OpenTelemetry export · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:36.268683+00:00
 
 # OpenTelemetry export
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/observability/opentelemetry-export/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported telemetryConfigure exportKnown limitations
 
@@ -79,6 +79,10 @@ Add your destination names to your Wrangler configuration. Each name must match 
 `persist` and pricing
 
 By default, `persist` is `true`. Logs and traces are exported and stored in Cloudflare. Beginning December 1, 2026, persisted data contributes to [Cloudflare Observability ingestion and storage usage](https://developers.cloudflare.com/observability/pricing/). Set `persist` to `false` if you only need data in your external destination.
+
+When `persist` is enabled, the Cloudflare-stored copy of your logs and traces follows your account's [Customer Metadata Boundary](https://developers.cloudflare.com/data-localization/metadata-boundary/) setting when one is configured. Exported data is sent to the destination you configure.
+
+Viewing availability for the Cloudflare-stored copy is subject to the Customer Metadata Boundary limitations listed in [Data Localization compatibility](https://developers.cloudflare.com/data-localization/compatibility/).
 
 Redeploy your Worker after updating its Wrangler configuration. Events may take several minutes to reach your destination.
 

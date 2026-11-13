@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/data-source/built-in-storage/
 title: Built-in storage \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:38.837942+00:00
+fetched_at: 2026-11-13T09:17:09.210864+00:00
 ---
 
 # Built-in storage · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:38.837942+00:00
 
 # Built-in storage
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/data-source/built-in-storage/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUpload and manage filesIndexingExternal data sourcesLimits and pricing
 
@@ -36,7 +36,7 @@ For supported file types, refer to [Supported file types](https://developers.clo
 
 ## Indexing
 
-Files uploaded to built-in storage are indexed immediately. External data sources like websites and R2 buckets are indexed on a [sync schedule](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/).
+Files uploaded to built-in storage are indexed immediately. External data sources like websites, R2 buckets, and D1 databases are indexed on a [sync schedule](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/).
 
 ## External data sources
 
@@ -44,14 +44,17 @@ An instance can use built-in storage alongside an external data source. The avai
 
   * [Website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/): crawl and index a website that you own
   * [R2 Bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/): index documents stored in a Cloudflare R2 bucket
+  * [D1 database](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/): index rows returned by a SQL query against a Cloudflare D1 database
 
 
 
 For example, an instance can be backed by a website for shared documentation while also accepting file uploads through the Items API for additional content.
 
+Built-in storage also holds the Markdown content that AI Search extracts from each indexed file in a connected data source. This content counts toward [AI Search storage](https://developers.cloudflare.com/ai-search/platform/limits-pricing/#how-storage-is-measured).
+
 ## Limits and pricing
 
-Storage, vector indexing, Browser Run crawling, and Workers AI embedding and reranking usage are included in AI Search billing. Other usage, such as generation through your AI Gateway, is billed separately. For full details, refer to [Limits and pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/).
+Storage, vector indexing, Browser Run crawling, and Workers AI embedding and reranking usage are included in AI Search billing. Storage is billed as AI Search storage rather than on your R2 bill. Other usage, such as generation through your AI Gateway, is billed separately. For full details, refer to [Limits and pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/).
 
 [PreviousOverview](https://developers.cloudflare.com/ai-search/configuration/data-source/)[NextR2](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/)
 

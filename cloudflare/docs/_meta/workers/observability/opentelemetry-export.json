@@ -3,8 +3,5 @@
   "file": "workers/observability/opentelemetry-export.md",
   "title": "OpenTelemetry export \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:36.268881+00:00",
-  "html_len": 188651,
-  "md_len": 3175,
-  "depth": 0
+  "fetched_at": "2026-11-13T09:17:06.155991+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
 title: Custom Domains \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:15.511711+00:00
+fetched_at: 2026-11-13T09:17:08.689114+00:00
 ---
 
 # Custom Domains · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:17:15.511711+00:00
 
 # Custom Domains
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBackgroundAdd a Custom Domain Set up a Custom Domain in the dashboard Require sign-in for a Custom Domain Set up a Custom Domain in your Wrangler configuration fileWorker to Worker communicationRequest matching behaviourInteraction with RoutesCertificatesRedirect between www and root domainMigrate from Routes Migrate from Routes via the dashboard Migrate from Routes via Wrangler
+OverviewBackgroundAdd a Custom Domain Set up a Custom Domain in the dashboard Require sign-in for a Custom Domain Set up a Custom Domain in your Wrangler configuration fileWorker to Worker communication Security evaluation of same-zone subrequestsRequest matching behaviourInteraction with RoutesCertificatesRedirect between www and root domainMigrate from Routes Migrate from Routes via the dashboard Migrate from Routes via Wrangler
 
 ## Background
 
@@ -151,6 +151,12 @@ worker-ajs
     };
 
 However, if `worker-b` was instead set up to run on the Custom Domain `shop.example.com`, the fetch request would succeed.
+
+### Security evaluation of same-zone subrequests
+
+A fetch request sent on the same zone to a Worker running on a Custom Domain is a subrequest. [WAF custom rules](https://developers.cloudflare.com/waf/custom-rules/) and [WAF managed rules](https://developers.cloudflare.com/waf/managed-rules/) on the target hostname are not evaluated for same-zone subrequests. Subrequests to a proxied hostname in a different zone are evaluated by that zone's security configuration.
+
+Do not rely on custom rules on the target hostname to restrict access to same-zone subrequests. To protect the target, apply protections to the incoming request that triggers the Worker, or validate the request in the target Worker itself. For more information, refer to [Security features interoperability](https://developers.cloudflare.com/waf/feature-interoperability/).
 
 ## Request matching behaviour
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/known-issues/
 title: Known issues \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:58.262013+00:00
+fetched_at: 2026-11-13T09:17:07.067369+00:00
 ---
 
 # Known issues · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:58.262013+00:00
 
 # Known issues
 
-Last updated Aug 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/testing/vitest-integration/known-issues/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Coverage Fake timers Dynamic import() statements with exports and Durable Objects WebSockets Storage isolation Missing properties on ctx.exports Module resolution Importing modules from global setup file
 
@@ -113,7 +113,7 @@ The `additionalExports` option is a map where keys are the export names and valu
 
 ### Module resolution
 
-If you encounter module resolution issues such as: `Error: Cannot use require() to import an ES Module` or `Error: No such module`, you can bundle these dependencies using the [deps.optimizer ↗︎](https://vitest.dev/config/#deps-optimizer) option:
+If you encounter module resolution issues such as: `Error: Cannot use require() to import an ES Module` or `Error: No such module`, you can bundle these dependencies using the [deps.optimizer ↗︎](https://vitest.dev/config/deps#deps-optimizer) option:
     
     
     import { cloudflareTest } from "@cloudflare/vitest-plugin";

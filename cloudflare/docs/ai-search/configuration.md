@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/
 title: Configuration \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:38.425918+00:00
+fetched_at: 2026-11-13T09:17:09.839628+00:00
 ---
 
 # Configuration · Cloudflare AI Search docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:04:38.425918+00:00
 
 # Configuration
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewData sourceIndexingRetrievalModels
 
@@ -30,6 +30,7 @@ Configuration | Editable after creation | Description
 [Built-in storage](https://developers.cloudflare.com/ai-search/configuration/data-source/built-in-storage/) | n/a | Upload files directly to an instance  
 [Website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/) | no | Connect a domain you own to index website pages  
 [R2 Bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/) | no | Connect a Cloudflare R2 bucket to index stored documents  
+[D1 database](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/) Beta | no | Connect a Cloudflare D1 database to index query results  
   
 ## Indexing
 
@@ -42,7 +43,7 @@ Configuration | Editable after creation | Description
 [Keyword search](https://developers.cloudflare.com/ai-search/configuration/indexing/keyword-search/) | yes | Enable keyword (BM25) search for exact term matching  
 [Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/) | yes | Combine vector and keyword search with configurable fusion  
 [Metadata attributes](https://developers.cloudflare.com/ai-search/configuration/indexing/metadata/) | yes | Define built-in and custom metadata fields  
-[Service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) | yes | API token that grants AI Search permission to access R2 buckets  
+[Service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) | yes | API token that grants AI Search permission to access R2 buckets and D1 databases  
   
 ## Retrieval
 

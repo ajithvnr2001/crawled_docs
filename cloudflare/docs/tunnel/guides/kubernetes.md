@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/tunnel/guides/kubernetes/
 title: Kubernetes \u00b7 Cloudflare Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:04.857585+00:00
+fetched_at: 2026-11-13T09:17:10.080883+00:00
 ---
 
 # Kubernetes · Cloudflare Docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:04.857585+00:00
 
 # Kubernetes
 
-Last updated Sep 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/tunnel/guides/kubernetes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewArchitecturePrerequisites1\. Create a GKE cluster2\. Create pods for the web app3\. Create a tunnel4\. Store the tunnel token5\. Create pods for cloudflared6\. Verify tunnel status7\. Add a tunnel route8\. Test the connection
 
@@ -121,7 +121,7 @@ httpbin.yamlyaml
                    ports:
                      - containerPort: 80
 
-  4. Create a new `httpbinsvc.yaml` file. This file defines a Kubernetes service that allows other apps in the cluster (such as `cloudflared`) to access the set of httpbin pods.
+  4. Create a new `httpbinsvc.yaml` file. This file defines a Kubernetes service that allows other apps in the cluster (such as `cloudflared`) to access the set of httpbin pods. Because `cloudflared` runs inside the cluster, the service only needs an internal cluster IP (`type: ClusterIP`). Avoid service types such as `LoadBalancer` or `NodePort`, which would expose the application outside of the tunnel.
 
 httpbinsvc.yamlyaml
          
@@ -131,7 +131,7 @@ httpbinsvc.yamlyaml
            name: httpbin-service
            namespace: default
          spec:
-           type: LoadBalancer
+           type: ClusterIP
            selector:
              app: httpbin
            ports:
@@ -150,9 +150,9 @@ httpbinsvc.yamlyaml
          pod/httpbin-deployment-bc6689c5d-b5ftk   1/1     Running   0          79s
          pod/httpbin-deployment-bc6689c5d-cbd9m   1/1     Running   0          79s
          
-         NAME                      TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)        AGE
-         service/httpbin-service   LoadBalancer   34.118.225.147   34.75.201.60   80:31967/TCP   79s
-         service/kubernetes        ClusterIP      34.118.224.1     <none>         443/TCP        24h
+         NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+         service/httpbin-service   ClusterIP   34.118.225.147   <none>        80/TCP    79s
+         service/kubernetes        ClusterIP   34.118.224.1     <none>        443/TCP   24h
          
          NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
          deployment.apps/httpbin-deployment   2/2     2            2           79s
@@ -289,9 +289,9 @@ Kubernetes will install the `cloudflared` image on two pods and run the tunnel u
          pod/httpbin-deployment-bc6689c5d-b5ftk        1/1     Running   0          3m36s
          pod/httpbin-deployment-bc6689c5d-cbd9m        1/1     Running   0          3m36s
          
-         NAME                      TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)        AGE
-         service/httpbin-service   LoadBalancer   34.118.225.147   34.75.201.60   80:31967/TCP   3m36s
-         service/kubernetes        ClusterIP      34.118.224.1     <none>         443/TCP        24h
+         NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+         service/httpbin-service   ClusterIP   34.118.225.147   <none>        80/TCP    3m36s
+         service/kubernetes        ClusterIP   34.118.224.1     <none>        443/TCP   24h
          
          NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
          deployment.apps/cloudflared-deployment   2/2     2            2           22s

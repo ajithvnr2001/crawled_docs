@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/
 title: Billing and Limitations \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:17.716509+00:00
+fetched_at: 2026-11-13T09:17:13.904924+00:00
 ---
 
 # Billing and Limitations · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:17.716509+00:00
 
 # Billing and Limitations
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBillingLimitations Range requestsTroubleshooting
 
@@ -45,10 +45,11 @@ To serve byte ranges, route the affected paths to your Worker with [`run_worker_
 ## Troubleshooting
 
   * `assets.bucket is a required field` — if you see this error, you need to update Wrangler to at least `3.78.10` or later. `bucket` is not a required field.
+  * Asset requests fail after a deployment — HTML and asset requests may use different versions. An older page may also request a file missing from the version handling that request. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/).
 
 
 
-[PreviousDirect Uploads](https://developers.cloudflare.com/workers/static-assets/direct-upload/)[NextMigrate from Pages to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/)
+[PreviousDirect Uploads](https://developers.cloudflare.com/workers/static-assets/direct-upload/)[NextOverview](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/)
 
 Was this helpful?
 

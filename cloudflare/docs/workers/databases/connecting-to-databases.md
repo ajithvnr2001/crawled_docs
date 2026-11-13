@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/databases/connecting-to-databases/
 title: Connect to databases \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:14.745051+00:00
+fetched_at: 2026-11-13T09:17:07.350623+00:00
 ---
 
 # Connect to databases · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-17T06:28:14.745051+00:00
 
 # Connect to databases
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview D1 and Durable Objects Traditional databases Serverless databasesAuthenticationNext steps
 
@@ -26,7 +26,7 @@ Cloudflare Workers can connect to and query your data in both SQL and NoSQL data
 
   * Cloudflare's own [D1](https://developers.cloudflare.com/d1/) serverless SQL database, and [Durable Objects](https://developers.cloudflare.com/durable-objects/) with SQLite storage.
   * Traditional hosted databases: relational databases such as Postgres and MySQL, using [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) (recommended) to significantly speed up access, and NoSQL databases such as MongoDB.
-  * Serverless databases, including Supabase, PlanetScale, and Prisma.
+  * Serverless databases, including Supabase, PlanetScale, and Prisma Postgres.
 
 
 
@@ -51,7 +51,7 @@ Traditional databases connect over [TCP sockets](https://developers.cloudflare.c
 
 Relational databases such as PostgreSQL and MySQL connect using their native SQL drivers over TCP.
 
-This also includes serverless databases that are PostgreSQL or MySQL-compatible like [Supabase](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/supabase/), [Neon](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/neon/), or PlanetScale (either [MySQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/planetscale/) or [PostgreSQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/planetscale-postgres/)), which can be connected to using both native [TCP sockets and Hyperdrive](https://developers.cloudflare.com/hyperdrive/) or [serverless HTTP-based drivers](https://developers.cloudflare.com/workers/databases/connecting-to-databases/#serverless-databases) (detailed below).
+This also includes serverless databases that are PostgreSQL or MySQL-compatible like [Supabase](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/supabase/), [Neon](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/neon/), [Prisma Postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/prisma-postgres/), or PlanetScale (either [MySQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/planetscale/) or [PostgreSQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/planetscale-postgres/)), which can be connected to using both native [TCP sockets and Hyperdrive](https://developers.cloudflare.com/hyperdrive/) or [serverless HTTP-based drivers](https://developers.cloudflare.com/workers/databases/connecting-to-databases/#serverless-databases) (detailed below).
 
 Database | Integration | Library or Driver | Connection Method  
 ---|---|---|---  
@@ -84,7 +84,7 @@ Database | Library or Driver | Connection Method
 ---|---|---  
 [PlanetScale ↗︎](https://planetscale.com/blog/introducing-the-planetscale-serverless-driver-for-javascript) | [Hyperdrive (MySQL)](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/planetscale), [Hyperdrive (PostgreSQL)](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/planetscale-postgres/), [@planetscale/database ↗︎](https://github.com/planetscale/database-js) | [mysql2](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/mysql2/), [mysql](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/mysql/), [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/), [Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or API via client library  
 [Supabase ↗︎](https://github.com/supabase/supabase/tree/master/examples/with-cloudflare-workers) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/supabase/), [@supabase/supabase-js ↗︎](https://github.com/supabase/supabase-js) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or API via client library  
-[Prisma ↗︎](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-cloudflare-workers) | [prisma ↗︎](https://github.com/prisma/prisma) | API via client library  
+[Prisma Postgres](https://developers.cloudflare.com/workers/tutorials/using-prisma-postgres-with-workers/) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/prisma-postgres/), [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/)  
 [Neon ↗︎](https://blog.cloudflare.com/neon-postgres-database-from-workers/) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/neon/), [@neondatabase/serverless ↗︎](https://neon.tech/blog/serverless-driver-for-postgres/) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or API via client library  
 [Hasura ↗︎](https://hasura.io/blog/building-applications-with-cloudflare-workers-and-hasura-graphql-engine/) | API | GraphQL API via fetch()  
 [Upstash Redis ↗︎](https://blog.cloudflare.com/cloudflare-workers-database-integration-with-upstash/) | [@upstash/redis ↗︎](https://github.com/upstash/upstash-redis) | API via client library  
@@ -116,7 +116,7 @@ For services that require mTLS authentication, use [mTLS certificates](https://d
 
 
 
-[PreviousLangChain ↗︎](https://developers.cloudflare.com/workers/languages/python/packages/langchain/)[NextAnalytics Engine ↗︎](https://developers.cloudflare.com/analytics/analytics-engine/)
+[PreviousLangChain ↗︎](https://developers.cloudflare.com/workers/languages/python/packages/langchain/)[NextVectorize (vector database) ↗︎](https://developers.cloudflare.com/vectorize/)
 
 Was this helpful?
 

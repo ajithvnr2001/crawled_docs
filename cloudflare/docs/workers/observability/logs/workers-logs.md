@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
 title: Workers Logs \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:27.631459+00:00
+fetched_at: 2026-11-13T09:17:06.270167+00:00
 ---
 
 # Workers Logs · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-13T08:48:27.631459+00:00
 
 # Workers Logs
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEnable Workers Logs Enabling with environmentsView logs from the dashboardBest Practices Logging structured JSON objectsFeatures Invocation Logs Custom logs Head-based samplingLimitsPricing Examples
+OverviewEnable Workers Logs Enabling with environmentsView logs from the dashboardBest Practices Logging structured JSON objectsFeatures Invocation Logs Custom logs Head-based samplingLimitsData locationPricing Examples
 
 Workers Logs lets you automatically collect, store, filter, and analyze logging data emitted from Cloudflare Workers. Data is written to your Cloudflare Account, and you can query it in the dashboard for each of your Workers. All newly created Workers will come with the observability setting enabled by default.
 
@@ -225,6 +225,12 @@ Maximum log size2 | 256 KB
 1 There is a daily limit of 5 billion logs per account per day. After the limit is exceed, a 1% head-based sample will be applied for the remainder of the day.
 
 2 A single log has a maximum size limit of [256 KB](https://developers.cloudflare.com/workers/platform/limits/#log-size). Logs exceeding that size will be truncated and the log's `$cloudflare.truncated` field will be set to true.
+
+## Data location
+
+Cloudflare-stored Workers Logs, including invocation logs, follow your account's [Customer Metadata Boundary](https://developers.cloudflare.com/data-localization/metadata-boundary/) setting when one is configured. If no boundary is configured, logs may be stored in Cloudflare's core data centers globally.
+
+Viewing availability is subject to the Customer Metadata Boundary limitations listed in [Data Localization compatibility](https://developers.cloudflare.com/data-localization/compatibility/).
 
 ## Pricing
 

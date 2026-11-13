@@ -3,8 +3,5 @@
   "file": "ai-search/configuration/data-source/website.md",
   "title": "Website \u00b7 Cloudflare AI Search docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:04:38.924706+00:00",
-  "html_len": 133852,
-  "md_len": 9607,
-  "depth": 0
+  "fetched_at": "2026-11-13T09:17:09.452388+00:00"
 }

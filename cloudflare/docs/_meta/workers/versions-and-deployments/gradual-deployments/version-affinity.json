@@ -3,8 +3,5 @@
   "file": "workers/versions-and-deployments/gradual-deployments/version-affinity.md",
   "title": "Version affinity \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:18:03.545795+00:00",
-  "html_len": 211275,
-  "md_len": 10598,
-  "depth": 0
+  "fetched_at": "2026-11-13T09:17:12.022121+00:00"
 }

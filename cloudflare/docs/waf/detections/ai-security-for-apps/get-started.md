@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/
 title: Get started with AI Security for Apps \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:24.227917+00:00
+fetched_at: 2026-11-13T09:17:10.600807+00:00
 ---
 
 # Get started with AI Security for Apps · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:24.227917+00:00
 
 # Get started with AI Security for Apps
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Turn on AI Security for Apps2\. Review or add an LLM-related operation3\. Add cf-llm label to endpoint4\. (Optional) Configure custom prompt extraction5\. (Optional) Generate API traffic6\. Review labeled traffic and detection behavior7\. Mitigate harmful requests
 
@@ -49,6 +49,14 @@ Enable the feature using a `PUT` request similar to the following:
     --request PUT \
     --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
     --json '{ "enabled": true }'
+
+Use the [`cloudflare_ai_security` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ai_security) resource to turn on AI Security for Apps for a zone. This resource requires Terraform Cloudflare provider version 5.29.0 or later. For example:
+    
+    
+    resource "cloudflare_ai_security" "zone_ai_security" {
+      zone_id = var.cloudflare_zone_id
+      enabled = true
+    }
 
 ## 2\. Review or add an LLM-related operation
 

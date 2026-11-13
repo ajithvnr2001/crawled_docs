@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/isolation-and-concurrency/
 title: Isolation and concurrency \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.109338+00:00
+fetched_at: 2026-11-13T09:17:07.436830+00:00
 ---
 
 # Isolation and concurrency · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-13T08:48:26.109338+00:00
 
 # Isolation and concurrency
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRun testsIsolation modelModules
 
@@ -33,10 +33,10 @@ Review how the Workers Vitest integration runs your tests, how it isolates tests
 When you run your tests with the Workers Vitest integration, Vitest will:
 
   1. Read and evaluate your configuration file using Node.js.
-  2. Run any [`globalSetup` ↗︎](https://vitest.dev/config/#globalsetup) files using Node.js.
+  2. Run any [`globalSetup` ↗︎](https://vitest.dev/config/globalsetup) files using Node.js.
   3. Collect and sequence test files.
   4. For each Vitest project, depending on its configured isolation and concurrency, start one or more [`workerd` ↗︎](https://github.com/cloudflare/workerd) processes, each running one or more Workers.
-  5. Run [`setupFiles` ↗︎](https://vitest.dev/config/#setupfiles) and test files in `workerd` using the appropriate Workers.
+  5. Run [`setupFiles` ↗︎](https://vitest.dev/config/setupfiles) and test files in `workerd` using the appropriate Workers.
   6. Watch for changes and re-run test files using the same Workers if the configuration has not changed.
 
 
@@ -68,7 +68,7 @@ The Wrangler configuration file does not specify either `nodejs_compat` or `node
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13"
+    	"compatibility_date": "2026-11-13"
     	# no nodejs_compat flags here
     }
     
@@ -77,7 +77,7 @@ The Wrangler configuration file does not specify either `nodejs_compat` or `node
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
 
 In our `src/index.ts` file, we use the `process` object, which is a Node.js global, unavailable in the Workerd runtime:
     

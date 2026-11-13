@@ -3,8 +3,5 @@
   "file": "waf/detections/malicious-uploads/example-rules.md",
   "title": "Example rules checking uploaded content objects \u00b7 Cloudflare Web Application Firewall (WAF) docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:16:41.995024+00:00",
-  "html_len": 140037,
-  "md_len": 3824,
-  "depth": 0
+  "fetched_at": "2026-11-13T09:17:10.446423+00:00"
 }

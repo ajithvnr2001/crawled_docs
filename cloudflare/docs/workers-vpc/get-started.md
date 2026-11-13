@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/get-started/
 title: Get started \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:29.428110+00:00
+fetched_at: 2026-11-13T09:17:14.927207+00:00
 ---
 
 # Get started · Cloudflare Workers VPC
@@ -17,7 +17,7 @@ fetched_at: 2026-10-13T08:48:29.428110+00:00
 
 # Get started
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a new Worker project2\. Set up Cloudflare Tunnel Configuring your private network for Cloudflare Tunnel3\. Create a VPC Service4\. Configure your Worker5\. Write your Worker code6\. Test locally7\. Deploy your WorkerNext steps
 
@@ -190,11 +190,12 @@ Add the VPC Service binding to your Wrangler configuration file:
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"vpc_services": [
     		{
     			"binding": "VPC_SERVICE",
-    			"service_id": "<YOUR_SERVICE_ID>"
+    			"service_id": "<YOUR_SERVICE_ID>",
+    			"remote": true
     		}
     	]
     }
@@ -205,11 +206,12 @@ Add the VPC Service binding to your Wrangler configuration file:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [[vpc_services]]
     binding = "VPC_SERVICE"
     service_id = "<YOUR_SERVICE_ID>"
+    remote = true
 
 Replace `<YOUR_SERVICE_ID>` with the service ID from step 3.
 
@@ -244,7 +246,7 @@ Update your Worker to use the VPC Service binding. The following example:
 
 ## 6\. Test locally
 
-Test your Worker locally. You must use remote VPC Services, using either [Workers remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings) as was configured in your `wrangler.jsonc` configuration file, or using `npx wrangler dev --remote`:
+Test your Worker locally with [remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings). The `remote: true` setting in step 4 connects `VPC_SERVICE` to your configured VPC Service during local development:
     
     
     npx wrangler dev

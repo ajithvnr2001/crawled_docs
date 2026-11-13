@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/get-started/
 title: Get Started \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:51.573848+00:00
+fetched_at: 2026-11-13T09:17:13.264419+00:00
 ---
 
 # Get Started · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:51.573848+00:00
 
 # Get Started
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/static-assets/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy a static site 1\. Create a new Worker project using the CLI 2\. Develop locally 3\. Deploy your projectDeploy a full-stack application 1\. Create a new Worker project 2\. Develop locally 3\. Modify your Project 4\. Deploy your Project
 
@@ -61,6 +61,7 @@ For setup, select the following options:
   * For _Which template would you like to use?_ , choose `Static site`.
   * For _Which language do you want to use?_ , choose `TypeScript`.
   * For _Do you want to use git for version control?_ , choose `Yes`.
+  * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
   * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 
@@ -119,6 +120,7 @@ For setup, select the following options:
   * For _Which template would you like to use?_ , choose `SSR / full-stack app`.
   * For _Which language do you want to use?_ , choose `TypeScript`.
   * For _Do you want to use git for version control?_ , choose `Yes`.
+  * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
   * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 
@@ -159,7 +161,7 @@ Note
 
 Learn about how assets are configured and how routing works from [Routing configuration](https://developers.cloudflare.com/workers/static-assets/routing/).
 
-[PreviousOverview](https://developers.cloudflare.com/workers/static-assets/)[NextConfiguration and Bindings](https://developers.cloudflare.com/workers/static-assets/binding/)
+[PreviousOverview](https://developers.cloudflare.com/workers/static-assets/)[NextFull-stack application](https://developers.cloudflare.com/workers/static-assets/routing/full-stack-application/)
 
 Was this helpful?
 

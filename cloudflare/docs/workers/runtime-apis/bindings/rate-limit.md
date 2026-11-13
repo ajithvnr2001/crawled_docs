@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
 title: Rate Limiting \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:07.136097+00:00
+fetched_at: 2026-11-13T09:17:15.892712+00:00
 ---
 
 # Rate Limiting · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-23T16:40:07.136097+00:00
 
 # Rate Limiting
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGet startedConfigurationBest practicesLocalityPerformanceAccuracy Strict limitsMonitoringExamples
+OverviewGet startedConfigurationWeighted requestsBest practicesLocalityPerformanceAccuracy Strict limitsMonitoringExamples
 
 The Rate Limiting API lets you define rate limits and write code around them in your Worker.
 
@@ -116,10 +116,11 @@ This binding makes the `MY_RATE_LIMITER` binding available, which provides a `li
       }
     } satisfies ExportedHandler<Env>;
 
-The `limit()` API accepts a single argument — a configuration object with the `key` field.
+The `limit()` API accepts a single argument — a configuration object with the `key` field and an optional `delta` field.
 
   * The key you provide can be any `string` value.
   * A common pattern is to define your key by combining a string that uniquely identifies the actor initiating the request (ex: a user ID or customer ID) and a string that identifies a specific resource (ex: a particular API route).
+  * The `delta` sets how much the call counts toward the limit, and defaults to `1`. Refer to Weighted requests.
 
 
 
@@ -181,7 +182,7 @@ Setting | Type | Description
 ---|---|---  
 `namespace_id` | `string` | A string containing a positive integer that uniquely defines this rate limiting namespace within your Cloudflare account (for example, `"1001"`). Although the value must be a valid integer, it is specified as a string. This is intentional.  
 `simple` | `object` | The rate limit configuration. `simple` is the only supported type.  
-`simple.limit` | `number` | The request threshold for calls to `limit()` within the given `period`, per Cloudflare location. Requests can exceed this threshold; refer to Accuracy.  
+`simple.limit` | `number` | The request threshold for calls to `limit()` within the given `period`, per Cloudflare location. Each call counts as its `delta`, which defaults to `1`. Requests can exceed this threshold; refer to Accuracy.  
 `simple.period` | `number` | The duration of the rate limit window, in seconds. Must be either `10` or `60`.  
   
 Note
@@ -215,6 +216,83 @@ For example, to apply a rate limit of 1500 requests per minute, you would define
       [ratelimits.simple]
       limit = 1_500
       period = 60
+
+## Weighted requests
+
+Requests can require different amounts of work. A product lookup might be cheap, while a search runs an expensive database query. Use weighted requests to make expensive operations consume more of the same rate limit.
+
+By default, each call to `limit()` counts as one unit. Your Worker chooses each operation's weight through `delta`. For example, assign one unit to a product lookup and 10 units to a search.
+
+Use the same `key` across routes to share a user's allowance. The `key` identifies whose allowance to use. The `delta` determines how much the operation consumes.
+
+The following handler runs after your application authenticates the request. Pass the verified user ID as `userId`:
+
+src/index.jsjs
+    
+    
+    export async function handleAuthenticatedRequest(request, env, userId) {
+    	const { pathname } = new URL(request.url);
+    
+    	// Assign searches a weight of 10 and other requests a weight of 1.
+    	const delta = pathname === "/search" ? 10 : 1;
+    
+    	const { success } = await env.MY_RATE_LIMITER.limit({
+    		key: userId,
+    		delta,
+    	});
+    	if (!success) {
+    		return new Response("Rate limit exceeded", { status: 429 });
+    	}
+    
+    	return new Response("Success!");
+    }
+
+src/index.tsts
+    
+    
+    export async function handleAuthenticatedRequest(
+    	request: Request,
+    	env: Env,
+    	userId: string,
+    ): Promise<Response> {
+    	const { pathname } = new URL(request.url);
+    
+    	// Assign searches a weight of 10 and other requests a weight of 1.
+    	const delta = pathname === "/search" ? 10 : 1;
+    
+    	const { success } = await env.MY_RATE_LIMITER.limit({
+    		key: userId,
+    		delta,
+    	});
+    	if (!success) {
+    		return new Response("Rate limit exceeded", { status: 429 });
+    	}
+    
+    	return new Response("Success!");
+    }
+
+For example, configure `simple.limit` as `100` and `simple.period` as `60`. The threshold is then 100 units per user per minute, in each Cloudflare location. For one user within that period, the following requests consume 70 units:
+
+Activity | Weight per request (`delta`) | Units consumed  
+---|---|---  
+20 product lookups | 1 | 20  
+5 searches | 10 | 50  
+Total | — | 70  
+  
+These 25 requests represent 70 units of work. Weighting lets expensive searches consume the allowance faster than product lookups.
+
+The `delta` must be a positive integer. Other values can cause `limit()` to throw an error.
+
+The rate limit decision uses the count before the call:
+
+  * A call succeeds while the count is below the limit, even if its `delta` takes the count past the limit.
+  * A call that returns `success: false` does not add to the count.
+
+
+
+Weighted counts are approximate, like other counts. Refer to Accuracy.
+
+To use `delta` in local development, use version 4.157.0 or later of the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/). For TypeScript support, use `@cloudflare/workers-types` version 5.20261106.1 or later.
 
 ## Best practices
 
@@ -308,7 +386,7 @@ Rate limiting bindings are not currently visible in the Cloudflare dashboard. To
 
 
 
-[PreviousR2 ↗︎](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/)[NextSecrets ↗︎](https://developers.cloudflare.com/workers/configuration/secrets/)
+[PreviousR2 ↗︎](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/)[NextSecrets Store ↗︎](https://developers.cloudflare.com/secrets-store/integrations/workers/)
 
 Was this helpful?
 

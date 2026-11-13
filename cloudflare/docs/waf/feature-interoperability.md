@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/feature-interoperability/
 title: Security features interoperability \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:15.086180+00:00
+fetched_at: 2026-11-13T09:17:08.906582+00:00
 ---
 
 # Security features interoperability · Cloudflare Web Application Firewall (WAF) docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-17T06:28:15.086180+00:00
 
 # Security features interoperability
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExecution order Features outside the Ruleset EngineSecurity features overview DDoS protection Custom rules Rate limiting rules Managed Rules Bot Fight Mode Super Bot Fight Mode Bot ManagementKey interaction rulesCommon scenarios Small business website (Free plan) E-commerce site (Pro or Business plan) Enterprise API and website (Enterprise plan)Troubleshoot conflicts Identify which feature blocked a request Resolve Bot Fight Mode false positives Resolve Super Bot Fight Mode false positives Resolve Managed Rules false positives
 
@@ -99,7 +99,7 @@ These rules govern how security features interact:
   * **Skip actions bypass later phases.** You can use the [_Skip_ action](https://developers.cloudflare.com/waf/custom-rules/skip/options/) in custom rules to bypass rate limiting rules (`http_ratelimit`), Super Bot Fight Mode (`http_request_sbfm`), and Managed Rules (`http_request_firewall_managed`).
   * **Bot Fight Mode cannot be skipped.** Because Bot Fight Mode is not part of the Ruleset Engine, custom rules cannot skip it. If you need to exempt traffic from bot protection, upgrade to Super Bot Fight Mode or Bot Management.
   * **Bot Management scores are available in custom rules.** Enterprise customers with Bot Management can use `cf.bot_management.score` in custom rule expressions to define custom thresholds per path, user agent, or any other request property.
-  * **Same-zone snippet subrequests are not evaluated by custom rules or managed rules.** When a snippet uses `fetch()` to call a proxied hostname in the same zone, WAF custom rules and WAF managed rules on the target hostname do not apply to that subrequest. Refer to [Subrequests made by a snippet](https://developers.cloudflare.com/rules/snippets/how-it-works/#subrequests-made-by-a-snippet).
+  * **Same-zone Worker and snippet subrequests are not evaluated by custom rules or managed rules.** When a Worker or a snippet uses `fetch()` to call a proxied hostname in the same zone, WAF custom rules and WAF managed rules on the target hostname do not apply to that subrequest. Subrequests to a proxied hostname in a different zone are evaluated by that zone's security configuration. Refer to [Worker to Worker communication](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/#worker-to-worker-communication) and [Subrequests made by a snippet](https://developers.cloudflare.com/rules/snippets/how-it-works/#subrequests-made-by-a-snippet).
 
 
 

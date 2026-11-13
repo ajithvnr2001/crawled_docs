@@ -3,8 +3,5 @@
   "file": "workers/configuration/routing/custom-domains.md",
   "title": "Custom Domains \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:15.511907+00:00",
-  "html_len": 224013,
-  "md_len": 13917,
-  "depth": 0
+  "fetched_at": "2026-11-13T09:17:08.689502+00:00"
 }

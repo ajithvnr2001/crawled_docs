@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/
 title: Overview \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:21.626698+00:00
+fetched_at: 2026-11-13T09:17:15.710756+00:00
 ---
 
 # Overview · Cloudflare Web Application Firewall (WAF) docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:16:21.626698+00:00
 
 # Cloudflare Web Application Firewall
 
-Last updated Aug 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesAvailabilityRelated products
 
@@ -56,6 +56,12 @@ Enable the pre-configured managed rulesets to get immediate protection. These ru
 
 Use Managed rules
 
+[Response custom rules](https://developers.cloudflare.com/waf/response-firewall/)
+
+Apply default protections and custom rules to HTTP responses. Every plan includes three response custom rules.
+
+Use Response custom rules
+
 [Account-level configuration](https://developers.cloudflare.com/waf/account/)
 
 Enterprise-only
@@ -85,6 +91,7 @@ Leaked credentials detection | Yes (one field) | Yes | Yes | Yes
 Malicious uploads detection | No | No | No | Paid add-on  
 AI Security for Apps | No | No | No | Paid add-on  
 Custom rules | Yes | Yes | Yes | Yes  
+Response custom rules | 3 | 3 | 3 | 3  
 Rate limiting rules | Yes (one rule) | Yes | Yes | Yes  
 Advanced Rate Limiting | No | No | No | Paid add-on  
 WAF Managed Rules | Free Managed Ruleset only | Yes | Yes | Yes  

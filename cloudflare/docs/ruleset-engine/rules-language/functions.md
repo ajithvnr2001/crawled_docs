@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ruleset-engine/rules-language/functions/
 title: Functions reference \u00b7 Cloudflare Ruleset Engine docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:11.214389+00:00
+fetched_at: 2026-11-13T09:17:15.298842+00:00
 ---
 
 # Functions reference · Cloudflare Ruleset Engine docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-15T14:53:11.214389+00:00
 
 # Functions
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewTransformation functions any all encode_base64 cidr cidr6 coalesce concat decode_base64 ends_with hash_in_range join has_key has_value is_jwt_present is_jwt_valid len lookup_json_integer lookup_json_string lower regex_replace remove_bytes remove_query_args sha256 split starts_with substring to_string trim trim_end trim_start upper url_decode uuidv4 wildcard_replaceCloudflare Network Firewall Functions bit_sliceHMAC validation Overview Usage MessageMACHMAC validation examples MessageMAC in a single field Concatenated MessageMAC argument
+OverviewTransformation functions any all encode_base64 cidr cidr6 coalesce concat decode_base64 ends_with hash_in_range join has_key has_value is_jwt_present is_jwt_valid len lookup_json_integer lookup_json_string lower md5 regex_replace remove_bytes remove_query_args sha1 sha256 sha512 split starts_with substring to_string trim trim_end trim_start upper url_decode uuidv4 wildcard_replaceCloudflare Network Firewall Functions bit_sliceHMAC validation Overview Usage MessageMACHMAC validation examples MessageMAC in a single field Concatenated MessageMAC argument
 
 The Cloudflare Rules language provides functions for manipulating and validating values in an expression:
 
@@ -396,6 +396,17 @@ Converts a string field to lowercase. Only uppercase ASCII bytes are converted. 
 
 For example, if `http.host` is `"WWW.cloudflare.com"`, then `lower(http.host) == "www.cloudflare.com"` will return `true`.
 
+### `md5`
+
+`md5(input `String | Bytes`)`: `Bytes`
+
+Computes the MD5 hash of the `input` string or byte array. Returns a 16-byte hash value.
+
+To encode the hash as a string, combine `md5()` with `encode_base64()`:
+    
+    
+    encode_base64(md5("hello world"))
+
 ### `regex_replace`
 
 `regex_replace(source `String`, regular_expression `String`, replacement `String`)`: `String`
@@ -478,6 +489,17 @@ Note
 
 You can only use the `remove_query_args()` function in [rewrite expressions of Transform Rules](https://developers.cloudflare.com/rules/transform/).
 
+### `sha1`
+
+`sha1(input `String | Bytes`)`: `Bytes`
+
+Computes the SHA-1 hash of the `input` string or byte array. Returns a 20-byte hash value.
+
+To encode the hash as a string, combine `sha1()` with `encode_base64()`:
+    
+    
+    encode_base64(sha1("hello world"))
+
 ### `sha256`
 
 `sha256(input `String | Bytes`)`: `Bytes`
@@ -508,6 +530,17 @@ Notes
 The `sha256()` function is available as an Enterprise add-on and requires a specific entitlement. Contact your account team to enable it.
 
 You can only use the `sha256()` function in rewrite expressions of [Transform Rules](https://developers.cloudflare.com/rules/transform/).
+
+### `sha512`
+
+`sha512(input `String | Bytes`)`: `Bytes`
+
+Computes the SHA-512 hash of the `input` string or byte array. Returns a 64-byte hash value.
+
+To encode the hash as a string, combine `sha512()` with `encode_base64()`:
+    
+    
+    encode_base64(sha512("hello world"))
 
 ### `split`
 

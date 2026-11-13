@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/bots/concepts/bot/verified-bots/
 title: Verified bots \u00b7 Cloudflare bot solutions docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:19.765506+00:00
+fetched_at: 2026-11-13T09:17:08.746144+00:00
 ---
 
 # Verified bots · Cloudflare bot solutions docs
@@ -22,7 +22,7 @@ Concepts
 
 # Verified bots
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewClassificationBecoming a Verified bot Track your submission Breach of policyLegacy categoriesAvailability
 
@@ -86,7 +86,7 @@ Status | Meaning
 ---|---  
 Waiting For Review | Cloudflare has received your submission and it is queued for review.  
 Accepted | Your bot was approved and will appear in BotBase and Radar's bots and agents directory.  
-Rejected | Your submission was declined. The dashboard does not show the rejection reason — [contact Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/) for details.  
+Rejected | Your submission was declined. Open the submission in the dashboard to see the reason.  
 Cancelled | The submission was withdrawn.  
   
 The bot must be Verified using one of the following validation methods:

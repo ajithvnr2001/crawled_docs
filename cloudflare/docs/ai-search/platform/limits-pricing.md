@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/platform/limits-pricing/
 title: Limits & pricing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:20.160842+00:00
+fetched_at: 2026-11-13T09:17:08.807888+00:00
 ---
 
 # Limits & pricing · Cloudflare AI Search docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-04T08:48:20.160842+00:00
 
 # Limits & pricing
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewLimitsPricing How ingestion tokens are countedHistorical billing
+OverviewLimitsPricing How ingestion tokens are counted How storage is measuredHistorical billing
 
 ## Limits
 
@@ -45,7 +45,7 @@ Filterable indexed string data | First 64 UTF-8 bytes per string | First 64 UTF-
   
 Website crawling is bounded by several of these limits at once. A `discover` crawl accepts up to 100,000 pages, but the files per instance and maximum pages crawled per day limits also apply, so the number of pages you end up with is whichever of those values is lowest. On Workers Free, the daily limit of 500 pages is the binding one.
 
-For the limits that apply only to website data sources, refer to [Website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/#limits).
+For the limits that apply only to website data sources, refer to [Website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/#limits). For the limits that apply only to D1 data sources, refer to [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/#limits).
 
 Need a higher limit?
 
@@ -94,7 +94,22 @@ AI Search counts ingestion tokens the same way for every instance, regardless of
 
 Workers AI embedding and reranking usage is included in AI Search usage and does not appear on your Workers AI bill or in your AI Gateway logs. Generation, query rewriting, and external model providers continue to use your account and gateway. Their usage is billed and logged through the applicable service.
 
-Storage, vector indexing, and [Browser Run](https://developers.cloudflare.com/browser-run/pricing/) usage for website crawling are included with AI Search. They are not billed separately.
+The R2, Vectorize, and [Browser Run](https://developers.cloudflare.com/browser-run/pricing/) usage that AI Search runs on your behalf for storage, vector indexing, and website crawling does not appear on separate R2, Vectorize, or Browser Run bills. Storage is billed as AI Search storage, as described in How storage is measured.
+
+### How storage is measured
+
+Storage is the size of the content AI Search keeps for each instance:
+
+  * Files you upload to [built-in storage](https://developers.cloudflare.com/ai-search/configuration/data-source/built-in-storage/).
+  * The Markdown text that AI Search extracts and keeps for every indexed file from a connected data source, such as an [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/) or a [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/). For files that are already Markdown or plain text, this copy is roughly the same size as the source file.
+
+
+
+This copy is separate from your own R2 bucket. If you connect an R2 bucket, you continue to pay [R2 storage](https://developers.cloudflare.com/r2/pricing/) for that bucket separately.
+
+When a source file is deleted or replaced, AI Search removes its kept content on the next sync, so storage tracks the content that is currently indexed. Vectors and the keyword index do not count toward storage.
+
+To reduce storage, narrow your [path filtering](https://developers.cloudflare.com/ai-search/configuration/indexing/path-filtering/) include and exclude rules, and remove duplicate or unneeded files from your data source.
 
 ## Historical billing
 

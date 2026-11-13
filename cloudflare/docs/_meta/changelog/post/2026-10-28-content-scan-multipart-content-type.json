@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/changelog/post/2026-10-28-content-scan-multipart-content-type/",
+  "file": "changelog/post/2026-10-28-content-scan-multipart-content-type.md",
+  "title": "Malicious uploads detection flags non-multipart Content-Type headers with a boundary \u00b7 Changelog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-11-13T09:17:04.545459+00:00"
+}

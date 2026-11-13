@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/headers/
 title: Headers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:52.117785+00:00
+fetched_at: 2026-11-13T09:17:06.860673+00:00
 ---
 
 # Headers · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:52.117785+00:00
 
 # Headers
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/static-assets/headers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefault headersCustom headers Attach a header Detach a header Match a path
 
@@ -32,7 +32,7 @@ A `Content-Type` header is attached to the response if one is provided during [t
 
   * **`Cache-Control: public, max-age=0, must-revalidate`**
 
-Sent when the request does not have an `Authorization` or `Range` header, this response header tells the browser that the asset can be cached, but that the browser should revalidate the freshness of the content every time before using it. This default behavior ensures good website performance for static pages, while still guaranteeing that stale content will never be served.
+Cloudflare sends this header when the request has no `Authorization` or `Range` header. It allows the browser to cache the asset, but requires the browser to check for changes before reusing it. The version handling that request determines the response. This check does not keep related requests on one version or prevent [version skew](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/).
 
   * **`ETag`**
 
@@ -106,9 +106,24 @@ You may define up to 100 header rules. Each line in the `_headers` file has a 2,
 
 If a header is applied twice in the `_headers` file, the values are joined with a comma separator.
 
+Rules are applied in the order they appear in the file.
+
+Caution
+
+Joining works as intended for list-valued headers such as `X-Robots-Tag`. For headers where repeated directives conflict, such as `Cache-Control`, joining two rules produces conflicting directives:
+    
+    
+    Cache-Control: public, max-age=604800, public, max-age=0, s-maxage=86400
+
+When a directive such as `max-age` appears more than once, [RFC 9111 ↗︎](https://www.rfc-editor.org/rfc/rfc9111#section-4.2.1) says caches should use the first value or treat the response as stale, so the result may not be what you intended. Nothing errors and the asset still serves, which makes this easy to miss.
+
+To give one file a different value from the rule that already covers it, detach the header and set it again.
+
 ### Detach a header
 
 You may wish to remove a default header or a header which has been added by a more pervasive rule. This can be done by prepending the header name with an exclamation mark and space (`! `).
+
+Because rules are applied in file order, `! ` removes only what earlier rules have already added. A detach placed above the rule it is meant to override has no effect, so put the narrower rule after the broader one.
     
     
     /*
@@ -116,6 +131,18 @@ You may wish to remove a default header or a header which has been added by a mo
     
     /*.jpg
       ! Content-Security-Policy
+
+Detaching and setting the header again is how one file takes a different value for a header such as `Cache-Control`:
+    
+    
+    /assets/*
+      Cache-Control: public, max-age=0, s-maxage=86400
+    
+    /assets/model.bin
+      ! Cache-Control
+      Cache-Control: public, max-age=604800
+
+`/assets/model.bin` is served with `max-age=604800` alone. Reversing the two blocks causes both values to be joined, because the detach runs before the broader rule adds its value.
 
 ### Match a path
 

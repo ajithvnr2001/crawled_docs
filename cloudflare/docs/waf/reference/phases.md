@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/reference/phases/
 title: WAF phases \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:47.353861+00:00
+fetched_at: 2026-11-13T09:17:15.083994+00:00
 ---
 
 # WAF phases · Cloudflare Web Application Firewall (WAF) docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:16:47.353861+00:00
 
 # WAF phases
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/reference/phases/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-The Web Application Firewall provides the following [phases](https://developers.cloudflare.com/ruleset-engine/about/phases/) where you can create rulesets and rules:
+The Web Application Firewall provides the following request [phases](https://developers.cloudflare.com/ruleset-engine/about/phases/) where you can create rulesets and rules:
 
   * `http_request_firewall_custom`
   * `http_ratelimit`
@@ -41,6 +41,10 @@ Security feature | Scope | Phase | Ruleset kind | Location in the dashboard
 [Managed rulesets](https://developers.cloudflare.com/waf/account/managed-rulesets/) | Account | `http_request_firewall_managed` | `root` | [ Go to **WAF** ↗ ](https://dash.cloudflare.com/?to=/:account/application-security/waf) > **Managed rulesets** tab  
 [Managed rules](https://developers.cloudflare.com/waf/managed-rules/) | Zone | `http_request_firewall_managed` | `zone` | [ Go to **Security rules** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/security/security-rules)  
   
+For HTTP responses, you can create zone-level [response custom rules](https://developers.cloudflare.com/waf/response-firewall/). These rules run in the `http_response_firewall_custom` phase.
+
+This phase runs before Custom Errors and Response Header Transform Rules. For the execution order, refer to the [response phases list](https://developers.cloudflare.com/ruleset-engine/reference/phases-list/#response-phases).
+
 To learn more about phases, refer to [Phases](https://developers.cloudflare.com/ruleset-engine/about/phases/) in the Ruleset Engine documentation.
 
 [PreviousAlerts](https://developers.cloudflare.com/waf/reference/alerts/)[NextOverview](https://developers.cloudflare.com/waf/reference/legacy/old-waf-managed-rules/)

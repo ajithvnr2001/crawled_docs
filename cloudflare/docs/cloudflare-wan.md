@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-wan/
 title: Overview \u00b7 Cloudflare WAN docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:13.659350+00:00
+fetched_at: 2026-11-13T09:17:15.351972+00:00
 ---
 
 # Overview · Cloudflare WAN docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-13T08:48:13.659350+00:00
 
 # Cloudflare WAN
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare WAN and Cloudflare OneFeaturesRelated productsMore resources
 
@@ -28,7 +28,9 @@ Cloudflare WAN (formerly Magic WAN) connects your data centers, offices, and clo
 
 Cloudflare WAN provides secure, performant [routing ↗︎](https://www.cloudflare.com/learning/network-layer/what-is-routing/) for your entire corporate network. [Cloudflare Network Firewall](https://developers.cloudflare.com/cloudflare-network-firewall/) integrates with Cloudflare WAN, enabling you to enforce network firewall policies at Cloudflare's global network, across traffic from any entity within your network.
 
-You connect your sites to Cloudflare through on-ramps — tunnels or direct connections from your network to Cloudflare. Cloudflare WAN supports any device that uses anycast GRE or IPsec tunnels. To make it easier to onboard your cloud resources, you can use [Multi-Cloud Networking](https://developers.cloudflare.com/cloudflare-wan/configuration/multi-cloud-networking/), which automates creating on-ramps from your cloud networks. Refer to [On-ramps](https://developers.cloudflare.com/cloudflare-wan/on-ramps/) for a full list of supported on-ramps.
+You connect your sites to Cloudflare through on-ramps — tunnels or direct connections from your network to Cloudflare. Cloudflare WAN supports any device that uses anycast GRE or IPsec tunnels.
+
+For cloud networks, use IPsec tunnels or Cloud Interconnect. Refer to [Cloud networking](https://developers.cloudflare.com/cloudflare-wan/reference/cloud-networking/) for provider configurations, or [On-ramps](https://developers.cloudflare.com/cloudflare-wan/on-ramps/) for all connection options.
 
 Refer to [WAN transformation](https://developers.cloudflare.com/cloudflare-wan/wan-transformation/) to compare approaches and plan your migration, or go straight to [get started](https://developers.cloudflare.com/cloudflare-wan/get-started/).
 
@@ -67,11 +69,11 @@ Set up Cloudflare WAN with your existing routers and firewalls. If you do not ha
 
 Use a third-party device
 
-[Automatic cloud on-ramps](https://developers.cloudflare.com/cloudflare-wan/configuration/multi-cloud-networking/)
+[Connect your cloud networks](https://developers.cloudflare.com/cloudflare-wan/reference/cloud-networking/)
 
-Automate resource discovery, and reduce management burden when connecting to your public cloud.
+Connect cloud networks using IPsec tunnels or Cloud Interconnect. Find provider-specific configurations and routing requirements.
 
-Automate your cloud on-ramps
+Find a cloud configuration
 
 [Zero Trust integration](https://developers.cloudflare.com/cloudflare-wan/zero-trust/)
 
@@ -108,10 +110,6 @@ Cloudflare One is the full SASE platform. It extends Cloudflare WAN with identit
 [Cloudflare Network Firewall](https://developers.cloudflare.com/cloudflare-network-firewall/)
 
 Cloudflare Network Firewall is a firewall-as-a-service (FWaaS) that filters traffic at layers 3 and 4 across Cloudflare's global network. Included with Cloudflare WAN.
-
-[Multi-Cloud Networking](https://developers.cloudflare.com/multi-cloud-networking/)
-
-Simplify and automate cloud resource discovery, and reduce your management burden when connecting to your public cloud.
 
 [Cloudflare Network Interconnect](https://developers.cloudflare.com/network-interconnect/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/agents/capabilities/
 title: Capability matrix \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:39.618165+00:00
+fetched_at: 2026-11-13T09:17:14.831741+00:00
 ---
 
 # Capability matrix · Cloudflare Realtime docs
@@ -22,26 +22,22 @@ fetched_at: 2026-10-20T06:56:39.618165+00:00
 
 # Capability matrix
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 A human participant joins a meeting with the [RealtimeKit SDKs](https://developers.cloudflare.com/realtime/realtimekit/humans/sdk-selection/). An agent joins with the [Agent WebSocket](https://developers.cloudflare.com/realtime/realtimekit/agents/get-started/). The table compares what each can do once it is in the meeting.
-
-Note
-
-Agents can only receive meeting events today. Sending is planned, and those capabilities are marked as planned in the capability table.
 
 Capability | Human | Agent  
 ---|---|---  
 Receive live transcripts | ✅ | ✅  
 Receive participant joins and leaves | ✅ | ✅  
-Receive [broadcasts](https://developers.cloudflare.com/realtime/realtimekit/collaboration/message-broadcast/) | ✅ | ✅  
-Send broadcasts | ✅ | No (Planned)  
+Send and receive [broadcasts](https://developers.cloudflare.com/realtime/realtimekit/collaboration/message-broadcast/) | ✅ | ✅  
+Send and receive chat, and edit, pin, or delete messages | ✅ | ✅  
+Create, vote in, and receive polls | ✅ | ✅  
 Send or receive audio, video, and screen share | ✅ | No (Planned)  
-Send or receive chat and polls | ✅ | No (Planned)  
 Use plugins and the [meeting key-value store](https://developers.cloudflare.com/realtime/realtimekit/collaboration/meeting-key-value-store/) | ✅ | No  
 Meeting controls, such as stage, removing participants, and recording | ✅ | No  
   
-For what the agent receives, refer to [Events](https://developers.cloudflare.com/realtime/realtimekit/agents/events/).
+For what the agent receives, refer to [Events](https://developers.cloudflare.com/realtime/realtimekit/agents/events/). For what it sends, refer to [Send to the meeting](https://developers.cloudflare.com/realtime/realtimekit/agents/get-started/#send-to-the-meeting).
 
 [PreviousEvents](https://developers.cloudflare.com/realtime/realtimekit/agents/events/)[NextSelect SDK(s)](https://developers.cloudflare.com/realtime/realtimekit/humans/sdk-selection/)
 

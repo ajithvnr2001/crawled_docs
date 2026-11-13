@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/unsafe-topics/
 title: Unsafe and custom topic detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:47.486700+00:00
+fetched_at: 2026-11-13T09:17:10.527463+00:00
 ---
 
 # Unsafe and custom topic detection · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-06T09:03:47.486700+00:00
 
 # Unsafe and custom topic detection
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefault unsafe topicsCustom topics How custom topics work Define custom topics ConstraintsBest practices for defining custom topics Lead with intent More best practices Example custom topics
 
@@ -133,6 +133,32 @@ To retrieve your current topics, use a `GET` request:
     
     curl "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/ai-security/custom-topics" \
       --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+
+Use the [`cloudflare_ai_security_custom_topics` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ai_security_custom_topics) resource to define the custom topics for a zone. This resource requires Terraform Cloudflare provider version 5.29.0 or later. For example:
+    
+    
+    resource "cloudflare_ai_security_custom_topics" "zone_custom_topics" {
+      zone_id = var.cloudflare_zone_id
+    
+      topics = [
+        {
+          label = "competitors"
+          topic = "seeking info on competitors"
+        },
+        {
+          label = "financial-advice"
+          topic = "seeking financial advice"
+        },
+        {
+          label = "job-seeking"
+          topic = "asking for résumé advice"
+        }
+      ]
+    }
+
+Caution
+
+This resource manages the entire custom topics list for the zone. When you apply the configuration, Terraform replaces any topics added outside Terraform, such as in the dashboard.
 
 ### Constraints
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/routing/worker-script/
 title: Worker script \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.831504+00:00
+fetched_at: 2026-11-13T09:17:12.407083+00:00
 ---
 
 # Worker script · Cloudflare Workers docs
@@ -22,13 +22,17 @@ fetched_at: 2026-10-13T08:48:26.831504+00:00
 
 # Worker script
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare Access contextRun your Worker script first Run Worker before each request Run Worker first for selective paths
 
-If you have both static assets and a Worker script configured, Cloudflare will first attempt to serve static assets if one matches the incoming request. You can read more about how we match assets in the [HTML handling docs](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/).
+By default, if you configure static assets and a Worker script, Cloudflare checks for a matching asset first. It uses the assets belonging to the selected Worker version. For how paths match assets, refer to [HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/).
 
-If an appropriate static asset if not found, Cloudflare will invoke your Worker script.
+If no asset matches, Cloudflare invokes that version's `fetch()` handler. Your handler decides what response to return. A missing asset does not automatically produce a `404` response. Calling `env.ASSETS.fetch(request)` from the handler still uses the same version's assets.
+
+This also applies when an older page requests a file missing from a newer version. Refer to [Requests for missing assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/#requests-for-missing-assets).
+
+Routing settings can change this default behavior. For example, [single-page application routing](https://developers.cloudflare.com/workers/static-assets/routing/single-page-application/) can serve `/index.html` for navigation requests without invoking your Worker.
 
 This allows you to easily combine together these two features to create powerful applications (e.g. a [full-stack application](https://developers.cloudflare.com/workers/static-assets/routing/full-stack-application/), or a [Single Page Application (SPA)](https://developers.cloudflare.com/workers/static-assets/routing/single-page-application/) or [Static Site Generation (SSG) application](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/) with an API).
 
@@ -54,7 +58,7 @@ If you need to always run your Worker script before serving static assets (for e
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./worker/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -67,7 +71,7 @@ If you need to always run your Worker script before serving static assets (for e
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./worker/index.ts"
     upload_source_maps = true
     
@@ -140,7 +144,7 @@ You can also configure selective Worker-first routing using an array of route pa
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./worker/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -154,7 +158,7 @@ You can also configure selective Worker-first routing using an array of route pa
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./worker/index.ts"
     upload_source_maps = true
     
@@ -216,7 +220,7 @@ You can also configure selective Worker-first routing using an array of route pa
     	}
     }
 
-[PreviousStatic Site Generation (SSG) and custom 404 pages](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)[NextGradual rollouts ↗︎](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/#static-assets)
+[PreviousStatic Site Generation (SSG) and custom 404 pages](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)[NextHTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)
 
 Was this helpful?
 

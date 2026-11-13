@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/cloud-and-saas-findings/custom-finding-types/
 title: Custom finding types \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:30.038986+00:00
+fetched_at: 2026-11-13T09:17:09.097219+00:00
 ---
 
 # Custom finding types · Cloudflare One docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-10T14:39:30.038986+00:00
 
 # Custom finding types
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisitesStandard and custom finding typesHow custom finding types work Example scenario Finding type fieldsRego detection logic Rego guidelines for custom finding type expressions Rego validation Supported Rego built-ins Rego referencesCreate a custom finding typeVerify custom finding type behaviorCustom finding types restrictions and limitsUse custom finding types in policies Example scenario Guidelines for using policies with custom finding typesManage custom finding types Duplicate a finding type Edit a custom finding type Delete a custom finding type Disable a custom finding typeQuarantined custom finding types Why a custom finding is quarantined Manually quarantine a custom finding type Resolve a quarantined custom findingExample expressions Iterate over an array Handle a nullable value Use an associated asset
+OverviewPrerequisitesStandard and custom finding typesHow custom finding types work Example scenario Finding type fieldsRego detection logic Rego guidelines for custom finding type expressions Rego validation Supported Rego built-ins Rego referencesFind the values for a custom finding typeCreate a custom finding typeVerify custom finding type behaviorCustom finding types restrictions and limitsUse custom finding types in policies Example scenario Guidelines for using policies with custom finding typesManage custom finding types Duplicate a finding type Edit a custom finding type Delete a custom finding type Disable a custom finding type Manage existing custom finding types with TerraformQuarantined custom finding types Why a custom finding is quarantined Manually quarantine a custom finding type Resolve a quarantined custom findingExample expressions Iterate over an array Handle a nullable value Use an associated asset
 
 In addition to providing predefined finding types to detect security issues within SaaS and cloud applications, Cloudflare CASB allows custom finding types to be defined from scratch, providing full control over the security conditions CASB detects.
 
@@ -200,6 +200,15 @@ Note
 
 The OPA documentation and Playground include built-ins that custom finding types do not support. An expression that works in the Playground may fail validation in Cloudflare One. Use only the built-ins listed on this page.
 
+## Find the values for a custom finding type
+
+When you create a custom finding type with the API or Terraform, you provide the following values:
+
+  * **Asset vendor and asset class** : The provider, such as `GOOGLE_WORKSPACE` or `MICROSOFT`, and the asset class name, such as `GoogleWorkspaceGroup` or `MicrosoftUser`. Use the [List asset schemas](https://developers.cloudflare.com/api/resources/zero_trust/subresources/casb/subresources/posture/subresources/asset_schemas/methods/list/) endpoint to find the vendors and asset classes available to your account, and the fields of each asset class.
+  * **Integration IDs** : Required only when the finding type does not apply to all integrations. Use the [List integrations](https://developers.cloudflare.com/api/resources/zero_trust/subresources/casb/subresources/integrations/methods/list/) endpoint. Each integration must belong to the same vendor as the finding type.
+
+
+
 ## Create a custom finding type
 
   1. In [Cloudflare One ↗︎](https://one.dash.cloudflare.com), go to **Cloud & SaaS findings** > **Finding types library**.
@@ -210,6 +219,71 @@ The OPA documentation and Playground include built-ins that custom finding types
   6. Under **Detection Logic** , enter the Rego expression. Use **Available asset fields** to identify supported fields.
   7. Select **Validate**. Resolve each validation error before continuing.
   8. Select **Create finding type**.
+
+
+
+  1. (Optional) Check the finding type before you create it. Make a `POST` request to the [Validate a custom finding type](https://developers.cloudflare.com/api/resources/zero_trust/subresources/casb/subresources/posture/subresources/finding_types/methods/validate/) endpoint with the same body you will use to create it. The response lists any errors in the Rego expression or the request. Like **Validate** in the dashboard, it does not run the expression against asset data.
+
+  2. Make a `POST` request to the [Create a finding type](https://developers.cloudflare.com/api/resources/zero_trust/subresources/casb/subresources/posture/subresources/finding_types/methods/create/) endpoint. Provide the Rego expression in `expression`, without a package declaration or import statements:
+
+Required API token permissions
+
+At least one of the following [token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) is required:
+     * `Zero Trust Write`
+Create a custom finding typebash
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/data-security/posture/finding_types" \
+    	--request POST \
+    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+    	--json '{
+    		"name": "Disabled Microsoft user",
+    		"description": "Detects Microsoft users whose account is disabled",
+    		"severity": "Medium",
+    		"asset_vendor": "MICROSOFT",
+    		"asset_class": "MicrosoftUser",
+    		"expression": "default result := \"pass\"\n\nresult := \"fail\" if {\n\tinput.asset.isEnabled == false\n}",
+    		"applies_to_all_integrations": true
+    	}'
+
+To limit the finding type to specific integrations, set `applies_to_all_integrations` to `false` and provide an `integration_ids` array of integration IDs.
+
+
+
+
+  1. Add the following permission to your [`cloudflare_api_token` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token):
+
+     * `Zero Trust Write`
+  2. Create a custom finding type using the [`cloudflare_zero_trust_casb_finding_type` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zero_trust_casb_finding_type) resource. Provide the Rego expression in `expression`, without a package declaration or import statements:
+         
+         resource "cloudflare_zero_trust_casb_finding_type" "disabled_user" {
+           account_id                  = var.cloudflare_account_id
+           name                        = "Disabled Microsoft user"
+           description                 = "Detects Microsoft users whose account is disabled"
+           severity                    = "Medium"
+           asset_vendor                = "MICROSOFT"
+           asset_class                 = "MicrosoftUser"
+           applies_to_all_integrations = true
+         
+           expression = <<-EOT
+             default result := "pass"
+         
+             result := "fail" if {
+               input.asset.isEnabled == false
+             }
+           EOT
+         }
+
+To limit the finding type to specific integrations, set `applies_to_all_integrations = false` and list the integration IDs:
+         
+         applies_to_all_integrations = false
+           integration_ids             = ["<INTEGRATION_ID_1>", "<INTEGRATION_ID_2>"]
+
+Terraform reports an error at `terraform plan` if `applies_to_all_integrations` is `false` and `integration_ids` is empty, or if `applies_to_all_integrations` is `true` and `integration_ids` is set.
+
+  3. To use the custom finding type in a [CASB policy](https://developers.cloudflare.com/cloudflare-one/cloud-and-saas-findings/policies/), reference its ID in the policy's `finding_type_id`:
+         
+         finding_type_id = cloudflare_zero_trust_casb_finding_type.disabled_user.id
+
 
 
 
@@ -288,15 +362,15 @@ Open a standard posture finding type to inspect its detection logic. If the logi
 
 #### Example scenario
 
-Continuing the previous example, leadership asks that the executive and board groups be treated as Critical, with no exceptions, while the legal groups stay at High. Severity cannot be edited after creation, so the security team duplicates the finding type instead.
+Continuing the previous example, leadership asks that executive and board groups be flagged with no exceptions. The Rego expression of a custom finding type cannot be edited after creation, so the security team duplicates the finding type and changes the expression in the copy.
 
   1. **Duplicate.** The team selects **Duplicate** on "Sensitive group open to outsiders". CASB copies the name, description, severity, provider, asset class, integration scope, and Rego expression into the builder.
-  2. **Adjust.** They rename the copy "Executive and board group open to outsiders" and set the severity to Critical. In the Rego expression, they change `sensitive_prefixes` to `["exec-", "board-"]`, and remove `external_exceptions` and the `not email in external_exceptions` line.
+  2. **Adjust.** They rename the copy "Executive and board group open to outsiders". In the Rego expression, they change `sensitive_prefixes` to `["exec-", "board-"]`, and remove `external_exceptions` and the `not email in external_exceptions` line.
   3. **Create.** They select **Validate** , then **Create finding type**. The copy is a new custom finding type.
 
 
 
-The original "Sensitive group open to outsiders" keeps running unchanged. For this company specifically, an `exec-` or `board-` group that breaks a rule now receives a finding from both finding types, one at High and one at Critical.
+The original "Sensitive group open to outsiders" keeps running unchanged. For this company specifically, an `exec-` or `board-` group that breaks a rule now receives a finding from both finding types.
 
 #### Steps
 
@@ -317,18 +391,50 @@ Only the following fields can be edited after a custom finding type is created:
 
   * Name
   * Description
+  * Severity
   * Integration scope
 
 
 
-To change the provider, asset class, severity, or Rego expression, duplicate the finding type.
+Changing the severity reclassifies existing and future findings that do not have an integration-specific severity override.
+
+To change the provider, asset class, or Rego expression, duplicate the finding type.
 
   1. In [Cloudflare One ↗︎](https://one.dash.cloudflare.com), go to **Cloud & SaaS findings** > **Finding types library**.
   2. In the custom finding type menu, select **Edit**.
-  3. Update the name, description, or integration scope.
+  3. Update the name, description, severity, or integration scope.
   4. Select **Save**.
 
 
+
+Make a `PUT` request to the [Update a finding type](https://developers.cloudflare.com/api/resources/zero_trust/subresources/casb/subresources/posture/subresources/finding_types/methods/update/) endpoint. `applies_to_all_integrations` is required. You can also update `name`, `description`, `severity`, and `integration_ids`:
+
+Required API token permissions
+
+At least one of the following [token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) is required:
+
+  * `Zero Trust Write`
+
+Update a custom finding typebash
+    
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/data-security/posture/finding_types/$FINDING_TYPE_ID" \
+    	--request PUT \
+    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+    	--json '{
+    		"name": "Disabled Microsoft user",
+    		"description": "Detects disabled Microsoft users in the finance tenant",
+    		"applies_to_all_integrations": false,
+    		"integration_ids": [
+    				"<INTEGRATION_ID>"
+    		]
+    	}'
+
+You cannot change `asset_vendor`, `asset_class`, or `expression` after creation. To change them, create a new custom finding type.
+
+To update a custom finding type, change its attributes and run `terraform apply`. Terraform updates `name`, `description`, `severity`, `applies_to_all_integrations`, and `integration_ids` in place.
+
+Changing `asset_vendor`, `asset_class`, or `expression` replaces the custom finding type: Terraform deletes the existing finding type and creates a new one with a new ID. Deleting the finding type also deletes its existing finding instances.
 
 ### Delete a custom finding type
 
@@ -337,6 +443,26 @@ To change the provider, asset class, severity, or Rego expression, duplicate the
   3. Confirm the deletion.
 
 
+
+Make a `DELETE` request to the [Delete a finding type](https://developers.cloudflare.com/api/resources/zero_trust/subresources/casb/subresources/posture/subresources/finding_types/methods/delete/) endpoint:
+
+Required API token permissions
+
+At least one of the following [token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) is required:
+
+  * `Zero Trust Write`
+
+Delete a custom finding typebash
+    
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/data-security/posture/finding_types/$FINDING_TYPE_ID" \
+    	--request DELETE \
+    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+
+Remove the resource from your configuration and run `terraform apply`, or target the resource for destruction:
+    
+    
+    terraform destroy -target=cloudflare_zero_trust_casb_finding_type.disabled_user
 
 Deleting a custom finding type will stop all evaluations against future asset updates and deletes the associated finding instances.
 
@@ -347,6 +473,29 @@ Deleting a finding instance cannot be undone.
 Custom finding types cannot be disabled. To stop CASB from evaluating a custom finding type, delete it. Deleting a custom finding type cannot be undone and deletes its existing finding instances.
 
 To stop a [CASB policy](https://developers.cloudflare.com/cloudflare-one/cloud-and-saas-findings/policies/) that uses a custom finding type from triggering, turn off the policy instead. Refer to [Edit, turn off, or delete a policy](https://developers.cloudflare.com/cloudflare-one/cloud-and-saas-findings/policies/#edit-turn-off-or-delete-a-policy).
+
+### Manage existing custom finding types with Terraform
+
+#### Import a custom finding type
+
+To bring a custom finding type created in the dashboard or API under Terraform management, import it using your account ID and the finding type ID:
+    
+    
+    terraform import cloudflare_zero_trust_casb_finding_type.disabled_user '<ACCOUNT_ID>/<FINDING_TYPE_ID>'
+
+#### Look up finding types
+
+Use the [`cloudflare_zero_trust_casb_finding_type` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zero_trust_casb_finding_type) data source to read a single finding type, or [`cloudflare_zero_trust_casb_finding_types` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zero_trust_casb_finding_types) to list the finding types in an account. Both return standard and custom finding types:
+    
+    
+    data "cloudflare_zero_trust_casb_finding_type" "disabled_user" {
+      account_id      = var.cloudflare_account_id
+      finding_type_id = "<FINDING_TYPE_ID>"
+    }
+    
+    data "cloudflare_zero_trust_casb_finding_types" "all" {
+      account_id = var.cloudflare_account_id
+    }
 
 ## Quarantined custom finding types
 
@@ -380,7 +529,7 @@ A custom finding type will be quarantined if CASB is unable to evaluate the find
 
 A custom finding type cannot be manually quarantined, and the status cannot be removed, from the dashboard or the API.
 
-Editing a quarantined custom finding type's name, description, or integration scope does not remove the status.
+Editing a quarantined custom finding type's name, description, severity, or integration scope does not remove the status.
 
 ### Resolve a quarantined custom finding
 

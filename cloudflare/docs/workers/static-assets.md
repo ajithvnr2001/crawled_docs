@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/
 title: Static Assets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:27.123857+00:00
+fetched_at: 2026-11-13T09:17:14.728312+00:00
 ---
 
 # Static Assets · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-13T08:48:27.123857+00:00
 
 # Static Assets
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview How it works Routing behavior Caching behaviorTry it outLearn more
 
@@ -50,7 +50,9 @@ Start building on Workers with our framework guides.
 
 ### How it works
 
-When you deploy your project, Cloudflare deploys both your Worker code and your static assets in a single operation. This deployment operates as a tightly integrated "unit" running across Cloudflare's network, combining static file hosting, custom logic, and global caching.
+Your Worker code, configuration, and static assets belong to a [Worker version](https://developers.cloudflare.com/workers/versions-and-deployments/#versions). Each version has an asset manifest that maps request paths to uploaded files. Each request uses the selected version's files. This also applies when Cloudflare serves assets without running your Worker code.
+
+Deploying sets which versions receive traffic. The change takes time to reach every location on Cloudflare's network. During this time, requests for HTML and its assets can use different versions. Uploading an asset does not add it to earlier versions' manifests. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/) for ways to plan for these requests.
 
 The **assets directory** specified in your [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/#assets) is central to this design. During deployment, Wrangler automatically uploads the files from this directory to Cloudflare's infrastructure. Once deployed, requests for these assets are routed efficiently to locations closest to your users.
     
@@ -61,7 +63,7 @@ The **assets directory** specified in your [Wrangler configuration file](https:/
       "main": "src/index.js",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-11-13",
       "assets": {
         "directory": "./dist",
         "binding": "ASSETS"
@@ -74,7 +76,7 @@ The **assets directory** specified in your [Wrangler configuration file](https:/
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [assets]
     directory = "./dist"
@@ -148,7 +150,7 @@ If you want the Worker code to execute before serving assets, you can use the `r
     {
     	"name": "my-spa-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./src/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -162,7 +164,7 @@ If you want the Worker code to execute before serving assets, you can use the `r
     
     name = "my-spa-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./src/index.ts"
     upload_source_maps = true
     
@@ -180,14 +182,14 @@ Learn more about how you can customize routing behavior.
 
 ### Caching behavior
 
-Cloudflare provides automatic caching for static assets across its network, ensuring fast delivery to users worldwide. When a static asset is requested, it is automatically cached for future requests.
+Cloudflare automatically caches static assets across its network. If the selected version's manifest includes the requested file, Cloudflare serves it from cache or fetches it from storage.
 
   * **First Request:** When an asset is requested for the first time, it is fetched from storage and cached at the nearest Cloudflare location.
-
   * **Subsequent Requests:** If a request for the same asset reaches a data center that does not have it cached, Cloudflare's [tiered caching system](https://developers.cloudflare.com/cache/how-to/tiered-cache/) allows it to be retrieved from a nearby cache rather than going back to storage. This improves cache hit ratio, reduces latency, and reduces unnecessary origin fetches.
 
 
 
+Suppose version A includes `/assets/app-a1b2.js`, but version B does not. If a request for that file reaches B, Cloudflare treats it as a [missing asset](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/#requests-for-missing-assets), even if it has a cached copy from A.
 
 ## Try it out
 

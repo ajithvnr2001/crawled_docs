@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/
 title: Gradual deployments \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:10.357957+00:00
+fetched_at: 2026-11-13T09:17:12.298088+00:00
 ---
 
 # Gradual deployments · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-19T07:11:10.357957+00:00
 
 # Gradual deployments
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse gradual deployments Via Wrangler Via the Cloudflare dashboardVersion skew Version skew within a Worker Version skew between WorkersDurable ObjectsObservability Logpush Runtime bindingLimits Deployments limit
 
@@ -140,13 +140,13 @@ npmyarnpnpm
 
 ## Version skew
 
-Because gradual deployments mean multiple versions of your Worker serve traffic simultaneously, clients and services can end up interacting with more than one version in ways that produce errors or inconsistent behavior. This is called **version skew**.
+During gradual deployments, related requests can use incompatible versions of your Worker. This is called **version skew**. It can also happen while a deployment change spreads across the network, or when an older page makes requests after a deployment changes. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/) for these cases.
 
 ### Version skew within a Worker
 
 By default, each request is independently routed to a version based on the configured percentages. This means consecutive requests from the same user - including page reloads and asset fetches - can be handled by different versions.
 
-If you want to pin a user to a consistent version for the duration of the gradual deployment, you can use [version affinity](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/).
+Use [version affinity](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/) to send requests with the same key to the same version. This applies while the deployment configuration stays the same. As you increase the new version's traffic percentage, some users move to it. Their open pages may still request files from the previous release.
 
 ### Version skew between Workers
 
@@ -203,7 +203,7 @@ Use the [Version metadata binding](https://developers.cloudflare.com/workers/run
 
 You can only create a gradual deployment with the last 100 uploaded versions of your Worker.
 
-[PreviousDeployment management](https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/)[NextVersion affinity](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/)
+[PreviousVersion skew](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/)[NextVersion affinity](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/)
 
 Was this helpful?
 

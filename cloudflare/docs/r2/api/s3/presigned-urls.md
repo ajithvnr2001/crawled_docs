@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/s3/presigned-urls/
 title: Presigned URLs \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:31.533890+00:00
+fetched_at: 2026-11-13T09:17:08.577986+00:00
 ---
 
 # Presigned URLs · Cloudflare R2 docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-27T07:31:31.533890+00:00
 
 # Presigned URLs
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewChoosing an approachGenerate a presigned URL Prerequisites SDK examples Best practicesUsing a presigned URLPresigned URL exampleSupported operationsSecurity considerationsCustom domainsRelated resources
+OverviewChoosing an approachGenerate a presigned URL Prerequisites SDK examples Best practicesUsing a presigned URLPresigned URL exampleSupported operationsSecurity considerationsCustom domainsLocal developmentRelated resources
 
 Presigned URLs are an [S3 concept ↗︎](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) for granting temporary access to objects without exposing your API credentials. A presigned URL includes signature parameters in the URL itself, authorizing anyone with the URL to perform a specific operation (like `GetObject` or `PutObject`) on a specific object until the URL expires.
 
@@ -300,6 +300,10 @@ Treat presigned URLs as bearer tokens. Anyone with the URL can perform the speci
 Presigned URLs work with the S3 API domain (`<ACCOUNT_ID>.r2.cloudflarestorage.com`) and cannot be used with custom domains.
 
 If you need authentication with R2 buckets accessed via custom domains (public buckets), use the [WAF HMAC validation feature](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#hmac-validation) (requires Pro plan or above).
+
+## Local development
+
+To test presigned requests locally, configure your S3 client with the [local S3-compatible endpoint and credentials](https://developers.cloudflare.com/r2/local-development/#serve-buckets-over-the-s3-api). Generate URLs using that endpoint and path-style addressing. The local endpoint accepts signed requests for local buckets only.
 
 ## Related resources
 

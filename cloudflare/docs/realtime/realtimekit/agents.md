@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/agents/
 title: Agent Participant \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:39.684230+00:00
+fetched_at: 2026-11-13T09:17:15.025057+00:00
 ---
 
 # Agent Participant · Cloudflare Realtime docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-20T06:56:39.684230+00:00
 
 # Agent Participant
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat an agent can doHow it worksChoose your agentBillingReference
 
 Agent Participant adds a server-side agent to a RealtimeKit meeting. Any backend that can open a WebSocket — a Cloudflare Worker, a Durable Object, or your own server — can connect to it. No client SDK or browser is required.
 
-Today an agent receives live meeting activity, such as transcripts, participant presence, and broadcasts. More capabilities are planned, including sending messages and working with meeting media.
+An agent receives live meeting activity, such as transcripts, participant presence, chat, polls, and broadcasts. It can also send chat messages, run polls, and send broadcasts. Working with meeting media is planned.
 
 ## What an agent can do
 
@@ -36,9 +36,9 @@ RealtimeKit meeting
 
 **Agent participant** Configured by preset
 
-Listen: transcripts, presence, broadcasts
+Listen: transcripts, presence, chat, polls, broadcasts
 
-Send: chat, broadcasts, stream audio (future-scope)
+Send: chat, polls, broadcasts
 
 My code**Durable Object** WebSocket ↔ JSON
 
@@ -48,7 +48,7 @@ Agent participantJoins the meetingRealtimeKit meeting
 
 Agent ParticipantListen →Worker or Durable Object
 
-Worker or Durable ObjectSend (planned) →Agent Participant
+Worker or Durable ObjectSend →Agent Participant
 
 The agent is a meeting participant. Its [preset](https://developers.cloudflare.com/realtime/realtimekit/concepts/preset/) decides how it joins the meeting, and its subscriptions decide which events it receives.
 
@@ -94,7 +94,7 @@ Your agent | Example | Others see it
 [Hidden agent](https://developers.cloudflare.com/realtime/realtimekit/agents/get-started/#hidden-agent) | Compliance monitor, quality review, live meeting analytics | No  
 [Visible agent](https://developers.cloudflare.com/realtime/realtimekit/agents/get-started/#visible-agent) | Note-taker that appears in the participant list | Yes  
   
-Agents that speak or send chat messages are not supported yet. Refer to the [Capability matrix](https://developers.cloudflare.com/realtime/realtimekit/agents/capabilities/).
+Agents that speak are not supported yet. Refer to the [Capability matrix](https://developers.cloudflare.com/realtime/realtimekit/agents/capabilities/).
 
 ## Billing
 

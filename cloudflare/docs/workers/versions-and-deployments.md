@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/
 title: Versions & deployments \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:02.891599+00:00
+fetched_at: 2026-11-13T09:17:12.195135+00:00
 ---
 
 # Versions & deployments · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:18:02.891599+00:00
 
 # Versions & deployments
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/versions-and-deployments/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewVersionsDeploymentsDefault behaviorView versions and deployments Via Wrangler Via the Cloudflare dashboardNext steps
 
@@ -41,9 +41,13 @@ A deployment determines which version(s) of your Worker are actively serving tra
 
 Each deployment tracks who created it, when, and which version(s) it includes.
 
+Traffic percentages control routing by default. A [version override](https://developers.cloudflare.com/workers/versions-and-deployments/version-overrides/) can select a version in the deployment, even at 0% of traffic.
+
 ## Default behavior
 
-By default, these two concepts are coupled together - when you run [`wrangler deploy`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#deploy), Workers creates a new version and immediately deploys it to 100% of traffic in a single step.
+When you run [`wrangler deploy`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#deploy), Workers creates a version and sets its deployment to 100% of traffic.
+
+Deployment changes take time to reach every location on Cloudflare's network. During this time, locations can use different versions. A browser makes separate requests for HTML and its assets. Those requests can use different versions, even when you deploy to 100% of traffic. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/) for examples and strategies.
 
 You can decouple them so that uploading a version and deploying it are independent actions. This gives you control over when new code goes live, and lets you use strategies like [gradual deployments](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/) or manual promotion. Refer to [Deployment management](https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/) for details.
 
@@ -66,9 +70,10 @@ Wrangler allows you to view the 100 most recent versions and deployments. Refer 
 ## Next steps
 
   * [Deployment management](https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/) \- Upload versions without deploying them and control when they go live
+  * [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/) \- Understand related requests during deployments and asset availability for older pages
   * [Version URLs](https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/) \- Test new versions before deploying them to production
   * [Gradual deployments](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/) \- Split traffic between two versions using percentage-based routing
-  * [Version affinity](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/) \- Consistently route users to the same version across page loads during a gradual deployment
+  * [Version affinity](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/version-affinity/) \- Keep requests with the same key on one version while the deployment configuration stays the same
   * [Version overrides](https://developers.cloudflare.com/workers/versions-and-deployments/version-overrides/) \- Send a request to a specific version by ID for smoke testing and pinning between Workers
   * [Rollbacks](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/) \- Revert to a previously deployed version
 

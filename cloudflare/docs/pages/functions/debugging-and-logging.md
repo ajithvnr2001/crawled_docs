@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/functions/debugging-and-logging/
 title: Debugging and logging \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:32.358243+00:00
+fetched_at: 2026-11-13T09:17:11.561180+00:00
 ---
 
 # Debugging and logging · Cloudflare Pages docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:12:32.358243+00:00
 
 # Debugging and logging
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/functions/debugging-and-logging/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAdd custom logsView logs with WranglerView logs in the Cloudflare DashboardLimitsSourcemaps
+OverviewAdd custom logsView logs with WranglerView logs in the Cloudflare DashboardDebug canceled requests to a bound WorkerLimitsSourcemaps
 
 Access your Functions logs by using the Cloudflare dashboard or the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/commands/pages/#pages-deployment-tail).
 
@@ -117,6 +117,21 @@ To view logs for your `production` or `preview` environments associated with any
 
 
 Logging is available for all customers (Free, Paid, Enterprise).
+
+## Debug canceled requests to a bound Worker
+
+If your Pages Function stops waiting for a Worker it calls, that Worker may report Client Disconnected. This can happen when the browser disconnects from your Pages Function.
+
+To find out what happened, check both sets of logs:
+
+  1. Log the same request ID in your Pages Function and Worker. If you create your own ID, pass it to the Worker in a request header.
+  2. Open [live logs for your Pages deployment](https://developers.cloudflare.com/pages/functions/debugging-and-logging/#view-logs-with-wrangler) and [live logs for the Worker it calls](https://developers.cloudflare.com/workers/observability/logs/real-time-logs/). Start both streams before reproducing the problem.
+  3. Reproduce the problem and save the JSON output from both log streams. Pages logs are not stored, so save them during the test.
+  4. Find the request in both logs using its ID and UTC time. Compare `outcome`, HTTP status, and `exceptions`. Keep the Pages deployment and Worker version with your saved logs.
+
+
+
+Follow [Find out why a request was canceled](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/http/#find-out-why-a-request-was-canceled) to check timeouts and test a client disconnect. Seeing Client Disconnected in both logs does not tell you which service canceled first. If an entry is missing, check [logging limits](https://developers.cloudflare.com/pages/functions/debugging-and-logging/#limits) before assuming the request never arrived.
 
 ## Limits
 

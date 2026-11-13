@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/
 title: Deployment management \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:01.894293+00:00
+fetched_at: 2026-11-13T09:17:12.115027+00:00
 ---
 
 # Deployment management · Cloudflare Workers docs
@@ -18,11 +18,11 @@ fetched_at: 2026-11-11T09:01:01.894293+00:00
 
 # Deployment management
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUpload a version without deploying Via Wrangler Via the Cloudflare dashboardDeploy an uploaded version Via Wrangler Via the Cloudflare dashboard Via Infrastructure as CodeIn-flight requestsLimits Deployments limit First upload Service worker syntax Durable Object migrations
 
-By default, a new version is created and immediately deployed to 100% of traffic when you use any of the following:
+By default, these operations create a version and deploy it to 100% of traffic:
 
   * [`wrangler deploy`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#deploy)
   * [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
@@ -30,7 +30,9 @@ By default, a new version is created and immediately deployed to 100% of traffic
 
 
 
-You can separate these steps so that uploading a version and deploying it are independent actions. This lets you control exactly when a new version goes live.
+You can upload a version without deploying it. This allows you to choose when to send traffic to it.
+
+Deployment changes take up to a few seconds to reach every location on the network. Deploying to 100% of traffic does not make every location switch at once. A browser's HTML and asset requests can still use different versions. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/).
 
 ## Upload a version without deploying
 
@@ -76,6 +78,8 @@ New versions are not created when you make changes to [resources connected to yo
 ## Deploy an uploaded version
 
 Once you have uploaded a version, you can create a deployment that routes traffic to it.
+
+Uploading a version does not add it to a deployment. To test it on your production hostname with a [version override](https://developers.cloudflare.com/workers/versions-and-deployments/version-overrides/), add it to the deployment. You can set it to 0% of traffic. You can also turn on a [Version URL](https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/) to access the uploaded version separately.
 
 ### Via Wrangler
 
@@ -140,7 +144,7 @@ Refer to [Migrate from Service Workers to ES modules](https://developers.cloudfl
 
 Uploading a version that changes Durable Object class lifecycle is not supported. This applies to both the declarative [`exports`](https://developers.cloudflare.com/durable-objects/reference/durable-objects-migrations/) field and the legacy [`migrations`](https://developers.cloudflare.com/durable-objects/reference/durable-object-class-migrations-legacy/) array - any change that creates, deletes, renames, or transfers a Durable Object class must be applied through [`wrangler deploy`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#deploy).
 
-[PreviousOverview](https://developers.cloudflare.com/workers/versions-and-deployments/)[NextOverview](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/)
+[PreviousOverview](https://developers.cloudflare.com/workers/versions-and-deployments/)[NextVersion skew](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/)
 
 Was this helpful?
 

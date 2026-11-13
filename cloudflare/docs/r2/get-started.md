@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/get-started/
 title: Get started \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:46.810615+00:00
+fetched_at: 2026-11-13T09:17:08.430982+00:00
 ---
 
 # Get started · Cloudflare R2 docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:12:46.810615+00:00
 
 # Get started
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginChoose how to access R2Next steps
 
@@ -61,6 +61,10 @@ Use R2 with S3-compatible SDKs.
 ### [CLI](https://developers.cloudflare.com/r2/get-started/cli/)
 
 Use R2 from the command line.
+
+### [Local development](https://developers.cloudflare.com/r2/local-development/)
+
+Develop and test against R2 buckets on your local machine.
 
 [PreviousOverview](https://developers.cloudflare.com/r2/)[NextWorkers API](https://developers.cloudflare.com/r2/get-started/workers-api/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/binding/
 title: Configuration and Bindings \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.675081+00:00
+fetched_at: 2026-11-13T09:17:14.024974+00:00
 ---
 
 # Configuration and Bindings · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:26.675081+00:00
 
 # Configuration and Bindings
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewdirectory Ignoring assetsrun_worker_firstbinding Runtime API Reference
 
@@ -35,7 +35,7 @@ The folder of static assets to be served. For many frameworks, this is the `./pu
     	"$schema": "./node_modules/wrangler/config-schema.json",
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"assets": {
     		"directory": "./public/",
     	},
@@ -45,7 +45,7 @@ The folder of static assets to be served. For many frameworks, this is the `./pu
     "$schema" = "./node_modules/wrangler/config-schema.json"
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [assets]
     directory = "./public/"
@@ -78,7 +78,7 @@ Controls whether to invoke the Worker script regardless of a request which would
     	"$schema": "./node_modules/wrangler/config-schema.json",
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// The following configuration unconditionally invokes the Worker script at
@@ -94,7 +94,7 @@ Controls whether to invoke the Worker script regardless of a request which would
     "$schema" = "./node_modules/wrangler/config-schema.json"
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "src/index.ts"
     upload_source_maps = true
     
@@ -117,7 +117,7 @@ The order in which the patterns are listed is not significant.
     {
     	"name": "my-spa-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./src/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -131,7 +131,7 @@ The order in which the patterns are listed is not significant.
     
     name = "my-spa-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./src/index.ts"
     upload_source_maps = true
     
@@ -151,7 +151,9 @@ Common uses for `run_worker_first` include authentication checks, A/B testing, a
 
 ## `binding`
 
-Configuring the optional [binding](https://developers.cloudflare.com/workers/runtime-apis/bindings) gives you access to the collection of assets from within your Worker script.
+Configure the optional [binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/) to serve static assets from your Worker script. `env.ASSETS.fetch(request)` returns a response using the configured [HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/) and [missing-asset fallbacks](https://developers.cloudflare.com/workers/static-assets/#routing-behavior).
+
+The binding uses the current Worker version's assets and configuration. It does not search other versions' assets. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/) for how this affects deployments.
     
     
     {
@@ -160,7 +162,7 @@ Configuring the optional [binding](https://developers.cloudflare.com/workers/run
     	"main": "./src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"assets": {
     		"directory": "./public/",
     		"binding": "ASSETS",
@@ -173,7 +175,7 @@ Configuring the optional [binding](https://developers.cloudflare.com/workers/run
     main = "./src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [assets]
     directory = "./public/"
@@ -193,7 +195,7 @@ In the example above, assets would be available through `env.ASSETS`.
 
 **Response**
 
-  * `Promise<Response>` Returns a static asset response for the given request.
+  * `Promise<Response>` Returns the response for the request, including any HTML redirects or missing-asset handling.
 
 
 

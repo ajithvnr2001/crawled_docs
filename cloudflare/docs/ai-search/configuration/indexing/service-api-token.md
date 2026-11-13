@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/
 title: Service API token \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:39.702739+00:00
+fetched_at: 2026-11-13T09:17:09.720314+00:00
 ---
 
 # Service API token · Cloudflare AI Search docs
@@ -22,15 +22,15 @@ fetched_at: 2026-10-08T07:04:39.702739+00:00
 
 # Service API token
 
-Last updated Sep 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen you need a service API tokenCreate via the dashboard or WranglerCreate via the API 1\. Create an API token with token creation permissions 2\. Create the service token 3\. Register the token with AI Search 4\. Use the token when creating an instanceManage your token Rotate your token View registered tokens
 
-A service API token grants AI Search permission to access [R2](https://developers.cloudflare.com/r2/) buckets in your account. This token is only required if you connect an R2 bucket as a data source. If you use a website or upload files directly through the [Items API](https://developers.cloudflare.com/ai-search/api/items/workers-binding/), you do not need a service API token.
+A service API token grants AI Search permission to access [R2](https://developers.cloudflare.com/r2/) buckets and [D1](https://developers.cloudflare.com/d1/) databases in your account. This token is only required if you connect an R2 bucket or a D1 database as a data source. If you use a website or upload files directly through the [Items API](https://developers.cloudflare.com/ai-search/api/items/workers-binding/), you do not need a service API token.
 
 ## When you need a service API token
 
-You need a service API token when you create an AI Search instance with `type: "r2"`. The token authorizes AI Search to read objects from your R2 bucket for indexing.
+You need a service API token when you create an AI Search instance with `type: "r2"` or `type: "d1"`. The token authorizes AI Search to read your R2 bucket or D1 database for indexing. Its AI Search Index Engine permission includes R2 read access and the D1 Read permission, so one token works for both. D1-backed instances always require `token_id`.
 
 ## Create via the dashboard or Wrangler
 
@@ -114,7 +114,7 @@ Use the [AI Search tokens API](https://developers.cloudflare.com/api/resources/a
         "name": "AI Search Service Token"
       }'
 
-Save the `id` from the response. This is your `token_id` to pass when creating R2-backed instances:
+Save the `id` from the response. This is your `token_id` to pass when creating R2-backed or D1-backed instances:
     
     
     {
@@ -149,7 +149,7 @@ Once registered, the service API token is stored securely and reused across all 
 
 Caution
 
-Do not delete your service API token. If you revoke or delete the token, any R2-backed AI Search instances will lose access to their data source and stop indexing.
+Do not delete your service API token. If you revoke or delete the token, any R2-backed or D1-backed AI Search instances will lose access to their data source and stop indexing.
 
 ### Rotate your token
 

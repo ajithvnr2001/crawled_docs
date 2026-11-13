@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/metadata/
 title: Metadata attributes \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:39.590029+00:00
+fetched_at: 2026-11-13T09:17:09.778526+00:00
 ---
 
 # Metadata attributes · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:39.590029+00:00
 
 # Metadata attributes
 
-Last updated Aug 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/indexing/metadata/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBuilt-in metadata attributesCustom metadata attributes Supported data types Define a schema Add custom metadata attributes to documentsRe-indexing behaviorMetadata storage and filteringLimitations
 
@@ -76,6 +76,7 @@ Before custom metadata can be extracted, define a schema in your AI Search confi
 How you attach custom metadata attributes depends on your data source:
 
   * **R2 bucket** : Set metadata using S3-compatible custom headers (`x-amz-meta-*`). Refer to [R2 custom metadata](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/#custom-metadata) for examples.
+  * **D1 database** : Return `meta_<name>` columns from the source query. Refer to [D1 custom metadata](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/#custom-metadata).
   * **Website** : Add `<meta>` tags to your HTML pages. Refer to [Website custom metadata](https://developers.cloudflare.com/ai-search/configuration/data-source/website/custom-metadata/) for details.
   * **Built-in storage** : Attach metadata when uploading files through the [Items API](https://developers.cloudflare.com/ai-search/api/items/workers-binding/#upload-with-metadata).
 

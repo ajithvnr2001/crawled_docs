@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/platform/pricing/
 title: Pricing \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:46.089779+00:00
+fetched_at: 2026-11-13T09:17:06.936338+00:00
 ---
 
 # Pricing · Cloudflare Workers AI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-20T06:57:46.089779+00:00
 
 # Pricing
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPay with AI Gateway creditsWhat are Neurons?LLM model pricingEmbeddings model pricingImage model pricingAudio model pricingOther model pricing
 
@@ -42,7 +42,7 @@ Workers Paid | 10,000 Neurons per day | $0.011 / 1,000 Neurons
   
 Note
 
-Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/zai-org/glm-5.3`, `@cf/zai-org/glm-5.3-flash`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, `@cf/deepseek-ai/deepseek-v4.1-flash-1017`, and `@cf/deepseek-ai/deepseek-v4-pro-0813`. You can access these models with either the [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/#workers) or prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/).
+Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/zai-org/glm-5.3`, `@cf/zai-org/glm-5.3-flash`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, `@cf/deepseek-ai/deepseek-v4.1-flash-1017`, `@cf/deepseek-ai/deepseek-v4-pro-0813`, and `@cf/thinkingmachines/inkling-2-small`. You can access these models with either the [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/#workers) or prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/).
 
 ## Pay with AI Gateway credits
 
@@ -197,6 +197,11 @@ $0.300 per M output tokens | 9091 neurons per M input tokens
 @cf/daily-co/phonellm-mini-alpha-2 | $0.060 per M input tokens   
 $0.240 per M output tokens | 5455 neurons per M input tokens   
 21818 neurons per M output tokens  
+@cf/thinkingmachines/inkling-2-small | $0.300 per M input tokens   
+$0.100 per M cached input tokens   
+$1.000 per M output tokens | 27273 neurons per M input tokens   
+9091 neurons per M cached input tokens   
+90909 neurons per M output tokens  
   
 ## Embeddings model pricing
 
@@ -208,6 +213,7 @@ Model | Price in Tokens | Price in Neurons
 @cf/baai/bge-m3 | $0.012 per M input tokens | 1075 neurons per M input tokens  
 @cf/pfnet/plamo-embedding-1b | $0.019 per M input tokens | 1689 neurons per M input tokens  
 @cf/qwen/qwen3-embedding-0.6b | $0.012 per M input tokens | 1075 neurons per M input tokens  
+@cf/google/embeddinggemma-2 | $0.0017 per M input tokens | 154 neurons per M input tokens  
   
 ## Image model pricing
 

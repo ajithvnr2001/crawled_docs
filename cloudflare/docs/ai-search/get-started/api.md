@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/get-started/api/
 title: REST API \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:41.459946+00:00
+fetched_at: 2026-11-13T09:17:09.508410+00:00
 ---
 
 # REST API · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:41.459946+00:00
 
 # REST API
 
-Last updated Sep 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/get-started/api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create an API token2\. Create an AI Search instance Connect a data source (optional)3\. Add content4\. Check indexing statusTry it outAdd to your application
 
@@ -62,7 +62,7 @@ Use the [Create instance API](https://developers.cloudflare.com/api/resources/ai
 
 ### Connect a data source (optional)
 
-You can create an instance that is connected to a website or R2 bucket as a data source. AI Search indexes the content automatically.
+You can create an instance that is connected to a website, R2 bucket, or D1 database as a data source. AI Search indexes the content automatically.
 
 **Website:**
 
@@ -93,9 +93,29 @@ Index documents stored in an [R2 bucket](https://developers.cloudflare.com/ai-se
         "token_id": "<SERVICE_TOKEN_ID>"
       }'
 
+**D1 database:**
+
+Index the rows returned by a read-only query against a [D1 database](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/). The `token_id` of a [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) is always required.
+    
+    
+    curl -X POST "https://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/ai-search/namespaces/default/instances" \
+      -H "Authorization: Bearer <API_TOKEN>" \
+      -H "Content-Type: application/json" \
+      --data '{
+        "id": "my-instance",
+        "type": "d1",
+        "source": "<D1_DATABASE_ID>",
+        "token_id": "<SERVICE_TOKEN_ID>",
+        "source_params": {
+          "d1": {
+            "query": "SELECT article_id AS id, title, content\nFROM articles"
+          }
+        }
+      }'
+
 ## 3\. Add content
 
-If you did not create an instance that is connected to a data source, upload files using the [Items API](https://developers.cloudflare.com/api/resources/ai_search/subresources/namespaces/subresources/instances/subresources/items/methods/upload/). You can skip this step if you connected a website or R2 bucket.
+If you did not create an instance that is connected to a data source, upload files using the [Items API](https://developers.cloudflare.com/api/resources/ai_search/subresources/namespaces/subresources/instances/subresources/items/methods/upload/). You can skip this step if you connected a website, R2 bucket, or D1 database.
     
     
     curl -X POST "https://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/ai-search/namespaces/default/instances/my-instance/items" \

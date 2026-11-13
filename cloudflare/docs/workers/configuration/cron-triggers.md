@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/cron-triggers/
 title: Cron Triggers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:11.959338+00:00
+fetched_at: 2026-11-13T09:17:06.761516+00:00
 ---
 
 # Cron Triggers · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-19T07:11:11.959338+00:00
 
 # Cron Triggers
 
-Last updated Oct 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundAdd a Cron Trigger 1\. Define a scheduled event listener 2\. Update configurationSupported cron expressions ExamplesTest Cron Triggers locally Use Local Explorer Use an HTTP requestView past eventsRemove a Cron Trigger Via the dashboardLimitsGreen ComputeRelated resources
 
@@ -79,6 +79,8 @@ Refer to the following additional examples to write your code:
 Cron Trigger changes take time to propagate.
 
 Changes such as adding a new Cron Trigger, updating an old Cron Trigger, or deleting a Cron Trigger may take several minutes (up to 15 minutes) to propagate to the Cloudflare global network.
+
+Scheduled invocations can be missed until propagation completes. The trigger starts running at the next scheduled time after propagation.
 
 After you have updated your Worker code to include a `"scheduled"` event, you must update your Worker project configuration.
 

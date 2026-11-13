@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/
 title: Migrate from Pages to Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.590707+00:00
+fetched_at: 2026-11-13T09:17:13.455283+00:00
 ---
 
 # Migrate from Pages to Workers · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-13T08:48:26.590707+00:00
 
 # Migrate from Pages to Workers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewMigration Frameworks Project configuration Variables, secrets and bindings Wrangler commands Builds Preview environment Headers and redirects pages.dev Custom domains RolloutMigrate your project using an AI coding assistantCompatibility matrix
+OverviewMigration Deployments and asset availability Frameworks Project configuration Variables, secrets and bindings Wrangler commands Builds Preview environment Headers and redirects pages.dev Custom domains RolloutMigrate your project using an AI coding assistantCompatibility matrix
 
 You can deploy full-stack applications, including front-end static assets and back-end APIs, as well as server-side rendered pages (SSR), with [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/).
 
@@ -35,6 +35,12 @@ Unlike Pages, Workers has a distinctly broader set of features available to it, 
 ## Migration
 
 Migrating from Cloudflare Pages to Cloudflare Workers is often a straightforward process. The following are some of the most common steps you will need to take to migrate your project.
+
+### Deployments and asset availability
+
+Each Worker version has its own set of static assets. HTML and asset requests can use different versions while a deployment change spreads across the network, or during a gradual deployment. Older pages can also request files after a newer release starts serving traffic.
+
+Review [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/) when migrating your release process. How long a file stays cached is separate from which versions can serve it. The Pages cache-retention description does not tell you how long Workers stores assets.
 
 ### Frameworks
 
@@ -77,7 +83,7 @@ Now, with **Cloudflare Workers** :
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"assets": {
     		"directory": "./dist/client/"
     	}
@@ -86,7 +92,7 @@ Now, with **Cloudflare Workers** :
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [assets]
     directory = "./dist/client/"
@@ -107,7 +113,7 @@ For a Single Page Application (SPA):
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"assets": {
     		"directory": "./dist/client/",
     		"not_found_handling": "single-page-application"
@@ -117,7 +123,7 @@ For a Single Page Application (SPA):
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [assets]
     directory = "./dist/client/"
@@ -129,7 +135,7 @@ For custom 404 pages:
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"assets": {
     		"directory": "./dist/client/",
     		"not_found_handling": "404-page"
@@ -139,7 +145,7 @@ For custom 404 pages:
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     
     [assets]
     directory = "./dist/client/"
@@ -177,7 +183,7 @@ Then, update your configuration file's `main` field to point to the location of 
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./dist/client/_worker.js",
     	"upload_source_maps": true, // or some other location if you moved the script out of the static asset directory
     	"assets": {
@@ -188,7 +194,7 @@ Then, update your configuration file's `main` field to point to the location of 
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./dist/client/_worker.js"
     upload_source_maps = true
     
@@ -218,7 +224,7 @@ Once the Worker script has been compiled, you can update your configuration file
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./dist/worker/index.js",
     	"upload_source_maps": true,
     	"assets": {
@@ -229,7 +235,7 @@ Once the Worker script has been compiled, you can update your configuration file
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./dist/worker/index.js"
     upload_source_maps = true
     
@@ -246,7 +252,7 @@ Workers, on the other hand, will default to serving static assets ahead of your 
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./dist/worker/index.js",
     	"upload_source_maps": true,
     	"assets": {
@@ -258,7 +264,7 @@ Workers, on the other hand, will default to serving static assets ahead of your 
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./dist/worker/index.js"
     upload_source_maps = true
     
@@ -296,7 +302,7 @@ If you wish to, you can start a new Worker script from scratch and take advantag
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./worker/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -307,7 +313,7 @@ If you wish to, you can start a new Worker script from scratch and take advantag
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./worker/index.ts"
     upload_source_maps = true
     
@@ -322,7 +328,7 @@ Pages automatically provided [an `ASSETS` binding](https://developers.cloudflare
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./worker/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -334,7 +340,7 @@ Pages automatically provided [an `ASSETS` binding](https://developers.cloudflare
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./worker/index.ts"
     upload_source_maps = true
     
@@ -350,7 +356,7 @@ If you had customized [placement](https://developers.cloudflare.com/workers/conf
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"compatibility_flags": ["nodejs_compat"],
     	"main": "./worker/index.ts",
     	"upload_source_maps": true,
@@ -366,7 +372,7 @@ If you had customized [placement](https://developers.cloudflare.com/workers/conf
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     compatibility_flags = [ "nodejs_compat" ]
     main = "./worker/index.ts"
     upload_source_maps = true
@@ -409,7 +415,7 @@ To get a similar experience in Workers:
          {
              "name": "my-worker",
              // Set this to today's date
-             "compatibility_date": "2026-10-13",
+             "compatibility_date": "2026-11-13",
              "main": "./worker/index.ts",
              "upload_source_maps": true,
              "assets": {
@@ -421,7 +427,7 @@ To get a similar experience in Workers:
          
          name = "my-worker"
          # Set this to today's date
-         compatibility_date = "2026-10-13"
+         compatibility_date = "2026-11-13"
          main = "./worker/index.ts"
          upload_source_maps = true
          preview_urls = true
@@ -457,7 +463,7 @@ Where previously you were offered a `pages.dev` subdomain for your Pages project
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-13",
     	"main": "./worker/index.ts",
     	"upload_source_maps": true,
     	"workers_dev": true
@@ -466,7 +472,7 @@ Where previously you were offered a `pages.dev` subdomain for your Pages project
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-13"
     main = "./worker/index.ts"
     upload_source_maps = true
     workers_dev = true
@@ -595,7 +601,7 @@ This compatibility matrix compares the features of Workers and Pages. Unless oth
 
 
 
-[PreviousBilling and Limitations](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/)[NextMigrate from Netlify to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/netlify-to-workers/)
+[PreviousStatic site or SPA](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/static-site/)[NextMigrate from Netlify to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/netlify-to-workers/)
 
 Was this helpful?
 

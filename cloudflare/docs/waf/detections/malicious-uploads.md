@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/malicious-uploads/
 title: Malicious uploads detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:06.609794+00:00
+fetched_at: 2026-11-13T09:17:10.950050+00:00
 ---
 
 # Malicious uploads detection · Cloudflare Web Application Firewall (WAF) docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-15T14:53:06.609794+00:00
 
 # Malicious uploads detection
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow it worksWhat is a content object?Scanned content Size limitEncrypted contentCustom scan expressionsContent scanning fields
+OverviewHow it worksWhat is a content object?Scanned content Multipart requests Size limitEncrypted contentCustom scan expressionsContent scanning fields
 
 The malicious uploads detection is a [traffic detection](https://developers.cloudflare.com/waf/concepts/#detection-versus-mitigation) that scans files and other content uploaded to your application for malware.
 
@@ -76,6 +76,12 @@ Content scanning can check the following content objects for malicious content:
 
 
 
+### Multipart requests
+
+The request's `Content-Type` header is used to decide whether to parse the body as a multipart request. If the type is `multipart/form-data` or `multipart/mixed`, Cloudflare scans each part as a separate content object.
+
+A `boundary` parameter only applies to multipart types. If a request selected for content scanning has a nonempty body and its `Content-Type` header has a `boundary` parameter but its type is not `multipart/*` (for example, `application/json; boundary=example`), the body will not be scanned and the field `cf.waf.content_scan.has_failed` is set to `true`.
+
 ### Size limit
 
 The content scanner inspects up to the first 50 MB of a request body. When a request contains more than one content object, for example a submitted HTML form with several file inputs, all the content objects share this 50 MB.
@@ -103,7 +109,7 @@ Notes
     * Archives with more than three recursion levels
     * Archives with more than 300 files
     * PGP-encrypted files
-  * In rare cases, the AV scanner may time out and fail to analyze a content object. When this happens, the `cf.waf.content_scan.has_failed` field will be set to true. This field refers to scans that were attempted but did not complete. It is not set for content that the scanner did not reach because of the 50 MB size limit.
+  * In rare cases, the AV scanner may time out and fail to analyze a content object. When this happens, the `cf.waf.content_scan.has_failed` field is set to `true`. Note that exceeding the 50 MB scanning limit does not, by itself, set this field. Content beyond that limit is excluded from scanning.
 
 
 

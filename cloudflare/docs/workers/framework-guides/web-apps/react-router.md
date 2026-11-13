@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/
 title: React Router (formerly Remix) \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:46.266430+00:00
+fetched_at: 2026-11-13T09:17:14.312003+00:00
 ---
 
 # React Router (formerly Remix) · Cloudflare Workers docs
@@ -22,9 +22,11 @@ Framework guides
 
 # React Router (formerly Remix)
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is React Router?Creating a full-stack React Router appUse bindings with React Router
+
+For Remix 3 applications, refer to the [Remix 3 guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/remix/).
 
 **Start from CLI** : Scaffold a full-stack app with [React Router v8 ↗︎](https://reactrouter.com/) and the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/) for lightning-fast development.
 
@@ -264,7 +266,7 @@ With bindings, your application can be fully integrated with the Cloudflare Deve
 
 Access to compute, storage, AI and more.
 
-[PreviousEmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)[NextNext.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
+[PreviousEmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)[NextRemix 3](https://developers.cloudflare.com/workers/framework-guides/web-apps/remix/)
 
 Was this helpful?
 

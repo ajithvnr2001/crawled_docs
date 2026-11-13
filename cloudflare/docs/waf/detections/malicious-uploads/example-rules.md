@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/malicious-uploads/example-rules/
 title: Example rules checking uploaded content objects \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:41.994819+00:00
+fetched_at: 2026-11-13T09:17:10.446085+00:00
 ---
 
 # Example rules checking uploaded content objects · Cloudflare Web Application Firewall (WAF) docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:16:41.994819+00:00
 
 # Example rules
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/malicious-uploads/example-rules/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewLog requests with an uploaded content objectBlock requests to URI path with a malicious content objectBlock requests with non-PDF file uploadsBlock requests with uploaded files over 500 KBBlock requests with uploaded files over the content scanning limit (50 MB)
+OverviewLog requests with an uploaded content objectBlock requests to URI path with a malicious content objectBlock requests with content that could not be scannedBlock requests with non-PDF file uploadsBlock requests with uploaded files over 500 KBBlock requests with uploaded files over the content scanning limit (50 MB)
 
 ## Log requests with an uploaded content object
 
@@ -60,6 +60,16 @@ If you are using the Expression Editor:
 
   * **Action:** _Block_
 
+
+
+
+## Block requests with content that could not be scanned
+
+This custom rule example blocks requests whose content Cloudflare could not scan:
+
+  * **When incoming requests match:**  
+`(cf.waf.content_scan.has_failed)`
+  * **Action:** _Block_
 
 
 

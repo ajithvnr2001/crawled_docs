@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/
 title: Test APIs \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-12T08:23:31.840264+00:00
+fetched_at: 2026-11-13T09:17:07.258012+00:00
 ---
 
 # Test APIs · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-12T08:23:31.840264+00:00
 
 # Test APIs
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewcloudflare:workers exportscloudflare:test exports Events Durable Objects D1 Secrets Store Workflows
 
@@ -140,7 +140,8 @@ To configure the type of this value, use an ambient module type:
               {
                 id: "message-1",
                 timestamp: new Date(1000),
-                body: "body-1"
+                body: "body-1",
+                attempts: 1
               }
             ]);
             const ctx = createExecutionContext();
@@ -458,7 +459,7 @@ Available in `@cloudflare/vitest-plugin` version **1.0.0** and later.
             await env.MY_WORKFLOW.create();
           
             // 3. ASSERTION
-            const instances = introspector.get();
+            const instances = await introspector.get();
             for(const instance of instances) {
               await expect(instance.waitForStatus("complete")).resolves.not.toThrow();
               const output = await instance.getOutput();
@@ -551,7 +552,7 @@ The workflow instance doesn't have to be created directly inside the test. The i
         expect(error.name).toEqual("Error");
         expect(error.message).toContain("Execution timed out");
     
-      } catch {
+      } finally {
         // 4. DISPOSE
         await instance.dispose();
       }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/data-source/
 title: Data source \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:38.633448+00:00
+fetched_at: 2026-11-13T09:17:10.137350+00:00
 ---
 
 # Data source · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:38.633448+00:00
 
 # Data source
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/data-source/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported file types Plain text file types Rich format file typesFile limitsImages and optical character recognition
 
@@ -29,8 +29,11 @@ Data Source | Description
 [Built-in storage](https://developers.cloudflare.com/ai-search/configuration/data-source/built-in-storage/) | Upload files directly to an instance. Available by default on every instance.  
 [Website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/) | Connect a domain you own to index website pages.  
 [R2 Bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/) | Connect a Cloudflare R2 bucket to index stored documents.  
+[D1 database](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/) Beta | Connect a Cloudflare D1 database to index rows returned by a SQL query.  
   
 For website data sources, [Parse types](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/) covers how AI Search finds the pages to index.
+
+A D1 data source indexes database rows, not files. For its limits, refer to [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/#limits).
 
 ## Supported file types
 

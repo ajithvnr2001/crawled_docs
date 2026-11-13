@@ -3,5 +3,5 @@
   "file": "waf/detections/ai-security-for-apps/unsafe-topics.md",
   "title": "Unsafe and custom topic detection \u00b7 Cloudflare Web Application Firewall (WAF) docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-06T09:03:47.487066+00:00"
+  "fetched_at": "2026-11-13T09:17:10.527746+00:00"
 }

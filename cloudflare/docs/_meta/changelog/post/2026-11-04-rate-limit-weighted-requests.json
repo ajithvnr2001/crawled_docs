@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/changelog/post/2026-11-04-rate-limit-weighted-requests/",
+  "file": "changelog/post/2026-11-04-rate-limit-weighted-requests.md",
+  "title": "Count weighted requests with the Rate Limiting binding API in Workers \u00b7 Changelog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-11-13T09:17:04.505716+00:00"
+}

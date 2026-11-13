@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/configuration/
 title: Configuration - Wrangler \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:24.156888+00:00
+fetched_at: 2026-11-13T09:17:08.244213+00:00
 ---
 
 # Configuration - Wrangler · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-12T09:30:24.156888+00:00
 
 # Configuration
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Flagship Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
 
@@ -48,7 +48,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-12",
+    	"compatibility_date": "2026-11-13",
     	"workers_dev": false,
     	"route": {
     		"pattern": "example.org/*",
@@ -83,7 +83,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-12"
+    compatibility_date = "2026-11-13"
     workers_dev = false
     
     [route]
@@ -1205,10 +1205,21 @@ To bind R2 buckets to your Worker, assign an array of the below object to the `r
 
   * `binding` `string` required
     * The binding name used to refer to the R2 bucket.
-  * `bucket_name` `string` required
+  * `bucket_name` `string` optional
     * The name of this R2 bucket.
   * `jurisdiction` `string` optional
     * The jurisdiction where this R2 bucket is located, if a jurisdiction has been specified. Refer to [Jurisdictional Restrictions](https://developers.cloudflare.com/r2/reference/data-location/#jurisdictional-restrictions).
+  * `remote` `boolean` optional
+    * Connect this binding to the deployed bucket during local development. Defaults to `false`. Refer to [R2 remote bindings](https://developers.cloudflare.com/r2/local-development/#connect-to-a-remote-bucket).
+  * `local_dev` `object` optional
+    * Settings that apply only to local development.
+    * `experimental_s3_credentials` `object` optional
+      * Serve this local bucket through the experimental S3-compatible endpoint at `/cdn-cgi/local/r2/s3`. Requires Wrangler 4.115.0 or later. Ignored when `remote` is `true`.
+      * `accessKeyId` `string` required
+        * An access key ID you choose for local AWS Signature Version 4 authentication.
+      * `secretAccessKey` `string` required
+        * A secret access key you choose for local AWS Signature Version 4 authentication. These local credentials do not grant access to deployed R2 buckets.
+      * Refer to [Serve buckets over the S3 API](https://developers.cloudflare.com/r2/local-development/#serve-buckets-over-the-s3-api) for configuration and client examples.
   * `preview_bucket_name` `string` optional
     * The preview name of this R2 bucket. If provided, `wrangler dev` will use this name for the R2 bucket. Otherwise, it will use `bucket_name`. This option is required when using `wrangler dev --remote` (but is not required with [remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings)).
 

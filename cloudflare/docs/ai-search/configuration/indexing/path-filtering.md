@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/path-filtering/
 title: Path filtering \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:39.653881+00:00
+fetched_at: 2026-11-13T09:17:09.659428+00:00
 ---
 
 # Path filtering · Cloudflare AI Search docs
@@ -22,13 +22,13 @@ fetched_at: 2026-10-08T07:04:39.653881+00:00
 
 # Path filtering
 
-Last updated Jul 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/indexing/path-filtering/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewConfigurationFiltering behavior Wildcard rules Pattern syntax Indexing job status Important notesExamples R2 data source Website data source API format
+OverviewConfigurationFiltering behavior Wildcard rules Pattern syntax Indexing job status Important notesExamples R2 data source Website data source D1 data source API format
 
 Path filtering allows you to control which files or URLs are indexed by defining include and exclude patterns. Use this to limit indexing to specific content or to skip files you do not want searchable.
 
-Path filtering works with both [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/) and [R2](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/) data sources.
+Path filtering works with [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/), [R2](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/), and [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/) data sources. For D1 data sources, rules match the item key of each row, such as `42.md`.
 
 ## Configuration
 
@@ -123,6 +123,15 @@ Index only blog pages | Include: `**/blog/**` | `example.com/blog/post`, `exampl
 Exclude admin pages | Exclude: `**/admin/**` | `example.com/blog/post` | `example.com/admin/settings`  
 Exclude login pages | Exclude: `**/login*` | `example.com/blog/post` | `example.com/login`, `example.com/auth/login-form`  
 Index docs but exclude drafts | Include: `**/docs/**`, Exclude: `**/docs/drafts/**` | `example.com/docs/guide` | `example.com/docs/drafts/wip`  
+  
+### D1 data source
+
+D1 item keys have no folders, so patterns do not start with `/`. Rows skipped by these rules are not listed in job logs, and already-indexed rows that become excluded are deleted on the next full sync.
+
+Use case | Pattern | Indexed | Skipped  
+---|---|---|---  
+Skip draft rows | Exclude: `drafts-*.md` | `guide-1.md` | `drafts-1.md`  
+Index only one group of rows | Include: `docs-*.md` | `docs-intro.md` | `blog-launch.md`  
   
 ### API format
 

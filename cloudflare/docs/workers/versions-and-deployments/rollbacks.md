@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/
 title: Rollbacks \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:03.440830+00:00
+fetched_at: 2026-11-13T09:17:11.839601+00:00
 ---
 
 # Rollbacks · Cloudflare Workers docs
@@ -18,11 +18,13 @@ fetched_at: 2026-10-08T07:18:03.440830+00:00
 
 # Rollbacks
 
-Last updated Jul 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewVia WranglerVia the Cloudflare DashboardRolling back from a split deploymentLimits Rollbacks limit Bindings
 
-You can roll back to a previously deployed [version](https://developers.cloudflare.com/workers/versions-and-deployments/#versions) of your Worker using [Wrangler](https://developers.cloudflare.com/workers/wrangler/commands/general/#rollback) or the Cloudflare dashboard. Rolling back to a previous version of your Worker will immediately create a new [deployment](https://developers.cloudflare.com/workers/versions-and-deployments/#deployments) with the version specified and become the active deployment across all your deployed routes and domains.
+You can roll back to a previously deployed [version](https://developers.cloudflare.com/workers/versions-and-deployments/#versions) of your Worker using [Wrangler](https://developers.cloudflare.com/workers/wrangler/commands/general/#rollback) or the Cloudflare dashboard. A rollback creates a new [deployment](https://developers.cloudflare.com/workers/versions-and-deployments/#deployments) set to 100% of traffic for the selected version. It applies to your Worker's routes and domains.
+
+The change takes time to reach every location on Cloudflare's network. Pages loaded before rollback can still request the newer version's assets. When planning rollbacks, check whether the older version includes those files. Refer to [Version skew and static assets](https://developers.cloudflare.com/workers/versions-and-deployments/version-skew/#older-pages-and-rollbacks) for ways to handle these requests.
 
 You can roll back from any deployment, including:
 
@@ -58,7 +60,7 @@ If you are using a [gradual deployment](https://developers.cloudflare.com/worker
 
 
 
-This effectively promotes one version to handle all traffic, which is useful if you notice issues with one of the versions in your split deployment and want to revert to a stable version immediately.
+This sends traffic to the selected version and removes the other version from the deployment. Overrides naming the removed version are [ignored](https://developers.cloudflare.com/workers/versions-and-deployments/version-overrides/#versions-in-the-deployment).
 
 To roll back from a split deployment:
 

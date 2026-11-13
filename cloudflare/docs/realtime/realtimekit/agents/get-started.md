@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/agents/get-started/
 title: Build an agent \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:34.879290+00:00
+fetched_at: 2026-11-13T09:17:14.555553+00:00
 ---
 
 # Build an agent · Cloudflare Realtime docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-27T07:31:34.879290+00:00
 
 # Build an agent
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewChoose an agent pattern Hidden agent Visible agentRequirements1\. Configure an agent preset2\. Create a meeting and a participant token for your agent3\. Connect to the Agent's WebSocket URL4\. Set connection parameters5\. Run the agent in a Durable ObjectBilling and ending the sessionConnection reference Requests Reconnect Errors LimitsSend events
+OverviewChoose an agent pattern Hidden agent Visible agentRequirements1\. Configure an agent preset2\. Create a meeting and a participant token for your agent3\. Connect to the Agent's WebSocket URL4\. Set connection parameters5\. Run the agent in a Durable ObjectBilling and ending the sessionConnection reference Requests Reconnect Errors LimitsSend to the meeting
 
 An agent is a meeting participant that your backend controls over a WebSocket. To add one, configure a preset, add the agent as a participant, and connect to the Websocket endpoint with the agent's participant token.
 
@@ -227,7 +227,7 @@ The token selects the meeting. HTTP `101` means the connection is ready. The age
 
 Parameter | Value  
 ---|---  
-`subscriptions` | Optional. Any of `transcript`, `participant`, `broadcast`, comma-separated.  
+`subscriptions` | Optional. Any of `transcript`, `participant`, `broadcast`, `chat`, `poll`, comma-separated.  
 `connection_id` | Optional. Resumes an earlier connection. Refer to Reconnect.  
   
 `subscriptions` decides which events the agent receives. Session events are always sent.
@@ -237,6 +237,8 @@ Category | Events | Needs
 `transcript` | `transcript.received` | [Real-time transcription](https://developers.cloudflare.com/realtime/realtimekit/ai/transcription/#turn-on-real-time-transcription) on the speakers' presets  
 `participant` | `participant.join`, `participant.leave` | Nothing  
 `broadcast` | `broadcast.received` | Your app [sends broadcasts](https://developers.cloudflare.com/realtime/realtimekit/collaboration/message-broadcast/)  
+`chat` | `chat.message.*` | Nothing  
+`poll` | `poll.created`, `poll.updated` | Nothing  
   
 Note
 
@@ -256,7 +258,7 @@ A Durable Object fits the agent: one instance per meeting, a long-lived outbound
          	"name": "meeting-agent",
          	"main": "src/index.ts",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-27",
+         	"compatibility_date": "2026-11-13",
          	"vars": {
          		"ACCOUNT_ID": "<ACCOUNT_ID>",
          		"APP_ID": "<APP_ID>",
@@ -276,7 +278,7 @@ A Durable Object fits the agent: one instance per meeting, a long-lived outbound
          name = "meeting-agent"
          main = "src/index.ts"
          # Set this to today's date
-         compatibility_date = "2026-10-27"
+         compatibility_date = "2026-11-13"
          
          [vars]
          ACCOUNT_ID = "<ACCOUNT_ID>"
@@ -660,11 +662,22 @@ Kick all participantsbash
 
 Send `{ "category": "request", "request_id", "name", "data": {} }`. Each request gets one `result` with the same `request_id`, and either `data` or `error`.
 
-Name | Returns  
----|---  
-`connection.get` | `{ connection: { id, subscriptions } }`  
-`connection.ping` | `{}`  
-      
+Name | `data` | Returns  
+---|---|---  
+`connection.get` | `{}` | `{ connection: { id, subscriptions } }`  
+`connection.ping` | `{}` | `{}`  
+`chat.send` | `{ content, to? }` | `{ message }`  
+`chat.edit` | `{ message_id, content }` | `{ message }`  
+`chat.delete` | `{ message_id }` | `{ message_id }`  
+`chat.pin` | `{ message_id, pinned }` | `{ message }`  
+`chat.list` | `{ scope, before?, after?, limit? }` | `{ messages, has_more }`  
+`poll.create` | `{ question, options, anonymous?, hide_votes? }` | `{ poll }`  
+`poll.vote` | `{ poll_id, option_index }` | `{ poll }`  
+`poll.list` | `{}` | `{ polls }`  
+`broadcast.send` | `{ type, payload, to? }` | `{ created_at }`  
+  
+`message` and `poll` have the same shape as in [chat events](https://developers.cloudflare.com/realtime/realtimekit/agents/events/#chat-events) and [poll events](https://developers.cloudflare.com/realtime/realtimekit/agents/events/#poll-events). For how to use the chat, poll, and broadcast requests, refer to Send to the meeting.
+    
     
     {
     	"category": "result",
@@ -679,8 +692,18 @@ Name | Returns
     	"error": null
     }
 
-Failed results have `data: null` and `error.code` set to `INVALID_REQUEST`, `UNSUPPORTED_REQUEST`, or `INTERNAL_ERROR`. The connection stays open.
+Failed results have `data: null` and an `error.code`. The connection stays open.
 
+Code | Cause  
+---|---  
+`INVALID_REQUEST` | Invalid or unknown fields in `data`, or an option the poll does not have  
+`UNSUPPORTED_REQUEST` | Unknown request `name`  
+`NOT_FOUND` | Unknown `message_id` or `poll_id`  
+`NOT_READY` | The agent is not in the meeting yet. Retry after `session.started`.  
+`UPSTREAM_TIMEOUT` | The meeting did not answer in time. The request may still have been applied.  
+`REQUEST_REJECTED` | The meeting rejected the request  
+`INTERNAL_ERROR` | Any other failure  
+  
 ### Reconnect
 
 **Agent Durable Object**
@@ -765,9 +788,43 @@ Unsent events per connection | 10,000
 Resume grace period | 5 seconds  
 `request_id` length | 1–128 characters  
   
-## Send events
+## Send to the meeting
 
-Sending chat messages and broadcasts from the agent is planned. Today, the agent is receive-only. To act on the meeting now, call the [RealtimeKit REST API](https://developers.cloudflare.com/api/resources/realtime_kit/) from your Worker, for example to [kick participants](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/active-session/methods/kick_participants/).
+The agent can chat, run polls, and send broadcasts as itself. People see the agent's display name, as for any participant. Send these requests after `session.started`. Earlier, they fail with `NOT_READY`.
+    
+    
+    {
+    	"category": "request",
+    	"request_id": "r1",
+    	"name": "chat.send",
+    	"data": { "content": { "type": "text", "text": "Notes are ready." } }
+    }
+
+The `result` carries the created `message`. Other agents in the meeting receive `chat.message.created`.
+
+  * **Content.** Send `{ "type": "text", "text" }`, or `{ "type": "custom", "data" }` with a JSON object. The RealtimeKit UI renders `custom` only from the keys `message`, `html`, `images`, `videos`, and `files`.
+  * **Recipients.** `to` defaults to `{ "type": "room" }`. To send privately, use `{ "type": "peers", "peer_ids": [...] }` with `peer_id` values from `participant.join`. Peers that have left are skipped.
+  * **Edit, pin, and delete.** These work on any message, including other participants' messages. Check ownership in your agent. `chat.delete` of an unknown ID succeeds.
+  * **History.** `chat.list` returns public messages oldest first. Set `scope` to `public` or `pinned`. Without `before` or `after`, it returns the newest page. To page back, pass the first message's `created_at` as `before`. You cannot set both.
+  * **Polls.** `option_index` is zero-based. A second vote succeeds without a change. With `hide_votes`, results show only after voting, and to the creator. `poll.list` returns polls from the current session.
+  * **Broadcasts.** `broadcast.send` reaches participants' apps like the SDK's `broadcastMessage`. Avoid types the SDK uses, such as `spotlight`.
+  * **No permission checks.** The agent's preset does not limit these requests. SDK clients send at most five broadcasts per second. Keep your agent to the same rate.
+  * **Not idempotent.** A retry after `UPSTREAM_TIMEOUT` can send twice.
+
+
+
+Field | Limit  
+---|---  
+`content.text` | 1–2,000 characters, not only whitespace  
+`content.data` | JSON object, up to 16 KB  
+`to.peer_ids` | 1–100 unique IDs  
+`chat.list` `limit` | 1–100, default 50  
+`poll.create` `question` | 1–500 characters  
+`poll.create` `options` | 2–20 options, each 1–200 characters  
+`broadcast.send` `type` | 1–128 characters  
+`broadcast.send` `payload` | JSON object, up to 64 KB  
+  
+To act on the meeting in other ways, call the [RealtimeKit REST API](https://developers.cloudflare.com/api/resources/realtime_kit/) from your Worker, for example to [kick participants](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/active-session/methods/kick_participants/).
 
 [PreviousOverview](https://developers.cloudflare.com/realtime/realtimekit/agents/)[NextEvents](https://developers.cloudflare.com/realtime/realtimekit/agents/events/)
 
