@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/overview/mcp/tools/
 title: MCP Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.250333+00:00
+fetched_at: 2026-11-14T14:23:14.708612+00:00
 ---
 
 # MCP Tools - Fish Audio
@@ -38,20 +38,26 @@ These are the tools the [Fish Audio MCP server](https://docs.fish.audio/overview
 
 ## Voices
 
+`design_voice` makes a voice from a text description and returns samples to listen to, and `save_designed_voice` keeps the one you pick. Designing is free during the current promotion on paid plans, up to 100 times a day.
+
 Tool| What it does| Read-only| Charges credits  
 ---|---|---|---  
 `search_voices`| Search public voices (TTS models) on Fish Audio, or list your own with self=true (includes private and team-shared voices).| Yes|   
 `get_voice`| Get details of one Fish Audio voice by its id: description, languages, tags, popularity stats, a sample audio URL and a default demo text.| Yes|   
 `create_voice_clone`| Clone a voice from sample audio and get a voice usable with `text_to_speech`.| |   
 `verify_voice_clone`| Complete speaker verification for a voice clone that returned verification_required: the actual speaker records themselves reading the exact prompt sentence, the recording is uploaded (use `get_upload_url`), and its URL is passed here.| |   
+`design_voice`| Design a new voice from a text description and get 2 samples to listen to.| |   
+`save_designed_voice`| Save a sample from `design_voice` as a voice usable with `text_to_speech`.| |   
   
 ## Speech and transcription
 
-Long text may come back as several clips. How much text one call can take depends on your plan, and `get_credit_balance` shows the limit.
+Long text may come back as several clips. How much text one call can take depends on your plan, and `get_credit_balance` shows the limit. A long text can take minutes: after about 45 seconds `text_to_speech` returns a task id, and `get_speech` returns the audio when it is ready. If a call’s response is lost, `list_speech_history` finds it, so the agent does not pay for it twice.
 
 Tool| What it does| Read-only| Charges credits  
 ---|---|---|---  
 `text_to_speech`| Generate speech audio from text with one Fish Audio voice, or a multi-speaker dialogue with several, and return a permanent audio URL.| | Yes  
+`get_speech`| Check a `text_to_speech` generation by its task_id.| Yes|   
+`list_speech_history`| List your recent speech generations in this workspace, newest first, with each one’s status, the start of its text and, once done, its audio_url.| Yes|   
 `speech_to_text`| Transcribe speech audio to text.| | Yes  
   
 ## Sound effects
@@ -89,6 +95,7 @@ Tool| What it does| Read-only| Charges credits
 `generate_video`| Submit a video generation with the same parameters used for estimation.| | Yes  
 `get_generation_status`| Poll media status and billing; this may reconcile provider state and credits.| Yes|   
 `get_generation_result`| Get terminal media results and billing; this may reconcile provider state.| Yes|   
+`list_media_generations`| List this account’s latest image and video generations in a workspace, newest first.| Yes|   
   
 ## Story Studio
 
