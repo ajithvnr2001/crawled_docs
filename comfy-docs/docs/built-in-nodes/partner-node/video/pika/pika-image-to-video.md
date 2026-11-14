@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/partner-node/video/pika/pika-image-to-video/
 title: Pika 2.2 Image to Video - ComfyUI Native Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:32.113347+00:00
+fetched_at: 2026-11-14T14:00:37.664083+00:00
 ---
 
 # Pika 2.2 Image to Video - ComfyUI Native Node Documentation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:32.113347+00:00
 > Source: https://docs.comfy.org/built-in-nodes/partner-node/video/pika/pika-image-to-video/
 
 ## On this page
+
+Back to top
 
   * Parameters
     * Required Parameters
@@ -31,17 +33,9 @@ Copy pageCopy page
 
 ![ComfyUI Native Pika 2.2 Image to Video Node](https://mintcdn.com/dripart/5003JSxULDwNImme/images/built-in-nodes/api_nodes/pika/pika-2-2-image-to-video.jpg?fit=max&auto=format&n=5003JSxULDwNImme&q=85&s=4d84ed0f286826f853aeb820bf01c473) The Pika 2.2 Image to Video node connects to Pika’s latest 2.2 API to transform static images into dynamic videos. It preserves the visual features of the original image while adding natural motion based on text prompts.
 
-## 
+## Parameters
 
-​
-
-Parameters
-
-### 
-
-​
-
-Required Parameters
+### Required Parameters
 
 Parameter| Type| Default| Description  
 ---|---|---|---  
@@ -52,29 +46,17 @@ seed| Integer| 0| Random seed for generation
 resolution| Select| ”1080p”| Output video resolution  
 duration| Select| ”5s”| Length of generated video  
   
-### 
-
-​
-
-Output
+### Output
 
 Output| Type| Description  
 ---|---|---  
 VIDEO| Video| Generated video  
   
-## 
-
-​
-
-How It Works
+## How It Works
 
 The node sends the input image and parameters (prompts, resolution, duration, etc.) to Pika’s API server as multipart form data. The API processes this and returns the generated video. Users can control the output by adjusting the prompts, negative prompts, random seed and other parameters.
 
-## 
-
-​
-
-Source Code
+## Source Code
 
 [Node Source Code (Updated 2025-05-05)]
     
@@ -150,26 +132,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/partner-node/video/pika/pika-image-to-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/partner-node/video/pika/pika-image-to-video)
 
-[MiniMax Text to Video - ComfyUI Native Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/partner-node/video/minimax/minimax-text-to-video)[Pika 2.2 Scenes - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/partner-node/video/pika/pika-scenes)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[MiniMax Text to Video](https://docs.comfy.org/built-in-nodes/partner-node/video/minimax/minimax-text-to-video)[Pika 2.2 Scenes](https://docs.comfy.org/built-in-nodes/partner-node/video/pika/pika-scenes)

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ViduMultiFrameVideoNode/
-title: ViduMultiFrameVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Vidu Multi-Frame Video Generation - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:20.859167+00:00
+fetched_at: 2026-11-14T14:00:43.593695+00:00
 ---
 
-# ViduMultiFrameVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Vidu Multi-Frame Video Generation - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ViduMultiFrameVideoNode/
 
 Vidu
 
-# ViduMultiFrameVideoNode - ComfyUI Built-in Node Documentation
+# Vidu Multi-Frame Video Generation - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -21,17 +21,9 @@ Copy pageCopy page
 
 This node generates a video by creating transitions between multiple keyframes. It starts from an initial image and animates through a sequence of user-defined end images and prompts, producing a single video file as output.
 
-## 
+## Inputs
 
-​
-
-Inputs
-
-### 
-
-​
-
-Common Inputs
+### Common Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -50,11 +42,7 @@ Parameter| Description| Data Type| Required| Range
 "8"  
 "9”  
   
-### 
-
-​
-
-Frame Inputs (shared by all frame count options)
+### Frame Inputs (shared by all frame count options)
 
 When `frames` is set to a number, the following three inputs are shown for each frame `i` from 1 to that number. For example, choosing “3” adds `prompt1` / `end_image1` / `duration1`, `prompt2` / `end_image2` / `duration2`, and `prompt3` / `end_image3` / `duration3`.
 
@@ -74,11 +62,7 @@ Parameter| Description| Data Type| Required| Range
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -96,26 +80,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ViduMultiFrameVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ViduMultiFrameVideoNode)
 
-[ViduImageToVideoNode - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ViduImageToVideoNode)[ViduReferenceVideoNode - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/ViduReferenceVideoNode)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Vidu Image To Video Generation](https://docs.comfy.org/built-in-nodes/ViduImageToVideoNode)[Vidu Reference To Video Generation](https://docs.comfy.org/built-in-nodes/ViduReferenceVideoNode)

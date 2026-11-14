@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/WeldVertices/",
   "file": "built-in-nodes/WeldVertices.md",
-  "title": "WeldVertices - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Weld Vertices - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:26.865216+00:00",
-  "html_len": 628119,
-  "md_len": 4188,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:40.609962+00:00"
 }

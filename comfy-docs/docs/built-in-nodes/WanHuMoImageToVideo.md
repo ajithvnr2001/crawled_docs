@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanHuMoImageToVideo/
 title: WanHuMoImageToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:55.193166+00:00
+fetched_at: 2026-11-14T14:00:41.428669+00:00
 ---
 
 # WanHuMoImageToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanHuMoImageToVideo node prepares conditioning data and an empty latent video for the Wan HuMo video generation pipeline. It can attach a reference image and audio embeddings to the positive and negative conditioning inputs, and it creates a zero-filled latent sized from the requested width, height, length, and batch size.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -41,11 +37,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When a reference image is provided, the first image in the batch is upscaled to the requested `width` and `height` using bilinear interpolation and encoded with the VAE. That reference latent is attached to the positive conditioning, while a zero-filled latent of the same shape is attached to the negative conditioning. When `audio_encoder_output` is provided, the audio embeddings are interpolated and attached to the positive conditioning, while a zero-filled audio embedding is attached to the negative conditioning. If either optional input is omitted, zero-filled placeholder tensors are used: a zero reference latent of shape `[batch_size, 16, 1, height // 8, width // 8]` and/or zero audio embeddings of shape `[batch_size, latent_t + 1, 8, 5, 1280]`, where `latent_t = ((length - 1) // 4) + 1`.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

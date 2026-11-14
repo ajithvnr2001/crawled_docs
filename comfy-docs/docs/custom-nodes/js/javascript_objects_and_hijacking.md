@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking/
 title: Comfy Objects - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:39.395344+00:00
+fetched_at: 2026-11-14T14:00:36.357616+00:00
 ---
 
 # Comfy Objects - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:39.395344+00:00
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking/
 
 ## On this page
+
+Back to top
 
   * LiteGraph
   * ComfyApp
@@ -43,19 +45,11 @@ Reference guide to ComfyUI’s core frontend objects - LiteGraph, ComfyApp, LGra
 
 Copy pageCopy page
 
-## 
-
-​
-
-LiteGraph
+## LiteGraph
 
 The Comfy UI is built on top of [LiteGraph](https://github.com/jagenjo/litegraph.js). Much of the Comfy functionality is provided by LiteGraph, so if developing more complex nodes you will probably find it helpful to clone that repository and browse the documentation, which can be found at `doc/index.html`.
 
-## 
-
-​
-
-ComfyApp
+## ComfyApp
 
 The `app` object (always accessible by `import { app } from "../../scripts/app.js";`) represents the Comfy application running in the browser, and contains a number of useful properties and functions, some of which are listed below.
 
@@ -63,11 +57,7 @@ The `app` object (always accessible by `import { app } from "../../scripts/app.j
 
 Hijacking functions on `app` is not recommended, as Comfy is under constant development, and core behavior may change.
 
-### 
-
-​
-
-Properties
+### Properties
 
 Important properties of `app` include (this is not an exhaustive list):
 
@@ -81,11 +71,7 @@ property| contents
   
 `canvas` (for graphical elements) and `graph` (for logical connections) are probably the ones you are most likely to want to access.
 
-### 
-
-​
-
-Functions
+### Functions
 
 Again, there are many. A few significant ones are:
 
@@ -96,11 +82,7 @@ loadGraphData| Load a graph
 queuePrompt| Submit a prompt to the queue  
 registerExtension| You’ve seen this one - used to add an extension  
   
-## 
-
-​
-
-LGraph
+## LGraph
 
 The `LGraph` object is part of the LiteGraph framework, and represents the current logical state of the graph (nodes and links). If you want to manipulate the graph, the LiteGraph documentation (at `doc/index.html` if you clone `https://github.com/jagenjo/litegraph.js`) describes the functions you will need. You can use `graph` to obtain details of nodes and links, for example:
     
@@ -116,21 +98,13 @@ The `LGraph` object is part of the LiteGraph framework, and represents the curre
     });
     
 
-## 
-
-​
-
-LLink
+## LLink
 
 The `LLink` object, accessible through `graph.links`, represents a single link in the graph, from node `link.origin_id` output slot `link.origin_slot` to node `link.target_id` slot `link.target_slot`. It also has a string representing the data type, in `link.type`, and `link.id`. `LLink`s are created in the `connect` method of a `LGraphNode` (of which `ComfyNode` is a subclass).
 
 Avoid creating your own LLink objects - use the LiteGraph functions instead.
 
-## 
-
-​
-
-ComfyNode
+## ComfyNode
 
 `ComfyNode` is a subclass of `LGraphNode`, and the LiteGraph documentation is therefore helpful for more generic operations. However, Comfy has significantly extended the LiteGraph core behavior, and also does not make use of all LiteGraph functionality.
 
@@ -148,11 +122,7 @@ To get a more complete sense of the node object, you may find it helpful to inse
     }
     
 
-### 
-
-​
-
-Properties
+### Properties
 
 property| contents  
 ---|---  
@@ -174,19 +144,11 @@ property| contents
 `widgets`| A list of widgets (discussed below)  
 `widgets_values`| A list of the current values of widgets  
   
-### 
-
-​
-
-Functions
+### Functions
 
 There are a very large number of functions (85, last time I counted). A selection are listed below. Most of these functions are unmodified from the LiteGraph core code.
 
-#### 
-
-​
-
-Inputs, Outputs, Widgets
+#### Inputs, Outputs, Widgets
 
 function| notes  
 ---|---  
@@ -204,11 +166,7 @@ Widgets|
 `addDOMWidget`| Add a widget defined by a DOM element  
 `convertWidgetToInput`| Convert a widget to an input if allowed by `isConvertableWidget` (in `widgetInputs.js`)  
   
-#### 
-
-​
-
-Connections
+#### Connections
 
 function| notes  
 ---|---  
@@ -220,11 +178,7 @@ function| notes
 `onConnectionChange`| Called on each node. `side==1` if it’s an input on this node  
 `onConnectInput`| Called _before_ a connection is made. If this returns `false`, the connection is refused  
   
-#### 
-
-​
-
-Display
+#### Display
 
 function| notes  
 ---|---  
@@ -236,21 +190,13 @@ function| notes
   
 `collapse` is badly named; it _toggles_ the collapsed state. It takes a boolean parameter, which can be used to override `node.collapsable === false`.
 
-#### 
-
-​
-
-Other
+#### Other
 
 function| notes  
 ---|---  
 `changeMode`| Use to set the node to bypassed (`mode == 4`) or not (`mode == 0`)  
   
-## 
-
-​
-
-Inputs and Widgets
+## Inputs and Widgets
 
 Inputs and Widgets represent the two ways that data can be fed into a node. In general a widget can be converted to an input, but not all inputs can be converted to a widget (as many datatypes can’t be entered through a UI element). `node.inputs` is a list of the current inputs (colored dots on the left hand side of the node), specifying their `.name`, `.type`, and `.link` (a reference to the connected `LLink` in `app.graph.links`). If an input is a widget which has been converted, it also holds a reference to the, now inactive, widget in `.widget`. `node.widgets` is a list of all widgets, whether or not they have been converted to an input. A widget has:
 
@@ -263,35 +209,19 @@ property/function| notes
 `type`| The name of the widget type (see below) in lowercase  
 `value`| The current widget value. This is a property with `get` and `set` methods  
   
-### 
-
-​
-
-Widget Types
+### Widget Types
 
 `app.widgets` is a dictionary of currently registered widget types, keyed in the UPPER CASE version of the name of the type. Build in Comfy widgets types include the self explanatory `BOOLEAN`, `INT`, and `FLOAT`, as well as `STRING` (which comes in two flavours, single line and multiline), `COMBO` for dropdown selection from a list, and `IMAGEUPLOAD`, used in Load Image nodes. Custom widget types can be added by providing a `getCustomWidgets` method in your extension.
 
-### 
-
-​
-
-Linked widgets
+### Linked widgets
 
 Widgets can also be linked - the built in behavior of `seed` and `control_after_generate`, for example. A linked widget has `.type = 'base_widget_type:base_widget_name'`; so `control_after_generate` may have type `int:seed`.
 
-## 
-
-​
-
-Prompt
+## Prompt
 
 When you press the `Queue Prompt` button in Comfy, the `app.graphToPrompt()` method is called to convert the current graph into a prompt that can be sent to the server. `app.graphToPrompt` returns an object (referred to herein as `prompt`) with two properties, `output` and `workflow`.
 
-### 
-
-​
-
-output
+### output
 
 `prompt.output` maps from the `node_id` of each node in the graph to an object with two properties.
 
@@ -306,11 +236,7 @@ output
 
 Note that the `upstream_node_id` in the array describing a connected input is represented as a string, not an integer.
 
-### 
-
-​
-
-workflow
+### workflow
 
 `prompt.workflow` contains the following properties:
 
@@ -342,26 +268,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_objects_and_hijacking.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_objects_and_hijacking)
 
-[ComfyUI JavaScript HooksPrevious](https://docs.comfy.org/custom-nodes/js/javascript_hooks)[Settings APINext](https://docs.comfy.org/custom-nodes/js/javascript_settings)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Hooks](https://docs.comfy.org/custom-nodes/js/javascript_hooks)[Settings API](https://docs.comfy.org/custom-nodes/js/javascript_settings)

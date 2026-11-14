@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/WebcamCapture/",
   "file": "built-in-nodes/WebcamCapture.md",
-  "title": "WebcamCapture - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Webcam Capture - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:26.515374+00:00",
-  "html_len": 637529,
-  "md_len": 3932,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:40.751229+00:00"
 }

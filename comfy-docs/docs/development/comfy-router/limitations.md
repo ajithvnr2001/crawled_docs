@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:11.962828+00:00
+fetched_at: 2026-11-14T14:00:35.465608+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -41,11 +41,7 @@ Copy pageCopy page
 
 Router runs a partner model through one synchronous HTTP call or through a queued request that you submit and collect later. Use it when your application can wait for a finished result or collect one later, and can handle the model’s own input and output fields.
 
-## 
-
-​
-
-What Router supports
+## What Router supports
 
 Requirement| Router support| Alternative or next step  
 ---|---|---  
@@ -57,43 +53,23 @@ Reconcile Comfy charges| No universal Comfy cost or credit-balance field on the 
 Store results permanently| Asset URLs can expire, including rehosted and replayed URLs.| Download the assets; see [result assets](https://docs.comfy.org/development/comfy-router/reference#result-assets).  
 Send large media inline| The request body is capped, and base64-encoded media counts against that cap.| Keep bodies under the cap; see request body size.  
   
-## 
-
-​
-
-Queued submission
+## Queued submission
 
 The synchronous route holds the connection while the model runs; for asynchronous providers, Router submits the job and polls internally. Queued delivery (submit, get a `request_id`, poll, collect) is the alternative: see [Queued delivery](https://docs.comfy.org/development/comfy-router/queue). It is scoped to the workspace behind the credential, so it needs a key created in your Comfy workspace. A legacy key with no workspace, a bring-your-own-key request, or a model the queue cannot run answers `403` with `not_enabled` on the submit route. Neither mode offers a callback or webhook. If your request cannot stay open long enough, queue it. Use a partner proxy when you need the provider’s own submit-and-poll controls. Four models are synchronous-only for now and are refused with `403` / `not_enabled` if you submit them to the queue: `elevenlabs/eleven_sfx_v2`, `elevenlabs/eleven_v3`, `elevenlabs/eleven_v4` and `elevenlabs/eleven_v4_turbo`. They answer raw audio bytes rather than a JSON result document, which queued delivery has nowhere to store. Run them on the synchronous route, which returns those bytes normally. Four models are queued-only and are refused with `403` / `not_enabled` on the synchronous route: `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe` and `ltx/ltx-video-upscale`. Their jobs can outlast the time a synchronous call is held. Submit the same body to `POST /v2/models/ltx/{model}/requests` and collect the result from the queue. The LTX v1 text-to-video and image-to-video operations answer raw video bytes for the same reason, and queued delivery cannot store them either — but they are reachable only through the partner proxy at `/proxy/ltx/v1/…`, not through a Router model id: every `ltx/*` catalog model resolves to the queueable v2 submit-and-poll operation.
 
-## 
-
-​
-
-Calls are cut off at a server deadline
+## Calls are cut off at a server deadline
 
 Router’s default deadline is **10 minutes** , configurable by the deployment. It counts from when the request arrives, so the bound includes the request upload: a body that has not fully arrived by then is answered `504` / `deadline_exceeded` before any partner call, and a call with too little of the deadline left to finish is refused the same way. Set your client timeout above it so Router can return its error and request ID first. `504` / `deadline_exceeded` means Router stopped waiting; `504` / `provider_timeout` means the provider timed out. A timeout or lost connection does not prove that a generation was unbilled, and it does not cancel accepted provider work. Read [timeouts and collection](https://docs.comfy.org/development/comfy-router/errors#timeouts-and-collection) before retrying.
 
-## 
-
-​
-
-Recovery depends on the provider
+## Recovery depends on the provider
 
 Router retains the provider handle for a submit-and-poll generation as soon as the provider accepts the submit. If the connection is lost after that point, a resend with the same `Idempotency-Key` and the same body collects the original generation instead of starting a second one, and is not charged again. This holds when Router ends the call (its deadline, or your client hanging up) and also, in almost every case, when the Router server handling the call restarts mid-call. The exception is a restart in the brief moment between the provider accepting the submit and Router recording it: the key is then held for up to 15 minutes, after which a resend starts and is charged for a new generation. After a restart, a resend can get `409` / `concurrency_limit_exceeded` with `Retry-After` for up to about a minute while Router confirms the original handler is gone; keep resending the same key and it collects the result. Completed replayable responses can also come from the key record. Not every disconnected call is recoverable. Preserve the request and key before sending, then use the [retry outcome table](https://docs.comfy.org/development/comfy-router/errors#retry-outcomes). A new key creates a new call and may incur another charge.
 
-## 
-
-​
-
-Request bodies are capped
+## Request bodies are capped
 
 Router refuses a request whose body is larger than **100 MiB (104,857,600 bytes)**. The bound is on the raw bytes you send, measured before Router parses anything, so it applies to every route and to both synchronous and queued delivery. Inline media is where callers meet it. Base64 encoding inflates binary data by about 4/3, so a body carrying encoded media clears the cap at roughly **75 MB of actual image, audio, or video bytes**. Size the encoded string, not the file on disk, and count every input in one call: a request carrying two reference images spends the allowance on both, and the prompt, parameters, and JSON structure count too. **What the refusal looks like.** `413`, with `invalid_input` on `X-Comfy-Error-Type` and `X-Comfy-Request-Id` set as on any other response. The body is a [`RouterErrorResponse`](https://docs.comfy.org/development/comfy-router/reference#routererrorresponse) whose `detail` describes the bound that was exceeded. Branch on `error_type` rather than parsing `detail`, and treat what the API returns as authoritative if it and this page ever disagree about the figure. Router raises the refusal before dispatching anything, so no generation ran and nothing was charged. The cap applies to every request, whether or not it carries an `Idempotency-Key`. It is not an idempotency limit, and re-sending the same key does not change the outcome: a body that is too large is too large on every attempt. **A provider can impose a lower limit of its own, and at this cap it usually does.** Providers publish their own bounds on inline media, and the binding constraint is whichever is smaller. Google’s models, for example, accept up to 20 MB (decimal, 20,000,000 bytes) of inline payload, and the `Size limit: 20MB` line on the Google model pages is that per-field Google bound quoted from Google’s own specification, not Router’s bound on the whole request body. Router’s cap sits above every partner bound it fronts deliberately, so for a single inline asset the provider’s own limit is normally what you meet first; Router’s cap binds across several assets in one body. A body that clears Router’s cap but exceeds a provider’s own limit is refused by the provider rather than by Router, and it comes back as a provider error rather than a `413`.
 
-## 
-
-​
-
-Requests are rate limited per caller
+## Requests are rate limited per caller
 
 Response| Cause| Action  
 ---|---|---  
@@ -102,27 +78,15 @@ Response| Cause| Action
   
 The request-rate limit applies to every Router operation: invocation, catalog and schema reads, cost estimates, and the queued submit, status, result, and cancel calls, including requests refused before generation. It follows the authenticated caller, not the source IP. Calls with the caller’s provider key are exempt; provider limits still apply. Polling a queued request spends the same allowance as any other call, so poll at the interval the status read suggests rather than in a tight loop. A `rate_limited` refusal changes nothing about a queued request: it keeps running, and a refused cancel cancelled nothing, so send it again after `Retry-After`. Cache catalog and schema reads. Revalidate them with `ETag` and `If-None-Match`. See [Headers](https://docs.comfy.org/development/comfy-router/headers) for retry and committed-spend fields.
 
-## 
-
-​
-
-No progress while a call runs
+## No progress while a call runs
 
 Router returns a final response, with no streamed tokens, server-sent events, percentage updates, or intermediate preview frames. A provider’s internal polling state is not forwarded during the request. Show an indeterminate progress indicator. If you need progress or streaming, use a partner-proxy operation that exposes it.
 
-## 
-
-​
-
-Comfy charges and usage
+## Comfy charges and usage
 
 The response can contain provider usage or cost fields. They do not represent a universal Comfy charge. `X-Comfy-Credits-Used` is optional: a missing header means the cost was not reported, not that the run was free. A replayed response (`Idempotent-Replayed: true`) is never charged again but may restate the original run’s figure, so do not add the header up across retries of one `Idempotency-Key`. Use the Comfy platform for balances, usage, and invoices. The catalog provides billing facts, including `billing.charges_on_policy_rejection`, but no prices. Handle `yes`, `no`, and `unknown` explicitly. When it is `yes`, a synchronous `content_policy_violation` error can carry `X-Comfy-Credits-Used`: it does when the provider refused the model’s generated output and Comfy recorded usage for that refused generation, and carries that amount. An input-side refusal, a same-key replay, and a charge too small to show in the header’s two decimals do not carry it; a refusal without the header is not reported, not free. See [billing](https://docs.comfy.org/development/comfy-router/billing#model-billing-facts). To see a price before a run, call `POST /v2/models/{provider}/{model}/estimate`, or read the `estimate` object on a queued submit’s `201`. If estimates are switched off for a deployment, the route answers `403` with `error_type: not_enabled` and the submit omits `estimate`. Each is priced at Comfy’s standard list price (a model billed the cost its vendor reports is instead priced from the vendor’s published price list — `exact` for a small opted-in set of models when that list fully determines the figure, `estimated` otherwise, including some quotes the list would fully determine) and does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate. The figure is an estimate, not the final charge, and the settled charge in your workspace’s usage and billing records is final. Nor is it a price lock. A run on your own provider key is not billed by Comfy even when `/estimate` returns a figure for it, and an `unknown` estimate carries no figure; that does not mean free. `X-Comfy-Credits-Used` remains a rounded post-hoc figure for a run, not a receipt. See [Pre-flight cost estimates](https://docs.comfy.org/development/comfy-router/reference#pre-flight-cost-estimates) for how to read `exact`, `estimated`, and `unknown`. The models that cannot be priced before a run are listed in models without a pre-flight estimate.
 
-## 
-
-​
-
-Models without a pre-flight estimate
+## Models without a pre-flight estimate
 
 Router cannot yet reliably price a call to the models below before it runs, so expect `/estimate` and a queued submit’s `estimate` to answer `source: unknown` for them, though some may return a figure for a particular body. `unknown` means no figure was given, not that the run is free. The Comfy charges and usage rules still apply: a run on your own provider key is not billed by Comfy, and `X-Comfy-Credits-Used` is optional, so a missing header means the cost was not reported. A model not listed here can still answer `unknown` for a particular body, so read `source` on every estimate. This list shrinks as estimate coverage grows. It is generated from Router’s own pricing code, and models that are not publicly available are never listed.
 
@@ -134,7 +98,8 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **kelly** : `kelly/kelly-seedance-2.0`, `kelly/kelly-seedance-2.0-fast`, `kelly/kelly-seedance-2.5`
   * **kling** : `kling/kling-4.0`, `kling/kling-image-o1`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`
   * **ltx** : `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe`, `ltx/ltx-video-upscale`
-  * **minimax** : `minimax/minimax-gpt-image-2`, `minimax/minimax-h3-image`, `minimax/minimax-h3-image-highspeed`
+  * **luma** : `luma/photon-1`, `luma/photon-flash-1`
+  * **minimax** : `minimax/minimax-gpt-image-2`, `minimax/minimax-gpt-image-2.5-flare`, `minimax/minimax-gpt-image-2.5-sunburst`, `minimax/minimax-gpt-image-2.6-flare`, `minimax/minimax-gpt-image-2.6-sunburst`, `minimax/minimax-h3-image`, `minimax/minimax-h3-image-highspeed`
   * **moonvalley** : `moonvalley/image-to-video`, `moonvalley/text-to-video`, `moonvalley/video-to-video`
   * **openai** : `openai/gpt-image-1.5`
   * **openrouter** : `openrouter/chat-completions`
@@ -148,19 +113,11 @@ Router cannot yet reliably price a call to the models below before it runs, so e
 
 Edits on `openai/gpt-image-2`, `openai/gpt-image-2.5-flare`, `openai/gpt-image-2.5-sunburst`, `openai/gpt-image-2.6-flare`, and `openai/gpt-image-2.6-sunburst` also have no pre-flight estimate. An edit call to one of these models, or a generation call that carries an input image, answers `source: unknown`. A text-only generation call to them is estimated, which is why they are not in the list above.
 
-## 
-
-​
-
-Router does not cover every partner operation
+## Router does not cover every partner operation
 
 Router runs models. File uploads, account reads, asset management, streaming, and provider job controls can require partner-proxy routes under `/proxy/…`, which sit outside Router and are not described by its contract. Router’s own surface is the [Comfy Router specification](https://docs.comfy.org/router-openapi.yaml); support varies by provider.
 
-### 
-
-​
-
-Krea 3 reference images: upload first, or use a public https URL
+### Krea 3 reference images: upload first, or use a public https URL
 
 In `krea/krea-3`’s `image_urls`, an `image_url` returned by `POST /proxy/krea/assets` (an `https://app-uploads.krea.ai/...` URL) is always accepted. Whether other links are accepted depends on the environment; on api.comfy.org they currently are. More than 8 entries is rejected with `422` before any fetch, by the request’s schema check.
 
@@ -189,19 +146,11 @@ Router reads only the first 2 MiB of each reference to find its size, so an imag
 
 Text-to-image calls omit `image_urls` and need no upload.
 
-## 
-
-​
-
-Model outputs and stored assets
+## Model outputs and stored assets
 
 Input and output fields vary by model. Moving from a provider SDK or proxy can change both the route and how you read the result. Some assets are rehosted on Comfy storage; others are provider URLs or inline bytes. See [Result assets](https://docs.comfy.org/development/comfy-router/reference#result-assets) for lifetimes and replay behavior.
 
-## 
-
-​
-
-Next
+## Next
 
 ## Quickstart
 

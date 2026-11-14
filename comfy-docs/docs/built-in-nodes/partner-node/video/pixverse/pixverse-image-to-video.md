@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-image-to-video/
 title: PixVerse Image to Video - ComfyUI Native Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:32.581708+00:00
+fetched_at: 2026-11-14T14:00:37.177114+00:00
 ---
 
 # PixVerse Image to Video - ComfyUI Native Node Documentation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:32.581708+00:00
 > Source: https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-image-to-video/
 
 ## On this page
+
+Back to top
 
   * Parameters
     * Required Parameters
@@ -31,17 +33,9 @@ Copy pageCopy page
 
 ![ComfyUI Native PixVerse Image to Video Node](https://mintcdn.com/dripart/5003JSxULDwNImme/images/built-in-nodes/api_nodes/pixverse/pixverse-image-to-video.jpg?fit=max&auto=format&n=5003JSxULDwNImme&q=85&s=5dad32a76df9845caf721b255b39df09) The PixVerse Image to Video node uses PixVerse’s API to transform static images into dynamic videos. It preserves the visual features of the original image while adding natural motion based on text prompts.
 
-## 
+## Parameters
 
-​
-
-Parameters
-
-### 
-
-​
-
-Required Parameters
+### Required Parameters
 
 Parameter| Type| Default| Description  
 ---|---|---|---  
@@ -54,31 +48,19 @@ aspect_ratio| Select| ”r16_9”| Output video aspect ratio
 duration| Select| ”seconds_4”| Length of generated video  
 motion_mode| Select| ”standard”| Video motion style  
   
-### 
-
-​
-
-Optional Parameters
+### Optional Parameters
 
 Parameter| Type| Default| Description  
 ---|---|---|---  
 pixverse_template| PIXVERSE_TEMPLATE| None| Optional PixVerse template  
   
-### 
-
-​
-
-Output
+### Output
 
 Output| Type| Description  
 ---|---|---  
 VIDEO| Video| Generated video  
   
-## 
-
-​
-
-Source Code
+## Source Code
 
 [Node Source Code (Updated 2025-05-05)]
     
@@ -125,26 +107,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/partner-node/video/pixverse/pixverse-image-to-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/partner-node/video/pixverse/pixverse-image-to-video)
 
-[PikaTextToVideoNode2_2 - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/PikaTextToVideoNode2_2)[PixVerse Template - ComfyUI Native Node DocumentationNext](https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-template)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[PikaTextToVideoNode2_2](https://docs.comfy.org/built-in-nodes/PikaTextToVideoNode2_2)[PixVerse Template](https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-template)

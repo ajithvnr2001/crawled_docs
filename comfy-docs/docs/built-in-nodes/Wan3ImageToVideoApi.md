@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/Wan3ImageToVideoApi/
-title: Wan3ImageToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI
+title: Wan 3.0 Image to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:22.439999+00:00
+fetched_at: 2026-11-14T14:00:42.535355+00:00
 ---
 
-# Wan3ImageToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI
+# Wan 3.0 Image to Video - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/Wan3ImageToVideoApi/
 
 Wan
 
-# Wan3ImageToVideoApi - ComfyUI Built-in Node Documentation
+# Wan 3.0 Image to Video - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -21,17 +21,9 @@ Copy pageCopy page
 
 This node generates a video from a first-frame image using the Wan 3.0 model. You can optionally provide a last-frame image to control how the video ends; the model then creates a video that transitions from the first frame to the last frame.
 
-## 
+## Inputs
 
-​
-
-Inputs
-
-### 
-
-​
-
-Common Inputs
+### Common Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -43,11 +35,7 @@ Parameter| Description| Data Type| Required| Range
 `watermark`| Whether to add an AI-generated watermark to the result (default: false).| BOOLEAN| Yes| true  
 false  
   
-### 
-
-​
-
-wan3.0-video and wan3.0-video-prime Inputs
+### wan3.0-video and wan3.0-video-prime Inputs
 
 These model-specific settings are shared by both model options and appear when a model is selected.
 
@@ -72,11 +60,7 @@ false
   
 Note: The node accepts exactly one `first_frame` image and optionally one `last_frame` image. If more than one image is connected to either input, an error is raised. When `last_frame` is provided, the generated video transitions from the first frame to the last frame. The `prompt` is limited to 20,000 characters. The price of a run depends on the selected `model`, `resolution`, and `duration`.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -94,26 +78,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/Wan3ImageToVideoApi.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/Wan3ImageToVideoApi)
 
-[Wan2VideoEditApi - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/Wan2VideoEditApi)[Wan3ReferenceToVideoApi - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/Wan3ReferenceToVideoApi)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Wan 2.7 Video Edit](https://docs.comfy.org/built-in-nodes/Wan2VideoEditApi)[Wan 3.0 Reference to Video](https://docs.comfy.org/built-in-nodes/Wan3ReferenceToVideoApi)

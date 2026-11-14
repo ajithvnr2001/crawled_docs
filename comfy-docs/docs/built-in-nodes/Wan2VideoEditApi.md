@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/Wan2VideoEditApi/
-title: Wan2VideoEditApi - ComfyUI Built-in Node Documentation - ComfyUI
+title: Wan 2.7 Video Edit - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:22.678379+00:00
+fetched_at: 2026-11-14T14:00:42.617006+00:00
 ---
 
-# Wan2VideoEditApi - ComfyUI Built-in Node Documentation - ComfyUI
+# Wan 2.7 Video Edit - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/Wan2VideoEditApi/
 
 Wan
 
-# Wan2VideoEditApi - ComfyUI Built-in Node Documentation
+# Wan 2.7 Video Edit - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -21,17 +21,9 @@ Copy pageCopy page
 
 The Wan 2.7 Video Edit node edits a video using text instructions, reference images, or style transfer. It sends the input video (plus any reference images) to the Wan 2.7 video-edit service and returns a newly generated video based on the chosen resolution, aspect ratio, and duration settings.
 
-## 
+## Inputs
 
-​
-
-Inputs
-
-### 
-
-​
-
-Common Inputs
+### Common Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -42,11 +34,7 @@ Parameter| Description| Data Type| Required| Range
 `"origin"`  
 `watermark`| Whether to add an AI-generated watermark to the result. (default: False)| BOOLEAN| Yes| -  
   
-### 
-
-​
-
-wan2.7-videoedit Inputs
+### wan2.7-videoedit Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -69,11 +57,7 @@ Parameter| Description| Data Type| Required| Range
 `"9"`  
 `"10"`  
   
-### 
-
-​
-
-Reference Inputs
+### Reference Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -88,11 +72,7 @@ Parameter| Description| Data Type| Required| Range
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -110,26 +90,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/Wan2VideoEditApi.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/Wan2VideoEditApi)
 
-[Wan2VideoContinuationApi - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/Wan2VideoContinuationApi)[Wan3ImageToVideoApi - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/Wan3ImageToVideoApi)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Wan 2.7 Video Continuation](https://docs.comfy.org/built-in-nodes/Wan2VideoContinuationApi)[Wan 3.0 Image to Video](https://docs.comfy.org/built-in-nodes/Wan3ImageToVideoApi)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/conditioning/video-models/wan-vace-to-video/
 title: Wan Vace To Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:27.023593+00:00
+fetched_at: 2026-11-14T14:00:39.962260+00:00
 ---
 
 # Wan Vace To Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:27.023593+00:00
 > Source: https://docs.comfy.org/built-in-nodes/conditioning/video-models/wan-vace-to-video/
 
 ## On this page
+
+Back to top
 
   * Parameter Description
     * Required Parameters
@@ -31,17 +33,9 @@ Copy pageCopy page
 
 ![Wan Vace To Video](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/built-in-nodes/conditioning/video-models/wan-vace-to-video.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=07b2c7fe941a73bd59d7b2a9c5a406d8) The Wan Vace To Video node allows you to generate videos through text prompts and supports multiple input methods, including text, images, videos, masks, and control signals. This node combines input conditions (prompts), control videos, and masks to generate high-quality videos. It first preprocesses and encodes the inputs, then applies the conditional information to generate the final video latent representation. When a reference image is provided, it serves as the initial reference for the video. Control videos and masks can be used to guide the generation process, making the generated video more aligned with expectations.
 
-## 
+## Parameter Description
 
-​
-
-Parameter Description
-
-### 
-
-​
-
-Required Parameters
+### Required Parameters
 
 Parameter| Type| Default| Range| Description  
 ---|---|---|---|---  
@@ -54,11 +48,7 @@ length| INT| 81| 1-MAX_RESOLUTION| Number of video frames, step size 4
 batch_size| INT| 1| 1-4096| Batch size  
 strength| FLOAT| 1.0| 0.0-1000.0| Condition strength for VACE control, step size 0.01. This is not a LoRA strength. LoRA weights are applied through separate LoRA nodes.  
   
-### 
-
-​
-
-Optional Parameters
+### Optional Parameters
 
 Parameter| Type| Description  
 ---|---|---  
@@ -66,11 +56,7 @@ control_video| IMAGE| Control video for guiding the generation process
 control_masks| MASK| Control masks defining which areas should be controlled  
 reference_image| IMAGE| Reference image as starting point or reference (single image)  
   
-### 
-
-​
-
-Output Parameters
+### Output Parameters
 
 Parameter| Type| Description  
 ---|---|---  
@@ -79,11 +65,7 @@ negative| CONDITIONING| Processed negative prompt condition
 latent| LATENT| Generated video latent representation  
 trim_latent| INT| Parameter for trimming latent representation, default value is 0. When a reference image is provided, this value is set to the shape size of the reference image in latent space. It indicates how much content from the reference image downstream nodes should trim from the generated latent representation to ensure proper control of the reference image’s influence in the final video output.  
   
-## 
-
-​
-
-Source Code
+## Source Code
 
 [Source code update time: 2025-05-15]
     
@@ -179,26 +161,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/conditioning/video-models/wan-vace-to-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/conditioning/video-models/wan-vace-to-video)
 
-[TrimAudioDuration - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/TrimAudioDuration)[Stablezero123Conditioning - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/Stablezero123Conditioning)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Trim Audio Duration](https://docs.comfy.org/built-in-nodes/TrimAudioDuration)[Stablezero123Conditioning](https://docs.comfy.org/built-in-nodes/Stablezero123Conditioning)

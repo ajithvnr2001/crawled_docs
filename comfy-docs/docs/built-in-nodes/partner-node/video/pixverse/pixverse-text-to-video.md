@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-text-to-video/
 title: PixVerse Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:32.478275+00:00
+fetched_at: 2026-11-14T14:00:37.367543+00:00
 ---
 
 # PixVerse Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:32.478275+00:00
 > Source: https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-text-to-video/
 
 ## On this page
+
+Back to top
 
   * Parameters
     * Required Parameters
@@ -32,17 +34,9 @@ Copy pageCopy page
 
 ![ComfyUI Built-in PixVerse Text to Video Node](https://mintcdn.com/dripart/5003JSxULDwNImme/images/built-in-nodes/api_nodes/pixverse/pixverse-text-to-video.jpg?fit=max&auto=format&n=5003JSxULDwNImme&q=85&s=b565631bd9ca69e804d839e8d79a799c) The PixVerse Text to Video node connects to PixVerse’s text-to-video API, allowing users to generate high-quality videos from text descriptions. Users can customize their creations by adjusting various parameters like video quality, duration, and motion mode.
 
-## 
+## Parameters
 
-​
-
-Parameters
-
-### 
-
-​
-
-Required Parameters
+### Required Parameters
 
 Parameter| Type| Default| Description  
 ---|---|---|---  
@@ -53,43 +47,27 @@ duration_seconds| select| -| Video duration
 motion_mode| select| -| Video motion mode  
 seed| integer| 0| Random seed for consistent generation results  
   
-### 
-
-​
-
-Optional Parameters
+### Optional Parameters
 
 Parameter| Type| Default| Description  
 ---|---|---|---  
 negative_prompt| string| ""| Elements to exclude from the video  
 pixverse_template| PIXVERSE_TEMPLATE| None| Optional template for style settings  
   
-### 
-
-​
-
-Limitations
+### Limitations
 
   * 1080p quality only supports normal motion mode with 5-second duration
   * Non 5-second durations only support normal motion mode
 
 
 
-### 
-
-​
-
-Output
+### Output
 
 Output| Type| Description  
 ---|---|---  
 VIDEO| video| Generated video  
   
-## 
-
-​
-
-Source Code
+## Source Code
 
 [Node Source Code (Updated 2025-05-05)]
     
@@ -230,26 +208,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/partner-node/video/pixverse/pixverse-text-to-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/partner-node/video/pixverse/pixverse-text-to-video)
 
-[PixVerse Template - ComfyUI Native Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-template)[PixVerse Transition Video - ComfyUI Native Node DocumentationNext](https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-transition-video)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[PixVerse Template](https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-template)[PixVerse Transition Video](https://docs.comfy.org/built-in-nodes/partner-node/video/pixverse/pixverse-transition-video)

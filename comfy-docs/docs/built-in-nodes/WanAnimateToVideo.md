@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanAnimateToVideo/
 title: WanAnimateToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.868883+00:00
+fetched_at: 2026-11-14T14:00:42.300642+00:00
 ---
 
 # WanAnimateToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 WanAnimateToVideo prepares conditioning data and an initial latent for generating animated videos with Wan, using inputs such as a reference image, pose, face, background, and optional motion from a previous chunk. It also supports generating longer videos in chunks by reading and updating a `video_frame_offset` value. This node is marked as experimental.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -60,11 +56,7 @@ Parameter| Description| Data Type| Required| Range
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

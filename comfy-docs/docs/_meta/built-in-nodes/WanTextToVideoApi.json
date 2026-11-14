@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/WanTextToVideoApi/",
   "file": "built-in-nodes/WanTextToVideoApi.md",
-  "title": "WanTextToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Wan Text to Video - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:25.641545+00:00",
-  "html_len": 640750,
-  "md_len": 5176,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:40.841044+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/partner-node/image/ideogram/ideogram-v1/
 title: Ideogram V1 - ComfyUI Native Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:27.900459+00:00
+fetched_at: 2026-11-14T14:00:40.160653+00:00
 ---
 
 # Ideogram V1 - ComfyUI Native Node Documentation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:27.900459+00:00
 > Source: https://docs.comfy.org/built-in-nodes/partner-node/image/ideogram/ideogram-v1/
 
 ## On this page
+
+Back to top
 
   * Parameter Description
     * Required Parameters
@@ -30,17 +32,9 @@ Copy pageCopy page
 
 ![ComfyUI Native Ideogram V1 Node](https://mintcdn.com/dripart/5003JSxULDwNImme/images/built-in-nodes/api_nodes/ideogram/ideogram-v1.jpg?fit=max&auto=format&n=5003JSxULDwNImme&q=85&s=10b0ea0f9a0ddb9c1184540f977e2cef) The Ideogram V1 node allows you to generate images with high-quality text rendering capabilities using Ideogram’s text-to-image API.
 
-## 
+## Parameter Description
 
-​
-
-Parameter Description
-
-### 
-
-​
-
-Required Parameters
+### Required Parameters
 
 Parameter| Type| Default| Description  
 ---|---|---|---  
@@ -52,21 +46,13 @@ seed| integer| 0| Random seed value (0-2147483647)
 negative_prompt| string| ""| Specifies elements you don’t want in the image  
 num_images| integer| 1| Number of images to generate (1-8)  
   
-### 
-
-​
-
-Output
+### Output
 
 Output| Type| Description  
 ---|---|---  
 IMAGE| image| Generated image result  
   
-## 
-
-​
-
-Source Code
+## Source Code
 
 [Node Source Code (Updated on 2025-05-03)]
     
@@ -208,26 +194,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/partner-node/image/ideogram/ideogram-v1.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/partner-node/image/ideogram/ideogram-v1)
 
-[ByteDanceImageEditNode - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ByteDanceImageEditNode)[Ideogram V2 - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/partner-node/image/ideogram/ideogram-v2)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[ByteDanceImageEditNode](https://docs.comfy.org/built-in-nodes/ByteDanceImageEditNode)[Ideogram V2](https://docs.comfy.org/built-in-nodes/partner-node/image/ideogram/ideogram-v2)

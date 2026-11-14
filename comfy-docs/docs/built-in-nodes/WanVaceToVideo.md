@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanVaceToVideo/
 title: WanVaceToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:55.345185+00:00
+fetched_at: 2026-11-14T14:00:40.452154+00:00
 ---
 
 # WanVaceToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanVaceToVideo node prepares video conditioning data for VACE-controlled video generation models. It combines positive and negative conditioning with an optional control video, control masks, and a reference image, encodes them through a VAE, and outputs updated conditioning, an empty latent tensor, and a trim value.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -43,11 +39,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When `control_video` is provided, it is truncated to `length` frames and upscaled to the specified `width` and `height`; if it has fewer frames than `length`, the missing frames are padded with neutral gray (value 0.5). When it is not provided, a neutral gray video of `length` frames is created automatically. `control_masks` are upscaled to the specified `width` and `height`, truncated to `length` frames, and padded with value 1.0 if shorter. The mask separates the control video into inactive and reactive parts, each VAE-encoded and concatenated along the channel dimension; the mask is also downsampled to latent resolution. When `reference_image` is provided, its first image is VAE-encoded and prepended to the latent sequence, and `trim_latent` reports the number of latent frames added. The latent frame count is calculated as `((length - 1) // 4) + 1`, and the latent spatial dimensions are `height / 8` and `width / 8`.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

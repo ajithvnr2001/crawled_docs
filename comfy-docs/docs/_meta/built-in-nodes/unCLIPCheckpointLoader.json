@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/unCLIPCheckpointLoader/",
   "file": "built-in-nodes/unCLIPCheckpointLoader.md",
-  "title": "unCLIPCheckpointLoader - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Load unCLIP Checkpoint - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-25T12:24:53.337806+00:00"
+  "fetched_at": "2026-11-14T14:00:36.633489+00:00"
 }

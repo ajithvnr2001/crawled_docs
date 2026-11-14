@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/comfy-cli/getting-started/
 title: Get Started with Comfy CLI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:35.104696+00:00
+fetched_at: 2026-11-14T14:00:36.912555+00:00
 ---
 
 # Get Started with Comfy CLI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:35.104696+00:00
 > Source: https://docs.comfy.org/comfy-cli/getting-started/
 
 ## On this page
+
+Back to top
 
   * Overview
   * Install CLI
@@ -49,11 +51,7 @@ Install comfy-cli, set up local or cloud routing, generate with partner nodes, a
 
 Copy pageCopy page
 
-## 
-
-​
-
-Overview
+## Overview
 
 `comfy-cli` is a [command line tool](https://github.com/Comfy-Org/comfy-cli) that streamlines installation and management of Comfy, and gives you scriptable, single-command access to the entire ComfyUI ecosystem locally or in the cloud. It serves three primary functions:
 
@@ -65,11 +63,7 @@ Overview
 
 **Two surfaces, one CLI.** Every command auto-detects where to run. If you are signed in to Comfy Cloud, commands route to **cloud** ; otherwise they run against your **local** server. Override per call with `--where local|cloud`, the `COMFY_WHERE` env var, or persist it with `comfy set-default --where cloud`.
 
-## 
-
-​
-
-Install CLI
+## Install CLI
 
 pip
 
@@ -90,11 +84,7 @@ To get shell completion hints:
     comfy --install-completion
     
 
-## 
-
-​
-
-Quick Setup (Recommended)
+## Quick Setup (Recommended)
 
 New in recent versions: a single interactive wizard that handles routing, auth, and agent skills in one step.
     
@@ -123,11 +113,7 @@ Flag| Purpose
 `--skip-skills`| Do not install agent skills  
 `--skip-verify`| Skip the connectivity check  
   
-## 
-
-​
-
-Install ComfyUI (Local)
+## Install ComfyUI (Local)
 
 Create a virtual environment with Python 3.10 or newer.
 
@@ -162,11 +148,7 @@ Apple silicon| PyTorch nightly wheels (CPU index; Metal/MPS)| macOS on Apple sil
 Intel Arc| PyTorch XPU wheels| Compatible Intel Arc GPU / XPU stack  
 CPU| CPU PyTorch wheels| No discrete GPU required  
   
-## 
-
-​
-
-Run ComfyUI (Local)
+## Run ComfyUI (Local)
     
     
     comfy launch
@@ -186,11 +168,7 @@ Check which workspace is selected and what is installed:
     comfy env
     
 
-## 
-
-​
-
-Comfy Cloud
+## Comfy Cloud
 
 Run workflows and partner nodes on Comfy’s hosted GPUs. No local install required.
     
@@ -214,21 +192,13 @@ Once signed in, commands auto-route to cloud. **Browser OAuth is the recommended
 
 **Session lifetime.** Cloud session tokens are short-lived (~1h). The CLI auto-refreshes them on demand. If a command reports `cloud_unauthorized`, run `comfy cloud login` again.
 
-## 
-
-​
-
-Generate with Partner Nodes
+## Generate with Partner Nodes
 
 **`comfy generate` is in beta.** Flag names, model aliases, and output formats may change. The underlying partner endpoints are stable. File feedback on the [comfy-cli GitHub repo](https://github.com/Comfy-Org/comfy-cli/issues).
 
 The fastest way to call Comfy’s [partner nodes](https://docs.comfy.org/tutorials/partner-nodes/overview) from a terminal or script. It hits the same hosted endpoints as ComfyUI workflows, but as single CLI calls. Ideal for batch jobs, quick experiments, and automation where a full ComfyUI graph is unnecessary.
 
-### 
-
-​
-
-Prerequisites
+### Prerequisites
 
   * An active Comfy Cloud session via `comfy cloud login` (browser OAuth), **or** a [Comfy API key](https://docs.comfy.org/development/api-development/getting-an-api-key) (`--api-key` / `COMFY_API_KEY`) for headless or CI use
   * [Credits](https://docs.comfy.org/interface/credits) on your account
@@ -236,11 +206,7 @@ Prerequisites
 
 
 
-### 
-
-​
-
-First generation
+### First generation
     
     
     comfy generate flux-pro \
@@ -257,11 +223,7 @@ Discover a model’s real parameters first. Flag names differ per model (for exa
     comfy generate schema flux-ultra
     
 
-### 
-
-​
-
-Common models
+### Common models
 
 **Nano Banana (Google Gemini): text-to-image and editing:**
     
@@ -318,11 +280,7 @@ Common models
     comfy generate grok-video --prompt "a paper plane gliding through a cathedral" --download flight.mp4
     
 
-### 
-
-​
-
-Discover models
+### Discover models
     
     
     comfy generate list                            # all models
@@ -331,11 +289,7 @@ Discover models
     comfy generate schema flux-kontext             # view a model's parameters
     
 
-### 
-
-​
-
-Image editing with references
+### Image editing with references
 
 Pass local file paths. The CLI uploads via Comfy’s storage endpoint or base64-encodes as needed:
     
@@ -365,11 +319,7 @@ To upload once and reuse across calls:
 
 Uploaded reference assets auto-delete after **24 hours**. They are stored in Comfy-managed GCS with signed URLs. For long-running pipelines, re-upload before each job. See the [reference](https://docs.comfy.org/comfy-cli/reference) for details.
 
-### 
-
-​
-
-Video generation (async jobs)
+### Video generation (async jobs)
 
 Video jobs are async. The CLI blocks and polls by default:
     
@@ -393,11 +343,7 @@ Return immediately with `--async`, then resume later:
     comfy generate resume luma <job_id> --download out.mp4
     
 
-### 
-
-​
-
-JSON output for scripts
+### JSON output for scripts
 
 Emit raw API responses for pipeline integration:
     
@@ -407,11 +353,7 @@ Emit raw API responses for pipeline integration:
 
 See the [reference](https://docs.comfy.org/comfy-cli/reference) for the full list of commands, flags, and model aliases.
 
-## 
-
-​
-
-Run Workflows
+## Run Workflows
 
 Beyond single partner calls, `comfy run` submits a complete ComfyUI workflow graph. It accepts both API-format and exported UI-format JSON (UI workflows are converted to API format client-side), and routes to local or cloud like every other command. It is **async by default**. It returns a `prompt_id` in milliseconds while a background watcher tracks progress. Pass `--wait` to block instead.
     
@@ -445,11 +387,7 @@ Validate before you submit. Catch unknown nodes, missing models, and bad wiring 
     comfy validate --workflow my_workflow.json
     
 
-## 
-
-​
-
-Start from a Template
+## Start from a Template
 
 The curated `Comfy-Org/workflow_templates` gallery is the fastest way to get a known-good workflow for a given task. You do not need to build from scratch.
     
@@ -461,11 +399,7 @@ The curated `Comfy-Org/workflow_templates` gallery is the fastest way to get a k
 
 The downloaded JSON is frontend-format. `comfy run --where cloud` auto-converts it to API format on submit.
 
-## 
-
-​
-
-Edit Workflows In Place
+## Edit Workflows In Place
 
 `comfy workflow` exposes the agent-tweakable slots in any frontend-format workflow and lets you override them. No manual JSON surgery.
     
@@ -493,11 +427,7 @@ For complex multi-step pipelines, compose small reusable fragments into one grap
     comfy workflow decompose my.json             # inverse: project a workflow into a fragment
     
 
-## 
-
-​
-
-Discover Nodes and Models
+## Discover Nodes and Models
 
 Introspect everything available on the resolved backend. **Nodes:**
     
@@ -516,11 +446,7 @@ Introspect everything available on the resolved backend. **Nodes:**
     comfy models show wan2.2_vae.safetensors     # full metadata
     
 
-## 
-
-​
-
-Upload and Download Files
+## Upload and Download Files
     
     
     comfy upload photo.png video.mp4             # → server input directory
@@ -535,11 +461,7 @@ Upload and Download Files
 
 `comfy download` reads the prompt_id and output URLs from piped stdin automatically. No manual key extraction, no `jq`.
 
-## 
-
-​
-
-Manage Custom Nodes
+## Manage Custom Nodes
     
     
     comfy node install <NODE_NAME>
@@ -547,11 +469,7 @@ Manage Custom Nodes
 
 The tool uses `cm-cli` for custom node installation. See the [ComfyUI Manager cm-cli docs](https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/docs/en/cm-cli.md) for details.
 
-## 
-
-​
-
-Manage Models (Local)
+## Manage Models (Local)
 
 Download models easily:
     
@@ -559,11 +477,7 @@ Download models easily:
     comfy model download --url <url> --relative-path models/checkpoints
     
 
-## 
-
-​
-
-JSON Output for Scripts and Agents
+## JSON Output for Scripts and Agents
 
 Every command accepts `--json` and emits the same envelope shape, making the CLI fully scriptable and agent-friendly:
     
@@ -590,11 +504,7 @@ The agent-facing surface is fully self-describing. Dump the entire command tree,
     comfy --json discover
     
 
-## 
-
-​
-
-Agent Skills
+## Agent Skills
 
 Install the bundled Comfy agent skills into Claude Code, Cursor, and any AGENTS.md-aware tool, so your coding agent can drive the CLI directly:
     
@@ -606,19 +516,11 @@ Install the bundled Comfy agent skills into Claude Code, Cursor, and any AGENTS.
 
 These are **bundled CLI skills** installed by `comfy skills install`. They are separate from the [Comfy Skills](https://github.com/Comfy-Org/comfy-skills/) repository, which hosts the **comfy-cloud** Claude Code plugin for [Comfy Cloud MCP](https://docs.comfy.org/agent-tools/mcp).
 
-## 
-
-​
-
-Contributing
+## Contributing
 
 Contributions are welcome. Open issues or submit pull requests on the [comfy-cli GitHub repository](https://github.com/Comfy-Org/comfy-cli/issues). Refer to the [Dev Guide](https://github.com/Comfy-Org/comfy-cli/blob/main/CONTRIBUTING.md) for further details.
 
-## 
-
-​
-
-Analytics
+## Analytics
 
 Usage tracking helps improve the CLI. Disable it with:
     
@@ -640,26 +542,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/comfy-cli/getting-started.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/comfy-cli/getting-started)
 
-[Use Grok Imagine Video with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/xai/grok-imagine-video/code)[Comfy CLI Command ReferenceNext](https://docs.comfy.org/comfy-cli/reference)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Get workspace usage over time](https://docs.comfy.org/api-reference/cloud/billing/get-workspace-usage-over-time)[Command reference](https://docs.comfy.org/comfy-cli/reference)

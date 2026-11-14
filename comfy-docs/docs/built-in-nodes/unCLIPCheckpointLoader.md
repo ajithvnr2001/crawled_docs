@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/unCLIPCheckpointLoader/
-title: unCLIPCheckpointLoader - ComfyUI Built-in Node Documentation - ComfyUI
+title: Load unCLIP Checkpoint - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:53.337414+00:00
+fetched_at: 2026-11-14T14:00:36.632752+00:00
 ---
 
-# unCLIPCheckpointLoader - ComfyUI Built-in Node Documentation - ComfyUI
+# Load unCLIP Checkpoint - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/unCLIPCheckpointLoader/
 
 Loaders
 
-# unCLIPCheckpointLoader - ComfyUI Built-in Node Documentation
+# Load unCLIP Checkpoint - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -21,21 +21,13 @@ Copy pageCopy page
 
 This node will detect models located in the `ComfyUI/models/checkpoints` folder, and it will also read models from additional paths configured in the extra_model_paths.yaml file. Sometimes, you may need to **refresh the ComfyUI interface** to allow it to read the model files from the corresponding folder. The unCLIPCheckpointLoader node is designed for loading checkpoints specifically tailored for unCLIP models. It facilitates the retrieval and initialization of models, CLIP vision modules, and VAEs from a specified checkpoint, streamlining the setup process for further operations or analyses.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Field| Description| Comfy dtype  
 ---|---|---  
 `ckpt_name`| Specifies the name of the checkpoint to be loaded, identifying and retrieving the correct checkpoint file from a predefined directory, determining the initialization of models and configurations.| `COMBO[STRING]`  
   
-## 
-
-​
-
-Outputs
+## Outputs
 
 Field| Description| Comfy dtype| Python dtype  
 ---|---|---|---  
@@ -52,4 +44,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/unCLIPCheckpointLoader.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/unCLIPCheckpointLoader)
 
-[TripleCLIPLoader](https://docs.comfy.org/built-in-nodes/TripleCLIPLoader)[UNETLoader](https://docs.comfy.org/built-in-nodes/UNETLoader)
+[Load CLIP (Triple)](https://docs.comfy.org/built-in-nodes/TripleCLIPLoader)[Load Diffusion Model](https://docs.comfy.org/built-in-nodes/UNETLoader)

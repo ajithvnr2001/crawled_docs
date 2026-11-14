@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanSoundImageToVideoExtend/
 title: WanSoundImageToVideoExtend - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.431024+00:00
+fetched_at: 2026-11-14T14:00:41.021948+00:00
 ---
 
 # WanSoundImageToVideoExtend - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanSoundImageToVideoExtend node extends an existing video latent by generating additional frames, optionally guided by audio, a reference image, and a control video. It takes a starting video latent and produces a longer video sequence, using the provided conditioning and audio cues to influence the new content.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -40,11 +36,7 @@ Parameter| Description| Data Type| Required| Range
   
 Note: The output latent is initialized as zeros with the target dimensions. The input `video_latent` is not copied into this output; its last 19 frames are used as the reference motion instead.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

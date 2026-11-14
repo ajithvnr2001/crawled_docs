@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanDancerVideo/
 title: WanDancerVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.094550+00:00
+fetched_at: 2026-11-14T14:00:41.661042+00:00
 ---
 
 # WanDancerVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanDancerVideo node prepares conditioning data and an empty latent tensor for video generation with the WanDancer model. It attaches optional starting images, masks, CLIP vision embeddings, and audio features to the positive and negative conditioning so they can guide the generated video.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -41,11 +37,7 @@ Parameter| Description| Data Type| Required| Range
 `mask`| Image conditioning mask for the start image(s). White is kept, black is generated. Used for the local generations.| MASK| No|   
 `audio_encoder_output`| An audio encoder output that provides audio features, frame rate, and inject scale values, which are attached to the conditioning when provided.| AUDIO_ENCODER_OUTPUT| No|   
   
-### 
-
-​
-
-Notes on Parameter Behavior
+### Notes on Parameter Behavior
 
   * `start_image` is optional. When provided, it is resized to `width` and `height`, encoded by the `vae`, and attached to both the positive and negative conditioning. If `start_image` has more frames than `length`, the extra frames are dropped. If it has fewer frames, the missing frames are filled with zero values.
   * `mask` only has an effect when `start_image` is also provided. White areas are kept, and black areas are generated.
@@ -54,11 +46,7 @@ Notes on Parameter Behavior
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

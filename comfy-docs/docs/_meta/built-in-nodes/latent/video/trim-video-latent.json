@@ -3,8 +3,5 @@
   "file": "built-in-nodes/latent/video/trim-video-latent.md",
   "title": "TrimVideoLatent Node - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:27.362782+00:00",
-  "html_len": 623634,
-  "md_len": 4401,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:40.035712+00:00"
 }

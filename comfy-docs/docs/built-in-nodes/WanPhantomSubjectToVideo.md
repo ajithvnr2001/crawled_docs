@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanPhantomSubjectToVideo/
 title: WanPhantomSubjectToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.498714+00:00
+fetched_at: 2026-11-14T14:00:41.577058+00:00
 ---
 
 # WanPhantomSubjectToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanPhantomSubjectToVideo node prepares conditioning data and a latent for Wan video generation. It creates an empty latent video from the requested width, height, length, and batch size, and, when reference images are supplied, encodes them with the VAE and adds them to the conditionings as time-dimensional visual guidance.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -40,11 +36,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When `images` are provided, they are automatically upscaled to match the specified `width` and `height`, and only the first `length` images are used for processing. Each image is encoded with the `vae` and concatenated along the time dimension, and only the RGB channels of each image are used. When `images` are not provided, all three conditioning outputs are returned unchanged from the input conditionings.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -65,4 +57,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/WanPhantomSubjectToVideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/WanPhantomSubjectToVideo)
 
-[WanTrackToVideo](https://docs.comfy.org/built-in-nodes/WanTrackToVideo)[SCAIL2ColoredMask](https://docs.comfy.org/built-in-nodes/SCAIL2ColoredMask)
+[WanTrackToVideo](https://docs.comfy.org/built-in-nodes/WanTrackToVideo)[Create SCAIL-2 Colored Mask](https://docs.comfy.org/built-in-nodes/SCAIL2ColoredMask)

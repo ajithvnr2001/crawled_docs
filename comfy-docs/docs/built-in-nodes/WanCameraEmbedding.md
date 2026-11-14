@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanCameraEmbedding/
 title: WanCameraEmbedding - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.236744+00:00
+fetched_at: 2026-11-14T14:00:42.380359+00:00
 ---
 
 # WanCameraEmbedding - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 This node generates a camera trajectory embedding using Plücker embeddings for the camera path you choose. It builds a sequence of camera poses simulating movements such as panning, zooming, or rotating, and converts them into an embedding tensor that can be used in video generation pipelines.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -49,11 +45,7 @@ Parameter| Description| Data Type| Required| Range
   
 Note: `fx`, `fy`, `cx`, and `cy` are advanced camera intrinsic parameters. The `speed` parameter scales the rotation angle and translation distance of the selected camera motion.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

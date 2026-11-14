@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/Wan3ImageToVideoApi/",
   "file": "built-in-nodes/Wan3ImageToVideoApi.md",
-  "title": "Wan3ImageToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Wan 3.0 Image to Video - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:22.440240+00:00",
-  "html_len": 646044,
-  "md_len": 5322,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:42.535756+00:00"
 }

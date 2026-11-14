@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/overview/
 title: ComfyUI Custom Node Types and Architecture - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:40.612462+00:00
+fetched_at: 2026-11-14T14:00:36.416312+00:00
 ---
 
 # ComfyUI Custom Node Types and Architecture - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:40.612462+00:00
 > Source: https://docs.comfy.org/custom-nodes/overview/
 
 ## On this page
+
+Back to top
 
   * Client-Server Model
     * Server side only
@@ -38,53 +40,29 @@ Custom nodes allow you to implement new features and share them with the wider c
 
 If you use Claude Code for development, the [ComfyUI Custom Node Skills](https://github.com/jtydhr88/comfyui-custom-node-skills) provide Claude with comprehensive knowledge of the ComfyUI node system, covering both the V3 and V1 APIs. Install it from the Claude Code marketplace or add the repository URL to get 9 skills covering node basics, inputs, outputs, datatypes, advanced patterns, frontend extensions, and packaging.
 
-## 
-
-​
-
-Client-Server Model
+## Client-Server Model
 
 Comfy runs in a client-server model. The server, written in Python, handles all the real work: data-processing, models, image diffusion etc. The client, written in Javascript, handles the user interface. Comfy can also be used in API mode, in which a workflow is sent to the server by a non-Comfy client (such as another UI, or a command line script). Custom nodes can be placed into one of four categories:
 
-### 
-
-​
-
-Server side only
+### Server side only
 
 The majority of Custom Nodes run purely on the server side, by defining a Python class that specifies the input and output types, and provides a function that can be called to process inputs and produce an output.
 
-### 
-
-​
-
-Client side only
+### Client side only
 
 A few Custom Nodes provide a modification to the client UI, but do not add core functionality. Despite the name, they may not even add new nodes to the system.
 
-### 
-
-​
-
-Independent Client and Server
+### Independent Client and Server
 
 Custom nodes may provide additional server features, and additional (related) UI features (such as a new widget to deal with a new data type). In most cases, communication between the client and server can be handled by the Comfy data flow control.
 
-### 
-
-​
-
-Connected Client and Server
+### Connected Client and Server
 
 In a small number of cases, the UI features and the server need to interact with each other directly.
 
 Any node that requires Client-Server communication will not be compatible with use through the API.
 
-## 
-
-​
-
-Next Steps
+## Next Steps
 
 ## Getting Started
 
@@ -108,26 +86,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/overview)
 
-[Custom NodesPrevious](https://docs.comfy.org/custom-nodes/intro)[Creating Custom Nodes in ComfyUINext](https://docs.comfy.org/custom-nodes/walkthrough)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/custom-nodes/intro)[Create your first node](https://docs.comfy.org/custom-nodes/walkthrough)

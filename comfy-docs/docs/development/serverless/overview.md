@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/serverless/overview/
 title: Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:09.775078+00:00
+fetched_at: 2026-11-14T14:00:34.299909+00:00
 ---
 
 # Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI
@@ -19,6 +19,7 @@ Back to top
   * Regions and GPU availability
   * Workspace limits
   * Monitor and call a deployment
+  * Use workspace library models in API requests
   * Operate a deployment
   * Inspect and clean up
   * FAQ
@@ -38,11 +39,7 @@ Copy pageCopy page
 
 Comfy API lets your application run ComfyUI workflows through a managed endpoint. You package the ComfyUI version, models, custom nodes, and dependencies the workflow needs, then Comfy runs it on managed GPUs. Use it when you need a repeatable environment and an endpoint your application can call.
 
-## 
-
-​
-
-Platform concepts
+## Platform concepts
 
 Concept| Meaning  
 ---|---  
@@ -51,7 +48,7 @@ Concept| Meaning
 **Build version / release**|  A numbered version of a Build prepared for a deployment target, such as `linux/nvidia`.  
 **Deployment**|  A running endpoint that uses a release. It has its own GPU, region, and worker settings.  
   
-Workflows supported by [Comfy Cloud](https://docs.comfy.org/development/deploy/cloud) can run there without creating a Build or deployment. To add a model to a deployment without a new Build, upload it to your workspace library. See [Workspace library models](https://docs.comfy.org/development/serverless/library-models).
+Workflows supported by [Comfy Cloud](https://docs.comfy.org/development/deploy/cloud) can run there without creating a Build or deployment. To add a model to a deployment without a new Build, upload it to your workspace library. See [Add your own LoRA or model](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model).
 
 ## Comfy API Quickstart
 
@@ -59,11 +56,7 @@ Start with an agent or choose another way to provide your environment or workflo
 
 For Desktop snapshots and workflow JSON imports, see [Build Sources](https://docs.comfy.org/development/serverless/build-sources).
 
-## 
-
-​
-
-The Build file
+## The Build file
 
 `comfy-build.yaml` stores the Build definition and last known remote state. The CLI uses that state to detect when the remote Build has changed. Keep the file with the project. It describes the environment but does not contain model files. Check how the local Build compares with the install and remote version before pushing changes:
     
@@ -71,11 +64,7 @@ The Build file
     comfy build status
     
 
-## 
-
-​
-
-Update and release
+## Update and release
 
 After changing the local install, refresh the Build definition:
     
@@ -96,11 +85,7 @@ Follow one release’s build log with:
     comfy build release logs rel_123456 --target linux/nvidia --follow
     
 
-## 
-
-​
-
-Regions and GPU availability
+## Regions and GPU availability
 
 Region capacity changes, so check the platform catalog when choosing a deployment target. Filter the results with `--region <region>`:
     
@@ -110,27 +95,52 @@ Region capacity changes, so check the platform catalog when choosing a deploymen
 
 The catalog is the source of truth for which GPU classes are available in each region at deployment time.
 
-## 
-
-​
-
-Workspace limits
+## Workspace limits
 
 See [Limits](https://platform.comfy.org/profile/limits) for your workspace’s usage and plan limits. Keep `--max` within the worker limit per deployment.
 
-## 
-
-​
-
-Monitor and call a deployment
+## Monitor and call a deployment
 
 The `--min` and `--max` options set the worker bounds. Run `comfy deploy status --watch` to follow deployment health, release freshness, and serving activity. You can also call the endpoint with the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks). Set `COMFY_BASE_URL` to the deployment URL and provide an API key. See [Choosing a base URL](https://docs.comfy.org/development/api-development/sdks#choosing-a-base-url).
 
-## 
+## Use workspace library models in API requests
 
-​
+A deployment runs `.safetensors` models from your workspace library, even when its release doesn’t include them. To upload a model in the Comfy Cloud editor or on the Developer Platform, see [Add your own LoRA or model](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model). To upload from a terminal, set the model type with `--type`, and then check that the file is in the library:
+    
+    
+    comfy assets library upload my_style.safetensors --type loras
+    comfy assets library ls --tags models,loras
+    
 
-Operate a deployment
+In the [API-format Workflow](https://docs.comfy.org/development/api-development/workflow-api-format), set the loader input to the library file name, including `.safetensors`:
+    
+    
+    "10": {
+      "class_type": "LoraLoader",
+      "inputs": {
+        "lora_name": "my_style.safetensors",
+        "strength_model": 1.0,
+        "strength_clip": 1.0,
+        "model": ["4", 0],
+        "clip": ["4", 1]
+      }
+    }
+    
+
+Send the Workflow with `comfy deploy run`, the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks), or the [Comfy API v2](https://docs.comfy.org/api-reference/v2/overview):
+    
+    
+    comfy deploy run --deployment <deployment-id> --workflow workflow_api.json
+    
+
+To use a different LoRA, change `lora_name` to another library file name in the next request. You don’t need a new Build, release, or redeploy.
+
+  * A Workflow can name up to 100 library models. A loader that names a 101st library model fails as if the file were not in the library.
+  * Keep file names unique across the folders one loader reads. If the library has the same file name in two of them, a job sent through the API loads neither file.
+
+
+
+## Operate a deployment
     
     
     # Change the worker bounds
@@ -141,11 +151,7 @@ Operate a deployment
     comfy deploy start --deployment dep_123456
     
 
-## 
-
-​
-
-Inspect and clean up
+## Inspect and clean up
     
     
     # Build state
@@ -162,11 +168,7 @@ Inspect and clean up
 
 Deleting a deployment and deleting a Build are separate irreversible operations. Confirm the target before using `comfy deploy delete --yes` or `comfy build delete --id bld_123456 --yes`.
 
-## 
-
-​
-
-FAQ
+## FAQ
 
 Can one Build come from multiple workflows?
 
@@ -176,7 +178,7 @@ Am I charged for storing Builds that are not deployed?
 
 No. Builds and their releases are stored on your account at no charge. You are not billed for the storage footprint of a Build until you deploy it.Storage billing starts with a deployment:
 
-  * When you deploy a release, its models are staged onto network storage shared by the deployment’s workers. The storage is read-only after deployment and billed per GB-month for as long as any deployment of the Build exists in that region, including while a deployment is paused with `comfy deploy stop`. Models a job uses from your [workspace library](https://docs.comfy.org/development/serverless/library-models) are not staged there. The worker downloads them for the job.
+  * When you deploy a release, its models are staged onto network storage shared by the deployment’s workers. The storage is read-only after deployment and billed per GB-month for as long as any deployment of the Build exists in that region, including while a deployment is paused with `comfy deploy stop`. Models a job uses from your [workspace library](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model) are not staged there. The worker downloads them for the job.
   * Each worker also gets a fixed 50 GB container disk. It is ephemeral and is only billed while the worker is running, as part of the worker’s compute cost.
   * Deleting a deployment releases its compute. Staged network storage is cleaned up shortly after the last deployment using it in that region is deleted, and billing for it ends.
 
@@ -206,11 +208,7 @@ What happens when I delete a deployment?
 
 Deleting a deployment removes its endpoint and releases its compute. It does not delete the Build or its releases. After you delete the last deployment using that Build in a region, its staged network storage is cleaned up and storage billing ends shortly afterward.Deleting the Build is a separate operation: `comfy build delete --id <build-id> --yes`.
 
-## 
-
-​
-
-Next steps
+## Next steps
 
 ## Comfy SDKs
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/Wan22ImageToVideoLatent/
 title: Wan22ImageToVideoLatent - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.329328+00:00
+fetched_at: 2026-11-14T14:00:43.064768+00:00
 ---
 
 # Wan22ImageToVideoLatent - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 Wan22ImageToVideoLatent creates video latent representations from images. It generates a blank video latent space with the specified width, height, frame length, and batch size, and can optionally encode a starting image sequence into the beginning frames. When a start image is provided, the node encodes it into the latent space and creates a corresponding noise mask that marks which regions should be denoised during generation.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -38,11 +34,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When `start_image` is provided, the image sequence is upscaled to the target `width` and `height`, encoded with the VAE, and placed into the first frames of the latent. The noise mask for those frames is set to 0 (preserved), while the remaining frames have a mask value of 1 (to be denoised). The latent always has 48 channels, spatial dimensions of `height / 16` by `width / 16`, and a temporal dimension of `((length - 1) // 4) + 1`. `width` and `height` must be divisible by 16 (enforced by the step of 32), and `length` increases the temporal dimension in steps of 4. When `start_image` is not provided, a fully blank latent is returned with no noise mask, and the `batch_size` input is not applied to that blank latent.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

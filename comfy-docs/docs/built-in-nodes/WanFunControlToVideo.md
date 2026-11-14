@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanFunControlToVideo/
 title: WanFunControlToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:23.735199+00:00
+fetched_at: 2026-11-14T14:00:41.918124+00:00
 ---
 
 # WanFunControlToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -25,11 +25,7 @@ This node was added to support the Alibaba Wan Fun Control model for video gener
 
 The WanFunControlToVideo node is a ComfyUI addition designed to support Wan Fun Control models for video generation, aimed at utilizing WanFun control for video creation. This node serves as a preparation point for essential conditioning information and initializes the center point of the latent space, guiding the subsequent video generation process using the Wan 2.1 Fun model. The node’s name clearly indicates its function: it accepts various inputs and converts them into a format suitable for controlling video generation within the WanFun framework. The node’s position in the ComfyUI node hierarchy indicates that it operates in the early stages of the video generation pipeline, focusing on manipulating conditioning signals before actual sampling or decoding of video frames.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter Name| Description| Required| Data Type| Default Value  
 ---|---|---|---|---  
@@ -44,11 +40,7 @@ clip_vision_output| (Optional) Visual features extracted by a CLIP vision model,
 start_image| (Optional) An initial image that influences the beginning of the generated video.| No| IMAGE| None  
 control_video| (Optional) Allows users to provide a preprocessed ControlNet reference video that will guide the motion and potential structure of the generated video.| No| IMAGE| None  
   
-## 
-
-​
-
-Outputs
+## Outputs
 
 Parameter Name| Description| Data Type  
 ---|---|---  
@@ -64,26 +56,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/WanFunControlToVideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/WanFunControlToVideo)
 
-[Wan22FunControlToVideo - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/Wan22FunControlToVideo)[WanFunInpaintToVideo - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/WanFunInpaintToVideo)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Wan22FunControlToVideo](https://docs.comfy.org/built-in-nodes/Wan22FunControlToVideo)[WanFunInpaintToVideo](https://docs.comfy.org/built-in-nodes/WanFunInpaintToVideo)

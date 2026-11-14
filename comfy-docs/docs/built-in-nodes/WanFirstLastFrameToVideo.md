@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanFirstLastFrameToVideo/
 title: WanFirstLastFrameToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.283154+00:00
+fetched_at: 2026-11-14T14:00:41.738452+00:00
 ---
 
 # WanFirstLastFrameToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanFirstLastFrameToVideo node prepares conditioning for video generation by combining a start frame and an end frame with text prompts. It encodes the frame images into latent space, creates a mask that tells the video model which frames are already known, and attaches CLIP vision features when they are provided. The node outputs updated positive and negative conditioning plus an empty latent that defines the size and length of the video to generate.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -43,11 +39,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When at least one of `start_image` or `end_image` is provided, the node builds a combined frame sequence where the start and end frames are filled in and the remaining frames use a neutral gray placeholder (0.5). A mask marks the filled regions as known and the placeholder regions as unknown, allowing the video model to generate the in-between frames. When a start image is provided, the known region also extends 3 extra frames beyond the image. The same encoded frame image and mask are attached to both `positive` and `negative` conditioning. If both CLIP vision inputs are provided, their hidden states are concatenated; if only one is provided, it is used on its own. The latent video length is derived from `length` after temporal compression: `((length - 1) // 4) + 1`.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

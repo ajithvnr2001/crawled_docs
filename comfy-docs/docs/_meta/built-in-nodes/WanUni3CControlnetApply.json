@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/WanUni3CControlnetApply/",
   "file": "built-in-nodes/WanUni3CControlnetApply.md",
-  "title": "WanUni3CControlnetApply - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Apply Wan Uni3C ControlNet - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-18T12:01:27.090332+00:00"
+  "fetched_at": "2026-11-14T14:00:40.680485+00:00"
 }

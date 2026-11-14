@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanFunInpaintToVideo/
 title: WanFunInpaintToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.384225+00:00
+fetched_at: 2026-11-14T14:00:41.837977+00:00
 ---
 
 # WanFunInpaintToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanFunInpaintToVideo node prepares conditioning and latent data for inpainting-style video generation, using an optional start image and end image to guide the result. It works by passing the supplied conditioning, VAE, and image frames through the same logic used for first-and-last-frame video generation, and returns updated conditioning plus an empty latent for sampling.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -40,11 +36,7 @@ Parameter| Description| Data Type| Required| Range
 `start_image`| Optional starting frame image for video generation| IMAGE| No| -  
 `end_image`| Optional ending frame image for video generation| IMAGE| No| -  
   
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

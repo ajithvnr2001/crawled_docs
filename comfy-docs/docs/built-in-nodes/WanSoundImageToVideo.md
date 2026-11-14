@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanSoundImageToVideo/
 title: WanSoundImageToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.543063+00:00
+fetched_at: 2026-11-14T14:00:41.097842+00:00
 ---
 
 # WanSoundImageToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanSoundImageToVideo node prepares conditioning and an empty latent video tensor for Wan sound-to-video generation. It can optionally incorporate audio encoding, a reference image, a control video, and a motion reference to guide the generated video.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -43,11 +39,7 @@ Parameter| Description| Data Type| Required| Range
   
 Note: All optional inputs can be used independently or together. The node modifies the provided `positive` and `negative` conditioning based on which optional inputs are connected.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

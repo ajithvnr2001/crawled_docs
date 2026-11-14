@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/ViduMultiFrameVideoNode/",
   "file": "built-in-nodes/ViduMultiFrameVideoNode.md",
-  "title": "ViduMultiFrameVideoNode - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Vidu Multi-Frame Video Generation - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:20.860589+00:00",
-  "html_len": 646882,
-  "md_len": 5038,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:43.593968+00:00"
 }

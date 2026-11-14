@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanTrackToVideo/
 title: WanTrackToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:55.389989+00:00
+fetched_at: 2026-11-14T14:00:40.545871+00:00
 ---
 
 # WanTrackToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanTrackToVideo node converts motion tracking data into video sequences by processing track points and generating corresponding video frames. It takes tracking coordinates as input and produces video conditioning and latent representations that can be used for video generation. When no tracks are provided, it falls back to standard image-to-video conversion.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -44,11 +40,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When `tracks` contains valid tracking data, the node processes motion tracks to generate video. When `tracks` is empty, it switches to standard image-to-video mode. If `start_image` is provided, it initializes the first frame of the video sequence, and the motion patching result is added to both positive and negative conditioning. If `clip_vision_output` is provided, it is also added to both positive and negative conditioning.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

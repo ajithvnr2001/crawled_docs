@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanImageToVideo/
 title: WanImageToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:54.981796+00:00
+fetched_at: 2026-11-14T14:00:41.179001+00:00
 ---
 
 # WanImageToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanImageToVideo node prepares conditioning and latent representations for video generation. It creates an empty latent space for the video and can optionally incorporate a starting image and CLIP vision output to guide the generation. Both the positive and negative conditioning inputs are updated with the provided image and vision data.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -42,11 +38,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** When `start_image` is provided, the frame sequence is encoded with the VAE and a mask is applied to the conditioning. The mask is set to 0 for the frames covered by the starting image and 1 for the remaining frames, so generation continues from the provided image. Only the first three color channels (RGB) of the image are used during encoding. Both positive and negative conditioning receive the same concatenated latent image, mask, and (if supplied) CLIP vision output. When `ref_pad_image` is supplied together with `start_image`, its first frame is resized to `width` and `height` and written into the RGB channels of the padding frames before the starting image is placed on top, so the padding carries the reference image instead of flat gray. This is SVI-style anti-drift padding, used by models such as ID-V2V.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -66,4 +58,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/WanImageToVideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/WanImageToVideo)
 
-[WanFirstLastFrameToVideo](https://docs.comfy.org/built-in-nodes/WanFirstLastFrameToVideo)[SheetSage2AudioToABC](https://docs.comfy.org/built-in-nodes/SheetSage2AudioToABC)
+[WanFirstLastFrameToVideo](https://docs.comfy.org/built-in-nodes/WanFirstLastFrameToVideo)[SheetSage2 Audio to ABC](https://docs.comfy.org/built-in-nodes/SheetSage2AudioToABC)

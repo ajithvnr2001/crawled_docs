@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/v3_migration/
 title: V3 Migration - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:06.176085+00:00
+fetched_at: 2026-11-14T14:00:36.255505+00:00
 ---
 
 # V3 Migration - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-19T14:35:06.176085+00:00
 > Source: https://docs.comfy.org/custom-nodes/v3_migration/
 
 ## On this page
+
+Back to top
 
   * Overview
   * Core Concepts
@@ -66,19 +68,11 @@ How to migrate your existing V1 nodes to the new V3 schema.
 
 Copy pageCopy page
 
-## 
-
-​
-
-Overview
+## Overview
 
 The ComfyUI V3 schema introduces a more organized way of defining nodes, and future extensions to node features will only be added to V3 schema. You can use this guide to help you migrate your existing V1 nodes to the new V3 schema.
 
-## 
-
-​
-
-Core Concepts
+## Core Concepts
 
 The V3 schema is kept on the new versioned Comfy API, meaning future revisions to the schema will be backwards compatible. `comfy_api.latest` will point to the latest numbered API that is still under development; the version before latest is what can be considered ‘stable’. Version `v0_0_2` is the current (and first) API version so more changes will be made to it without warning. Once it is considered stable, a new version `v0_0_3` will be created for `latest` to point at.
     
@@ -90,11 +84,7 @@ The V3 schema is kept on the new versioned Comfy API, meaning future revisions t
     from comfy_api.v0_0_2 import ComfyExtension, io, ui
     
 
-### 
-
-​
-
-V1 vs V3 Architecture
+### V1 vs V3 Architecture
 
 The biggest changes in V3 schema are:
 
@@ -105,11 +95,7 @@ The biggest changes in V3 schema are:
 
 
 
-#### 
-
-​
-
-V1 (Legacy)
+#### V1 (Legacy)
     
     
     class MyNode:
@@ -127,11 +113,7 @@ V1 (Legacy)
     NODE_CLASS_MAPPINGS = {"MyNode": MyNode}
     
 
-#### 
-
-​
-
-V3 (Modern)
+#### V3 (Modern)
     
     
     from comfy_api.latest import ComfyExtension, io
@@ -159,19 +141,11 @@ V3 (Modern)
         return MyExtension()
     
 
-## 
-
-​
-
-Migration Steps
+## Migration Steps
 
 Going from V1 to V3 should be simple in most cases and is simply a syntax change.
 
-### 
-
-​
-
-Step 1: Change Base Class
+### Step 1: Change Base Class
 
 All V3 Schema nodes should inherit from `ComfyNode`. Multiple layers of inheritance are okay as long as at the top of the chain there is a `ComfyNode` parent. **V1:**
     
@@ -190,11 +164,7 @@ All V3 Schema nodes should inherit from `ComfyNode`. Multiple layers of inherita
         # No __init__ needed
     
 
-### 
-
-​
-
-Step 2: Convert INPUT_TYPES to define_schema
+### Step 2: Convert INPUT_TYPES to define_schema
 
 Node properties like node id, display name, category, etc. that were assigned in different places in code such as dictionaries and class properties are now kept together via the `Schema` class. The `define_schema(cls)` function is expected to return a `Schema` object in much the same way INPUT_TYPES(s) worked in V1. Supported core Input/Output types are stored and documented in `comfy_api/{version}` in `_io.py`, which is namespaced as `io` by default. Since Inputs/Outputs are defined by classes now instead of dictionaries or strings, custom types are supported by either defining your own class or using the helper function `Custom` in `io`. Custom types are elaborated on in a section further below. A type class has the following properties:
 
@@ -263,11 +233,7 @@ Node properties like node id, display name, category, etc. that were assigned in
         )
     
 
-### 
-
-​
-
-Step 3: Update Execute Method
+### Step 3: Update Execute Method
 
 All execution functions in v3 are named `execute` and are class methods. **V1:**
     
@@ -290,11 +256,7 @@ All execution functions in v3 are named `execute` and are class methods. **V1:**
         return io.NodeOutput(image, ui=ui.PreviewImage(image, cls=cls))
     
 
-### 
-
-​
-
-Step 4: Convert Node Properties
+### Step 4: Convert Node Properties
 
 Here are some examples of property names; see the source code in `comfy_api.latest._io` for more details.
 
@@ -308,19 +270,11 @@ V1 Property| V3 Schema Field| Notes
 `DEPRECATED`| `is_deprecated` in Schema| Boolean flag  
 `EXPERIMENTAL`| `is_experimental` in Schema| Boolean flag  
   
-### 
-
-​
-
-Step 5: Handle Special Methods
+### Step 5: Handle Special Methods
 
 The same special methods are supported as in v1, but either lowercased or renamed entirely to be more clear. Their usage remains the same.
 
-#### 
-
-​
-
-Validation (V1 → V3)
+#### Validation (V1 → V3)
 
 The input validation function was renamed to `validate_inputs`. **V1:**
     
@@ -342,11 +296,7 @@ The input validation function was renamed to `validate_inputs`. **V1:**
         return True
     
 
-#### 
-
-​
-
-Lazy Evaluation (V1 → V3)
+#### Lazy Evaluation (V1 → V3)
 
 The `check_lazy_status` function is class method, remains the same otherwise. **V1:**
     
@@ -367,11 +317,7 @@ The `check_lazy_status` function is class method, remains the same otherwise. **
         return []
     
 
-#### 
-
-​
-
-Cache Control (V1 → V3)
+#### Cache Control (V1 → V3)
 
 The functionality of cache control remains the same as in V1, but the original name was very misleading as to how it operated. V1’s `IS_CHANGED` function signals execution not to trigger rerunning the node if the return value is the SAME as the last time the node was ran. Thus, the function `IS_CHANGED` was renamed to `fingerprint_inputs`. One of the most common mistakes by developers was thinking if you return `True`, the node would always re-run. Because `True` would always be returned, it would have the opposite effect of only making the node run once and reuse cached values. An example of using this function is the LoadImage node. It returns the hash of the selected file, so that if the file changes, the node will be forced to rerun. **V1:**
     
@@ -389,11 +335,7 @@ The functionality of cache control remains the same as in V1, but the original n
         return "unique_value"
     
 
-### 
-
-​
-
-Step 6: Create Extension and Entry Point
+### Step 6: Create Extension and Entry Point
 
 Instead of defining dictionaries to link node id to node class/display name, there is now a `ComfyExtension` class and an expected `comfy_entrypoint` function to be defined. In the future, more functions may be added to ComfyExtension to register more than just nodes via `get_node_list`. `comfy_entrypoint` can be either async or not, but `get_node_list` must be defined as async. **V1:**
     
@@ -425,19 +367,11 @@ Instead of defining dictionaries to link node id to node class/display name, the
         return MyExtension()
     
 
-## 
-
-​
-
-Input Type Reference
+## Input Type Reference
 
 Already explained in step 2, but here are some type reference comparisons in V1 vs V3. See `comfy_api.latest._io` for the full type declarations.
 
-### 
-
-​
-
-Basic Types
+### Basic Types
 
 V1 Type| V3 Type| Example  
 ---|---|---  
@@ -446,11 +380,7 @@ V1 Type| V3 Type| Example
 `"STRING"`| `io.String.Input()`| `io.String.Input("text", multiline=True)`  
 `"BOOLEAN"`| `io.Boolean.Input()`| `io.Boolean.Input("enabled", default=True)`  
   
-#### 
-
-​
-
-control_after_generate
+#### control_after_generate
 
 Int and Combo inputs support a `control_after_generate` parameter that adds a control widget for automatically changing the value after each generation. In V1 this was a plain `bool`; in V3 you can use the `io.ControlAfterGenerate` enum for explicit control. Passing `True` is equivalent to `io.ControlAfterGenerate.randomize`.
 
@@ -470,11 +400,7 @@ Value| Behavior
         control_after_generate=io.ControlAfterGenerate.randomize)
     
 
-### 
-
-​
-
-ComfyUI Types
+### ComfyUI Types
 
 V1 Type| V3 Type| Example  
 ---|---|---  
@@ -486,11 +412,7 @@ V1 Type| V3 Type| Example
 `"VAE"`| `io.VAE.Input()`| `io.VAE.Input("vae")`  
 `"CLIP"`| `io.CLIP.Input()`| `io.CLIP.Input("clip")`  
   
-### 
-
-​
-
-Combo (Dropdowns/Selection Lists)
+### Combo (Dropdowns/Selection Lists)
 
 Combo types in V3 require explicit class definition. **V1:**
     
@@ -504,11 +426,7 @@ Combo types in V3 require explicit class definition. **V1:**
     io.Combo.Input("mode", options=["option1", "option2", "option3"])
     
 
-## 
-
-​
-
-Schema Reference
+## Schema Reference
 
 The `Schema` dataclass defines all properties of a V3 node. Here is a complete reference of all available fields:
 
@@ -532,11 +450,7 @@ Field| Type| Default| Description
 `enable_expand`| `bool`| `False`| Allows `NodeOutput` to include an `expand` property for node expansion.  
 `accept_all_inputs`| `bool`| `False`| When True, all inputs from the prompt are passed as kwargs, even if not defined in the schema.  
   
-### 
-
-​
-
-Common Input Parameters
+### Common Input Parameters
 
 All input types share these base parameters:
 
@@ -558,17 +472,9 @@ Parameter| Type| Default| Description
 `socketless`| `bool`| `None`| When True, hides the input socket (widget only, no incoming connections).  
 `force_input`| `bool`| `None`| When True, forces the widget to display as a socket input instead.  
   
-## 
+## Advanced Features
 
-​
-
-Advanced Features
-
-### 
-
-​
-
-Hidden Inputs
+### Hidden Inputs
 
 Hidden inputs provide access to execution context like the prompt metadata, node ID, and other internal values. They are not visible in the UI. In V1, hidden inputs were declared as a `"hidden"` key in `INPUT_TYPES`. In V3, they are declared via the `hidden` parameter on the Schema, and their values are accessed via `cls.hidden`. **V1:**
     
@@ -621,19 +527,11 @@ Hidden Enum| Description
   
 Some hidden values are automatically added based on Schema flags. Output nodes (`is_output_node=True`) automatically receive `prompt` and `extra_pnginfo`. API nodes (`is_api_node=True`) automatically receive auth tokens.
 
-### 
-
-​
-
-UI Helpers
+### UI Helpers
 
 V3 provides built-in UI helpers in the `ui` module to handle common patterns like previewing and saving files. Pass them to `io.NodeOutput` via the `ui` parameter.
 
-#### 
-
-​
-
-Preview Helpers
+#### Preview Helpers
 
 Preview helpers save temporary files and return UI data for in-node display.
     
@@ -656,11 +554,7 @@ Preview helpers save temporary files and return UI data for in-node display.
     return io.NodeOutput(ui=ui.PreviewUI3D(model_file, camera_info))
     
 
-#### 
-
-​
-
-Save Helpers
+#### Save Helpers
 
 Save helpers provide methods for saving files to the output directory with proper metadata embedding. They are typically used in output nodes.
     
@@ -713,11 +607,7 @@ Save helpers provide methods for saving files to the output directory with prope
 
 Passing `cls=cls` to save/preview helpers allows them to automatically embed workflow metadata (prompt, extra_pnginfo) in the saved files. Make sure to include `io.Hidden.prompt` and `io.Hidden.extra_pnginfo` in your schema’s hidden list, or set `is_output_node=True` which adds them automatically.
 
-#### 
-
-​
-
-Returning Raw UI Dicts
+#### Returning Raw UI Dicts
 
 If you need to return UI data that doesn’t have a helper, you can pass a dict directly:
     
@@ -725,11 +615,7 @@ If you need to return UI data that doesn’t have a helper, you can pass a dict 
     return io.NodeOutput(ui={"images": results})
     
 
-### 
-
-​
-
-Output Nodes
+### Output Nodes
 
 For nodes that produce side effects (like saving files). Same as in V1, marking a node as output will display a `run` play button in the node’s context window, allowing for partial execution of the graph.
     
@@ -744,11 +630,7 @@ For nodes that produce side effects (like saving files). Same as in V1, marking 
         )
     
 
-### 
-
-​
-
-Custom Types
+### Custom Types
 
 Create custom input/output types either via class definition or the `Custom` helper function.
     
@@ -773,11 +655,7 @@ Create custom input/output types either via class definition or the `Custom` hel
     MyCustomType = io.Custom("MY_CUSTOM_TYPE")
     
 
-### 
-
-​
-
-MultiType Inputs
+### MultiType Inputs
 
 `MultiType` allows an input to accept more than one type. This is useful when a node can operate on different data types through the same input slot. If the first argument (`id`) is an instance of an `Input` class instead of a string, that input will be used to create a widget with its overridden values. Otherwise, the input is socket-only.
     
@@ -793,11 +671,7 @@ MultiType Inputs
     )
     
 
-### 
-
-​
-
-MatchType (Generic Type Matching)
+### MatchType (Generic Type Matching)
 
 `MatchType` creates type-linked inputs and outputs. When a user connects a specific type to a MatchType input, all other inputs and outputs sharing the same template automatically constrain to that type. This is how nodes like Switch and Create List work with any type.
     
@@ -828,19 +702,11 @@ You can also restrict which types are allowed:
     template = io.MatchType.Template("input_type", allowed_types=[io.Image, io.Mask, io.Latent])
     
 
-### 
-
-​
-
-Dynamic Inputs
+### Dynamic Inputs
 
 V3 introduces dynamic input types that change the available inputs based on user interaction. There is no V1 equivalent for these features.
 
-#### 
-
-​
-
-Autogrow
+#### Autogrow
 
 `Autogrow` creates a variable number of inputs that automatically grow as the user connects more. There are two template types: **TemplatePrefix** generates inputs with a numbered prefix (e.g. `image0`, `image1`, `image2`…):
     
@@ -904,11 +770,7 @@ Autogrow can be combined with MatchType to create lists of type-matched inputs:
         )
     
 
-#### 
-
-​
-
-DynamicCombo
+#### DynamicCombo
 
 `DynamicCombo` creates a dropdown that shows/hides different inputs depending on the selected option. This is useful for nodes where different modes require different parameters.
     
@@ -964,11 +826,7 @@ DynamicCombo options can also be nested:
     ])
     
 
-### 
-
-​
-
-Async Execute
+### Async Execute
 
 V3 supports async `execute` methods. This is useful for nodes that perform I/O operations, API calls, or other async work. Simply declare `execute` as `async`:
     
@@ -979,11 +837,7 @@ V3 supports async `execute` methods. This is useful for nodes that perform I/O o
         return io.NodeOutput(result)
     
 
-### 
-
-​
-
-Comfy API runtime services
+### Comfy API runtime services
 
 The `ComfyAPI` class provides access to ComfyUI runtime services like progress reporting and node replacement registration. Import it and create an instance:
     
@@ -993,11 +847,7 @@ The `ComfyAPI` class provides access to ComfyUI runtime services like progress r
     api = ComfyAPI()
     
 
-#### 
-
-​
-
-Progress Reporting
+#### Progress Reporting
 
 Report execution progress from within a node’s `execute` method. The progress bar is displayed in the ComfyUI interface. This replaces the V1 pattern of using `comfy.utils.PROGRESS_BAR_HOOK`.
     
@@ -1021,11 +871,7 @@ Report execution progress from within a node’s `execute` method. The progress 
 
 `set_progress` can accept a PIL Image, an `ImageInput` tensor, or `None` for the `preview_image` parameter. When called from within `execute`, the `node_id` is automatically determined from the executing context.
 
-#### 
-
-​
-
-Node Replacement
+#### Node Replacement
 
 Node replacement allows mapping old/deprecated nodes to new ones, so existing workflows automatically upgrade. Register replacements using the `ComfyAPI` in your extension’s `on_load` method.
     
@@ -1062,11 +908,7 @@ The `old_widget_ids` parameter is important: workflow JSON stores widget values 
     ]
     
 
-### 
-
-​
-
-Extension Lifecycle
+### Extension Lifecycle
 
 The `ComfyExtension` class supports lifecycle hooks beyond just `get_node_list`:
     
@@ -1089,11 +931,7 @@ The `ComfyExtension` class supports lifecycle hooks beyond just `get_node_list`:
         return MyExtension()
     
 
-### 
-
-​
-
-NodeOutput
+### NodeOutput
 
 The `NodeOutput` class is the standardized return value from `execute`. It supports several patterns:
     
@@ -1114,11 +952,7 @@ The `NodeOutput` class is the standardized return value from `execute`. It suppo
     return io.NodeOutput()
     
 
-## 
-
-​
-
-Complete Example
+## Complete Example
 
 Here is a complete example of a V3 extension file with multiple nodes:
     
@@ -1187,26 +1021,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/v3_migration.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/v3_migration)
 
-[ComfyUI Custom Nodes i18n SupportPrevious](https://docs.comfy.org/custom-nodes/i18n)[Context Menu Migration GuideNext](https://docs.comfy.org/custom-nodes/js/context-menu-migration)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[i18n Support](https://docs.comfy.org/custom-nodes/i18n)[Context menu migration](https://docs.comfy.org/custom-nodes/js/context-menu-migration)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/cloud/api-reference/
 title: Cloud API Reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:43.922600+00:00
+fetched_at: 2026-11-14T14:00:35.871218+00:00
 ---
 
 # Cloud API Reference - ComfyUI
@@ -54,11 +54,7 @@ This page provides complete examples for common Comfy Cloud API operations.
 
 **Subscription Required:** Running workflows via the API requires an active Comfy Cloud subscription. See [pricing plans](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=cloud-api) for details.
 
-## 
-
-​
-
-Setup
+## Setup
 
 All examples use these common imports and configuration:
 
@@ -107,11 +103,7 @@ Python
 
 * * *
 
-## 
-
-​
-
-Object Info
+## Object Info
 
 Retrieve available node definitions. This is useful for understanding what nodes are available and their input/output specifications.
 
@@ -164,19 +156,11 @@ Python
 
 * * *
 
-## 
-
-​
-
-Uploading Inputs
+## Uploading Inputs
 
 Upload images, masks, or other files for use in workflows.
 
-### 
-
-​
-
-Direct Upload (Multipart)
+### Direct Upload (Multipart)
 
 curl
 
@@ -245,11 +229,7 @@ Python
     print(f"Uploaded: {result['name']} to {result['subfolder']}")
     
 
-### 
-
-​
-
-Upload Mask
+### Upload Mask
 
 The `subfolder` parameter is accepted for API compatibility but ignored in cloud storage. All files are stored in a flat, content-addressed namespace.
 
@@ -325,21 +305,13 @@ Python
 
 * * *
 
-## 
-
-​
-
-Running Workflows
+## Running Workflows
 
 Submit a workflow for execution.
 
 **Concurrent submissions supported:** Depending on your subscription tier, you can submit multiple workflows without waiting for previous jobs to complete. Jobs run in parallel up to your tier’s limit. Additional jobs queue automatically. See [Concurrency limits](https://docs.comfy.org/development/deploy/cloud-usage#concurrency-limits) for details.
 
-### 
-
-​
-
-Submit Workflow
+### Submit Workflow
 
 curl
 
@@ -406,11 +378,7 @@ Python
     print(f"Submitted job: {prompt_id}")
     
 
-### 
-
-​
-
-Using Partner Nodes
+### Using Partner Nodes
 
 If your workflow contains [Partner Nodes](https://docs.comfy.org/tutorials/partner-nodes/overview) (nodes that call external AI services like Flux Pro, Ideogram, etc.), you must include your [Comfy API key](https://docs.comfy.org/development/api-development/getting-an-api-key) in the `extra_data` field of the request payload.
 
@@ -488,11 +456,7 @@ Python
 
 Generate your API key at [platform.comfy.org](https://platform.comfy.org/login). This is the same key used for Cloud API authentication (`X-API-Key` header). See [Getting an API Key](https://docs.comfy.org/development/api-development/getting-an-api-key) for step-by-step instructions.
 
-### 
-
-​
-
-Modify Workflow Inputs
+### Modify Workflow Inputs
 
 TypeScript
 
@@ -541,11 +505,7 @@ Python
 
 * * *
 
-## 
-
-​
-
-Checking Job Status
+## Checking Job Status
 
 Poll for job completion. **Job Status Values:** The API returns one of the following status values:
 
@@ -653,11 +613,7 @@ Python
 
 * * *
 
-## 
-
-​
-
-WebSocket for Real-Time Progress
+## WebSocket for Real-Time Progress
 
 Connect to the WebSocket for real-time execution updates.
 
@@ -795,11 +751,7 @@ Python
     outputs = await listen_for_completion(prompt_id)
     
 
-### 
-
-​
-
-WebSocket Message Types
+### WebSocket Message Types
 
 Messages are sent as JSON text frames unless otherwise noted.
 
@@ -817,11 +769,7 @@ Type| Description
 `execution_error`| Workflow failed (includes `exception_type`, `exception_message`, `traceback`)  
 `execution_interrupted`| Workflow was cancelled by user  
   
-#### 
-
-​
-
-Binary Messages (Preview Images)
+#### Binary Messages (Preview Images)
 
 During image generation, ComfyUI sends **binary WebSocket frames** containing preview images. These are raw binary data (not JSON):
 
@@ -878,11 +826,7 @@ See the [OpenAPI Specification](https://docs.comfy.org/development/cloud/openapi
 
 * * *
 
-## 
-
-​
-
-Downloading Outputs
+## Downloading Outputs
 
 Retrieve generated files after job completion.
 
@@ -1016,11 +960,7 @@ Python
 
 * * *
 
-## 
-
-​
-
-Complete End-to-End Example
+## Complete End-to-End Example
 
 Here’s a full example that ties everything together:
 
@@ -1273,17 +1213,9 @@ Python
 
 * * *
 
-## 
+## Queue Management
 
-​
-
-Queue Management
-
-### 
-
-​
-
-Get Queue Status
+### Get Queue Status
 
 curl
 
@@ -1328,11 +1260,7 @@ Python
     print(f"Pending: {len(queue.get('queue_pending', []))}")
     
 
-### 
-
-​
-
-Cancel a Job
+### Cancel a Job
 
 curl
 
@@ -1370,11 +1298,7 @@ Python
         return response.json()
     
 
-### 
-
-​
-
-Interrupt Current Execution
+### Interrupt Current Execution
 
 curl
 
@@ -1409,17 +1333,9 @@ Python
 
 * * *
 
-## 
+## Error Handling
 
-​
-
-Error Handling
-
-### 
-
-​
-
-HTTP Errors
+### HTTP Errors
 
 REST API endpoints return standard HTTP status codes:
 
@@ -1431,11 +1347,7 @@ Status| Description
 `429`| Subscription inactive  
 `500`| Internal server error  
   
-### 
-
-​
-
-Execution Errors
+### Execution Errors
 
 During workflow execution, errors are delivered via the `execution_error` WebSocket message. The `exception_type` field identifies the error category:
 

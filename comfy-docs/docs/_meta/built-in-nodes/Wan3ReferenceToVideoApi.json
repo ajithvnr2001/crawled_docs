@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/Wan3ReferenceToVideoApi/",
   "file": "built-in-nodes/Wan3ReferenceToVideoApi.md",
-  "title": "Wan3ReferenceToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Wan 3.0 Reference to Video - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:22.796855+00:00",
-  "html_len": 652576,
-  "md_len": 6391,
-  "depth": 0
+  "fetched_at": "2026-11-14T14:00:42.801347+00:00"
 }

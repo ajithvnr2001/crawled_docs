@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanSCAILToVideo/
 title: WanSCAILToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:55.301023+00:00
+fetched_at: 2026-11-14T14:00:40.920663+00:00
 ---
 
 # WanSCAILToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanSCAILToVideo node prepares conditioning and an empty latent space for video generation with SCAIL and SCAIL-2 video models. It processes optional inputs such as reference images, pose videos, CLIP vision outputs, colored identity masks, and previous frame chunks, embedding them into the positive and negative conditioning. The node outputs the modified conditioning and a blank latent tensor of the specified video dimensions, ready for sampling.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -51,11 +47,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** The `pose_video` and `pose_video_mask` inputs are truncated together to the shorter of the two, and are processed only for the first `length` frames. If either input is shorter than or equal to `video_frame_offset`, it is ignored entirely. The `pose_video` is downscaled to half the resolution of the main video before encoding, and the encoded pose latent is multiplied by `pose_strength` and applied to the conditioning only between the `pose_start` and `pose_end` timestep steps. If `pose_video_mask` is provided, the colored mask video is downscaled to half resolution and converted into a 28-channel driving mask, which is added to both positive and negative conditioning. **Note:** When `reference_image` is provided, each image in the batch is encoded individually into a latent and embedded into both positive and negative conditioning. The first image is the primary reference; additional images are used as additional views, each needing a matching `reference_image_mask`. `reference_image_mask` is only used when `reference_image` is also provided; when both are given, a 28-channel reference mask that binds the reference frames to identities is also built from the masks and added to the conditioning. In Replacement Mode (`replacement_mode=True`), the reference image is composited on a black background using the reference image mask as an alpha matte. When `clip_vision_output` is provided, it is applied to both positive and negative conditioning. **Note:** When `previous_frames` is provided, only the last `previous_frame_count` frames are used as the extension anchor, and `video_frame_offset` is adjusted accordingly (reduced by the number of anchored frames, clamped at 0). The anchored frames are encoded and written into the beginning of the output latent, and a noise mask is included so those frames are kept unchanged during generation.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -76,4 +68,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/WanSCAILToVideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/WanSCAILToVideo)
 
-[SCAIL2ColoredMask](https://docs.comfy.org/built-in-nodes/SCAIL2ColoredMask)[WanSoundImageToVideo](https://docs.comfy.org/built-in-nodes/WanSoundImageToVideo)
+[Create SCAIL-2 Colored Mask](https://docs.comfy.org/built-in-nodes/SCAIL2ColoredMask)[WanSoundImageToVideo](https://docs.comfy.org/built-in-nodes/WanSoundImageToVideo)

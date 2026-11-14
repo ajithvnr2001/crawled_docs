@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/WanMoveTrackToVideo/
 title: WanMoveTrackToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:24.495548+00:00
+fetched_at: 2026-11-14T14:00:41.355201+00:00
 ---
 
 # WanMoveTrackToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The WanMoveTrackToVideo node prepares conditioning and latent space data for video generation, incorporating optional motion tracking information. It encodes a starting image sequence into a latent representation and can blend in positional data from object tracks to guide the motion in the generated video. The node outputs modified positive and negative conditioning along with an empty latent tensor ready for a video model.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -43,11 +39,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** The `strength` parameter only has an effect when `tracks` are provided and `strength` is greater than 0.0; track conditioning is applied only when `start_image` is also provided. If `tracks` are not provided or `strength` is 0.0, the track blending is skipped. When track blending is active, the positive conditioning receives the track-blended latent image, while the negative conditioning receives the unmodified latent image. If `start_image` is not provided, no latent image and mask conditioning is created; the positive and negative conditioning pass through unchanged (except that `clip_vision_output` is still added if provided), and the node outputs an empty latent. **Note:** When `start_image` is provided, the image sequence is resized to the target `width` and `height` and truncated to the first `length` frames. If the sequence is shorter than `length`, the remaining frames are filled with neutral gray frames (value 0.5) before VAE encoding. The resulting conditioning includes a `concat_mask` with value 0 at the temporal positions corresponding to the start image frames and 1 elsewhere.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -67,26 +59,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/WanMoveTrackToVideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/WanMoveTrackToVideo)
 
-[WanMoveTracksFromCoords - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/WanMoveTracksFromCoords)[WanMoveVisualizeTracks - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/WanMoveVisualizeTracks)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[WanMoveTracksFromCoords](https://docs.comfy.org/built-in-nodes/WanMoveTracksFromCoords)[WanMoveVisualizeTracks](https://docs.comfy.org/built-in-nodes/WanMoveVisualizeTracks)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/Wan22FunControlToVideo/
 title: Wan22FunControlToVideo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:55.694763+00:00
+fetched_at: 2026-11-14T14:00:43.143534+00:00
 ---
 
 # Wan22FunControlToVideo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 The Wan22FunControlToVideo node prepares conditioning data and an empty latent tensor for video generation with the Wan video model. It encodes optional reference images and control videos into latent space, attaches them to the positive and negative conditioning, and creates a zero-filled latent tensor with the correct spatial and temporal dimensions for the requested video.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -41,11 +37,7 @@ Parameter| Description| Data Type| Required| Range
   
 **Note:** The `length` parameter is processed in steps of 4 frames, and the node automatically applies temporal scaling when building the latent space. When `ref_image` is provided, only its first frame is encoded (resized to `width` x `height`) and attached to the conditioning as reference latents. When `control_video` is provided, it is trimmed to `length` frames, resized, encoded, and placed into the concat latent used by the conditioning. The concatenated latent is duplicated along the channel dimension and its channel layout depends on the VAE’s latent channel count (48 channels uses the Wan 2.2 format, otherwise the Wan 2.1 format). The `start_image` parameter is referenced in the execution logic but is not exposed in the node’s input schema, so it cannot be set from the node interface.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
