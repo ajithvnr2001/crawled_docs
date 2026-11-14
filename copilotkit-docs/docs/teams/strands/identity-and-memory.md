@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/identity-and-memory/
 title: Microsoft Teams + AWS Strands (Python): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:19.590886+00:00
+fetched_at: 2026-11-14T10:03:45.578139+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Identity and Memory

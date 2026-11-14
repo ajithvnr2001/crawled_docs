@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/intelligence/
 title: Microsoft Teams + MS Agent Framework (Python): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:26.339804+00:00
+fetched_at: 2026-11-14T10:03:50.014421+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Configure the Channel in Intelligence

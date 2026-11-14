@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:21.529940+00:00
+fetched_at: 2026-11-14T10:03:46.513810+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

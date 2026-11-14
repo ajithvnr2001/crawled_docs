@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/rich-messages/
 title: Microsoft Teams: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:22.951563+00:00
+fetched_at: 2026-11-14T10:03:47.690755+00:00
 ---
 
 # Microsoft Teams: Rich messages and components

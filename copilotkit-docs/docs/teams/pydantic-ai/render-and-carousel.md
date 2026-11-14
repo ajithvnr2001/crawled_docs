@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/render-and-carousel/
 title: Microsoft Teams + PydanticAI: Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:24.046648+00:00
+fetched_at: 2026-11-14T10:03:48.084129+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Render and carousel

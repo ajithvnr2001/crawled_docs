@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/threads-and-state/
 title: Microsoft Teams + MS Agent Framework (Python): Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:25.225150+00:00
+fetched_at: 2026-11-14T10:03:49.328404+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Threads and state

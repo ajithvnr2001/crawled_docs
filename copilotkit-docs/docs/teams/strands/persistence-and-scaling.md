@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/persistence-and-scaling/
 title: Microsoft Teams + AWS Strands (Python): Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:36.011613+00:00
+fetched_at: 2026-11-14T10:03:45.359453+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Persistence and scaling

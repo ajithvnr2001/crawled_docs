@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/identity-and-memory/
 title: Microsoft Teams + PydanticAI: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:24.096555+00:00
+fetched_at: 2026-11-14T10:03:48.425299+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Identity and Memory

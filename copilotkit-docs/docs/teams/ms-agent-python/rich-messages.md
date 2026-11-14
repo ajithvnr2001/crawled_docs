@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/rich-messages/
 title: Microsoft Teams + MS Agent Framework (Python): Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:25.278468+00:00
+fetched_at: 2026-11-14T10:03:49.386256+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Rich messages and components

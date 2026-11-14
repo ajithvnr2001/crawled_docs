@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/deploy-and-operate/
 title: Microsoft Teams + MS Agent Framework (Python): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:26.174559+00:00
+fetched_at: 2026-11-14T10:03:50.322647+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Deploy and operate

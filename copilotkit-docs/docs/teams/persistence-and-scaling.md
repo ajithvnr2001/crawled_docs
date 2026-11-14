@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/persistence-and-scaling/
 title: Microsoft Teams: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:25.399637+00:00
+fetched_at: 2026-11-14T10:03:49.011131+00:00
 ---
 
 # Microsoft Teams: Persistence and scaling

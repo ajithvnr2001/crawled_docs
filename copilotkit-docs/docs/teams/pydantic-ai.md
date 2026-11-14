@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:25.115129+00:00
+fetched_at: 2026-11-14T10:03:48.838210+00:00
 ---
 
 # Microsoft Teams: Channels

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/posting-jsx-as-images/
 title: Microsoft Teams + AWS Strands (TypeScript): Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:21.614674+00:00
+fetched_at: 2026-11-14T10:03:46.722968+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Posting JSX as images

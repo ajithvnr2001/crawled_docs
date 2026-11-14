@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/pydantic-ai/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T10:48:35.091865+00:00
+fetched_at: 2026-11-14T10:03:42.743205+00:00
 ---
 
 # Introduction

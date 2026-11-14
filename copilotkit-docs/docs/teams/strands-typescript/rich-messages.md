@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/rich-messages/
 title: Microsoft Teams + AWS Strands (TypeScript): Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:21.450712+00:00
+fetched_at: 2026-11-14T10:03:46.302121+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Rich messages and components

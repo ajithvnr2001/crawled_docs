@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/deploy-and-operate/
 title: Microsoft Teams + AWS Strands (Python): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:19.735278+00:00
+fetched_at: 2026-11-14T10:03:46.566930+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Deploy and operate

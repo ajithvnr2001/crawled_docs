@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/commands-and-reactions/
 title: Microsoft Teams + AWS Strands (Python): Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:21.279771+00:00
+fetched_at: 2026-11-14T10:03:46.185769+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Commands and reactions

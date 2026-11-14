@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/deploy-and-operate/
 title: Microsoft Teams + PydanticAI: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T11:17:24.516793+00:00
+fetched_at: 2026-11-14T10:03:48.889212+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Deploy and operate
