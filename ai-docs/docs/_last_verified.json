@@ -1,11 +1,11 @@
 {
-  "date": "2026-11-13",
-  "at": "2026-11-13T11:50:21.382690+00:00",
+  "date": "2026-11-14",
+  "at": "2026-11-14T11:11:59.971591+00:00",
   "new": {
     "docs": 0
   },
-  "refreshed": 4,
-  "stale_total": 4,
+  "refreshed": 0,
+  "stale_total": 0,
   "blocked_total": 0,
   "repaired": 0,
   "total_index": 5645
