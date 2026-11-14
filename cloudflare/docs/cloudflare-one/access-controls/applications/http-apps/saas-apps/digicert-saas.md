@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/digicert-saas/
 title: Digicert \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:14.366390+00:00
+fetched_at: 2026-11-14T08:45:55.254255+00:00
 ---
 
 # Digicert · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:14.366390+00:00
 
 # Digicert
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/digicert-saas/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Add a SaaS application to Cloudflare One2\. Add a SAML SSO provider in Digicert3\. Test and Enable SSO in Digicert
 
@@ -77,7 +77,7 @@ Note
 
 Users can sign in using service provider initiated SSO by using the **SP Initiated Custom SSO URL**. Alternatively, users can go to `www.digicert.com/account`, select **Sign in with SSO** , and enter the name of the identity provider configured in step 2\. Add a SAML SSO provider in Digicert.
 
-[PreviousCoupa](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/coupa-saas/)[NextDocuSign](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/docusign-access/)
+[PreviousDatadog](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/datadog-saas/)[NextDocuSign](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/docusign-access/)
 
 Was this helpful?
 

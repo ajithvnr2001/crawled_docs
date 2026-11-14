@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/faq/
 title: Frequently asked questions about Cloudflare Browser Run \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:35.515402+00:00
+fetched_at: 2026-11-14T08:45:55.930010+00:00
 ---
 
 # Frequently asked questions about Cloudflare Browser Run · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:05:35.515402+00:00
 
 # FAQ
 
-Last updated Jul 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewErrors & Troubleshooting Error: Cannot read properties of undefined (reading 'fetch') Error: 429 browser time limit exceeded Error: 422 unprocessable entity Why is my page content missing or incomplete?Getting started & Development Why run browsers in the cloud instead of locally? Does local development support all Browser Run features? How do I render authenticated pages using Quick Actions? Will Browser Run be detected by Bot Management? Can I allowlist Browser Run on my own website? Does Browser Run rotate IP addresses for outbound requests? Is there a limit to how many requests a single browser session can handle? Can I use custom fonts in Browser Run? How can I manage concurrency and session isolation with Browser Run?Session management Should I open a new browser for every task, or reuse a session and open tabsSecurity & Data Handling Does Cloudflare store or retain the HTML content I submit for rendering? Is there any temporary caching of submitted content?
 
@@ -102,9 +102,11 @@ Browser sessions open on Cloudflare's global network, close to the incoming requ
 
 ### Does local development support all Browser Run features?
 
-Not yet. Local development currently has the following limitation(s):
+Not yet. Local development currently has the following limitations:
 
   * Requests larger than 1 MB are not supported.
+  * The `json` [Quick Action](https://developers.cloudflare.com/browser-run/quick-actions/) returns placeholder data, because Workers AI is not available locally. Refer to [Test Quick Actions locally](https://developers.cloudflare.com/browser-run/quick-actions/#test-quick-actions-locally).
+  * The [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) browser is not available.
 
 
 

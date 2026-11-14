@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/billing/understand/usage-based-billing/
 title: Usage-based billing \u00b7 Cloudflare Billing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:32.092792+00:00
+fetched_at: 2026-11-14T08:45:56.812303+00:00
 ---
 
 # Usage-based billing · Cloudflare Billing docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:05:32.092792+00:00
 
 # Usage-based billing
 
-Last updated May 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/billing/understand/usage-based-billing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewProducts with usage-based billingOptimize usage-based costsMonitor your usageUsage-based billing notifications Set up usage notificationsRelated resources
+OverviewProducts with usage-based billingOptimize usage-based costsMonitor your usageSet spending limitsUsage-based billing notifications Set up usage notificationsRelated resources
 
 For some Cloudflare subscriptions and services, Cloudflare charges you based on how much you used a feature during your previous billing period. This differs from other services, which are a prepaid flat fee for the upcoming month (for example, plans and page rules).
 
@@ -48,7 +48,7 @@ Product | Billable metric | Free tier or included usage | Pricing details
 [Images](https://developers.cloudflare.com/images/pricing/) | Transformations and storage | Varies by plan | [Images pricing](https://developers.cloudflare.com/images/pricing/)  
 [Spectrum](https://developers.cloudflare.com/spectrum/) | Data transfer | None | [Spectrum](https://developers.cloudflare.com/spectrum/)  
 [Rate Limiting](https://developers.cloudflare.com/waf/rate-limiting-rules/) | Rule requests | Varies by plan | [Rate Limiting](https://developers.cloudflare.com/waf/rate-limiting-rules/)  
-[Log Explorer](https://developers.cloudflare.com/log-explorer/pricing/) | Log ingestion | None | [Log Explorer pricing](https://developers.cloudflare.com/log-explorer/pricing/)  
+[Log Explorer](https://developers.cloudflare.com/observability/logs/log-explorer/pricing/) | Log ingestion | None | [Log Explorer pricing](https://developers.cloudflare.com/observability/logs/log-explorer/pricing/)  
 [Zero Trust](https://developers.cloudflare.com/cloudflare-one/) | Seats and usage-based services | Varies by plan | [Zero Trust](https://developers.cloudflare.com/cloudflare-one/)  
 [Vectorize](https://developers.cloudflare.com/vectorize/platform/pricing/) | Stored dimensions and queried vectors | Varies by plan | [Vectorize pricing](https://developers.cloudflare.com/vectorize/platform/pricing/)  
 [Analytics Engine](https://developers.cloudflare.com/analytics/analytics-engine/pricing/) | Data points read and written | Varies by plan | [Analytics Engine pricing](https://developers.cloudflare.com/analytics/analytics-engine/pricing/)  
@@ -64,7 +64,7 @@ Use [Cache Reserve](https://developers.cloudflare.com/cache/advanced-configurati
 Set up [R2 lifecycle rules](https://developers.cloudflare.com/r2/buckets/object-lifecycles/) to transition cold data to Infrequent Access | R2 storage costs  
 Use [Workers Smart Placement](https://developers.cloudflare.com/workers/configuration/placement/) for data-heavy Workers | Workers CPU time  
 Batch R2 operations where possible instead of per-object reads | R2 Class B operation count  
-Set up [budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/) to catch unexpected spikes early | All products — prevents surprise invoices  
+Set up [budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/) to catch unexpected spikes early | All products — notifies you about rising costs  
   
 For a detailed walkthrough of how a single request generates charges across multiple products, refer to [How charges accrue](https://developers.cloudflare.com/billing/understand/how-charges-accrue/).
 
@@ -73,6 +73,12 @@ For a detailed walkthrough of how a single request generates charges across mult
 The [billable usage dashboard](https://developers.cloudflare.com/billing/manage/billable-usage/) gives Pay-as-you-go customers daily visibility into usage-based costs. The dashboard shows a daily cost breakdown chart and a per-product usage table with free-tier allowances, so you can see exactly what you are being charged for.
 
 You can also set up [budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/) to get notified by email when your account-wide spend crosses a dollar threshold you define.
+
+## Set spending limits
+
+[Set separate spending limits](https://developers.cloudflare.com/billing/manage/spend-management/) for Workers and Durable Objects. When a limit takes effect, Cloudflare blocks new invocations or requests for that product. Limits apply across your account and do not guarantee a maximum invoice amount.
+
+You can also set product-specific email alerts without blocking usage. The spending limits and alerts guide covers dashboard and cf CLI setup.
 
 ## Usage-based billing notifications
 

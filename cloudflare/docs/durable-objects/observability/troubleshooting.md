@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/observability/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:22.005387+00:00
+fetched_at: 2026-11-14T08:45:56.757573+00:00
 ---
 
 # Troubleshooting · Cloudflare Durable Objects docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-31T08:10:22.005387+00:00
 
 # Troubleshooting
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewDebuggingCommon errors No event handlers were registered. This script does nothing. Cannot apply --delete-class migration to class. Durable Object is overloaded. Your account is generating too much load on Durable Objects. Please back off and try again later. Durable Object reset because its code was updated. Durable Object storage operation exceeded timeout which caused object to be reset. Your account is doing too many concurrent storage operations. Please back off and try again later.
+OverviewDebuggingCommon errors Exceeded the account's spending cap for Durable Objects No event handlers were registered. This script does nothing. Cannot apply --delete-class migration to class. Durable Object is overloaded. Your account is generating too much load on Durable Objects. Please back off and try again later. Durable Object reset because its code was updated. Durable Object storage operation exceeded timeout which caused object to be reset. Your account is doing too many concurrent storage operations. Please back off and try again later.
 
 ## Debugging
 
@@ -29,6 +29,12 @@ OverviewDebuggingCommon errors No event handlers were registered. This script do
 `wrangler tail` displays a live feed of console and exception logs for each request served by your Worker code, including both normal Worker requests and Durable Object requests. After running `npx wrangler deploy`, you can use `wrangler tail` in the root directory of your Worker project and visit your Worker URL to see console and error logs in your terminal.
 
 ## Common errors
+
+### Exceeded the account's spending cap for Durable Objects
+
+The account has reached a [Durable Objects spending limit](https://developers.cloudflare.com/durable-objects/platform/spend-management/). In **Billing** > **Spend Management** , raise the limit above current spend, turn it off, or remove it. Changes can take a few minutes to apply.
+
+The block also expires at the next subscription billing period. If you use alarms, review [alarm recovery](https://developers.cloudflare.com/durable-objects/platform/spend-management/#alarm-recovery) before resuming your application.
 
 ### No event handlers were registered. This script does nothing.
 

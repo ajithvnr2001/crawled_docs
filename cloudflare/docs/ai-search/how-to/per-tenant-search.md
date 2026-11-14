@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/how-to/per-tenant-search/
 title: Multitenancy \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:42.768898+00:00
+fetched_at: 2026-11-14T08:45:57.430610+00:00
 ---
 
 # Multitenancy · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:42.768898+00:00
 
 # Multitenancy
 
-Last updated Sep 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/how-to/per-tenant-search/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose an approachPrerequisitesCreate a Worker projectOption 1: One instance per tenant Built-in storage R2Option 2: Shared instance with metadata filtering on retrievalDeployNext steps
 
@@ -42,7 +42,9 @@ Both approaches use a Cloudflare Worker. Create the project first, then follow t
 
 Node.js version manager
 
-Use a Node version manager like [Volta ↗︎](https://volta.sh/) or [nvm ↗︎](https://github.com/nvm-sh/nvm) to avoid permission issues and change Node.js versions. [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), discussed later in this guide, requires a Node version of `16.17.0` or later.
+Use [Vite+ (`vp env`) ↗︎](https://viteplus.dev/guide/env) to install and manage Node.js versions.
+
+For supported Node.js versions, refer to the [Wrangler system requirements](https://developers.cloudflare.com/workers/wrangler/install-and-update/#install-wrangler).
 
 ## Create a Worker project
 
@@ -67,6 +69,7 @@ For setup, select the following options:
   * For _Which template would you like to use?_ , choose `Worker only`.
   * For _Which language do you want to use?_ , choose `TypeScript`.
   * For _Do you want to use git for version control?_ , choose `Yes`.
+  * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
   * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 
@@ -290,7 +293,7 @@ Scope each instance to that tenant's folder with [path filtering](https://develo
     	type: "r2",
     	source: "my-bucket",
     	source_params: {
-    		include_items: [`/customers/${tenantId}/**`],
+    		include_items: [`customers/${tenantId}/**`],
     	},
     });
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/api/instances/workers-binding/
 title: Workers binding \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:09.991795+00:00
+fetched_at: 2026-11-14T08:45:58.217078+00:00
 ---
 
 # Workers binding · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ API
 
 # Workers binding
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure the binding Namespace binding Instance bindingNamespace methods get() list() create() delete()Instance methods update() info() stats()Jobs methods jobs.list() jobs.create() jobs.get().info() jobs.get().cancel() jobs.get().logs()Local development
 
@@ -271,8 +271,6 @@ Additional parameters for the data source.
         * Maximum number of link hops to follow from the source URL. Valid values: `1` to `100000`. Defaults to `5`.
       * `max_age` `number` optional
         * How long, in seconds, the crawler reuses cached page content before it re-fetches from the origin. Valid values: `0` to `604800`. Defaults to `86400`.
-      * `include_external_links` `boolean` optional
-        * Whether to follow links that point to other domains. Defaults to `false`.
       * `include_subdomains` `boolean` optional
         * Whether to follow links that point to subdomains of the source URL. Defaults to `false`.
     * `store_options` `object` optional
@@ -344,13 +342,13 @@ Default retrieval configuration for the instance. These defaults can be overridd
 
 `sync_interval` `number` optional
 
-Seconds between automatic data source syncs. Valid values: `3600`, `7200`, `14400`, `21600`, `43200`, `86400`. Defaults to `21600` (6 hours).
+Seconds between automatic data source syncs. Valid values: `900`, `1800`, `3600`, `7200`, `14400`, `21600`, `43200`, `86400`. Defaults to `86400` (24 hours).
 
 * * *
 
 `token_id` `string` optional
 
-The UUID of the [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) to use for this instance. Required for `d1` instances. For other types, only required if you have never created an AI Search instance before. Refer to the [API get started guide](https://developers.cloudflare.com/ai-search/get-started/api/) for how to create and register a service token.
+The UUID of the [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) to use for this instance. Required for `d1` instances. For R2 data sources, only required if your account has no service API token registered yet. If omitted, AI Search uses the most recently registered service API token for your account. Refer to the [API get started guide](https://developers.cloudflare.com/ai-search/get-started/api/) for how to create and register a service token.
 
 * * *
 
@@ -665,7 +663,7 @@ Local development is supported by proxying requests to your deployed AI Search i
     	],
     }
 
-[PreviousSearch modes](https://developers.cloudflare.com/ai-search/concepts/search-modes/)[NextREST API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/)
+[PreviousTerraform](https://developers.cloudflare.com/ai-search/api/namespaces/terraform/)[NextREST API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/)
 
 Was this helpful?
 

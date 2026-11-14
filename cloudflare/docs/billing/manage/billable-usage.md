@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/billing/manage/billable-usage/
 title: Monitor billable usage \u00b7 Cloudflare Billing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:29.704286+00:00
+fetched_at: 2026-11-14T08:45:57.108124+00:00
 ---
 
 # Monitor billable usage · Cloudflare Billing docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:05:29.704286+00:00
 
 # Monitor billable usage
 
-Last updated Jun 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/billing/manage/billable-usage/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAccess the dashboardCost breakdown chartProduct usage tableFilter usage by product family or productSelect a billing periodSwitch between subscriptionsData alignment with your invoiceSet up budget alertsRelated resources
+OverviewAccess the dashboardCost breakdown chartProduct usage tableFilter usage by product family or productSelect a billing periodSwitch between subscriptionsData alignment with your invoiceSet spending limitsSet up budget alertsRelated resources
 
 The billable usage dashboard gives you daily visibility into usage-based costs across your Cloudflare account. The data comes from the same system that generates your monthly invoice, so the figures match your bill.
 
@@ -92,6 +92,10 @@ The dashboard reads from the same data source that generates your monthly invoic
   * The total usage cost shown at the end of a completed billing period matches the usage overage charges on the corresponding invoice.
 
 
+
+## Set spending limits
+
+To block supported Workers or Durable Objects operations at a spending threshold, set a [spending limit](https://developers.cloudflare.com/billing/manage/spend-management/). Each product has a separate limit, and a limit does not guarantee a maximum invoice amount.
 
 ## Set up budget alerts
 

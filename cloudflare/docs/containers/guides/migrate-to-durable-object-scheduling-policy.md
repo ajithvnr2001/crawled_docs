@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/
 title: Migrate to the Durable Object scheduling policy \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:47.647073+00:00
+fetched_at: 2026-11-14T08:45:52.458559+00:00
 ---
 
 # Migrate to the Durable Object scheduling policy · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:47.647073+00:00
 
 # Migrate to the Durable Object scheduling policy
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginConfiguration changes Instance size changesMove the applicationRelated resources
 
@@ -62,15 +62,16 @@ For the complete field compatibility list, refer to [Wrangler configuration](htt
 
 ### Instance size changes
 
-With the `durable_object` policy, you set the instance size with the `instance` option of `ctx.container.start()` instead of `instance_type` in Wrangler configuration. `instance` accepts `lite`, `standard-1`, `standard-2`, `standard-3`, and `standard-4`. If your existing application uses one of the following `instance_type` values, choose a replacement:
+With the `durable_object` policy, you set the instance size with the `instance` option of `ctx.container.start()` instead of `instance_type` in Wrangler configuration. `instance` accepts `lite`, `basic`, `standard-1`, `standard-2`, `standard-3`, and `standard-4`. If your existing application uses one of the following `instance_type` values, choose a replacement:
 
   * `dev`: Use `lite`.
   * `standard`: Use `standard-1`.
-  * `basic`: Choose `lite` or `standard-1`. Custom instance types require at least 1 vCPU, so you cannot reproduce `basic` with a custom instance.
 
 
 
 Custom instance objects use camel case at runtime. Rename `memory_mib` to `memoryMib` and `disk_mb` to `diskMb`. Refer to [Choose an instance size at runtime](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#choose-an-instance-size-at-runtime).
+
+For custom instance minimums and maximums, refer to [Custom Instance Types](https://developers.cloudflare.com/containers/platform/limits/#custom-instance-types).
 
 ## Move the application
 

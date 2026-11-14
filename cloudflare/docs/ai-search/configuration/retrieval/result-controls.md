@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/retrieval/result-controls/
 title: Result controls \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:40.931644+00:00
+fetched_at: 2026-11-14T08:45:57.361810+00:00
 ---
 
 # Result controls · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:40.931644+00:00
 
 # Result controls
 
-Last updated Jun 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/retrieval/result-controls/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMatch thresholdMaximum number of resultsHow they work togetherPer-request override
 
@@ -30,7 +30,7 @@ These settings control how many results are returned and the minimum score requi
 
 ## Match threshold
 
-The `match_threshold` sets the minimum vector similarity score that a chunk must meet to be included in the results. Threshold values range from `0` to `1`. The threshold filters on the vector similarity score, not the fused score returned in the response.
+The match threshold sets the minimum vector similarity score that a chunk must meet to be included in the results. Threshold values range from `0` to `1`, and the default is `0.4`. On the instance, this setting is named `score_threshold`. In a search or chat completions request, set `match_threshold` in `ai_search_options.retrieval` to override the instance value for that request. The threshold filters on the vector similarity score, not the fused score returned in the response.
 
   * A higher threshold means stricter filtering, returning only highly similar matches.
   * A lower threshold allows broader matches, increasing recall but possibly reducing precision.
@@ -50,7 +50,7 @@ The `max_num_results` setting controls the number of top-matching chunks returne
 
   1. Your query is embedded using the configured embedding model.
   2. The search index is queried. For [hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/), vector and keyword results are fused into a single ranked list.
-  3. Chunks with a vector similarity score below `match_threshold` are filtered out.
+  3. Chunks with a vector similarity score below the match threshold are filtered out.
   4. The filtered results are limited to `max_num_results` and passed into the generation step as context.
 
 
@@ -61,7 +61,7 @@ If [reranking](https://developers.cloudflare.com/ai-search/configuration/retriev
 
 ## Per-request override
 
-These values can be configured at the instance level or overridden per request:
+These values can be configured at the instance level (`score_threshold` and `max_num_results`) or overridden per request (`match_threshold` and `max_num_results`):
     
     
     const instance = env.AI_SEARCH.get("my-instance");

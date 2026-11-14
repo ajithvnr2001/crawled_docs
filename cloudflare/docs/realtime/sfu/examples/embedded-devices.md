@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/examples/embedded-devices/
 title: Embedded devices and remote control \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:35.250597+00:00
+fetched_at: 2026-11-14T08:45:55.619141+00:00
 ---
 
 # Embedded devices and remote control · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:35.250597+00:00
 
 # Embedded devices and remote control
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/examples/embedded-devices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksFollow the firmware integrationRun Pocket RadioReconnect and clean upAdapt to other devices Adapt the pattern to roboticsInspect the implementationTry another example
 
@@ -144,7 +144,7 @@ Browsers rejoin manually after a board restart or terminal connection failure. W
 
 The example allows eight listeners per board and one controller. The application sets the eight-listener cap. It does not define the SFU subscriber limit.
 
-To stop, release control and disconnect listeners, then power off the board. Keep the backend available for as long as required cleanup remains pending. The example's [operations guide ↗︎](https://github.com/cloudflare/realtime-examples/blob/main/esp32-radio/PRODUCTION.md#stop-and-clean-up) explains publisher replacement, state expiry, and resource cleanup before removing the Worker or SFU app.
+To stop, release control and disconnect listeners, then power off the board. The example's [operations guide ↗︎](https://github.com/cloudflare/realtime-examples/blob/main/esp32-radio/PRODUCTION.md#stop-and-clean-up) explains publisher replacement, state expiry, and resource cleanup before removing the Worker or SFU app.
 
 ## Adapt to other devices
 

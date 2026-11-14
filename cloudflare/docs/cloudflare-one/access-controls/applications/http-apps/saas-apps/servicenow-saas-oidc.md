@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/servicenow-saas-oidc/
 title: ServiceNow (OIDC) \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:00.273349+00:00
+fetched_at: 2026-11-14T08:45:53.555542+00:00
 ---
 
 # ServiceNow (OIDC) · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-11T09:01:00.273349+00:00
 
 # ServiceNow (OIDC)
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Add a SaaS application to Cloudflare One2\. Add the Multiple Provider Single Sign-On Installer Plugin to ServiceNow3\. Add and Test an OIDC SSO provider in ServiceNow4\. Test the integration
 

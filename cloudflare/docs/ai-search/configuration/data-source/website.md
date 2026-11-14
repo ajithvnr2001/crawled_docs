@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/data-source/website/
 title: Website \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:09.452025+00:00
+fetched_at: 2026-11-14T08:45:57.747224+00:00
 ---
 
 # Website · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-13T09:17:09.452025+00:00
 
 # Website
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedHow website crawling worksStorageConfiguration Path filtering Rendering modeAllow AI Search through WAFLimits
 
@@ -63,8 +63,8 @@ Option | Description
 ---|---  
 Path filtering | Include and exclude URL patterns that decide which pages are crawled.  
 [Parse type](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/) | How the crawler finds pages. **Sitemap** reads your XML sitemaps. **Discover** starts at the source URL and, by default, uses both your sitemaps and the links it finds.  
-[Specific sitemap](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#specific-sitemap) | Crawl a set of sitemap URLs that you choose instead of the ones AI Search discovers. Up to five URLs. Applies to the sitemap parse type only.  
-[Discover options](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#discover-options) | Discovery source, page limit, crawl depth, cache age, and whether to follow external links and subdomains. Applies to the discover parse type only.  
+[Specific sitemap](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#specific-sitemap) | Crawl a set of sitemap URLs that you choose instead of the ones AI Search discovers. Up to 10 URLs. Applies to the sitemap parse type only.  
+[Discover options](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#discover-options) | Discovery source, page limit, crawl depth, cache age, and whether to follow subdomains. Applies to the discover parse type only.  
 Rendering mode | Whether pages are downloaded as raw HTML or loaded in a headless browser first.  
 [Authentication headers](https://developers.cloudflare.com/ai-search/configuration/data-source/website/authentication-headers/) | Custom HTTP headers sent with each request, so the crawler can reach pages behind authentication. Up to five headers.  
 [Content selectors](https://developers.cloudflare.com/ai-search/configuration/data-source/website/content-selectors/) | Restrict indexing to the elements that a CSS selector matches, so you skip navigation, sidebars, and footers.  
@@ -129,7 +129,7 @@ Limit | Value
 Pages per crawl, [`discover` parse type](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#discover) | 100,000  
 Crawl depth, [`discover` parse type](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#page-limit-and-depth) | 100,000 link hops (defaults to 5)  
 Cached page age, [`discover` parse type](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#cache-age) | 604,800 seconds (7 days)  
-[Specific sitemap](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#specific-sitemap) URLs | 5 per instance  
+[Specific sitemap](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/#specific-sitemap) URLs | 10 per instance  
 [Authentication headers](https://developers.cloudflare.com/ai-search/configuration/data-source/website/authentication-headers/) | 5 per instance  
 [Content selector](https://developers.cloudflare.com/ai-search/configuration/data-source/website/content-selectors/) entries | 10 per instance  
 Content selector path pattern and selector length | 200 characters each  

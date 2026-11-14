@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/reference/wrangler/
 title: Wrangler \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.090365+00:00
+fetched_at: 2026-11-14T08:45:55.649961+00:00
 ---
 
 # Wrangler · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.090365+00:00
 
 # Wrangler
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallBindings Headful mode (experimental)
 
@@ -81,9 +81,11 @@ The browser binding's `.quickAction()` method requires a compatibility date of `
       "compatibility_date": "2026-03-24"
     }
 
-Quick Actions require remote mode for local development
+To test a Worker locally, run `npx wrangler dev`. Wrangler runs Puppeteer, Playwright, CDP, and `.quickAction()` calls against Chrome on your machine.
 
-The `.quickAction()` method is not yet supported in local development mode. When using `wrangler dev`, you must run with `--remote` or set `"remote": true` in your browser binding configuration:
+Some Quick Actions need remote mode
+
+[Workers AI](https://developers.cloudflare.com/workers-ai/) is not available locally, so the `json` Quick Action returns placeholder data shaped like `response_format.json_schema`. The [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) browser is not available locally either. To get real `json` results or use Kitesurf, set `"remote": true` in your browser binding configuration:
     
     
     {
@@ -93,9 +95,7 @@ The `.quickAction()` method is not yet supported in local development mode. When
       }
     }
 
-Without remote mode, calls to `.quickAction()` will fail with: `The RPC receiver does not implement the method "quickAction"`.
-
-For Puppeteer, Playwright, or CDP-based Workers, run `npx wrangler dev` to test locally. For Quick Actions via `.quickAction()`, use `npx wrangler dev --remote` as noted above.
+For details, refer to [Test Quick Actions locally](https://developers.cloudflare.com/browser-run/quick-actions/#test-quick-actions-locally).
 
 ### Headful mode (experimental)
 

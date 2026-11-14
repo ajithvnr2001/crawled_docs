@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/billing/manage/optimize-costs/
 title: Optimize costs \u00b7 Cloudflare Billing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:29.926346+00:00
+fetched_at: 2026-11-14T08:45:56.983146+00:00
 ---
 
 # Optimize costs · Cloudflare Billing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:29.926346+00:00
 
 # Optimize costs
 
-Last updated May 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/billing/manage/optimize-costs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGeneral strategiesPer-product optimization Cache and CDN Workers & Durable Objects R2 Stream and Images Load BalancingMonitor and alertRelated resources
 
@@ -28,7 +28,8 @@ Reducing usage-based charges starts with understanding where your consumption co
 
 Strategy | Impact  
 ---|---  
-Set up [budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/) to catch unexpected spikes early | Prevents surprise invoices across all products  
+Set up [budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/) to catch unexpected spikes early | Notifies you when account-wide usage spend crosses your threshold  
+Set [spending limits](https://developers.cloudflare.com/billing/manage/spend-management/) for Workers and Durable Objects | Blocks supported operations at a product spending threshold; some charges can continue  
 Review the [billable usage dashboard](https://developers.cloudflare.com/billing/manage/billable-usage/) weekly to identify cost trends | Catches runaway costs before the invoice arrives  
 Understand [how charges accrue](https://developers.cloudflare.com/billing/understand/how-charges-accrue/) across the request lifecycle | Identifies which stage of a request generates the most cost  
   

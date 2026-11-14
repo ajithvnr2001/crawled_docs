@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/features/datachannels/
 title: DataChannels \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:35.790058+00:00
+fetched_at: 2026-11-14T08:45:55.323919+00:00
 ---
 
 # DataChannels · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:35.790058+00:00
 
 # DataChannels
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/features/datachannels/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAdd an application channelConfigure message deliveryWait for subscriber readiness (waitForAck)Return to publisher (canReply) Allow replies when subscribing Change reply access Combine acknowledgment and repliesClose channelsCustom media payloadsLearn with an example
 
@@ -250,16 +250,16 @@ A subscription can set both `waitForAck` and `canReply`. Its first message opens
 
 ## Close channels
 
-On the backend, send `PUT /apps/{appId}/sessions/{sessionId}/datachannels/close` with the IDs allocated on that endpoint's session:
+For a live session, send `PUT /apps/{appId}/sessions/{sessionId}/datachannels/close` from your backend with its allocated channel IDs:
     
     
     {
     	"dataChannels": [{ "id": 2 }, { "id": 3 }]
     }
 
-Match results by `id`. A `close_track_error` item means the channel is absent or already closed. Retain other failed or unreported IDs for retry. Refer to [close-result handling](https://developers.cloudflare.com/realtime/sfu/observability/error-codes/#interpret-close-results).
+Match results by `id`. A `close_track_error` item means the channel is absent or already closed. Retry other failed or unreported IDs. Refer to [close-result handling](https://developers.cloudflare.com/realtime/sfu/observability/error-codes/#interpret-close-results).
 
-Closure needs no SDP exchange. Close the endpoint's channel objects, then its PeerConnection when no longer needed. Follow [teardown ordering](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#teardown) if work is still outstanding.
+Closure needs no SDP exchange. Close the corresponding channel objects on the endpoint. To end the whole connection, [close its PeerConnection](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#teardown).
 
 ## Custom media payloads
 

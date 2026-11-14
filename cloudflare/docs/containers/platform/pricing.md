@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/platform/pricing/
 title: Pricing \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:36.342790+00:00
+fetched_at: 2026-11-14T08:45:55.887919+00:00
 ---
 
 # Pricing · Cloudflare Containers docs
@@ -18,9 +18,11 @@ fetched_at: 2026-10-08T07:10:36.342790+00:00
 
 # Pricing
 
-Last updated Oct 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/platform/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewvCPU, Memory and DiskNetwork EgressWorkers and Durable Objects PricingLogs and Observability
+
+Snapshots are available at no charge during the public beta. Cloudflare will share pricing details when snapshots reach general availability.
 
 ## vCPU, Memory and Disk
 

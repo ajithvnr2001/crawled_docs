@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/metadata/
 title: Metadata attributes \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:09.778526+00:00
+fetched_at: 2026-11-14T08:45:57.668124+00:00
 ---
 
 # Metadata attributes · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-13T09:17:09.778526+00:00
 
 # Metadata attributes
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBuilt-in metadata attributesCustom metadata attributes Supported data types Define a schema Add custom metadata attributes to documentsRe-indexing behaviorMetadata storage and filteringLimitations
 
@@ -36,7 +36,7 @@ Attribute | Description | Example
 ---|---|---  
 `filename` | The name of the file. | `guide.pdf` or `docs/getting-started/guide.pdf`  
 `folder` | The folder or prefix to the object. | For `docs/getting-started/guide.pdf`, the folder is `docs/getting-started/`  
-`timestamp` | Unix timestamp (milliseconds) when the object was last modified. Comparisons round down to seconds. | `1735689600000` (2025-01-01 00:00:00 UTC)  
+`timestamp` | Unix timestamp (milliseconds) when the object was last modified, truncated to the minute. | `1735689600000` (2025-01-01 00:00:00 UTC)  
   
 ## Custom metadata attributes
 
@@ -66,7 +66,7 @@ Before custom metadata can be extracted, define a schema in your AI Search confi
 
   * Maximum of 5 custom metadata fields per AI Search instance
   * Field names are case-insensitive and stored as lowercase
-  * Field names cannot use reserved names: `timestamp`, `folder`, `filename`
+  * Field names cannot use reserved names: `timestamp`, `folder`, `filename`, `file`
   * Changing the schema triggers a full re-index of all documents
 
 
@@ -108,7 +108,7 @@ Constraint | Limit
 Maximum custom fields | 5 per AI Search instance  
 Metadata per vector | 10 KiB total, including system data and JSON syntax  
 Filterable indexed strings | First 64 UTF-8 bytes of each string  
-Reserved field names | `timestamp`, `folder`, `filename`  
+Reserved field names | `timestamp`, `folder`, `filename`, `file`  
 Field name matching | Case-insensitive  
   
 [PreviousChunking](https://developers.cloudflare.com/ai-search/configuration/indexing/chunking/)[NextService API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/)

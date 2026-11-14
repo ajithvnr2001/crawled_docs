@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/concepts/namespaces/
 title: Namespaces \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:38.022729+00:00
+fetched_at: 2026-11-14T08:45:58.353692+00:00
 ---
 
 # Namespaces · Cloudflare AI Search docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:04:38.022729+00:00
 
 # Namespaces
 
-Last updated Sep 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/concepts/namespaces/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWhy use namespacesRequirementsHow namespaces workDefault namespaceMultiple namespacesNamespace public endpointsNamespaces and instance uniqueness
+OverviewWhy use namespacesRequirementsHow namespaces workDefault namespaceMultiple namespacesManage namespaces with TerraformNamespace public endpointsNamespaces and instance uniqueness
 
 Every AI Search instance belongs to a **namespace**. A namespace is a logical grouping of instances within your account.
 
@@ -83,6 +83,8 @@ At runtime, `env.AI_SEARCH` is the namespace handle. Use `env.AI_SEARCH.get("my-
 
 The `get()` method is synchronous and does not make a network call. The instance is resolved lazily when you call a method like `search()` or `chatCompletions()`.
 
+The binding manages instances inside its namespace. To create, update, or delete namespaces themselves, refer to the [Namespaces API](https://developers.cloudflare.com/ai-search/api/namespaces/).
+
 ## Default namespace
 
 A `default` namespace is automatically created for every account. If you do not need multiple namespaces, use `default` for all your instances.
@@ -142,6 +144,24 @@ You can declare multiple namespace bindings in the same Worker. Each binding map
     [[ai_search_namespaces]]
     binding = "SUPPORT_SEARCH"
     namespace = "support"
+
+## Manage namespaces with Terraform
+
+From [Cloudflare Terraform provider ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs) v5.29.0, use the `cloudflare_ai_search_namespace` resource to create a namespace, and set `namespace` on `cloudflare_ai_search_instance` to create an instance in it. If you omit `namespace`, the instance is created in `default`.
+    
+    
+    resource "cloudflare_ai_search_namespace" "support" {
+      account_id = var.account_id
+      name       = "support"
+    }
+    
+    resource "cloudflare_ai_search_instance" "docs" {
+      account_id = var.account_id
+      id         = "docs"
+      namespace  = cloudflare_ai_search_namespace.support.name
+    }
+
+Changing `namespace` on an existing instance replaces it. For imports, data sources, and other options, refer to [Namespaces with Terraform](https://developers.cloudflare.com/ai-search/api/namespaces/terraform/) and [Instances with Terraform](https://developers.cloudflare.com/ai-search/api/instances/terraform/).
 
 ## Namespace public endpoints
 

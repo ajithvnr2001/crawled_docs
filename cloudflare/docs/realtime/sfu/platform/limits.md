@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/platform/limits/
 title: Limits, timeouts, and quotas \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:37.118270+00:00
+fetched_at: 2026-11-14T08:45:55.074549+00:00
 ---
 
 # Limits, timeouts, and quotas · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:37.118270+00:00
 
 # Limits, timeouts, and quotas
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPI and resource limitsInactivity timeoutPeerConnection requirementsAdapter recoverySupported codecsUsage allowance
 
@@ -53,9 +53,9 @@ A media track receives no incoming media packets | 30 seconds | The track is gar
 A session loses WebRTC connectivity | 30-second session/track reuse window | Reuse requires a viable connection and resources. Replace failed or closed connections immediately, or reconnect with a new session after the window.  
 A remote DataChannel uses `waitForAck: true` | First subscriber message within 30 seconds of allocation | Without it, the gated channel closes. Create a new subscription. Refer to [subscriber readiness](https://developers.cloudflare.com/realtime/sfu/features/datachannels/#wait-for-subscriber-readiness-waitforack).  
   
-For expiry before a session's first connection, follow [session setup guidance](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#session-setup). The media inactivity timeout does not define the lifetime of a connected session without media or a DataChannel-only connection. Close resources when finished.
+For failed setup or ended connections, follow [resource lifetime guidance](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#resource-lifetime). The media inactivity timeout does not define the lifetime of a connected session without media or a DataChannel-only connection.
 
-Application heartbeat expiry does not mean WebRTC disconnected. Media that keeps arriving does not meet the inactivity condition. Use [close results](https://developers.cloudflare.com/realtime/sfu/observability/error-codes/#interpret-close-results) and [recovery guidance](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#retry-and-reconnect) to decide whether cleanup is complete or a resource can be reused.
+Application heartbeat expiry does not mean WebRTC disconnected. Media that keeps arriving does not meet the inactivity condition. Close unused resources on a live session, or [end the connection](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#teardown).
 
 ## PeerConnection requirements
 

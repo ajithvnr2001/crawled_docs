@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/retrieval/reranking/
 title: Reranking \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:40.849920+00:00
+fetched_at: 2026-11-14T08:45:57.496454+00:00
 ---
 
 # Reranking · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:40.849920+00:00
 
 # Reranking
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/retrieval/reranking/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksConfiguration Considerations
 
@@ -34,7 +34,7 @@ By default, reranking is **disabled** for all AI Search instances. You can enabl
 
 When enabled, AI Search will:
 
-  1. Retrieve a set of relevant results from your index, constrained by your `max_num_results` and `score_threshold` parameters.
+  1. Retrieve a set of relevant results from your index, constrained by your `max_num_results` and match threshold settings (`score_threshold` on the instance, or `match_threshold` per request).
   2. Pass those results through a [reranking model](https://developers.cloudflare.com/ai-search/configuration/models/supported-models/).
   3. Return the reranked results, which the text generation model can use for answer generation.
 

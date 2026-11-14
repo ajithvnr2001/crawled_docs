@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/quick-actions/
 title: Quick Actions \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-12T08:23:32.331803+00:00
+fetched_at: 2026-11-14T08:45:55.827508+00:00
 ---
 
 # Quick Actions · Cloudflare Browser Run docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-12T08:23:32.331803+00:00
 
 # Quick Actions
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you begin REST API Workers binding
+OverviewBefore you begin REST API Workers binding Test Quick Actions locally
 
 Quick Actions provide simple interfaces for common browser tasks like capturing screenshots, extracting HTML content, generating PDFs, and more. You can use Quick Actions in two ways:
 
@@ -71,16 +71,29 @@ To use Quick Actions from a [Worker](https://developers.cloudflare.com/workers/)
 
 Caution
 
-The `.quickAction()` method has two requirements:
-
-  * **Compatibility date:** Your Worker must use a compatibility date of `2026-03-24` or later.
-  * **Remote mode for local development:** The `.quickAction()` method is not yet supported in local development mode. When developing locally with `wrangler dev`, you must use `npx wrangler dev --remote` or set `"remote": true` in your browser binding configuration. Without remote mode, you will receive the error: `The RPC receiver does not implement the method "quickAction"`.
-
-
+The `.quickAction()` method requires a compatibility date of `2026-03-24` or later.
     
     
     {
       "compatibility_date": "2026-03-24",
+      "browser": {
+        "binding": "BROWSER"
+      }
+    }
+
+### Test Quick Actions locally
+
+Under `npx wrangler dev`, `.quickAction()` uses a Chrome instance on your machine. It returns the same responses and errors as Browser Run, with two exceptions:
+
+  * The `json` action returns placeholder data, because [Workers AI](https://developers.cloudflare.com/workers-ai/) is not available locally. If a field in `response_format.json_schema` sets `const`, `enum`, or `default`, it gets that value, or the first `enum` entry. Other fields get an empty value, such as `""`, `0`, `false`, or `[]`. Wrangler also logs a warning.
+  * The [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) browser is not available. If you pass `browser: "kitesurf"`, `.quickAction()` throws an error.
+
+
+
+To get real `json` results or use Kitesurf during local development, set `"remote": true` in your browser binding configuration:
+    
+    
+    {
       "browser": {
         "binding": "BROWSER",
         "remote": true

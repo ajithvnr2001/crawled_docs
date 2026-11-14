@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/quick-actions/json-endpoint/
 title: /json - Capture structured data using AI \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:24.449997+00:00
+fetched_at: 2026-11-14T08:45:55.708466+00:00
 ---
 
 # /json - Capture structured data using AI · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:24.449997+00:00
 
 # /json - Capture structured data using AI
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpointRequired fieldsCommon use casesBasic usage With a Prompt and JSON schema With only a prompt With only a JSON schema (no prompt)Advanced usage Using a custom model (BYO API Key) Using a custom model with fallbacksTroubleshooting JSON extraction returns null or empty results Handling JavaScript-heavy pages Set a custom user agentTroubleshooting
 
@@ -429,6 +429,7 @@ If the `/json` endpoint returns null or empty results:
   * **Provide a clear prompt** — Be specific about what data to extract and where it appears on the page (for example, "Extract the product name, price, and description from the main product section").
   * **Define a response schema** — Use `response_format` with a JSON schema to enforce the expected output structure.
   * **Use a custom model** — If the default [Workers AI](https://developers.cloudflare.com/workers-ai/) model does not produce the desired results, use the `custom_ai` parameter to specify a different model. Refer to [Using a custom model (BYO API Key)](https://developers.cloudflare.com/browser-run/quick-actions/json-endpoint/#using-a-custom-model-byo-api-key) for details.
+  * **Use remote mode in local development** — Under `wrangler dev`, the `json` action returns placeholder data shaped like `response_format.json_schema`, because Workers AI is not available locally. To extract real data, set `"remote": true` in your browser binding configuration. Refer to [Test Quick Actions locally](https://developers.cloudflare.com/browser-run/quick-actions/#test-quick-actions-locally).
 
 
 

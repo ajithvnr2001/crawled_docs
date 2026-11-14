@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/get-started/api/
 title: REST API \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:09.508410+00:00
+fetched_at: 2026-11-14T08:45:57.471883+00:00
 ---
 
 # REST API · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-13T09:17:09.508410+00:00
 
 # REST API
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create an API token2\. Create an AI Search instance Connect a data source (optional)3\. Add content4\. Check indexing statusTry it outAdd to your application
 
@@ -80,7 +80,7 @@ Automatically crawl and index a [website](https://developers.cloudflare.com/ai-s
 
 **R2 bucket:**
 
-Index documents stored in an [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/). Connecting an R2 bucket requires a [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/). If you have never created an R2-backed instance before, you need to pass the `token_id` field in the create request. Refer to the [service API token configuration](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) for setup instructions.
+Index documents stored in an [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/). Connecting an R2 bucket requires a [service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/). If your account has no service API token registered yet, you need to pass the `token_id` field in the create request. If you omit `token_id`, AI Search uses the most recently registered service API token for your account. Refer to the [service API token configuration](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/) for setup instructions.
     
     
     curl -X POST "https://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/ai-search/namespaces/default/instances" \

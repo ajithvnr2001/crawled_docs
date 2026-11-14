@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/
 title: Public endpoint settings \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:40.585544+00:00
+fetched_at: 2026-11-14T08:45:57.596600+00:00
 ---
 
 # Public endpoint settings · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:40.585544+00:00
 
 # Public endpoint settings
 
-Last updated Aug 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailable endpointsPublic URL formatEnabling and disabling public endpointsRate limitingCORS configurationTool descriptionSecurity considerationsRelated
 
@@ -87,7 +87,7 @@ Requests per period | Maximum number of requests allowed | 120
 Time period | Time window for the rate limit | 1 minute  
 Period type | Rate limiting technique: `fixed` or `sliding` | `fixed`  
   
-Rate limits apply across all enabled public endpoints for the AI Search instance.
+Rate limits apply across all enabled public endpoints for the AI Search instance or namespace.
 
 ## CORS configuration
 

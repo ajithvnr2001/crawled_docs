@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/agents/
 title: Use cf with coding agents \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:14.813498+00:00
+fetched_at: 2026-11-14T08:45:56.849491+00:00
 ---
 
 # Use cf with coding agents · Cloudflare CLI docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-17T06:28:14.813498+00:00
 
 # Use cf with coding agents
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSet up cf for your agentHelp your agent find commandsFind Cloudflare documentationRead command outputRun commands safelyWork in Wrangler projectsAuthenticate unattended agentsInspect local resourcesRelated resources
+OverviewSet up cf for your agentHelp your agent find commandsFind Cloudflare documentationRead command outputRun commands safelyControl usage costsWork in Wrangler projectsAuthenticate unattended agentsInspect local resourcesRelated resources
 
 Coding agents can use `cf` to work with your Cloudflare account. Commands return JSON and describe their own inputs, so an agent can find and run the right command without prior knowledge of `cf`.
 
@@ -145,6 +145,12 @@ A failed command exits with a non-zero status and prints the error to standard e
 
 
 For local state, refer to [Local resource data](https://developers.cloudflare.com/cf/projects/#local-resource-data).
+
+## Control usage costs
+
+Before your agent runs workloads on Cloudflare, consider setting [spending limits or email alerts](https://developers.cloudflare.com/billing/manage/spend-management/) for Workers and Durable Objects. You can configure them with the cf CLI.
+
+Each limit applies to the product across your account, not to an individual agent or project. Reaching a limit can interrupt other applications on the same account. Choose an email alert if you want notification without blocking usage.
 
 ## Work in Wrangler projects
 

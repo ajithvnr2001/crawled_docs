@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/get-started/connection-patterns/
 title: Connection patterns \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:36.585183+00:00
+fetched_at: 2026-11-14T08:45:54.887446+00:00
 ---
 
 # Connection patterns · Cloudflare Realtime docs
@@ -22,13 +22,13 @@ fetched_at: 2026-10-08T07:14:36.585183+00:00
 
 # Connection patterns
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/get-started/connection-patterns/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start Network connectivityPublish audio or videoReceive a published trackSend messages between two endpointsReceive media and send controlsAdd media to an existing connectionAdd DataChannels to a media connectionOther initial negotiation sequencesComplete an SFU offerClose media tracks Close with negotiation Stop forwarding without negotiationClean up
 
 Choose the task for your endpoint. Each initial setup recipe starts with a new browser connection and matching SFU session. Your application can combine these endpoints into rooms, broadcasts, and device interfaces.
 
-Create the SFU session when ready to begin that connection's SDP exchange. [Unconnected sessions can expire before their first operation](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#session-setup).
+Create the SFU session when ready to begin that connection's SDP exchange.
 
 Task | Result | Runnable example  
 ---|---|---  
@@ -45,7 +45,7 @@ Create an [SFU app](https://developers.cloudflare.com/realtime/sfu/get-started/#
 
 In a browser, an `RTCPeerConnection` manages one connection to the SFU. The matching `sessionId` identifies that connection in API calls. Session Description Protocol (SDP) describes the connection's media and transport settings. The browser and SFU exchange an offer and answer to agree on those settings.
 
-Check the HTTP status, public errors, and individual resource results on every API call. Retain successful allocations for cleanup. Complete each request and its required SDP exchange before starting the next mutation on the same session. Different sessions can proceed independently. [Negotiation and session lifecycle](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/) explains how to coordinate overlapping handlers.
+Check the HTTP status, public errors, and individual resource results on every API call. Complete each request and its required SDP exchange before starting the next mutation on the same session. Different sessions can proceed independently. [Negotiation and session lifecycle](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/) explains how to coordinate overlapping handlers.
 
 ### Network connectivity
 
@@ -120,7 +120,7 @@ Continue only after the API accepts the answer.
 
 This recipe connects a publisher and a subscriber without audio or video. It uses reliable, ordered delivery. First connect each endpoint's DataChannel transport, then allocate the application channel carried over it.
 
-  1. **Create both connections.** In each browser, create a new `RTCPeerConnection`. Install a `datachannel` event listener to retain channels opened by the SFU and close them during teardown. On the backend, call `POST /sessions/new` with no body for each connection. Save `publisherSessionId` and `subscriberSessionId`.
+  1. **Create both connections.** In each browser, create a new `RTCPeerConnection`. On the backend, call `POST /sessions/new` with no body for each connection. Save `publisherSessionId` and `subscriberSessionId`.
 
   2. **Connect DataChannel transport.** For each session, call `POST /sessions/{sessionId}/datachannels/establish` once:
          
@@ -212,7 +212,7 @@ Wait for the API to accept it and confirm media playback before continuing.
            }
          }
 
-Retain the successful allocation and reserved `server-events` channel for cleanup.
+Check the returned `dataChannel` allocation.
 
   5. **Finish the new negotiation.** Apply this new SFU offer with `pc.setRemoteDescription()`. Create and set a new local answer. After candidate gathering, submit `pc.localDescription` through your backend to `PUT /sessions/{subscriberSessionId}/renegotiate`:
          
@@ -266,7 +266,7 @@ Finish the required SDP exchange before the next mutation.
 
 Start here when an existing PeerConnection has completed media-only negotiation and has no DataChannel transport. Keep its SFU session and finish any outstanding operation first.
 
-  1. Install a `datachannel` listener to retain the reserved channel for teardown. Call `POST /sessions/{sessionId}/datachannels/establish` with `dataChannel: { location: "remote", dataChannelName: "server-events" }`.
+  1. Call `POST /sessions/{sessionId}/datachannels/establish` with `dataChannel: { location: "remote", dataChannelName: "server-events" }`.
   2. Check the allocation and apply the returned offer. Await creation and local application of a new answer. After candidate gathering, submit `pc.localDescription` through your backend to `PUT /sessions/{sessionId}/renegotiate` as `sessionDescription`.
   3. Wait for API acceptance and a `connected` PeerConnection. You can now [add application channels](https://developers.cloudflare.com/realtime/sfu/features/datachannels/#add-an-application-channel) using `datachannels/new`.
 
@@ -322,7 +322,7 @@ Use [close results](https://developers.cloudflare.com/realtime/sfu/observability
 
 ### Stop forwarding without negotiation
 
-Set `force: true` to close selected media flows without exchanging SDP. This is useful when the endpoint cannot supply a close offer. On the backend, send `PUT /sessions/{sessionId}/tracks/close`:
+On a live session, set `force: true` to close selected media flows without exchanging SDP. On the backend, send `PUT /sessions/{sessionId}/tracks/close`:
     
     
     {
@@ -330,11 +330,11 @@ Set `force: true` to close selected media flows without exchanging SDP. This is 
       "force": true
     }
 
-Check each track result. No `/renegotiate` call is needed. Forced closure can leave records in [session information](https://developers.cloudflare.com/realtime/sfu/api/#inspect-a-session). Follow [teardown ordering](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#teardown) for outstanding negotiation or requests.
+Check each track result. No `/renegotiate` call is needed. Forced closure can leave records in [session information](https://developers.cloudflare.com/realtime/sfu/api/#inspect-a-session).
 
 ## Clean up
 
-Stop accepting new operations and withdraw ended publications from discovery. Close allocated media tracks and [DataChannels](https://developers.cloudflare.com/realtime/sfu/features/datachannels/#close-channels), then close the endpoint's PeerConnection and stop captures when no longer needed. Follow [cleanup responsibilities](https://developers.cloudflare.com/realtime/sfu/best-practices/#retain-cleanup-state) if the endpoint leaves before finishing.
+Stop accepting new operations and withdraw ended publications from discovery. Close the PeerConnection, stop captures, and [discard the session](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#resource-lifetime).
 
 [PreviousOverview](https://developers.cloudflare.com/realtime/sfu/get-started/)[NextOverview](https://developers.cloudflare.com/realtime/sfu/concepts/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/troubleshooting/api-error-codes/
 title: API error codes \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:43.565890+00:00
+fetched_at: 2026-11-14T08:45:57.185870+00:00
 ---
 
 # API error codes · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:43.565890+00:00
 
 # API error codes
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/troubleshooting/api-error-codes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow errors are returnedCommon errorsInstancesCustom domainsNamespacesTokensItemsJobsSearch and chat Search Chat Cross-instance search and chat Models and AI GatewayPublic endpointsTroubleshoot API errors
 
@@ -251,10 +251,9 @@ Code | Message | HTTP status | Details | Recommended action
 60009 | `chat completions endpoint disabled` | 401 | The chat completions endpoint is disabled. | Enable the chat completions endpoint in [public endpoint settings](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/).  
 60010 | `method not allowed` | 405 | The public endpoint snippet analytics `/stats` endpoint received an unsupported HTTP method. | Send snippet analytics requests to `/stats` with `POST`.  
 60011 | `invalid stats request body` | 400 | The public endpoint snippet analytics `/stats` request body is invalid. | Send a valid JSON body with a non-empty `events` array.  
-60012 | `invalid ai_search_options.instance_ids` | 400 | A namespace public endpoint received a malformed `ai_search_options.instance_ids` value. | Send `ai_search_options.instance_ids` as a non-empty array of instance names in the [request body](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/namespace/#search-a-subset-of-instances), or omit it to search the whole allowlist.  
-60013 | `ai_search_not_found` | 404 | No searchable instance matched the request. The instance is unknown, outside the allowlist, or the allowlist is empty. | Check the [instances allowlist](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/namespace/#the-instances-allowlist) for the namespace public endpoint.  
+60013 | `ai_search_not_found` | 404 | A namespace public endpoint has an empty instances allowlist, so no instance is searchable. | Check the [instances allowlist](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/namespace/#the-instances-allowlist) for the namespace public endpoint.  
 60014 | `path not supported for namespace-kind hash` | 404 | A namespace public endpoint received an unsupported path. | Use `/search`, `/chat/completions`, or `/mcp`.  
-60015 | `request body must be a JSON object` | 400 | The public endpoint request body is not a JSON object. | Send the request body as a JSON object with `Content-Type: application/json`, not an array, string, or empty body. See [public endpoint usage](https://developers.cloudflare.com/ai-search/api/search/public-endpoint/).  
+60015 | `request body must be a JSON object` | 400 | The public endpoint request body is not a JSON object. | Send the request body as a JSON object with `Content-Type: application/json`, not an array or string. See [public endpoint usage](https://developers.cloudflare.com/ai-search/api/search/public-endpoint/).  
 60016 | `method not allowed; this MCP endpoint only accepts POST` | 405 | The MCP endpoint received a non-`POST` request. | Send [MCP](https://developers.cloudflare.com/ai-search/api/search/mcp/) requests with `POST`.  
 60017 | `asset fetch failed` | 503 | The public endpoint could not fetch a UI snippet asset. | Retry the request. Check [Cloudflare Status ↗︎](https://www.cloudflarestatus.com) and [contact support](https://developers.cloudflare.com/support/contacting-cloudflare-support/) if the error persists.  
 60018 | `default domain disabled` | 404 | The request reached the default hostname while the endpoint serves a custom domain only. | Send the request to the [custom domain](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/custom-domains/), or re-enable the [default hostname](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/custom-domains/#turn-off-the-default-hostname).  

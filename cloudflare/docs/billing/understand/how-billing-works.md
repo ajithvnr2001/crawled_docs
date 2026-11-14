@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/billing/understand/how-billing-works/
 title: How Cloudflare billing works \u00b7 Cloudflare Billing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:31.694487+00:00
+fetched_at: 2026-11-14T08:45:57.020105+00:00
 ---
 
 # How Cloudflare billing works · Cloudflare Billing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:31.694487+00:00
 
 # How Cloudflare billing works
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/billing/understand/how-billing-works/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBilling lifecycle What happens when payment failsTypes of charges Plan charges (flat rate, billed in advance) Subscription and add-on charges (flat rate, billed in advance) Usage-based charges (metered, billed in arrears)Reading your invoice Invoice header Line items Zero-amount line items Invoice totalThe billing dashboard Billable usage dashboard Budget alertsBilling cyclesUpgrades and downgradesRelated resources
 
@@ -161,10 +161,11 @@ The bottom of the invoice shows:
 
 ## The billing dashboard
 
-The Cloudflare dashboard organizes billing information across four tabs under **Manage Account** > **Billing** :
+The Cloudflare dashboard organizes billing information under **Manage Account** > **Billing** :
 
   * **Invoices and documents** — view, download, and pay invoices.
   * **Billable Usage** — track daily usage-based costs across all products for the current or previous billing period.
+  * **[Spend Management](https://developers.cloudflare.com/billing/manage/spend-management/)** — set separate spending limits for Workers and Durable Objects.
   * **Payment** — manage your primary and additional payment methods, billing address, and tax-exempt status.
   * **Subscriptions** — view active subscriptions (renewal dates, pricing, invoice status) and cancel or modify them. Invoice email preferences are on the **Billing Email** card.
 

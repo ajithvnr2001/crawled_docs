@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/billing/understand/faq/
 title: Billing FAQ \u00b7 Cloudflare Billing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:31.748987+00:00
+fetched_at: 2026-11-14T08:45:56.959678+00:00
 ---
 
 # Billing FAQ · Cloudflare Billing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:31.748987+00:00
 
 # Billing FAQ
 
-Last updated May 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/billing/understand/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRelated resources
 
@@ -106,6 +106,14 @@ Cloudflare provides two tools:
 
 
 For optimization strategies, refer to [Optimize costs](https://developers.cloudflare.com/billing/manage/optimize-costs/).
+
+Can I set a spending limit?
+
+Yes. [Set separate spending limits](https://developers.cloudflare.com/billing/manage/spend-management/) for Workers and Durable Objects across your account. When a limit takes effect, Cloudflare blocks new invocations or requests for that product.
+
+Usage reporting and blocking take time, and some charges are excluded, so a limit does not guarantee a maximum invoice amount.
+
+To receive a notification without blocking usage, set a product-specific email alert or an account-wide [budget alert](https://developers.cloudflare.com/billing/manage/budget-alerts/).
 
 What is the difference between a plan and a subscription?
 

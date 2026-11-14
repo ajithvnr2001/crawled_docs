@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/how-to/pre-render-pages/
 title: Pre-render pages for crawlers \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.395216+00:00
+fetched_at: 2026-11-14T08:45:56.102589+00:00
 ---
 
 # Pre-render pages for crawlers · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.395216+00:00
 
 # Pre-render pages for crawlers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Configure Browser Run2\. Add the pre-rendering Worker3\. Test pre-rendering4\. DeployProduction considerationsRelated resources
 
@@ -31,7 +31,7 @@ In this tutorial, you will:
   * Add a Browser Run binding to a Worker
   * Create a minimal pre-rendering endpoint
   * Restrict which hostnames the Worker can render
-  * Test the endpoint locally with remote mode
+  * Test the endpoint locally
 
 
 
@@ -58,7 +58,7 @@ Add a Browser Run binding to your Wrangler configuration:
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-11-14",
       "browser": {
         "binding": "BROWSER"
       }
@@ -69,7 +69,7 @@ Add a Browser Run binding to your Wrangler configuration:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-14"
     
     [browser]
     binding = "BROWSER"
@@ -249,17 +249,17 @@ The `waitUntil: "networkidle2"` option waits until the page has no more than two
 
 ## 3\. Test pre-rendering
 
-  1. Start your Worker in remote mode:
+  1. Start your Worker locally:
 
 npmyarnpnpm
          
-         npx wrangler dev --remote
+         npx wrangler dev
          
-         yarn wrangler dev --remote
+         yarn wrangler dev
          
-         pnpm wrangler dev --remote
+         pnpm wrangler dev
 
-The `.quickAction()` method is not yet supported in local development mode. Use `wrangler dev --remote` when testing Browser Run Quick Actions locally.
+Wrangler runs the `.quickAction()` call against a Chrome instance on your machine.
 
   2. In another terminal, request a rendered page:
          

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/api/migration/workers-binding/
 title: Workers binding migration \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:37.610001+00:00
+fetched_at: 2026-11-14T08:45:57.808863+00:00
 ---
 
 # Workers binding migration · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ API
 
 # Workers binding migration
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/api/migration/workers-binding/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat changedAI Search bindingsRequirementsStep 1: Update Wrangler configurationStep 2: Update the type definitionStep 3: Update search callsStep 4: Update response handling Field mappingStreaming behavior changesFilter format changes ExamplesBackwards compatibility
 
@@ -248,7 +248,7 @@ Combine multiple conditions where all must match:
     		retrieval: {
     			filters: {
     				folder: "customer-a/",
-    				timestamp: { $gte: 1735689600 },
+    				timestamp: { $gte: 1735689600000 },
     			},
     		},
     	},

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/connection-limits/
 title: Connection limits \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:59.571610+00:00
+fetched_at: 2026-11-14T08:45:55.865506+00:00
 ---
 
 # Connection limits · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:39:59.571610+00:00
 
 # Connection limits
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/reference/connection-limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBetween client and CloudflareBetween Cloudflare and origin server What connection means hereConfigurable limitsKeep-AlivesRequest limitsResponse limitsCache limits
 
@@ -41,9 +41,18 @@ Requests can reuse established connections, and a proxied request may traverse m
 
 The TCP establishment and request-acknowledgment rows describe specific TCP timeout conditions. They are not an exhaustive list of every operation that can produce [522](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/). Neither value is a universal TCP-plus-TLS setup budget. A timeout while TLS remains pending can be reported as `522` rather than [525](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/).
 
-Note
+Cloudflare Tunnel timeout behavior
 
-If you are using [Cloudflare tunnels](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), refer to [Origin configuration](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/origin-parameters/) to view or modify your connection settings.
+When using Cloudflare Tunnel with **published applications** (proxied DNS records), both timeout layers apply to the same request:
+
+  1. **CDN layer** (this table): Proxy Read Timeout and Proxy Write Timeout apply between the client and Cloudflare's Tunnel service
+  2. **Tunnel layer** ([Origin parameters](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/origin-parameters/)): Connection and TLS timeout parameters apply between `cloudflared` and your origin server
+
+
+
+**When both layers apply, the shorter timeout takes precedence.** Configure timeouts in both layers to ensure requests complete successfully.
+
+For **private network routes** , only Tunnel origin parameters apply—the CDN timeouts in this table do not affect private network traffic.
 
 Type | Limit (seconds) | HTTP status code at limit | [Configurable](https://developers.cloudflare.com/fundamentals/reference/connection-limits/#configurable-limits)  
 ---|---|---|---  

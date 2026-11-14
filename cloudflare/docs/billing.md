@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/billing/
 title: Overview \u00b7 Cloudflare Billing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:29.433058+00:00
+fetched_at: 2026-11-14T08:45:57.081762+00:00
 ---
 
 # Overview · Cloudflare Billing docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:05:29.433058+00:00
 
 # Billing
 
-Last updated May 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/billing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedManagePayment methodsUnderstandTroubleshoot
 
@@ -41,6 +41,10 @@ Change plans, view invoices, monitor usage, and manage subscriptions.
 ### [Monitor billable usage](https://developers.cloudflare.com/billing/manage/billable-usage/)
 
 Track daily usage-based costs across your account with the billable usage dashboard.
+
+### [Spending limits and alerts](https://developers.cloudflare.com/billing/manage/spend-management/)
+
+Set separate spending limits or email alerts for Workers and Durable Objects.
 
 ### [Budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/)
 

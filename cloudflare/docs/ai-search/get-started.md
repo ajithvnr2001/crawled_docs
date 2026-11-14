@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/get-started/
 title: Get started with AI Search \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:41.111516+00:00
+fetched_at: 2026-11-14T08:45:58.130235+00:00
 ---
 
 # Get started with AI Search · Cloudflare AI Search docs
@@ -10,14 +10,15 @@ fetched_at: 2026-10-08T07:04:41.111516+00:00
 > Source: https://developers.cloudflare.com/ai-search/get-started/
 
   1. [Home](https://developers.cloudflare.com/)
-  2. /[Ai Search](https://developers.cloudflare.com/ai-search/)
-  3. /Get Started
+  2. /[AI Search](https://developers.cloudflare.com/ai-search/)
+  3. /[AI Search](https://developers.cloudflare.com/ai-search/)
+  4. /Get started
 
 
 
 # Get started
 
-Last updated Jul 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose your setup method
 
@@ -44,6 +45,10 @@ Create, populate, and query an AI Search instance from Python.
 ### [REST API](https://developers.cloudflare.com/ai-search/get-started/api/)
 
 Create AI Search instances programmatically using the REST API.
+
+### [Terraform](https://developers.cloudflare.com/ai-search/api/instances/terraform/)
+
+Create and manage AI Search instances and namespaces as code with the Cloudflare Terraform provider.
 
 Was this helpful?
 

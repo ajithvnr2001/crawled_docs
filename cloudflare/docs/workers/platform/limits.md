@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/limits/
 title: Limits \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:27.010012+00:00
+fetched_at: 2026-11-14T08:45:56.343946+00:00
 ---
 
 # Limits · Cloudflare Workers docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-30T08:19:27.010012+00:00
 
 # Limits
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
+OverviewSpending limitsAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
+
+## Spending limits
+
+To limit usage charges across your account, configure a [Workers spending limit](https://developers.cloudflare.com/workers/platform/spend-management/). A limit can reject new invocations once its threshold is reached. It is separate from the request, CPU time, and resource limits on this page.
 
 ## Account plan limits
 

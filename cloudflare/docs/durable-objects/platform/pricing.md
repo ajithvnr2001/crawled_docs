@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/platform/pricing/
 title: Pricing \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:10.999299+00:00
+fetched_at: 2026-11-14T08:45:56.473768+00:00
 ---
 
 # Pricing · Cloudflare Durable Objects docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-19T07:11:10.999299+00:00
 
 # Pricing
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCompute billingStorage billing SQLite storage backend Key-value storage backendCompute billing examples Example 1 Example 2 Example 3 Example 4Frequently Asked Questions When does a Durable Object incur duration charges? Does an empty table / SQLite database contribute to my storage? Does metadata stored in Durable Objects count towards my storage?
+OverviewCompute billingStorage billing SQLite storage backend Key-value storage backendControl usage costsCompute billing examples Example 1 Example 2 Example 3 Example 4Frequently Asked Questions When does a Durable Object incur duration charges? Does an empty table / SQLite database contribute to my storage? Does metadata stored in Durable Objects count towards my storage?
 
 Durable Objects can incur two types of billing: compute and storage.
 
@@ -129,6 +129,12 @@ Footnotes
 5 Durable Objects will be billed for stored data until the data is removed. Once the data is removed, the object will be cleaned up automatically by the system.
 
 Requests that hit the [Durable Objects in-memory cache](https://developers.cloudflare.com/durable-objects/reference/in-memory-state/) or that use the [multi-key versions of `get()`/`put()`/`delete()` methods](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) are billed the same as if they were a normal, individual request for each key.
+
+## Control usage costs
+
+Set a [Durable Objects spending limit](https://developers.cloudflare.com/durable-objects/platform/spend-management/) for requests, duration, and storage operations after included usage. Stored data charges are excluded and can continue during a pause.
+
+Review the [operations that can continue](https://developers.cloudflare.com/durable-objects/platform/spend-management/#operations-that-can-continue) before relying on a limit. For email without blocking usage, configure an [email alert](https://developers.cloudflare.com/billing/manage/spend-management/cli/#create-an-email-alert).
 
 ## Compute billing examples
 

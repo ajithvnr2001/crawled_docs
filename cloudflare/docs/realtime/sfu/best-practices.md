@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/best-practices/
 title: Best practices \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:34.190169+00:00
+fetched_at: 2026-11-14T08:45:55.769990+00:00
 ---
 
 # Best practices · Cloudflare Realtime docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:14:34.190169+00:00
 
 # Best practices
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/best-practices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewKeep credentials on the backendAuthorize resource operationsCoordinate negotiationDefine recovery explicitlyRetain cleanup stateApply application limitsLearn with an example
+OverviewKeep credentials on the backendAuthorize resource operationsCoordinate negotiationDefine recovery explicitlyClose unused resourcesApply application limitsLearn with an example
 
 Your application owns identity, state, and lifecycle around the SFU's media transport. Preserve these boundaries when adapting an example.
 
@@ -50,13 +50,11 @@ Make reconnect visible to the user, bound retries, and provide a recovery action
 
 For WebSocket adapters, implement recreation after terminal closure and respect the different ingest and stream reconnect behavior.
 
-## Retain cleanup state
+## Close unused resources
 
-Remove unavailable or unauthorized publications from discovery. Retain their resource identifiers privately until required cleanup is complete. Check [individual close results](https://developers.cloudflare.com/realtime/sfu/observability/error-codes/#interpret-close-results) and keep unresolved items available for retry.
+Remove unavailable or unauthorized publications from discovery. To stop forwarding on a live session, close the affected tracks or DataChannels and check [individual close results](https://developers.cloudflare.com/realtime/sfu/observability/error-codes/#interpret-close-results).
 
-Decide whether replacement can proceed while old resources remain. Discarding an obsolete connection from application state does not stop SFU forwarding. When you need to stop access, close the affected SFU resources and confirm the result.
-
-Use explicit leave/stop operations and application expiry for abandoned clients. A browser tab may close without sending cleanup. Keep the backend available while retries still need to run.
+When finished, close the PeerConnection and [discard its session](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#resource-lifetime).
 
 ## Apply application limits
 

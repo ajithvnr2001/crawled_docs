@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/observability/
 title: Observability \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:19.818290+00:00
+fetched_at: 2026-11-14T08:45:55.190379+00:00
 ---
 
 # Observability · Cloudflare Realtime docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:19.818290+00:00
 
 # Observability
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRecord useful contextCheck the failing layerInspect browser media statisticsHandle lifecycle failuresLearn with an example
 
@@ -79,7 +79,7 @@ Symptom | Check and next action
 Membership remains after media fails | Compare application membership with the PeerConnection state. Use the application's [connection recovery policy](https://developers.cloudflare.com/realtime/sfu/best-practices/#define-recovery-explicitly).  
 An API response is lost or times out | Record the interrupted operation and known resource identifiers. Follow [operation-specific recovery](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#retry-and-reconnect) before another mutation.  
 Reconnect restores the wrong tracks | Compare the current session IDs and connection attempt ID with the response being applied. Refer to [replacement connections](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#retry-and-reconnect).  
-Leave or stop never finishes | Inspect pending track, channel, and adapter closures and their item errors. [Retain cleanup state](https://developers.cloudflare.com/realtime/sfu/best-practices/#retain-cleanup-state) while retrying failed items.  
+Leave or stop never finishes | [Discard ended sessions](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#resource-lifetime). For live sessions or adapters, inspect individual close results and retry failed items.  
 A track disappears after inactivity | Check the source's last incoming media and the [inactivity timeout](https://developers.cloudflare.com/realtime/sfu/platform/limits/#inactivity-timeout).  
 An adapter stops delivering after a disconnect | Check its direction and whether the [stream reconnect window](https://developers.cloudflare.com/realtime/sfu/features/media-transport-adapters/websocket-adapter/#automatic-reconnection-for-streaming) expired. Recreate terminally closed adapters.  
   

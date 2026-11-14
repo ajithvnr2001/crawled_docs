@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/get-started/wrangler/
 title: CLI \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:41.204057+00:00
+fetched_at: 2026-11-14T08:45:58.245108+00:00
 ---
 
 # CLI · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:41.204057+00:00
 
 # CLI
 
-Last updated Jul 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/get-started/wrangler/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Install Wrangler2\. Create an AI Search instance Connect a data source (optional)3\. Check indexing status4\. Test your instanceAdd to your application
 
@@ -48,6 +48,11 @@ Create a new instance.
     
     
     wrangler ai-search create my-instance
+
+The instance is created in the `default` namespace. To create it in another [namespace](https://developers.cloudflare.com/ai-search/concepts/namespaces/), pass `--namespace` (or `-n`):
+    
+    
+    wrangler ai-search create my-instance --namespace my-namespace
 
 You can upload files to the instance using the [dashboard](https://developers.cloudflare.com/ai-search/get-started/dashboard/#upload-content) or the [REST API](https://developers.cloudflare.com/api/resources/ai_search/subresources/namespaces/subresources/instances/subresources/items/methods/upload/).
 

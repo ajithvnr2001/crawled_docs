@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/path-filtering/
 title: Path filtering \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:09.659428+00:00
+fetched_at: 2026-11-14T08:45:57.564886+00:00
 ---
 
 # Path filtering · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-13T09:17:09.659428+00:00
 
 # Path filtering
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigurationFiltering behavior Wildcard rules Pattern syntax Indexing job status Important notesExamples R2 data source Website data source D1 data source API format
 
@@ -97,6 +97,7 @@ You can view these in the Jobs tab of your AI Search instance to verify your fil
   * **Case sensitivity:** Pattern matching is case-sensitive. `/Blog/*` does not match `/blog/post.html`.
   * **Full path matching:** Patterns match the entire path or URL. Use `**` at the beginning for partial matching. For example, `docs/*` matches `docs/file.pdf` but not `site/docs/file.pdf`, while `**/docs/*` matches both.
   * **Single`*` does not cross directories:** Use `**` to match across path separators. For example, `docs/*` matches `docs/file.pdf` but not `docs/sub/file.pdf`, while `docs/**` matches both.
+  * **R2 object keys:** For R2 data sources, patterns match object keys as-is. Object keys do not start with `/`, so use `docs/**` instead of `/docs/**`.
   * **Trailing slashes matter:** URLs are matched as-is without normalization. `/blog/` does not match `/blog`.
 
 
@@ -107,11 +108,11 @@ You can view these in the Jobs tab of your AI Search instance to verify your fil
 
 Use case | Pattern | Indexed | Skipped  
 ---|---|---|---  
-Index only PDFs in docs | Include: `/docs/**/*.pdf` | `/docs/guide.pdf`, `/docs/api/ref.pdf` | `/docs/guide.md`, `/images/logo.png`  
-Exclude temp and backup files | Exclude: `**/*.tmp`, `**/*.bak` | `/docs/guide.md` | `/data/cache.tmp`, `/old.bak`  
-Exclude temp and backup folders | Exclude: `/temp/**`, `/backup/**` | `/docs/guide.md` | `/temp/file.txt`, `/backup/data.json`  
-Index docs but exclude drafts | Include: `/docs/**`, Exclude: `/docs/drafts/**` | `/docs/guide.md` | `/docs/drafts/wip.md`  
-Scope an instance to one tenant | Include: `/customers/acme/**` | `/customers/acme/report.pdf` | `/customers/globex/report.pdf`  
+Index only PDFs in docs | Include: `docs/**/*.pdf` | `docs/guide.pdf`, `docs/api/ref.pdf` | `docs/guide.md`, `images/logo.png`  
+Exclude temp and backup files | Exclude: `**/*.tmp`, `**/*.bak` | `docs/guide.md` | `data/cache.tmp`, `old.bak`  
+Exclude temp and backup folders | Exclude: `temp/**`, `backup/**` | `docs/guide.md` | `temp/file.txt`, `backup/data.json`  
+Index docs but exclude drafts | Include: `docs/**`, Exclude: `docs/drafts/**` | `docs/guide.md` | `docs/drafts/wip.md`  
+Scope an instance to one tenant | Include: `customers/acme/**` | `customers/acme/report.pdf` | `customers/globex/report.pdf`  
   
 To give each tenant an isolated instance backed by a single shared bucket, refer to [Multitenancy](https://developers.cloudflare.com/ai-search/how-to/per-tenant-search/#r2).
 

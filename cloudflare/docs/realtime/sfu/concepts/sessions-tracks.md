@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/
 title: Sessions and tracks \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:19.710508+00:00
+fetched_at: 2026-11-14T08:45:55.557107+00:00
 ---
 
 # Sessions and tracks · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-31T08:10:19.710508+00:00
 
 # Sessions and tracks
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewApplicationsSessions Session setupMedia tracksDiscovery and subscriptionsDataChannelsResource lifetimeLearn with an example
 
@@ -80,9 +80,9 @@ DataChannels carry application messages such as telemetry, text, and control eve
 
 ## Resource lifetime
 
-Remove a publication from discovery when your application stops offering it. This does not close existing subscriptions. Retain its SFU identifiers privately while cleanup remains outstanding.
+After setup fails or the connection ends, discard the session. The SFU reclaims its resources automatically.
 
-Follow the [media-close sequence](https://developers.cloudflare.com/realtime/sfu/get-started/connection-patterns/#close-media-tracks) or [DataChannel closure](https://developers.cloudflare.com/realtime/sfu/features/datachannels/#close-channels) when resources are no longer needed. Refer to [limits](https://developers.cloudflare.com/realtime/sfu/platform/limits/#inactivity-timeout) for expiration and reuse, and [Best practices](https://developers.cloudflare.com/realtime/sfu/best-practices/#retain-cleanup-state) for cleanup ownership.
+On a live session, close unused [media tracks](https://developers.cloudflare.com/realtime/sfu/get-started/connection-patterns/#close-media-tracks) or [DataChannels](https://developers.cloudflare.com/realtime/sfu/features/datachannels/#close-channels). Remove ended publications from discovery. Refer to [limits](https://developers.cloudflare.com/realtime/sfu/platform/limits/#inactivity-timeout) for inactivity timeouts.
 
 ## Learn with an example
 

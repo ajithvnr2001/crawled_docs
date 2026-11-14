@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/reference/sensitive-data-detection/
 title: Cloudflare Sensitive Data Detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:45.256820+00:00
+fetched_at: 2026-11-14T08:45:58.319075+00:00
 ---
 
 # Cloudflare Sensitive Data Detection · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:45.256820+00:00
 
 # Cloudflare Sensitive Data Detection
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/managed-rules/reference/sensitive-data-detection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAdditional remarksDeploy the Cloudflare Sensitive Data Detection rulesetConfigure in the dashboard Ruleset-level configuration Tag-level configuration Rule-level configurationConfigure via API Example Next steps More resourcesReview detected leaks
 
@@ -46,9 +46,13 @@ Some rules in the Cloudflare Sensitive Data Detection managed ruleset are disabl
 
 ## Additional remarks
 
-When turned on, Cloudflare Sensitive Data Detection will check all responses sent to visitors (according to your custom filter expression, if defined), including responses from cache and responses handled by [Workers](https://developers.cloudflare.com/workers/).
+When turned on, Cloudflare Sensitive Data Detection will check supported, uncompressed responses sent to visitors (according to your custom filter expression, if defined), including responses from cache and responses handled by [Workers](https://developers.cloudflare.com/workers/).
 
 The detection will handle text, HTML, JSON, and XML content in the response up to 1 MB.
+
+Caution
+
+Sensitive Data Detection does not inspect compressed response bodies. Sensitive data in compressed responses will not generate Sensitive Data Detection events. Do not rely on Sensitive Data Detection for coverage of compressed responses.
 
 Currently, Cloudflare Sensitive Data Detection does not support [matched payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/).
 
@@ -320,7 +324,7 @@ To check for any data leaks detected by Cloudflare Sensitive Data Detection, you
 
 
 
-[PreviousCloudflare Exposed Credentials Check Managed Ruleset](https://developers.cloudflare.com/waf/managed-rules/reference/exposed-credentials-check/)[NextOverview](https://developers.cloudflare.com/waf/tools/lists/)
+[PreviousCloudflare Exposed Credentials Check Managed Ruleset](https://developers.cloudflare.com/waf/managed-rules/reference/exposed-credentials-check/)[NextResponse firewall](https://developers.cloudflare.com/waf/response-firewall/)
 
 Was this helpful?
 

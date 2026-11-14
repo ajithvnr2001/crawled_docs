@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/get-started/dashboard/
 title: Get started - Dashboard \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:30.310976+00:00
+fetched_at: 2026-11-14T08:45:56.637637+00:00
 ---
 
 # Get started - Dashboard · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:30.310976+00:00
 
 # Dashboard
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/get-started/dashboard/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSetupContinue development
 
@@ -80,6 +80,7 @@ To do more:
   * Set up [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) to allow your Worker to interact with other resources and unlock new functionality.
   * Learn how to [test and debug](https://developers.cloudflare.com/workers/testing/) your Workers.
   * Read about [Workers limits and pricing](https://developers.cloudflare.com/workers/platform/).
+  * [Set a spending limit or email alert](https://developers.cloudflare.com/billing/manage/spend-management/) to help control Workers usage costs across your account.
 
 
 

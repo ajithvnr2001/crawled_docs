@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/get-started/
 title: Getting started \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:11.631159+00:00
+fetched_at: 2026-11-14T08:45:56.909073+00:00
 ---
 
 # Getting started · Cloudflare Durable Objects docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-19T07:11:11.631159+00:00
 
 # Getting started
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewQuick startPrerequisites1\. Create a Worker project2\. Write a Durable Object class using SQL API3\. Instantiate and communicate with a Durable Object4\. Configure Durable Object bindings5\. Configure Durable Object class with SQLite storage backend6\. Develop a Durable Object Worker locally7\. Deploy your Durable Object WorkerSummary and final codeRelated resources
+OverviewQuick startPrerequisites1\. Create a Worker project2\. Write a Durable Object class using SQL API3\. Instantiate and communicate with a Durable Object4\. Configure Durable Object bindings5\. Configure Durable Object class with SQLite storage backend6\. Develop a Durable Object Worker locally7\. Deploy your Durable Object WorkerSummary and final codeControl usage costsRelated resources
 
 This guide will instruct you through:
 
@@ -424,6 +424,10 @@ By finishing this tutorial, you have:
   * Deployed the Durable Object globally
 
 
+
+## Control usage costs
+
+[Set a spending limit or email alert](https://developers.cloudflare.com/billing/manage/spend-management/) for Durable Objects. If your application also uses Workers, configure a separate Workers limit. These limits apply across your account, not just to the application you created in this tutorial.
 
 ## Related resources
 

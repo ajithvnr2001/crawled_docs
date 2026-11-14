@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/retrieval/filtering/
 title: Filtering \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:40.380429+00:00
+fetched_at: 2026-11-14T08:45:57.630013+00:00
 ---
 
 # Filtering · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:40.380429+00:00
 
 # Filtering
 
-Last updated Aug 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/retrieval/filtering/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFilter syntax Supported operators Implicit $eq Range queries Multiple conditions (implicit AND) $in operator"Starts with" filter for folders
 
@@ -47,7 +47,7 @@ Here is an example of metadata filtering using the [Workers binding](https://dev
     		retrieval: {
     			filters: {
     				folder: "docs/getting-started/",
-    				timestamp: { $gte: 1735689600 },
+    				timestamp: { $gte: 1735689600000 },
     			},
     		},
     	},
@@ -102,7 +102,9 @@ Combine upper and lower bound operators to filter by ranges:
     {
     	"ai_search_options": {
     		"retrieval": {
-    			"filters": { "timestamp": { "$gte": 1735689600, "$lt": 1735900000 } }
+    			"filters": {
+    				"timestamp": { "$gte": 1735689600000, "$lt": 1735862400000 }
+    			}
     		}
     	}
     }
@@ -117,7 +119,7 @@ When you specify multiple keys, all conditions must match:
     		"retrieval": {
     			"filters": {
     				"folder": "docs/getting-started/",
-    				"timestamp": { "$gte": 1735689600 }
+    				"timestamp": { "$gte": 1735689600000 }
     			}
     		}
     	}

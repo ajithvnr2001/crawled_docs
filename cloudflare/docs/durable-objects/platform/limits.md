@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/platform/limits/
 title: Limits \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:45:33.943761+00:00
+fetched_at: 2026-11-14T08:45:56.674348+00:00
 ---
 
 # Limits · Cloudflare Durable Objects docs
@@ -18,11 +18,15 @@ fetched_at: 2026-11-08T08:45:33.943761+00:00
 
 # Limits
 
-Last updated Nov 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSQLite-backed Durable Objects general limits SQL storage limitsKey-value backed Durable Objects general limitsOutbound HTTP request body sizeFrequently Asked Questions How much work can a single Durable Object do? How many Durable Objects can I create? Can I increase Durable Objects' CPU limit? What happens when a Durable Object exceeds its storage limit?Wall time limits by invocation type
+OverviewSpending limitsSQLite-backed Durable Objects general limits SQL storage limitsKey-value backed Durable Objects general limitsOutbound HTTP request body sizeFrequently Asked Questions How much work can a single Durable Object do? How many Durable Objects can I create? Can I increase Durable Objects' CPU limit? What happens when a Durable Object exceeds its storage limit?Wall time limits by invocation type
 
 Durable Objects are a special kind of Worker, so [Workers limits](https://developers.cloudflare.com/workers/platform/limits/) also apply. Limits that depend on your Workers plan are identified on that page. This page also covers Durable Object storage, CPU, and outbound HTTP request body size limits.
+
+## Spending limits
+
+To limit usage charges across your account, configure a [Durable Objects spending limit](https://developers.cloudflare.com/durable-objects/platform/spend-management/). Review its effects on SQL queries, WebSockets, and pending alarms. A spending limit is separate from the resource and Free plan limits on this page.
 
 ## SQLite-backed Durable Objects general limits
 

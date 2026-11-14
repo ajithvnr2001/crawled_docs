@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/api/migration/rest-api/
 title: REST API migration \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:37.536743+00:00
+fetched_at: 2026-11-14T08:45:57.853006+00:00
 ---
 
 # REST API migration · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ API
 
 # REST API migration
 
-Last updated Sep 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/api/migration/rest-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpoint changesAPI token permissions Create a new token Edit an existing tokenChat completionsSearchStreaming behavior changesFilter format Operator mapping ExamplesAPI references
 
@@ -204,7 +204,7 @@ Combine multiple conditions where all must match:
     		"retrieval": {
     			"filters": {
     				"folder": "customer-a/",
-    				"timestamp": { "$gte": 1735689600 }
+    				"timestamp": { "$gte": 1735689600000 }
     			}
     		}
     	}

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/instant-logs/
 title: Instant Logs \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-12T08:23:31.590478+00:00
+fetched_at: 2026-11-14T08:45:56.168124+00:00
 ---
 
 # Instant Logs · Cloudflare Logs docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-12T08:23:31.590478+00:00
 
 # Instant Logs
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityInstant Logs via Cloudflare Dashboard Observability LogsInstant Logs via CLI 1\. Create an Instant Logs Job 2\. Connect to WebSocket Angle GrinderDatasets availableExportLimitsConnect with us
 
@@ -33,7 +33,7 @@ Availability | No | No | Yes | Yes
 
 Dashboard navigation updated
 
-The **Analytics > Instant Logs** menu entry has moved. Instant Logs is now integrated into **Observability > Logs** as a live streaming mode. The standalone Instant Logs page remains accessible via direct link (refer to Instant Logs page (legacy)), but the Analytics navigation entry no longer appears in the dashboard.
+The **Analytics > Instant Logs** menu entry has moved. Instant Logs is now integrated into **Observability > Logs** as a live streaming mode.
 
 ### Observability Logs
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/kitesurf/
 title: Kitesurf \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:37.403464+00:00
+fetched_at: 2026-11-14T08:45:55.803685+00:00
 ---
 
 # Kitesurf · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:05:37.403464+00:00
 
 # Kitesurf
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/kitesurf/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use Kitesurf What Kitesurf cannot do yetHow to use Kitesurf Use Kitesurf with Quick Actions Use Kitesurf with the browser binding Use Kitesurf with the CDP endpoint Use Kitesurf from an MCP client Try the Kitesurf playgroundStandards complianceHow Kitesurf compares to Chromium
 
@@ -101,6 +101,8 @@ From a Worker, pass `browser: "kitesurf"` in the options of the [browser binding
     } satisfies ExportedHandler<Env>;
 
 The binding validates the value, so any engine name other than `kitesurf` fails with `Invalid input: expected "kitesurf"`. Leave out `browser` to use the default Chromium browser.
+
+Under `wrangler dev`, a `.quickAction()` call with `browser: "kitesurf"` throws an error, because Kitesurf is not available locally. To use Kitesurf during local development, set `"remote": true` in your browser binding configuration.
 
 ### Use Kitesurf with the CDP endpoint
 
