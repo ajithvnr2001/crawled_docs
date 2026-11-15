@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/pricing/
 title: Pricing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.997534+00:00
+fetched_at: 2026-11-15T14:54:07.825117+00:00
 ---
 
 # Pricing - Fish Audio
@@ -80,7 +80,7 @@ The LLM your agent runs is chosen in the Builder. The basic models are:
   * GPT-5.6 Luna
   * Gemma 4 26B
 
-Every model has a per-token cost. For now the conversation rate covers it for the basic models as a promotional offer, so they carry no separate charge. Every other model is billed on token usage. Prices are expressed in USD per 1 million tokens, with separate rates for input tokens, output tokens, and cached input. These rates are determined by the LLM providers and may change. Refer to the provider’s documentation for current pricing. What a minute costs on such a model therefore depends on your agent: how long the system prompt and retrieved knowledge are, how much conversation history the model re-reads on every turn, how often it is called, and how verbose its replies are. The Builder shows an estimated per-minute figure next to each token-billed model, computed from your current prompt and typical agent behavior. The estimate does not account for prompt caching, and actual charges are based on token usage. After a conversation, each message in the dashboard’s conversation view shows its model requests and token cost. A [custom LLM](https://docs.fish.audio/agents/build/custom-llm) endpoint carries no LLM charge.
+Every model has a per-token cost. For now the conversation rate covers it for the basic models as a promotional offer, so they carry no separate charge. Every other model is billed on token usage. Prices are expressed in USD per 1 million tokens, with separate rates for input tokens, output tokens, and cached input. These rates are determined by the LLM providers and may change. Refer to the provider’s documentation for current pricing. What a minute costs on such a model therefore depends on your agent: how long the system prompt and retrieved knowledge are, how much conversation history the model re-reads on every turn, how often it is called, and how verbose its replies are. The Builder shows an estimated per-minute figure next to each token-billed model, computed from your current prompt and typical agent behavior. The estimate assumes the prompt caching a typical agent gets on that model, and actual charges are based on token usage. After a conversation, each message in the dashboard’s conversation view shows its model requests and token cost. A [custom LLM](https://docs.fish.audio/agents/build/custom-llm) endpoint carries no LLM charge.
 
 ### Simulation tests
 
