@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/image/ideogram/ideogram-v4/
-title: ComfyUI Ideogram 4.0 Open-Source Model Tutorial - ComfyUI
+title: Ideogram 4.0 in ComfyUI: Open-Source Text-to-Image Model - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:21.821430+00:00
+fetched_at: 2026-11-15T14:35:56.424668+00:00
 ---
 
-# ComfyUI Ideogram 4.0 Open-Source Model Tutorial - ComfyUI
+# Ideogram 4.0 in ComfyUI: Open-Source Text-to-Image Model - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/image/ideogram/ideogram-v4/
 
 ## On this page
+
+Back to top
 
   * Ideogram 4.0 Text-to-Image Workflow
     * Ideogram v4: Text to Image
@@ -23,7 +25,7 @@ fetched_at: 2026-10-17T10:51:21.821430+00:00
 
 Ideogram
 
-# ComfyUI Ideogram 4.0 Open-Source Model Tutorial
+# Ideogram 4.0 in ComfyUI: Open-Source Text-to-Image Model
 
 Copy pageCopy page
 
@@ -56,17 +58,9 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
+## Ideogram 4.0 Text-to-Image Workflow
 
-​
-
-Ideogram 4.0 Text-to-Image Workflow
-
-### 
-
-​
-
-Ideogram v4: Text to Image
+### Ideogram v4: Text to Image
 
 Input a text prompt or structured JSON description. Generate an image with precise layout, color, and style control using Ideogram 4.0. ![Ideogram 4.0 text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ideogram4_t2i-1.webp)
 
@@ -80,11 +74,7 @@ Download JSON or search “Ideogram v4: Text to Image” in Template Library
 
 **Example output** ![Ideogram 4.0 example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ideogram4_t2i.png)
 
-### 
-
-​
-
-Prompt Format
+### Prompt Format
 
 The open-source workflow supports two prompt modes:
 
@@ -95,11 +85,7 @@ The workflow includes a prompt construction template that you can use with any L
 
 > The model is trained on structured JSON captions (scene summary, style block, background, and optional per-object descriptions with bounding boxes and hex color palettes). Official inference validates prompts against that schema.
 
-### 
-
-​
-
-Ideogram 4.0 model downloads
+### Ideogram 4.0 model downloads
 
 You can find all repackaged model files at [Comfy-Org/Ideogram-4](https://huggingface.co/Comfy-Org/Ideogram-4) on Hugging Face.
 
@@ -142,11 +128,7 @@ VAE for Ideogram 4.0 (~335 MB). Place in `models/vae/`
 
 This workflow uses Subgraph nodes for modular processing. Check the Subgraph documentation to learn how to customize and extend.
 
-### 
-
-​
-
-Workflow Steps
+### Workflow Steps
 
   1. Download and place the models in the correct directories (see table above)
   2. Download and drag the workflow file into ComfyUI
@@ -157,19 +139,11 @@ Workflow Steps
 
 
 
-### 
-
-​
-
-Note on Safety Filter
+### Note on Safety Filter
 
 If you see “Image blocked by safety filter”, this is Ideogram 4.0’s built-in safety filter. Non-JSON (plain-text) prompts have a higher false-positive rate. Using structured JSON prompts reduces the chance of your prompt being blocked. For more details, see [Ideogram 4’s official prompting guide](https://github.com/ideogram-oss/ideogram4/blob/main/docs/prompting.md#safety-filter).
 
-## 
-
-​
-
-Live Conversation with Ideogram & ComfyOrg
+## Live Conversation with Ideogram & ComfyOrg
 
 A special live conversation with Mohammad Norouzi (CEO, Ideogram) and Yoland Yan (CEO, ComfyOrg), hosted by Purz & Rob.
 
@@ -179,26 +153,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/ideogram/ideogram-v4.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/ideogram/ideogram-v4)
 
-[Krea-2 ComfyUI Workflow ExamplePrevious](https://docs.comfy.org/tutorials/image/krea/krea-2)[Mage-Flow: ComfyUI Workflow ExampleNext](https://docs.comfy.org/tutorials/image/mage-flow/mage-flow)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Krea 2](https://docs.comfy.org/tutorials/image/krea/krea-2)[Mage-Flow](https://docs.comfy.org/tutorials/image/mage-flow/mage-flow)

@@ -1,33 +1,32 @@
 ---
 url: https://docs.comfy.org/tutorials/video/ltx/ltx-2-3/
-title: LTX-2.3: ComfyUI Workflow Examples - ComfyUI
+title: LTX-2.3 in ComfyUI: Video and Audio Workflows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:43.408534+00:00
+fetched_at: 2026-11-15T14:35:58.579004+00:00
 ---
 
-# LTX-2.3: ComfyUI Workflow Examples - ComfyUI
+# LTX-2.3 in ComfyUI: Video and Audio Workflows - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/video/ltx/ltx-2-3/
 
 ## On this page
 
+Back to top
+
   * Key features
   * Getting started
+  * Choosing a template workflow
   * ComfyUI Native Workflows
-    * LTX-2.3 Text to Video (T2V)
     * LTX-2.3 Text to Video
     * Model downloads
     * Model storage
     * Prompting tips
-    * LTX-2.3 Image to Video (I2V)
     * LTX-2.3 Image to Video
     * Model downloads
     * Model storage
-    * LTX-2.3 FLF2V
     * LTX-2.3 First-Last Frame to Video
     * Model downloads
     * Model storage
-    * LTX-2.3 Image Audio to Video (IA2V)
     * LTX-2.3 Image and Audio to Video
     * Model downloads
     * Model storage
@@ -40,7 +39,6 @@ fetched_at: 2026-10-17T10:51:43.408534+00:00
     * Restore Archival Footage
     * Video Outpainting
     * Googly Eyes
-    * LTX-2.3 ID-LoRA
     * LTX-2.3 ID LoRA
     * Model downloads
     * Model storage
@@ -51,7 +49,7 @@ fetched_at: 2026-10-17T10:51:43.408534+00:00
 
 LTX
 
-# LTX-2.3: ComfyUI Workflow Examples
+# LTX-2.3 in ComfyUI: Video and Audio Workflows
 
 Copy pageCopy page
 
@@ -93,11 +91,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key features
+## Key features
 
   * **Finer details** : New latent space and updated VAE for sharper textures, cleaner edges, and more precise visuals
   * **9:16 Portrait support** : Greatly improved quality for vertical portrait videos
@@ -108,11 +102,7 @@ Key features
 
 
 
-## 
-
-​
-
-Getting started
+## Getting started
 
 LTX-2.3 is natively supported in ComfyUI. To get started:
 
@@ -122,27 +112,39 @@ LTX-2.3 is natively supported in ComfyUI. To get started:
 
 
 
-## 
+## Choosing a template workflow
 
-​
+Six native LTX-2.3 templates ship in **Template Library** > **Video** (examples, not an exhaustive list).
 
-ComfyUI Native Workflows
+## Text to Video (T2V)
 
-### 
+Text prompts with improved prompt understanding and text rendering.
 
-​
+## Image to Video (I2V)
 
-LTX-2.3 Text to Video (T2V)
+Animate a still image with smoother motion.
 
-Generate videos from text prompts with improved prompt understanding and text rendering.
+## First-Last Frame (FLF2V)
 
-### 
+Interpolate between a start image and an end image.
 
-​
+## Image + Audio (IA2V)
 
-LTX-2.3 Text to Video
+Lip-synced video from an image and audio clip.
 
-Generate videos from text prompts with improved prompt understanding and text rendering. ![LTX-2.3 Text to Video \( workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_t2v-1.webp)
+## IC-LoRA Union Control
+
+Depth, pose, edge, or other control video guidance.
+
+## ID-LoRA
+
+Personalized video with synchronized audio from reference image and voice.
+
+## ComfyUI Native Workflows
+
+### LTX-2.3 Text to Video
+
+Generate videos from text prompts with improved prompt understanding and text rendering. ![LTX-2.3 Text to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_t2v-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -152,11 +154,7 @@ Open in Comfy Cloud
 
 Download JSON or search “LTX-2.3 T2V” in Template Library
 
-#### 
-
-​
-
-Model downloads
+#### Model downloads
 
 ## Checkpoint: ltx-2.3-22b-dev-fp8
 
@@ -178,11 +176,7 @@ Place in `ComfyUI/models/text_encoders/`
 
 Place in `ComfyUI/models/latent_upscale_models/`
 
-#### 
-
-​
-
-Model storage
+#### Model storage
     
     
     ComfyUI/
@@ -198,11 +192,7 @@ Model storage
     │       └── ltx-2.3-spatial-upscaler-x2-1.1.safetensors
     
 
-#### 
-
-​
-
-Prompting tips
+#### Prompting tips
 
   1. **Core Actions** : Describe events and actions as they occur over time
   2. **Visual Details** : Describe all visual details you want to appear in the video
@@ -212,21 +202,9 @@ Prompting tips
 
 * * *
 
-### 
+### LTX-2.3 Image to Video
 
-​
-
-LTX-2.3 Image to Video (I2V)
-
-Generate videos from an input image with more consistent motion and smoother animations.
-
-### 
-
-​
-
-LTX-2.3 Image to Video
-
-Generate videos from an input image with improved motion consistency. ![LTX-2.3 Image to Video \( workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_i2v-1.webp)
+Generate videos from an input image with improved motion consistency. ![LTX-2.3 Image to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_i2v-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -240,11 +218,7 @@ Download JSON or search “LTX-2.3 I2V” in Template Library
 
 Download the default input image, or use your own image.
 
-#### 
-
-​
-
-Model downloads
+#### Model downloads
 
 The I2V workflow uses the same model set as Text-to-Video.
 
@@ -268,11 +242,7 @@ Place in `ComfyUI/models/text_encoders/`
 
 Place in `ComfyUI/models/latent_upscale_models/`
 
-#### 
-
-​
-
-Model storage
+#### Model storage
     
     
     ComfyUI/
@@ -290,21 +260,9 @@ Model storage
 
 * * *
 
-### 
+### LTX-2.3 First-Last Frame to Video
 
-​
-
-LTX-2.3 FLF2V
-
-Interpolate between a start image and an end image to generate a smooth video transition.
-
-### 
-
-​
-
-LTX-2.3 First-Last Frame to Video
-
-Interpolate between a start and end image. ![LTX-2.3 First-Last Frame to Video \( workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_flf2v-1.webp)
+Interpolate between a start image and an end image to generate a smooth video transition. ![LTX-2.3 First-Last Frame to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_flf2v-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -322,11 +280,7 @@ First frame of the video.
 
 Last frame of the video.
 
-#### 
-
-​
-
-Model downloads
+#### Model downloads
 
 The FLF2V workflow uses the distilled checkpoint instead of the dev checkpoint.
 
@@ -338,11 +292,7 @@ Place in `ComfyUI/models/checkpoints/`
 
 Place in `ComfyUI/models/text_encoders/`
 
-#### 
-
-​
-
-Model storage
+#### Model storage
     
     
     ComfyUI/
@@ -355,21 +305,9 @@ Model storage
 
 * * *
 
-### 
+### LTX-2.3 Image and Audio to Video
 
-​
-
-LTX-2.3 Image Audio to Video (IA2V)
-
-Upload an image and an audio file to generate a high-quality video with synchronized lip movements.
-
-### 
-
-​
-
-LTX-2.3 Image and Audio to Video
-
-Generate lip-synced videos from an image and audio. ![LTX-2.3 Image and Audio to Video \( workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_ia2v-1.webp)
+Upload an image and an audio file to generate lip-synced video with synchronized lip movements. ![LTX-2.3 Image and Audio to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_ia2v-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -387,11 +325,7 @@ Reference image for the speaking character.
 
 Audio track for lip synchronization.
 
-#### 
-
-​
-
-Model downloads
+#### Model downloads
 
 The IA2V workflow uses the same model set as Text-to-Video.
 
@@ -415,11 +349,7 @@ Place in `ComfyUI/models/text_encoders/`
 
 Place in `ComfyUI/models/latent_upscale_models/`
 
-#### 
-
-​
-
-Model storage
+#### Model storage
     
     
     ComfyUI/
@@ -437,11 +367,7 @@ Model storage
 
 * * *
 
-### 
-
-​
-
-LTX-2.3 IC-LoRA Union Control
+### LTX-2.3 IC-LoRA Union Control
 
 Generate LTX-2.3 videos with IC-LoRA using aligned control inputs like depth, pose, or edges. IC-LoRA is an in-context LoRA trained on top of LTX-2.3 that applies structural guidance from a reference video. It accepts control signals from various preprocessors including depth maps, Canny edges, and pose skeletons. This workflow uses a subgraph for modular processing. ![LTX-2.3 IC-LoRA preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_ic_lora-1.webp)
 
@@ -467,11 +393,7 @@ Driving video for control signal extraction.
 
 Reference image for style and content.
 
-#### 
-
-​
-
-Model downloads
+#### Model downloads
 
 ## Checkpoint: ltx-2.3-22b-distilled-fp8
 
@@ -493,11 +415,7 @@ Place in `ComfyUI/models/text_encoders/`
 
 Place in `ComfyUI/models/geometry_estimation/`
 
-#### 
-
-​
-
-Model storage
+#### Model storage
     
     
     ComfyUI/
@@ -515,19 +433,11 @@ Model storage
 
 * * *
 
-### 
-
-​
-
-Video editing with IC-LoRA
+### Video editing with IC-LoRA
 
 IC-LoRA weights are not limited to generation control. The Template Library includes ready-made LTX-2.3 IC-LoRA workflows for editing existing footage, and each one runs in Comfy Cloud or locally in ComfyUI. Community IC-LoRA checkpoints trained on top of LTX-2.3 (for example, the [LTX2.3-ICEdit-Insight](https://huggingface.co/joyfox/LTX2.3-ICEdit-Insight) family) are also compatible with the native LTX-2.3 model.
 
-#### 
-
-​
-
-Remove Subtitles from Video
+#### Remove Subtitles from Video
 
 Remove subtitles, captions, watermarks, or other text overlays from a video: ![LTX-2.3 Remove Subtitles workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/template_ltx2_3_lora_remove_subtitles_from_video-1.webp)
 
@@ -539,11 +449,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Remove Subtitles” in Template Library
 
-#### 
-
-​
-
-Remove Object from Video
+#### Remove Object from Video
 
 Remove a specific object from the foreground of a video by describing it in the prompt: ![LTX-2.3 Remove Object workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/template_ltx2_3_obscura_remova_lora_remove_object_from_video-1.webp)
 
@@ -555,11 +461,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Remove Object” in Template Library
 
-#### 
-
-​
-
-Restore Archival Footage
+#### Restore Archival Footage
 
 Restore old or degraded archival footage: ![LTX-2.3 Restore Archival Footage workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/template_ltx2_3_lora_restore_archival_footage-1.webp)
 
@@ -571,11 +473,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Restore Archival” in Template Library
 
-#### 
-
-​
-
-Video Outpainting
+#### Video Outpainting
 
 Expand a video in any direction using the LTX-2.3 Video Outpainting IC-LoRA: ![LTX-2.3 Video Outpainting workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/template_ltx2_3_lora_video_outpainting-1.webp)
 
@@ -587,11 +485,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Video Outpainting” in Template Library
 
-#### 
-
-​
-
-Googly Eyes
+#### Googly Eyes
 
 Apply the Googlyeyes LTX-2.3 LoRA to an input video to give everyone in the frame googly eyes: ![LTX-2.3 Googly Eyes workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/template_ltx2_3_lora_googly_eyes-1.webp)
 
@@ -611,21 +505,9 @@ For community IC-LoRAs, place the editing LoRA in `ComfyUI/models/loras/` and lo
 
 * * *
 
-### 
+### LTX-2.3 ID LoRA
 
-​
-
-LTX-2.3 ID-LoRA
-
-Generate personalized videos with synchronized audio from a text prompt, reference image, and short audio clip. Uses ID-LoRA to adapt a person’s appearance and voice in a single generative model.
-
-### 
-
-​
-
-LTX-2.3 ID LoRA
-
-Generate personalized videos with synchronized audio from a reference image and audio clip. ![LTX-2.3 ID LoRA \( workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_id_lora-1.webp)
+Generate personalized videos with synchronized audio from a text prompt, reference image, and short audio clip. Uses ID-LoRA to adapt a person’s appearance and voice in a single generative model. ![LTX-2.3 ID LoRA workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_ltx2_3_id_lora-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -643,11 +525,7 @@ Reference image for the character appearance.
 
 Audio clip for voice cloning and lip sync.
 
-#### 
-
-​
-
-Model downloads
+#### Model downloads
 
 ## Checkpoint: ltx-2.3-22b-dev-fp8
 
@@ -669,11 +547,7 @@ Place in `ComfyUI/models/text_encoders/`
 
 Place in `ComfyUI/models/latent_upscale_models/`
 
-#### 
-
-​
-
-Model storage
+#### Model storage
     
     
     ComfyUI/
@@ -689,11 +563,7 @@ Model storage
     │       └── ltx-2.3-spatial-upscaler-x2-1.1.safetensors
     
 
-## 
-
-​
-
-Prompting tips
+## Prompting tips
 
 When writing prompts for LTX-2.3, focus on detailed, chronological descriptions of actions and scenes:
 
@@ -703,11 +573,7 @@ When writing prompts for LTX-2.3, focus on detailed, chronological descriptions 
 
 
 
-## 
-
-​
-
-Resources
+## Resources
 
   * [Hugging Face Model](https://huggingface.co/Lightricks/LTX-2.3)
   * [GitHub Repository](https://github.com/Lightricks/LTX-2)
@@ -722,26 +588,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/ltx/ltx-2-3.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/ltx/ltx-2-3)
 
-[LTX-2.0 ComfyUI Workflow ExamplesPrevious](https://docs.comfy.org/tutorials/video/ltx/ltx-2)[LTX-2.5: ComfyUI Workflow ExamplesNext](https://docs.comfy.org/tutorials/video/ltx/ltx-2-5)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[LTX-2.5](https://docs.comfy.org/tutorials/video/ltx/ltx-2-5)[LTX-2.0](https://docs.comfy.org/tutorials/video/ltx/ltx-2)

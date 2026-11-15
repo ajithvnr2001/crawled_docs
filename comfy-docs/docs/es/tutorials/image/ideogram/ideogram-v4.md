@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/ideogram/ideogram-v4/
-title: Tutorial de Ideogram 4.0 de c\u00f3digo abierto en ComfyUI - ComfyUI
+title: Ideogram 4.0 en ComfyUI: modelo de texto a imagen de c\u00f3digo abierto - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.018577+00:00
+fetched_at: 2026-11-15T14:35:57.832693+00:00
 ---
 
-# Tutorial de Ideogram 4.0 de código abierto en ComfyUI - ComfyUI
+# Ideogram 4.0 en ComfyUI: modelo de texto a imagen de código abierto - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/ideogram/ideogram-v4/
 
@@ -25,7 +25,7 @@ Volver arriba
 
 Ideogram
 
-# Tutorial de Ideogram 4.0 de código abierto en ComfyUI
+# Ideogram 4.0 en ComfyUI: modelo de texto a imagen de código abierto
 
 Copiar páginaCopiar página
 
@@ -58,17 +58,9 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
+## Flujo de trabajo de texto a imagen con Ideogram 4.0
 
-​
-
-Flujo de trabajo de texto a imagen con Ideogram 4.0
-
-### 
-
-​
-
-Ideogram v4: texto a imagen
+### Ideogram v4: texto a imagen
 
 Introduce un prompt de texto o una descripción JSON estructurada. Genera una imagen con control preciso de diseño, color y estilo usando Ideogram 4.0. ![Vista previa del flujo de trabajo de texto a imagen de Ideogram 4.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ideogram4_t2i-1.webp)
 
@@ -82,11 +74,7 @@ Descarga el JSON o busca “Ideogram v4: Text to Image” en la Biblioteca de pl
 
 **Ejemplo de salida** ![Ejemplo de salida de Ideogram 4.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ideogram4_t2i.png)
 
-### 
-
-​
-
-Formato del prompt
+### Formato del prompt
 
 El flujo de trabajo de código abierto admite dos modos de prompt:
 
@@ -97,11 +85,7 @@ El flujo de trabajo incluye una plantilla de construcción de prompts que puedes
 
 > El modelo se entrenó con subtítulos JSON estructurados (resumen de la escena, bloque de estilo, fondo y descripciones opcionales por objeto con cuadros delimitadores y paletas de colores hexadecimales). La inferencia oficial valida los prompts contra ese esquema.
 
-### 
-
-​
-
-Descargas del modelo Ideogram 4.0
+### Descargas del modelo Ideogram 4.0
 
 Puedes encontrar todos los archivos del modelo reempaquetados en [Comfy-Org/Ideogram-4](https://huggingface.co/Comfy-Org/Ideogram-4) en Hugging Face.
 
@@ -144,11 +128,7 @@ VAE para Ideogram 4.0 (~335 MB). Colócalo en `models/vae/`
 
 Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender.
 
-### 
-
-​
-
-Pasos del flujo de trabajo
+### Pasos del flujo de trabajo
 
   1. Descarga los modelos y colócalos en los directorios correctos (consulta la tabla anterior)
   2. Descarga el archivo del flujo de trabajo y arrástralo a ComfyUI
@@ -159,19 +139,11 @@ Pasos del flujo de trabajo
 
 
 
-### 
-
-​
-
-Nota sobre el filtro de seguridad
+### Nota sobre el filtro de seguridad
 
 Si ves “Image blocked by safety filter”, se trata del filtro de seguridad integrado de Ideogram 4.0. Los prompts que no son JSON (texto plano) tienen una tasa más alta de falsos positivos. Usar prompts JSON estructurados reduce la probabilidad de que tu prompt sea bloqueado. Para más detalles, consulta la [guía oficial de prompts de Ideogram 4](https://github.com/ideogram-oss/ideogram4/blob/main/docs/prompting.md#safety-filter).
 
-## 
-
-​
-
-Conversación en vivo con Ideogram y ComfyOrg
+## Conversación en vivo con Ideogram y ComfyOrg
 
 Una conversación en vivo especial con Mohammad Norouzi (CEO de Ideogram) y Yoland Yan (CEO de ComfyOrg), presentada por Purz y Rob.
 

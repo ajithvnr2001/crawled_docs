@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance/
-title: HitPaw Image Enhance - ComfyUI
+title: HitPaw Image Enhance in ComfyUI: AI Upscaling and Restoration - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.691803+00:00
+fetched_at: 2026-11-15T14:35:55.973233+00:00
 ---
 
-# HitPaw Image Enhance - ComfyUI
+# HitPaw Image Enhance in ComfyUI: AI Upscaling and Restoration - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -18,21 +20,17 @@ fetched_at: 2026-10-25T12:24:49.691803+00:00
 
 HitPaw
 
-# HitPaw Image Enhance
+# HitPaw Image Enhance in ComfyUI: AI Upscaling and Restoration
 
 Copy pageCopy page
 
-Upscale and restore images using HitPaw’s general AI enhancement model in ComfyUI.
+Upscale and restore photos, renders, and AI images with HitPaw Image Enhance in ComfyUI, using content-aware processing for noise, blur, and low resolution.
 
 Copy pageCopy page
 
 HitPaw Image Enhance is a multi-purpose AI upscaling and restoration model that handles noise, blur, artifacts, and low resolution across photographs, renders, and AI-generated images. It uses content-aware processing to automatically apply optimized enhancement strategies for natural results.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Multi-purpose upscaling** — Handles noise, blur, artifacts, and low resolution in a single pass.
   * **Content-aware processing** — Automatically detects image content type (portrait, landscape, text, etc.) and applies optimized strategies.
@@ -66,11 +64,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Open in ComfyCloud
 
@@ -86,4 +80,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance)
 
-[HitPaw](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview)[Ideogram 4.5](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-4-5)
+[HitPaw](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview)[Ideogram Vector](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-vector)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/pika/pika-audio/
 title: Pika Music y Pika SFX en ComfyUI: canciones y efectos de sonido con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:12.658056+00:00
+fetched_at: 2026-11-15T14:35:57.371521+00:00
 ---
 
 # Pika Music y Pika SFX en ComfyUI: canciones y efectos de sonido con IA - ComfyUI
@@ -33,7 +33,7 @@ Pika
 
 Copiar páginaCopiar página
 
-Genera una canción completa desde un prompt de estilo y letras opcionales, versiona una pista o crea efectos de sonido de 1 a 20 segundos con los nodos Pika Music y Pika SFX de ComfyUI.
+Crea una canción desde un prompt de estilo y letras, versiona una pista existente o genera efectos de sonido de 1 a 20 segundos con Pika Music y Pika SFX.
 
 Copiar páginaCopiar página
 

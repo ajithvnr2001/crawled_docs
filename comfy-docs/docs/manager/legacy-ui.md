@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/manager/legacy-ui/
 title: Managing custom nodes with ComfyUI-Manager (legacy UI) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:04.364996+00:00
+fetched_at: 2026-11-15T14:35:56.795263+00:00
 ---
 
 # Managing custom nodes with ComfyUI-Manager (legacy UI) - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:04.364996+00:00
 > Source: https://docs.comfy.org/manager/legacy-ui/
 
 ## On this page
+
+Back to top
 
   * ComfyUI custom node management
     * Install nodes
@@ -26,23 +28,15 @@ Node Management
 
 Copy pageCopy page
 
-Install, update, and manage custom nodes with ComfyUI-Manager using the legacy interface
+Legacy ComfyUI-Manager interface: install, update, and uninstall custom nodes, add the nodes a workflow is missing, and restore environments from snapshots.
 
 Copy pageCopy page
 
-## 
-
-​
-
-ComfyUI custom node management
+## ComfyUI custom node management
 
 Learn how to install custom nodes through Manager
 
-### 
-
-​
-
-Install nodes
+### Install nodes
 
 1
 
@@ -90,11 +84,7 @@ Check if the plugin was installed successfully
 
 After restarting, check in ComfyUI Manager whether the corresponding plugin was installed successfully, and whether there are `import failed` error messages![Check if plugin was installed successfully](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/installation/custom_nodes/install-custom-nodes-by-manager-9.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=c1d9fa38bbfe862ae661177e2948599c)
 
-### 
-
-​
-
-Install missing nodes
+### Install missing nodes
 
 Missing nodes are a common situation when loading workflows. There are usually two types of missing nodes:
 
@@ -115,11 +105,7 @@ If you find that the missing nodes list cannot find the corresponding node, ther
 
 
 
-### 
-
-​
-
-Update nodes
+### Update nodes
 
 ![Node version](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/manger_node_version.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=cd663ba4db2aa4477a2784935317b8e8)
 
@@ -128,11 +114,7 @@ Update nodes
 
 
 
-### 
-
-​
-
-Uninstall nodes
+### Uninstall nodes
 
 ![Uninstall nodes](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/manger_remove_nodes.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=5bbc0ba5314820111faa0d366cedeafc)
 
@@ -149,11 +131,7 @@ For other methods of installing plugins, please refer to the article below
 
 Learn how to manually install custom nodes
 
-## 
-
-​
-
-Snapshot manager
+## Snapshot manager
 
 Snapshots save your current installation status, allowing you to restore to a previous state. ![Snapshot manager](https://raw.githubusercontent.com/ltdrdata/ComfyUI-extension-tutorials/Main/ComfyUI-Manager/images/snapshot.jpg) Snapshots are automatically saved when you press **Save snapshot** or use **Update All**. Snapshot files are stored in: `<USER_DIRECTORY>/default/ComfyUI-Manager/snapshots` To restore: Open the Snapshot Manager, select a snapshot, and press **Restore**.
 
@@ -165,26 +143,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/manager/legacy-ui.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/manager/legacy-ui)
 
-[Custom nodes (new UI)Previous](https://docs.comfy.org/manager/pack-management)[ComfyUI-Manager ConfigurationNext](https://docs.comfy.org/manager/configuration)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[New UI](https://docs.comfy.org/manager/pack-management)[Config](https://docs.comfy.org/manager/configuration)

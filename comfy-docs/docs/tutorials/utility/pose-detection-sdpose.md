@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/utility/pose-detection-sdpose/
 title: SDPose: Pose Detection in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:41.210887+00:00
+fetched_at: 2026-11-15T14:35:55.925709+00:00
 ---
 
 # SDPose: Pose Detection in ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:41.210887+00:00
 > Source: https://docs.comfy.org/tutorials/utility/pose-detection-sdpose/
 
 ## On this page
+
+Back to top
 
   * Key strengths
   * SDPose Workflows
@@ -34,7 +36,7 @@ Pose & Detection
 
 Copy pageCopy page
 
-Learn how to extract pose keypoints and maps from images and videos using SDPose, natively supported in ComfyUI
+Extract whole-body pose keypoints and pose maps from images and videos with SDPose in ComfyUI, plus RT-DETRv4 for multi-person and out-of-domain detection.
 
 Copy pageCopy page
 
@@ -63,11 +65,7 @@ So, if you find any core node missing in this document, it might be because the 
 
 SDPose is a whole-body pose detection model that extracts human keypoints from images and videos. Combined with the RT-DETRv4 object detector, it supports multi-person detection and out-of-domain (OOD) pose estimation, making it a versatile tool for animation pipelines, pose-driven generation, and motion tracking workflows. SDPose + RT-DETRv4 are natively supported in ComfyUI (PR [#12748](https://github.com/Comfy-Org/ComfyUI/pull/12748)). The model weights are available on Hugging Face. [SDPose Model on Hugging Face](https://huggingface.co/Comfy-Org/SDPose) | [RT-DETRv4 Paper (arXiv)](https://arxiv.org/abs/2510.25257) | [SDPose Paper (arXiv)](https://arxiv.org/abs/2509.24980)
 
-### 
-
-​
-
-Key strengths
+### Key strengths
 
   * **Whole-body keypoints** : detects body, hands, face, and feet keypoints in a unified model
   * **Multi-person support** : detects and labels multiple people in a single image or video
@@ -79,11 +77,7 @@ Key strengths
 
 > **Limitations:** Detection accuracy depends on image resolution and subject visibility. Extremely occluded or very small subjects may produce fewer keypoints.
 
-## 
-
-​
-
-SDPose Workflows
+## SDPose Workflows
 
 Four workflows are available depending on your use case:
 
@@ -94,19 +88,11 @@ Multi-Person (Video)| Video| Per-frame pose map + BBoxes| Video pose tracking
 OOD Image to Pose| Single image| Pose map| Style transfer / image-to-pose  
 OOD Video to Pose Map| Video| Per-frame pose map| Video-to-pose animation  
   
-### 
-
-​
-
-1\. Download Workflows
+### 1\. Download Workflows
 
 Update your ComfyUI to the latest version, then go to `Workflow` -> `Browse Templates` and find SDPose workflows under the Utility category.
 
-### 
-
-​
-
-SDPose: Image Multi-Person Detection
+### SDPose: Image Multi-Person Detection
 
 Upload an image to detect human poses. Supports detection for both single individuals and multiple people within the same scene. ![SDPose image multi-person detection workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_multi_person-1.webp)
 
@@ -126,11 +112,7 @@ Download JSON or search “SDPose: Image Multi-Person Detection” in Template L
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/group_photo.png)
 
-### 
-
-​
-
-SDPose: Video Multi-Person Detection
+### SDPose: Video Multi-Person Detection
 
 Upload a video to detect human poses. Supports detection for both single individuals and multiple people within the same scene. ![SDPose video multi-person detection workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_multi_person_video-1.webp)
 
@@ -148,11 +130,7 @@ Download JSON or search “SDPose: Video Multi-Person Detection” in Template L
 
 `LoadVideo` node 694 · `man_playing_violin.mp4`
 
-### 
-
-​
-
-SDPose-OOD: Image to Pose Map
+### SDPose-OOD: Image to Pose Map
 
 Upload an image to extract pose keypoints and generate a corresponding pose map using the SDPose-OOD model. ![SDPose-OOD image to pose map workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_ood_image_to_pose-1.webp)
 
@@ -174,11 +152,7 @@ Download JSON or search “SDPose-OOD: Image to Pose Map” in Template Library
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/dancer.png)![SDPose-OOD image to pose map example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_sdpose_ood_image_to_pose.png)
 
-### 
-
-​
-
-SDPose-OOD: Video to Pose Map
+### SDPose-OOD: Video to Pose Map
 
 Upload a video to extract pose keypoints and generate a pose map. The workflow supports multiple person detection and uses an enhanced SDPose model for accurate whole-body feature extraction. ![SDPose-OOD video to pose map workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_ood_video_to_pose_map-1.webp)
 
@@ -198,11 +172,7 @@ Download JSON or search “SDPose-OOD: Video to Pose Map” in Template Library
 
 **Example output**
 
-### 
-
-​
-
-2\. Download Models
+### 2\. Download Models
 
 The SDPose and RT-DETRv4 model checkpoints are hosted on the [Comfy-Org SDPose model repository](https://huggingface.co/Comfy-Org/SDPose). **checkpoints** (SDPose model):
 
@@ -225,17 +195,9 @@ Place them in the following directory structure:
             └── rt_detr_v4-x-hgnet_fp32.safetensors
     
 
-### 
+### 3\. Using the Workflows
 
-​
-
-3\. Using the Workflows
-
-#### 
-
-​
-
-Multi-Person (Image)
+#### Multi-Person (Image)
 
   * **Input** : Load an image via the `Load Image` node. Use an image with one or more people (example: `group_photo.png`).
   * **Detection** : The `Image to Pose Map (SDPose Multi-Person)` subgraph processes the image and outputs: 
@@ -254,27 +216,15 @@ Multi-Person (Image)
 
 
 
-#### 
-
-​
-
-Multi-Person (Video)
+#### Multi-Person (Video)
 
 Same as the image workflow but processes video frames sequentially. Use `Load Video` to input a video file and `Save Video` to export the result.
 
-#### 
-
-​
-
-OOD Image to Pose
+#### OOD Image to Pose
 
 Uses the SDPose model to generate a clean pose map from an image, without bounding box visualization. This is useful for style transfer where you want to extract the skeleton pose from one image and apply it to another.
 
-#### 
-
-​
-
-OOD Video to Pose Map
+#### OOD Video to Pose Map
 
 Generates per-frame pose maps from a video. The output is a video file where each frame contains the extracted pose skeleton, suitable for downstream animation or ControlNet workflows.
 
@@ -282,11 +232,7 @@ Generates per-frame pose maps from a video. The output is a video file where eac
 
 These workflows use Subgraph nodes for modular processing. Check out the Subgraph documentation to learn how to customize and extend the workflows.
 
-## 
-
-​
-
-Additional Notes
+## Additional Notes
 
   * **Model directory** : the SDPose checkpoint goes in `models/checkpoints/`, and the RT-DETRv4 detector goes in `models/diffusion_models/`
   * **Input image example** : the `group_photo.png` file is available in the workflow template’s `input/` directory for testing
@@ -301,26 +247,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/utility/pose-detection-sdpose.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/utility/pose-detection-sdpose)
 
-[BiRefNet: Remove Image Background in ComfyUIPrevious](https://docs.comfy.org/tutorials/utility/remove-background-birefnet)[MediaPipe: Face Detection in ComfyUINext](https://docs.comfy.org/tutorials/utility/face-detection/mediapipe)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[MediaPipe Face Detection](https://docs.comfy.org/tutorials/utility/face-detection/mediapipe)[Marigold V2](https://docs.comfy.org/tutorials/utility/marigold-v2)

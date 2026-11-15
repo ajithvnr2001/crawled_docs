@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/luma/luma-image-to-video/
-title: Luma Image to Video (Legacy) Partner Node Guide - ComfyUI
+title: Luma Image to Video in ComfyUI: Retired Legacy Node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:33.555609+00:00
+fetched_at: 2026-11-15T14:35:56.021299+00:00
 ---
 
-# Luma Image to Video (Legacy) Partner Node Guide - ComfyUI
+# Luma Image to Video in ComfyUI: Retired Legacy Node - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/luma/luma-image-to-video/
 
 ## On this page
+
+Back to top
 
   * What Luma Image to Video is good at
   * Image to Video Workflow with Luma Partner Nodes
@@ -20,7 +22,7 @@ fetched_at: 2026-10-17T10:51:33.555609+00:00
 
 Luma
 
-# Luma Image to Video (Legacy) Partner Node Guide
+# Luma Image to Video in ComfyUI: Retired Legacy Node
 
 Copy pageCopy page
 
@@ -32,11 +34,7 @@ Copy pageCopy page
 
 The Luma Image to Video node allows you to convert static images into smooth, dynamic videos using Luma AI’s advanced technology, bringing life and motion to your images.
 
-## 
-
-​
-
-What Luma Image to Video is good at
+## What Luma Image to Video is good at
 
   * **Image animation** : Converts static images into smooth, dynamic videos, bringing life and motion to your images
   * **Prompt-guided motion** : Text prompts determine the video’s motion effects
@@ -71,19 +69,11 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Image to Video Workflow with Luma Partner Nodes
+## Image to Video Workflow with Luma Partner Nodes
 
 The Luma Image to Video node requires at least one image input (`first_image` or `last_image`) along with text prompts to determine the video’s motion effects. In this guide, we’ve created an example using `first_image` and `luma_concepts` to showcase Luma AI’s video generation capabilities.
 
-### 
-
-​
-
-1\. Download the Workflow
+### 1\. Download the Workflow
 
 This page documents the retired **Luma Image to Video** node and the example workflow it shipped, which selected `ray-2`. Luma stops serving that model on October 24, 2026, so neither the node nor the example can run. The example and its step guide stay in this page’s source as a comment. The replacement is a separate node. Its own guide:
 
@@ -91,11 +81,7 @@ This page documents the retired **Luma Image to Video** node and the example wor
 
 See the replacement node and its inputs.
 
-### 
-
-​
-
-2\. Additional Notes
+### 2\. Additional Notes
 
   * **Image Input Requirements** : At least one of `first_image` or `last_image` is required, with a maximum of 1 image per input
   * **Luma Concepts** : Controls camera movement for professional video effects
@@ -112,26 +98,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/luma/luma-image-to-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/luma/luma-image-to-video)
 
-[Luma Text to Video (Legacy) Partner Node GuidePrevious](https://docs.comfy.org/tutorials/partner-nodes/luma/luma-text-to-video)[MiniMax H3 API Video Generation in ComfyUINext](https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-h3)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Luma Text to Video](https://docs.comfy.org/tutorials/partner-nodes/luma/luma-text-to-video)[MiniMax (Hailuo)](https://docs.comfy.org/tutorials/partner-nodes/minimax/overview)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/api-development/sdks/
 title: SDK de Comfy: clientes de Python y TypeScript para ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:52.830086+00:00
+fetched_at: 2026-11-15T14:35:58.686868+00:00
 ---
 
 # SDK de Comfy: clientes de Python y TypeScript para ComfyUI - ComfyUI
@@ -14,6 +14,7 @@ fetched_at: 2026-10-26T14:02:52.830086+00:00
 Volver arriba
 
   * Instalar
+  * Agentes de programación
   * Inicio rápido
   * Elegir una URL base
     * Comfy Cloud
@@ -65,11 +66,7 @@ Esta página documenta la segunda fila: el cliente de Comfy Cloud y Comfy API v2
 
 Estos SDK controlan ComfyUI **desde fuera**. Si escribes nodos personalizados o extensiones de frontend que se ejecutan **dentro** de ComfyUI, lo que buscas es [Desarrollar Nodos personalizados](https://docs.comfy.org/es/custom-nodes/overview). Esas son un conjunto de APIs aparte.
 
-## 
-
-​
-
-Instalar
+## Instalar
 
 Python
 
@@ -87,11 +84,27 @@ Python 3.10 o posterior. Node 22 o posterior.
 
 **Versión actual: 0.5.0.** [`comfy-sdk`](https://pypi.org/project/comfy-sdk/) en PyPI y [`@comfyorg/sdk`](https://www.npmjs.com/package/@comfyorg/sdk) en npm se publican juntos y comparten un número de versión. Instala la última versión (`pip install comfy-sdk`, `npm install @comfyorg/sdk`) o indica un rango en lugar de anclar una versión exacta. Los dos ecosistemas lo expresan de forma distinta: `comfy-sdk>=0.5` es un límite inferior y acepta versiones menores posteriores, mientras que `@comfyorg/sdk@^0.5` es el rango compatible de npm para `0.5.x` y no llega hasta `0.6.0`, así que hay que elevar el rango con circunflejo cuando se publica una nueva versión menor. Usa `@comfyorg/sdk@>=0.5.0` si quieres que el lado de npm también siga las versiones menores posteriores. Las páginas del registro son la fuente autoritativa si esta nota se queda desactualizada.
 
-## 
+## Agentes de programación
 
-​
+Si un agente de programación va a escribir tu integración con Comfy Router, dale la habilidad `comfy-sdk`. La habilidad cubre lo que los agentes suelen hacer mal:
 
-Inicio rápido
+  * Qué cliente usar
+  * Mantener la clave de API en el servidor
+  * Comprobar el modelo antes de llamarlo
+  * Elegir entre `run` y `submit`
+  * Los tiempos de espera
+  * Tratar cada tipo de error por separado
+
+No cubre la ejecución de flujos de trabajo de ComfyUI. Para el cliente de flujos de trabajo de esta página, indica al agente que consulte esta guía y la [referencia de Comfy API v2](https://docs.comfy.org/es/api-reference/v2/overview). En Claude Code, ejecuta:
+    
+    
+    /plugin marketplace add Comfy-Org/comfy-skills
+    /plugin install comfy-sdk@comfy-skills
+    
+
+Para cualquier otro agente, copia el archivo [`SKILL.md`](https://github.com/Comfy-Org/comfy-skills/blob/main/claude-code-sdk/skills/comfy-sdk/SKILL.md) en `AGENTS.md` o en tus reglas de Cursor.
+
+## Inicio rápido
 
 Sube una imagen de entrada, ejecuta un flujo de trabajo y escribe los resultados en disco.
 
@@ -132,11 +145,7 @@ TypeScript
 
 `workflow_api.json` es un flujo de trabajo guardado en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). `"10"` y `"9"` son IDs de nodo de ese archivo: el nodo al que llega la imagen de entrada y el nodo de salida cuyos resultados quieres. Los manejadores de recursos son diferidos. `photo.png` se hashea localmente y solo se sube si el servidor no tiene ya esos bytes, así que volver a ejecutar con la misma entrada no cuesta nada. `run()` envía la tarea y espera a que llegue a un estado terminal. Para trabajar mientras se ejecuta, usa `submit()` en su lugar y observa el flujo de eventos. Para ejecutar contra tu propio ComfyUI, configura `COMFY_BASE_URL` y quita la clave. Consulta más abajo.
 
-## 
-
-​
-
-Elegir una URL base
+## Elegir una URL base
 
 Superficie| URL base| Clave API  
 ---|---|---  
@@ -167,29 +176,17 @@ TypeScript
 
 ¿Actualizas desde una versión temprana? `Comfy("<url>", "<key>")` ahora es `Comfy(api_key="<key>")` con `COMFY_BASE_URL` configurada. `api_key` solo se puede pasar por nombre, así que la llamada posicional anterior lanza `TypeError` en lugar de leer silenciosamente una URL como clave.
 
-### 
-
-​
-
-Comfy Cloud
+### Comfy Cloud
 
 Funciona sin configuración adicional. Crea una [clave API](https://docs.comfy.org/es/development/api-development/getting-an-api-key) y pásala al cliente.
 
-El acceso a la API requiere una suscripción de pago a Comfy Cloud. El plan gratuito no lo incluye. Cuántas tareas puedes ejecutar a la vez depende de tu plan. Consulta [Límites de simultaneidad](https://docs.comfy.org/es/development/deploy/cloud-usage#tareas-simult%C3%A1neas).
+El acceso a la API requiere una suscripción de pago a Comfy Cloud. El plan gratuito no lo incluye. Cuántas tareas puedes ejecutar a la vez depende de tu plan. Consulta [Límites de simultaneidad](https://docs.comfy.org/es/development/deploy/cloud-usage#l%C3%ADmites-de-simultaneidad).
 
-### 
-
-​
-
-Despliegue de Comfy API
+### Despliegue de Comfy API
 
 Un flujo de trabajo que desplegaste mediante la [plataforma para desarrolladores](https://platform.comfy.org) obtiene su propio endpoint. Apunta `COMFY_BASE_URL` a ese endpoint y usa tu clave API, exactamente igual que con Comfy Cloud. Todo en esta guía funciona de la misma manera, excepto las etiquetas de tareas y la lista de tareas, que Comfy Cloud todavía no admite. Un despliegue de Comfy API puede ejecutar varios flujos de trabajo con los modelos y nodos personalizados incluidos en su Build. Para cada tarea, `get_workflow()` devuelve una respuesta de flujo de trabajo con `format: "api"` y el gráfico ejecutado en su propiedad `.graph`.
 
-### 
-
-​
-
-Tu propio ComfyUI
+### Tu propio ComfyUI
 
 La API v2 se sirve en ComfyUI autoalojado mediante [comfy-api-proxy](https://github.com/Comfy-Org/comfy-api-proxy), un pequeño servicio de código abierto que se ejecuta junto a tu ComfyUI. Instálalo, ejecútalo y configura `COMFY_BASE_URL="http://127.0.0.1:8189"`:
     
@@ -201,11 +198,7 @@ La API v2 se sirve en ComfyUI autoalojado mediante [comfy-api-proxy](https://git
 
 Consulta la página [Proxy de API para ComfyUI autoalojado](https://docs.comfy.org/es/development/comfyui-server/api-proxy) para ver los detalles de configuración y autenticación.
 
-## 
-
-​
-
-Reintentar un envío: la clave de idempotencia
+## Reintentar un envío: la clave de idempotencia
 
 `submit()` y `run()` envían una `Idempotency-Key` en cada envío, y el contrato de Comfy API v2 para esa clave es **rechazar el duplicado, no grabar y reproducir**. Lee esto antes de envolver un envío en un bucle de reintentos.
 
@@ -270,11 +263,7 @@ TypeScript
 
 La `Idempotency-Key` de Comfy Router se comporta **de forma diferente**. En Router la clave es un identificador de reproducción en lugar de un token de un solo uso: reenviar un envío en cola con la misma clave devuelve la solicitud original en lugar de encolar una segunda. Consulta [idempotencia y facturación en cola](https://docs.comfy.org/es/development/comfy-router/queue#idempotencia-y-facturaci%C3%B3n) y [resultados de reintento en Router](https://docs.comfy.org/es/development/comfy-router/errors#resultados-de-reintento). Ambas superficies comparten el nombre de una cabecera, no un contrato.
 
-## 
-
-​
-
-Observar la ejecución de una tarea
+## Observar la ejecución de una tarea
 
 `job.events()` te ofrece una transmisión en vivo del estado de la tarea: progreso de nodos y pasos, fotogramas de vista previa y cada salida en el momento en que se confirma. Se reconecta por su cuenta si la conexión se cae.
 
@@ -322,11 +311,7 @@ TypeScript
 
 `Preview.to_pil()` requiere el extra opcional de Pillow: `pip install "comfy-sdk[pil]"`. `result()` devuelve la tarea finalizada o lanza `JobFailed` con el detalle a nivel de nodo si la ejecución falla. Consulta el SDK README de tu idioma para ver el catálogo completo de eventos.
 
-### 
-
-​
-
-`events()` no es `subscribe()`
+### `events()` no es `subscribe()`
 
 Existen tres cosas con nombres parecidos en las dos superficies, y solo una de ellas aparece en esta página:
 
@@ -338,11 +323,7 @@ Llamada| Superficie| Qué produce
   
 No existe `subscribe()` en el cliente de Comfy Cloud, ni `job.subscribe()` en ningún lado. El equivalente de `subscribe` en Cloud es `run()`: envía y espera un estado terminal. La transmisión es un feed en vivo, no un registro reproducible. Existe para que puedas mostrar el progreso, no para que dependas de ella para obtener resultados. Lo que manda es el sondeo de la tarea, y `run()`, `wait()` y `result()` recurren al sondeo de forma automática. Consulta las [Notas de diseño](https://docs.comfy.org/es/development/api-development/sdks-design#consulta-primero-transmite-para-el-progreso) para saber por qué.
 
-## 
-
-​
-
-Rastrear una salida hasta su flujo de trabajo
+## Rastrear una salida hasta su flujo de trabajo
 
 Las salidas llevan el id de la tarea que las produjo, así que puedes partir de un archivo y trabajar hacia atrás sin mantener una tabla aparte.
 
@@ -394,11 +375,7 @@ TypeScript
   
 Las tareas que envías a través del SDK siempre devuelven `api`, porque el envío v2 todavía no tiene campos para fijar la versión. Eso cambiará; el discriminador está ahí para que tu código no tenga que ocuparse de ello.
 
-## 
-
-​
-
-Etiquetar tareas y encontrarlas más tarde
+## Etiquetar tareas y encontrarlas más tarde
 
 Una etiqueta es una clave y un valor que adjuntas a una tarea al enviarla, como `client: acme` o `project: spring`. Usa las etiquetas para registrar para cuál de tus clientes o proyectos se ejecutó una tarea. Después puedes listar las tareas de un cliente sin mantener tu propia tabla de ids de tareas. Las etiquetas y la lista de tareas necesitan la versión actual del SDK, la que se indica en la nota de versión en Instalar. Las etiquetas funcionan en tareas enviadas a un despliegue de Comfy API, así que configura `COMFY_BASE_URL` con la dirección del despliegue como se muestra en Elegir una URL base. Comfy Cloud las rechaza por ahora y responde a la lista de tareas con `501` y el código `not_implemented`. Un comfy-api-proxy autoalojado tampoco las guarda: su propio campo `metadata` es una sola cadena de texto, así que rechaza un mapa de etiquetas. Su lista de tareas ignora los filtros de etiquetas, por lo que una llamada de lista del SDK con etiquetas no devuelve ninguna tarea allí, y los mismos filtros por HTTP devuelven todas las tareas. Los límites:
 
@@ -448,11 +425,7 @@ TypeScript
 
 Puedes filtrar por hasta 3 etiquetas a la vez, y una tarea debe coincidir exactamente con todas ellas. Los elementos de la lista no incluyen salidas. Para obtener las salidas de una tarea, lee la tarea por su id con `client.jobs.get(job.id)`.
 
-### 
-
-​
-
-Por HTTP
+### Por HTTP
 
 Envía `metadata` en el cuerpo de `POST /api/v2/jobs`:
     
@@ -490,11 +463,7 @@ La respuesta contiene una página de tareas y, cuando existen más páginas, un 
 
 Más de 3 filtros de etiquetas, o una clave que incumpla la regla de claves, falla con `400` y el código `invalid_metadata_filter`. Consulta la [referencia de Comfy API v2](https://docs.comfy.org/es/api-reference/v2/overview) para ver todos los campos de la tarea y de la lista.
 
-## 
-
-​
-
-Qué cubren los SDK hoy
+## Qué cubren los SDK hoy
 
 La primera versión hace una cosa bien: ejecutar un flujo de trabajo y devolver los resultados.
 
@@ -509,11 +478,7 @@ La primera versión hace una cosa bien: ejecutar un flujo de trabajo y devolver 
 
 Python incluye un cliente `Comfy` síncrono y un cliente `AsyncComfy` con la misma superficie. TypeScript es solo asíncrono. No están en esta versión: la gestión de flujos de trabajo guardados, la biblioteca de modelos, la introspección de nodos y los parámetros con nombre de los flujos de trabajo. [Notas de diseño](https://docs.comfy.org/es/development/api-development/sdks-design#alcance-de-la-primera-versi%C3%B3n) explica por qué la superficie empieza siendo tan pequeña.
 
-## 
-
-​
-
-Referencia
+## Referencia
 
 Los README de los SDK son la referencia completa para cada idioma, e incluyen autenticación, recursos, errores y los mecanismos de escape de bajo nivel.
 
@@ -537,11 +502,7 @@ Por qué existe esta API, cómo se relaciona con las API de ComfyUI existentes y
 
 La otra interfaz del mismo paquete: `comfy.models.run` para modelos de socios como Flux, Veo y Gemini.
 
-## 
-
-​
-
-Retroalimentación
+## Retroalimentación
 
 Reporta lo que resulte incómodo, lo que esperabas encontrar y no encontraste, y lo que tuviste que sortear. El canal `#developer-platform` en [nuestro Discord](https://discord.com/invite/comfyorg) es el lugar para hacerlo. Si quieres un SDK de primera mano en otro idioma, dilo ahí. Ambos SDK se apoyan en el mismo contrato HTTP documentado, así que hoy cualquier idioma puede comunicarse con la API, pero preferimos saber dónde está la demanda.
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/account/login/
 title: Inicia sesi\u00f3n en tu cuenta de Comfy - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:21.837601+00:00
+fetched_at: 2026-11-15T14:35:58.384916+00:00
 ---
 
 # Inicia sesión en tu cuenta de Comfy - ComfyUI
@@ -14,6 +14,7 @@ fetched_at: 2026-10-26T14:01:21.837601+00:00
 Volver arriba
 
   * Métodos de inicio de sesión compatibles
+  * Acceder con inicio de sesión único (SSO)
   * Iniciar sesión en Comfy Cloud
   * Iniciar sesión de forma local
     * Iniciar sesión con una clave API
@@ -29,31 +30,36 @@ Gestión de cuenta
 
 Copiar páginaCopiar página
 
-Accede a tu cuenta de Comfy para ComfyUI y usa todas las funciones y servicios de la plataforma.
+Inicia sesión en ComfyUI con correo, Google, GitHub o SSO, en Comfy Cloud o en la app local, con acceso por API Key en servidores propios.
 
 Copiar páginaCopiar página
 
 Tu cuenta de Comfy te da acceso a los [Nodos asociados (Partner Node)](https://docs.comfy.org/es/tutorials/partner-nodes/overview) y a las [suscripciones de nube](https://www.comfy.org/cloud), lo que te permite usar funciones y servicios premium en toda la plataforma de ComfyUI.
 
-## 
-
-​
-
-Métodos de inicio de sesión compatibles
+## Métodos de inicio de sesión compatibles
 
 ComfyUI es compatible con los siguientes métodos de inicio de sesión:
 
   * **Correo electrónico** : Inicia sesión con tu dirección de correo electrónico y tu contraseña
   * **Google** : Inicia sesión con tu cuenta de Google
   * **GitHub** : Inicia sesión con tu cuenta de GitHub
+  * **Inicio de sesión único (SSO)** : Inicia sesión con el proveedor de identidad de tu organización
 
 
 
-## 
+## Acceder con inicio de sesión único (SSO)
 
-​
+Si tu organización gestiona las cuentas de Comfy con un proveedor de identidad, inicias sesión con **Continuar con SSO** en lugar de tu correo y contraseña, Google o GitHub. El inicio de sesión único está disponible después de que tu organización lo active. Hasta entonces, usa correo, Google o GitHub.
 
-Iniciar sesión en Comfy Cloud
+  1. En la página de inicio de sesión, introduce tu correo electrónico o haz clic primero en **Continuar con SSO**.
+  2. Si aparece el aviso, haz clic en **Continuar con SSO**.
+  3. Completa el inicio de sesión en la página de tu proveedor de identidad. Vuelves a Comfy Cloud con la sesión iniciada.
+
+Si el inicio de sesión único no está configurado, o un administrador lo desactivó para tu organización, consulta con el administrador de tu organización.
+
+Las cuentas SSO aún no pueden iniciar sesión en la aplicación de escritorio de ComfyUI. Usa el navegador. Tampoco se pueden aceptar enlaces de invitación a un espacio de trabajo desde una cuenta SSO, así que pide a un administrador del espacio de trabajo que te añada directamente.
+
+## Iniciar sesión en Comfy Cloud
 
 Para acceder a tu cuenta de Comfy para ComfyUI en Comfy Cloud:
 
@@ -63,14 +69,11 @@ Para acceder a tu cuenta de Comfy para ComfyUI en Comfy Cloud:
      * **Correo electrónico** : Ingresa tu correo electrónico y tu contraseña, luego haz clic en **Log in**
      * **Google** : Haz clic en el botón de inicio de sesión de Google y autentícate
      * **GitHub** : Haz clic en el botón de inicio de sesión de GitHub y autentícate
+     * **SSO** : Haz clic en **Continuar con SSO** (puedes introducir el correo antes o ir directo a SSO) y termina en tu proveedor de identidad
 
 
 
-## 
-
-​
-
-Iniciar sesión de forma local
+## Iniciar sesión de forma local
 
 Si tienes ComfyUI instalado de forma local:
 
@@ -85,11 +88,7 @@ Si tienes ComfyUI instalado de forma local:
 
 ![Interfaz de configuraciones de usuario](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/user.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=4aacfc636460e073d16ef1fdaccb0888)
 
-### 
-
-​
-
-Iniciar sesión con una clave API
+### Iniciar sesión con una clave API
 
 Como no todas las implementaciones de ComfyUI están en la lista blanca de autorización de dominios, en una actualización reciente (2025-05-10) incluimos el inicio de sesión con clave API para acceder a través de sitios que no están en la lista blanca. A continuación, los pasos para iniciar sesión con una clave API:
 
@@ -129,19 +128,19 @@ Consulta los siguientes pasos para solicitar y obtener una clave API:
 
 Visita la Comfy Platform e inicia sesión
 
-Visita la [página de inicio de sesión de Comfy Platform](https://platform.comfy.org/login) e inicia sesión con la cuenta correspondiente![Visita la página de inicio de sesión de Platform](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-1.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=c9516c73148a20ac2de9fcd5f56860c9)
+Visita la [página de inicio de sesión de Comfy Platform](https://platform.comfy.org/login) e inicia sesión con la cuenta correspondiente![Visita la página de inicio de sesión de Platform](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-1.jpg)
 
 2
 
 Haz clic en `+ New` en API Keys para crear una clave API
 
-Haz clic en `+ New` en API Keys para crear una clave API![Crear clave API](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-2.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=9e1f6dc2a5a28fbbe5074f4267dd8d14)
+Haz clic en `+ New` en API Keys para crear una clave API![Crear clave API](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-2.jpg)
 
 3
 
 Ingresa el nombre de la clave API
 
-![Ingresa el nombre de la clave API](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-3.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=112f28de30c52898bca15513706c70f2)
+![Ingresa el nombre de la clave API](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-3.jpg)
 
   1. (Requerido) Ingresa el nombre de la clave API,
   2. Haz clic en `Generate` para crearla
@@ -152,7 +151,7 @@ Ingresa el nombre de la clave API
 
 Guarda la clave API obtenida
 
-![Obtener clave API](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-4.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=223b5d1941d0d9a2f2644807b08a676f)
+![Obtener clave API](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-4.jpg)
 
 Dado que la clave API solo es visible en el momento de su primera creación, guárdala inmediatamente después de crearla. No se podrá ver más adelante, así que consérvala en un lugar seguro. Ten en cuenta que no debes compartir tu clave API con otras personas. Si se filtra, puedes eliminarla y crear una nueva.
 
@@ -168,11 +167,7 @@ Administración de claves API
 
 ![Cerrar sesión](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-6.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=26fdf19fe5e8eaac528d923786c123ae)Si ya obtuviste una clave API y estás conectado en un dispositivo público, cierra la sesión de inmediato.
 
-## 
-
-​
-
-¿Olvidaste tu contraseña?
+## ¿Olvidaste tu contraseña?
 
 Si no recuerdas tu contraseña (para iniciar sesión con correo electrónico):
 
@@ -185,11 +180,7 @@ Si no recuerdas tu contraseña (para iniciar sesión con correo electrónico):
 
 
 
-## 
-
-​
-
-Solución de problemas al iniciar sesión
+## Solución de problemas al iniciar sesión
 
 Si tienes problemas para iniciar sesión:
 
@@ -202,11 +193,7 @@ Si tienes problemas para iniciar sesión:
 
 
 
-## 
-
-​
-
-Consejos de seguridad
+## Consejos de seguridad
 
 Para mantener la seguridad de tu cuenta:
 

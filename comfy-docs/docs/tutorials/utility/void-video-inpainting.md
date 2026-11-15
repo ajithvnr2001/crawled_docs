@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/utility/void-video-inpainting/
 title: VOID: Video Inpainting in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:42.106238+00:00
+fetched_at: 2026-11-15T14:35:55.519957+00:00
 ---
 
 # VOID: Video Inpainting in ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:42.106238+00:00
 > Source: https://docs.comfy.org/tutorials/utility/void-video-inpainting/
 
 ## On this page
+
+Back to top
 
   * Key strengths
   * VOID Video Inpainting Workflow
@@ -27,7 +29,7 @@ Video
 
 Copy pageCopy page
 
-Learn how to remove objects from videos using the VOID video inpainting model by Netflix, natively supported in ComfyUI
+Remove an object from a video with VOID, Netflix’s two-pass inpainting model in ComfyUI, which also deletes the shadows and physical interactions it caused.
 
 Copy pageCopy page
 
@@ -58,11 +60,7 @@ VOID (Video Object Inpainting and Deletion) is a powerful video inpainting model
 
 **Before** (left): the original footage with the snowboarder. **After** (right): the processed result after removing the snowboarder from the scene. VOID removes unwanted objects while maintaining natural motion, lighting, and scene coherence across frames.
 
-### 
-
-​
-
-Key strengths
+### Key strengths
 
   * **Interaction-aware removal** : removes not just the object, but all physical interactions it caused on the scene (shadows, reflections, falling objects)
   * **Object removal** , not single-frame patching: produces coherent motion and lighting across the entire clip
@@ -72,25 +70,13 @@ Key strengths
 
 > **Limitations:** Unclear masks, chaotic motion, or targets that dominate the frame may still produce suboptimal results. Prompting cannot fix fundamentally wrong segmentation.
 
-## 
+## VOID Video Inpainting Workflow
 
-​
-
-VOID Video Inpainting Workflow
-
-### 
-
-​
-
-1\. Download Workflow
+### 1\. Download Workflow
 
 Update your ComfyUI to the latest version, then go to `Workflow` -> `Browse Templates` and find “VOID: Video Inpainting” under the Utility category.
 
-### 
-
-​
-
-VOID: Video Inpainting
+### VOID: Video Inpainting
 
 Upload a video and mask the object you want to remove. Generate a clean video with the object and its physical interactions deleted. ![VOID video inpainting workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_void_video_inpainting-1.webp)
 
@@ -108,11 +94,7 @@ Download JSON or search “VOID: Video Inpainting” in Template Library
 
 `LoadVideo` node 4 · `snowboarder.mp4`
 
-### 
-
-​
-
-2\. Download Models
+### 2\. Download Models
 
 All models are hosted on the [Comfy-Org VOID model repository](https://huggingface.co/Comfy-Org/void-model). **Diffusion Models** : the core two-pass inpainting model:
 
@@ -153,11 +135,7 @@ All models are hosted on the [Comfy-Org VOID model repository](https://huggingfa
     │       └── void_pass1.safetensors
     
 
-### 
-
-​
-
-3\. Using the Workflow
+### 3\. Using the Workflow
 
 **Inputs:**
 
@@ -182,11 +160,7 @@ Use **Pass 2** (refinement pass) for longer clips or textured backgrounds where 
 
 This workflow uses Subgraph nodes for modular video processing. Check out the Subgraph documentation to learn how to customize and extend the workflow.
 
-## 
-
-​
-
-Additional Notes
+## Additional Notes
 
   * **Mask quality matters** : a clean, tight mask around the target object produces the best results
   * **Prompt writing tip** : describe the scene as it should appear _naturally_ after removal, not the removal itself
@@ -201,26 +175,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/utility/void-video-inpainting.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/utility/void-video-inpainting)
 
-[ComfyUI frame interpolation workflowPrevious](https://docs.comfy.org/tutorials/utility/frame-interpolation)[Comfy Cloud nodesNext](https://docs.comfy.org/cloud-nodes/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Frame interpolation](https://docs.comfy.org/tutorials/utility/frame-interpolation)[Overview](https://docs.comfy.org/cloud-nodes/overview)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/settings/extension/
 title: Configuraciones de Extensiones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:30.273294+00:00
+fetched_at: 2026-11-15T14:35:57.721138+00:00
 ---
 
 # Configuraciones de Extensiones - ComfyUI
@@ -28,7 +28,7 @@ Configuraciones de ComfyUI
 
 Copiar páginaCopiar página
 
-Descripción detallada de la administración de extensiones de ComfyUI y las opciones de configuración
+Activa o desactiva las extensiones de la interfaz de ComfyUI, filtra por Core o Custom, busca y cambia varias a la vez. Se aplican al recargar la página.
 
 Copiar páginaCopiar página
 
@@ -36,17 +36,9 @@ Las configuraciones descritas en esta página se encuentran en el **menú de con
 
 El panel de Configuraciones de Extensiones es un panel de administración especial dentro del sistema de configuraciones del frontend de ComfyUI, que se utiliza específicamente para administrar el estado de habilitación/deshabilitación de los complementos de extensión del frontend. A diferencia de los Nodos personalizados, este panel solo se usa para administrar las extensiones de frontend registradas por los nodos personalizados, no para deshabilitar los nodos personalizados en sí mismos. ![extension](https://mintcdn.com/dripart/A0ohfUGOp7aobXHn/images/interface/setting/extension/extension.jpg?fit=max&auto=format&n=A0ohfUGOp7aobXHn&q=85&s=e57cb8d75ecfee48dcfbcfff6d7fa78a) Estos complementos de extensión del frontend se usan para mejorar la experiencia de ComfyUI, por ejemplo, al proporcionar atajos, configuraciones, componentes de interfaz, elementos de menú y otras funciones. Los cambios en el estado de las extensiones requieren recargar la página para tener efecto:
 
-## 
+## Características del panel de configuraciones de extensiones
 
-​
-
-Características del panel de configuraciones de extensiones
-
-### 
-
-​
-
-1\. Administración de la lista de extensiones
+### 1\. Administración de la lista de extensiones
 
 Muestra todas las extensiones registradas en una tabla, que incluye:
 
@@ -56,27 +48,15 @@ Muestra todas las extensiones registradas en una tabla, que incluye:
 
 Los botones **Todas** , **Principales** y **Personalizadas** sobre la tabla filtran la lista, y el encabezado de la columna Nombre de la extensión la ordena.
 
-### 
-
-​
-
-2\. Funcionalidad de búsqueda
+### 2\. Funcionalidad de búsqueda
 
 Proporciona una caja de búsqueda para encontrar rápidamente extensiones específicas:
 
-### 
-
-​
-
-3\. Control de habilitación/deshabilitación
+### 3\. Control de habilitación/deshabilitación
 
 Cada extensión tiene un interruptor independiente:
 
-### 
-
-​
-
-4\. Operaciones por lote
+### 4\. Operaciones por lote
 
 El botón ⋮ (Más Opciones) en el encabezado de la columna Nombre de la extensión abre un menú para operaciones por lote:
 
@@ -85,11 +65,7 @@ El botón ⋮ (Más Opciones) en el encabezado de la columna Nombre de la extens
 
 Las extensiones cuyo estado cambiaste aparecen listadas arriba de la tabla con un botón **Recargar para aplicar cambios**.
 
-## 
-
-​
-
-Notas
+## Notas
 
   * Los cambios en el estado de las extensiones requieren recargar la página para tener efecto
   * Algunas extensiones principales no se pueden deshabilitar

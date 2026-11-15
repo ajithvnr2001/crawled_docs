@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/tripo/model-generation/
-title: Tripo Partner Nodes Model Generation ComfyUI Official Example - ComfyUI
+title: Tripo in ComfyUI: Text, Image, and Multi-view 3D Generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:39.063061+00:00
+fetched_at: 2026-11-15T14:35:55.738523+00:00
 ---
 
-# Tripo Partner Nodes Model Generation ComfyUI Official Example - ComfyUI
+# Tripo in ComfyUI: Text, Image, and Multi-view 3D Generation - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/tripo/model-generation/
 
 ## On this page
+
+Back to top
 
   * What Tripo Model Generation is good at
   * Text-to-Model Workflow
@@ -24,21 +26,17 @@ fetched_at: 2026-10-17T10:51:39.063061+00:00
 
 Tripo
 
-# Tripo Partner Nodes Model Generation ComfyUI Official Example
+# Tripo in ComfyUI: Text, Image, and Multi-view 3D Generation
 
 Copy pageCopy page
 
-This article will introduce how to use Tripo node’s API in ComfyUI for model generation
+Generate 3D models in ComfyUI from a text prompt, images, or multiple views with the Tripo partner nodes, then run follow-up tasks on the same task ID.
 
 Copy pageCopy page
 
 Tripo AI is a company focused on generative AI 3D modeling. It provides user-friendly platforms and API services that can quickly convert text prompts or 2D images (single or multiple) into high-quality 3D models. ComfyUI has now natively integrated the corresponding Tripo API, allowing you to conveniently use the related nodes in ComfyUI for model generation.
 
-## 
-
-​
-
-What Tripo Model Generation is good at
+## What Tripo Model Generation is good at
 
 Currently, ComfyUI’s Partner nodes support the following Tripo model generation capabilities:
 
@@ -75,11 +73,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Text-to-Model Workflow
+## Text-to-Model Workflow
 
 Generate a 3D model from a text prompt with Tripo’s text-to-model capabilities. ![Tripo Text-to-Model workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_tripo_text_to_model-1.webp)
 
@@ -91,11 +85,7 @@ Try the Text-to-Model workflow instantly on Comfy Cloud.
 
 Download JSON to run locally in ComfyUI.
 
-### 
-
-​
-
-2\. Complete the Workflow Execution Step by Step
+### 2\. Complete the Workflow Execution Step by Step
 
 ![ComfyUI Tripo Text to Model Step Guide](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/api_nodes/tripo/tripo_text_to_model_step_guide.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=b25199fbdd5c00f3fd8a1b587586bbed) You can refer to the numbers in the image to complete the basic text-to-model workflow execution:
 
@@ -109,11 +99,7 @@ Download JSON to run locally in ComfyUI.
 
 
 
-## 
-
-​
-
-Image-to-Model Workflow
+## Image-to-Model Workflow
 
 Generate a 3D model from a single image input. ![Tripo Image-to-Model workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_tripo_image_to_model-1.webp)
 
@@ -127,11 +113,7 @@ Download JSON to run locally in ComfyUI.
 
 ![Input Image](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/api_nodes/tripo/image_to_model/panda.jpg)
 
-### 
-
-​
-
-2\. Complete the Workflow Execution Step by Step
+### 2\. Complete the Workflow Execution Step by Step
 
 ![ComfyUI Tripo Text to Model Step Guide](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/api_nodes/tripo/tripo_image_to_model_step_guide.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=302a46095bbb73ea478f441fa489b763) You can refer to the numbers in the image to complete the basic image-to-model workflow execution:
 
@@ -145,11 +127,7 @@ Download JSON to run locally in ComfyUI.
 
 
 
-## 
-
-​
-
-Multi-view Model Generation Workflow
+## Multi-view Model Generation Workflow
 
 Generate a 3D model from multiple view images for enhanced accuracy. ![Tripo Multi-view Model Generation workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_tripo_multiview_to_model-1.webp)
 
@@ -163,11 +141,7 @@ Download JSON to run locally in ComfyUI.
 
 ![Front View](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/api_nodes/tripo/multiview_to_image/front.jpg) ![Back View](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/api_nodes/tripo/multiview_to_image/back.jpg)
 
-### 
-
-​
-
-2\. Complete the Workflow Execution Step by Step
+### 2\. Complete the Workflow Execution Step by Step
 
 ![ComfyUI Tripo Text to Model Step Guide](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/api_nodes/tripo/tripo_multiview_to_model_step_guide.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=5c4abf93f36e2ea96202c7cdb92d9917) You can refer to the numbers in the image to complete the basic multi-view to model workflow execution:
 
@@ -182,13 +156,11 @@ Download JSON to run locally in ComfyUI.
 
 
 
-## 
-
-​
-
-Subsequent Task Processing for the Same Task
+## Subsequent Task Processing for the Same Task
 
 Tripo’s corresponding nodes provide subsequent processing for the same task, you only need to input the corresponding `model_task_id` in the relevant nodes, and we have also provided the corresponding nodes in the relevant templates, you can also modify the corresponding node mode as needed to enable it ![Tripo Task Processing](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/api_nodes/tripo/other_nodes.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=ad7966d458e1d327c98d2b21eccdd7a4)
+
+Generated models are downloaded to your output directory as soon as the task finishes, so the model file survives independently of Tripo. The task IDs do not. Tripo keeps a task record for 7 days after the task completes (effective December 1, 2026), so rerunning a saved workflow more than 7 days later with an older `model_task_id` fails at the follow-up node. To keep going, connect `Tripo: Import Model` to the model file in your output directory and use its new `model_task_id`.
 
 Was this page helpful?
 
@@ -196,26 +168,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/tripo/model-generation.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/tripo/model-generation)
 
-[Tripo 3.1: High-Detail 3D Asset Generation ComfyUI Official GuidePrevious](https://docs.comfy.org/tutorials/partner-nodes/tripo/tripo-3-1)[Audio ModelsNext](https://docs.comfy.org/tutorials/partner-nodes/audio/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Tripo 3.1](https://docs.comfy.org/tutorials/partner-nodes/tripo/tripo-3-1)[Overview](https://docs.comfy.org/tutorials/partner-nodes/audio/overview)

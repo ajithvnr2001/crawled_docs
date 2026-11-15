@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfyui-server/api-key-integration/
 title: ComfyUI Account API Key Integration - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:53.579652+00:00
+fetched_at: 2026-11-15T14:35:58.242607+00:00
 ---
 
 # ComfyUI Account API Key Integration - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:53.579652+00:00
 > Source: https://docs.comfy.org/development/comfyui-server/api-key-integration/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Python Example
@@ -23,7 +25,7 @@ Self-Hosted Server API
 
 Copy pageCopy page
 
-This article explains how to use ComfyUI Account API Key to call paid Partner Nodes in headless mode
+Call paid Partner Nodes from a headless ComfyUI server with a ComfyUI Account API key, running workflows through the webserver API.
 
 Copy pageCopy page
 
@@ -35,11 +37,7 @@ Starting from [PR #8041](https://github.com/Comfy-Org/ComfyUI/pull/8041), ComfyU
 
 Then run everything together by simply sending the prompt to the Comfy webserver API, letting it handle all the orchestration. This is helpful for users who want to use Comfy as a backend service, via the command line, with their own frontend, etc.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Using your ComfyUI Account API Key to call paid Partner Nodes requires:
 
@@ -56,11 +54,7 @@ To use your ComfyUI Account API Key to call paid Partner Nodes, you need to firs
 
 Please refer to the Credits section to learn how to purchase credits for your account
 
-## 
-
-​
-
-Python Example
+## Python Example
 
 Here is an example of how to send a workflow containing Partner Nodes to the ComfyUI API using Python code:
     
@@ -142,11 +136,7 @@ Here is an example of how to send a workflow containing Partner Nodes to the Com
     
     
 
-## 
-
-​
-
-Related Documentation
+## Related Documentation
 
   * [Partner Nodes overview](https://docs.comfy.org/tutorials/partner-nodes/overview)
   * [Account management](https://docs.comfy.org/interface/user)
@@ -160,26 +150,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfyui-server/api-key-integration.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfyui-server/api-key-integration)
 
-[Startup FlagsPrevious](https://docs.comfy.org/development/comfyui-server/startup-flags)[Running WorkflowsNext](https://docs.comfy.org/development/run-workflows/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Startup Flags](https://docs.comfy.org/development/comfyui-server/startup-flags)[Overview](https://docs.comfy.org/development/run-workflows/overview)

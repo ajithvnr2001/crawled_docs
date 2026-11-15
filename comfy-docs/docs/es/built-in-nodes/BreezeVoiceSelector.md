@@ -1,0 +1,63 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/BreezeVoiceSelector/
+title: Selector de voz de Breeze - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-15T14:35:54.496897+00:00
+---
+
+# Selector de voz de Breeze - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/BreezeVoiceSelector/
+
+Audio
+
+# Selector de voz de Breeze - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Elige una voz destacada de Breeze, o cualquier id de voz de Breeze, y la pasa a Breeze Text to Speech.
+
+Copiar páginaCopiar página
+
+Elige una voz destacada de Breeze, o cualquier id de voz de Breeze, y la pasa a Breeze Text to Speech. El nodo solo resuelve un id y no realiza ninguna llamada a la API.
+
+## Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`language`| Grupo de idioma de las voces destacadas, o `custom` para introducir un id. Predeterminado: `"English"`.| DYNAMIC_COMBO| Sí| `"English"`  
+`"Chinese"`  
+`"Japanese"`  
+`"custom"`  
+  
+### Entradas de idioma “English”, “Chinese” y “Japanese”
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`voice`| Voz destacada en ese idioma.| COMBO| Sí| Varias opciones disponibles  
+  
+### Entradas de idioma “custom”
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`voice_id`| Cualquier id de voz de Breeze, como una voz creada por los otros nodos de Breeze. Solo letras, dígitos, `_` y `-`. Predeterminado: vacío.| STRING| Sí| id de voz de Breeze  
+  
+## Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`voice`| La voz de Breeze seleccionada.| BREEZE_VOICE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/BreezeVoiceSelector/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `0bded8f1b6ec92abaec514ed843b3c138d804e3736758f5df3a2faf52e89a8b0`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/BreezeVoiceSelector.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/BreezeVoiceSelector)
+
+[Remezcla de voz Breeze](https://docs.comfy.org/es/built-in-nodes/BreezeVoiceRemix)[Clonación instantánea de voz HeyGen Voice 1.0](https://docs.comfy.org/es/built-in-nodes/HeyGenVoiceCloneNode)

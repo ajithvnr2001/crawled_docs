@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/grok/grok-overview/
 title: Grok in ComfyUI: AI Image and Video Generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:30.495024+00:00
+fetched_at: 2026-11-15T14:35:55.301599+00:00
 ---
 
 # Grok in ComfyUI: AI Image and Video Generation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:30.495024+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/grok/grok-overview/
 
 ## On this page
+
+Back to top
 
   * Grok Imagine Image
   * Grok Imagine Video
@@ -53,11 +55,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Grok Imagine Image
+## Grok Imagine Image
 
 Grok Imagine Image generates images from text prompts and edits uploaded images with natural-language instructions. Pick the model that fits your use case:
 
@@ -71,13 +69,9 @@ The latest image model on the Aurora engine, with crisp short-text rendering and
 
 ## Grok Imagine Image Quality
 
-A higher-fidelity model with improved detail, better text rendering, and stronger creative control
+Retired by xAI. Requests now run on Grok Imagine Image 2.0 at low quality.
 
-## 
-
-​
-
-Grok Imagine Video
+## Grok Imagine Video
 
 Grok Imagine Video generates short videos from a text prompt or an image, edits uploaded footage with natural-language instructions, extends clips seamlessly, and creates videos guided by reference images.
 
@@ -95,26 +89,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/grok/grok-overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/grok/grok-overview)
 
-[Nano Banana 2.1: AI Image Generation and Editing in ComfyUIPrevious](https://docs.comfy.org/tutorials/partner-nodes/google/nano-banana-2-1)[Grok Imagine Image in ComfyUI: AI Image Generation and EditingNext](https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Nano Banana 2 Lite](https://docs.comfy.org/tutorials/partner-nodes/google/nano-banana-2-lite)[Grok Image](https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image)

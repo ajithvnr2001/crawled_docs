@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/google/gemini-4-hydrogen/
 title: Gemini 4 Hydrogen: Image to Prompt in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:13.163504+00:00
+fetched_at: 2026-11-15T14:35:56.174791+00:00
 ---
 
 # Gemini 4 Hydrogen: Image to Prompt in ComfyUI - ComfyUI
@@ -27,7 +27,7 @@ Google
 
 Copy pageCopy page
 
-Read a reference image with Gemini 4 Hydrogen in ComfyUI and write art-directed prompts, detailed captions, or structured visual breakdowns through the Google Gemini partner node.
+Read a reference image with Gemini 4 Hydrogen in ComfyUI to write art-directed prompts, detailed captions, or structured visual breakdowns.
 
 Copy pageCopy page
 

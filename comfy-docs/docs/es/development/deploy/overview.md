@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/deploy/overview/
 title: Implementar ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:27.766835+00:00
+fetched_at: 2026-11-15T14:36:25.461039+00:00
 ---
 
 # Implementar ComfyUI - ComfyUI
@@ -14,8 +14,8 @@ fetched_at: 2026-10-26T14:03:27.766835+00:00
 Volver arriba
 
   * Implementar desde la aplicación ComfyUI
-    * Crea con tu agente
-  * Siguiente paso: ejecutar flujos de trabajo contra el despliegue
+  * Ejecutar una implementación desde el editor de Cloud
+  * Ejecutar flujos de trabajo desde tu aplicación
 
 
 
@@ -29,71 +29,59 @@ Compara Comfy Cloud, las implementaciones gestionadas de la API de Comfy y el au
 
 Copiar páginaCopiar página
 
-Elige Comfy Cloud para tener un ComfyUI administrado y siempre disponible, Comfy API para un entorno versionado desplegado como endpoint, o autoalojamiento para la infraestructura que administras tú.
+Puedes ejecutar tus flujos de trabajo de ComfyUI en Comfy Cloud, en tu propia implementación de Comfy API o en un servidor que administres. Comfy Cloud y Comfy API se ejecutan en GPU de Comfy, así que no necesitas una GPU en tu equipo. Elige la opción que encaje con tu flujo de trabajo y empieza desde su tarjeta.
 
 ## Comfy Cloud
 
-Ejecuta flujos de trabajo sin crear un Build ni un despliegue.
+Ejecuta flujos de trabajo cuyos nodos personalizados y modelos ya están en Comfy Cloud, sin crear un build ni un despliegue.
+
+## Builds personalizados en Comfy Cloud
+
+Ejecuta flujos de trabajo que necesitan tus propios nodos personalizados y modelos dentro del editor de Comfy Cloud, con un build que creas en tu navegador.
 
 ## Comfy API
 
-Empaqueta modelos y nodos personalizados en un endpoint administrado con escalado automático.
+Empaqueta nodos personalizados, modelos y dependencias de Python en un build y ejecútalo como un endpoint con escalado automático.
 
-## Self-Host
+## Autoalojamiento
 
-Ejecuta ComfyUI en tu propio hardware, en GPUs alquiladas o en contenedores.
+Ejecuta ComfyUI en una máquina que administres y sírvelo en tu red con `--listen`.
 
-Las tres opciones ejecutan [flujos de trabajo en formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). Elige según si quieres que Comfy administre el entorno o si prefieres administrarlo tú mismo.
+Para llamar a cualquiera de estas opciones desde tu propio código, envía el flujo de trabajo en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format).
 
-## 
+## Implementar desde la aplicación ComfyUI
 
-​
+En ComfyUI en tu equipo o en Comfy Desktop, la tarjeta **Deploy to Comfy API** inicia un build de Comfy API a partir del flujo de trabajo abierto.
 
-Implementar desde la aplicación ComfyUI
-
-ComfyUI agrega una entrada **Implementar en la API de Comfy** al menú **Acciones del flujo de trabajo** de cada flujo de trabajo de nivel superior. Está disponible en la aplicación local, Comfy Cloud y la aplicación Desktop, y la entrada aparece marcada como **NEW** en el menú.
+Publicar una versión es gratis. Cuando termina su build, la fila **Serverless build** muestra un botón **Deploy**. Al implementar se cobra almacenamiento desde el momento del despliegue, más el tiempo de GPU mientras un worker está activo. El diálogo de despliegue muestra el coste estimado antes de confirmar.
 
 1
 
-Abrir Acciones del flujo de trabajo
+Abrir el menú Workflow actions
 
-En la barra superior, abre el menú **Acciones del flujo de trabajo** en la pestaña del flujo de trabajo.
+En la **Top bar** , haz clic derecho en la pestaña del flujo de trabajo. También puedes hacer clic en el botón **Workflow actions** de la esquina superior izquierda del **Canvas**.![Menú Workflow actions abierto desde una pestaña de flujo de trabajo, con Deploy to Comfy API y su insignia NEW debajo de Export \(API\)](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/deploy-to-comfy-api.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=8ad6bb82f3d9d29016e1cb51addbfdf3)
 
 2
 
-Elegir Implementar en la API de Comfy
+Seleccionar Deploy to Comfy API
 
-ComfyUI activa el flujo de trabajo y luego abre una tarjeta de introducción con un video breve del producto y un resumen de los paquetes de nodos, los modelos y las clases de nodo que usa el flujo de trabajo.
+Selecciona **Deploy to Comfy API**. La entrada está marcada como **NEW**. Se abre la tarjeta **Deploy to Comfy API** y cuenta los paquetes de nodos, los modelos y las clases de nodo que usa el flujo de trabajo.![Tarjeta Deploy to Comfy API con un vídeo del producto, los recuentos de paquetes de nodos, modelos y clases de nodo, y el botón Deploy on Platform](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/deploy-api-ui.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=ec4345b0864c7777b8b8c11afb17ae75)
 
 3
 
-Abrir la plataforma
+Continuar en Developer Platform
 
-Haz clic en **Implementar en la plataforma** para continuar en [platform.comfy.org](https://platform.comfy.org). El Build Wizard que encontrarás allí parte de un JSON de flujo de trabajo importado o de una instantánea de Comfy Desktop, y [Orígenes de compilación](https://docs.comfy.org/es/development/serverless/build-sources) cubre ambos casos. La tarjeta también incluye un enlace **Leer la documentación** a la documentación para desarrolladores.
+Haz clic en **Deploy on Platform**. Developer Platform en [platform.comfy.org](https://platform.comfy.org) se abre en una pestaña nueva.
 
-4
+En Developer Platform, creas un build a partir del flujo de trabajo, publicas una versión y la implementas. [Orígenes de compilación](https://docs.comfy.org/es/development/serverless/build-sources) cubre cómo iniciar un build desde un archivo de flujo de trabajo, y la [guía rápida de Comfy API](https://docs.comfy.org/es/development/serverless/quickstart) cubre el mismo flujo con comfy-cli.
 
-O entregar el flujo de trabajo a un agente de programación
+## Ejecutar una implementación desde el editor de Cloud
 
-Haz clic en **Crea con tu agente** para copiar un resumen del flujo de trabajo abierto y luego pégalo en tu agente de programación.
+Para crear una implementación desde el editor de Comfy Cloud, ejecutar tus flujos de trabajo en ella y detenerla o eliminarla, consulta [Agregar builds personalizados a Comfy Cloud](https://docs.comfy.org/es/development/deploy/cloud-custom-builds).
 
-Comfy API empaqueta los nodos personalizados, los modelos y las dependencias de Python del flujo de trabajo en una compilación reproducible y luego la ejecuta como un endpoint con escalado automático. Consulta [Comfy API](https://docs.comfy.org/es/development/serverless/quickstart) para conocer el flujo de compilación e implementación.
+## Ejecutar flujos de trabajo desde tu aplicación
 
-### 
-
-​
-
-Crea con tu agente
-
-**Crea con tu agente** es la alternativa a compilar a mano. Copia un resumen en texto plano y no ejecuta ningún comando. ComfyUI también descarga el JSON del flujo de trabajo para que tu agente tenga el archivo desde el que compilar. En la aplicación Desktop no descarga un archivo aparte: el resumen apunta a la instantánea más reciente del directorio `.launcher/snapshots` de la instalación de Desktop, e importar esa instantánea envía su JSON al compilador de la misma manera. El resumen indica las clases de nodo, los paquetes de nodos y los modelos del flujo de trabajo, y dirige a tu agente a la receta actual `comfy skills show comfy-build`, que se encarga de los comandos de comfy-cli, las versiones fijadas, el corte de la versión y cómo leer un fallo. Tu agente te confirma antes de subir el flujo de trabajo y de nuevo antes del primer corte. Luego corrige una causa por corte, te indica la causa, la edición exacta y qué compilación es antes de cada nuevo corte, y se detiene después de tres cortes. Una versión no es una implementación, así que el resumen se detiene en una versión verde y la implementación sigue siendo una decisión aparte.
-
-## 
-
-​
-
-Siguiente paso: ejecutar flujos de trabajo contra el despliegue
-
-Una vez que un despliegue está activo, consulta [Ejecutar flujos de trabajo](https://docs.comfy.org/es/development/run-workflows/overview) para llamarlo desde tu aplicación. Los [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks) funcionan con todos los objetivos de despliegue; las instancias autoalojadas además necesitan el [API Proxy](https://docs.comfy.org/es/development/comfyui-server/api-proxy) para servir la API v2 de Comfy.
+Cuando una implementación está **Ready** , consulta [Ejecutar flujos de trabajo](https://docs.comfy.org/es/development/run-workflows/overview) para llamarla desde tu aplicación. Los [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks) funcionan con Comfy Cloud y con tus implementaciones. Un ComfyUI autoalojado necesita el [API Proxy](https://docs.comfy.org/es/development/comfyui-server/api-proxy) para servir Comfy API v2.
 
 ¿Esta página le ayudó?
 

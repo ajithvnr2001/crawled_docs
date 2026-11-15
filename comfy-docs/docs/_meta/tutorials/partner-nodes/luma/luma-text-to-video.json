@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/partner-nodes/luma/luma-text-to-video/",
   "file": "tutorials/partner-nodes/luma/luma-text-to-video.md",
-  "title": "Luma Text to Video (Legacy) Partner Node Guide - ComfyUI",
+  "title": "Luma Text to Video in ComfyUI: Retired Legacy Node - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:33.728467+00:00",
-  "html_len": 489505,
-  "md_len": 6141,
-  "depth": 0
+  "fetched_at": "2026-11-15T14:35:56.077596+00:00"
 }

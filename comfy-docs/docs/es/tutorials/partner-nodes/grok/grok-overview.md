@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/grok/grok-overview/
 title: Grok en ComfyUI: generaci\u00f3n de im\u00e1genes y video con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:49.646441+00:00
+fetched_at: 2026-11-15T14:35:55.346093+00:00
 ---
 
 # Grok en ComfyUI: generación de imágenes y video con IA - ComfyUI
@@ -55,11 +55,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Grok Imagine Image
+## Grok Imagine Image
 
 Grok Imagine Image genera imágenes a partir de prompts de texto y edita las imágenes que subes con Instrucciones en lenguaje natural. Elige el modelo que se ajuste a tu caso de uso:
 
@@ -73,13 +69,9 @@ El modelo de imágenes más reciente sobre el motor Aurora, con renderizado nít
 
 ## Grok Imagine Image Quality
 
-Un modelo de mayor fidelidad, con mejor detalle, mejor renderizado de texto y un control creativo más potente
+Retirado por xAI. Las peticiones ahora se sirven con Grok Imagine Image 2.0 en calidad baja.
 
-## 
-
-​
-
-Grok Imagine Video
+## Grok Imagine Video
 
 Grok Imagine Video genera videos cortos a partir de un prompt de texto o de una imagen, edita el material subido con Instrucciones en lenguaje natural, extiende clips de forma fluida y crea videos guiados por Imágenes de Referencia.
 

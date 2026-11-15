@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/pika/pika-h3-flex/
 title: Pika H3 Flex en ComfyUI: texto, imagen y video de referencia - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:41.669182+00:00
+fetched_at: 2026-11-15T14:35:59.098106+00:00
 ---
 
 # Pika H3 Flex en ComfyUI: texto, imagen y video de referencia - ComfyUI
@@ -60,11 +60,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Empezar
+## Empezar
 
   1. Actualiza ComfyUI a 0.44.1 o posterior
   2. Ve a Template Library y busca `Pika H3 Flex`
@@ -72,11 +68,7 @@ Empezar
 
 
 
-## 
-
-​
-
-Pika H3 Flex: texto a video (API)
+## Pika H3 Flex: texto a video (API)
 
 Genera un clip con audio generado a partir de un prompt de texto, de hasta 15 segundos. ![Vista previa del flujo de trabajo de texto a video de Pika H3 Flex](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pika_h3_flex_t2v-1.webp)
 
@@ -95,41 +87,25 @@ Descarga el JSON o busca “Pika H3 Flex” en la biblioteca de plantillas
 
 
 
-## 
-
-​
-
-Imagen a video y primer y último fotograma
+## Imagen a video y primer y último fotograma
 
 El mismo nodo se encarga de ambos casos. Conecta `first_frame` por sí solo para animar una imagen inicial, o conecta `first_frame` y `last_frame` juntos para generar el movimiento entre dos fotogramas fijos.
 
-## 
-
-​
-
-Referencia a video
+## Referencia a video
 
 El nodo **Pika H3 Flex Reference to Video** genera o edita un clip guiado por material de referencia: hasta 9 imágenes, 3 videos y 3 clips de audio, con 12 referencias en total. Los videos y los clips de audio deben durar de 2 a 15 segundos cada uno, con un límite de 15 segundos por separado para videos y para audio. Menciona las referencias en el prompt como `@Image1`, `@Video1` o `@Audio1`, en el orden en que están conectadas. Desactiva `reference_video_audio` cuando quieras un ambiente nuevo o música nueva en lugar del sonido de los videos conectados.
 
-## 
-
-​
-
-Nodos de audio de Pika
+## Nodos de audio de Pika
 
 Tres nodos de audio se ejecutan en la misma API de Pika y se facturan por segundo de audio generado:
 
   * **Pika Soundtrack** : reemplaza el audio de un video de hasta 10 minutos con una banda sonora sincronizada. La instrucción describe los efectos de sonido, el ambiente o la música; déjala vacía para derivar el audio a partir de la imagen.
   * **Pika SFX** : genera un efecto de sonido a partir de una descripción de texto, de 1 a 20 segundos de duración.
-  * **Pika Music** : genera una canción a partir de un prompt de texto y letras opcionales, de 10 a 360 segundos, o versiona una canción original con su propia duración, limitada a 5 a 360 segundos.
+  * **Pika Music** : genera una canción a partir de un prompt de texto y letras opcionales, de 10 a 360 segundos, o hace una versión de una canción fuente con su propia duración, limitada a 5 a 360 segundos.
 
+Para ver los controles, los patrones de prompt y los límites de los dos nodos de audio basados en texto, consulta [Pika Music y Pika SFX](https://docs.comfy.org/es/tutorials/partner-nodes/pika/pika-audio).
 
-
-## 
-
-​
-
-Formato del prompt
+## Formato del prompt
 
 Los prompts de Pika H3 Flex siguen la estructura del modo de texto de MiniMax H3, donde una sola descripción reúne la imagen y el sonido:
     
@@ -143,11 +119,7 @@ Los prompts de Pika H3 Flex siguen la estructura del modo de texto de MiniMax H3
 
 Mantén cada evento descrito dentro de la duración que definas. Para ver la estructura completa del prompt, incluidas las etiquetas de diálogo y las listas de tomas, consulta la [guía de escritura de prompts de MiniMax H3](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md).
 
-## 
-
-​
-
-Costo
+## Costo
 
 Los nodos de video se cobran por segundo de salida, y la tarifa aumenta con la resolución. Consulta [Precios de los nodos de socio](https://docs.comfy.org/es/tutorials/partner-nodes/pricing) para conocer los créditos actuales.
 
@@ -157,4 +129,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/pika/pika-h3-flex.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/pika/pika-h3-flex)
 
-[Moonvalley Marey](https://docs.comfy.org/es/tutorials/partner-nodes/moonvalley/moonvalley-video-generation)[PixVerse AI](https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/overview)
+[Moonvalley Marey](https://docs.comfy.org/es/tutorials/partner-nodes/moonvalley/moonvalley-video-generation)[Pika Music y SFX](https://docs.comfy.org/es/tutorials/partner-nodes/pika/pika-audio)

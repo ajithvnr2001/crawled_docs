@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-image-to-video/
-title: Gu\u00eda del nodo asociado Luma imagen a video (heredado) - ComfyUI
+title: Luma imagen a video en ComfyUI: nodo heredado retirado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:51.627370+00:00
+fetched_at: 2026-11-15T14:35:57.142750+00:00
 ---
 
-# Guía del nodo asociado Luma imagen a video (heredado) - ComfyUI
+# Luma imagen a video en ComfyUI: nodo heredado retirado - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-image-to-video/
 
@@ -22,7 +22,7 @@ Volver arriba
 
 Luma
 
-# Guía del nodo asociado Luma imagen a video (heredado)
+# Luma imagen a video en ComfyUI: nodo heredado retirado
 
 Copiar páginaCopiar página
 
@@ -34,11 +34,7 @@ Copiar páginaCopiar página
 
 El nodo Luma Image to Video te permite convertir imágenes estáticas en videos fluidos y dinámicos con la tecnología avanzada de Luma AI, dando vida y movimiento a tus imágenes.
 
-## 
-
-​
-
-En qué destaca Luma Image to Video
+## En qué destaca Luma Image to Video
 
   * **Animación de imágenes** : convierte imágenes estáticas en videos dinámicos y suaves, dando vida y movimiento a tus imágenes.
   * **Movimiento guiado por prompts** : los prompts de texto determinan los efectos de movimiento del video.
@@ -73,19 +69,11 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Flujo de trabajo de imagen a video con los nodos asociados de Luma
+## Flujo de trabajo de imagen a video con los nodos asociados de Luma
 
 El nodo Luma Image to Video requiere al menos una imagen de entrada (`first_image` o `last_image`) junto con prompts de texto para determinar los efectos de movimiento del video. En esta guía creamos un ejemplo con `first_image` y `luma_concepts` para mostrar las capacidades de generación de video de Luma AI.
 
-### 
-
-​
-
-1\. Descargar el flujo de trabajo
+### 1\. Descargar el flujo de trabajo
 
 Esta página documenta el nodo **Luma Image to Video** retirado y el flujo de trabajo de ejemplo que incluía, el cual seleccionaba `ray-2`. Luma deja de ofrecer ese modelo el 24 de octubre de 2026, así que ni el nodo ni el ejemplo pueden ejecutarse. El ejemplo y su guía de pasos permanecen en el código fuente de esta página como comentario. El reemplazo es un nodo aparte. Su propia guía:
 
@@ -93,11 +81,7 @@ Esta página documenta el nodo **Luma Image to Video** retirado y el flujo de tr
 
 Consulta el nodo de reemplazo y sus entradas.
 
-### 
-
-​
-
-2\. Notas adicionales
+### 2\. Notas adicionales
 
   * **Requisitos de la imagen de entrada** : Se requiere al menos uno de `first_image` o `last_image`, con un máximo de 1 imagen por entrada
   * **Luma Concepts** : Controla el movimiento de cámara para efectos de video profesionales
@@ -114,4 +98,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/luma/luma-image-to-video.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/luma/luma-image-to-video)
 
-[Luma Text to Video (heredado)](https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-text-to-video)[MiniMax (Hailuo)](https://docs.comfy.org/es/tutorials/partner-nodes/minimax/overview)
+[Luma Text to Video](https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-text-to-video)[MiniMax (Hailuo)](https://docs.comfy.org/es/tutorials/partner-nodes/minimax/overview)

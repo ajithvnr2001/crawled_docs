@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/api-development/sdks/
 title: Comfy SDKs: Python and TypeScript Clients for ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:42.873546+00:00
+fetched_at: 2026-11-15T14:35:58.835416+00:00
 ---
 
 # Comfy SDKs: Python and TypeScript Clients for ComfyUI - ComfyUI
@@ -14,6 +14,7 @@ fetched_at: 2026-10-31T13:26:42.873546+00:00
 Back to top
 
   * Install
+  * Coding agents
   * Quickstart
   * Choosing a base URL
     * Comfy Cloud
@@ -65,11 +66,7 @@ This page documents the second row: the Comfy Cloud and Comfy API v2 client. For
 
 These SDKs drive ComfyUI **from the outside**. If you are writing custom nodes or frontend extensions that run **inside** ComfyUI, you want [Develop Custom Nodes](https://docs.comfy.org/custom-nodes/overview) instead. Those are a separate set of APIs.
 
-## 
-
-​
-
-Install
+## Install
 
 Python
 
@@ -87,11 +84,27 @@ Python 3.10 or newer. Node 22 or newer.
 
 **Current release: 0.5.0.** [`comfy-sdk`](https://pypi.org/project/comfy-sdk/) on PyPI and [`@comfyorg/sdk`](https://www.npmjs.com/package/@comfyorg/sdk) on npm are released together and share a version number. Install the latest (`pip install comfy-sdk`, `npm install @comfyorg/sdk`) or state a range rather than an exact pin. The two ecosystems spell that differently: `comfy-sdk>=0.5` is a floor and accepts later minors, while `@comfyorg/sdk@^0.5` is npm’s compatible range for `0.5.x` and stops short of `0.6.0`, so a caret range needs raising when a new minor ships. Use `@comfyorg/sdk@>=0.5.0` if you want the npm side to track later minors too. The registry pages are authoritative if this note is behind.
 
-## 
+## Coding agents
 
-​
+If a coding agent builds your Comfy Router integration, give it the `comfy-sdk` skill. The skill covers what agents usually get wrong:
 
-Quickstart
+  * Which client to use
+  * Keeping the API key on the server
+  * Discovering a model before calling it
+  * `run` versus `submit`
+  * Timeouts
+  * Branching on error buckets
+
+It does not cover ComfyUI workflows. For the workflow client on this page, point the agent at this guide and the [Comfy API v2 reference](https://docs.comfy.org/api-reference/v2/overview). To install it in Claude Code, run:
+    
+    
+    /plugin marketplace add Comfy-Org/comfy-skills
+    /plugin install comfy-sdk@comfy-skills
+    
+
+For any other agent, copy the [`SKILL.md`](https://github.com/Comfy-Org/comfy-skills/blob/main/claude-code-sdk/skills/comfy-sdk/SKILL.md) file into `AGENTS.md` or your Cursor rules.
+
+## Quickstart
 
 Upload an input image, run a workflow, and write the results to disk.
 
@@ -132,11 +145,7 @@ TypeScript
 
 `workflow_api.json` is a workflow saved in [API format](https://docs.comfy.org/development/api-development/workflow-api-format). `"10"` and `"9"` are node IDs from that file: the node the input image feeds into, and the output node whose results you want. Asset handles are lazy. `photo.png` is hashed locally and only uploaded if the server does not already have those bytes, so re-running with the same input costs nothing. `run()` submits the job and waits for it to reach a terminal state. To do work while it executes, use `submit()` instead and watch the event stream. To run against your own ComfyUI instead, set `COMFY_BASE_URL` and drop the key. See below.
 
-## 
-
-​
-
-Choosing a base URL
+## Choosing a base URL
 
 Surface| Base URL| API key  
 ---|---|---  
@@ -167,29 +176,17 @@ TypeScript
 
 Upgrading from an early build? `Comfy("<url>", "<key>")` is now `Comfy(api_key="<key>")` with `COMFY_BASE_URL` set. `api_key` is keyword-only, so the old positional call raises `TypeError` rather than quietly reading a URL as a key.
 
-### 
-
-​
-
-Comfy Cloud
+### Comfy Cloud
 
 Works out of the box. Create an [API key](https://docs.comfy.org/development/api-development/getting-an-api-key) and pass it to the client.
 
 API access requires a paid Comfy Cloud subscription. The free tier does not include it. How many jobs you can run at once depends on your tier. See [Concurrency limits](https://docs.comfy.org/development/deploy/cloud-usage#concurrency-limits).
 
-### 
-
-​
-
-Comfy API deployment
+### Comfy API deployment
 
 A workflow you deployed through the [developer platform](https://platform.comfy.org) gets its own endpoint. Point `COMFY_BASE_URL` at it and use your API key, exactly as with Comfy Cloud. Everything in this guide works the same way, except job labels and the job list, which Comfy Cloud does not support yet. A Comfy API deployment can run multiple workflows with the models and custom nodes included in its Build. For each job, `get_workflow()` returns a workflow response with `format: "api"` and the executed graph in its `.graph` property.
 
-### 
-
-​
-
-Your own ComfyUI
+### Your own ComfyUI
 
 The v2 API is served on self-hosted ComfyUI by [comfy-api-proxy](https://github.com/Comfy-Org/comfy-api-proxy), a small open-source service that runs alongside your ComfyUI. Install it, run it, and set `COMFY_BASE_URL="http://127.0.0.1:8189"`:
     
@@ -201,11 +198,7 @@ The v2 API is served on self-hosted ComfyUI by [comfy-api-proxy](https://github.
 
 See [API Proxy for Self-Hosted ComfyUI](https://docs.comfy.org/development/comfyui-server/api-proxy) for configuration and authentication details.
 
-## 
-
-​
-
-Retrying a submit: the idempotency key
+## Retrying a submit: the idempotency key
 
 `submit()` and `run()` send an `Idempotency-Key` with every submission, and the Comfy API v2 contract for that key is **reject-on-duplicate, not record-and-replay**. Read this before you wrap a submit in a retry loop.
 
@@ -270,11 +263,7 @@ TypeScript
 
 Comfy Router’s `Idempotency-Key` behaves **differently**. On Router the key is a replay handle rather than a single-use token: re-sending a queued submit under the same key returns the original request instead of queueing a second one. See [queued idempotency and billing](https://docs.comfy.org/development/comfy-router/queue#idempotency-and-billing) and [Router retry outcomes](https://docs.comfy.org/development/comfy-router/errors#retry-outcomes). The two surfaces share a header name, not a contract.
 
-## 
-
-​
-
-Watching a job run
+## Watching a job run
 
 `job.events()` gives you a live stream of the job’s state: node and step progress, preview frames, and each output the moment it is committed. It reconnects on its own if the connection drops.
 
@@ -322,11 +311,7 @@ TypeScript
 
 `Preview.to_pil()` requires the optional Pillow extra: `pip install "comfy-sdk[pil]"`. `result()` returns the finished job, or raises `JobFailed` with the node-level detail if execution failed. See the SDK README for your language for the full event catalog.
 
-### 
-
-​
-
-`events()` is not `subscribe()`
+### `events()` is not `subscribe()`
 
 Three similarly named things exist across the two surfaces, and only one of them is on this page:
 
@@ -338,11 +323,7 @@ Call| Surface| What it yields
   
 There is no `subscribe()` on the Comfy Cloud client, and no `job.subscribe()` anywhere. The Cloud equivalent of `subscribe` is `run()`: submit and wait for a terminal state. The stream is a live feed, not a replayable log. It exists so you can render progress, not so you can rely on it for results. Polling the job is what is authoritative, and `run()`, `wait()`, and `result()` fall back to polling automatically. See [Design Notes](https://docs.comfy.org/development/api-development/sdks-design#poll-first-stream-for-progress) for why.
 
-## 
-
-​
-
-Tracing an output back to its workflow
+## Tracing an output back to its workflow
 
 Outputs carry the id of the job that produced them, so you can start from a file and work backwards without keeping a side table.
 
@@ -394,11 +375,7 @@ TypeScript
   
 Jobs you submit through the SDK always return `api`, because v2 submission has no version-pinning fields yet. That will change; the discriminator is there so your code does not have to.
 
-## 
-
-​
-
-Label jobs and find them later
+## Label jobs and find them later
 
 A label is a key and a value you attach to a job when you submit it, such as `client: acme` or `project: spring`. Use labels to record which of your clients or projects a job ran for. You can then list the jobs for one client without keeping your own table of job ids. Labels and the job list need the current SDK release, the one named in the version note under Install. Labels work on jobs sent to a Comfy API deployment, so set `COMFY_BASE_URL` to the deployment’s address as shown in Choosing a base URL. Comfy Cloud refuses them for now, and answers the job list with `501` and code `not_implemented`. A self-hosted comfy-api-proxy does not keep them either: its own `metadata` field is a single text string, so it refuses a label map. Its job list ignores label filters, so an SDK list call with labels returns no jobs there, and the same filters over HTTP return every job. The limits:
 
@@ -448,11 +425,7 @@ TypeScript
 
 You can filter on up to 3 labels at once, and a job must match all of them exactly. List items do not include outputs. To get a job’s outputs, read the job by its id with `client.jobs.get(job.id)`.
 
-### 
-
-​
-
-Over HTTP
+### Over HTTP
 
 Send `metadata` in the body of `POST /api/v2/jobs`:
     
@@ -490,11 +463,7 @@ The response holds a page of jobs and, when more pages exist, a `next_cursor`. P
 
 More than 3 label filters, or a key that breaks the key rule, fails with `400` and code `invalid_metadata_filter`. See the [Comfy API v2 reference](https://docs.comfy.org/api-reference/v2/overview) for every field on the job and the list.
 
-## 
-
-​
-
-What the SDKs cover today
+## What the SDKs cover today
 
 The first version does one thing properly: run a workflow and get the results back.
 
@@ -509,11 +478,7 @@ The first version does one thing properly: run a workflow and get the results ba
 
 Python ships both a synchronous `Comfy` client and an `AsyncComfy` client with the same surface. TypeScript is async only. Not in this version: managing saved workflows, the model library, node introspection, and named workflow parameters. [Design Notes](https://docs.comfy.org/development/api-development/sdks-design#scope-of-the-first-version) explains why the surface starts this small.
 
-## 
-
-​
-
-Reference
+## Reference
 
 The SDK READMEs are the full reference for each language, including auth, assets, errors, and the low-level escape hatches.
 
@@ -537,11 +502,7 @@ Why this API exists, how it relates to the existing ComfyUI APIs, and what comes
 
 The other surface in the same package: `comfy.models.run` against partner models such as Flux, Veo and Gemini.
 
-## 
-
-​
-
-Feedback
+## Feedback
 
 Report what is awkward, what you expected to find and did not, and what you had to work around. The `#developer-platform` channel in [our Discord](https://discord.com/invite/comfyorg) is the place for it. If you want a first-party SDK in another language, say so there. Both SDKs sit on the same documented HTTP contract, so any language can talk to the API today, but we would rather know where the demand is.
 

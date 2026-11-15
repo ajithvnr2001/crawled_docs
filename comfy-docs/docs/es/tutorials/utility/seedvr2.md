@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/seedvr2/
 title: SeedVR2: ampliaci\u00f3n de im\u00e1genes y video en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:31.977865+00:00
+fetched_at: 2026-11-15T14:35:56.917324+00:00
 ---
 
 # SeedVR2: ampliación de imágenes y video en ComfyUI - ComfyUI
@@ -35,15 +35,11 @@ Upscale & Restore
 
 Copiar páginaCopiar página
 
-Aprende a ampliar imágenes y videos con SeedVR2, un modelo de restauración de un solo paso basado en difusión de ByteDance Seed
+Amplía imágenes y videos con SeedVR2, el modelo de restauración de difusión de un paso de ByteDance Seed, en 3B y 7B con cuantizaciones FP16, FP8 e INT8.
 
 Copiar páginaCopiar página
 
-# 
-
-​
-
-Introducción a ComfyUI SeedVR2
+# Introducción a ComfyUI SeedVR2
 
 [SeedVR2](https://iceclear.github.io/projects/seedvr2/) (arXiv:2506.05301, de ByteDance Seed) es un modelo de restauración de video basado en difusión de un solo paso. Realiza entrenamiento adversario contra datos reales para restaurar y ampliar imágenes y videos con alta fidelidad. SeedVR2 es compatible de forma nativa con ComfyUI (PR [#14424](https://github.com/Comfy-Org/ComfyUI/pull/14424)). Capacidades principales:
 
@@ -77,11 +73,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Instalación del modelo
+## Instalación del modelo
 
 Descarga los checkpoint(s) de SeedVR2 desde el [repositorio SeedVR2 de Comfy-Org](https://huggingface.co/Comfy-Org/SeedVR2) y guárdalos en la carpeta correspondiente de ComfyUI:
 
@@ -111,17 +103,9 @@ Coloca los archivos en los siguientes directorios:
     │       └── seedvr2_ema_vae_fp16.safetensors
     
 
-## 
+## Ejemplos de flujos de trabajo
 
-​
-
-Ejemplos de flujos de trabajo
-
-### 
-
-​
-
-SeedVR2 3B Int8: Ampliar imagen
+### SeedVR2 3B Int8: Ampliar imagen
 
 Amplía imágenes con SeedVR2 3B Int8, un modelo de restauración de video basado en diffusion de un solo paso que produce resultados de alta calidad con una mejor consistencia temporal. ![Vista previa del flujo de trabajo de ampliación de imagen con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_3b_int8_upscale_image-1.webp)
 
@@ -143,11 +127,7 @@ Nodo `LoadImage` 1 · `watch_macro_shot.png`
 
 ![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/watch_macro_shot.png)![Salida de ejemplo de ampliación con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_seedvr2_3b_int8_upscale_image.png)
 
-### 
-
-​
-
-1.1 Pasos para ejecutar
+### 1.1 Pasos para ejecutar
 
   1. Coloca tu imagen en la carpeta `ComfyUI/input/` y selecciónala en el nodo `Load Image`
   2. Selecciona el checkpoint `seedvr2_3b_int8_convrot.safetensors` en el cargador de modelos de SeedVR2
@@ -155,11 +135,7 @@ Nodo `LoadImage` 1 · `watch_macro_shot.png`
 
 
 
-### 
-
-​
-
-SeedVR2 7B Int8: ampliar imagen
+### SeedVR2 7B Int8: ampliar imagen
 
 Amplía imágenes con SeedVR2 7B Int8, un modelo de difusión de un solo paso que mejora la resolución mediante entrenamiento adversario y atención de ventana adaptativa. ![Vista previa del flujo de trabajo para ampliar imágenes con SeedVR2 7B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_7b_int8_upscale_image-1.webp)
 
@@ -181,11 +157,7 @@ Nodo `LoadImage` 1 · `indoor_portrait.png`
 
 ![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/indoor_portrait.png)![Ejemplo de salida de ampliación con SeedVR2 7B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_seedvr2_7b_int8_upscale_image.png)
 
-### 
-
-​
-
-2.1 Pasos para ejecutar
+### 2.1 Pasos para ejecutar
 
   1. Coloca tu imagen en la carpeta `ComfyUI/input/` y selecciónala en el nodo `Load Image`
   2. Selecciona el checkpoint `seedvr2_7b_int8_convrot.safetensors` en el cargador de modelos SeedVR2
@@ -193,11 +165,7 @@ Nodo `LoadImage` 1 · `indoor_portrait.png`
 
 
 
-### 
-
-​
-
-SeedVR2 3B Int8: Aumentar la resolución de video
+### SeedVR2 3B Int8: Aumentar la resolución de video
 
 Aumenta la resolución y restaura metraje de video con SeedVR2 3B Int8, un modelo de difusión de un solo paso que mejora la resolución manteniendo la consistencia temporal entre fotogramas. ![Vista previa del flujo de trabajo para aumentar la resolución de video con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_3b_int8_upscale_video-1.webp)
 
@@ -217,11 +185,7 @@ Nodo `LoadVideo` 73 · `grainy_perfume_shot_crf32.mp4`
 
 **Salida de ejemplo**
 
-### 
-
-​
-
-3.1 Pasos para ejecutar
+### 3.1 Pasos para ejecutar
 
   1. Coloca tu video en la carpeta `ComfyUI/input/` y selecciónalo en el nodo `Load Video`
   2. Selecciona el checkpoint `seedvr2_3b_int8_convrot.safetensors` en el cargador de modelos de SeedVR2
@@ -229,27 +193,15 @@ Nodo `LoadVideo` 73 · `grainy_perfume_shot_crf32.mp4`
 
 
 
-### 
-
-​
-
-Rendimiento
+### Rendimiento
 
 Las resoluciones objetivo más altas requieren más tiempo de procesamiento. La variante INT8 ofrece una inferencia eficiente con un uso reducido de VRAM en comparación con FP16.
 
 * * *
 
-## 
+## Solución de problemas
 
-​
-
-Solución de problemas
-
-### 
-
-​
-
-La imagen ampliada sale completamente negra
+### La imagen ampliada sale completamente negra
 
 Los backends de atención pueden devolver resultados negros o corruptos sin previo aviso con checkpoints cuantizados. Si los flujos de trabajo de SeedVR2 INT8 producen una imagen totalmente negra, prueba lo siguiente en orden:
 
@@ -260,11 +212,7 @@ Los backends de atención pueden devolver resultados negros o corruptos sin prev
 
 Si el resultado sigue siendo negro, publica en la discusión del tutorial con tu GPU, la versión de ComfyUI, el método de instalación (Desktop, portable o manual) y la salida de la consola, además de si los flujos de trabajo de 3B y 7B fallan de forma idéntica.
 
-## 
-
-​
-
-Recursos de la comunidad
+## Recursos de la comunidad
 
   * [Página del proyecto SeedVR2](https://iceclear.github.io/projects/seedvr2/): Sitio web oficial del proyecto
   * [Código base de ByteDance SeedVR (GitHub)](https://github.com/ByteDance-Seed/SeedVR): Código de investigación original y artículo
@@ -281,4 +229,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/utility/seedvr2.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/utility/seedvr2)
 
-[Ampliación de video](https://docs.comfy.org/es/tutorials/utility/video-upscale)[Segmentación con SAM 3.1](https://docs.comfy.org/es/tutorials/utility/video-segment-sam3)
+[Ampliación de video](https://docs.comfy.org/es/tutorials/utility/video-upscale)[RelayVSR](https://docs.comfy.org/es/tutorials/utility/relayvsr)

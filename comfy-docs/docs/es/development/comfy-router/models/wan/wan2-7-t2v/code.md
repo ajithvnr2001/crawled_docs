@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/wan/wan2-7-t2v/code/
 title: Usa Wan 2.7 T2V con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:24.430309+00:00
+fetched_at: 2026-11-15T14:35:59.842196+00:00
 ---
 
 # Usa Wan 2.7 T2V con Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copiar páginaCopiar página
 
 Referencia de API para Wan 2.7 T2V. Wan 2.7 texto a video genera un video corto a partir de un prompt, en 720P o 1080P y de 2 a 15 segundos. **Entrada:** Texto · **Salida:** Video + Audio
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada sobre HTTP directo. **ID del modelo:** `wan/wan2.7-t2v` **Endpoint:** `POST https://api.comfy.org/v2/models/wan/wan2.7-t2v`
 
@@ -201,19 +197,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Esquema
 
-​
-
-Esquema
-
-### 
-
-​
-
-Entrada
-
-​
+### Entrada
 
 input
 
@@ -223,15 +209,11 @@ requerido
 
 Ingresa información básica, como palabras del prompt, etc.
 
-​
-
 input.audio_url
 
 string
 
 URL de descarga del archivo de audio. Formatos admitidos: mp3 y wav. No se puede usar junto con reference_video_urls.
-
-​
 
 input.img_url
 
@@ -239,27 +221,23 @@ string
 
 URL de la imagen del primer fotograma o datos codificados en Base64. Requerido para los modelos wan2.5-i2v-preview y wan2.6-i2v. Las variantes i2v de happyhorse-1.x NO toman aquí su primer fotograma: lo toman como un elemento media de tipo first_frame (consulta media más abajo), y un cuerpo img_url que funciona en wan2.6-i2v es rechazado por el proveedor en happyhorse-1.0-i2v y happyhorse-1.1-i2v. Además, las variantes wan2.7/wan3.0 también toman sus recursos de referencia en media. Formatos de imagen: JPEG, JPG, PNG, BMP, WEBP. Resolución: 360-2000 píxeles. Tamaño del archivo: máx 10MB.
 
-​
-
 input.media
 
 object[]
 
 Lista de recursos multimedia. Especifica materiales de referencia (imagen, audio, video) para la generación de video. Cada elemento contiene un campo type y un campo url. Este campo lo comparten todos los modelos servidos desde este componente, y qué valores de type acepta un modelo dado (y si lleva su entrada de imagen o video aquí en lugar de en img_url o reference_video_urls) varía según el modelo. Valores de type admitidos, por modelo:
 
-  * wan2.7-i2v: first_frame, last_frame, driving_audio, first_clip. first_frame y last_frame: JPEG/JPG/PNG/BMP/WEBP, 240-8000 píxeles por lado, relación de aspecto entre 1:8 y 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,… driving_audio (WAV/MP3, de 2 a 30 segundos, como máximo 15MB) y first_clip (MP4/MOV, de 2 a 10 segundos, 240-4096 píxeles por lado, como máximo 100MB): una URL pública HTTP/HTTPS; no se acepta una URL data: en línea.
-  * wan2.7-r2v: first_frame (opcional, máx. 1), reference_image, reference_video. Se requiere al menos un reference_image o un reference_video, y la suma de imágenes de referencia y videos de referencia es como máximo 5. first_frame y reference_image: JPEG/JPG/PNG/BMP/WEBP (sin canal alfa), 240-8000 píxeles por lado, relación de aspecto entre 1:8 y 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,… reference_video: una URL pública HTTP/HTTPS; no se acepta una URL data: en línea.
+  * wan2.7-i2v: first_frame, last_frame, driving_audio, first_clip. first_frame y last_frame: JPEG/JPG/PNG/BMP/WEBP, 240-8000 píxeles por lado, relación de aspecto entre 1:8 y 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,…, driving_audio (WAV/MP3, de 2 a 30 segundos, como máximo 15MB) y first_clip (MP4/MOV, de 2 a 10 segundos, 240-4096 píxeles por lado, como máximo 100MB): una URL pública HTTP/HTTPS; no se acepta una URL data: en línea.
+  * wan2.7-r2v: first_frame (opcional, máx. 1), reference_image, reference_video. Se requiere al menos un reference_image o un reference_video, y la suma de imágenes de referencia y videos de referencia es como máximo 5. first_frame y reference_image: JPEG/JPG/PNG/BMP/WEBP (sin canal alfa), 240-8000 píxeles por lado, relación de aspecto entre 1:8 y 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,…, reference_video: una URL pública HTTP/HTTPS; no se acepta una URL data: en línea.
   * wan2.7-videoedit: video (exactamente 1, el clip que se edita: MP4/MOV, de 2 a 10 segundos, 240-4096 píxeles por lado, como máximo 100MB, una URL pública HTTP/HTTPS; no se acepta una URL data: en línea) más un reference_image opcional, de 0 a 4 (JPEG/JPG/PNG/BMP/WEBP, 240-8000 píxeles por lado, relación de aspecto entre 1:8 y 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,…).
-  * wan3.0-video, wan3.0-video-prime: first_frame (máx. 1), last_frame (máx. 1), reference_image (máx. 10), reference_video (máx. 5 clips, duración total <= 15s), reference_audio (máx. 5 clips, duración total <= 15s), file (máx. 1, no se puede usar con link), link (máx. 1, no se puede usar con file). Los tipos reference_*/file/link y los tipos first_frame/last_frame son mutuamente excluyentes dentro de una misma solicitud. El orden del array define el orden de referencia de los recursos en el prompt (Imagen 1, Video 1, Audio 1, …). first_frame, last_frame y reference_image: JPEG/JPG/PNG/BMP/WEBP, 240-8000 píxeles por lado, relación de aspecto como máximo 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,… reference_video, reference_audio, file y link: una URL pública HTTP/HTTPS; no se acepta una URL data: en línea.
+  * wan3.0-video, wan3.0-video-prime: first_frame (máx. 1), last_frame (máx. 1), reference_image (máx. 10), reference_video (máx. 5 clips, duración total <= 15s), reference_audio (máx. 5 clips, duración total <= 15s), file (máx. 1, no se puede usar con link), link (máx. 1, no se puede usar con file). Los tipos reference_*/file/link y los tipos first_frame/last_frame son mutuamente excluyentes dentro de una misma solicitud. El orden del array define el orden de referencia de los recursos en el prompt (Imagen 1, Video 1, Audio 1, …). first_frame, last_frame y reference_image: JPEG/JPG/PNG/BMP/WEBP, 240-8000 píxeles por lado, relación de aspecto como máximo 8:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,…; reference_video, reference_audio, file y link: una URL pública HTTP/HTTPS; no se acepta una URL data: en línea.
   * happyhorse-1.0-i2v, happyhorse-1.1-i2v: solo first_frame, exactamente 1. Estas variantes toman su primer fotograma AQUÍ y no en img_url. Al menos 300x300 píxeles, relación de aspecto entre 1:2.5 y 2.5:1, JPEG/JPG/PNG/WEBP, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,…
   * happyhorse-1.0-r2v, happyhorse-1.1-r2v: solo reference_image, de 1 a 9. Esta es la única entrada de referencia del modelo. El lado más corto debe medir al menos 400 píxeles, JPEG/JPG/PNG/WEBP, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,… reference_video no es un tipo de entrada para esta operación.
   * happyhorse-1.0-video-edit: video (exactamente 1, el clip que se edita: MP4/MOV, de 3 a 60 segundos, lado más largo como máximo 4096 píxeles, lado más corto al menos 360 píxeles, relación de aspecto entre 1:2.5 y 2.5:1, como máximo 100MB, una URL pública HTTP/HTTPS; no se acepta una URL data: en línea) más un reference_image opcional, de 0 a 5 (JPEG/JPG/PNG/BMP/WEBP, al menos 300x300 píxeles, relación de aspecto entre 1:2.5 y 2.5:1, como máximo 20MB, una URL pública o una URL data:{MIME_type};base64,…).
   * happyhorse-1.0-t2v, happyhorse-1.1-t2v, wan2.7-t2v, wan2.6-t2v, wan2.5-t2v-preview: operaciones de texto a video. Sus referencias del socio no documentan ninguna entrada de medios, así que deja este campo sin definir.
-  * wan2.5-i2v-preview, wan2.6-i2v, wan2.6-r2v: este componente no enumera ningún vocabulario de medios para estas variantes. wan2.5-i2v-preview y wan2.6-i2v toman su primer fotograma en img_url; wan2.6-r2v toma sus clips de referencia en reference_video_urls. Los recuentos por modelo anteriores son restricciones del socio, no de este esquema: no se declara minItems/maxItems en media, porque los tipos admisibles y sus límites difieren según el modelo. Que el esquema acepte un valor no implica que el proveedor lo acepte; y, en la otra dirección, las cifras de “como máximo 20MB” por recurso anteriores (el techo de las entradas de imagen, las únicas entradas que pueden enviarse en línea) son el techo del socio sobre el recurso que acaba recibiendo, y se aplican tal como están escritas cuando el recurso es una URL pública, porque esos bytes nunca pasan por Comfy. Una URL data:{MIME_type};base64,… en línea sí pasa por Comfy y también se topa con un techo de transporte: el cuerpo de un POST de Comfy Router está limitado a 100 MiB en total y se responde 413 por encima de eso, y base64 infla una carga útil en aproximadamente 4/3, así que un solo recurso en línea de más de unos 75 MB se rechaza antes de llegar a cualquiera de las reglas del socio que aparecen aquí. Con ese tamaño, un solo recurso en el propio techo de 20MB del socio cabe en línea sin problema, así que para un solo recurso lo que obliga es la regla del socio; el techo de transporte obliga cuando son varios, ya que el límite de 100 MiB del Router acota TODA la solicitud y no cada elemento. Envía como URL pública cualquier cosa que se acerque a estos techos.
+  * wan2.5-i2v-preview, wan2.6-i2v, wan2.6-r2v: este componente no enumera ningún vocabulario de medios para estas variantes. wan2.5-i2v-preview y wan2.6-i2v toman su primer fotograma en img_url; wan2.6-r2v toma sus clips de referencia en reference_video_urls. Los recuentos por modelo anteriores son restricciones del socio, no de este esquema: no se declara minItems/maxItems en media, porque los tipos admisibles y sus límites difieren según el modelo. Que el esquema acepte un valor no implica que el proveedor lo acepte; y, en la otra dirección, las cifras de “como máximo 20MB” por recurso anteriores (el techo de las entradas de imagen, las únicas entradas que pueden enviarse en línea) son el techo del socio sobre el recurso que este acaba recibiendo, y se aplican tal cual cuando el recurso es una URL pública, porque esos bytes nunca pasan por Comfy. Una URL data:{MIME_type};base64,… en línea sí pasa por Comfy y también se enfrenta a un techo de transporte: el cuerpo de un POST de Comfy Router está limitado a 100 MiB en total y se responde 413 por encima de eso, y base64 infla la carga útil alrededor de 4/3, así que un único recurso en línea de más de unos 75 MB se rechaza antes de llegar a cualquiera de las reglas del socio que aparecen aquí. Con ese tamaño, un solo recurso en el propio techo de 20MB del socio cabe en línea sin problema, así que para un solo recurso lo que obliga es la regla del socio; el techo de transporte obliga cuando son varios, ya que el límite de 100 MiB del Router acota TODA la solicitud y no cada elemento. Envía como URL pública cualquier cosa que se acerque a estos techos.
 
 
-
-​
 
 input.media[].type
 
@@ -269,33 +247,25 @@ requerido
 
 Tipo de recurso multimediaValores posibles: `first_frame`, `last_frame`, `driving_audio`, `first_clip`, `reference_image`, `reference_video`, `reference_audio`, `video`, `file`, `link`
 
-​
-
 input.media[].url
 
 string
 
 requerido
 
-URL del archivo multimedia: una URL HTTP/HTTPS pública o una URL inline `data:{MIME_type};base64,...` únicamente para las entradas IMAGE que la descripción de `media` de arriba enumera para cada modelo: first_frame y last_frame en wan2.7-i2v; first_frame y reference_image en wan2.7-r2v; reference_image en wan2.7-videoedit; first_frame, last_frame y reference_image en wan3.0-video y wan3.0-video-prime; first_frame en happyhorse-1.0-i2v y happyhorse-1.1-i2v; reference_image en happyhorse-1.0-r2v y happyhorse-1.1-r2v; y reference_image en happyhorse-1.0-video-edit. Ninguna entrada de video, audio, archivo o enlace de ninguno de estos modelos acepta una URL data: inline. Una URL temporal `oss://dashscope-instant` del propio servicio de carga del socio, o (en wan2.7-videoedit) un `asset_id` de Asset Center, solo se resuelve contra la cuenta de Alibaba Cloud que la subió; Comfy hace la llamada al modelo con su propia clave y no expone ninguna ruta de carga, así que la URL `oss://` o el `asset_id` propios de quien llama no son una entrada admitida. Este campo no valida el esquema de la URL, así que ese valor se reenvía al socio tal cual en lugar de rechazarse aquí. Consulta la descripción de `media` para ver los límites de tamaño y píxeles por modelo y el tope de 100 MiB del cuerpo de la solicitud del Router que acota la carga inline en conjunto.
-
-​
+URL del archivo multimedia: una URL HTTP/HTTPS pública o, únicamente para las entradas IMAGE que la descripción de `media` de arriba enumera para cada modelo, una URL en línea `data:{MIME_type};base64,...`: first_frame y last_frame en wan2.7-i2v; first_frame y reference_image en wan2.7-r2v; reference_image en wan2.7-videoedit; first_frame, last_frame y reference_image en wan3.0-video y wan3.0-video-prime; first_frame en happyhorse-1.0-i2v y happyhorse-1.1-i2v; reference_image en happyhorse-1.0-r2v y happyhorse-1.1-r2v; y reference_image en happyhorse-1.0-video-edit. Ninguna entrada de video, audio, archivo o enlace de ninguno de estos modelos acepta una URL data: en línea. Una URL temporal `oss://dashscope-instant` del propio servicio de carga del socio, o (en wan2.7-videoedit) un `asset_id` de Asset Center, solo se resuelve contra la cuenta de Alibaba Cloud que la subió; Comfy hace la llamada al modelo con su propia clave y no expone ninguna ruta de carga, así que la URL `oss://` o el `asset_id` propios de quien llama no son una entrada admitida. Este campo no valida el esquema de la URL, así que ese valor se reenvía al socio tal cual en lugar de rechazarse aquí. Consulta la descripción de `media` para ver los límites de tamaño y píxeles por modelo y el tope de 100 MiB del cuerpo de la solicitud del Router que acota la carga en línea en conjunto.
 
 input.negative_prompt
 
 string
 
-Las palabras del prompt inverso se usan para describir el contenido que no quieres ver en la trama del video
-
-​
+Las palabras del prompt inverso se usan para describir el contenido que no quieres ver en la trama del video. Pasados los 500 caracteres, un modelo wan lo trunca en lugar de rechazarlo. Cuenta para el mismo presupuesto de entrada que el prompt.
 
 input.prompt
 
 string
 
-Palabras del prompt de texto. Admite chino e inglés, con una longitud que no supere los 800 caracteres (hasta 20,000 caracteres para wan3.0-video; el contenido que excede el límite se trunca). Para wan2.6-r2v con varios videos de referencia, usa ‘character1’, ‘character2’, etc. para referirte a los sujetos en el orden de los videos de referencia. Ejemplo: “Character1 sings on the roadside, Character2 dances beside it” Para el modo reference de wan3.0-video, usa ‘Image 1’, ‘Video 1’, ‘Audio 1’, etc. para referirte a los recursos multimedia en el orden correspondiente dentro del arreglo media.
-
-​
+Palabras del prompt de texto. Admite chino e inglés. Pasada su propia longitud documentada, un modelo wan2.x trunca el prompt en lugar de rechazarlo: 1,500 caracteres para wan2.5 y wan2.6 y 5,000 para wan2.7. wan3.0-video y wan3.0-video-prime aceptan como máximo 20,000 caracteres. El proveedor rechaza una solicitud cuyo prompt y negative_prompt juntos superen unos 60,850 bytes de texto UTF-8 (unos 20,000 caracteres chinos), respondiendo InvalidParameter `Range of input length should be [1, 61440]`. Para wan2.6-r2v con varios videos de referencia, usa ‘character1’, ‘character2’, etc. para referirte a los sujetos en el orden de los videos de referencia. Ejemplo: “Character1 sings on the roadside, Character2 dances beside it” Para el modo reference de wan3.0-video, usa ‘Image 1’, ‘Video 1’, ‘Audio 1’, etc. para referirte a los recursos multimedia en el orden correspondiente dentro del arreglo media.
 
 input.reference_video_urls
 
@@ -311,15 +281,11 @@ URLs de video de referencia solo para el modelo wan2.6-r2v. Arreglo de 1 a 3 URL
 
 
 
-​
-
 input.template
 
 string
 
 Nombre de la plantilla de efecto de video. Opcional. Actualmente disponibles: squish, flying, carousel. Cuando se usa, el parámetro prompt se ignora.
-
-​
 
 model
 
@@ -327,15 +293,11 @@ string
 
 El ID del modelo que se va a llamar. NO está restringido en este componente: Comfy Router lo rellena desde el segmento de ruta `{model}` de `POST /v2/models/wan/{model}`, así que quien llama al Router lo omite. Una llamada directa v1 a `POST /proxy/wan/api/v1/services/aigc/video-generation/video-synthesis` DEBE proporcionarlo, y la enumeración de grafías aceptadas está en el componente propio de esa operación, `WanVideoGenerationRequest`.
 
-​
-
 parameters
 
 object
 
 Parámetros de procesamiento de video
-
-​
 
 parameters.audio
 
@@ -344,8 +306,6 @@ boolean
 predeterminado:"true"
 
 Si se añade audio al video. Solo es compatible con wan3.0-video y wan3.0-video-prime; el proveedor no documenta ninguna opción de este tipo para el resto de los modelos wan.
-
-​
 
 parameters.audio_setting
 
@@ -360,8 +320,6 @@ Ajuste de audio del video para el modelo wan2.7-videoedit.
 
 
 
-​
-
 parameters.duration
 
 integer
@@ -375,11 +333,9 @@ La duración del video generado, en segundos:
   * wan2.6-r2v: solo 5 o 10 segundos (sin soporte para 15s)
   * wan2.7-i2v, wan2.7-t2v: entero en [2, 15]
   * wan2.7-r2v, wan2.7-videoedit: entero en [2, 10]
-  * wan3.0-video: entero en [2, 30] sin entrada de video; con entrada de video, la duración total del video de entrada más la duración del video de salida no debe superar los 30 segundos; -1 activa el modo de duración inteligente, en el que el modelo elige una duración adecuada Este proxy devuelve 400 si la duración queda fuera de [-1, 30]. Rango: `-1` a `30`
+  * wan3.0-video: entero en [2, 30] sin entrada de video; con entrada de video, la duración total del video de entrada + la duración del video de salida no debe superar los 30 segundos; -1 activa el modo de duración inteligente, en el que el modelo elige una duración adecuada Este proxy devuelve 400 si la duración queda fuera de [-1, 30]. Rango: `-1` a `30`
 
 
-
-​
 
 parameters.prompt_extend
 
@@ -387,17 +343,13 @@ boolean
 
 predeterminado:"true"
 
-Si se habilita la reescritura inteligente del prompt. El valor predeterminado es verdadero
-
-​
+Indica si está habilitada la reescritura inteligente del prompt. El valor predeterminado es true
 
 parameters.ratio
 
 string
 
-Relación de aspecto del video generado. Solo para modelos wan2.7 y wan3.0. En los modelos wan2.7, si no se proporciona, se toma un valor predeterminado según el nivel de resolución. En wan3.0-video, adaptive (el valor predeterminado) recomienda automáticamente una relación de aspecto adecuada según las proporciones de los recursos de entrada y la intención.Valores posibles: `adaptive`, `16:9`, `9:16`, `1:1`, `4:3`, `3:4`
-
-​
+Relación de aspecto del video generado. Solo para los modelos wan2.7 y wan3.0. En los modelos wan2.7, si no se proporciona, se toma un valor predeterminado según el nivel de resolución. Para wan3.0-video, adaptive (el valor predeterminado) recomienda automáticamente una relación de aspecto adecuada según las proporciones y la intención de los medios de entrada.Valores posibles: `adaptive`, `16:9`, `9:16`, `1:1`, `4:3`, `3:4`
 
 parameters.resolution
 
@@ -412,17 +364,13 @@ Nivel de resolución. Los valores admitidos varían según el modelo:
   * happyhorse-1.0-* (t2v, i2v, r2v, video-edit): 720P, 1080P
   * happyhorse-1.1-* (t2v, i2v, r2v): 480P, 720P, 1080P
 
-Este proxy rechaza las solicitudes de generación de video que no incluyan ni resolution ni size, porque el nivel de resolución determina la tarifa de facturación. Convierte resolution a mayúsculas antes de comprobarla y reenvía el valor en mayúsculas, devuelve 400 cuando el valor está fuera de esta enumeración y devuelve 400 para 480P (ya se envíe como resolution o como un size de 480P) en los modelos wan2.6, wan2.7 y happyhorse-1.0 indicados arriba como modelos sin 480P.Valores posibles: `480P`, `720P`, `1080P`
-
-​
+Este proxy rechaza las solicitudes de generación de video que no incluyan ni resolution ni size, porque el nivel de resolución determina la tarifa de facturación. Convierte resolution a mayúsculas antes de comprobarla y reenvía el valor en mayúsculas, devuelve 400 para un valor fuera de esta enumeración y devuelve 400 para 480P (ya se envíe como resolution o como un size de 480P) en los modelos wan2.6, wan2.7 y happyhorse-1.0 indicados arriba como modelos sin 480P.Valores posibles: `480P`, `720P`, `1080P`
 
 parameters.seed
 
 integer
 
-Semilla de número aleatorio que controla la aleatoriedad del contenido generado por el modeloRango: `0` a `2147483647`
-
-​
+Semilla de número aleatorio, usada para controlar la aleatoriedad del contenido generado por el modeloRango: `0` a `2147483647`
 
 parameters.shot_type
 
@@ -437,15 +385,11 @@ Control inteligente de múltiples lentes. Solo está activo cuando prompt_extend
 
 
 
-​
-
 parameters.size
 
 string
 
 Resolución del video en formato ancho _alto. Las resoluciones admitidas varían según el modelo: Para wan2.5 T2V: tamaños 480P (480_ 832, 832 _480, 624_ 624), 720P y 1080P Para wan2.6 T2V/R2V (sin 480P): 720P: 1280 _720, 720_ 1280, 960 _960, 1088_ 832, 832 _1088 1080P: 1920_ 1080, 1080 _1920, 1440_ 1440, 1632 _1248, 1248_ 1632 Cuando se envían size y resolution a la vez, size determina el nivel facturado y resolution debe seguir siendo un valor que este proxy acepte para el modelo. Un size de 480P devuelve 400 en todos los modelos que la descripción de resolution indica como modelos sin 480P.
-
-​
 
 parameters.watermark
 
@@ -457,13 +401,7 @@ Indica si se agrega un logotipo de marca de agua; la marca de agua se ubica en l
 
 Generado a partir del esquema que el Router sirve en `GET /v2/models/wan/wan2.7-t2v/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 output
 
@@ -471,15 +409,11 @@ object
 
 requerido
 
-​
-
 output.actual_prompt
 
 string
 
 Prompt real después de la reescritura inteligente (para tareas de video)
-
-​
 
 output.check_audio
 
@@ -487,15 +421,11 @@ string
 
 URL del audio para tareas I2V con generación de audio
 
-​
-
 output.code
 
 string
 
-El código de error de la solicitud fallida (no se devuelve si la solicitud tiene éxito)
-
-​
+Código de error de la solicitud fallida (no se devuelve si la solicitud tiene éxito)
 
 output.end_time
 
@@ -503,15 +433,11 @@ string
 
 Hora de finalización de la tarea
 
-​
-
 output.message
 
 string
 
 Información detallada sobre la solicitud fallida (no se devuelve si la solicitud tiene éxito)
-
-​
 
 output.orig_prompt
 
@@ -519,15 +445,11 @@ string
 
 Prompt de entrada original (para tareas de video)
 
-​
-
 output.results
 
 object[]
 
 Lista de resultados de la tarea para tareas de generación de imágenes
-
-​
 
 output.results[].actual_prompt
 
@@ -535,15 +457,11 @@ string
 
 Prompt real después de la reescritura inteligente (si está habilitada)
 
-​
-
 output.results[].code
 
 string
 
 Código de error de la imagen (se devuelve cuando algunas tareas fallan)
-
-​
 
 output.results[].message
 
@@ -551,15 +469,11 @@ string
 
 Información de error de la imagen (se devuelve cuando algunas tareas fallan)
 
-​
-
 output.results[].orig_prompt
 
 string
 
 Prompt de entrada original
-
-​
 
 output.results[].url
 
@@ -567,23 +481,17 @@ string
 
 Dirección URL de la imagen generada
 
-​
-
 output.scheduled_time
 
 string
 
 Hora de ejecución de la tarea
 
-​
-
 output.submit_time
 
 string
 
 Hora de envío de la tarea
-
-​
 
 output.task_id
 
@@ -593,15 +501,11 @@ requerido
 
 ID de la tarea
 
-​
-
 output.task_metrics
 
 object
 
 Estadísticas de resultados de la tarea para tareas de generación de imágenes
-
-​
 
 output.task_metrics.FAILED
 
@@ -609,23 +513,17 @@ integer
 
 Número de tareas fallidas
 
-​
-
 output.task_metrics.SUCCEEDED
 
 integer
 
 Número de tareas exitosas
 
-​
-
 output.task_metrics.TOTAL
 
 integer
 
 Número total de tareas
-
-​
 
 output.task_status
 
@@ -635,15 +533,11 @@ requerido
 
 Estado de la tareaValores posibles: `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELED`, `UNKNOWN`
 
-​
-
 output.video_url
 
 string
 
 URL del video para tareas de generación de video completadas. El enlace es válido durante 24 horas
-
-​
 
 request_id
 
@@ -653,15 +547,11 @@ requerido
 
 Identificador único de la solicitud
 
-​
-
 usage
 
 object
 
 Estadísticas de la información de salida. Solo se cuentan los resultados exitosos
-
-​
 
 usage.SR
 
@@ -669,15 +559,11 @@ integer
 
 Nivel de resolución del video (tareas I2V y wan3.0-video)
 
-​
-
 usage.duration
 
 number
 
 Duración del video generado en segundos (tareas I2V y wan3.0-video)
-
-​
 
 usage.fps
 
@@ -685,15 +571,11 @@ integer
 
 Frecuencia de cuadros del video generado (tareas wan3.0-video)
 
-​
-
 usage.image_count
 
 integer
 
 Número de imágenes generadas (tareas T2I e I2I)
-
-​
 
 usage.input_video_duration
 
@@ -701,15 +583,11 @@ number
 
 Duración del video de entrada en segundos, 0.0 cuando no hay video de entrada (tareas wan3.0-video)
 
-​
-
 usage.output_video_duration
 
 number
 
 Duración del video de salida en segundos (tareas wan3.0-video)
-
-​
 
 usage.ratio
 
@@ -717,15 +595,11 @@ string
 
 Relación de aspecto del video generado, p. ej. 16:9 (tareas wan3.0-video)
 
-​
-
 usage.size
 
 string
 
 Resolución de la imagen (tareas T2I e I2I)
-
-​
 
 usage.video_count
 
@@ -733,15 +607,11 @@ integer
 
 Número de videos generados (tareas T2V)
 
-​
-
 usage.video_duration
 
 number
 
 Duración del video generado en segundos (tareas T2V)
-
-​
 
 usage.video_ratio
 
@@ -749,15 +619,11 @@ string
 
 Relación de resolución del video (tareas T2V)
 
-​
-
 code
 
 string
 
 Código de error de una solicitud fallida, informado en la RAÍZ del sobre y no dentro de `output` (no se devuelve si la solicitud tuvo éxito).
-
-​
 
 message
 
@@ -765,17 +631,9 @@ string
 
 Información detallada sobre una solicitud fallida, informada en la RAÍZ del sobre y no dentro de `output` (no se devuelve si la solicitud tuvo éxito). Léela antes de recurrir a `output.message`.
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -789,11 +647,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -818,11 +672,7 @@ Salida
 
 La URL del video es válida durante 24 horas. Descarga el video cuanto antes si necesitas conservarlo.
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 

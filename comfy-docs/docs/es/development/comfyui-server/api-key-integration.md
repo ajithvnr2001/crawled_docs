@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfyui-server/api-key-integration/
 title: Integraci\u00f3n de la clave API de la cuenta de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:26.300467+00:00
+fetched_at: 2026-11-15T14:35:58.435218+00:00
 ---
 
 # Integración de la clave API de la cuenta de ComfyUI - ComfyUI
@@ -25,7 +25,7 @@ Self-Hosted Server API
 
 Copiar páginaCopiar página
 
-Usa la clave API de tu cuenta de ComfyUI para llamar a nodos asociados de pago en modo headless.
+Llama a nodos asociados de pago desde un servidor ComfyUI sin interfaz con la clave API de tu cuenta, ejecutando flujos vía la API del servidor web.
 
 Copiar páginaCopiar página
 
@@ -37,11 +37,7 @@ A partir de [PR #8041](https://github.com/Comfy-Org/ComfyUI/pull/8041), ComfyUI 
 
 Luego puedes ejecutar todo junto simplemente enviando el prompt a la API del servidor web de Comfy, y dejar que se encargue de toda la orquestación. Esto es útil para quienes quieren usar Comfy como servicio backend, mediante la línea de comandos, con su propio frontend, etc.
 
-## 
-
-​
-
-Requisitos previos
+## Requisitos previos
 
 Para usar tu Clave API de la cuenta de ComfyUI y llamar a los Nodos asociados de pago, necesitas:
 
@@ -58,11 +54,7 @@ Para usar tu Clave API de la cuenta de ComfyUI y llamar a los Nodos asociados de
 
 Consulta la sección Créditos para saber cómo comprar créditos para tu cuenta
 
-## 
-
-​
-
-Ejemplo de Python
+## Ejemplo de Python
 
 Aquí tienes un ejemplo de cómo enviar un flujo de trabajo que contiene Nodos asociados a la API de ComfyUI usando código de Python:
     
@@ -144,11 +136,7 @@ Aquí tienes un ejemplo de cómo enviar un flujo de trabajo que contiene Nodos a
     
     
 
-## 
-
-​
-
-Documentación relacionada
+## Documentación relacionada
 
   * [Descripción general de los Nodos asociados](https://docs.comfy.org/tutorials/partner-nodes/overview)
   * [Gestión de la cuenta](https://docs.comfy.org/interface/user)

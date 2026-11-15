@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/basic/text-to-image/
 title: Flujo de trabajo de texto a imagen en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:27.713608+00:00
+fetched_at: 2026-11-15T14:35:58.904712+00:00
 ---
 
 # Flujo de trabajo de texto a imagen en ComfyUI - ComfyUI
@@ -52,11 +52,7 @@ Esta guía tiene como objetivo presentarte el flujo de trabajo de texto a imagen
 
 Comenzaremos ejecutando un flujo de trabajo de texto a imagen y, a continuación, explicaremos los conceptos relacionados. Elige las secciones que necesites.
 
-## 
-
-​
-
-¿Qué es texto a imagen en ComfyUI?
+## ¿Qué es texto a imagen en ComfyUI?
 
 **Texto a imagen** es un proceso fundamental en la generación de arte con IA que crea imágenes a partir de descripciones de texto, con los **modelos de difusión** como núcleo. El proceso de texto a imagen requiere los siguientes elementos:
 
@@ -66,35 +62,19 @@ Comenzaremos ejecutando un flujo de trabajo de texto a imagen y, a continuación
 
 Puedes entender este proceso de generación de texto a imagen simplemente como decirle tus requisitos (prompts positivos y negativos) a un **artista (el modelo de imagen)** , que luego crea lo que quieres a partir de esos requisitos.
 
-## 
+## Guía de ejemplo del flujo de trabajo Texto a imagen de ComfyUI
 
-​
+### 1\. Preparación
 
-Guía de ejemplo del flujo de trabajo Texto a imagen de ComfyUI
+Asegúrate de tener al menos un archivo de modelo SD1.5 en tu carpeta `ComfyUI/models/checkpoints`, por ejemplo [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) Si aún no lo has instalado, sigue [Descargar el modelo](https://docs.comfy.org/es/get_started/first_generation#descargar-el-modelo).
 
-### 
-
-​
-
-1\. Preparación
-
-Asegúrate de tener al menos un archivo de modelo SD1.5 en tu carpeta `ComfyUI/models/checkpoints`, por ejemplo [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) Si aún no lo has instalado, consulta la sección de instalación de modelos en [Primeros pasos con la generación de arte con IA de ComfyUI](https://docs.comfy.org/es/get_started/first_generation).
-
-### 
-
-​
-
-2\. Cargar el flujo de trabajo Texto a imagen
+### 2\. Cargar el flujo de trabajo Texto a imagen
 
 Descarga la imagen que aparece a continuación y **arrástrala a ComfyUI** para cargar el flujo de trabajo: ![Flujo de trabajo Texto a imagen de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/text-to-image-workflow.png)
 
 Puedes arrastrar directamente a ComfyUI las imágenes que contengan el JSON del flujo de trabajo en sus metadatos, o cargarlas con el menú `Workflows` -> `Open (ctrl+o)`.
 
-### 
-
-​
-
-3\. Cargar el modelo y generar tu primera imagen
+### 3\. Cargar el modelo y generar tu primera imagen
 
 Después de instalar el modelo de imagen, sigue los pasos de la imagen a continuación para cargar el modelo y generar tu primera imagen ![Generación de imagen](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/basic/text-to-image-workflow.png) Sigue estos pasos según los números de la imagen:
 
@@ -105,11 +85,7 @@ Cuando el proceso termine, deberías ver la imagen resultante en la interfaz del
 
 Si no estás satisfecho con el resultado, prueba a ejecutar la generación varias veces. Cada vez que la ejecutes, **KSampler** usará una semilla aleatoria diferente según el parámetro `seed`, así que cada generación producirá resultados distintos
 
-### 
-
-​
-
-4\. Comenzar a experimentar
+### 4\. Comenzar a experimentar
 
 Intenta modificar el texto en el **CLIP Text Encoder** ![CLIP Text Encoder](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/conditioning/clip_text_encode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=94d83f96b628279b5b2fc865d522886e) La conexión `Positive` al nodo KSampler representa los prompts positivos, mientras que la conexión `Negative` representa los prompts negativos Estos son algunos principios básicos para escribir prompts con el modelo SD1.5:
 
@@ -162,11 +138,7 @@ Prompts negativos:
     blurry, low detail, cartoonish, unrealistic anatomy, out of focus, cluttered, flat lighting
     
 
-## 
-
-​
-
-¿Cómo funciona el texto a imagen?
+## ¿Cómo funciona el texto a imagen?
 
 Todo el proceso de texto a imagen se puede entender como un **proceso de difusión inversa**. El [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) que descargamos es un modelo preentrenado que puede **generar imágenes objetivo a partir de ruido gaussiano puro**. Solo tenemos que introducir nuestros prompts y puede generar imágenes objetivo eliminando el ruido aleatorio. Necesitamos entender dos conceptos:
 
@@ -181,19 +153,11 @@ Si quieres aprender más acerca de los modelos de difusión, puedes leer estos a
 
 
 
-## 
-
-​
-
-Explicación de los nodos del flujo de trabajo Texto a imagen de ComfyUI
+## Explicación de los nodos del flujo de trabajo Texto a imagen de ComfyUI
 
 ![Explicación del flujo de trabajo Texto a imagen de ComfyUI](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/basic/text-image-workflow.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=3e22321faba12644c781cecc5746a71e)
 
-### 
-
-​
-
-A. Nodo Load Checkpoint
+### A. Nodo Load Checkpoint
 
 ![Load Checkpoint](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/loaders/load_checkpoint.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=1a046abe89763dd49e42f2447974a1f8) Este nodo se usa normalmente para cargar el modelo de generación de imágenes. Un `checkpoint` suele contener tres componentes: `MODEL (UNet)`, `CLIP` y `VAE`
 
@@ -203,19 +167,11 @@ A. Nodo Load Checkpoint
 
 
 
-### 
-
-​
-
-B. Nodo Empty Latent Image
+### B. Nodo Empty Latent Image
 
 ![Empty Latent Image](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/latent/empty_latent_image.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=e40da4b9e1953fa2488277c47a310187) Define un espacio latente que se envía al nodo KSampler. El nodo Empty Latent Image construye un **espacio latente de ruido puro** Puedes pensar en su función como la de definir el tamaño del lienzo, que determina las dimensiones de la imagen final generada
 
-### 
-
-​
-
-C. Nodo CLIP Text Encoder
+### C. Nodo CLIP Text Encoder
 
 ![CLIP Text Encoder](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/conditioning/clip_text_encode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=94d83f96b628279b5b2fc865d522886e) Se usa para codificar los prompts, que son tus requisitos para la imagen
 
@@ -224,11 +180,7 @@ C. Nodo CLIP Text Encoder
 
 El componente `CLIP` del nodo `Load Checkpoint` codifica los prompts en vectores semánticos y los envía como condiciones al nodo KSampler
 
-### 
-
-​
-
-D. Nodo KSampler
+### D. Nodo KSampler
 
 ![KSampler](https://mintcdn.com/dripart/7m9lukFrTCZs7Mhj/images/comfy_core/sampling/k_sampler.png?fit=max&auto=format&n=7m9lukFrTCZs7Mhj&q=85&s=5bb2412a6e137d0a0b630b14845944e1) El **KSampler** es el núcleo de todo el flujo de trabajo: en él ocurre todo el proceso de eliminación de ruido y al final genera una imagen en el espacio latente A continuación, se explican los parámetros del nodo KSampler:
 
@@ -248,35 +200,19 @@ Nombre del parámetro| Descripción| Función
   
 En el nodo KSampler, el espacio latente usa `seed` como parámetro de inicialización para construir ruido aleatorio, y los vectores semánticos `Positive` y `Negative` entran como condiciones al modelo de difusión Después, el nodo elimina ruido durante el número de pasos que indica el parámetro `steps`. Cada paso de eliminación de ruido usa el coeficiente de fuerza que especifica el parámetro `denoise` para eliminar el ruido del espacio latente y generar una nueva imagen en el espacio latente
 
-### 
-
-​
-
-E. Nodo VAE Decode
+### E. Nodo VAE Decode
 
 ![VAE Decode](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/latent/vae_decode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=a9c0a75f0e442062a837289c5639a205) Convierte la imagen del espacio latente que genera el **KSampler** en una imagen del espacio de píxeles
 
-### 
-
-​
-
-F. Nodo Save Image
+### F. Nodo Save Image
 
 ![Save Image](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/image/save_image.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=986a4163337dce0354c90b4bfb4471b2) Previsualiza y guarda en la carpeta local `ComfyUI/output` la imagen decodificada desde el espacio latente
 
-## 
-
-​
-
-Introducción al modelo SD1.5
+## Introducción al modelo SD1.5
 
 **SD1.5 (Stable Diffusion 1.5)** es un modelo de generación de imágenes con IA desarrollado por [Stability AI](https://stability.ai/). Es la versión fundacional de la serie Stable Diffusion, entrenada con imágenes de **512×512** de resolución, lo que la hace especialmente buena para generar imágenes a esa resolución. Con un tamaño de unos 4GB, funciona sin problemas en **GPUs de consumo (por ejemplo, 6GB de VRAM)**. Actualmente, SD1.5 cuenta con un ecosistema rico que admite varios plugins (como ControlNet, LoRA) y herramientas de optimización. Como modelo hito en la generación de arte con IA, SD1.5 sigue siendo la mejor opción de entrada gracias a su naturaleza de código abierto, su arquitectura ligera y su rico ecosistema. Aunque se han lanzado versiones más recientes como SDXL/SD3, su valor para el hardware de consumo sigue siendo inigualable.
 
-### 
-
-​
-
-Información básica
+### Información básica
 
   * **Fecha de lanzamiento** : octubre de 2022
   * **Arquitectura principal** : basada en el modelo de difusión latente (LDM)
@@ -285,11 +221,7 @@ Información básica
 
 
 
-### 
-
-​
-
-Ventajas y limitaciones
+### Ventajas y limitaciones
 
 Ventajas del modelo:
 

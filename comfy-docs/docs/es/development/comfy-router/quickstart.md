@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/quickstart/
 title: Inicio r\u00e1pido de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:26.605474+00:00
+fetched_at: 2026-11-15T14:35:59.255872+00:00
 ---
 
 # Inicio rápido de Comfy Router - ComfyUI
@@ -16,6 +16,7 @@ Volver arriba
   * Crear una clave API
   * Encolar una solicitud
   * Imagen a video y referencia a video
+    * Editar o extender un video de referencia
   * Siguientes pasos
 
 
@@ -149,11 +150,7 @@ TypeScript
 
 Cada llamada de envío del SDK crea una clave de idempotencia y la reutiliza para los reintentos automáticos. El ejemplo de cURL genera una con `uuidgen`. Si no está disponible, usa otro generador de UUID. Para detalles sobre el estado, la cancelación y la recopilación del resultado, consulta [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue).
 
-## 
-
-​
-
-Imagen a video y referencia a video
+## Imagen a video y referencia a video
 
 La misma solicitud de Seedance acepta entradas de imagen, video y audio. Agrega elementos a `content` y define el `role` de cada uno. Los roles que envías determinan la operación que ejecuta Router. El precio sigue los tipos de medio en `content`, no los roles: una solicitud con cualquier entrada de video se cobra como video a video; si no, una con cualquier imagen se cobra como imagen a video; y una solicitud solo de texto se cobra como texto a video. Algunos modelos cobran la misma tarifa para texto a video e imagen a video.
 
@@ -164,7 +161,7 @@ Imagen a video| un elemento `text` más un elemento `image_url` con `role: first
 Primer y último fotograma| lo anterior más un segundo elemento `image_url` con `role: last_frame`  
 Referencia a video| un elemento `text` más elementos `image_url` con `role: reference_image` y, en Seedance 2.0 y 2.5, elementos `video_url` con `role: reference_video` y elementos `audio_url` con `role: reference_audio`  
   
-La `url` de una imagen puede ser una URL pública o una cadena `data:image/<format>;base64,<content>`. Envía, consulta el estado y recoge el resultado exactamente como en la guía de inicio anterior. Solo cambia el cuerpo.
+La `url` de una imagen puede ser una URL pública o una cadena `data:image/<format>;base64,<content>`. Envía, consulta el estado y recoge el resultado exactamente como en la guía de inicio rápido anterior. Solo cambia el cuerpo.
 
 Image-to-video
     
@@ -196,6 +193,7 @@ Reference-to-video
           {"type": "image_url", "image_url": {"url": "https://example.com/character.png"}, "role": "reference_image"},
           {"type": "image_url", "image_url": {"url": "https://example.com/outfit.png"}, "role": "reference_image"}
         ],
+        "omni_reference_task_type": "reference",
         "duration": 5,
         "ratio": "16:9",
         "resolution": "720p"
@@ -204,11 +202,31 @@ Reference-to-video
 
 En Seedance 2.5, las solicitudes de primer fotograma y de primer y último fotograma toman la relación de aspecto de salida del primer fotograma. Omite `ratio` o envía `adaptive`, porque una relación concreta se rechaza con un `400`. El esquema de la solicitud es compartido por toda la familia Seedance y puede listar roles que un modelo ignora, así que revisa el campo `x-comfy-router-input-modalities` en el [esquema de entrada](https://docs.comfy.org/es/development/comfy-router/models) de cada modelo para conocer los tipos de entrada que ese modelo acepta. Por ejemplo, `reference_video` y `reference_audio` necesitan un modelo que liste `video` o `audio` ahí.
 
-## 
+### Editar o extender un video de referencia
 
-​
+En Seedance 2.5, `omni_reference_task_type` le indica al modelo qué hacer con el material de referencia: `reference` crea un video nuevo guiado por él, `edit` cambia un clip de `reference_video` y `extend` continúa un clip. Sin el campo, el modelo elige la tarea a partir del prompt, y una edición conserva la longitud y la relación de aspecto del propio clip e ignora `duration` y `ratio`. En la ruta nativa de BytePlus, un valor explícito que no se ajusta a la solicitud se rechaza antes de que empiece la generación, por lo que no se cobra. Una ruta de proveedor alternativa, usada como respaldo o elegida con `model_provider`, no tiene campo de tipo de tarea: descarta el valor y deja que ese proveedor infiera la tarea como si el campo se hubiera omitido. El descarte se indica en `X-Comfy-Router-Dropped-Params`, en la respuesta de una ruta de ejecución síncrona y en el `201` del envío en cola. La ruta en cola no tiene respaldo, así que solo llega a una ruta alternativa mediante `model_provider`.
 
-Siguientes pasos
+Edit a reference video
+    
+    
+    curl https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628/requests \
+      -H "X-API-Key: $COMFY_API_KEY" \
+      -H "Idempotency-Key: $(uuidgen)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "content": [
+          {"type": "text", "text": "Make the fox bright red"},
+          {"type": "video_url", "video_url": {"url": "https://example.com/fox.mp4"}, "role": "reference_video"}
+        ],
+        "omni_reference_task_type": "edit",
+        "duration": -1,
+        "resolution": "720p"
+      }'
+    
+
+Una edición conserva la longitud del clip de origen, así que envía `"duration": -1` y omite `ratio`. Una solicitud de `extend` devuelve solo el segmento recién generado, con la `duration` que envíes.
+
+## Siguientes pasos
 
 ## Explorar modelos
 

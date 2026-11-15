@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/account/login/
 title: Log in to your Comfy account - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:15.335274+00:00
+fetched_at: 2026-11-15T14:35:58.297056+00:00
 ---
 
 # Log in to your Comfy account - ComfyUI
@@ -11,7 +11,10 @@ fetched_at: 2026-10-17T10:46:15.335274+00:00
 
 ## On this page
 
+Back to top
+
   * Supported login methods
+  * Sign in with single sign-on (SSO)
   * Logging in on Comfy Cloud
   * Logging in locally
     * Logging in with an API Key
@@ -27,31 +30,36 @@ Account Management
 
 Copy pageCopy page
 
-Access your Comfy account for ComfyUI to use all platform features and services.
+Sign in to ComfyUI with email, Google, GitHub, or single sign-on, on Comfy Cloud or in the local app, including API Key login for self-hosted servers.
 
 Copy pageCopy page
 
 Your Comfy account gives you access to [partner nodes (Partner Node)](https://docs.comfy.org/tutorials/partner-nodes/overview) and [cloud subscriptions](https://www.comfy.org/cloud), enabling you to use premium features and services across the ComfyUI platform.
 
-## 
-
-​
-
-Supported login methods
+## Supported login methods
 
 ComfyUI supports the following login methods:
 
   * **Email** : Log in with your email address and password
   * **Google** : Log in with your Google account
   * **GitHub** : Log in with your GitHub account
+  * **Single sign-on (SSO)** : Log in through your organization’s identity provider
 
 
 
-## 
+## Sign in with single sign-on (SSO)
 
-​
+If your organization manages Comfy accounts through an identity provider, you sign in with **Continue with SSO** instead of an email address and password, Google, or GitHub. Single sign-on is available after your organization enables it. Until then, use email, Google, or GitHub.
 
-Logging in on Comfy Cloud
+  1. On the sign-in page, enter your email address, or click **Continue with SSO** first.
+  2. If prompted, click **Continue with SSO**.
+  3. Finish signing in on your identity provider’s page. You return to Comfy Cloud signed in.
+
+If single sign-on is not set up, or an administrator turned it off for your organization, contact your administrator.
+
+SSO accounts cannot sign in to the ComfyUI desktop app yet. Use the browser instead. Workspace invite links also cannot be accepted from an SSO account yet, so ask a workspace admin to add you directly.
+
+## Logging in on Comfy Cloud
 
 To access your Comfy account for ComfyUI on Comfy Cloud:
 
@@ -61,14 +69,11 @@ To access your Comfy account for ComfyUI on Comfy Cloud:
      * **Email** : Enter your email address and password, then click **Log in**
      * **Google** : Click the Google login button and authenticate
      * **GitHub** : Click the GitHub login button and authenticate
+     * **SSO** : Click **Continue with SSO** (enter your email first, or go straight to SSO) and finish on your identity provider
 
 
 
-## 
-
-​
-
-Logging in locally
+## Logging in locally
 
 If you have ComfyUI installed locally:
 
@@ -83,11 +88,7 @@ If you have ComfyUI installed locally:
 
 ![User settings interface](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/user.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=4aacfc636460e073d16ef1fdaccb0888)
 
-### 
-
-​
-
-Logging in with an API Key
+### Logging in with an API Key
 
 Since not all ComfyUI deployments are on our domain authorization whitelist, we have provided API Key login in a recent update (2025-05-10) for logging in through non-whitelisted sites. Below are the steps for logging in with an API Key:
 
@@ -127,19 +128,19 @@ Please refer to the following steps to apply for and obtain an API Key:
 
 Visit the Comfy Platform and Log In
 
-Please visit the [Comfy Platform login page](https://platform.comfy.org/login) and log in with the corresponding account![Visit Platform Login Page](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-1.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=c9516c73148a20ac2de9fcd5f56860c9)
+Please visit the [Comfy Platform login page](https://platform.comfy.org/login) and log in with the corresponding account![Visit Platform Login Page](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-1.jpg)
 
 2
 
 Click `+ New` in API Keys to Create an API Key
 
-Click `+ New` in API Keys to create an API Key![Create API Key](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-2.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=9e1f6dc2a5a28fbbe5074f4267dd8d14)
+Click `+ New` in API Keys to create an API Key![Create API Key](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-2.jpg)
 
 3
 
 Enter API Key Name
 
-![Enter API Key Name](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-3.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=112f28de30c52898bca15513706c70f2)
+![Enter API Key Name](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-3.jpg)
 
   1. (Required) Enter the API Key name,
   2. Click `Generate` to create
@@ -150,7 +151,7 @@ Enter API Key Name
 
 Save the Obtained API Key
 
-![Obtain API Key](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-4.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=223b5d1941d0d9a2f2644807b08a676f)
+![Obtain API Key](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-4.jpg)
 
 Since the API Key is only visible upon first creation, please save it immediately after creation. It cannot be viewed later, so please keep it safe. Please note that you should not share your API Key with others. Once it leaked, you can delete it and create a new one.
 
@@ -166,11 +167,7 @@ API Key Management
 
 ![Log Out](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-6.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=26fdf19fe5e8eaac528d923786c123ae)If you have obtained an API Key and are logged in on a public device, please log out promptly.
 
-## 
-
-​
-
-Forgot your password
+## Forgot your password
 
 If you can’t remember your password (for email login):
 
@@ -183,11 +180,7 @@ If you can’t remember your password (for email login):
 
 
 
-## 
-
-​
-
-Troubleshooting login issues
+## Troubleshooting login issues
 
 If you’re having trouble logging in:
 
@@ -200,11 +193,7 @@ If you’re having trouble logging in:
 
 
 
-## 
-
-​
-
-Security tips
+## Security tips
 
 To keep your account secure:
 
@@ -221,26 +210,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/account/login.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/account/login)
 
-[Create a Comfy accountPrevious](https://docs.comfy.org/account/create-account)[Delete your Comfy accountNext](https://docs.comfy.org/account/delete-account)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Create account](https://docs.comfy.org/account/create-account)[Delete account](https://docs.comfy.org/account/delete-account)

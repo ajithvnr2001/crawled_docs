@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/xai/grok-imagine-image/code/
 title: Usa Grok Imagine Image con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:25.894166+00:00
+fetched_at: 2026-11-15T14:35:59.682971+00:00
 ---
 
 # Usa Grok Imagine Image con Comfy Router - ComfyUI
@@ -34,13 +34,9 @@ Llama a xai/grok-imagine-image mediante Comfy Router: endpoint, forma de la soli
 
 Copiar páginaCopiar página
 
-Referencia de API para `xai/grok-imagine-image`, servida por Comfy Router desde xAI. **Entrada:** Texto · **Salida:** Imagen
+Referencia de API para `xai/grok-imagine-image`, servida por Comfy Router desde xAI. **Entrada:** Imagen, Texto · **Salida:** Imagen
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP sin procesar. **ID del modelo:** `xai/grok-imagine-image` **Endpoint:** `POST https://api.comfy.org/v2/models/xai/grok-imagine-image`
 
@@ -173,19 +169,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Esquema
 
-​
-
-Esquema
-
-### 
-
-​
-
-Entrada
-
-​
+### Entrada
 
 aspect_ratio
 
@@ -195,8 +181,6 @@ predeterminado:"\"auto\""
 
 Relación de aspecto de la imagen generada. El valor predeterminado es auto para seleccionar automáticamente la mejor relación para el prompt.Valores posibles: `1:1`, `3:4`, `4:3`, `9:16`, `16:9`, `2:3`, `3:2`, `9:19.5`, `19.5:9`, `9:20`, `20:9`, `1:2`, `2:1`, `auto`
 
-​
-
 model
 
 string
@@ -204,8 +188,6 @@ string
 predeterminado:"\"grok-imagine-image\""
 
 Modelo a utilizar. Compatibles: grok-imagine-image (predeterminado), grok-imagine-image-pro, grok-imagine-image-quality, grok-imagine-image-2.0. Los ids -beta obsoletos se asignan como alias a su modelo GA.
-
-​
 
 n
 
@@ -215,8 +197,6 @@ predeterminado:"1"
 
 Número de imágenes a generarRango: `1` a `10`
 
-​
-
 prompt
 
 string
@@ -225,15 +205,11 @@ requerido
 
 Prompt para la generación de imágenes
 
-​
-
 quality
 
 string
 
-Calidad de la imagen de salida. Para grok-imagine-image-2.0 esto selecciona el nivel de precio (low/medium; medium es el predeterminado); los demás modelos actualmente lo ignoran.Valores posibles: `low`, `medium`, `high`
-
-​
+Calidad de la imagen de salida. Para grok-imagine-image-2.0 esto selecciona el nivel de precio: low, medium o auto (el valor predeterminado de xAI cuando se omite; auto sirve low para la generación y medium para las ediciones). Los demás modelos lo ignoran.Valores posibles: `low`, `medium`, `high`, `auto`
 
 resolution
 
@@ -243,8 +219,6 @@ predeterminado:"\"1k\""
 
 Resolución de la imagen generada. El valor predeterminado es 1k.Valores posibles: `1k`, `2k`
 
-​
-
 response_format
 
 string
@@ -253,15 +227,11 @@ predeterminado:"\"url\""
 
 Formato de respuesta en el que se devuelve la imagen. Puede ser url o b64_json. Comfy convierte esto a `url` en la solicitud saliente. Ocurre en el despacho de Comfy Router (`POST /v2/models/xai/{model}`) y también en esta ruta `/proxy/`, porque los resultados de imagen se sirven como URLs re-alojadas de cualquier manera. Por lo tanto, un valor DENTRO del enum se acepta y se ignora: envía `url` o `b64_json`, u omite el campo, y la respuesta es la misma. Un valor FUERA del enum, excluyendo las grafías UNSET que reconoce cada superficie y que se describen a continuación, se RECHAZA en AMBAS superficies en lugar de convertirse, y solo cambia la forma del rechazo: esta ruta `/proxy/` responde un `400` en la entrada, y el despacho del Router `POST /v2/models/xai/{model}` responde el `422` por campo que debe al enum publicado aquí, antes de que se haga cualquier llamada al socio. Las dos superficies difieren en qué cuenta como UNSET. En esta ruta `/proxy/`, un campo omitido, un `null` explícito y `""` significan todos no establecido y se convierten como cualquier valor aceptado. El despacho del Router aplica el enum exactamente como se publica, así que `null` y `""` no son miembros allí como cualquier otro: OMITE el campo para dejarlo sin establecer en esa superficie.Valores posibles: `url`, `b64_json`
 
-​
-
 size
 
 string
 
 Tamaño de la imagen (no compatible)
-
-​
 
 style
 
@@ -269,23 +239,75 @@ string
 
 Estilo de la imagen (no compatible)
 
-​
-
 user
 
 string
 
 Un identificador único que representa a tu usuario final, que puede ayudar a xAI a monitorear y detectar abusos
 
+image
+
+object
+
+Objeto de imagen de entrada para los endpoints de xAI
+
+image.type
+
+string
+
+Tipo de la entrada de imagenValores posibles: `image_url`
+
+image.url
+
+string
+
+requerido
+
+URL de la imagen de entrada (URL pública o data URI codificada en base64)
+
+images
+
+object[]
+
+Lista de imágenes de entrada para edición con múltiples referencias. Es mutuamente excluyente con image. Cuando se proporcionan varias imágenes, refiérete a ellas como <IMAGE_0>, <IMAGE_1>, etc. en el prompt.
+
+images[].type
+
+string
+
+Tipo de la entrada de imagenValores posibles: `image_url`
+
+images[].url
+
+string
+
+requerido
+
+URL de la imagen de entrada (URL pública o data URI codificada en base64)
+
+mask
+
+object
+
+Objeto de imagen de entrada para los endpoints de xAI
+
+mask.type
+
+string
+
+Tipo de la entrada de imagenValores posibles: `image_url`
+
+mask.url
+
+string
+
+requerido
+
+URL de la imagen de entrada (URL pública o data URI codificada en base64)
+
 Generado a partir del esquema que el Router sirve en `GET /v2/models/xai/grok-imagine-image/openapi.json`, el mismo documento contra el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 block_reason
 
@@ -293,15 +315,11 @@ string
 
 Si la solicitud fue bloqueada por la moderación de entrada, contiene el motivo del bloqueo
 
-​
-
 data
 
 object[]
 
 Una lista de objetos de imagen generados
-
-​
 
 data[].b64_json
 
@@ -309,15 +327,11 @@ string
 
 Una representación en cadena codificada en base64 de la imagen generada con codificación jpeg (si response_format es b64_json)
 
-​
-
 data[].mime_type
 
 string
 
 El tipo MIME de la imagen generada (p. ej. image/png, image/jpeg, image/webp).
-
-​
 
 data[].url
 
@@ -325,15 +339,11 @@ string
 
 Una url a la imagen generada (si response_format es url)
 
-​
-
 usage
 
 object
 
 Información de uso de la solicitud de generación de imágenes
-
-​
 
 usage.cost_in_usd_ticks
 
@@ -341,17 +351,9 @@ integer
 
 Costo exacto de esta solicitud en ticks de USD (10,000,000,000 ticks = 1 USD)
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -360,11 +362,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -384,11 +382,7 @@ Salida
     }
     
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 

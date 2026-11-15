@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance/
-title: HitPaw Video Enhance - ComfyUI
+title: HitPaw Video Enhance in ComfyUI: AI Upscaling and Denoising - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.921832+00:00
+fetched_at: 2026-11-15T14:35:56.217442+00:00
 ---
 
-# HitPaw Video Enhance - ComfyUI
+# HitPaw Video Enhance in ComfyUI: AI Upscaling and Denoising - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -18,21 +20,17 @@ fetched_at: 2026-10-25T12:24:49.921832+00:00
 
 HitPaw
 
-# HitPaw Video Enhance
+# HitPaw Video Enhance in ComfyUI: AI Upscaling and Denoising
 
 Copy pageCopy page
 
-Enhance and upscale video footage using HitPaw’s AI video enhancement model in ComfyUI.
+Upscale and denoise compressed, recorded, or archival video frame by frame with HitPaw Video Enhance in ComfyUI while keeping quality consistent across frames.
 
 Copy pageCopy page
 
 HitPaw Video Enhance applies frame-by-frame AI processing to upscale and denoise video footage. It improves resolution, reduces noise, and maintains temporal smoothness across frames — suitable for compressed footage, screen recordings, and archival video.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Frame-by-frame upscaling** — AI-powered video upscaling with temporal consistency.
   * **Denoising & restoration** — Removes noise and artifacts from compressed or archival footage.
@@ -66,11 +64,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Open in ComfyCloud
 
@@ -86,4 +80,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance)
 
-[HitPaw](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview)[Kling 3 0](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-3-0)
+[HitPaw](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview)[Kling 4.0](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-4-0)

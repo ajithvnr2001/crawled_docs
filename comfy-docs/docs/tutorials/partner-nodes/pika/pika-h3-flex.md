@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/pika/pika-h3-flex/
 title: Pika H3 Flex API in ComfyUI: Text, Image, and Reference Video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:41.462850+00:00
+fetched_at: 2026-11-15T14:35:58.737357+00:00
 ---
 
 # Pika H3 Flex API in ComfyUI: Text, Image, and Reference Video - ComfyUI
@@ -60,11 +60,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Get started
+## Get started
 
   1. Update ComfyUI to 0.44.1 or later
   2. Go to Template Library, search for `Pika H3 Flex`
@@ -72,11 +68,7 @@ Get started
 
 
 
-## 
-
-​
-
-Pika H3 Flex: Text to Video (API)
+## Pika H3 Flex: Text to Video (API)
 
 Generate a clip with generated audio from a text prompt, up to 15 seconds. ![Pika H3 Flex text to video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pika_h3_flex_t2v-1.webp)
 
@@ -95,27 +87,15 @@ Download JSON or search “Pika H3 Flex” in Template Library
 
 
 
-## 
-
-​
-
-Image to video and first-last-frame
+## Image to video and first-last-frame
 
 The same node handles both. Connect `first_frame` alone to animate a starting image, or connect `first_frame` and `last_frame` together to generate the motion between two fixed frames.
 
-## 
-
-​
-
-Reference to video
+## Reference to video
 
 The **Pika H3 Flex Reference to Video** node generates or edits a clip guided by reference material: up to 9 images, 3 videos, and 3 audio clips, with 12 references in total. Videos and audio clips must be 2 to 15 seconds each, with a separate 15-second limit for videos and for audio. Refer to the references in the prompt as `@Image1`, `@Video1`, or `@Audio1`, in connection order. Turn `reference_video_audio` off when you want new ambience or new music instead of the sound from the connected videos.
 
-## 
-
-​
-
-Pika audio nodes
+## Pika audio nodes
 
 Three audio nodes run on the same Pika API and are billed per second of generated audio:
 
@@ -123,13 +103,9 @@ Three audio nodes run on the same Pika API and are billed per second of generate
   * **Pika SFX** : generates a sound effect from a text description, 1 to 20 seconds long
   * **Pika Music** : generates a song from a text prompt and optional lyrics, 10 to 360 seconds, or covers a source song at its own length, clamped to 5 to 360 seconds
 
+For node controls, prompt patterns and limits on the two text-driven audio nodes, see [Pika Music and Pika SFX](https://docs.comfy.org/tutorials/partner-nodes/pika/pika-audio).
 
-
-## 
-
-​
-
-Prompt format
+## Prompt format
 
 Pika H3 Flex prompts follow the MiniMax H3 text mode structure, where one description carries both the picture and the sound:
     
@@ -143,11 +119,7 @@ Pika H3 Flex prompts follow the MiniMax H3 text mode structure, where one descri
 
 Keep every described event inside the duration you set. For the full prompt structure, including dialogue tags and shot lists, see the [MiniMax H3 prompt writing guide](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md).
 
-## 
-
-​
-
-Cost
+## Cost
 
 Video nodes are billed per second of output, and the rate rises with resolution. See [Partner node pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing) for the current credits.
 
@@ -157,4 +129,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/pika/pika-h3-flex.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/pika/pika-h3-flex)
 
-[Moonvalley Marey](https://docs.comfy.org/tutorials/partner-nodes/moonvalley/moonvalley-video-generation)[PixVerse AI](https://docs.comfy.org/tutorials/partner-nodes/pixverse/overview)
+[Moonvalley Marey](https://docs.comfy.org/tutorials/partner-nodes/moonvalley/moonvalley-video-generation)[Pika Music & SFX](https://docs.comfy.org/tutorials/partner-nodes/pika/pika-audio)

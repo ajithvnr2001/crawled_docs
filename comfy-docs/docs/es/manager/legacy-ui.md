@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/manager/legacy-ui/
 title: Administrar nodos personalizados con ComfyUI-Manager (interfaz cl\u00e1sica) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.766846+00:00
+fetched_at: 2026-11-15T14:35:57.776562+00:00
 ---
 
 # Administrar nodos personalizados con ComfyUI-Manager (interfaz clásica) - ComfyUI
@@ -28,23 +28,15 @@ Gestión de nodos
 
 Copiar páginaCopiar página
 
-Instala, actualiza y administra nodos personalizados con ComfyUI-Manager usando la interfaz clásica
+Interfaz clásica de ComfyUI-Manager: instala, actualiza y desinstala nodos personalizados, añade los nodos que faltan en un flujo y restaura entornos.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-Gestión de nodos personalizados de ComfyUI
+## Gestión de nodos personalizados de ComfyUI
 
 Aprende a instalar nodos personalizados a través de ComfyUI Manager
 
-### 
-
-​
-
-Instalar nodos
+### Instalar nodos
 
 1
 
@@ -92,11 +84,7 @@ Verifica si el complemento se instaló correctamente
 
 Después de reiniciar, verifica en ComfyUI Manager si el complemento correspondiente se instaló correctamente y si hay mensajes de error `import failed`![Verifica si el complemento se instaló correctamente](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/installation/custom_nodes/install-custom-nodes-by-manager-9.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=c1d9fa38bbfe862ae661177e2948599c)
 
-### 
-
-​
-
-Instalar nodos faltantes
+### Instalar nodos faltantes
 
 Los nodos faltantes son una situación común al cargar flujos de trabajo. Por lo general, hay dos tipos de nodos faltantes:
 
@@ -117,11 +105,7 @@ Si notas que la lista de nodos faltantes no encuentra el nodo correspondiente, p
 
 
 
-### 
-
-​
-
-Actualizar nodos
+### Actualizar nodos
 
 ![Versión del nodo](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/manger_node_version.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=cd663ba4db2aa4477a2784935317b8e8)
 
@@ -130,11 +114,7 @@ Actualizar nodos
 
 
 
-### 
-
-​
-
-Desinstalar nodos
+### Desinstalar nodos
 
 ![Desinstalar nodos](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/manger_remove_nodes.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=5bbc0ba5314820111faa0d366cedeafc)
 
@@ -151,11 +131,7 @@ Para conocer otros métodos de instalación de complementos, consulta el siguien
 
 Aprende a instalar nodos personalizados manualmente
 
-## 
-
-​
-
-Administrador de instantáneas
+## Administrador de instantáneas
 
 Las instantáneas guardan el estado actual de tu instalación, lo que te permite restaurar a un estado anterior. ![Administrador de instantáneas](https://raw.githubusercontent.com/ltdrdata/ComfyUI-extension-tutorials/Main/ComfyUI-Manager/images/snapshot.jpg) Las instantáneas se guardan automáticamente cuando haces clic en **Save snapshot** o usas **Update All**. Los archivos de instantáneas se almacenan en: `<USER_DIRECTORY>/default/ComfyUI-Manager/snapshots` Para restaurar: abre el Administrador de instantáneas, selecciona una instantánea y haz clic en **Restore**.
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/manager/overview/
 title: Descripci\u00f3n general de ComfyUI-Manager - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.203889+00:00
+fetched_at: 2026-11-15T14:35:57.679480+00:00
 ---
 
 # Descripción general de ComfyUI-Manager - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:49.203889+00:00
 > Source: https://docs.comfy.org/es/manager/overview/
 
 ## En esta página
+
+Volver arriba
 
   * Características principales
   * Siguientes pasos
@@ -22,34 +24,26 @@ ComfyUI-Manager
 
 Copiar páginaCopiar página
 
-Una extensión para administrar nodos personalizados, modelos y más en ComfyUI
+Instala, actualiza, elimina y desactiva nodos, descarga modelos, guarda y restaura instantáneas y detecta los nodos que faltan en un flujo de trabajo.
 
 Copiar páginaCopiar página
 
-**ComfyUI-Manager** es una extensión diseñada para mejorar la usabilidad de [ComfyUI](https://github.com/Comfy-Org/ComfyUI). Ofrece funciones de administración para **instalar, eliminar, desactivar y activar** diversos nodos personalizados de ComfyUI. Además, esta extensión proporciona una función de hub y utilidades para acceder a una amplia gama de información dentro de ComfyUI. ![Diálogo de ComfyUI-Manager](https://mintcdn.com/dripart/H4QqpI0-Odea2uWk/images/manager/new_comfyui_manager.png?fit=max&auto=format&n=H4QqpI0-Odea2uWk&q=85&s=9ad648456e3aecf82b52911e2886260a)
+**ComfyUI-Manager** es una extensión pensada para facilitar el uso de [ComfyUI](https://github.com/Comfy-Org/ComfyUI). Te permite **instalar, eliminar, desactivar y activar** nodos personalizados, y también actúa como hub con utilidades para consultar mucha información desde dentro de ComfyUI. ![Diálogo de ComfyUI-Manager](https://mintcdn.com/dripart/H4QqpI0-Odea2uWk/images/manager/new_comfyui_manager.png?fit=max&auto=format&n=H4QqpI0-Odea2uWk&q=85&s=9ad648456e3aecf82b52911e2886260a)
 
-## 
+## Características principales
 
-​
-
-Características principales
-
-  * **Administración de nodos personalizados** : Instala, actualiza, elimina y desactiva nodos personalizados
-  * **Administración de modelos** : Descarga y administra modelos de diversas fuentes
-  * **Administración de instantáneas** : Guarda y restaura estados de instalación
-  * **Detección de nodos faltantes** : Detecta e instala automáticamente los nodos faltantes de los flujos de trabajo
+  * **Gestión de nodos personalizados** : Instala, actualiza, elimina y desactiva nodos personalizados
+  * **Gestión de modelos** : Descarga y administra modelos de varias fuentes
+  * **Gestión de instantáneas (Snapshots)** : Guarda y restaura el estado de la instalación
+  * **Detección de nodos faltantes** : Detecta e instala automáticamente los nodos que falten en un flujo de trabajo
 
 
 
-## 
-
-​
-
-Siguientes pasos
+## Siguientes pasos
 
 ## Instalación
 
-Instala ComfyUI-Manager en tu entorno
+Instala ComfyUI-Manager en tu entorno de ComfyUI
 
 ## Nueva interfaz
 

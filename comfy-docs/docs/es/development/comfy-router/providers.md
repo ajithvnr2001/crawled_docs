@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/providers/
 title: Proveedores de servicio de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:26.066981+00:00
+fetched_at: 2026-11-15T14:35:59.540331+00:00
 ---
 
 # Proveedores de servicio de Comfy Router - ComfyUI
@@ -23,32 +23,33 @@ Models
 
 Copiar páginaCopiar página
 
-Consulta qué proveedores pueden servir cada modelo de Comfy Router y cómo seleccionar otro proveedor.
+Consulta qué proveedores pueden servir cada modelo de Comfy Router y cómo elegir un proveedor alternativo.
 
 Copiar páginaCopiar página
 
 Todos los modelos usan `POST /v2/models/{provider}/{model}`. Comfy es el proveedor predeterminado. Para los modelos con cobertura alternativa, `model_provider` selecciona otro proveedor sin cambiar el ID del modelo ni el cuerpo de la solicitud. Consulta [`model_provider`, `strict_mode` y `fallback_provider`](https://docs.comfy.org/es/development/comfy-router/reference#post-v2modelsprovidermodel) en la referencia de la API.
 
-## 
+## Cobertura de proveedores
 
-​
-
-Cobertura de proveedores
-
-Modelo / proveedor| **Comfy (predeterminado)**| **fal**| **Higgsfield**| **Pika**| **Runware**| **Tencent**| **WaveSpeed**  
----|---|---|---|---|---|---|---  
-[Dreamina Seedance 2.0 260128](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code)| ✓| ✓| ✓| ✓| ✓| -| ✓  
-[Dreamina Seedance 2.5 260628](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code)| ✓| ✓| ✓| -| ✓| -| ✓  
-[GPT Image 2](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2/code)| ✓| ✓| -| ✓| ✓| -| ✓  
-[GPT Image 2.5 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code)| ✓| ✓| -| -| ✓| -| ✓  
-[GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)| ✓| ✓| -| -| ✓| -| ✓  
-[Kling 3.0 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code)| ✓| -| ✓| -| -| -| -  
-[Kling V3](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-v3/code)| ✓| -| ✓| -| -| ✓| -  
-[Nano Banana 2](https://docs.comfy.org/es/development/comfy-router/models/google/nano-banana-2/code)| ✓| ✓| -| ✓| ✓| -| ✓  
-[Nano Banana Pro](https://docs.comfy.org/es/development/comfy-router/models/google/nano-banana-pro/code)| ✓| ✓| -| ✓| ✓| -| ✓  
-[Wan 3.0 Video](https://docs.comfy.org/es/development/comfy-router/models/wan/wan3-0-video/code)| ✓| -| ✓| -| -| -| -  
+Modelo / proveedor| **Comfy (predeterminado)**| **fal**| **Higgsfield**| **Kelly**| **MiniMax**| **Pika**| **Runware**| **Tencent**| **WaveSpeed**  
+---|---|---|---|---|---|---|---|---|---  
+[Dreamina Seedance 2.0 260128](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code)| ✓| ✓| ✓| ✓| -| ✓| ✓| -| ✓  
+[Dreamina Seedance 2.0 Fast 260128](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-0-fast-260128/code)| ✓| -| -| ✓| -| -| -| -| -  
+[Dreamina Seedance 2.5 260628](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code)| ✓| ✓| ✓| ✓| -| -| ✓| -| ✓  
+[Gemini 2.5 Flash Image](https://docs.comfy.org/es/development/comfy-router/models/google/gemini-2-5-flash-image/code)| ✓| -| -| -| ✓| -| -| -| -  
+[Gemini Nano Banana 2.1](https://docs.comfy.org/es/development/comfy-router/models/google/gemini-nano-banana-2-1/code)| ✓| -| -| -| ✓| -| -| -| -  
+[GPT Image 2](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2/code)| ✓| ✓| -| -| ✓| ✓| ✓| -| ✓  
+[GPT Image 2.5 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code)| ✓| ✓| -| -| ✓| -| ✓| -| ✓  
+[GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)| ✓| ✓| -| -| ✓| -| ✓| -| ✓  
+[GPT Image 2.6 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-6-flare/code)| ✓| -| -| -| ✓| -| -| -| -  
+[GPT Image 2.6 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code)| ✓| -| -| -| ✓| -| -| -| -  
+[Kling 3.0 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code)| ✓| -| ✓| -| -| -| -| -| -  
+[Kling V3](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-v3/code)| ✓| -| ✓| -| -| -| -| ✓*| -  
+[Nano Banana 2](https://docs.comfy.org/es/development/comfy-router/models/google/nano-banana-2/code)| ✓| ✓| -| -| ✓| ✓| ✓| -| ✓  
+[Nano Banana Pro](https://docs.comfy.org/es/development/comfy-router/models/google/nano-banana-pro/code)| ✓| ✓| -| -| ✓| ✓| ✓| -| ✓  
+[Wan 3.0 Video](https://docs.comfy.org/es/development/comfy-router/models/wan/wan3-0-video/code)| ✓| -| ✓| -| -| -| -| -| -  
   
-`strict_mode=false` (el valor predeterminado) traduce la solicitud y la respuesta nativas del proveedor seleccionado. Los campos que no se pueden traducir se enumeran en el encabezado de respuesta `X-Comfy-Router-Dropped-Params`.
+* Este proveedor sirve el modelo con límites más restringidos que el predeterminado; consulta la página del modelo. `strict_mode=false` (el valor predeterminado) traduce la solicitud y la respuesta nativas del proveedor seleccionado. Los campos que no se pueden traducir se enumeran en el encabezado de respuesta `X-Comfy-Router-Dropped-Params`.
 
 ¿Esta página le ayudó?
 

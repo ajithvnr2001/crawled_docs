@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/google/gemini-4-hydrogen/
 title: Gemini 4 Hydrogen: imagen a prompt en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:12.455366+00:00
+fetched_at: 2026-11-15T14:35:57.587649+00:00
 ---
 
 # Gemini 4 Hydrogen: imagen a prompt en ComfyUI - ComfyUI
@@ -27,7 +27,7 @@ Google
 
 Copiar páginaCopiar página
 
-Analiza una imagen de referencia con Gemini 4 Hydrogen en ComfyUI y genera prompts, descripciones detalladas o desgloses visuales con el nodo socio de Gemini.
+Lee una imagen con Gemini 4 Hydrogen en ComfyUI y escribe prompts con dirección de arte, descripciones detalladas o análisis visuales estructurados.
 
 Copiar páginaCopiar página
 

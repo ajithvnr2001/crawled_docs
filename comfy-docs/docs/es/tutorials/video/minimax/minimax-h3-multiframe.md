@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-multiframe/
-title: Flujo de trabajo de referencia multifotograma de MiniMax H3 en ComfyUI - ComfyUI
+title: MiniMax H3 multifotograma en ComfyUI: continuaciones y escenas multi-toma - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:00.216483+00:00
+fetched_at: 2026-11-15T14:35:56.977013+00:00
 ---
 
-# Flujo de trabajo de referencia multifotograma de MiniMax H3 en ComfyUI - ComfyUI
+# MiniMax H3 multifotograma en ComfyUI: continuaciones y escenas multi-toma - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-multiframe/
 
@@ -22,7 +22,7 @@ Volver arriba
 
 MiniMax H3
 
-# Flujo de trabajo de referencia multifotograma de MiniMax H3 en ComfyUI
+# MiniMax H3 multifotograma en ComfyUI: continuaciones y escenas multi-toma
 
 Copiar páginaCopiar página
 
@@ -56,11 +56,7 @@ Fotograma clave anclado en 3.0s (plano 3), o usa tus propias imágenes.
 
 Primer fotograma anclado en 5.0s (plano 4), o usa tus propias imágenes.
 
-## 
-
-​
-
-Descargas de modelos
+## Descargas de modelos
 
 ## Modelo de difusión: minimax_h3_ref2va_pruned_int8_convrot
 
@@ -80,13 +76,9 @@ Colócalo en `ComfyUI/models/vae/`
 
 ## LoRA: minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16
 
-Habilita el modo turbo opcional con el Lightning LoRA. Colócalo en `ComfyUI/models/loras/`
+Habilita el modo turbo opcional del Lightning LoRA. Colócalo en `ComfyUI/models/loras/`
 
-## 
-
-​
-
-Almacenamiento de modelos
+## Almacenamiento de modelos
     
     
     ComfyUI/
@@ -102,27 +94,19 @@ Almacenamiento de modelos
     │       └── minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors
     
 
-## 
+## Consejos para el prompt
 
-​
-
-Consejos para el prompt
-
-  1. **Haz referencia por etiqueta** : `<Picture 1>` es la imagen conectada a la primera ranura de `ref_images`, `<Picture 2>` a la segunda, y así sucesivamente. En este flujo de trabajo, `<Picture 1>` es tanto el bloqueo de identidad como el primer fotograma del video
-  2. **Anclajes de la línea de tiempo frente a referencias** : las imágenes conectadas solo a nodos Add Guide anclan composiciones en fotogramas específicos, pero no son visibles para el codificador de texto. Conéctalas también a ranuras `ref_images` adicionales si quieres que el prompt las vea como `<Picture N>`
-  3. **Índice de fotograma** : cada Add Guide toma `frame_idx` en fotogramas a 24 fps; la plantilla lo calcula a partir de segundos con `round(seconds * 24)`. Los valores negativos cuentan desde el final del video. El índice más la longitud de la guía deben quedar dentro de la duración generada
-  4. **Añade más fotogramas clave** : copia un bloque de guía (Load Image + Frame Index + Math Expression + Add Guide for MiniMax H3) y mantén las salidas `positive` encadenadas en serie hacia el Basic Guider
-  5. **Modo turbo (opcional)** : activa la casilla **Lightning LoRA** para usar el LoRA turbo de 4 pasos y lograr una generación mucho más rápida, con una calidad de audio y movimiento ligeramente inferior
+  1. **Referencia por etiqueta** : `<Picture 1>` es la imagen conectada a la primera ranura `ref_images`, `<Picture 2>` la segunda, y así sucesivamente. En este flujo de trabajo, `<Picture 1>` es a la vez el bloqueo de identidad y el primer fotograma del video
+  2. **Anclajes de línea de tiempo vs referencias** : Las imágenes conectadas solo a nodos Añadir guía para MiniMax H3 anclan composiciones en fotogramas específicos, pero no son visibles para el codificador de texto. Conéctalas también a ranuras `ref_images` adicionales si el prompt debe verlas como `<Picture N>`
+  3. **Índice de fotogramas** : Cada Añadir guía para MiniMax H3 toma `frame_idx` en fotogramas a 24fps; la plantilla lo calcula a partir de segundos con `round(seconds * 24)`. Los valores negativos cuentan desde el final del video. El índice más la longitud de la guía deben mantenerse dentro de la duración generada
+  4. **Añadir más fotogramas clave** : Copia un bloque de guía (Cargar imagen + Índice de fotogramas + Expresión matemática + Añadir guía para MiniMax H3) y mantén las salidas `positive` encadenadas en serie hasta la Guía básica
+  5. **Modo turbo (opcional)** : Activa la casilla **Lightning LoRA** para usar el LoRA turbo de 4 pasos y obtener una generación mucho más rápida, con una calidad de audio y movimiento ligeramente inferior
 
 
 
-## 
+## Guía para escribir prompts
 
-​
-
-Guía para escribir prompts
-
-El prompt de la plantilla sigue la [guía de prompts del modo de referencia completa](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md): define cada sujeto, asigna cada `<Picture N>` al primer fotograma o fotograma clave de un plano y corta entre planos en marcas de tiempo explícitas. Usa la misma estructura cuando escribas tus propios prompts de varios planos. La guía está resumida en la [guía de prompts](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-prompt-guide).
+El prompt de la plantilla sigue la [guía de prompts del modo de referencia completa](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md): define cada sujeto, asigna cada `<Picture N>` al primer fotograma o al fotograma clave de un plano, y corta entre planos en marcas de tiempo explícitas. Usa la misma estructura cuando escribas tus propios prompts de varios planos. La guía está resumida en la [guía de prompts](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-prompt-guide).
 
 ¿Esta página le ayudó?
 

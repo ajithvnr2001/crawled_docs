@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/video/zai/scail2/
-title: ComfyUI SCAIL-2 Character Replacement Workflow Tutorial - ComfyUI
+title: SCAIL-2 in ComfyUI: Character Animation and Replacement - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:48.351082+00:00
+fetched_at: 2026-11-15T14:35:55.677110+00:00
 ---
 
-# ComfyUI SCAIL-2 Character Replacement Workflow Tutorial - ComfyUI
+# SCAIL-2 in ComfyUI: Character Animation and Replacement - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/video/zai/scail2/
 
 ## On this page
+
+Back to top
 
   * SCAIL-2 Character Replacement Workflow
     * SCAIL-2 Character Replacement
@@ -27,7 +29,7 @@ fetched_at: 2026-10-17T10:51:48.351082+00:00
 
 ZAI
 
-# ComfyUI SCAIL-2 Character Replacement Workflow Tutorial
+# SCAIL-2 in ComfyUI: Character Animation and Replacement
 
 Copy pageCopy page
 
@@ -49,17 +51,9 @@ Copy pageCopy page
 
 
 
-## 
+## SCAIL-2 Character Replacement Workflow
 
-​
-
-SCAIL-2 Character Replacement Workflow
-
-### 
-
-​
-
-SCAIL-2 Character Replacement
+### SCAIL-2 Character Replacement
 
 Replace a character in a video while preserving motion and scene context. ![SCAIL-2 Character Replacement workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan21_scail2_character_replacement-1.webp)
 
@@ -104,11 +98,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-How the Workflow Works
+## How the Workflow Works
 
 This workflow uses two subgraph nodes: a **Base** subgraph (first segment) and an **Extend** subgraph (subsequent segments). This supports character animation for both short and long videos.
 
@@ -123,21 +113,13 @@ This workflow uses two subgraph nodes: a **Base** subgraph (first segment) and a
 
 This workflow uses Subgraph nodes for modular processing. Check out the Subgraph documentation to learn how to customize and extend the workflow.
 
-### 
-
-​
-
-Long Videos
+### Long Videos
 
 For longer videos, calculate the number of segments: `ceil(total_frames / 76)`. Each segment except the first uses the Extend subgraph. Duplicate the Extend node for more segments, chain the `previous_frames` output, and increment `segment_index`.
 
 > **Note:** `WanSCAILToVideo` cannot queue all segments automatically. Run each segment manually.
 
-## 
-
-​
-
-Two Modes
+## Two Modes
 
 Mode| `replace_mode`| Driving Mask BG| Summary  
 ---|---|---|---  
@@ -146,17 +128,9 @@ Mode| `replace_mode`| Driving Mask BG| Summary
   
 Set the `replace_mode` parameter on both subgraph nodes.
 
-## 
+## Inputs and Parameters
 
-​
-
-Inputs and Parameters
-
-### 
-
-​
-
-Shared Parameters (Base & Extend)
+### Shared Parameters (Base & Extend)
 
 Parameter| Description  
 ---|---  
@@ -170,11 +144,7 @@ Parameter| Description
 `previous_frame_count`| Overlap frames between segments (default: 5)  
 `pose_strength` / `pose_start` / `pose_end`| Pose conditioning strength and timing  
   
-### 
-
-​
-
-SAM3 Tracking (two inputs)
+### SAM3 Tracking (two inputs)
 
 The `sam3_video_object` and `sam3_image_object` inputs control the SAM3 mask tracking, **not** the SCAIL-2 output prompt. These determine which objects are tracked for the colored masks:
 
@@ -189,19 +159,11 @@ Input| Target| Output
 
 
 
-## 
-
-​
-
-Model Installation
+## Model Installation
 
 Update ComfyUI to the latest version first for the built-in WanSCAILToVideo and SCAIL2ColoredMask nodes.
 
-### 
-
-​
-
-Required Models
+### Required Models
 
 **diffusion_models**
 
@@ -230,11 +192,7 @@ Required Models
 
 
 
-### 
-
-​
-
-File Storage Locations
+### File Storage Locations
     
     
     ComfyUI/
@@ -260,26 +218,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/zai/scail2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/zai/scail2)
 
-[Kandinsky 5.0 in ComfyUI: Text-to-Video and Image-to-VideoPrevious](https://docs.comfy.org/tutorials/video/kandinsky/kandinsky-5)[ComfyUI YuE2 Music Generation GuideNext](https://docs.comfy.org/tutorials/audio/yue2/yue2)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Kandinsky 5.0](https://docs.comfy.org/tutorials/video/kandinsky/kandinsky-5)[YuE2](https://docs.comfy.org/tutorials/audio/yue2/yue2)

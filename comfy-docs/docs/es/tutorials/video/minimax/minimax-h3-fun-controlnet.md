@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-fun-controlnet/
-title: ComfyUI MiniMax H3 Fun ControlNet Union: video con control de pose, profundidad y Canny - ComfyUI
+title: MiniMax H3 Fun ControlNet Union en ComfyUI: control de pose, profundidad y Canny - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:59.866016+00:00
+fetched_at: 2026-11-15T14:35:57.043249+00:00
 ---
 
-# ComfyUI MiniMax H3 Fun ControlNet Union: video con control de pose, profundidad y Canny - ComfyUI
+# MiniMax H3 Fun ControlNet Union en ComfyUI: control de pose, profundidad y Canny - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-fun-controlnet/
 
@@ -15,13 +15,13 @@ Volver arriba
 
   * Descargas de modelos
   * Almacenamiento de modelos
-  * Consejos para los prompts
+  * Consejos para escribir prompts
 
 
 
 MiniMax H3
 
-# ComfyUI MiniMax H3 Fun ControlNet Union: video con control de pose, profundidad y Canny
+# MiniMax H3 Fun ControlNet Union en ComfyUI: control de pose, profundidad y Canny
 
 Copiar páginaCopiar página
 
@@ -29,7 +29,7 @@ Guía el movimiento de video de MiniMax H3 en ComfyUI con videos de control Cann
 
 Copiar páginaCopiar página
 
-Controla el movimiento de un video de MiniMax H3 con un video de control en lugar de solo texto. El parche Fun ControlNet Union ([alibaba-pai/MiniMax-H3-Fun-Controlnet-Union](https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union), empaquetado en [Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)) es un único checkpoint que condiciona H3 con videos de control Canny, Profundidad, HED, MLSD o Pose, y también ejecuta relleno inteligente de video con una máscara. Funciona con ambos archivos transformer `fl2va` y `ref2va`. ![Vista previa del flujo de trabajo MiniMax H3 Fun ControlNet Union](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_minimax_h3_fun_controlnet_union-1.webp)
+Controla el movimiento de un video de MiniMax H3 con un video de control en lugar de usar solo texto. El parche Fun ControlNet Union ([alibaba-pai/MiniMax-H3-Fun-Controlnet-Union](https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union), empaquetado en [Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)) es un único checkpoint que condiciona H3 con videos de control Canny, Profundidad, HED, MLSD o Pose, y también ejecuta relleno inteligente de video con una máscara. Funciona con los archivos transformer `fl2va` y `ref2va`. ![Vista previa del flujo de trabajo MiniMax H3 Fun ControlNet Union](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_minimax_h3_fun_controlnet_union-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -45,13 +45,9 @@ Descarga el JSON o busca “MiniMax H3 Fun ControlNet Union” en la Biblioteca 
 
 Video de control de pose que usa el flujo de trabajo de ejemplo, o usa el tuyo.
 
-Esta plantilla requiere ComfyUI 0.35.0 o una versión posterior. El ejemplo usa un video de control de pose: un subgrafo SDPose integrado extrae el esqueleto de la pose del video de entrada, por lo que la salida reproduce el movimiento del bailarín. También puedes conectar cualquier video de control preprocesado directamente a la entrada `control_video` del nodo `Apply MiniMax H3 Fun ControlNet`.
+Esta plantilla requiere ComfyUI 0.35.0 o una versión posterior. El ejemplo usa un video de control de pose: un subgrafo SDPose integrado extrae el esqueleto de la pose del video de entrada, así que la salida reproduce el movimiento del bailarín. También puedes conectar cualquier video de control preprocesado directamente a la entrada `control_video` del nodo `Apply MiniMax H3 Fun ControlNet`.
 
-## 
-
-​
-
-Descargas de modelos
+## Descargas de modelos
 
 ## Modelo de difusión: minimax_h3_ref2va_pruned_int8_convrot
 
@@ -75,7 +71,7 @@ Coloca en `ComfyUI/models/vae/`
 
 ## LoRA: minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16
 
-Habilita el modo turbo opcional con el Lightning LoRA. Coloca en `ComfyUI/models/loras/`
+Habilita el modo turbo opcional del Lightning LoRA. Coloca en `ComfyUI/models/loras/`
 
 ## Checkpoint: sdpose_wholebody_fp16
 
@@ -85,11 +81,7 @@ Extractor de pose que usa el subgrafo SDPose integrado. Coloca en `ComfyUI/model
 
 Detector de personas que usa el subgrafo SDPose integrado. Coloca en `ComfyUI/models/diffusion_models/`
 
-## 
-
-​
-
-Almacenamiento de modelos
+## Almacenamiento de modelos
     
     
     ComfyUI/
@@ -110,17 +102,13 @@ Almacenamiento de modelos
     │       └── sdpose_wholebody_fp16.safetensors
     
 
-## 
+## Consejos para escribir prompts
 
-​
-
-Consejos para los prompts
-
-  1. **Duración del video** : El video objetivo dura de 5 a 15 segundos en la cuadrícula de fotogramas 17n+5 a 24fps (124 fotogramas = 5 segundos). Un video de control más largo que el objetivo se recorta a sus primeros fotogramas; uno más corto mantiene su último fotograma. Para igualar exactamente la duración del video de control, conecta la salida `batch_size` calculada del ejemplo con la entrada de longitud del nodo `MiniMax H3 Reference to Video`
-  2. **Orientación y strength** : Mantén `guidance_scale` en 1.0. Aumenta el `strength` del patch por encima de 1 solo si el resultado se aleja del control
-  3. **Relleno inteligente de video** : Conecta una máscara a la entrada `mask`: las regiones marcadas con `1` se regeneran bajo el control de la entrada opcional `source_video`, mientras el resto del fotograma permanece fijo
+  1. **Duración del video** : El video objetivo dura entre 5 y 15 segundos en la cuadrícula de fotogramas 17n+5 a 24fps (124 fotogramas = 5 segundos). Si el video de control es más largo que el objetivo, se recorta a sus primeros fotogramas; si es más corto, mantiene su último fotograma. Para igualar exactamente la duración del video de control, conecta la salida `batch_size` calculada del ejemplo a la entrada de duración del nodo `MiniMax H3 Referencia a Video`
+  2. **Orientación y fuerza** : Mantén `guidance_scale` en 1.0. Aumenta la `strength` del patch por encima de 1 solo si la salida se aleja del control
+  3. **Relleno inteligente de video** : Conecta una máscara a la entrada `mask`: las regiones marcadas con `1` se regeneran bajo el control de la entrada opcional `source_video`, mientras que el resto del fotograma permanece fijo
   4. **Modo turbo (opcional)** : Activa la casilla **Lightning LoRA** para usar el LoRA turbo de 4 pasos y generar mucho más rápido, con una calidad de audio y movimiento ligeramente inferior
-  5. **Preparar los videos de control** : ComfyUI incluye nodos de preprocesamiento integrados para cada tipo de control. Consulta el [nodo Detect Edges (Canny)](https://docs.comfy.org/built-in-nodes/Canny) para bordes y el [tutorial Depth Anything 3](https://docs.comfy.org/tutorials/utility/depth-anything-3) para mapas de profundidad
+  5. **Preparar videos de control** : ComfyUI incluye nodos de preprocesamiento integrados para cada tipo de control. Consulta el [nodo Detect Edges (Canny)](https://docs.comfy.org/built-in-nodes/Canny) para bordes y el [tutorial de Depth Anything 3](https://docs.comfy.org/tutorials/utility/depth-anything-3) para mapas de profundidad
 
 
 

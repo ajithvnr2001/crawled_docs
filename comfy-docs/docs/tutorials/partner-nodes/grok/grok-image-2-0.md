@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image-2-0/
 title: Grok Imagine Image 2.0 in ComfyUI: AI Image Generation and Editing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:30.274808+00:00
+fetched_at: 2026-11-15T14:35:55.189543+00:00
 ---
 
 # Grok Imagine Image 2.0 in ComfyUI: AI Image Generation and Editing - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:30.274808+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image-2-0/
 
 ## On this page
+
+Back to top
 
   * What Grok Imagine Image 2.0 is good at
   * Example outputs
@@ -32,13 +34,9 @@ Generate and edit images with Grok Imagine Image 2.0 in ComfyUI: Aurora engine, 
 
 Copy pageCopy page
 
-Grok Imagine Image 2.0 is xAI’s latest image model, available in ComfyUI through the Grok partner nodes. Built on the Aurora engine, it excels at crisp short-text rendering and produces 1K or 2K images across 14 aspect ratios, making it well suited for posters, covers, product and brand visuals, and character-driven scenes where consistency matters.
+Grok Imagine Image 2.0 is xAI’s latest image model, available in ComfyUI through the Grok partner nodes. Built on the Aurora engine, it excels at crisp short-text rendering and produces 1K or 2K images across 14 aspect ratios, making it well suited for posters, covers, product and brand visuals, and character-driven scenes where consistency matters. The retired `grok-imagine-image-quality` and `grok-imagine-image-pro` options still appear in the model list, and now run on this model at low quality.
 
-## 
-
-​
-
-What Grok Imagine Image 2.0 is good at
+## What Grok Imagine Image 2.0 is good at
 
   * **Crisp short-text rendering** : the Aurora engine renders short text cleanly, making it well suited for posters, covers, and product and brand visuals
   * **Reference-guided image editing** : edits images with precise, natural-language instructions and up to 3 reference images to modify elements, swap backgrounds, or restyle scenes
@@ -48,11 +46,7 @@ What Grok Imagine Image 2.0 is good at
 
 
 
-## 
-
-​
-
-Example outputs
+## Example outputs
 
 Poster-style text-to-image generation with crisp text rendering: ![Grok Imagine Image 2.0 text-to-image output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_2_t2i.png) Image editing guided by character and product reference images: ![Grok Imagine Image 2.0 image edit output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_2_image_edit.png)
 
@@ -81,11 +75,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Grok Imagine Image 2.0: Text to Image
+## Grok Imagine Image 2.0: Text to Image
 
 Generate a full poster-style image from a single text prompt with the Aurora engine. This workflow excels at crisp short-text rendering, making it well suited for posters, covers, product and brand visuals, and character-driven scenes. It outputs 1K or 2K images across 14 aspect ratios, with low or medium quality options to control cost. ![Grok Imagine Image 2.0 text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_grok_imagine_image_2_t2i-1.webp)
 
@@ -99,11 +89,7 @@ Download JSON or search “Grok Imagine Image 2.0” in Template Library
 
 ![Grok Imagine Image 2.0 text-to-image output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_2_t2i.png)
 
-### 
-
-​
-
-Workflow overview
+### Workflow overview
 
 This workflow uses two nodes:
 
@@ -112,11 +98,7 @@ This workflow uses two nodes:
 
 
 
-### 
-
-​
-
-Steps to run
+### Steps to run
 
   1. **Enter your prompt** : describe the scene, style, and any text you want rendered in the **GrokImageNode**
   2. **Choose aspect ratio** : pick from 14 ratios, from `1:1` to `9:20`
@@ -127,11 +109,7 @@ Steps to run
 
 
 
-## 
-
-​
-
-Grok Imagine Image 2.0: Image Edit
+## Grok Imagine Image 2.0: Image Edit
 
 Edit images with precise, natural-language instructions and up to 3 reference images. Use this workflow to modify specific elements, swap backgrounds, restyle scenes, or keep a character consistent across multiple outputs. The Aurora engine delivers crisp short-text rendering at 1K or 2K resolution across 14 aspect ratios. ![Grok Imagine Image 2.0 image edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_grok_imagine_image_2_image_edit-1.webp)
 
@@ -145,11 +123,7 @@ Download JSON or search “Grok Imagine Image 2.0” in Template Library
 
 ![Grok Imagine Image 2.0 image edit output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_2_image_edit.png)
 
-### 
-
-​
-
-Workflow overview
+### Workflow overview
 
 This workflow uses four nodes:
 
@@ -159,11 +133,7 @@ This workflow uses four nodes:
 
 
 
-### 
-
-​
-
-Steps to run
+### Steps to run
 
   1. **Load your references** : connect up to 3 reference images to the **LoadImage** nodes
   2. **Describe the edit** : tell the model what to keep, change, or restyle in the **GrokImageEditNodeV2** prompt
@@ -178,26 +148,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/grok/grok-image-2-0.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/grok/grok-image-2-0)
 
-[Grok Imagine Image in ComfyUI: AI Image Generation and EditingPrevious](https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image)[Grok Imagine Image Quality in ComfyUI: AI Image GenerationNext](https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image-quality)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Grok Image](https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image)[Grok Image Quality](https://docs.comfy.org/tutorials/partner-nodes/grok/grok-image-quality)

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/manager/pack-management/
-title: Nodos personalizados (nueva interfaz) - ComfyUI
+title: Administrar nodos personalizados con ComfyUI-Manager (interfaz nueva) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.462232+00:00
+fetched_at: 2026-11-15T14:35:57.946082+00:00
 ---
 
-# Nodos personalizados (nueva interfaz) - ComfyUI
+# Administrar nodos personalizados con ComfyUI-Manager (interfaz nueva) - ComfyUI
 
 > Source: https://docs.comfy.org/es/manager/pack-management/
 
@@ -26,21 +26,17 @@ Volver arriba
 
 Gestión de nodos
 
-# Nodos personalizados (nueva interfaz)
+# Administrar nodos personalizados con ComfyUI-Manager (interfaz nueva)
 
 Copiar páginaCopiar página
 
-Instala, actualiza y administra nodos personalizados con ComfyUI-Manager usando la nueva interfaz
+Interfaz nueva de ComfyUI-Manager: filtra y busca paquetes de nodos, instala, actualiza o desinstala nodos y encuentra los que faltan en un flujo.
 
 Copiar páginaCopiar página
 
 Si no estás usando la nueva interfaz, consulta la sección [Cambiar entre la nueva interfaz y la clásica](https://docs.comfy.org/es/manager/install) para aprender a cambiar.
 
-## 
-
-​
-
-Descripción general de la nueva interfaz
+## Descripción general de la nueva interfaz
 
 ![Nueva interfaz](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_labeled.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=b169a5dbcb0607bf29e499278a901dc2)
 
@@ -50,19 +46,11 @@ Descripción general de la nueva interfaz
 
 
 
-## 
-
-​
-
-Gestión de nodos
+## Gestión de nodos
 
 Aprende a usar el nuevo ComfyUI Manager para administrar nodos personalizados
 
-### 
-
-​
-
-Buscar nodos
+### Buscar nodos
 
 ![Filtrar](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_filter.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=39b734a9514bce3d14ec83ff053f2c99) ComfyUI Manager permite buscar paquetes de nodos y nodos individuales por separado. Como se muestra arriba, puedes cambiar el tipo de búsqueda alternando el filtro.
 
@@ -71,11 +59,7 @@ Buscar nodos
 
 
 
-### 
-
-​
-
-Instalar nodos
+### Instalar nodos
 
 ![Instalar nodos](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_install_pack.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=7968ebd2eb538909882c4b2f2efdf83d)
 
@@ -85,11 +69,7 @@ Instalar nodos
 
 
 
-### 
-
-​
-
-Actualizar nodos
+### Actualizar nodos
 
 En el filtro **Update available** , puedes filtrar los nodos que tienen actualizaciones disponibles en la lista de nodos actual ![Actualizar nodos](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_update_pack.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=439f256ae789bbfee69e81ff0a87dfb9)
 
@@ -99,11 +79,7 @@ En el filtro **Update available** , puedes filtrar los nodos que tienen actualiz
 
 
 
-### 
-
-​
-
-Encontrar nodos faltantes
+### Encontrar nodos faltantes
 
 ![Encontrar nodos faltantes](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_missing_packs_prompt.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=48daeed1ac09b0f725dc311be5c60871) Si tu ComfyUI Manager está instalado correctamente, aparecerá un aviso al cargar un flujo de trabajo con nodos faltantes
 
@@ -112,19 +88,11 @@ Encontrar nodos faltantes
 
 ![Encontrar nodos faltantes](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_missing_pack.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=c800b0999e45d8f3f45ceead054a9dbc) Para encontrar nodos faltantes en un flujo de trabajo, selecciona el nodo correspondiente y luego haz clic en el botón **Missing** en el panel de vista previa para encontrar los nodos faltantes
 
-### 
-
-​
-
-Desinstalar nodos
+### Desinstalar nodos
 
 ![Desinstalar nodos](https://mintcdn.com/dripart/CxMos8ZkVvuvON40/images/manager/new_ui_uninstall_pack.jpg?fit=max&auto=format&n=CxMos8ZkVvuvON40&q=85&s=f40ab0c5454f6646566c887db41d2559) Para desinstalar un nodo instalado, selecciona el nodo correspondiente y luego haz clic en el botón **Uninstall** en el panel de vista previa para desinstalarlo
 
-## 
-
-​
-
-Preguntas frecuentes
+## Preguntas frecuentes
 
   1. ¿Por qué no encuentro el nodo que necesito? El nuevo ComfyUI Manager solo permite instalar nodos desde el [registro](https://docs.comfy.org/es/registry/overview). Si tu nodo no está registrado en el registro, regístralo primero en ComfyUI Manager.
   2. ¿Por qué no encuentro la opción de instalar mediante git? Por seguridad y estabilidad del sistema de usuarios de ComfyUI, la nueva interfaz no permite instalar nodos mediante git. Consulta [Instalar nodos personalizados manualmente](https://docs.comfy.org/es/installation/install_custom_node) para aprender a instalar nodos personalizados manualmente.

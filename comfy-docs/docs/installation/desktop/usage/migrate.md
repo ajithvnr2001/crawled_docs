@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/usage/migrate/
 title: Migrate from Legacy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-18T12:01:23.756072+00:00
+fetched_at: 2026-11-15T14:35:56.522599+00:00
 ---
 
 # Migrate from Legacy Desktop - ComfyUI
@@ -11,7 +11,11 @@ fetched_at: 2026-10-18T12:01:23.756072+00:00
 
 ## On this page
 
+Back to top
+
   * What Gets Migrated
+  * What Migration Backs Up
+  * What Happens While Migration Runs
   * What Changes After Migration
   * Does My Old Link Still Work?
   * Step-by-Step Migration
@@ -19,6 +23,7 @@ fetched_at: 2026-10-18T12:01:23.756072+00:00
   * Troubleshooting
     * Legacy Desktop not detected automatically
     * Migration fails
+    * The migration stopped before it finished
     * Models missing after migration
 
 
@@ -29,7 +34,7 @@ Usage Guide
 
 Copy pageCopy page
 
-Learn how to migrate your Legacy Desktop installation to Comfy Desktop
+Migrate a Legacy Desktop install to Comfy Desktop: what carries over in place, what gets backed up, and how to recover missing models after migration.
 
 Copy pageCopy page
 
@@ -41,53 +46,75 @@ If you already have a ComfyUI installation (portable, manual git clone, etc.) an
 
 If you already have Legacy Desktop installed, Comfy Desktop can detect and migrate it, creating a new Standalone installation in the Chooser view.
 
-## 
-
-​
-
-What Gets Migrated
+## What Gets Migrated
 
 Legacy Desktop was a single-install app. Comfy Desktop is a multi-installation manager. When you migrate:
 
   * **Workflows and settings** : reused in place, so the new instance keeps the same user data.
-  * **Custom nodes** — scanned and re-installed in the new environment
-  * **Models** : your existing model folder is added as a shared directory, so the files stay where they are.
+  * **Custom nodes** : kept in your existing `custom_nodes` folder. The migrated instance uses your Legacy Desktop data folder as its base directory, so it loads the same nodes, and their packages stay in the Python environment that is reused.
+  * **Models** : your existing model folder is added to the shared model directories, so every instance can read those files where they already are.
   * **Input files and outputs** : reused in place from the existing folders.
-  * **Python environment** : your existing environment is validated and reused, with the packages ComfyUI needs installed into it.
+  * **Python environment** : your existing environment is checked and then reused. Comfy Desktop verifies that it can import torch, then installs ComfyUI’s requirements into it without replacing your PyTorch packages.
   * **ComfyUI version** : the ComfyUI source is staged into a new managed directory, so Comfy Desktop manages updates from then on.
 
-The Legacy Desktop app itself stays installed, and Comfy Desktop backs up your legacy state before it starts. The migration reuses that setup in place rather than copying it, so the shared data folder and Python environment are not an untouched copy. If you need a pristine copy of your Legacy Desktop setup, back it up yourself before migrating.
+The migration reuses your Legacy Desktop data folder and Python environment in place rather than copying them, so you end up with one working setup rather than a second copy. If you need a pristine copy of your Legacy Desktop setup, back it up yourself before migrating.
 
-## 
+## What Migration Backs Up
 
-​
+Before it changes anything, Comfy Desktop copies the Legacy Desktop settings files into a dated folder inside the legacy config folder:
 
-What Changes After Migration
+  * macOS: `~/Library/Application Support/ComfyUI/legacy-backup/<timestamp>/`
+  * Windows: `%APPDATA%\ComfyUI\legacy-backup\<timestamp>\`
+
+Each file is copied only if it exists:
+
+  * `config.json`: the Legacy Desktop app settings, including the data folder it used.
+  * `comfy.settings.json`: the ComfyUI frontend settings stored in your legacy user folder.
+  * `extra_models_config.yaml`: any extra model paths you configured in Legacy Desktop.
+  * `window.json`: the saved window size and position.
+
+The backup holds settings only. Models, workflows, custom nodes, input files, and outputs are not copied into it, because the migrated instance keeps using them where they are. The migration also writes a snapshot of the legacy environment, with its custom nodes and installed packages, to `.snapshots/` inside your legacy data folder. If a file cannot be copied, the migration notes it in the log and continues, so a failed backup does not stop the migration.
+
+## What Happens While Migration Runs
+
+The migration shows its own progress screen and moves through these steps:
+
+  1. **Back up legacy state**
+  2. **Check folder access** (macOS only)
+  3. **Validate Python environment**
+  4. **Capture snapshot**
+  5. **Allocate install folder**
+  6. **Stage ComfyUI source code**
+  7. **Install requirements**
+  8. **Carry over settings**
+  9. **Register installation**
+
+A step can stop and wait for an answer:
+
+  * **Folder access needed** (macOS): macOS blocked access to the Legacy Desktop folder. Grant Comfy Desktop Full Disk Access in System Settings → Privacy & Security, then start the migration again.
+  * **Python environment looks broken** : the legacy environment could not import torch. Select **Adopt anyway** to keep that environment, or **Cancel** to stop.
+  * **ComfyUI source code unavailable** : the ComfyUI source for the new instance could not be obtained. Select **Retry** , or **Cancel** and create a new instance from the dashboard instead.
+
+The screen keeps the output of every step in a **View logs** panel that opens by itself when a step fails. Copy the text with the copy button there, or read the same output in the Desktop app log. A failed requirements install is reported as a warning and does not stop the migration.
+
+## What Changes After Migration
 
 Once migration completes, your new Standalone installation works like any other Comfy Desktop installation:
 
   * **Startup** — click the play button on the new installation card in the Chooser view to launch ComfyUI.
-  * **Port** — Legacy Desktop used port `8000` by default. The new installation carries over this port setting (and any other custom startup arguments you had).
+  * **Port** — the port and any other custom startup arguments from your legacy config are carried over.
   * **Manage** — use the Manage panel to update, snapshot, and configure the installation.
   * **Updates** — Standalone installations can be updated independently via the Manage panel. Unlike Legacy Desktop, you no longer need to download a new build for each update.
   * **Multiple instances** — you can have multiple Standalone installations side by side, each with its own ComfyUI version and configuration.
   * **Shared storage** — models are shared across all Standalone installations by default. Input and output directories are pinned to the adopted legacy workspace so your existing files stay where they are.
 
+A migrated instance does not update ComfyUI on its own. Use the Manage panel’s [Update tab](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) when you want a newer ComfyUI version.
 
-
-## 
-
-​
-
-Does My Old Link Still Work?
+## Does My Old Link Still Work?
 
 Legacy Desktop ran on port `8000` by default. The new installation **carries over the port** from your legacy config, so `http://localhost:8000` should still work. If you had custom CLI arguments configured (e.g. `--port 8188`), those are carried over too. If you use a URL shortener, bookmark, or external integration that references the Legacy Desktop app by a different address, you may need to check the new installation’s Startup Args tab and update accordingly.
 
-## 
-
-​
-
-Step-by-Step Migration
+## Step-by-Step Migration
 
 1
 
@@ -105,14 +132,11 @@ When you first open Comfy Desktop, the first-run setup detects any Legacy Deskto
 
 Confirm Migration
 
-Select **Continue** , then confirm **Migrate Legacy Desktop to Standalone** with **Start Migration**. Comfy Desktop will:
+Select **Continue** , then confirm **Migrate to Standalone** with **Start Migration**. Comfy Desktop will:
 
-  1. Scan your existing installation (custom nodes, models, workflows)
-  2. Reuse your existing data folder and Python environment in place, and stage the ComfyUI source into a new managed directory so updates work normally
-  3. Reuse your workflows, settings, and other user data in place
-  4. Reuse your input files and outputs in place
-  5. Add your model folder as a shared directory
-  6. Install custom nodes in the new environment
+  1. Reuse your workflows, settings, custom nodes, inputs, and outputs in place
+  2. Reuse your Python environment and stage the ComfyUI source into a new managed directory so updates work normally
+  3. Add your model folder as a shared directory and install ComfyUI’s requirements into the reused environment
 
 After completion, the new Standalone installation card appears in the Chooser view.
 
@@ -129,11 +153,7 @@ Launch your new installation and confirm:
 
 
 
-## 
-
-​
-
-Migrate from the Chooser
+## Migrate from the Chooser
 
 If you have already finished the first-run setup, or the Legacy Desktop installation is already listed in the Chooser, start the migration from the instance card:
 
@@ -141,19 +161,11 @@ If you have already finished the first-run setup, or the Legacy Desktop installa
   2. Click the pill, or open the card’s **⋮** menu and select **Migrate to Standalone**. ![Instance card menu with Migrate to Standalone](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_03_menu.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=e0f6be51b85de1e36568c2f28355d698)
   3. Review the confirmation, then select **Start Migration**. ![Migrate Legacy Desktop to Standalone confirmation with Start Migration](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_04_confirm.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=360a2ea369225b102b438a04aafc4b71)
 
-A Legacy Desktop install is adopted in place, so the instance that appears is your existing setup under Comfy Desktop management. Migrating a tracked Git or portable install instead creates a new Standalone instance and leaves the tracked install in place. In both cases the model files are not copied, they are read from where they already are. A pending update takes priority on those cards: they show the update pill instead of **Migrate**.
+A Legacy Desktop install is adopted in place, so the instance that appears is your existing setup under Comfy Desktop management. Migrating a tracked Git or portable install instead creates a new Standalone instance and leaves the tracked install in place. A pending update takes priority on those cards: they show the update pill instead of **Migrate**.
 
-## 
+## Troubleshooting
 
-​
-
-Troubleshooting
-
-### 
-
-​
-
-Legacy Desktop not detected automatically
+### Legacy Desktop not detected automatically
 
 The Legacy Desktop source is migration-only and is not listed in the New Instance picker, so it cannot be added by hand. If Comfy Desktop did not detect your Legacy Desktop installation:
 
@@ -162,29 +174,25 @@ The Legacy Desktop source is migration-only and is not listed in the New Instanc
 
 
 
-### 
+### Migration fails
 
-​
-
-Migration fails
-
-  * **Check logs** in the Manage panel’s Terminal tab for error details
-  * **Ensure your Legacy installation is intact** : migration reads from your existing install
-  * **Try again** : network issues may resolve on a second attempt
+  * **Read the log** : select **View logs** in the migration window, or open the Desktop app log (`app.log`) in `~/Library/Logs/Comfy Desktop` on macOS or `%APPDATA%\Comfy Desktop\logs` on Windows.
+  * **Check the Legacy installation** : the migration reads models, workflows, and custom nodes from the existing folder, so a folder that was moved or deleted stops it.
+  * **Try again** : a network problem can stop the source staging step, and a second attempt may succeed.
 
 
 
-### 
+### The migration stopped before it finished
 
-​
+Selecting **Cancel** in one of the prompts stops the run, and so does a step that fails outright. A requirements warning does not stop it. A stopped run does not add an instance to the Chooser, so start the migration again from the card’s **Migrate** pill. Your Legacy Desktop folder is not deleted.
 
-Models missing after migration
+### Models missing after migration
 
-Models are added as a shared directory path (not copied). If models don’t appear:
+Models are added to the shared model directories, not copied. If models do not show:
 
-  1. Open the migrated installation’s **Manage** panel
-  2. Go to the **Storage** tab and open **Model Directories**
-  3. Check if your old model folder is listed. If not, add it manually.
+  1. Open [Desktop Settings → Storage](https://docs.comfy.org/installation/desktop/usage/settings#storage)
+  2. Check that your legacy models folder and any extra model paths listed in your Legacy Desktop `extra_models_config.yaml` are in the shared directories. If one is missing, select **\+ Add Shared Directory** and pick it.
+  3. In the migrated instance’s Manage panel, open the **Storage** tab and make sure **Include Shared Directories** is on.
 
 
 
@@ -194,26 +202,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/migrate.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/migrate)
 
-[Performance Tests and BenchmarksPrevious](https://docs.comfy.org/installation/desktop/usage/performance-tests)[Comfy Desktop FAQNext](https://docs.comfy.org/installation/desktop/faq)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Performance Tests](https://docs.comfy.org/installation/desktop/usage/performance-tests)[FAQ](https://docs.comfy.org/installation/desktop/faq)

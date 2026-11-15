@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/void-video-inpainting/
 title: VOID: Relleno inteligente de video en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:58.880805+00:00
+fetched_at: 2026-11-15T14:35:56.859553+00:00
 ---
 
 # VOID: Relleno inteligente de video en ComfyUI - ComfyUI
@@ -29,7 +29,7 @@ Video
 
 Copiar páginaCopiar página
 
-Aprende a eliminar objetos de videos con el modelo de relleno inteligente de video VOID de Netflix, con soporte nativo en ComfyUI
+Elimina un objeto de un video con VOID, el modelo de relleno de dos pasadas de Netflix en ComfyUI: borra también las sombras y las interacciones que causaba.
 
 Copiar páginaCopiar página
 
@@ -60,11 +60,7 @@ VOID (Video Object Inpainting and Deletion) es un potente modelo de relleno inte
 
 **ANTES** (izquierda): el metraje original con el snowboarder. **DESPUÉS** (derecha): el resultado procesado tras eliminar al snowboarder de la escena. VOID elimina los objetos no deseados mientras mantiene el movimiento, la iluminación y la coherencia de la escena entre fotogramas.
 
-### 
-
-​
-
-Puntos fuertes
+### Puntos fuertes
 
   * **Eliminación consciente de las interacciones** : elimina no solo el objeto, sino todas las interacciones físicas que provocó en la escena (sombras, reflejos, objetos que caen)
   * **Eliminación de objetos** , no parcheo de fotogramas individuales: produce movimiento e iluminación coherentes en todo el clip
@@ -74,25 +70,13 @@ Puntos fuertes
 
 > **Limitaciones:** Las máscaras poco claras, el movimiento caótico o los objetivos que dominan el encuadre todavía pueden producir resultados poco óptimos. El prompt no puede corregir una segmentación fundamentalmente errónea.
 
-## 
+## Flujo de trabajo de relleno de video VOID
 
-​
-
-Flujo de trabajo de relleno de video VOID
-
-### 
-
-​
-
-1\. Descargar flujo de trabajo
+### 1\. Descargar flujo de trabajo
 
 Actualiza tu ComfyUI a la última versión, luego ve a `Workflow` -> `Browse Templates` y busca “VOID: Video Inpainting” en la categoría Utility.
 
-### 
-
-​
-
-VOID: Video Inpainting
+### VOID: Video Inpainting
 
 Sube un video y enmascara el objeto que quieras eliminar. Genera un video limpio en el que se eliminan el objeto y sus interacciones físicas. ![Vista previa del flujo de trabajo de relleno de video VOID](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_void_video_inpainting-1.webp)
 
@@ -110,11 +94,7 @@ Descarga el JSON o busca “VOID: Video Inpainting” en la biblioteca de planti
 
 Nodo `LoadVideo` 4 · `snowboarder.mp4`
 
-### 
-
-​
-
-2\. Descargar modelos
+### 2\. Descargar modelos
 
 Todos los modelos están alojados en el [repositorio de modelos VOID de Comfy-Org](https://huggingface.co/Comfy-Org/void-model). **Modelos de difusión** : el modelo principal de relleno inteligente de dos pasadas:
 
@@ -155,11 +135,7 @@ Todos los modelos están alojados en el [repositorio de modelos VOID de Comfy-Or
     │       └── void_pass1.safetensors
     
 
-### 
-
-​
-
-3\. Usar el flujo de trabajo
+### 3\. Usar el flujo de trabajo
 
 **Entradas:**
 
@@ -184,11 +160,7 @@ Usa **Pass 2** (pasada de refinamiento) para clips más largos o fondos con text
 
 Este flujo de trabajo usa nodos Subgraph para el procesamiento modular de video. Consulta la documentación de Subgraph para aprender a personalizar y ampliar el flujo de trabajo.
 
-## 
-
-​
-
-Notas adicionales
+## Notas adicionales
 
   * **La calidad de la máscara importa** : una máscara limpia y ajustada alrededor del objeto objetivo produce los mejores resultados
   * **Consejo para escribir el prompt** : describe la escena como debería verse _naturalmente_ después de la eliminación, no la eliminación en sí

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/concurrency-limits/
-title: L\u00edmites de concurrencia - ComfyUI
+title: Nodos asociados: l\u00edmites de concurrencia y errores 429 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:47.913464+00:00
+fetched_at: 2026-11-15T14:35:57.522625+00:00
 ---
 
-# Límites de concurrencia - ComfyUI
+# Nodos asociados: límites de concurrencia y errores 429 - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/concurrency-limits/
 
@@ -27,11 +27,11 @@ Volver arriba
 
 Nodos asociados
 
-# Límites de concurrencia
+# Nodos asociados: límites de concurrencia y errores 429
 
 Copiar páginaCopiar página
 
-Entiende cómo los límites de concurrencia controlan las solicitudes simultáneas de los Nodos asociados en tu cuenta.
+Concurrencia de Nodos asociados: niveles por gasto acumulado con límites de 1 a 40 llamadas simultáneas, límites menores en modelos caros y errores 429.
 
 Copiar páginaCopiar página
 
@@ -39,27 +39,15 @@ Los límites de concurrencia controlan cuántas solicitudes puede procesar tu cu
 
 Los límites de concurrencia se ajustan con el tiempo para mantener la plataforma rápida y confiable para todos. Los valores específicos de esta página reflejan la configuración actual y pueden cambiar.
 
-## 
-
-​
-
-Cómo funciona
+## Cómo funciona
 
 Cuando envías una solicitud, la plataforma la registra frente a tu límite de concurrencia. Si superas el límite, la plataforma rechaza las solicitudes adicionales con un error `429` hasta que finalicen las solicitudes en curso.
 
-## 
-
-​
-
-Concurrencia de Nodos asociados vs. concurrencia de tareas de Cloud
+## Concurrencia de Nodos asociados vs. concurrencia de tareas de Cloud
 
 Esta página cubre específicamente el límite de concurrencia en las llamadas a los Nodos asociados. Es un límite separado y aplicado de forma independiente de la **concurrencia de tareas de Cloud** , que controla cuántas ejecuciones de flujos de trabajo de Comfy Cloud puedes tener en ejecución a la vez y se establece según tu plan de Cloud o nivel de suscripción, no según tu gasto total. Dado que los dos límites se aplican de forma independiente, tu rendimiento efectivo está limitado por el que alcances primero. Un plan de Cloud alto no aumenta por sí mismo tu límite de concurrencia de los Nodos asociados: eso se rige por separado por los niveles de gasto total que se muestran a continuación.
 
-## 
-
-​
-
-Niveles de concurrencia
+## Niveles de concurrencia
 
 Tu límite de concurrencia se basa en tu **gasto pagado de por vida** : el total de todas las compras de créditos y pagos de suscripciones en Comfy Cloud y Nodos asociados, combinados. Este total se acumula durante la vida de tu cuenta y no se reinicia ni se revisa en una ventana móvil.
 
@@ -81,27 +69,15 @@ Para consultar tu gasto total, abre el [gráfico de uso](https://platform.comfy.
 
 Los límites de autoservicio escalan hasta **40 solicitudes concurrentes** en el nivel de $1,000.
 
-## 
-
-​
-
-Límites basados en el modelo
+## Límites basados en el modelo
 
 Los modelos de mayor costo tienen una concurrencia permitida menor. Cuando llamas a un modelo que cuesta **$5 o más por solicitud** , tu límite de concurrencia para ese modelo es **un cuarto** del límite de tu nivel de cuenta (redondeado hacia abajo, con un mínimo de 1). Las solicitudes a modelos de menor costo siguen usando el límite completo de tu cuenta, y ambos límites se rastrean de forma independiente.
 
-## 
-
-​
-
-Cómo funcionan las ranuras de concurrencia
+## Cómo funcionan las ranuras de concurrencia
 
 Una llamada a un Nodo asociado ocupa una ranura de concurrencia durante toda la duración de esa llamada: desde el momento en que se acepta la solicitud hasta que el proveedor devuelve un resultado, lo que en la generación de video o 3D puede tardar varios minutos. La ranura se libera en cuanto termina la llamada. Solo las llamadas en curso consumen tu límite. Una llamada completada libera su ranura de inmediato, por lo que un flujo de trabajo que hace muchas llamadas a los Nodos asociados a lo largo de su ejecución se completará correctamente de todos modos; simplemente no puede tener más llamadas en ejecución al mismo tiempo de las que permite tu límite.
 
-## 
-
-​
-
-Qué ocurre cuando alcanzas tu límite
+## Qué ocurre cuando alcanzas tu límite
 
 Cuando todas tus ranuras de concurrencia están ocupadas y haces otra llamada a un Nodo asociado, esa llamada se rechaza de inmediato con un estado HTTP `429` y un cuerpo de respuesta cuyo mensaje te indica que esperes a que terminen las solicitudes existentes.
 
@@ -111,11 +87,7 @@ Cuando todas tus ranuras de concurrencia están ocupadas y haces otra llamada a 
 
 
 
-## 
-
-​
-
-Encabezados de respuesta de concurrencia
+## Encabezados de respuesta de concurrencia
 
 Las respuestas de los Nodos asociados incluyen encabezados que reflejan tu uso de concurrencia en el momento en que se procesó la solicitud. Se incluyen tanto en respuestas exitosas como limitadas, tanto para quienes usan una Clave API como para otros clientes:
 
@@ -127,11 +99,7 @@ Encabezado| Significado
   
 Estos encabezados no se devuelven en cuentas con un límite personalizado ilimitado y tienen carácter orientativo: son útiles para visibilidad y depuración, pero no están pensados como una señal precisa de programación.
 
-## 
-
-​
-
-Aumentar tu límite
+## Aumentar tu límite
 
 Para una concurrencia superior a 40, contacta a nuestro equipo de soporte.
 
@@ -139,11 +107,7 @@ Para una concurrencia superior a 40, contacta a nuestro equipo de soporte.
 
 Obtén ayuda para aumentar tu límite de concurrencia
 
-## 
-
-​
-
-FAQ
+## FAQ
 
 ¿El límite es por solicitud, por minuto o por llamada simultánea?
 

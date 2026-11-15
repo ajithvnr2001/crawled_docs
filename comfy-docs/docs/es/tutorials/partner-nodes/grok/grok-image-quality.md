@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/grok/grok-image-quality/
-title: Grok Imagine Image Quality en ComfyUI: generaci\u00f3n de im\u00e1genes con IA - ComfyUI
+title: Grok Imagine Image Quality en ComfyUI: modelo de imagen retirado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:49.250156+00:00
+fetched_at: 2026-11-15T14:35:55.570824+00:00
 ---
 
-# Grok Imagine Image Quality en ComfyUI: generación de imágenes con IA - ComfyUI
+# Grok Imagine Image Quality en ComfyUI: modelo de imagen retirado - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/grok/grok-image-quality/
 
@@ -23,21 +23,19 @@ Volver arriba
 
 Grok
 
-# Grok Imagine Image Quality en ComfyUI: generación de imágenes con IA
+# Grok Imagine Image Quality en ComfyUI: modelo de imagen retirado
 
 Copiar páginaCopiar página
 
-Genera imágenes mejoradas con Grok Imagine Image Quality en ComfyUI: más detalle, mejor renderizado de texto y mayor control creativo
+Cómo se ejecuta ahora el modelo retirado Grok Imagine Image Quality en ComfyUI y qué modelo usar en su lugar.
 
 Copiar páginaCopiar página
 
-Grok Imagine Image Quality es el modelo de imagen de mayor fidelidad de xAI, disponible en ComfyUI a través de los nodos asociados de Grok. Aporta más detalle, mejor renderizado de texto y un mayor control creativo en comparación con el modelo de imagen estándar de Grok.
+**Retirado** : xAI retiró `grok-imagine-image-quality`. La opción sigue en la lista de modelos del nodo y las ejecuciones se sirven ahora con `grok-imagine-image-2.0` en calidad baja. Para trabajo nuevo usa [Grok Imagine Image 2.0](https://docs.comfy.org/es/tutorials/partner-nodes/grok/grok-image-2-0): allí el control de calidad está disponible directamente.
 
-## 
+Grok Imagine Image Quality era el modelo de imagen de mayor fidelidad de xAI, disponible en ComfyUI a través de los nodos asociados de Grok. Aportaba más detalle, mejor renderizado de texto y un mayor control creativo en comparación con el modelo de imagen estándar de Grok.
 
-​
-
-En qué destaca Grok Imagine Image Quality
+## En qué destaca Grok Imagine Image Quality
 
   * **Más detalle** : una salida de mayor fidelidad que el modelo de imagen estándar de Grok
   * **Mejor renderizado de texto** : maneja prompts que incluyen texto que quieres que aparezca renderizado en la imagen
@@ -46,13 +44,9 @@ En qué destaca Grok Imagine Image Quality
 
 
 
-## 
+## Salidas de ejemplo
 
-​
-
-Salidas de ejemplo
-
-Generación de imágenes mejorada con el modelo `grok-imagine-image-quality`: ![Salida de generación de Grok Imagine Image Quality](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_quality_image_generation.png)
+Ejemplo de salida de la plantilla: ![Salida de generación de Grok Imagine Image Quality](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_quality_image_generation.png)
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -79,13 +73,9 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
+## Grok Imagine Image Quality: generación
 
-​
-
-Grok Imagine Image Quality: generación
-
-Genera imágenes mejoradas con el modelo `grok-imagine-image-quality`, que aporta más detalle, mejor renderizado de texto y un mayor control creativo en comparación con el modelo estándar. ![Vista previa del flujo de trabajo de generación de Grok Imagine Image Quality](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_grok_imagine_image_quality_image_generation-1.webp)
+Esta plantilla sigue seleccionando `grok-imagine-image-quality`. Las ejecuciones se sirven con `grok-imagine-image-2.0` en calidad baja. ![Vista previa del flujo de trabajo de generación de Grok Imagine Image Quality](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_grok_imagine_image_quality_image_generation-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -97,11 +87,7 @@ Descarga el JSON o busca “Grok Imagine Image Quality” en la Biblioteca de pl
 
 ![Salida de generación de Grok Imagine Image Quality](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/api_grok_imagine_image_quality_image_generation.png)
 
-### 
-
-​
-
-Resumen del flujo de trabajo
+### Resumen del flujo de trabajo
 
 Este flujo de trabajo usa dos nodos:
 
@@ -110,11 +96,7 @@ Este flujo de trabajo usa dos nodos:
 
 
 
-### 
-
-​
-
-Pasos para ejecutar
+### Pasos para ejecutar
 
   1. **Ingresa tu prompt** : describe la escena y cualquier texto que quieras que aparezca renderizado en **GrokImageNode**
   2. **Elige la relación de aspecto** : selecciona una de las relaciones disponibles

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/development/examples/",
   "file": "development/examples.md",
-  "title": "Comfy API and Router examples - ComfyUI",
+  "title": "Comfy API Examples: Router Calls, Deployments, and Apps - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:55.844470+00:00",
-  "html_len": 434888,
-  "md_len": 3271,
-  "depth": 0
+  "fetched_at": "2026-11-15T14:35:58.340062+00:00"
 }

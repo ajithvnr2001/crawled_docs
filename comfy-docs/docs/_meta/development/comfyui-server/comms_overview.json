@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/development/comfyui-server/comms_overview/",
   "file": "development/comfyui-server/comms_overview.md",
-  "title": "Server Overview - ComfyUI",
+  "title": "ComfyUI Server Overview: REST and WebSocket APIs - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:54.869256+00:00",
-  "html_len": 465910,
-  "md_len": 4941,
-  "depth": 0
+  "fetched_at": "2026-11-15T14:35:58.197723+00:00"
 }

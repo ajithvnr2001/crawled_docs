@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance/
-title: HitPaw Image Enhance - ComfyUI
+title: HitPaw Image Enhance en ComfyUI: escalado y restauraci\u00f3n con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:50.208950+00:00
+fetched_at: 2026-11-15T14:35:57.476989+00:00
 ---
 
-# HitPaw Image Enhance - ComfyUI
+# HitPaw Image Enhance en ComfyUI: escalado y restauración con IA - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance/
 
@@ -20,21 +20,17 @@ Volver arriba
 
 HitPaw
 
-# HitPaw Image Enhance
+# HitPaw Image Enhance en ComfyUI: escalado y restauración con IA
 
 Copiar páginaCopiar página
 
-Amplía y restaura imágenes con el modelo de mejora general de HitPaw en ComfyUI.
+Amplía y restaura fotos, renders e imágenes de IA con HitPaw Image Enhance en ComfyUI, con procesamiento según el contenido para ruido o baja resolución.
 
 Copiar páginaCopiar página
 
 HitPaw Image Enhance es un modelo de ampliación y restauración de propósito general que corrige ruido, desenfoque, artefactos y baja resolución en fotografías, renders e imágenes generadas por IA. Usa procesamiento consciente del contenido para aplicar automáticamente estrategias de mejora optimizadas y lograr resultados naturales.
 
-## 
-
-​
-
-Capacidades principales
+## Capacidades principales
 
   * **Ampliación de propósito general** : corrige ruido, desenfoque, artefactos y baja resolución en una sola pasada.
   * **Procesamiento consciente del contenido** : detecta automáticamente el tipo de contenido de la imagen (retrato, paisaje, texto, etc.) y aplica estrategias optimizadas.
@@ -68,11 +64,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Flujos de trabajo disponibles
+## Flujos de trabajo disponibles
 
 ## Open in ComfyCloud
 

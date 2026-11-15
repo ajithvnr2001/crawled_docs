@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/development/comfyui-server/comms_overview/
-title: Descripci\u00f3n general del servidor - ComfyUI
+title: Servidor de ComfyUI: APIs REST y WebSocket - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:27.442771+00:00
+fetched_at: 2026-11-15T14:35:58.047327+00:00
 ---
 
-# Descripción general del servidor - ComfyUI
+# Servidor de ComfyUI: APIs REST y WebSocket - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/comfyui-server/comms_overview/
 
@@ -22,21 +22,17 @@ Volver arriba
 
 Self-Hosted Server API
 
-# Descripción general del servidor
+# Servidor de ComfyUI: APIs REST y WebSocket
 
 Copiar páginaCopiar página
 
-Ejecuta ComfyUI como servidor e interactúa con él mediante las APIs REST y WebSocket
+Ejecuta ComfyUI como servidor HTTP sin interfaz y usa sus APIs REST y WebSocket para enviar flujos, subir archivos, descargar salidas y seguir el progreso.
 
 Copiar páginaCopiar página
 
 ComfyUI se ejecuta de forma predeterminada como un servidor HTTP en tu máquina. Puedes llamarlo de forma programática para enviar flujos de trabajo, subir archivos, descargar salidas y monitorear el progreso, todo sin abrir el navegador.
 
-## 
-
-​
-
-Iniciar el servidor
+## Iniciar el servidor
 
 Cuando inicias ComfyUI, se inicia automáticamente un servidor HTTP en `http://127.0.0.1:8188`. Para ejecutar ComfyUI como servidor sin interfaz gráfica (sin navegador):
     
@@ -57,11 +53,7 @@ Cuando inicias ComfyUI, se inicia automáticamente un servidor HTTP en `http://1
 
 Para ver una lista completa de las opciones de inicio, ejecuta `python main.py --help` o consulta la [Referencia de flags de inicio](https://docs.comfy.org/es/development/comfyui-server/startup-flags).
 
-## 
-
-​
-
-Páginas clave en esta sección
+## Páginas clave en esta sección
 
 ## Argumentos de inicio
 
@@ -83,21 +75,13 @@ Tipos de mensajes WebSocket que el servidor envía al cliente durante la ejecuci
 
 Avanzado: invierte la ejecución para flujos de control personalizados.
 
-## 
-
-​
-
-Usar nodos asociados
+## Usar nodos asociados
 
 Si tu flujo de trabajo contiene nodos asociados de pago, puedes incluir tu clave API en el payload. Consulta la guía [Integración de la API de nodos asociados](https://docs.comfy.org/es/development/comfyui-server/api-key-integration) para obtener más detalles.
 
 * * *
 
-## 
-
-​
-
-Cómo funciona el servidor
+## Cómo funciona el servidor
 
 El servidor de Comfy se ejecuta sobre el [framework aiohttp](https://docs.aiohttp.org/), que a su vez utiliza [asyncio](https://pypi.org/project/asyncio/). Los mensajes del servidor al cliente se envían mediante mensajes de socket a través del método `send_sync` del servidor, que es una instancia de `PromptServer` (definida en `server.py`). Un escucha de eventos de socket registrado en `api.js` los procesa. Consulta [mensajes](https://docs.comfy.org/es/development/comfyui-server/comms_messages). Los mensajes del cliente al servidor se envían mediante el método `api.fetchApi()` definido en `api.js`, y los manejan las rutas HTTP definidas por el servidor. Consulta [rutas](https://docs.comfy.org/es/development/comfyui-server/comms_routes).
 

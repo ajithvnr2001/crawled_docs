@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/video/zai/scail2/
-title: Tutorial del flujo de trabajo de reemplazo de personaje con SCAIL-2 en ComfyUI - ComfyUI
+title: SCAIL-2 en ComfyUI: Animaci\u00f3n y reemplazo de personajes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:02.033566+00:00
+fetched_at: 2026-11-15T14:35:56.579104+00:00
 ---
 
-# Tutorial del flujo de trabajo de reemplazo de personaje con SCAIL-2 en ComfyUI - ComfyUI
+# SCAIL-2 en ComfyUI: Animación y reemplazo de personajes - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/video/zai/scail2/
 
@@ -22,14 +22,14 @@ Volver arriba
     * Parámetros compartidos (Base y Extend)
     * Seguimiento con SAM3 (dos entradas)
   * Instalación de modelos
-    * Modelos necesarios
+    * Modelos requeridos
     * Ubicaciones de almacenamiento de archivos
 
 
 
 ZAI
 
-# Tutorial del flujo de trabajo de reemplazo de personaje con SCAIL-2 en ComfyUI
+# SCAIL-2 en ComfyUI: Animación y reemplazo de personajes
 
 Copiar páginaCopiar página
 
@@ -37,12 +37,12 @@ Anima una imagen de personaje de referencia con un video guía o reemplaza al pe
 
 Copiar páginaCopiar página
 
-**SCAIL-2** es un modelo de animación de personajes de extremo a extremo construido sobre Wan2.1. Impulsa una imagen de referencia de un personaje con un video de conducción, lo que permite tanto la animación de personajes (hacer que un personaje ejecute el movimiento) como el reemplazo de personajes dentro del video (sustituir a una persona rastreada en un video por el personaje de referencia). **Características principales** :
+**SCAIL-2** es un modelo de animación de personajes de extremo a extremo construido sobre Wan2.1. Impulsa una imagen de referencia de un personaje con un video guía, lo que permite tanto la animación de personajes (hacer que un personaje ejecute el movimiento) como el reemplazo de personajes dentro del video (sustituir a una persona rastreada en un video por el personaje de referencia). **Características principales** :
 
-  * **Animación de personajes de extremo a extremo** : Impulsa una imagen fija de un personaje con el movimiento de un video de conducción
-  * **Dos modos** : Modo Animación (el personaje ejecuta el movimiento) y Modo Reemplazo (sustituye la persona rastreada por el personaje de referencia)
-  * **Soporte para video largo** : Generación extendida basada en fragmentos con superposición de fotogramas entre segmentos
-  * **Nodos integrados de ComfyUI** : Usa `WanSCAILToVideo`, `SCAIL2ColoredMask` y el seguimiento `SAM3` nativos. No se requieren nodos personalizados más allá de las descargas de modelos estándar.
+  * **Animación de personajes de extremo a extremo** : impulsa una imagen fija de un personaje con el movimiento de un video guía
+  * **Dos modos** : Modo Animación (el personaje ejecuta el movimiento) y Modo Reemplazo (sustituye a la persona rastreada por el personaje de referencia)
+  * **Soporte para video largo** : generación extendida basada en fragmentos con superposición de fotogramas entre segmentos
+  * **Nodos integrados de ComfyUI** : usa los nodos nativos `WanSCAILToVideo`, `SCAIL2ColoredMask` y el seguimiento `SAM3`. No necesitas nodos personalizados más allá de las descargas de modelos estándar.
 
 **Enlaces relacionados** :
 
@@ -51,17 +51,9 @@ Copiar páginaCopiar página
 
 
 
-## 
+## Flujo de trabajo de reemplazo de personaje con SCAIL-2
 
-​
-
-Flujo de trabajo de reemplazo de personaje con SCAIL-2
-
-### 
-
-​
-
-Reemplazo de personaje con SCAIL-2
+### Reemplazo de personaje con SCAIL-2
 
 Reemplaza a un personaje en un video conservando el movimiento y el contexto de la escena. ![Vista previa del flujo de trabajo de reemplazo de personaje con SCAIL-2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan21_scail2_character_replacement-1.webp)
 
@@ -77,11 +69,11 @@ Descarga el JSON o busca “SCAIL-2 Character Replacement” en la Biblioteca de
 
 ## Imagen de referencia
 
-Descarga la imagen de referencia predeterminada del personaje o usa la tuya.
+Descarga la imagen de referencia del personaje predeterminada o usa la tuya.
 
-## Video conductor
+## Video guía
 
-Descarga el video conductor predeterminado o usa el tuyo.
+Descarga el video guía predeterminado o usa el tuyo.
 
   * Usuarios locales
 
@@ -106,11 +98,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Cómo funciona el flujo de trabajo
+## Cómo funciona el flujo de trabajo
 
 Este flujo de trabajo usa dos nodos de subgrafo: un subgrafo **Base** (primer segmento) y un subgrafo **Extend** (segmentos posteriores). Esto permite animar personajes tanto en videos cortos como largos.
 
@@ -123,42 +111,26 @@ Este flujo de trabajo usa dos nodos de subgrafo: un subgrafo **Base** (primer se
 
 ## Acerca de Subgraph
 
-Este flujo de trabajo usa nodos Subgraph para un procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender el flujo de trabajo.
+Este flujo de trabajo usa nodos de subgrafo para un procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender el flujo de trabajo.
 
-### 
+### Videos largos
 
-​
-
-Videos largos
-
-Para videos más largos, calcula el número de segmentos: `ceil(total_frames / 76)`. Todos los segmentos excepto el primero usan el subgrafo Extend. Duplica el nodo Extend para más segmentos, encadena la salida `previous_frames` e incrementa `segment_index`.
+Para videos más largos, calcula el número de segmentos: `ceil(total_frames / 76)`. Cada segmento excepto el primero usa el subgrafo Extend. Duplica el nodo Extend para más segmentos, encadena la salida `previous_frames` e incrementa `segment_index`.
 
 > **Nota:** `WanSCAILToVideo` no puede poner en cola todos los segmentos automáticamente. Ejecuta cada segmento manualmente.
 
-## 
+## Dos modos
 
-​
-
-Dos modos
-
-Modo| `replace_mode`| Fondo de la máscara de conducción| Resumen  
+Modo| `replace_mode`| Fondo de la máscara del video de conducción| Resumen  
 ---|---|---|---  
 **Reemplazo**| `true` (predeterminado)| Blanco| Intercambia la persona rastreada en el video de conducción por el personaje de referencia  
 **Animación**| `false`| Negro| El personaje de referencia realiza el movimiento del video de conducción  
   
 Establece el parámetro `replace_mode` en ambos nodos del subgrafo.
 
-## 
+## Entradas y parámetros
 
-​
-
-Entradas y parámetros
-
-### 
-
-​
-
-Parámetros compartidos (Base y Extend)
+### Parámetros compartidos (Base y Extend)
 
 Parámetro| Descripción  
 ---|---  
@@ -170,15 +142,11 @@ Parámetro| Descripción
 `width` / `height`| Resolución de salida, por ejemplo `896×512`. Debe ser divisible entre 16  
 `frame_count`| Fotogramas por segmento (predeterminado: 81)  
 `previous_frame_count`| Fotogramas de superposición entre segmentos (predeterminado: 5)  
-`pose_strength` / `pose_start` / `pose_end`| Intensidad y sincronización del conditioning de pose  
+`pose_strength` / `pose_start` / `pose_end`| Intensidad y sincronización del acondicionamiento de pose  
   
-### 
+### Seguimiento con SAM3 (dos entradas)
 
-​
-
-Seguimiento con SAM3 (dos entradas)
-
-Las entradas `sam3_video_object` y `sam3_image_object` controlan el seguimiento de máscaras de SAM3, **no** el prompt de salida de SCAIL-2. Estas determinan qué objetos se rastrean para las máscaras de color:
+Las entradas `sam3_video_object` y `sam3_image_object` controlan el seguimiento de máscaras de SAM3, **no** el prompt de salida de SCAIL-2. Determinan qué objetos se rastrean para las máscaras de color:
 
 Entrada| Objetivo| Salida  
 ---|---|---  
@@ -191,19 +159,11 @@ Entrada| Objetivo| Salida
 
 
 
-## 
+## Instalación de modelos
 
-​
+Primero actualiza ComfyUI a la última versión para usar los nodos integrados WanSCAILToVideo y SCAIL2ColoredMask.
 
-Instalación de modelos
-
-Actualiza ComfyUI a la última versión para tener los nodos integrados WanSCAILToVideo y SCAIL2ColoredMask.
-
-### 
-
-​
-
-Modelos necesarios
+### Modelos requeridos
 
 **diffusion_models**
 
@@ -232,11 +192,7 @@ Modelos necesarios
 
 
 
-### 
-
-​
-
-Ubicaciones de almacenamiento de archivos
+### Ubicaciones de almacenamiento de archivos
     
     
     ComfyUI/

@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fun-controlnet/
-title: ComfyUI MiniMax H3 Fun ControlNet Union: Pose, Depth, and Canny Control Video - ComfyUI
+title: MiniMax H3 Fun ControlNet Union: Pose, Depth, and Canny Control - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:44.090967+00:00
+fetched_at: 2026-11-15T14:35:55.454640+00:00
 ---
 
-# ComfyUI MiniMax H3 Fun ControlNet Union: Pose, Depth, and Canny Control Video - ComfyUI
+# MiniMax H3 Fun ControlNet Union: Pose, Depth, and Canny Control - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fun-controlnet/
 
 ## On this page
+
+Back to top
 
   * Model downloads
   * Model storage
@@ -19,7 +21,7 @@ fetched_at: 2026-10-17T10:51:44.090967+00:00
 
 MiniMax H3
 
-# ComfyUI MiniMax H3 Fun ControlNet Union: Pose, Depth, and Canny Control Video
+# MiniMax H3 Fun ControlNet Union: Pose, Depth, and Canny Control
 
 Copy pageCopy page
 
@@ -45,11 +47,7 @@ Pose control video used by the example workflow, or use your own.
 
 This template requires ComfyUI 0.35.0 or later. The example uses a pose control video: a built-in SDPose subgraph extracts the pose skeleton from the input video, so the output reproduces the dancer’s motion. You can also connect any preprocessed control video directly to the `Apply MiniMax H3 Fun ControlNet` node’s `control_video` input.
 
-## 
-
-​
-
-Model downloads
+## Model downloads
 
 ## Diffusion Model: minimax_h3_ref2va_pruned_int8_convrot
 
@@ -83,11 +81,7 @@ Pose extractor used by the built-in SDPose subgraph. Place in `ComfyUI/models/ch
 
 Person detector used by the built-in SDPose subgraph. Place in `ComfyUI/models/diffusion_models/`
 
-## 
-
-​
-
-Model storage
+## Model storage
     
     
     ComfyUI/
@@ -108,11 +102,7 @@ Model storage
     │       └── sdpose_wholebody_fp16.safetensors
     
 
-## 
-
-​
-
-Prompting tips
+## Prompting tips
 
   1. **Video length** : The target video runs 5 to 15 seconds on the 17n+5 frame grid at 24fps (124 frames = 5 seconds). A control video longer than the target is trimmed to its first frames; a shorter one holds its last frame. To match the control video’s length exactly, link the example’s computed `batch_size` output to the length input of the `MiniMax H3 Reference to Video` node
   2. **Guidance and strength** : Keep `guidance_scale` at 1.0. Raise the patch `strength` above 1 only if the output drifts away from the control
@@ -128,26 +118,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/minimax/minimax-h3-fun-controlnet.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/minimax/minimax-h3-fun-controlnet)
 
-[ComfyUI MiniMax H3 Multiframe Reference WorkflowPrevious](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-multiframe)[ComfyUI MiniMax H3 Prompt Guide: Official Guides, Tips, and Prompt EmbeddingsNext](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-prompt-guide)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Multiframe Reference](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-multiframe)[Prompt guide](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-prompt-guide)

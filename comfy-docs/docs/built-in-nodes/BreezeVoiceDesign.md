@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/built-in-nodes/BreezeVoiceDesign/
+title: Breeze Voice Design - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-15T14:35:53.494730+00:00
+---
+
+# Breeze Voice Design - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/BreezeVoiceDesign/
+
+Audio
+
+# Breeze Voice Design - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Creates a new Breeze voice from a written description.
+
+Copy pageCopy page
+
+Creates a new Breeze voice from a written description. Provide a description of the voice and a line for it to speak; the voice is built from that preview and saved to your account.
+
+## Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`description`| Description of the voice in 3 to 500 characters: age, gender, accent, tone, pace. Default: empty.| STRING| Yes| 3 to 500 characters  
+`preview_text`| The line the new voice speaks in the preview, up to 500 characters. Write it in the selected language, because the voice is built from this preview. Default: empty.| STRING| Yes| 1 to 500 characters  
+`language`| Language of the preview text. English and Chinese can use either model; other languages use Breeze TTS 2 Multilingual.| DYNAMIC_COMBO| Yes| Multiple options available  
+`strength`| How closely the voice follows the description. Default: 4.0.| FLOAT| No| 1.0 to 10.0 (step 0.1)  
+`seed`| Controls whether the node re-runs; results are non-deterministic regardless of the seed. Default: 42.| INT| No| 0 to 2147483647  
+  
+### Language “English” and “Chinese” Inputs
+
+These appear only when `language` is English or Chinese.
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| `Breeze TTS 2` or `Breeze TTS 2 Multilingual`. Default: `"Breeze TTS 2"`.| COMBO| Yes| `"Breeze TTS 2"`  
+`"Breeze TTS 2 Multilingual"`  
+  
+## Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`voice`| The new Breeze voice, named after the description.| BREEZE_VOICE  
+`preview`| Audio preview of the designed voice.| AUDIO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/BreezeVoiceDesign/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `5b0ea4ccd03e442972a71ec839be7b755f569686400e472967a09a956de0982f`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/BreezeVoiceDesign.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/BreezeVoiceDesign)
+
+[Breeze Voice Clone](https://docs.comfy.org/built-in-nodes/BreezeVoiceClone)[Breeze Voice Localize](https://docs.comfy.org/built-in-nodes/BreezeVoiceLocalize)

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/development/examples/
-title: Ejemplos de Comfy API y Router - ComfyUI
+title: Ejemplos de Comfy API: llamadas a Router, despliegues y aplicaciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:27.923163+00:00
+fetched_at: 2026-11-15T14:35:58.151677+00:00
 ---
 
-# Ejemplos de Comfy API y Router - ComfyUI
+# Ejemplos de Comfy API: llamadas a Router, despliegues y aplicaciones - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/examples/
 
 Desarrollar con Comfy
 
-# Ejemplos de Comfy API y Router
+# Ejemplos de Comfy API: llamadas a Router, despliegues y aplicaciones
 
 Copiar páginaCopiar página
 
@@ -21,11 +21,7 @@ Copiar páginaCopiar página
 
 Elige la ruta que coincida con lo que quieres ejecutar.
 
-## 
-
-​
-
-Comfy Router
+## Comfy Router
 
 Usa Comfy Router para llamar modelos de socios alojados con una sola clave API de Comfy.
 
@@ -45,11 +41,7 @@ Consulta la forma de la solicitud y la respuesta de un modelo de Router.
 
 Consulta los endpoints y encabezados compartidos de Router.
 
-## 
-
-​
-
-Comfy API
+## Comfy API
 
 Empaqueta tu propio flujo de trabajo de ComfyUI, despliégalo en infraestructura de GPU administrada y ejecútalo a través de Comfy API.
 
@@ -69,11 +61,7 @@ Envía un flujo de trabajo en formato API y descarga sus salidas.
 
 Apunta el SDK de Python o TypeScript a tu despliegue.
 
-## 
-
-​
-
-Aplicaciones de ejemplo
+## Aplicaciones de ejemplo
 
 ## Explorar aplicaciones de ejemplo
 

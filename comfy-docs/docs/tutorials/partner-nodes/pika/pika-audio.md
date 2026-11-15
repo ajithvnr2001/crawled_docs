@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/pika/pika-audio/
 title: Pika Music and Pika SFX in ComfyUI: AI songs and sound effects - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:13.009745+00:00
+fetched_at: 2026-11-15T14:35:56.276021+00:00
 ---
 
 # Pika Music and Pika SFX in ComfyUI: AI songs and sound effects - ComfyUI
@@ -33,7 +33,7 @@ Pika
 
 Copy pageCopy page
 
-Generate a full song from a style prompt and lyrics, cover an existing track, or build 1 to 20 second sound effects with the Pika Music and Pika SFX nodes in ComfyUI.
+Write a full song from a style prompt and lyrics, cover an existing track, or build 1 to 20 second sound effects with Pika Music and Pika SFX.
 
 Copy pageCopy page
 
