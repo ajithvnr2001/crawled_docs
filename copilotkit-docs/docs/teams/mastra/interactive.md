@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/interactive/
 title: Microsoft Teams + Mastra: Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:45.443533+00:00
+fetched_at: 2026-11-15T10:39:41.731928+00:00
 ---
 
 # Microsoft Teams + Mastra: Interactive messages and approvals

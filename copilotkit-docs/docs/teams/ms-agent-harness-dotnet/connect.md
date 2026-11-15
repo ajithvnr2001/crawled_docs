@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:42.301991+00:00
+fetched_at: 2026-11-15T10:39:39.751999+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/intelligence/
 title: Microsoft Teams + MS Agent Harness (.NET): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:41.887232+00:00
+fetched_at: 2026-11-15T10:39:39.198783+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Configure the Channel in Intelligence

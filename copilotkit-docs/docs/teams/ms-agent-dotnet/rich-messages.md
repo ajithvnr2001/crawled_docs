@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/rich-messages/
 title: Microsoft Teams + MS Agent Framework (.NET): Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:42.781838+00:00
+fetched_at: 2026-11-15T10:39:40.053632+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Rich messages and components

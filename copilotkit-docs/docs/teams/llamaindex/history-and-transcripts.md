@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/history-and-transcripts/
 title: Microsoft Teams + LlamaIndex: History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:46.856319+00:00
+fetched_at: 2026-11-15T10:39:43.025881+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: History and transcripts

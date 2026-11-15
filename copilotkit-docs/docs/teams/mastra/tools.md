@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/tools/
 title: Microsoft Teams + Mastra: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:44.263894+00:00
+fetched_at: 2026-11-15T10:39:41.295803+00:00
 ---
 
 # Microsoft Teams + Mastra: Tools and context

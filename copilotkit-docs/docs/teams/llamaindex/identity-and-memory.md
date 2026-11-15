@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/identity-and-memory/
 title: Microsoft Teams + LlamaIndex: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:46.684532+00:00
+fetched_at: 2026-11-15T10:39:42.933910+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Identity and Memory

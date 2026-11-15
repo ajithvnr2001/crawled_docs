@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/deploy-and-operate/
 title: Microsoft Teams + MS Agent Framework (.NET): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:43.722927+00:00
+fetched_at: 2026-11-15T10:39:40.793736+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Deploy and operate

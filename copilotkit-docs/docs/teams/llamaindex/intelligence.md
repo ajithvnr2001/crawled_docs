@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/intelligence/
 title: Microsoft Teams + LlamaIndex: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:46.743241+00:00
+fetched_at: 2026-11-15T10:39:42.886836+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Configure the Channel in Intelligence

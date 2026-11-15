@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/persistence-and-scaling/
 title: Microsoft Teams + LlamaIndex: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:46.302397+00:00
+fetched_at: 2026-11-15T10:39:42.665135+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Persistence and scaling

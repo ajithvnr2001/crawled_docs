@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/deploy-and-operate/
 title: Microsoft Teams + LlamaIndex: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:46.973331+00:00
+fetched_at: 2026-11-15T10:39:43.079637+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Deploy and operate

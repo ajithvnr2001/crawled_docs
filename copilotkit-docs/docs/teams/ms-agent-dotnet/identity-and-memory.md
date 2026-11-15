@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/identity-and-memory/
 title: Microsoft Teams + MS Agent Framework (.NET): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:43.214609+00:00
+fetched_at: 2026-11-15T10:39:40.455067+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Identity and Memory

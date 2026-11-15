@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/intelligence/
 title: Microsoft Teams + Mastra: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:45.076178+00:00
+fetched_at: 2026-11-15T10:39:41.623253+00:00
 ---
 
 # Microsoft Teams + Mastra: Configure the Channel in Intelligence

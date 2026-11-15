@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/persistence-and-scaling/
 title: Microsoft Teams + MS Agent Framework (.NET): Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:43.006610+00:00
+fetched_at: 2026-11-15T10:39:40.321596+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Persistence and scaling

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/deploy-and-operate/
 title: Microsoft Teams + MS Agent Harness (.NET): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:42.143634+00:00
+fetched_at: 2026-11-15T10:39:39.676325+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Deploy and operate

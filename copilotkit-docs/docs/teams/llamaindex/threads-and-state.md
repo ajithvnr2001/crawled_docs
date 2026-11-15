@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/threads-and-state/
 title: Microsoft Teams + LlamaIndex: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:46.371396+00:00
+fetched_at: 2026-11-15T10:39:42.484739+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Threads and state

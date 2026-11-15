@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/interactive/
 title: Microsoft Teams + MS Agent Framework (.NET): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:43.145014+00:00
+fetched_at: 2026-11-15T10:39:40.603923+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Interactive messages and approvals

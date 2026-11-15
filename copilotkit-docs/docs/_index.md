@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T10:03:45.184754+00:00
+fetched_at: 2026-11-15T10:39:38.423455+00:00
 ---
 
 # CopilotKit: bring your agent into any app

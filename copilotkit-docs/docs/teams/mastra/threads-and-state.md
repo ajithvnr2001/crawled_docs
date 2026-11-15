@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/threads-and-state/
 title: Microsoft Teams + Mastra: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:44.179976+00:00
+fetched_at: 2026-11-15T10:39:41.223694+00:00
 ---
 
 # Microsoft Teams + Mastra: Threads and state

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/rich-messages/
 title: Microsoft Teams + Mastra: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:44.393835+00:00
+fetched_at: 2026-11-15T10:39:41.391648+00:00
 ---
 
 # Microsoft Teams + Mastra: Rich messages and components
