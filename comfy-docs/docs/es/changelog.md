@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/changelog/
 title: Registro de cambios - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:36.089046+00:00
+fetched_at: 2026-11-16T16:52:04.623566+00:00
 ---
 
 # Registro de cambios - ComfyUI
@@ -13,6 +13,11 @@ fetched_at: 2026-11-05T15:16:36.089046+00:00
 
 Volver arriba
 
+  * v0.45.4
+  * v0.45.3
+  * v0.45.2
+  * v0.45.1
+  * v0.45.0
   * v0.44.0
   * v0.43.1
   * v0.43.0
@@ -169,7 +174,103 @@ Historial de ComfyUI: novedades, mejoras y correcciones de cada versión, actual
 
 Copiar páginaCopiar página
 
-​
+v0.45.4
+
+15 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Seedance 2.5 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/17764): Nuevo modelo Seedance 2.5 en 480p y 720p
+  * [**Meta Muse Wonder, Spark 1.3 y Ember**](https://github.com/Comfy-Org/ComfyUI/pull/17744): Tres modelos de Meta agregados al nodo OpenRouter LLM
+  * [**Claude Fable 5.2**](https://github.com/Comfy-Org/ComfyUI/pull/17738): Nuevo modelo en el nodo Anthropic Claude
+  * [**HeyGen Video 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/17721): Salida en 1080p, clips de 30 segundos y duración automática
+  * [**Krea en Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17691): Los nodos de Krea se movieron al backend Router
+  * [**Wan en Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17639): Los nodos de Wan se movieron al backend Router
+  * [**Nodos clásicos de Luma eliminados**](https://github.com/Comfy-Org/ComfyUI/pull/17714): Se retiraron los nodos clásicos; Ray 3.2 y UNI-1 se mantienen
+  * [**Qwen3.6 Max Preview eliminado**](https://github.com/Comfy-Org/ComfyUI/pull/17737): Retirado del nodo OpenRouter LLM
+
+**Correcciones de errores**
+
+  * [**Fish Audio Drama 3**](https://github.com/Comfy-Org/ComfyUI/pull/17718): Se muestra el precio completo en la insignia
+  * [**Nodos de video de Topaz**](https://github.com/Comfy-Org/ComfyUI/pull/17742): Se muestra el ID de solicitud cuando el sondeo agota el tiempo de espera
+  * [**Kling Avatar 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17740): Se muestra el ID de tarea cuando el sondeo agota el tiempo de espera
+
+
+
+v0.45.3
+
+12 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Gemini 4 Hydrogen, Argon y Carbon**](https://github.com/Comfy-Org/ComfyUI/pull/17724): Tres modelos Gemini 4 añadidos a Google Gemini
+  * [**Seedance 2.5 4K**](https://github.com/Comfy-Org/ComfyUI/pull/17699): 4K ya no está marcado como exclusivo para empresas
+
+
+
+v0.45.2
+
+12 de noviembre de 2026
+
+**Corrección de errores**
+
+  * [**Carga de flujos de trabajo**](https://github.com/Comfy-Org/ComfyUI/pull/17675): Corregimos algunos flujos de trabajo que no funcionaban correctamente
+
+
+
+v0.45.1
+
+10 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**MiniMax H3 Image**](https://github.com/Comfy-Org/ComfyUI/pull/17661): modelo de imagen MiniMax con texto a imagen y edición de imagen
+  * [**LTX VFX**](https://github.com/Comfy-Org/ComfyUI/pull/17664): AlphaGen con salida alfa, nodos SDR a HDR, Reframe y Upscale
+
+
+
+v0.45.0
+
+10 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Seedream 5.5**](https://github.com/Comfy-Org/ComfyUI/pull/17631): Modelo de imagen de ByteDance con texto a imagen y edición de imagen
+  * [**Breeze TTS 2**](https://github.com/Comfy-Org/ComfyUI/pull/17611): Nodos de voz y texto a voz
+  * [**GPT Image V3**](https://github.com/Comfy-Org/ComfyUI/pull/17591): Nuevo modelo en el nodo GPT Image, además de nodos GIF y SVG
+  * [**GPT Image 2.6 Flare y Sunburst**](https://github.com/Comfy-Org/ComfyUI/pull/17558): Dos modelos agregados a los nodos GPT Image
+  * [**Kling 4.0 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/17536): Nuevo modelo Flash y una opción de audio original en los nodos Kling 4.0
+  * [**Gemini Omni Flash 1.2**](https://github.com/Comfy-Org/ComfyUI/pull/17560): Agregado al nodo Omni de video
+  * [**Pika H3 Flex**](https://github.com/Comfy-Org/ComfyUI/pull/17509): Nodos de video y de referencia a video
+  * [**Nodos de audio de Pika**](https://github.com/Comfy-Org/ComfyUI/pull/17328): Nodos Soundtrack, SFX y Music
+  * [**Tencent HY LLM**](https://github.com/Comfy-Org/ComfyUI/pull/17534): Nodo de modelo de lenguaje de Tencent
+  * [**Qwen Image en Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17527): Los nodos Qwen Image se movieron al backend Router
+  * [**Seedance 2.5 4K**](https://github.com/Comfy-Org/ComfyUI/pull/17579): Opción de resolución 4K
+  * [**Modelos de imagen Grok retirados**](https://github.com/Comfy-Org/ComfyUI/pull/17532): Se actualizaron las insignias de precio y la información emergente de obsolescencia
+
+**Nuevo soporte de modelos de código abierto**
+
+  * [**MiniMax-H3-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17655): Modelo de imagen de MiniMax con plantillas de texto a imagen y edición de imagen
+  * [**WeVisOne-VL**](https://github.com/Comfy-Org/ComfyUI/pull/17632): Soporte de modelos de visión e idioma
+  * [**Remallado de texturas UltraTex**](https://github.com/Comfy-Org/ComfyUI/pull/17636): Vuelve a generar mapas de textura para recursos 3D
+  * [**RelayVSR**](https://github.com/Comfy-Org/ComfyUI/pull/17511): Modelo de superresolución de video
+  * [**Entrada de video en Qwen 3.x**](https://github.com/Comfy-Org/ComfyUI/pull/17582): Entradas de video en los nodos Qwen 3.x
+
+**Correcciones de errores**
+
+  * [**Bloqueo de UNetSelfAttentionMultiply**](https://github.com/Comfy-Org/ComfyUI/pull/17603): Se corrigió un bloqueo al usar el nodo
+  * [**Generación de texto con Qwen FP8**](https://github.com/Comfy-Org/ComfyUI/pull/17620): Se corrigió un bloqueo al generar texto
+  * [**Remesh Mesh**](https://github.com/Comfy-Org/ComfyUI/pull/17531): Se corrigió el remallado en mallas importadas
+  * [**Selector de resolución**](https://github.com/Comfy-Org/ComfyUI/pull/17555): Se corrigió la precisión de megapíxeles
+  * [**Selección de VAE en pixel_space**](https://github.com/Comfy-Org/ComfyUI/pull/17518): Error más claro cuando se selecciona el VAE incorrecto
+
+**Rendimiento y estabilidad**
+
+  * [**Qwen 3.x**](https://github.com/Comfy-Org/ComfyUI/pull/17361): Pesos lineales paralelos combinados
+  * [**Decodificación de SeedVR2**](https://github.com/Comfy-Org/ComfyUI/pull/17508): Segmentación adaptativa para reducir la memoria de decodificación
+  * [**Get Video Components**](https://github.com/Comfy-Org/ComfyUI/pull/17562): Los fotogramas decodificados se conservan una sola vez en lugar de dos
+
+
 
 v0.44.0
 
@@ -206,8 +307,6 @@ v0.44.0
 
 
 
-​
-
 v0.43.1
 
 28 de octubre de 2026
@@ -222,8 +321,6 @@ v0.43.1
   * [**Plantillas v0.11.98**](https://github.com/Comfy-Org/ComfyUI/pull/17391)
 
 
-
-​
 
 v0.43.0
 
@@ -274,8 +371,6 @@ v0.43.0
 
 
 
-​
-
 v0.42.4
 
 22 de octubre de 2026
@@ -298,8 +393,6 @@ v0.42.4
 
 
 
-​
-
 v0.42.3
 
 21 de octubre de 2026
@@ -315,8 +408,6 @@ v0.42.3
   * [**Plantillas v0.11.93**](https://github.com/Comfy-Org/ComfyUI/pull/17238)
 
 
-
-​
 
 v0.42.2
 
@@ -338,8 +429,6 @@ v0.42.2
 
 
 
-​
-
 v0.42.1
 
 19 de octubre de 2026
@@ -349,8 +438,6 @@ v0.42.1
   * [**Limpieza del gráfico**](https://github.com/Comfy-Org/ComfyUI/pull/17178): Sincroniza las limpiezas del gráfico de prebúsqueda de modelos para que las ejecuciones repetidas liberen memoria de forma confiable
 
 
-
-​
 
 v0.42.0
 
@@ -375,8 +462,6 @@ v0.42.0
 
 
 
-​
-
 v0.41.1
 
 15 de octubre de 2026
@@ -392,8 +477,6 @@ v0.41.1
     * [**Krea 3: Image Edit**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_krea3_image_edit.json): Cambia solo las áreas que describes mientras el resto de la imagen queda intacta
 
 
-
-​
 
 v0.41.0
 
@@ -427,8 +510,6 @@ v0.41.0
     * [**Flux.3 Image Klein Distilled: Image Edit**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_flux3_klein_distilled_image_edit.json): Edita una imagen de entrada con un solo prompt de texto
 
 
-
-​
 
 v0.40.0
 
@@ -504,8 +585,6 @@ v0.40.0
 
 
 
-​
-
 v0.39.2
 
 8 de octubre de 2026
@@ -523,8 +602,6 @@ v0.39.2
 
 
 
-​
-
 v0.39.1
 
 7 de octubre de 2026
@@ -534,8 +611,6 @@ v0.39.1
   * [**Nano Banana 2.1**](https://github.com/Comfy-Org/ComfyUI/pull/16822): Texto a imagen y edición de imágenes en un solo nodo, con salida de 1K a 4K, tres niveles de razonamiento y hasta 14 imágenes de referencia
 
 
-
-​
 
 v0.39.0
 
@@ -576,8 +651,6 @@ v0.39.0
 
 
 
-​
-
 v0.38.2
 
 2 de octubre de 2026
@@ -588,8 +661,6 @@ v0.38.2
   * [**Grok Imagine Video 1.5 Lite**](https://github.com/Comfy-Org/ComfyUI/pull/16721): un nivel de menor costo en el nodo de video Grok
 
 
-
-​
 
 v0.38.1
 
@@ -606,8 +677,6 @@ v0.38.1
   * [**Caché de Qwen-Image 2.1**](https://github.com/Comfy-Org/ComfyUI/pull/16667): Se corrigió un fallo al seleccionar la caché int8 o int4
 
 
-
-​
 
 v0.38.0
 
@@ -659,8 +728,6 @@ v0.38.0
 
 
 
-​
-
 v0.37.2
 
 23 de septiembre de 2026
@@ -677,8 +744,6 @@ v0.37.2
 
 
 
-​
-
 v0.37.1
 
 22 de septiembre de 2026
@@ -688,8 +753,6 @@ v0.37.1
   * [**HY Image 3.5 Preview**](https://github.com/Comfy-Org/ComfyUI/pull/16462): Texto a imagen y edición de imágenes con hasta 5 imágenes de referencia, salida nativa en 2K
 
 
-
-​
 
 v0.37.0
 
@@ -724,8 +787,6 @@ v0.37.0
   * [**MiniMax Music 3**](https://github.com/Comfy-Org/ComfyUI/pull/16428): Corrige la salida con ruido cuando los CUDA graphs están habilitados
 
 
-
-​
 
 v0.36.0
 
@@ -771,8 +832,6 @@ v0.36.0
 
 
 
-​
-
 v0.35.2
 
 14 de septiembre de 2026
@@ -794,8 +853,6 @@ v0.35.2
 
 
 
-​
-
 v0.35.1
 
 10 de septiembre de 2026
@@ -812,8 +869,6 @@ v0.35.1
   * [**Plantillas v0.11.59**](https://github.com/Comfy-Org/ComfyUI/pull/16233): Se actualizaron las plantillas de flujos de trabajo incluidas
 
 
-
-​
 
 v0.35.0
 
@@ -861,8 +916,6 @@ v0.35.0
 
 
 
-​
-
 v0.34.6
 
 7 de septiembre de 2026
@@ -874,8 +927,6 @@ v0.34.6
 
 
 
-​
-
 v0.34.5
 
 5 de septiembre de 2026
@@ -885,8 +936,6 @@ v0.34.5
   * [**Comfy Cloud**](https://github.com/Comfy-Org/ComfyUI/pull/15935): Se agregaron nodos beta que ejecutan flujos de trabajo seleccionados de Flux 2, Z-Image Turbo, Mage Flow, MiniMax H3 y Music 3 en las GPU de Comfy Cloud
 
 
-
-​
 
 v0.34.4
 
@@ -901,8 +950,6 @@ v0.34.4
   * [**Tripo**](https://github.com/Comfy-Org/ComfyUI/pull/16060): Se corrigieron las salidas reales de FBX/GLB, los precios exactos y los parámetros faltantes en los nodos de Tripo
 
 
-
-​
 
 v0.34.3
 
@@ -922,8 +969,6 @@ v0.34.3
 
 
 
-​
-
 v0.34.2
 
 27 de agosto de 2026
@@ -938,8 +983,6 @@ v0.34.2
 
 
 
-​
-
 v0.34.1
 
 26 de agosto de 2026
@@ -951,8 +994,6 @@ v0.34.1
   * [**Google Veo**](https://github.com/Comfy-Org/ComfyUI/pull/15883): Se eliminaron los modelos Veo 2 y Veo 3.0, que se retiran, de los nodos de Veo
 
 
-
-​
 
 v0.34.0
 
@@ -984,8 +1025,6 @@ v0.34.0
 
 
 
-​
-
 v0.33.4
 
 24 de agosto de 2026
@@ -999,8 +1038,6 @@ v0.33.4
 
 
 
-​
-
 v0.33.3
 
 20 de agosto de 2026
@@ -1013,8 +1050,6 @@ v0.33.3
   * [**Ideogram y Pruna P-Image**](https://github.com/Comfy-Org/ComfyUI/pull/15751): Se renombró Ideogram P-Image para acreditar a Pruna
 
 
-
-​
 
 v0.33.2
 
@@ -1031,8 +1066,6 @@ v0.33.2
   * [**Frontend**](https://github.com/Comfy-Org/ComfyUI/pull/15526): Se actualizó comfyui-frontend-package a 1.49.6
 
 
-
-​
 
 v0.33.1
 
@@ -1070,8 +1103,6 @@ v0.33.1
   * [**ruta de Llama**](https://github.com/Comfy-Org/ComfyUI/pull/15580): Se corrigió la ruta de activación no local entre bloques de Llama
 
 
-
-​
 
 v0.32.0
 
@@ -1112,8 +1143,6 @@ v0.32.0
   * [**Crear imagen por capas**](https://github.com/Comfy-Org/ComfyUI/pull/15429): Se hizo que Create Layered Image se pueda descubrir con indicadores más claros
 
 
-
-​
 
 v0.31.0
 
@@ -1162,8 +1191,6 @@ v0.31.0
 
 
 
-​
-
 v0.30.2
 
 5 de agosto de 2026
@@ -1176,8 +1203,6 @@ v0.30.2
 
 
 
-​
-
 v0.30.1
 
 3 de agosto de 2026
@@ -1187,8 +1212,6 @@ v0.30.1
   * [**Frontend**](https://github.com/Comfy-Org/ComfyUI/pull/15244): Se actualizó comfyui-frontend-package a 1.47.12
 
 
-
-​
 
 v0.30.0
 
@@ -1232,8 +1255,6 @@ v0.30.0
 
 
 
-​
-
 v0.29.2
 
 31 de julio de 2026
@@ -1245,8 +1266,6 @@ v0.29.2
 
 
 
-​
-
 v0.29.1
 
 31 de julio de 2026
@@ -1257,8 +1276,6 @@ v0.29.1
   * [**Vistas previas SVG**](https://github.com/Comfy-Org/ComfyUI/pull/15149): Se corrigieron las vistas previas de salida de nodos SVG y de Recursos multimedia tras el endurecimiento de la descarga contra XSS almacenado
 
 
-
-​
 
 v0.29.0
 
@@ -1306,8 +1323,6 @@ v0.29.0
 
 
 
-​
-
 v0.28.3
 
 22 de julio de 2026
@@ -1320,8 +1335,6 @@ v0.28.3
 
 
 
-​
-
 v0.28.2
 
 18 de julio de 2026
@@ -1331,8 +1344,6 @@ v0.28.2
   * [**Gemini Video Omni**](https://github.com/Comfy-Org/ComfyUI/pull/14984): Se cambió el modelo Omni a la API de Interactions
 
 
-
-​
 
 v0.28.1
 
@@ -1345,8 +1356,6 @@ v0.28.1
   * [**HeyGen**](https://github.com/Comfy-Org/ComfyUI/pull/14958): Nodos Avatar Video, Talking Photo, Create Avatar, Video Translate y Text to Speech
 
 
-
-​
 
 v0.28.0
 
@@ -1391,8 +1400,6 @@ v0.28.0
 
 
 
-​
-
 v0.27.1
 
 8 de julio de 2026
@@ -1409,8 +1416,6 @@ v0.27.1
   * [**Decodificación de video**](https://github.com/Comfy-Org/ComfyUI/pull/14746): se corrigió el fallo con videos que tienen flujos de audio no decodificables
 
 
-
-​
 
 v0.27.0
 
@@ -1447,8 +1452,6 @@ v0.27.0
 
 
 
-​
-
 v0.26.2
 
 25 de junio de 2026
@@ -1458,8 +1461,6 @@ v0.26.2
   * [**SeeDance 2.0 Mini**](https://links.comfy.org/4eOUnjJ): Se agregó soporte para ByteDance SeeDance 2.0 Mini en los nodos Text-to-Video, First-Last-Frame y Reference
 
 
-
-​
 
 v0.26.1
 
@@ -1472,8 +1473,6 @@ v0.26.1
   * [**Video Grok**](https://github.com/Comfy-Org/ComfyUI/pull/14612): Se agregó soporte de 1080p para la generación de video con Video Grok
 
 
-
-​
 
 v0.26.0
 
@@ -1511,8 +1510,6 @@ v0.26.0
 
 
 
-​
-
 v0.25.1
 
 16 de junio de 2026
@@ -1522,8 +1519,6 @@ v0.25.1
   * [**Kling V3-Turbo**](https://github.com/Comfy-Org/ComfyUI/pull/14528): Se agregó soporte para el modelo Kling V3-Turbo
 
 
-
-​
 
 v0.25.0
 
@@ -1569,8 +1564,6 @@ v0.25.0
 
 
 
-​
-
 v0.24.1
 
 3 de junio de 2026
@@ -1587,8 +1580,6 @@ v0.24.1
   * Se corrigió el salto de estiramiento de primer/último fotograma en Seedance 2.0 1080p
 
 
-
-​
 
 v0.24.0
 
@@ -1622,8 +1613,6 @@ v0.24.0
   * Se actualizaron las plantillas de flujo de trabajo a v0.9.94
 
 
-
-​
 
 v0.23.0
 
@@ -1691,8 +1680,6 @@ v0.23.0
 
 
 
-​
-
 v0.22.3
 
 20 de mayo de 2026
@@ -1704,8 +1691,6 @@ v0.22.3
 
 
 
-​
-
 v0.22.2
 
 20 de mayo de 2026
@@ -1716,8 +1701,6 @@ v0.22.2
   * Se corrigió el parámetro de semilla que siempre se enviaba al servidor en Rodin2.5
 
 
-
-​
 
 v0.22.1
 
@@ -1731,8 +1714,6 @@ v0.22.1
   * Se corrigió el paso de imágenes a Grok LLM
 
 
-
-​
 
 v0.22.0
 
@@ -1777,8 +1758,6 @@ v0.22.0
 
 
 
-​
-
 v0.21.1
 
 13 de mayo de 2026
@@ -1815,8 +1794,6 @@ v0.21.1
   * Se corrigió el marcado de endpoints de cloud-runtime obsoletos en la especificación de la API
 
 
-
-​
 
 v0.21.0
 
@@ -1872,8 +1849,6 @@ v0.21.0
 
 
 
-​
-
 v0.20.3
 
 27 de abril de 2026
@@ -1891,8 +1866,6 @@ v0.20.3
   * Se corrigió la insignia de precio de Kling V3 en el nodo Motion Control
 
 
-
-​
 
 v0.20.2
 
@@ -1912,8 +1885,6 @@ v0.20.2
   * Soporte de LoRA ERNIE de OneTainer
 
 
-
-​
 
 v0.20.1
 
@@ -1962,8 +1933,6 @@ v0.20.1
 
 
 
-​
-
 v0.20.0
 
 27 de abril de 2026
@@ -2010,8 +1979,6 @@ v0.20.0
 
 
 
-​
-
 v0.19.5
 
 17 de abril de 2026
@@ -2028,8 +1995,6 @@ v0.19.5
   * Se corrigió la asignación de peso de cc_projection en Stable_Zero123 en Windows (con aimdo habilitado)
 
 
-
-​
 
 v0.19.4
 
@@ -2050,8 +2015,6 @@ v0.19.4
 
 
 
-​
-
 v0.19.3
 
 17 de abril de 2026
@@ -2067,8 +2030,6 @@ v0.19.3
   * Se corrigieron las insignias de precios de StabilityAI para que la información de precios de los nodos de API sea precisa
 
 
-
-​
 
 v0.19.2
 
@@ -2093,8 +2054,6 @@ v0.19.2
 
 
 
-​
-
 v0.19.1
 
 16 de abril de 2026
@@ -2113,8 +2072,6 @@ v0.19.1
   * Actualización del nodo Vista previa como texto: admite la conversión de cualquier valor a cadena
 
 
-
-​
 
 v0.19.0
 
@@ -2171,8 +2128,6 @@ v0.19.0
 
 
 
-​
-
 v0.18.5
 
 25 de marzo de 2026
@@ -2182,8 +2137,6 @@ v0.18.5
   * Pruebas adicionales tras revertir la corrección de checkpoint fp8
 
 
-
-​
 
 v0.18.4
 
@@ -2201,8 +2154,6 @@ v0.18.4
 
 
 
-​
-
 v0.18.3
 
 25 de marzo de 2026
@@ -2212,8 +2163,6 @@ v0.18.3
   * Se agregó un nuevo modelo de Topaz en los Nodos API
 
 
-
-​
 
 v0.18.2
 
@@ -2226,8 +2175,6 @@ v0.18.2
   * [Blog](https://blog.comfy.org/p/grok-imagine-model-feature-updates)
 
 
-
-​
 
 v0.18.1
 
@@ -2244,8 +2191,6 @@ v0.18.1
   * Se corrigieron problemas de luz y color en el procesamiento de WAN VAE, lo que mejora la calidad de salida y la precisión del color
 
 
-
-​
 
 v0.18.0
 
@@ -2291,23 +2236,17 @@ v0.18.0
 
 
 
-​
-
 v0.17.2
 
 15 de marzo de 2026
 
 Esta versión se centra en la estabilidad y la corrección de errores. Para ver todos los detalles técnicos, consulta el [changelog completo](https://github.com/Comfy-Org/ComfyUI/compare/v0.17.1...v0.17.2) en GitHub.
 
-​
-
 v0.17.1
 
 13 de marzo de 2026
 
 Esta es una versión de parche que incluye varias correcciones de errores y mejoras de estabilidad. Para ver todos los detalles de los cambios incluidos en esta versión, consulta la comparación completa del registro de cambios entre v0.17.0 y v0.17.1.
-
-​
 
 v0.17.0
 
@@ -2349,8 +2288,6 @@ v0.17.0
 
 
 
-​
-
 v0.16.4
 
 7 de marzo de 2026
@@ -2374,8 +2311,6 @@ v0.16.4
 
 
 
-​
-
 v0.16.3
 
 5 de marzo de 2026
@@ -2387,8 +2322,6 @@ v0.16.3
   * Se agregó el parámetro causal_fix a las funciones add_keyframe_index y append_keyframe, lo que mejora la precisión del manejo de keyframes en flujos de trabajo de video
 
 
-
-​
 
 v0.16.2
 
@@ -2406,8 +2339,6 @@ v0.16.2
 
 
 
-​
-
 v0.16.1
 
 5 de marzo de 2026
@@ -2422,8 +2353,6 @@ v0.16.1
   * Se actualizaron las plantillas de flujos de trabajo a la versión 0.9.8 con las últimas mejoras y optimizaciones
 
 
-
-​
 
 v0.16.0
 
@@ -2474,8 +2403,6 @@ v0.16.0
 
 
 
-​
-
 v0.15.1
 
 26 de febrero de 2026
@@ -2505,8 +2432,6 @@ v0.15.1
   * Se actualizaron las plantillas de flujo de trabajo a la versión 0.9.4
 
 
-
-​
 
 v0.15.0
 
@@ -2552,8 +2477,6 @@ v0.15.0
 
 
 
-​
-
 v0.14.2
 
 18 de febrero de 2026
@@ -2563,8 +2486,6 @@ v0.14.2
   * Se corrigió un problema con los nodos API de Gemini/Nano banana que a veces devolvían imágenes en blanco, lo que mejora la fiabilidad de los flujos de trabajo de generación de imágenes con IA.
 
 
-
-​
 
 v0.14.1
 
@@ -2584,8 +2505,6 @@ v0.14.1
   * Se actualizaron las plantillas de flujos de trabajo a la v0.8.43
 
 
-
-​
 
 v0.14.0
 
@@ -2625,8 +2544,6 @@ v0.14.0
 
 
 
-​
-
 v0.13.0
 
 10 de febrero de 2026
@@ -2652,8 +2569,6 @@ v0.13.0
 
 
 
-​
-
 v0.12.3
 
 5 de febrero de 2026
@@ -2672,8 +2587,6 @@ v0.12.3
 
 
 
-​
-
 v0.12.2
 
 4 de febrero de 2026
@@ -2684,8 +2597,6 @@ v0.12.2
   * Corrección de una fuga de VRAM en el modo de VRAM dinámica
 
 
-
-​
 
 v0.12.1
 
@@ -2704,8 +2615,6 @@ v0.12.1
   * Logits del LLM convertidos a comfy-weight
 
 
-
-​
 
 v0.12.0
 
@@ -2734,8 +2643,6 @@ v0.12.0
 
 
 
-​
-
 v0.11.1
 
 29 de enero de 2026
@@ -2751,8 +2658,6 @@ v0.11.1
   * Notas de compatibilidad con Python 3.14
 
 
-
-​
 
 v0.11.0
 
@@ -2790,8 +2695,6 @@ v0.11.0
 
 
 
-​
-
 v0.10.0
 
 21 de enero de 2026
@@ -2815,8 +2718,6 @@ v0.10.0
   * Corrección del tipo de tensor en GPU AMD
 
 
-
-​
 
 v0.9.2
 
@@ -2843,8 +2744,6 @@ v0.9.2
 
 
 
-​
-
 v0.9.1
 
 13 de enero de 2026
@@ -2854,8 +2753,6 @@ v0.9.1
   * Se aumentó la estimación de memoria de LTXAV
 
 
-
-​
 
 v0.9.0
 
@@ -2891,8 +2788,6 @@ v0.9.0
 
 
 
-​
-
 v0.8.1
 
 8 de enero de 2026
@@ -2916,8 +2811,6 @@ v0.8.1
   * Se actualizaron las plantillas de flujo de trabajo a v0.7.69
 
 
-
-​
 
 v0.8.0
 
@@ -2952,8 +2845,6 @@ v0.8.0
   * Refactorización y limpieza de código (preprocesamiento de CLIP, integración de comfy-kitchen)
 
 
-
-​
 
 v0.7.0
 
@@ -2995,8 +2886,6 @@ v0.7.0
 
 
 
-​
-
 v0.6.0
 
 24 de diciembre de 2025
@@ -3024,8 +2913,6 @@ v0.6.0
 
 
 
-​
-
 v0.5.1
 
 18 de diciembre de 2025
@@ -3035,8 +2922,6 @@ v0.5.1
   * Se mejoró la precisión de SA-Solver
 
 
-
-​
 
 v0.5.0
 
@@ -3061,8 +2946,6 @@ v0.5.0
   * Frontend actualizado a v1.34.9
 
 
-
-​
 
 v0.4.0
 
@@ -3123,8 +3006,6 @@ v0.4.0
 
 
 
-​
-
 v0.3.76
 
 2 de diciembre de 2025
@@ -3162,8 +3043,6 @@ v0.3.76
 
 
 
-​
-
 v0.3.75
 
 26 de noviembre de 2025
@@ -3179,8 +3058,6 @@ v0.3.75
 
 
 
-​
-
 v0.3.73
 
 26 de noviembre de 2025
@@ -3191,8 +3068,6 @@ v0.3.73
   * Se optimizó el uso de VRAM del codificador de texto de Flux 2 para mejorar el rendimiento
 
 
-
-​
 
 v0.3.72
 
@@ -3228,8 +3103,6 @@ v0.3.72
 
 
 
-​
-
 v0.3.71
 
 21 de noviembre de 2025
@@ -3259,8 +3132,6 @@ v0.3.71
 
 
 
-​
-
 v0.3.70
 
 19 de noviembre de 2025
@@ -3288,8 +3159,6 @@ v0.3.70
 
 
 
-​
-
 v0.3.69
 
 18 de noviembre de 2025
@@ -3315,8 +3184,6 @@ v0.3.69
   * Se unificó la implementación de la función RoPE en todos los modelos
 
 
-
-​
 
 v0.3.68
 
@@ -3351,8 +3218,6 @@ v0.3.68
 
 
 
-​
-
 v0.3.67
 
 28 de octubre de 2025
@@ -3380,8 +3245,6 @@ v0.3.67
   * Las plantillas se actualizaron a la versión 0.2.4
 
 
-
-​
 
 v0.3.66
 
@@ -3417,8 +3280,6 @@ v0.3.66
 
 
 
-​
-
 v0.3.65
 
 14 de octubre de 2025
@@ -3451,8 +3312,6 @@ v0.3.65
 
 
 
-​
-
 v0.3.64
 
 8 de octubre de 2025
@@ -3462,8 +3321,6 @@ v0.3.64
   * Se agregó el nodo API Sora2 para la API de generación de video de OpenAI
 
 
-
-​
 
 v0.3.63
 
@@ -3500,8 +3357,6 @@ v0.3.63
 
 
 
-​
-
 v0.3.62
 
 30 de septiembre de 2025
@@ -3512,8 +3367,6 @@ v0.3.62
   * **Soporte para el modelo Seedance Pro**
 
 
-
-​
 
 v0.3.61
 
@@ -3539,8 +3392,6 @@ v0.3.61
   * **Mejora del CFG del sampler** : se añadieron los parámetros ‘input_cond’ e ‘input_uncond’ a los argumentos de la función CFG del sampler para un control de acondicionamiento más flexible.
 
 
-
-​
 
 v0.3.60
 
@@ -3574,8 +3425,6 @@ v0.3.60
 
 
 
-​
-
 v0.3.59
 
 10 de septiembre de 2025
@@ -3585,8 +3434,6 @@ v0.3.59
   * **Nuevo nodo Seedream** : Se agregó el nodo ByteDanceSeedream (4.0).
 
 
-
-​
 
 v0.3.58
 
@@ -3603,8 +3450,6 @@ v0.3.58
   * API de Seedance Video
 
 
-
-​
 
 v0.3.57
 
@@ -3633,8 +3478,6 @@ v0.3.57
 
 
 
-​
-
 v0.3.56
 
 30 de agosto de 2025
@@ -3644,8 +3487,6 @@ v0.3.56
   * **Menor uso de RAM en Windows**
 
 
-
-​
 
 v0.3.55
 
@@ -3668,8 +3509,6 @@ v0.3.55
 
 
 
-​
-
 v0.3.54
 
 28 de agosto de 2025
@@ -3683,8 +3522,6 @@ v0.3.54
   * **Mayor estabilidad** : Las mejoras en el parcheo del modelo central contribuyen a una ejecución de nodos y un manejo de modelos más confiables en distintas configuraciones de flujo de trabajo
 
 
-
-​
 
 v0.3.53
 
@@ -3725,8 +3562,6 @@ v0.3.53
 
 
 
-​
-
 v0.3.52
 
 23 de agosto de 2025
@@ -3758,8 +3593,6 @@ v0.3.52
   * **Reversión del modo de navegación** : Se revirtió el modo de navegación predeterminado al modo clásico tradicional, lo que evita problemas de experiencia de usuario causados por el modo de navegación estándar habilitado de forma predeterminada. Los usuarios aún pueden habilitar el modo de navegación estándar en las configuraciones
 
 
-
-​
 
 v0.3.51
 
@@ -3810,8 +3643,6 @@ v0.3.51
 
 
 
-​
-
 v0.3.50
 
 13 de agosto de 2025
@@ -3849,8 +3680,6 @@ v0.3.50
   * **Control de video** : las funciones de control divertido de WAN 2.2 ofrecen un control creativo avanzado para flujos de trabajo de generación de video
 
 
-
-​
 
 v0.3.49
 
@@ -3892,8 +3721,6 @@ v0.3.49
 
 
 
-​
-
 v0.3.48
 
 2 de agosto de 2025
@@ -3927,8 +3754,6 @@ v0.3.48
 
 
 
-​
-
 v0.3.47
 
 30 de julio de 2025
@@ -3950,8 +3775,6 @@ v0.3.47
   * **Procesamiento por lotes** : las optimizaciones de memoria permiten manejar mejor las operaciones por lotes con modelos grandes
 
 
-
-​
 
 v0.3.46
 
@@ -3999,8 +3822,6 @@ v0.3.46
 
 
 
-​
-
 v0.3.45
 
 21 de julio de 2025
@@ -4046,8 +3867,6 @@ v0.3.45
   * **Documentación** : documentación mejorada de fast_fp16_accumulation
 
 
-
-​
 
 v0.3.44
 
@@ -4096,15 +3915,11 @@ v0.3.44
 
 
 
-​
-
 v0.3.43
 
 30 de junio de 2025
 
 **Compatibilidad de modelos y fiabilidad de los flujos de trabajo** Esta versión incorpora mejoras en la compatibilidad de modelos y la estabilidad de los flujos de trabajo:**Documentación ampliada de modelos** : Se agregó documentación de soporte para los modelos Flux Kontext y Omnigen 2 **Mejoras en la codificación VAE** : Se eliminó la inyección innecesaria de ruido aleatorio durante la codificación VAE **Corrección en la gestión de memoria** : Se resolvió un error de estimación de memoria que afectaba el uso del modelo Kontext
-
-​
 
 v0.3.41
 
@@ -4143,8 +3958,6 @@ v0.3.41
   * **Correcciones de WebcamCapture** : Se corrigió la firma de IS_CHANGED
 
 
-
-​
 
 v0.3.40
 

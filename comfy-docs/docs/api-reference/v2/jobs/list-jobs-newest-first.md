@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/jobs/list-jobs-newest-first/
 title: List jobs, newest first - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:39.363981+00:00
+fetched_at: 2026-11-16T16:52:01.349938+00:00
 ---
 
 # List jobs, newest first - ComfyUI
@@ -777,8 +777,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -791,8 +789,6 @@ required
 
 #### Query Parameters
 
-​
-
 limit
 
 integer
@@ -801,15 +797,11 @@ Most jobs per page. Above 500 is read as 500; absent means 500. Not a positive i
 
 Required range: `x >= 1`
 
-​
-
 cursor
 
 string
 
 The previous page's `next_cursor`, unchanged. Opaque: do not build or edit one. A cursor that is not well-formed is refused `400` `invalid_cursor`. Cursors are not signed, so a well-formed one is read as a position whether or not this list issued it.
-
-​
 
 metadata
 
@@ -829,8 +821,6 @@ One page of jobs, newest first.
 
 One page of `GET /api/v2/jobs`.
 
-​
-
 jobs
 
 object[]
@@ -838,8 +828,6 @@ object[]
 required
 
 Show child attributes
-
-​
 
 next_cursor
 

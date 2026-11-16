@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/account/login/
 title: Inicia sesi\u00f3n en tu cuenta de Comfy - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:58.384916+00:00
+fetched_at: 2026-11-16T16:52:03.792055+00:00
 ---
 
 # Inicia sesión en tu cuenta de Comfy - ComfyUI
@@ -128,19 +128,19 @@ Consulta los siguientes pasos para solicitar y obtener una clave API:
 
 Visita la Comfy Platform e inicia sesión
 
-Visita la [página de inicio de sesión de Comfy Platform](https://platform.comfy.org/login) e inicia sesión con la cuenta correspondiente![Visita la página de inicio de sesión de Platform](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-1.jpg)
+Visita la [página de inicio de sesión de Comfy Platform](https://platform.comfy.org/login) e inicia sesión con la cuenta correspondiente![Visita la página de inicio de sesión de Platform](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-1.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=c9516c73148a20ac2de9fcd5f56860c9)
 
 2
 
 Haz clic en `+ New` en API Keys para crear una clave API
 
-Haz clic en `+ New` en API Keys para crear una clave API![Crear clave API](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-2.jpg)
+Haz clic en `+ New` en API Keys para crear una clave API![Crear clave API](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-2.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=9e1f6dc2a5a28fbbe5074f4267dd8d14)
 
 3
 
 Ingresa el nombre de la clave API
 
-![Ingresa el nombre de la clave API](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-3.jpg)
+![Ingresa el nombre de la clave API](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-3.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=112f28de30c52898bca15513706c70f2)
 
   1. (Requerido) Ingresa el nombre de la clave API,
   2. Haz clic en `Generate` para crearla
@@ -151,7 +151,7 @@ Ingresa el nombre de la clave API
 
 Guarda la clave API obtenida
 
-![Obtener clave API](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-4.jpg)
+![Obtener clave API](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-4.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=223b5d1941d0d9a2f2644807b08a676f)
 
 Dado que la clave API solo es visible en el momento de su primera creación, guárdala inmediatamente después de crearla. No se podrá ver más adelante, así que consérvala en un lugar seguro. Ten en cuenta que no debes compartir tu clave API con otras personas. Si se filtra, puedes eliminarla y crear una nueva.
 

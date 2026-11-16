@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/linux/
 title: Comfy Desktop en Linux - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:32.853294+00:00
+fetched_at: 2026-11-16T16:52:03.722234+00:00
 ---
 
 # Comfy Desktop en Linux - ComfyUI
@@ -34,21 +34,17 @@ Instalación
 
 Copiar páginaCopiar página
 
-Instala Comfy Desktop en Linux con los paquetes .deb o AppImage. Compilar desde el código fuente requiere Ubuntu 22.04+, x64 y Node.js v22 LTS.
+Instala Comfy Desktop en Linux con los paquetes .deb o AppImage. Compilar desde el código fuente requiere Ubuntu 22.04+, x64 y Node.js v24 LTS.
 
 Copiar páginaCopiar página
 
 **Comfy Desktop** puede ejecutarse en Linux. Los paquetes oficiales `.deb` (Debian/Ubuntu) y AppImage se distribuyen a través del [repositorio de Comfy Desktop](https://github.com/Comfy-Org/Comfy-Desktop). Descárgalos con el [enlace de descarga universal](https://dl.todesktop.com/241130tqe9q3y), que detecta tu plataforma automáticamente. La mayoría de los usuarios deberían usar uno de esos paquetes. Si en cambio prefieres ejecutar la aplicación desde la fuente, clona el repositorio y sigue los pasos a continuación.
 
-## 
-
-​
-
-Requisitos del sistema
+## Requisitos del sistema
 
   * **SO:** Linux (se recomienda Ubuntu 22.04 o posterior)
   * **Arquitectura:** x64
-  * **Node.js:** v22 LTS o posterior (solo compilación desde el código fuente)
+  * **Node.js:** v24 LTS o posterior (solo compilación desde el código fuente)
   * **pnpm:** v10 o posterior, habilitado con Corepack (solo compilación desde el código fuente)
   * **Herramientas de compilación:** `build-essential` y `git` (solo compilación desde el código fuente)
   * **GPU:** Se recomienda una GPU dedicada (NVIDIA / AMD), pero no es obligatoria
@@ -56,11 +52,7 @@ Requisitos del sistema
 
 
 
-## 
-
-​
-
-Instalar el paquete oficial
+## Instalar el paquete oficial
 
 Descarga el paquete para Linux con el [enlace de descarga universal](https://dl.todesktop.com/241130tqe9q3y) (detecta tu plataforma automáticamente) y luego instálalo:
     
@@ -80,7 +72,12 @@ Los scripts de instalación del paquete escriben el perfil cada vez que el paque
     sudo apt reinstall comfyui-desktop-2
     
 
-Para el AppImage:
+Para el AppImage, instala FUSE 2 primero. El AppImage carga `libfuse.so.2`, que Ubuntu no instala de forma predeterminada:
+
+  * Ubuntu 24.04 y posteriores: `sudo apt install libfuse2t64`
+  * Ubuntu 22.04: `sudo apt install libfuse2`
+
+Después, dale permiso de ejecución y ejecútalo:
     
     
     chmod +x ./*.AppImage
@@ -95,19 +92,11 @@ El AppImage no ejecuta scripts de instalación del paquete, así que no añade n
 
 Esa opción desactiva el sandbox de Electron para todos los procesos, así que úsala solo cuando falle el inicio con sandbox.
 
-## 
-
-​
-
-Compilar y ejecutar desde el código fuente
+## Compilar y ejecutar desde el código fuente
 
 Estos pasos coinciden con la sección [Development](https://github.com/Comfy-Org/Comfy-Desktop#development) del README del repositorio.
 
-### 
-
-​
-
-Requisitos previos
+### Requisitos previos
 
 Primero instala las herramientas de compilación y git. Una instalación reciente de Ubuntu no las incluye, y `pnpm run init` compila módulos nativos como `node-pty`, lo que falla con `Error: not found: make` si falta `build-essential`:
     
@@ -115,20 +104,16 @@ Primero instala las herramientas de compilación y git. Una instalación recient
     sudo apt install build-essential git
     
 
-Luego instala Node.js 22 y habilita pnpm:
+Luego instala Node.js 24 y habilita pnpm:
     
     
-    nvm install 22 && nvm use 22
+    nvm install 24 && nvm use 24
     corepack enable
     
 
-Si no usas nvm, instala Node.js 22 desde [nodejs.org](https://nodejs.org/) en su lugar.
+El `.nvmrc` del repositorio fija la versión exacta. Si no usas nvm, instala Node.js 24 desde [nodejs.org](https://nodejs.org/) en su lugar.
 
-### 
-
-​
-
-Clonar e instalar
+### Clonar e instalar
     
     
     git clone https://github.com/Comfy-Org/Comfy-Desktop.git
@@ -138,11 +123,7 @@ Clonar e instalar
 
 `pnpm run init` instala las dependencias y compila el bootstrap de Python incluido.
 
-### 
-
-​
-
-Inicia la aplicación
+### Inicia la aplicación
     
     
     ./linux-dev.sh
@@ -154,19 +135,11 @@ Esto inicia Comfy Desktop en modo de desarrollo. El script establece `ELECTRON_D
 
 Una vez que la aplicación esté en ejecución, aprende a crear instancias, administrar instalaciones y configurar los ajustes.
 
-## 
-
-​
-
-Actualizar
+## Actualizar
 
 Cómo se actualiza Comfy Desktop depende de cómo lo instalaste.
 
-### 
-
-​
-
-Instalaciones .deb
+### Instalaciones .deb
 
 Instalar el `.deb` también añade una fuente APT (`/etc/apt/sources.list.d/comfyui-desktop-2.sources`) y una entrada de unattended-upgrades para ella, así que las nuevas versiones llegan con las actualizaciones normales del sistema:
     
@@ -177,19 +150,11 @@ Instalar el `.deb` también añade una fuente APT (`/etc/apt/sources.list.d/comf
 
 No necesitas volver a descargar el `.deb` en cada versión. `sudo apt remove comfyui-desktop-2` deja la fuente APT en disco; `sudo apt purge comfyui-desktop-2` la elimina junto con la entrada de unattended-upgrades.
 
-### 
-
-​
-
-AppImage
+### AppImage
 
 El AppImage se actualiza solo: Comfy Desktop descarga la nueva compilación y reemplaza el archivo `.AppImage` que ejecutaste, así que guárdalo en una carpeta donde tu cuenta pueda escribir. Si el archivo está en una ubicación de solo lectura, la actualización no puede reemplazarlo.
 
-### 
-
-​
-
-Código fuente
+### Código fuente
 
 No hay actualización automática dentro de la aplicación para una instalación desde el código fuente. Obtén el código más reciente y vuelve a iniciar la aplicación:
     
@@ -199,11 +164,7 @@ No hay actualización automática dentro de la aplicación para una instalación
     ./linux-dev.sh
     
 
-## 
-
-​
-
-Opcional: paquete local
+## Opcional: paquete local
 
 Para generar un `.deb` local o un AppImage para ti (no es una descarga oficial de Comfy Org):
     
@@ -213,11 +174,7 @@ Para generar un `.deb` local o un AppImage para ti (no es una descarga oficial d
 
 Los artefactos se generan en `dist/`. Si un AppImage falla porque Chromium no puede crear un sandbox, reintenta con `--no-sandbox`. Esa opción desactiva el sandbox de Electron para todos los procesos.
 
-## 
-
-​
-
-Eliminar datos residuales
+## Eliminar datos residuales
 
 Quitar la aplicación y borrar tus datos son dos pasos distintos. Desinstala primero la aplicación:
 
@@ -230,11 +187,11 @@ Datos| Ubicación predeterminada| Descripción
 ---|---|---  
 Instalaciones| `~/ComfyUI-Installs`| Cada instalación de ComfyUI que creaste (también se puede eliminar desde dentro de la aplicación). Las rutas de instalación personalizadas tampoco se eliminan.  
 Modelos y salidas compartidos| `~/ComfyUI-Shared`| Biblioteca de modelos compartida, directorios de entrada/salida  
-Configuración de la aplicación| `~/.config/comfyui-desktop-2`| Configuraciones y registros de instalación  
-Datos de la aplicación| `~/.local/share/comfyui-desktop-2`| Datos persistentes de la aplicación  
+Configuración de la aplicación| `~/.config/comfyui-desktop-2`| Ajustes (`settings.json`)  
+Datos de la aplicación| `~/.local/share/comfyui-desktop-2`| Datos persistentes de la aplicación, incluida la lista de instalaciones (`installations.json`)  
 Caché| `~/.cache/comfyui-desktop-2`| Caché de descargas y otros archivos no esenciales  
 Estado| `~/.local/state/comfyui-desktop-2`| Estado en tiempo de ejecución, como los bloqueos de puertos  
-Registros| `~/.config/comfyui-desktop-2/logs`| Registros de la aplicación de escritorio (`app.log`)  
+Registros| `~/.config/Comfy Desktop/logs` (`~/.config/comfyui-desktop-2/logs` si ejecutas desde el código fuente)| Registros de la aplicación de escritorio (`app.log`)  
   
 Para eliminar todo por completo:
 
@@ -244,7 +201,7 @@ Para eliminar todo por completo:
   4. **Elimina las instalaciones individuales** desde dentro de la aplicación, o elimina manualmente `~/ComfyUI-Installs` junto con cualquier directorio de instalación personalizado que hayas configurado
   5. **Elimina la biblioteca de modelos compartida** en `~/ComfyUI-Shared` (solo si ya no necesitas estos archivos)
 
-Las instalaciones empaquetadas (`.deb` o AppImage) también guardan el perfil y los registros de la aplicación en `~/.config/Comfy Desktop`. Para limpiarlos, ejecuta el script [reset-linux.sh](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-linux.sh) del repositorio; elimina todas las ubicaciones de datos conocidas de la aplicación, pero deja intacta tu `~/ComfyUI-Installs`.
+Las instalaciones empaquetadas (`.deb` o AppImage) también guardan el perfil y los registros de la aplicación en `~/.config/Comfy Desktop`. Para borrarlo todo, ejecuta el script [reset-linux.sh](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-linux.sh) del repositorio: elimina las carpetas de configuración, caché, datos y estado de la compilación actual y de los nombres anteriores de la aplicación, y deja intactas `~/ComfyUI-Installs` y `~/ComfyUI-Shared`. La lista de instalaciones se borra con ellas, así que puede que tengas que volver a añadirlas con **Add Existing Instance**.
 
 ¿Esta página le ayudó?
 

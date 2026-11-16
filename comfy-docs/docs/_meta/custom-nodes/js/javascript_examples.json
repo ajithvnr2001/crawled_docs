@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/js/javascript_examples/",
   "file": "custom-nodes/js/javascript_examples.md",
-  "title": "ComfyUI JavaScript Extension Examples - ComfyUI",
+  "title": "Custom Node JavaScript Examples: Menus, Events, and Hooks - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-08T14:09:43.821309+00:00"
+  "fetched_at": "2026-11-16T16:52:08.426355+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/asset-bytes/
 title: Asset bytes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:36.641901+00:00
+fetched_at: 2026-11-16T16:51:59.417462+00:00
 ---
 
 # Asset bytes - ComfyUI
@@ -651,8 +651,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -665,8 +663,6 @@ requerido
 
 #### Encabezados
 
-​
-
 Range
 
 string
@@ -674,8 +670,6 @@ string
 Standard HTTP range, e.g. `bytes=0-1048575`.
 
 #### Parámetros de ruta
-
-​
 
 id
 

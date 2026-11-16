@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/create-or-reuse-an-asset-over-existing-bytes/
 title: Create or reuse an asset over existing bytes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:32.084497+00:00
+fetched_at: 2026-11-16T16:52:00.503366+00:00
 ---
 
 # Create or reuse an asset over existing bytes - ComfyUI
@@ -809,8 +809,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -825,8 +823,6 @@ requerido
 
 application/json
 
-​
-
 hash
 
 string
@@ -837,27 +833,21 @@ Ejemplo:
 
 `"blake3:9f8a1c0d..."`
 
-​
-
 file_path
 
 string
 
-Placement path / filename for a new reference. Comfy Cloud uses its last segment as the name; a deployment uses the full path. Both default to the bare hash digest when omitted or empty. Cloud reuse keeps the existing name even if a different valid path is supplied; a deployment also matches the path when deciding reuse. The self-hosted proxy keeps its indexed record's path. On Comfy Cloud a `file_path` that fails path validation, or whose last segment breaks the `file_path` rules of `POST /api/v2/assets`, is answered with 404 `blob_not_found`, the same as an unknown hash. The UTF-8 rule cannot fire here: invalid UTF-8 bytes and lone surrogate escapes (`\ud800`) are replaced with U+FFFD when the JSON body is decoded, so such a name is stored with U+FFFD in their place.
+Placement path / filename for a new reference. Comfy Cloud uses its last segment as the name; a deployment uses the full path. Both default to the bare hash digest when omitted or empty. Cloud reuse keeps the existing name even if a different valid path is supplied; a deployment also matches the path when deciding reuse. The self-hosted proxy keeps its indexed record's path. On Comfy Cloud a `file_path` that fails path validation, or whose last segment breaks the `file_path` rules of `POST /api/v2/assets`, is answered with 404 `blob_not_found`, the same as an unknown hash. The UTF-8 rule cannot fire here: invalid UTF-8 bytes and lone surrogate escapes (`\ud800`) are replaced with U+FFFD when the JSON body is decoded, so such a name is stored with U+FFFD in their place. A deployment answers a `file_path` that fails path validation or holds a control character (C0, DEL, C1) or a bidi embedding, override or isolate (U+202A-U+202E, U+2066-U+2069) with 422 `invalid_request`; the same U+FFFD replacement applies there.
 
 Ejemplo:
 
 `"photo.png"`
-
-​
 
 tags
 
 string[]
 
 Tags for a new reference; reuse keeps the existing tags. Comfy Cloud defaults an omitted or empty set to `input`. Cloud and deployment validation still applies on reuse; the self-hosted proxy does not apply submitted tags. A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. Invalid UTF-8 or a lone surrogate escape (e.g. `\ud800`) inside a JSON-encoded tag is not refused: JSON decoding replaces it with U+FFFD (3 bytes each), and the 256-byte limit applies to the replaced value.
-
-​
 
 expires_in
 
@@ -881,8 +871,6 @@ An existing asset was reused under the serving surface's rules above; `created_n
 
 A user-owned record identified by a server-assigned UUID, backing an immutable blob whose content carries a server-computed blake3 hash. `hash` may be computed lazily: an asset record (and its retrievable bytes) can exist before its hash is filled in. On an output, `job_metadata` carries the labels its producing job was submitted with, so code holding only the asset knows which run it came from. It is absent for assets no job produced, for outputs of a job sent without labels, where the serving surface keeps no job labels, and when the labels could not be read: so `job_id` without `job_metadata` does not prove the job had no labels. A create whose file path and bytes match an existing output answers with that output, so its `job_id` and `job_metadata` are the output's.
 
-​
-
 id
 
 string
@@ -892,8 +880,6 @@ requerido
 Ejemplo:
 
 `"9f8a1c0d-2b3e-4f56-8a7b-1c2d3e4f5a6b"`
-
-​
 
 hash
 
@@ -907,8 +893,6 @@ Ejemplo:
 
 `"blake3:9f8a1c0d..."`
 
-​
-
 size_bytes
 
 integer<int64>
@@ -918,8 +902,6 @@ requerido
 Ejemplo:
 
 `4816293`
-
-​
 
 content_type
 
@@ -931,15 +913,11 @@ Ejemplo:
 
 `"image/png"`
 
-​
-
 created_at
 
 string<date-time>
 
 requerido
-
-​
 
 url
 
@@ -949,15 +927,11 @@ requerido
 
 Short-lived content URL (signed, or proxy-served).
 
-​
-
 url_expires_at
 
 string<date-time>
 
 requerido
-
-​
 
 file_path
 
@@ -967,15 +941,11 @@ Ejemplo:
 
 `"photo.png"`
 
-​
-
 created_new
 
 boolean
 
 On `POST /api/v2/assets` responses, distinguishes a brand-new blob (true) from a dedup hit against bytes the platform already had (false). On `POST /api/v2/assets/from-hash` responses, true means a new asset reference was created over existing bytes (201); false means an existing asset was reused (200).
-
-​
 
 expires_at
 
@@ -983,15 +953,11 @@ string<date-time> | null
 
 Retention deadline for the asset itself (distinct from `url_expires_at`, the signed URL's validity). Null or absent means the asset is non-expiring. On a dedup-hit create response the deadline may be later than now + the requested/default retention: re-referencing content extends its retention, never shortens it.
 
-​
-
 job_id
 
 string | null
 
 ID of the job that produced this asset. Absent for assets no job produced, such as a fresh upload.
-
-​
 
 job_metadata
 

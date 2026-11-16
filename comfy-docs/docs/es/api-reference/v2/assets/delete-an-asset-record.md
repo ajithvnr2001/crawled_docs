@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/delete-an-asset-record/
 title: Delete an asset record - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:35.866803+00:00
+fetched_at: 2026-11-16T16:52:00.017454+00:00
 ---
 
 # Delete an asset record - ComfyUI
@@ -629,8 +629,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -642,8 +640,6 @@ requerido
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Parámetros de ruta
-
-​
 
 id
 

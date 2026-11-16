@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/list-the-models-comfy-router-can-run/
 title: List the models Comfy Router can run. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:22.796376+00:00
+fetched_at: 2026-11-16T16:52:07.269749+00:00
 ---
 
 # List the models Comfy Router can run. - ComfyUI
@@ -451,8 +451,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -465,8 +463,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Encabezados
 
-​
-
 If-None-Match
 
 string
@@ -474,8 +470,6 @@ string
 The `ETag` a caller holds from an earlier `200`. When it matches the current page (RFC 9110 weak comparison; `*` matches any current page) the answer is a bodyless `304` carrying the same `ETag`, otherwise the full page.
 
 #### Parámetros de consulta
-
-​
 
 cursor
 
@@ -490,8 +484,6 @@ Pattern: `^[A-Za-z0-9._~+/=-]+$`
 Ejemplo:
 
 `"q7Fm2xTn9pLd4RsV"`
-
-​
 
 limit
 
@@ -513,8 +505,6 @@ OK - one page of the model catalog.
 
 One page of the Router model catalog.
 
-​
-
 data
 
 object[]
@@ -525,8 +515,6 @@ The models on this page, at most `limit` of them.
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
@@ -534,8 +522,6 @@ boolean
 requerido
 
 Whether another page exists beyond this one. Keep walking while this is true; do not infer the end of the catalog from a short or empty `data`.
-
-​
 
 limit
 
@@ -550,8 +536,6 @@ Rango requerido: `1 <= x <= 100`
 Ejemplo:
 
 `20`
-
-​
 
 next_cursor
 

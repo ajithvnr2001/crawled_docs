@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5/
 title: Seedance 2.5: generaci\u00f3n de video con IA y audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:47.279021+00:00
+fetched_at: 2026-11-16T16:52:03.881914+00:00
 ---
 
 # Seedance 2.5: generación de video con IA y audio - ComfyUI
@@ -21,7 +21,8 @@ Volver arriba
     * Primer y último fotograma a video (FLF2V)
     * Referencia a video (R2V)
     * Editar video
-    * Modo borrador (vista previa en 480p y luego final en 1080p)
+    * Flash: 480p y 720p más rápidos
+    * Modo borrador (vista previa en 480p y luego final en 1080p o 4K)
   * Empezar
 
 
@@ -38,11 +39,7 @@ Copiar páginaCopiar página
 
 Seedance 2.5 es el modelo de creación de video de nueva generación de ByteDance, lanzado el 31 de julio de 2026. A partir de la arquitectura unificada de generación conjunta de audio y video multimodal de Seedance 2.0, cambia el enfoque: de generar un solo clip pasa a completar una obra creativa entera, con avances importantes en narración de formato largo, referencia multimodal y edición. El modelo genera hasta 30 segundos de audio y video de alta calidad en una sola pasada, con mejores transiciones de plano y cambios de escena para lograr una continuidad más sólida en videos más largos. Admite varias rondas de extensión, así que los creadores pueden construir contenido de varios minutos con un lenguaje audiovisual coherente y dar vida a una historia completa en una sola toma. La calidad de imagen, audio y movimiento mejora respecto de la generación anterior, lo que da como resultado visuales más naturales y pulidos.
 
-## 
-
-​
-
-En qué destaca Seedance 2.5
+## En qué destaca Seedance 2.5
 
   * **Generación de 30 segundos** : produce clips de audio y video de alta calidad de 30 segundos en una sola pasada, con extensión en varias rondas
   * **Sincronización de audio y video** : genera el video y el audio juntos, incluidos los diálogos y el habla con sincronización labial
@@ -50,14 +47,11 @@ En qué destaca Seedance 2.5
   * **Edición precisa** : ofrece control a nivel de marca de tiempo para editar puntos concretos del video y del audio, además de edición con pantalla verde y edición basada en referencias
   * **Extensión en varias rondas** : extiende los clips para crear contenido de varios minutos con un lenguaje audiovisual consistente
   * **Casos de uso versátiles** : ideal para películas de marca, series por episodios, contenido de comercio electrónico, presentaciones de productos y series cortas centradas en personajes
+  * **Nivel Flash** : una opción de Seedance 2.5 más rápida y económica que genera clips de 480p y 720p de hasta 30 segundos
 
 
 
-## 
-
-​
-
-Salidas de ejemplo
+## Salidas de ejemplo
 
 Generación de texto a video, produciendo un clip cinematográfico de 30 segundos con sonido y música sincronizados: Generación de imagen a video, animando una sola imagen hasta convertirla en un clip de 1080p con sonido, música y diálogo:
 
@@ -86,19 +80,11 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
+## Flujos de trabajo disponibles
 
-​
+### Texto a video (T2V)
 
-Flujos de trabajo disponibles
-
-### 
-
-​
-
-Texto a video (T2V)
-
-Genera un video cinematográfico de 30 segundos a partir de un prompt de texto, con sonido y música sincronizados. El nodo admite resolución de salida de 480p, 720p y 1080p.
+Genera un video cinematográfico de 30 segundos a partir de un prompt de texto, con sonido y música sincronizados. El nodo admite resolución de salida de 480p, 720p, 1080p y 4K.
 
 ## Ejecutar texto a video en la nube
 
@@ -118,11 +104,7 @@ Prueba el flujo de trabajo de texto a video en 1080p al instante en Comfy Cloud.
 
 Descarga el JSON del flujo de trabajo.
 
-### 
-
-​
-
-Imagen a video (I2V)
+### Imagen a video (I2V)
 
 Anima una sola imagen y conviértela en un clip de video de 1080p con sonido, música y diálogo sincronizados. El flujo de trabajo admite clips de hasta 30 segundos en cualquier relación de aspecto y toma una sola imagen como entrada.
 
@@ -134,11 +116,7 @@ Prueba el flujo de trabajo de imagen a video al instante en Comfy Cloud.
 
 Descarga el JSON del flujo de trabajo.
 
-### 
-
-​
-
-Primer y último fotograma a video (FLF2V)
+### Primer y último fotograma a video (FLF2V)
 
 Indica un fotograma inicial y un fotograma final, y Seedance 2.5 genera el movimiento y las transiciones entre ambos, fijando los dos extremos. ![Vista previa del flujo de trabajo Seedance 2.5 FLF2V](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_seedance2_5_flf2v-1.webp)
 
@@ -150,11 +128,7 @@ Prueba el flujo de trabajo de primer y último fotograma a video al instante en 
 
 Descarga el JSON del flujo de trabajo.
 
-### 
-
-​
-
-Referencia a video (R2V)
+### Referencia a video (R2V)
 
 Usa imágenes de referencia, clips de video o audio para controlar la consistencia del personaje, el estilo visual y el ritmo del movimiento en una sola salida con sonido sincronizado y diálogo con sincronización labial. ![Vista previa del flujo de trabajo Referencia a video de Seedance 2.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_seedance2_5_r2v-1.webp)
 
@@ -166,11 +140,7 @@ Prueba el flujo de trabajo Referencia a video al instante en Comfy Cloud.
 
 Descarga el JSON del flujo de trabajo.
 
-### 
-
-​
-
-Editar video
+### Editar video
 
 Edita clips de video existentes describiendo los cambios en lenguaje natural. Reemplaza objetos, intercambia fondos, cambia escenas o transfiere estilos mientras conservas la composición y el movimiento originales. También puedes extender un clip existente hacia adelante o hacia atrás. Conecta el clip como video de referencia, define la opción **task_type** en **extend** y describe la continuación en el prompt, por ejemplo “extend forward”, “extend backward” o “continue”. La salida contiene únicamente el segmento recién generado con la duración que definas, y su relación de aspecto sigue la del clip de origen. ![Vista previa del flujo de trabajo Video Editing de Seedance 2.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_seedance2_5_video_editing-1.webp)
 
@@ -182,19 +152,27 @@ Prueba el flujo de trabajo Video Editing al instante en Comfy Cloud.
 
 Descarga el JSON del flujo de trabajo.
 
-### 
+### Flash: 480p y 720p más rápidos
 
-​
+Seedance 2.5 Flash es el nivel más rápido y económico del mismo modelo. Genera clips de 480p y 720p de hasta 30 segundos, y acepta hasta 10 imágenes de referencia, 5 videos de referencia y 5 clips de audio de referencia. Cambia **model** a `Seedance 2.5 Flash` en cualquier nodo de Seedance 2.5, o empieza con una de las tres plantillas Flash.
 
-Modo borrador (vista previa en 480p y luego final en 1080p)
+## Texto a video
 
-El modo borrador primero genera una vista previa en 480p de bajo costo y luego el resultado final en 1080p a partir de ese borrador. Se aplica a los flujos de trabajo Text to Video, First-Last-Frame to Video y Reference to Video. Consulta [Modo borrador de Seedance 2.5](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5-draft) para ver las plantillas, las entradas de ejemplo y los consejos para el flujo de trabajo.
+Descarga el JSON o busca “Seedance 2.5 Flash: Text to Video” en la biblioteca de plantillas.
 
-## 
+## Imagen a video
 
-​
+Descarga el JSON o busca “Seedance 2.5 Flash: Image to Video” en la biblioteca de plantillas.
 
-Empezar
+## Referencia a video
+
+Descarga el JSON o busca “Seedance 2.5 Flash: Reference to Video” en la biblioteca de plantillas.
+
+### Modo borrador (vista previa en 480p y luego final en 1080p o 4K)
+
+El modo borrador primero genera una vista previa en 480p de bajo costo y luego el resultado final en 1080p o 4K a partir de ese borrador. Se aplica a los flujos de trabajo Text to Video, First-Last-Frame to Video y Reference to Video. Consulta [Modo borrador de Seedance 2.5](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5-draft) para ver las plantillas, las entradas de ejemplo y los consejos para el flujo de trabajo.
+
+## Empezar
 
   1. Actualiza ComfyUI a la última versión
   2. Ve a la Biblioteca de plantillas y busca `Seedance 2.5`

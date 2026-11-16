@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/usage/settings/
 title: Comfy Desktop Settings - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:43.962786+00:00
+fetched_at: 2026-11-16T16:52:07.445545+00:00
 ---
 
 # Comfy Desktop Settings - ComfyUI
@@ -11,6 +11,8 @@ fetched_at: 2026-10-23T16:38:43.962786+00:00
 
 ## On this page
 
+Back to top
+
   * Preferences
     * App Behavior
     * Privacy
@@ -18,6 +20,7 @@ fetched_at: 2026-10-23T16:38:43.962786+00:00
   * Updates
   * Storage
   * Advanced
+    * Download Cache
   * Logs
   * Data Locations
   * Keyboard Shortcuts
@@ -37,11 +40,7 @@ Copy pageCopy page
 
 Click the ☰ menu (1) in the top-left corner and select **Desktop Settings** (2) to open the global settings panel. ![Comfy Desktop dashboard with the ☰ menu open and Desktop Settings in the menu](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=c159ee0f220f359169a739852ff90fea) The settings panel is organized into five tabs. Click a tab in the sidebar to switch views.
 
-## 
-
-​
-
-Preferences
+## Preferences
 
 ![Preferences: language, app behavior, telemetry, and Opt-in to beta features](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=2f708f5b4699204effebaac74780fd58) The Preferences tab opens with a **Language** picker, then groups the rest of its controls into three sections.
 
@@ -49,11 +48,7 @@ Preferences
 
 
 
-### 
-
-​
-
-App Behavior
+### App Behavior
 
   * **Auto-launch on startup** : Pick which instance to start when Comfy Desktop opens. **None (show dashboard)** is the default. You can also choose **Last used instance** , or a specific install.
   * **Confirm before closing a window** : Ask for confirmation before closing a window that is running a local install.
@@ -62,32 +57,20 @@ App Behavior
 
 
 
-### 
-
-​
-
-Privacy
+### Privacy
 
   * **Share anonymous usage telemetry** : Send anonymous usage data to help improve Comfy Desktop.
   * **Opt-in to beta features** : Let Comfy Desktop turn on early Core features for your instances. The switch stays disabled until you confirm data sharing with **Share anonymous usage telemetry** , even when telemetry is already on.
 
-Beta features arrive as extra startup arguments, added on top of the ones you set yourself: Comfy Desktop never removes or replaces your own arguments. When a beta feature turns on for an instance, a card headed **A beta feature is on** appears in the title bar. **Got it** dismisses it, and **Settings** opens this panel on the opt-in switch. You can see which arguments a beta feature added in the instance’s Startup Args tab, behind the **+N beta** pill next to **Startup Arguments**.
+Beta features arrive as extra startup arguments, added in front of the ones you set yourself. Your own arguments keep their order and are never rewritten, and Desktop drops only a `--` flag the installed ComfyUI does not list. When it cannot read that list, it launches with your arguments exactly as they are and adds no beta arguments. When a beta feature turns on for an instance, a card headed **A beta feature is on** appears in the title bar. **Got it** dismisses it, and **Settings** opens this panel on the opt-in switch. You can see which arguments a beta feature added in the instance’s Startup Args tab, behind the **+N beta** pill next to **Startup Arguments**.
 
-### 
-
-​
-
-Community
+### Community
 
   * **Comfy Desktop** : A card linking to the [Comfy Desktop GitHub repository](https://github.com/Comfy-Org/Comfy-Desktop), with a star count.
 
 
 
-## 
-
-​
-
-Updates
+## Updates
 
 ![Updates tab: installed version, Check for updates, Automatically install Desktop updates](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=715b9ed65225064b76935e2415dcc593)
 
@@ -97,11 +80,7 @@ Updates
 
 
 
-## 
-
-​
-
-Storage
+## Storage
 
 The Storage tab is where you configure where Comfy Desktop finds and stores files. The key concept is **sharing** : instead of each instance having its own isolated models, inputs, and outputs, you set up shared directories accessible to all instances. ![Storage tab: Shared Models, Shared Input, and Shared Output paths](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=0d907789b20aecac354099423ff37814)
 
@@ -115,11 +94,7 @@ The Storage tab is where you configure where Comfy Desktop finds and stores file
 
 Per-instance overrides (include shared dirs, split input/output, extra model folders) live in the instance [Manage](https://docs.comfy.org/installation/desktop/usage/manage#storage-tab) Storage tab.
 
-## 
-
-​
-
-Advanced
+## Advanced
 
 ![Advanced tab: default install location, mirrors, and hardware acceleration](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=5ecf350b2a261d990cfe555a03a952ba)
 
@@ -131,21 +106,17 @@ Advanced
 
 
 
-## 
+### Download Cache
 
-​
+Standalone installs download a ComfyUI bundle into the **Cache Directory** (defaults end in `download-cache`). A later install of the same bundle skips the download and shows **Using cached download** , so it finishes much faster. Keep **Cache Directory** dedicated to this cache: when a download finishes, older subfolders inside it are pruned, so anything else you store there can be deleted. Deleting a dedicated cache folder only forces a re-download on the next install; models, inputs, outputs, and installations live elsewhere.
 
-Logs
+## Logs
 
   * **Diagnostics** : **Open logs folder** reveals the Desktop app log directory (`app.log`). See [How do I check Comfy Desktop startup logs?](https://docs.comfy.org/installation/desktop/faq#how-do-i-check-comfy-desktop-startup-logs).
 
 
 
-## 
-
-​
-
-Data Locations
+## Data Locations
 
 Comfy Desktop stores data in platform-specific directories.
 
@@ -179,18 +150,14 @@ New installs put large data (installs, shared models, cache) under `%LOCALAPPDAT
     Data:         ~/.local/share/comfyui-desktop-2
     Cache:        ~/.cache/comfyui-desktop-2
     State:        ~/.local/state/comfyui-desktop-2
-    Logs:         ~/.config/comfyui-desktop-2/logs
+    Logs:         ~/.config/Comfy Desktop/logs
     Installs:     ~/ComfyUI-Installs
     Shared data:  ~/ComfyUI-Shared
     
 
-On Linux, Electron stores user data under the package name `comfyui-desktop-2`, not the display name Comfy Desktop.
+On Linux, Comfy Desktop keeps its settings, cache, data and state under `comfyui-desktop-2`, while Electron keeps the app profile and its logs under the display name `Comfy Desktop`. A source checkout uses `comfyui-desktop-2` for both. These are the default locations: `XDG_CONFIG_HOME`, `XDG_CACHE_HOME`, `XDG_DATA_HOME` and `XDG_STATE_HOME` move them, and the logs follow `XDG_CONFIG_HOME`.
 
-## 
-
-​
-
-Keyboard Shortcuts
+## Keyboard Shortcuts
 
 Shortcut| Action  
 ---|---  
@@ -200,11 +167,7 @@ Shortcut| Action
   
 Comfy Desktop does not bind `Ctrl+W` / `Cmd+W`, so a stray keystroke cannot close a window with a running instance. Close a window from the ☰ menu’s **Close Window** instead.
 
-## 
-
-​
-
-Feedback and Issues
+## Feedback and Issues
 
 Found a bug or have a suggestion? Comfy Desktop is open source. You can report issues and check planned features here:
 

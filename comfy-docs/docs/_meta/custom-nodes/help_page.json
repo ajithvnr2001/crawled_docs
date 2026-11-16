@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/help_page/",
   "file": "custom-nodes/help_page.md",
-  "title": "Add node docs for your ComfyUI custom node - ComfyUI",
+  "title": "ComfyUI Custom Node Docs: Markdown Help Pages - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:37.560700+00:00",
-  "html_len": 394228,
-  "md_len": 4885,
-  "depth": 0
+  "fetched_at": "2026-11-16T16:52:08.289268+00:00"
 }

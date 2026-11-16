@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/openrouter/llm/
 title: OpenRouter LLM in ComfyUI: Many Models in One Node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:35.669398+00:00
+fetched_at: 2026-11-16T16:51:58.434030+00:00
 ---
 
 # OpenRouter LLM in ComfyUI: Many Models in One Node - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:35.669398+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/openrouter/llm/
 
 ## On this page
+
+Back to top
 
   * What OpenRouter LLM is good at
   * Supported models
@@ -29,30 +31,23 @@ Use the OpenRouter LLM partner node in ComfyUI for chat, reasoning, vision, and 
 
 Copy pageCopy page
 
-[OpenRouter](https://openrouter.ai) is a unified routing platform for large language models. It exposes many providers through one API so you can switch models without changing your integration. ComfyUI connects through the **OpenRouter LLM** partner node, which offers a curated list of text and multimodal models (Claude, GPT, Gemini, Grok, DeepSeek, Qwen, Mistral, GLM, Kimi, and Perplexity Sonar) in a single node.
+[OpenRouter](https://openrouter.ai) is a unified routing platform for large language models. It exposes many providers through one API so you can switch models without changing your integration. ComfyUI connects through the **OpenRouter LLM** partner node, which offers a curated list of text and multimodal models (Claude, GPT, Gemini, Grok, Meta Muse, DeepSeek, Qwen, Mistral, GLM, Kimi, and Perplexity Sonar) in a single node.
 
-## 
-
-​
-
-What OpenRouter LLM is good at
+## What OpenRouter LLM is good at
 
   * **Text chat** : prompts and optional `system_prompt` for role or task instructions
   * **Vision** : attach reference images on supported models (slot count depends on the model)
-  * **Video input** : Gemini 3.5 Flash and Qwen 3.6 Plus/Flash support optional reference videos
-  * **Reasoning** : `reasoning_effort` on reasoning / frontier-reasoning models (`off`, `low`, `medium`, `high`)
+  * **Video input** : Gemini 3.5 Flash, Qwen 3.6 Plus/Flash, and the Meta Muse models accept optional reference videos
+  * **Reasoning** : `reasoning_effort` on reasoning / frontier-reasoning models (`off`, `low`, `medium`, `high`). The Meta Muse models always reason, so their levels start at `minimal` with no `off`
   * **Web search** : Perplexity Sonar models expose `search_context_size` for grounded answers
 
 Token pricing is listed under [Partner Node Pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing#openrouter).
 
-## 
-
-​
-
-Supported models
+## Supported models
 
 Model| Vision (max images)| Video| Extra options  
 ---|---|---|---  
+`anthropic/claude-opus-5`| 20| None| Reasoning effort  
 `anthropic/claude-opus-4.8`| 20| None| Reasoning effort  
 `anthropic/claude-opus-4.7`| 20| None| Reasoning effort  
 `anthropic/claude-fable-5`| 20| None| Reasoning effort  
@@ -70,10 +65,12 @@ Model| Vision (max images)| Video| Extra options
 `x-ai/grok-4.5`| 20| None| Reasoning effort  
 `x-ai/grok-4.20`| 20| None| Reasoning effort  
 `x-ai/grok-4.3`| 20| None| Reasoning effort  
+`meta/muse-wonder`| 50| Up to 5| Reasoning effort, always on  
+`meta/muse-spark-1.3`| 50| Up to 5| Reasoning effort, always on  
+`meta/muse-ember`| 50| Up to 5| Reasoning effort, always on  
 `deepseek/deepseek-v4-pro`| None| None| Reasoning effort  
 `deepseek/deepseek-v4-flash`| None| None| Reasoning effort  
 `deepseek/deepseek-v3.2`| None| None| Reasoning effort  
-`qwen/qwen3.6-max-preview`| None| None| Reasoning effort  
 `qwen/qwen3.6-plus`| 10| Up to 4| Reasoning effort  
 `qwen/qwen3.6-flash`| 10| Up to 4| Reasoning effort  
 `mistralai/mistral-large-2512`| 8| None| None  
@@ -112,11 +109,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Model-specific inputs
+## Model-specific inputs
 
 The **model** dropdown is a dynamic combo. When you change the model, the node updates which inputs appear:
 
@@ -127,11 +120,7 @@ The **model** dropdown is a dynamic combo. When you change the model, the node u
 
 Text-only models hide image and video inputs.
 
-### 
-
-​
-
-OpenRouter LLM
+### OpenRouter LLM
 
 Select a model from OpenRouter’s curated list (Claude, GPT, Gemini, etc.). Generate a text response with optional media uploads for vision-capable models. ![OpenRouter LLM workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_openrouter_llm-1.webp)
 
@@ -165,11 +154,7 @@ If you use the template as a reference, a typical run looks like this:
 
 
 
-### 
-
-​
-
-Additional notes
+### Additional notes
 
   * **seed** : set to `0` to omit; most models treat it as a hint only
   * Reference images and videos are uploaded automatically when the workflow runs; you only wire ComfyUI image/video outputs into the node
@@ -183,26 +168,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/openrouter/llm.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/openrouter/llm)
 
-[GPT-6 Astra in ComfyUIPrevious](https://docs.comfy.org/tutorials/partner-nodes/openai/gpt-6-astra)[ChangelogNext](https://docs.comfy.org/changelog/index)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[GPT-6 Astra](https://docs.comfy.org/tutorials/partner-nodes/openai/gpt-6-astra)

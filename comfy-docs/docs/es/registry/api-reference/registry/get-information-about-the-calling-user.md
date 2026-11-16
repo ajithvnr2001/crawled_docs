@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/get-information-about-the-calling-user/
 title: Get information about the calling user. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:12.888682+00:00
+fetched_at: 2026-11-16T16:52:10.794021+00:00
 ---
 
 # Get information about the calling user. - ComfyUI
@@ -255,8 +255,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -275,15 +273,11 @@ application/json
 
 OK
 
-​
-
 email
 
 string
 
 The email address for this user.
-
-​
 
 id
 
@@ -291,23 +285,17 @@ string
 
 The unique id for this user.
 
-​
-
 isAdmin
 
 boolean
 
 Indicates if the user has admin privileges.
 
-​
-
 isApproved
 
 boolean
 
 Indicates if the user is approved.
-
-​
 
 name
 

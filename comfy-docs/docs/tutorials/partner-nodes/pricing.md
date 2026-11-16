@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/pricing/
 title: Partner Node Pricing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T13:48:35.352218+00:00
+fetched_at: 2026-11-16T16:52:02.505998+00:00
 ---
 
 # Partner Node Pricing - ComfyUI
@@ -33,84 +33,55 @@ Subscription plans and what each plan includes.
 
 Comfy Router prices are different from Partner Node prices. See the Comfy Router pricing page for the full list.
 
-## 
+## Anthropic
 
-​
-
-Anthropic
-
-### 
-
-​
-
-Chat
+### Chat
 
 Model| Input credits / 1K| 5m Cache Write credits / 1K| 1h Cache Write credits / 1K| Cache Hit credits / 1K| Output credits / 1K  
 ---|---|---|---|---|---  
 Opus 5.5| 1.207| 1.509| 2.414| 0.121| 6.035  
 Opus 5, Opus 4.8| 1.509| 1.886| 3.017| 0.151| 7.543  
+Fable 5.2| 2.414| 3.017| 4.828| 0.241| 12.069  
 Fable 5.1, Fable 5| 3.017| 3.772| 6.035| 0.302| 15.087  
 Sonnet 5.5, Sonnet 5| 0.603| 0.754| 1.207| 0.060| 3.017  
   
 Optional images add tokens billed at the same model input rates.
 
-## 
+## Beeble
 
-​
-
-Beeble
-
-### 
-
-​
-
-Video: SwitchX Video Edit
+### Video: SwitchX Video Edit
 
 max_resolution| Credits  
 ---|---  
 720p| 30.17 / 30 frames  
 1080p| 90.52 / 30 frames  
   
-### 
-
-​
-
-Image: SwitchX Image Edit
+### Image: SwitchX Image Edit
 
 max_resolution| Credits  
 ---|---  
 720p| 30.17 / run  
 1080p| 90.52 / run  
   
-## 
+## BFL
 
-​
+### Image
 
-BFL
-
-### 
-
-​
-
-Image
-
-Node| Credits  
----|---  
-Flux 1.1 [pro] Ultra Image| 12.66 / run  
-Flux.1 Kontext [pro] Image| 8.44 / run  
-Flux.1 Kontext [max] Image| 16.88 / run  
-Flux.1 Expand Image| 10.55 / run  
-Flux.1 Fill Image| 10.55 / run  
-Flux Erase Image| 6.33 / run + 0.84 / extra MP  
-Flux Virtual Try-On| 7.91 / run + 1.06 / extra MP  
-FLUX.2 [pro]| 6.33 / run + 3.17 / extra MP  
-FLUX.2 [max]| 14.77 / run + 6.33 / extra MP  
+Node| Credits| Credits, with reference images  
+---|---|---  
+Flux 1.1 [pro] Ultra Image| 12.66 / run| —  
+Flux.1 Kontext [pro] Image| 8.44 / run| —  
+Flux.1 Kontext [max] Image| 16.88 / run| —  
+Flux.1 Expand Image| 10.55 / run| —  
+Flux.1 Fill Image| 10.55 / run| —  
+Flux Erase Image| 6.33 / run + 0.84 / extra MP| —  
+Flux Virtual Try-On| 7.91 / run + 1.06 / extra MP| —  
+FLUX.2 [pro]| 6.33 / run + 3.17 / extra MP| 9.50 – 31.65 / run + 3.17 / extra MP  
+FLUX.2 [max]| 14.77 / run + 6.33 / extra MP| 21.10 – 65.41 / run + 6.33 / extra MP  
   
-### 
+Connecting reference images moves **FLUX.2** to the third column. Text-only **FLUX.2 [pro]** is **6.33 credits** plus **3.17 credits** per extra output megapixel (`ceil(W × H / 1 MP) − 1`). **FLUX.2 [max]** is **14.77 credits** plus **6.33 credits** per extra output megapixel. With reference images, add **3.17 credits** on [pro] or **6.33 credits** on [max] per input megapixel, rounded up: sum `ceil(W × H / 1 MP)` across up to 8 references. The third column is the 1 MP output envelope for 1–8 megapixels of reference input (**9.50–31.65** / **21.10–65.41**), plus the same per-extra-output-megapixel charge as the text-only column. The **3.17** unit on [pro] is rounded; the published **9.50–31.65** envelope is the live badge endpoint for 1–8 MP of reference input.
 
-​
-
-Image: FLUX 3 Image
+### Image: FLUX 3 Image
 
 Total credits = **credits / image** at the selected `resolution`.
 
@@ -122,11 +93,7 @@ FLUX 3 Image| 1.5K| 21.12
 FLUX 3 Image| 2K| 30.17  
 FLUX 3 Image| 4K| 183.15  
   
-### 
-
-​
-
-Video: FLUX 3
+### Video: FLUX 3
 
 Total credits = **(credits / sec) ×`duration`** (`duration` is 5–20 seconds or `auto`).
 
@@ -145,26 +112,18 @@ Flux 3 Video Continuation| 1080p| 159.92
 Flux 3 Video Continuation| 1440p| 196.12  
 Flux 3 Video Continuation| 2160p| 286.64  
   
-### 
+### Video: FLUX 3 Max
 
-​
+Total credits = **(credits / sec) ×`duration`** (`duration` is 5–20 seconds). `reasoning_level` and `generate_audio` do not change the price. A launch rate of 12.82 credits per second at 720p and 21.88 at 1080p applied through November 7, 2026 (00:00 UTC). The rows below list the standard rates, which apply from that date.
 
-Video: FLUX 3 Max
-
-Total credits = **(credits / sec) ×`duration`** (`duration` is 5–20 seconds). `reasoning_level` and `generate_audio` do not change the price. Launch promo rates apply until **November 7, 2026 (00:00 UTC)** ; standard rates apply after that.
-
-Node| resolution| Promo credits / sec| Standard credits / sec  
----|---|---|---  
-FLUX 3 Max Text to Video| 720p| 12.82| 51.29  
-FLUX 3 Max Text to Video| 1080p| 21.88| 87.50  
-FLUX 3 Max Image to Video| 720p| 12.82| 51.29  
-FLUX 3 Max Image to Video| 1080p| 21.88| 87.50  
+Node| resolution| Credits / sec  
+---|---|---  
+FLUX 3 Max Text to Video| 720p| 51.29  
+FLUX 3 Max Text to Video| 1080p| 87.50  
+FLUX 3 Max Image to Video| 720p| 51.29  
+FLUX 3 Max Image to Video| 1080p| 87.50  
   
-### 
-
-​
-
-Video: Flux Video Edit
+### Video: Flux Video Edit
 
 Total credits = **(credits / sec) ×`duration`**. Source clips of 0.7 to 15 seconds are edited from a text instruction.
 
@@ -172,32 +131,20 @@ Node| Credits / sec
 ---|---  
 Flux Video Edit| 9.05  
   
-### 
-
-​
-
-Video: Flux Video Upscale
+### Video: Flux Video Upscale
 
 Rates are **per output megapixel per second**. Total credits = **credits / MP / sec × output megapixels ×`duration`**. `target_resolution` sets the output size: `1080p`, `2K` and `4K` fit the source into that size, and `by factor` scales the source by `upscale_factor` (1.5 to 3). Output is capped at about 14.4 MP per frame.
 
 Node| mode| Credits / MP / sec  
 ---|---|---  
-Flux Video Upscale| creative| 15.09  
-Flux Video Upscale| precise| 10.56  
+Flux Video Upscale| creative| 14.39  
+Flux Video Upscale| precise| 10.07  
   
-A 1080p output (2.07 MP) costs 31.24 credits per second in `creative` mode and 21.86 in `precise`. A 4K output (8.29 MP) costs 125.10 and 87.54.
+A 1080p output (2.07 MP) costs 29.83 credits per second in `creative` mode and 20.88 in `precise`. A 4K output (8.29 MP) costs 119.34 and 83.54.
 
-## 
+## Bria
 
-​
-
-Bria
-
-### 
-
-​
-
-Image
+### Image
 
 Node| Credits  
 ---|---  
@@ -220,11 +167,7 @@ Bria Guided Remove Background| 9.05 / run
 Bria Product Holding| 12.07 / run  
 Bria Virtual Try-On| 12.07 / run  
   
-### 
-
-​
-
-Video
+### Video
 
 Node| Credits  
 ---|---  
@@ -234,17 +177,21 @@ Bria Video Replace Background| 10.55 / sec
 Bria Remove Video Background (Transparent)| 10.55 / sec  
 Bria Video Eraser| 13.58 / sec  
   
-## 
+## Breeze
 
-​
+All Breeze voice nodes bill at **9.05 credits per 1K billable characters** , and CJK characters count as two. Text to Speech and Voice Design bill the text you enter. Voice Clone, Remix, and Localize use the same rate, but the character count is only known after the run: Remix and Localize bill the generated preview text, and Clone bills the vendor-reported billable units. The node badge shows an approximate envelope of **0.66–2.66** , **0.72–1.52** , and **0.76–2.29** credits for those three nodes.
 
-ByteDance
+Node| Credits  
+---|---  
+Breeze Text to Speech| 9.05 / 1K chars  
+Breeze Voice Design| 9.05 / 1K chars  
+Breeze Voice Clone| 9.05 / 1K chars  
+Breeze Voice Remix| 9.05 / 1K chars  
+Breeze Voice Localize| 9.05 / 1K chars  
+  
+## ByteDance
 
-### 
-
-​
-
-LLM: ByteDance Seed
+### LLM: ByteDance Seed
 
 Per million tokens. Rates below are for prompt length **[0, 128]K** ; longer prompts use higher tiers.
 
@@ -256,31 +203,25 @@ Seed 2.0 Mini (`seed-2-0-mini-260215`)| 21.1| 4.22| 84.4
   
 Optional images and videos add input tokens at the input rate.
 
-### 
-
-​
-
-Image: ByteDance Seedream
+### Image: ByteDance Seedream
 
 Per successfully generated image.
 
 model| Credits / image  
 ---|---  
+seedream 5.5 (`seedream-5-5-261028`)| 6.03 (1K) / 10.56 (2K)  
 seedream 5.0 pro (`seedream-5-0-pro-260628`)| 9.50 (1K) / 18.99 (2K)  
 seedream 5.0 flash (`seedream-5-0-flash-260915`)| 5.43  
 seedream 5.0 lite (`seedream-5-0-260128`)| 7.39  
 seedream-4-5-251128| 8.44  
 seedream-4-0-250828| 6.33  
+Seedream 5.5 Layer Separation| 6.03 (1K, 1.5K) / 10.56 (2K)  
 Seedream 5.0 Pro Layer Separation| 6.79 (1K, 1.5K) / 13.58 (2K)  
 Seedream 5.0 Flash Layer Separation| 5.43  
   
-Seedream 5.0 Pro uses resolution-based billing: **1K** (≤2.61 MP, **9.50 credits**) and **2K** (>2.61 MP, **18.99 credits**). Seedream 5.0 Flash bills a flat **5.43 credits** per image at every resolution. The first image in each request is free. Each additional image beyond the first (including both output and input/reference images) adds **0.63 credits**.
+Seedream 5.0 Pro uses resolution-based billing: **1K** (≤2.61 MP, **9.50 credits**) and **2K** (>2.61 MP, **18.99 credits**). Seedream 5.0 Flash bills a flat **5.43 credits** per image at every resolution. The first image in each request is free. Each additional image beyond the first (including both output and input/reference images) adds **0.63 credits**. **Seedream 5.5** bills **6.03 credits** up to about 2.6 MP and **10.56 credits** above that, and adds **2.41 credits** for each connected reference image. **Seedream 5.5 Layer Separation** bills **6.03 credits** at 1K/1.5K and **10.56 credits** at 2K, per images in the run.
 
-### 
-
-​
-
-Image: ByteDance Image (deprecated)
+### Image: ByteDance Image (deprecated)
 
 **Deprecated** : The **ByteDance Image** node (Seedream 3.0) has been retired and removed from ComfyUI. The pricing below is retained for reference only.
 
@@ -288,13 +229,9 @@ model| Credits / image
 ---|---  
 seedream-3-0-t2i-250415| 6.33  
   
-### 
+### Video: Seedance 2.5
 
-​
-
-Video: Seedance 2.5
-
-Token-based billing. Estimated token consumption = **(input video duration + output video duration) × output video width × output video height × output video frame rate ÷ 1024**. When input is text, image, or audio only, input video duration = 0. Actual usage from the API is authoritative.
+Token-based billing. The live ComfyUI price badge estimates tokens as **floor((output width × output height ÷ 1024) × (24 × billed duration + 1))** , then multiplies by the Credits / 1K tokens rate below (the `+ 1` is one extra frame). Billed duration is the output duration, plus the input video duration when a reference video is connected. When input is text, image, or audio only, input video duration = 0. Actual usage from the API is authoritative.
 
 Model| Resolution| Video input| Credits / 1K tokens  
 ---|---|---|---  
@@ -302,20 +239,30 @@ Seedance 2.5| 480p, 720p| no| 3.229
 Seedance 2.5| 480p, 720p| yes| 1.931  
 Seedance 2.5| 1080p| no| 3.530  
 Seedance 2.5| 1080p| yes| 2.112  
+Seedance 2.5| 4k| no| 1.418  
+Seedance 2.5| 4k| yes| 0.875  
+Seedance 2.5 Flash| 480p, 720p| no| 2.112  
+Seedance 2.5 Flash| 480p, 720p| yes| 1.297  
   
-**Video input** means a reference video is connected. Text, image, and audio references count as no video input. Minimum token consumption limits apply when the input includes video: if the estimated consumption is below the limit, billing uses the minimum. Reference videos must be at least 2 seconds long, and total input is limited to 30 seconds. Estimated charges for 16:9 output at 24 fps:
+**Video input** means a reference video is connected. Text, image, and audio references count as no video input. The live badge does not apply a separate minimum-token floor beyond the formula above. **Seedance 2.5 Flash** generates 480p and 720p only, up to 30 seconds, and bills the same rate at both. A 5 second 720p Flash clip with no video input costs about 230 credits. A 4k frame carries about four times the tokens of a 1080p frame at the same duration, so the per-1K-token rate is lower while the total charge is higher. Reference videos must be at least 2 seconds long, and total input is limited to 30 seconds. Estimated charges for 16:9 output at 24 fps, using the token formula above:
 
-Resolution| 5s output, no video input| 5s output + 2–30s video input  
+Resolution| 5s output, no video input| 5s output + 2s video input| 5s output + 30s video input  
+---|---|---|---  
+480p| 156.38| 130.64| 650.12  
+720p| 351.58| 293.72| 1461.63  
+1080p| 865.00| 722.82| 3596.98  
+4k| 1389.91| 1197.81| 5960.70  
+  
+A connected reference video uses the lower per-1K-token rate, so 5 seconds plus a 2-second reference can cost less than 5 seconds with no video input. The live badge cannot see the input video length, so for a 5-second run with video attached it ranges from the output duration only (at the with-video rate) up to output plus 30 seconds. A run with the **Seedance 2.5 Draft** model renders a 480p preview at the 480p token rates in the first table above and returns a `draft_task_id`. **ByteDance Seedance 2.5 Draft to Final Video** renders the 1080p or 4k final of that draft; the final reuses the draft’s prompt, references, duration and audio setting. The live node badge quotes a duration-independent credit range from the same formula (a 4-second 16:9 final with no reference video, up to a 30-second final plus 30 seconds of reference video). The high end is 21:9 at 1080p and 4:3 or 3:4 at 4k:
+
+Node| Resolution| Credits  
 ---|---|---  
-480p| 155.1| 166.9 – 649.3  
-720p| 348.8| 375.4 – 1459.8  
-1080p| 857.8| 923.9 – 3592.7  
+ByteDance Seedance 2.5 Draft to Final Video| 1080p| 693.43 – 6202.64  
+ByteDance Seedance 2.5 Draft to Final Video| 4k| 1114.23 – 10214.09  
   
-### 
+A 4 second 1080p final at 16:9 with no reference video costs 693.43 credits, and a 30 second 1080p final at 16:9 with 30 seconds of reference video costs 6163.19. Both totals include the badge’s extra frame. A different aspect ratio costs a little more — the 1080p high end of 6202.64 is the 21:9 case, and the 4k high end of 10214.09 is the 4:3 or 3:4 case. Actual API usage determines the final charge.
 
-​
-
-Video: Seedance 2.0
+### Video: Seedance 2.0
 
 480p and 720p share the same rate. Fast and Mini do not support 1080p or 4K. Estimated token consumption: `(Input video duration + Output video duration) × Output video width × Output video height × Output video frame rate ÷ 1024` When input is text, image, or audio only, input video duration = 0. Actual usage from the API is authoritative.
 
@@ -334,11 +281,7 @@ Seedance 2.0 Mini| 480p, 720p| yes| 0.634
   
 **Video input** means reference video is connected. Text, image, and audio references count as no video input. For video-to-video inputs, a minimum token usage may apply. Seedance 2.0 outputs at 24fps.
 
-### 
-
-​
-
-Video: Seedance 1.x
+### Video: Seedance 1.x
 
 Billed by tokens (same estimation formula as Seedance 2.0). Unlike Seedance 2.0, the **token rate does not change by resolution** ; resolution changes how many tokens a clip uses (via width × height in the formula), so higher resolutions cost more. **Token rate**
 
@@ -347,7 +290,7 @@ Model| Condition| Credits / 1M tokens
 seedance-1-0-pro-250528| —| 527.5  
 seedance-1-0-pro-fast-251015| —| 211  
   
-**Deprecated** : `seedance-1-5-pro-251215` retires on November 11, 2026, when BytePlus shuts the model down. ComfyUI removes it from the ByteDance 1.x nodes on the same date, and its pricing rows are removed from this page. Use `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015`, or a Seedance 2.x model instead.**Already retired** : `seedance-1-0-lite-t2v-250428` and `seedance-1-0-lite-i2v-250428`, and the **ByteDance Reference Images to Video** node, have been retired and removed from ComfyUI. Their pricing below is retained for reference only.
+**Retired** : BytePlus shut down `seedance-1-5-pro-251215` on November 11, 2026, so its pricing rows were removed from this page. Use `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015`, or a Seedance 2.x model instead.**Already retired** : `seedance-1-0-lite-t2v-250428` and `seedance-1-0-lite-i2v-250428`, and the **ByteDance Reference Images to Video** node, have been retired and removed from ComfyUI. Their pricing below is retained for reference only.
 
 **Approximate credits / 10 sec** (scale with `duration ÷ 10`. Ranges reflect aspect ratio.)
 
@@ -372,11 +315,7 @@ seedance-1-0-pro-250528| 720p| 107.61 – 118.16
 seedance-1-0-lite-i2v-250428| 480p| 35.87 – 37.98  
 seedance-1-0-lite-i2v-250428| 720p| 78.07 – 86.51  
   
-### 
-
-​
-
-Video: ByteDance vCube Video Enhance
+### Video: ByteDance vCube Video Enhance
 
 Billed per second of enhanced output. The rates below are per second at 30 fps or below. Rates from 31 to 60 fps double the rate, and rates above 60 fps quadruple it. With **source** resolution or frame rate selected, the rate scales with the source video (approximately 1× to 4×).
 
@@ -393,11 +332,7 @@ professional| 2K| ~41.56
 professional| 4K| ~83.12  
 professional| 8K| ~332.47  
   
-### 
-
-​
-
-Audio: ByteDance Seed Audio 1.0
+### Audio: ByteDance Seed Audio 1.0
 
 Per minute of generated audio. Total credits = **credits / min × duration (minutes)**.
 
@@ -405,17 +340,9 @@ Node| Credits
 ---|---  
 ByteDanceSeedAudio| ~45.26 / min  
   
-## 
+## Clarity AI
 
-​
-
-Clarity AI
-
-### 
-
-​
-
-Image
+### Image
 
 Per megapixel of output. Total credits = **(credits / MP) × output megapixels**.
 
@@ -423,11 +350,7 @@ model| Node| Credits / MP
 ---|---|---  
 Crystal Upscaler| Clarity AI Crystal Upscale| 4.83  
   
-### 
-
-​
-
-Video: Crystal Video Upscale
+### Video: Crystal Video Upscale
 
 Per megapixel of output per second. Total credits = **(credits / MP / sec) × output megapixels × duration (seconds) × frame-rate factor**. The factor steps every 30 fps: 1x up to 30 fps, 2x up to 60 fps, 3x up to 90 fps, and one more step for each further 30 fps. Output is capped at 9 MP.
 
@@ -437,11 +360,7 @@ Clarity AI Crystal Video Upscale| 30.17
   
 At up to 30 fps, a 1080p output costs about 62.56 credits per second and the 9 MP ceiling about 271.56.
 
-## 
-
-​
-
-ElevenLabs
+## ElevenLabs
 
 Node| Model| Credits  
 ---|---|---  
@@ -457,13 +376,9 @@ ElevenLabs Text to Sound Effects| —| 29.54 / min
 ElevenLabs Voice Isolation| —| 50.64 / min  
 ElevenLabs Instant Voice Clone| —| 31.65 / run  
   
-## 
+## FishAudio
 
-​
-
-FishAudio
-
-**Limited-time offer** : from October 13 to November 12, 2026, Drama 3 is billed at about **3.02** credits per 1K bytes. The `drama-3` row in the table lists the standard price, which applies again from November 13, 2026.
+A launch rate of about **3.02** credits per 1K bytes for Drama 3 applied from October 13 to November 12, 2026. The `drama-3` row in the table lists the standard price, which applies from November 13, 2026.
 
 Node| Model| Credits  
 ---|---|---  
@@ -472,17 +387,9 @@ Fish Audio Text to Speech| drama-3| ~7.54 / 1K bytes
 Fish Audio Speech to Text| —| ~1.81 / minute  
 Fish Audio Instant Voice Clone| —| Free  
   
-## 
+## Magnific
 
-​
-
-Magnific
-
-### 
-
-​
-
-Image: Upscale
+### Image: Upscale
 
 **Magnific Image Upscale (Creative)** and **Magnific Image Upscale (Precise V2)** share the same billing. Upscaling runs in 2x steps (`2x` = 1 step, `4x` = 2, `8x` = 3, `16x` = 4). After each step, pixel count ×4; each step is priced by the input megapixels at that step.
 
@@ -495,11 +402,7 @@ Input MP at step| Credits / 2x step
   
 **Total credits** = sum of all steps for your `scale_factor`. Example: **4x** on a 1 MP image → step 1 at 1 MP (35.91) + step 2 at 4 MP (107.73) = **143.64 credits**.
 
-### 
-
-​
-
-Image: Edit
+### Image: Edit
 
 Node| Credits  
 ---|---  
@@ -509,22 +412,17 @@ Magnific Image Skin Enhancer (creative)| 61.19 / run
 Magnific Image Skin Enhancer (faithful)| 78.07 / run  
 Magnific Image Skin Enhancer (flexible)| 94.95 / run  
   
-## 
+## Google
 
-​
-
-Google
-
-### 
-
-​
-
-Chat: Google Gemini
+### Chat: Google Gemini
 
 Token-based billing; thought tokens use the output text rate.
 
 Model| Input credits / 1K| Output credits / 1K  
 ---|---|---  
+Gemini 4 Hydrogen (`gemini-4-hydrogen`)| 0.4526| 2.263  
+Gemini 4 Argon (`gemini-4-argon`)| 1.20692| 6.0346  
+Gemini 4 Carbon (`gemini-4-carbon`)| 1.20692| 6.0346  
 Gemini 3.8 Flash (`gemini-3.8-flash`)| 0.4526| 2.263  
 Gemini 3.7 Flash (`gemini-3.7-flash`)| 0.4526| 2.263  
 Gemini 3.5 Flash (`gemini-3.5-flash`)| 0.3165| 1.899  
@@ -533,11 +431,7 @@ Gemini 3.1 Flash-Lite (`gemini-3.1-flash-lite-preview`)| 0.05275| 0.3165
 Gemini 2.5 Pro (`gemini-2.5-pro`)| 0.26375| 2.11  
 Gemini 2.5 Flash (`gemini-2.5-flash`)| 0.0633| 0.5275  
   
-### 
-
-​
-
-Image: Nano Banana
+### Image: Nano Banana
 
 Token-based billing.
 
@@ -549,11 +443,7 @@ Nano Banana 2 (`gemini-3.1-flash-image`)| 0.1266| 0.7596| 15.19
 Nano Banana 2 Lite (`gemini-3.1-flash-lite-image`)| 0.0633| 0.3798| 7.60  
 [Nano Banana 2.1](https://docs.comfy.org/development/comfy-router/models/google/gemini-nano-banana-2-1/code) (`gemini-nano-banana-2.1`)| 0.4526| 2.263| 9.05  
   
-### 
-
-​
-
-Video: Google Gemini Omni
+### Video: Google Gemini Omni
 
 Billed per second of generated video. Rates are approximate.
 
@@ -564,12 +454,12 @@ Gemini Omni Flash 1.1 (`gemini-omni-1.1-flash`)| 360p| 10.19
 | 720p| 30.57  
 | 1080p| 45.87  
 | 4k| 91.76  
+Gemini Omni Flash 1.2 (`gemini-omni-1.2-flash`)| 360p| 6.98  
+| 720p| 20.97  
+| 1080p| 31.46  
+| 4k| 62.92  
   
-### 
-
-​
-
-Video: Google Veo
+### Video: Google Veo
 
 Total credits = **(credits / sec) × duration**.
 
@@ -590,11 +480,7 @@ veo-3.1-generate| 720p, 1080p| true| 84.4
 veo-3.1-generate| 4k| false| 84.4  
 veo-3.1-generate| 4k| true| 126.6  
   
-## 
-
-​
-
-HappyHorse
+## HappyHorse
 
 Total credits = **(credits / sec) ×`duration`**.
 
@@ -607,11 +493,7 @@ HappyHorse 1.1| 1080P| 54.31
   
 **HappyHorse Video Edit** supports **HappyHorse 1.0** only. Billed at the same rates; total credits = **(credits / sec) × output duration** (3–15 sec, matches the input video).
 
-## 
-
-​
-
-HeyGen
+## HeyGen
 
 Prices are set per-second, per-run, or per-1K characters.
 
@@ -631,25 +513,27 @@ HeyGen Video Translate| speed mode, audio only| 2.87 / sec
 HeyGen Video Translate| speed mode| 4.07 / sec  
 HeyGen Text to Speech| N/A| ~0.20 / sec  
 HeyGen Video 1.0 Reference to Video| 480p, no references| 3.02 / sec  
-HeyGen Video 1.0 Reference to Video| 768p, no references| 4.53 / sec  
-HeyGen Video 1.0 Reference to Video| 2K, no references| 13.58 / sec  
-HeyGen Video 1.0 Reference to Video| 480p, with reference media| 6.03 / sec  
-HeyGen Video 1.0 Reference to Video| 768p, with reference media| 9.05 / sec  
-HeyGen Video 1.0 Reference to Video| 2K, with reference media| 27.16 / sec  
+HeyGen Video 1.0 Reference to Video| 768p, no references| 5.43 / sec  
+HeyGen Video 1.0 Reference to Video| 1080p, no references| 12.07 / sec  
+HeyGen Video 1.0 Reference to Video| 2K, no references| 15.09 / sec  
+HeyGen Video 1.0 Reference to Video| 480p, with reference media| 10.56 / sec  
+HeyGen Video 1.0 Reference to Video| 768p, with reference media| 15.09 / sec  
+HeyGen Video 1.0 Reference to Video| 1080p or 2K, with reference media| 27.16 / sec  
+HeyGen Video 1.0 Reference to Video| extra image after the first 2| 6.03 / image  
 HeyGen Video 1.0 Image to Video| 480p| 3.02 / sec  
-HeyGen Video 1.0 Image to Video| 768p| 4.53 / sec  
-HeyGen Video 1.0 Image to Video| 2K| 13.58 / sec  
+HeyGen Video 1.0 Image to Video| 768p| 5.43 / sec  
+HeyGen Video 1.0 Image to Video| 1080p| 12.07 / sec  
+HeyGen Video 1.0 Image to Video| 2K| 15.09 / sec  
+HeyGen Video 1.0 Image to Video| over 15 seconds, 480p| 13.58 / sec  
+HeyGen Video 1.0 Image to Video| over 15 seconds, 768p| 22.63 / sec  
+HeyGen Video 1.0 Image to Video| over 15 seconds, 1080p or 2K| 31.68 / sec  
 HeyGen Voice 1.0 Instant Clone| N/A| Free  
 HeyGen Voice 1.0 Text to Speech| `heygen-voice-1`| 9.05 / 1K chars  
 HeyGen Voice 1.0 Text to Speech| `heygen-voice-1-turbo`| 2.26 / 1K chars  
   
-**Text to speech pricing** : a launch rate of about **4.53** credits per 1K characters for `heygen-voice-1` and **1.21** for `heygen-voice-1-turbo` applied through October 31, 2026. The rows above list the standard rates, which apply from November 1, 2026. Avatar video bills per second at the rate of the selected avatar look’s type (Digital Twin, Photo Avatar, or Studio Avatar). **Auto** picks the engine per look, so its rate spans the full range above; a custom avatar ID is billed by its own type. HeyGen Video 1.0 clips run from 5 to 15 seconds and bill at the rate of the selected resolution. Reference to Video uses the no-reference rate until a reference image or video is connected, and each reference video adds 5 seconds to the billed duration. **2K** output requires the `16:9` or `9:16` aspect ratio; `auto` works at 2K only when no reference media is connected.
+**Text to speech pricing** : a launch rate of about **4.53** credits per 1K characters for `heygen-voice-1` and **1.21** for `heygen-voice-1-turbo` applied through November 1, 2026 (00:00 UTC). The rows above list the standard rates, which apply from that time. Avatar video bills per second at the rate of the selected avatar look’s type (Digital Twin, Photo Avatar, or Studio Avatar). **Auto** picks the engine per look, so its rate spans the full range above; a custom avatar ID is billed by its own type. **Limited-time offer** : a 50% promotional rate applies through December 1, 2026 (00:00 UTC). The Video 1.0 rows above show these current promotional rates, except the long-clip rates, which are already at the standard price. From December 1, 2026 (00:00 UTC), the standard rates apply: no-reference and Image to Video (≤15 seconds) **6.03 / 10.86 / 24.14 / 30.17** credits per second; with reference media, **21.12 / 30.17 / 54.31** credits per second; each extra image after the first two, **12.07 credits**. Long-clip rates stay as listed. HeyGen Video 1.0 clips run from 5 to 30 seconds and bill per second. Clips longer than 15 seconds use the long-clip rows for both nodes when no reference media is connected. Durations over 15 seconds are not available when references are connected. Connecting any image or video moves **Reference to Video** to the with-reference rate, even if the first two images have no per-image fee. The first two images are free; each image beyond the first two adds **6.03 credits** (that add-on becomes **12.07 credits** on December 1, 2026, 00:00 UTC). Up to 15 seconds of reference footage is billed at the with-reference per-second rate. `auto_duration` replaces `duration` with the length of the quoted dialogue: 8 to 30 seconds, or 8 to 15 seconds plus reference footage. **1080p** and **2K** output require the `16:9` or `9:16` aspect ratio; `auto` works at those resolutions only without reference media.
 
-## 
-
-​
-
-Higgsfield
+## Higgsfield
 
 Total credits = **(credits / sec) × video duration**. The source video must be at least 4 seconds; only the first 30 seconds are used.
 
@@ -659,17 +543,9 @@ Higgsfield Genjutsu Motion Transfer| genjutsu-v1.0| 480p| 95.95
 Higgsfield Genjutsu Motion Transfer| genjutsu-v1.0| 720p| 205.48  
 Higgsfield Genjutsu Motion Transfer| genjutsu-v1.0| 1080p| 492.42  
   
-## 
+## Hitpaw
 
-​
-
-Hitpaw
-
-### 
-
-​
-
-Video: HitPaw Video Enhance
+### Video: HitPaw Video Enhance
 
 Total credits = **(credits / sec) × video duration**. Rates depend on input FPS. **Portrait Restore / General Restore** (Portrait Restore 1x/2x, General Restore 1x/2x/4x):
 
@@ -742,11 +618,7 @@ Resolution| FPS| Credits / sec
 4K| 60–120fps| 47.48  
 4K| ≥120fps| 71.32  
   
-### 
-
-​
-
-Image: HitPaw General Image Enhance
+### Image: HitPaw General Image Enhance
 
 **Generative Portrait** :
 
@@ -766,21 +638,15 @@ Megapixels| Credits / run
 12–24MP| 16.88  
 24–34MP| 31.65  
   
-## 
+## Ideogram
 
-​
+**Deprecated** : ComfyUI removed the **Ideogram V1** and **Ideogram V2** nodes, so this page no longer lists their pricing. Use **Ideogram V4** instead.
 
-Ideogram
-
-Node| turbo| Character reference| rendering_speed| Credits / image  
----|---|---|---|---  
-Ideogram V1| false| —| —| 18.1  
-Ideogram V1| true| —| —| 6.03  
-Ideogram V2| false| —| —| 24.14  
-Ideogram V2| true| —| —| 15.09  
-Ideogram V4| —| —| TURBO| 9.05  
-Ideogram V4| —| —| DEFAULT| 18.1  
-Ideogram V4| —| —| QUALITY| 30.17  
+Node| rendering_speed| Credits / image  
+---|---|---  
+Ideogram V4| TURBO| 9.05  
+Ideogram V4| DEFAULT| 18.1  
+Ideogram V4| QUALITY| 30.17  
   
 Node| quality| resolution| Credits / image  
 ---|---|---|---  
@@ -813,11 +679,7 @@ Ideogram Vector Generate SVG| high| No| 60.35
 Ideogram Vector Generate SVG| high| Yes| 96.55  
 Ideogram Vector Image to SVG| —| —| 30.17  
   
-## 
-
-​
-
-Krea
+## Krea
 
 Model| Style reference| Moodboard| Credits / run  
 ---|---|---|---  
@@ -831,11 +693,7 @@ Krea 2 Large| No| No| 12.66
 Krea 2 Large| Yes| No| 13.72  
 Krea 2 Large| —| Yes| 14.77  
   
-### 
-
-​
-
-Image: Krea 3
+### Image: Krea 3
 
 Total credits = **credits / image** at the selected `resolution` and `thinking_mode`, plus a per-reference-image surcharge when images are connected.
 
@@ -847,27 +705,41 @@ Krea 3| 2K| fast| 18.10| 6.03 - 21.12
 Krea 3| 2K| high| 24.14| 6.03 - 21.12  
 Krea 3| 2K| ultra| 78.45| 6.03 - 21.12  
   
-At 2K, each reference image adds **6.03 to 21.12 credits** , depending on the reference image’s pixel size; at 1K reference images are downscaled to about 1 MP, so the surcharge is a flat **6.03 credits**. `ultra` always outputs 2K regardless of `resolution` and requires at least one reference image.
+At 2K, each reference image adds **6.03–21.12 credits** (`6.03` at the low end, `21.12` at the high end; the node scales between these two bounds by the reference image’s pixel size). At 1K, reference images are downscaled to about 1 MP, so the surcharge is a flat **6.03 credits**. `ultra` always outputs 2K regardless of `resolution` and requires at least one reference image.
 
-## 
+## Kling
 
-​
+### Video: Credits / sec
 
-Kling
+Total credits = **(credits / sec) ×`duration`**, except **Kling 3.0 Omni Edit Video** , **Kling 4.0 Edit Video** and **Kling Motion Control** (billed per second of output; duration follows input video on Edit).
 
-### 
+#### kling-4.0
 
-​
+`kling-4.0` generates 3 to 30 seconds at 720p or 1080p. `kling-4.0-flash` generates 3 to 20 seconds at 720p.
 
-Video: Credits / sec
+Node| model| resolution| Credits / sec| Credits / sec, reference videos  
+---|---|---|---|---  
+Kling 4.0 Text to Video| kling-4.0| 720p| 47.37| —  
+Kling 4.0 Text to Video| kling-4.0| 1080p| 70.91| —  
+Kling 4.0 Image to Video| kling-4.0| 720p| 47.37| —  
+Kling 4.0 Image to Video| kling-4.0| 1080p| 70.91| —  
+Kling 4.0 Reference to Video| kling-4.0| 720p| 47.37| 28.36  
+Kling 4.0 Reference to Video| kling-4.0| 1080p| 70.91| 42.54  
+Kling 4.0 Text to Video| kling-4.0-flash| 720p| 28.36| —  
+Kling 4.0 Image to Video| kling-4.0-flash| 720p| 28.36| —  
+Kling 4.0 Reference to Video| kling-4.0-flash| 720p| 28.36| 19.01  
+  
+On **Kling 4.0 Reference to Video** , connected reference videos switch the whole run to the lower rate: every second of output and every second of reference bills at that rate. Each clip is 3 to 30 seconds (3 to 20 on `kling-4.0-flash`) and all clips together stay within the same limit. A 5 second 720p run with 30 seconds of reference video costs 992.7 credits. **Kling 4.0 Edit Video** always bills at the lower (reference-video) rate: **credits = rate × (input video seconds + reference video seconds)**. The output is the same length as the input, so with no reference videos this is **2 × rate** per second of input. With reference videos, the actual charge follows that same formula; the live badge shows **1× to 2× rate** per second of input because it cannot see the video lengths. Reference images add no per-image fee.
 
-Total credits = **(credits / sec) ×`duration`**, except **Kling 3.0 Omni Edit Video** and **Kling Motion Control** (billed per second of output; duration follows input video on Edit).
+model| resolution| Rate (credits / sec)| No reference videos| With reference videos  
+---|---|---|---|---  
+kling-4.0| 720p| 28.36| 56.73 / sec of input (2 × rate)| 28.36 × (input + ref seconds)  
+kling-4.0| 1080p| 42.54| 85.09 / sec of input (2 × rate)| 42.54 × (input + ref seconds)  
+kling-4.0-flash| 720p| 19.01| 38.02 / sec of input (2 × rate)| 19.01 × (input + ref seconds)  
+  
+A 10 second 1080p edit without reference videos costs 850.9 credits.
 
-#### 
-
-​
-
-kling-video-o1
+#### kling-video-o1
 
 task| resolution| Credits / sec  
 ---|---|---  
@@ -876,11 +748,7 @@ generation| 1080p| 23.63
 video to video, edit| 720p| 26.59  
 video to video, edit| 1080p| 35.45  
   
-#### 
-
-​
-
-kling-v3-omni
+#### kling-v3-omni
 
 task| resolution| generate_audio| Credits / sec  
 ---|---|---|---  
@@ -892,11 +760,7 @@ generation| 4k| false, true| 88.62
 video to video, edit| 720p| —| 26.59  
 video to video, edit| 1080p| —| 35.45  
   
-#### 
-
-​
-
-kling-3.0-turbo
+#### kling-3.0-turbo
 
 Always generates audio; the audio toggle is ignored.
 
@@ -905,11 +769,7 @@ resolution| Credits / sec
 720p| 23.63  
 1080p| 29.54  
   
-#### 
-
-​
-
-kling-v3
+#### kling-v3
 
 task| resolution| generate_audio| Credits / sec  
 ---|---|---|---  
@@ -924,11 +784,7 @@ task| mode| Credits / sec
 motion control| std| 26.59  
 motion control| pro| 35.45  
   
-#### 
-
-​
-
-kling-v2-6
+#### kling-v2-6
 
 task| generate_audio| mode| Credits / sec  
 ---|---|---|---  
@@ -937,13 +793,7 @@ generation| true| —| 29.54
 motion control| —| std| 14.77  
 motion control| —| pro| 23.63  
   
-**End of life (EOL)** : Kling V1.5, V1.6, V2.1, V2.1 Master, and Kolors Virtual Try-On are scheduled for retirement on **September 15, 2026**. The pricing below is retained for reference until removal.
-
-#### 
-
-​
-
-kling-v2-5-turbo
+#### kling-v2-5-turbo
 
 **Kling Text to Video** , **Kling Image (First Frame) to Video** , and **Kling Start-End Frame to Video** use `kling-v2-5-turbo` in **pro** mode only, billed per run at a fixed 5s or 10s duration.
 
@@ -953,22 +803,14 @@ Kling Text to Video| pro| 73.85 (5s), 147.7 (10s)
 Kling Image (First Frame) to Video| pro| 73.85 (5s), 147.7 (10s)  
 Kling Start-End Frame to Video| pro| 73.85 (5s), 147.7 (10s)  
   
-#### 
-
-​
-
-Kling Avatar 2.0
+#### Kling Avatar 2.0
 
 mode| Credits / sec  
 ---|---  
 std| 11.82  
 pro| 23.63  
   
-### 
-
-​
-
-Video: Credits / run
+### Video: Credits / run
 
 Model| task| Credits / run  
 ---|---|---  
@@ -976,11 +818,7 @@ Model| task| Credits / run
   
 **Deprecated** : The **Kling Video Extend** node has been retired and removed from ComfyUI.
 
-### 
-
-​
-
-Image
+### Image
 
 Model| resolution| Image input| Credits  
 ---|---|---|---  
@@ -992,11 +830,7 @@ kling-v3| —| No| 5.91 / image
   
 Total image credits = **(credits / image) ×`n`** on **Kling 3.0 Image** ; multiply by `series_amount` on **Kling 3.0 Omni Image** (`kling-image-o1` always ×1).
 
-### 
-
-​
-
-Image: Virtual Try-On
+### Image: Virtual Try-On
 
 Per run.
 
@@ -1004,17 +838,11 @@ Node| Credits / run
 ---|---  
 Kling Virtual Try-On| 33.79  
   
-## 
+**Retired** : Kling retired V1.5, V1.6, V2.1, V2.1 Master, and the earlier Kolors Virtual Try-On service on **September 15, 2026**. The Kling nodes no longer offer those models, so their pricing rows were removed from this page. The **Kling Virtual Try-On** row above is a different, current node billed per run.
 
-​
+## Lightricks
 
-Lightricks
-
-### 
-
-​
-
-Video: Credits / sec
+### Video: Credits / sec
 
 Total credits = **(credits / sec) ×`duration`**.
 
@@ -1039,21 +867,33 @@ LTX-2 (Fast)| 4K| 33.76 / sec
   
 Resolution maps to `1280x720` / `720x1280` (720p), `1920x1080` / `1080x1920` (1080p), `2560x1440` / `1440x2560` (1440p), and `3840x2160` / `2160x3840` (4K). Durations over 10s on **LTX-2.5 (Fast)** require a 720p or 1080p resolution and 24/25 FPS; on **LTX-2 (Fast)** they require 1080p and 25 FPS.
 
-## 
+### Post-processing: Credits / sec
 
-​
+These nodes process the input video and bill per second of it.
 
-Luma
+Node| resolution| Credits / sec  
+---|---|---  
+LTX Video AlphaGen| 1080p (short side ≤1080; below 1080 uses this tier)| 30.17  
+LTX Video AlphaGen| 1440p (short side ≤1440)| 75.43  
+LTX Video AlphaGen| 2160p (short side ≤2160)| 301.73  
+LTX Video SDR to HDR| 1080p (≤ 1920×1080)| 120.69  
+LTX Video SDR to HDR| 1440p (≤ 2560×1440)| 241.39  
+LTX Video SDR to HDR| 4K (≤ 3840×2160)| 482.77  
+LTX Video Reframe| 720p| 30.17  
+LTX Video Reframe| 1080p| 60.35  
+LTX Video Upscale| 1080p| 24.14  
+LTX Video Upscale| 4k| 90.52  
+LTX Video Upscale| 8k| 362.08  
+  
+**AlphaGen** is billed per second of input video, by the input’s short side (the smaller of width and height). Inputs with a short side below 1080 pixels use the 1080p rate. **SDR to HDR** is billed per second of input video; the input snaps to the smallest resolution tier that can contain its pixel count. The live ComfyUI badge cannot see the input resolution, so it shows only the envelope (**30.17–301.73** credits/sec for AlphaGen, **120.69–482.77** for SDR to HDR). The actual charge uses the three-tier rates in the table. **AlphaGen** takes up to 10 seconds of video, **Reframe** up to 60 seconds, and **SDR to HDR** and **Upscale** cap the frame count by resolution (273 frames at 1080p for SDR to HDR, 2,401 for Upscale).
 
-### 
+## Luma
 
-​
+### Video
 
-Video
+**Retired** : the legacy Luma Text to Video, Image to Video and image generation nodes are removed, along with the ray-2, ray-flash-2, ray-1-6, photon-1 and photon-flash-1 models. The tables below list only the nodes ComfyUI still ships.
 
-**Deprecated** : The legacy **Luma Text to Video** and **Luma Image to Video** nodes are deprecated, and Luma removed the endpoints they use on October 24, 2026, so these two nodes can no longer generate videos. Use the **Luma Ray 3.2** nodes instead. The ray-2, ray-flash-2, and ray-1-6 rows below are retained for reference only; **ray-1-6** stopped being served in September 2026.
-
-Flat **/run** prices match the node badge for each `duration` choice. **Edit** and **reframe** bill **(credits / sec) × video length**. **ray-1-6** is always **105.50 / run**.
+Flat **/run** prices match the node badge for each `duration` choice. **Edit** and **reframe** bill **(credits / sec) × video length**.
 
 Model| task| resolution| Credits  
 ---|---|---|---  
@@ -1069,40 +909,19 @@ ray-3.2| reframe| 360p| 6.33 / sec
 ray-3.2| reframe| 540p| 12.66 / sec  
 ray-3.2| reframe| 720p| 25.32 / sec  
 ray-3.2| reframe| 1080p| 75.96 / sec  
-ray-2| generation| 540p| 120.27 / run (5s), 217.33 / run (9s)  
-ray-2| generation| 720p| 215.22 / run (5s), 386.13 / run (9s)  
-ray-2| generation| 1080p| 478.97 / run (5s), 865.10 / run (9s)  
-ray-2| generation| 4K| 1922.21 / run (5s), 3460.40 / run (9s)  
-ray-flash-2| generation| 540p| 42.20 / run (5s), 75.96 / run (9s)  
-ray-flash-2| generation| 720p| 71.74 / run (5s), 128.71 / run (9s)  
-ray-flash-2| generation| 1080p| 166.69 / run (5s), 299.62 / run (9s)  
-ray-flash-2| generation| 4K| 660.43 / run (5s), 1192.15 / run (9s)  
-ray-1-6| generation| —| 105.50 / run  
   
-**Luma Ray 3.2** Image to Video and Extend Video always bill the **5s** price. Legacy Image to Video uses **5s** or **9s** from **ray-2** / **ray-flash-2** rows.
+**Luma Ray 3.2** Image to Video and Extend Video always bill the **5s** price.
 
-### 
-
-​
-
-Image
+### Image
 
 Model| task| Credits  
 ---|---|---  
-photon-flash-1| —| 0.57 / run  
-photon-1| —| 2.19 / run  
 uni-1| generation| 8.52 / run + 0.63 / ref image (≤ 9)  
 uni-1| edit| 9.16 / run + 0.63 / ref image (≤ 8)  
 uni-1-max| generation| 21.10 / run + 0.63 / ref image (≤ 9)  
 uni-1-max| edit| 21.73 / run + 0.63 / ref image (≤ 8)  
   
-Reference-image surcharge uses USD rounded to 4 decimals before converting to credits.
-
-## 
-
-​
-
-Meshy
+## Meshy
 
 Node| Options| Credits  
 ---|---|---  
@@ -1128,22 +947,14 @@ Meshy: Image to Model (Smart Topology)| Texture (8K)| 241.4 / run
   
 Ultra Mode (available on Meshy 7.1, Meshy 7, and `latest` models) adds 60.3 credits: Text to Model 301.7 / run, Image to Model 422.4 / run (2K, 4K texture) or 482.7 / run (8K texture), Multi-Image to Model 422.4 / run (2K, 4K texture) or 482.7 / run (8K texture). The ultra pass resolution (`2k`, or `4k` on Meshy 7.1 and `latest`) does not change the price. **Meshy: Text to Model** creates a draft mesh; run **Meshy: Refine Draft Model** on the returned `meshy_task_id` to texture it. **Meshy: Image to Model** and **Meshy: Multi-Image to Model** can texture in one step when `should_texture` is enabled.
 
-## 
-
-​
-
-Meta
+## Meta
 
 Node| Credits  
 ---|---  
 Meta Muse Image Text to Image| 3.017 / image  
 Meta Muse Image Edit| 3.017 / image  
   
-## 
-
-​
-
-Mirelo
+## Mirelo
 
 Node| Credits / sec  
 ---|---  
@@ -1152,11 +963,7 @@ Mirelo Text to SFX| 2.796
   
 Total credits = **(credits / sec) × seconds billed**. **Mirelo Video to SFX** bills the length of the input video (1 to 600 seconds). **Mirelo Text to SFX** bills the `duration` value (0.1 to 600 seconds).
 
-## 
-
-​
-
-Minimax
+## Minimax
 
 Node| model| resolution| Credits  
 ---|---|---|---  
@@ -1170,7 +977,7 @@ MiniMax H3 First-Last-Frame to Video| MiniMax H3| 768P| 27.16 / sec
 MiniMax H3 First-Last-Frame to Video| MiniMax H3| 2K| 39.22 / sec  
 MiniMax H3 Reference to Video| MiniMax H3| 768P| 27.16 / sec, plus 12.07 / image over 5  
 MiniMax H3 Reference to Video| MiniMax H3| 2K| 39.22 / sec, plus 12.07 / image over 5  
-MiniMax H3 Context IR| MiniMax H3| —| 4.22 / run (text only), 10.55 / run (with first/last frame), 12.66–23.21 / run (with reference media)  
+MiniMax H3 Context IR| MiniMax H3| —| 271.56 / 1M input tokens + 1,086.23 / 1M output tokens  
 MiniMax H3 Regenerate to 2K| MiniMax H3| —| 15.09 / sec  
 MiniMax H3 Text to Video| MiniMax H3 Max| 480P| 15.09 / sec  
 MiniMax H3 Text to Video| MiniMax H3 Max| 768P| 24.14 / sec  
@@ -1201,7 +1008,7 @@ MiniMax H3 Max Camera Control| MiniMax H3 Max| 480P| 15.09 / sec
 MiniMax H3 Max Camera Control| MiniMax H3 Max| 768P| 24.14 / sec  
 MiniMax H3 Max Camera Control| MiniMax H3 Max| 1080P| 48.28 / sec  
   
-**MiniMax Hailuo 02 Video** only supports **6s** at 1080P. **MiniMax H3** bills per second (4–15s duration). **MiniMax H3 Reference to Video** adds 12.07 credits per reference image beyond 5, and bills reference videos at 27.16 credits/sec (768P) or 39.22 credits/sec (2K) (2s per video, up to 15s total, approximate). **MiniMax H3 Context IR** prices depend on attached media: text only, first/last frame, or reference media (approximate). **MiniMax H3 Max** bills per second at the rates above. **Text to Video** , **First-Last-Frame to Video** , and **Reference to Video** use **5–15s** output duration. **Lip Sync** accepts audio from 5 to ~899 seconds; when output exceeds 15 seconds, the **1.2×** multiplier below applies. **MiniMax H3 Max Reference to Video** billing has two parts: the output video is billed per second at the rates above, and reference inputs are billed as tokens. Tokens from every image, video, and audio clip in the request are pooled and share one free allowance:
+**MiniMax Hailuo 02 Video** only supports **6s** at 1080P. **MiniMax H3** bills per second (4–15s duration). **MiniMax H3 Reference to Video** adds 12.07 credits per reference image beyond 5, and bills reference videos at 27.16 credits/sec (768P) or 39.22 credits/sec (2K) (2s per video, up to 15s total, approximate). **MiniMax H3 Context IR** is billed at **271.56 credits per 1M input tokens** and **1,086.23 credits per 1M output tokens**. The node badge cannot see the token count at graph time, so it shows an approximate envelope of about **4.22** (text only), **10.55** (with first/last frame), or **12.66–23.21** (with reference media). **MiniMax H3 Max** bills per second at the rates above. **Text to Video** , **First-Last-Frame to Video** , and **Reference to Video** use **5–15s** output duration. **Lip Sync** accepts audio from 5 to ~899 seconds; when output exceeds 15 seconds, the **1.2×** multiplier below applies. **MiniMax H3 Max Reference to Video** billing has two parts: the output video is billed per second at the rates above, and reference inputs are billed as tokens. Tokens from every image, video, and audio clip in the request are pooled and share one free allowance:
 
 > Reference charge (credits) = max(0, total reference tokens - 4,096) × 6.03 / 1,000
 
@@ -1222,19 +1029,24 @@ A reference video is tokenized at the **output** resolution, not at the source c
 
 **MiniMax H3 Max Recast** , **Extend Video** , **Reframe Video** , **Insert Video** , **Lip Sync** and **Camera Control** bill per second of video. Extend Video also runs on the Turbo model at half the Max rate. **Reframe Video** is billed at the table rate per second. Longer sources use overlapping windows, so billed seconds can exceed the final output duration. **Lip Sync** is billed at the table rate per second. When the output is **over 15 seconds** , a **1.2×** multiplier applies (for example, 768P → 28.97 / sec). Insert Video adds reference tokens beyond the free 4,096-token allowance at 6.03 credits per 1K tokens, the same allowance as Reference to Video: 240 base tokens, 2,048 per image and 225,000 per reference video at 768P output (87,000 at 480P).
 
-## 
+### Image: MiniMax H3 Image
 
-​
+Per generated image. The charge combines the output size with the prompt and reference images, which bill as tokens.
 
-OpenAI
+Node| model| size| Credits / image  
+---|---|---|---  
+MiniMax H3 Image| MiniMax-H3-Image| 2K| 5.32 – 8.17  
+MiniMax H3 Image| MiniMax-H3-Image| 4K| 19.41 – 22.26  
+MiniMax H3 Image| MiniMax-H3-Image-Highspeed| 2K| 10.02 – 12.86  
+MiniMax H3 Image| MiniMax-H3-Image-Highspeed| 4K| 38.20 – 41.04  
+  
+The table is the text-only, `enhance_prompt` on slice of this formula. Output credits = `max(pixels, 4,194,304) / 1,024 × 0.00114657` (use `0.00229315` on Highspeed): **4.70 credits** at 2K (4 MP) and about **18.79 credits** at 4K, or **9.39** / **37.57** on Highspeed. Prompt tokens bill at **0.000694 credits** each: **0–300** with no references and enhancement off, **900–5,000** with no references and enhancement on, or **2,000 + 300 × (n − 1)** to **6,500 + 800 × (n − 1)** with `n` reference images. Each reference image also adds **2,050–8,194** image tokens at **0.000453 credits** each (**0.000905** on Highspeed), or about **0.93 to 3.71 credits** (**1.86 to 7.42** on Highspeed). A 2K image with enhancement off costs about **4.70 credits**. A custom size bills its own area with a floor of 4 MP.
+
+## OpenAI
 
 DALL·E and Sora use fixed per-image or per-second rates. **OpenAI GPT Image 2** and **OpenAI ChatGPT** bill from API token usage.
 
-### 
-
-​
-
-Image: DALL·E
+### Image: DALL·E
 
 **Deprecated** : The **OpenAI DALL·E 2** and **OpenAI DALL·E 3** nodes have been retired and removed from ComfyUI. Use **GPT Image** instead. The pricing below is retained for reference only.
 
@@ -1250,18 +1062,12 @@ OpenAI DALL·E 3| standard| 1024x1024| 8.44 / run
 | hd| 1024x1024| 16.88 / run  
 | hd| 1024x1792, 1792x1024| 25.32 / run  
   
-### 
-
-​
-
-Image: GPT Image
+### Image: GPT Image
 
 Billed from API token usage after generation. Approximate badge by `quality` (`low` / `medium` / `high`); actual cost follows token counts below.
 
 model| token type| Credits / 1M  
 ---|---|---  
-gpt-image-1| input| 2110  
-gpt-image-1| output (image)| 8440  
 gpt-image-1.5| input| 1688  
 gpt-image-1.5| output (image)| 6752  
 gpt-image-2| input| 2025.6  
@@ -1278,20 +1084,55 @@ gpt-image-2.5-sunburst| input (image)| 2413.84
 gpt-image-2.5-sunburst| input (text)| 1508.65  
 gpt-image-2.5-sunburst| output (image)| 9051.9  
   
-Output token counts scale with size and quality (for example, 1024x1024 at `low` is about 196 output tokens, roughly 1.86 credits). Each 1024x1024 reference image adds about 2.47 credits of image input, and prompt text is billed at the text-input rate. Multiplying images (`n`) scales the total.
+`gpt-image-1` is no longer available in the OpenAI GPT Image nodes. Start from `gpt-image-1.5` or `gpt-image-2`; both are priced below. Output token counts scale with size and quality (for example, 1024x1024 at `low` is about 196 output tokens, which is about 1.32 credits on `gpt-image-1.5`). Each 1024x1024 reference image adds about 2.47 credits of image input, and prompt text is billed at the text-input rate. Multiplying images (`n`) scales the total. The **GPT Image 2.6** models (`gpt-image-2.6-flare`, `gpt-image-2.6-sunburst`) share one rate table. Credits are per image at 1024x1024:
 
-### 
+quality| Credits / image  
+---|---  
+low| 7.45  
+medium| 13.12  
+high| 15.89  
+xhigh| 28.25  
+max| 63.57  
+  
+Larger presets cost more: 3840x2160 is 14.12 credits at `low` and 120.8 at `max`. Total credits = **(output price + references × 2.47 to 3.71) ×`n`**. Each reference image adds **2.47–3.71 credits**. The live badge cannot see the reference size that sets the exact per-reference charge, so it shows that envelope; `n` multiplies the total.
 
-​
+### Image: GPT Image 2.6 GIF
 
-Chat
+**OpenAI GPT Image 2.6 GIF** bills per run, not per token. Every frame is a full image, so frame size, quality, and `frame_count` set the price. `frame_count` bills in steps of 2 to 8, 9, 10 to 12, and 13 to 16 frames, and the largest sizes only fit the low steps. Credits for a 512x512 run of 9 frames:
+
+quality| Credits / run  
+---|---  
+low| 10.61  
+medium| 18.76  
+high| 22.72  
+xhigh| 40.41  
+max| 90.92  
+  
+A 384x384 run of 2 to 8 frames costs 3.88 credits at `low`, and a 720x720 run of 13 to 16 frames costs 214.69 at `max`. `frame_duration_ms` does not change the price.
+
+### Image: GPT Image 2.6 SVG
+
+**OpenAI GPT Image 2.6 SVG** bills the still-image price for the selected size and quality, plus **0.23–1.77 credits** for the vector pass. The live badge cannot see the input that sets the exact vector-pass charge, so it shows that envelope on top of the still-image price. The table ranges are the still-image price plus that envelope. The SVG badge does not add a separate reference-image charge. Sizes are 1024x1024, 1024x1536, and 1536x1024. Credits at 1024x1024:
+
+quality| Credits / run  
+---|---  
+low| 7.68 – 9.22  
+medium| 13.36 – 14.90  
+high| 16.12 – 17.66  
+xhigh| 28.48 – 30.03  
+max| 63.81 – 65.35  
+  
+A 1024x1536 or 1536x1024 run is cheaper: 6.25 to 7.79 credits at `low`, and 49.90 to 51.44 at `max`.
+
+### Chat
 
 Token-based billing. Badge rates are **per 1K tokens** ; table is **per 1M tokens**.
 
 Model| Input credits / 1M| Output credits / 1M  
 ---|---|---  
+gpt-6.1-sol, gpt-6-sol| 603.46| 3017.3  
+gpt-6.1-terra| 301.73| 1508.65  
 gpt-6-astra| 3017.3| 15086.5  
-gpt-6-sol| 603.46| 3017.3  
 gpt-6-luna| 30.17| 150.87  
 gpt-5.6-sol, gpt-5.6-sol-pro| 1055| 6330  
 gpt-5.6-terra, gpt-5.6-terra-pro| 527.5| 3165  
@@ -1303,19 +1144,11 @@ gpt-5-mini| 52.75| 422
 gpt-5-nano| 10.55| 84.4  
 gpt-4.1| 422| 1688  
 gpt-4.1-mini| 84.4| 337.6  
-gpt-4.1-nano| 21.1| 84.4  
 o3| 2110| 8440  
-o4-mini| 232.1| 928.4  
-o1| 3165| 12660  
-o1-pro| 31650| 126600  
   
-Optional images and files add input tokens at the same model rates.
+`o1`, `o1-pro`, `o4-mini`, and `gpt-4.1-nano` are no longer available in the OpenAI Chat node. Optional images and files add input tokens at the same model rates.
 
-### 
-
-​
-
-Video: Sora
+### Video: Sora
 
 **Deprecated** : The **OpenAI Sora - Video** node has been retired and removed from ComfyUI. The pricing below is retained for reference only.
 
@@ -1329,19 +1162,11 @@ sora-2-pro| 1024x1792, 1792x1024| 105.50 / sec
   
 `sora-2` only supports 720x1280 and 1280x720.
 
-## 
-
-​
-
-OpenRouter
+## OpenRouter
 
 Badge rates are **per 1K tokens** ; table is **per 1M tokens**. Final charges follow API usage.
 
-### 
-
-​
-
-Chat: OpenRouter LLM
+### Chat: OpenRouter LLM
 
 Model| Input credits / 1M| Output credits / 1M  
 ---|---|---  
@@ -1363,10 +1188,12 @@ google/gemini-3.5-flash| 452.60| 2715.57
 x-ai/grok-4.5| 603.46| 1810.38  
 x-ai/grok-4.20| 377.16| 754.33  
 x-ai/grok-4.3| 377.16| 754.33  
+meta/muse-wonder| 1206.92| 6034.60  
+meta/muse-spark-1.3| 377.16| 1282.35  
+meta/muse-ember| 30.17| 150.87  
 deepseek/deepseek-v4-pro| 131.25| 262.51  
 deepseek/deepseek-v4-flash| 33.79| 67.59  
 deepseek/deepseek-v3.2| 76.04| 114.05  
-qwen/qwen3.6-max-preview| 313.80| 1882.80  
 qwen/qwen3.6-plus| 98.06| 588.37  
 qwen/qwen3.6-flash| 56.57| 339.45  
 mistralai/mistral-large-2512| 150.87| 452.60  
@@ -1380,11 +1207,7 @@ perplexity/sonar-pro| 905.19| 4525.95
 perplexity/sonar-reasoning-pro| 603.46| 2413.84  
 perplexity/sonar-deep-research| 603.46| 2413.84  
   
-### 
-
-​
-
-Image: OpenRouter Image
+### Image: OpenRouter Image
 
 Token-based billing. The badge estimates cost from the prompt length, reference count, and output size; the table lists the per-1M-token credit rates used by that estimate.
 
@@ -1393,22 +1216,14 @@ Model| Prompt credits / 1M| Reference image credits / 1M| Output image credits /
 microsoft/mai-image-2.6| 1508.65| 2413.84| 11465.70  
 microsoft/mai-image-2.6-flash| 528.03| 754.33| 5732.87  
   
-### 
-
-​
-
-Image notes
+### Image notes
 
   * `mai-image-2.6` and `mai-image-2.6-flash` bill from API token usage: the prompt, each reference image, and the generated image are tokenized, then charged at the rates above.
   * Reference images are downscaled to at most 2048 x 2048 (about 4,096 tokens each) before upload.
 
 
 
-## 
-
-​
-
-Patina
+## Patina
 
 All three nodes bill per run, and every PBR map you enable adds to the price. `MP` is the output size in megapixels rounded up to a whole number, so every `image_size` preset counts as 1 MP and a custom size counts 1 to 4 MP.
 
@@ -1420,11 +1235,38 @@ Patina Material Extract| 30.17 / run + 6.03 / MP + 3.02 / MP / map
   
 `upscale_factor` 2× adds 1.21 / MP / map and 4× adds 4.83 / MP / map. **Patina PBR Material Maps** needs at least one map enabled. Prices are approximate. A 1 MP material with the default `basecolor` and `normal` maps costs 15.09 credits, and a 4 MP output with all five maps at 4× upscale costs 184.06 credits for **Patina Material** or 211.21 credits for **Patina Material Extract**.
 
-## 
+## Pika
 
-​
+Pika H3 Flex bills per second of video. Total credits = **(credits / sec) × seconds billed**. `duration` is 5 to 15 seconds. At `480p` and `768p` the billed length equals `duration`. From `1080p` up the node fits the clip to its frame grid, so a 5 second run bills 5.17 seconds, a 10 second run bills 10.13, and a 15 second run bills 15.08.
 
-Pixverse
+Node| resolution| Credits / sec  
+---|---|---  
+Pika H3 Flex Video| 480p| 3.02  
+Pika H3 Flex Video| 768p| 6.03  
+Pika H3 Flex Video| 1080p| 10.56  
+Pika H3 Flex Video| 2k| 12.07  
+Pika H3 Flex Video| 4k| 24.14  
+Pika H3 Flex Reference to Video| 480p| 9.05  
+Pika H3 Flex Reference to Video| 768p| 18.10  
+Pika H3 Flex Reference to Video| 1080p| 22.63  
+Pika H3 Flex Reference to Video| 2k| 24.14  
+Pika H3 Flex Reference to Video| 4k| 30.17  
+  
+A 5 second 480p run of **Pika H3 Flex Video** costs 15.09 credits, and a 5 second 1080p run costs 54.56. **Pika H3 Flex Reference to Video** bills connected reference videos at the same rate. Each clip runs 2 to 15 seconds and reference video time is capped at 15 seconds, so the charge depends on how much reference video you connect. At 480p, a 5 second run with one 2 second reference costs 63.36 credits. At 4k, a 5 second run with 15 seconds of reference video costs 608.49. All Pika examples use the unrounded per-second rates.
+
+### Audio: Pika
+
+The Pika audio nodes also bill per second. **Pika Soundtrack** charges the input video’s length (up to 10 minutes), **Pika SFX** charges `duration` (1 to 20 seconds), and **Pika Music** charges the track: `duration` in `text to music` (10 to 360 seconds), or the source audio length clamped to 5 to 360 seconds in `cover`.
+
+Node| Credits / sec  
+---|---  
+Pika Soundtrack| 1.509  
+Pika SFX| 0.060  
+Pika Music| 0.075  
+  
+A 10 minute Soundtrack run costs 905.2 credits, a 20 second SFX run 1.21, and a 3 minute Music track 13.58.
+
+## Pixverse
 
 Model **v3.5** (fixed in the API; not selectable). **1080p** is limited to **5s** with **normal** motion. **8s** clips only support **normal** motion (fast is coerced to normal).
 
@@ -1438,11 +1280,7 @@ v3.5| 5s| fast| 360p, 540p| 189.9 / run
 | 8s| normal| 360p, 540p| 189.9 / run  
 | 8s| normal| 720p| 253.2 / run  
   
-#### 
-
-​
-
-PixVerse V6
+#### PixVerse V6
 
 PixVerse V6 nodes generate videos from 1 to 15 seconds with optional native audio. Total credits = **(credits / sec) ×`duration`**. `PixVerse V6 Max` is a second model option in the Text to Video and Image to Video nodes.
 
@@ -1452,47 +1290,19 @@ PixVerse V6| 360p| 5.13| 7.18
 PixVerse V6| 540p| 7.18| 9.23  
 PixVerse V6| 720p| 9.23| 12.31  
 PixVerse V6| 1080p| 18.47| 23.60  
-PixVerse V6 Max| 360p| 6.71| 9.39  
-PixVerse V6 Max| 540p| 9.39| 12.07  
-PixVerse V6 Max| 720p| 12.07| 16.09  
-PixVerse V6 Max| 1080p| 24.14| 30.84  
+PixVerse V6 Max| 360p| 8.05| 12.07  
+PixVerse V6 Max| 540p| 12.07| 14.75  
+PixVerse V6 Max| 720p| 14.75| 20.12  
+PixVerse V6 Max| 1080p| 29.50| 37.55  
   
-**PixVerse V6 Max** runs at the rates above as an introductory price. From **November 3, 2026** the per-second rates are:
+**PixVerse V6 Max** ran at lower introductory rates through **November 2, 2026**. The rows above list the standard rates, which apply from **November 3, 2026**. **PixVerse V6 Fusion** bills 2x the per-second rate for each second of reference video, instead of the output duration. Fusion runs on `PixVerse V6` rates only.
 
-quality| Audio off| Audio on  
----|---|---  
-360p| 8.05| 12.07  
-540p| 12.07| 14.75  
-720p| 14.75| 20.12  
-1080p| 29.50| 37.55  
-  
-**PixVerse V6 Fusion** bills 2x the per-second rate for each second of reference video, instead of the output duration. Fusion runs on `PixVerse V6` rates only.
+## Quiver
 
-## 
+### Image
 
-​
+**Retired** : Quiver retired the Arrow 1-series models (`arrow-1.1`, `arrow-1.1-max`, `arrow-preview`) on **October 16, 2026** , and the Text to SVG and Image to SVG nodes no longer list them. Use the Arrow 2 models below.
 
-Quiver
-
-### 
-
-​
-
-Image
-
-The retired **arrow-1.1** models charged a fixed amount per run:
-
-**Deprecated** : Quiver retired the Arrow 1-series models on **October 16, 2026** , and the Text to SVG and Image to SVG nodes no longer list `arrow-1.1`, `arrow-1.1-max`, or `arrow-preview`. Use the Arrow 2 models instead. The pricing below is retained for reference only.
-
-model| Node| Credits / run  
----|---|---  
-arrow-1.1| Quiver Text to SVG| 60.35  
-arrow-1.1| Quiver Image to SVG| 45.26  
-arrow-1.1-max| Quiver Text to SVG| 75.43  
-arrow-1.1-max| Quiver Image to SVG| 60.35  
-arrow-preview| Quiver Text to SVG| 90.52  
-arrow-preview| Quiver Image to SVG| 90.52  
-  
 **arrow-2** and **arrow-2-telos** bill by the tokens a request consumes:
 
 model| Input credits / 1M tokens| Output credits / 1M tokens  
@@ -1502,17 +1312,9 @@ arrow-2-telos| 1810.38| 9051.9
   
 Credits = (input tokens × input rate + output tokens × output rate) ÷ 1,000,000. Input tokens cover the prompt text and, for **Image to SVG** , the input image; output tokens cover the generated SVG. Both nodes bill the same rates. The node badge estimates a cost range from typical token counts; the final charge follows measured usage. `reasoning_effort` changes how many tokens the model spends before drawing: higher levels reason for longer, so they use more output tokens and cost more.
 
-## 
+## Qwen
 
-​
-
-Qwen
-
-### 
-
-​
-
-Image
+### Image
 
 Per image. Output is billed per generated image; Qwen Image 3 Edit also bills **0.91 credits** per input reference image (up to 3). Nodes with **`n`** bill **(credits / image) ×`n`**.
 
@@ -1527,17 +1329,9 @@ qwen-image-3.0-pro| Qwen Image 3 Edit| 2K| 0.91| 22.63 (× `n`)
   
 `qwen-image-3.0-pro` uses resolution-based output billing: **1K** (≤2.25 MP) is **12.07 credits** , **2K** (>2.25 MP) is **22.63 credits**. With the Edit node’s “auto” or “match input” size modes, Pro output pricing shows as a range (12.07–22.63); a custom size resolves to the fixed rate for that area.
 
-## 
+## Recraft
 
-​
-
-Recraft
-
-### 
-
-​
-
-Image
+### Image
 
 Flat per-run pricing unless noted. Nodes with **`n`** bill **(credits / image) ×`n`**. v3 generation nodes send model **recraftv3** in the API request (not selectable in the node). The `recraftv4_styles` models always require a `style_id` or style reference images.
 
@@ -1565,19 +1359,11 @@ recraftv3| Recraft Text to Vector| 24.14 / image (× `n`)
 —| Recraft Crisp Upscale Image| 1.21 / run  
 —| Recraft Creative Upscale Image| 75.43 / run  
   
-## 
-
-​
-
-Reve
+## Reve
 
 **Deprecated** : Reve’s public API wound down on **August 14, 2026** , and the Reve Image Create, Reve Image Edit, and Reve Image Remix nodes are deprecated. They may stop working at any time; the pricing below is retained for reference.
 
-### 
-
-​
-
-Image
+### Image
 
 Credits below are approximate **base** rates (`test_time_scaling=1`, upscale off). **`test_time_scaling` > 1**, **upscale** , and **remove background** can increase actual charges from the API.
 
@@ -1596,11 +1382,7 @@ reve-remix-fast@20251030| Reve Image Remix| —| 2.11 / run
   
 Fast edit/remix models use a flat base rate; upscale does not change the displayed estimate.
 
-## 
-
-​
-
-Rodin 3D
+## Rodin 3D
 
 generation| Node| mode| addon_highpack| Credits  
 ---|---|---|---|---  
@@ -1611,17 +1393,9 @@ Gen-2| Rodin 3D Generate - Regular Generate, Detail Generate, Smooth Generate, S
   
 **HighPack** (`addon_highpack`) adds **168.8** credits on top of the Gen-2.5 base rate for that mode.
 
-## 
+## Runway
 
-​
-
-Runway
-
-### 
-
-​
-
-Video
+### Video
 
 Gen4 Turbo: **5s** or **10s**. Total credits = **(credits / sec) ×`duration`**.
 
@@ -1635,34 +1409,25 @@ aleph2| 84.48 / sec| Active
   
 **Runway Aleph2 Keyframe** and **Runway Aleph2 Prompt Image** are helper nodes with no separate charge; cost is on **Runway Aleph2 Video to Video**.
 
-### 
-
-​
-
-Image
+### Image
 
 model| Credits  
 ---|---  
 gen4_image| 24.14 / run  
   
-## 
+## Sonilo
 
-​
-
-Sonilo
-
-Text to Music: total credits = **(credits / sec) ×`duration`** (1–360 seconds).
+Video to Music bills per second of input video, up to 6 minutes. Text to Music and Music 1.5 bill per second of audio: total credits = **(credits / sec) ×`duration`**.
 
 Node| Credits  
 ---|---  
-Sonilo Video to Music| 1.9 / sec  
-Sonilo Text to Music| 0.5275 / sec  
+Sonilo Video to Music| 2.72 / sec  
+Sonilo Text to Music| 0.6789 / sec  
+Sonilo Music 1.5| 0.6789 / sec  
   
-## 
+Text to Music renders a duration from 1 to 360 seconds. Music 1.5 fits the song to the lyrics with `auto`, or renders the `custom` length you set, from 10 to 360 seconds.
 
-​
-
-sync.so
+## sync.so
 
 Total credits = **(credits / sec) ×`duration`**.
 
@@ -1671,17 +1436,9 @@ Node| Credits
 sync.so Lip Sync| ~40.13 / sec  
 sync.so Talking Image| ~40.13 / sec  
   
-## 
+## Tencent
 
-​
-
-Tencent
-
-### 
-
-​
-
-Text
+### Text
 
 Badge rates are **per 1K tokens** ; table is **per 1M tokens**. Optional images add input tokens at the input rate.
 
@@ -1689,11 +1446,7 @@ Model| Input credits / 1M| Output credits / 1M
 ---|---|---  
 hy4| 251.6| 754.6  
   
-### 
-
-​
-
-Image
+### Image
 
 **HY Image 3.5 Preview** bills one rate per generated image. `1K` and `2K` output, and `custom` sizes up to 4.19 megapixels, cost the base rate. `4K` output is rendered at 2K and then upscaled by the model, and costs more, as does a `custom` size above 4.19 megapixels.
 
@@ -1704,11 +1457,7 @@ hy-image-3.5-preview| Tencent HY Image: Text to Image| 4K, custom > 4.19 MP| —
 hy-image-3.5-preview| Tencent HY Image: Edit| 1K, 2K, custom ≤ 4.19 MP| —| 7.24  
 hy-image-3.5-preview| Tencent HY Image: Edit| 4K, custom > 4.19 MP| —| 9.66  
   
-### 
-
-​
-
-3D: Generation
+### 3D: Generation
 
 **`3.1`** uses the same rates as **`3.0`** but does not support LowPoly.
 
@@ -1728,11 +1477,7 @@ model| option| Credits
   
 Multiview applies only to **Hunyuan3D: Image(s) to Model** when `image_left`, `image_right`, or `image_back` is connected.
 
-### 
-
-​
-
-3D: Post-processing
+### 3D: Post-processing
 
 Node| Credits  
 ---|---  
@@ -1741,17 +1486,9 @@ Hunyuan3D: Smart Topology| 211 / run
   
 **Hunyuan3D: 3D Texture Edit** and **Hunyuan3D: 3D Part** each cost **126.6 / run**.
 
-## 
+## Topaz
 
-​
-
-Topaz
-
-### 
-
-​
-
-Image
+### Image
 
 **Topaz Image Enhance** (current node) charges per 8 megapixels of output (`approximate`):
 
@@ -1759,7 +1496,7 @@ model| Credits
 ---|---  
 Reimagine| 67.52 / 8MP  
 Bloom 2| 96.55 / 8MP  
-Wonder 3.5| 24.14 / 8MP  
+Wonder 3.5, Wonder 4| 24.14 / 8MP  
   
 **Topaz Image Enhance (Legacy)** is deprecated. It has no fixed pre-run estimate; charge comes from the API estimate at poll time (API credits × 0.08 USD). Typical charges by input resolution:
 
@@ -1770,11 +1507,7 @@ Reimagine| 720p (1280×720)| 13.93 / run
 | 1440p (2560×1440)| 27.85 / run  
 | 4K (3840×2160)| 69.63 / run  
   
-### 
-
-​
-
-Video
+### Video
 
 Approximate rates shown in the node are **per source frame** (not per second). Total credits ≈ **(credits / src frame) × input frame count**. With **apo-8** interpolation enabled, add **~0.14** (1080p) or **~0.28** (4K) per source frame to the upscale rate.
 
@@ -1791,21 +1524,13 @@ Starlight (Astra) Creative| FullHD (1080p)| ~2.25
   
 Upscaler **Disabled** with **apo-8** interpolation only: the UI shows **Interpolation only** ; charge comes from the API estimate at poll time. **Topaz Video Enhance (Legacy)** is deprecated. It has no fixed pre-run estimate; charge comes from the API estimate at poll time.
 
-## 
-
-​
-
-Tripo
+## Tripo
 
 Legacy generation prices are approximate. The node converts internal Tripo credits to USD at **credits × 0.01**.
 
 **Retired** : the `v1.4-20240625` model version has been removed from the Tripo node’s `TripoModelVersion` enum in ComfyUI v0.34.0+ and can no longer be selected. Its pricing is no longer documented; migrate existing workflows to `v2.5-20250123` or `v3.x`. The **Tripo: Refine Draft model** node, which only worked with v1.4 drafts, has also been removed.**Legacy** : **Tripo: Text to Model (Legacy)** , **Tripo: Image to Model (Legacy)** , and **Tripo: Texture model (Legacy)** are deprecated in ComfyUI v0.35.1+. They keep their exact schemas, so saved workflows keep running, but new workflows should use the current **Tripo: Text to Model** , **Tripo: Image to Model** , and **Tripo: Texture model** nodes. The legacy generation prices below cover both node versions.
 
-### 
-
-​
-
-Generation: v2.0 / v2.5
+### Generation: v2.0 / v2.5
 
 `model_version` **v2.5-20250123**. The **v2.0-20240919** version has been retired and is no longer offered in the enum. `texture` or `pbr` counts as textured. On v2.5, **`geometry_quality: detailed` does not change the price**. **Tripo: Text to Model**
 
@@ -1829,11 +1554,7 @@ option| Credits
   
 `quad` applies to **Tripo: Text to Model** and **Tripo: Image to Model** only. `smart_low_poly` adds **+21.1 / run** on every generation node in this section and caps `face_limit` at 20,000 (10,000 with `quad`).
 
-### 
-
-​
-
-Generation: v3.0 / v3.1
+### Generation: v3.0 / v3.1
 
 Same nodes with `model_version` **v3.0-20250812** or **v3.1-20260211**. **`geometry_quality: detailed`** adds **+42.2 / run** on top of the texture rows below. **Tripo: Text to Model**
 
@@ -1863,11 +1584,7 @@ on| extreme| detailed| 147.7 / run
   
 `quad` add-on (+10.55 / run) applies to **Tripo: Text to Model** and **Tripo: Image to Model** only. `smart_low_poly` adds **+21.1 / run** on every generation node in this section and caps `face_limit` at 20,000 (10,000 with `quad`).
 
-### 
-
-​
-
-Generation: P1
+### Generation: P1
 
 model| output_mode| texture_quality| Credits (Text)| Credits (Image / Multiview)  
 ---|---|---|---|---  
@@ -1875,11 +1592,7 @@ P1-20260311| Geometry only| —| 63.3 / run| 84.4 / run
 | Textured| standard| 84.4 / run| 105.5 / run  
 | Textured| detailed| 105.5 / run| 126.6 / run  
   
-### 
-
-​
-
-Post-processing
+### Post-processing
 
 Node| Credits  
 ---|---  
@@ -1896,11 +1609,7 @@ Tripo: Import Model| Free
   
 **Tripo: Convert model** charges **21.1 / run** when `quad` is on, `face_limit` is set, `texture_size` ≠ 4096, `texture_format` ≠ JPEG, `flatten_bottom` or `pivot_to_center_bottom` is on, `flatten_bottom_threshold` ≠ 0, or `scale_factor` ≠ 1; otherwise **10.55 / run**.
 
-### 
-
-​
-
-Multiview
+### Multiview
 
 Node| Credits  
 ---|---  
@@ -1909,11 +1618,7 @@ Tripo: Edit Multiview| 10.55 / run per edited view
   
 The v3 API versions of **Tripo: Image to Multiview** and **Tripo: Edit Multiview** bill the same rates.
 
-### 
-
-​
-
-Generation: P2
+### Generation: P2
 
 The P2 nodes (**Tripo P2: Text to Model** , **Tripo P2: Image to Model** , **Tripo P2: Multiview to Model**) share one rate by `texture`. Prices are approximate.
 
@@ -1924,11 +1629,7 @@ standard| 232.1 / run
 detailed| 253.2 / run  
 extreme| 274.3 / run  
   
-## 
-
-​
-
-Pruna
+## Pruna
 
 Pruna P-Video-2 bills per second of generated video. Total credits = **(credits / sec) ×`duration`** (`duration` is 1-20 seconds or `auto`; when audio is connected, the video follows the audio length). Prices are approximate.
 
@@ -1943,11 +1644,18 @@ Pruna P-Video-2 Image to Video| 720p| off| 7.54
 | 1080p| off| 15.09  
 | 1080p| on| 9.05  
   
-## 
+### Video: P-Video Upscale
 
-​
+Pruna P-Video Upscale bills per second of output video. Total credits = **(credits / sec) × output length**. The rate follows `target`, output above 30 fps costs twice the rate, and a source larger than the target keeps its size. A launch rate of 1.51, 3.02, 6.03 and 12.07 credits per second for `720p`, `1080p`, `2K` and `4K` applied through November 12, 2026 (17:00 UTC). The rows below list the standard rates, which apply from that date.
 
-VEED
+target| Target size| Credits / sec  
+---|---|---  
+720p| about 0.9 MP| 3.02  
+1080p| about 2.1 MP| 6.03  
+2K| about 3.7 MP| 12.07  
+4K| about 8.3 MP| 24.14  
+  
+## VEED
 
 Node| Options| Credits  
 ---|---|---  
@@ -1966,17 +1674,9 @@ VEED Dubbing| pro| 54.31 / sec
   
 Video jobs bill the length of the input. **VEED Fabric 1.0** bills the audio track (up to 300 seconds), **VEED Lipsync 2.0** bills the new speech (up to 600 seconds), **VEED Remove Video Background** is limited to 60 seconds, **VEED Dubbing** bills the translated track (up to 599 seconds), and **VEED Clean Audio** and **VEED Clean Audio (in Video)** bill per minute up to 30 minutes.
 
-## 
+## Vidu
 
-​
-
-Vidu
-
-### 
-
-​
-
-Video: Q4
+### Video: Q4
 
 Total credits = **(credits / sec) ×`duration`**.
 
@@ -1988,11 +1688,7 @@ viduq4-preview| 540p| 9.5
 | 2K| 40.09  
 | 4K| 82.29  
   
-### 
-
-​
-
-Video: Q3
+### Video: Q3
 
 Total credits = **(credits / sec) ×`duration`**.
 
@@ -2006,11 +1702,7 @@ viduq3-pro| 720p| 31.65
   
 **2K** is only on **Vidu Q3 Image-to-Video Generation** with **viduq3-pro**.
 
-### 
-
-​
-
-Video: Q2
+### Video: Q2
 
 **Linear nodes** (all except Multi-Frame): **base + (credits / sec) × (`duration` − 1)**. **Multi-Frame:** **`frames` × base + (credits / sec) × sum of segment durations** (uses the Extension / Multi-Frame base column). **Reference** (`viduq2`): add **+15.825 / run** when `audio` is on.
 
@@ -2027,11 +1719,7 @@ viduq2-turbo| 1080p| 10.55| 36.925| 42.2
   
 **viduq2** linear bases above are for **Text-to-Video**. **Reference-to-Video** uses the same per-second rates but base **26.375** (720p) or **79.125** (1080p). **viduq2-pro-fast** , **viduq2-pro** , and **viduq2-turbo** linear bases are for **Image-to-Video** and **Start/End Frame-to-Video**. **viduq2-turbo** at **720p** on those nodes: **8.44** at 1s (I2V), **10.55** at 2s (flat on I2V; Start/End minimum duration is 2s), then **+10.55 / sec** after 2s. The **5.275 / sec** rate applies only to Extension and Multi-Frame, not I2V or Start/End.
 
-### 
-
-​
-
-Video: Q1
+### Video: Q1
 
 Fixed **5s** at **1080p**.
 
@@ -2039,11 +1727,7 @@ model| Credits
 ---|---  
 viduq1| 84.4 / run  
   
-## 
-
-​
-
-Wan
+## Wan
 
 **Wan 3.0 pricing** : a 30% discount applied through September 30, 2026. The prices in the table are the standard prices.
 
@@ -2052,29 +1736,27 @@ model| resolution| Credits
 wan2.5-t2i-preview, wan2.5-i2i-preview| —| 6.33 / run  
 wan2.7-t2v, wan2.7-i2v| 720P| 21.1 / sec  
 | 1080P| 31.65 / sec  
-wan2.7-i2v (continuation)| 720P| 21.1 / sec (range)  
-| 1080P| 31.65 / sec (range)  
+wan2.7-i2v (continuation)| 720P| 21.1 / sec (output + 2–5s input)  
+| 1080P| 31.65 / sec (output + 2–5s input)  
 wan2.7-videoedit| 720P| 21.1 / sec (in + out)  
 | 1080P| 31.65 / sec (in + out)  
-wan2.7-r2v| 720P| 21.1 / sec (range)  
-| 1080P| 31.65 / sec (range)  
-wan3.0-video| 480P| 15.09 / sec (range)  
-| 720P| 30.17 / sec (range)  
-| 1080P| 60.35 / sec (range)  
-wan3.0-video-prime| 480P| 20.52 / sec (range)  
-| 720P| 42.24 / sec (range)  
-| 1080P| 84.48 / sec (range)  
+wan2.7-r2v| 720P| 21.1 / sec (output to output + 5s input)  
+| 1080P| 31.65 / sec (output to output + 5s input)  
+wan3.0-video| 480P| 15.09 / sec  
+| 720P| 30.17 / sec  
+| 1080P| 60.35 / sec  
+wan3.0-video-prime| 480P| 20.52 / sec  
+| 720P| 42.24 / sec  
+| 1080P| 84.48 / sec  
 wan2.5-t2v-preview, wan2.5-i2v-preview| 480p| 10.55 / sec  
 wan2.5-t2v-preview, wan2.5-i2v-preview, wan2.6-t2v, wan2.6-i2v| 720p| 21.1 / sec  
 wan2.5-t2v-preview, wan2.5-i2v-preview, wan2.6-t2v, wan2.6-i2v| 1080p| 31.65 / sec  
-wan2.6-r2v| 720p| 21.1 / sec (range)  
-| 1080p| 31.65 / sec (range)  
+wan2.6-r2v| 720p| 21.1 / sec (output + 2–5s input)  
+| 1080p| 31.65 / sec (output + 2–5s input)  
   
-## 
+**Wan 2.6 Reference to Video** and **Wan 2.7 continuation** bill the output duration plus **2–5 seconds** of input, at the same per-second rate. **Wan 2.7 Reference to Video** ranges from the output duration only up to the output duration plus **5 seconds** of input. **Wan 2.7 Edit** bills input plus output at the table rate. **Wan 3.0** bills at the table rate per second: if `duration` is `auto`, the badge shows that per-second rate; otherwise it ranges from the selected duration up to `min(duration + 15, 30)` seconds.
 
-​
-
-WaveSpeed
+## WaveSpeed
 
 model| resolution| Credits  
 ---|---|---  
@@ -2085,40 +1767,32 @@ flashvsr| 720p| 2.532 / sec
 SeedVR2| —| 2.11 / run  
 Ultimate| —| 12.66 / run  
   
-## 
-
-​
-
-xAI
+## xAI
 
 Video endpoints charge for moderated content.
 
-### 
-
-​
-
-Image
+### Image
 
 model| resolution| task| Credits  
 ---|---|---|---  
 grok-imagine-image-2.0| 1K| generate| 12.66 (medium) / 8.44 (low) per output image  
 | 2K| generate| 16.88 (medium) / 12.66 (low) per output image  
-grok-imagine-image-quality| 1K| generate| 10.55 / output image  
-| 2K| generate| 14.77 / output image  
-grok-imagine-image-pro| —| generate| 14.77 / output image  
+grok-imagine-image-quality| 1K| generate| 8.44 / output image  
+| 2K| generate| 12.66 / output image  
+grok-imagine-image-pro| 1K| generate| 8.44 / output image  
+| 2K| generate| 12.66 / output image  
 grok-imagine-image| —| generate| 4.22 / output image  
-grok-imagine-image-2.0| 1K| edit| 2.11 input + 12.66 (medium) / 8.44 (low) per output image  
-| 2K| edit| 2.11 input + 16.88 (medium) / 12.66 (low) per output image  
-grok-imagine-image-quality| 1K| edit| 2.11 input + 10.55 / output image  
-| 2K| edit| 2.11 input + 14.77 / output image  
-grok-imagine-image-pro| —| edit| 2.11 input + 14.77 / output image  
+grok-imagine-image-2.0| 1K| edit| 2.11–6.33 input + 12.66 (medium) / 8.44 (low) per output image  
+| 2K| edit| 2.11–6.33 input + 16.88 (medium) / 12.66 (low) per output image  
+grok-imagine-image-quality| 1K| edit| 2.11–6.33 input + 8.44 / output image  
+| 2K| edit| 2.11–6.33 input + 12.66 / output image  
+grok-imagine-image-pro| 1K| edit| 2.11 input + 8.44 / output image  
+| 2K| edit| 2.11 input + 12.66 / output image  
 grok-imagine-image| —| edit| 0.422–1.266 input + 4.22 / output image  
   
-### 
+For non-pro edit models, the input charge is **2.11 credits** per input image for **1 to 3** images (**2.11–6.33**). `grok-imagine-image` uses **0.422 credits** per input image (**0.422–1.266**). The pro edit rows bill exactly one input image at **2.11 credits**. `grok-imagine-image-quality` and `grok-imagine-image-pro` are retired by xAI. The image nodes still list the two models and bill them at the `grok-imagine-image-2.0` low-quality rate.
 
-​
-
-Video
+### Video
 
 model| resolution| Credits  
 ---|---|---  
@@ -2135,11 +1809,9 @@ grok-imagine-video (reference)| 480p| 15.09 / sec output + 0.603 / ref image
 | 720p| 21.12 / sec output + 0.603 / ref image  
 grok-imagine-video (extend)| —| 6.03–45.26 input + 15.09 × extension sec output / run  
   
-## 
+**Extend** bills **15.09 credits** per second of extension, plus an input charge of **6.03 credits** for a 2-second source video or **45.26 credits** for a 15-second source (the source must be 2–15 seconds). The live badge cannot see the source length, so it shows that **6.03–45.26** input band plus the per-second extension charge.
 
-​
-
-Cloud GPU
+## Cloud GPU
 
 gpu_type| Credits  
 ---|---  

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/ask-for-one-submitted-request-to-be-cancelled/
 title: Ask for one submitted request to be cancelled. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:22.266948+00:00
+fetched_at: 2026-11-16T16:52:06.378710+00:00
 ---
 
 # Ask for one submitted request to be cancelled. - ComfyUI
@@ -531,8 +531,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -544,8 +542,6 @@ required
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key.
 
 #### Path Parameters
-
-​
 
 provider
 
@@ -563,8 +559,6 @@ Example:
 
 `"bfl"`
 
-​
-
 model
 
 string
@@ -580,8 +574,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Example:
 
 `"flux-2-pro"`
-
-​
 
 request_id
 
@@ -609,8 +601,6 @@ Accepted - `CANCELLATION_REQUESTED`. The ask was accepted for a request that had
 
 The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `409`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split.
 
-​
-
 request_id
 
 string<uuid>
@@ -626,8 +616,6 @@ Pattern: `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 Example:
 
 `"6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21"`
-
-​
 
 status
 

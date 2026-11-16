@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/submit-a-partner-model-run-to-the-queue-and-return-immediately/
 title: Submit a partner model run to the queue and return immediately. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:21.646305+00:00
+fetched_at: 2026-11-16T16:52:05.444094+00:00
 ---
 
 # Submit a partner model run to the queue and return immediately. - ComfyUI
@@ -725,8 +725,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -738,8 +736,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key.
 
 #### Encabezados
-
-​
 
 Idempotency-Key
 
@@ -754,8 +750,6 @@ Ejemplo:
 `"6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21"`
 
 #### Parámetros de ruta
-
-​
 
 provider
 
@@ -772,8 +766,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"bfl"`
-
-​
 
 model
 
@@ -793,15 +785,11 @@ Ejemplo:
 
 #### Parámetros de consulta
 
-​
-
 model_provider
 
 string
 
 Selects an alternate provider to serve this model, instead of its current default. Omitting it runs native dispatch on the model's own default provider; `default`, `comfy`, and `comfyui` are aliases for that same native behavior and name no override, because Comfy Router is never itself a serving backend. The alternate providers Router can retarget a model onto are `fal`, `wavespeed`, `runware`, and `higgsfield`; which of them a given model supports is reported by `GET /v2/models/{provider}/{model}`. When an alternate provider is selected, the native request body is translated into that provider's real schema unless `strict_mode=true`; see `strict_mode` and `fallback_provider`. Its refusals are checked in a fixed order, and an earlier one answers whether or not a later one would. A value that is not a registered provider at all is refused `400` with `error_type: invalid_input`. Then a workspace configured for direct provider calls only refuses any non-default `model_provider` with `403` and `error_type: forbidden`, and Router never runs its `fallback_provider` retry for it; a resubmit carrying the `Idempotency-Key` of a request already accepted is answered as a replay of that request rather than refused. Then a request whose body selects a multipart operation (an edit - for example gpt-image's `image` field) is refused `409`, also with `error_type: invalid_input`, whose `detail` begins "this request's `image` selects the edit operation" - but only when the named provider's translator for this model cannot itself serve that operation; a leg whose translator does carry the media is not refused and proceeds normally, so this is a per-leg refusal rather than a blanket one. Then a request that has already resolved a bring-your-own-key credential for the provider in the path is refused `409`, also with `error_type: invalid_input`, whose `detail` begins `this request resolved a BYOK credential` \- see the `409` on this route, where that `detail` is the only thing separating this case, and the multipart case above, from the `Idempotency-Key` one. That BYOK check runs whether or not the named provider has a leg for this model. Then the named provider's own gate refuses `403` with `error_type: not_enabled` when that provider is not turned on for you, and `503` with `error_type: service_unavailable` when the gate cannot be evaluated - a flag-evaluation failure, or a missing or nil gate entry. Only past all of those is a real provider that does not serve this model refused `400` with `error_type: invalid_input`, the same answer as a value that is not a registered provider at all - both mean the `model_provider` value cannot serve this model, and that `400`'s `detail` is human-readable and not a contract, so read `GET /v2/models/{provider}/{model}` to learn which providers a model does support rather than parsing it. Then, on a Seedance 2.x model, a body carrying an `asset://` reference in any `content[]` image, video or audio url is refused `400` with `error_type: invalid_input`: those ids are BytePlus virtual-library assets no other provider can serve, so send the media itself as an http(s) URL or a `data:` URI to use `model_provider`. Past those `400`s, this workspace's partner-provider policy for the named vendor is evaluated too and can refuse `403` or `503` of its own. Neither this parameter nor `fallback_provider` is available on a BYOK request, and the two are unavailable in different ways: the credential was resolved for the provider named in the path while every alternate leg dispatches on Comfy's own key, so an explicit `model_provider` is refused with that `409`, and `fallback_provider` is inert rather than refused - no retry against an alternate provider is attempted and the first attempt's own failure is what the caller receives. The same split applies to a multipart body: only an explicit `model_provider` reaches the `409` above, and only for a leg whose translator cannot serve the operation, while the automatic on-failure retry `fallback_provider` controls is simply skipped (inert, not refused) for any multipart body. Router defines no `provider_not_available` or `validation_error` `error_type`: these conditions fold onto `invalid_input`. The `error_type` set can still grow, so treat any value you do not recognize as `internal_error` rather than switching exhaustively.
-
-​
 
 strict_mode
 
@@ -810,8 +798,6 @@ boolean
 predeterminado:false
 
 Only meaningful together with `model_provider`. `false` (the default): the request body must be this model's own native contract, translated to the alternate provider's real schema - any native field that cannot be expressed exactly is dropped and disclosed via the response's `X-Comfy-Router-Dropped-Params` header, never silently. `true`: the body must already be the alternate provider's own real schema, passed through unmodified in both directions - no translation, so `X-Comfy-Router-Dropped-Params` is never sent, and provider fallback is disabled for the call because a body shaped for one provider cannot be replayed against another (see `fallback_provider`).
-
-​
 
 reject_unknown_fields
 
@@ -839,8 +825,6 @@ Created - the run was admitted to the queue. The body is the handle: the `reques
 
 The handle returned when a run is admitted to the queue: the request's identity and state, composed with the three URLs that address the rest of its lifetime.
 
-​
-
 status_url
 
 string<uri>
@@ -852,8 +836,6 @@ Absolute URL of this request's status read.
 Ejemplo:
 
 `"https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/status"`
-
-​
 
 response_url
 
@@ -867,8 +849,6 @@ Ejemplo:
 
 `"https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21"`
 
-​
-
 cancel_url
 
 string<uri>
@@ -880,8 +860,6 @@ Absolute URL a cancellation is asked for at.
 Ejemplo:
 
 `"https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/cancel"`
-
-​
 
 request_id
 
@@ -898,8 +876,6 @@ Pattern: `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 Ejemplo:
 
 `"6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21"`
-
-​
 
 status
 
@@ -921,8 +897,6 @@ Ejemplo:
 
 `"IN_QUEUE"`
 
-​
-
 queue_position
 
 integer
@@ -934,8 +908,6 @@ Rango requerido: `x >= 0`
 Ejemplo:
 
 `3`
-
-​
 
 estimate
 

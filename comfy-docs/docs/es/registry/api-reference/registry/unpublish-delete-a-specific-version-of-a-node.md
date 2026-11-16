@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/unpublish-delete-a-specific-version-of-a-node/
 title: Unpublish (delete) a specific version of a node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:12.777000+00:00
+fetched_at: 2026-11-16T16:52:11.450817+00:00
 ---
 
 # Unpublish (delete) a specific version of a node - ComfyUI
@@ -305,8 +305,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -319,23 +317,17 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
 
 requerido
 
-​
-
 nodeId
 
 string
 
 requerido
-
-​
 
 versionId
 

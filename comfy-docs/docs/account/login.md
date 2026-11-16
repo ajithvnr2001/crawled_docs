@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/account/login/
 title: Log in to your Comfy account - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:58.297056+00:00
+fetched_at: 2026-11-16T16:52:05.135142+00:00
 ---
 
 # Log in to your Comfy account - ComfyUI
@@ -128,19 +128,19 @@ Please refer to the following steps to apply for and obtain an API Key:
 
 Visit the Comfy Platform and Log In
 
-Please visit the [Comfy Platform login page](https://platform.comfy.org/login) and log in with the corresponding account![Visit Platform Login Page](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-1.jpg)
+Please visit the [Comfy Platform login page](https://platform.comfy.org/login) and log in with the corresponding account![Visit Platform Login Page](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-1.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=c9516c73148a20ac2de9fcd5f56860c9)
 
 2
 
 Click `+ New` in API Keys to Create an API Key
 
-Click `+ New` in API Keys to create an API Key![Create API Key](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-2.jpg)
+Click `+ New` in API Keys to create an API Key![Create API Key](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-2.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=9e1f6dc2a5a28fbbe5074f4267dd8d14)
 
 3
 
 Enter API Key Name
 
-![Enter API Key Name](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-3.jpg)
+![Enter API Key Name](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-3.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=112f28de30c52898bca15513706c70f2)
 
   1. (Required) Enter the API Key name,
   2. Click `Generate` to create
@@ -151,7 +151,7 @@ Enter API Key Name
 
 Save the Obtained API Key
 
-![Obtain API Key](https://mintlify.s3.us-west-1.amazonaws.com/dripart/images/interface/setting/user/user-login-api-key-4.jpg)
+![Obtain API Key](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/interface/setting/user/user-login-api-key-4.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=223b5d1941d0d9a2f2644807b08a676f)
 
 Since the API Key is only visible upon first creation, please save it immediately after creation. It cannot be viewed later, so please keep it safe. Please note that you should not share your API Key with others. Once it leaked, you can delete it and create a new one.
 

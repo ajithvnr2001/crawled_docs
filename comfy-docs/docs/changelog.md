@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/changelog/
 title: Changelog - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:35.713333+00:00
+fetched_at: 2026-11-16T16:52:03.576888+00:00
 ---
 
 # Changelog - ComfyUI
@@ -13,6 +13,11 @@ fetched_at: 2026-11-05T15:16:35.713333+00:00
 
 Back to top
 
+  * v0.45.4
+  * v0.45.3
+  * v0.45.2
+  * v0.45.1
+  * v0.45.0
   * v0.44.0
   * v0.43.1
   * v0.43.0
@@ -169,7 +174,103 @@ ComfyUI changelog: the latest features, improvements, and bug fixes in each rele
 
 Copy pageCopy page
 
-​
+v0.45.4
+
+November 15, 2026
+
+**Partner Node Updates**
+
+  * [**Seedance 2.5 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/17764): New Seedance 2.5 model at 480p and 720p
+  * [**Meta Muse Wonder, Spark 1.3 and Ember**](https://github.com/Comfy-Org/ComfyUI/pull/17744): Three Meta models added to OpenRouter LLM
+  * [**Claude Fable 5.2**](https://github.com/Comfy-Org/ComfyUI/pull/17738): New model on the Anthropic Claude node
+  * [**HeyGen Video 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/17721): 1080p output, 30-second clips and auto duration
+  * [**Krea on Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17691): Krea nodes moved to the Router backend
+  * [**Wan on Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17639): Wan nodes moved to the Router backend
+  * [**Luma legacy nodes removed**](https://github.com/Comfy-Org/ComfyUI/pull/17714): Legacy nodes retired, Ray 3.2 and UNI-1 remain
+  * [**Qwen3.6 Max Preview removed**](https://github.com/Comfy-Org/ComfyUI/pull/17737): Retired from the OpenRouter LLM node
+
+**Bug Fixes**
+
+  * [**Fish Audio Drama 3**](https://github.com/Comfy-Org/ComfyUI/pull/17718): Full price shown in the badge
+  * [**Topaz video nodes**](https://github.com/Comfy-Org/ComfyUI/pull/17742): Request ID shown on polling timeouts
+  * [**Kling Avatar 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17740): Task ID shown on polling timeouts
+
+
+
+v0.45.3
+
+November 12, 2026
+
+**Partner Node Updates**
+
+  * [**Gemini 4 Hydrogen, Argon and Carbon**](https://github.com/Comfy-Org/ComfyUI/pull/17724): Three Gemini 4 models added to Google Gemini
+  * [**Seedance 2.5 4K**](https://github.com/Comfy-Org/ComfyUI/pull/17699): 4K no longer marked enterprise-only
+
+
+
+v0.45.2
+
+November 12, 2026
+
+**Bug Fixes**
+
+  * [**Workflow loading**](https://github.com/Comfy-Org/ComfyUI/pull/17675): Fixed some workflows not working properly
+
+
+
+v0.45.1
+
+November 10, 2026
+
+**Partner Node Updates**
+
+  * [**MiniMax H3 Image**](https://github.com/Comfy-Org/ComfyUI/pull/17661): MiniMax image model with text to image and image edit
+  * [**LTX VFX**](https://github.com/Comfy-Org/ComfyUI/pull/17664): AlphaGen with alpha output, SDR to HDR, Reframe and Upscale nodes
+
+
+
+v0.45.0
+
+November 10, 2026
+
+**Partner Node Updates**
+
+  * [**Seedream 5.5**](https://github.com/Comfy-Org/ComfyUI/pull/17631): ByteDance image model with text to image and image edit
+  * [**Breeze TTS 2**](https://github.com/Comfy-Org/ComfyUI/pull/17611): Voice and text-to-speech nodes
+  * [**GPT Image V3**](https://github.com/Comfy-Org/ComfyUI/pull/17591): New model on the GPT Image node, plus GIF and SVG nodes
+  * [**GPT Image 2.6 Flare and Sunburst**](https://github.com/Comfy-Org/ComfyUI/pull/17558): Two models added to the GPT Image nodes
+  * [**Kling 4.0 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/17536): New Flash model and an original-audio option on the Kling 4.0 nodes
+  * [**Gemini Omni Flash 1.2**](https://github.com/Comfy-Org/ComfyUI/pull/17560): Added to the Omni video node
+  * [**Pika H3 Flex**](https://github.com/Comfy-Org/ComfyUI/pull/17509): Video and reference to video nodes
+  * [**Pika audio nodes**](https://github.com/Comfy-Org/ComfyUI/pull/17328): Soundtrack, SFX and Music nodes
+  * [**Tencent HY LLM**](https://github.com/Comfy-Org/ComfyUI/pull/17534): Tencent language model node
+  * [**Qwen Image on Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17527): Qwen Image nodes moved to the Router backend
+  * [**Seedance 2.5 4K**](https://github.com/Comfy-Org/ComfyUI/pull/17579): 4K resolution option
+  * [**Grok image models retired**](https://github.com/Comfy-Org/ComfyUI/pull/17532): Price badges and deprecation tooltips updated
+
+**New Open-Source Model Support**
+
+  * [**MiniMax-H3-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17655): MiniMax image model with text to image and image edit templates
+  * [**WeVisOne-VL**](https://github.com/Comfy-Org/ComfyUI/pull/17632): Vision-language model support
+  * [**UltraTex texture rebaking**](https://github.com/Comfy-Org/ComfyUI/pull/17636): Re-bake texture maps for 3D assets
+  * [**RelayVSR**](https://github.com/Comfy-Org/ComfyUI/pull/17511): Video super-resolution model
+  * [**Qwen 3.x video input**](https://github.com/Comfy-Org/ComfyUI/pull/17582): Video inputs on the Qwen 3.x nodes
+
+**Bug Fixes**
+
+  * [**UNetSelfAttentionMultiply crash**](https://github.com/Comfy-Org/ComfyUI/pull/17603): Fixed a crash when using the node
+  * [**Qwen FP8 text generation**](https://github.com/Comfy-Org/ComfyUI/pull/17620): Fixed a crash when generating text
+  * [**Remesh Mesh**](https://github.com/Comfy-Org/ComfyUI/pull/17531): Fixed remeshing on imported meshes
+  * [**Resolution selector**](https://github.com/Comfy-Org/ComfyUI/pull/17555): Corrected megapixel precision
+  * [**pixel_space VAE selection**](https://github.com/Comfy-Org/ComfyUI/pull/17518): Clearer error when the wrong VAE is selected
+
+**Performance & Stability**
+
+  * [**Qwen 3.x**](https://github.com/Comfy-Org/ComfyUI/pull/17361): Combined parallel linear weights
+  * [**SeedVR2 decode**](https://github.com/Comfy-Org/ComfyUI/pull/17508): Adaptive slicing to lower decode memory
+  * [**Get Video Components**](https://github.com/Comfy-Org/ComfyUI/pull/17562): Decoded frames are held once instead of twice
+
+
 
 v0.44.0
 
@@ -206,8 +307,6 @@ November 4, 2026
 
 
 
-​
-
 v0.43.1
 
 October 28, 2026
@@ -222,8 +321,6 @@ October 28, 2026
   * [**Templates v0.11.98**](https://github.com/Comfy-Org/ComfyUI/pull/17391)
 
 
-
-​
 
 v0.43.0
 
@@ -274,8 +371,6 @@ October 27, 2026
 
 
 
-​
-
 v0.42.4
 
 October 22, 2026
@@ -298,8 +393,6 @@ October 22, 2026
 
 
 
-​
-
 v0.42.3
 
 October 21, 2026
@@ -315,8 +408,6 @@ October 21, 2026
   * [**Templates v0.11.93**](https://github.com/Comfy-Org/ComfyUI/pull/17238)
 
 
-
-​
 
 v0.42.2
 
@@ -338,8 +429,6 @@ October 20, 2026
 
 
 
-​
-
 v0.42.1
 
 October 19, 2026
@@ -349,8 +438,6 @@ October 19, 2026
   * [**Graph cleanup**](https://github.com/Comfy-Org/ComfyUI/pull/17178): Synchronize model-prefetch graph cleanups so repeated runs release memory reliably
 
 
-
-​
 
 v0.42.0
 
@@ -375,8 +462,6 @@ October 18, 2026
 
 
 
-​
-
 v0.41.1
 
 October 15, 2026
@@ -392,8 +477,6 @@ October 15, 2026
     * [**Krea 3: Image Edit**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_krea3_image_edit.json): Change only the areas you describe while the rest of the image stays untouched
 
 
-
-​
 
 v0.41.0
 
@@ -427,8 +510,6 @@ October 15, 2026
     * [**Flux.3 Image Klein Distilled: Image Edit**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_flux3_klein_distilled_image_edit.json): Edit one input image with a single text prompt
 
 
-
-​
 
 v0.40.0
 
@@ -504,8 +585,6 @@ October 13, 2026
 
 
 
-​
-
 v0.39.2
 
 October 8, 2026
@@ -523,8 +602,6 @@ October 8, 2026
 
 
 
-​
-
 v0.39.1
 
 October 7, 2026
@@ -534,8 +611,6 @@ October 7, 2026
   * [**Nano Banana 2.1**](https://github.com/Comfy-Org/ComfyUI/pull/16822): Text-to-image and image editing in one node, with 1K to 4K output, three thinking levels, and up to 14 reference images
 
 
-
-​
 
 v0.39.0
 
@@ -576,8 +651,6 @@ October 5, 2026
 
 
 
-​
-
 v0.38.2
 
 October 2, 2026
@@ -588,8 +661,6 @@ October 2, 2026
   * [**Grok Imagine Video 1.5 Lite**](https://github.com/Comfy-Org/ComfyUI/pull/16721): A lower-cost tier on the Grok video node
 
 
-
-​
 
 v0.38.1
 
@@ -606,8 +677,6 @@ September 30, 2026
   * [**Qwen-Image 2.1 cache**](https://github.com/Comfy-Org/ComfyUI/pull/16667): Fixed a crash when selecting int8 or int4 cache
 
 
-
-​
 
 v0.38.0
 
@@ -659,8 +728,6 @@ September 29, 2026
 
 
 
-​
-
 v0.37.2
 
 September 23, 2026
@@ -677,8 +744,6 @@ September 23, 2026
 
 
 
-​
-
 v0.37.1
 
 September 22, 2026
@@ -688,8 +753,6 @@ September 22, 2026
   * [**HY Image 3.5 Preview**](https://github.com/Comfy-Org/ComfyUI/pull/16462): Text-to-image and image edit with up to 5 reference images, native 2K output
 
 
-
-​
 
 v0.37.0
 
@@ -724,8 +787,6 @@ September 21, 2026
   * [**MiniMax Music 3**](https://github.com/Comfy-Org/ComfyUI/pull/16428): Fix noisy output when CUDA graphs are enabled
 
 
-
-​
 
 v0.36.0
 
@@ -771,8 +832,6 @@ September 15, 2026
 
 
 
-​
-
 v0.35.2
 
 September 14, 2026
@@ -794,8 +853,6 @@ September 14, 2026
 
 
 
-​
-
 v0.35.1
 
 September 10, 2026
@@ -812,8 +869,6 @@ September 10, 2026
   * [**Templates v0.11.59**](https://github.com/Comfy-Org/ComfyUI/pull/16233): Updated the bundled workflow templates
 
 
-
-​
 
 v0.35.0
 
@@ -861,8 +916,6 @@ September 9, 2026
 
 
 
-​
-
 v0.34.6
 
 September 7, 2026
@@ -874,8 +927,6 @@ September 7, 2026
 
 
 
-​
-
 v0.34.5
 
 September 5, 2026
@@ -885,8 +936,6 @@ September 5, 2026
   * [**Comfy Cloud**](https://github.com/Comfy-Org/ComfyUI/pull/15935): Added beta nodes that run curated Flux 2, Z-Image Turbo, Mage Flow, MiniMax H3, and Music 3 workflows on Comfy Cloud GPUs
 
 
-
-​
 
 v0.34.4
 
@@ -901,8 +950,6 @@ September 4, 2026
   * [**Tripo**](https://github.com/Comfy-Org/ComfyUI/pull/16060): Fixed real FBX/GLB outputs, exact pricing, and missing parameters on Tripo nodes
 
 
-
-​
 
 v0.34.3
 
@@ -922,8 +969,6 @@ September 2, 2026
 
 
 
-​
-
 v0.34.2
 
 August 27, 2026
@@ -938,8 +983,6 @@ August 27, 2026
 
 
 
-​
-
 v0.34.1
 
 August 26, 2026
@@ -951,8 +994,6 @@ August 26, 2026
   * [**Google Veo**](https://github.com/Comfy-Org/ComfyUI/pull/15883): Removed the retiring Veo 2 and Veo 3.0 models from the Veo nodes
 
 
-
-​
 
 v0.34.0
 
@@ -984,8 +1025,6 @@ August 26, 2026
 
 
 
-​
-
 v0.33.4
 
 August 24, 2026
@@ -999,8 +1038,6 @@ August 24, 2026
 
 
 
-​
-
 v0.33.3
 
 August 20, 2026
@@ -1013,8 +1050,6 @@ August 20, 2026
   * [**Ideogram & Pruna P-Image**](https://github.com/Comfy-Org/ComfyUI/pull/15751): Renamed Ideogram P-Image to credit Pruna
 
 
-
-​
 
 v0.33.2
 
@@ -1031,8 +1066,6 @@ August 17, 2026
   * [**Frontend**](https://github.com/Comfy-Org/ComfyUI/pull/15526): Bumped comfyui-frontend-package to 1.49.6
 
 
-
-​
 
 v0.33.1
 
@@ -1070,8 +1103,6 @@ August 13, 2026
   * [**Llama path**](https://github.com/Comfy-Org/ComfyUI/pull/15580): Fixed non-local activation path between Llama blocks
 
 
-
-​
 
 v0.32.0
 
@@ -1112,8 +1143,6 @@ August 11, 2026
   * [**Create Layered Image**](https://github.com/Comfy-Org/ComfyUI/pull/15429): Made Create Layered Image discoverable with clearer flags
 
 
-
-​
 
 v0.31.0
 
@@ -1162,8 +1191,6 @@ August 7, 2026
 
 
 
-​
-
 v0.30.2
 
 August 5, 2026
@@ -1176,8 +1203,6 @@ August 5, 2026
 
 
 
-​
-
 v0.30.1
 
 August 3, 2026
@@ -1187,8 +1212,6 @@ August 3, 2026
   * [**Frontend**](https://github.com/Comfy-Org/ComfyUI/pull/15244): Bumped comfyui-frontend-package to 1.47.12
 
 
-
-​
 
 v0.30.0
 
@@ -1232,8 +1255,6 @@ August 3, 2026
 
 
 
-​
-
 v0.29.2
 
 July 31, 2026
@@ -1245,8 +1266,6 @@ July 31, 2026
 
 
 
-​
-
 v0.29.1
 
 July 31, 2026
@@ -1257,8 +1276,6 @@ July 31, 2026
   * [**SVG previews**](https://github.com/Comfy-Org/ComfyUI/pull/15149): Fixed SVG node output and Media Assets previews after stored-XSS download hardening
 
 
-
-​
 
 v0.29.0
 
@@ -1306,8 +1323,6 @@ July 29, 2026
 
 
 
-​
-
 v0.28.3
 
 July 22, 2026
@@ -1320,8 +1335,6 @@ July 22, 2026
 
 
 
-​
-
 v0.28.2
 
 July 18, 2026
@@ -1331,8 +1344,6 @@ July 18, 2026
   * [**Gemini Video Omni**](https://github.com/Comfy-Org/ComfyUI/pull/14984): Switched Omni model to the Interactions API
 
 
-
-​
 
 v0.28.1
 
@@ -1345,8 +1356,6 @@ July 17, 2026
   * [**HeyGen**](https://github.com/Comfy-Org/ComfyUI/pull/14958): Avatar Video, Talking Photo, Create Avatar, Video Translate, and Text to Speech nodes
 
 
-
-​
 
 v0.28.0
 
@@ -1391,8 +1400,6 @@ July 15, 2026
 
 
 
-​
-
 v0.27.1
 
 July 8, 2026
@@ -1409,8 +1416,6 @@ July 8, 2026
   * [**Video decode**](https://github.com/Comfy-Org/ComfyUI/pull/14746): Fixed crash on videos with undecodable audio streams
 
 
-
-​
 
 v0.27.0
 
@@ -1447,8 +1452,6 @@ June 30, 2026
 
 
 
-​
-
 v0.26.2
 
 June 25, 2026
@@ -1458,8 +1461,6 @@ June 25, 2026
   * [**SeeDance 2.0 Mini**](https://links.comfy.org/4eOUnjJ): Added support for ByteDance SeeDance 2.0 Mini on Text-to-Video, First-Last-Frame, and Reference nodes
 
 
-
-​
 
 v0.26.1
 
@@ -1472,8 +1473,6 @@ June 24, 2026
   * [**Grok Video**](https://github.com/Comfy-Org/ComfyUI/pull/14612): Added 1080p support for Grok video generation
 
 
-
-​
 
 v0.26.0
 
@@ -1511,8 +1510,6 @@ June 23, 2026
 
 
 
-​
-
 v0.25.1
 
 June 16, 2026
@@ -1522,8 +1519,6 @@ June 16, 2026
   * [**Kling V3-Turbo**](https://github.com/Comfy-Org/ComfyUI/pull/14528): Added support for Kling V3-Turbo model
 
 
-
-​
 
 v0.25.0
 
@@ -1569,8 +1564,6 @@ June 16, 2026
 
 
 
-​
-
 v0.24.1
 
 June 3, 2026
@@ -1587,8 +1580,6 @@ June 3, 2026
   * Fixed Seedance 2.0 1080p first/last-frame stretch jump
 
 
-
-​
 
 v0.24.0
 
@@ -1622,8 +1613,6 @@ June 3, 2026
   * Updated workflow templates to v0.9.94
 
 
-
-​
 
 v0.23.0
 
@@ -1691,8 +1680,6 @@ June 1, 2026
 
 
 
-​
-
 v0.22.3
 
 May 20, 2026
@@ -1704,8 +1691,6 @@ May 20, 2026
 
 
 
-​
-
 v0.22.2
 
 May 20, 2026
@@ -1716,8 +1701,6 @@ May 20, 2026
   * Fixed seed parameter always being passed to server in Rodin2.5
 
 
-
-​
 
 v0.22.1
 
@@ -1731,8 +1714,6 @@ May 20, 2026
   * Fixed passing images to Grok LLM
 
 
-
-​
 
 v0.22.0
 
@@ -1777,8 +1758,6 @@ May 20, 2026
 
 
 
-​
-
 v0.21.1
 
 May 13, 2026
@@ -1815,8 +1794,6 @@ May 13, 2026
   * Corrected deprecated cloud-runtime endpoints marking in API specification
 
 
-
-​
 
 v0.21.0
 
@@ -1872,8 +1849,6 @@ May 11, 2026
 
 
 
-​
-
 v0.20.3
 
 April 27, 2026
@@ -1891,8 +1866,6 @@ April 27, 2026
   * Fixed Kling V3 price badge in Motion Control node
 
 
-
-​
 
 v0.20.2
 
@@ -1912,8 +1885,6 @@ April 27, 2026
   * OneTainer ERNIE LoRA support
 
 
-
-​
 
 v0.20.1
 
@@ -1962,8 +1933,6 @@ April 27, 2026
 
 
 
-​
-
 v0.20.0
 
 April 27, 2026
@@ -2010,8 +1979,6 @@ April 27, 2026
 
 
 
-​
-
 v0.19.5
 
 April 17, 2026
@@ -2028,8 +1995,6 @@ April 17, 2026
   * Fixed Stable_Zero123 cc_projection weight assignment on Windows (aimdo-enabled)
 
 
-
-​
 
 v0.19.4
 
@@ -2050,8 +2015,6 @@ April 17, 2026
 
 
 
-​
-
 v0.19.3
 
 April 17, 2026
@@ -2067,8 +2030,6 @@ April 17, 2026
   * Corrected StabilityAI price badges for accurate API node pricing information
 
 
-
-​
 
 v0.19.2
 
@@ -2093,8 +2054,6 @@ April 17, 2026
 
 
 
-​
-
 v0.19.1
 
 April 16, 2026
@@ -2113,8 +2072,6 @@ April 16, 2026
   * Preview as Text node update: Support any value to string conversion
 
 
-
-​
 
 v0.19.0
 
@@ -2171,8 +2128,6 @@ April 13, 2026
 
 
 
-​
-
 v0.18.5
 
 March 25, 2026
@@ -2182,8 +2137,6 @@ March 25, 2026
   * Additional testing after fp8 checkpoint fix revert
 
 
-
-​
 
 v0.18.4
 
@@ -2201,8 +2154,6 @@ March 25, 2026
 
 
 
-​
-
 v0.18.3
 
 March 25, 2026
@@ -2212,8 +2163,6 @@ March 25, 2026
   * Added new Topaz model in API nodes
 
 
-
-​
 
 v0.18.2
 
@@ -2226,8 +2175,6 @@ March 25, 2026
   * [Blog](https://blog.comfy.org/p/grok-imagine-model-feature-updates)
 
 
-
-​
 
 v0.18.1
 
@@ -2244,8 +2191,6 @@ March 23, 2026
   * Fixed light and color issues in WAN VAE processing, improving output quality and color accuracy
 
 
-
-​
 
 v0.18.0
 
@@ -2291,23 +2236,17 @@ March 21, 2026
 
 
 
-​
-
 v0.17.2
 
 March 15, 2026
 
 This release focuses on stability and bug fixes. For complete technical details, see the [full changelog](https://github.com/Comfy-Org/ComfyUI/compare/v0.17.1...v0.17.2) on GitHub.
 
-​
-
 v0.17.1
 
 March 13, 2026
 
 This is a patch release that includes various bug fixes and stability improvements. For full details on changes included in this release, see the complete changelog comparison between v0.17.0 and v0.17.1.
-
-​
 
 v0.17.0
 
@@ -2349,8 +2288,6 @@ March 13, 2026
 
 
 
-​
-
 v0.16.4
 
 March 7, 2026
@@ -2374,8 +2311,6 @@ March 7, 2026
 
 
 
-​
-
 v0.16.3
 
 March 5, 2026
@@ -2387,8 +2322,6 @@ March 5, 2026
   * Added causal_fix parameter to add_keyframe_index and append_keyframe functions, enhancing keyframe handling precision in video workflows
 
 
-
-​
 
 v0.16.2
 
@@ -2406,8 +2339,6 @@ March 5, 2026
 
 
 
-​
-
 v0.16.1
 
 March 5, 2026
@@ -2422,8 +2353,6 @@ March 5, 2026
   * Updated workflow templates to version 0.9.8 with latest improvements and optimizations
 
 
-
-​
 
 v0.16.0
 
@@ -2474,8 +2403,6 @@ March 5, 2026
 
 
 
-​
-
 v0.15.1
 
 February 26, 2026
@@ -2505,8 +2432,6 @@ February 26, 2026
   * Updated workflow templates to version 0.9.4
 
 
-
-​
 
 v0.15.0
 
@@ -2552,8 +2477,6 @@ February 24, 2026
 
 
 
-​
-
 v0.14.2
 
 February 18, 2026
@@ -2563,8 +2486,6 @@ February 18, 2026
   * Fixed issue with Gemini/Nano banana API nodes that sometimes returned blank images, improving reliability for AI-powered image generation workflows.
 
 
-
-​
 
 v0.14.1
 
@@ -2584,8 +2505,6 @@ February 17, 2026
   * Updated workflow templates to v0.8.43
 
 
-
-​
 
 v0.14.0
 
@@ -2625,8 +2544,6 @@ February 17, 2026
 
 
 
-​
-
 v0.13.0
 
 February 10, 2026
@@ -2652,8 +2569,6 @@ February 10, 2026
 
 
 
-​
-
 v0.12.3
 
 February 5, 2026
@@ -2672,8 +2587,6 @@ February 5, 2026
 
 
 
-​
-
 v0.12.2
 
 February 4, 2026
@@ -2684,8 +2597,6 @@ February 4, 2026
   * VRAM leak fix in dynamic VRAM mode
 
 
-
-​
 
 v0.12.1
 
@@ -2704,8 +2615,6 @@ February 3, 2026
   * LLM logits cast as comfy-weight
 
 
-
-​
 
 v0.12.0
 
@@ -2734,8 +2643,6 @@ February 3, 2026
 
 
 
-​
-
 v0.11.1
 
 January 29, 2026
@@ -2751,8 +2658,6 @@ January 29, 2026
   * Python 3.14 compat notes
 
 
-
-​
 
 v0.11.0
 
@@ -2790,8 +2695,6 @@ January 27, 2026
 
 
 
-​
-
 v0.10.0
 
 January 21, 2026
@@ -2815,8 +2718,6 @@ January 21, 2026
   * AMD GPU tensor type fix
 
 
-
-​
 
 v0.9.2
 
@@ -2843,8 +2744,6 @@ January 15, 2026
 
 
 
-​
-
 v0.9.1
 
 January 13, 2026
@@ -2854,8 +2753,6 @@ January 13, 2026
   * Bumped LTXAV memory estimation
 
 
-
-​
 
 v0.9.0
 
@@ -2891,8 +2788,6 @@ January 13, 2026
 
 
 
-​
-
 v0.8.1
 
 January 8, 2026
@@ -2916,8 +2811,6 @@ January 8, 2026
   * Updated workflow templates to v0.7.69
 
 
-
-​
 
 v0.8.0
 
@@ -2952,8 +2845,6 @@ January 7, 2026
   * Code refactoring and cleanup (CLIP preprocessing, comfy-kitchen integration)
 
 
-
-​
 
 v0.7.0
 
@@ -2995,8 +2886,6 @@ December 31, 2025
 
 
 
-​
-
 v0.6.0
 
 December 24, 2025
@@ -3024,8 +2913,6 @@ December 24, 2025
 
 
 
-​
-
 v0.5.1
 
 December 18, 2025
@@ -3035,8 +2922,6 @@ December 18, 2025
   * Improved SA-Solver accuracy
 
 
-
-​
 
 v0.5.0
 
@@ -3061,8 +2946,6 @@ December 17, 2025
   * Frontend updated to v1.34.9
 
 
-
-​
 
 v0.4.0
 
@@ -3123,8 +3006,6 @@ December 10, 2025
 
 
 
-​
-
 v0.3.76
 
 December 2, 2025
@@ -3162,8 +3043,6 @@ December 2, 2025
 
 
 
-​
-
 v0.3.75
 
 November 26, 2025
@@ -3179,8 +3058,6 @@ November 26, 2025
 
 
 
-​
-
 v0.3.73
 
 November 26, 2025
@@ -3191,8 +3068,6 @@ November 26, 2025
   * Optimized Flux 2 text encoder VRAM usage for better performance
 
 
-
-​
 
 v0.3.72
 
@@ -3228,8 +3103,6 @@ November 25, 2025
 
 
 
-​
-
 v0.3.71
 
 November 21, 2025
@@ -3259,8 +3132,6 @@ November 21, 2025
 
 
 
-​
-
 v0.3.70
 
 November 19, 2025
@@ -3288,8 +3159,6 @@ November 19, 2025
 
 
 
-​
-
 v0.3.69
 
 November 18, 2025
@@ -3315,8 +3184,6 @@ November 18, 2025
   * Unified RoPE function implementation across models
 
 
-
-​
 
 v0.3.68
 
@@ -3351,8 +3218,6 @@ November 5, 2025
 
 
 
-​
-
 v0.3.67
 
 October 28, 2025
@@ -3380,8 +3245,6 @@ October 28, 2025
   * Template updates to version 0.2.4
 
 
-
-​
 
 v0.3.66
 
@@ -3417,8 +3280,6 @@ October 21, 2025
 
 
 
-​
-
 v0.3.65
 
 October 14, 2025
@@ -3451,8 +3312,6 @@ October 14, 2025
 
 
 
-​
-
 v0.3.64
 
 October 8, 2025
@@ -3462,8 +3321,6 @@ October 8, 2025
   * Added Sora2 API node for OpenAI’s video generation API
 
 
-
-​
 
 v0.3.63
 
@@ -3500,8 +3357,6 @@ October 6, 2025
 
 
 
-​
-
 v0.3.62
 
 September 30, 2025
@@ -3512,8 +3367,6 @@ September 30, 2025
   * **Seedance Pro Model Support**
 
 
-
-​
 
 v0.3.61
 
@@ -3539,8 +3392,6 @@ September 30, 2025
   * **Sampler CFG Enhancement** : Added ‘input_cond’ and ‘input_uncond’ parameters to sampler CFG function arguments for more flexible conditioning control
 
 
-
-​
 
 v0.3.60
 
@@ -3574,8 +3425,6 @@ September 23, 2025
 
 
 
-​
-
 v0.3.59
 
 September 10, 2025
@@ -3585,8 +3434,6 @@ September 10, 2025
   * **New Seedream Node** : Added ByteDanceSeedream (4.0) node.
 
 
-
-​
 
 v0.3.58
 
@@ -3603,8 +3450,6 @@ September 6, 2025
   * Seedance Video API
 
 
-
-​
 
 v0.3.57
 
@@ -3633,8 +3478,6 @@ September 4, 2025
 
 
 
-​
-
 v0.3.56
 
 August 30, 2025
@@ -3644,8 +3487,6 @@ August 30, 2025
   * **Reduced RAM Usage on Windows**
 
 
-
-​
 
 v0.3.55
 
@@ -3668,8 +3509,6 @@ August 29, 2025
 
 
 
-​
-
 v0.3.54
 
 August 28, 2025
@@ -3683,8 +3522,6 @@ August 28, 2025
   * **Enhanced Stability** : Core model patching improvements contribute to more reliable node execution and model handling across different workflow configurations
 
 
-
-​
 
 v0.3.53
 
@@ -3725,8 +3562,6 @@ August 28, 2025
 
 
 
-​
-
 v0.3.52
 
 August 23, 2025
@@ -3758,8 +3593,6 @@ August 23, 2025
   * **Navigation Mode Rollback** : Rolled back navigation default to traditional legacy mode, avoiding user experience issues caused by default enabled standard navigation mode. Users can still enable standard navigation mode in settings
 
 
-
-​
 
 v0.3.51
 
@@ -3810,8 +3643,6 @@ August 20, 2025
 
 
 
-​
-
 v0.3.50
 
 August 13, 2025
@@ -3849,8 +3680,6 @@ August 13, 2025
   * **Video Control** : WAN 2.2 fun control features provide advanced creative control for video generation workflows
 
 
-
-​
 
 v0.3.49
 
@@ -3892,8 +3721,6 @@ August 5, 2025
 
 
 
-​
-
 v0.3.48
 
 August 2, 2025
@@ -3927,8 +3754,6 @@ August 2, 2025
 
 
 
-​
-
 v0.3.47
 
 July 30, 2025
@@ -3950,8 +3775,6 @@ July 30, 2025
   * **Batch Processing** : Memory optimizations enable better handling of batch operations with large models
 
 
-
-​
 
 v0.3.46
 
@@ -3999,8 +3822,6 @@ July 28, 2025
 
 
 
-​
-
 v0.3.45
 
 July 21, 2025
@@ -4046,8 +3867,6 @@ July 21, 2025
   * **Documentation** : Enhanced fast_fp16_accumulation documentation
 
 
-
-​
 
 v0.3.44
 
@@ -4096,15 +3915,11 @@ July 8, 2025
 
 
 
-​
-
 v0.3.43
 
 June 30, 2025
 
 **Model Support & Workflow Reliability**This release brings improvements to model compatibility and workflow stability:**Expanded Model Documentation** : Added support documentation for Flux Kontext and Omnigen 2 models **VAE Encoding Improvements** : Removed unnecessary random noise injection during VAE encoding **Memory Management Fix** : Resolved a memory estimation bug affecting Kontext model usage
-
-​
 
 v0.3.41
 
@@ -4143,8 +3958,6 @@ June 17, 2025
   * **WebcamCapture Fixes** : Corrected IS_CHANGED signature
 
 
-
-​
 
 v0.3.40
 

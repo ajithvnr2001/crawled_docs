@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:21.155467+00:00
+fetched_at: 2026-11-16T16:52:04.935806+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -77,21 +77,11 @@ Copy pageCopy page
 
 Comfy Router’s canonical, model-ID-addressed routes. Base URL: `https://api.comfy.org` Every endpoint below is authenticated. Send `X-API-Key: <api-key>` or `Authorization: Bearer <jwt>`. Comfy API keys can also be sent as Bearer tokens. `X-API-Key` takes precedence when both credential headers are supplied. See [authentication headers](https://docs.comfy.org/development/comfy-router/headers#request-headers) for the key/JWT distinction and [the Quickstart](https://docs.comfy.org/development/comfy-router/quickstart) for access requirements.
 
-## 
+## Endpoints
 
-​
-
-Endpoints
-
-### 
-
-​
-
-`GET /v2/models`
+### `GET /v2/models`
 
 **List the models Comfy Router can run.** List available model IDs and billing facts. Use `next_cursor` while `has_more` is true. **Parameters**
-
-​
 
 cursor
 
@@ -99,15 +89,11 @@ RouterPageCursor
 
 Opaque pagination cursor.Type: `RouterPageCursor` — Opaque cursor returned as `next_cursor`, 1–512 characters
 
-​
-
 limit
 
 integer
 
 Number of models to return in one page.Up to 100, Default: 20
-
-​
 
 If-None-Match
 
@@ -116,8 +102,6 @@ string
 The `ETag` a caller holds from an earlier `200`.
 
 **Responses**
-
-​
 
 200
 
@@ -125,15 +109,11 @@ RouterModelListResponse
 
 OK - one page of the model catalog.Body: `RouterModelListResponse` — Headers: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
 
-​
-
 304
 
 no body
 
 Not Modified - the page is unchanged since the `ETag` the caller sent in `If-None-Match`.Headers: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
-
-​
 
 400
 
@@ -141,15 +121,11 @@ RouterErrorResponse
 
 Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 401
 
 RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 403
 
@@ -157,15 +133,11 @@ RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 429
 
 RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
-
-​
 
 503
 
@@ -173,15 +145,9 @@ RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`GET /v2/models/{provider}/{model}`
+### `GET /v2/models/{provider}/{model}`
 
 **Read one partner model’s catalog entry by canonical model ID.** Read details for one model without listing the full catalog. **Parameters**
-
-​
 
 provider
 
@@ -191,8 +157,6 @@ required
 
 Provider portion of the canonical `{provider}/{model}` model ID.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -200,8 +164,6 @@ RouterModelSegment
 required
 
 Model portion of the canonical `{provider}/{model}` model ID.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
-
-​
 
 If-None-Match
 
@@ -211,15 +173,11 @@ The `ETag` a caller holds from an earlier `200`.
 
 **Responses**
 
-​
-
 200
 
 RouterModelDetail
 
 OK - the model’s catalog entry.Body: `RouterModelDetail` — Headers: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
-
-​
 
 304
 
@@ -227,15 +185,11 @@ no body
 
 Not Modified - the entry is unchanged since the `ETag` the caller sent in `If-None-Match`.Headers: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
 
-​
-
 401
 
 RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 403
 
@@ -243,15 +197,11 @@ RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 404
 
 RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 429
 
@@ -259,23 +209,15 @@ RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
-​
-
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`POST /v2/models/{provider}/{model}`
+### `POST /v2/models/{provider}/{model}`
 
 **Run a partner model synchronously by canonical model ID.** Run a model and receive its finished result in the same response. **Parameters**
-
-​
 
 provider
 
@@ -285,8 +227,6 @@ required
 
 Provider portion of the canonical `{provider}/{model}` model ID.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -295,15 +235,11 @@ required
 
 Model portion of the canonical `{provider}/{model}` model ID.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
 
-​
-
 Idempotency-Key
 
 string
 
 Caller-generated key that makes retrying one logical call safe.1–255 characters
-
-​
 
 model_provider
 
@@ -311,23 +247,17 @@ string
 
 Selects an alternate provider to serve this model, instead of its current default; `fal`, `wavespeed`, `runware`, and `higgsfield` are the alternates, and `GET /v2/models/{provider}/{model}` reports which of them a given model supports. Its refusals are checked in a fixed order, and the earlier ones answer whether or not the later ones would: an unrecognized value - not a registered provider at all - is refused `400`; then an alternate provider on a request whose body selects a multipart operation (an edit) is refused `409` with `detail` beginning “this request’s `image` selects the edit operation”, but only when that provider’s translator for this model cannot serve the operation - a leg whose translator does carry the media proceeds normally; then any alternate provider on a request that resolved a bring-your-own-key credential is refused `409` with `detail` beginning `this request resolved a BYOK credential` (see that response), whether or not that provider serves this model; then the named provider’s own gate, which refuses `403` with `error_type: not_enabled` when that provider is not turned on for you and `503` with `error_type: service_unavailable` when the gate cannot be evaluated; and only past all four is a real provider with no leg for this model refused `400` with `error_type: invalid_input`, the same answer as an unrecognized value. `fallback_provider` is inert rather than refused on a bring-your-own-key request, on a request whose body selects a multipart operation, and under `strict_mode=true`.
 
-​
-
 strict_mode
 
 boolean
 
 Only meaningful together with `model_provider`.Default: False
 
-​
-
 fallback_provider
 
 string
 
 Controls whether Router retries this call against the model’s other registered provider when the first attempt fails for a reason attributable to Router or to the provider tried. Omitted, or any value other than `false`, leaves fallback on; `false` turns it off. A successful fallback response carries `X-Comfy-Router-Fallback-Provider`. On a request that resolved a bring-your-own-key credential fallback is unavailable whatever this parameter says - the attempt is simply not made and the first failure reaches you unchanged, which is inert, not refused: no `409` originates here. The same is true, for the same reason, on a request whose body selects a multipart operation and under `strict_mode=true` \- each binds the call to one provider that cannot be faithfully replayed against another, so fallback is simply skipped rather than refused. Only an explicit `model_provider` is refused with that `409`, and unlike this unconditional skip its multipart `409` applies only to a leg whose translator cannot serve the operation.
-
-​
 
 reject_unknown_fields
 
@@ -337,15 +267,11 @@ Opt in to refusing a top-level request-body field this model’s input schema do
 
 **Request body** `application/json` — `RouterModelInput` (required) The partner model’s native JSON input. Without `model_provider` the request runs native dispatch on the model’s default provider and this body is the model’s own native schema, forwarded unchanged (`strict_mode` is meaningless there and changes nothing). With `model_provider` selecting an alternate provider and `strict_mode=false` (the default), the body is translated into that provider’s real schema before it is sent - any native field that cannot be expressed exactly is dropped and disclosed via the response’s `X-Comfy-Router-Dropped-Params` header, never silently. With `model_provider` selecting an alternate provider and `strict_mode=true` no translation runs: the body must already be that alternate provider’s own real schema, not this model’s native one (see `strict_mode`), and is forwarded unchanged. The body’s own fields also select which operation Router runs on a model that supports more than one: for an editable image model, including an input image switches it from text-to-image to the image-to-image (edit) operation, which may be metered on its own rate; for a Seedance video model, `content[].role` selects the operation (a first-frame image selects image-to-video, a reference image or clip selects reference-to-video). On native dispatch, Seedance billing follows the media kinds in `content`, not the roles: a request with any video input bills as video-to-video, otherwise one with any image bills as image-to-video, otherwise text-to-video, except that a final render from a `draft_task` item bills as the operation of the Draft it renders; some models charge the same rate for text-to-video and image-to-video. With `model_provider` selecting an alternate provider, each conditioned operation may be metered on that provider’s own rate. **Responses**
 
-​
-
 200
 
 RouterModelOutput
 
 OK - without `model_provider`, or with `model_provider` and `strict_mode=false` (the default, translated back into this model’s native contract when possible, falling back to the alternate provider’s own raw response on a translation failure - logged, never silent), the shape is this model’s own native output; with `strict_mode=true` it is the alternate provider’s response returned unchanged. For a model whose partner answers a generation directly as bytes, the body is those bytes under the partner’s own `Content-Type` rather than `application/json`; branch on the response `Content-Type` and do not assume a JSON document.Body: `RouterModelOutput` or raw bytes (`*/*`) — Headers: `X-Comfy-Request-Id`, `X-Content-Type-Options`, `X-Comfy-Router-Fallback-Provider`, `X-Comfy-Router-Provider`, `X-Comfy-Router-Dropped-Params`, `X-Comfy-Credits-Used`, `Idempotent-Replayed`, `X-Committed-Spend-Limit`, `X-Committed-Spend-Current`, `X-Committed-Spend-Remaining`
-
-​
 
 400
 
@@ -353,15 +279,11 @@ RouterErrorResponse
 
 Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`, `X-Comfy-Upstream-Detail`, `X-Comfy-Refusal-Subject`, `X-Comfy-Credits-Used`, `Idempotent-Replayed`
 
-​
-
 401
 
 RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 402
 
@@ -369,15 +291,11 @@ RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 403
 
 RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 404
 
@@ -385,15 +303,11 @@ RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 409
 
 RouterErrorResponse
 
 Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means the original call is still running, so wait for `Retry-After` and reuse the same key; `invalid_input` requires a new key. Two `invalid_input` conflicts on this route are not about the key at all and no new key clears either: `model_provider` naming an alternate provider is refused when the request body selects a multipart operation (an edit) that provider’s translator for this model cannot serve, whose `detail` begins “this request’s `image` selects the edit operation”; and, checked after that, when the request has already resolved a bring-your-own-key credential for the provider in the path, whose `detail` begins `this request resolved a BYOK credential`. Drop `model_provider`, or send the request without the BYOK credential and (for the multipart case) without the edit.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (when `concurrency_limit_exceeded`)
-
-​
 
 413
 
@@ -401,15 +315,11 @@ RouterErrorResponse
 
 The request body is too large.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 422
 
 RouterValidationErrorResponse
 
 The request’s contents were rejected against the model’s schema.Body: `RouterValidationErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Idempotent-Replayed`
-
-​
 
 429
 
@@ -417,15 +327,11 @@ RouterErrorResponse
 
 Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means reduce in-flight calls; `rate_limited` means wait for `Retry-After`.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Committed-Spend-Limit`, `X-Committed-Spend-Current`, `X-Committed-Spend-Remaining`, `X-Model-Concurrency-Limit`, `X-Model-Concurrency-Current`, `X-Model-Concurrency-Remaining`, `Retry-After` (when `rate_limited`)
 
-​
-
 502
 
 RouterErrorResponse
 
 The provider’s own response could not be turned into a result (`provider_error`).Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`
-
-​
 
 503
 
@@ -433,23 +339,15 @@ RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (capacity refusals only)
 
-​
-
 504
 
 RouterErrorResponse
 
 The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`, `Retry-After`
 
-### 
-
-​
-
-`POST /v2/models/{provider}/{model}/estimate`
+### `POST /v2/models/{provider}/{model}/estimate`
 
 **Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced at Comfy’s standard list price (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. If estimates are switched off for a deployment the route answers `403` with `error_type: not_enabled`; a model Router cannot run yet answers the same `403` with the run route’s own `detail`, so read `detail` to tell the two apart. The body is priced as Router would dispatch it: translated for the `model_provider` leg it names and retargeted to the operation it runs on, in the same order as the `estimate` on the queued submit’s `201`. That `estimate` is not a pre-flight price, though: it arrives only after the run is admitted and queued, and that run is charged unless it is cancelled before dispatch. **Parameters**
-
-​
 
 provider
 
@@ -459,8 +357,6 @@ required
 
 Lowercase provider segment of the canonical `{provider}/{model}` model ID - the partner whose model is being run.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -468,8 +364,6 @@ RouterModelSegment
 required
 
 Lowercase model segment of the canonical `{provider}/{model}` model ID - the model to run within that provider.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
-
-​
 
 model_provider
 
@@ -479,15 +373,11 @@ Selects an alternate provider to serve this model, instead of its current defaul
 
 **Request body** `application/json` — `RouterModelInput` (required) The partner model’s native JSON input, identical to the body the synchronous route accepts for this model. It is validated against the model’s own input schema as a default run validates it (this route takes no `strict_mode` or `reject_unknown_fields`), and its own fields (the output count, the operation an input image selects) decide what is priced. **Responses**
 
-​
-
 200
 
 RouterCostEstimate
 
 The quote.Body: `RouterCostEstimate` — Headers: `X-Comfy-Request-Id`
-
-​
 
 400
 
@@ -495,15 +385,11 @@ RouterErrorResponse
 
 Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 401
 
 RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 403
 
@@ -511,15 +397,11 @@ RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 404
 
 RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 413
 
@@ -527,15 +409,11 @@ RouterErrorResponse
 
 The request body is too large.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 422
 
 RouterValidationErrorResponse
 
 The estimate’s body was rejected against the model’s schema, or named a different model than the path.Body: `RouterValidationErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 429
 
@@ -543,15 +421,11 @@ RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
-​
-
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (capacity refusals only)
-
-​
 
 504
 
@@ -559,15 +433,9 @@ RouterErrorResponse
 
 The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`GET /v2/models/{provider}/{model}/openapi.json`
+### `GET /v2/models/{provider}/{model}/openapi.json`
 
 **Read one partner model’s input and output schemas as an OpenAPI document.** Read one model’s input and output schemas as a standalone OpenAPI document. **Parameters**
-
-​
 
 provider
 
@@ -577,8 +445,6 @@ required
 
 Provider portion of the canonical `{provider}/{model}` model ID.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -586,8 +452,6 @@ RouterModelSegment
 required
 
 Model portion of the canonical `{provider}/{model}` model ID.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
-
-​
 
 If-None-Match
 
@@ -597,15 +461,11 @@ The `ETag` a caller holds from an earlier `200`.
 
 **Responses**
 
-​
-
 200
 
 RouterModelInputSchemaDocument
 
 OK - the model’s input and output schemas, as a standalone OpenAPI document.Body: `RouterModelInputSchemaDocument` — Headers: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
-
-​
 
 304
 
@@ -613,15 +473,11 @@ no body
 
 Not Modified - the document is unchanged since the `ETag` the caller sent in `If-None-Match`.Headers: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
 
-​
-
 401
 
 RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 403
 
@@ -629,15 +485,11 @@ RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 404
 
 RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 500
 
@@ -645,15 +497,11 @@ RouterErrorResponse
 
 Router could not complete the request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 429
 
 RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
-
-​
 
 503
 
@@ -661,15 +509,9 @@ RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`POST /v2/models/{provider}/{model}/requests`
+### `POST /v2/models/{provider}/{model}/requests`
 
 **Submit a partner model run to the queue and return immediately.** Comfy Router’s queued delivery mode. The request body is the same partner-native JSON input `POST /v2/models/{provider}/{model}` accepts for this model - one body shape, one per-model schema, two delivery modes - but this route does not hold the connection for the result. It admits the run, answers `201` with a handle, and the caller collects the result later through the three reads below. **Parameters**
-
-​
 
 provider
 
@@ -679,8 +521,6 @@ required
 
 Lowercase provider segment of the canonical `{provider}/{model}` model ID - the partner whose model is being run.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -689,15 +529,11 @@ required
 
 Lowercase model segment of the canonical `{provider}/{model}` model ID - the model to run within that provider.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
 
-​
-
 model_provider
 
 string
 
 Selects an alternate provider to serve this model, instead of its current default.
-
-​
 
 strict_mode
 
@@ -705,15 +541,11 @@ boolean
 
 Only meaningful together with `model_provider`.Default: False
 
-​
-
 Idempotency-Key
 
 string
 
 Caller-generated key that makes retrying one logical call safe.1–255 characters
-
-​
 
 reject_unknown_fields
 
@@ -723,15 +555,11 @@ Opt in to refusing a top-level request-body field this model’s input schema do
 
 **Request body** `application/json` — `RouterModelInput` (required) The partner model’s native JSON input, identical to the body the synchronous route accepts for this model, and it selects the operation and is metered the same way: the body’s own fields choose which operation Router runs on a model that supports more than one (an input image switches an editable image model to image-to-image, which may be metered on its own rate; a Seedance first-frame image selects image-to-video and a reference image or clip selects reference-to-video). On native dispatch a Seedance request bills by the media kinds in `content`, not the roles: any video input bills as video-to-video, otherwise any image bills as image-to-video, otherwise text-to-video, except that a final render from a `draft_task` item bills as the operation of the Draft it renders, with some models charging the same rate for text-to-video and image-to-video; with `model_provider` selecting an alternate provider, each conditioned operation may be metered on that provider’s own rate. The same provider-selection contract applies at dispatch: without `model_provider`, or with `model_provider` and `strict_mode=false` (the default), the body is the model’s native document and is validated against the model’s own input schema before the run is admitted, so a body the model would reject is a `422` here rather than a queued request that fails minutes later - a non-strict alternate-provider body is additionally translated into that provider’s real schema at dispatch. With `strict_mode=true` the body must already be the alternate provider’s own schema and is forwarded unchanged: native-schema validation is skipped, exactly as on the synchronous route (see `model_provider` and `strict_mode`). **Responses**
 
-​
-
 201
 
 RouterQueueSubmitResponse
 
 Created - the run was admitted to the queue.Body: `RouterQueueSubmitResponse` — Headers: `X-Comfy-Request-Id`, `Idempotent-Replayed`, `X-Comfy-Router-Dropped-Params`
-
-​
 
 401
 
@@ -739,15 +567,11 @@ RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 400
 
 RouterErrorResponse
 
 Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 413
 
@@ -755,15 +579,11 @@ RouterErrorResponse
 
 The request body is too large.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 402
 
 RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 403
 
@@ -771,15 +591,11 @@ RouterErrorResponse
 
 The request is not allowed for this caller or model. A model whose partner answers a generation directly as bytes cannot yet be queued and is refused with `not_enabled`; run it on the synchronous route instead.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 404
 
 RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 409
 
@@ -787,15 +603,11 @@ RouterErrorResponse
 
 Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means the original call is still running, so wait for `Retry-After` and reuse the same key; `invalid_input` requires a new key. Two `invalid_input` conflicts on this route are not about the key at all and no new key clears either: `model_provider` naming an alternate provider is refused when the request body selects a multipart operation (an edit) that provider’s translator for this model cannot serve, whose `detail` begins “this request’s `image` selects the edit operation”; and, checked after that, when the request has already resolved a bring-your-own-key credential for the provider in the path, whose `detail` begins `this request resolved a BYOK credential`. Drop `model_provider`, or send the request without the BYOK credential and (for the multipart case) without the edit.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (when `concurrency_limit_exceeded`)
 
-​
-
 422
 
 RouterValidationErrorResponse
 
 The request’s contents were rejected against the model’s schema.Body: `RouterValidationErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Idempotent-Replayed`
-
-​
 
 429
 
@@ -803,15 +615,11 @@ RouterErrorResponse
 
 Inspect `X-Comfy-Error-Type`: `queue_backlog_full` means you already hold as many unfinished queued requests as you are allowed, so submit again once one of them finishes; `rate_limited` means wait the number of seconds in `Retry-After`.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (when `rate_limited`)
 
-​
-
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (capacity refusals only)
-
-​
 
 504
 
@@ -819,15 +627,9 @@ RouterErrorResponse
 
 The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`GET /v2/models/{provider}/{model}/requests/{request_id}`
+### `GET /v2/models/{provider}/{model}/requests/{request_id}`
 
 **Collect the result of one submitted request.** The collect endpoint. On a request that has finished successfully it returns the partner model’s own native output, byte for byte what the synchronous route’s `200` carries for the same model and the same input - so the two delivery modes produce one result shape and a caller can move between them without a second parser. **Parameters**
-
-​
 
 provider
 
@@ -837,8 +639,6 @@ required
 
 Lowercase provider segment of the canonical `{provider}/{model}` model ID - the partner whose model is being run.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -846,8 +646,6 @@ RouterModelSegment
 required
 
 Lowercase model segment of the canonical `{provider}/{model}` model ID - the model to run within that provider.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
-
-​
 
 request_id
 
@@ -858,8 +656,6 @@ required
 The queued request to address - the `request_id` the submission returned in its body.Type: `RouterQueueRequestId` — `pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`, uuid, Up to 36 characters
 
 **Responses**
-
-​
 
 200
 
@@ -867,15 +663,11 @@ RouterModelOutput
 
 OK - the result stored for a request that produced one - a request that completed successfully, or a terminal one that carries both a recorded charge and a stored result - returned unchanged under the partner’s own media type, exactly as the synchronous route’s `200` returns it, and under the same provider-selection contract the submit accepted: without `model_provider`, or with `model_provider` and `strict_mode=false` (the default, translated back into this model’s native contract when possible, falling back to the alternate provider’s own raw response on a translation failure - logged, never silent), the shape is this model’s own native output; with `strict_mode=true` it is the alternate provider’s response returned unchanged. For a model whose partner answers a generation directly as bytes, the body is those bytes under the partner’s own `Content-Type` rather than `application/json`; branch on the response `Content-Type` and do not assume a JSON document.Body: `RouterModelOutput` or raw bytes (`*/*`) — Headers: `X-Comfy-Request-Id`, `X-Content-Type-Options`, `X-Comfy-Credits-Used`
 
-​
-
 202
 
 RouterQueueStatusResponse
 
 Accepted - the request has not finished.Body: `RouterQueueStatusResponse` — Headers: `X-Comfy-Request-Id`, `Retry-After`
-
-​
 
 401
 
@@ -883,15 +675,11 @@ RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 403
 
 RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 404
 
@@ -899,15 +687,11 @@ RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 410
 
 RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 429
 
@@ -915,15 +699,11 @@ RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
-​
-
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 409
 
@@ -931,15 +711,11 @@ RouterErrorResponse
 
 The request is in a state that conflicts with the operation. Check the error type.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 504
 
 RouterErrorResponse
 
 The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 default
 
@@ -947,15 +723,9 @@ RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`PUT /v2/models/{provider}/{model}/requests/{request_id}/cancel`
+### `PUT /v2/models/{provider}/{model}/requests/{request_id}/cancel`
 
 **Ask for one submitted request to be cancelled.** Asks Comfy to stop a request that has not finished. It is a request, not a guarantee, and the `202` says exactly that: `CANCELLATION_REQUESTED` means the ask was accepted, not that the run has stopped. A run already on the wire at a partner may complete anyway - and a partner generation that completes is charged, whether or not anyone collected it - so a caller who needs to know what actually happened reads the status endpoint afterwards, where a cancellation that took effect is `COMPLETED` carrying an `error_type` like every other terminal outcome. **Parameters**
-
-​
 
 provider
 
@@ -965,8 +735,6 @@ required
 
 Lowercase provider segment of the canonical `{provider}/{model}` model ID - the partner whose model is being run.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -974,8 +742,6 @@ RouterModelSegment
 required
 
 Lowercase model segment of the canonical `{provider}/{model}` model ID - the model to run within that provider.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
-
-​
 
 request_id
 
@@ -986,8 +752,6 @@ required
 The queued request to address - the `request_id` the submission returned in its body.Type: `RouterQueueRequestId` — `pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`, uuid, Up to 36 characters
 
 **Responses**
-
-​
 
 202
 
@@ -995,15 +759,11 @@ RouterQueueCancelResponse
 
 Accepted - `CANCELLATION_REQUESTED`.Body: `RouterQueueCancelResponse` — Headers: `X-Comfy-Request-Id`
 
-​
-
 409
 
 RouterQueueCancelResponse
 
 Conflict - `ALREADY_COMPLETED`.Body: `RouterQueueCancelResponse` — Headers: `X-Comfy-Request-Id`
-
-​
 
 400
 
@@ -1011,15 +771,11 @@ RouterErrorResponse
 
 Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 401
 
 RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 403
 
@@ -1027,15 +783,11 @@ RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 404
 
 RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 429
 
@@ -1043,15 +795,11 @@ RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
-​
-
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 default
 
@@ -1059,15 +807,9 @@ RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-### 
-
-​
-
-`GET /v2/models/{provider}/{model}/requests/{request_id}/status`
+### `GET /v2/models/{provider}/{model}/requests/{request_id}/status`
 
 **Read the queue state of one submitted request.** The poll endpoint. It answers with the request’s current state and never with the result, so a client can watch a long generation without transferring its output on every poll - the result is collected once, from the read below, when this says `COMPLETED`. **Parameters**
-
-​
 
 provider
 
@@ -1077,8 +819,6 @@ required
 
 Lowercase provider segment of the canonical `{provider}/{model}` model ID - the partner whose model is being run.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-​
-
 model
 
 RouterModelSegment
@@ -1086,8 +826,6 @@ RouterModelSegment
 required
 
 Lowercase model segment of the canonical `{provider}/{model}` model ID - the model to run within that provider.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
-
-​
 
 request_id
 
@@ -1099,15 +837,11 @@ The queued request to address - the `request_id` the submission returned in its 
 
 **Responses**
 
-​
-
 200
 
 RouterQueueStatusResponse
 
 OK - the request’s current queue state.Body: `RouterQueueStatusResponse` — Headers: `X-Comfy-Request-Id`, `Retry-After`, `X-Comfy-Credits-Used`, `X-Comfy-Estimated-Duration-Seconds`, `X-Comfy-Estimated-Duration-P90-Seconds`, `X-Comfy-Estimate-Source`
-
-​
 
 401
 
@@ -1115,15 +849,11 @@ RouterErrorResponse
 
 Missing or invalid credentials.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 403
 
 RouterErrorResponse
 
 The request is not allowed for this caller or model.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 404
 
@@ -1131,15 +861,11 @@ RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
-​
-
 410
 
 RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 429
 
@@ -1147,15 +873,11 @@ RouterErrorResponse
 
 `rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
-​
-
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
 
 default
 
@@ -1165,19 +887,11 @@ A Router request-level failure - the request never reached the model, or failed 
 
 Descriptions here are brief. Use [Using the Comfy Router API](https://docs.comfy.org/development/comfy-router/api) for model selection, validation, retries, and billing, and [Headers](https://docs.comfy.org/development/comfy-router/headers) for header behavior.
 
-## 
-
-​
-
-Error buckets
+## Error buckets
 
 Machine-readable Router error category, also sent in the `X-Comfy-Error-Type` header.
 
-### 
-
-​
-
-Request-level buckets
+### Request-level buckets
 
 Raised for a request Router accepted and then could not complete.
 
@@ -1189,12 +903,9 @@ Raised for a request Router accepted and then could not complete.
 `provider_timeout`| The partner provider did not answer within its deadline.  
 `insufficient_credits`| The calling workspace does not have enough credits to run the model.  
 `model_not_found`| The `{provider}/{model}` ID names no model Router can run: an unknown provider, an unenrolled id, one the catalog has retired past its sunset date, or a catalogued ID the provider does not currently serve for Comfy.  
+`byok_credential_rejected`| The provider rejected the key supplied for this call.  
   
-### 
-
-​
-
-Transport-level buckets
+### Transport-level buckets
 
 Raised by Router itself, before or around the call to the model.
 
@@ -1215,13 +926,7 @@ Raised by Router itself, before or around the call to the model.
 `queue_backlog_full`| The caller already has too many queued requests waiting to run, so this submit was refused.  
 `result_expired`| The request existed and finished, but its result is no longer stored, so the collect has nothing to return.  
   
-## 
-
-​
-
-Response headers
-
-​
+## Response headers
 
 Cache-Control
 
@@ -1229,15 +934,11 @@ string
 
 Freshness directives for a catalog page or entry.Sent on: `200`, `304`
 
-​
-
 Cache-Control
 
 string
 
 Freshness directives for the served schema document.Sent on: `200`, `304`
-
-​
 
 ETag
 
@@ -1245,15 +946,11 @@ string
 
 Strong entity tag over the served body’s bytes, for `GET /v2/models` and `GET /v2/models/{provider}/{model}`.Sent on: `200`, `304`
 
-​
-
 ETag
 
 string
 
 Strong entity tag over the served document’s bytes, for `GET /v2/models/{provider}/{model}/openapi.json`.Sent on: `200`, `304`
-
-​
 
 Idempotent-Replayed
 
@@ -1261,15 +958,11 @@ boolean
 
 Present and `true` when this response was served from an `Idempotency-Key`’s record rather than by running the model again.
 
-​
-
 Retry-After
 
 integer
 
 Seconds to wait before re-sending the same request, unchanged.Sent on: `503`
-
-​
 
 Retry-After
 
@@ -1277,15 +970,11 @@ integer
 
 Seconds to wait before polling this queued request again.Sent on: `200`, `202`
 
-​
-
 Retry-After
 
 integer
 
 Seconds to wait before sending another request after a `429` carrying `error_type: rate_limited`: the time until the caller’s per-minute request allowance has refilled enough to admit one more request.Sent on: `429`
-
-​
 
 Retry-After
 
@@ -1293,15 +982,11 @@ integer
 
 Seconds to wait before retrying the same request with the same `Idempotency-Key`.Sent on: `409`, `504`
 
-​
-
 X-Comfy-Credits-Used
 
 string
 
 What this run cost, in Comfy credits, priced from the same rate card the charge itself is billed against - so a caller needs no price table of its own, and on a run that reached the provider through more than one billed call it is their sum rather than the last one.
-
-​
 
 X-Comfy-Error-Type
 
@@ -1309,15 +994,11 @@ RouterErrorType
 
 Coarse, machine-readable bucket for the failure, set by Router on every error response.Type: `RouterErrorType`
 
-​
-
 X-Comfy-Estimate-Source
 
 string
 
 Sent only on the status read while `status` is `IN_PROGRESS`, beside `X-Comfy-Estimated-Duration-Seconds`: where that generation-duration estimate came from (not the cost estimate’s `source`), `historical` (measured on recent runs) or `default` (a per-media-kind fallback, used while too few recent runs are recorded).
-
-​
 
 X-Comfy-Estimated-Duration-P90-Seconds
 
@@ -1325,15 +1006,11 @@ integer
 
 Sent only on the status read while `status` is `IN_PROGRESS`, beside `X-Comfy-Estimated-Duration-Seconds`: the 90th percentile, in whole seconds, of that generation-duration estimate.
 
-​
-
 X-Comfy-Estimated-Duration-Seconds
 
 integer
 
 Sent only on the status read while `status` is `IN_PROGRESS`: Router’s estimate, in whole seconds, of the generation’s whole run once the provider has accepted it (not the time remaining, and never time spent `IN_QUEUE`).
-
-​
 
 X-Comfy-Refusal-Subject
 
@@ -1341,15 +1018,11 @@ string
 
 Which input or output a content-policy refusal was about, as a Router-level closed vocabulary: `input`, `output`, `input_text`, `input_image`, `input_video`, `input_audio`, `output_text`, `output_image`, `output_video`, `output_audio`.
 
-​
-
 X-Comfy-Request-Id
 
 string
 
 Server-generated identifier for this call, present on every Router response - success, 4xx and 5xx alike, because an error response is exactly when a user needs an id to quote in a support request.
-
-​
 
 X-Comfy-Router-Dropped-Params
 
@@ -1357,15 +1030,11 @@ string
 
 One JSON-encoded string holding an array of strings - decode it with a JSON parser rather than splitting it on commas, because it is a single string on the wire, not a comma-separated OpenAPI array, and each entry is a sentence carrying commas of its own - present whenever a translation produced this call’s request body and could not express one or more native fields exactly on the provider that served it, naming each dropped field and why, whether the caller asked for that translation with `model_provider` (`strict_mode=false`, the default) or an automatic `fallback_provider` retry ran it.
 
-​
-
 X-Comfy-Router-Fallback-Provider
 
 string
 
 Present, naming the provider, only when `fallback_provider` actually retried this call against a second provider and that retry succeeded - the provider that ultimately served the call, never one that was attempted and also failed.
-
-​
 
 X-Comfy-Router-Provider
 
@@ -1373,15 +1042,11 @@ string
 
 The provider of the Router leg that served this call, present on every successful run response - the model’s own provider on a native run, the alternate provider `model_provider` named, or the provider a `fallback_provider` retry landed on (which `X-Comfy-Router-Fallback-Provider` also names, only in that case) - which is the leg Router dispatched to and not necessarily the vendor that produced the output, since a proxy-level cascade inside a native leg (the `vertexai` Gemini image chain, for one) can hand the call to a different vendor that no header names.
 
-​
-
 X-Comfy-Upstream-Detail
 
 string
 
 A bounded, sanitized reason the model provider gave for rejecting the request.
-
-​
 
 X-Comfy-Upstream-Status
 
@@ -1389,15 +1054,11 @@ integer
 
 The model provider’s own HTTP status for this call.
 
-​
-
 X-Committed-Spend-Current
 
 integer
 
 The USD cents the caller currently has committed to calls still in flight.
-
-​
 
 X-Committed-Spend-Limit
 
@@ -1405,15 +1066,11 @@ integer
 
 The ceiling, in USD cents, on the partner spend the caller may have committed to calls still in flight - money held from the moment a call is admitted and released when that call finishes.
 
-​
-
 X-Committed-Spend-Remaining
 
 integer
 
 The USD cents of headroom left under the ceiling, floored at zero.
-
-​
 
 X-Content-Type-Options
 
@@ -1421,15 +1078,11 @@ string
 
 Always `nosniff`, on every successful run of a Router model.
 
-​
-
 X-Model-Concurrency-Current
 
 integer
 
 The caller’s concurrent calls to models classed expensive, as counted by the gate that refused this call.
-
-​
 
 X-Model-Concurrency-Limit
 
@@ -1437,19 +1090,13 @@ integer
 
 The most concurrent calls to models classed expensive the caller may hold at once, a quarter of the concurrent-call limit, shared with partner-node calls.
 
-​
-
 X-Model-Concurrency-Remaining
 
 integer
 
 The expensive-model calls the caller may still start; `0` on the `429`.
 
-## 
-
-​
-
-Pre-flight cost estimates
+## Pre-flight cost estimates
 
 `POST /v2/models/{provider}/{model}/estimate` prices a body without running it, and a queued submit (`POST /v2/models/{provider}/{model}/requests`) returns the same `RouterCostEstimate` as `estimate` on its `201`. Both are priced at Comfy’s standard list price, except a model billed the cost its vendor reports, which is `estimated` from the vendor’s published price list. Neither reflects contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. Every figure either returns is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is final. A run on your own provider key is not billed by Comfy (see below). If estimates are switched off for a deployment, the route answers `403` with `error_type: not_enabled` and the submit response omits `estimate`. Both price the body as Router would dispatch it (translated for a `model_provider` leg, retargeted to the operation it runs on), but the submit’s `estimate` is not a pre-flight price: it arrives only after the run is admitted and queued, and that run is charged unless it is cancelled before dispatch. The catalog still carries no prices. Read `source` before any amount. A missing figure never means free.
 
@@ -1483,11 +1130,7 @@ Limits of the estimate. A `200` figure is not a promise that the run is accepted
 
 
 
-## 
-
-​
-
-Result assets
+## Result assets
 
 A model can return asset URLs, inline bytes, or both. The providers below copy selected assets onto Comfy storage and replace their URLs. This behavior depends on the model; there is no request header that selects it.
 
@@ -1500,37 +1143,21 @@ Models| What is copied onto Comfy storage| Maximum Comfy-hosted URL lifetime
   
 These lifetimes start when the URL is signed, not when you open it. Cached or replayed URLs can have less time remaining; replay does not renew them. An `Idempotency-Key` record can outlive the URLs it holds, so from an hour before such a URL expires a same-key retry is answered `409 invalid_input` instead of the recorded response; a response that was already that close to expiry when it was served stays replayable for 5 minutes. Download the asset promptly. Only the assets named in each row are copied: `byteplus/seedream-*` and `byteplus/seededit-*` images are not covered by the BytePlus video row. Copying is performed by the model’s native provider only. A run served by an alternate provider — `model_provider` naming one, or a native run whose fallback retry landed on one (disclosed by `X-Comfy-Router-Fallback-Provider`) — returns that provider’s own URLs, which follow the provider’s expiry and are not copied. `model_provider` values `default`, `comfy` and `comfyui` name no alternate provider, so those runs are native and copied as above, as is a `model_provider` run whose fallback retry landed back on the native provider. **Veo (`veo/*`) has a separate storage path.** In `response.videos[]`, read whichever member is present: `bytesBase64Encoded` contains the clip inline, while `gcsUri` contains a Comfy-signed HTTPS link when the environment is configured for direct provider writes to Comfy storage. That link is valid for 24 hours from the response. The latter case writes the asset directly rather than copying it, so Veo is not in the rehosting table. Other models return provider asset references or inline bytes. Provider URLs follow the provider’s expiry, which can be much shorter than the lifetimes above and is not specified by the Router contract. **Original BytePlus URLs (Seedance 2.x, opt-in).** For a workspace Comfy has opted in server-side, a Seedance 2.x result also carries BytePlus’s own URLs in `content.upstream_video_url` and `content.upstream_last_frame_url`, beside the copied ones, plus `content.upstream_expires_at`. There is no request parameter and no workspace is opted in by default. These URLs expire 24 hours after generation and are absent once BytePlus clears them; on Seedance 2.5 BytePlus caps each at 100 downloads, and Router’s own copy uses one. Each is a bearer credential for its object: anyone holding it can download the asset until it expires. **Zero-data-retention workspaces.** For a workspace Comfy has configured for zero data retention, BytePlus results are not copied onto Comfy storage: the `byteplus/*` video row above does not apply, and `content.video_url` and `content.last_frame_url` are BytePlus’s own provider URLs, returned as BytePlus sent them. They are valid for 24 hours, and on Seedance 2.5 BytePlus limits each to 100 downloads, so download the asset promptly. Such a result is not replayed from its `Idempotency-Key` record. Copying is best effort per asset. If one copy fails, that entry keeps its provider reference; the response can contain both Comfy and provider URLs, with no explicit per-asset copy-status field. The generation still succeeds and is charged. Do not infer every URL’s lifetime from one successfully rehosted asset. Whether a result is Comfy-hosted also decides whether a completed call can still be replayed from its `Idempotency-Key` record later; the `Idempotency-Key` parameter above says what a retry is answered with when it cannot be.
 
-## 
-
-​
-
-Per-model input and output schemas
+## Per-model input and output schemas
 
 Read each model’s fields from `GET /v2/models/{provider}/{model}/openapi.json`. That call needs an API key. The same document, for every model with an authored schema, is also published on this site without one, at `/router-schemas/{provider}/{model}.json`. That copy is a snapshot taken at the last docs update, so the endpoint is authoritative when they differ. The operation’s `requestBody` describes input validation; its `200` response describes the output shape and media type when authored. When `x-comfy-input-schema-authored` is false, Router accepts any JSON object without model-specific prevalidation. Provider requirements still apply. The output schemas describe results; Router does not validate returned provider payloads against them. An unauthored output may use `*/*` rather than `application/json`; inspect the response content type before decoding it.
 
-## 
+## Schemas
 
-​
-
-Schemas
-
-### 
-
-​
-
-RouterBilledWorkspace
+### RouterBilledWorkspace
 
 The wallet a refused call would have charged, on `RouterErrorResponse.billed_workspace`. Answers “which wallet is empty?” - it is not necessarily the workspace the caller’s UI currently has selected, and a team member’s personal credential names their personal wallet here even while a funded team is open. Present only alongside `denied_reason`. **Fields**
-
-​
 
 id
 
 string
 
 The Cloud workspace id. Absent on the legacy rail.
-
-​
 
 type
 
@@ -1540,31 +1167,19 @@ required
 
 `personal` or `team`. An open string: treat any other value as personal.
 
-​
-
 rail
 
 string
 
 `legacy` when the call bills the caller’s pre-workspace Metronome customer rather than a Cloud workspace; that customer has no workspace id. Absent for a Cloud workspace.
 
-### 
-
-​
-
-RouterChargesOnPolicyRejection
+### RouterChargesOnPolicyRejection
 
 Whether a content-policy refusal is charged for this model. Treat an unknown value as potentially charged. Type: `string`
 
-### 
-
-​
-
-RouterCostEstimate
+### RouterCostEstimate
 
 A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch at Comfy’s standard list price, or — for a model billed the cost its vendor reports — from the vendor’s published price list. For that vendor-reported case, `source: exact` is returned only for a small opted-in set of models, and only when the published price list fully determines the figure (every price-driving field was stated, or left at a default that cannot change it); every other vendor-reported quote is `estimated`, including some the list would fully determine. Either way the run is still billed the amount the vendor reports after it completes, never the quoted figure verbatim. It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` “0” (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
-
-​
 
 source
 
@@ -1574,8 +1189,6 @@ required
 
 `exact` | `estimated` | `free` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `free` means the rate card prices this request at zero, so `amount` is “0”. `unknown` carries no figure.
 
-​
-
 currency
 
 string
@@ -1584,15 +1197,11 @@ required
 
 Always `USD`.
 
-​
-
 amount
 
 string
 
 The estimated cost in dollars as a decimal string, e.g. “0.04”, with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as “0”; only a `free` quote reads “0”. Present only when `source` is `exact` or `free`. Not the final charge: the settled charge in your workspace’s usage and billing records is.
-
-​
 
 min_amount
 
@@ -1600,15 +1209,11 @@ string
 
 The low end of the estimate in dollars as a decimal string. It is an estimate, not a guaranteed floor: a call can be billed less, for example when the provider returns less than the request asked for (such as no images), when the estimate is a typical price learned from past calls, or when the price does not rise steadily with the amount requested. Present only when `source` is `estimated`.
 
-​
-
 max_amount
 
 string
 
 The high end of the estimate in dollars as a decimal string. It is an estimate, not a guaranteed cap: a call can be billed more, for example when the provider returns more than was asked (such as more images than requested), when the estimate is learned from past calls, or when the price does not rise steadily with the amount requested. Present only when `source` is `estimated`.
-
-​
 
 amount_cents
 
@@ -1616,15 +1221,11 @@ number
 
 The same figure in US cents, unrounded, for arithmetic. Present with `amount`.double
 
-​
-
 min_amount_cents
 
 number
 
 `min_amount` in US cents, unrounded. Present with `min_amount`.double
-
-​
 
 max_amount_cents
 
@@ -1632,15 +1233,11 @@ number
 
 `max_amount` in US cents. Present with `max_amount`.double
 
-​
-
 credits
 
 number
 
 `amount` in Comfy credits using the platform conversion ($1 = 211 credits), rounded to 2 decimals - the figure `X-Comfy-Credits-Used` is expected to carry for an `exact` quote. That header is a rounded post-hoc figure, not a receipt; the settled charge in your workspace’s usage and billing records is final.double
-
-​
 
 provider
 
@@ -1650,8 +1247,6 @@ required
 
 The provider leg this quote is for. On a queued submit it is the leg that will run.
 
-​
-
 model
 
 RouterModelId
@@ -1659,8 +1254,6 @@ RouterModelId
 required
 
 A canonical Comfy Router model ID, `{provider}/{model}` \- exactly the value that addresses the model on `POST /v2/models/{provider}/{model}`, so a caller can interpolate it into that path without re-deriving it from anything. Its `pattern` is `RouterProviderSegment` and `RouterModelSegment` joined by a single `/`, and `maxLength` is their sum plus that separator.Type: `RouterModelId` — Model ID, e.g. `anthropic/claude-opus-4-6`, Up to 193 characters
-
-​
 
 pricing_as_of
 
@@ -1670,23 +1263,15 @@ required
 
 When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor’s published price list (a model billed the cost the vendor reports) carries the date that list was read instead. A quote whose billed quantity is predicted from a published vendor schedule and then priced from the rate card carries the older of that schedule’s read date and the card’s fetch time, for an `exact` answer and an `estimated` one alike (a model billed the credits its vendor reports is the `estimated` case). Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.date-time
 
-​
-
 reason
 
 string
 
 Present only when `source` is `unknown`: `not_quotable` (Router cannot price this call before it runs - its price depends on what the provider reports back, or the body does not bound a billed quantity), `unpriced_model` (the rate card does not price this request), `byok` (queued submit only: the run uses your own provider key, so Comfy bills nothing for it), or `pricing_unavailable` (queued submit only: the rate card could not be read when the request was admitted; this is transient, and the run is still charged as usual). Read any other value as `not_quotable`.
 
-### 
-
-​
-
-RouterErrorResponse
+### RouterErrorResponse
 
 Error body for authentication, access, model lookup, quota, and provider transport failures. **Fields**
-
-​
 
 detail
 
@@ -1696,17 +1281,13 @@ required
 
 Human-readable description of the failure, safe to surface to an end user. Not machine-parsed - branch on `error_type` instead. For `model_not_found` on a retired model, `detail` reads `<id> was retired on <YYYY-MM-DD>; use <successor>` when a successor is recorded and visible to the caller, or just `<id> was retired on <YYYY-MM-DD>` when it is not, instead of the usual suggestion list. A successor named here is always a live catalog ID the call can be re-pointed at. A model whose sunset date is still in the future is not retired: it stays listed by `GET /v2/models` and stays runnable until that date. Like the rest of `detail`, this retirement wording is for display and carries no compatibility guarantee. Two documented exceptions to the not-machine-parsed rule: on `POST /v2/models/{provider}/{model}` the `409` is answered for three unrelated conditions that share the `invalid_input` bucket, and only `detail` separates them - a `detail` beginning “this request’s `image` selects the edit operation” is the multipart `model_provider` refusal, and a `detail` beginning `this request resolved a BYOK credential` is the BYOK `model_provider` refusal; neither clears with a new `Idempotency-Key`. Any other `invalid_input` `409` on that route is the key conflict. Both prefixes are stable contract terms and may be matched. Nowhere else does branching on `detail` carry a compatibility guarantee.
 
-​
-
 error_type
 
 RouterErrorType
 
 required
 
-Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty values: the six request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
-
-​
+Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty-one values: the six request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`, plus the request-level `byok_credential_rejected`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
 
 upstream_detail
 
@@ -1714,15 +1295,11 @@ string
 
 A bounded, sanitized reason for an `invalid_input` rejection. On the synchronous route it is the reason the model provider gave, present only when `error_type` is `invalid_input` and `X-Comfy-Upstream-Status` is a provider `4xx` or `2xx` \- i.e. the provider refused the request as malformed and said why. Usually that status is a `4xx`; it is a `2xx` for a provider that reports a rejected generation inside a success envelope (a BytePlus failed-task poll is HTTP `200` with the reason in its body). There it is absent on every other failure, including provider `5xx`, transport failures, content-policy refusals and any refusal Router raised about itself, and it mirrors the `X-Comfy-Upstream-Detail` header. The queued collect (`GET /v2/models/{provider}/{model}/requests/{request_id}`) of a run that ended `invalid_input` carries the same reason in this field on its first collect, which then deletes it from the request: a later collect normally answers the same `error_type` and `detail` without it, so read it from the first collect. That read sends neither header. The queued collect also uses this field for Router’s own reason when Router refused the request before sending it to the provider and can state why in one sentence, which the synchronous route answers in `detail`; a refusal that names individual fields carries none.
 
-​
-
 refusal_subject
 
 string
 
 Which input or output a content-policy refusal was about, as a Router-level closed vocabulary: `input`, `output`, `input_text`, `input_image`, `input_video`, `input_audio`, `output_text`, `output_image`, `output_video`, `output_audio`. The bare `input` / `output` values name the side when the provider did not name a modality. Present only when `error_type` is `content_policy_violation` and the provider named the refused subject with a machine-readable code; absent otherwise. Never provider text. Named today for BytePlus, Runway, BFL, Gemini, Veo, Vertex, xAI and Wan refusals, and for the MiniMax Router’s Nano Banana legs’ Gemini refusals; a provider whose refusal does not say which side it was about leaves it absent. It mirrors the `X-Comfy-Refusal-Subject` header.
-
-​
 
 denied_reason
 
@@ -1730,15 +1307,11 @@ string
 
 Billing’s policy branch for a partner-node spend denial - `no_funds` when the billed wallet is empty, `unspecified` when the call was refused without a funds reading saying so. Present only when `error_type` is `insufficient_credits` and the deployment reports wallet facts; absent otherwise. A machine-readable code, not display text: show `detail`, branch on this.
 
-​
-
 billed_workspace
 
 RouterBilledWorkspace
 
 The wallet a refused call would have charged, on `RouterErrorResponse.billed_workspace`. Answers “which wallet is empty?” - it is not necessarily the workspace the caller’s UI currently has selected, and a team member’s personal credential names their personal wallet here even while a funded team is open. Present only alongside `denied_reason`.Type: `RouterBilledWorkspace`
-
-​
 
 credential_kind
 
@@ -1746,23 +1319,13 @@ string
 
 How the refused request authenticated - `personal_api_key`, `team_api_key`, `personal_session` or `team_session`. Answers “which credential do I switch to bill the other wallet?”. It is not a permission and grants nothing. Present only alongside `denied_reason`.
 
-### 
-
-​
-
-RouterErrorType
+### RouterErrorType
 
 Machine-readable Router error category, also sent in the `X-Comfy-Error-Type` header. Type: `string`
 
-### 
-
-​
-
-RouterModelBilling
+### RouterModelBilling
 
 Billing behavior to check before invoking a model. It does not include prices or usage. **Fields**
-
-​
 
 charges_on_policy_rejection
 
@@ -1772,23 +1335,13 @@ required
 
 Whether a call this model refuses on content-policy grounds is nevertheless charged to the caller. Providers differ, the difference is invisible at call time, and a user who sees an error and a charge for the same call has no way to have known - so it is stated per model, before the call, rather than left to per-provider folklore. When it is `yes`, a `content_policy_violation` error on the synchronous route can carry `X-Comfy-Credits-Used`: it does when the provider refused the model’s generated output and Comfy recorded usage for that refused generation, and carries that amount. An input-side refusal, a same-key replay (`Idempotent-Replayed: true`), and a charge too small to show in the header’s two decimals do not carry it; a refusal without the header is not reported, not proof it was free.Type: `RouterChargesOnPolicyRejection`
 
-### 
-
-​
-
-RouterModelDetail
+### RouterModelDetail
 
 Per-model detail for one Comfy Router model: everything the catalog listing reports for it, plus the per-model fields that only the single-model route carries. Composes `RouterModelListEntry`, `RouterModelDetailFields`. Type: `object`
 
-### 
-
-​
-
-RouterModelDetailFields
+### RouterModelDetailFields
 
 Optional fields returned by the model-details endpoint. **Fields**
-
-​
 
 input_schema_url
 
@@ -1796,39 +1349,21 @@ string
 
 URL of this model’s OpenAPI document, including its input and output schemas.HTTPS URL, e.g. `https://api.comfy.org/v2/models/bfl/flux-2-pro/openapi.json`, Up to 2048 characters
 
-### 
-
-​
-
-RouterModelId
+### RouterModelId
 
 The model ID used in `POST /v2/models/{provider}/{model}`. Type: `string` — Model ID, e.g. `anthropic/claude-opus-4-6`, Up to 193 characters
 
-### 
-
-​
-
-RouterModelInput
+### RouterModelInput
 
 The model input object. Read the selected model’s OpenAPI document for fields and validation. Type: `object`
 
-### 
-
-​
-
-RouterModelInputSchemaDocument
+### RouterModelInputSchemaDocument
 
 A standalone OpenAPI document for one model’s input and output. Type: `object`
 
-### 
-
-​
-
-RouterModelListEntry
+### RouterModelListEntry
 
 A model’s ID and billing facts. **Fields**
-
-​
 
 id
 
@@ -1838,8 +1373,6 @@ required
 
 A canonical Comfy Router model ID, `{provider}/{model}` \- exactly the value that addresses the model on `POST /v2/models/{provider}/{model}`, so a caller can interpolate it into that path without re-deriving it from anything. Its `pattern` is `RouterProviderSegment` and `RouterModelSegment` joined by a single `/`, and `maxLength` is their sum plus that separator.Type: `RouterModelId` — Model ID, e.g. `anthropic/claude-opus-4-6`, Up to 193 characters
 
-​
-
 provider
 
 RouterProviderSegment
@@ -1847,8 +1380,6 @@ RouterProviderSegment
 required
 
 Lowercase `provider` segment of the canonical `{provider}/{model}` model ID - the partner whose model is being addressed. The invocation route’s `provider` path parameter and a catalog entry’s `provider` field both reference this one schema, which is what keeps the listed IDs and the accepted IDs from drifting apart.Type: `RouterProviderSegment` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
-
-​
 
 model
 
@@ -1858,8 +1389,6 @@ required
 
 Lowercase `model` segment of the canonical `{provider}/{model}` model ID - the model to run within that provider. Shared by the invocation route’s `model` path parameter and a catalog entry’s `model` field, for the same no-drift reason as `RouterProviderSegment`.Type: `RouterModelSegment` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
 
-​
-
 billing
 
 RouterModelBilling
@@ -1868,23 +1397,15 @@ required
 
 Per-model billing facts a caller needs before invoking - not prices. Usage and cost figures never appear here.Type: `RouterModelBilling`
 
-​
-
 schema_etag
 
 string
 
 The current strong `ETag` of this model’s `GET /v2/models/{provider}/{model}/openapi.json` document. Send it as `If-None-Match` on that read to get a `304` while the schema is unchanged, or compare it with the value seen last time to learn which models’ schemas changed without fetching every document. Absent whenever that read would not answer `200` for this caller at this moment: the schema service is not available, the model’s document cannot be rendered, or the model stopped being available to this caller while the response was being built. An absent tag is not a schema change; re-read the model’s document to learn its current tag.
 
-### 
-
-​
-
-RouterModelListResponse
+### RouterModelListResponse
 
 One page of the Router model catalog. **Fields**
-
-​
 
 data
 
@@ -1894,8 +1415,6 @@ required
 
 The models on this page, at most `limit` of them.Type: array of `RouterModelListEntry`
 
-​
-
 has_more
 
 boolean
@@ -1904,15 +1423,11 @@ required
 
 Whether another page exists beyond this one. Keep walking while this is true; do not infer the end of the catalog from a short or empty `data`.
 
-​
-
 next_cursor
 
 RouterPageCursor
 
 An opaque cursor into a Router list. It is produced by the server and only ever round-tripped: it is not an offset, not a model ID, not ordered, and not stable across catalog rebuilds, so parsing one, incrementing one, or persisting one beyond the walk it came from are all outside the contract. Cursor rather than offset because the catalog is a moving list - an offset walk silently skips or repeats entries when entries are added or removed mid-walk, and a caller cannot tell that it happened.Type: `RouterPageCursor` — Opaque cursor returned as `next_cursor`, 1–512 characters
-
-​
 
 limit
 
@@ -1922,47 +1437,25 @@ required
 
 The page size actually served. A requested `limit` above the maximum is clamped down to the maximum rather than rejected, so this can be smaller than the value asked for - paginate with this number, not with the one you sent, or you will assume rows you never received.1–100
 
-### 
-
-​
-
-RouterModelOutput
+### RouterModelOutput
 
 The model result object. Read the selected model’s output schema for its exact shape. Type: `object`
 
-### 
-
-​
-
-RouterModelSegment
+### RouterModelSegment
 
 The model portion of a `{provider}/{model}` model ID. Type: `string` — Alphanumeric slug, e.g. `claude-opus-4-6`, Up to 128 characters
 
-### 
-
-​
-
-RouterPageCursor
+### RouterPageCursor
 
 An opaque catalog cursor. Pass it back unchanged as `cursor`. Type: `string` — Opaque cursor returned as `next_cursor`, 1–512 characters
 
-### 
-
-​
-
-RouterProviderSegment
+### RouterProviderSegment
 
 The provider portion of a `{provider}/{model}` model ID. Type: `string` — Alphanumeric slug, e.g. `anthropic`, Up to 64 characters
 
-### 
-
-​
-
-RouterQueueCancelResponse
+### RouterQueueCancelResponse
 
 The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `409`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split. **Fields**
-
-​
 
 request_id
 
@@ -1971,8 +1464,6 @@ RouterQueueRequestId
 required
 
 Identifier of one queued Router request - the handle a caller polls, cancels and collects a result by.Type: `RouterQueueRequestId` — `pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`, uuid, Up to 36 characters
-
-​
 
 status
 
@@ -1982,47 +1473,25 @@ required
 
 What a cancellation ask found, for the two outcomes that describe a request this route actually resolved. Both are mirrored by the HTTP status, so a client may branch on either.Type: `RouterQueueCancelStatus`
 
-### 
-
-​
-
-RouterQueueCancelStatus
+### RouterQueueCancelStatus
 
 What a cancellation ask found, for the two outcomes that describe a request this route actually resolved. Both are mirrored by the HTTP status, so a client may branch on either. Type: `string`
 
-### 
-
-​
-
-RouterQueuePosition
+### RouterQueuePosition
 
 How many requests are ahead of this one in the queue, at the instant the response was composed. Zero means this request is at the front. Type: `integer` — At least 0
 
-### 
-
-​
-
-RouterQueueRequestId
+### RouterQueueRequestId
 
 Identifier of one queued Router request - the handle a caller polls, cancels and collects a result by. Type: `string` — `pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`, uuid, Up to 36 characters
 
-### 
-
-​
-
-RouterQueueStatus
+### RouterQueueStatus
 
 The state of a queued Router request. It has exactly three values, and unlike `RouterErrorType` this one is a closed `enum`, because the two schemas are closed in opposite directions on purpose. `RouterErrorType` classifies failures and its set is expected to grow, so a generated client that hard-rejected an unrecognised bucket would fail hardest exactly when something had already gone wrong. This one is a lifecycle, and a lifecycle with a fourth state added later is a breaking change to every polling loop written against it whether it is declared as an enum or not - so it is declared as one, and the constraint is stated where a client can see it. Type: `string`
 
-### 
-
-​
-
-RouterQueueStatusFields
+### RouterQueueStatusFields
 
 The half of `RouterQueueStatusResponse` that is not the URL block: one queued request’s identity, its current state, and - when that state is terminal and the run did not succeed - the coarse bucket saying why. **Fields**
-
-​
 
 request_id
 
@@ -2032,8 +1501,6 @@ required
 
 Identifier of one queued Router request - the handle a caller polls, cancels and collects a result by.Type: `RouterQueueRequestId` — `pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`, uuid, Up to 36 characters
 
-​
-
 status
 
 RouterQueueStatus
@@ -2042,15 +1509,11 @@ required
 
 The state of a queued Router request. It has exactly three values, and unlike `RouterErrorType` this one is a closed `enum`, because the two schemas are closed in opposite directions on purpose. `RouterErrorType` classifies failures and its set is expected to grow, so a generated client that hard-rejected an unrecognised bucket would fail hardest exactly when something had already gone wrong. This one is a lifecycle, and a lifecycle with a fourth state added later is a breaking change to every polling loop written against it whether it is declared as an enum or not - so it is declared as one, and the constraint is stated where a client can see it.Type: `RouterQueueStatus`
 
-​
-
 queue_position
 
 RouterQueuePosition
 
 How many requests are ahead of this one in the queue, at the instant the response was composed. Zero means this request is at the front.Type: `RouterQueuePosition` — At least 0
-
-​
 
 error_type
 
@@ -2058,23 +1521,13 @@ RouterErrorType
 
 Present only on a `COMPLETED` request that did not succeed, carrying the same coarse bucket the result read puts on `X-Comfy-Error-Type` when it returns that failure. It is what distinguishes a terminal request that succeeded from one that failed or was cancelled - there is no separate terminal status for either - and it is absent on success rather than null, so branch on its presence.Type: `RouterErrorType`
 
-### 
-
-​
-
-RouterQueueStatusResponse
+### RouterQueueStatusResponse
 
 One queued request’s current state, composed with the same three URLs the submission returned. Composes `RouterQueueUrls`, `RouterQueueStatusFields`. Type: `object`
 
-### 
-
-​
-
-RouterQueueSubmitFields
+### RouterQueueSubmitFields
 
 The half of `RouterQueueSubmitResponse` that is not the URL block: the new request’s identity and its state at the instant it was admitted. **Fields**
-
-​
 
 request_id
 
@@ -2084,8 +1537,6 @@ required
 
 Identifier of one queued Router request - the handle a caller polls, cancels and collects a result by.Type: `RouterQueueRequestId` — `pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`, uuid, Up to 36 characters
 
-​
-
 status
 
 RouterQueueStatus
@@ -2094,15 +1545,11 @@ required
 
 The state of a queued Router request. It has exactly three values, and unlike `RouterErrorType` this one is a closed `enum`, because the two schemas are closed in opposite directions on purpose. `RouterErrorType` classifies failures and its set is expected to grow, so a generated client that hard-rejected an unrecognised bucket would fail hardest exactly when something had already gone wrong. This one is a lifecycle, and a lifecycle with a fourth state added later is a breaking change to every polling loop written against it whether it is declared as an enum or not - so it is declared as one, and the constraint is stated where a client can see it.Type: `RouterQueueStatus`
 
-​
-
 queue_position
 
 RouterQueuePosition
 
 How many requests are ahead of this one in the queue, at the instant the response was composed. Zero means this request is at the front.Type: `RouterQueuePosition` — At least 0
-
-​
 
 estimate
 
@@ -2110,23 +1557,13 @@ RouterCostEstimate
 
 The pre-flight cost estimate for this request, present on a fresh admission when the cost estimate is enabled for the caller. It quotes the provider leg this request was pinned to (the queue has no fallback loop, so `fallback_provider` never changes the leg that runs). When no figure can be given it is still present, with `source: unknown`; the submission never fails because of the estimate. Omitted on an idempotent replay (`Idempotent-Replayed: true`), because the original quote is not stored. It is an estimate, not the final charge, and not a price lock: the run is charged at the rates in force when it is rated, and the settled charge in your workspace’s usage and billing records is final.Type: `RouterCostEstimate`
 
-### 
-
-​
-
-RouterQueueSubmitResponse
+### RouterQueueSubmitResponse
 
 The handle returned when a run is admitted to the queue: the request’s identity and state, composed with the three URLs that address the rest of its lifetime. Composes `RouterQueueUrls`, `RouterQueueSubmitFields`. Type: `object`
 
-### 
-
-​
-
-RouterQueueUrls
+### RouterQueueUrls
 
 The three URLs that address the rest of one queued request’s lifetime, returned on every response that carries a live handle so a client never composes a queue URL itself. **Fields**
-
-​
 
 status_url
 
@@ -2136,8 +1573,6 @@ required
 
 Absolute URL of this request’s status read.URI
 
-​
-
 response_url
 
 string
@@ -2145,8 +1580,6 @@ string
 required
 
 Absolute URL this request’s result is collected from.URI
-
-​
 
 cancel_url
 
@@ -2156,23 +1589,13 @@ required
 
 Absolute URL a cancellation is asked for at.URI
 
-### 
-
-​
-
-RouterValidationErrorContext
+### RouterValidationErrorContext
 
 Provider-supplied details about the validation rule that failed. Type: `object`
 
-### 
-
-​
-
-RouterValidationErrorDetail
+### RouterValidationErrorDetail
 
 One field-level validation failure. **Fields**
-
-​
 
 loc
 
@@ -2182,8 +1605,6 @@ required
 
 Path to the offending field, outermost segment first - for example `["body", "image_url"]`, or `["body", "images", 0]` where an integer indexes into an array.
 
-​
-
 msg
 
 string
@@ -2191,8 +1612,6 @@ string
 required
 
 Human-readable description of this single failure.
-
-​
 
 type
 
@@ -2202,15 +1621,11 @@ required
 
 Specific, machine-readable reason for this failure, passed through from the provider unchanged. This is the value a typed SDK exception hierarchy branches on; `error_type` on the response header is only its coarse bucket.
 
-​
-
 ctx
 
 RouterValidationErrorContext
 
 The violated bound for one `RouterValidationErrorDetail`, carried from the provider verbatim - for example `{"limit_value": 8}` alongside `greater_than`, `{"min_width": 512}` alongside `image_too_small`, or `{"max_size_bytes": 10485760}` alongside `file_too_large`. The key set is specific to the provider and the error type, so this is deliberately an open object: narrowing it to a fixed field list, or folding it into the `msg` string, is precisely how a ported integration compiles and then silently loses the branch that read the bound. Absent when the error type carries no bound.Type: `RouterValidationErrorContext`
-
-​
 
 input
 
@@ -2218,23 +1633,13 @@ RouterValidationErrorInput
 
 The offending input value, echoed back verbatim so a caller can see what was rejected without re-deriving it from `loc`. Any JSON type - string, number, boolean, array, object or null - so this schema is deliberately left untyped rather than narrowed to an object. Absent when the provider does not echo the input back.Type: `RouterValidationErrorInput`
 
-### 
-
-​
-
-RouterValidationErrorInput
+### RouterValidationErrorInput
 
 The rejected input value, when the provider includes it.
 
-### 
-
-​
-
-RouterValidationErrorResponse
+### RouterValidationErrorResponse
 
 The `422` validation error body. Read `X-Comfy-Error-Type` for its category. **Fields**
-
-​
 
 detail
 

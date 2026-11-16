@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/backend/manager/
-title: Publicar en ComfyUI Manager - ComfyUI
+title: Publicar un nodo personalizado en ComfyUI Manager - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:54.797979+00:00
+fetched_at: 2026-11-16T16:52:08.069059+00:00
 ---
 
-# Publicar en ComfyUI Manager - ComfyUI
+# Publicar un nodo personalizado en ComfyUI Manager - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/backend/manager/
 
@@ -20,11 +20,11 @@ Volver arriba
 
 Package & Publish
 
-# Publicar en ComfyUI Manager
+# Publicar un nodo personalizado en ComfyUI Manager
 
 Copiar páginaCopiar página
 
-Publica un nodo personalizado en la base de datos de ComfyUI Manager: requisitos de git y proceso de registro en custom-node-list.json.
+Registra un nodo personalizado en ComfyUI Manager con una pull request que lo añade a custom-node-list.json, además de los requisitos de repositorio git.
 
 Copiar páginaCopiar página
 

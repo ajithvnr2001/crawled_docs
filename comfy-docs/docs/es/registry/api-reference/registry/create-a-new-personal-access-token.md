@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/create-a-new-personal-access-token/
 title: Create a new personal access token - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:12.684252+00:00
+fetched_at: 2026-11-16T16:52:11.162543+00:00
 ---
 
 # Create a new personal access token - ComfyUI
@@ -395,8 +395,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -409,8 +407,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
@@ -421,15 +417,11 @@ requerido
 
 application/json
 
-​
-
 createdAt
 
 string<date-time>
 
 [Output Only]The date and time the token was created.
-
-​
 
 description
 
@@ -437,23 +429,17 @@ string
 
 Optional. A more detailed description of the token's intended use.
 
-​
-
 id
 
 string<uuid>
 
 Unique identifier for the GitCommit
 
-​
-
 name
 
 string
 
 Required. The name of the token. Can be a simple description.
-
-​
 
 token
 
@@ -468,8 +454,6 @@ string
 application/json
 
 Token created successfully
-
-​
 
 token
 

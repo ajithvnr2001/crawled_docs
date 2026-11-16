@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/linux/
 title: Comfy Desktop on Linux - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:32.945893+00:00
+fetched_at: 2026-11-16T16:52:02.684608+00:00
 ---
 
 # Comfy Desktop on Linux - ComfyUI
@@ -34,21 +34,17 @@ Installation
 
 Copy pageCopy page
 
-Install Comfy Desktop on Linux using the official .deb or AppImage packages. Source builds need Ubuntu 22.04+, x64, and Node.js v22 LTS.
+Install Comfy Desktop on Linux using the official .deb or AppImage packages. Source builds need Ubuntu 22.04+, x64, and Node.js v24 LTS.
 
 Copy pageCopy page
 
 **Comfy Desktop** can run on Linux. Official `.deb` (Debian/Ubuntu) and AppImage packages are distributed through the [Comfy Desktop repository](https://github.com/Comfy-Org/Comfy-Desktop). Download them with the [universal download link](https://dl.todesktop.com/241130tqe9q3y), which auto-detects your platform. Most users should use one of those packages. If you want to run the app from source instead, clone the repository and follow the steps below.
 
-## 
-
-​
-
-System Requirements
+## System Requirements
 
   * **OS:** Linux (Ubuntu 22.04 or later recommended)
   * **Architecture:** x64
-  * **Node.js:** v22 LTS or later (source build only)
+  * **Node.js:** v24 LTS or later (source build only)
   * **pnpm:** v10 or later, enabled with Corepack (source build only)
   * **Build tools:** `build-essential` and `git` (source build only)
   * **GPU:** A dedicated GPU (NVIDIA / AMD) is recommended, but not required
@@ -56,11 +52,7 @@ System Requirements
 
 
 
-## 
-
-​
-
-Install the official package
+## Install the official package
 
 Download the Linux package with the [universal download link](https://dl.todesktop.com/241130tqe9q3y) (it auto-detects your platform), then install it:
     
@@ -80,7 +72,12 @@ The package’s install scripts write the profile whenever the package is instal
     sudo apt reinstall comfyui-desktop-2
     
 
-For the AppImage:
+For the AppImage, install FUSE 2 first. The AppImage loads `libfuse.so.2`, which Ubuntu does not install by default:
+
+  * Ubuntu 24.04 and later: `sudo apt install libfuse2t64`
+  * Ubuntu 22.04: `sudo apt install libfuse2`
+
+Then make it executable and run it:
     
     
     chmod +x ./*.AppImage
@@ -95,19 +92,11 @@ The AppImage runs no package install scripts, so it adds neither the AppArmor pr
 
 That flag disables Electron sandboxing for every process, so only use it when the sandboxed launch fails.
 
-## 
-
-​
-
-Build and run from source
+## Build and run from source
 
 These steps match the [Development](https://github.com/Comfy-Org/Comfy-Desktop#development) section in the repository README.
 
-### 
-
-​
-
-Prerequisites
+### Prerequisites
 
 Install the build tools and git first. A fresh Ubuntu install ships without them, and `pnpm run init` compiles native modules such as `node-pty`, which fails with `Error: not found: make` if `build-essential` is missing:
     
@@ -115,20 +104,16 @@ Install the build tools and git first. A fresh Ubuntu install ships without them
     sudo apt install build-essential git
     
 
-Then install Node.js 22 and enable pnpm:
+Then install Node.js 24 and enable pnpm:
     
     
-    nvm install 22 && nvm use 22
+    nvm install 24 && nvm use 24
     corepack enable
     
 
-If you do not use nvm, install Node.js 22 from [nodejs.org](https://nodejs.org/) instead.
+The repository’s `.nvmrc` pins the exact version. If you do not use nvm, install Node.js 24 from [nodejs.org](https://nodejs.org/) instead.
 
-### 
-
-​
-
-Clone and install
+### Clone and install
     
     
     git clone https://github.com/Comfy-Org/Comfy-Desktop.git
@@ -138,11 +123,7 @@ Clone and install
 
 `pnpm run init` installs dependencies and builds the bundled bootstrap Python.
 
-### 
-
-​
-
-Start the app
+### Start the app
     
     
     ./linux-dev.sh
@@ -154,19 +135,11 @@ This starts Comfy Desktop in development mode. The script sets `ELECTRON_DISABLE
 
 Once the app is running, learn how to create instances, manage installations, and configure settings.
 
-## 
-
-​
-
-Updating
+## Updating
 
 How Comfy Desktop updates depends on how you installed it.
 
-### 
-
-​
-
-.deb installs
+### .deb installs
 
 Installing the `.deb` also adds an APT source (`/etc/apt/sources.list.d/comfyui-desktop-2.sources`) and an unattended-upgrades entry for it, so new releases arrive with your normal system updates:
     
@@ -177,19 +150,11 @@ Installing the `.deb` also adds an APT source (`/etc/apt/sources.list.d/comfyui-
 
 You do not need to download the `.deb` again for each release. `sudo apt remove comfyui-desktop-2` leaves the APT source on disk; `sudo apt purge comfyui-desktop-2` removes it together with the unattended-upgrades entry.
 
-### 
-
-​
-
-AppImage
+### AppImage
 
 The AppImage updates itself: Comfy Desktop downloads the new build and replaces the `.AppImage` file you launched, so keep it in a folder your user account can write to. If the file sits in a read-only location, the update cannot replace it.
 
-### 
-
-​
-
-Source checkout
+### Source checkout
 
 There is no in-app auto-update for a source checkout. Pull the latest code and start the app again:
     
@@ -199,11 +164,7 @@ There is no in-app auto-update for a source checkout. Pull the latest code and s
     ./linux-dev.sh
     
 
-## 
-
-​
-
-Optional: local package
+## Optional: local package
 
 To produce a local `.deb` or AppImage for yourself (not an official Comfy Org download):
     
@@ -213,11 +174,7 @@ To produce a local `.deb` or AppImage for yourself (not an official Comfy Org do
 
 Artifacts land in `dist/`. If an AppImage fails because Chromium cannot create a sandbox, retry with `--no-sandbox`. That flag disables Electron sandboxing for every process.
 
-## 
-
-​
-
-Removing leftover data
+## Removing leftover data
 
 Removing the app and removing your data are separate steps. Uninstall the app first:
 
@@ -230,11 +187,11 @@ Data| Default Location| Description
 ---|---|---  
 Installations| `~/ComfyUI-Installs`| Each ComfyUI installation you created (can also be deleted from within the app). Custom install paths are also not removed.  
 Shared models & outputs| `~/ComfyUI-Shared`| Shared model library, input/output directories  
-App config| `~/.config/comfyui-desktop-2`| Settings and installation records  
-App data| `~/.local/share/comfyui-desktop-2`| Persistent app data  
+App config| `~/.config/comfyui-desktop-2`| Settings (`settings.json`)  
+App data| `~/.local/share/comfyui-desktop-2`| Persistent app data, including the installation list (`installations.json`)  
 Cache| `~/.cache/comfyui-desktop-2`| Download cache and other non-essential files  
 State| `~/.local/state/comfyui-desktop-2`| Runtime state such as port locks  
-Logs| `~/.config/comfyui-desktop-2/logs`| Desktop app logs (`app.log`)  
+Logs| `~/.config/Comfy Desktop/logs` (`~/.config/comfyui-desktop-2/logs` from a source checkout)| Desktop app logs (`app.log`)  
   
 To fully remove everything:
 
@@ -244,7 +201,7 @@ To fully remove everything:
   4. **Delete individual installations** from within the app, or manually delete `~/ComfyUI-Installs` plus any custom installation directories you configured
   5. **Delete the shared model library** at `~/ComfyUI-Shared` (only if you no longer need these files)
 
-Packaged installs (`.deb` or AppImage) also keep the app profile and logs in `~/.config/Comfy Desktop`. To clear those, run the repository’s [reset-linux.sh](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-linux.sh) script; it removes every known app data location but leaves your `~/ComfyUI-Installs` untouched.
+Packaged installs (`.deb` or AppImage) also keep the app profile and logs in `~/.config/Comfy Desktop`. To clear all of it, run the repository’s [reset-linux.sh](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-linux.sh) script. It deletes the app’s config, cache, data and state folders for the current build and for the earlier app names, and leaves `~/ComfyUI-Installs` and `~/ComfyUI-Shared` untouched. The installation list goes with them, so you may have to add your installations back with **Add Existing Instance**.
 
 Was this page helpful?
 

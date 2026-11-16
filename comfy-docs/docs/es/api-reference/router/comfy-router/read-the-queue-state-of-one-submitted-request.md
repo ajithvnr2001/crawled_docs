@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/read-the-queue-state-of-one-submitted-request/
 title: Read the queue state of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:23.419916+00:00
+fetched_at: 2026-11-16T16:52:05.301428+00:00
 ---
 
 # Read the queue state of one submitted request. - ComfyUI
@@ -525,8 +525,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -538,8 +536,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key.
 
 #### Parámetros de ruta
-
-​
 
 provider
 
@@ -557,8 +553,6 @@ Ejemplo:
 
 `"bfl"`
 
-​
-
 model
 
 string
@@ -574,8 +568,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"flux-2-pro"`
-
-​
 
 request_id
 
@@ -603,8 +595,6 @@ OK - the request's current queue state. `status` is one of the three states; `qu
 
 One queued request's current state, composed with the same three URLs the submission returned.
 
-​
-
 status_url
 
 string<uri>
@@ -616,8 +606,6 @@ Absolute URL of this request's status read.
 Ejemplo:
 
 `"https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/status"`
-
-​
 
 response_url
 
@@ -631,8 +619,6 @@ Ejemplo:
 
 `"https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21"`
 
-​
-
 cancel_url
 
 string<uri>
@@ -644,8 +630,6 @@ Absolute URL a cancellation is asked for at.
 Ejemplo:
 
 `"https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/cancel"`
-
-​
 
 request_id
 
@@ -662,8 +646,6 @@ Pattern: `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 Ejemplo:
 
 `"6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21"`
-
-​
 
 status
 
@@ -685,8 +667,6 @@ Ejemplo:
 
 `"IN_QUEUE"`
 
-​
-
 queue_position
 
 integer
@@ -698,8 +678,6 @@ Rango requerido: `x >= 0`
 Ejemplo:
 
 `3`
-
-​
 
 error_type
 

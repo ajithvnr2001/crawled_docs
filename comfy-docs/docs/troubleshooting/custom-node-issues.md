@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/troubleshooting/custom-node-issues/
 title: Troubleshooting Custom Node Issues - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:16.087212+00:00
+fetched_at: 2026-11-16T16:52:09.164151+00:00
 ---
 
 # Troubleshooting Custom Node Issues - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:16.087212+00:00
 > Source: https://docs.comfy.org/troubleshooting/custom-node-issues/
 
 ## On this page
+
+Back to top
 
   * How to disable all custom nodes?
   * What is Binary Search?
@@ -42,11 +44,7 @@ Copy pageCopy page
 
 Here is the overall approach for troubleshooting custom node issues:
 
-## 
-
-​
-
-How to disable all custom nodes?
+## How to disable all custom nodes?
 
   * Desktop Users
 
@@ -114,19 +112,11 @@ Open the folder where the portable version is located, and find the `run_nvidia_
 
 
 
-## 
-
-​
-
-What is Binary Search?
+## What is Binary Search?
 
 In this document, we will introduce the binary search approach for troubleshooting custom node issues, which involves checking half of the custom nodes at a time until we locate the problematic node. Please refer to the flowchart below for the specific approach - enable half of the currently disabled nodes each time and check if the issue appears, until we identify which custom node is causing the issue
 
-## 
-
-​
-
-Two Troubleshooting Methods
+## Two Troubleshooting Methods
 
 In this document, we categorize custom nodes into two types for troubleshooting: ![Custom node types](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/troubleshooting/custom_node_type.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=de35f5f9b582df8a3825b1103e8500fa)
 
@@ -176,19 +166,11 @@ Common causes for these errors:
 
 When problems involve Python environment interdependencies and versions, troubleshooting becomes more complex and requires knowledge of Python environment management, including how to install and uninstall dependencies
 
-## 
-
-​
-
-Using Binary Search for Troubleshooting
+## Using Binary Search for Troubleshooting
 
 Among these two different types of custom node issues, conflicts between custom node frontend extensions and ComfyUI are more common. We’ll prioritize troubleshooting these nodes first. Here’s the overall troubleshooting approach:
 
-### 
-
-​
-
-1\. Troubleshooting the Custom Nodes’ Frontend Extensions
+### 1\. Troubleshooting the Custom Nodes’ Frontend Extensions
 
 1
 
@@ -223,11 +205,7 @@ If you find the problematic custom node, please refer to the problem fixing sect
 
 Using this method, you don’t need to restart ComfyUI multiple times - just reload ComfyUI after enabling/disabling custom node frontend extensions. Plus, your troubleshooting scope is limited to nodes with frontend extensions, which greatly narrows down the search range.
 
-### 
-
-​
-
-2\. General Custom Node Troubleshooting
+### 2\. General Custom Node Troubleshooting
 
 1
 
@@ -415,41 +393,25 @@ Repeat until you find the single problematic node
 
 
 
-## 
-
-​
-
-How to Fix the Issue
+## How to Fix the Issue
 
 Once you’ve identified the problematic custom node:
 
-### 
-
-​
-
-Option 1: Update the Node
+### Option 1: Update the Node
 
   1. Check if there’s an update available in ComfyUI Manager
   2. Update the node and test again
 
 
 
-### 
-
-​
-
-Option 2: Replace the Node
+### Option 2: Replace the Node
 
   1. Look for alternative custom nodes with similar functionality
   2. Check the [ComfyUI Registry](https://registry.comfy.org) for alternatives
 
 
 
-### 
-
-​
-
-Option 3: Report the Issue
+### Option 3: Report the Issue
 
 Contact the custom node developer:
 
@@ -462,11 +424,7 @@ Contact the custom node developer:
 
 
 
-### 
-
-​
-
-Option 4: Remove or Disable the Node
+### Option 4: Remove or Disable the Node
 
 If no fix is available and you don’t need the functionality:
 
@@ -475,19 +433,11 @@ If no fix is available and you don’t need the functionality:
 
 
 
-## 
-
-​
-
-Reporting Issues
+## Reporting Issues
 
 If the issue isn’t caused by custom nodes, refer to the general [troubleshooting overview](https://docs.comfy.org/troubleshooting/overview) for other common problems.
 
-### 
-
-​
-
-For Custom Node-Specific Issues
+### For Custom Node-Specific Issues
 
 Contact the custom node developer:
 
@@ -497,32 +447,20 @@ Contact the custom node developer:
 
 
 
-### 
-
-​
-
-For ComfyUI Core Issues
+### For ComfyUI Core Issues
 
   * **GitHub** : [ComfyUI Issues](https://github.com/Comfy-Org/ComfyUI/issues)
   * **Forum** : [Official ComfyUI Forum](https://forum.comfy.org/)
 
 
 
-### 
-
-​
-
-For Desktop App Issues
+### For Desktop App Issues
 
   * **GitHub** : [Comfy Desktop Issues](https://github.com/Comfy-Org/Comfy-Desktop/issues)
 
 
 
-### 
-
-​
-
-For Frontend Issues
+### For Frontend Issues
 
   * **GitHub** : [ComfyUI Frontend Issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)
 
@@ -536,26 +474,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/troubleshooting/custom-node-issues.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/troubleshooting/custom-node-issues)
 
-[How to Troubleshoot and Solve ComfyUI Model IssuesPrevious](https://docs.comfy.org/troubleshooting/model-issues)[ContributingNext](https://docs.comfy.org/community/contributing)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Model Issues](https://docs.comfy.org/troubleshooting/model-issues)[Contributing](https://docs.comfy.org/community/contributing)

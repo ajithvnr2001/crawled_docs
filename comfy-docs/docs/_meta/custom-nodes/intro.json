@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/intro/",
   "file": "custom-nodes/intro.md",
-  "title": "Custom Nodes - ComfyUI",
+  "title": "ComfyUI Custom Node Development: Build, Extend, and Publish - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:38.409400+00:00",
-  "html_len": 361209,
-  "md_len": 3215,
-  "depth": 0
+  "fetched_at": "2026-11-16T16:52:08.335481+00:00"
 }

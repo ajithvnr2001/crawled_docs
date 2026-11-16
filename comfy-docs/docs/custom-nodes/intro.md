@@ -1,21 +1,25 @@
 ---
 url: https://docs.comfy.org/custom-nodes/intro/
-title: Custom Nodes - ComfyUI
+title: ComfyUI Custom Node Development: Build, Extend, and Publish - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:38.408531+00:00
+fetched_at: 2026-11-16T16:52:08.335017+00:00
 ---
 
-# Custom Nodes - ComfyUI
+# ComfyUI Custom Node Development: Build, Extend, and Publish - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/intro/
 
 ## On this page
 
+Back to top
+
   * Choose a starting point
 
 
 
-# Custom Nodes
+Custom Nodes
+
+# ComfyUI Custom Node Development: Build, Extend, and Publish
 
 Copy pageCopy page
 
@@ -35,11 +39,7 @@ Learn the client-server model, node categories, Python backend, and JavaScript f
 
 Prepare a node package, publish it to the Comfy Registry, and manage versions and releases.
 
-## 
-
-​
-
-Choose a starting point
+## Choose a starting point
 
   * **New to custom nodes:** start with [Custom Nodes Overview](https://docs.comfy.org/custom-nodes/overview).
   * **Building the backend:** see [Python (Backend)](https://docs.comfy.org/custom-nodes/backend/server_overview).
@@ -54,26 +54,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/intro.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/intro)
 
-[ComfyUI Custom Node Types and ArchitectureNext](https://docs.comfy.org/custom-nodes/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Node Definition JSON 1.0](https://docs.comfy.org/specs/nodedef_json_1_0)[Node types](https://docs.comfy.org/custom-nodes/overview)

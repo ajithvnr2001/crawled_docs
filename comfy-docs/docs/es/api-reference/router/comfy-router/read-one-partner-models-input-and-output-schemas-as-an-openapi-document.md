@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/read-one-partner-models-input-and-output-schemas-as-an-openapi-document/
 title: Read one partner model's input and output schemas as an OpenAPI document. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:21.269258+00:00
+fetched_at: 2026-11-16T16:52:06.019598+00:00
 ---
 
 # Read one partner model's input and output schemas as an OpenAPI document. - ComfyUI
@@ -467,8 +467,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -481,8 +479,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Encabezados
 
-​
-
 If-None-Match
 
 string
@@ -490,8 +486,6 @@ string
 The `ETag` a caller holds from an earlier `200`. When it matches the current document (RFC 9110 weak comparison; `*` matches any current document) the answer is a bodyless `304` carrying the same `ETag`, otherwise the full document.
 
 #### Parámetros de ruta
-
-​
 
 provider
 
@@ -508,8 +502,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"bfl"`
-
-​
 
 model
 

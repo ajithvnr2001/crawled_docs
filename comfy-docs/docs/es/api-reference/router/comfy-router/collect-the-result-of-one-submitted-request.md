@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/collect-the-result-of-one-submitted-request/
 title: Collect the result of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:21.506696+00:00
+fetched_at: 2026-11-16T16:52:05.551235+00:00
 ---
 
 # Collect the result of one submitted request. - ComfyUI
@@ -599,8 +599,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -612,8 +610,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key.
 
 #### Parámetros de ruta
-
-​
 
 provider
 
@@ -631,8 +627,6 @@ Ejemplo:
 
 `"bfl"`
 
-​
-
 model
 
 string
@@ -648,8 +642,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"flux-2-pro"`
-
-​
 
 request_id
 

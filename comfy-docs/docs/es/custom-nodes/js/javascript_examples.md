@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_examples/
-title: Ejemplos de extensiones JavaScript de ComfyUI - ComfyUI
+title: JavaScript para nodos personalizados: men\u00fas, eventos y hooks - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:42.195506+00:00
+fetched_at: 2026-11-16T16:52:08.164771+00:00
 ---
 
-# Ejemplos de extensiones JavaScript de ComfyUI - ComfyUI
+# JavaScript para nodos personalizados: menús, eventos y hooks - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_examples/
 
@@ -26,7 +26,7 @@ Volver arriba
 
 JavaScript (UI)
 
-# Ejemplos de extensiones JavaScript de ComfyUI
+# JavaScript para nodos personalizados: menús, eventos y hooks
 
 Copiar páginaCopiar página
 
@@ -36,17 +36,9 @@ Copiar páginaCopiar página
 
 Una colección cada vez mayor de fragmentos de código de ejemplo…
 
-## 
+## Menús de clic derecho
 
-​
-
-Menús de clic derecho
-
-### 
-
-​
-
-Menú de fondo
+### Menú de fondo
 
 El menú principal de fondo (clic derecho en el lienzo) se genera con una llamada a `LGraphCanvas.getCanvasMenuOptions`. La forma estándar de editarlo es implementar el método `getCanvasMenuItems` en tu extensión:
     
@@ -67,11 +59,7 @@ El menú principal de fondo (clic derecho en el lienzo) se genera con una llamad
     });
     
 
-### 
-
-​
-
-Menú de nodo
+### Menú de nodo
 
 Cuando haces clic derecho sobre un nodo, el menú se genera de forma similar mediante `node.getExtraMenuOptions`. La forma estándar es implementar el método `getNodeMenuItems` en tu extensión:
     
@@ -96,11 +84,7 @@ Cuando haces clic derecho sobre un nodo, el menú se genera de forma similar med
     });
     
 
-### 
-
-​
-
-Submenús
+### Submenús
 
 Si quieres un submenú, usa la propiedad `submenu` con un arreglo `options`:
     
@@ -139,11 +123,7 @@ Si quieres un submenú, usa la propiedad `submenu` con un arreglo `options`:
     });
     
 
-## 
-
-​
-
-Capturar eventos de UI
+## Capturar eventos de UI
 
 Esto funciona tal como esperas: busca el elemento de la UI en el DOM y agrega un eventListener. `setup()` es un buen lugar para hacerlo, ya que la página se ha cargado por completo. Por ejemplo, para detectar un clic en el Botón de Cola:
     
@@ -152,11 +132,7 @@ Esto funciona tal como esperas: busca el elemento de la UI en el DOM y agrega un
     document.getElementById("queue-button").addEventListener("click", queue_button_pressed);
     
 
-## 
-
-​
-
-Detectar cuándo inicia un flujo de trabajo
+## Detectar cuándo inicia un flujo de trabajo
 
 Este es uno de los muchos eventos de `api`:
     
@@ -169,11 +145,7 @@ Este es uno de los muchos eventos de `api`:
         api.addEventListener("execution_start", on_execution_start);
     
 
-## 
-
-​
-
-Detectar un flujo de trabajo interrumpido
+## Detectar un flujo de trabajo interrumpido
 
 **Obsoleto:** El patrón de interceptación de la API que se muestra a continuación está obsoleto y está sujeto a cambios en cualquier momento en el futuro cercano. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales y los escuchadores de eventos de la API cuando estén disponibles.
 
@@ -190,11 +162,7 @@ Un ejemplo simple de interceptación de la API:
         }
     
 
-## 
-
-​
-
-Capturar clics en tu nodo
+## Capturar clics en tu nodo
 
 **Obsoleto:** El patrón de secuestro de métodos de nodo que se muestra a continuación está obsoleto y puede cambiar en cualquier momento en el futuro cercano. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales cuando estén disponibles.
 

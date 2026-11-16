@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/asset-metadata/
 title: Asset metadata - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:35.755760+00:00
+fetched_at: 2026-11-16T16:51:59.685054+00:00
 ---
 
 # Asset metadata - ComfyUI
@@ -613,8 +613,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -626,8 +624,6 @@ requerido
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Parámetros de ruta
-
-​
 
 id
 
@@ -645,8 +641,6 @@ The asset.
 
 A user-owned record identified by a server-assigned UUID, backing an immutable blob whose content carries a server-computed blake3 hash. `hash` may be computed lazily: an asset record (and its retrievable bytes) can exist before its hash is filled in. On an output, `job_metadata` carries the labels its producing job was submitted with, so code holding only the asset knows which run it came from. It is absent for assets no job produced, for outputs of a job sent without labels, where the serving surface keeps no job labels, and when the labels could not be read: so `job_id` without `job_metadata` does not prove the job had no labels. A create whose file path and bytes match an existing output answers with that output, so its `job_id` and `job_metadata` are the output's.
 
-​
-
 id
 
 string
@@ -656,8 +650,6 @@ requerido
 Ejemplo:
 
 `"9f8a1c0d-2b3e-4f56-8a7b-1c2d3e4f5a6b"`
-
-​
 
 hash
 
@@ -671,8 +663,6 @@ Ejemplo:
 
 `"blake3:9f8a1c0d..."`
 
-​
-
 size_bytes
 
 integer<int64>
@@ -682,8 +672,6 @@ requerido
 Ejemplo:
 
 `4816293`
-
-​
 
 content_type
 
@@ -695,15 +683,11 @@ Ejemplo:
 
 `"image/png"`
 
-​
-
 created_at
 
 string<date-time>
 
 requerido
-
-​
 
 url
 
@@ -713,15 +697,11 @@ requerido
 
 Short-lived content URL (signed, or proxy-served).
 
-​
-
 url_expires_at
 
 string<date-time>
 
 requerido
-
-​
 
 file_path
 
@@ -731,15 +711,11 @@ Ejemplo:
 
 `"photo.png"`
 
-​
-
 created_new
 
 boolean
 
-On create responses: distinguishes a brand-new blob (true) from a dedup hit against bytes the platform already had (false).
-
-​
+On `POST /api/v2/assets` responses, distinguishes a brand-new blob (true) from a dedup hit against bytes the platform already had (false). On `POST /api/v2/assets/from-hash` responses, true means a new asset reference was created over existing bytes (201); false means an existing asset was reused (200).
 
 expires_at
 
@@ -747,15 +723,11 @@ string<date-time> | null
 
 Retention deadline for the asset itself (distinct from `url_expires_at`, the signed URL's validity). Null or absent means the asset is non-expiring. On a dedup-hit create response the deadline may be later than now + the requested/default retention: re-referencing content extends its retention, never shortens it.
 
-​
-
 job_id
 
 string | null
 
 ID of the job that produced this asset. Absent for assets no job produced, such as a fresh upload.
-
-​
 
 job_metadata
 

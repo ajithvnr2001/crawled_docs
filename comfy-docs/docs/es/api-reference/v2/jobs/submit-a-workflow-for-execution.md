@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/submit-a-workflow-for-execution/
 title: Submit a workflow for execution - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:35.294628+00:00
+fetched_at: 2026-11-16T16:51:59.567858+00:00
 ---
 
 # Submit a workflow for execution - ComfyUI
@@ -239,6 +239,7 @@ cURL
       "error": {
         "code": "node_execution_error",
         "message": "<string>",
+        "category": "<string>",
         "node_id": "<string>",
         "class_type": "<string>",
         "traceback": "<string>",
@@ -762,6 +763,7 @@ cURL
       "error": {
         "code": "node_execution_error",
         "message": "<string>",
+        "category": "<string>",
         "node_id": "<string>",
         "class_type": "<string>",
         "traceback": "<string>",
@@ -1023,8 +1025,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -1037,8 +1037,6 @@ requerido
 
 #### Encabezados
 
-​
-
 Idempotency-Key
 
 string
@@ -1049,8 +1047,6 @@ Client-generated UUID (recommended). Single-use: the first request to present a 
 
 application/json
 
-​
-
 workflow
 
 object
@@ -1058,8 +1054,6 @@ object
 requerido
 
 API-format workflow graph, verbatim.
-
-​
 
 extra_data
 
@@ -1070,8 +1064,6 @@ Per-prompt ComfyUI `extra_data`, same shape as Comfy Cloud and local ComfyUI. Cl
 Send the one credential you hold: an API key as `api_key_comfy_org`, or the session token an interactively signed-in client has instead as `auth_token_comfy_org`. Sending both is accepted and both are forwarded, but it is not a supported combination and which one a node uses is not defined here. Note a session token is short-lived and is not re-minted for you, so one submitted long before it executes may expire in the queue.
 
 Show child attributes
-
-​
 
 metadata
 
@@ -1085,7 +1077,6 @@ Ejemplo:
     
     
     { "client": "acme", "batch": "2026-10-05" }
-    
 
 #### Respuesta
 
@@ -1097,8 +1088,6 @@ Job created and queued.
 
 One execution of a workflow. Durable from creation until `expires_at`; `outputs` populates incrementally during execution.
 
-​
-
 id
 
 string
@@ -1108,8 +1097,6 @@ requerido
 Ejemplo:
 
 `"7f3d2c1b-9a8e-4d6f-b012-3c4d5e6f7a8b"`
-
-​
 
 status
 
@@ -1135,15 +1122,11 @@ Opciones disponibles:
 
 `expired`
 
-​
-
 created_at
 
 string<date-time>
 
 requerido
-
-​
 
 started_at
 
@@ -1151,15 +1134,11 @@ string<date-time> | null
 
 requerido
 
-​
-
 completed_at
 
 string<date-time> | null
 
 requerido
-
-​
 
 expires_at
 
@@ -1169,15 +1148,11 @@ requerido
 
 Retention deadline — a platform property, not an API constant.
 
-​
-
 queue_position
 
 integer | null
 
 requerido
-
-​
 
 progress
 
@@ -1189,8 +1164,6 @@ The latest progress snapshot; same data the SSE stream pushes.
 
 Show child attributes
 
-​
-
 outputs
 
 object[]
@@ -1198,8 +1171,6 @@ object[]
 requerido
 
 Show child attributes
-
-​
 
 error
 
@@ -1211,8 +1182,6 @@ Execution failure detail, carried in `job.error` (not an HTTP error).
 
 Show child attributes
 
-​
-
 urls
 
 object
@@ -1222,8 +1191,6 @@ requerido
 Embedded follow-up links — follow these, don't build URLs. A link is either an absolute URL or a host-relative reference (leading `/`) that already includes any prefix the serving surface is mounted under (e.g. a serverless gateway's `/deployment/{deployment_id}/api/v2`). Clients MUST resolve a host-relative link against the request origin (scheme + authority), never against a configured base URL — joining it to a base URL that carries the same mount prefix duplicates the prefix.
 
 Show child attributes
-
-​
 
 metrics
 
@@ -1237,9 +1204,6 @@ Ejemplo:
     
     
     { "queue_ms": 9000, "execution_ms": 42000 }
-    
-
-​
 
 deployment_id
 
@@ -1251,8 +1215,6 @@ Ejemplo:
 
 `"dep-0f19a2b3c4d5"`
 
-​
-
 release_id
 
 string
@@ -1262,8 +1224,6 @@ The release of the deployment's build that ran the job, which can differ from th
 Ejemplo:
 
 `"7c1e9a40-3b2d-4f6a-9e81-0c5d2a7b4f13"`
-
-​
 
 release_version
 
@@ -1277,8 +1237,6 @@ Ejemplo:
 
 `3`
 
-​
-
 metadata
 
 object
@@ -1291,7 +1249,6 @@ Ejemplo:
     
     
     { "client": "acme" }
-    
 
 ¿Esta página le ayudó?
 

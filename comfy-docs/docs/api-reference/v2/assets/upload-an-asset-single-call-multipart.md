@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/upload-an-asset-single-call-multipart/
 title: Upload an asset (single-call multipart) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:08.814992+00:00
+fetched_at: 2026-11-16T16:52:01.840624+00:00
 ---
 
 # Upload an asset (single-call multipart) - ComfyUI
@@ -18,9 +18,9 @@ cURL
       --url http://127.0.0.1:8189/api/v2/assets \
       --header 'Authorization: Bearer <token>' \
       --header 'Content-Type: multipart/form-data' \
-      --form file=@example-file \
       --form content_type=image/png \
       --form file_path=photo.png \
+      --form file=@example-file \
       --form expected_hash=blake3:9f8a1c0d... \
       --form 'tags=<string>' \
       --form expires_in=86400
@@ -46,9 +46,9 @@ cURL
     
     
     const form = new FormData();
-    form.append('file', '<string>');
     form.append('content_type', 'image/png');
     form.append('file_path', 'photo.png');
+    form.append('file', '<string>');
     form.append('expected_hash', 'blake3:9f8a1c0d...');
     form.append('tags', '<string>');
     form.append('expires_in', '86400');
@@ -76,7 +76,7 @@ cURL
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--",
+      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--",
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
         "Content-Type: multipart/form-data"
@@ -108,7 +108,7 @@ cURL
     
     	url := "http://127.0.0.1:8189/api/v2/assets"
     
-    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
+    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -126,7 +126,7 @@ cURL
     
     HttpResponse<String> response = Unirest.post("http://127.0.0.1:8189/api/v2/assets")
       .header("Authorization", "Bearer <token>")
-      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
+      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
       .asString();
     
     
@@ -139,7 +139,7 @@ cURL
     
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
-    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--"
+    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--"
     
     response = http.request(request)
     puts response.read_body
@@ -381,9 +381,13 @@ Copy pageCopy page
 
 Single-call `multipart/form-data` upload. The platform streams the bytes through its trusted byte-path, dedups by the server-computed hash, and mints the asset record.
 
-The blake3 hash is always computed server-side from the received bytes — a client-declared `expected_hash` is verified, never trusted. If location metadata (GPS, XMP, IPTC) is removed from an image before it is stored, the asset’s `hash` is the hash of the stored bytes and can differ from `expected_hash`. On Comfy Cloud, an upload whose bytes open as a JPEG, PNG, WebP or classic TIFF (including TIFF-based camera RAW such as DNG, NEF, ARW and CR2, but not BigTIFF) and that is over 50 MiB is refused with 422 `validation_error`, whatever its `content_type` and whether or not it carries location metadata. A request that declares a `Content-Length` over Comfy Cloud’s 200 MB (200,000,000-byte) body limit is refused before that check with a plain 413 that does not use the `ErrorEnvelope` shape. A body sent without a declared length is cut off when it passes that limit, and no 413 is sent: a cut-off while the fields before `file` are read fails with 422 `invalid_body`, and a cut-off inside the file usually fails with 500 `upstream_error`. Nothing after the `file` field is read, so a body that only passes the limit there is uploaded normally. Deployment-scoped surfaces neither strip location metadata nor apply the 50 MiB image cap; they limit the request body to 110 MB (110,000,000 bytes). A request that declares a `Content-Length` over that limit is refused with the same plain 413; a body sent without a declared length is cut off when it passes the limit, and the upload then fails with an error response that is not guaranteed to be a 413. The uploaded asset is referenceable immediately; any content scanning runs in the background and does not block the response.
+The blake3 hash is always computed server-side from the received bytes — a client-declared `expected_hash` is verified, never trusted (on Comfy Cloud and serverless, only when sent before `file` — see below). If location metadata (GPS, XMP, IPTC) is removed from an image before it is stored, the asset’s `hash` is the hash of the stored bytes and can differ from `expected_hash`. On Comfy Cloud, an upload whose bytes open as a JPEG, PNG, WebP or classic TIFF (including TIFF-based camera RAW such as DNG, NEF, ARW and CR2, but not BigTIFF) and that is over 50 MiB is refused with 422 `validation_error`, whatever its `content_type` and whether or not it carries location metadata. A request that declares a `Content-Length` over Comfy Cloud’s 200 MB (200,000,000-byte) body limit is refused before that check with a plain 413 that does not use the `ErrorEnvelope` shape. A body sent without a declared length is cut off when it passes that limit, and no 413 is sent: a cut-off while the fields before `file` are read fails with 422 `invalid_body`, and a cut-off inside the file usually fails with 500 `upstream_error`. Nothing after the `file` field is read, so a body that only passes the limit there is uploaded normally. Deployment-scoped surfaces neither strip location metadata nor apply the 50 MiB image cap; they limit the request body to 110 MB (110,000,000 bytes). A request that declares a `Content-Length` over that limit is refused with the same plain 413; a body sent without a declared length is cut off when it passes the limit, and the upload then fails with an error response that is not guaranteed to be a 413. The uploaded asset is referenceable immediately; any content scanning runs in the background and does not block the response.
+
+Send `file` as the last part. Comfy Cloud and serverless deployments stream it straight into storage and read the other fields only up to it, so a part sent after `file` is never read: a `content_type` or `file_path` sent only after it is refused as missing (422); an optional field (`expected_hash` or `tags`) is silently ignored — the upload succeeds without the hash check or the caller’s tags; on serverless deployments, a trailing `expires_in` is likewise ignored, losing the retention override; and a second `file` part is dropped, so only the first part’s bytes are stored. Comfy Cloud ignores `expires_in` wherever it is sent, before or after `file`. The response does not say any of these were skipped.
 
 An upload is a single request. v1 expects files of up to ~100 MB; the hard cap is the body limit of the surface it is sent to (above). Chunked/resumable large uploads are a deliberate open question.
+
+Cloud’s hosted API caps every part sent before `file` at 8 KiB, including a part it does not recognise (which it otherwise ignores), so an extra field over 8 KiB, such as file bytes sent under a misspelled name, is refused with 422 `invalid_body`. Parts sent after `file` are never read: the 8 KiB cap does not apply to them, and a metadata field sent there is treated as absent, so send every metadata field before `file`. A declared `Content-Length` still counts those bytes toward the size limit above; without one, a body that only exceeds the limit there is uploaded normally, since nothing after `file` is read.
 
 On Comfy Cloud an upload fails with 422 `upload_timed_out` when no request bytes arrive for 30 seconds, or when the whole request takes longer than 10 minutes, however steadily bytes keep arriving. On Comfy Cloud an upload can also be refused with 503 `upload_busy` and `Retry-After` when the server is busy with other uploads: nothing was stored, so the same upload can be sent again after `Retry-After`. On a Developer Platform deployment the same 422 `upload_timed_out` applies when no request bytes arrive for 30 seconds, or when the whole request takes longer than 20 minutes.
 
@@ -416,9 +420,9 @@ cURL
       --url http://127.0.0.1:8189/api/v2/assets \
       --header 'Authorization: Bearer <token>' \
       --header 'Content-Type: multipart/form-data' \
-      --form file=@example-file \
       --form content_type=image/png \
       --form file_path=photo.png \
+      --form file=@example-file \
       --form expected_hash=blake3:9f8a1c0d... \
       --form 'tags=<string>' \
       --form expires_in=86400
@@ -444,9 +448,9 @@ cURL
     
     
     const form = new FormData();
-    form.append('file', '<string>');
     form.append('content_type', 'image/png');
     form.append('file_path', 'photo.png');
+    form.append('file', '<string>');
     form.append('expected_hash', 'blake3:9f8a1c0d...');
     form.append('tags', '<string>');
     form.append('expires_in', '86400');
@@ -474,7 +478,7 @@ cURL
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--",
+      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--",
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
         "Content-Type: multipart/form-data"
@@ -506,7 +510,7 @@ cURL
     
     	url := "http://127.0.0.1:8189/api/v2/assets"
     
-    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
+    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -524,7 +528,7 @@ cURL
     
     HttpResponse<String> response = Unirest.post("http://127.0.0.1:8189/api/v2/assets")
       .header("Authorization", "Bearer <token>")
-      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
+      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--")
       .asString();
     
     
@@ -537,7 +541,7 @@ cURL
     
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
-    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--"
+    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"content_type\"\r\n\r\nimage/png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file_path\"\r\n\r\nphoto.png\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expected_hash\"\r\n\r\nblake3:9f8a1c0d...\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"tags\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"expires_in\"\r\n\r\n86400\r\n-----011000010111000001101001--"
     
     response = http.request(request)
     puts response.read_body
@@ -773,8 +777,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -787,8 +789,6 @@ required
 
 #### Headers
 
-​
-
 Idempotency-Key
 
 string
@@ -799,29 +799,17 @@ Client-generated UUID (recommended). Single-use: the first request to present a 
 
 multipart/form-data
 
-​
-
-file
-
-file
-
-required
-
-The raw bytes.
-
-​
-
 content_type
 
 string
 
 required
 
+The asset's media type. On Comfy Cloud it must be valid UTF-8, not blank, at most 255 bytes, must not start or end with whitespace, and must not contain control characters (C0, DEL, C1, U+2028, U+2029) or any invisible format or default-ignorable character (every Unicode general category Cf character, including the zero-width joiners and direction marks, and the other default-ignorable code points); otherwise the request is refused with 422 `invalid_body` before anything is stored. An accepted value is stored as sent. A deployment refuses a `content_type` that is blank, is not valid UTF-8 or contains a control character (C0 other than tab, DEL, C1) or a bidi embedding, override or isolate (U+202A-U+202E, U+2066-U+2069), has a tab outside the whitespace that opens a parameter after a `;`, or whose part before its first `;` is not `type/subtype` (two RFC 9110 tokens, optionally followed by spaces), with 422 `invalid_request` before anything is stored.
+
 Example:
 
 `"image/png"`
-
-​
 
 file_path
 
@@ -829,33 +817,35 @@ string
 
 required
 
-Placement path / filename (global-namespace-root form, e.g. `photo.png` or `models/checkpoints/x.safetensors`). On Comfy Cloud the last segment becomes the asset name, so it must be valid UTF-8, at most 255 bytes, must not start with `.`, and must not contain control characters (C0, DEL, C1, U+2028, U+2029) or invisible format and default-ignorable characters (Unicode general category Cf, which includes the bidi embedding, override and isolate controls, soft hyphen, zero-width space, word joiner, BOM and tag characters, plus the other default-ignorable code points such as U+034F, U+2065 and the Hangul fillers); otherwise the request is refused with 422 `invalid_body` before anything is stored. ZWNJ/ZWJ (U+200C, U+200D) and the direction marks U+200E, U+200F and U+061C are allowed, for right-to-left and emoji names, and so are the visible Arabic number signs (prepended concatenation marks such as U+0600) and variation selectors; the direction marks can still change how a name is displayed.
+Placement path / filename (global-namespace-root form, e.g. `photo.png` or `models/checkpoints/x.safetensors`). On Comfy Cloud the last segment becomes the asset name, so it must be valid UTF-8, at most 255 bytes, must not start with `.`, and must not contain control characters (C0, DEL, C1, U+2028, U+2029) or invisible format and default-ignorable characters (Unicode general category Cf, which includes the bidi embedding, override and isolate controls, soft hyphen, zero-width space, word joiner, BOM and tag characters, plus the other default-ignorable code points such as U+034F, U+2065 and the Hangul fillers); otherwise the request is refused with 422 `invalid_body` before anything is stored. ZWNJ/ZWJ (U+200C, U+200D) are allowed only between two visible non-ASCII characters (so not first, last, next to ASCII or next to another of these invisible characters, though one may follow an allowed variation selector, one right after an Indic virama on a letter of the same script may end a word, and a ZWJ after an Arabic-script letter that joins on both sides, or after that letter's marks, may precede ASCII such as a '.' or end the name), for Persian, Indic and emoji names. The direction marks U+200E, U+200F and U+061C are allowed, for right-to-left names, and so are the visible Arabic number signs (prepended concatenation marks such as U+0600, but not U+070F); the direction marks can still change how a name is displayed. The emoji presentation selectors U+FE0E and U+FE0F are allowed only after an ASCII digit, `#` or `*` that U+20E3 (the keycap) follows, after U+2139, the punctuation emoji U+203C, U+2049, U+3030 and U+303D or the math symbols U+2194, U+25FB-U+25FE, U+2934 and U+2935, and after any other symbol of category So except a regional indicator, a skin-tone modifier, a hair component or U+2800. Other variation selectors are allowed only after a base that can have variants: the Mongolian ones after a Mongolian letter, the rest after a unified Han ideograph, plus U+FE00 after the Myanmar and Phags-pa characters it is registered for. The Mongolian and Han rules follow scripts, not the registered sequence list. The tag characters are allowed only as the tag run of the England, Scotland and Wales flag emoji. These allowed invisible characters, white space, U+2800 and combining marks must not make up the whole segment or come before a leading `.`. A deployment keeps the whole `file_path` as the asset name, so it must be valid UTF-8 and must not contain a control character (C0 U+0000-U+001F, including tab, CR and LF; DEL U+007F; C1 U+0080-U+009F) or a bidi embedding, override or isolate (U+202A-U+202E, U+2066-U+2069); otherwise the request is refused with 422 `invalid_request` before anything is stored. Directory segments and other characters stay allowed there.
 
 Example:
 
 `"photo.png"`
 
-​
+file
+
+file
+
+required
+
+The raw bytes. The order of properties in this schema does not set the order of parts on the wire: `file` must be the last part sent (see the field-order rule above).
 
 expected_hash
 
 string
 
-Optional client-computed blake3 (`blake3:<hex>`) of the bytes sent. Verified against the server-computed blake3 of the received bytes, not of the stored bytes; mismatch is rejected with 409 `hash_mismatch`. On serverless deployments no asset is minted and no existing asset's retention is changed; elsewhere the upload is stored before the check, so the 409 returns no asset and a retry with the corrected expectation dedups onto it.
+Optional client-computed blake3 (`blake3:<hex>`) of the bytes sent. Omit the part to skip verification: on Comfy Cloud and on a deployment a part sent empty is refused with 422 as malformed. Send it before `file`: nothing after the `file` field is read, so a trailing `expected_hash` is neither verified nor refused, and the response does not say the check was skipped. Verified against the server-computed blake3 of the received bytes, not of the stored bytes; mismatch is rejected with 409 `hash_mismatch`. On serverless deployments no asset is minted and no existing asset's retention is changed; elsewhere the upload is stored before the check, so the 409 returns no asset and a retry with the corrected expectation (and the same file extension) dedups onto it. On Comfy Cloud nothing removes that asset, so when the bytes themselves were wrong they stay stored: as an asset named after the last segment of `file_path` (`x.safetensors` for `models/checkpoints/x.safetensors`), or, when the bytes deduped onto an asset you already had, as that asset under its earlier name. The rest of `file_path` is not recorded. On Comfy Cloud and on a deployment, when `expected_hash` is sent more than once before `file` only the last value is checked, but an empty one among them is still refused with 422.
 
 Example:
 
 `"blake3:9f8a1c0d..."`
 
-​
-
 tags
 
 string[]
 
-Category tags (e.g. `input`). A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. Cloud's hosted API also caps this encoded JSON field at 8 KiB, so a long tag set can be refused (422 `invalid_body`) below these limits. Invalid UTF-8 or a lone surrogate escape (e.g. `\ud800`) inside a JSON-encoded tag is not refused: JSON decoding replaces it with U+FFFD (3 bytes each), and the 256-byte limit applies to the replaced value.
-
-​
+Category tags (e.g. `input`). A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. The rest of this paragraph describes Cloud's hosted API and a deployment, not the self-hosted proxy. Both cap the bytes of all `tags` parts sent before `file` combined: 8 KiB on Cloud's hosted API (422 `invalid_body`) and 64 KiB on a deployment (422 `invalid_request`). The cap counts duplicates before they are removed and JSON escapes before they are decoded, and is checked before the count and 256-byte limits above, so a tag set within them can still be refused. A `quoted-printable` part is counted and read after it is decoded; a part in any other `Content-Transfer-Encoding` is read as sent, so a `base64` part is stored as one tag holding its encoded text, while a `7bit`, `8bit` or `binary` part is read like a part with no encoding. A part is read as a JSON array when it starts with `[` (after leading whitespace) and is valid JSON or continues, after optional whitespace, with `"`: `["a","b"]` is two tags, `[]` adds no tags (nor does an empty part), and a malformed array such as `[1]` or `["a` is refused with 422. Any other non-empty part is one bare tag, kept as literal text, so `foo\ud800` sent as a bare part is stored as written. Invalid UTF-8 in a `tags` part, or a lone surrogate escape (e.g. `\ud800`) in a JSON-array `tags` part, is refused with 422 (`invalid_body` on Cloud, `invalid_request` on a deployment).
 
 expires_in
 
@@ -879,8 +869,6 @@ Bytes deduped to an existing blob; asset minted over it.
 
 A user-owned record identified by a server-assigned UUID, backing an immutable blob whose content carries a server-computed blake3 hash. `hash` may be computed lazily: an asset record (and its retrievable bytes) can exist before its hash is filled in. On an output, `job_metadata` carries the labels its producing job was submitted with, so code holding only the asset knows which run it came from. It is absent for assets no job produced, for outputs of a job sent without labels, where the serving surface keeps no job labels, and when the labels could not be read: so `job_id` without `job_metadata` does not prove the job had no labels. A create whose file path and bytes match an existing output answers with that output, so its `job_id` and `job_metadata` are the output's.
 
-​
-
 id
 
 string
@@ -890,8 +878,6 @@ required
 Example:
 
 `"9f8a1c0d-2b3e-4f56-8a7b-1c2d3e4f5a6b"`
-
-​
 
 hash
 
@@ -905,8 +891,6 @@ Example:
 
 `"blake3:9f8a1c0d..."`
 
-​
-
 size_bytes
 
 integer<int64>
@@ -916,8 +900,6 @@ required
 Example:
 
 `4816293`
-
-​
 
 content_type
 
@@ -929,15 +911,11 @@ Example:
 
 `"image/png"`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 url
 
@@ -947,15 +925,11 @@ required
 
 Short-lived content URL (signed, or proxy-served).
 
-​
-
 url_expires_at
 
 string<date-time>
 
 required
-
-​
 
 file_path
 
@@ -965,15 +939,11 @@ Example:
 
 `"photo.png"`
 
-​
-
 created_new
 
 boolean
 
-On create responses: distinguishes a brand-new blob (true) from a dedup hit against bytes the platform already had (false).
-
-​
+On `POST /api/v2/assets` responses, distinguishes a brand-new blob (true) from a dedup hit against bytes the platform already had (false). On `POST /api/v2/assets/from-hash` responses, true means a new asset reference was created over existing bytes (201); false means an existing asset was reused (200).
 
 expires_at
 
@@ -981,15 +951,11 @@ string<date-time> | null
 
 Retention deadline for the asset itself (distinct from `url_expires_at`, the signed URL's validity). Null or absent means the asset is non-expiring. On a dedup-hit create response the deadline may be later than now + the requested/default retention: re-referencing content extends its retention, never shortens it.
 
-​
-
 job_id
 
 string | null
 
 ID of the job that produced this asset. Absent for assets no job produced, such as a fresh upload.
-
-​
 
 job_metadata
 
@@ -1010,4 +976,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/v2/assets/upload-an-asset-single-call-multipart.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/v2/assets/upload-an-asset-single-call-multipart)
 
-[Design Notes](https://docs.comfy.org/development/api-development/sdks-design)[Mint an asset over existing bytes (dedup fast-path)](https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)
+[Design Notes](https://docs.comfy.org/development/api-development/sdks-design)[Create or reuse an asset over existing bytes](https://docs.comfy.org/api-reference/v2/assets/create-or-reuse-an-asset-over-existing-bytes)

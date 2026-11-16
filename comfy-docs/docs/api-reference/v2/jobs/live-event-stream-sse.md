@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/jobs/live-event-stream-sse/
 title: Live event stream (SSE) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:38.882027+00:00
+fetched_at: 2026-11-16T16:52:00.378774+00:00
 ---
 
 # Live event stream (SSE) - ComfyUI
@@ -643,8 +643,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -656,8 +654,6 @@ required
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Path Parameters
-
-​
 
 id
 

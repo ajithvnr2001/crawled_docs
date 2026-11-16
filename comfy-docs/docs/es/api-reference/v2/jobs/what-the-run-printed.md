@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/what-the-run-printed/
 title: What the run printed - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:34.824800+00:00
+fetched_at: 2026-11-16T16:51:58.541324+00:00
 ---
 
 # What the run printed - ComfyUI
@@ -294,13 +294,20 @@ Returns the job’s captured execution log. Fetched on demand: a log is a debugg
 
 Captured whenever the worker reports its own outcome, success and failure alike, since a job that succeeds while producing the wrong thing is exactly what a failure-only log cannot explain. A run the platform or the provider killed — out of memory, a crashed worker, a timeout, a job past its maximum runtime — never gets that far, so it reaches a terminal status carrying no log at all. That is a real gap and worth stating: the failures a caller most wants a log for are the ones least likely to have produced one.
 
-**`204` is the normal answer for a job with no log**, and the cases behind it are deliberately not distinguished: this surface does not capture logs at all, the job has not finished, the job predates log capture, the run was killed before the worker could report one, or capture was attempted and failed.
+**`204` is the normal answer for a job with no log.** The cases behind it: this surface does not capture logs at all, the job has not finished, the job predates log capture, the run was killed before the worker could report one, the worker reported none, or capture was attempted and failed.
 
-Because a `204` never says which of those it is, do not branch on the reason — but do note that one of them resolves itself. A job that has not finished may have a log once it does, so a caller that wants one reads again after a terminal status. A `204` on a job already in a terminal state is final, and so is a missing `urls.logs`; both mean stop asking.
+A surface that captures logs may say which side of the job’s end the answer falls on, in the optional `No-Log-Reason` response header:
+
+  * `not_finished`: the job has not reached a terminal status. It may have a log once it does, so a caller that wants one reads again after a terminal status.
+  * `finished`: the job reached a terminal status with no log captured. This does not say why. In particular it does not mean the run printed nothing: a killed run, an empty report and a failed capture all answer the same.
+
+
+
+The header is absent on a surface that captures no logs, and on a build that does not send it yet, so its absence says nothing about the job; read the job’s status instead. A `204` on a job already in a terminal state means stop asking, with or without the header, and so does a missing `urls.logs`.
 
 **Only jobs run on the serverless platform** (a `{deployment}.run.comfy.app` host) have one today. An implementation that captures no logs must still serve this operation, answering `204` for every job it can read, so that the two answers stay distinct — Comfy Cloud does. A self-hosted deployment on a build predating this operation has not implemented it yet and will answer a routing `404` instead, which is the case `job.urls.logs` exists to keep a client out of: its absence says the surface has no logs at all, without a request.
 
-Tied to the job’s own retention: this `404`s under the same conditions `GET /api/v2/jobs/{id}` does (unknown, not-yours, or past its retention deadline). Nothing ages a log out ahead of the job’s own `expires_at`, so a job never outlives its log.
+Tied to the job’s own retention: this `404`s under the same conditions `GET /api/v2/jobs/{id}` does (unknown, not-yours, or past its retention deadline). Nothing ages a log out ahead of the job’s own `expires_at`. Account deletion is an exception: it clears the workflow, caller labels and log in a personal workspace the account occupies alone. A scrubbed job answers `200` with empty `text`, `truncated: false`, `complete: true` and `captured_at` set to the scrub time, even if it never captured a worker log.
 
 Live tailing is not offered here yet. When it is, it arrives on this same path under `Accept: text/event-stream`, leaving this JSON snapshot the default; its resume semantics will be defined then, against a capture that is incremental. Until then the SSE `log` event on `GET /api/v2/jobs/{id}/events` is the reserved live rail, and this is the authoritative snapshot it reconciles against.
 
@@ -609,8 +616,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -622,8 +627,6 @@ requerido
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Parámetros de ruta
-
-​
 
 id
 
@@ -641,8 +644,6 @@ The captured log.
 
 A job's captured execution log — the body of `GET /api/v2/jobs/{id}/logs`. Diagnostics, not a contract on content: this is whatever the workflow's own code and nodes wrote to standard output, in the order they wrote it, so nothing about its shape is stable between runs or between releases of a build. It is untrusted text — a workflow chooses what goes in it — and must be rendered as plain text rather than interpreted.
 
-​
-
 text
 
 string
@@ -650,8 +651,6 @@ string
 requerido
 
 The captured output.
-
-​
 
 truncated
 
@@ -661,8 +660,6 @@ requerido
 
 The BEGINNING of the captured output was discarded — `text` is the TAIL of a longer run. Implementations bound what they capture and store, so a workflow that prints megabytes keeps its last lines, where a failure normally is, instead of being dropped whole. True with an empty `text` means the log was captured and then shed entirely to fit. This describes the stored log, never the response: it does not mean a caller asked for part of one.
 
-​
-
 captured_at
 
 string<date-time>
@@ -670,8 +667,6 @@ string<date-time>
 requerido
 
 When the run's output was read back off the worker.
-
-​
 
 complete
 

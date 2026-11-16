@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash/
 title: Existence check for a blob by blake3 hash - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:08.586527+00:00
+fetched_at: 2026-11-16T16:52:01.935564+00:00
 ---
 
 # Existence check for a blob by blake3 hash - ComfyUI
@@ -523,8 +523,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -536,8 +534,6 @@ required
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Path Parameters
-
-​
 
 hash
 
@@ -559,4 +555,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash)
 
-[Mint an asset over existing bytes (dedup fast-path)](https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)[Asset metadata](https://docs.comfy.org/api-reference/v2/assets/asset-metadata)
+[Create or reuse an asset over existing bytes](https://docs.comfy.org/api-reference/v2/assets/create-or-reuse-an-asset-over-existing-bytes)[Asset metadata](https://docs.comfy.org/api-reference/v2/assets/asset-metadata)

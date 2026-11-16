@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:24.025720+00:00
+fetched_at: 2026-11-16T16:52:04.148129+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -67,11 +67,7 @@ Copy pageCopy page
 
 Every model below is served by the same route, `POST /v2/models/{provider}/{model}`, with the model’s own JSON body. Each page shows a working request in Python, TypeScript, and cURL. For discovery, schemas, errors, retries, and billing, see [Using the Comfy Router API](https://docs.comfy.org/development/comfy-router/api). Some of these models can also be served by an aggregator on the same route and the same model ID. [Serving providers](https://docs.comfy.org/development/comfy-router/providers) lists which provider covers which model, and how to select one.
 
-## 
-
-​
-
-Find by output
+## Find by output
 
 Video (87)
 
@@ -360,9 +356,10 @@ Audio (47)
 
 
 
-Text (45)
+Text (49)
 
   * [Claude Fable 5.1](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
+  * [Claude Fable 5.2](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-2/code): `anthropic/claude-fable-5-2`
   * [Claude Fable 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5/code): `anthropic/claude-fable-5`
   * [Claude Haiku 4.5 20251001](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-haiku-4-5-20251001/code): `anthropic/claude-haiku-4-5-20251001`
   * [Claude Opus 4.6](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-opus-4-6/code): `anthropic/claude-opus-4-6`
@@ -384,6 +381,9 @@ Text (45)
   * [Gemini 3.1 Flash Lite](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-1-flash-lite/code): `vertexai/gemini-3.1-flash-lite`
   * [Gemini 3.7 Flash](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-7-flash/code): `vertexai/gemini-3.7-flash`
   * [Gemini 3.8 Flash](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-8-flash/code): `vertexai/gemini-3.8-flash`
+  * [Gemini 4 Argon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-argon/code): `vertexai/gemini-4-argon`
+  * [Gemini 4 Carbon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-carbon/code): `vertexai/gemini-4-carbon`
+  * [Gemini 4 Hydrogen](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-hydrogen/code): `vertexai/gemini-4-hydrogen`
   * [Gemini Nano Banana 2.1](https://docs.comfy.org/development/comfy-router/models/google/gemini-nano-banana-2-1/code): `vertexai/gemini-nano-banana-2.1`
   * [Google Gemini](https://docs.comfy.org/development/comfy-router/models/google/gemini/code): `vertexai/gemini-3.1-pro-preview`
   * [Nano Banana 2 Lite](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2-lite/code): `vertexai/gemini-3.1-flash-lite-image`
@@ -410,15 +410,12 @@ Text (45)
 
 
 
-## 
-
-​
-
-Anthropic
+## Anthropic
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Claude Fable 5.1](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-1/code)| `anthropic/claude-fable-5-1`| Text, Image| Text  
+[Claude Fable 5.2](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-2/code)| `anthropic/claude-fable-5-2`| Text, Image| Text  
 [Claude Fable 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5/code)| `anthropic/claude-fable-5`| Text, Image| Text  
 [Claude Haiku 4.5 20251001](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-haiku-4-5-20251001/code)| `anthropic/claude-haiku-4-5-20251001`| Text, Image| Text  
 [Claude Opus 4.6](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-opus-4-6/code)| `anthropic/claude-opus-4-6`| Text, Image| Text  
@@ -431,21 +428,13 @@ Model| ID| Input| Output
 [Claude Sonnet 5.5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5-5/code)| `anthropic/claude-sonnet-5-5`| Text, Image| Text  
 [Claude Sonnet 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-sonnet-5/code)| `anthropic/claude-sonnet-5`| Text, Image| Text  
   
-## 
-
-​
-
-Beeble
+## Beeble
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code)| `beeble/switchx`| Image, Video, Text| Image + Video  
   
-## 
-
-​
-
-Black Forest Labs
+## Black Forest Labs
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -462,11 +451,7 @@ Model| ID| Input| Output
 [Video Edit V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/video-edit-v1/code)| `bfl/video-edit-v1`| Video, Text| Video  
 [VTO V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/vto-v1/code)| `bfl/vto-v1`| Image| Image  
   
-## 
-
-​
-
-Bria
+## Bria
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -493,11 +478,7 @@ Model| ID| Input| Output
 [Video Edit Remove Background](https://docs.comfy.org/development/comfy-router/models/bria/video-edit-remove-background/code)| `bria/video-edit-remove-background`| Video| Video  
 [Video Edit Replace Background](https://docs.comfy.org/development/comfy-router/models/bria/video-edit-replace-background/code)| `bria/video-edit-replace-background`| Video, Text| Video  
   
-## 
-
-​
-
-BytePlus
+## BytePlus
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -519,11 +500,7 @@ Model| ID| Input| Output
 [Seedream 5.0 Pro 260628](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-pro-260628/code)| `byteplus/seedream-5-0-pro-260628`| Text, Image| Image  
 [Seedream 5.5 261028](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-5-261028/code)| `byteplus/seedream-5-5-261028`| Text, Image| Image  
   
-## 
-
-​
-
-Elevenlabs
+## Elevenlabs
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -533,11 +510,7 @@ Model| ID| Input| Output
 [Eleven V4 Turbo](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v4-turbo/code)| `elevenlabs/eleven_v4_turbo`| Text| Audio  
 [Eleven V4](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v4/code)| `elevenlabs/eleven_v4`| Text| Audio  
   
-## 
-
-​
-
-fal
+## fal
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -548,11 +521,7 @@ Model| ID| Input| Output
 [H3 Max](https://docs.comfy.org/development/comfy-router/models/fal/h3-max/code)| `fal/h3-max`| Text, Image, Video, Audio| Video + Audio  
 [Patina](https://docs.comfy.org/development/comfy-router/models/fal/patina/code)| `fal/patina`| Image| Image  
   
-## 
-
-​
-
-Freepik
+## Freepik
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -561,11 +530,7 @@ Model| ID| Input| Output
 [AI Skin Enhancer Faithful](https://docs.comfy.org/development/comfy-router/models/freepik/ai-skin-enhancer-faithful/code)| `freepik/ai-skin-enhancer-faithful`| Image| Image  
 [AI Skin Enhancer Flexible](https://docs.comfy.org/development/comfy-router/models/freepik/ai-skin-enhancer-flexible/code)| `freepik/ai-skin-enhancer-flexible`| Image| Image  
   
-## 
-
-​
-
-Gemini Interactions
+## Gemini Interactions
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -573,11 +538,7 @@ Model| ID| Input| Output
 [Gemini Omni 1.2 Flash](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-1-2-flash/code)| `gemini-interactions/gemini-omni-1.2-flash`| Text, Image, Audio, Video| Text + Video  
 [Gemini Omni Flash Preview](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-flash-preview/code)| `gemini-interactions/gemini-omni-flash-preview`| Text, Image, Audio, Video| Text + Image + Audio  
   
-## 
-
-​
-
-Google
+## Google
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -585,27 +546,22 @@ Model| ID| Input| Output
 [Gemini 3.1 Flash Lite](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-1-flash-lite/code)| `vertexai/gemini-3.1-flash-lite`| Text, Image, Audio, Video| Text  
 [Gemini 3.7 Flash](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-7-flash/code)| `vertexai/gemini-3.7-flash`| Text, Image, Audio, Video| Text  
 [Gemini 3.8 Flash](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-8-flash/code)| `vertexai/gemini-3.8-flash`| Text, Image, Audio, Video| Text  
+[Gemini 4 Argon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-argon/code)| `vertexai/gemini-4-argon`| Text, Image, Audio, Video| Text  
+[Gemini 4 Carbon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-carbon/code)| `vertexai/gemini-4-carbon`| Text, Image, Audio, Video| Text  
+[Gemini 4 Hydrogen](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-hydrogen/code)| `vertexai/gemini-4-hydrogen`| Text, Image, Audio, Video| Text  
 [Gemini Nano Banana 2.1](https://docs.comfy.org/development/comfy-router/models/google/gemini-nano-banana-2-1/code)| `vertexai/gemini-nano-banana-2.1`| Text, Image, Video| Image + Text  
 [Google Gemini](https://docs.comfy.org/development/comfy-router/models/google/gemini/code)| `vertexai/gemini-3.1-pro-preview`| Text, Image, Audio, Video| Text  
 [Nano Banana 2 Lite](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2-lite/code)| `vertexai/gemini-3.1-flash-lite-image`| Text, Image, Video| Image + Text  
 [Nano Banana 2](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2/code)| `vertexai/gemini-3.1-flash-image`| Text, Image, Video| Image + Text  
 [Nano Banana Pro](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-pro/code)| `vertexai/gemini-3-pro-image`| Text, Image| Image + Text  
   
-## 
-
-​
-
-HeyGen
+## HeyGen
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Starfish](https://docs.comfy.org/development/comfy-router/models/heygen/starfish/code)| `heygen/starfish`| Text| Audio  
   
-## 
-
-​
-
-Higgsfield
+## Higgsfield
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -613,11 +569,7 @@ Model| ID| Input| Output
 [Higgsfield Kling 3.4k](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-4k/code)| `higgsfield/higgsfield-kling-3-4k`| Text| Video + Audio  
 [Higgsfield Kling 3 Pro](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-pro/code)| `higgsfield/higgsfield-kling-3-pro`| Text| Video + Audio  
   
-## 
-
-​
-
-Ideogram
+## Ideogram
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -626,11 +578,7 @@ Model| ID| Input| Output
 [Ideogram 4.0](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-v4/code)| `ideogram/ideogram-v4`| Text| Image  
 [P Image Ideogram](https://docs.comfy.org/development/comfy-router/models/ideogram/p-image-ideogram/code)| `ideogram/p-image-ideogram`| Text| Image  
   
-## 
-
-​
-
-Kling
+## Kling
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -645,11 +593,7 @@ Model| ID| Input| Output
 [Videos Avatar Image 2video](https://docs.comfy.org/development/comfy-router/models/kling/videos-avatar-image2video/code)| `kling/videos-avatar-image2video`| Image, Audio| Video  
 [Videos Lip Sync](https://docs.comfy.org/development/comfy-router/models/kling/videos-lip-sync/code)| `kling/videos-lip-sync`| Video, Audio| Video  
   
-## 
-
-​
-
-Krea
+## Krea
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -659,11 +603,7 @@ Model| ID| Input| Output
 [Krea 2](https://docs.comfy.org/development/comfy-router/models/krea/krea-2/code)| `krea/krea-2`| Text| Image  
 [Krea 3](https://docs.comfy.org/development/comfy-router/models/krea/krea-3/code)| `krea/krea-3`| Text, Image| Image  
   
-## 
-
-​
-
-LTX
+## LTX
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -674,22 +614,14 @@ Model| ID| Input| Output
 [LTX Video To Video Reframe](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-to-video-reframe/code)| `ltx/ltx-video-to-video-reframe`| Video| Video  
 [LTX Video Upscale](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-upscale/code)| `ltx/ltx-video-upscale`| Video| Video + Audio  
   
-## 
-
-​
-
-Luma
+## Luma
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Photon 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-1/code)| `luma/photon-1`| Text| Image  
 [Photon Flash 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-flash-1/code)| `luma/photon-flash-1`| Text| Image  
   
-## 
-
-​
-
-Luma 2
+## Luma 2
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -697,11 +629,7 @@ Model| ID| Input| Output
 [Uni 1 Max](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1-max/code)| `luma_2/uni-1-max`| Text, Image| Image  
 [Uni 1](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code)| `luma_2/uni-1`| Text, Image| Image  
   
-## 
-
-​
-
-Meshy
+## Meshy
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -712,11 +640,7 @@ Model| ID| Input| Output
 [Remesh](https://docs.comfy.org/development/comfy-router/models/meshy/remesh/code)| `meshy/remesh`| 3D| 3D  
 [Rigging](https://docs.comfy.org/development/comfy-router/models/meshy/rigging/code)| `meshy/rigging`| 3D| 3D  
   
-## 
-
-​
-
-MiniMax
+## MiniMax
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -724,11 +648,7 @@ Model| ID| Input| Output
 [MiniMax H3 Image](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image/code)| `minimax/minimax-h3-image`| Text, Image| Image  
 [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code)| `minimax/minimax-h3`| Text, Image| Video + Audio  
   
-## 
-
-​
-
-Moonvalley
+## Moonvalley
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -736,11 +656,7 @@ Model| ID| Input| Output
 [Text To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/text-to-video/code)| `moonvalley/text-to-video`| Text| Video  
 [Video To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/video-to-video/code)| `moonvalley/video-to-video`| Video, Text| Video  
   
-## 
-
-​
-
-OpenAI
+## OpenAI
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -768,21 +684,13 @@ Model| ID| Input| Output
 [GPT Image 2](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code)| `openai/gpt-image-2`| Text, Image| Image  
 [o3](https://docs.comfy.org/development/comfy-router/models/openai/o3/code)| `openai/o3`| Text, Image| Text  
   
-## 
-
-​
-
-Openrouter
+## Openrouter
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Chat Completions](https://docs.comfy.org/development/comfy-router/models/openrouter/chat-completions/code)| `openrouter/chat-completions`| Text, Image| Text  
   
-## 
-
-​
-
-Pika
+## Pika
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -795,11 +703,7 @@ Model| ID| Input| Output
 [Pika Sfx](https://docs.comfy.org/development/comfy-router/models/pika/pika-sfx/code)| `pika/pika-sfx`| Text| Audio  
 [Pika Soundtrack](https://docs.comfy.org/development/comfy-router/models/pika/pika-soundtrack/code)| `pika/pika-soundtrack`| Video, Text| Video + Audio  
   
-## 
-
-​
-
-Pixverse
+## Pixverse
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -807,43 +711,27 @@ Model| ID| Input| Output
 [V6 Max](https://docs.comfy.org/development/comfy-router/models/pixverse/v6-max/code)| `pixverse/v6-max`| Text| Video  
 [V6](https://docs.comfy.org/development/comfy-router/models/pixverse/v6/code)| `pixverse/v6`| Text| Video  
   
-## 
-
-​
-
-Pruna
+## Pruna
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code)| `pruna/p-video-2`| Text, Image, Audio| Video + Audio  
   
-## 
-
-​
-
-Quiver
+## Quiver
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Arrow 2 Telos](https://docs.comfy.org/development/comfy-router/models/quiver/arrow-2-telos/code)| `quiver/arrow-2-telos`| Text, Image| Image  
 [Arrow 2](https://docs.comfy.org/development/comfy-router/models/quiver/arrow-2/code)| `quiver/arrow-2`| Text, Image| Image  
   
-## 
-
-​
-
-Qwen
+## Qwen
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Qwen Image 3.0 Pro](https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0-pro/code)| `qwen/qwen-image-3.0-pro`| Text, Image| Image  
 [Qwen Image 3.0](https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0/code)| `qwen/qwen-image-3.0`| Text, Image| Image  
   
-## 
-
-​
-
-Recraft
+## Recraft
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -864,11 +752,7 @@ Model| ID| Input| Output
 [Recraft V4 Styles](https://docs.comfy.org/development/comfy-router/models/recraft/recraftv4-styles/code)| `recraft/recraftv4_styles`| Text| Image  
 [Recraft V4](https://docs.comfy.org/development/comfy-router/models/recraft/recraftv4/code)| `recraft/recraftv4`| Text| Image  
   
-## 
-
-​
-
-Runway
+## Runway
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -876,11 +760,7 @@ Model| ID| Input| Output
 [Gen 4 Image](https://docs.comfy.org/development/comfy-router/models/runway/gen4-image/code)| `runway/gen4_image`| Text, Image| Image  
 [Gen 4 Turbo](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code)| `runway/gen4_turbo`| Image, Text| Video  
   
-## 
-
-​
-
-Stability
+## Stability
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -910,21 +790,13 @@ Model| ID| Input| Output
 [Upscale Creative](https://docs.comfy.org/development/comfy-router/models/stability/upscale-creative/code)| `stability/upscale-creative`| Text, Image| Image  
 [Upscale Fast](https://docs.comfy.org/development/comfy-router/models/stability/upscale-fast/code)| `stability/upscale-fast`| Image| Image  
   
-## 
-
-​
-
-Synclabs
+## Synclabs
 
 Model| ID| Input| Output  
 ---|---|---|---  
 [Sync 3](https://docs.comfy.org/development/comfy-router/models/synclabs/sync-3/code)| `synclabs/sync-3`| Video, Image, Audio, Text| Video  
   
-## 
-
-​
-
-Tencent
+## Tencent
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -933,11 +805,7 @@ Model| ID| Input| Output
 [Hunyuan 3D Texture Edit](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-texture-edit/code)| `tencent/hunyuan-3d-texture-edit`| 3D, Text| 3D  
 [Hunyuan 3D Uv](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-uv/code)| `tencent/hunyuan-3d-uv`| 3D| 3D  
   
-## 
-
-​
-
-Veed
+## Veed
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -949,11 +817,7 @@ Model| ID| Input| Output
 [Video Background Removal Green Screen](https://docs.comfy.org/development/comfy-router/models/veed/video-background-removal-green-screen/code)| `veed/video-background-removal-green-screen`| Video| Video  
 [Video Background Removal](https://docs.comfy.org/development/comfy-router/models/veed/video-background-removal/code)| `veed/video-background-removal`| Video| Video  
   
-## 
-
-​
-
-Veo
+## Veo
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -961,11 +825,7 @@ Model| ID| Input| Output
 [Veo 3.1 Generate 001](https://docs.comfy.org/development/comfy-router/models/veo/veo-3-1-generate-001/code)| `veo/veo-3.1-generate-001`| Text, Image, Video| Video + Audio  
 [Veo 3.1 Lite Generate 001](https://docs.comfy.org/development/comfy-router/models/veo/veo-3-1-lite-generate-001/code)| `veo/veo-3.1-lite-generate-001`| Text, Image, Video| Video + Audio  
   
-## 
-
-​
-
-Wan
+## Wan
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -990,11 +850,7 @@ Model| ID| Input| Output
 [Wan 3.0 Video Prime](https://docs.comfy.org/development/comfy-router/models/wan/wan3-0-video-prime/code)| `wan/wan3.0-video-prime`| Text, Image, Video, Audio| Video + Audio  
 [Wan 3.0 Video](https://docs.comfy.org/development/comfy-router/models/wan/wan3-0-video/code)| `wan/wan3.0-video`| Text, Image, Video, Audio| Video + Audio  
   
-## 
-
-​
-
-WaveSpeed
+## WaveSpeed
 
 Model| ID| Input| Output  
 ---|---|---|---  
@@ -1002,11 +858,7 @@ Model| ID| Input| Output
 [Seedvr 2](https://docs.comfy.org/development/comfy-router/models/wavespeed/seedvr2/code)| `wavespeed/seedvr2`| Image| Image  
 [Ultimate Image Upscaler](https://docs.comfy.org/development/comfy-router/models/wavespeed/ultimate-image-upscaler/code)| `wavespeed/ultimate-image-upscaler`| Image| Image  
   
-## 
-
-​
-
-xAI
+## xAI
 
 Model| ID| Input| Output  
 ---|---|---|---  

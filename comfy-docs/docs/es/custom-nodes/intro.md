@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/intro/
-title: Nodos personalizados - ComfyUI
+title: Nodos personalizados en ComfyUI: gu\u00eda de desarrollo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.070407+00:00
+fetched_at: 2026-11-16T16:52:08.220921+00:00
 ---
 
-# Nodos personalizados - ComfyUI
+# Nodos personalizados en ComfyUI: guía de desarrollo - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/intro/
 
@@ -19,7 +19,7 @@ Volver arriba
 
 Nodos personalizados
 
-# Nodos personalizados
+# Nodos personalizados en ComfyUI: guía de desarrollo
 
 Copiar páginaCopiar página
 
@@ -39,11 +39,7 @@ Aprende el modelo cliente-servidor, las categorías de nodos, el backend en Pyth
 
 Prepara un paquete de nodos, publícalo en el Comfy Registry y administra las versiones y lanzamientos.
 
-## 
-
-​
-
-Elige un punto de partida
+## Elige un punto de partida
 
   * **Si eres nuevo en los nodos personalizados:** empieza con [Descripción general de los nodos personalizados](https://docs.comfy.org/es/custom-nodes/overview).
   * **Si vas a crear el backend:** consulta [Python (Backend)](https://docs.comfy.org/es/custom-nodes/backend/server_overview).
@@ -58,4 +54,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/intro.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/intro)
 
-[Workflow JSON](https://docs.comfy.org/es/specs/workflow_json)[Tipos de nodos y arquitectura](https://docs.comfy.org/es/custom-nodes/overview)
+[JSON de definición de nodo 1.0](https://docs.comfy.org/es/specs/nodedef_json_1_0)[Tipos de nodos](https://docs.comfy.org/es/custom-nodes/overview)

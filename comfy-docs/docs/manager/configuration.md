@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/manager/configuration/
 title: ComfyUI-Manager Configuration - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:04.149476+00:00
+fetched_at: 2026-11-16T16:52:09.366366+00:00
 ---
 
 # ComfyUI-Manager Configuration - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:04.149476+00:00
 > Source: https://docs.comfy.org/manager/configuration/
 
 ## On this page
+
+Back to top
 
   * Configuration paths
     * Configuration files
@@ -40,11 +42,7 @@ ComfyUI-Manager configuration reference: config.ini paths and options, security 
 
 Copy pageCopy page
 
-## 
-
-​
-
-Configuration paths
+## Configuration paths
 
 Starting from V3.38, Manager uses a protected system path for enhanced security.
 
@@ -55,11 +53,7 @@ Older versions| `<USER_DIRECTORY>/default/ComfyUI-Manager/`
   
 If executed without any options, the `<USER_DIRECTORY>` path defaults to `ComfyUI/user`. It can be set using `--user-directory <USER_DIRECTORY>`.
 
-### 
-
-​
-
-Configuration files
+### Configuration files
 
 File| Description  
 ---|---  
@@ -72,11 +66,7 @@ File| Description
 `startup-scripts/`| Startup script files  
 `components/`| Component files  
   
-## 
-
-​
-
-Config.ini options
+## Config.ini options
 
 Modify the `config.ini` file to apply settings. The path is displayed in startup log messages.
     
@@ -95,11 +85,7 @@ Modify the `config.ini` file to apply settings. The path is displayed in startup
     network_mode = <public|private|offline>
     
 
-### 
-
-​
-
-Network modes
+### Network modes
 
 Mode| Description  
 ---|---  
@@ -107,11 +93,7 @@ Mode| Description
 `private`| Closed network with private node DB configured via `channel_url` (uses cache if available)  
 `offline`| No external connections (uses cache if available)  
   
-### 
-
-​
-
-Security levels
+### Security levels
 
 Level| Description  
 ---|---  
@@ -120,11 +102,7 @@ Level| Description
 `normal-`| Doesn’t allow high level risky features if `--listen` is specified and not starts with `127.`; middle level features available  
 `weak`| All features available  
   
-#### 
-
-​
-
-Risk levels for features
+#### Risk levels for features
 
 Risk Level| Features  
 ---|---  
@@ -132,11 +110,7 @@ Risk Level| Features
 **Middle**|  Uninstall/Update, installation of custom nodes in default channel, restore/remove snapshot, restart  
 **Low**|  Update ComfyUI  
   
-## 
-
-​
-
-Environment variables
+## Environment variables
 
 Variable| Description  
 ---|---  
@@ -144,11 +118,7 @@ Variable| Description
 `GITHUB_ENDPOINT`| Reverse proxy for GitHub access  
 `HF_ENDPOINT`| Reverse proxy for Hugging Face access  
   
-### 
-
-​
-
-Examples
+### Examples
 
 Redirecting GitHub requests through a proxy:
     
@@ -162,17 +132,9 @@ Changing Hugging Face endpoint:
     HF_ENDPOINT=https://some-hf-mirror.com
     
 
-## 
+## Advanced configuration
 
-​
-
-Advanced configuration
-
-### 
-
-​
-
-Prevent downgrade of specific packages
+### Prevent downgrade of specific packages
 
 List package names in the `downgrade_blacklist` section of `config.ini`, separated by commas:
     
@@ -180,43 +142,23 @@ List package names in the `downgrade_blacklist` section of `config.ini`, separat
     downgrade_blacklist = diffusers, kornia
     
 
-### 
-
-​
-
-Custom pip mapping
+### Custom pip mapping
 
 Create a `pip_overrides.json` file to change the installation of specific pip packages to user-defined installations. Refer to `pip_overrides.json.template` for the format.
 
-### 
-
-​
-
-Prevent installation of specific pip packages
+### Prevent installation of specific pip packages
 
 List package names one per line in the `pip_blacklist.list` file.
 
-### 
-
-​
-
-Automatically restore pip installation
+### Automatically restore pip installation
 
 List pip spec requirements in `pip_auto_fix.list` (similar to `requirements.txt`). It will automatically restore specified versions when starting ComfyUI or when versions get mismatched during custom node installations. `--index-url` can be used.
 
-### 
-
-​
-
-Use aria2 as downloader
+### Use aria2 as downloader
 
 For faster downloads, you can configure ComfyUI-Manager to use aria2. See the [aria2 setup guide](https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/docs/en/use_aria2.md).
 
-## 
-
-​
-
-extra_model_paths.yaml configuration
+## extra_model_paths.yaml configuration
 
 The following settings are applied based on the section marked as `is_default`:
 
@@ -225,11 +167,7 @@ The following settings are applied based on the section marked as `is_default`:
 
 
 
-## 
-
-​
-
-CLI tools
+## CLI tools
 
 ComfyUI-Manager provides `cm-cli`, a command line tool that allows you to use Manager features without running ComfyUI. This is useful for automating custom node installation and managing installations in headless environments. For detailed cm-cli documentation, see the [official cm-cli guide](https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/docs/en/cm-cli.md). For a more comprehensive CLI experience, consider using [comfy-cli](https://docs.comfy.org/comfy-cli/getting-started).
 
@@ -239,26 +177,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/manager/configuration.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/manager/configuration)
 
-[Managing custom nodes with ComfyUI-Manager (legacy UI)Previous](https://docs.comfy.org/manager/legacy-ui)[ComfyUI Manager TroubleshootingNext](https://docs.comfy.org/manager/troubleshooting)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[legacy UI](https://docs.comfy.org/manager/legacy-ui)[Troubleshooting](https://docs.comfy.org/manager/troubleshooting)

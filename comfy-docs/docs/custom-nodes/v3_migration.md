@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/custom-nodes/v3_migration/
-title: V3 Migration - ComfyUI
+title: ComfyUI Custom Node V3 Migration: V1 to V3 Schema - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:36.255505+00:00
+fetched_at: 2026-11-16T16:52:08.723912+00:00
 ---
 
-# V3 Migration - ComfyUI
+# ComfyUI Custom Node V3 Migration: V1 to V3 Schema - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/v3_migration/
 
@@ -60,11 +60,11 @@ Back to top
 
 Migration Guides
 
-# V3 Migration
+# ComfyUI Custom Node V3 Migration: V1 to V3 Schema
 
 Copy pageCopy page
 
-How to migrate your existing V1 nodes to the new V3 schema.
+Migrate V1 custom nodes to the V3 schema: the comfy_entrypoint function, ComfyExtension, object-based inputs and outputs, and the execute classmethod.
 
 Copy pageCopy page
 

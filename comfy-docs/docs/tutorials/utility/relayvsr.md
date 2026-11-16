@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/utility/relayvsr/
 title: RelayVSR: 2x and 4x video upscaling in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:12.852047+00:00
+fetched_at: 2026-11-16T16:52:02.015321+00:00
 ---
 
 # RelayVSR: 2x and 4x video upscaling in ComfyUI - ComfyUI
@@ -13,8 +13,8 @@ fetched_at: 2026-11-13T15:12:12.852047+00:00
 
 Back to top
 
-  * Models
   * Video Upscale: RelayVSR 2x
+  * Video Upscale: RelayVSR 4x
 
 
 
@@ -53,9 +53,15 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## Models
+## Video Upscale: RelayVSR 2x
 
-Download the pair for the scale you want and place each file in the folder shown on its card.
+Upscale a clip 2x with the workflow below. The upscaler runs inside a subgraph, so the canvas only shows the video going in and coming out. ![RelayVSR 2x video upscale workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_relayvsr_video_x2_upscale-1.webp)
+
+## Download Workflow
+
+Download JSON or search “RelayVSR 2x” in Template Library
+
+**Models** Download both files of the 2x pair and place each in the folder shown on its card. The pair was retrained by [LightX2V](https://huggingface.co/lightx2v/RelayVSR_X2) for the step after video generation, so a 768 x 1344 clip from MiniMax-H3 comes out at 1536 x 2688.
 
 ## Diffusion Model (2x)
 
@@ -64,24 +70,6 @@ relayvsr_x2_lightx2v_int8_convrot.safetensors → ComfyUI/models/diffusion_model
 ## VAE (2x)
 
 relayvsr_flash_vae_x2_fp32.safetensors → ComfyUI/models/vae/
-
-## Diffusion Model (4x)
-
-relayvsr_x4_int8_convrot.safetensors → ComfyUI/models/diffusion_models/
-
-## VAE (4x)
-
-relayvsr_flash_vae_x4_fp32.safetensors → ComfyUI/models/vae/
-
-The 2x pair was retrained by [LightX2V](https://huggingface.co/lightx2v/RelayVSR_X2) for the step after video generation, so a 768 x 1344 clip from MiniMax-H3 comes out at 1536 x 2688. The 4x pair is the original RelayVSR scale.
-
-## Video Upscale: RelayVSR 2x
-
-Upscale a clip 2x with the workflow below. The upscaler runs inside a subgraph, so the canvas only shows the video going in and coming out. ![RelayVSR 2x video upscale workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_relayvsr_video_x2_upscale-1.webp)
-
-## Download Workflow
-
-Download JSON or search “RelayVSR 2x” in Template Library
 
 **Input materials**
 
@@ -92,7 +80,36 @@ Download JSON or search “RelayVSR 2x” in Template Library
   1. Load your clip in the `Load Video` node. The template trims it to the first 5 seconds with a `Trim Video` node, so raise that duration for longer clips or upscale long footage in passes.
   2. Run the workflow. The result is saved by `Save Video` under `ComfyUI/output/video/`.
 
-For 4x, swap the two loader values in the subgraph: `UNETLoader` to `relayvsr_x4_int8_convrot.safetensors` and `VAELoader` to `relayvsr_flash_vae_x4_fp32.safetensors`. Nothing else changes. If a pass runs out of memory, trim the clip and upscale it in several passes.
+
+
+## Video Upscale: RelayVSR 4x
+
+The 4x template is the same graph with the original RelayVSR weights, so the picture comes out exactly four times the size of the input. ![RelayVSR 4x video upscale workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_relayvsr_video_x4_upscale-1.webp)
+
+## Download Workflow
+
+Download JSON or search “RelayVSR 4x” in Template Library
+
+**Models** Download both files of the 4x pair and place each in the folder shown on its card.
+
+## Diffusion Model (4x)
+
+relayvsr_x4_int8_convrot.safetensors → ComfyUI/models/diffusion_models/
+
+## VAE (4x)
+
+relayvsr_flash_vae_x4_fp32.safetensors → ComfyUI/models/vae/
+
+**Input materials**
+
+## cyber_samurai_chainsaw_lunge_video.mp4
+
+`LoadVideo` · `cyber_samurai_chainsaw_lunge_video.mp4`
+
+  1. Load your clip in the `Load Video` node.
+  2. Run the workflow. `Save Video` writes the result under `ComfyUI/output/video/`.
+
+If a pass runs out of memory, trim the clip and upscale it in several passes.
 
 Was this page helpful?
 

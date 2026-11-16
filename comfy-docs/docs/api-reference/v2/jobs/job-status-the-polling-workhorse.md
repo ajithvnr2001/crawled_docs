@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/jobs/job-status-the-polling-workhorse/
 title: Job status (the polling workhorse) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:39.093650+00:00
+fetched_at: 2026-11-16T16:52:00.845765+00:00
 ---
 
 # Job status (the polling workhorse) - ComfyUI
@@ -162,6 +162,7 @@ cURL
       "error": {
         "code": "node_execution_error",
         "message": "<string>",
+        "category": "<string>",
         "node_id": "<string>",
         "class_type": "<string>",
         "traceback": "<string>",
@@ -531,6 +532,7 @@ cURL
       "error": {
         "code": "node_execution_error",
         "message": "<string>",
+        "category": "<string>",
         "node_id": "<string>",
         "class_type": "<string>",
         "traceback": "<string>",
@@ -717,8 +719,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -730,8 +730,6 @@ required
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Path Parameters
-
-​
 
 id
 
@@ -749,8 +747,6 @@ The job.
 
 One execution of a workflow. Durable from creation until `expires_at`; `outputs` populates incrementally during execution.
 
-​
-
 id
 
 string
@@ -760,8 +756,6 @@ required
 Example:
 
 `"7f3d2c1b-9a8e-4d6f-b012-3c4d5e6f7a8b"`
-
-​
 
 status
 
@@ -787,15 +781,11 @@ Available options:
 
 `expired`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 started_at
 
@@ -803,15 +793,11 @@ string<date-time> | null
 
 required
 
-​
-
 completed_at
 
 string<date-time> | null
 
 required
-
-​
 
 expires_at
 
@@ -821,15 +807,11 @@ required
 
 Retention deadline — a platform property, not an API constant.
 
-​
-
 queue_position
 
 integer | null
 
 required
-
-​
 
 progress
 
@@ -841,8 +823,6 @@ The latest progress snapshot; same data the SSE stream pushes.
 
 Show child attributes
 
-​
-
 outputs
 
 object[]
@@ -850,8 +830,6 @@ object[]
 required
 
 Show child attributes
-
-​
 
 error
 
@@ -863,8 +841,6 @@ Execution failure detail, carried in `job.error` (not an HTTP error).
 
 Show child attributes
 
-​
-
 urls
 
 object
@@ -874,8 +850,6 @@ required
 Embedded follow-up links — follow these, don't build URLs. A link is either an absolute URL or a host-relative reference (leading `/`) that already includes any prefix the serving surface is mounted under (e.g. a serverless gateway's `/deployment/{deployment_id}/api/v2`). Clients MUST resolve a host-relative link against the request origin (scheme + authority), never against a configured base URL — joining it to a base URL that carries the same mount prefix duplicates the prefix.
 
 Show child attributes
-
-​
 
 metrics
 
@@ -891,8 +865,6 @@ Example:
     { "queue_ms": 9000, "execution_ms": 42000 }
     
 
-​
-
 deployment_id
 
 string
@@ -903,8 +875,6 @@ Example:
 
 `"dep-0f19a2b3c4d5"`
 
-​
-
 release_id
 
 string
@@ -914,8 +884,6 @@ The release of the deployment's build that ran the job, which can differ from th
 Example:
 
 `"7c1e9a40-3b2d-4f6a-9e81-0c5d2a7b4f13"`
-
-​
 
 release_version
 
@@ -928,8 +896,6 @@ Required range: `x >= 1`
 Example:
 
 `3`
-
-​
 
 metadata
 

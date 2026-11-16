@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/backend/manager/",
   "file": "custom-nodes/backend/manager.md",
-  "title": "Publishing to the Manager - ComfyUI",
+  "title": "Publish a Custom Node to ComfyUI Manager - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-15T14:35:54.102816+00:00"
+  "fetched_at": "2026-11-16T16:52:08.982203+00:00"
 }

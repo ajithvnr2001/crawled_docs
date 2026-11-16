@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/delete-a-specific-personal-access-token/
 title: Delete a specific personal access token - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:12.365351+00:00
+fetched_at: 2026-11-16T16:52:11.071609+00:00
 ---
 
 # Delete a specific personal access token - ComfyUI
@@ -293,8 +293,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -307,15 +305,11 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
 
 requerido
-
-​
 
 tokenId
 

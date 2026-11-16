@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/openrouter/llm/
 title: OpenRouter LLM en ComfyUI: muchos modelos en un solo nodo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:53.771709+00:00
+fetched_at: 2026-11-16T16:51:58.631099+00:00
 ---
 
 # OpenRouter LLM en ComfyUI: muchos modelos en un solo nodo - ComfyUI
@@ -31,30 +31,23 @@ Usa el nodo asociado OpenRouter LLM en ComfyUI para chat, razonamiento, visión 
 
 Copiar páginaCopiar página
 
-[OpenRouter](https://openrouter.ai) es una plataforma de enrutamiento unificada para modelos de lenguaje grandes. Expone muchos proveedores a través de una sola API para que puedas cambiar de modelo sin modificar tu integración. ComfyUI se conecta mediante el nodo asociado **OpenRouter LLM** , que ofrece una lista seleccionada de modelos de texto y multimodales (Claude, GPT, Gemini, Grok, DeepSeek, Qwen, Mistral, GLM, Kimi y Perplexity Sonar) en un solo nodo.
+[OpenRouter](https://openrouter.ai) es una plataforma de enrutamiento unificada para modelos de lenguaje grandes. Expone muchos proveedores a través de una sola API para que puedas cambiar de modelo sin modificar tu integración. ComfyUI se conecta mediante el nodo asociado **OpenRouter LLM** , que ofrece una lista seleccionada de modelos de texto y multimodales (Claude, GPT, Gemini, Grok, Meta Muse, DeepSeek, Qwen, Mistral, GLM, Kimi y Perplexity Sonar) en un solo nodo.
 
-## 
-
-​
-
-Para qué sirve OpenRouter LLM
+## Para qué sirve OpenRouter LLM
 
   * **Chat de texto** : prompts y un `system_prompt` opcional para instrucciones de rol o tarea
   * **Visión** : adjunta imágenes de referencia en los modelos compatibles (la cantidad de ranuras depende del modelo)
-  * **Entrada de video** : Gemini 3.5 Flash y Qwen 3.6 Plus/Flash admiten videos de referencia opcionales
-  * **Razonamiento** : `reasoning_effort` en modelos de razonamiento o de razonamiento frontier (`off`, `low`, `medium`, `high`)
+  * **Entrada de video** : Gemini 3.5 Flash, Qwen 3.6 Plus/Flash y los modelos Meta Muse admiten videos de referencia opcionales
+  * **Razonamiento** : `reasoning_effort` en modelos de razonamiento o de razonamiento frontier (`off`, `low`, `medium`, `high`). Los modelos Meta Muse siempre razonan, así que sus niveles van de `minimal` a `high` y no incluyen `off`
   * **Búsqueda web** : los modelos Perplexity Sonar exponen `search_context_size` para respuestas fundamentadas
 
 Los precios por token se muestran en [Precios de nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/pricing#openrouter).
 
-## 
-
-​
-
-Modelos compatibles
+## Modelos compatibles
 
 Modelo| Visión (máx. de imágenes)| Video| Opciones adicionales  
 ---|---|---|---  
+`anthropic/claude-opus-5`| 20| Ninguno| Esfuerzo de razonamiento  
 `anthropic/claude-opus-4.8`| 20| Ninguno| Esfuerzo de razonamiento  
 `anthropic/claude-opus-4.7`| 20| Ninguno| Esfuerzo de razonamiento  
 `anthropic/claude-fable-5`| 20| Ninguno| Esfuerzo de razonamiento  
@@ -72,10 +65,12 @@ Modelo| Visión (máx. de imágenes)| Video| Opciones adicionales
 `x-ai/grok-4.5`| 20| Ninguno| Esfuerzo de razonamiento  
 `x-ai/grok-4.20`| 20| Ninguno| Esfuerzo de razonamiento  
 `x-ai/grok-4.3`| 20| Ninguno| Esfuerzo de razonamiento  
+`meta/muse-wonder`| 50| Hasta 5| Esfuerzo de razonamiento, siempre activo  
+`meta/muse-spark-1.3`| 50| Hasta 5| Esfuerzo de razonamiento, siempre activo  
+`meta/muse-ember`| 50| Hasta 5| Esfuerzo de razonamiento, siempre activo  
 `deepseek/deepseek-v4-pro`| Ninguno| Ninguno| Esfuerzo de razonamiento  
 `deepseek/deepseek-v4-flash`| Ninguno| Ninguno| Esfuerzo de razonamiento  
 `deepseek/deepseek-v3.2`| Ninguno| Ninguno| Esfuerzo de razonamiento  
-`qwen/qwen3.6-max-preview`| Ninguno| Ninguno| Esfuerzo de razonamiento  
 `qwen/qwen3.6-plus`| 10| Hasta 4| Esfuerzo de razonamiento  
 `qwen/qwen3.6-flash`| 10| Hasta 4| Esfuerzo de razonamiento  
 `mistralai/mistral-large-2512`| 8| Ninguno| Ninguno  
@@ -114,11 +109,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Entradas específicas del modelo
+## Entradas específicas del modelo
 
 El menú desplegable **model** es un cuadro combinado dinámico. Cuando cambias el modelo, el nodo actualiza qué entradas aparecen:
 
@@ -129,11 +120,7 @@ El menú desplegable **model** es un cuadro combinado dinámico. Cuando cambias 
 
 Los modelos de solo texto ocultan las entradas de imagen y video.
 
-### 
-
-​
-
-OpenRouter LLM
+### OpenRouter LLM
 
 Selecciona un modelo de la lista curada de OpenRouter (Claude, GPT, Gemini, etc.). Genera una respuesta de texto con subidas opcionales de contenido multimedia para los modelos con capacidad de visión. ![Vista previa del flujo de trabajo de OpenRouter LLM](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_openrouter_llm-1.webp)
 
@@ -167,11 +154,7 @@ Si usas la plantilla como referencia, una ejecución típica es la siguiente:
 
 
 
-### 
-
-​
-
-Notas adicionales
+### Notas adicionales
 
   * **seed** : establece `0` para omitirla; la mayoría de los modelos solo la tratan como una sugerencia
   * La carga de las imágenes y los videos de referencia es automática al ejecutar el flujo de trabajo; solo conectas las salidas de imagen/video de ComfyUI al nodo

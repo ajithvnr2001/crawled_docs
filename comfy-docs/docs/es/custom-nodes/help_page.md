@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/help_page/
-title: A\u00f1adir documentaci\u00f3n de nodos para tu nodo personalizado de ComfyUI - ComfyUI
+title: Documentaci\u00f3n de nodos personalizados en ComfyUI: p\u00e1ginas Markdown - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:34.030779+00:00
+fetched_at: 2026-11-16T16:52:09.044066+00:00
 ---
 
-# Añadir documentación de nodos para tu nodo personalizado de ComfyUI - ComfyUI
+# Documentación de nodos personalizados en ComfyUI: páginas Markdown - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/help_page/
 
@@ -23,27 +23,19 @@ Volver arriba
 
 Package & Publish
 
-# Añadir documentación de nodos para tu nodo personalizado de ComfyUI
+# Documentación de nodos personalizados en ComfyUI: páginas Markdown
 
 Copiar páginaCopiar página
 
-Cómo crear documentación completa para tus nodos personalizados
+Añade páginas de ayuda Markdown en WEB_DIRECTORY/docs de un nodo personalizado, con archivos por idioma, imágenes y elementos video u HTML.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-Documentación de nodos con Markdown
+## Documentación de nodos con Markdown
 
 Los nodos personalizados pueden incluir documentación en Markdown completa que se mostrará en la interfaz en lugar de la descripción genérica del nodo. Esto ofrece a los usuarios información detallada sobre la funcionalidad, los parámetros y los ejemplos de uso de tu nodo. Si ya has añadido tooltips para cada parámetro en la definición del nodo, puedes acceder directamente a esta información básica desde el panel de documentación del nodo. No es necesario añadir más documentación del nodo, y puedes consultar la implementación relacionada de [ContextWindowsManualNode](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_context_windows.py#L7)
 
-## 
-
-​
-
-Configuración
+## Configuración
 
 Para añadir documentación para tus nodos personalizados o documentación con soporte para varios idiomas:
 
@@ -56,11 +48,7 @@ Para añadir documentación para tus nodos personalizados o documentación con s
 
 El sistema cargará automáticamente la documentación adecuada según el idioma del usuario, y recurrirá a `NodeName.md` como respaldo si no hay una versión localizada disponible.
 
-## 
-
-​
-
-Funciones de Markdown compatibles
+## Funciones de Markdown compatibles
 
   * Sintaxis Markdown estándar (encabezados, listas, bloques de código, etc.)
   * Imágenes con sintaxis Markdown: `![texto alternativo](image.png)`
@@ -70,11 +58,7 @@ Funciones de Markdown compatibles
 
 
 
-## 
-
-​
-
-Estructura de ejemplo
+## Estructura de ejemplo
     
     
     my-custom-node/
@@ -89,11 +73,7 @@ Estructura de ejemplo
     │           └── zh.md           # Versión en chino
     
 
-## 
-
-​
-
-Archivo Markdown de ejemplo
+## Archivo Markdown de ejemplo
     
     
     # Mi nodo personalizado

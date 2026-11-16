@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/relayvsr/
 title: RelayVSR: ampliaci\u00f3n de video 2x y 4x en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:12.575110+00:00
+fetched_at: 2026-11-16T16:52:02.590348+00:00
 ---
 
 # RelayVSR: ampliación de video 2x y 4x en ComfyUI - ComfyUI
@@ -13,8 +13,8 @@ fetched_at: 2026-11-13T15:12:12.575110+00:00
 
 Volver arriba
 
-  * Modelos
   * Upscale de video: RelayVSR 2x
+  * Ampliación de video: RelayVSR 4x
 
 
 
@@ -53,9 +53,15 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## Modelos
+## Upscale de video: RelayVSR 2x
 
-Descarga el par correspondiente a la escala que quieras y coloca cada archivo en la carpeta que se indica en su tarjeta.
+Aplica upscale 2x a un clip con el flujo de trabajo de abajo. El upscaler se ejecuta dentro de un subgrafo, así que el lienzo solo muestra el video que entra y el que sale. ![Vista previa del flujo de trabajo de upscale de video RelayVSR 2x](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_relayvsr_video_x2_upscale-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “RelayVSR 2x” en la Biblioteca de plantillas
+
+**Modelos** Descarga los dos archivos del par 2x y coloca cada uno en la carpeta que indica su tarjeta. [LightX2V](https://huggingface.co/lightx2v/RelayVSR_X2) reentrenó el par para la etapa posterior a la generación de video, así que un clip de 768 x 1344 de MiniMax-H3 sale a 1536 x 2688.
 
 ## Modelo de difusión (2x)
 
@@ -64,24 +70,6 @@ relayvsr_x2_lightx2v_int8_convrot.safetensors → ComfyUI/models/diffusion_model
 ## VAE (2x)
 
 relayvsr_flash_vae_x2_fp32.safetensors → ComfyUI/models/vae/
-
-## Modelo de difusión (4x)
-
-relayvsr_x4_int8_convrot.safetensors → ComfyUI/models/diffusion_models/
-
-## VAE (4x)
-
-relayvsr_flash_vae_x4_fp32.safetensors → ComfyUI/models/vae/
-
-[LightX2V](https://huggingface.co/lightx2v/RelayVSR_X2) reentrenó el par 2x para la etapa posterior a la generación de video, así que un clip de 768 x 1344 de MiniMax-H3 sale a 1536 x 2688. El par 4x es la escala original de RelayVSR.
-
-## Upscale de video: RelayVSR 2x
-
-Aplica upscale 2x a un clip con el flujo de trabajo de abajo. El upscaler se ejecuta dentro de un subgrafo, así que el lienzo solo muestra el video que entra y el que sale. ![Vista previa del flujo de trabajo de upscale de video RelayVSR 2x](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_relayvsr_video_x2_upscale-1.webp)
-
-## Descargar flujo de trabajo
-
-Descarga el JSON o busca “RelayVSR 2x” en la Biblioteca de plantillas
 
 **Materiales de entrada**
 
@@ -92,7 +80,36 @@ Descarga el JSON o busca “RelayVSR 2x” en la Biblioteca de plantillas
   1. Carga tu clip en el nodo `Load Video`. La plantilla lo recorta a los primeros 5 segundos con un nodo `Trim Video`, así que aumenta esa duración para clips más largos o aplica upscale a material extenso en varias pasadas.
   2. Ejecuta el flujo de trabajo. `Save Video` guarda el resultado en `ComfyUI/output/video/`.
 
-Para 4x, intercambia los dos valores de los cargadores en el subgrafo: `UNETLoader` por `relayvsr_x4_int8_convrot.safetensors` y `VAELoader` por `relayvsr_flash_vae_x4_fp32.safetensors`. No cambia nada más. Si una pasada se queda sin memoria, recorta el clip y aplícale upscale en varias pasadas.
+
+
+## Ampliación de video: RelayVSR 4x
+
+La plantilla 4x usa el mismo grafo con los pesos originales de RelayVSR, así que la imagen sale exactamente cuatro veces más grande que la entrada. ![Vista previa del flujo de trabajo de ampliación de video RelayVSR 4x](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_relayvsr_video_x4_upscale-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “RelayVSR 4x” en la biblioteca de plantillas
+
+**Modelos** Descarga los dos archivos del par 4x y coloca cada uno en la carpeta que indica su tarjeta.
+
+## Modelo de difusión (4x)
+
+relayvsr_x4_int8_convrot.safetensors → ComfyUI/models/diffusion_models/
+
+## VAE (4x)
+
+relayvsr_flash_vae_x4_fp32.safetensors → ComfyUI/models/vae/
+
+**Materiales de entrada**
+
+## cyber_samurai_chainsaw_lunge_video.mp4
+
+`LoadVideo` · `cyber_samurai_chainsaw_lunge_video.mp4`
+
+  1. Carga tu clip en el nodo `Load Video`.
+  2. Ejecuta el flujo de trabajo. `Save Video` guarda el resultado en `ComfyUI/output/video/`.
+
+Si una pasada se queda sin memoria, recorta el clip y aplícale upscale en varias pasadas.
 
 ¿Esta página le ayudó?
 

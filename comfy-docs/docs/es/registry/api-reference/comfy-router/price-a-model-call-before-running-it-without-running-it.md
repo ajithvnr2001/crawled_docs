@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:10.131122+00:00
+fetched_at: 2026-11-16T16:52:10.473140+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI
@@ -641,8 +641,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -654,8 +652,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key. Accepted on the operations served by the comfyFirebase auth middleware (BE-9720, parity with ingest).
 
 #### Parámetros de ruta
-
-​
 
 provider
 
@@ -672,8 +668,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"bfl"`
-
-​
 
 model
 
@@ -692,8 +686,6 @@ Ejemplo:
 `"flux-2-pro"`
 
 #### Parámetros de consulta
-
-​
 
 model_provider
 
@@ -719,8 +711,6 @@ The quote. Read `source` before reading any amount: only `exact` and `free` carr
 
 A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch at Comfy's standard list price, or — for a model billed the cost its vendor reports — from the vendor's published price list. For that vendor-reported case, `source: exact` is returned only for a small opted-in set of models, and only when the published price list fully determines the figure (every price-driving field was stated, or left at a default that cannot change it); every other vendor-reported quote is `estimated`, including some the list would fully determine. Either way the run is still billed the amount the vendor reports after it completes, never the quoted figure verbatim. It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace's charge. It is not the final charge: the settled charge in your workspace's usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` "0" (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
 
-​
-
 currency
 
 string
@@ -728,8 +718,6 @@ string
 requerido
 
 Always `USD`.
-
-​
 
 model
 
@@ -747,8 +735,6 @@ Ejemplo:
 
 `"bfl/flux-2-pro"`
 
-​
-
 pricing_as_of
 
 string<date-time>
@@ -756,8 +742,6 @@ string<date-time>
 requerido
 
 When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor's published price list (a model billed the cost the vendor reports) carries the date that list was read instead. A quote whose billed quantity is predicted from a published vendor schedule and then priced from the rate card carries the older of that schedule's read date and the card's fetch time, for an `exact` answer and an `estimated` one alike (a model billed the credits its vendor reports is the `estimated` case). Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
-
-​
 
 provider
 
@@ -767,8 +751,6 @@ requerido
 
 The provider leg this quote is for. On a queued submit it is the leg that will run.
 
-​
-
 source
 
 string
@@ -777,15 +759,11 @@ requerido
 
 `exact` | `estimated` | `free` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `free` means the rate card prices this request at zero, so `amount` is "0". `unknown` carries no figure.
 
-​
-
 amount
 
 string
 
 The estimated cost in dollars as a decimal string, e.g. "0.04", with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as "0"; only a `free` quote reads "0". Present only when `source` is `exact` or `free`. Not the final charge: the settled charge in your workspace's usage and billing records is.
-
-​
 
 amount_cents
 
@@ -793,15 +771,11 @@ number<double>
 
 The same figure in US cents, unrounded, for arithmetic. Present with `amount`.
 
-​
-
 credits
 
 number<double>
 
 `amount` in Comfy credits using the platform conversion ($1 = 211 credits), rounded to 2 decimals - the figure `X-Comfy-Credits-Used` is expected to carry for an `exact` quote. That header is a rounded post-hoc figure, not a receipt; the settled charge in your workspace's usage and billing records is final.
-
-​
 
 max_amount
 
@@ -809,15 +783,11 @@ string
 
 The high end of the estimate in dollars as a decimal string. It is an estimate, not a guaranteed cap: a call can be billed more, for example when the provider returns more than was asked (such as more images than requested), when the estimate is learned from past calls, or when the price does not rise steadily with the amount requested. Present only when `source` is `estimated`.
 
-​
-
 max_amount_cents
 
 number<double>
 
 `max_amount` in US cents. Present with `max_amount`.
-
-​
 
 min_amount
 
@@ -825,15 +795,11 @@ string
 
 The low end of the estimate in dollars as a decimal string. It is an estimate, not a guaranteed floor: a call can be billed less, for example when the provider returns less than the request asked for (such as no images), when the estimate is a typical price learned from past calls, or when the price does not rise steadily with the amount requested. Present only when `source` is `estimated`.
 
-​
-
 min_amount_cents
 
 number<double>
 
 `min_amount` in US cents, unrounded. Present with `min_amount`.
-
-​
 
 reason
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/settings/
 title: Configuraciones de Comfy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.444283+00:00
+fetched_at: 2026-11-16T16:52:07.640599+00:00
 ---
 
 # Configuraciones de Comfy Desktop - ComfyUI
@@ -11,6 +11,8 @@ fetched_at: 2026-10-25T12:24:48.444283+00:00
 
 ## En esta página
 
+Volver arriba
+
   * Preferencias
     * Comportamiento de la aplicación
     * Privacidad
@@ -18,6 +20,7 @@ fetched_at: 2026-10-25T12:24:48.444283+00:00
   * Actualizaciones
   * Almacenamiento
   * Avanzado
+    * Caché de descargas
   * Registros
   * Ubicaciones de datos
   * Atajos de teclado
@@ -37,11 +40,7 @@ Copiar páginaCopiar página
 
 Haz clic en el menú ☰ (1) en la esquina superior izquierda y selecciona **Configuraciones de Escritorio** (2) para abrir el panel de configuración global. ![Panel de Comfy Desktop con el menú ☰ abierto y Configuraciones de Escritorio en el menú](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=c159ee0f220f359169a739852ff90fea) El panel de configuraciones está organizado en cinco pestañas. Haz clic en una pestaña de la barra lateral para cambiar de vista.
 
-## 
-
-​
-
-Preferencias
+## Preferencias
 
 ![Preferencias: idioma, comportamiento de la aplicación, telemetría y participación en funciones beta](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=2f708f5b4699204effebaac74780fd58) La pestaña Preferencias se abre con un selector de **Idioma** y luego agrupa el resto de sus controles en tres secciones.
 
@@ -49,11 +48,7 @@ Preferencias
 
 
 
-### 
-
-​
-
-Comportamiento de la aplicación
+### Comportamiento de la aplicación
 
   * **Inicio automático al arrancar** : Elige qué instancia iniciar cuando se abre Comfy Desktop. **Ninguna (mostrar el panel)** es la opción predeterminada. También puedes elegir **Última instancia utilizada** o una instalación específica.
   * **Confirmar antes de cerrar una ventana** : Pide confirmación antes de cerrar una ventana que está ejecutando una instalación local.
@@ -62,32 +57,20 @@ Comportamiento de la aplicación
 
 
 
-### 
-
-​
-
-Privacidad
+### Privacidad
 
   * **Compartir telemetría de uso anónima** : Envía datos de uso anónimos para ayudar a mejorar Comfy Desktop.
   * **Participar en funciones beta** : Permite que Comfy Desktop active funciones Core en fase temprana para tus instancias. El interruptor permanece desactivado hasta que confirmes el uso compartido de datos con **Compartir telemetría de uso anónima** , incluso cuando la telemetría ya está activada.
 
-Las funciones beta llegan como argumentos de inicio adicionales, que se añaden encima de los que configuras tú mismo: Comfy Desktop nunca elimina ni reemplaza tus propios argumentos. Cuando una función beta se activa para una instancia, aparece en la barra de título una tarjeta con el encabezado **Hay una función beta activada**. **Entendido** la descarta, y **Configuraciones** abre este panel en el interruptor de participación. Puedes ver qué argumentos añadió una función beta en la pestaña de argumentos de inicio de la instancia, detrás de la etiqueta **+N beta** que aparece junto a **Argumentos de inicio**.
+Las funciones beta llegan como argumentos de inicio adicionales, que se añaden delante de los que configuras tú mismo. Tus propios argumentos conservan su orden: solo se descarta una opción `--` que el ComfyUI instalado no incluya en su lista de argumentos. Si no puede leer esa lista, se inicia con tus argumentos tal como están y no añade argumentos beta. Cuando una función beta se activa para una instancia, aparece en la barra de título una tarjeta con el encabezado **Hay una función beta activada**. **Entendido** la descarta, y **Configuraciones** abre este panel en el interruptor de participación. Puedes ver qué argumentos añadió una función beta en la pestaña de argumentos de inicio de la instancia, detrás de la etiqueta **+N beta** que aparece junto a **Argumentos de inicio**.
 
-### 
-
-​
-
-Comunidad
+### Comunidad
 
   * **Comfy Desktop** : Una tarjeta con un enlace al [repositorio de Comfy Desktop en GitHub](https://github.com/Comfy-Org/Comfy-Desktop), con un recuento de estrellas.
 
 
 
-## 
-
-​
-
-Actualizaciones
+## Actualizaciones
 
 ![Pestaña Actualizaciones: versión instalada, Buscar actualizaciones, Instalar automáticamente las actualizaciones de Desktop](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=715b9ed65225064b76935e2415dcc593)
 
@@ -97,11 +80,7 @@ Actualizaciones
 
 
 
-## 
-
-​
-
-Almacenamiento
+## Almacenamiento
 
 La pestaña Almacenamiento es donde configuras dónde Comfy Desktop encuentra y almacena los archivos. El concepto clave es **compartir** : en lugar de que cada instancia tenga sus propios modelos, entradas y salidas aislados, configuras directorios compartidos accesibles para todas las instancias. ![Pestaña Almacenamiento: rutas de Modelos compartidos, Entrada compartida y Salida compartida](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=0d907789b20aecac354099423ff37814)
 
@@ -115,11 +94,7 @@ La pestaña Almacenamiento es donde configuras dónde Comfy Desktop encuentra y 
 
 Las anulaciones por instancia (incluir directorios compartidos, separar entrada/salida, carpetas de modelos adicionales) se encuentran en la pestaña Almacenamiento de [Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-almacenamiento) de la instancia.
 
-## 
-
-​
-
-Avanzado
+## Avanzado
 
 ![Pestaña Avanzado: ubicación de instalación predeterminada, espejos y aceleración por hardware](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=5ecf350b2a261d990cfe555a03a952ba)
 
@@ -131,21 +106,17 @@ Avanzado
 
 
 
-## 
+### Caché de descargas
 
-​
+Las instalaciones independientes descargan un paquete de ComfyUI en el **Directorio de Caché** (la ruta predeterminada termina en `download-cache`). Una instalación posterior del mismo paquete omite la descarga y muestra **Using cached download** , así que termina mucho más rápido. Dedica el **Directorio de Caché** solo a esta caché: cuando termina una descarga, se eliminan las subcarpetas más antiguas de su interior, así que cualquier otra cosa que guardes ahí también puede borrarse. Borrar una carpeta de caché dedicada solo obliga a una nueva descarga en la próxima instalación; los modelos, las entradas, las salidas y las instalaciones están en otro lugar.
 
-Registros
+## Registros
 
   * **Diagnósticos** : **Abrir carpeta de registros** muestra el directorio de registros de la aplicación de escritorio (`app.log`). Consulta [¿Cómo reviso los registros de inicio de Comfy Desktop?](https://docs.comfy.org/es/installation/desktop/faq#c%C3%B3mo-reviso-los-registros-de-inicio-de-comfy-desktop).
 
 
 
-## 
-
-​
-
-Ubicaciones de datos
+## Ubicaciones de datos
 
 Comfy Desktop almacena los datos en directorios específicos de cada plataforma.
 
@@ -179,18 +150,14 @@ Las instalaciones nuevas colocan los datos grandes (instalaciones, modelos compa
     Data:         ~/.local/share/comfyui-desktop-2
     Cache:        ~/.cache/comfyui-desktop-2
     State:        ~/.local/state/comfyui-desktop-2
-    Logs:         ~/.config/comfyui-desktop-2/logs
+    Logs:         ~/.config/Comfy Desktop/logs
     Installs:     ~/ComfyUI-Installs
     Shared data:  ~/ComfyUI-Shared
     
 
-En Linux, Electron almacena los datos del usuario bajo el nombre del paquete `comfyui-desktop-2`, no bajo el nombre para mostrar Comfy Desktop.
+En Linux, Comfy Desktop guarda los ajustes, la caché, los datos y el estado en `comfyui-desktop-2`, mientras que Electron guarda el perfil y los registros de la aplicación bajo el nombre visible `Comfy Desktop`. Si ejecutas desde el código fuente, ambos usan `comfyui-desktop-2`. Estas son las rutas predeterminadas: `XDG_CONFIG_HOME`, `XDG_CACHE_HOME`, `XDG_DATA_HOME` y `XDG_STATE_HOME` las cambian, y los registros siguen a `XDG_CONFIG_HOME`.
 
-## 
-
-​
-
-Atajos de teclado
+## Atajos de teclado
 
 Atajo| Acción  
 ---|---  
@@ -200,11 +167,7 @@ Atajo| Acción
   
 Comfy Desktop no asigna `Ctrl+W` / `Cmd+W`, así que una pulsación accidental no puede cerrar una ventana con una instancia en ejecución. Para cerrar una ventana, usa **Close Window** en el menú ☰.
 
-## 
-
-​
-
-Comentarios y problemas
+## Comentarios y problemas
 
 ¿Encontraste un error o tienes una sugerencia? Comfy Desktop es de código abierto. Puedes reportar problemas y consultar las funciones planificadas aquí:
 

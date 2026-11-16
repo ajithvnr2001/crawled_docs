@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/basic/upscale/
 title: ComfyUI Image Upscale Workflow - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:18.370337+00:00
+fetched_at: 2026-11-16T16:52:09.296557+00:00
 ---
 
 # ComfyUI Image Upscale Workflow - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:18.370337+00:00
 > Source: https://docs.comfy.org/tutorials/basic/upscale/
 
 ## On this page
+
+Back to top
 
   * What is Image Upscaling?
   * Upscaling Workflow
@@ -31,11 +33,7 @@ Upscale images in ComfyUI: load an upscale model, build the workflow, and chain 
 
 Copy pageCopy page
 
-## 
-
-​
-
-What is Image Upscaling?
+## What is Image Upscaling?
 
 Image Upscaling is the process of converting low-resolution images to high-resolution using algorithms. Unlike traditional interpolation methods, AI upscaling models (like ESRGAN) can intelligently reconstruct details while maintaining image quality. For instance, the default SD1.5 model often struggles with large-size image generation. To achieve high-resolution results,we typically generate smaller images first and then use upscaling techniques. This article covers one of many upscaling methods in ComfyUI. In this tutorial, we’ll guide you through:
 
@@ -47,17 +45,9 @@ Image Upscaling is the process of converting low-resolution images to high-resol
 
 Looking for more advanced upscaling options? Check out our comprehensive [Image Upscaling Guide](https://docs.comfy.org/tutorials/utility/image-upscale) which covers various models and use cases including portrait enhancement, product photography, and more.
 
-## 
+## Upscaling Workflow
 
-​
-
-Upscaling Workflow
-
-### 
-
-​
-
-Model Installation
+### Model Installation
 
 Required ESRGAN models download:
 
@@ -78,11 +68,7 @@ Save Model Files in Directory
 
 Save the model file (.pth) in `ComfyUI/models/upscale_models` directory
 
-### 
-
-​
-
-Workflow and Assets
+### Workflow and Assets
 
 Download and drag the following image into ComfyUI to load the basic upscaling workflow: ![Upscale workflow](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/basic/upscale_workflow.png)
 
@@ -90,11 +76,7 @@ Images containing workflow JSON in their metadata can be directly dragged into C
 
 Use this image in smaller size as input: ![Upscale-input](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/basic/upscale/upscale-input.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=ce8c5f3cd94c0cbde5ded50f09204d5b)
 
-### 
-
-​
-
-Complete the Workflow Step by Step
+### Complete the Workflow Step by Step
 
 Follow the steps in the diagram below to ensure the workflow runs correctly. ![Upscale workflow](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/basic/upscale/upscale_simple_workflow.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=632d1202982e8e7c59974a4152304967)
 
@@ -104,19 +86,11 @@ Follow the steps in the diagram below to ensure the workflow runs correctly. ![U
 
 The core components are the `Load Upscale Model` and `Upscale Image (Using Model)` nodes, which receive an image input and upscale it using the selected model.
 
-## 
-
-​
-
-Text-to-Image Combined Workflow
+## Text-to-Image Combined Workflow
 
 After mastering basic upscaling, we can combine it with the [text-to-image](https://docs.comfy.org/tutorials/basic/text-to-image) workflow. For text-to-image basics, refer to the [text-to-image tutorial](https://docs.comfy.org/tutorials/basic/text-to-image). Download and drag this image into ComfyUI to load the combined workflow: ![Text-to-image upscale workflow](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/basic/upscale/esrgan_example.png?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=98c8d536f0a76025092f8fec157002f8) This workflow connects the text-to-image output image directly to the upscaling nodes for final processing.
 
-## 
-
-​
-
-Additional Tips
+## Additional Tips
 
 Model characteristics:
 
@@ -138,26 +112,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/basic/upscale.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/basic/upscale)
 
-[Outpainting Workflow ExamplePrevious](https://docs.comfy.org/tutorials/basic/outpaint)[ComfyUI LoRA ExampleNext](https://docs.comfy.org/tutorials/basic/lora)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Outpaint](https://docs.comfy.org/tutorials/basic/outpaint)[LoRA](https://docs.comfy.org/tutorials/basic/lora)

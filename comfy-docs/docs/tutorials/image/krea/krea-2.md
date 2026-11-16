@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/krea/krea-2/
 title: Krea-2 ComfyUI Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:22.093535+00:00
+fetched_at: 2026-11-16T16:52:09.469914+00:00
 ---
 
 # Krea-2 ComfyUI Workflow Example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:22.093535+00:00
 > Source: https://docs.comfy.org/tutorials/image/krea/krea-2/
 
 ## On this page
+
+Back to top
 
   * Watch the Launch Event
   * Available Model Weights
@@ -43,19 +45,11 @@ Copy pageCopy page
 
 **License** : [Krea AI Community License](https://www.krea.ai/krea-2-licensing)
 
-## 
-
-​
-
-Watch the Launch Event
+## Watch the Launch Event
 
 To learn more about Krea 2, the story behind its development, its capabilities, and what it means for the open-source ecosystem, watch the launch event recording above (featuring Victor Perez, Miguel Lara, and ComfyAnonymous).
 
-## 
-
-​
-
-Available Model Weights
+## Available Model Weights
 
 Krea 2 is available in two variants:
 
@@ -73,17 +67,9 @@ Krea 2 is available in two variants:
 
 
 
-## 
+## Krea-2 Turbo text-to-image workflow
 
-​
-
-Krea-2 Turbo text-to-image workflow
-
-### 
-
-​
-
-Krea-2: Text to Image
+### Krea-2: Text to Image
 
 Generate images from text prompts using Krea 2, a foundation model built for aesthetic quality and creative control. It focuses on rendering expressive, stylistically diverse images. ![Krea-2 Turbo text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_krea2_turbo_t2i-1.webp)
 
@@ -131,19 +117,11 @@ The workflow is organized into a few parts:
 
 This workflow uses Subgraph nodes for modular processing. Check out the Subgraph documentation to learn how to customize and extend the workflow.
 
-### 
-
-​
-
-Single-click generation
+### Single-click generation
 
 At its simplest, just enter a text prompt in the subgraph, select a resolution, and click **Queue Prompt**. The defaults (8 steps, prompt enhancement enabled, no LoRA) produce a high-quality image with minimal configuration.
 
-### 
-
-​
-
-Workflow controls
+### Workflow controls
 
 The **Text to Image (Krea-2 Turbo)** subgraph exposes the following controls:
 
@@ -158,11 +136,7 @@ Control| Description
 **LoRA Strength**|  Strength of the applied style LoRA  
 **LoRA Trigger Word**|  Auto-populated trigger word for the selected LoRA  
   
-### 
-
-​
-
-Style LoRAs
+### Style LoRAs
 
 Krea also released a collection of style LoRAs for Krea 2. Select one in the **CustomCombo** node and enable `enable_lora?` in the subgraph to apply the style:
 
@@ -180,11 +154,7 @@ krea2_vintagetarot| vintage tarot style| 1.0| [Download](https://huggingface.co/
   
 Place the `.safetensors` files in `ComfyUI/models/loras/`.
 
-### 
-
-​
-
-Model downloads
+### Model downloads
 
 For local use, download the ComfyUI-optimized model files from [Comfy-Org/Krea-2](https://huggingface.co/Comfy-Org/Krea-2).
 
@@ -206,11 +176,7 @@ View all style LoRAs on Hugging Face
 
 Other model variants (BF16, NVFP4, MXFP8) are also available for users with higher-end hardware.
 
-#### 
-
-​
-
-Model storage location
+#### Model storage location
     
     
     📂 ComfyUI/
@@ -225,17 +191,9 @@ Model storage location
     │       └── krea2_softwatercolor.safetensors (and other style LoRAs)
     
 
-## 
+## Krea-2 Turbo style reference workflow
 
-​
-
-Krea-2 Turbo style reference workflow
-
-### 
-
-​
-
-Krea-2 Int8: Image Style Reference
+### Krea-2 Int8: Image Style Reference
 
 Generate images with the Krea-2 Turbo model while referencing the style of 1–2 uploaded images, using the high-performance Int8 Convrot format for fast inference. ![Krea-2 Turbo style reference workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_krea2_turbo_int8_image_style_reference-1.webp)
 
@@ -264,11 +222,7 @@ Download JSON or search “Krea-2 Style Reference” in Template Library
 
 
 
-### 
-
-​
-
-Using style reference
+### Using style reference
 
   1. **Upload reference images** : use the **LoadImage** node to load one or more style reference images
   2. **Enter your prompt** : type a text description in the subgraph’s user prompt input
@@ -315,26 +269,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/krea/krea-2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/krea/krea-2)
 
-[PixelDiT ComfyUI Workflow ExamplePrevious](https://docs.comfy.org/tutorials/image/pixeldit/pixeldit)[ComfyUI Ideogram 4.0 Open-Source Model TutorialNext](https://docs.comfy.org/tutorials/image/ideogram/ideogram-v4)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[PiD Latent Upscale](https://docs.comfy.org/tutorials/image/nvidia/pid-latent-upscale)[Ideogram 4.0](https://docs.comfy.org/tutorials/image/ideogram/ideogram-v4)

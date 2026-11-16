@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/v3_migration/
-title: Migraci\u00f3n a V3 - ComfyUI
+title: Migraci\u00f3n de nodos personalizados a V3 en ComfyUI: de V1 a V3 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:52.001752+00:00
+fetched_at: 2026-11-16T16:52:08.013220+00:00
 ---
 
-# Migración a V3 - ComfyUI
+# Migración de nodos personalizados a V3 en ComfyUI: de V1 a V3 - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/v3_migration/
 
@@ -60,27 +60,19 @@ Volver arriba
 
 Migration Guides
 
-# Migración a V3
+# Migración de nodos personalizados a V3 en ComfyUI: de V1 a V3
 
 Copiar páginaCopiar página
 
-Cómo migrar tus nodos V1 existentes al nuevo esquema V3.
+Migra nodos personalizados de V1 al esquema V3: la función comfy_entrypoint, ComfyExtension, entradas y salidas basadas en objetos y el método de clase execute.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-Descripción general
+## Descripción general
 
 El esquema V3 de ComfyUI introduce una forma más organizada de definir nodos, y las futuras extensiones de las funciones de los nodos solo se agregarán al esquema V3. Puedes usar esta guía para migrar tus nodos V1 existentes al nuevo esquema V3.
 
-## 
-
-​
-
-Conceptos básicos
+## Conceptos básicos
 
 El esquema V3 se mantiene en la nueva API versionada de Comfy, lo que significa que las futuras revisiones del esquema serán compatibles hacia atrás. `comfy_api.latest` apuntará a la última API numerada que aún está en desarrollo; la versión anterior a latest es la que se puede considerar «estable». La versión `v0_0_2` es la versión actual (y la primera) de la API, así que se le harán más cambios sin previo aviso. Cuando se considere estable, se creará una nueva versión `v0_0_3` para que `latest` apunte a ella.
     
@@ -92,11 +84,7 @@ El esquema V3 se mantiene en la nueva API versionada de Comfy, lo que significa 
     from comfy_api.v0_0_2 import ComfyExtension, io, ui
     
 
-### 
-
-​
-
-Arquitectura V1 frente a V3
+### Arquitectura V1 frente a V3
 
 Los cambios más importantes del esquema V3 son:
 
@@ -107,11 +95,7 @@ Los cambios más importantes del esquema V3 son:
 
 
 
-#### 
-
-​
-
-V1 (heredado)
+#### V1 (heredado)
     
     
     class MyNode:
@@ -129,11 +113,7 @@ V1 (heredado)
     NODE_CLASS_MAPPINGS = {"MyNode": MyNode}
     
 
-#### 
-
-​
-
-V3 (moderno)
+#### V3 (moderno)
     
     
     from comfy_api.latest import ComfyExtension, io
@@ -161,19 +141,11 @@ V3 (moderno)
         return MyExtension()
     
 
-## 
-
-​
-
-Pasos de migración
+## Pasos de migración
 
 Pasar de V1 a V3 debería ser sencillo en la mayoría de los casos y es simplemente un cambio de sintaxis.
 
-### 
-
-​
-
-Paso 1: Cambiar la clase base
+### Paso 1: Cambiar la clase base
 
 Todos los nodos del esquema V3 deben heredar de `ComfyNode`. Se permiten varias capas de herencia siempre que en la parte superior de la cadena haya un padre `ComfyNode`. **V1:**
     
@@ -192,11 +164,7 @@ Todos los nodos del esquema V3 deben heredar de `ComfyNode`. Se permiten varias 
         # No hace falta __init__
     
 
-### 
-
-​
-
-Paso 2: Convertir INPUT_TYPES en define_schema
+### Paso 2: Convertir INPUT_TYPES en define_schema
 
 Las propiedades del nodo, como el id del nodo, el nombre visible, la categoría, etc., que antes se asignaban en distintos lugares del código (diccionarios y propiedades de clase), ahora se mantienen juntas mediante la clase `Schema`. Se espera que la función `define_schema(cls)` devuelva un objeto `Schema`, de forma muy parecida a como funcionaba INPUT_TYPES(s) en V1. Los tipos de entrada y salida principales compatibles se guardan y documentan en `comfy_api/{version}` dentro de `_io.py`, que por defecto usa el espacio de nombres `io`. Como ahora las entradas y salidas se definen con clases en lugar de diccionarios o cadenas, los tipos personalizados se admiten definiendo tu propia clase o usando la función auxiliar `Custom` de `io`. Los tipos personalizados se explican en una sección más abajo. Una clase de tipo tiene las siguientes propiedades:
 
@@ -265,11 +233,7 @@ Las propiedades del nodo, como el id del nodo, el nombre visible, la categoría,
         )
     
 
-### 
-
-​
-
-Paso 3: Actualizar el método de ejecución
+### Paso 3: Actualizar el método de ejecución
 
 Todas las funciones de ejecución en V3 se llaman `execute` y son métodos de clase. **V1:**
     
@@ -292,11 +256,7 @@ Todas las funciones de ejecución en V3 se llaman `execute` y son métodos de cl
         return io.NodeOutput(image, ui=ui.PreviewImage(image, cls=cls))
     
 
-### 
-
-​
-
-Paso 4: Convertir las propiedades del nodo
+### Paso 4: Convertir las propiedades del nodo
 
 Aquí tienes algunos ejemplos de nombres de propiedades; consulta el código fuente en `comfy_api.latest._io` para más detalles.
 
@@ -310,19 +270,11 @@ Propiedad V1| Campo del esquema V3| Notas
 `DEPRECATED`| `is_deprecated` en el Schema| Indicador booleano  
 `EXPERIMENTAL`| `is_experimental` en el Schema| Indicador booleano  
   
-### 
-
-​
-
-Paso 5: Gestionar los métodos especiales
+### Paso 5: Gestionar los métodos especiales
 
 Se admiten los mismos métodos especiales que en V1, pero en minúsculas o con nombres completamente nuevos para que sean más claros. Su uso sigue siendo el mismo.
 
-#### 
-
-​
-
-Validación (V1 → V3)
+#### Validación (V1 → V3)
 
 La función de validación de entradas se renombró a `validate_inputs`. **V1:**
     
@@ -344,11 +296,7 @@ La función de validación de entradas se renombró a `validate_inputs`. **V1:**
         return True
     
 
-#### 
-
-​
-
-Evaluación diferida (V1 → V3)
+#### Evaluación diferida (V1 → V3)
 
 La función `check_lazy_status` pasa a ser un método de clase y por lo demás no cambia. **V1:**
     
@@ -369,11 +317,7 @@ La función `check_lazy_status` pasa a ser un método de clase y por lo demás n
         return []
     
 
-#### 
-
-​
-
-Control de caché (V1 → V3)
+#### Control de caché (V1 → V3)
 
 La funcionalidad del control de caché sigue siendo la misma que en V1, pero el nombre original era muy engañoso respecto a cómo operaba. La función `IS_CHANGED` de V1 indica a la ejecución que no vuelva a ejecutar el nodo si el valor devuelto es IGUAL al de la última vez que se ejecutó el nodo. Por eso la función `IS_CHANGED` se renombró a `fingerprint_inputs`. Uno de los errores más comunes de los desarrolladores era pensar que, si devolvías `True`, el nodo se volvería a ejecutar siempre. Como `True` se devolvería siempre, tenía el efecto contrario: hacer que el nodo se ejecutara una sola vez y reutilizara los valores en caché. Un ejemplo del uso de esta función es el nodo LoadImage. Devuelve el hash del archivo seleccionado, de modo que, si el archivo cambia, el nodo se ve obligado a volver a ejecutarse. **V1:**
     
@@ -391,11 +335,7 @@ La funcionalidad del control de caché sigue siendo la misma que en V1, pero el 
         return "unique_value"
     
 
-### 
-
-​
-
-Paso 6: Crear la extensión y el punto de entrada
+### Paso 6: Crear la extensión y el punto de entrada
 
 En lugar de definir diccionarios que vinculan el id del nodo con la clase y el nombre visible, ahora hay una clase `ComfyExtension` y una función `comfy_entrypoint` que se debe definir. En el futuro se podrán agregar más funciones a ComfyExtension para registrar más cosas además de nodos mediante `get_node_list`. `comfy_entrypoint` puede ser async o no, pero `get_node_list` debe definirse como async. **V1:**
     
@@ -427,19 +367,11 @@ En lugar de definir diccionarios que vinculan el id del nodo con la clase y el n
         return MyExtension()
     
 
-## 
-
-​
-
-Referencia de tipos de entrada
+## Referencia de tipos de entrada
 
 Ya se explicó en el paso 2, pero aquí tienes algunas comparaciones de tipos entre V1 y V3. Consulta `comfy_api.latest._io` para ver las declaraciones completas de los tipos.
 
-### 
-
-​
-
-Tipos básicos
+### Tipos básicos
 
 Tipo V1| Tipo V3| Ejemplo  
 ---|---|---  
@@ -448,11 +380,7 @@ Tipo V1| Tipo V3| Ejemplo
 `"STRING"`| `io.String.Input()`| `io.String.Input("text", multiline=True)`  
 `"BOOLEAN"`| `io.Boolean.Input()`| `io.Boolean.Input("enabled", default=True)`  
   
-#### 
-
-​
-
-control_after_generate
+#### control_after_generate
 
 Las entradas Int y Combo admiten un parámetro `control_after_generate` que agrega un widget de control para cambiar el valor automáticamente después de cada generación. En V1 era un simple `bool`; en V3 puedes usar la enumeración `io.ControlAfterGenerate` para un control explícito. Pasar `True` equivale a `io.ControlAfterGenerate.randomize`.
 
@@ -472,11 +400,7 @@ Valor| Comportamiento
         control_after_generate=io.ControlAfterGenerate.randomize)
     
 
-### 
-
-​
-
-Tipos de ComfyUI
+### Tipos de ComfyUI
 
 Tipo V1| Tipo V3| Ejemplo  
 ---|---|---  
@@ -488,11 +412,7 @@ Tipo V1| Tipo V3| Ejemplo
 `"VAE"`| `io.VAE.Input()`| `io.VAE.Input("vae")`  
 `"CLIP"`| `io.CLIP.Input()`| `io.CLIP.Input("clip")`  
   
-### 
-
-​
-
-Combo (desplegables y listas de selección)
+### Combo (desplegables y listas de selección)
 
 Los tipos Combo en V3 requieren una definición explícita de clase. **V1:**
     
@@ -506,11 +426,7 @@ Los tipos Combo en V3 requieren una definición explícita de clase. **V1:**
     io.Combo.Input("mode", options=["option1", "option2", "option3"])
     
 
-## 
-
-​
-
-Referencia de Schema
+## Referencia de Schema
 
 La dataclass `Schema` define todas las propiedades de un nodo V3. Aquí tienes una referencia completa de todos los campos disponibles:
 
@@ -534,11 +450,7 @@ Campo| Tipo| Predeterminado| Descripción
 `enable_expand`| `bool`| `False`| Permite que `NodeOutput` incluya una propiedad `expand` para la expansión del nodo.  
 `accept_all_inputs`| `bool`| `False`| Cuando es True, todas las entradas del prompt se pasan como kwargs, aunque no estén definidas en el esquema.  
   
-### 
-
-​
-
-Parámetros comunes de entrada
+### Parámetros comunes de entrada
 
 Todos los tipos de entrada comparten estos parámetros base:
 
@@ -560,17 +472,9 @@ Parámetro| Tipo| Predeterminado| Descripción
 `socketless`| `bool`| `None`| Cuando es True, oculta el socket de entrada (solo widget, sin conexiones de entrada).  
 `force_input`| `bool`| `None`| Cuando es True, obliga a que el widget se muestre como entrada de socket.  
   
-## 
+## Funciones avanzadas
 
-​
-
-Funciones avanzadas
-
-### 
-
-​
-
-Entradas ocultas
+### Entradas ocultas
 
 Las entradas ocultas dan acceso al contexto de ejecución, como los metadatos del prompt, el ID del nodo y otros valores internos. No son visibles en la UI. En V1, las entradas ocultas se declaraban con una clave `"hidden"` en `INPUT_TYPES`. En V3 se declaran con el parámetro `hidden` del Schema y sus valores se consultan con `cls.hidden`. **V1:**
     
@@ -623,19 +527,11 @@ Enumeración oculta| Descripción
   
 Algunos valores ocultos se agregan automáticamente según los indicadores del Schema. Los nodos de salida (`is_output_node=True`) reciben automáticamente `prompt` y `extra_pnginfo`. Los nodos de API (`is_api_node=True`) reciben automáticamente los tokens de autenticación.
 
-### 
-
-​
-
-Ayudantes de UI
+### Ayudantes de UI
 
 V3 incluye ayudantes de UI en el módulo `ui` para gestionar patrones comunes, como la vista previa y el guardado de archivos. Se pasan a `io.NodeOutput` con el parámetro `ui`.
 
-#### 
-
-​
-
-Ayudantes de vista previa
+#### Ayudantes de vista previa
 
 Los ayudantes de vista previa guardan archivos temporales y devuelven datos de UI para mostrarlos dentro del nodo.
     
@@ -658,11 +554,7 @@ Los ayudantes de vista previa guardan archivos temporales y devuelven datos de U
     return io.NodeOutput(ui=ui.PreviewUI3D(model_file, camera_info))
     
 
-#### 
-
-​
-
-Ayudantes de guardado
+#### Ayudantes de guardado
 
 Los ayudantes de guardado ofrecen métodos para guardar archivos en el directorio de salida con una incrustación correcta de metadatos. Normalmente se usan en los nodos de salida.
     
@@ -715,11 +607,7 @@ Los ayudantes de guardado ofrecen métodos para guardar archivos en el directori
 
 Pasar `cls=cls` a los ayudantes de guardado y vista previa les permite incrustar automáticamente los metadatos del flujo de trabajo (prompt, extra_pnginfo) en los archivos guardados. Asegúrate de incluir `io.Hidden.prompt` y `io.Hidden.extra_pnginfo` en la lista de entradas ocultas de tu esquema, o de establecer `is_output_node=True`, que las agrega automáticamente.
 
-#### 
-
-​
-
-Devolver diccionarios de UI sin procesar
+#### Devolver diccionarios de UI sin procesar
 
 Si necesitas devolver datos de UI que no tienen un ayudante, puedes pasar un diccionario directamente:
     
@@ -727,11 +615,7 @@ Si necesitas devolver datos de UI que no tienen un ayudante, puedes pasar un dic
     return io.NodeOutput(ui={"images": results})
     
 
-### 
-
-​
-
-Nodos de salida
+### Nodos de salida
 
 Para los nodos que producen efectos secundarios (como guardar archivos). Igual que en V1, marcar un nodo como salida muestra un botón de reproducción `run` en la ventana contextual del nodo, lo que permite ejecutar el gráfico parcialmente.
     
@@ -746,11 +630,7 @@ Para los nodos que producen efectos secundarios (como guardar archivos). Igual q
         )
     
 
-### 
-
-​
-
-Tipos personalizados
+### Tipos personalizados
 
 Crea tipos de entrada y salida personalizados con una definición de clase o con la función auxiliar `Custom`.
     
@@ -775,11 +655,7 @@ Crea tipos de entrada y salida personalizados con una definición de clase o con
     MyCustomType = io.Custom("MY_CUSTOM_TYPE")
     
 
-### 
-
-​
-
-Entradas MultiType
+### Entradas MultiType
 
 `MultiType` permite que una entrada acepte más de un tipo. Es útil cuando un nodo puede operar sobre distintos tipos de datos a través de la misma ranura de entrada. Si el primer argumento (`id`) es una instancia de una clase `Input` en lugar de una cadena, esa entrada se usa para crear un widget con sus valores sobrescritos. En caso contrario, la entrada es solo de socket.
     
@@ -795,11 +671,7 @@ Entradas MultiType
     )
     
 
-### 
-
-​
-
-MatchType (coincidencia de tipos genérica)
+### MatchType (coincidencia de tipos genérica)
 
 `MatchType` crea entradas y salidas vinculadas por tipo. Cuando un usuario conecta un tipo específico a una entrada MatchType, todas las demás entradas y salidas que comparten la misma plantilla se restringen automáticamente a ese tipo. Así funcionan los nodos como Switch y Create List con cualquier tipo.
     
@@ -830,19 +702,11 @@ También puedes restringir qué tipos se permiten:
     template = io.MatchType.Template("input_type", allowed_types=[io.Image, io.Mask, io.Latent])
     
 
-### 
-
-​
-
-Entradas dinámicas
+### Entradas dinámicas
 
 V3 incorpora tipos de entrada dinámicos que cambian las entradas disponibles según la interacción del usuario. No hay equivalente en V1 para estas funciones.
 
-#### 
-
-​
-
-Autogrow
+#### Autogrow
 
 `Autogrow` crea un número variable de entradas que crecen automáticamente a medida que el usuario conecta más. Hay dos tipos de plantilla: **TemplatePrefix** genera entradas con un prefijo numerado (por ejemplo, `image0`, `image1`, `image2`…):
     
@@ -906,11 +770,7 @@ Autogrow se puede combinar con MatchType para crear listas de entradas con tipos
         )
     
 
-#### 
-
-​
-
-DynamicCombo
+#### DynamicCombo
 
 `DynamicCombo` crea un desplegable que muestra u oculta distintas entradas según la opción seleccionada. Es útil para nodos en los que distintos modos requieren parámetros diferentes.
     
@@ -966,11 +826,7 @@ Las opciones de DynamicCombo también se pueden anidar:
     ])
     
 
-### 
-
-​
-
-Ejecución asíncrona
+### Ejecución asíncrona
 
 V3 admite métodos `execute` asíncronos. Es útil para nodos que realizan operaciones de E/S, llamadas a API u otro trabajo asíncrono. Basta con declarar `execute` como `async`:
     
@@ -981,11 +837,7 @@ V3 admite métodos `execute` asíncronos. Es útil para nodos que realizan opera
         return io.NodeOutput(result)
     
 
-### 
-
-​
-
-Servicios de ejecución de la API de Comfy
+### Servicios de ejecución de la API de Comfy
 
 La clase `ComfyAPI` da acceso a los servicios de ejecución de ComfyUI, como el informe de progreso y el registro de reemplazo de nodos. Impórtala y crea una instancia:
     
@@ -995,11 +847,7 @@ La clase `ComfyAPI` da acceso a los servicios de ejecución de ComfyUI, como el 
     api = ComfyAPI()
     
 
-#### 
-
-​
-
-Informe de progreso
+#### Informe de progreso
 
 Informa del progreso de la ejecución desde el método `execute` de un nodo. La barra de progreso se muestra en la interfaz de ComfyUI. Esto reemplaza el patrón de V1 que usaba `comfy.utils.PROGRESS_BAR_HOOK`.
     
@@ -1023,11 +871,7 @@ Informa del progreso de la ejecución desde el método `execute` de un nodo. La 
 
 `set_progress` acepta una imagen PIL, un tensor `ImageInput` o `None` en el parámetro `preview_image`. Cuando se llama desde `execute`, el `node_id` se determina automáticamente a partir del contexto de ejecución.
 
-#### 
-
-​
-
-Reemplazo de nodos
+#### Reemplazo de nodos
 
 El reemplazo de nodos permite asignar nodos antiguos u obsoletos a nodos nuevos, de modo que los flujos de trabajo existentes se actualicen automáticamente. Registra los reemplazos con `ComfyAPI` en el método `on_load` de tu extensión.
     
@@ -1064,11 +908,7 @@ El parámetro `old_widget_ids` es importante: el JSON del flujo de trabajo guard
     ]
     
 
-### 
-
-​
-
-Ciclo de vida de la extensión
+### Ciclo de vida de la extensión
 
 La clase `ComfyExtension` admite ganchos de ciclo de vida además de `get_node_list`:
     
@@ -1091,11 +931,7 @@ La clase `ComfyExtension` admite ganchos de ciclo de vida además de `get_node_l
         return MyExtension()
     
 
-### 
-
-​
-
-NodeOutput
+### NodeOutput
 
 La clase `NodeOutput` es el valor de retorno estandarizado de `execute`. Admite varios patrones:
     
@@ -1116,11 +952,7 @@ La clase `NodeOutput` es el valor de retorno estandarizado de `execute`. Admite 
     return io.NodeOutput()
     
 
-## 
-
-​
-
-Ejemplo completo
+## Ejemplo completo
 
 Aquí tienes un ejemplo completo de un archivo de extensión V3 con varios nodos:
     

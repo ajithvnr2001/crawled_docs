@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/performance-tests/
 title: Pruebas de rendimiento y benchmarks - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:02.553742+00:00
+fetched_at: 2026-11-16T16:52:07.746841+00:00
 ---
 
 # Pruebas de rendimiento y benchmarks - ComfyUI
@@ -43,48 +43,28 @@ Copiar páginaCopiar página
 
 Las Pruebas de rendimiento ejecutan un flujo de trabajo real en una instancia real, por lo que una prueba tarda aproximadamente lo mismo que el flujo de trabajo multiplicado por el número de ejecuciones. Los flujos de trabajo que importas deben exportarse primero en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). Los flujos de trabajo de ejemplo que vienen con Comfy Desktop ya están en ese formato.
 
-## 
+## Ejecutar una prueba de rendimiento
 
-​
+El panel se organiza en tres pasos numerados uno al lado del otro. Se apilan verticalmente en ventanas estrechas. ![Panel de Pruebas de rendimiento: selecciona la instancia, elige el flujo de trabajo y define las ejecuciones de calentamiento y las medidas](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/performance_tests_01_panel.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=86577c5f2c65e0c69a970ef991cb4a67)
 
-Ejecutar una prueba de rendimiento
+### 1\. Selecciona una instancia
 
-El panel se organiza en tres pasos numerados uno al lado del otro. Se apilan verticalmente en ventanas estrechas. ![Panel de Pruebas de rendimiento: selecciona la instancia, elige el flujo de trabajo, define las ejecuciones de calentamiento y las medidas](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/performance_tests_01_panel.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=86577c5f2c65e0c69a970ef991cb4a67)
+Elige el **Espacio de trabajo** y la **Instancia** que vas a probar. La lista de instancias se filtra por el espacio de trabajo, así que cambia de espacio de trabajo para acceder a una instancia que pertenece a un equipo. La instancia y su hardware se registran junto con los resultados, y eso es lo que hace que las comparaciones posteriores tengan sentido: las ejecuciones de distintas GPU siguen siendo distinguibles. Cuando inicias una prueba, Comfy Desktop detiene la sesión de prueba de rendimiento anterior de esa instancia si todavía hay una en ejecución y, a continuación, inicia la instancia en una sesión de consola. Comfy Desktop se niega a iniciar una prueba mientras cualquier otro ComfyUI local esté en ejecución, todavía iniciando o deteniéndose, y nombra las instancias que lo impiden. Detenlas, o espera a que terminen de iniciar o de detenerse, y luego ejecuta la prueba de nuevo. Comfy Cloud y las instancias remotas se ejecutan en otro lugar y nunca bloquean una prueba. Otro trabajo que mantenga la GPU ocupada, como un juego o una exportación de video, sigue afectando las cifras, así que detenlo antes de ejecutar una prueba.
 
-### 
+### 2\. Elige un flujo de trabajo
 
-​
+Puedes elegir un flujo de trabajo de ejemplo que viene incluido con Comfy Desktop, o usar el tuyo propio. Haz clic en **Elegir un flujo de trabajo de ejemplo** para abrir el selector. Los ejemplos se agrupan en pestañas **Video** , **Imagen** y **Audio** , y cada tarjeta muestra el nombre, la tarea y el tamaño que descargan sus modelos. Cuando los modelos de una tarjeta ya están en el disco, un icono de disco duro sustituye ese tamaño y, al pasar el cursor por encima, aparece **Descargado** junto con el tamaño (por ejemplo, **Descargado · ~17 GB**). Esos modelos no se vuelven a descargar ni cuentan para el espacio libre. ![Selector de flujos de trabajo de ejemplo: pestañas por modalidad, el tamaño de descarga de cada tarjeta y la descripción Descargado en una tarjeta cuyos modelos ya están en el disco](https://mintcdn.com/dripart/d_0DKAqcN_K-jD-5/images/desktop/usage/performance_tests_02_example_workflows.png?fit=max&auto=format&n=d_0DKAqcN_K-jD-5&q=85&s=da325acaa82859119b655d3b6ac496b2) Selecciona una tarjeta y haz clic en **Usar flujo de trabajo**. Comfy Desktop obtiene el prompt en formato API y descarga en segundo plano los modelos faltantes: la zona de arrastre muestra el progreso, **Run** permanece deshabilitado hasta que termina la descarga, y la descripción del botón de papelera cambia a **Cancelar descarga**. Una descarga que falla elimina el flujo de trabajo. ![Zona de arrastre mientras se descarga un ejemplo: la barra de progreso, el botón de papelera y Run deshabilitado](https://mintcdn.com/dripart/d_0DKAqcN_K-jD-5/images/desktop/usage/performance_tests_03_example_download.png?fit=max&auto=format&n=d_0DKAqcN_K-jD-5&q=85&s=b965a0ba98c303a3256734560f54d5a1) El selector necesita una instancia instalada y una conexión que funcione, y lo indica bajo la zona de arrastre cuando falta alguna de las dos. Cuando los modelos no caben en el espacio libre en disco, aparece una advertencia encima de las tarjetas y **Usar flujo de trabajo** permanece deshabilitado: ![Selector de flujos de trabajo de ejemplo con la advertencia de disco encima de las tarjetas y Usar flujo de trabajo deshabilitado](https://mintcdn.com/dripart/d_0DKAqcN_K-jD-5/images/desktop/usage/performance_tests_04_disk_warning.png?fit=max&auto=format&n=d_0DKAqcN_K-jD-5&q=85&s=3c6fd6818a7199b56b5a4435eab05bc7) Los ejemplos pertenecen a una instancia: si cambias de instancia, se descarta el ejemplo preparado, a menos que una prueba ya lo haya usado. El conjunto incluido cambia entre versiones. **Tu propio flujo de trabajo** debe exportarse en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). Arrastra el archivo `.json` a la zona de arrastre, o haz clic en la zona para buscar uno. En cualquier caso, Comfy Desktop copia el flujo de trabajo en la carpeta de sesión de la prueba, así que la prueba se sigue ejecutando aunque muevas o edites el archivo original.
 
-1\. Selecciona una instancia
-
-Elige el **Espacio de trabajo** y la **Instancia** que vas a probar. La instancia y su hardware se registran junto con los resultados, y eso es lo que hace que las comparaciones posteriores tengan sentido: las ejecuciones de distintas GPU siguen siendo distinguibles. Cuando inicias una prueba, Comfy Desktop detiene la sesión de prueba de rendimiento anterior de esa instancia si todavía hay una en ejecución y, a continuación, inicia la instancia en una sesión de consola. Comfy Desktop se niega a iniciar una prueba mientras cualquier otro ComfyUI local esté en ejecución, todavía iniciando o deteniéndose, y nombra las instancias que lo impiden. Detenlas, o espera a que terminen de iniciar o de detenerse, y luego ejecuta la prueba de nuevo. Comfy Cloud y las instancias remotas se ejecutan en otro lugar y nunca bloquean una prueba. Otro trabajo que mantenga la GPU ocupada, como un juego o una exportación de video, sigue afectando las cifras, así que detenlo antes de ejecutar una prueba.
-
-### 
-
-​
-
-2\. Elige un flujo de trabajo
-
-Puedes elegir un flujo de trabajo de ejemplo que viene incluido con Comfy Desktop, o usar el tuyo propio. Los **flujos de trabajo de ejemplo** están listos para ejecutarse y sus modelos se descargan por ti. Haz clic en **Elegir un flujo de trabajo de ejemplo** para abrir el selector. Agrupa los ejemplos en pestañas por modalidad (Video, Imagen, 3D y Audio; solo las modalidades que tienen ejemplos reciben una pestaña), y cada tarjeta muestra el nombre del ejemplo, la tarea y cuánto descargan sus modelos. Haz clic en **Usar flujo de trabajo** para seleccionar uno. Comfy Desktop descarga entonces los modelos que aún le falten al flujo de trabajo, y la zona de arrastre muestra el progreso de la descarga hasta que termina. Para elegir un ejemplo, la instancia debe estar completamente instalada y debes estar en línea; si los modelos no caben en el espacio libre en disco, el selector bloquea la selección. Los flujos de trabajo de ejemplo están vinculados a una instancia: al cambiar a otra instancia se descarta el ejemplo preparado para la primera, a menos que la sesión de ese ejemplo ya haya registrado resultados. **Tu propio flujo de trabajo** debe exportarse en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). Arrastra el archivo `.json` a la zona de arrastre, o haz clic en la zona para buscar uno. ![Selector de flujos de trabajo de ejemplo con pestañas Video/Imagen/Audio y el tamaño de descarga de modelos por flujo de trabajo](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/performance_tests_02_example_workflows.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=bb41a1fa06cbcac26a3969226ca3a76d) En cualquier caso, Comfy Desktop copia el flujo de trabajo en la carpeta de sesión de la prueba, así que la prueba se sigue ejecutando aunque muevas o edites el archivo original.
-
-### 
-
-​
-
-3\. Configura los ajustes de medición
+### 3\. Configura los ajustes de medición
 
 Ajuste| Rango| Predeterminado| Qué hace  
 ---|---|---|---  
-**Ejecuciones de calentamiento**|  1 a 5| 1| Ejecuciones que se realizan primero para cargar los modelos y calentar las cachés. No se incluyen en los resultados.  
+**Ejecuciones de calentamiento**|  0 a 5| 1| Ejecuciones que se realizan primero para cargar los modelos y calentar las cachés. No se incluyen en los resultados. Pon 0 para omitir el calentamiento.  
 **Ejecuciones medidas**|  1 a 100| 5| Ejecuciones cronometradas después de las ejecuciones de calentamiento. Sus duraciones se usan para calcular los resultados.  
   
 Cada ejecución avanza en uno las entradas numéricas de semilla del flujo de trabajo, de modo que las ejecuciones medidas no repiten un resultado idéntico en caché. Una vez configurados los tres pasos, haz clic en **Run** para iniciar la prueba. El botón **Stop** que está a su lado cancela una prueba en progreso.
 
-### 
-
-​
-
-Lee los resultados
+### Lee los resultados
 
 Mientras se ejecuta la prueba, el panel muestra cuántas ejecuciones han finalizado y los registros de la instancia. Cuando todas las ejecuciones terminan, se detiene la instancia y aparecen los resultados:
 
@@ -95,19 +75,11 @@ Mientras se ejecuta la prueba, el panel muestra cuántas ejecuciones han finaliz
 
 La duración de una ejecución es el tiempo que ComfyUI pasó ejecutando el trabajo en el servidor, no el tiempo que esperaste. Las ejecuciones fallidas se cuentan por separado y se excluyen de las estadísticas. Junto a los resultados hay dos botones: **Abrir carpeta** abre la carpeta de la sesión, y **Exportar resultados** guarda el resumen y los gráficos como una imagen PNG.
 
-## 
-
-​
-
-Comparar ejecuciones con Benchmarks
+## Comparar ejecuciones con Benchmarks
 
 Benchmarks lee los resultados que guardaron las Pruebas de rendimiento, así que no tiene nada que mostrar hasta que al menos una prueba haya finalizado.
 
-### 
-
-​
-
-Biblioteca de ejecuciones
+### Biblioteca de ejecuciones
 
 La **Biblioteca de ejecuciones** enumera cada ejecución guardada en la carpeta de resultados, con las más recientes primero. Su barra de herramientas te ofrece:
 
@@ -119,19 +91,11 @@ La **Biblioteca de ejecuciones** enumera cada ejecución guardada en la carpeta 
 
 ![Biblioteca de Benchmarks con filtros; vacía hasta que se guarda una ejecución de Prueba de rendimiento](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/benchmarks_01_runs_library.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=1e3539bb3b2f4ff6dd5dafc5da43b37d)
 
-### 
-
-​
-
-Comparar ejecuciones
+### Comparar ejecuciones
 
 Selecciona dos o más ejecuciones con las casillas, o usa **Seleccionar todas las ejecuciones visibles**. Las tres ejecuciones más recientes se seleccionan automáticamente al cargarse la biblioteca. Una selección abre la sección **Comparación** debajo de la biblioteca. La comparación coloca una columna por cada ejecución seleccionada junto a una serie de filas de métricas: duración más rápida, media, mediana y más lenta, además del número de ejecuciones medidas. Una ejecución es la **base de referencia**. De forma predeterminada es la primera columna mostrada. En la vista **Velocidad** , haz clic en el encabezado de una columna para que esa ejecución pase a ser la base de referencia.
 
-### 
-
-​
-
-Velocidad relativa
+### Velocidad relativa
 
 La comparación tiene dos vistas, **Duración** y **Velocidad** , entre las que puedes cambiar en la barra de herramientas de la comparación. La velocidad relativa pertenece a la vista **Velocidad** , y la base de referencia también se elige allí. La **velocidad relativa** es la duración de la base de referencia dividida entre la duración de una ejecución:
 
@@ -141,30 +105,18 @@ La comparación tiene dos vistas, **Duración** y **Velocidad** , entre las que 
 
 La vista **Velocidad** representa cada ejecución en un eje logarítmico con **Más lenta** a la izquierda y **Más rápida** a la derecha, de modo que una diferencia de 2x y de 4x sigan siendo legibles en el mismo gráfico. La vista **Duración** dibuja el resultado más rápido y el más lento de cada ejecución como una línea con la media marcada. Las ejecuciones sin una duración utilizable se etiquetan como no disponibles. ![La vista de velocidad relativa de Benchmarks con una ejecución como base de referencia y otra marcada como más lenta](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/benchmarks_02_relative_speed.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=f7a10359d8f315548b8fe16a5513327b)
 
-### 
+### Ordenar y exportar
 
-​
-
-Ordenar y exportar
-
-  * **Ordenar comparación** ordena las columnas por velocidad relativa. La **ordenación manual** te permite arrastrar las columnas en tu propio orden, o pulsar Alt+Left / Alt+Right en una columna enfocada.
-  * **Exportar resultados** guarda toda la comparación como una imagen PNG, la forma más rápida de adjuntar un resultado a un issue o a un mensaje de chat.
+  * **Ordenar comparación** ordena las columnas por la métrica que elijas (más rápido, media, mediana o más lento). La **ordenación manual** te permite arrastrar las columnas en tu propio orden, o pulsar Alt+Left / Alt+Right en una columna enfocada.
+  * **Exportar resultados** guarda toda la comparación como una imagen PNG, la forma más rápida de adjuntar un resultado a un issue o a un mensaje de chat. Una comparación de más de 20 ejecuciones no se puede exportar.
 
 
 
-### 
-
-​
-
-Administrar sesiones
+### Administrar sesiones
 
 Cada prueba se almacena como una sesión. Desde la biblioteca puedes renombrar una sesión (**Editar sesión**) o eliminar una (**Eliminar**). Al eliminar, se borran todos los archivos registrados de esa sesión.
 
-## 
-
-​
-
-Dónde se almacenan los resultados
+## Dónde se almacenan los resultados
 
 Performance Tests crea una carpeta de sesión cuando agregas un flujo de trabajo al panel, con el nombre basado en la marca de tiempo de ese momento (`YYYYMMDDHHMMSS`):
     
@@ -194,11 +146,7 @@ Cada carpeta de sesión contiene:
 
 Como Benchmarks lee `results.json` de cada carpeta de sesión que encuentra, copiar las carpetas de sesión en la carpeta a la que apunta Benchmarks es suficiente para comparar resultados de otra máquina. Ejecutar de nuevo el mismo flujo de trabajo importado escribe en la misma carpeta de sesión y sobrescribe los resultados que ya están almacenados allí. Para conservar un resultado para comparación, agrega el flujo de trabajo al panel de nuevo antes de la siguiente prueba.
 
-## 
-
-​
-
-Requisitos
+## Requisitos
 
   * Una instancia independiente, rastreada o remota que Comfy Desktop pueda iniciar. La prueba necesita una instancia de ComfyUI en funcionamiento, así que no puede ejecutarse contra una instancia de Cloud.
   * Un flujo de trabajo que la instancia pueda ejecutar, incluidos los modelos y los nodos personalizados que necesite. Un flujo de trabajo que importes debe estar en formato API; los flujos de trabajo de ejemplo ya lo están, y Comfy Desktop descarga sus modelos. Si la instancia rechaza el flujo de trabajo, la prueba se detiene y el error aparece en los registros. Las ejecuciones que la instancia acepta pero que fallan durante la ejecución se cuentan como ejecuciones fallidas y quedan fuera de las estadísticas de duración.

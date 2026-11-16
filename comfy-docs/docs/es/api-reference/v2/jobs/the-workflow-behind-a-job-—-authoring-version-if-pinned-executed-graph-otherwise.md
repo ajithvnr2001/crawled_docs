@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/the-workflow-behind-a-job-—-authoring-version-if-pinned-executed-graph-otherwise/
 title: The workflow behind a job \u2014 authoring version if pinned, executed graph otherwise - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:34.237915+00:00
+fetched_at: 2026-11-16T16:51:59.131941+00:00
 ---
 
 # The workflow behind a job — authoring version if pinned, executed graph otherwise - ComfyUI
@@ -608,8 +608,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -621,8 +619,6 @@ requerido
 `Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
 
 #### Parámetros de ruta
-
-​
 
 id
 
@@ -640,8 +636,6 @@ The workflow graph.
 
 The workflow behind a job. See GET /api/v2/jobs/{id}/workflow's description for exactly when `format` is `save` vs `api`.
 
-​
-
 workflow
 
 object
@@ -649,8 +643,6 @@ object
 requerido
 
 The workflow, verbatim, in the shape `format` says.
-
-​
 
 format
 

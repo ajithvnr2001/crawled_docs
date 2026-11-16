@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id/
 title: Read one partner model's catalog entry by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:10.241906+00:00
+fetched_at: 2026-11-16T16:52:10.596185+00:00
 ---
 
 # Read one partner model's catalog entry by canonical model ID. - ComfyUI
@@ -447,8 +447,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -461,8 +459,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Encabezados
 
-​
-
 If-None-Match
 
 string
@@ -470,8 +466,6 @@ string
 The `ETag` a caller holds from an earlier `200`. When it matches the current entry (RFC 9110 weak comparison; `*` matches any current entry) the answer is a bodyless `304` carrying the same `ETag`, otherwise the full entry.
 
 #### Parámetros de ruta
-
-​
 
 provider
 
@@ -488,8 +482,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"bfl"`
-
-​
 
 model
 
@@ -517,8 +509,6 @@ OK - the model's catalog entry.
 
 Per-model detail for one Comfy Router model: everything the catalog listing reports for it, plus the per-model fields that only the single-model route carries. It is `allOf: [RouterModelListEntry, RouterModelDetailFields]` so that the shared half IS the list entry rather than a copy of it - see the section comment above. A generated client can therefore treat a detail response as a list entry everywhere a list entry is expected.
 
-​
-
 billing
 
 object
@@ -528,8 +518,6 @@ requerido
 Per-model billing facts a caller needs before invoking - not prices. Usage and cost figures never appear here. It is an object with one member rather than a flat sibling field because more pre-invocation billing facts are coming and a flat `billing_charges_*` family would have to be un-flattened later; a nested object absorbs them without a breaking rename. The member is `required` for the reason its own description gives - "we did not say" and "we do not charge" must not be the same wire state.
 
 Show child attributes
-
-​
 
 id
 
@@ -547,8 +535,6 @@ Ejemplo:
 
 `"bfl/flux-2-pro"`
 
-​
-
 model
 
 string
@@ -564,8 +550,6 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"flux-2-pro"`
-
-​
 
 provider
 
@@ -583,8 +567,6 @@ Ejemplo:
 
 `"bfl"`
 
-​
-
 schema_etag
 
 string
@@ -594,8 +576,6 @@ The current strong `ETag` of this model's `GET /v2/models/{provider}/{model}/ope
 Ejemplo:
 
 `"\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""`
-
-​
 
 input_schema_url
 
