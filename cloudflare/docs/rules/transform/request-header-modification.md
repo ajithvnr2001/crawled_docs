@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/request-header-modification/
 title: Request Header Transform Rules \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:57.857204+00:00
+fetched_at: 2026-11-16T09:12:13.298667+00:00
 ---
 
 # Request Header Transform Rules · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:57.857204+00:00
 
 # Request Header Transform Rules
 
-Last updated Sep 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/transform/request-header-modification/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewImportant remarksExecution orderTroubleshooting
 
@@ -65,7 +65,7 @@ For more complex request header modifications, consider using [Snippets](https:/
 
   * Due to protocol compliance reasons, modifying or removing request headers with [forbidden header names ↗︎](https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name) (such as `Accept-Encoding`) is generally not allowed in Request Header Transform Rules.
 
-  * You cannot modify the value of any header commonly used to identify the website visitor's IP address or initial protocol, such as `x-forwarded-for`, `true-client-ip`, `x-real-ip`, or `x-forwarded-proto`. If your origin needs a custom value in a header like `x-real-ip` on requests reaching your origin server, use [Cloudflare Snippets](https://developers.cloudflare.com/rules/snippets/) or [Cloudflare Workers](https://developers.cloudflare.com/workers/) and set the header on a `fetch()` subrequest. The value must be a syntactically valid IP address. This workaround does not work for cross-zone subrequests, where Cloudflare unconditionally replaces the value with an internal Cloudflare address to prevent IP spoofing.
+  * You cannot modify the value of any header commonly used to identify the website visitor's IP address or initial protocol, such as `x-forwarded-for`, `true-client-ip`, `x-real-ip`, or `x-forwarded-proto`. Cloudflare removes the `x-real-ip` header before the request reaches your origin server, including when a [Snippet](https://developers.cloudflare.com/rules/snippets/) or [Worker](https://developers.cloudflare.com/workers/) sets it on a `fetch()` subrequest. To send the visitor's IP address to your origin server, use the `CF-Connecting-IP` header, the [**Add "True-Client-IP" header**](https://developers.cloudflare.com/rules/transform/managed-transforms/reference/#add-true-client-ip-header) Managed Transform, or a Snippet or Worker that sets a header with a different name.
 
   * Although you can remove the `x-forwarded-for` header in a Request Header Transform Rule, Cloudflare's backend proxy re-adds it (with the visitor's IP address) before the request reaches your origin server, because the proxy runs after all rule phases. The same applies to [Managed Transforms](https://developers.cloudflare.com/rules/transform/managed-transforms/). However, if the request is handled by Cloudflare Workers — which [run before the cache](https://developers.cloudflare.com/workers/reference/how-the-cache-works/) — the `x-forwarded-for` request header will be absent because the proxy has not yet re-added it.
 
@@ -117,7 +117,7 @@ Using Cloudflare challenges along with Rules features may cause challenge loops.
 
 ## Troubleshooting
 
-When troubleshooting Request Header Transform Rules, use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) to determine if a rule is triggering for a specific URL.
+When troubleshooting Request Header Transform Rules, use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to determine if a rule is triggering for a specific URL.
 
 [PreviousAvailable fields and functions](https://developers.cloudflare.com/rules/transform/url-rewrite/reference/fields-functions/)[NextCreate a rule in the dashboard](https://developers.cloudflare.com/rules/transform/request-header-modification/create-dashboard/)
 

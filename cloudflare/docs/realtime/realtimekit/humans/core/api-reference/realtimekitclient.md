@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/realtimekitclient/
 title: RealtimeKitClient \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:40.764914+00:00
+fetched_at: 2026-11-16T09:12:12.444752+00:00
 ---
 
 # RealtimeKitClient · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-20T06:56:40.764914+00:00
 
 # RealtimeKitClient
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview meeting.participants meeting.self meeting.meta meeting.ai meeting.plugins meeting.chat meeting.polls meeting.connectedMeetings meeting.__internals__ meeting.join() meeting.leave() meeting.initMedia([options], [skipAwaits], [cachedUserDetails]) meeting.init(options)
 
@@ -148,7 +148,8 @@ Param | Description
 options | The options object.  
 options.authToken | The authorization token received using the API.  
 options.baseURI | The base URL of the API.  
-options.defaults | The default audio and video settings.  
+options.defaults | The default audio, video, and view mode settings.  
+options.defaults.viewMode | The initial view mode of the meeting: ACTIVE_GRID (default), PAGINATED, or MANUAL.  
   
 [PreviousMedia Acquisition Approaches](https://developers.cloudflare.com/realtime/realtimekit/humans/core/media-acquisition-approaches/)[NextRTKAi](https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/rtkai/)
 

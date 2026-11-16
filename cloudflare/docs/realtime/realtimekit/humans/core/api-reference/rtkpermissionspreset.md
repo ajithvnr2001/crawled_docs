@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/rtkpermissionspreset/
 title: RTKPermissionsPreset \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:40.913639+00:00
+fetched_at: 2026-11-16T09:12:12.970219+00:00
 ---
 
 # RTKPermissionsPreset · Cloudflare Realtime docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-20T06:56:40.913639+00:00
 
 # RTKPermissionsPreset
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview meeting.self.permissions.stageEnabled meeting.self.permissions.stageAccess meeting.self.permissions.acceptWaitingRequests meeting.self.permissions.requestProduceVideo meeting.self.permissions.requestProduceAudio meeting.self.permissions.requestProduceScreenshare meeting.self.permissions.canAllowParticipantAudio meeting.self.permissions.canAllowParticipantScreensharing meeting.self.permissions.canAllowParticipantVideo meeting.self.permissions.canDisableParticipantAudio meeting.self.permissions.canDisableParticipantVideo meeting.self.permissions.kickParticipant meeting.self.permissions.pinParticipant meeting.self.permissions.canRecord meeting.self.permissions.waitingRoomBehaviour meeting.self.permissions.plugins meeting.self.permissions.polls meeting.self.permissions.canProduceVideo meeting.self.permissions.canProduceScreenshare meeting.self.permissions.canProduceAudio meeting.self.permissions.chatPublic meeting.self.permissions.chatPrivate meeting.self.permissions.hiddenParticipant meeting.self.permissions.showParticipantList meeting.self.permissions.canChangeParticipantPermissions meeting.self.permissions.canLivestream
+Overview meeting.self.permissions.stageEnabled meeting.self.permissions.stageAccess meeting.self.permissions.acceptWaitingRequests meeting.self.permissions.requestProduceVideo meeting.self.permissions.requestProduceAudio meeting.self.permissions.requestProduceScreenshare meeting.self.permissions.canAllowParticipantAudio meeting.self.permissions.canAllowParticipantScreensharing meeting.self.permissions.canAllowParticipantVideo meeting.self.permissions.canDisableParticipantAudio meeting.self.permissions.canDisableParticipantVideo meeting.self.permissions.kickParticipant meeting.self.permissions.pinParticipant meeting.self.permissions.canRecord meeting.self.permissions.waitingRoomBehaviour meeting.self.permissions.plugins meeting.self.permissions.polls meeting.self.permissions.canProduceVideo meeting.self.permissions.canProduceScreenshare meeting.self.permissions.canProduceAudio meeting.self.permissions.chatPublic meeting.self.permissions.chatPrivate meeting.self.permissions.hiddenParticipant meeting.self.permissions.showParticipantList meeting.self.permissions.canChangeParticipantPermissions meeting.self.permissions.canEditMeetingTitle meeting.self.permissions.canLivestream
 
 The PermissionPreset class represents the meeting permissions for the current participant
 
@@ -54,6 +54,7 @@ The PermissionPreset class represents the meeting permissions for the current pa
     * .hiddenParticipant
     * .showParticipantList
     * .canChangeParticipantPermissions
+    * .canEditMeetingTitle
     * .canLivestream
 
 
@@ -229,6 +230,13 @@ The `showParticipantList` returns boolean value. If `true`, participant list can
 ### meeting.self.permissions.canChangeParticipantPermissions
 
 The `canChangeParticipantPermissions` returns boolean value. If `true`, allow changing the participants' permissions.
+
+**Kind** : instance property of `PermissionPreset`  
+
+
+### meeting.self.permissions.canEditMeetingTitle
+
+The `canEditMeetingTitle` returns boolean value. If `true`, participant can rename the meeting for the current session.
 
 **Kind** : instance property of `PermissionPreset`  
 

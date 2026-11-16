@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/http-headers/
 title: Cloudflare HTTP headers \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:04.041072+00:00
+fetched_at: 2026-11-16T09:12:13.537663+00:00
 ---
 
 # Cloudflare HTTP headers · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:04.041072+00:00
 
 # Cloudflare HTTP headers
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequest headers Accept-Encoding CF-Connecting-IP CF-Connecting-IPv6 CF-EW-Via CF-Pseudo-IPv4 True-Client-IP (Enterprise plan only) X-Forwarded-For X-Forwarded-Proto Cf-Ray CF-IPCountry CF-Visitor CDN-Loop CF-Connecting-O2O CF-Worker Connection Considerations for SpectrumResponse headers Removed response headers Added response headers
 
@@ -44,7 +44,7 @@ Alternatively, if you do not wish to receive the `CF-Connecting-IP` header or an
 
 #### CF-Connecting-IP in Worker subrequests
 
-In same-zone Worker subrequests, the value of `CF-Connecting-IP` reflects the value of `x-real-ip` (the client's IP). `x-real-ip` can be altered by the user in their Worker script.
+In same-zone Worker subrequests, the value of `CF-Connecting-IP` reflects the value of `x-real-ip` (the client's IP). `x-real-ip` can be altered by the user in their Worker script, which changes the `CF-Connecting-IP` value your origin server receives. Cloudflare does not forward the `x-real-ip` header itself to your origin server.
 
 In cross-zone subrequests from one Cloudflare zone to another Cloudflare zone, the `CF-Connecting-IP` value will be set to the Worker client IP address `'2a06:98c0:3600::103'` for security reasons.
 

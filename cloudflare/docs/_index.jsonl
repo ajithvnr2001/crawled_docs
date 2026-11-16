@@ -22590,3 +22590,4 @@
 {"url": "https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/saas-apps/datadog-saas/", "file": "cloudflare-one/access-controls/applications/http-apps/saas-apps/datadog-saas.md", "title": "Datadog \u00b7 Cloudflare One docs", "method": "scrapling+scrapegraph"}
 {"url": "https://developers.cloudflare.com/changelog/post/2026-11-13-terraform-namespaces/", "file": "changelog/post/2026-11-13-terraform-namespaces.md", "title": "Manage AI Search instances in any namespace with Terraform \u00b7 Changelog", "method": "scrapling+scrapegraph"}
 {"url": "https://developers.cloudflare.com/changelog/product-group/ai/10/", "file": "changelog/product-group/ai/10.md", "title": "AI Changelog | Cloudflare Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://developers.cloudflare.com/moq/use-the-api/", "file": "moq/use-the-api.md", "title": "Use the MoQ API \u00b7 Cloudflare MoQ docs", "method": "scrapling+scrapegraph"}

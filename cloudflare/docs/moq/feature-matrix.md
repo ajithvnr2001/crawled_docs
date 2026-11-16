@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/moq/feature-matrix/
 title: MoQ Feature Matrix \u00b7 Cloudflare MoQ docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:22.045191+00:00
+fetched_at: 2026-11-16T09:12:12.739698+00:00
 ---
 
 # MoQ Feature Matrix · Cloudflare MoQ docs
@@ -17,9 +17,29 @@ fetched_at: 2026-10-08T07:12:22.045191+00:00
 
 # MoQ Feature Matrix
 
-Last updated Jul 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/moq/feature-matrix/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewDraft-16 messages Supported Partial UnsupportedDraft-14 messages Supported Unsupported
+OverviewDraft-18 capabilitiesDraft-16 messages Supported Partial UnsupportedDraft-14 messages Supported Unsupported
+
+Use draft-18 for new deployments. Draft-16 and draft-14 remain available for existing clients. A client's MoQ Transport draft version must match its endpoint.
+
+## Draft-18 capabilities
+
+Connect draft-18-compatible clients to `draft-18.cloudflare.mediaoverquic.com`. Refer to [Get started](https://developers.cloudflare.com/moq/#get-started) for authentication and publisher/subscriber examples.
+
+The draft-18 relay supports these workflows:
+
+Workflow | Messages | Notes  
+---|---|---  
+Subscribe to a track | `SUBSCRIBE`, `SUBSCRIBE_OK`, `PUBLISH_DONE` | Receive live objects for a named track.  
+Publish a track | `PUBLISH`, `PUBLISH_OK`, `PUBLISH_DONE` | Push a track to the relay.  
+Advertise a namespace | `PUBLISH_NAMESPACE` | Make a publisher's namespace available for routing.  
+Discover namespaces | `SUBSCRIBE_NAMESPACE`, `NAMESPACE` | Discover matching namespaces. This does not subscribe to their tracks.  
+Subscribe to tracks under a prefix | `SUBSCRIBE_TRACKS`, `PUBLISH` | Receive track publications under a namespace prefix.  
+Fetch a range | `FETCH`, `FETCH_OK` | Forward standalone and joining FETCH requests to the publisher serving the namespace. The publisher must support FETCH and retain the requested objects.  
+Query track status | `TRACK_STATUS` | Request the status of a named track.  
+  
+Draft-18 uses `REQUEST_OK` and `REQUEST_ERROR` as shared responses for applicable requests. The draft-16 and draft-14 message tables do not apply to draft-18. Refer to [MoQ Transport draft-18 ↗︎](https://datatracker.ietf.org/doc/html/draft-ietf-moq-transport-18) for wire formats.
 
 ## Draft-16 messages
 
@@ -101,7 +121,7 @@ SUBSCRIBE_NAMESPACE_OK | No | [draft-ietf-moq-transport-14 ↗︎](https://datat
 SUBSCRIBE_NAMESPACE_ERROR | No | [draft-ietf-moq-transport-14 ↗︎](https://datatracker.ietf.org/doc/html/draft-ietf-moq-transport-14)  
 UNSUBSCRIBE_NAMESPACE | No | [draft-ietf-moq-transport-14 ↗︎](https://datatracker.ietf.org/doc/html/draft-ietf-moq-transport-14)  
   
-[PreviousDemo streams](https://developers.cloudflare.com/moq/demo-streams/)
+[PreviousUse the MoQ API](https://developers.cloudflare.com/moq/use-the-api/)
 
 Was this helpful?
 

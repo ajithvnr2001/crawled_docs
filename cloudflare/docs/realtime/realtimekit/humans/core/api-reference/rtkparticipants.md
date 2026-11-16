@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/rtkparticipants/
 title: RTKParticipants \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:41.435672+00:00
+fetched_at: 2026-11-16T09:12:13.075252+00:00
 ---
 
 # RTKParticipants · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-20T06:56:41.435672+00:00
 
 # RTKParticipants
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview meeting.participants.waitlisted meeting.participants.joined meeting.participants.active meeting.participants.videoSubscribed meeting.participants.audioSubscribed meeting.participants.pinned meeting.participants.all meeting.participants.pip meeting.participants.viewMode meeting.participants.currentPage meeting.participants.lastActiveSpeaker meeting.participants.selectedPeers meeting.participants.count meeting.participants.maxActiveParticipantsCount meeting.participants.pageCount meeting.participants.setMaxActiveParticipantsCount(limit) meeting.participants.acceptWaitingRoomRequest(id) meeting.participants.acceptAllWaitingRoomRequest(userIds) meeting.participants.rejectWaitingRoomRequest(id) meeting.participants.setViewMode(viewMode) meeting.participants.subscribe(peerIds, [kinds]) meeting.participants.unsubscribe(peerIds, [kinds]) meeting.participants.setPage(page) meeting.participants.disableAllAudio(allowUnmute) meeting.participants.disableAllVideo() meeting.participants.kickAll() meeting.participants.broadcastMessage(type, payload, target) meeting.participants.getAllJoinedPeers(searchQuery, limit, offset) meeting.participants.getParticipantsInMeetingPreJoin()
 
@@ -125,18 +125,22 @@ Return the controls for Picture-in-Picture
 
 ### meeting.participants.viewMode
 
-Indicates whether the meeting is in 'ACTIVE_GRID' mode or 'PAGINATED' mode.
+Controls how participants are selected for the participants.active map.
 
-In 'ACTIVE_GRID' mode, participants are populated in the participants.active map dynamically. The participants present in the map will keep changing when other participants unmute their audio or turn on their videos.
+In 'ACTIVE_GRID' mode, the SDK automatically moves speakers into the grid, replacing non-speakers as needed.
 
-In 'PAGINATED' mode, participants are populated in the participants.active map just once, and the participants in the map will only change if the page number is changed by the user using setPage(page).
+In 'PAGINATED' mode, participants are split into numbered pages starting at 1, with up to maxActiveParticipantsCount participants per page. Use setPage(page) to select which page populates participants.active. Speaking does not move participants between pages. If all participants fit on page 1, page 2 is empty.
+
+In 'MANUAL' mode, the application controls participant selection and media subscriptions instead of relying on the SDK's automatic grid or pagination.
+
+Reconnect preserves the current mode; an unavailable paginated page is adjusted.
 
 **Kind** : instance property of `RTKParticipants`  
 
 
 ### meeting.participants.currentPage
 
-This indicates the current page that has been set by the user in PAGINATED mode. If the meeting is in ACTIVE_GRID mode, this value will be 0.
+This indicates the current page that has been set by the user in PAGINATED mode. PAGINATED starts at page 1. ACTIVE_GRID and MANUAL use page 0.
 
 **Kind** : instance property of `RTKParticipants`  
 
@@ -218,7 +222,7 @@ id | `string` | participantId of the waitlisted participant.
   
 ### meeting.participants.setViewMode(viewMode)
 
-Sets the view mode of the meeting to either ACTIVE_GRID or PAGINATED.
+Sets the view mode of the meeting to either ACTIVE_GRID, PAGINATED, or MANUAL.
 
 **Kind** : instance method of `RTKParticipants`
 

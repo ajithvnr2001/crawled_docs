@@ -3,8 +3,5 @@
   "file": "rules/transform/request-header-modification.md",
   "title": "Request Header Transform Rules \u00b7 Cloudflare Rules docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:14:57.857419+00:00",
-  "html_len": 152254,
-  "md_len": 9287,
-  "depth": 0
+  "fetched_at": "2026-11-16T09:12:13.299215+00:00"
 }

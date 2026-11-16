@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/
 title: Error 522 \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:58.911131+00:00
+fetched_at: 2026-11-16T09:12:12.783549+00:00
 ---
 
 # Error 522 · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:58.911131+00:00
 
 # Error 522
 
-Last updated Jul 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewError 522: connection timed out Common causes Resolution Diagnose with Origin Analytics
 
@@ -35,7 +35,7 @@ Error `522` occurs when Cloudflare times out contacting the origin web server.
 Two different timeouts cause HTTP error `522` depending on when they occur between Cloudflare and the origin web server:
 
   * Before a TCP connection is established, Cloudflare does not receive a SYN+ACK within 19 seconds after sending a SYN. The SYN retry backoff intervals are 1, 1, 1, 1, 1, 2, 4, and 8 seconds.
-  * After the TCP connection is established, Cloudflare does not receive an acknowledgment (ACK) of its resource request within 90 seconds.
+  * After the TCP connection is established, Cloudflare does not receive any data above the TCP layer (for example, a Server Hello during TLS negotiation) within 90 seconds.
 
 
 

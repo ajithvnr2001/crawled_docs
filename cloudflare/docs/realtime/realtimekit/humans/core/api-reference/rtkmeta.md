@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/rtkmeta/
 title: RTKMeta \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:41.281515+00:00
+fetched_at: 2026-11-16T09:12:12.872198+00:00
 ---
 
 # RTKMeta · Cloudflare Realtime docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-20T06:56:41.281515+00:00
 
 # RTKMeta
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview meeting.meta.selfActiveTab meeting.meta.broadcastTabChanges meeting.meta.viewType meeting.meta.meetingStartedTimestamp meeting.meta.meetingTitle meeting.meta.sessionId meeting.meta.meetingId meeting.meta.setBroadcastTabChanges(broadcastTabChanges) meeting.meta.setSelfActiveTab(spotlightTab, tabChangeSource)
+Overview meeting.meta.selfActiveTab meeting.meta.broadcastTabChanges meeting.meta.viewType meeting.meta.meetingStartedTimestamp meeting.meta.meetingTitle meeting.meta.sessionId meeting.meta.meetingId meeting.meta.setMeetingTitle(meetingTitle) meeting.meta.setBroadcastTabChanges(broadcastTabChanges) meeting.meta.setSelfActiveTab(spotlightTab, tabChangeSource)
 
 This consists of the metadata of the meeting, such as the room name and the title.
 
@@ -36,6 +36,7 @@ This consists of the metadata of the meeting, such as the room name and the titl
     * .meetingTitle
     * .sessionId
     * .meetingId
+    * .setMeetingTitle(meetingTitle)
     * .setBroadcastTabChanges(broadcastTabChanges)
     * .setSelfActiveTab(spotlightTab, tabChangeSource)
 
@@ -90,6 +91,16 @@ The room name of the meeting.
 **Kind** : instance property of `RTKMeta`  
 
 
+### meeting.meta.setMeetingTitle(meetingTitle)
+
+Renames the meeting for everyone in the current session. When connected meetings are loaded, the parent or breakout meeting is renamed through `connectedMeetings.updateMeetings` and requires `canAlterConnectedMeetings`. Otherwise it requires `canEditMeetingTitle`.
+
+**Kind** : instance method of `RTKMeta`
+
+Param | Type  
+---|---  
+meetingTitle | `string`  
+  
 ### meeting.meta.setBroadcastTabChanges(broadcastTabChanges)
 
 Sets current user as broadcasting tab changes

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/moq/
 title: Overview \u00b7 Cloudflare MoQ docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:21.912294+00:00
+fetched_at: 2026-11-16T09:12:13.245801+00:00
 ---
 
 # Overview · Cloudflare MoQ docs
@@ -16,15 +16,15 @@ fetched_at: 2026-10-08T07:12:21.912294+00:00
 
 # Media over QUIC at Cloudflare
 
-Last updated Jul 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/moq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGet started Provision a relay Connect a publisher and subscriber (draft-16) Connect a publisher and subscriber (draft-14) Test draft-18
+OverviewGet started Provision a relay Connect a publisher and subscriber (draft-18) Connect a publisher and subscriber (draft-16) Connect a publisher and subscriber (draft-14)
 
 MoQ (Media over QUIC) is a protocol for delivering live media content using QUIC transport. It provides efficient, low-latency media streaming by leveraging QUIC's multiplexing and connection management capabilities.
 
 MoQ is designed to be an Internet infrastructure level service that provides media delivery to applications, similar to how HTTP provides content delivery and WebRTC provides real-time communication.
 
-Cloudflare currently supports [draft-14 ↗︎](https://datatracker.ietf.org/doc/html/draft-ietf-moq-transport-14) and [draft-16 ↗︎](https://www.ietf.org/archive/id/draft-ietf-moq-transport-16.html) of the MoQ Transport specification. For a full breakdown of supported messages per draft, refer to [MoQ Feature Matrix](https://developers.cloudflare.com/moq/feature-matrix/).
+Cloudflare recommends [draft-18 ↗︎](https://datatracker.ietf.org/doc/html/draft-ietf-moq-transport-18) of the MoQ Transport specification for new deployments. Draft-16 and draft-14 endpoints remain available for existing clients. Refer to the [MoQ feature matrix](https://developers.cloudflare.com/moq/feature-matrix/) for draft-specific capabilities.
 
 For the most up-to-date documentation on the protocol, please visit the IETF working group documentation.
 
@@ -36,22 +36,28 @@ Cloudflare MoQ relays are available through the [Cloudflare dashboard ↗︎](ht
 
 Each relay provides an isolated scope — your namespaces, tracks, and objects are separated from those belonging to other relays. You control who can publish and who can subscribe by issuing tokens scoped to the operations each client needs.
 
+Before using the API, [create a Cloudflare API token with MoQ permissions](https://developers.cloudflare.com/moq/use-the-api/#create-a-management-api-token). Use **Account** > **MoQ** > **Edit** , scoped to your account. The dashboard groups MoQ under Realtime, but Realtime permissions do not grant MoQ API access.
+
 To create a relay via the API:
     
     
     curl -X POST \
       "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/moq/relays" \
-      -H "Authorization: Bearer $API_TOKEN" \
+      -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
       -H "Content-Type: application/json" \
       -d '{"name": "My Relay"}'
 
 Cloudflare returns a relay ID and two default tokens: one that can publish and subscribe, and one that can only subscribe. Token secrets are shown once in the response and never stored.
 
+These relay connection tokens authenticate publishers and subscribers. They are separate from the Cloudflare API token used to manage relays. For response fields and token-management examples, refer to [Use the MoQ API](https://developers.cloudflare.com/moq/use-the-api/).
+
 You can also create and manage relays in the Cloudflare dashboard under **Media** > **Realtime** > **MoQ Relay**.
 
-### Connect a publisher and subscriber (draft-16)
+### Connect a publisher and subscriber (draft-18)
 
-Draft-16 requires authentication. Clients send a token in the URL path when opening a MoQ session. Using the open-source [moq-rs ↗︎](https://github.com/cloudflare/moq-rs) tools:
+Use `https://draft-18.cloudflare.mediaoverquic.com` with draft-18-compatible clients. Both publisher and subscriber must use the same draft endpoint and tokens from the same relay.
+
+Clients send a relay connection token in the URL path when opening a MoQ session. For the open-source [moq-rs ↗︎](https://github.com/cloudflare/moq-rs/tree/draft-18-dev) tools, use the `draft-18-dev` branch for draft-18 support. Changing the endpoint alone does not upgrade a draft-16 client.
 
 **Publisher:**
     
@@ -59,13 +65,13 @@ Draft-16 requires authentication. Clients send a token in the URL path when open
     ffmpeg -stream_loop -1 -re -i input.mp4 \
       -f mp4 -movflags empty_moov+frag_every_frame+separate_moof+omit_tfhd_offset - \
       | moq-pub --name my-namespace \
-        "https://draft-16.cloudflare.mediaoverquic.com/<publish_subscribe_token>"
+        "https://draft-18.cloudflare.mediaoverquic.com/<PUBLISH_SUBSCRIBE_TOKEN>"
 
 **Subscriber:**
     
     
     moq-sub --name my-namespace \
-      "https://draft-16.cloudflare.mediaoverquic.com/<subscribe_token>" \
+      "https://draft-18.cloudflare.mediaoverquic.com/<SUBSCRIBE_TOKEN>" \
       | ffplay -hide_banner -
 
 Token security
@@ -74,16 +80,19 @@ Tokens sent in the URL path appear in server access logs. Issue separate tokens 
 
 The IETF MoQ working group is developing in-band authentication standards — [C4M ↗︎](https://datatracker.ietf.org/doc/draft-ietf-moq-c4m/) and [Privacy Pass for MoQ ↗︎](https://datatracker.ietf.org/doc/draft-ietf-moq-privacy-pass-auth/) — that will enable richer token schemes without URL exposure. Cloudflare plans to support these as they mature.
 
+### Connect a publisher and subscriber (draft-16)
+
+For draft-16 clients, use the same relay-token URL format with the draft-16 endpoint:
+    
+    
+    https://draft-16.cloudflare.mediaoverquic.com/<RELAY_CONNECTION_TOKEN>
+
 ### Connect a publisher and subscriber (draft-14)
 
-Draft-14 clients connect to:
+Draft-14 clients use the draft-14 endpoint:
     
     
     https://draft-14.cloudflare.mediaoverquic.com/
-
-### Test draft-18
-
-Cloudflare is working on draft-18 support ahead of a global deployment. To test against a draft-18 relay in the meantime, refer to [moq-interop-runner ↗︎](https://github.com/englishm/moq-interop-runner).
 
 [NextBackground](https://developers.cloudflare.com/moq/about/)
 
