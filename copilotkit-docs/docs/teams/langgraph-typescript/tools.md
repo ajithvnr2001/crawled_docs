@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/tools/
 title: Microsoft Teams + LangGraph (TypeScript): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:47.859560+00:00
+fetched_at: 2026-11-16T10:56:04.357389+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Tools and context

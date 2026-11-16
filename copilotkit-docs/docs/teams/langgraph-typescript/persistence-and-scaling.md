@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/persistence-and-scaling/
 title: Microsoft Teams + LangGraph (TypeScript): Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:43.305643+00:00
+fetched_at: 2026-11-16T10:56:04.841288+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Persistence and scaling

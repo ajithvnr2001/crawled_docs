@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/threads-and-state/
 title: Microsoft Teams + LangGraph (Python): Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:44.729709+00:00
+fetched_at: 2026-11-16T10:56:05.716486+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Threads and state

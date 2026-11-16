@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:44.973217+00:00
+fetched_at: 2026-11-16T10:56:05.487187+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

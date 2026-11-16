@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/deploy-and-operate/
 title: Microsoft Teams + LangGraph (TypeScript): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:43.653920+00:00
+fetched_at: 2026-11-16T10:56:05.522269+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Deploy and operate

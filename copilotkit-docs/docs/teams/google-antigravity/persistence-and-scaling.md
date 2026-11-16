@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-antigravity/persistence-and-scaling/
 title: Microsoft Teams + Google Antigravity: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:48.849974+00:00
+fetched_at: 2026-11-16T10:56:08.858355+00:00
 ---
 
 # Microsoft Teams + Google Antigravity: Persistence and scaling
@@ -15,7 +15,7 @@ fetched_at: 2026-11-11T10:40:48.849974+00:00
 
 [](https://docs.copilotkit.ai/)
 
-ChannelTeams![](https://docs.copilotkit.ai/logos/google-antigravity.svg)Agent backendGoogle Antigravity
+ChannelTeamsAgent backendGoogle Antigravity
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 

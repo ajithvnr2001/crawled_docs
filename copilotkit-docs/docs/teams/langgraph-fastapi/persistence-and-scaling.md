@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/persistence-and-scaling/
 title: Microsoft Teams + LangGraph (FastAPI): Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:47.460572+00:00
+fetched_at: 2026-11-16T10:56:07.334144+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Persistence and scaling

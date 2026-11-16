@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/threads-and-state/
 title: Microsoft Teams + LangGraph (TypeScript): Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:47.647026+00:00
+fetched_at: 2026-11-16T10:56:04.393499+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Threads and state

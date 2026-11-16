@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/history-and-transcripts/
 title: Microsoft Teams + LangGraph (Python): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:45.962680+00:00
+fetched_at: 2026-11-16T10:56:06.304486+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): History and transcripts

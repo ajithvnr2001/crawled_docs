@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/deepagents/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T10:39:37.795381+00:00
+fetched_at: 2026-11-16T10:56:03.521689+00:00
 ---
 
 # Introduction

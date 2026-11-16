@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/rich-messages/
 title: Microsoft Teams + LangGraph (FastAPI): Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:46.462771+00:00
+fetched_at: 2026-11-16T10:56:07.000427+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Rich messages and components

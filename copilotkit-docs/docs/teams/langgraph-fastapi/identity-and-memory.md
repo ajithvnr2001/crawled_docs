@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/identity-and-memory/
 title: Microsoft Teams + LangGraph (FastAPI): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:47.231856+00:00
+fetched_at: 2026-11-16T10:56:07.662236+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Identity and Memory

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/intelligence/
 title: Microsoft Teams: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:48.468585+00:00
+fetched_at: 2026-11-16T10:56:08.159434+00:00
 ---
 
 # Microsoft Teams: Configure the Channel in Intelligence

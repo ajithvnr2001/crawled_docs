@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/interactive/
 title: Microsoft Teams + LangGraph (FastAPI): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:47.406253+00:00
+fetched_at: 2026-11-16T10:56:07.301408+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Interactive messages and approvals

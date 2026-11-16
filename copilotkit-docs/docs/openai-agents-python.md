@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/openai-agents-python/
 title: OpenAI Agents SDK
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T10:39:35.299918+00:00
+fetched_at: 2026-11-16T10:56:01.674908+00:00
 ---
 
 # OpenAI Agents SDK

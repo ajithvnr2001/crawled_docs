@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/commands-and-reactions/
 title: Microsoft Teams + LlamaIndex: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:47.776296+00:00
+fetched_at: 2026-11-16T10:56:04.311501+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Commands and reactions

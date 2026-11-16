@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T10:58:47.578059+00:00
+fetched_at: 2026-11-16T10:56:04.275071+00:00
 ---
 
 # Microsoft Teams: Channels

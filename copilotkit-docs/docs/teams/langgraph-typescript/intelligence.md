@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/intelligence/
 title: Microsoft Teams + LangGraph (TypeScript): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:42.929864+00:00
+fetched_at: 2026-11-16T10:56:05.040944+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Configure the Channel in Intelligence

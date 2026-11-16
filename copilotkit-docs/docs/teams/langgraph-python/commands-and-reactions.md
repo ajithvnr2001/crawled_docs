@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/commands-and-reactions/
 title: Microsoft Teams + LangGraph (Python): Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T10:40:46.160599+00:00
+fetched_at: 2026-11-16T10:56:06.848571+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Commands and reactions
