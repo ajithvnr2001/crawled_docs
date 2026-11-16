@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/overview/mcp/tools/
 title: MCP Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:23:14.708612+00:00
+fetched_at: 2026-11-16T17:13:57.786864+00:00
 ---
 
 # MCP Tools - Fish Audio
@@ -108,7 +108,7 @@ Tool| What it does| Read-only| Charges credits
 `studio_project`| Project overview: chapter outline (anchors, titles, block/dirty counts, durations), speaker roster, and live import/export job state.| Yes|   
 `studio_create_project`| Create a studio project from structured chapters (max 200 blocks — use `studio_import_document` for whole books).| |   
 `studio_import_document`| Import a document or long text (novel, script, article — up to 1.5M chars) into a new studio project.| |   
-`studio_import_script`| Parse a voice-acting script (.docx / .pdf / .txt / .md uploaded via `get_upload_url` — pass its storage_key or file_url — or pasted text) into scenes, lines and roles with suggested voices for the user to review; `studio_create_project`(kind=“voice-acting”, import_job_id=…) then creates the project.| |   
+`studio_import_script`| Parse a voice-acting script (.docx / .pdf / .txt / .md uploaded via `get_upload_url` — pass its storage_key or file_url — or pasted text; for audio, `speech_to_text` first and pass the transcript) into scenes, lines and roles with suggested voices for the user to review; `studio_create_project`(kind=“voice-acting”, import_job_id=…) then creates the project.| |   
 `studio_update_project`| Project-wide settings: rename, default voice/backend for new blocks, audio settings defaults, scene_preset (off|studio adds room ambience), chapter_order (list of chapter anchors) to reorder chapters.| |   
 `studio_read_blocks`| Read blocks: pass chapter (anchor) for a whole chapter (paginated) or blocks (list of anchors) for specific ones.| Yes|   
 `studio_find`| Search block text across the project (case-insensitive substring, or regex=true).| Yes|   

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/web-sdk/
 title: Web SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:47.278480+00:00
+fetched_at: 2026-11-16T17:13:56.838012+00:00
 ---
 
 # Web SDK - Fish Audio
@@ -306,7 +306,7 @@ Code| Meaning
 ---|---  
 `session_request_failed`| Session creation failed; check `statusCode`  
 `agent_not_public`| `agentId` mode, but the agent is not enabled for public access  
-`origin_forbidden`| The page’s origin is not in the agent’s allowed origins  
+`origin_forbidden`| The agent restricts origins and the page’s origin is not allowed  
 `insufficient_credit`| `agentId` mode, but the agent owner’s account has no Agent credit left (HTTP `402`); the owner needs to top up  
 `unsupported_transport`| The session token uses a transport this SDK version doesn’t know; upgrade the SDK  
 `mic_permission_denied`| The user denied microphone access; the SDK ends the session  

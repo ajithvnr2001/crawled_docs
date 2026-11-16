@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/dynamic-variables/
 title: Dynamic Variables - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:49.344772+00:00
+fetched_at: 2026-11-16T17:13:57.554559+00:00
 ---
 
 # Dynamic Variables - Fish Audio
@@ -21,6 +21,7 @@ Back to top
   * System variables
     * Reading a number out loud
     * Phone numbers
+    * Withheld caller ID
     * Date and timezone
     * In webhook tools
     * Unknown names
@@ -192,7 +193,8 @@ Variable| Value| Notes
 `system.timezone`| The session’s resolved IANA timezone, for example `Asia/Tokyo`| `UTC` when nothing resolves. Always equals the session’s `timezone` field; see [which timezone a session uses](https://docs.fish.audio/agents/build/time-timezone#which-timezone-a-session-uses).  
 `system.today`| Today’s date in that timezone, ISO 8601 `YYYY-MM-DD`| The calendar date at session creation. There is no `system.now`; see Current date and time.  
 `system.language`| The session language code, one of the [52 supported languages](https://docs.fish.audio/agents/build/voice-language#speaking-language)| The `language` [override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) when the request carries one, otherwise the agent’s [speaking language](https://docs.fish.audio/agents/build/voice-language#speaking-language).  
-`system.caller_number`| The human party’s number, E.164| Inbound: the caller (empty if withheld or not a valid E.164 number). Outbound: the number you dialed. Empty on non-phone sessions.  
+`system.caller_number`| The human party’s number, E.164| Inbound: the caller (empty if the carrier withheld the number, for example `anonymous` or one of Twilio’s placeholder numbers, or it is not a valid E.164 number). Outbound: the number you dialed. Empty on non-phone sessions.  
+`system.caller_id_withheld`| `"true"` or `"false"` (text, like every system variable)| `"true"` when an inbound caller’s number was withheld, `"false"` for an inbound call with a number, an outbound call, and a WhatsApp call. Empty on non-phone sessions. See Phone numbers.  
 `system.caller_number_spoken`| The same number written for speech, for example `+1; 4 1 5; 5 5 5; 0 1 2 3`| Use it wherever the agent should say the number out loud; see Reading a number out loud. Empty whenever `system.caller_number` is empty.  
 `system.dialed_number`| Your workspace number, E.164| Inbound: the number that was called. Outbound: the number the call was placed from. Empty on non-phone sessions.  
 `system.session_id`| The session’s id, for example `sess_5f3e…`| Send it from a webhook tool to tie each tool call to its session. Outside the agent, the same id is in the `POST /v1/agent/sessions` [response](https://docs.fish.audio/agents/deploy/authenticated-sessions), the SDK’s `connect` event, and `session.id` in [post-call webhooks](https://docs.fish.audio/agents/monitor/webhooks), and [`GET /v1/agent/sessions/{session_id}`](https://docs.fish.audio/agents/monitor/conversation-history#get-a-session) accepts it.  
@@ -203,7 +205,7 @@ Write `{{system.caller_number}}` where the number must stay a plain E.164 string
 
 ### Phone numbers
 
-The phone numbers are the session’s `caller_number` and `dialed_number` fields as shown in [session history](https://docs.fish.audio/agents/telephony/inbound-calls#phone-sessions-in-history). Only a value that is a well-formed E.164 number reaches the agent: anything else the carrier sends as the caller id (for example an `anonymous` marker) renders as an empty string, while the history field keeps the raw value. On every session that is not a phone call (web, text, preview, agent tests) both render as an empty string, never as literal `{{system.caller_number}}` text, so one agent can serve web and phone with the same prompt. Write the prompt so it also reads well when the number is empty:
+The phone numbers are the session’s `caller_number` and `dialed_number` fields as shown in [session history](https://docs.fish.audio/agents/telephony/inbound-calls#phone-sessions-in-history). Only a value that is a well-formed E.164 number reaches the agent: anything else the carrier sends as the caller id (for example an `anonymous` marker) renders as an empty string, and the session’s `caller_number` field is empty too. On every session that is not a phone call (web, text, preview, agent tests) both render as an empty string, never as literal `{{system.caller_number}}` text, so one agent can serve web and phone with the same prompt. Write the prompt so it also reads well when the number is empty:
 
 System prompt
     
@@ -224,6 +226,32 @@ Rendered
     
 
 On a web session the same prompt renders `The caller's number is "".`, and the agent asks for a number. To look the caller up in your own systems, template the number into a webhook tool instead of relying on the model to repeat it.
+
+#### Withheld caller ID
+
+A caller can hide their number. The carrier then sends no digits (`anonymous`, `restricted`, an empty value) or one of the placeholder numbers Twilio sends in place of a hidden one. All of these count as withheld: `system.caller_number` and `system.caller_number_spoken` are empty, and `system.caller_id_withheld` is `"true"`. An empty `system.caller_number` alone does not tell you why, since it is also empty on non-phone sessions; `system.caller_id_withheld` does, because it is `"true"` only when a caller on a phone call hid their number. When the number is withheld, the agent cannot match the caller to a customer record by number, so have it ask who is calling:
+
+System prompt
+    
+    
+    The caller's number is "{{system.caller_number}}". Number withheld: {{system.caller_id_withheld}}.
+    If the number is withheld, do not look the caller up by number: ask for their full
+    name and date of birth first, then use the lookup tool with those. Otherwise
+    look them up by the number.
+    
+
+On an inbound call with a hidden number the model sees:
+
+Rendered
+    
+    
+    The caller's number is "". Number withheld: true.
+    If the number is withheld, do not look the caller up by number: ask for their full
+    name and date of birth first, then use the lookup tool with those. Otherwise
+    look them up by the number.
+    
+
+The same flag reaches your systems as `caller_id_withheld` in the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook), on the [session record](https://docs.fish.audio/agents/monitor/conversation-history), and in the [post-call webhooks](https://docs.fish.audio/agents/monitor/webhooks#payload).
 
 ### Date and timezone
 

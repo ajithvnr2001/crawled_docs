@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/agent-errors/
 title: Agents API Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:45.741315+00:00
+fetched_at: 2026-11-16T17:13:57.072138+00:00
 ---
 
 # Agents API Errors - Fish Audio
@@ -90,8 +90,8 @@ Status| Meaning| What to do
 Message| Cause  
 ---|---  
 `Agent is not public`| Anonymous session/widget request against an agent whose public switch is off.  
-`Origin header is required for public agents`| Anonymous request without an `Origin` header. Browsers send it automatically, curl must set it.  
-`Origin not allowed`| The page’s origin is not on the agent’s [allowed origins](https://docs.fish.audio/agents/deploy/public-agents#origin-matching).  
+`Origin header is required for public agents`| Anonymous request without an `Origin` header to an agent that restricts origins. Browsers send it automatically, curl must set it.  
+`Origin not allowed`| The agent [restricts origins](https://docs.fish.audio/agents/deploy/public-agents#restrict-origins) and the page’s origin is not on the list.  
 `Agent is unavailable`| The agent’s owner can’t serve public sessions right now for a reason other than credit (that is `402`); visitors deliberately can’t tell why.  
 `Phone number limit reached for this team (N)`| The team holds its maximum of live numbers; release one first.  
   

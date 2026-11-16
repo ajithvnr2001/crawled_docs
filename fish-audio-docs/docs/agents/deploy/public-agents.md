@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/public-agents/
 title: Public Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.194502+00:00
+fetched_at: 2026-11-16T17:13:57.199724+00:00
 ---
 
 # Public Agents - Fish Audio
@@ -15,7 +15,8 @@ Back to top
 
   * Enable public access
   * Start a session from the browser
-  * Origin matching
+  * Restrict origins
+    * Origin matching
   * Rate limiting
   * Treat public input as untrusted
   * Errors
@@ -34,7 +35,7 @@ Let visitors talk to your agent directly from the browser, no backend required
 
 Copy pageCopy page
 
-A public agent accepts sessions straight from the browser: the SDK calls the session endpoint with just an `agent_id`, no API key and no server of your own. The platform gates access with three controls: an agent-level public switch (off by default), a required origin allowlist, and rate limiting. Use this mode for demos, marketing pages, and support bubbles where standing up a backend isn’t worth it. For production apps with their own users, [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) are usually the better fit. See when to use session tokens instead.
+A public agent accepts sessions straight from the browser: the SDK calls the session endpoint with just an `agent_id`, no API key and no server of your own. The platform gates access with an agent-level public switch (off by default) and rate limiting, and you can restrict the origins that may use the agent. Use this mode for demos, marketing pages, and support bubbles where standing up a backend isn’t worth it. For production apps with their own users, [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) are usually the better fit. See when to use session tokens instead.
 
 ## Enable public access
 
@@ -49,12 +50,6 @@ Public sessions always run the agent’s **published** configuration. An unpubli
 Turn on the public switch
 
 On the agent’s **Deploy** page in the console, turn on **Public access**. It is **off by default**. Until you enable it, sessions require authentication.
-
-3
-
-Add allowed origins
-
-On the same page, list every web origin that may start sessions under **Allowed origins** (`allowed_origins` in the API). The allowlist is **required** : a request whose `Origin` doesn’t match any entry is rejected with `403`.
 
 ## Start a session from the browser
 
@@ -75,17 +70,23 @@ API (curl)
     
     
     
-    # No Authorization header. The Origin header is checked instead.
-    # Browsers send Origin automatically; curl must set it explicitly.
+    # No Authorization header.
     curl --request POST https://api.fish.audio/v1/agent/sessions \
       --header "Content-Type: application/json" \
-      --header "Origin: https://app.example.com" \
       --data '{ "agent_id": "YOUR_AGENT_ID" }'
     
 
 The response is the same session token an authenticated request returns. The SDK consumes it internally. Everything else (events, methods, client tools) works exactly as in the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk).
 
-## Origin matching
+## Restrict origins
+
+By default, any website can start sessions on a public agent. To limit that to your own sites, turn on **Restrict origins** on the **Deploy** page and add each web origin that may start sessions (`restrict_origins` and `allowed_origins` in the API). A request whose `Origin` doesn’t match any entry is then rejected with `403`.
+
+With **Restrict origins** on and no origin listed, every public request is rejected.
+
+Browsers send the `Origin` header automatically. Any other client must set it, and can set any value, so restricting origins does not make an agent private.
+
+### Origin matching
 
 An entry matches only on **exact scheme + host + port**. The host is case-insensitive, and a trailing slash on an entry is tolerated.
 
@@ -126,7 +127,7 @@ Public-mode failures surface as `FishAgentError` codes on `AgentSession.start()`
 Code| Meaning  
 ---|---  
 `agent_not_public`| The agent’s public switch is off.  
-`origin_forbidden`| The page’s origin is not in `allowed_origins` (HTTP `403`).  
+`origin_forbidden`| The agent restricts origins and the page’s origin is not in `allowed_origins` (HTTP `403`).  
 `insufficient_credit`| The agent owner’s account has no Agent credit left (HTTP `402`). Top up to resume.  
 `session_request_failed`| Other creation failures, for example the agent has no published version.  
   

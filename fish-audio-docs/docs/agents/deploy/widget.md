@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/widget/
 title: Widget - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:47.661584+00:00
+fetched_at: 2026-11-16T17:13:57.290318+00:00
 ---
 
 # Widget - Fish Audio
@@ -41,7 +41,7 @@ The widget is the zero-code way to put your agent on a website. A `<fish-agent>`
 ## Prerequisites
 
   * An agent with a [published version](https://docs.fish.audio/agents/deploy/versions-publishing).
-  * **Public access** enabled on the agent, with your site’s origin on the allowed-origins list. See [Public agents](https://docs.fish.audio/agents/deploy/public-agents). `localhost` and `127.0.0.1` count as different origins.
+  * **Public access** enabled on the agent. See [Public agents](https://docs.fish.audio/agents/deploy/public-agents).
   * To keep the agent private instead, skip public access and supply session tokens from your backend with `sessionTokenProvider`.
 
 
@@ -183,13 +183,13 @@ Inbound: dispatch `fish-agent:expand` on the element or `document` to open the p
 
 ## Console settings and precedence
 
-On load, the widget anonymously fetches the agent’s console widget settings from `GET /v1/agent/agents/{agent_id}/widget`, the same public-plus-origin gate as session creation, so it only answers for public agents to allowed origins. Settings resolve with a fixed precedence: **HTML attribute > console widget config > built-in default**. The endpoint being unreachable never breaks the widget: it renders from attributes and defaults.
+On load, the widget anonymously fetches the agent’s console widget settings from `GET /v1/agent/agents/{agent_id}/widget`, the same gate as public session creation, so it only answers for public agents. Settings resolve with a fixed precedence: **HTML attribute > console widget config > built-in default**. The endpoint being unreachable never breaks the widget: it renders from attributes and defaults.
 
 ## Going further
 
 ## Public agents
 
-The public switch, origin allowlist, and rate limits behind the widget.
+The public switch, origin restriction, and rate limits behind the widget.
 
 ## Authenticated sessions
 

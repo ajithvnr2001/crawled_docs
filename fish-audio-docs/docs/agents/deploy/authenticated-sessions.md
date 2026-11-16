@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 title: Authenticated Sessions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.356976+00:00
+fetched_at: 2026-11-16T17:13:57.147058+00:00
 ---
 
 # Authenticated Sessions - Fish Audio
@@ -44,7 +44,7 @@ Client| Where the token goes
 [Widget](https://docs.fish.audio/agents/deploy/widget#private-agents)| Returned from `sessionTokenProvider`  
 [Custom client](https://docs.fish.audio/agents/deploy/protocol)| Connect to the transport named in the response, per the [wire protocol](https://docs.fish.audio/agents/deploy/protocol)  
   
-No backend, and anyone may talk to the agent? A [public agent](https://docs.fish.audio/agents/deploy/public-agents) lets the SDK create sessions with just an `agentId`: no token involved, gated by an origin allowlist and rate limits.
+No backend, and anyone may talk to the agent? A [public agent](https://docs.fish.audio/agents/deploy/public-agents) lets the SDK create sessions with just an `agentId`, no token involved.
 
 ## Create a token on your backend
 

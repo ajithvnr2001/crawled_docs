@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/transfers/
 title: Call Transfers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.501832+00:00
+fetched_at: 2026-11-16T17:13:56.932722+00:00
 ---
 
 # Call Transfers - Fish Audio
@@ -36,6 +36,7 @@ Back to top
   * Transfer results
     * Outcomes
     * Why a call did not connect
+    * Reason codes on the tool result
     * After a successful transfer
   * Limitations
   * Billing
@@ -271,7 +272,7 @@ If the human cannot be reached, declines, or the consult call hits voicemail, th
 
 ### Customizing the briefing
 
-By default the agent introduces itself, reads out the caller’s number, relays the notes, and asks whether the person can take the call. A warm destination’s briefing instructions replace that introduction. The notes generated from the conversation and the handoff itself stay as they are: the agent still waits for a yes (or connects right away with `direct`), so the text only has to say what you want relayed and how. The text is rendered with [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) when the session starts, so it can carry facts the conversation may not mention. A custom text is spoken as written, so if it should include the caller’s number, put it in yourself with `{{system.caller_number_spoken}}`, which arrives pre-grouped for speech (`+1; 4 1 5; 5 5 5; 0 1 2 3`) so the voice reads it digit by digit in any language; see [Reading a number out loud](https://docs.fish.audio/agents/build/dynamic-variables#reading-a-number-out-loud). Two things to keep in mind. The variables are filled in once, when the session is created, so an order number the caller mentions later reaches the colleague only through the notes. And a withheld caller ID renders as an empty string, so write the text to read well without it.
+By default the agent introduces itself, reads out the caller’s number, relays the notes, and asks whether the person can take the call. A warm destination’s briefing instructions replace that introduction. The notes generated from the conversation and the handoff itself stay as they are: the agent still waits for a yes (or connects right away with `direct`), so the text only has to say what you want relayed and how. The text is rendered with [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) when the session starts, so it can carry facts the conversation may not mention. A custom text is spoken as written, so if it should include the caller’s number, put it in yourself with `{{system.caller_number_spoken}}`, which arrives pre-grouped for speech (`+1; 4 1 5; 5 5 5; 0 1 2 3`) so the voice reads it digit by digit in any language; see [Reading a number out loud](https://docs.fish.audio/agents/build/dynamic-variables#reading-a-number-out-loud). Two things to keep in mind. The variables are filled in once, when the session is created, so an order number the caller mentions later reaches the colleague only through the notes. And a withheld caller ID (the carrier sent `anonymous`, no digits, or one of Twilio’s placeholder numbers) renders as an empty string, so write the text to read well without it; `{{system.caller_id_withheld}}` is `"true"` then.
 
 #### In the console
 
@@ -430,6 +431,24 @@ A session with a successful transfer ends with `end_reason` `escalated`, however
 `failed`| Any other failure| Every other code  
   
 `sip_status` is the carrier’s final SIP response code as received, and `null` when the carrier gave none. When a cold handoff rings past the time limit with the caller still on the line, the attempt is `refer_failed` with `dial_status` `no_answer` and no `sip_status`.
+
+### Reason codes on the tool result
+
+The `_transfer_call` tool call that started a failed attempt has a `tool_result` with `status` `failed`. Its `error_detail` says why the attempt did not connect, as one code you can count, alert on and write rules against:
+
+`status_code`| What happened| Warm `outcome` (`dial_status`)| Cold `outcome` (`dial_status`)  
+---|---|---|---  
+`not_placed`| The call never went out: the carrier refused it, the number or trunk has a problem, or it could not be set up| `dial_failed` (`failed` or none), `unavailable`| `refer_failed` (`failed` or none)  
+`busy`| The line was busy, or the call was rejected (`486`, `600`, `603`)| `dial_failed` (`busy`)| `refer_failed` (`busy`)  
+`no_answer`| It rang and nobody answered| `dial_failed` (`no_answer`), `consult_timeout`| `refer_failed` (`no_answer`)  
+`declined`| Your team member said they could not take the call| `declined`|   
+`voicemail`| Voicemail answered| `voicemail`|   
+`ivr`| A phone menu answered and nobody took over| `ivr`|   
+`hung_up`| Your team member hung up, or the line dropped, before the calls were merged| `consult_closed`|   
+`merge_failed`| Both sides were there, but connecting them failed| `merge_failed`|   
+`caller_hangup`| The caller hung up during the transfer; the destination was not at fault| `caller_hangup`, or the caller had left when it failed| The caller hung up while the destination rang, or during the announcement (`cancelled`)  
+  
+A cold transfer only sees the carrier’s answer to the handoff, so on the destination’s side it can only be `not_placed`, `busy` or `no_answer`. The caller hanging up takes precedence over the carrier’s code: a caller who hangs up while a cold destination rings is `caller_hangup`, not `no_answer`, even though the carrier answers `487`. Leave `caller_hangup` out when you count unreachable destinations. `error_detail` also carries `sip_status`, the carrier’s SIP response code when it gave one and `null` otherwise, and `status_message`, a readable explanation. The result’s `error` text starts with `transfer_failed: <status_code> — `, so rules that match the text keep working. New codes may be added, so don’t reject ones you don’t recognize. Results recorded before reason codes existed have `error_detail` `null`. See [Item types](https://docs.fish.audio/agents/monitor/conversation-history#item-types) for the rest of the `tool_result`.
 
 ### After a successful transfer
 

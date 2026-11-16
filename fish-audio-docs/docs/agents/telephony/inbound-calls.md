@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/inbound-calls/
 title: Inbound Calls - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.843808+00:00
+fetched_at: 2026-11-16T17:13:57.859609+00:00
 ---
 
 # Inbound Calls - Fish Audio
@@ -91,7 +91,8 @@ Every answered call becomes a session with `source: "phone"` (`"whatsapp"` for [
 
 Field| Description  
 ---|---  
-`caller_number`| The caller’s number, E.164. `null` for non-phone sessions.  
+`caller_number`| The caller’s number, E.164. `null` for non-phone sessions, and when the caller’s number was withheld.  
+`caller_id_withheld`| `true` when the carrier hid the caller’s number (`anonymous`, no digits, or one of Twilio’s placeholder numbers), `false` when a number was shown, `null` for non-phone sessions. See [Withheld caller ID](https://docs.fish.audio/agents/build/dynamic-variables#withheld-caller-id).  
 `dialed_number`| The workspace number that was called, E.164. `null` for non-phone sessions.  
 `sip_call_id`| The SIP `Call-ID` of the carrier’s INVITE, for [matching your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records).  
 `call_sid`| Twilio’s CallSid on a call through a Twilio number, the same value the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook) sends. `null` on other calls.  
@@ -113,6 +114,7 @@ List calls with the standard sessions endpoint. The `caller_number` filter is an
           "status": "completed",
           "source": "phone",
           "caller_number": "+15551234567",
+          "caller_id_withheld": false,
           "dialed_number": "+14155550100",
           "created_at": "2026-07-23T09:14:01Z",
           "started_at": "2026-07-23T09:14:02Z",

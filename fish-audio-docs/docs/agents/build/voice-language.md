@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/voice-language/
 title: Voice & Language - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.726535+00:00
+fetched_at: 2026-11-16T17:13:58.722272+00:00
 ---
 
 # Voice & Language - Fish Audio
@@ -19,7 +19,7 @@ Back to top
   * Speaking language
   * Text-to-speech model
     * Live 3 (full duplex)
-    * Voices
+    * Live 3 voices
     * Situation prompt
     * What else changes
   * Speech recognition model
@@ -195,7 +195,7 @@ API (curl)
       --data '{
         "voice": {
           "engine": "live3",
-          "live3_voice": "Clara"
+          "voice_id": "clara"
         }
       }'
     
@@ -204,16 +204,9 @@ To switch back, pick Drama 3 or S2.1 Pro in the selector, or set `voice.engine` 
 
 Live 3 speaks English only. Sessions in another speaking language, including a per-session [language override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides), speak through the agent’s text-to-speech model instead. In English sessions, the agent answers in English even when the caller switches language.
 
-#### Voices
+#### Live 3 voices
 
-Live 3 has its own voices. The Builder’s voice picker lists the ones that fit the current situation prompt under **Live 3 voices** , with samples. Set one via the API with `voice.live3_voice`:
-
-Situation| Voices  
----|---  
-All| `Clara` (default), `Nora`, `Harper`, `Patricia`, `Owen`, `Marco`, `Milo`, `Jonah`  
-Drive-thru only| `Maddie`, `Brianna`, `Ethan`, `Tyler`  
-  
-The drive-thru voices need `voice.live3_prompt` set to `DT`. With any other situation, including the default, Live 3 doesn’t start and the session speaks through the text-to-speech model. You can also pick a Voice Library voice or one of your clones. Setting `voice_id` clears `voice.live3_voice` unless the same request sets it. Live 3 recreates the voice from a sample, so it sounds close to, but not exactly like, the same voice on Drama 3 or S2.1 Pro. If Live 3 can’t use the voice, the session speaks as Clara.
+An agent on Live 3 speaks either one of the voices that come with Live 3, or a voice from the Voice Library. Both are set in `voice.voice_id`. The voices that come with Live 3 exist only there and are not in the Voice Library. Set one by its name: `clara` (default), `nora`, `harper`, `patricia`, `owen`, `marco`, `milo`, or `jonah`. The Builder’s voice picker lists them under **Live 3 voices** , with samples. For a Voice Library voice or one of your clones, set `voice.voice_id` to its id. Live 3 recreates the voice from a sample, so it sounds close to, but not exactly like, the same voice on Drama 3 or S2.1 Pro. If Live 3 can’t use the voice, the session speaks as Clara.
 
 #### Situation prompt
 

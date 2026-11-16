@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/overview/
 title: Deploy Your Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.260856+00:00
+fetched_at: 2026-11-16T17:13:58.300488+00:00
 ---
 
 # Deploy Your Agent - Fish Audio
@@ -66,7 +66,7 @@ The widget and the SDKs each work with **either** access mode; pick per agent. P
 
 ## Public agents
 
-The client connects with just an `agentId`: no backend, gated by an origin allowlist and rate limits.
+The client connects with just an `agentId`, no backend needed.
 
 ## Authenticated sessions
 
@@ -75,7 +75,7 @@ Your backend creates a short-lived session token with your API key: trusted attr
 | Public agent ID| Session token  
 ---|---|---  
 Credential in browser| None| Short-lived session token  
-Requires| Agent set to public + allowed origins| Your own backend endpoint  
+Requires| Agent set to public| Your own backend endpoint  
 Session parameters set by| The SDK (`overrides`, `dynamicVariables`, `language`, `toolEvents` options)| Your backend, in the creation request  
 Best for| Demos, marketing pages, low-friction embeds| Production apps with signed-in users  
   
@@ -114,7 +114,7 @@ Your frontend
     const session = await AgentSession.start({ sessionToken });
     
 
-Agents marked [public](https://docs.fish.audio/agents/deploy/public-agents) skip the backend step entirely: the SDK connects with just an `agentId`, gated by an origin allowlist and rate limits.
+Agents marked [public](https://docs.fish.audio/agents/deploy/public-agents) skip the backend step entirely: the SDK connects with just an `agentId`.
 
 For phone calls there is no client integration: assign a number, and inbound calls connect directly to your agent, which can [transfer callers](https://docs.fish.audio/agents/telephony/transfers) to another number mid-call. See [Phone numbers](https://docs.fish.audio/agents/telephony/phone-numbers).
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/conversation-history/
 title: Conversation History - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:47.566307+00:00
+fetched_at: 2026-11-16T17:13:57.027732+00:00
 ---
 
 # Conversation History - Fish Audio
@@ -89,6 +89,7 @@ Each row carries the session facts:
           "end_reason": "user_hangup",
           "source": "phone",
           "caller_number": "+15551234567",
+          "caller_id_withheld": false,
           "dialed_number": "+14155550100",
           "sip_call_id": "7f3a9c@sbc.example.com",
           "call_sid": "CA5d3a…",
@@ -103,7 +104,7 @@ Each row carries the session facts:
     }
     
 
-`caller_number` and `dialed_number` are set for phone sessions only (E.164) and are `null` for web sessions. `sip_call_id` is the SIP `Call-ID` of the call’s INVITE. It is `null` on web sessions and on outbound calls that were never answered. See [Match calls with your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records). `call_sid` is the carrier’s id of the call: Twilio’s CallSid on an inbound call through a Twilio number, the same value the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook) sends. It is `null` on other sessions. `name` is the display name you passed when creating the session (`null` when omitted), `end_user_id` is the end-user identifier you passed (`null` when omitted), and `metadata` echoes back whatever you attached when creating the session.
+`caller_number` and `dialed_number` are set for phone sessions only (E.164) and are `null` for web sessions. `caller_id_withheld` is `true` when the carrier hid the caller’s number, and then `caller_number` is `null` too (`anonymous` and Twilio’s placeholder numbers count as hidden). It is `false` on phone and WhatsApp sessions whose caller number was shown, on outbound calls, and on calls made before the field existed, and `null` on web and other non-call sessions. `sip_call_id` is the SIP `Call-ID` of the call’s INVITE. It is `null` on web sessions and on outbound calls that were never answered. See [Match calls with your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records). `call_sid` is the carrier’s id of the call: Twilio’s CallSid on an inbound call through a Twilio number, the same value the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook) sends. It is `null` on other sessions. `name` is the display name you passed when creating the session (`null` when omitted), `end_user_id` is the end-user identifier you passed (`null` when omitted), and `metadata` echoes back whatever you attached when creating the session.
 
 ### Status and end reason
 
@@ -193,6 +194,7 @@ API (curl)
           "output_truncated": false,
           "error": null,
           "rejected_by": null,
+          "error_detail": null,
           "latency_ms": 812,
           "created_at": "2026-07-22T09:14:07Z"
         },
@@ -231,6 +233,7 @@ Details worth knowing:
   * **Mid-call queries** : you can fetch an `active` session; you get the items persisted so far, and `analysis` is `null` until [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis) completes.
   * A `tool_call` without a matching `tool_result` means the execution never resolved.
   * **`rejected_by`** : on a `tool_result`, `"parameter_validation"` when the tool [validates its parameters](https://docs.fish.audio/agents/build/webhook-tools#parameters-and-validation) and refused the call before it ran, so `status` is `failed` and `error` is the rejection the model was shown. `null` for every other result, including a tool that ran and failed. New values may be added.
+  * **`error_detail`** : on a failed `tool_result`, the structured reason beside the `error` text: `status_code`, a stable code to count and match on; `sip_status`, the carrier’s SIP response code, or `null`; and `status_message`, a readable explanation. Only `_transfer_call` sets it so far; see [reason codes on the tool result](https://docs.fish.audio/agents/telephony/transfers#reason-codes-on-the-tool-result) for its codes. `null` on completed results, on tools that only set `error`, and on results recorded before the field existed.
 
 
 
