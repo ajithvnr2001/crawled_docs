@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/fetch/
 title: Fetch - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:51.247438+00:00
+fetched_at: 2026-11-17T18:48:15.062353+00:00
 ---
 
 # Fetch - Canva Developers SDK Documentation
@@ -574,7 +574,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/fetch/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/fetch/.
     
     
     

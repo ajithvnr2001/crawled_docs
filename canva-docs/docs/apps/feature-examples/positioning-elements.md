@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/positioning-elements/
 title: Positioning elements - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:56.328234+00:00
+fetched_at: 2026-11-17T18:48:12.825974+00:00
 ---
 
 # Positioning elements - Canva Developers SDK Documentation
@@ -930,7 +930,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/positioning-elements/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/positioning-elements/.
     
     
     

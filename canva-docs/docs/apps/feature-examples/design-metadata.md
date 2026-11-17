@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/design-metadata/
 title: Design metadata - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:47.159265+00:00
+fetched_at: 2026-11-17T18:48:16.035416+00:00
 ---
 
 # Design metadata - Canva Developers SDK Documentation
@@ -360,7 +360,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/design-metadata/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/design-metadata/.
     
     
     

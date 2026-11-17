@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/design-colors/
 title: Design colors - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:46.080776+00:00
+fetched_at: 2026-11-17T18:48:16.907642+00:00
 ---
 
 # Design colors - Canva Developers SDK Documentation
@@ -325,7 +325,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/design-colors/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/design-colors/.
     
     
     

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/multi-provider-authentication/
 title: Multi-provider authentication - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:54.446664+00:00
+fetched_at: 2026-11-17T18:48:13.706899+00:00
 ---
 
 # Multi-provider authentication - Canva Developers SDK Documentation
@@ -866,7 +866,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/multi-provider-authentication/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/multi-provider-authentication/.
     
     
     

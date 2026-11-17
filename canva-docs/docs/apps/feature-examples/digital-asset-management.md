@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/digital-asset-management/
 title: Digital asset management - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:48.518622+00:00
+fetched_at: 2026-11-17T18:48:16.350509+00:00
 ---
 
 # Digital asset management - Canva Developers SDK Documentation
@@ -1277,7 +1277,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/examples/digital-asset-management/>.
+    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/feature-examples/digital-asset-management/>.
     
     
     

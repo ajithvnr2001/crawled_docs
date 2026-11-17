@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/export/
 title: Export - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:50.206950+00:00
+fetched_at: 2026-11-17T18:48:14.941803+00:00
 ---
 
 # Export - Canva Developers SDK Documentation
@@ -352,7 +352,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/examples/export/>.
+    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/feature-examples/export/>.
     
     
     

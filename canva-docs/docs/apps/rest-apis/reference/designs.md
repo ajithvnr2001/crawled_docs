@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/designs/
 title: Designs - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:28.925831+00:00
+fetched_at: 2026-11-17T18:48:19.966050+00:00
 ---
 
 # Designs - Canva REST API reference - Canva Developers SDK Documentation
@@ -91,3 +91,7 @@ The `designs` endpoint lets you interact with the designs present in a user's co
   * [Get design dataset](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-dataset/): Check if you can autofill a design and what information you can autofill.
 
 
+
+## Open designs in Canva
+
+The Designs APIs return an `edit_url` and a `view_url` for each design, which your platform can use to open the design in Canva. You can add a `target_state` query parameter to these URLs to open the design at a specific page, open an app with the design, or pass context for return navigation. For more information, see [Open designs with deep links](https://www.canva.dev/docs/apps/rest-apis/deep-links/).

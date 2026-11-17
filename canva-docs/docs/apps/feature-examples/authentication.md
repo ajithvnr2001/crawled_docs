@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/authentication/
 title: Authentication - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:43.235105+00:00
+fetched_at: 2026-11-17T18:48:17.227588+00:00
 ---
 
 # Authentication - Canva Developers SDK Documentation
@@ -528,7 +528,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/authentication/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/authentication/.
     
     
     

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/page-background/
 title: Page background - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:55.904167+00:00
+fetched_at: 2026-11-17T18:48:12.642732+00:00
 ---
 
 # Page background - Canva Developers SDK Documentation
@@ -448,7 +448,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/page-background/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/page-background/.
     
     
     

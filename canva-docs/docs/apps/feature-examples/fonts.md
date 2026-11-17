@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/fonts/
 title: Fonts - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:50.997277+00:00
+fetched_at: 2026-11-17T18:48:14.733258+00:00
 ---
 
 # Fonts - Canva Developers SDK Documentation
@@ -905,7 +905,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/examples/fonts/>.
+    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/feature-examples/fonts/>.
     
     
     

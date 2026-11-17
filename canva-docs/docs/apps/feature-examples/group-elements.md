@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/group-elements/
 title: Group elements - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:51.418980+00:00
+fetched_at: 2026-11-17T18:48:14.548559+00:00
 ---
 
 # Group elements - Canva Developers SDK Documentation
@@ -333,7 +333,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/group-elements/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/group-elements/.
     
     
     

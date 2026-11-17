@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/image-elements/
 title: Image elements - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:52.880933+00:00
+fetched_at: 2026-11-17T18:48:13.828763+00:00
 ---
 
 # Image elements - Canva Developers SDK Documentation
@@ -473,12 +473,12 @@ Copy
     
     This example demonstrates how to add image elements to a design.
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/image-elements/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/image-elements/.
     
     
     
     
-    See also the App image elements example: https://www.canva.dev/docs/apps/examples/app-image-elements/. Using app elements instead of regular design elements allows for more complex app interactions and behaviors.
+    See also the App image elements example: https://www.canva.dev/docs/apps/feature-examples/app-image-elements/. Using app elements instead of regular design elements allows for more complex app interactions and behaviors.
     
     
     

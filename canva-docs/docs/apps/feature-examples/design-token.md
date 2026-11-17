@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/design-token/
 title: Design token - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:47.968069+00:00
+fetched_at: 2026-11-17T18:48:15.944144+00:00
 ---
 
 # Design token - Canva Developers SDK Documentation
@@ -854,7 +854,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/design-token/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/design-token/.
     
     
     

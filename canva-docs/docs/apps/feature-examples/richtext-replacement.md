@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/richtext-replacement/
 title: Richtext replacement - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:57.400884+00:00
+fetched_at: 2026-11-17T18:48:11.947447+00:00
 ---
 
 # Richtext replacement - Canva Developers SDK Documentation
@@ -456,7 +456,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/richtext-replacement/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/richtext-replacement/.
     
     
     

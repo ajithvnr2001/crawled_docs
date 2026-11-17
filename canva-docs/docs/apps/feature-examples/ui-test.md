@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/ui-test/
 title: UI test - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:59.551487+00:00
+fetched_at: 2026-11-17T18:48:10.926961+00:00
 ---
 
 # UI test - Canva Developers SDK Documentation
@@ -460,7 +460,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/examples/ui-test/>.
+    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/feature-examples/ui-test/>.
     
     
     

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/deep-linking/
 title: Deep linking - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:34.214108+00:00
+fetched_at: 2026-11-17T18:48:20.133510+00:00
 ---
 
 # Deep linking - Canva Developers SDK Documentation
@@ -46,7 +46,7 @@ After you've [released](https://www.canva.dev/docs/apps/releasing-apps/) an app,
 
 
 
-This page covers deep linking to apps inside Canva.
+This page covers deep linking to apps inside Canva. To open an existing design from your platform at a specific page or with an app open, see [Open designs with deep links](https://www.canva.dev/docs/apps/rest-apis/deep-links/).
 
 ## Generate a deep link
 

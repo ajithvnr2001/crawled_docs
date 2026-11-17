@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/video-elements/
 title: Video elements - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:00.698140+00:00
+fetched_at: 2026-11-17T18:48:10.455525+00:00
 ---
 
 # Video elements - Canva Developers SDK Documentation
@@ -504,7 +504,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/examples/video-elements/>.
+    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/feature-examples/video-elements/>.
     
     
     

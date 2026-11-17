@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/drag-and-drop-video/
 title: Drag and drop video - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:49.806552+00:00
+fetched_at: 2026-11-17T18:48:15.175772+00:00
 ---
 
 # Drag and drop video - Canva Developers SDK Documentation
@@ -409,7 +409,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/examples/drag-and-drop-video/.
+    For API reference docs and instructions on running this example, see: https://www.canva.dev/docs/apps/feature-examples/drag-and-drop-video/.
     
     
     

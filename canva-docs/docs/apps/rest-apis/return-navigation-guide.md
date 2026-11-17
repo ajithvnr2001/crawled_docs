@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/
 title: Return users to your platform - Canva for your platform - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:40.222929+00:00
+fetched_at: 2026-11-17T18:48:20.242203+00:00
 ---
 
 # Return users to your platform - Canva for your platform - Canva Developers SDK Documentation
@@ -19,7 +19,7 @@ Fundamentals
 
 Development guides
 
-[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
+[Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/)[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Open designs with deep links](https://www.canva.dev/docs/apps/rest-apis/deep-links/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
 
 Design guidelines
 
@@ -167,7 +167,7 @@ Copy
 
 Each design item contains a `urls` object with `edit_url` and `view_url` properties. The URLs are temporary URLs which use the structure `https://www.canva.com/api/design/{token}/{edit|view}`. The `{token}` is a unique time-limited token for accessing the design.
 
-The URLs contain everything needed to open the design in the Canva editor.
+The URLs contain everything needed to open the design in the Canva editor. In the next step, you add the context that your platform needs when the user returns.
 
 The `urls` object is also returned in the response of the [Create design API](https://www.canva.dev/docs/apps/rest-apis/reference/designs/create-design/). Instead of directing users to edit an existing design, you could also create a new one then direct them to edit the new design.
 
@@ -181,35 +181,45 @@ Each design item's object includes all the data required to display it in your p
 
   2. Prepare your edit URL.
 
-For each design, create a unique `correlation_state` string that identifies your product or UI state, and append it to the design's `edit_url` as a query parameter. The `correlation_state` value is returned when the user is redirected from Canva back to your platform.
+For each design, create a unique `correlation_state` string that identifies your product or UI state. The `correlation_state` value is returned when the user is redirected from Canva back to your platform.
 
 The `correlation_state` string has the following requirements:
 
      * Must be 50 characters or less.
-     * Must be URL safe.
      * Should include everything you need to redirect your user or update your platform's state.
      * Can contain stringified JSON.
+
+To add the string to the design's `edit_url`, create a target state object, and set its `return_navigation.correlation_state` property to your `correlation_state` string:
     
-    https://www.canva.com/api/design/{token}/edit?correlation_state={YOUR-CORRELATION-STATE-STRING}
+    {
+    
+      "schema": "v1",
+    
+      "return_navigation": {
+    
+        "correlation_state": "{YOUR-CORRELATION-STATE-STRING}"
+    
+      }
+    
+    }
+
+JSON
 
 Copy
 
-You can optionally add another parameter, `app_id`, to open a particular app inside Canva when the design is opened. App IDs are listed in the [Developer Portal⁠(opens in a new tab or window)](https://www.canva.com/developers/apps).
+Serialize the object to a JSON string, encode it as [base64url⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc4648#section-5) without padding, and add the result to the `edit_url` as the `target_state` query parameter. For a code example, see [Create a deep link](https://www.canva.dev/docs/apps/rest-apis/deep-links/#create-a-deep-link).
     
-    https://www.canva.com/api/design/{token}/edit?correlation_state={YOUR-CORRELATION-STATE-STRING}&app_id={YOUR-APP-ID}
+    https://www.canva.com/api/design/{token}/edit?target_state={ENCODED_TARGET_STATE}
 
 Copy
 
-If you would like to open an app developed by someone else, or by Canva, app IDs for these apps can be extracted from the app URL:
+You can use the same approach with the `view_url`. You can also use the target state to open the design at a specific page, or to open a particular app inside Canva when the design is opened. For more information, see [Open designs with deep links](https://www.canva.dev/docs/apps/rest-apis/deep-links/).
 
-     1. Navigate to the [Canva Apps Page⁠(opens in a new tab or window)](https://www.canva.com/your-apps).
-     2. Find the app you want to open.
-     3. Click the app. The modal containing app information opens, and the page URL changes.
-     4. Extract the App ID from the URL, which appears after the `/your-apps/` segment. For example, if you click the app _Acquia DAM (Widen)_ , the URL is `https://www.canva.com/your-apps/AAFcE5stzlQ/acquia-dam-(widen)`. The App ID is `AAFcE5stzlQ`.
+Alternatively, you can add the `correlation_state` string to the URL as its own query parameter. For more information, see [Use separate query parameters](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/#use-separate-query-parameters-alternative).
 
 Because of the 50 character limit, it might not always be practical to directly store all of the required state information in the `correlation_state` string.
 
-In this situation, we recommend that you instead store the state information in a database, and create a unique key (encoded in [base64url⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc4648#section-5)) which identifies the information. You can then pass the key as the `correlation_state` value, and when the user is redirected from Canva back to your platform, use the key in `correlation_state` to retrieve the state information needed to process the return.
+In this situation, we recommend that you instead store the state information in a database, and create a unique key which identifies the information. You can then pass the key as the `correlation_state` value, and when the user is redirected from Canva back to your platform, use the key in `correlation_state` to retrieve the state information needed to process the return.
 
   3. Add an _Edit in Canva_ button or link using the design's edit URL created in the previous step. When clicked, the button or link navigates your user to the Canva editor and opens their design.
 
@@ -301,3 +311,25 @@ Copy
 
 
 
+
+## Use separate query parameters (alternative)
+
+Instead of using the `target_state` query parameter, you can add your `correlation_state` string to the design URL as its own query parameter. This approach predates the `target_state` parameter and is still supported, but it doesn't support the other [deep link options](https://www.canva.dev/docs/apps/rest-apis/deep-links/), such as opening the design at a specific page.
+
+With this approach, the `correlation_state` string must be URL safe, in addition to the requirements listed in [Step 2. Build your UI](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/#step-2-build-your-ui):
+    
+    
+    https://www.canva.com/api/design/{token}/edit?correlation_state={YOUR-CORRELATION-STATE-STRING}
+
+Copy
+
+You can optionally add another parameter, `app_id`, to open a particular app inside Canva when the design is opened. To find the ID of an app, see [Find an app ID](https://www.canva.dev/docs/apps/rest-apis/deep-links/#find-an-app-id).
+    
+    
+    https://www.canva.com/api/design/{token}/edit?correlation_state={YOUR-CORRELATION-STATE-STRING}&app_id={YOUR-APP-ID}
+
+Copy
+
+With either approach, Canva returns your `correlation_state` string in the `correlation_jwt`, so you [parse the return URL](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/#step-3-parse-the-return-url) in the same way.
+
+If a URL contains both the `target_state` parameter and these query parameters, the values in the target state take precedence. For more information, see [Use deep links with existing query parameters](https://www.canva.dev/docs/apps/rest-apis/deep-links/#use-deep-links-with-existing-query-parameters).

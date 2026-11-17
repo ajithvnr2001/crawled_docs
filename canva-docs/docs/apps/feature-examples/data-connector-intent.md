@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/feature-examples/data-connector-intent/
 title: Data connector intent - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:45.894540+00:00
+fetched_at: 2026-11-17T18:48:17.925628+00:00
 ---
 
 # Data connector intent - Canva Developers SDK Documentation
@@ -960,7 +960,7 @@ Copy
     
     
     
-    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/examples/data-connector-intent/>.
+    For API reference docs and instructions on running this example, see: <https://www.canva.dev/docs/apps/feature-examples/data-connector-intent/>.
     
     
     
