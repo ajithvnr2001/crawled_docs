@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/deploy-and-operate/
 title: Microsoft Teams + Langchain DeepAgents: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:36.770958+00:00
+fetched_at: 2026-11-17T11:41:03.146309+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Deploy and operate

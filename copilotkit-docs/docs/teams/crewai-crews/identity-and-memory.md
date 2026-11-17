@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/identity-and-memory/
 title: Microsoft Teams + CrewAI Flows: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:38.822169+00:00
+fetched_at: 2026-11-17T11:41:04.311108+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Identity and Memory

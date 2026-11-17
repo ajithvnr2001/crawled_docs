@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/claude-sdk-typescript/threads-and-state/
 title: Microsoft Teams + Claude Agent SDK (TypeScript): Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:40.463632+00:00
+fetched_at: 2026-11-17T11:41:05.349940+00:00
 ---
 
 # Microsoft Teams + Claude Agent SDK (TypeScript): Threads and state

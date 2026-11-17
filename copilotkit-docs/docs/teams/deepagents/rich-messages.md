@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/rich-messages/
 title: Microsoft Teams + Langchain DeepAgents: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.629097+00:00
+fetched_at: 2026-11-17T11:41:02.776065+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Rich messages and components

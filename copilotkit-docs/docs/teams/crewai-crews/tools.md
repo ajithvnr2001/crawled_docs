@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/tools/
 title: Microsoft Teams + CrewAI Flows: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:36.868733+00:00
+fetched_at: 2026-11-17T11:41:03.664596+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Tools and context

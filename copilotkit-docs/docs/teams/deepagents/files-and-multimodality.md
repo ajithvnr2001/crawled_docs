@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/files-and-multimodality/
 title: Microsoft Teams + Langchain DeepAgents: Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:36.521470+00:00
+fetched_at: 2026-11-17T11:41:03.107933+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Files and multimodal input

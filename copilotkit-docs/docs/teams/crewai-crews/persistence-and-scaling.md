@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/persistence-and-scaling/
 title: Microsoft Teams + CrewAI Flows: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:37.201244+00:00
+fetched_at: 2026-11-17T11:41:04.034364+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Persistence and scaling

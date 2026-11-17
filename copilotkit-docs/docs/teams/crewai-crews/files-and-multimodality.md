@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/files-and-multimodality/
 title: Microsoft Teams + CrewAI Flows: Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:38.575258+00:00
+fetched_at: 2026-11-17T11:41:04.523904+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Files and multimodal input

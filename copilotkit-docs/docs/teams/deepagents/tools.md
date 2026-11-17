@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/tools/
 title: Microsoft Teams + Langchain DeepAgents: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.781401+00:00
+fetched_at: 2026-11-17T11:41:01.761039+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Tools and context

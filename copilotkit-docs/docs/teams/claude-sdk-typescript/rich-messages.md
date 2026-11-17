@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/claude-sdk-typescript/rich-messages/
 title: Microsoft Teams + Claude Agent SDK (TypeScript): Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:40.890339+00:00
+fetched_at: 2026-11-17T11:41:05.307680+00:00
 ---
 
 # Microsoft Teams + Claude Agent SDK (TypeScript): Rich messages and components

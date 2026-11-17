@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:39.255149+00:00
+fetched_at: 2026-11-17T11:41:05.209273+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams
@@ -131,7 +131,7 @@ agent.ts
     
     export function makeAgent(threadId: string) {
       const agent = new BuiltInAgent({
-        model: "openai:gpt-5.4-mini",
+        model: "openai:gpt-6-luna",
       });
       agent.threadId = threadId;
       return agent;

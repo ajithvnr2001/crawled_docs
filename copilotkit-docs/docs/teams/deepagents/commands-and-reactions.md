@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/commands-and-reactions/
 title: Microsoft Teams + Langchain DeepAgents: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:36.707679+00:00
+fetched_at: 2026-11-17T11:41:03.505873+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Commands and reactions

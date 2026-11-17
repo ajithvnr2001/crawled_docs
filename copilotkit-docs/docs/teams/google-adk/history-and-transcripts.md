@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/history-and-transcripts/
 title: Microsoft Teams + Google ADK: History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:32.979191+00:00
+fetched_at: 2026-11-17T11:41:01.043853+00:00
 ---
 
 # Microsoft Teams + Google ADK: History and transcripts

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/commands-and-reactions/
 title: Microsoft Teams: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:39.316040+00:00
+fetched_at: 2026-11-17T11:41:05.149424+00:00
 ---
 
 # Microsoft Teams: Commands and reactions

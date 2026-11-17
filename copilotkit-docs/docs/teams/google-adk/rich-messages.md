@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/rich-messages/
 title: Microsoft Teams + Google ADK: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:10.767496+00:00
+fetched_at: 2026-11-17T11:41:00.334569+00:00
 ---
 
 # Microsoft Teams + Google ADK: Rich messages and components

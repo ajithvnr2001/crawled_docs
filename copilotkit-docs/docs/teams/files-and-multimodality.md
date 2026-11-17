@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/files-and-multimodality/
 title: Microsoft Teams: Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.500680+00:00
+fetched_at: 2026-11-17T11:41:01.633777+00:00
 ---
 
 # Microsoft Teams: Files and multimodal input

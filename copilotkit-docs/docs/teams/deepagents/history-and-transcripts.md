@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/history-and-transcripts/
 title: Microsoft Teams + Langchain DeepAgents: History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:36.586631+00:00
+fetched_at: 2026-11-17T11:41:03.186857+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: History and transcripts

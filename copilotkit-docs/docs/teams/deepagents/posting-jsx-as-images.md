@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/posting-jsx-as-images/
 title: Microsoft Teams + Langchain DeepAgents: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:15.511477+00:00
+fetched_at: 2026-11-17T11:41:02.873515+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Posting JSX as images

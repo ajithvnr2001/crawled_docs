@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/agno/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T10:56:03.783055+00:00
+fetched_at: 2026-11-17T11:40:58.863220+00:00
 ---
 
 # Introduction

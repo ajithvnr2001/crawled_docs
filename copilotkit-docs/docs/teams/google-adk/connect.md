@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.906100+00:00
+fetched_at: 2026-11-17T11:41:01.356869+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

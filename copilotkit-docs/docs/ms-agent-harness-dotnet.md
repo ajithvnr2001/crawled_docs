@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/ms-agent-harness-dotnet/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T10:56:01.408614+00:00
+fetched_at: 2026-11-17T11:40:55.839665+00:00
 ---
 
 # Introduction

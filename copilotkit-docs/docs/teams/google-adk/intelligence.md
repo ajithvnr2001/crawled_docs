@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/intelligence/
 title: Microsoft Teams + Google ADK: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:32.512104+00:00
+fetched_at: 2026-11-17T11:41:01.248437+00:00
 ---
 
 # Microsoft Teams + Google ADK: Configure the Channel in Intelligence

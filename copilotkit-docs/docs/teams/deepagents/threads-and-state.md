@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/threads-and-state/
 title: Microsoft Teams + Langchain DeepAgents: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.698708+00:00
+fetched_at: 2026-11-17T11:41:02.647917+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Threads and state

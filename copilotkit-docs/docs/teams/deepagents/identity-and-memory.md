@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/identity-and-memory/
 title: Microsoft Teams + Langchain DeepAgents: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:36.648286+00:00
+fetched_at: 2026-11-17T11:41:02.816184+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Identity and Memory

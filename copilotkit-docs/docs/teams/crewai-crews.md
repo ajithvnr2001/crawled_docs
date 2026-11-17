@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:39.155563+00:00
+fetched_at: 2026-11-17T11:41:05.109603+00:00
 ---
 
 # Microsoft Teams: Channels

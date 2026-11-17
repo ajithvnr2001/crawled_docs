@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/deploy-and-operate/
 title: Microsoft Teams + CrewAI Flows: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:38.638246+00:00
+fetched_at: 2026-11-17T11:41:04.561630+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Deploy and operate

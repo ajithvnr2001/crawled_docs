@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/persistence-and-scaling/
 title: Microsoft Teams + Langchain DeepAgents: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:35.060422+00:00
+fetched_at: 2026-11-17T11:41:02.687206+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Persistence and scaling

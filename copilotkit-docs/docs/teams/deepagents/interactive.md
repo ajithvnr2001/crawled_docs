@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/interactive/
 title: Microsoft Teams + Langchain DeepAgents: Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:35.137811+00:00
+fetched_at: 2026-11-17T11:41:02.735650+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Interactive messages and approvals

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/claude-sdk-typescript/tools/
 title: Microsoft Teams + Claude Agent SDK (TypeScript): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:40.679143+00:00
+fetched_at: 2026-11-17T11:41:05.260469+00:00
 ---
 
 # Microsoft Teams + Claude Agent SDK (TypeScript): Tools and context

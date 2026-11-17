@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/threads-and-state/
 title: Microsoft Teams + Google ADK: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:31:10.817070+00:00
+fetched_at: 2026-11-17T11:40:59.994745+00:00
 ---
 
 # Microsoft Teams + Google ADK: Threads and state

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/rich-messages/
 title: Microsoft Teams + CrewAI Flows: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:37.061702+00:00
+fetched_at: 2026-11-17T11:41:04.077135+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Rich messages and components

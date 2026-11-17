@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/history-and-transcripts/
 title: Microsoft Teams + CrewAI Flows: History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:38.902759+00:00
+fetched_at: 2026-11-17T11:41:04.272453+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: History and transcripts

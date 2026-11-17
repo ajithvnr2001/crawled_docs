@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/threads-and-state/
 title: Microsoft Teams + CrewAI Flows: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:37.131530+00:00
+fetched_at: 2026-11-17T11:41:03.550340+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Threads and state

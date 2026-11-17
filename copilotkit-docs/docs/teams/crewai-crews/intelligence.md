@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/intelligence/
 title: Microsoft Teams + CrewAI Flows: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:38.759736+00:00
+fetched_at: 2026-11-17T11:41:04.178345+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Configure the Channel in Intelligence

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/render-and-carousel/
 title: Microsoft Teams + CrewAI Flows: Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:15.307882+00:00
+fetched_at: 2026-11-17T11:41:03.990137+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Render and carousel

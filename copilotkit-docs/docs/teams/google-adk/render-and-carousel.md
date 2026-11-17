@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/render-and-carousel/
 title: Microsoft Teams + Google ADK: Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:15.378211+00:00
+fetched_at: 2026-11-17T11:41:00.291939+00:00
 ---
 
 # Microsoft Teams + Google ADK: Render and carousel

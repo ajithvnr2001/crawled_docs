@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deepagents/intelligence/
 title: Microsoft Teams + Langchain DeepAgents: Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:35.198021+00:00
+fetched_at: 2026-11-17T11:41:02.605580+00:00
 ---
 
 # Microsoft Teams + Langchain DeepAgents: Configure the Channel in Intelligence

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/posting-jsx-as-images/
 title: Microsoft Teams + CrewAI Flows: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:15.046685+00:00
+fetched_at: 2026-11-17T11:41:04.141712+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Posting JSX as images

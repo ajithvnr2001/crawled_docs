@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.439804+00:00
+fetched_at: 2026-11-17T11:41:01.388355+00:00
 ---
 
 # Microsoft Teams: Channels

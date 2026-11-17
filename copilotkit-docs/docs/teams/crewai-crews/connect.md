@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:39.096285+00:00
+fetched_at: 2026-11-17T11:41:04.623400+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

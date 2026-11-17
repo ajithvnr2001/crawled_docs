@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/deploy-and-operate/
 title: Microsoft Teams: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:34.562897+00:00
+fetched_at: 2026-11-17T11:41:01.672413+00:00
 ---
 
 # Microsoft Teams: Deploy and operate

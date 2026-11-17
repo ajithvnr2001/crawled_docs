@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/interactive/
 title: Microsoft Teams + CrewAI Flows: Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:38.980666+00:00
+fetched_at: 2026-11-17T11:41:04.225776+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Interactive messages and approvals

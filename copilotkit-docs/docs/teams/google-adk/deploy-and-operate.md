@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/deploy-and-operate/
 title: Microsoft Teams + Google ADK: Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:33.041904+00:00
+fetched_at: 2026-11-17T11:41:01.286505+00:00
 ---
 
 # Microsoft Teams + Google ADK: Deploy and operate

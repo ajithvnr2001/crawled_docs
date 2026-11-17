@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/identity-and-memory/
 title: Microsoft Teams + Google ADK: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:32.841570+00:00
+fetched_at: 2026-11-17T11:41:01.163066+00:00
 ---
 
 # Microsoft Teams + Google ADK: Identity and Memory

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/files-and-multimodality/
 title: Microsoft Teams + Google ADK: Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T10:20:32.912875+00:00
+fetched_at: 2026-11-17T11:41:01.119996+00:00
 ---
 
 # Microsoft Teams + Google ADK: Files and multimodal input
