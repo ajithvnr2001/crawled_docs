@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/reference/sensitive-data-detection/
 title: Cloudflare Sensitive Data Detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T08:45:58.319075+00:00
+fetched_at: 2026-11-17T10:23:33.148080+00:00
 ---
 
 # Cloudflare Sensitive Data Detection · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-14T08:45:58.319075+00:00
 
 # Cloudflare Sensitive Data Detection
 
-Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAdditional remarksDeploy the Cloudflare Sensitive Data Detection rulesetConfigure in the dashboard Ruleset-level configuration Tag-level configuration Rule-level configurationConfigure via API Example Next steps More resourcesReview detected leaks
 
@@ -54,7 +54,7 @@ Caution
 
 Sensitive Data Detection does not inspect compressed response bodies. Sensitive data in compressed responses will not generate Sensitive Data Detection events. Do not rely on Sensitive Data Detection for coverage of compressed responses.
 
-Currently, Cloudflare Sensitive Data Detection does not support [matched payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/).
+Currently, Cloudflare Sensitive Data Detection does not support [matched payload logging](https://developers.cloudflare.com/waf/payload-logging/).
 
 * * *
 

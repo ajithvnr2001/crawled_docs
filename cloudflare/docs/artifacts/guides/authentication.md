@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/guides/authentication/
 title: Authentication \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.816779+00:00
+fetched_at: 2026-11-17T10:23:33.977356+00:00
 ---
 
 # Authentication · Cloudflare Artifacts docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.816779+00:00
 
 # Authentication
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCompare auth methodsAuthenticate the Workers bindingAuthenticate the REST APIAuthenticate the Git protocol
 
@@ -30,7 +30,7 @@ Review [Namespaces](https://developers.cloudflare.com/artifacts/concepts/namespa
 
 Interface | Authenticate with | Permissions or scopes | Use for  
 ---|---|---|---  
-Workers binding | Configured `artifacts` binding | Wrangler auth is only for local Wrangler commands such as `dev` and `deploy`. | Worker code that calls `env.ARTIFACTS`  
+Workers binding | Configured `artifacts` binding | Local simulation needs no Cloudflare credentials. Remote development and deployment require Wrangler authentication. | Worker code that calls `env.ARTIFACTS`  
 REST API | Cloudflare API token in `Authorization: Bearer ...` | **Artifacts** > **Read** for read routes and **Artifacts** > **Edit** for write routes. | Control-plane HTTP requests  
 Git protocol | Repo-scoped Artifacts token | `read` for clone, fetch, and pull. `write` for push. | Standard Git over HTTPS  
   
@@ -49,7 +49,7 @@ Add the binding in your Wrangler config:
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-11-17",
       "artifacts": [
         {
           "binding": "ARTIFACTS",
@@ -63,13 +63,13 @@ Add the binding in your Wrangler config:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-17"
     
     [[artifacts]]
     binding = "ARTIFACTS"
     namespace = "default"
 
-At runtime, deployed Workers use the configured binding directly. For local Wrangler commands such as `wrangler dev`, `wrangler deploy`, or `wrangler types`, authenticate Wrangler first. For local OAuth authentication, refer to [`wrangler login`](https://developers.cloudflare.com/workers/wrangler/commands/general/#login). For CI or headless environments, refer to [Running Wrangler in CI/CD](https://developers.cloudflare.com/workers/ci-cd/).
+At runtime, deployed Workers use the configured binding directly. `wrangler dev` with a local Artifacts binding does not require Cloudflare credentials. To deploy or use `remote = true` during development, authenticate Wrangler. For OAuth authentication, refer to [`wrangler login`](https://developers.cloudflare.com/workers/wrangler/commands/general/#login). For CI or headless environments, refer to [Running Wrangler in CI/CD](https://developers.cloudflare.com/workers/ci-cd/). For the local Git prerequisite, refer to [Local development](https://developers.cloudflare.com/artifacts/guides/local-development/).
 
 ## Authenticate the REST API
 
@@ -123,7 +123,7 @@ Use a write token to push:
 
 For more information on token handling and authenticated remotes, refer to [Git protocol](https://developers.cloudflare.com/artifacts/api/git-protocol/).
 
-[PreviousREST API](https://developers.cloudflare.com/artifacts/get-started/rest-api/)[NextImport repositories](https://developers.cloudflare.com/artifacts/guides/import-repositories/)
+[PreviousREST API](https://developers.cloudflare.com/artifacts/get-started/rest-api/)[NextLocal development](https://developers.cloudflare.com/artifacts/guides/local-development/)
 
 Was this helpful?
 

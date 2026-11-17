@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/guides/
 title: Guides \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:21.290898+00:00
+fetched_at: 2026-11-17T10:23:33.881041+00:00
 ---
 
 # Guides · Cloudflare Artifacts docs
@@ -11,17 +11,19 @@ fetched_at: 2026-10-08T07:05:21.290898+00:00
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Artifacts](https://developers.cloudflare.com/artifacts/)
-  3. /Guides
+  3. /[Artifacts](https://developers.cloudflare.com/artifacts/)
+  4. /Guides
 
 
 
 # Guides
 
-Last updated Aug 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/guides/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-In-depth guides for using Artifacts in production, including how Artifacts authenticates clients, imports existing Git repos, and mounts large repos within sandboxes.
+Guides for local development and deployed Artifacts, including authentication, imports, and mounting large repos within sandboxes.
 
   * [Authentication](https://developers.cloudflare.com/artifacts/guides/authentication/)
+  * [Local development](https://developers.cloudflare.com/artifacts/guides/local-development/)
   * [Import repositories](https://developers.cloudflare.com/artifacts/guides/import-repositories/)
   * [ArtifactFS](https://developers.cloudflare.com/artifacts/guides/artifact-fs/)
   * [Event subscriptions](https://developers.cloudflare.com/artifacts/guides/event-subscriptions/)

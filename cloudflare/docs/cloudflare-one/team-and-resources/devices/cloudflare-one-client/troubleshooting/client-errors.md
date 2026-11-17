@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/client-errors/
 title: Client errors \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:02.628585+00:00
+fetched_at: 2026-11-17T10:23:33.804213+00:00
 ---
 
 # Client errors · Cloudflare One docs
@@ -22,9 +22,9 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Client errors
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCF_CAPTIVE_PORTAL_TIMED_OUT Symptoms Cause ResolutionCF_CONNECTIVITY_FAILURE_UNKNOWN Symptoms Cause ResolutionCF_DNS_LOOKUP_FAILURE Symptoms Cause ResolutionCF_DNS_PROXY_FAILURE Symptoms Cause ResolutionCF_FAILED_READ_SYSTEM_DNS_CONFIG Symptoms Cause ResolutionCF_FAILED_TO_SET_MTLS Symptoms Cause ResolutionCF_HAPPY_EYEBALLS_MITM_FAILURE Symptoms Cause ResolutionCF_HOST_UNREACHABLE_CHECK Symptoms Cause ResolutionCF_INSUFFICIENT_DISK Symptoms Cause ResolutionCF_INSUFFICIENT_FILE_DESCRIPTORS Symptoms Cause ResolutionCF_INSUFFICIENT_MEMORY Symptoms Cause ResolutionCF_LOCAL_POLICY_FILE_FAILED_TO_PARSE Symptoms Cause ResolutionCF_NO_NETWORK Symptoms Cause ResolutionCF_REGISTRATION_MISSING Symptoms Cause Resolution CF_REGISTRATION_MISSING (Revoked)CF_TLS_INTERCEPTION_BLOCKING_DOH Symptoms Cause ResolutionCF_TLS_INTERCEPTION_CHECK Symptoms Cause ResolutionAdmin directed disconnect Symptoms Cause Resolution
+OverviewCF_CAPTIVE_PORTAL_TIMED_OUT Symptoms Cause ResolutionCF_CONNECTIVITY_FAILURE_UNKNOWN Symptoms Cause ResolutionCF_DNS_LOOKUP_FAILURE Symptoms Cause ResolutionCF_DNS_PROXY_FAILURE Symptoms Cause ResolutionCF_FAILED_READ_SYSTEM_DNS_CONFIG Symptoms Cause ResolutionCF_FAILED_TO_SET_MTLS Symptoms Cause ResolutionCF_HAPPY_EYEBALLS_MITM_FAILURE Symptoms Cause ResolutionCF_HOST_UNREACHABLE_CHECK Symptoms Cause ResolutionCF_INSUFFICIENT_DISK Symptoms Cause ResolutionCF_INSUFFICIENT_FILE_DESCRIPTORS Symptoms Cause ResolutionCF_INSUFFICIENT_MEMORY Symptoms Cause ResolutionCF_LOCAL_POLICY_FILE_FAILED_TO_PARSE Symptoms Cause ResolutionCF_NO_NETWORK Symptoms Cause ResolutionCF_REGISTRATION_MISSING Symptoms Cause Resolution CF_REGISTRATION_MISSING (Revoked)CF_SERVICE_CONNECTION_LOST Symptoms Cause ResolutionCF_SERVICE_NOT_ACCEPTING Symptoms Cause ResolutionCF_SERVICE_NOT_RESPONDING Symptoms Cause ResolutionCF_SERVICE_NOT_RUNNING Symptoms Cause ResolutionCF_TLS_INTERCEPTION_BLOCKING_DOH Symptoms Cause ResolutionCF_TLS_INTERCEPTION_CHECK Symptoms Cause ResolutionAdmin directed disconnect Symptoms Cause ResolutionRestart the client service
 
 This page lists the error codes that can appear in the Cloudflare One Client (formerly WARP) GUI. If you do not see your error below, refer to [common issues](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/common-issues/) or [contact Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).
 
@@ -379,6 +379,93 @@ Your device was unenrolled from your company's [organization](https://developers
 
 Contact your company or team administrator for assistance.
 
+## CF_SERVICE_CONNECTION_LOST
+
+### Symptoms
+
+  * The Cloudflare One Client GUI shows **Reconnecting to service**
+  * Unable to view or change the client status from the GUI
+
+
+
+### Cause
+
+The Cloudflare One Client GUI lost its connection to the Cloudflare One Client service on the device. This is usually temporary, for example while the service restarts.
+
+### Resolution
+
+The GUI reconnects automatically. No action is needed if the error clears on its own.
+
+If the GUI cannot reconnect, it shows one of the following errors instead. Follow the resolution for that error.
+
+  * CF_SERVICE_NOT_ACCEPTING
+  * CF_SERVICE_NOT_RESPONDING
+  * CF_SERVICE_NOT_RUNNING
+
+
+
+## CF_SERVICE_NOT_ACCEPTING
+
+### Symptoms
+
+  * The Cloudflare One Client GUI shows **Service not accepting connections**
+  * Unable to view or change the client status from the GUI
+
+
+
+### Cause
+
+The Cloudflare One Client service is running, but it is not accepting connections from the GUI. This can happen for a short time while the service starts.
+
+### Resolution
+
+  1. Wait one minute. The GUI keeps trying to connect to the service.
+  2. If the error does not clear, restart the client service.
+  3. If this does not resolve the error, restart your device.
+
+
+
+## CF_SERVICE_NOT_RESPONDING
+
+### Symptoms
+
+  * The Cloudflare One Client GUI shows **Service not responding**
+  * Unable to view or change the client status from the GUI
+
+
+
+### Cause
+
+The Cloudflare One Client GUI connected to the Cloudflare One Client service, but the service did not respond in time.
+
+### Resolution
+
+  1. Restart the client service.
+  2. If this does not resolve the error, restart your device.
+
+
+
+## CF_SERVICE_NOT_RUNNING
+
+### Symptoms
+
+  * The Cloudflare One Client GUI shows **Service not running**
+  * Unable to view or change the client status from the GUI
+
+
+
+### Cause
+
+The Cloudflare One Client service is not running on the device. For example, the service was stopped or failed to start.
+
+### Resolution
+
+  1. Start the client service.
+  2. If the service does not start, restart your device.
+  3. If this does not resolve the error, [reinstall the Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/download/).
+
+
+
 ## CF_TLS_INTERCEPTION_BLOCKING_DOH
 
 ### Symptoms
@@ -426,6 +513,31 @@ The account administrator has disconnected the Cloudflare One Client for all dev
 ### Resolution
 
 The account administrator must turn off both of the following features: - [Disconnect the Cloudflare One Client on all devices](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#disconnect-the-cloudflare-one-client-on-all-devices) \- [Manage device connection using an external signal](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#manage-device-connection-using-an-external-signal)
+
+## Restart the client service
+
+To restart the Cloudflare One Client service, run the command for your operating system as an administrator. The command also starts the service if it is stopped.
+    
+    
+    sudo launchctl kickstart -k system/com.cloudflare.1dot1dot1dot1.macos.warp.daemon
+
+If the command returns `Could not find service`, load the service instead. The service starts when it loads.
+    
+    
+    sudo launchctl enable system/com.cloudflare.1dot1dot1dot1.macos.warp.daemon
+    sudo launchctl bootstrap system /Library/LaunchDaemons/com.cloudflare.1dot1dot1dot1.macos.warp.daemon.plist
+
+In an elevated PowerShell window, run:
+    
+    
+    Restart-Service -Name CloudflareWARP
+
+Alternatively, restart the **Cloudflare One Client** service in the Windows **Services** app.
+
+If [uninstall protection](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/uninstall-protection/) is on, you cannot stop or restart the service. Restart your device instead.
+    
+    
+    sudo systemctl restart warp-svc
 
 [PreviousCommon issues](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/common-issues/)[NextDiagnostic logs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/diagnostic-logs/)
 

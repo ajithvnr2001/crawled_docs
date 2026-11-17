@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/insights/dex/tests/view-results/
 title: View test results \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:50.647942+00:00
+fetched_at: 2026-11-17T10:23:34.776749+00:00
 ---
 
 # View test results · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:50.647942+00:00
 
 # View test results
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/insights/dex/tests/view-results/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesView results for all devicesView results for an individual deviceExport DEX application test logsRelated resources
 
@@ -31,7 +31,7 @@ Use the results of a Digital Experience Monitoring (DEX) test to monitor availab
 ## Prerequisites
 
   * At least one [test](https://developers.cloudflare.com/cloudflare-one/insights/dex/tests/) has been created under **DEX** > **Tests**.
-  * Admins must have at least the [Cloudflare Zero Trust Reporting role](https://developers.cloudflare.com/cloudflare-one/roles-permissions/#zero-trust-roles).
+  * Admins must have at least the [Cloudflare Zero Trust Reporting role](https://developers.cloudflare.com/cloudflare-one/roles-permissions/#account-scoped-zero-trust-roles).
 
 
 

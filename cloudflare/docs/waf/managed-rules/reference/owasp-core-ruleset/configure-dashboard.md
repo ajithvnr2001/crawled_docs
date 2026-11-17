@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/configure-dashboard/
 title: Configure the OWASP ruleset in the dashboard \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:45.117157+00:00
+fetched_at: 2026-11-17T10:23:33.266379+00:00
 ---
 
 # Configure the OWASP ruleset in the dashboard · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:45.117157+00:00
 
 # Configure in the dashboard
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/configure-dashboard/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy the Cloudflare OWASP Core RulesetConfigure in the dashboard Ruleset-level configuration Tag-level configuration Rule-level configuration
 
@@ -77,7 +77,7 @@ You can configure (or override) the following Cloudflare OWASP Core Ruleset sett
     * _Medium - 40 and higher_ (default)
     * _High - 25 and higher_
   * **OWASP action** : The action to perform when the calculated [request threat score](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/concepts/#request-threat-score) is greater than the [score threshold](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/concepts/#score-threshold). The available actions are: _Block_ , _Log_ , _Non-Interactive Challenge_ , _Managed Challenge_ , and _Interactive Challenge_.
-  * **[Payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/configure/)** : When enabled, logs the request information (payload) that triggered a specific rule of the managed ruleset. You must configure a public key to encrypt the payload.
+  * **[Payload logging](https://developers.cloudflare.com/waf/payload-logging/configure/)** : When enabled, logs the request information (payload) that triggered a specific rule of the managed ruleset. You must configure a public key to encrypt the payload.
 
 
 

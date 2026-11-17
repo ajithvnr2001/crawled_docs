@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/reference/exposed-credentials-check/
 title: Cloudflare Exposed Credentials Check Managed Ruleset \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:44.491200+00:00
+fetched_at: 2026-11-17T10:23:33.309277+00:00
 ---
 
 # Cloudflare Exposed Credentials Check Managed Ruleset · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:44.491200+00:00
 
 # Cloudflare Exposed Credentials Check Managed Ruleset
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/managed-rules/reference/exposed-credentials-check/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure in the dashboardConfigure via API Example Next steps More resources
 
@@ -71,7 +71,7 @@ You can configure the following settings of the Cloudflare Exposed Credentials C
   * **Override the action performed by individual rules.** The available actions are: _Exposed-Credential-Check Header_ , _Block_ , _Log_ , _Non-Interactive Challenge_ , _Managed Challenge_ , and _Interactive Challenge_. For more information, refer to [Available actions](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/#available-actions).
   * **Disable specific rules.**
   * **Customize the filter expression.** With a custom expression, the Cloudflare Exposed Credentials Check Managed Ruleset applies only to a subset of the incoming requests.
-  * **Configure[payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/configure/)**.
+  * **Configure[payload logging](https://developers.cloudflare.com/waf/payload-logging/configure/)**.
 
 
 
@@ -210,7 +210,7 @@ For more information, refer to [Create a custom rule checking for exposed creden
 
 For more information on working with managed rulesets via API, refer to [Work with managed rulesets](https://developers.cloudflare.com/ruleset-engine/managed-rulesets/) in the Ruleset Engine documentation.
 
-[PreviousConfigure in Terraform ↗︎](https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/#configure-the-owasp-paranoia-level-score-threshold-and-action)[NextCloudflare Sensitive Data Detection](https://developers.cloudflare.com/waf/managed-rules/reference/sensitive-data-detection/)
+[PreviousConfigure via API](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/configure-api/)[NextCloudflare Sensitive Data Detection](https://developers.cloudflare.com/waf/managed-rules/reference/sensitive-data-detection/)
 
 Was this helpful?
 

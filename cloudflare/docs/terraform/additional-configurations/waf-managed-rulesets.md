@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/
 title: WAF Managed Rules configuration using Terraform \u00b7 Cloudflare Terraform docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:00.441644+00:00
+fetched_at: 2026-11-17T10:23:33.423184+00:00
 ---
 
 # WAF Managed Rules configuration using Terraform · Cloudflare Terraform docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:00.441644+00:00
 
 # WAF Managed Rules configuration using Terraform
 
-Last updated Apr 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start Obtain the necessary account, zone, and managed ruleset IDs Import or delete existing rulesetsDeploy managed rulesets at the zone levelDeploy managed rulesets at the account levelConfigure exceptionsConfigure overridesConfigure payload loggingConfigure the OWASP paranoia level, score threshold, and action
 
@@ -418,7 +418,7 @@ The following configuration includes the three overrides in the rule that execut
 
 ## Configure payload logging
 
-This example enables [payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/) for matched rules of the Cloudflare Managed Ruleset, setting the public key used to encrypt the logged payload.
+This example enables [payload logging](https://developers.cloudflare.com/waf/payload-logging/) for matched rules of the Cloudflare Managed Ruleset, setting the public key used to encrypt the logged payload.
 
 Building upon the rule that deploys the Cloudflare Managed Ruleset, the following rule configuration adds the `matched_data` object with the public key used to encrypt the payload:
     

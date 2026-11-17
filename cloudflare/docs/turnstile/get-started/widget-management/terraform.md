@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/widget-management/terraform/
 title: Create and manage widgets using Terraform \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:07.305412+00:00
+fetched_at: 2026-11-17T10:23:34.151573+00:00
 ---
 
 # Create and manage widgets using Terraform · Cloudflare Turnstile docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:07.305412+00:00
 
 # Create and manage widgets using Terraform
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/widget-management/terraform/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSetup 1\. Configure provider 2\. Define widgets 3\. Environment variablesTerraform commands Initialize and plan Manage changesAdvanced Terraform configuration Multiple environments Widget with Enterprise featuresImport existing widgets
 
@@ -92,6 +92,16 @@ Terraform code snippets below refer to the v4 SDK only.
       region     = "world"
     }
     
+    # To create a China domain widget, set region = "china".
+    # You cannot change a widget's region after creation.
+    resource "cloudflare_turnstile_widget" "china_domain_widget" {
+      account_id = var.account_id
+      name       = "Widget for China Domains"
+      domains    = ["example.cn"]
+      mode       = "managed"
+      region     = "china"
+    }
+    
     # Output the sitekeys for use in your application
     output "login_sitekey" {
       value = cloudflare_turnstile_widget.login_form.sitekey
@@ -99,6 +109,10 @@ Terraform code snippets below refer to the v4 SDK only.
     
     output "api_sitekey" {
       value = cloudflare_turnstile_widget.api_protection.sitekey
+    }
+    
+    output "china_sitekey" {
+      value = cloudflare_turnstile_widget.china_domain_widget.sitekey
     }
 
 ### 3\. Environment variables

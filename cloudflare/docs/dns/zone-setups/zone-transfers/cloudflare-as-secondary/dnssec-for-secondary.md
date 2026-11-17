@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/dnssec-for-secondary/
 title: DNSSEC for Secondary DNS \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:04.976345+00:00
+fetched_at: 2026-11-17T10:23:35.108557+00:00
 ---
 
 # DNSSEC for Secondary DNS · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:11:04.976345+00:00
 
 # DNSSEC options
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/dnssec-for-secondary/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up multi-signer DNSSECSet up live signing DNSSECSet up pre-signed DNSSEC Prerequisites StepsTroubleshoot pre-signed DNSSEC Verify that Cloudflare is serving pre-signed records If Cloudflare is live-signing instead of serving pre-signed records
 
@@ -33,6 +33,10 @@ OverviewSet up multi-signer DNSSECSet up live signing DNSSECSet up pre-signed DN
   * **Pre-signed** : Your primary DNS provider signs records and transfers out the signatures. Cloudflare then serves these records and signatures as is, without doing any signing. By default, Cloudflare uses [NSEC records ↗︎](https://www.cloudflare.com/dns/dnssec/how-dnssec-works/) and not NSEC3 - refer to [NSEC3 support](https://developers.cloudflare.com/dns/dnssec/enable-nsec3/) if needed. Also, Pre-signed DNSSEC does not support [Secondary DNS Overrides](https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/proxy-traffic/) nor [Load Balancing](https://developers.cloudflare.com/load-balancing/).
 
 
+
+Note
+
+If Secondary DNS Override is enabled, you must use Live Signing. Pre-signed zones cannot serve proxied, Spectrum, or Load Balancing.
 
 * * *
 

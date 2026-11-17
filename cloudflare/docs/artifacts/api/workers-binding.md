@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/api/workers-binding/
 title: Workers binding \u00b7 Artifacts \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:20.392569+00:00
+fetched_at: 2026-11-17T10:23:34.240978+00:00
 ---
 
 # Workers binding · Artifacts · Cloudflare Artifacts docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:20.392569+00:00
 
 # Workers binding
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/api/workers-binding/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure the bindingNamespace methods create(name, opts?) get(name) list(opts?) import(params) delete(name)Repository capability methods info() createToken(scope?, ttl?) listTokens() revokeToken(tokenOrId) fork(name, opts?) log(opts?) readCommit(hash) readTree(hash) readBlob(hash) readFile(args)Worker exampleGenerated typesNext steps
 
@@ -45,7 +45,7 @@ Add the Artifacts binding to your Wrangler config file:
     [[artifacts]]
     binding = "ARTIFACTS"
     namespace = "default" # replace with your Artifacts namespace
-    # remote = true # optional: use the remote Artifacts service in local dev
+    # Set remote = true to use deployed Artifacts during local development.
 
 After you run `npx wrangler types`, your Worker environment looks like this:
     
@@ -54,7 +54,7 @@ After you run `npx wrangler types`, your Worker environment looks like this:
     	ARTIFACTS: Artifacts;
     }
 
-Wrangler generates the `Artifacts` type for consumers and binds it directly in your environment.
+Wrangler generates the `Artifacts` type for consumers and binds it directly in your environment. In local development, omitting `remote` or setting `remote = false` uses the local simulator. Set `remote = true` to reach the deployed service. For the local Git prerequisite, storage boundaries, and setup instructions, refer to [Local development](https://developers.cloudflare.com/artifacts/guides/local-development/).
 
 Note
 

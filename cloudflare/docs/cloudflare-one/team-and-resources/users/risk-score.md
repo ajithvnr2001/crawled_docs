@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/
 title: User risk score \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:46.882102+00:00
+fetched_at: 2026-11-17T10:23:34.087007+00:00
 ---
 
 # User risk score · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources
 
 # Risk score
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUser risk scoring View a user's risk score Clear a user's risk score Send risk score to OktaPredefined risk behaviorsManage risk behaviors Enable risk behaviors Disable risk behaviors Change risk behavior risk levelsUse risk scores in Access policies Example: Block high-risk users
 
@@ -105,6 +105,7 @@ Interaction with Malicious File | [Gateway AV scanning](https://developers.cloud
 Suspicious Security Domain Visited | [Gateway DNS policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/) | User visits a domain categorized as a security risk or security threat. Refer to [domain categories](https://developers.cloudflare.com/cloudflare-one/traffic-controls/domain-categories/) for the full list. Risk is elevated even if the traffic is blocked. | Evaluated per-request in milliseconds.  
 High Risk Domain Visited | [Gateway DNS policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/) | User visits a domain categorized as questionable content, violence, or CIPA. Refer to [domain categories](https://developers.cloudflare.com/cloudflare-one/traffic-controls/domain-categories/) for the full list. Risk is elevated even if the traffic is blocked. | Evaluated per-request in milliseconds.  
 New Domain Visited with Rapidly Changing IPs | [Gateway DNS policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/) | User visits a domain where the returned IP address changes rapidly. Threat actors can use this pattern to make malicious infrastructure harder to track and take down. | Evaluated per-request in milliseconds.  
+Periodic Beaconing Traffic | [Gateway HTTP policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/) | User contacts the same destination more than 30 times in six hours at steady intervals from 10 seconds to about 12 minutes, while few other users contact it. Uses behavior only, without threat intelligence, categories, or reputation. Events are informational leads, not verdicts that a destination is a command-and-control (C2) server. Default risk level: Info. | Events usually arrive 3 to 6 hours after the six-hour window closes. A continuing beacon is reported once.  
   
 ## Manage risk behaviors
 

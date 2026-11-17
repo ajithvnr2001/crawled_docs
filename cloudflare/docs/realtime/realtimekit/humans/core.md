@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/humans/core/
 title: Build using Core SDK \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:40.271880+00:00
+fetched_at: 2026-11-17T10:23:35.359183+00:00
 ---
 
 # Build using Core SDK · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-20T06:56:40.271880+00:00
 
 # Build using Core SDK
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Initialize Core SDK Advanced Options
 
@@ -289,6 +289,7 @@ Option | Description | Type | Required
 ---|---|---|---  
 **video** | Should video be enabled by default | `boolean` | false  
 **audio** | Should audio be enabled by default | `boolean` | false  
+**viewMode** | Sets the initial view mode for Web Core 2.1.0 or later; retained across reconnects | `"ACTIVE_GRID" | "PAGINATED" | "MANUAL"` | false  
 **mediaConfiguration** | Allows you to pass custom media quality constraints | `MediaConfiguration` | false  
 **autoSwitchAudioDevice** | Automatically switch to a newly plugged microphone or speaker | `boolean` | false  
 **isNonPreferredDevice** | Allows you to set specific devices as "not preferred" | `(device: MediaDeviceInfo) => boolean` | false  
@@ -344,6 +345,7 @@ Reference for the types:
     interface DefaultOptions {
     	video?: boolean;
     	audio?: boolean;
+    	viewMode?: "ACTIVE_GRID" | "PAGINATED" | "MANUAL"; // Web Core 2.1.0 or later.
     	mediaConfiguration?: MediaConfiguration;
     	isNonPreferredDevice?: (device: MediaDeviceInfo) => boolean;
     	autoSwitchAudioDevice?: boolean;

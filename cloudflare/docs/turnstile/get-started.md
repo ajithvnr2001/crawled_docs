@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/
 title: Get started \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:06.664873+00:00
+fetched_at: 2026-11-17T10:23:34.397389+00:00
 ---
 
 # Get started · Cloudflare Turnstile docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:16:06.664873+00:00
 
 # Get started
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisitesProcessImplementation 1\. Create your widget 2\. Embed the widget 3\. Validate tokensAdditional implementation options Mobile configuration Migration from other CAPTCHAsSecurity requirementsBest practices Security Operational
+OverviewPrerequisitesProcessImplementation 1\. Create your widget 2\. Embed the widget 3\. Validate tokensAdditional implementation options Turnstile in China Mobile configuration Migration from other CAPTCHAsSecurity requirementsBest practices Security Operational
 
 Turnstile protects your website forms from bots. It works in two steps: a JavaScript widget runs challenges in the visitor's browser and produces a token, then your server sends that token to Cloudflare to confirm it is valid. This guide covers how to set up both steps.
 
@@ -78,6 +78,8 @@ Follow the steps below to implement Turnstile.
 
 First, you must create a Turnstile widget to get your sitekey and secret key.
 
+Select your widget's **region** when you create it. You cannot change its region after creation.
+
 Select your preferred implementation method:
 
 [Cloudflare dashboard](https://developers.cloudflare.com/turnstile/get-started/widget-management/dashboard/) [API](https://developers.cloudflare.com/turnstile/get-started/widget-management/api/) [Terraform](https://developers.cloudflare.com/turnstile/get-started/widget-management/terraform/)
@@ -107,6 +109,12 @@ You can test the dummy token generated with testing sitekey via Siteverify API w
 Refer to [Testing](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) for more information.
 
 ## Additional implementation options
+
+### Turnstile in China
+
+Turnstile in China serves challenges and validates tokens through endpoints within China. Contact your account team to add access for your account.
+
+For Cloudflare customers on the China Network, China-native challenge pages require no configuration changes.
 
 ### Mobile configuration
 

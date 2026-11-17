@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-settings/
 title: DLP settings \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:32.073886+00:00
+fetched_at: 2026-11-17T10:23:33.618546+00:00
 ---
 
 # DLP settings · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:08:32.073886+00:00
 
 # DLP settings
 
-Last updated Apr 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-settings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOptical Character Recognition (OCR)AI context analysisPayload encryption key Generate a key pair Upload the public key to CloudflarePayload log maskingMigrate from profile-level settings
 
@@ -66,7 +66,7 @@ Before you begin logging DLP payloads, you will need to set a DLP payload encryp
 
 You will generate two keys: a public key (uploaded to Cloudflare to encrypt log data) and a private key (kept by you to decrypt log data later).
 
-To generate a public/private key pair in the command line, refer to [Generate a key pair](https://developers.cloudflare.com/waf/managed-rules/payload-logging/command-line/generate-key-pair/).
+To generate a public/private key pair in the command line, refer to [Generate a key pair](https://developers.cloudflare.com/waf/payload-logging/command-line/generate-key-pair/).
 
 ### Upload the public key to Cloudflare
 
@@ -119,7 +119,7 @@ To migrate:
 
 
 
-[PreviousPredefined detection entries](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/detection-entries/predefined-detection-entries/)[NextPassive Detection](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/passive-detection/)
+[PreviousValidate data loss prevention matches with Cloudflare Workers](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/detection-entries/custom-validation-workers/)[NextCreate DLP policies](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-policies/)
 
 Was this helpful?
 

@@ -3,8 +3,5 @@
   "file": "dns/zone-setups/full-setup/setup.md",
   "title": "Change your nameservers (Full setup) \u00b7 Cloudflare DNS docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:11:02.770592+00:00",
-  "html_len": 198491,
-  "md_len": 20186,
-  "depth": 0
+  "fetched_at": "2026-11-17T10:23:35.007728+00:00"
 }

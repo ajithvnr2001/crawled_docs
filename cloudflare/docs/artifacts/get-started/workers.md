@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/get-started/workers/
 title: Get started - Workers \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:01.293526+00:00
+fetched_at: 2026-11-17T10:23:34.021287+00:00
 ---
 
 # Get started - Workers · Cloudflare Artifacts docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:01.293526+00:00
 
 # Workers
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/get-started/workers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up with your coding agentPrerequisites1\. Create a Worker project2\. Add the Artifacts binding3\. Write your Worker4\. Invoke your Worker to create a repo5\. Push your first commit with git6\. Pull the repo with a regular Git client7\. Deploy your WorkerNext steps
 
@@ -51,10 +51,10 @@ For supported Node.js versions, refer to the [Wrangler system requirements](http
 
 You also need:
 
-  * Wrangler installed. If you use local Wrangler commands in this guide, authenticate Wrangler first. For local OAuth authentication or CI setup, refer to [`wrangler login`](https://developers.cloudflare.com/workers/wrangler/commands/general/#login) and [Running Wrangler in CI/CD](https://developers.cloudflare.com/workers/ci-cd/).
-  * Access to Artifacts on the [Workers Paid plan](https://developers.cloudflare.com/artifacts/platform/pricing/).
+  * Wrangler installed. You do not need Cloudflare credentials to develop with Artifacts locally. Authenticate Wrangler before you deploy or use a remote binding. For local OAuth authentication or CI setup, refer to [`wrangler login`](https://developers.cloudflare.com/workers/wrangler/commands/general/#login) and [Running Wrangler in CI/CD](https://developers.cloudflare.com/workers/ci-cd/).
+  * Access to Artifacts on the [Workers Paid plan](https://developers.cloudflare.com/artifacts/platform/pricing/) for the deployment step.
   * A namespace name, for example `default`.
-  * A local `git` client.
+  * Git 2.32 or newer installed on your development machine and available on `PATH`. The local simulator checks the Git version at startup.
   * `jq`, if you want to extract response fields automatically.
 
 
@@ -97,7 +97,7 @@ Open your Wrangler config file and add the Artifacts binding:
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-23",
+      "compatibility_date": "2026-11-17",
       "artifacts": [
         {
           "binding": "ARTIFACTS",
@@ -111,14 +111,14 @@ Open your Wrangler config file and add the Artifacts binding:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-11-17"
     
     [[artifacts]]
     binding = "ARTIFACTS"
     namespace = "default"
-    # Set remote = true if you want Wrangler to use the remote Artifacts service in local dev.
+    # To use deployed Artifacts during local development, set remote = true.
 
-This exposes Artifacts as `env.ARTIFACTS` inside your Worker.
+This exposes Artifacts as `env.ARTIFACTS` inside your Worker. During local development, an omitted `remote` setting uses local storage. Set `remote = true` only if you want to use deployed Artifacts. Local and deployed repos do not synchronize. For prerequisites, persistence, and migration from implicit remote bindings, refer to [Local development](https://developers.cloudflare.com/artifacts/guides/local-development/).
 
 If you are using TypeScript, regenerate your local binding types:
 
@@ -236,13 +236,13 @@ Your Worker will call `env.ARTIFACTS.create()` and return three values you will 
     
     {
     	"name": "starter-repo",
-    	"remote": "https://<ACCOUNT_ID>.artifacts.cloudflare.net/git/default/starter-repo.git",
-    	"token": "art_v1_0123456789abcdef0123456789abcdef01234567?expires=1760000000"
+    	"remote": "http://127.0.0.1:<PORT>/git/default/starter-repo.git",
+    	"token": "<REPO_TOKEN>"
     }
 
   * `name`: the repo name. Must be unique within the namespace.
-  * `remote`: the Git remote URL for this repo. `<ACCOUNT_ID>` will be your actual Cloudflare account ID.
-  * `token`: a short-lived credential for Git operations. The token encodes its expiry directly in the `?expires=` suffix as a Unix timestamp.
+  * `remote`: the local Git URL. Use the returned port rather than copying the placeholder. A deployed Worker instead returns an HTTPS URL for your account.
+  * `token`: a repo-scoped credential for Git operations. Keep its full value private.
 
 
 
@@ -250,7 +250,8 @@ Copy the `remote` and `token` values into local shell variables:
     
     
     export ARTIFACTS_REMOTE="<PASTE_REMOTE_FROM_RESPONSE>"
-    export ARTIFACTS_TOKEN="<PASTE_TOKEN_FROM_RESPONSE>"
+    read -rs ARTIFACTS_TOKEN # Paste the token without saving it in your shell history.
+    printf '\n'
     
     
     RESPONSE=$(curl --silent http://localhost:8787/repos \
@@ -276,12 +277,7 @@ In the previous step, your Worker created an empty Artifacts repo. Now you will 
 
 The `-c http.extraHeader` flag passes the token as a request header, which keeps it out of your Git config and shell history.
 
-If you need a self-contained remote URL for a short-lived command, build one from the token secret instead:
-    
-    
-    export ARTIFACTS_TOKEN_SECRET="${ARTIFACTS_TOKEN%%\?expires=*}"
-    export ARTIFACTS_AUTH_REMOTE="https://x:${ARTIFACTS_TOKEN_SECRET}@${ARTIFACTS_REMOTE#https://}"
-    git push "$ARTIFACTS_AUTH_REMOTE" HEAD:main
+For other authentication options, refer to [Git protocol](https://developers.cloudflare.com/artifacts/api/git-protocol/).
 
 ## 6\. Pull the repo with a regular Git client
 
@@ -294,10 +290,7 @@ Clone the same repo into a second directory:
 
 You should see the commit you pushed in the previous step.
 
-You can also clone with a self-contained remote URL for a short-lived command:
-    
-    
-    git clone "$ARTIFACTS_AUTH_REMOTE" artifacts-clone
+The local Git port is saved with your local state and reused after a dev-server restart. If it changes because another process took it, use the new `remote` URL returned by your Worker.
 
 ## 7\. Deploy your Worker
 
@@ -322,6 +315,10 @@ npmyarnpnpm
 Wrangler prints your `workers.dev` URL. Use the same `curl` request against that URL to create additional repos from production.
 
 ## Next steps
+
+### [Local development](https://developers.cloudflare.com/artifacts/guides/local-development/)
+
+Configure local Artifacts, persistence, Git, and explicit remote opt-in.
 
 ### [Workers binding reference](https://developers.cloudflare.com/artifacts/api/workers-binding/)
 

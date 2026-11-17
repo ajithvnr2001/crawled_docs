@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/log-mode-vs-production-mode/
 title: Log mode versus production mode \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:40.085504+00:00
+fetched_at: 2026-11-17T10:23:33.525643+00:00
 ---
 
 # Log mode versus production mode · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:40.085504+00:00
 
 # Log mode versus production mode
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/log-mode-vs-production-mode/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewComparisonProduction modeLog mode Enable log modeRecommended workflow
 
@@ -33,7 +33,7 @@ AI Security for Apps can operate in two distinct modes. Understanding the trade-
 Feature | Production mode | Log mode  
 ---|---|---  
 **How it works** | You write WAF [custom rules](https://developers.cloudflare.com/waf/custom-rules/) using AI Security for Apps detection fields | You enable the AI Security Log Mode Ruleset with pre-built rules  
-**Prompt logging** | No — only request metadata is logged | Yes — the full request body is logged (encrypted via [payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/))  
+**Prompt logging** | No — only request metadata is logged | Yes — the full request body is logged (encrypted via [payload logging](https://developers.cloudflare.com/waf/payload-logging/))  
 **Response logging** | No — use [AI Gateway](https://developers.cloudflare.com/ai-gateway/) if response visibility is required | No — same limitation  
 **Policy flexibility** | Full — combine injection scores, PII categories, bot scores, custom topics, and more | Limited — three fixed rules (PII detected, unsafe topic detected, prompt injection detected) with no score-based or subcategory logic  
 **Blocking behavior** | Customizable — issue custom responses including custom JSON | Default WAF block page only  
@@ -64,7 +64,7 @@ Log mode uses the AI Security Log Mode Ruleset — a pre-built ruleset that logs
 In log mode:
 
   * The managed ruleset fires on three broad conditions: PII detected, unsafe topic detected, and prompt injection detected.
-  * The entire request body is logged using [payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/) (encrypted — you must configure a key pair to decrypt payloads).
+  * The entire request body is logged using [payload logging](https://developers.cloudflare.com/waf/payload-logging/) (encrypted — you must configure a key pair to decrypt payloads).
   * You can correlate specific prompts with their detection scores to understand how the model classifies your traffic.
 
 
@@ -88,7 +88,7 @@ In log mode:
 
   4. Set the action to _Log_.
 
-  5. (Recommended) Configure [payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/) so you can decrypt and view the full prompt content alongside detection results.
+  5. (Recommended) Configure [payload logging](https://developers.cloudflare.com/waf/payload-logging/) so you can decrypt and view the full prompt content alongside detection results.
 
 
 
@@ -130,7 +130,7 @@ Since the managed ruleset uses broad, binary detection logic (detected/not detec
 
 ## Recommended workflow
 
-  1. **Start in log mode.** Enable the AI Security Log Mode Ruleset with the action set to _Log_. Configure [payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/) so you can view prompts alongside detection results.
+  1. **Start in log mode.** Enable the AI Security Log Mode Ruleset with the action set to _Log_. Configure [payload logging](https://developers.cloudflare.com/waf/payload-logging/) so you can view prompts alongside detection results.
 
   2. **Review detections in[Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/).** Filter on events from the managed ruleset. Decrypt payloads and review the prompts that triggered detections. Note the scores to understand where to set thresholds.
 

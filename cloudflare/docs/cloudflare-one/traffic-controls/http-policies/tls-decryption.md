@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/tls-decryption/
 title: TLS decryption \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:32.605681+00:00
+fetched_at: 2026-11-17T10:23:33.711529+00:00
 ---
 
 # TLS decryption · Cloudflare One docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-16T06:38:32.605681+00:00
 
 # TLS decryption
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewTurn on TLS decryptionInspection limitations Inspect on all ports Incompatible certificates Google Chrome automatic HTTPS upgrades Mutual TLS (mTLS) ESNI and ECHPost-quantum supportFIPS compliance Enable FIPS compliance LimitationsFedRAMP complianceCipher suites
+OverviewTurn on TLS decryptionInspection limitations Inspect on all ports Incompatible certificates macOS software updates Google Chrome automatic HTTPS upgrades Mutual TLS (mTLS) ESNI and ECHPost-quantum supportFIPS compliance Enable FIPS compliance LimitationsFedRAMP complianceCipher suites
 
 Cloudflare Gateway can perform [SSL/TLS decryption ↗︎](https://www.cloudflare.com/learning/security/what-is-https-inspection/) to inspect HTTPS traffic for malware and other security risks. TLS decryption is required for HTTP policies to inspect HTTPS traffic. Without it, information contained within HTTPS encryption, such as the full URL, headers, and request body, [will not be visible to Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/#do-not-inspect).
 
@@ -98,6 +98,16 @@ If you try to perform TLS decryption on an application with an incompatible cert
 
 Alternatively, to allow HTTP filtering while accessing a site with an insecure certificate, set your [Untrusted certificate action](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/#untrusted-certificates) to _Pass through_.
 
+### macOS software updates
+
+macOS Software Update only trusts Apple's own certificates, even when the Cloudflare certificate is installed on the device. If Gateway decrypts traffic to Apple's update servers, checking for updates fails with `NSURLErrorDomain error -1012` and installing an update fails with `Failed to personalize the software update`.
+
+To allow macOS updates, create a Do Not Inspect policy for Apple:
+
+Selector | Operator | Value | Action  
+---|---|---|---  
+Application | in | _Apple (Do Not Inspect)_ | Do Not Inspect  
+  
 ### Google Chrome automatic HTTPS upgrades
 
 Google Chrome can automatically upgrade HTTP requests to HTTPS requests, even when you select a link that explicitly declares `http://`. When you use Gateway to proxy and filter your traffic, this upgrade can interrupt the connection between your Zero Trust users and Gateway.

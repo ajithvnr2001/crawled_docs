@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/
 title: Embed the widget \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:06.851033+00:00
+fetched_at: 2026-11-17T10:23:34.570208+00:00
 ---
 
 # Embed the widget · Cloudflare Turnstile docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:06.851033+00:00
 
 # Embed the widget
 
-Last updated Jun 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesProcessImplicit rendering Use cases Implementation Complete implicit rendering examples by use caseExplicit rendering Use cases Implementation Optional calls Complete explicit rendering examples by use case Widget lifecycle management Execution modePerformance and user experience optimizationConfiguration optionsTestingLimitationsSecurity requirements
 
@@ -82,9 +82,18 @@ Cloudflare recommends using implicit rendering on the following scenarios:
     	defer
     ></script>
 
+For a China domain widget, use the China-hosted script instead:
+    
+    
+    <script
+    	src="https://challenges.cloudflare-cn.com/turnstile/v0/api.js"
+    	async
+    	defer
+    ></script>
+
 Caution
 
-The `api.js` file must be fetched from the exact URL shown above. Proxying or caching this file will cause Turnstile to fail when future updates are released.
+Load `api.js` from the exact URL for your widget's region. Proxying or caching this file will cause Turnstile to fail when future updates are released.
 
 #### 2\. (Optional) Optimize performance with resource hints
 
@@ -92,6 +101,11 @@ Add resource hints to improve loading performance by establishing early connecti
     
     
     <link rel="preconnect" href="https://challenges.cloudflare.com" />
+
+For a China domain widget, preconnect to the China-hosted domain instead:
+    
+    
+    <link rel="preconnect" href="https://challenges.cloudflare-cn.com" />
 
 #### 3\. Add widget elements
 

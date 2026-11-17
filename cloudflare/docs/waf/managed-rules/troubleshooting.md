@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/troubleshooting/
 title: Troubleshoot managed rules \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:25.273543+00:00
+fetched_at: 2026-11-17T10:23:33.102342+00:00
 ---
 
 # Troubleshoot managed rules · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:25.273543+00:00
 
 # Troubleshoot managed rules
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTroubleshoot false positives Additional recommendationsTroubleshoot false negatives Additional recommendations
 
@@ -33,7 +33,7 @@ By default, WAF's managed rulesets are compatible with most websites and web app
 
 You can use [Security Events](https://developers.cloudflare.com/waf/analytics/security-events/) to help you identify what caused legitimate requests to get blocked. Add filters and adjust the report duration as needed.
 
-To get more detail about which part of a request matched a managed rule, enable [payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/) for the affected managed ruleset. Payload logging records the specific string that triggered each rule (encrypted with a key pair that you provide), which helps you confirm whether a match was a false positive. If you have not set it up yet, [configure payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/configure/) so that the matched payload is available the next time you investigate a false positive. Payload logging is available on Enterprise plans.
+To get more detail about which part of a request matched a managed rule, enable [payload logging](https://developers.cloudflare.com/waf/payload-logging/) for the affected managed ruleset. Payload logging records the specific string that triggered each rule (encrypted with a key pair that you provide), which helps you confirm whether a match was a false positive. If you have not set it up yet, [configure payload logging](https://developers.cloudflare.com/waf/payload-logging/configure/) so that the matched payload is available the next time you investigate a false positive. Payload logging is available on Enterprise plans.
 
 If you encounter a false positive caused by a managed rule, do one of the following:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/notifications/get-started/
 title: Configure alerts \u00b7 Cloudflare Notifications docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.868060+00:00
+fetched_at: 2026-11-17T10:23:33.822934+00:00
 ---
 
 # Configure alerts · Cloudflare Notifications docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-21T06:51:30.868060+00:00
 
 # Configure alerts
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPermissionsManage alertsManage destinationsManage silences
 
@@ -30,7 +30,6 @@ This guide covers permissions, management, and delivery configuration for alerts
 To create an alert, you need one of the following:
 
   * **Super Administrator** or **Administrator** role in the dashboard
-  * **Account edit** role (allows creating any alert type)
   * An API token with the [Notifications Read/Write permission](https://developers.cloudflare.com/fundamentals/api/reference/permissions/)
 
 

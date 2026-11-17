@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/dns-firewall/setup/
 title: Set up DNS Firewall \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:56.437176+00:00
+fetched_at: 2026-11-17T10:23:34.944129+00:00
 ---
 
 # Set up DNS Firewall · Cloudflare DNS docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:56.437176+00:00
 
 # Setup
 
-Last updated Jul 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/dns-firewall/setup/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesConfigure DNS Firewall Create a DNS Firewall cluster Update registrar settings Update DNS servers Test DNS resolution Update security policiesAdditional options
 
@@ -43,7 +43,7 @@ Prior to setting up DNS Firewall, you need:
 
   3. Fill out the required fields, including:
 
-     * **IP Addresses** : The upstream IPv4 and/or IPv6 addresses of your authoritative nameservers.
+     * **IP Addresses** : The upstream IPv4 and/or IPv6 addresses of your authoritative nameservers. Use more than two addresses for redundancy. There is no hard limit, but the practical ceiling is around 40 addresses (IPv4 and IPv6 combined).
      * **Minimum Cache TTL** : Recommended setting of **30 seconds**.
      * **Maximum Cache TTL** : Recommended setting of **4 hours**. Larger values increase the cache hit ratio, but also increase the time required for DNS changes to propagate.
      * **ANY queries** : Recommended setting is **Off** because these are often used as part of DDoS attacks. Also refer to this [blog post ↗︎](https://blog.cloudflare.com/rfc8482-saying-goodbye-to-any/).
@@ -84,7 +84,7 @@ Configure security policy in your DNS servers and Firewall to allow only [Cloudf
 
 Beyond the required fields, you can configure the following settings on your DNS Firewall cluster — in the Cloudflare dashboard when you create or edit a cluster, or via the API:
 
-  * **Rate limit** (queries per second per data center).
+  * **Rate limit** : Caps the number of uncached queries per second that Cloudflare forwards to your upstream nameservers, applied per data center. Queries that exceed the limit receive a `REFUSED` response. Rate limiting is disabled by default and can only be configured via the API. Set a value that reflects what your nameservers can handle under normal load.
   * **Negative cache TTL** for `REFUSED`, `NXDOMAIN`, and `SERVFAIL` responses.
   * **EDNS Client Subnet (ECS) fallback** — forward the resolver's IP subnet when the incoming query does not include ECS data. Refer to the [FAQ](https://developers.cloudflare.com/dns/dns-firewall/faq/#does-dns-firewall-support-edns-client-subnet-ecs) for details.
   * **Attack mitigation** for [random prefix attacks](https://developers.cloudflare.com/dns/dns-firewall/random-prefix-attacks/).

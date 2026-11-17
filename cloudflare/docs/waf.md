@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/
 title: Overview \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:15.710756+00:00
+fetched_at: 2026-11-17T10:23:33.557125+00:00
 ---
 
 # Overview · Cloudflare Web Application Firewall (WAF) docs
@@ -16,7 +16,7 @@ fetched_at: 2026-11-13T09:17:15.710756+00:00
 
 # Cloudflare Web Application Firewall
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesAvailabilityRelated products
 
@@ -55,6 +55,12 @@ Use Rate limiting rules
 Enable the pre-configured managed rulesets to get immediate protection. These rulesets are [regularly updated](https://developers.cloudflare.com/waf/change-log/), offering advanced zero-day vulnerability protections, and you can adjust their behavior.
 
 Use Managed rules
+
+[Payload logging](https://developers.cloudflare.com/waf/payload-logging/)
+
+Log the request content that triggered supported managed rules and custom rules to investigate rule matches and false positives.
+
+Use Payload logging
 
 [Response custom rules](https://developers.cloudflare.com/waf/response-firewall/)
 
@@ -95,6 +101,7 @@ Response custom rules | 3 | 3 | 3 | 3
 Rate limiting rules | Yes (one rule) | Yes | Yes | Yes  
 Advanced Rate Limiting | No | No | No | Paid add-on  
 WAF Managed Rules | Free Managed Ruleset only | Yes | Yes | Yes  
+Payload logging | No | No | No | Yes  
 Sensitive Data Detection (SDD) | No | No | No | Yes  
 Account-level WAF configuration | No | No | No | Yes  
 Custom lists | Yes | Yes | Yes | Yes  

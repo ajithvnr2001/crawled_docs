@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/china-network/faq/
 title: FAQ \u00b7 Cloudflare China Network docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:07:56.776089+00:00
+fetched_at: 2026-11-17T10:23:34.370861+00:00
 ---
 
 # FAQ · Cloudflare China Network docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:07:56.776089+00:00
 
 # FAQ
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/china-network/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites and onboarding What are the requirements to enable Cloudflare China Network service from Cloudflare? Can I use my current account to access Cloudflare China Network service? What are the requirements for requesting a Cloudflare China Network PoC?Data storage Will my Cloudflare account or configuration information be stored in China?Compliance Does Cloudflare have an MIIT license to provide CDN services in China? Can Cloudflare or JD Cloud help me to get the ICP? Why is my ICP filing/license revoked? What would happen if my ICP filing/license got revoked? What is content vetting and why do I need JD Cloud to vet my domain's content before onboarding?Products and features How does IPv6 work on China Network? Is Turnstile available in Mainland China? Is Pages available in Mainland China?
 
@@ -71,7 +71,9 @@ All sites hosted in Mainland China must have IPv6 enabled. China Network automat
 
 ### Is Turnstile available in Mainland China?
 
-[Turnstile](https://developers.cloudflare.com/turnstile/) is not supported in Mainland China. Therefore, both China Network zones and [global zones](https://developers.cloudflare.com/fundamentals/concepts/accounts-and-zones/#zones) with users visiting your content from Mainland China may experience issues with Turnstile.
+Turnstile in China serves challenges and validates tokens through endpoints within Mainland China. Contact your account team to request access. A China Network subscription is not required.
+
+Refer to [Get started with Turnstile](https://developers.cloudflare.com/turnstile/get-started/) for implementation guidance.
 
 ### Is Pages available in Mainland China?
 

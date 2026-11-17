@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/troubleshooting/faq/
 title: FAQ \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:23.841757+00:00
+fetched_at: 2026-11-17T10:23:35.039658+00:00
 ---
 
 # FAQ · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:23.841757+00:00
 
 # FAQ
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGeneral questions Why does a security event display a Cloudflare IP address even though other fields match the client details? Do I need to escape certain characters in expressions? Why is my regular expression pattern not working? Why are some rules bypassed when I did not create an exception? Why have I been blocked?Bots How does the WAF handle traffic from known bots?
 
@@ -102,7 +102,7 @@ For more information on verified bots, refer to [Bots](https://developers.cloudf
 
 Note
 
-There is no functional difference between known and verified bots. However, the known bots field (`cf.client.bot`) is available for all customers, while the verified bots field (`cf.bot_management.verified_bot`) is available for Enterprise customers.
+There is no functional difference between known and verified bots. However, the known bots field (`cf.client.bot`) is available for all customers, while the verified bots field (`cf.bot_management.verified_bot`) is available for Enterprise customers with [Bot Management](https://developers.cloudflare.com/bots/plans/bm-subscription/), except in [rate limiting rules](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability), where it is available on all plans.
 
 [PreviousRule phase interactions](https://developers.cloudflare.com/waf/troubleshooting/phase-interactions/)[NextGlossary](https://developers.cloudflare.com/waf/glossary/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/widget-management/api/
 title: Create and manage widgets using Cloudflare API \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:07.934390+00:00
+fetched_at: 2026-11-17T10:23:34.117940+00:00
 ---
 
 # Create and manage widgets using Cloudflare API · Cloudflare Turnstile docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:07.934390+00:00
 
 # Create and manage widgets using Cloudflare API
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/widget-management/api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites Create a widget via the API Manage widgets via the API
 
@@ -58,6 +58,23 @@ Create a Turnstile Widgetbash
     		],
     		"mode": "managed",
     		"name": "My Example Turnstile Widget"
+    	}'
+
+To create a China domain widget, set `region` to `china` in the request. You cannot change a widget's region after creation.
+
+Create a Turnstile Widget in Chinabash
+    
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/challenges/widgets" \
+    	--request POST \
+    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+    	--json '{
+    		"domains": [
+    				"example.cn"
+    		],
+    		"mode": "managed",
+    		"name": "My Widget for China Domains",
+    		"region": "china"
     	}'
 
 ### Manage widgets via the API

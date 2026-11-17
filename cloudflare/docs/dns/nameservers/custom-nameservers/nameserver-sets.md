@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/
 title: Nameserver sets \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:59.087993+00:00
+fetched_at: 2026-11-17T10:23:35.203241+00:00
 ---
 
 # Nameserver sets · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-07T08:31:59.087993+00:00
 
 # Nameserver sets
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityHow nameserver sets workIP setsLimits Set namesCreate a nameserver set Standard nameserver set Advanced Custom Nameserver setRename a nameserver setPrepare nameserver address recordsAssign a nameserver set to a zoneUpdate the nameserversActivation requirementsDelete a nameserver set
 
@@ -295,6 +295,10 @@ Assigning a set replaces the zone's existing Cloudflare-branded standard or [Adv
 ## Update the nameservers
 
 At the registrar of the zone that uses the set — or in the parent zone, if the zone is delegated — set the nameservers to all nameserver names in the set.
+
+Caution
+
+Use the nameserver names and addresses from the API response, or from your Cloudflare **activation email** , as the nameservers to set at your registrar. If the zone is in **Pending Nameserver Update** status, the zone **Overview** page in the dashboard may display different nameservers than those in the assigned set. The activation email always reflects the correct nameservers for the zone.
 
 ## Activation requirements
 

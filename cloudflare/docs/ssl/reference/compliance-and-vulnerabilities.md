@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ssl/reference/compliance-and-vulnerabilities/
 title: PCI DSS compliance \u00b7 Cloudflare SSL/TLS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:45.414038+00:00
+fetched_at: 2026-11-17T10:23:33.861971+00:00
 ---
 
 # PCI DSS compliance · Cloudflare SSL/TLS docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:45.414038+00:00
 
 # PCI DSS compliance
 
-Last updated Sep 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ssl/reference/compliance-and-vulnerabilities/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare's PCI DSS certificationShared responsibilityConfigure TLS settings Step 1: Set minimum TLS version to 1.2 Step 2: Configure PCI DSS cipher suites Step 3: Enable TLS 1.3 (recommended)Verify your configuration Use an online TLS scanner Use openssl Use curl Check from the dashboardCloudflare PagesPCI DSS v4 client-side requirementsPCI ASV scans TCP source port behavior WAF and DDoS blocking ASV scanners Non-standard portsVulnerability mitigationsCommon scanner false positives ROBOT Sweet32 (CVE-2016-2183) _cfuvid cookie missing Secure flag
 
@@ -181,9 +181,9 @@ The dashboard shows your configured cipher suites. The ciphers actually negotiat
 
 ## Cloudflare Pages
 
-It is not possible to configure minimum TLS version or cipher suites for `*.pages.dev` hostnames. These settings only apply to zones you control in the Cloudflare dashboard.
+It is not possible to configure minimum TLS version or cipher suites for [Cloudflare Pages](https://developers.cloudflare.com/pages/) hostnames. This includes `*.pages.dev` hostnames and Pages [custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/). A Pages custom domain is served with a certificate managed by Pages, so the Minimum TLS Version and cipher suite settings of the zone that contains the custom domain do not apply to it.
 
-For payment pages hosted on a Pages project, use a [custom domain](https://developers.cloudflare.com/pages/configuration/custom-domains/) attached to a zone you control. Zone-level TLS and cipher suite settings apply to traffic served through that custom domain.
+For payment pages that need a specific minimum TLS version or cipher suite configuration, serve the site from a Worker with a [Custom Domain](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/) instead. A Workers Custom Domain uses a certificate on your zone, so your zone's TLS and cipher suite settings apply. To move an existing project, refer to [Migrate from Pages to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/).
 
 ## PCI DSS v4 client-side requirements
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/proxy-traffic/
 title: Proxy traffic with Secondary DNS override \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:03.056698+00:00
+fetched_at: 2026-11-17T10:23:35.068299+00:00
 ---
 
 # Proxy traffic with Secondary DNS override · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-29T08:14:03.056698+00:00
 
 # Proxy traffic
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSet up Secondary DNS overrideProxied A and AAAA recordsCNAME record on the zone apexVerify that your records are proxied
 
@@ -33,6 +33,10 @@ With Secondary DNS override, you can use Cloudflare as your secondary DNS provid
 Note
 
 Only A, AAAA, and CNAME records can be proxied.
+
+Note
+
+Secondary DNS Override is an add-on feature. Contact your account team to confirm it is enabled on your account before enabling this setting.
 
 ## Prerequisites
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/reference/cloudflare-managed-ruleset/
 title: Cloudflare Managed Ruleset \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:44.760982+00:00
+fetched_at: 2026-11-17T10:23:33.360980+00:00
 ---
 
 # Cloudflare Managed Ruleset · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:44.760982+00:00
 
 # Cloudflare Managed Ruleset
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/managed-rules/reference/cloudflare-managed-ruleset/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy the Cloudflare Managed RulesetConfigure in the dashboard Ruleset-level configuration Tag-level configuration Rule-level configurationConfigure via API Example Next steps More resourcesConfigure using Terraform
 
@@ -82,7 +82,7 @@ Note
 
 When you enable all the rules in the ruleset, you will affect rules that are disabled by default and all the rules that are added to the managed ruleset in the future.
 
-  * **[Payload logging](https://developers.cloudflare.com/waf/managed-rules/payload-logging/configure/)** : When enabled, logs the request information (payload) that triggered a specific rule of the managed ruleset. You must configure a public key to encrypt the payload.
+  * **[Payload logging](https://developers.cloudflare.com/waf/payload-logging/configure/)** : When enabled, logs the request information (payload) that triggered a specific rule of the managed ruleset. You must configure a public key to encrypt the payload.
 
 
 

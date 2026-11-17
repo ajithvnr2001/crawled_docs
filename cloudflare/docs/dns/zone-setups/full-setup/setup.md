@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/
 title: Change your nameservers (Full setup) \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:02.770071+00:00
+fetched_at: 2026-11-17T10:23:35.007341+00:00
 ---
 
 # Change your nameservers (Full setup) · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:11:02.770071+00:00
 
 # Set up a primary zone (Full setup)
 
-Last updated Jul 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you begin1\. Add your domain to Cloudflare2\. Review your DNS records Common records Proxy status3\. Change your nameservers 3.1. Get nameserver names 3.2. Log in to your registrar 3.3. Turn off DNSSEC 3.4. Update your registrar 3.5. Verify changes4\. Re-enable DNSSEC
 
@@ -296,6 +296,7 @@ This is not an exhaustive list of provider-specific instructions, but the follow
   * [iPage ↗︎](https://www.ipage.com/help/article/domain-management-how-to-update-nameservers)
   * [MelbourneIT ↗︎](https://support.melbourneit.au/docs/how-do-i-manage-my-dns-on-cpanel)
   * [Moniker ↗︎](https://support.moniker.com/hc/en-gb/articles/10101271418653-How-to-update-Nameservers-for-a-domain)
+  * [MonoVM ↗︎](https://monovm.com/blog/how-to-use-and-manage-the-domain-control-panel/)
   * [Name.com ↗︎](https://www.name.com/support/articles/205934457-registering-custom-nameservers)
   * [Namecheap ↗︎](https://www.namecheap.com/support/knowledgebase/article.aspx/767/10/how-can-i-change-the-nameservers-for-my-domain)
   * [Network Solutions ↗︎](https://www.networksolutions.com/manage-it/edit-nameservers.jsp)
@@ -341,6 +342,8 @@ When your domain is **Active** :
 Note
 
 If you see unexpected results, refer to our [troubleshooting suggestions](https://developers.cloudflare.com/dns/zone-setups/full-setup/troubleshooting/) and check with your domain registrar. If your zone is stuck in **Pending Nameserver Update** , refer to [Zone stuck in Pending Nameserver Update](https://developers.cloudflare.com/dns/zone-setups/troubleshooting/pending-nameservers/) for how to verify the delegation at the parent zone.
+
+If you use [account custom nameservers](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/account-custom-nameservers/) or [nameserver sets](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/), verify the nameservers to set at your registrar from your Cloudflare **activation email** rather than the dashboard — the two may differ depending on your nameserver configuration.
 
 ## 4\. Re-enable DNSSEC
 

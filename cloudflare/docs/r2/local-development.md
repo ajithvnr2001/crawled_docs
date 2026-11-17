@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/local-development/
 title: Local development \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:05.337307+00:00
+fetched_at: 2026-11-17T10:23:34.720063+00:00
 ---
 
 # Local development · Cloudflare R2 docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-13T09:17:05.337307+00:00
 
 # Local development
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose local or remote bucketsPrerequisitesStart a local development sessionConnect to a remote bucketPopulate a local bucket Inspect objects in Local ExplorerPersist and reset local dataServe objects publiclyServe buckets over the S3 API Configure a bucket Connect an S3 client Supported operations LimitationsRelated resources
 
@@ -83,13 +83,13 @@ src/index.tsts
            "name": "r2-local",
            "main": "src/index.ts",
            // Set this to today's date
-           "compatibility_date": "2026-11-13"
+           "compatibility_date": "2026-11-17"
          }
          
          name = "r2-local"
          main = "src/index.ts"
          # Set this to today's date
-         compatibility_date = "2026-11-13"
+         compatibility_date = "2026-11-17"
 
 
 
@@ -254,7 +254,7 @@ With Wrangler, this endpoint requires version 4.100.0 or later. It needs no addi
 
 The endpoint simulates a [public bucket](https://developers.cloudflare.com/r2/buckets/public-buckets/). It accepts `GET` and `HEAD` requests, and honors the `Range` and conditional request headers. Stored HTTP metadata, such as `Content-Type`, is returned with the object.
 
-Requests using any other method return `401`. Buckets configured with `remote = true` are not served. This endpoint does not enable public access to a deployed bucket.
+Requests using any other method return `401`. Requests with a `Host` or `Origin` header other than `localhost`, `127.0.0.1`, or `[::1]` return `403`. Buckets configured with `remote = true` are not served. This endpoint does not enable public access to a deployed bucket.
 
 ## Serve buckets over the S3 API
 
@@ -394,7 +394,7 @@ Although the local endpoint tries to match R2's production behavior, it does not
 
   * Server-side encryption with customer-provided keys (SSE-C) is rejected rather than applied.
   * The `x-amz-storage-class` header accepts `STANDARD` only. Local buckets do not store a [storage class](https://developers.cloudflare.com/r2/buckets/storage-classes/), so `STANDARD_IA` is rejected.
-  * Cross-origin requests are always allowed. Production buckets answer preflight requests according to their [CORS configuration](https://developers.cloudflare.com/r2/buckets/cors/).
+  * Cross-origin requests are allowed only from `localhost`, `127.0.0.1`, or `[::1]` origins, on any port. The development server returns `403` for requests with any other `Host` or `Origin` header, including `*.localhost` subdomains, local network IP addresses, and hostnames behind a reverse proxy or tunnel. Production buckets answer preflight requests according to their [CORS configuration](https://developers.cloudflare.com/r2/buckets/cors/).
 
 
 

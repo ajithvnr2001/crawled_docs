@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/tools/lists/managed-lists/
 title: Managed Lists \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:48.409903+00:00
+fetched_at: 2026-11-17T10:23:34.916698+00:00
 ---
 
 # Managed Lists · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ Additional tools
 
 # Managed Lists
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/tools/lists/managed-lists/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewManaged IP Lists
 
@@ -30,7 +30,7 @@ Cloudflare provides Managed Lists you can use in rule expressions. These lists a
 
 Note
 
-This feature requires an Enterprise plan.
+Managed Lists require an Enterprise plan. The Cloudflare Open Proxies list (`cf.open_proxies`) is available to all Enterprise customers. The other Managed IP Lists — Anonymizers, VPNs, Malware, and Botnets/Command and Control — require the Advanced application security plan. Contact your account team for details.
 
 ## Managed IP Lists
 

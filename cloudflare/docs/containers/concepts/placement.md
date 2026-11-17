@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/concepts/placement/
 title: Placement \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:33.674198+00:00
+fetched_at: 2026-11-17T10:23:32.976291+00:00
 ---
 
 # Placement · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:33.674198+00:00
 
 # Placement
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/concepts/placement/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRegional constraintsJurisdictional constraintsConfigure placement
 
@@ -53,6 +53,14 @@ Jurisdiction | Regions | Use case
 `fedramp` | ENAM, WNAM | FedRAMP regions  
   
 When you specify both `jurisdiction` and `regions`, the regions must be valid for that jurisdiction. For example, specifying `jurisdiction: "eu"` with `regions: ["ENAM"]` is invalid.
+
+Jurisdiction controls where containers run, not where images are stored
+
+The `jurisdiction` constraint controls where Container instances run. It does not determine where Container images or [snapshots](https://developers.cloudflare.com/containers/guides/snapshots/) are stored. If storage location is part of your requirement, confirm the supported image workflow with your account team before you deploy.
+
+The `jurisdiction` constraint in Wrangler configuration applies to applications that use the [`default` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/). With the [`durable_object` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy), a Container runs where its Durable Object runs. To restrict that location, create the Durable Object in a [jurisdiction](https://developers.cloudflare.com/durable-objects/reference/data-location/#restrict-durable-objects-to-a-jurisdiction).
+
+For Data Localization Suite support, refer to [Product compatibility](https://developers.cloudflare.com/data-localization/compatibility/#developer-platform).
 
 ## Configure placement
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/api/git-protocol/
 title: Git protocol \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:20.536286+00:00
+fetched_at: 2026-11-17T10:23:34.345914+00:00
 ---
 
 # Git protocol · Cloudflare Artifacts docs
@@ -18,15 +18,15 @@ fetched_at: 2026-10-08T07:05:20.536286+00:00
 
 # Git protocol
 
-Last updated Apr 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/api/git-protocol/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthentication Token format Git extraHeader parameter HTTPS remote with Basic authProtocol supportToken scopes
 
 Artifacts exposes Git access for every Artifacts repository.
 
-Each repo has a standard Git smart HTTP remote at `https://<ACCOUNT_ID>.artifacts.cloudflare.net/git/<namespace>/<repo>.git`.
+Each deployed repo has a standard Git smart HTTP remote at `https://<ACCOUNT_ID>.artifacts.cloudflare.net/git/<namespace>/<repo>.git`.
 
-Replace the `<ACCOUNT_ID>` placeholder with your Cloudflare account ID. Use the exact hostname from the repo `remote` returned by the Workers binding or REST API.
+Replace the `<ACCOUNT_ID>` placeholder with your Cloudflare account ID. A local Artifacts binding instead returns an HTTP loopback URL with a dev-session port. Use the exact `remote` returned by the Workers binding or REST API, and refer to [Local development](https://developers.cloudflare.com/artifacts/guides/local-development/) for local setup.
 
 Use the returned repo `remote` with a regular Git client for `clone`, `fetch`, `pull`, and `push`.
 
@@ -41,7 +41,7 @@ HTTP Basic auth in the remote URL | Use for short-lived, one-off commands when y
   
 ### Token format
 
-Repo tokens are issued in the format `art_v1_<40 hex>?expires=<unix_seconds>`. The `?expires=` suffix is the token's expiry as a unix timestamp in seconds. To check when a token expires, parse the value after `?expires=`.
+Use the complete token returned by Artifacts for Bearer authentication. Tokens include an `?expires=` suffix with their expiry as a Unix timestamp in seconds. Do not assume a fixed token prefix or secret length. For HTTP Basic authentication, use only the portion before `?expires=` as the password.
 
 ### Git `extraHeader` parameter
 

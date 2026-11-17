@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/nameservers/custom-nameservers/account-custom-nameservers/
 title: Account custom nameservers \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:00.213540+00:00
+fetched_at: 2026-11-17T10:23:35.238989+00:00
 ---
 
 # Account custom nameservers · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:11:00.213540+00:00
 
 # Set up account custom nameservers
 
-Last updated Jul 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/account-custom-nameservers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityConfiguration conditionsEnable account custom nameservers 1\. Set up ACNS names and sets 2\. Use ACNS on existing zones 3\. (Optional) Make ACNS default for new zonesDisable account custom nameservers 1\. Remove ACNS assignment from zones 2\. Delete ACNS names or sets
 
@@ -38,7 +38,7 @@ Account custom nameservers are available for customers on Business (after [conta
 
 Note
 
-The advantages that come with Foundation DNS [advanced nameservers](https://developers.cloudflare.com/dns/foundation-dns/advanced-nameservers/) are currently not available for [custom nameservers](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/). Make sure you only use one at a time.
+To use your own nameserver names with Advanced anycast network groups, create an [Advanced Custom Nameserver set](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/#advanced-custom-nameserver-set). Zone, account, and tenant custom nameservers do not support Advanced anycast network groups. A zone can only use one nameserver configuration at a time.
 
 ## Configuration conditions
 
@@ -133,6 +133,10 @@ Use the endpoint [Update DNS Settings for a Zone](https://developers.cloudflare.
   * If your zone is delegated, update the corresponding `NS` record at the parent zone.
 
 
+
+Note
+
+If your zone is in **Pending Nameserver Update** status, verify which nameservers to set at your registrar from your Cloudflare **activation email** , not the zone **Overview** page in the dashboard. The dashboard may display standard account custom nameservers rather than a [nameserver set](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/) assigned to the zone. The activation email always reflects the nameservers currently assigned to the zone.
 
 ### 3\. (Optional) Make ACNS default for new zones
 

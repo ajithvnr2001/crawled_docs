@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
 title: Validate the token \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:02.204000+00:00
+fetched_at: 2026-11-17T10:23:34.320903+00:00
 ---
 
 # Validate the token · Cloudflare Turnstile docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:01:02.204000+00:00
 
 # Validate the token
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcessSiteverify API overview Request format Token reuse and network convergenceBasic validation examplesAdvanced validation techniquesAPI response format Response fields Error codes referenceImplementationTestingBest practices Security Performance Error handling
 
@@ -28,11 +28,12 @@ Mandatory server-side validation
 
 You must call the Siteverify API to complete your Turnstile implementation. The client-side widget alone does not protect your forms.
 
-Server-side validation is required because:
+When validating tokens:
 
   * **Tokens can be forged.** An attacker can submit any string to your form endpoint without completing a challenge.
   * **Tokens expire.** Each token is valid for 300 seconds (5 minutes) after generation.
   * **Tokens are intended for single use.** A replayed token is rejected with the `timeout-or-duplicate` error code after the earlier redemption becomes visible. Refer to Token reuse and network convergence.
+  * For China domain widgets, you must use the China Siteverify domain, `challenges.cloudflare-cn.com`.
 
 
 
@@ -52,6 +53,13 @@ Endpointshell
     
     
     POST https://challenges.cloudflare.com/turnstile/v0/siteverify
+
+For China domain widgets, use the China Siteverify endpoint instead.
+
+China siteverify endpointshell
+    
+    
+    POST https://challenges.cloudflare-cn.com/turnstile/v0/siteverify
 
 ### Request format
 

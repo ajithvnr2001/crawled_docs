@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/platform/pricing/
 title: Pricing \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:01.164084+00:00
+fetched_at: 2026-11-17T10:23:34.664031+00:00
 ---
 
 # Pricing · Cloudflare Artifacts docs
@@ -18,15 +18,15 @@ fetched_at: 2026-10-29T08:14:01.164084+00:00
 
 # Pricing
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewArtifacts pricingStorage usage
+OverviewArtifacts pricingStorage usageRepository pricing (coming soon)
 
 Artifacts is currently only available on the Workers Paid plan.
 
 Note
 
-Cloudflare will begin billing for Artifacts operations and storage on November 12, 2026.
+Cloudflare will begin billing for Artifacts operations and storage on November 19, 2026.
 
 Artifacts pricing is billed on two dimensions:
 
@@ -52,6 +52,14 @@ Storage is billed using gigabyte-month (`GB-mo`) as the billing metric, identica
 
 
 
+## Repository pricing (coming soon)
+
+In addition to operations and storage, Artifacts will bill for the number of repositories an account stores. Repository charges are not part of the November 19, 2026 billing start. Cloudflare will notify you before repository charges begin.
+
+Unit | Workers Free | Workers Paid  
+---|---|---  
+Repositories | Unavailable | First 100,000 per month + $0.01 per additional repository  
+  
 [PreviousSandbox SDK + Artifacts](https://developers.cloudflare.com/artifacts/examples/sandbox-sdk-artifacts/)[NextLimits](https://developers.cloudflare.com/artifacts/platform/limits/)
 
 Was this helpful?

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/traffic-controls/resolver-endpoints/
 title: Resolver endpoints \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:23.043637+00:00
+fetched_at: 2026-11-17T10:23:34.637500+00:00
 ---
 
 # Resolver endpoints · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-14T06:59:23.043637+00:00
 
 # Resolver endpoints
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAdd a DNS locationDNS endpoints IPv4 and IPv6 DNS DNS over TLS (DoT) DNS over HTTPS (DoH)DNS64Secure DNS locationsLimitations Captive portals Third-party filtering
 
@@ -104,7 +104,7 @@ Secure DNS locations provide additional protection against malicious domains for
 
 
 
-You can assign users the [**Cloudflare Zero Trust DNS Locations Write** role](https://developers.cloudflare.com/cloudflare-one/roles-permissions/#zero-trust-roles) to grant them the permission to create and edit secure DNS locations. To allow users to view locations, you must also assign the **Cloudflare Zero Trust Read Only** role. Users with these roles can view any DNS location, but can only create or edit secure locations.
+You can assign users the [**Cloudflare Zero Trust DNS Locations Write** role](https://developers.cloudflare.com/cloudflare-one/roles-permissions/#account-scoped-zero-trust-roles) to grant them the permission to create and edit secure DNS locations. To allow users to view locations, you must also assign the **Cloudflare Zero Trust Read Only** role. Users with these roles can view any DNS location, but can only create or edit secure locations.
 
 Roles that supersede **Cloudflare Zero Trust DNS Locations Write** include:
 

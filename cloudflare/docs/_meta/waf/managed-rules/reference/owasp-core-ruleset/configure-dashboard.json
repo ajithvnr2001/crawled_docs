@@ -3,8 +3,5 @@
   "file": "waf/managed-rules/reference/owasp-core-ruleset/configure-dashboard.md",
   "title": "Configure the OWASP ruleset in the dashboard \u00b7 Cloudflare Web Application Firewall (WAF) docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:16:45.117376+00:00",
-  "html_len": 162978,
-  "md_len": 11137,
-  "depth": 0
+  "fetched_at": "2026-11-17T10:23:33.266675+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/china-network/reference/available-products/
 title: Available products and features \u00b7 Cloudflare China Network docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:13:59.942391+00:00
+fetched_at: 2026-11-17T10:23:34.420019+00:00
 ---
 
 # Available products and features · Cloudflare China Network docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:13:59.942391+00:00
 
 # Available products and features
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewApplication ServicesDeveloper ServicesNetwork ServicesZero Trust ServicesOther Services
 
@@ -37,9 +37,10 @@ Product/Feature | Description
 [Rate limiting rules](https://developers.cloudflare.com/waf/rate-limiting-rules/) | Define rate limits for incoming requests matching an expression, and the action to take when those rate limits are reached.  
 [Content scanning](https://developers.cloudflare.com/waf/detections/malicious-uploads/) | Attempts to detect content objects, such as uploaded files, and scans them for malicious signatures like malware.  
 [Client-side security](https://developers.cloudflare.com/client-side-security/) (formerly Page Shield) | Simplifies external script management by tracking loaded resources like scripts and providing alerts when it detects new resources or malicious scripts.  
-[Bot Management](https://developers.cloudflare.com/bots/)1 | Provides bot identification and protection for a domain. Only supports certain Machine Learning (ML) models.  
+[Bot Management](https://developers.cloudflare.com/bots/) | Provides bot identification and protection for a domain. Only supports certain Machine Learning (ML) models.  
+[Turnstile](https://developers.cloudflare.com/turnstile/get-started/) | Serves challenges and validates tokens through endpoints within Mainland China for accounts with access. A China Network subscription is not required.  
 [Argo Smart Routing](https://developers.cloudflare.com/argo-smart-routing/) | Layer 7 (application layer) traffic smart-routed more efficiently to origin.  
-[Rules](https://developers.cloudflare.com/rules/)2 | Make adjustments to requests and responses, configure Cloudflare settings, and trigger specific actions for matching requests.  
+[Rules](https://developers.cloudflare.com/rules/)1 | Make adjustments to requests and responses, configure Cloudflare settings, and trigger specific actions for matching requests.  
 [Load Balancing](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-china/) | Maximize application performance and availability.  
   
 ## Developer Services
@@ -48,10 +49,10 @@ Product/Feature | Description
 ---|---  
 [Workers](https://developers.cloudflare.com/workers/) | A serverless execution environment running on the Cloudflare global network.  
 [Workers KV](https://developers.cloudflare.com/kv/) | Configuration data, service routing metadata, personalization (A/B testing).  
-[R2](https://developers.cloudflare.com/r2/)3 | Object storage for all your data.  
+[R2](https://developers.cloudflare.com/r2/)2 | Object storage for all your data.  
 [Assets](https://developers.cloudflare.com/workers/static-assets/) | Upload static assets (HTML, CSS, images and other files) as part of your Worker — Cloudflare will handle caching and serving them to web browsers.  
 [Environment variables](https://developers.cloudflare.com/workers/configuration/environment-variables/) | Attach text strings or JSON values to your Worker.  
-[Images](https://developers.cloudflare.com/images/optimization/binding/)4 | Store, transform, optimize, and deliver images at scale.  
+[Images](https://developers.cloudflare.com/images/optimization/binding/)3 | Store, transform, optimize, and deliver images at scale.  
 [Rate Limiting](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/) | Define rate limits and write code around them in your Worker.  
 [Secrets](https://developers.cloudflare.com/workers/configuration/secrets/) | Attach encrypted text values to your Worker.  
 [Service bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) | Service bindings allow one Worker to call into another, without going through a publicly-accessible URL.  
@@ -65,7 +66,7 @@ Feature | Description
 ---|---  
 [IPv6](https://developers.cloudflare.com/network/ipv6-compatibility/) | All data centers have IPv6 support by default.  
 [SSL/TLS](https://developers.cloudflare.com/ssl/) | Customer Certificate, Dedicated Certificate, Universal Certificate, Custom, ACM (Dedicated), Universal SSL.  
-mTLS5 | Mutual TLS authentication between clients and the Cloudflare edge, and between the Cloudflare edge and your origin.  
+mTLS4 | Mutual TLS authentication between clients and the Cloudflare edge, and between the Cloudflare edge and your origin.  
 [HTTP/3 (QUIC) ↗︎](https://www.cloudflare.com/learning/performance/what-is-http3/) | The latest version of the HTTP protocol to optimize page loading performance.  
 [WebSockets](https://developers.cloudflare.com/workers/runtime-apis/websockets/) | Real-time communication with Cloudflare Workers serverless functions.  
   
@@ -84,15 +85,13 @@ For more details or specific product features, refer to the [FAQ](https://develo
 
 ## Footnotes
 
-  1. [Turnstile](https://developers.cloudflare.com/turnstile/) is not available within Mainland China. ↩
+  1. [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/) require that China Network is enabled on the original zone (the one visitors are accessing). The target zone does not need to be on the China Network, but it must be accessible from Mainland China. Otherwise, visitors will receive a [1016 error](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/) along with an [HTTP 530 status code](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-530/). ↩
 
-  2. [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/) require that China Network is enabled on the original zone (the one visitors are accessing). The target zone does not need to be on the China Network, but it must be accessible from Mainland China. Otherwise, visitors will receive a [1016 error](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/) along with an [HTTP 530 status code](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-530/). ↩
+  2. R2 buckets cannot be created within Mainland China and [custom domains](https://developers.cloudflare.com/r2/buckets/public-buckets/#add-your-domain-to-cloudflare) are not supported within Mainland China. However, R2 can be extended into Mainland China through [Global Acceleration](https://developers.cloudflare.com/china-network/concepts/global-acceleration/). ↩
 
-  3. R2 buckets cannot be created within Mainland China and [custom domains](https://developers.cloudflare.com/r2/buckets/public-buckets/#add-your-domain-to-cloudflare) are not supported within Mainland China. However, R2 can be extended into Mainland China through [Global Acceleration](https://developers.cloudflare.com/china-network/concepts/global-acceleration/). ↩
+  3. Image Resizing works [within Workers](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/), but may not be available [through URL format](https://developers.cloudflare.com/images/optimization/features/). ↩
 
-  4. Image Resizing works [within Workers](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/), but may not be available [through URL format](https://developers.cloudflare.com/images/optimization/features/). ↩
-
-  5. mTLS on the China Network is supported in two configurations: client-to-edge, using [mTLS with Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/mutual-tls-authentication/) (including Client Certificate Forwarding); and edge-to-origin, using [Authenticated Origin Pulls](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/). ↩
+  4. mTLS on the China Network is supported in two configurations: client-to-edge, using [mTLS with Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/mutual-tls-authentication/) (including Client Certificate Forwarding); and edge-to-origin, using [Authenticated Origin Pulls](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/). ↩
 
 
 
