@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/get-specify-comfy-node-based-on-its-id/
 title: get specify comfy-node based on its id - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:15.630060+00:00
+fetched_at: 2026-11-17T16:46:45.304213+00:00
 ---
 
 # get specify comfy-node based on its id - ComfyUI
@@ -319,23 +319,17 @@ cURL
 
 #### Parámetros de ruta
 
-​
-
 nodeId
 
 string
 
 requerido
 
-​
-
 version
 
 string
 
 requerido
-
-​
 
 comfyNodeName
 
@@ -351,15 +345,11 @@ application/json
 
 Comy Nodes created successfully
 
-​
-
 category
 
 string
 
 UI category where the node is listed, used for grouping nodes.
-
-​
 
 comfy_node_name
 
@@ -367,15 +357,11 @@ string
 
 Unique identifier for the node
 
-​
-
 deprecated
 
 boolean
 
 Indicates if the node is deprecated. Deprecated nodes are hidden in the UI.
-
-​
 
 description
 
@@ -383,15 +369,11 @@ string
 
 Brief description of the node's functionality or purpose.
 
-​
-
 experimental
 
 boolean
 
 Indicates if the node is experimental, subject to changes or removal.
-
-​
 
 function
 
@@ -399,23 +381,17 @@ string
 
 Name of the entry-point function to execute the node.
 
-​
-
 input_types
 
 string
 
 Defines input parameters
 
-​
-
 output_is_list
 
 boolean[]
 
 Boolean values indicating if each output is a list.
-
-​
 
 policy
 
@@ -429,15 +405,11 @@ Opciones disponibles:
 
 `ComfyNodePolicyLocalOnly`
 
-​
-
 return_names
 
 string
 
 Names of the outputs for clarity in workflows.
-
-​
 
 return_types
 

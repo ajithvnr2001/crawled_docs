@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyvidumultiframe/
 title: Post proxyvidumultiframe - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:14.857571+00:00
+fetched_at: 2026-11-17T16:46:43.610031+00:00
 ---
 
 # Post proxyvidumultiframe - ComfyUI
@@ -461,8 +461,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -477,8 +475,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image_settings
 
 object[]
@@ -489,8 +485,6 @@ Configuration for intelligent multi-frame generation (2-9 frames)
 
 Show child attributes
 
-​
-
 model
 
 string
@@ -498,8 +492,6 @@ string
 requerido
 
 Model name (viduq2-pro or viduq2-turbo)
-
-​
 
 start_image
 
@@ -509,23 +501,17 @@ requerido
 
 The first frame image (Base64 or URL)
 
-​
-
 callback_url
 
 string
 
 Callback URL for task status updates
 
-​
-
 payload
 
 string
 
 Transparent transmission parameters (max 1048576 characters)
-
-​
 
 resolution
 
@@ -541,15 +527,11 @@ application/json
 
 OK
 
-​
-
 credits
 
 integer<int32>
 
 requerido
-
-​
 
 state
 
@@ -569,21 +551,15 @@ Opciones disponibles:
 
 `failed`
 
-​
-
 task_id
 
 string
 
 requerido
 
-​
-
 created_at
 
 string<date-time>
-
-​
 
 image_settings
 
@@ -591,25 +567,17 @@ object[]
 
 Show child attributes
 
-​
-
 model
 
 string
-
-​
 
 payload
 
 string
 
-​
-
 resolution
 
 string
-
-​
 
 start_image
 

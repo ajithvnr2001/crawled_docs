@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/get-server-feature-flags/
 title: Get server feature flags - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:01.066567+00:00
+fetched_at: 2026-11-17T16:46:46.345954+00:00
 ---
 
 # Get server feature flags - ComfyUI
@@ -232,8 +232,6 @@ cURL
 200 - application/json
 
 Success
-
-​
 
 partner_node_conversion_rate
 

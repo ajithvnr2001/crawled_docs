@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-all-nodes-1/
 title: Retrieve all nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:13.448159+00:00
+fetched_at: 2026-11-17T16:46:42.140809+00:00
 ---
 
 # Retrieve all nodes - ComfyUI
@@ -455,8 +455,6 @@ cURL
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
@@ -465,15 +463,11 @@ requerido
 
 #### Parámetros de consulta
 
-​
-
 include_banned
 
 boolean
 
 Whether to include banned nodes in the results. Defaults to excluding them; pass true to include.
-
-​
 
 page
 
@@ -482,8 +476,6 @@ integer
 predeterminado:1
 
 Page number of the nodes list
-
-​
 
 limit
 
@@ -503,15 +495,11 @@ application/json
 
 List of all nodes
 
-​
-
 limit
 
 integer
 
 Maximum number of nodes per page
-
-​
 
 nodes
 
@@ -519,23 +507,17 @@ object[]
 
 Show child attributes
 
-​
-
 page
 
 integer
 
 Current page number
 
-​
-
 total
 
 integer
 
 Total number of nodes available
-
-​
 
 totalPages
 

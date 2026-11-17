@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-the-style-transfer-task/
 title: Get the status of the style transfer task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.998586+00:00
+fetched_at: 2026-11-17T16:46:44.397713+00:00
 ---
 
 # Get the status of the style transfer task - ComfyUI
@@ -299,8 +299,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -312,8 +310,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key. Accepted on the operations served by the comfyFirebase auth middleware (BE-9720, parity with ingest).
 
 #### Parámetros de ruta
-
-​
 
 task_id
 
@@ -330,8 +326,6 @@ ID of the task
 application/json
 
 OK - The task status is returned
-
-​
 
 data
 

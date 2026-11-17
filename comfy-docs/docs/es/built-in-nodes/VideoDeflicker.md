@@ -1,0 +1,61 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/VideoDeflicker/
+title: VideoDeflicker - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-17T16:46:37.237934+00:00
+---
+
+# VideoDeflicker - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/VideoDeflicker/
+
+Video
+
+# VideoDeflicker - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Elimina el parpadeo temporal de un vídeo procesado, de modo que cada fotograma conserva su propio detalle mientras sigue el movimiento de sus vecinos.
+
+Copiar páginaCopiar página
+
+Elimina el parpadeo temporal de un vídeo procesado, de modo que cada fotograma conserva su propio detalle mientras sigue el movimiento de sus vecinos. Está pensado para metraje que pulsa después de ser escalado o procesado fotograma a fotograma: conecta el modelo de flujo óptico y los fotogramas parpadeantes, y opcionalmente una copia estable de la fuente como guía.
+
+## Entradas
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`optical_flow`| Modelo de flujo óptico del nodo Load Optical Flow Model (torchvision RAFT-large).| OPTICAL_FLOW| Sí| -  
+`images`| Fotogramas parpadeantes que se van a estabilizar, por ejemplo, un vídeo que fue escalado o procesado fotograma a fotograma.| IMAGE| Sí| -  
+`guide`| Fotogramas de origen estables cuyo movimiento se debe seguir, en cualquier resolución. Por defecto se usa `images`, lo que elimina menos parpadeo. Sus diferencias entre fotogramas consecutivos, tras compensar el movimiento, también ponderan el suavizado: si la guía cambia de formas que el flujo no explica, se suaviza menos aunque la estimación de movimiento sea correcta.| IMAGE| No| -  
+`strength`| Con qué fuerza cada fotograma sigue a sus vecinos (predeterminado: 1.0). Los valores más altos eliminan más parpadeo y suavizan más el detalle fino; 0 devuelve los fotogramas sin cambios.| FLOAT| Sí| 0.0 a 100.0 (paso: 0.1)  
+`direction`| Dirección de la pasada. `bidirectional` promedia una pasada hacia adelante y otra hacia atrás, lo que evita quedarse rezagado respecto al movimiento; `forward` ejecuta una sola pasada. (predeterminado: `bidirectional`)| COMBO| Sí| `"bidirectional"`  
+`"forward"`  
+`threshold`| Los cambios entre un fotograma y su vecino compensado por movimiento que sean mayores que este valor se tratan como reales y se suavizan menos (predeterminado: 0.1). 0 suaviza todos los cambios por igual.| FLOAT| Sí| 0.0 a 1.0 (paso: 0.01)  
+  
+**Notas:**
+
+  * El flujo óptico se calcula sobre una copia reducida de la guía, así que no necesita coincidir con el tamaño de `images`; los píxeles de la guía no se mezclan en la salida.
+  * Los fotogramas que superan al más corto de `images` y `guide` no se procesan. Si `guide` es más corta, los fotogramas restantes se devuelven sin cambios.
+
+
+
+## Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`IMAGE`| Fotogramas sin parpadeo, con el mismo tamaño y número de fotogramas que `images`.| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/VideoDeflicker/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `d9937a67b0ac33ef3b326017e7d7990474705917902f1097cfeb06d9f83322a1`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/VideoDeflicker.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/VideoDeflicker)
+
+[Recortar vídeo (avanzado)](https://docs.comfy.org/es/built-in-nodes/VideoTrim)[Escalado latent de MiniMax H3 con modelo](https://docs.comfy.org/es/built-in-nodes/MiniMaxH3LatentUpscaleWithModel)

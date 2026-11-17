@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/update-a-publisher/
 title: Update a publisher - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:13.812273+00:00
+fetched_at: 2026-11-17T16:46:42.816596+00:00
 ---
 
 # Update a publisher - ComfyUI
@@ -533,8 +533,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -547,8 +545,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
@@ -559,21 +555,15 @@ requerido
 
 application/json
 
-​
-
 createdAt
 
 string<date-time>
 
 The date and time the publisher was created.
 
-​
-
 description
 
 string
-
-​
 
 id
 
@@ -581,15 +571,11 @@ string
 
 The unique identifier for the publisher. It's akin to a username. Should be lowercase.
 
-​
-
 logo
 
 string
 
 URL to the publisher's logo.
-
-​
 
 members
 
@@ -599,19 +585,13 @@ A list of members in the publisher.
 
 Show child attributes
 
-​
-
 name
 
 string
 
-​
-
 source_code_repo
 
 string
-
-​
 
 status
 
@@ -623,13 +603,9 @@ Opciones disponibles:
 
 `PublisherStatusBanned`
 
-​
-
 support
 
 string
-
-​
 
 website
 
@@ -643,21 +619,15 @@ application/json
 
 Publisher updated successfully
 
-​
-
 createdAt
 
 string<date-time>
 
 The date and time the publisher was created.
 
-​
-
 description
 
 string
-
-​
 
 id
 
@@ -665,15 +635,11 @@ string
 
 The unique identifier for the publisher. It's akin to a username. Should be lowercase.
 
-​
-
 logo
 
 string
 
 URL to the publisher's logo.
-
-​
 
 members
 
@@ -683,19 +649,13 @@ A list of members in the publisher.
 
 Show child attributes
 
-​
-
 name
 
 string
 
-​
-
 source_code_repo
 
 string
-
-​
 
 status
 
@@ -707,13 +667,9 @@ Opciones disponibles:
 
 `PublisherStatusBanned`
 
-​
-
 support
 
 string
-
-​
 
 website
 

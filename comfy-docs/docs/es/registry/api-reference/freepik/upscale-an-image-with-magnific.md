@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/upscale-an-image-with-magnific/
 title: Upscale an image with Magnific - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.634749+00:00
+fetched_at: 2026-11-17T16:46:44.625066+00:00
 ---
 
 # Upscale an image with Magnific - ComfyUI
@@ -443,8 +443,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -459,8 +457,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image
 
 string
@@ -468,8 +464,6 @@ string
 requerido
 
 Base64 image or URL to upscale. The resulted image can't exceed maximum allowed size of 25.3 million pixels.
-
-​
 
 creativity
 
@@ -480,8 +474,6 @@ predeterminado:0
 Increase or decrease AI's creativity. Valid values range [-10, 10].
 
 Rango requerido: `-10 <= x <= 10`
-
-​
 
 engine
 
@@ -501,8 +493,6 @@ Opciones disponibles:
 
 `magnific_sparkle`
 
-​
-
 fractality
 
 integer
@@ -513,8 +503,6 @@ Control the strength of the prompt and intricacy per square pixel. Valid values 
 
 Rango requerido: `-10 <= x <= 10`
 
-​
-
 hdr
 
 integer
@@ -524,8 +512,6 @@ predeterminado:0
 Increase or decrease the level of definition and detail. Valid values range [-10, 10].
 
 Rango requerido: `-10 <= x <= 10`
-
-​
 
 optimized_for
 
@@ -555,15 +541,11 @@ Opciones disponibles:
 
 `science_fiction_n_horror`
 
-​
-
 prompt
 
 string
 
 Prompt to guide the upscale process. Reusing the same prompt for AI-generated images will improve the results.
-
-​
 
 resemblance
 
@@ -574,8 +556,6 @@ predeterminado:0
 Adjust the level of resemblance to the original image. Valid values range [-10, 10].
 
 Rango requerido: `-10 <= x <= 10`
-
-​
 
 scale_factor
 
@@ -595,8 +575,6 @@ Opciones disponibles:
 
 `16x`
 
-​
-
 webhook_url
 
 string<uri>
@@ -614,8 +592,6 @@ Ejemplo:
 application/json
 
 OK - The upscaling process has started
-
-​
 
 data
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-a-song-with-lyrics-from-a-text-prompt/
 title: Generate a song with lyrics from a text prompt - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.218326+00:00
+fetched_at: 2026-11-17T16:46:43.834139+00:00
 ---
 
 # Generate a song with lyrics from a text prompt - ComfyUI
@@ -401,8 +401,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -417,8 +415,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 multipart/form-data
 
-​
-
 prompt
 
 string
@@ -428,8 +424,6 @@ requerido
 Text prompt describing the song, max 2000 characters. Lyrics go inside the prompt as a `Lyrics:` block with `[Verse]`, `[Chorus]` and `[Bridge]` section tags.
 
 Required string length: `1 - 2000`
-
-​
 
 duration
 
@@ -447,15 +441,11 @@ application/json
 
 Accepted - the task is processing
 
-​
-
 task_id
 
 string
 
 requerido
-
-​
 
 status
 

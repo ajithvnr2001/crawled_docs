@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-video/
 title: Generate music from video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:10.715982+00:00
+fetched_at: 2026-11-17T16:46:43.458948+00:00
 ---
 
 # Generate music from video - ComfyUI
@@ -439,8 +439,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -462,8 +460,6 @@ multipart/form-data
 
 
 
-​
-
 video
 
 file
@@ -471,8 +467,6 @@ file
 requerido
 
 Multipart file part; e.g. video/mp4. Max file size 300MB.
-
-​
 
 prompt
 
@@ -501,8 +495,6 @@ OK - Streaming NDJSON response with audio generation events
 
 A single NDJSON event from the Sonilo streaming response. Additional event types beyond those listed may appear; unknown types should be ignored by clients.
 
-​
-
 copy_index
 
 integer
@@ -511,15 +503,11 @@ requerido
 
 Rango requerido: `x >= 0`
 
-​
-
 display_tags
 
 string[]
 
 requerido
-
-​
 
 prompt_index
 
@@ -529,8 +517,6 @@ requerido
 
 Rango requerido: `x >= 0`
 
-​
-
 stream_index
 
 integer
@@ -539,15 +525,11 @@ requerido
 
 Rango requerido: `x >= 0`
 
-​
-
 title
 
 string
 
 requerido
-
-​
 
 type
 
@@ -558,8 +540,6 @@ requerido
 Opciones disponibles: 
 
 `title`
-
-​
 
 summary
 

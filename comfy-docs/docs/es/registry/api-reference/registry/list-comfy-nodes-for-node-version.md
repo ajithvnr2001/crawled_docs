@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/list-comfy-nodes-for-node-version/
 title: list comfy-nodes for node version - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:15.518277+00:00
+fetched_at: 2026-11-17T16:46:45.558315+00:00
 ---
 
 # list comfy-nodes for node version - ComfyUI
@@ -325,15 +325,11 @@ cURL
 
 #### Parámetros de ruta
 
-​
-
 nodeId
 
 string
 
 requerido
-
-​
 
 version
 
@@ -343,8 +339,6 @@ requerido
 
 #### Parámetros de consulta
 
-​
-
 page
 
 integer
@@ -352,8 +346,6 @@ integer
 predeterminado:1
 
 The page number to retrieve.
-
-​
 
 limit
 
@@ -373,15 +365,11 @@ application/json
 
 Comy Nodes obtained successfully
 
-​
-
 comfy_nodes
 
 object[]
 
 Show child attributes
-
-​
 
 totalNumberOfPages
 

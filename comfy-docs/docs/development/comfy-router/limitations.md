@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:35.465608+00:00
+fetched_at: 2026-11-17T16:46:39.418731+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -100,7 +100,6 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **ltx** : `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe`, `ltx/ltx-video-upscale`
   * **luma** : `luma/photon-1`, `luma/photon-flash-1`
   * **minimax** : `minimax/minimax-gpt-image-2`, `minimax/minimax-gpt-image-2.5-flare`, `minimax/minimax-gpt-image-2.5-sunburst`, `minimax/minimax-gpt-image-2.6-flare`, `minimax/minimax-gpt-image-2.6-sunburst`, `minimax/minimax-h3-image`, `minimax/minimax-h3-image-highspeed`
-  * **moonvalley** : `moonvalley/image-to-video`, `moonvalley/text-to-video`, `moonvalley/video-to-video`
   * **openai** : `openai/gpt-image-1.5`
   * **openrouter** : `openrouter/chat-completions`
   * **pika** : `pika/pika-gpt-image-2`, `pika/pika-nano-banana-2`, `pika/pika-nano-banana-pro`

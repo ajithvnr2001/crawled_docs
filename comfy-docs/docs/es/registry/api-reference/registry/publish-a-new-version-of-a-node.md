@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/publish-a-new-version-of-a-node/
 title: Publish a new version of a node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:12.583689+00:00
+fetched_at: 2026-11-17T16:46:41.766986+00:00
 ---
 
 # Publish a new version of a node - ComfyUI
@@ -1201,8 +1201,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -1215,15 +1213,11 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
 
 requerido
-
-​
 
 nodeId
 
@@ -1235,8 +1229,6 @@ requerido
 
 application/json
 
-​
-
 node
 
 object
@@ -1245,8 +1237,6 @@ requerido
 
 Show child attributes
 
-​
-
 node_version
 
 object
@@ -1254,8 +1244,6 @@ object
 requerido
 
 Show child attributes
-
-​
 
 personal_access_token
 
@@ -1271,15 +1259,11 @@ application/json
 
 New version published successfully
 
-​
-
 node_version
 
 object
 
 Show child attributes
-
-​
 
 signedUrl
 

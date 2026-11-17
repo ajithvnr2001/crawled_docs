@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/claim-nodeid-into-publisherid-for-the-authenticated-publisher/
 title: Claim nodeId into publisherId for the authenticated publisher - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.512615+00:00
+fetched_at: 2026-11-17T16:46:41.605628+00:00
 ---
 
 # Claim nodeId into publisherId for the authenticated publisher - ComfyUI
@@ -383,8 +383,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -397,15 +395,11 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
 
 requerido
-
-​
 
 nodeId
 
@@ -416,8 +410,6 @@ requerido
 #### Cuerpo
 
 application/json
-
-​
 
 GH_TOKEN
 

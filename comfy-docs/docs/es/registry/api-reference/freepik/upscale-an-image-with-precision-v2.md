@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/upscale-an-image-with-precision-v2/
 title: Upscale an image with Precision V2 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.313164+00:00
+fetched_at: 2026-11-17T16:46:44.767104+00:00
 ---
 
 # Upscale an image with Precision V2 - ComfyUI
@@ -379,8 +379,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -395,8 +393,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image
 
 string
@@ -409,8 +405,6 @@ Source image to upscale. Accepts either:
   * A base64-encoded image string
 
 
-
-​
 
 flavor
 
@@ -432,8 +426,6 @@ Opciones disponibles:
 
 `photo_denoiser`
 
-​
-
 scale_factor
 
 integer
@@ -441,8 +433,6 @@ integer
 Image scaling factor. Determines how much larger the output will be compared to input.
 
 Rango requerido: `2 <= x <= 16`
-
-​
 
 sharpen
 
@@ -454,8 +444,6 @@ Image sharpness intensity control. Higher values increase edge definition and cl
 
 Rango requerido: `0 <= x <= 100`
 
-​
-
 smart_grain
 
 integer
@@ -466,8 +454,6 @@ Intelligent grain/texture enhancement. Higher values add more fine-grained textu
 
 Rango requerido: `0 <= x <= 100`
 
-​
-
 ultra_detail
 
 integer
@@ -477,8 +463,6 @@ predeterminado:30
 Ultra detail enhancement level. Higher values create more intricate details.
 
 Rango requerido: `0 <= x <= 100`
-
-​
 
 webhook_url
 
@@ -493,8 +477,6 @@ Optional callback URL that will receive asynchronous notifications when the upsc
 application/json
 
 OK - The upscaling process has started
-
-​
 
 data
 

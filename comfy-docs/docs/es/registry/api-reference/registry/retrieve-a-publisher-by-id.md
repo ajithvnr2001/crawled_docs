@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-a-publisher-by-id/
 title: Retrieve a publisher by ID - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:13.637412+00:00
+fetched_at: 2026-11-17T16:46:42.428186+00:00
 ---
 
 # Retrieve a publisher by ID - ComfyUI
@@ -301,8 +301,6 @@ cURL
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
@@ -317,21 +315,15 @@ application/json
 
 Publisher retrieved successfully
 
-​
-
 createdAt
 
 string<date-time>
 
 The date and time the publisher was created.
 
-​
-
 description
 
 string
-
-​
 
 id
 
@@ -339,15 +331,11 @@ string
 
 The unique identifier for the publisher. It's akin to a username. Should be lowercase.
 
-​
-
 logo
 
 string
 
 URL to the publisher's logo.
-
-​
 
 members
 
@@ -357,19 +345,13 @@ A list of members in the publisher.
 
 Show child attributes
 
-​
-
 name
 
 string
 
-​
-
 source_code_repo
 
 string
-
-​
 
 status
 
@@ -381,13 +363,9 @@ Opciones disponibles:
 
 `PublisherStatusBanned`
 
-​
-
 support
 
 string
-
-​
 
 website
 

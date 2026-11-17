@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-260128/code/
 title: Use Seedream 5.0 260128 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:21.328499+00:00
+fetched_at: 2026-11-17T16:46:38.134692+00:00
 ---
 
 # Use Seedream 5.0 260128 with Comfy Router - ComfyUI
@@ -257,7 +257,7 @@ string
 
 default:"\"url\""
 
-Specifies the format of the generated image returned in the responsePossible values: `url`, `b64_json`
+Specifies the format of the generated image returned in the response. b64_json is refused together with layer_decomposition on this route (400 on v1, 422 at response_format on Comfy Router), because the inlined base64 layers can exceed Comfy Router’s result-size limit and fail after the image has already been rendered and billed; use url (the default) for layer-separation requests.Possible values: `url`, `b64_json`
 
 seed
 

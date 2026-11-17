@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/overview/
 title: Partner Nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:36.106087+00:00
+fetched_at: 2026-11-17T16:46:39.485116+00:00
 ---
 
 # Partner Nodes - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:36.106087+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/overview/
 
 ## On this page
+
+Back to top
 
   * What are Partner Nodes?
   * Prerequisites for Using Partner Nodes
@@ -41,37 +43,21 @@ Copy pageCopy page
 
 Partner Nodes are ComfyUI’s new way of calling closed-source models through API requests, providing ComfyUI users with access to external state-of-the-art AI models without complex API key setup.
 
-## 
-
-​
-
-What are Partner Nodes?
+## What are Partner Nodes?
 
 Partner Nodes are a set of special nodes that connect to external API services, allowing you to use closed-source or third-party hosted AI models directly in your ComfyUI workflows. These nodes are designed to seamlessly integrate the capabilities of external models while maintaining the open-source nature of ComfyUI’s core.
 
-## 
-
-​
-
-Prerequisites for Using Partner Nodes
+## Prerequisites for Using Partner Nodes
 
 To use Partner Nodes, the following requirements must be met:
 
-### 
-
-​
-
-1\. ComfyUI Version Requirements
+### 1\. ComfyUI Version Requirements
 
 Please update your ComfyUI to the latest version, as we may add more API support in the future, and corresponding nodes will be updated, so please keep your ComfyUI up to date.
 
 Please note the distinction between nightly and release versions. We recommend using the `nightly` version (which is the latest code commit), as the release version may not be updated in a timely manner. This refers to the development version and the stable version, and since we are still rapidly iterating, this document may not be updated promptly, so please pay attention to the version differences.
 
-### 
-
-​
-
-2\. Account and Credits Requirements
+### 2\. Account and Credits Requirements
 
 You need to be logged into your ComfyUI with a [Comfy account](https://docs.comfy.org/interface/user) and have a credit balance of [credits](https://docs.comfy.org/interface/credits) greater than 0. Log in via `Settings` -> `User`: ![ComfyUI User Interface](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/user.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=4aacfc636460e073d16ef1fdaccb0888) Go to `Settings` -> `Credits` to purchase credits ![Credits Interface](https://mintcdn.com/dripart/svxMC8DHZXobTT5E/images/interface/setting/purchase-1.jpg?fit=max&auto=format&n=svxMC8DHZXobTT5E&q=85&s=d4371030bb5549d08feb37abd8ae19fb) Please refer to the corresponding documentation for account and credits to ensure this requirement:
 
@@ -80,11 +66,7 @@ You need to be logged into your ComfyUI with a [Comfy account](https://docs.comf
 
 
 
-### 
-
-​
-
-3\. Network Environment Requirements
+### 3\. Network Environment Requirements
 
 API access requires that your current requests are based on a secure network environment. The current requirements for API access are as follows:
 
@@ -102,19 +84,11 @@ Accessing in an insecure context poses significant risks, which may result in th
 
 Even if we open this restriction in the future, we strongly advise against accessing API services through insecure network requests due to the high risks involved.
 
-### 
-
-​
-
-4\. Using the Corresponding Nodes
+### 4\. Using the Corresponding Nodes
 
 **Add to Workflow** : Add the Partner Node to your workflow just like you would with other nodes. **Run** : Set the parameters and then run the workflow. ![Partner Nodes](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/tutorial/api_nodes/sidebar.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=5adc8f697864ac7d890722dddbb8260c)
 
-## 
-
-​
-
-Log in with ComfyUI Account API Key on non-whitelisted websites
+## Log in with ComfyUI Account API Key on non-whitelisted websites
 
 Currently, we have set up a whitelist to restrict the websites where you can log in to your ComfyUI account. If you need to log in to your ComfyUI account on some non-whitelisted websites, please refer to the account management section to learn how to log in using an API Key. In this case, the corresponding website does not need to be on our whitelist.
 
@@ -124,11 +98,7 @@ Learn how to log in with ComfyUI Account API Key
 
 ![Select Comfy API Key Login](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/interface/setting/user/user-login-api-1.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=bdb8d99a4bd52a6cc1de1b3453e8cfda)
 
-## 
-
-​
-
-Use ComfyUI Account API Key Integration to call paid model Partner nodes
+## Use ComfyUI Account API Key Integration to call paid model Partner nodes
 
 Currently, we support accessing our services through ComfyUI API Key Integration to call paid model Partner nodes. Please refer to the API Key Integration section to learn how to use API Key Integration to call paid model Partner nodes.
 
@@ -138,11 +108,7 @@ Currently, we support accessing our services through ComfyUI API Key Integration
 
 Please refer to the API Key Integration section to learn how to use API Key Integration to call paid model Partner nodes
 
-## 
-
-​
-
-Advantages of Partner Nodes
+## Advantages of Partner Nodes
 
 Partner Nodes provide several important advantages for ComfyUI users:
 
@@ -153,39 +119,23 @@ Partner Nodes provide several important advantages for ComfyUI users:
 
 
 
-## 
-
-​
-
-Pricing
+## Pricing
 
 ## Partner Node Pricing
 
 Please refer to the pricing page for the corresponding Partner pricing
 
-## 
-
-​
-
-Model Providers
+## Model Providers
 
 ## Model Providers
 
 See verification status, commercial licensing, and data residency for the model providers behind Partner Nodes
 
-## 
-
-​
-
-About Open Source and Opt-in
+## About Open Source and Opt-in
 
 It’s important to note that **Partner Nodes are completely optional**. ComfyUI will always remain fully open-source and free for local users. Partner nodes are designed as an “opt-in” feature, providing convenience for those who want access to external SOTA (state-of-the-art) models.
 
-## 
-
-​
-
-How to disable partner nodes completely
+## How to disable partner nodes completely
 
 You can add the `--disable-partner-nodes` launch argument to disable all Partner Nodes in ComfyUI. Use `--offline` instead if you also want to prevent the frontend from communicating with the internet. **For manual install:**
     
@@ -200,11 +150,7 @@ You can add the `--disable-partner-nodes` launch argument to disable all Partner
     pause
     
 
-## 
-
-​
-
-Use Cases
+## Use Cases
 
 A powerful application of Partner Nodes is combining the output of external models with local nodes. For example:
 
@@ -214,11 +160,7 @@ A powerful application of Partner Nodes is combining the output of external mode
 
 This flexibility makes ComfyUI a truly universal generative AI interface, integrating various AI capabilities into a unified workflow, opening up more possibilities
 
-## 
-
-​
-
-FAQs
+## FAQs
 
 Why can't I find the Partner Nodes?
 
@@ -305,26 +247,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/overview)
 
-[Comfy Cloud nodesPrevious](https://docs.comfy.org/cloud-nodes/overview)[Partner Node PricingNext](https://docs.comfy.org/tutorials/partner-nodes/pricing)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/cloud-nodes/overview)[Pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing)

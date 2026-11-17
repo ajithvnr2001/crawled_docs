@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/stability/generate-ultra/code/
 title: Use Generate Ultra with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:29.801319+00:00
+fetched_at: 2026-11-17T16:46:39.236629+00:00
 ---
 
 # Use Generate Ultra with Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `stability/generate-ultra`, served by Comfy Router from Stability. **Input:** Text, Image · **Output:** Image
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `stability/generate-ultra` **Endpoint:** `POST https://api.comfy.org/v2/models/stability/generate-ultra`
 
@@ -177,19 +173,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 aspect_ratio
 
@@ -197,15 +183,11 @@ string
 
 Text-to-image only. Output aspect ratio. Default 1:1.Possible values: `1:1`, `16:9`, `9:16`, `21:9`, `9:21`, `3:2`, `2:3`, `5:4`, `4:5`
 
-​
-
 image
 
 string (uri)
 
-`stability/generate-ultra` only. A Comfy-signed asset URL of a source image; sending it switches to image-to-image and requires `strength`.Format: `uri`
-
-​
+`stability/generate-ultra` only. A Comfy-signed asset URL of a source image; sending it switches to image-to-image and requires `strength`. Refused with 400 on `stability/generate-core`.Format: `uri`
 
 negative_prompt
 
@@ -213,15 +195,11 @@ string
 
 What to keep out of the image.
 
-​
-
 output_format
 
 string
 
 Only `png` is returned.Possible values: `png`
-
-​
 
 prompt
 
@@ -231,23 +209,17 @@ required
 
 What to generate.
 
-​
-
 seed
 
 integer
 
 0 or omitted picks a random seed.Range: `0` to `4294967294`
 
-​
-
 strength
 
 number
 
-`stability/generate-ultra` image-to-image only. How far to move from the source image; 1 ignores it.Range: `0` to `1`
-
-​
+`stability/generate-ultra` image-to-image only. How far to move from the source image; 1 ignores it. Refused with 400 on `stability/generate-core`.Range: `0` to `1`
 
 style_preset
 
@@ -257,13 +229,7 @@ Stability style preset, for example `photographic`.
 
 Generated from the schema Router serves at `GET /v2/models/stability/generate-ultra/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 finish_reason
 
@@ -273,8 +239,6 @@ required
 
 Always SUCCESS on a 200.
 
-​
-
 image
 
 string (uri)
@@ -283,15 +247,11 @@ required
 
 Comfy-signed URL of the (first) PNG image, valid for up to 24 hours.Format: `uri`
 
-​
-
 images
 
 string (uri)[]
 
 SDXL only, when more than one image was returned. Every Comfy-signed image URL, in output order, each valid for up to 24 hours.
-
-​
 
 seed
 
@@ -301,17 +261,9 @@ required
 
 The seed the image was generated with.
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -321,11 +273,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -335,11 +283,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 

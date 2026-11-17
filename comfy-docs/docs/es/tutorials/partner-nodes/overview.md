@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/overview/
 title: Nodos asociados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:31.675348+00:00
+fetched_at: 2026-11-17T16:46:39.842814+00:00
 ---
 
 # Nodos asociados - ComfyUI
@@ -43,37 +43,21 @@ Copiar páginaCopiar página
 
 Los Nodos asociados son la nueva forma de ComfyUI de llamar a modelos de código cerrado mediante solicitudes a la API, y dan a los usuarios de ComfyUI acceso a modelos de IA externos de última generación sin necesidad de configurar claves API de forma compleja.
 
-## 
-
-​
-
-¿Qué son los Nodos asociados?
+## ¿Qué son los Nodos asociados?
 
 Los Nodos asociados son un conjunto de nodos especiales que se conectan a servicios de API externos y te permiten usar modelos de IA de código cerrado o alojados por terceros directamente en tus flujos de trabajo de ComfyUI. Estos nodos están pensados para integrar las capacidades de los modelos externos sin fricción y, al mismo tiempo, conservar la naturaleza de código abierto del núcleo de ComfyUI.
 
-## 
-
-​
-
-Requisitos previos para usar los Nodos asociados
+## Requisitos previos para usar los Nodos asociados
 
 Para usar los Nodos asociados, se deben cumplir los siguientes requisitos:
 
-### 
-
-​
-
-1\. Requisitos de versión de ComfyUI
+### 1\. Requisitos de versión de ComfyUI
 
 Actualiza tu ComfyUI a la última versión, ya que es posible que agreguemos más compatibilidad con API en el futuro y los nodos correspondientes se actualicen, así que mantén tu ComfyUI actualizado.
 
 Ten en cuenta la diferencia entre las versiones nocturna y de lanzamiento. Recomendamos usar la versión `nightly` (que es la confirmación de código más reciente), ya que es posible que la versión de lanzamiento no se actualice de manera oportuna. Esto se refiere a la versión de desarrollo y a la versión estable, y como todavía estamos iterando rápidamente, es posible que este documento no se actualice con prontitud, así que presta atención a las diferencias entre versiones.
 
-### 
-
-​
-
-2\. Requisitos de cuenta y créditos
+### 2\. Requisitos de cuenta y créditos
 
 Debes haber iniciado sesión en tu ComfyUI con una [cuenta de Comfy](https://docs.comfy.org/es/interface/user) y tener un saldo de [créditos](https://docs.comfy.org/es/interface/credits) mayor que 0. Inicia sesión mediante `Settings` -> `User`: ![ComfyUI User Interface](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/user.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=4aacfc636460e073d16ef1fdaccb0888) Ve a `Settings` -> `Credits` para comprar créditos ![Credits Interface](https://mintcdn.com/dripart/svxMC8DHZXobTT5E/images/interface/setting/purchase-1.jpg?fit=max&auto=format&n=svxMC8DHZXobTT5E&q=85&s=d4371030bb5549d08feb37abd8ae19fb) Consulta la documentación correspondiente sobre la cuenta y los créditos para asegurar este requisito:
 
@@ -82,11 +66,7 @@ Debes haber iniciado sesión en tu ComfyUI con una [cuenta de Comfy](https://doc
 
 
 
-### 
-
-​
-
-3\. Requisitos del entorno de red
+### 3\. Requisitos del entorno de red
 
 El acceso a la API requiere que tus solicitudes actuales se realicen en un entorno de red seguro. Los requisitos actuales para el acceso a la API son los siguientes:
 
@@ -104,19 +84,11 @@ Acceder en un contexto no seguro conlleva riesgos importantes, lo que puede prov
 
 Incluso si en el futuro abrimos esta restricción, recomendamos encarecidamente no acceder a los servicios de API mediante solicitudes de red no seguras debido a los altos riesgos que implica.
 
-### 
-
-​
-
-4\. Usar los nodos correspondientes
+### 4\. Usar los nodos correspondientes
 
 **Agregar al flujo de trabajo** : agrega el Nodo asociado a tu flujo de trabajo tal como lo harías con otros nodos. **Ejecutar** : configura los parámetros y luego ejecuta el flujo de trabajo. ![Partner Nodes](https://mintcdn.com/dripart/iA0B1fSEOunjmr8W/images/tutorial/api_nodes/sidebar.jpg?fit=max&auto=format&n=iA0B1fSEOunjmr8W&q=85&s=5adc8f697864ac7d890722dddbb8260c)
 
-## 
-
-​
-
-Iniciar sesión con la Clave API de la cuenta de ComfyUI en sitios web que no están en la lista blanca
+## Iniciar sesión con la Clave API de la cuenta de ComfyUI en sitios web que no están en la lista blanca
 
 Actualmente, contamos con una lista blanca que restringe los sitios web donde puedes iniciar sesión en tu cuenta de ComfyUI. Si necesitas iniciar sesión en tu cuenta de ComfyUI en sitios web que no están en la lista blanca, consulta la sección de administración de cuentas para aprender a iniciar sesión con una Clave API. En este caso, el sitio web correspondiente no necesita estar en nuestra lista blanca.
 
@@ -126,11 +98,7 @@ Aprende a iniciar sesión con la Clave API de la cuenta de ComfyUI
 
 ![Seleccionar el inicio de sesión con la Clave API de Comfy](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/interface/setting/user/user-login-api-1.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=bdb8d99a4bd52a6cc1de1b3453e8cfda)
 
-## 
-
-​
-
-Usar la integración de la clave API de la cuenta de ComfyUI para llamar a Nodos asociados de modelos de pago
+## Usar la integración de la clave API de la cuenta de ComfyUI para llamar a Nodos asociados de modelos de pago
 
 Actualmente, ofrecemos soporte para acceder a nuestros servicios mediante la integración de la clave API de ComfyUI y así llamar a Nodos asociados de modelos de pago. Consulta la sección Integración de la clave API para aprender a usar la integración de la clave API y llamar a Nodos asociados de modelos de pago.
 
@@ -140,11 +108,7 @@ Actualmente, ofrecemos soporte para acceder a nuestros servicios mediante la int
 
 Consulta la sección Integración de la clave API para aprender a usar la integración de la clave API y llamar a Nodos asociados de modelos de pago
 
-## 
-
-​
-
-Ventajas de los nodos asociados
+## Ventajas de los nodos asociados
 
 Los nodos asociados ofrecen varias ventajas importantes para los usuarios de ComfyUI:
 
@@ -155,39 +119,23 @@ Los nodos asociados ofrecen varias ventajas importantes para los usuarios de Com
 
 
 
-## 
-
-​
-
-Precios
+## Precios
 
 ## Precios de los nodos de socios
 
 Consulta la página de precios para ver los precios correspondientes de cada socio
 
-## 
-
-​
-
-Proveedores de modelos
+## Proveedores de modelos
 
 ## Proveedores de modelos
 
 Consulta el estado de verificación, las licencias comerciales y la residencia de datos de los proveedores de modelos que respaldan los Nodos asociados
 
-## 
-
-​
-
-Acerca del código abierto y la participación opcional
+## Acerca del código abierto y la participación opcional
 
 Es importante tener en cuenta que **los nodos asociados son completamente opcionales**. ComfyUI siempre seguirá siendo totalmente de código abierto y gratis para los usuarios locales. Los nodos asociados están pensados como una función de participación opcional, que ofrece comodidad a quienes quieren acceder a modelos externos SOTA (de última generación).
 
-## 
-
-​
-
-Desactivar los Nodos asociados por completo
+## Desactivar los Nodos asociados por completo
 
 Puedes agregar el argumento de inicio `--disable-partner-nodes` para desactivar todos los Nodos asociados en ComfyUI. Usa `--offline` en su lugar si también quieres evitar que el frontend se comunique con internet. **Para instalación manual:**
     
@@ -202,11 +150,7 @@ Puedes agregar el argumento de inicio `--disable-partner-nodes` para desactivar 
     pause
     
 
-## 
-
-​
-
-Casos de uso
+## Casos de uso
 
 Una aplicación potente de los Nodos asociados es combinar la salida de modelos externos con nodos locales. Por ejemplo:
 
@@ -216,11 +160,7 @@ Una aplicación potente de los Nodos asociados es combinar la salida de modelos 
 
 Esta flexibilidad convierte a ComfyUI en una interfaz verdaderamente universal de IA generativa, que integra diversas capacidades de IA en un flujo de trabajo unificado y abre más posibilidades.
 
-## 
-
-​
-
-Preguntas frecuentes
+## Preguntas frecuentes
 
 ¿Por qué no encuentro los Nodos asociados?
 

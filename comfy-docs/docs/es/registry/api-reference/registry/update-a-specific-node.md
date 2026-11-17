@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/update-a-specific-node/
 title: Update a specific node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:13.231447+00:00
+fetched_at: 2026-11-17T16:46:42.345354+00:00
 ---
 
 # Update a specific node - ComfyUI
@@ -1115,8 +1115,6 @@ cURL
 
 #### Autorizaciones
 
-​
-
 Authorization
 
 string
@@ -1129,15 +1127,11 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 publisherId
 
 string
 
 requerido
-
-​
 
 nodeId
 
@@ -1149,21 +1143,15 @@ requerido
 
 application/json
 
-​
-
 author
 
 string
-
-​
 
 banner_url
 
 string
 
 URL to the node's banner.
-
-​
 
 category
 
@@ -1173,21 +1161,15 @@ obsoleto
 
 DEPRECATED: The category of the node. Use 'tags' field instead. This field will be removed in a future version.
 
-​
-
 created_at
 
 string<date-time>
 
 The date and time when the node was created
 
-​
-
 description
 
 string
-
-​
 
 downloads
 
@@ -1195,15 +1177,11 @@ integer
 
 The number of downloads of the node.
 
-​
-
 github_stars
 
 integer
 
 Number of stars on the GitHub repository.
-
-​
 
 icon
 
@@ -1211,15 +1189,11 @@ string
 
 URL to the node's icon.
 
-​
-
 id
 
 string
 
 The unique identifier of the node.
-
-​
 
 latest_version
 
@@ -1227,15 +1201,11 @@ object
 
 Show child attributes
 
-​
-
 license
 
 string
 
 The path to the LICENSE file in the node's repository.
-
-​
 
 name
 
@@ -1243,15 +1213,11 @@ string
 
 The display name of the node.
 
-​
-
 preempted_comfy_node_names
 
 string[]
 
 A list of Comfy node names that are preempted by this node.
-
-​
 
 publisher
 
@@ -1259,15 +1225,11 @@ object
 
 Show child attributes
 
-​
-
 rating
 
 number
 
 The average rating of the node.
-
-​
 
 repository
 
@@ -1275,15 +1237,11 @@ string
 
 URL to the node's repository.
 
-​
-
 search_ranking
 
 integer
 
 A numerical value representing the node's search ranking, used for sorting search results.
-
-​
 
 status
 
@@ -1297,15 +1255,11 @@ Opciones disponibles:
 
 `NodeStatusBanned`
 
-​
-
 status_detail
 
 string
 
 The status detail of the node.
-
-​
 
 supported_accelerators
 
@@ -1313,15 +1267,11 @@ string[]
 
 List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports
 
-​
-
 supported_comfyui_frontend_version
 
 string
 
 Supported versions of ComfyUI frontend
-
-​
 
 supported_comfyui_version
 
@@ -1329,29 +1279,21 @@ string
 
 Supported versions of ComfyUI
 
-​
-
 supported_os
 
 string[]
 
 List of operating systems that this node supports
 
-​
-
 tags
 
 string[]
-
-​
 
 tags_admin
 
 string[]
 
 Admin-only tags for security warnings and admin metadata
-
-​
 
 translations
 
@@ -1369,21 +1311,15 @@ application/json
 
 Node updated successfully
 
-​
-
 author
 
 string
-
-​
 
 banner_url
 
 string
 
 URL to the node's banner.
-
-​
 
 category
 
@@ -1393,21 +1329,15 @@ obsoleto
 
 DEPRECATED: The category of the node. Use 'tags' field instead. This field will be removed in a future version.
 
-​
-
 created_at
 
 string<date-time>
 
 The date and time when the node was created
 
-​
-
 description
 
 string
-
-​
 
 downloads
 
@@ -1415,15 +1345,11 @@ integer
 
 The number of downloads of the node.
 
-​
-
 github_stars
 
 integer
 
 Number of stars on the GitHub repository.
-
-​
 
 icon
 
@@ -1431,15 +1357,11 @@ string
 
 URL to the node's icon.
 
-​
-
 id
 
 string
 
 The unique identifier of the node.
-
-​
 
 latest_version
 
@@ -1447,15 +1369,11 @@ object
 
 Show child attributes
 
-​
-
 license
 
 string
 
 The path to the LICENSE file in the node's repository.
-
-​
 
 name
 
@@ -1463,15 +1381,11 @@ string
 
 The display name of the node.
 
-​
-
 preempted_comfy_node_names
 
 string[]
 
 A list of Comfy node names that are preempted by this node.
-
-​
 
 publisher
 
@@ -1479,15 +1393,11 @@ object
 
 Show child attributes
 
-​
-
 rating
 
 number
 
 The average rating of the node.
-
-​
 
 repository
 
@@ -1495,15 +1405,11 @@ string
 
 URL to the node's repository.
 
-​
-
 search_ranking
 
 integer
 
 A numerical value representing the node's search ranking, used for sorting search results.
-
-​
 
 status
 
@@ -1517,15 +1423,11 @@ Opciones disponibles:
 
 `NodeStatusBanned`
 
-​
-
 status_detail
 
 string
 
 The status detail of the node.
-
-​
 
 supported_accelerators
 
@@ -1533,15 +1435,11 @@ string[]
 
 List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports
 
-​
-
 supported_comfyui_frontend_version
 
 string
 
 Supported versions of ComfyUI frontend
-
-​
 
 supported_comfyui_version
 
@@ -1549,29 +1447,21 @@ string
 
 Supported versions of ComfyUI
 
-​
-
 supported_os
 
 string[]
 
 List of operating systems that this node supports
 
-​
-
 tags
 
 string[]
-
-​
 
 tags_admin
 
 string[]
 
 Admin-only tags for security warnings and admin metadata
-
-​
 
 translations
 

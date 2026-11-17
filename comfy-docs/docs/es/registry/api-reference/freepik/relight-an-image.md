@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/relight-an-image/
 title: Relight an image - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.462312+00:00
+fetched_at: 2026-11-17T16:46:44.980169+00:00
 ---
 
 # Relight an image - ComfyUI
@@ -531,8 +531,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -547,8 +545,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image
 
 string
@@ -557,15 +553,11 @@ requerido
 
 Base64 or URL of the image to do the relight
 
-​
-
 advanced_settings
 
 object
 
 Show child attributes
-
-​
 
 change_background
 
@@ -575,8 +567,6 @@ predeterminado:true
 
 When enabled, changes the background based on prompt and/or reference image. Useful for product placement and portraits.
 
-​
-
 interpolate_from_original
 
 boolean
@@ -584,8 +574,6 @@ boolean
 predeterminado:false
 
 When enabled, makes the final image interpolate from the original using the light transfer strength slider.
-
-​
 
 light_transfer_strength
 
@@ -597,8 +585,6 @@ Level of light transfer intensity. 0% keeps closest to original, 100% is maximum
 
 Rango requerido: `0 <= x <= 100`
 
-​
-
 preserve_details
 
 boolean
@@ -607,15 +593,11 @@ predeterminado:true
 
 Maintains texture and small details of the original image. Good for product photography, texts, etc.
 
-​
-
 prompt
 
 string
 
 You can guide the generation process and influence the light transfer with a descriptive prompt. IMPORTANT: You can emphasize specific aspects of the light in your prompt by using a number in parentheses, ranging from 1 to 1.4, like "(dark scene:1.3)".
-
-​
 
 style
 
@@ -641,23 +623,17 @@ Opciones disponibles:
 
 `just_composition`
 
-​
-
 transfer_light_from_lightmap
 
 string
 
 Base64 or URL of the lightmap for light transfer. Incompatible with 'transfer_light_from_reference_image'
 
-​
-
 transfer_light_from_reference_image
 
 string
 
 Base64 or URL of the reference image for light transfer. Incompatible with 'transfer_light_from_lightmap'
-
-​
 
 webhook_url
 
@@ -676,8 +652,6 @@ Ejemplo:
 application/json
 
 OK - The relight process has started
-
-​
 
 data
 

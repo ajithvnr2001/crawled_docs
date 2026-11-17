@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyviduextend/
 title: Post proxyviduextend - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:14.611474+00:00
+fetched_at: 2026-11-17T16:46:43.722471+00:00
 ---
 
 # Post proxyviduextend - ComfyUI
@@ -455,8 +455,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -471,8 +469,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 model
 
 string
@@ -481,15 +477,11 @@ requerido
 
 Model name (viduq2-pro or viduq2-turbo)
 
-​
-
 callback_url
 
 string
 
 Callback URL for task status updates
-
-​
 
 duration
 
@@ -497,15 +489,11 @@ integer<int32>
 
 Extended duration in seconds (1-7, default 5)
 
-​
-
 images
 
 string[]
 
 Extended reference image to the end frame (only accepts 1 image)
-
-​
 
 payload
 
@@ -513,15 +501,11 @@ string
 
 Transparent transmission parameters (max 1048576 characters)
 
-​
-
 prompt
 
 string
 
 Text prompt for video generation (max 2000 characters)
-
-​
 
 resolution
 
@@ -529,15 +513,11 @@ string
 
 Resolution (540p, 720p, 1080p)
 
-​
-
 video_creation_id
 
 string
 
 Vidu video_creation_id, required with video_url
-
-​
 
 video_url
 
@@ -553,15 +533,11 @@ application/json
 
 OK
 
-​
-
 credits
 
 integer<int32>
 
 requerido
-
-​
 
 state
 
@@ -581,63 +557,43 @@ Opciones disponibles:
 
 `failed`
 
-​
-
 task_id
 
 string
 
 requerido
 
-​
-
 created_at
 
 string<date-time>
-
-​
 
 duration
 
 integer<int32>
 
-​
-
 images
 
 string[]
-
-​
 
 model
 
 string
 
-​
-
 payload
 
 string
-
-​
 
 prompt
 
 string
 
-​
-
 resolution
 
 string
 
-​
-
 video_creation_id
 
 string
-
-​
 
 video_url
 

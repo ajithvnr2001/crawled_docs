@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-remove-background/code/
 title: Use Image Edit Remove Background with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:22.618996+00:00
+fetched_at: 2026-11-17T16:46:39.339809+00:00
 ---
 
 # Use Image Edit Remove Background with Comfy Router - ComfyUI
@@ -177,6 +177,12 @@ required
 
 The image to remove background from. Supported input types are Base64-encoded string or URL pointing to a publicly accessible image file. Accepted formats JPEG, JPG, PNG, WEBP.
 
+model
+
+string
+
+The background removal model. Accepted values are RMBG2 and RMBG3. Defaults to RMBG2 when omitted.
+
 preserve_alpha
 
 boolean
@@ -187,7 +193,7 @@ sync
 
 boolean
 
-When false (default), the request is processed asynchronously. When true, the API holds the connection open until complete. ON COMFY ROUTER that second mode is refused rather than forwarded: Router fixes the return mode before dispatch and polls for the result inside the call, so `POST /v2/models/bria/{model}` answers 422 invalid_input for any `sync` this route carries other than `false` or `null`. The synchronous call is still available on this operation’s own `/proxy/` route, which is the surface this schema also describes.
+Must be false or omitted. Bria’s synchronous mode (true) is refused rather than forwarded, on Comfy Router and on this operation’s own `/proxy/` route: Comfy Router fixes the return mode before dispatch and polls for the result inside the call, and the `/proxy/` route returns the request_id and status_url to poll.
 
 visual_input_content_moderation
 

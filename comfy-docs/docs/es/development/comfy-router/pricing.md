@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/pricing/
 title: Precios de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:05.190187+00:00
+fetched_at: 2026-11-17T16:46:39.771912+00:00
 ---
 
 # Precios de Comfy Router - ComfyUI

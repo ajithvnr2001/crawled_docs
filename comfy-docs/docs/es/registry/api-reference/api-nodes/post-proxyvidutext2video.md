@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyvidutext2video/
 title: Post proxyvidutext2video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:14.388929+00:00
+fetched_at: 2026-11-17T16:46:43.298707+00:00
 ---
 
 # Post proxyvidutext2video - ComfyUI
@@ -553,8 +553,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -569,21 +567,15 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 aspect_ratio
 
 string
-
-​
 
 audio
 
 boolean
 
 Enable direct audio-video generation capability (default true for q3 model)
-
-​
 
 audio_type
 
@@ -599,15 +591,11 @@ Opciones disponibles:
 
 `sound_effect_only`
 
-​
-
 bgm
 
 boolean
 
 Add background music to generated video (ineffective for q3 model)
-
-​
 
 callback_url
 
@@ -615,21 +603,15 @@ string
 
 Callback URL for task status updates
 
-​
-
 duration
 
 integer<int32>
 
 Video duration in seconds. viduq3-pro: 1-16, viduq2-pro-fast: 1-10, viduq2-pro/turbo: 1-8
 
-​
-
 enhance
 
 boolean
-
-​
 
 images
 
@@ -637,15 +619,11 @@ string[]
 
 Images for img2video (accepts 1 image as start frame)
 
-​
-
 is_rec
 
 boolean
 
 Use recommended prompt (consumes additional 10 credits)
-
-​
 
 meta_data
 
@@ -653,15 +631,11 @@ string
 
 Metadata identification, JSON format string for custom metadata
 
-​
-
 model
 
 string
 
 Model name: viduq3-pro, viduq2-pro-fast, viduq2-pro, viduq2-turbo, viduq1, viduq1-classic, vidu2.0
-
-​
 
 movement_amplitude
 
@@ -679,15 +653,11 @@ Opciones disponibles:
 
 `large`
 
-​
-
 off_peak
 
 boolean
 
 Off peak mode (lower cost, tasks generated within 48 hours)
-
-​
 
 payload
 
@@ -695,13 +665,9 @@ string
 
 Transparent transmission parameters (max 1048576 characters)
 
-​
-
 priority
 
 integer<int32>
-
-​
 
 prompt
 
@@ -709,23 +675,17 @@ string
 
 Text prompt for video generation (max 2000 characters)
 
-​
-
 resolution
 
 string
 
 Resolution: 360p, 540p, 720p, 1080p, 2K (availability depends on model and duration)
 
-​
-
 seed
 
 integer<int32>
 
 Random seed (defaults to random if not specified)
-
-​
 
 style
 
@@ -737,15 +697,11 @@ Opciones disponibles:
 
 `anime`
 
-​
-
 voice_id
 
 string
 
 Voice ID for audio (ineffective for q3 model)
-
-​
 
 watermark
 
@@ -753,15 +709,11 @@ boolean
 
 Add watermark to video (default false)
 
-​
-
 wm_position
 
 integer<int32>
 
 Watermark position: 1 (top left), 2 (top right), 3 (bottom right, default), 4 (bottom left)
-
-​
 
 wm_url
 
@@ -777,15 +729,11 @@ application/json
 
 OK
 
-​
-
 credits
 
 integer<int32>
 
 requerido
-
-​
 
 state
 
@@ -805,21 +753,15 @@ Opciones disponibles:
 
 `failed`
 
-​
-
 task_id
 
 string
 
 requerido
 
-​
-
 aspect_ratio
 
 string
-
-​
 
 bgm
 
@@ -827,31 +769,21 @@ boolean
 
 Whether background music was added
 
-​
-
 created_at
 
 string<date-time>
-
-​
 
 duration
 
 integer<int32>
 
-​
-
 images
 
 string[]
 
-​
-
 model
 
 string
-
-​
 
 movement_amplitude
 
@@ -867,15 +799,11 @@ Opciones disponibles:
 
 `large`
 
-​
-
 off_peak
 
 boolean
 
 Off peak mode status
-
-​
 
 payload
 
@@ -883,25 +811,17 @@ string
 
 Transparent transmission parameters
 
-​
-
 prompt
 
 string
-
-​
 
 resolution
 
 string
 
-​
-
 seed
 
 integer<int32>
-
-​
 
 style
 
@@ -912,8 +832,6 @@ Opciones disponibles:
 `general`, 
 
 `anime`
-
-​
 
 watermark
 

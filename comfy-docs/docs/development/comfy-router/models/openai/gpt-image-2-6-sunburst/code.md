@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code/
 title: Use GPT Image 2.6 Sunburst with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:14.443492+00:00
+fetched_at: 2026-11-17T16:46:37.682300+00:00
 ---
 
 # Use GPT Image 2.6 Sunburst with Comfy Router - ComfyUI
@@ -245,7 +245,7 @@ output_format
 
 string
 
-Format of the output image. `gif` additionally refuses `mask`, `n` other than 1, an omitted, `auto` or malformed `size`, `stream: true`, `partial_images` above 0 and `output_compression` — see each field’s own description — and is refused outright unless Comfy has enabled it for this environment.Possible values: `png`, `webp`, `jpeg`, `gif`
+Format of the output image. `gif` additionally refuses `image` (GIF edits are not available yet), `n` other than 1, a `size` other than 512x512 (including omitted, `auto`, malformed, or well-formed sizes such as 1024x1024), `stream: true`, `partial_images` above 0 and `output_compression` — see each field’s own description — and is refused outright unless Comfy has enabled it for this environment. A `mask` on a GIF generation (no `image`) is stripped rather than refused; see `mask`.Possible values: `png`, `webp`, `jpeg`, `gif`
 
 partial_images
 
@@ -271,7 +271,7 @@ size
 
 string
 
-Size of the image (e.g., 1024x1024, 1536x1024, auto). A GIF request (see `output_format`) refuses `auto` and refuses omitting this field: an explicit size is what keeps the pre-flight quote and the 64 MiB result ceiling finite ahead of a frame count that multiplies them.
+Size of the image (e.g., 1024x1024, 1536x1024, auto). A GIF request (see `output_format`) admits only 512x512 and refuses omitting this field, `auto`, a malformed value, and every other well-formed size (including 1024x1024): an explicit 512x512 size is what keeps the pre-flight quote and the 64 MiB result ceiling finite ahead of a frame count that multiplies them.
 
 stream
 

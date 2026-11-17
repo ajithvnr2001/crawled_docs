@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/list-all-versions-of-a-node/
 title: List all versions of a node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:16.021080+00:00
+fetched_at: 2026-11-17T16:46:45.647526+00:00
 ---
 
 # List all versions of a node - ComfyUI
@@ -343,8 +343,6 @@ cURL
 
 #### Parámetros de ruta
 
-​
-
 nodeId
 
 string
@@ -352,8 +350,6 @@ string
 requerido
 
 #### Parámetros de consulta
-
-​
 
 statuses
 
@@ -371,8 +367,6 @@ Opciones disponibles:
 
 `NodeVersionStatusFlagged`
 
-​
-
 include_status_reason
 
 boolean
@@ -387,15 +381,11 @@ application/json
 
 List of all node versions
 
-​
-
 changelog
 
 string
 
 Summary of changes made in this version
-
-​
 
 comfy_node_extract_status
 
@@ -403,15 +393,11 @@ string
 
 The status of comfy node extraction process.
 
-​
-
 createdAt
 
 string<date-time>
 
 The date and time the version was created.
-
-​
 
 dependencies
 
@@ -419,15 +405,11 @@ string[]
 
 A list of pip dependencies required by the node.
 
-​
-
 deprecated
 
 boolean
 
 Indicates if this version is deprecated.
-
-​
 
 downloadUrl
 
@@ -435,21 +417,15 @@ string
 
 [Output Only] URL to download this version of the node
 
-​
-
 id
 
 string
-
-​
 
 node_id
 
 string
 
 The unique identifier of the node.
-
-​
 
 status
 
@@ -467,13 +443,9 @@ Opciones disponibles:
 
 `NodeVersionStatusFlagged`
 
-​
-
 status_reason
 
 string
-
-​
 
 supported_accelerators
 
@@ -481,15 +453,11 @@ string[]
 
 List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports
 
-​
-
 supported_comfyui_frontend_version
 
 string
 
 Supported versions of ComfyUI frontend
-
-​
 
 supported_comfyui_version
 
@@ -497,29 +465,21 @@ string
 
 Supported versions of ComfyUI
 
-​
-
 supported_os
 
 string[]
 
 List of operating systems that this node supports
 
-​
-
 tags
 
 string[]
-
-​
 
 tags_admin
 
 string[]
 
 Admin-only tags for security warnings and admin metadata. Read-only for publishers - omitted from all public responses and ignored if sent on publish; only returned on admin-authenticated responses.
-
-​
 
 version
 

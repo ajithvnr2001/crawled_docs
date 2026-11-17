@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieves-a-list-of-nodes/
 title: Retrieves a list of nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:01.484459+00:00
+fetched_at: 2026-11-17T16:46:46.160415+00:00
 ---
 
 # Retrieves a list of nodes - ComfyUI
@@ -429,8 +429,6 @@ cURL
 
 #### Parámetros de consulta
 
-​
-
 page
 
 integer
@@ -438,8 +436,6 @@ integer
 predeterminado:1
 
 Page number of the nodes list
-
-​
 
 limit
 
@@ -451,15 +447,11 @@ Number of nodes to return per page. Values above the declared maximum are outsid
 
 Rango requerido: `x <= 100`
 
-​
-
 supported_os
 
 string
 
 Filter nodes by supported operating systems
-
-​
 
 supported_accelerator
 
@@ -467,15 +459,11 @@ string
 
 Filter nodes by supported accelerator
 
-​
-
 include_banned
 
 boolean
 
 Whether to include banned nodes in the results. Defaults to excluding them; pass true to include.
-
-​
 
 timestamp
 
@@ -483,15 +471,11 @@ string<date-time>
 
 Retrieve nodes created or updated after this timestamp (ISO 8601 format)
 
-​
-
 latest
 
 boolean
 
 Whether to fetch fresh result from database or use cached one if false
-
-​
 
 sort
 
@@ -499,23 +483,17 @@ string[]
 
 Node column to order by, ascending; append `;desc` to the value (e.g. `name;desc`) for descending. Generated clients and params-object helpers escape the `;` for you; only a hand-built raw query string must write it as `%3B` (`sort=name%3Bdesc`), because a raw `;` makes Go's query parser discard the whole `sort=...` pair before the handler sees it. Allowed columns: `id`, `normalized_id`, `publisher_id`, `name`, `category`, `author`, `status`, `create_time`, `update_time`, `total_install`, `total_star`, `total_review`, `github_stars`, `search_ranking`. Column and direction are case-insensitive. At most 2 sort terms are applied (a primary order and a tie-breaker); an unknown column, a malformed term, a repeated column or a term past the second is ignored rather than rejected, and the listing is returned without that ordering.
 
-​
-
 node_id
 
 string[]
 
 node_id to use as filter
 
-​
-
 comfyui_version
 
 string
 
 Comfy UI version
-
-​
 
 form_factor
 
@@ -531,15 +509,11 @@ application/json
 
 A paginated list of nodes
 
-​
-
 limit
 
 integer
 
 Maximum number of nodes per page
-
-​
 
 nodes
 
@@ -547,23 +521,17 @@ object[]
 
 Show child attributes
 
-​
-
 page
 
 integer
 
 Current page number
 
-​
-
 total
 
 integer
 
 Total number of nodes available
-
-​
 
 totalPages
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-all-publishers/
 title: Retrieve all publishers - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:14.491339+00:00
+fetched_at: 2026-11-17T16:46:42.887815+00:00
 ---
 
 # Retrieve all publishers - ComfyUI
@@ -307,21 +307,15 @@ application/json
 
 A list of publishers
 
-​
-
 createdAt
 
 string<date-time>
 
 The date and time the publisher was created.
 
-​
-
 description
 
 string
-
-​
 
 id
 
@@ -329,15 +323,11 @@ string
 
 The unique identifier for the publisher. It's akin to a username. Should be lowercase.
 
-​
-
 logo
 
 string
 
 URL to the publisher's logo.
-
-​
 
 members
 
@@ -347,19 +337,13 @@ A list of members in the publisher.
 
 Show child attributes
 
-​
-
 name
 
 string
 
-​
-
 source_code_repo
 
 string
-
-​
 
 status
 
@@ -371,13 +355,9 @@ Opciones disponibles:
 
 `PublisherStatusBanned`
 
-​
-
 support
 
 string
-
-​
 
 website
 

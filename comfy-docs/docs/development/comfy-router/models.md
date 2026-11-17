@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:04.148129+00:00
+fetched_at: 2026-11-17T16:46:39.673040+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -34,7 +34,6 @@ Back to top
   * Luma 2
   * Meshy
   * MiniMax
-  * Moonvalley
   * OpenAI
   * Openrouter
   * Pika
@@ -69,7 +68,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 ## Find by output
 
-Video (87)
+Video (84)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -110,9 +109,6 @@ Video (87)
   * [LTX Video Upscale](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-upscale/code): `ltx/ltx-video-upscale`
   * [Ray 3.2](https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code): `luma_2/ray-3.2`
   * [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
-  * [Image To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/image-to-video/code): `moonvalley/image-to-video`
-  * [Text To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/text-to-video/code): `moonvalley/text-to-video`
-  * [Video To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/video-to-video/code): `moonvalley/video-to-video`
   * [Pika 2.5 Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-image-to-video/code): `pika/pika-2.5-image-to-video`
   * [Pika 2.5 Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-text-to-video/code): `pika/pika-2.5-text-to-video`
   * [Pika H3 Flex Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-image-to-video/code): `pika/pika-h3-flex-image-to-video`
@@ -647,14 +643,6 @@ Model| ID| Input| Output
 [MiniMax H3 Image Highspeed](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image-highspeed/code)| `minimax/minimax-h3-image-highspeed`| Text, Image| Image  
 [MiniMax H3 Image](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3-image/code)| `minimax/minimax-h3-image`| Text, Image| Image  
 [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code)| `minimax/minimax-h3`| Text, Image| Video + Audio  
-  
-## Moonvalley
-
-Model| ID| Input| Output  
----|---|---|---  
-[Image To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/image-to-video/code)| `moonvalley/image-to-video`| Image, Text| Video  
-[Text To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/text-to-video/code)| `moonvalley/text-to-video`| Text| Video  
-[Video To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/video-to-video/code)| `moonvalley/video-to-video`| Video, Text| Video  
   
 ## OpenAI
 

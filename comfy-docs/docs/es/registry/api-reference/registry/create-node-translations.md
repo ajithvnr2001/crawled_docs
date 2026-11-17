@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/create-node-translations/
 title: Create Node Translations - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:16.228485+00:00
+fetched_at: 2026-11-17T16:46:45.714816+00:00
 ---
 
 # Create Node Translations - ComfyUI
@@ -331,8 +331,6 @@ cURL
 
 BearerAuthComfyAdminSecretAuthBearerAuthComfyAdminSecretAuth
 
-​
-
 Authorization
 
 string
@@ -345,8 +343,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 #### Parámetros de ruta
 
-​
-
 nodeId
 
 string
@@ -358,8 +354,6 @@ The unique identifier of the node.
 #### Cuerpo
 
 application/json
-
-​
 
 data
 

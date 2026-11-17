@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/skin-enhancer-using-ai-creative/
 title: Skin enhancer using AI (Creative) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.079759+00:00
+fetched_at: 2026-11-17T16:46:44.546007+00:00
 ---
 
 # Skin enhancer using AI (Creative) - ComfyUI
@@ -371,8 +371,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -387,8 +385,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image
 
 string
@@ -401,8 +397,6 @@ Ejemplo:
 
 `"https://example.com/portrait.jpg"`
 
-​
-
 sharpen
 
 integer
@@ -413,8 +407,6 @@ Sharpening intensity
 
 Rango requerido: `0 <= x <= 100`
 
-​
-
 smart_grain
 
 integer
@@ -424,8 +416,6 @@ predeterminado:2
 Smart grain intensity
 
 Rango requerido: `0 <= x <= 100`
-
-​
 
 webhook_url
 
@@ -444,8 +434,6 @@ Ejemplo:
 application/json
 
 OK - The skin enhancer process has started
-
-​
 
 data
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/skin-enhancer-using-ai-flexible/
 title: Skin enhancer using AI (Flexible) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.128428+00:00
+fetched_at: 2026-11-17T16:46:44.326718+00:00
 ---
 
 # Skin enhancer using AI (Flexible) - ComfyUI
@@ -371,8 +371,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -387,8 +385,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image
 
 string
@@ -400,8 +396,6 @@ Input image. Supports Base64 encoding or HTTPS URL (must be publicly accessible)
 Ejemplo:
 
 `"https://example.com/portrait.jpg"`
-
-​
 
 optimized_for
 
@@ -423,8 +417,6 @@ Opciones disponibles:
 
 `no_make_up`
 
-​
-
 sharpen
 
 integer
@@ -435,8 +427,6 @@ Sharpening intensity
 
 Rango requerido: `0 <= x <= 100`
 
-​
-
 smart_grain
 
 integer
@@ -446,8 +436,6 @@ predeterminado:2
 Smart grain intensity
 
 Rango requerido: `0 <= x <= 100`
-
-​
 
 webhook_url
 
@@ -466,8 +454,6 @@ Ejemplo:
 application/json
 
 OK - The skin enhancer process has started
-
-​
 
 data
 

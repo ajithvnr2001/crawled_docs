@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-text-prompt/
 title: Generate music from text prompt - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:10.883004+00:00
+fetched_at: 2026-11-17T16:46:44.163554+00:00
 ---
 
 # Generate music from text prompt - ComfyUI
@@ -439,8 +439,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -455,8 +453,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 multipart/form-data
 
-​
-
 duration
 
 integer
@@ -466,8 +462,6 @@ requerido
 Desired duration of the output track in seconds.
 
 Rango requerido: `1 <= x <= 360`
-
-​
 
 prompt
 
@@ -500,8 +494,6 @@ OK - Streaming NDJSON response with audio generation events
 
 A single NDJSON event from the Sonilo streaming response. Additional event types beyond those listed may appear; unknown types should be ignored by clients.
 
-​
-
 copy_index
 
 integer
@@ -510,15 +502,11 @@ requerido
 
 Rango requerido: `x >= 0`
 
-​
-
 display_tags
 
 string[]
 
 requerido
-
-​
 
 prompt_index
 
@@ -528,8 +516,6 @@ requerido
 
 Rango requerido: `x >= 0`
 
-​
-
 stream_index
 
 integer
@@ -538,15 +524,11 @@ requerido
 
 Rango requerido: `x >= 0`
 
-​
-
 title
 
 string
 
 requerido
-
-​
 
 type
 
@@ -557,8 +539,6 @@ requerido
 Opciones disponibles: 
 
 `title`
-
-​
 
 summary
 

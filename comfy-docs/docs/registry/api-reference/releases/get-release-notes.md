@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/releases/get-release-notes/
 title: Get release notes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:01.422822+00:00
+fetched_at: 2026-11-17T16:46:46.808540+00:00
 ---
 
 # Get release notes - ComfyUI
@@ -275,8 +275,6 @@ cURL
 
 #### Query Parameters
 
-​
-
 project
 
 enum<string>
@@ -295,15 +293,11 @@ Available options:
 
 `cloud`
 
-​
-
 current_version
 
 string
 
 The current version to filter release notes
-
-​
 
 locale
 
@@ -329,8 +323,6 @@ Available options:
 
 `zh`
 
-​
-
 form_factor
 
 string
@@ -344,8 +336,6 @@ The platform requesting the release notes
 application/json
 
 Release notes retrieved successfully
-
-​
 
 attention
 
@@ -363,8 +353,6 @@ Available options:
 
 `high`
 
-​
-
 content
 
 string
@@ -373,8 +361,6 @@ required
 
 The content of the release note in markdown format
 
-​
-
 id
 
 integer
@@ -382,8 +368,6 @@ integer
 required
 
 Unique identifier for the release note
-
-​
 
 project
 
@@ -403,8 +387,6 @@ Available options:
 
 `cloud`
 
-​
-
 published_at
 
 string<date-time>
@@ -412,8 +394,6 @@ string<date-time>
 required
 
 When the release note was published
-
-​
 
 version
 

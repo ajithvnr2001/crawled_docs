@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/get-a-sonilo-task/
 title: Get a Sonilo task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:10.763777+00:00
+fetched_at: 2026-11-17T16:46:43.990126+00:00
 ---
 
 # Get a Sonilo task - ComfyUI
@@ -355,8 +355,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -368,8 +366,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key. Accepted on the operations served by the comfyFirebase auth middleware (BE-9720, parity with ingest).
 
 #### Parámetros de ruta
-
-​
 
 task_id
 
@@ -387,8 +383,6 @@ application/json
 
 OK
 
-​
-
 status
 
 string
@@ -397,23 +391,17 @@ requerido
 
 One of processing, succeeded or failed.
 
-​
-
 task_id
 
 string
 
 requerido
 
-​
-
 audio
 
 object
 
 Show child attributes
-
-​
 
 cost
 
@@ -423,15 +411,11 @@ What Sonilo charged for the task. Present when the task succeeded.
 
 Show child attributes
 
-​
-
 duration_seconds
 
 number<double>
 
 Length of the generated audio in seconds. Present when the task succeeded.
-
-​
 
 error
 
@@ -441,15 +425,11 @@ Present when the task failed.
 
 Show child attributes
 
-​
-
 refunded
 
 boolean
 
 Present when the task failed. Whether Sonilo reversed the charge.
-
-​
 
 type
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/update-a-specific-comfy-node/
 title: Update a specific comfy-node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:15.762456+00:00
+fetched_at: 2026-11-17T16:46:45.481549+00:00
 ---
 
 # Update a specific comfy-node - ComfyUI
@@ -471,23 +471,17 @@ cURL
 
 #### Parámetros de ruta
 
-​
-
 nodeId
 
 string
 
 requerido
 
-​
-
 version
 
 string
 
 requerido
-
-​
 
 comfyNodeName
 
@@ -499,15 +493,11 @@ requerido
 
 application/json
 
-​
-
 category
 
 string
 
 UI category where the node is listed, used for grouping nodes.
-
-​
 
 deprecated
 
@@ -515,15 +505,11 @@ boolean
 
 Indicates if the node is deprecated. Deprecated nodes are hidden in the UI.
 
-​
-
 description
 
 string
 
 Brief description of the node's functionality or purpose.
-
-​
 
 experimental
 
@@ -531,15 +517,11 @@ boolean
 
 Indicates if the node is experimental, subject to changes or removal.
 
-​
-
 function
 
 string
 
 Name of the entry-point function to execute the node.
-
-​
 
 input_types
 
@@ -547,15 +529,11 @@ string
 
 Defines input parameters
 
-​
-
 output_is_list
 
 boolean[]
 
 Boolean values indicating if each output is a list.
-
-​
 
 policy
 
@@ -569,15 +547,11 @@ Opciones disponibles:
 
 `ComfyNodePolicyLocalOnly`
 
-​
-
 return_names
 
 string
 
 Names of the outputs for clarity in workflows.
-
-​
 
 return_types
 
@@ -593,15 +567,11 @@ application/json
 
 Comfy Node updated successfully
 
-​
-
 category
 
 string
 
 UI category where the node is listed, used for grouping nodes.
-
-​
 
 comfy_node_name
 
@@ -609,15 +579,11 @@ string
 
 Unique identifier for the node
 
-​
-
 deprecated
 
 boolean
 
 Indicates if the node is deprecated. Deprecated nodes are hidden in the UI.
-
-​
 
 description
 
@@ -625,15 +591,11 @@ string
 
 Brief description of the node's functionality or purpose.
 
-​
-
 experimental
 
 boolean
 
 Indicates if the node is experimental, subject to changes or removal.
-
-​
 
 function
 
@@ -641,23 +603,17 @@ string
 
 Name of the entry-point function to execute the node.
 
-​
-
 input_types
 
 string
 
 Defines input parameters
 
-​
-
 output_is_list
 
 boolean[]
 
 Boolean values indicating if each output is a list.
-
-​
 
 policy
 
@@ -671,15 +627,11 @@ Opciones disponibles:
 
 `ComfyNodePolicyLocalOnly`
 
-​
-
 return_names
 
 string
 
 Names of the outputs for clarity in workflows.
-
-​
 
 return_types
 

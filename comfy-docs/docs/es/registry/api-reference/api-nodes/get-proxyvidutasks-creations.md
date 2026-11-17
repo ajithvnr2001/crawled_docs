@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/get-proxyvidutasks-creations/
 title: Get proxyvidutasks creations - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:14.957440+00:00
+fetched_at: 2026-11-17T16:46:43.063841+00:00
 ---
 
 # Get proxyvidutasks creations - ComfyUI
@@ -331,8 +331,6 @@ default
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -344,8 +342,6 @@ requerido
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key. Accepted on the operations served by the comfyFirebase auth middleware (BE-9720, parity with ingest).
 
 #### Parámetros de ruta
-
-​
 
 id
 
@@ -361,27 +357,19 @@ application/json
 
 OK
 
-​
-
 creations
 
 object[]
 
 Show child attributes
 
-​
-
 err_code
 
 string
 
-​
-
 id
 
 string
-
-​
 
 state
 

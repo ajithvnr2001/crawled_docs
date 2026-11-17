@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/style-transfer-an-image/
 title: Style transfer an image - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T14:59:11.388224+00:00
+fetched_at: 2026-11-17T16:46:45.141840+00:00
 ---
 
 # Style transfer an image - ComfyUI
@@ -447,8 +447,6 @@ cURL
 
 BearerAuthApiKeyAuthBearerAuthApiKeyAuth
 
-​
-
 Authorization
 
 string
@@ -463,8 +461,6 @@ Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' pref
 
 application/json
 
-​
-
 image
 
 string
@@ -473,8 +469,6 @@ requerido
 
 Base64 or URL of the image to do the style transfer
 
-​
-
 reference_image
 
 string
@@ -482,8 +476,6 @@ string
 requerido
 
 Base64 or URL of the reference image for style transfer
-
-​
 
 engine
 
@@ -513,8 +505,6 @@ Opciones disponibles:
 
 `softy`
 
-​
-
 fixed_generation
 
 boolean
@@ -522,8 +512,6 @@ boolean
 predeterminado:false
 
 When enabled, using the same settings will consistently produce the same image.
-
-​
 
 flavor
 
@@ -549,8 +537,6 @@ Opciones disponibles:
 
 `donotstyle_sharp`
 
-​
-
 is_portrait
 
 boolean
@@ -558,8 +544,6 @@ boolean
 predeterminado:false
 
 Indicates whether the image should be processed as a portrait.
-
-​
 
 portrait_beautifier
 
@@ -572,8 +556,6 @@ Opciones disponibles:
 `beautify_face`, 
 
 `beautify_face_max`
-
-​
 
 portrait_style
 
@@ -591,15 +573,11 @@ Opciones disponibles:
 
 `super_pop`
 
-​
-
 prompt
 
 string
 
 Prompt for the AI model
-
-​
 
 structure_strength
 
@@ -611,8 +589,6 @@ Allows to maintain the structure of the original image
 
 Rango requerido: `0 <= x <= 100`
 
-​
-
 style_strength
 
 integer
@@ -622,8 +598,6 @@ predeterminado:100
 Percentage of style strength
 
 Rango requerido: `0 <= x <= 100`
-
-​
 
 webhook_url
 
@@ -643,15 +617,11 @@ application/json
 
 OK - The style transfer process has started
 
-​
-
 generated
 
 string<uri>[]
 
 URLs to the generated images.
-
-​
 
 status
 
@@ -666,8 +636,6 @@ Opciones disponibles:
 `COMPLETED`, 
 
 `FAILED`
-
-​
 
 task_id
 
