@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/overview/
 title: Deploy Your Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:58.300488+00:00
+fetched_at: 2026-11-17T16:59:54.620313+00:00
 ---
 
 # Deploy Your Agent - Fish Audio
@@ -50,7 +50,7 @@ Drop a prebuilt call widget into your site: two lines of HTML, zero build step.
 
 ## Your own UI
 
-Build a custom experience with the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) or [React SDK](https://docs.fish.audio/agents/deploy/react-sdk): events, transcripts, audio controls.
+Build a custom experience with the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) or [React SDK](https://docs.fish.audio/agents/deploy/react-sdk), or in a mobile app with the [React Native SDK](https://docs.fish.audio/agents/deploy/react-native).
 
 ## Phone
 
@@ -87,6 +87,7 @@ A call button on an existing site, no build step| [Widget](https://docs.fish.aud
 A demo or marketing page without a backend| [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) on a [public agent](https://docs.fish.audio/agents/deploy/public-agents)  
 Voice calls inside a web app with signed-in users| [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) with [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions)  
 A React or Next.js frontend| [React SDK](https://docs.fish.audio/agents/deploy/react-sdk)  
+An iOS or Android app built with React Native| [React Native SDK](https://docs.fish.audio/agents/deploy/react-native) with [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions)  
 A phone line callers dial in to| [Phone numbers](https://docs.fish.audio/agents/telephony/phone-numbers) and [transfers](https://docs.fish.audio/agents/telephony/transfers)  
 Server-side session creation and history retrieval| [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) and [conversation history](https://docs.fish.audio/agents/monitor/conversation-history)  
 A client on a stack the SDKs don’t cover| [Wire protocol](https://docs.fish.audio/agents/deploy/protocol)  

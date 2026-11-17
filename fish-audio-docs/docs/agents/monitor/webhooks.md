@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/webhooks/
 title: Webhooks - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:57.412700+00:00
+fetched_at: 2026-11-17T16:59:54.808811+00:00
 ---
 
 # Webhooks - Fish Audio
@@ -412,7 +412,9 @@ Response
     }
     
 
-An entry that breaks a rule is dropped on its own; the call still connects with the rest. Other fields in the response are ignored, so the contract can grow without breaking deployed endpoints. A placeholder that receives no value takes the agent’s configured [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values), and follows the agent’s `on_missing` setting when there is none.
+An entry that breaks a rule is dropped on its own; the call still connects with the rest. Other fields in the response are ignored, so the contract can grow without breaking deployed endpoints. A placeholder that receives no value takes the agent’s configured [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values), and follows the agent’s **If a variable has no value** setting (`on_missing` in the API) when there is none.
+
+A variable in a [transfer destination’s phone number](https://docs.fish.audio/agents/telephony/transfers#choosing-the-number-per-call) is the exception: that setting does not apply there, and only that destination is skipped for the call.
 
 System prompt
     

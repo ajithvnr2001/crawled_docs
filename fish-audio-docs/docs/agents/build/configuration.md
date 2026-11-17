@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/configuration/
 title: Configuration - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:49.493008+00:00
+fetched_at: 2026-11-17T16:59:55.061155+00:00
 ---
 
 # Configuration - Fish Audio

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/dynamic-variables/
 title: Dynamic Variables - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:57.554559+00:00
+fetched_at: 2026-11-17T16:59:55.204134+00:00
 ---
 
 # Dynamic Variables - Fish Audio
@@ -58,6 +58,7 @@ First message, fixed text or prompt (`prompt.first_message`, `prompt.first_messa
 Session [overrides](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) of those fields (`overrides.system_prompt`, `overrides.first_message`, `overrides.first_message_prompt`)| Yes| Yes  
 [Warm transfer briefing](https://docs.fish.audio/agents/telephony/transfers#customizing-the-briefing) (`conversation.transfer_destinations[].warm_briefing_instructions`)| Yes| Yes  
 [Fixed transfer announcement](https://docs.fish.audio/agents/telephony/transfers#the-transfer-announcement) (`conversation.transfer_destinations[].announcement_message`)| Yes| Yes  
+[Transfer destination number](https://docs.fish.audio/agents/telephony/transfers#choosing-the-number-per-call) (`conversation.transfer_destinations[].phone_number`)| Yes| Yes  
 [Webhook tool](https://docs.fish.audio/agents/build/webhook-tools#argument-templating) URL, header values, and body template| Yes| Yes  
   
 Custom values travel with the request that starts the session: `dynamic_variables` on [`POST /v1/agent/sessions`](https://docs.fish.audio/agents/deploy/authenticated-sessions), `dynamicVariables` in the SDK’s `AgentSession.start()` for [public agents](https://docs.fish.audio/agents/deploy/public-agents), `dynamic_variables` on [`POST /v1/agent/phone-calls`](https://docs.fish.audio/agents/telephony/outbound-calls#request-fields) for outbound calls, and the variables panel of a [preview call](https://docs.fish.audio/agents/test/preview-calls) in the Builder. Inbound phone calls have no such request: values come from the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook) when one is configured; the caller’s number and the other session facts are always available as system variables. A [keypad menu](https://docs.fish.audio/agents/telephony/keypad) can fill one more variable with the caller’s choice.
@@ -105,14 +106,16 @@ JavaScript SDK
 
 ### Default values
 
-A placeholder is resolved in this order: the value supplied for the session, then the default configured on the agent. What happens when neither exists is set by `on_missing`:
+A placeholder is resolved in this order: the value supplied for the session, then the default configured on the agent. What happens when neither exists is set by **If a variable has no value** (`on_missing` in the API):
 
 `on_missing`| A placeholder with no value  
 ---|---  
-`keep` (default)| Stays in the text as written, visible to the model and spoken on a fixed first message  
-`empty`| Renders as empty text  
-`reject`| Session creation fails with `422 Missing dynamic variables: ...` and an inbound call is not connected  
+`keep` (Keep as written, default)| Stays in the text as written, visible to the model and spoken on a fixed first message  
+`empty` (Empty text)| Renders as empty text  
+`reject` (Reject session)| Session creation fails with `422 Missing dynamic variables: ...` and an inbound call is not connected  
   
+A variable in a [transfer destination’s phone number](https://docs.fish.audio/agents/telephony/transfers#choosing-the-number-per-call) is the exception. When it has no value and no default, that number alone never rejects the call: only that destination is skipped. If the same variable also appears in the prompt or first message, that text still follows the setting above, so **Reject session** can still reject the call.
+
 Set both in the **Dynamic variables** sheet of the agent’s Configuration page (the **Default values** link under the system prompt), or through the `variables` section of the config API. The defaults map replaces as a whole on every update, and names follow the same rules as `dynamic_variables`:
     
     

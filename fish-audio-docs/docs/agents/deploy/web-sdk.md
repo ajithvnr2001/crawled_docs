@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/web-sdk/
 title: Web SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:56.838012+00:00
+fetched_at: 2026-11-17T16:59:54.539263+00:00
 ---
 
 # Web SDK - Fish Audio
@@ -41,7 +41,7 @@ Voice sessions in the browser with @fishaudio/agent-client: options, events, tra
 
 Copy pageCopy page
 
-`@fishaudio/agent-client` runs a live voice conversation with your agent from any web page: open the microphone, stream audio both ways, and react to typed events for transcripts, agent state, and tool calls. The SDK handles the realtime transport (WebRTC) internally. Using React? [`@fishaudio/agent-react`](https://docs.fish.audio/agents/deploy/react-sdk) wraps this SDK in hooks and a provider.
+`@fishaudio/agent-client` runs a live voice conversation with your agent from any web page: open the microphone, stream audio both ways, and react to typed events for transcripts, agent state, and tool calls. The SDK handles the realtime transport (WebRTC) internally. Using React? [`@fishaudio/agent-react`](https://docs.fish.audio/agents/deploy/react-sdk) wraps this SDK in hooks and a provider. Building a mobile app? See the [React Native SDK](https://docs.fish.audio/agents/deploy/react-native).
 
 ## Install
 
