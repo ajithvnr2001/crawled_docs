@@ -2,67 +2,43 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit/
 title: useCopilotKit
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:22.142658+00:00
+fetched_at: 2026-11-18T11:27:56.245239+00:00
 ---
 
 # useCopilotKit
 
 > Source: https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Hooks
+Vue/Hooks
 
 # useCopilotKit
 
 Low-level Vue 3 composable for accessing the CopilotKit context
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useCopilotKit` is a low-level Vue 3 composable that injects the CopilotKit provider context, giving direct access to the core instance and provider-level reactive state. Because the values it returns are Vue refs, reading them inside a `computed`, `watch`, or template keeps your code reactive to runtime changes such as connection status or in-flight tool calls.
 
-`useCopilotKit` is a low-level composable. Most applications should use higher-level composables like `useAgent` or `useFrontendTool` instead.
+`useCopilotKit` is a low-level composable. Most applications should use higher-level composables like [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent) or [`useFrontendTool`](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool) instead.
 
-**Throws an error** if called outside of a `CopilotKitProvider`. The composable injects the provider context, so it must run within a component tree that has `CopilotKitProvider` as an ancestor.
+**Throws an error** if called outside of a [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider). The composable injects the provider context, so it must run within a component tree that has `CopilotKitProvider` as an ancestor.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useCopilotKit } from "@copilotkit/vue/v2";
     
     function useCopilotKit(): CopilotKitContextValue;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 This composable takes no parameters.
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 The composable returns the `CopilotKitContextValue` object. Every member is a Vue ref (or computed ref), so access the underlying value with `.value` (or let the template unwrap it for you).
 
@@ -72,39 +48,21 @@ Type
 
 `copilotkit?`ShallowRef<CopilotKitCoreVue>
 
-Prop
-
-Type
-
 `executingToolCallIds?`Ref<ReadonlySet<string>>
-
-Prop
-
-Type
 
 `a2uiTheme?`ComputedRef<A2UITheme | undefined>
 
-Prop
-
-Type
-
 `a2uiCatalog?`ComputedRef<unknown>
-
-Prop
-
-Type
 
 `a2uiLoadingComponent?`ComputedRef<unknown>
 
-Prop
-
-Type
-
 `a2uiIncludeSchema?`ComputedRef<boolean>
 
-## Usage
+## UsageCopy Anchor Link
 
-### Accessing the Core Instance
+### Accessing the Core InstanceCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -125,9 +83,11 @@ Type
       </div>
     </template>
 
-### Subscribing to Core Events
+### Subscribing to Core EventsCopy Anchor Link
 
 Subscribe in `onMounted` and tear the subscription down in `onUnmounted`.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -151,9 +111,11 @@ Subscribe in `onMounted` and tear the subscription down in `onUnmounted`.
     });
     </script>
 
-### Running a Tool Programmatically
+### Running a Tool ProgrammaticallyCopy Anchor Link
 
 `copilotkit.value.runTool()` lets you execute a registered frontend tool directly from code, with no LLM turn required. The tool's handler runs, render components appear in the UI, and both the tool call and its result are added to the agent's message history.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -194,7 +156,7 @@ Subscribe in `onMounted` and tear the subscription down in `onUnmounted`.
       <button @click="handleExport">Export CSV</button>
     </template>
 
-#### `runTool` Parameters
+#### `runTool` ParametersCopy Anchor Link
 
 Prop
 
@@ -202,7 +164,7 @@ Type
 
 `params?`CopilotKitCoreRunToolParams
 
-#### `runTool` Return Value
+#### `runTool` Return ValueCopy Anchor Link
 
 Prop
 
@@ -210,9 +172,11 @@ Type
 
 `result?`CopilotKitCoreRunToolResult
 
-### Checking Tool Execution State
+### Checking Tool Execution StateCopy Anchor Link
 
 Because `executingToolCallIds` is a ref, drive UI off it with a `computed` or read it directly in the template.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -230,7 +194,7 @@ Because `executingToolCallIds` is a ref, drive UI off it with a `computed` or re
       </div>
     </template>
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Error on missing provider** : Throws `useCopilotKit must be used within CopilotKitProvider` if the composable is called outside of a `CopilotKitProvider`.
   * **Refs, not plain values** : Every returned member is a Vue ref or computed ref. Read `copilotkit.value` to reach the core instance and `executingToolCallIds.value` to reach the live set. Keep usage reactive with `computed`, `watch`, or template bindings.
@@ -239,10 +203,8 @@ Because `executingToolCallIds` is a ref, drive UI off it with a `computed` or re
 
 
 
-## Related
+How is this guide?
 
-  * [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent) \-- High-level composable for accessing agent instances
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool) \-- Register frontend tools that `runTool()` can execute
-  * [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) \-- The provider component that creates the context
+GoodBad
 
-
+[Previous PageuseCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[Next PageuseDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)

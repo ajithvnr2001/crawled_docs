@@ -5391,3 +5391,56 @@
 {"url": "https://docs.copilotkit.ai/teams/openai-agents-python/threads-and-state/", "file": "teams/openai-agents-python/threads-and-state.md", "title": "Microsoft Teams + OpenAI Agents SDK (Python): Threads and state", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/teams/openai-agents-python/posting-jsx-as-images/", "file": "teams/openai-agents-python/posting-jsx-as-images.md", "title": "Microsoft Teams + OpenAI Agents SDK (Python): Posting JSX as images", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/teams/openai-agents-python/tools/", "file": "teams/openai-agents-python/tools.md", "title": "Microsoft Teams + OpenAI Agents SDK (Python): Tools and context", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/a2a/quickstart/", "file": "a2a/quickstart.md", "title": "Quickstart", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/agent-spec/shared-state/", "file": "agent-spec/shared-state.md", "title": "Shared State", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/a2a/generative-ui/declarative-a2ui/", "file": "a2a/generative-ui/declarative-a2ui.md", "title": "Declarative (A2UI)", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/agent-spec/generative-ui/interactive/", "file": "agent-spec/generative-ui/interactive.md", "title": "Interactive components", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/agent-spec/human-in-the-loop/useInterrupt/", "file": "agent-spec/human-in-the-loop/useInterrupt.md", "title": "Pausing the Agent for Input", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/agent-spec/generative-ui/tool-rendering/", "file": "agent-spec/generative-ui/tool-rendering.md", "title": "Tool Call Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/a2a/", "file": "a2a.md", "title": "A2A", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/agent-spec/generative-ui/state-rendering/", "file": "agent-spec/generative-ui/state-rendering.md", "title": "State Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/custom-look-and-feel/css/", "file": "angular/custom-look-and-feel/css.md", "title": "CSS Customization", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/custom-look-and-feel/headless-ui/", "file": "angular/custom-look-and-feel/headless-ui.md", "title": "Headless UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/custom-look-and-feel/slots/", "file": "angular/custom-look-and-feel/slots.md", "title": "Slots (Subcomponents)", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/frontend-tools/", "file": "angular/frontend-tools.md", "title": "Frontend Tools", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/generative-ui/open-generative-ui/", "file": "angular/generative-ui/open-generative-ui.md", "title": "Open Generative UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/generative-ui/a2ui/", "file": "angular/generative-ui/a2ui.md", "title": "A2UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/generative-ui/tool-rendering/", "file": "angular/generative-ui/tool-rendering.md", "title": "Tool Call Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/generative-ui/mcp-apps/", "file": "angular/generative-ui/mcp-apps.md", "title": "MCP Apps", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/generative-ui/tool-based/", "file": "angular/generative-ui/tool-based.md", "title": "Components as Tools", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/generative-ui/", "file": "angular/generative-ui.md", "title": "Generative UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/headless-threads/", "file": "angular/headless-threads.md", "title": "Headless Threads", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/human-in-the-loop/", "file": "angular/human-in-the-loop.md", "title": "HITL Overview", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/human-in-the-loop/useInterrupt/", "file": "angular/human-in-the-loop/useInterrupt.md", "title": "Pausing the Agent for Input", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/human-in-the-loop/headless/", "file": "angular/human-in-the-loop/headless.md", "title": "Headless Interrupts", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/prebuilt-components/copilot-threads-drawer/", "file": "angular/prebuilt-components/copilot-threads-drawer.md", "title": "Threads Drawer", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/shared-state/agent-readonly/", "file": "angular/shared-state/agent-readonly.md", "title": "Agent Read-Only Context", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/multimodal-attachments/", "file": "angular/multimodal-attachments.md", "title": "Multimodal Attachments", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/shared-state/", "file": "angular/shared-state.md", "title": "Shared State", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/prebuilt-components/", "file": "angular/prebuilt-components.md", "title": "Prebuilt Components", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/troubleshooting/", "file": "angular/troubleshooting.md", "title": "Troubleshooting Angular apps", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/generative-ui/a2ui/advanced/", "file": "generative-ui/a2ui/advanced.md", "title": "Advanced", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/angular/voice/", "file": "angular/voice.md", "title": "Voice", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/generative-ui/a2ui/styling/", "file": "generative-ui/a2ui/styling.md", "title": "Styling", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/intelligence/server-side-runs/", "file": "intelligence/server-side-runs.md", "title": "Server-side runs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/custom-look-and-feel/headless-ui/", "file": "react-native/custom-look-and-feel/headless-ui.md", "title": "Headless UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/generative-ui/", "file": "react-native/generative-ui.md", "title": "Generative UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/frontend-tools/", "file": "react-native/frontend-tools.md", "title": "Frontend Tools", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/human-in-the-loop/governed-actions/", "file": "react-native/human-in-the-loop/governed-actions.md", "title": "Governed Action Approval UI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/custom-look-and-feel/markdown/", "file": "react-native/custom-look-and-feel/markdown.md", "title": "Markdown Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/human-in-the-loop/", "file": "react-native/human-in-the-loop.md", "title": "HITL Overview", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/generative-ui/tool-based/", "file": "react-native/generative-ui/tool-based.md", "title": "Components as Tools", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/generative-ui/tool-rendering/", "file": "react-native/generative-ui/tool-rendering.md", "title": "Tool Call Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/human-in-the-loop/headless/", "file": "react-native/human-in-the-loop/headless.md", "title": "Headless Interrupts", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/langgraph-python/generative-ui/state-rendering/", "file": "react-native/langgraph-python/generative-ui/state-rendering.md", "title": "State Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/human-in-the-loop/useInterrupt/", "file": "react-native/human-in-the-loop/useInterrupt.md", "title": "Pausing the Agent for Input", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/langgraph-python/shared-state/streaming/", "file": "react-native/langgraph-python/shared-state/streaming.md", "title": "State Streaming", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/shared-state/", "file": "react-native/shared-state.md", "title": "Shared State", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/multimodal-attachments/", "file": "react-native/multimodal-attachments.md", "title": "Multimodal Attachments", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/shared-state/rendering-in-app/", "file": "react-native/shared-state/rendering-in-app.md", "title": "Render agent state in your app", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/prebuilt-components/", "file": "react-native/prebuilt-components.md", "title": "Prebuilt Components", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/programmatic-control/", "file": "react-native/programmatic-control.md", "title": "Programmatic Control", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-native/shared-state/agent-readonly/", "file": "react-native/shared-state/agent-readonly.md", "title": "Agent Read-Only Context", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/vue/langgraph-python/generative-ui/state-rendering/", "file": "vue/langgraph-python/generative-ui/state-rendering.md", "title": "State Rendering", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/reference/v2/components/CopilotChatToolCallGroup/", "file": "reference/v2/components/CopilotChatToolCallGroup.md", "title": "CopilotChatToolCallGroup", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/vue/langgraph-python/shared-state/streaming/", "file": "vue/langgraph-python/shared-state/streaming.md", "title": "State Streaming", "method": "scrapling+scrapegraph"}

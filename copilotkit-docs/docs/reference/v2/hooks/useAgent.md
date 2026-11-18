@@ -2,54 +2,30 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useAgent/
 title: useAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:41.249724+00:00
+fetched_at: 2026-11-18T11:27:58.535909+00:00
 ---
 
 # useAgent
 
 > Source: https://docs.copilotkit.ai/reference/v2/hooks/useAgent/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Hooks
+React/Hooks
 
 # useAgent
 
 React hook for accessing AG-UI agent instances
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useAgent` is a React hook that returns an [AG-UI AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent) instance. The hook subscribes to agent state changes and triggers re-renders when the agent's state, messages, or execution status changes.
 
 **Throws an error** if no agent is configured with the specified `agentId`, or if only part of the thread-scoped option set is provided.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/react-core/v2";
@@ -60,13 +36,17 @@ Open your coding agent in your project's folder, or in an empty folder for a new
     };
 
 For fully headless UI that does not import the built-in chat rendering stack, import the hook from the headless entry:
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/react-core/v2/headless";
 
-## Two valid shapes
+## Two valid shapesCopy Anchor Link
 
 The options object admits exactly two shapes, and the type rejects everything in between:
+
+Copy Text
     
     
     // Bind to an agent — the shared instance from the registry. The thread comes
@@ -83,11 +63,11 @@ The options object admits exactly two shapes, and the type rejects everything in
 
 Partial combinations do not compile. `useAgent({ agentId, threadId })`, `useAgent({ agentId, runtimeAgentId })` and `useAgent({ runtimeAgentId, threadId })` are all type errors.
 
-A runtime agent registered under a given id is a singleton. Writing a per-hook `threadId` straight onto it would let two `useAgent` calls that share an `agentId` clobber each other's thread, so scoping a thread requires a private agent to pin it to.
+Every `useAgent` call with the same `agentId` shares one runtime agent. If each call sets its own `threadId` on that agent, the calls overwrite each other's thread. So a thread-scoped hook needs its own private agent.
 
-Use the second shape when several frontend agents — one per open thread, for instance — have to mount against a single runtime agent. `runtimeAgentId` registers a proxied agent through `CopilotKitCore.registerProxiedAgent`, so each hook gets its own instance instead of a shared one.
+Use the second shape when several frontend agents (one per open thread, for instance) have to mount against a single runtime agent. `runtimeAgentId` registers a proxied agent through `CopilotKitCore.registerProxiedAgent`, so each hook gets its own instance instead of a shared one.
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -95,7 +75,7 @@ Type
 
 `options?`UseAgentProps
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 Prop
 
@@ -103,9 +83,11 @@ Type
 
 `object?`{ agent: AbstractAgent; isReady: boolean }
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Usage
+### Basic UsageCopy Anchor Link
+
+Copy Text
     
     
     function AgentStatus() {
@@ -120,7 +102,9 @@ Type
       );
     }
 
-### Accessing and Updating State
+### Accessing and Updating StateCopy Anchor Link
+
+Copy Text
     
     
     function StateController() {
@@ -136,7 +120,9 @@ Type
       );
     }
 
-### Event Subscription
+### Event SubscriptionCopy Anchor Link
+
+Copy Text
     
     
     function EventListener() {
@@ -160,7 +146,9 @@ Type
       return null;
     }
 
-### Multiple Agents
+### Multiple AgentsCopy Anchor Link
+
+Copy Text
     
     
     function MultiAgentView() {
@@ -175,9 +163,11 @@ Type
       );
     }
 
-### Thread-scoped Agent
+### Thread-scoped AgentCopy Anchor Link
 
 Use the thread-scoped form when one runtime agent needs multiple independent frontend instances, for example one per open conversation. The local `agentId` must be unique in the current provider.
+
+Copy Text
     
     
     function ThreadPreview({ threadId }: { threadId: string }) {
@@ -193,8 +183,12 @@ Use the thread-scoped form when one runtime agent needs multiple independent fro
       return <div>{agent.messages.length} messages</div>;
     }
 
-### Optimizing Re-renders
+### Optimizing Re-rendersCopy Anchor Link
+
+Copy Text
     
+    
+    import { useAgent, UseAgentUpdate } from "@copilotkit/react-core/v2";
     
     // Only re-render when messages change
     function MessageCount() {
@@ -205,18 +199,18 @@ Use the thread-scoped form when one runtime agent needs multiple independent fro
       return <div>Messages: {agent.messages.length}</div>;
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Automatic Re-renders** : Component re-renders when agent state, messages, or execution status changes (configurable via `updates` parameter)
-  * **Readiness** : While the runtime is connecting, `agent` is a fully-constructed provisional stand-in and `isReady` is `false`; once the runtime syncs, `agent` swaps to the real instance and `isReady` becomes `true`. Guard on `isReady` for work that must target the real agent (e.g. one-time subscriptions)
+  * **Readiness** : While the runtime connects, `agent` is a provisional instance and `isReady` is `false`. When the runtime syncs, `agent` changes to the real instance and `isReady` becomes `true`. Check `isReady` before work that must target the real agent, for example a one-time subscription.
   * **Error Handling** : Throws error if no agent exists with specified `agentId`
   * **State Synchronization** : State updates via `setState()` are immediately available to both app and agent
   * **Event Subscriptions** : Subscribe/unsubscribe pattern for lifecycle and custom events
 
 
 
-## Related
+How is this guide?
 
-  * [AG-UI AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent) \- Full agent interface documentation
+GoodBad
 
-
+[Previous PageCopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)[Next PageuseAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)

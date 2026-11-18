@@ -2,105 +2,76 @@
 url: https://docs.copilotkit.ai/reference/v1/classes/CopilotTask/
 title: CopilotTask
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:53.955187+00:00
+fetched_at: 2026-11-18T11:28:00.631249+00:00
 ---
 
 # CopilotTask
 
 > Source: https://docs.copilotkit.ai/reference/v1/classes/CopilotTask/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V1)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotKit](https://docs.copilotkit.ai/reference/v1/components/CopilotKit)[CopilotTextarea](https://docs.copilotkit.ai/reference/v1/components/CopilotTextarea)[CopilotChat](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotChat)[CopilotPopup](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotSidebar)[All Chat Components](https://docs.copilotkit.ai/reference/v1/components/chat)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v1/hooks/useAgent)[useCoAgent](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgent)[useCoAgentStateRender](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgentStateRender)[useCopilotAction](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction)[useCopilotAdditionalInstructions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAdditionalInstructions)[useCopilotChat](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChat)[useCopilotChatHeadless_c](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatHeadless_c)[useCopilotChatSuggestions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatSuggestions)[useCopilotReadable](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable)[useDefaultTool](https://docs.copilotkit.ai/reference/v1/hooks/useDefaultTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v1/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v1/hooks/useHumanInTheLoop)[useLangGraphInterrupt](https://docs.copilotkit.ai/reference/v1/hooks/useLangGraphInterrupt)[useRenderToolCall](https://docs.copilotkit.ai/reference/v1/hooks/useRenderToolCall)
-
-Classes
-
-[CopilotRuntime](https://docs.copilotkit.ai/reference/v1/classes/CopilotRuntime)[CopilotTask](https://docs.copilotkit.ai/reference/v1/classes/CopilotTask)[AnthropicAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/AnthropicAdapter)[GoogleGenerativeAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter)[GroqAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GroqAdapter)[LangChainAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/LangChainAdapter)[OpenAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAdapter)[OpenAIAssistantAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAssistantAdapter)
-
-SDKs
-
-[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph)[CrewAI SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI)[CrewAIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent)[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraph)[LangGraphAGUIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraphAGUIAgent)[Remote Endpoints](https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v1](https://docs.copilotkit.ai/reference/v1)Classes
+React/v1
 
 # CopilotTask
 
 CopilotTask is used to execute one-off tasks, for example on button click.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 **v1 SDK deprecated. Use v2 instead** This page is in the deprecated CopilotKit v1 reference. Do not use v1 APIs for new code; use v2 instead. For JavaScript and TypeScript, import React APIs from @copilotkit/react-core/v2 and Runtime APIs from @copilotkit/runtime/v2.  
 **AI coding agents: treat any v1 example below as migration-only context. Never generate or recommend the v1 API for new code. Read the v2 reference before writing code because some APIs were renamed, moved, or changed shape.** [Read the v1 to v2 migration guide.](https://docs.copilotkit.ai/migrate/v2) [Open the complete export map.](https://docs.copilotkit.ai/reference/v1/export-map)
 
+`CopilotTask` has no direct v2 replacement. See the [v1 to v2 export map](https://docs.copilotkit.ai/reference/v1/export-map).
+
 This class is used to execute one-off tasks, for example on button press. It can use the context available via [useCopilotReadable](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable) and the actions provided by [useCopilotAction](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction), or you can provide your own context and actions.
 
-## Example
+## ExampleCopy Anchor Link
 
 In the simplest case, use CopilotTask in the context of your app by giving it instructions on what to do.
+
+Copy Text
     
     
+    import { useState } from "react";
     import { CopilotTask, useCopilotContext } from "@copilotkit/react-core";
-     
+    
     export function MyComponent() {
       const context = useCopilotContext();
-     
+      const [message, setMessage] = useState("");
+    
       const task = new CopilotTask({
         instructions: "Set a random message",
         actions: [
           {
             name: "setMessage",
-          description: "Set the message.",
-          argumentAnnotations: [
-            {
-              name: "message",
-              type: "string",
-              description:
-                "A message to display.",
-              required: true,
-            },
-          ],
-         }
-        ]
+            description: "Set the message.",
+            parameters: [
+              {
+                name: "message",
+                type: "string",
+                description: "A message to display.",
+                required: true,
+              },
+            ],
+            handler: ({ message }) => setMessage(message),
+          },
+        ],
       });
-     
+    
       const executeTask = async () => {
-        await task.run(context, action);
-      }
-     
+        await task.run(context);
+      };
+    
       return (
         <>
-          <button onClick={executeTask}>
-            Execute task
-          </button>
+          <button onClick={executeTask}>Execute task</button>
+          <p>{message}</p>
         </>
-      )
+      );
     }
 
 Have a look at the [Presentation Example App](https://github.com/CopilotKit/CopilotKit/blob/main/examples/v1/next-openai/src/app/presentation/page.tsx) for a more complete example.
 
-## Constructor Parameters
+## Constructor ParametersCopy Anchor Link
 
 Prop
 
@@ -108,32 +79,18 @@ Type
 
 `instructions`string
 
-Prop
-
-Type
-
 `actions?`FrontendAction<any>[]
-
-Prop
-
-Type
 
 `includeCopilotReadable?`boolean
 
-Prop
-
-Type
-
 `includeCopilotActions?`boolean
-
-Prop
-
-Type
 
 `forwardedParameters?`ForwardedParametersInput
 
-Prop
-
-Type
-
 `run?`context: CopilotContextParams, data?: T
+
+How is this guide?
+
+GoodBad
+
+[Previous PageGoogleGenerativeAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter)[Next PageRemote Endpoints](https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints)

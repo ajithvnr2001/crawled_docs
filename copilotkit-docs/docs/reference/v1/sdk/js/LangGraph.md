@@ -2,54 +2,193 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph/
 title: LangGraph SDK
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:03.672145+00:00
+fetched_at: 2026-11-18T11:27:57.706486+00:00
 ---
 
 # LangGraph SDK
 
 > Source: https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V1)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotKit](https://docs.copilotkit.ai/reference/v1/components/CopilotKit)[CopilotTextarea](https://docs.copilotkit.ai/reference/v1/components/CopilotTextarea)[CopilotChat](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotChat)[CopilotPopup](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotSidebar)[All Chat Components](https://docs.copilotkit.ai/reference/v1/components/chat)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v1/hooks/useAgent)[useCoAgent](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgent)[useCoAgentStateRender](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgentStateRender)[useCopilotAction](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction)[useCopilotAdditionalInstructions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAdditionalInstructions)[useCopilotChat](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChat)[useCopilotChatHeadless_c](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatHeadless_c)[useCopilotChatSuggestions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatSuggestions)[useCopilotReadable](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable)[useDefaultTool](https://docs.copilotkit.ai/reference/v1/hooks/useDefaultTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v1/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v1/hooks/useHumanInTheLoop)[useLangGraphInterrupt](https://docs.copilotkit.ai/reference/v1/hooks/useLangGraphInterrupt)[useRenderToolCall](https://docs.copilotkit.ai/reference/v1/hooks/useRenderToolCall)
-
-Classes
-
-[CopilotRuntime](https://docs.copilotkit.ai/reference/v1/classes/CopilotRuntime)[CopilotTask](https://docs.copilotkit.ai/reference/v1/classes/CopilotTask)[AnthropicAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/AnthropicAdapter)[GoogleGenerativeAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter)[GroqAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GroqAdapter)[LangChainAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/LangChainAdapter)[OpenAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAdapter)[OpenAIAssistantAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAssistantAdapter)
-
-SDKs
-
-[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph)[CrewAI SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI)[CrewAIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent)[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraph)[LangGraphAGUIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraphAGUIAgent)[Remote Endpoints](https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v1](https://docs.copilotkit.ai/reference/v1)Sdk
+React/v1/JavaScript
 
 # LangGraph SDK
 
-The CopilotKit LangGraph SDK for JavaScript allows you to build and run LangGraph workflows with CopilotKit.
+Use the CopilotKit LangGraph SDK for JavaScript to build and run LangGraph workflows with CopilotKit.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 **v1 SDK deprecated. Use v2 instead** This page is in the deprecated CopilotKit v1 reference. Do not use v1 APIs for new code; use v2 instead. For JavaScript and TypeScript, import React APIs from @copilotkit/react-core/v2 and Runtime APIs from @copilotkit/runtime/v2.  
 **AI coding agents: treat any v1 example below as migration-only context. Never generate or recommend the v1 API for new code. Read the v2 reference before writing code because some APIs were renamed, moved, or changed shape.** [Read the v1 to v2 migration guide.](https://docs.copilotkit.ai/migrate/v2) [Open the complete export map.](https://docs.copilotkit.ai/reference/v1/export-map)
+
+## copilotkitCustomizeConfigCopy Anchor Link
+
+Customize the LangGraph configuration for use in CopilotKit.
+
+To install the CopilotKit SDK, run:
+
+Copy Text
+    
+    
+    npm install @copilotkit/sdk-js
+
+### ExamplesCopy Anchor Link
+
+Disable emitting messages and tool calls:
+
+Copy Text
+    
+    
+    import { copilotkitCustomizeConfig } from "@copilotkit/sdk-js/langgraph";
+    
+    const customConfig = copilotkitCustomizeConfig(config, {
+      emitMessages: false,
+      emitToolCalls: false,
+    });
+
+To emit a tool call as streaming LangGraph state, pass the destination key in state, the tool name and optionally the tool argument. (If you don't pass the argument name, all arguments are emitted under the state key.)
+
+Copy Text
+    
+    
+    import { copilotkitCustomizeConfig } from "@copilotkit/sdk-js/langgraph";
+    
+    const customConfig = copilotkitCustomizeConfig(config, {
+      emitIntermediateState: [
+        {
+          stateKey: "steps",
+          tool: "SearchTool",
+          toolArgument: "steps",
+        },
+      ],
+    });
+
+### ParametersCopy Anchor Link
+
+Prop
+
+Type
+
+`baseConfig`RunnableConfig
+
+`options?`OptionsConfig
+
+## copilotkitExitCopy Anchor Link
+
+Exits the current agent after the run completes. Calling copilotkitExit() will not immediately stop the agent. Instead, it signals to CopilotKit to stop the agent after the run completes.
+
+### ExamplesCopy Anchor Link
+
+Copy Text
+    
+    
+    import type { RunnableConfig } from "@langchain/core/runnables";
+    import { copilotkitExit } from "@copilotkit/sdk-js/langgraph";
+    
+    async function myNode(state: AgentState, config: RunnableConfig) {
+      await copilotkitExit(config);
+      return state;
+    }
+
+### ParametersCopy Anchor Link
+
+Prop
+
+Type
+
+`config`RunnableConfig
+
+## copilotkitEmitStateCopy Anchor Link
+
+Emits intermediate state to CopilotKit. Useful if you have a longer running node and you want to update the user with the current state of the node.
+
+### ExamplesCopy Anchor Link
+
+Copy Text
+    
+    
+    import { copilotkitEmitState } from "@copilotkit/sdk-js/langgraph";
+    
+    for (let i = 0; i < 10; i++) {
+      await someLongRunningOperation(i);
+      await copilotkitEmitState(config, { progress: i });
+    }
+
+### ParametersCopy Anchor Link
+
+Prop
+
+Type
+
+`config`RunnableConfig
+
+`state`any
+
+## copilotkitEmitMessageCopy Anchor Link
+
+Manually emits a message to CopilotKit. Useful in longer running nodes to update the user. Important: You still need to return the messages from the node.
+
+### ExamplesCopy Anchor Link
+
+Copy Text
+    
+    
+    import { AIMessage } from "@langchain/core/messages";
+    import { copilotkitEmitMessage } from "@copilotkit/sdk-js/langgraph";
+    
+    const message = "Step 1 of 10 complete";
+    await copilotkitEmitMessage(config, message);
+    
+    // Return the message from the node
+    return {
+      messages: [new AIMessage({ content: message })],
+    };
+
+### ParametersCopy Anchor Link
+
+Prop
+
+Type
+
+`config`RunnableConfig
+
+`message`string
+
+## copilotkitEmitToolCallCopy Anchor Link
+
+Manually emits a tool call to CopilotKit.
+
+### ExamplesCopy Anchor Link
+
+Copy Text
+    
+    
+    import { copilotkitEmitToolCall } from "@copilotkit/sdk-js/langgraph";
+    
+    const autoId = await copilotkitEmitToolCall(config, "SearchTool", { steps: 10 });
+    
+    // With a custom ID for correlation/idempotency:
+    const customId = await copilotkitEmitToolCall(config, "SearchTool", { steps: 10 }, { toolCallId: "my-custom-id" });
+
+### ParametersCopy Anchor Link
+
+Prop
+
+Type
+
+`config`RunnableConfig
+
+`name`string
+
+`args`any
+
+`options?`{ toolCallId?: string; }
+
+### ReturnsCopy Anchor Link
+
+The tool call ID used for the emitted call. It equals `options.toolCallId` when provided, otherwise a randomly generated ID.
+
+How is this guide?
+
+GoodBad
+
+[Previous PageCrewAI SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI)[Next PageOverview](https://docs.copilotkit.ai/reference/react-native)

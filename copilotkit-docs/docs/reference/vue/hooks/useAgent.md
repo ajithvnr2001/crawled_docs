@@ -2,56 +2,32 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useAgent/
 title: useAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:20.915289+00:00
+fetched_at: 2026-11-18T11:27:56.718649+00:00
 ---
 
 # useAgent
 
 > Source: https://docs.copilotkit.ai/reference/vue/hooks/useAgent/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Hooks
+Vue/Hooks
 
 # useAgent
 
 Vue 3 composable for accessing AG-UI agent instances
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useAgent` is a Vue 3 composable that returns a reactive reference to an [AG-UI AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent) instance. The composable subscribes to agent changes and triggers reactive updates when the agent's state, messages, or execution status changes.
 
-The composable returns `{ agent }`, where `agent` is a Vue `shallowRef<AbstractAgent | null>` — it is `null` until an agent resolves. (If the agent cannot be resolved for the given `agentId` after the runtime syncs, the composable throws rather than leaving `agent` as `null`.) Access the underlying instance with `agent.value` in `<script setup>`, or rely on auto-unwrapping in `<template>`, and guard with `agent?.` / `agent.value?.` for the unresolved case.
+The composable returns `{ agent }`, where `agent` is typed as a Vue `shallowRef<AbstractAgent | null>` for API compatibility. During setup, the composable sets `agent` to an existing agent or a provisional one. If it can find neither, it throws. So `agent.value` is never `null` in practice. Access the underlying instance with `agent.value` in `<script setup>`, or rely on auto-unwrapping in `<template>`. Optional chaining remains useful when consuming the nullable public type.
 
 Throws an error if no agent can be resolved for the given `agentId` after the runtime has synced (for example, when the id does not match any agent reported by your runtime `/info` or registered via `agents__unsafe_dev_only`).
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/vue/v2";
@@ -62,9 +38,9 @@ Throws an error if no agent can be resolved for the given `agentId` after the ru
       agent: ShallowRef<AbstractAgent | null>;
     };
 
-## Parameters
+## ParametersCopy Anchor Link
 
-All reactive inputs accept `MaybeRefOrGetter`, so you can pass a plain value, a `ref`, or a getter function and the composable will re-resolve when it changes.
+Reactive props accept `MaybeRefOrGetter`, so you can pass a plain value, a `ref`, or a getter function. The composable responds to each input according to the behavior described below.
 
 Prop
 
@@ -72,7 +48,7 @@ Type
 
 `props?`UseAgentProps
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 Prop
 
@@ -80,9 +56,11 @@ Type
 
 `object?`{ agent: ShallowRef<AbstractAgent | null> }
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Usage
+### Basic UsageCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -99,7 +77,9 @@ Type
       </div>
     </template>
 
-### Accessing and Updating State
+### Accessing and Updating StateCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -120,7 +100,9 @@ Type
       </div>
     </template>
 
-### Event Subscription
+### Event SubscriptionCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -144,7 +126,9 @@ Type
       <div />
     </template>
 
-### Multiple Agents
+### Multiple AgentsCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -161,7 +145,9 @@ Type
       </div>
     </template>
 
-### Per-Thread Agents
+### Thread-scoped AgentCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -170,16 +156,21 @@ Type
     
     const threadId = ref("thread-1");
     
-    // Each thread id resolves an independent agent clone with its own
-    // messages and state.
-    const { agent } = useAgent({ agentId: "default", threadId });
+    // Registers a local proxy routed to the runtime agent and pins it to this thread.
+    const { agent } = useAgent({
+      agentId: "thread-1",
+      runtimeAgentId: "default",
+      threadId,
+    });
     </script>
     
     <template>
       <div v-if="agent">Thread: {{ agent.threadId }} ({{ agent.messages.length }} messages)</div>
     </template>
 
-### Optimizing Reactive Updates
+### Optimizing Reactive UpdatesCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -195,7 +186,9 @@ Type
       <div>Messages: {{ agent?.messages?.length ?? 0 }}</div>
     </template>
 
-### Throttling High-Frequency Updates
+### Throttling High-Frequency UpdatesCopy Anchor Link
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/vue/v2";
@@ -204,19 +197,23 @@ Type
     // per 100ms. Run lifecycle callbacks still fire immediately.
     const { agent } = useAgent({ throttleMs: 100 });
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Reactive updates** : The `agent` ref triggers reactivity when state, messages, or execution status changes (configurable via the `updates` parameter).
-  * **Reactive inputs** : `agentId`, `threadId`, and `throttleMs` accept `MaybeRefOrGetter`. The composable re-resolves and re-subscribes when they change, and also re-resolves when the runtime connection status or available agents change.
-  * **Per-thread clones** : When `threadId` is set, the composable resolves a per-thread clone of the agent so each thread keeps independent messages and state.
+  * **Reactive inputs** : 
+    * `agentId` and `runtimeAgentId`: register the private proxy.
+    * `agentId`: selects the agent, together with core registry and connection changes.
+    * `threadId`: pins or repins the current agent.
+    * `updates`, `throttleMs`, and the provider's `defaultThrottleMs`: control the subscription.
+  * **Agent binding** : The shared-agent form resolves the explicit `agentId`, then the chat configuration's `agentId`, then `DEFAULT_AGENT_ID`, and may return an agent discovered by the runtime or registered by the provider. The thread-scoped form registers a private proxy under the local `agentId`, routes it to `runtimeAgentId`, and pins `threadId` to that proxy. All three thread-scoped properties are required together; changing `threadId` repins the existing proxy.
   * **Throttling** : Message and state updates can be throttled via `throttleMs`, resolved as `throttleMs ?? provider defaultThrottleMs ?? 0`. Run lifecycle callbacks always fire immediately.
   * **Error handling** : Throws an error if no agent can be resolved for the specified `agentId` after the runtime has synced.
   * **State synchronization** : State updates via `setState()` are immediately available to both app and agent.
 
 
 
-## Related
+How is this guide?
 
-  * [AG-UI AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent) \- full agent interface documentation
+GoodBad
 
-
+[Previous PageGenerativeUISurface](https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface)[Next PageuseAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)

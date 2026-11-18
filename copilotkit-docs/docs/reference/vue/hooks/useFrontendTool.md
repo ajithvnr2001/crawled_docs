@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool/
 title: useFrontendTool
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:24.955772+00:00
+fetched_at: 2026-11-18T11:27:56.116979+00:00
 ---
 
 # useFrontendTool
 
 > Source: https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Hooks
+Vue/Hooks
 
 # useFrontendTool
 
 Vue composable for registering a client-side tool with an optional Vue renderer
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useFrontendTool` registers a client-side tool with CopilotKit at the current component scope. When the agent decides to call the tool, the provided `handler` function executes in the browser. Optionally, you can supply a `render` (a Vue component or render function) to display custom UI in the chat showing the tool's execution progress and result.
 
@@ -51,7 +25,9 @@ The composable manages the full registration lifecycle: it registers the tool (a
 
 Import from the `/v2` subpath: `@copilotkit/vue/v2`. Like all CopilotKit composables, `useFrontendTool` must be called from within a component that is a descendant of [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider).
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import type { WatchSource } from "vue";
@@ -62,7 +38,7 @@ Import from the `/v2` subpath: `@copilotkit/vue/v2`. Like all CopilotKit composa
       deps?: WatchSource<unknown>[],
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -70,13 +46,9 @@ Type
 
 `tool`VueFrontendTool<T>
 
-Prop
-
-Type
-
 `deps?`WatchSource<unknown>[]
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Immediate registration.** The tool is registered as soon as the composable runs (the underlying `watch` uses `{ immediate: true }`).
   * **Duplicate handling.** If a tool with the same `name` already exists for the same `agentId`, the previous registration is removed, the new one is added, and an override warning is logged. Only one tool per name (per agent) is active at a time.
@@ -84,13 +56,16 @@ Type
   * **Reactivity.** The registration re-runs when `tool.name`, `tool.available`, or any `deps` watch source changes. Pass changing reactive values through `deps`.
   * **WebMCP registration.** With `webmcp` set, the tool is also registered on `document.modelContext` and removed with the tool. The tool needs a `description` for this (WebMCP rejects tools without one).
   * **Automatic cleanup.** The tool is removed when the watch cleans up, including when the owning component scope is disposed. A `render` registered alongside the tool is intentionally left in place so earlier chat history can still render it.
+  * **Calls after cleanup.** If the agent calls the tool after it was removed (for example, the owning scope was disposed while the run was in flight), CopilotKit answers the call with a `Tool not found` error result and reports a `TOOL_NOT_FOUND` error, so the conversation can continue. This applies only to tools that were sent to the agent for that run, and only when the run finishes normally; an interrupted, stopped or failed run leaves the call open. A call to a name that was not sent to the agent for that run stays unanswered; register a wildcard tool (`name: "*"`) to handle those.
   * **No return value.** The composable returns `void`.
 
 
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic tool with a Zod schema and async handler
+### Basic tool with a Zod schema and async handlerCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -120,14 +95,16 @@ Type
       </ul>
     </template>
 
-### Tool with a custom Vue renderer
+### Tool with a custom Vue rendererCopy Anchor Link
 
 Provide a `render` component to visualize the tool call in chat. The component receives `args`, `status`, and `result` as props.
+
+Copy Text
     
     
     <!-- WeatherToolView.vue -->
     <script setup lang="ts">
-    import { ToolCallStatus } from "@copilotkit/core";
+    import { ToolCallStatus } from "@copilotkit/vue/v2";
     
     defineProps<{
       name: string;
@@ -148,6 +125,8 @@ Provide a `render` component to visualize the tool call in chat. The component r
         <p>{{ JSON.parse(result).conditions }}</p>
       </div>
     </template>
+
+Copy Text
     
     
     <!-- App.vue -->
@@ -173,9 +152,11 @@ Provide a `render` component to visualize the tool call in chat. The component r
     });
     </script>
 
-### Conditionally available tool
+### Conditionally available toolCopy Anchor Link
 
 Expose `available` as a getter that reads a reactive value. The registration watch re-reads `available` when that value changes, so the tool is shown or hidden automatically. (Passing the value through `deps` as well is harmless but not required.)
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -207,6 +188,8 @@ Expose `available` as a getter that reads a reactive value. The registration wat
     );
     </script>
 
-## Related
+How is this guide?
 
-### [useComponentConvenience composable that renders a Vue component from tool args. Built on useFrontendTool.](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)### [useRenderToolRegister a renderer for a tool call with full access to status (in progress, executing, complete) and results.](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)### [CopilotKitProviderThe provider that must wrap any component calling useFrontendTool.](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)
+GoodBad
+
+[Previous PageuseDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[Next PageuseGenerativeUIFunction](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIFunction)

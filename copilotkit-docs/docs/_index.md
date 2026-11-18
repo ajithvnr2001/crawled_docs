@@ -2,180 +2,89 @@
 url: https://docs.copilotkit.ai/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T11:40:59.148946+00:00
+fetched_at: 2026-11-18T11:27:55.502480+00:00
 ---
 
 # CopilotKit: bring your agent into any app
 
 > Source: https://docs.copilotkit.ai/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
 [](https://docs.copilotkit.ai/)
 
-FrontendReactAgent backendCopilotKit
+  * Guides
+  * Integrations
+  * [Examples](https://docs.copilotkit.ai/examples)
+  * Intelligence
 
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
 
-Basics
+Search
 
-Chat
+`⌘``K`
 
-Threads
+[Ask CopilotKit](https://docs.copilotkit.ai/ask)[Talk to an engineer](https://www.copilotkit.ai/talk-to-an-engineer)
+  * [](https://github.com/CopilotKit/CopilotKit)
 
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
 
-Generative UI
 
-Controlled
+# Connect your app to any agent
 
-Declarative
+CopilotKit adds chat, generative UI, and human approvals to your frontend, with the agent framework you already use.
 
-Open-ended
+Start the quickstart
 
-Interactivity
+Copy prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
 
-Shared state
+[](https://docs.copilotkit.ai/angular "Angular")[](https://docs.copilotkit.ai/slack "Slack")[](https://docs.copilotkit.ai/teams "Teams")[](https://docs.copilotkit.ai/quickstart "React")[](https://docs.copilotkit.ai/vue "Vue")[](https://docs.copilotkit.ai/angular "Angular")[](https://docs.copilotkit.ai/slack "Slack")[](https://docs.copilotkit.ai/openai-agents-python "OpenAI Agents SDK")[](https://docs.copilotkit.ai/deepagents "Deep Agents")[![](https://docs.copilotkit.ai/logos/oracle-agent-spec.png)](https://docs.copilotkit.ai/agent-spec "Agent Spec")[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)](https://docs.copilotkit.ai/mastra "Mastra")[![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)](https://docs.copilotkit.ai/langgraph-python "LangGraph \(Python\)")[![](https://docs.copilotkit.ai/logos/frameworks/crewai-crews.png)](https://docs.copilotkit.ai/crewai-crews "CrewAI Flows")[![](https://docs.copilotkit.ai/logos/frameworks/pydantic-ai.svg)](https://docs.copilotkit.ai/pydantic-ai "Pydantic AI")
 
-Human-in-the-loop
+## Guides
 
-[WebMCP](https://docs.copilotkit.ai/webmcp)
+[QuickstartAdd a chat to your app and connect it to your agent.](https://docs.copilotkit.ai/mastra/quickstart)[Generative UILet your agent render your own components in the chat: cards, charts, forms.](https://docs.copilotkit.ai/mastra/generative-ui/tool-based)[Human in the loopPause the agent and ask a person before it acts.](https://docs.copilotkit.ai/mastra/human-in-the-loop)[Shared stateRead and write your agent's state from your app, live.](https://docs.copilotkit.ai/mastra/shared-state)[ThreadsKeep conversations, and pick them up later.](https://docs.copilotkit.ai/mastra/threads)[IntelligenceThreads that persist, user memories, and agents that learn from real use.](https://docs.copilotkit.ai/intelligence)
 
-Agent capabilities
+## Frontends
 
-Built-in Agent
+[ReactProvider, hooks, and chat components.](https://docs.copilotkit.ai/quickstart)[VueVue 3 provider, composables, and chat primitives.](https://docs.copilotkit.ai/vue)[AngularComponents, directives, and services.](https://docs.copilotkit.ai/angular)[React NativeBindings for React Native and Expo apps.](https://docs.copilotkit.ai/react-native)[SlackRun your agent as a Slack bot.](https://docs.copilotkit.ai/slack)[TeamsRun your agent as a Microsoft Teams bot.](https://docs.copilotkit.ai/teams)
 
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
+## Integrations
 
-Intelligence
+[CopilotKitCopilotKit's own agent, running inside your runtime with no separate backend.](https://docs.copilotkit.ai/built-in-agent/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)MastraA TypeScript framework for AI-powered applications and agents.](https://docs.copilotkit.ai/mastra/quickstart)
 
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
+![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)
 
-Get started
+LangGraph
 
-Features
+LangChain's low-level orchestration framework for stateful agents.
 
-AG-UI Streams
+PythonTypeScriptFastAPI
 
-[Automatic Learning](https://docs.copilotkit.ai/learning)
+[![](https://docs.copilotkit.ai/logos/frameworks/crewai-crews.png)CrewAI FlowsStructured, event-driven workflows that chain together Crews and tasks.](https://docs.copilotkit.ai/crewai-crews/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/pydantic-ai.svg)Pydantic AIA type-safe Python framework for building agents and LLM applications.](https://docs.copilotkit.ai/pydantic-ai/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/google-adk.png)Agent Development Kit (ADK)Google's open-source framework to build, debug, and deploy AI agents.](https://docs.copilotkit.ai/google-adk/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/llamaindex.png)LlamaIndexA Python toolkit for building LLM-powered agents over your data.](https://docs.copilotkit.ai/llamaindex/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/agno.png)AgnoThe self-improving agent platform.](https://docs.copilotkit.ai/agno/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/ag2-light.svg)![](https://docs.copilotkit.ai/logos/frameworks/ag2-dark.svg)AG2An open-source multi-agent framework, formerly AutoGen.](https://docs.copilotkit.ai/ag2/quickstart)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+![](https://docs.copilotkit.ai/logos/frameworks/ms-agent-python.svg)
 
-[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+Microsoft Agent Framework
 
-[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+Microsoft's framework for building AI agents and multi-agent workflows.
 
-Hosting
+Python.NETHarness
 
-Backend
+![](https://docs.copilotkit.ai/logos/frameworks/strands.svg)
 
-Runtime
+Strands Agents
 
-Deployment
+An open-source, model-driven toolkit for production AI agents.
 
-Debugging
+PythonTypeScript
 
-Learn
+Claude Agent SDK
 
-Concepts
+Build production AI agents with Claude Code as a library.
 
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
+TypeScriptPython
 
-Other
+[![](https://docs.copilotkit.ai/logos/frameworks/google-antigravity.png)Google Antigravity SDKBuild agents that read files, run commands, and edit code.](https://docs.copilotkit.ai/google-antigravity/quickstart)[OpenAI Agents SDKOpenAI's agent loop: a model, its tools, guardrails and handoffs.](https://docs.copilotkit.ai/openai-agents-python/quickstart)[Deep AgentsLangChain's agent harness for long-running agents that plan, delegate to subagents, and keep files, built on LangGraph.](https://docs.copilotkit.ai/deepagents/quickstart)[![](https://docs.copilotkit.ai/logos/oracle-agent-spec.png)Agent SpecOracle's open format for describing an agent once and running it on LangGraph or WayFlow.](https://docs.copilotkit.ai/agent-spec/quickstart)
 
-Contributing
+## Built with CopilotKit
 
-Troubleshooting
+[OpenBotThe self-hostable workspace for AI coworkers, built on CopilotKit and AG-UI.](https://open.bot)[OpenBot for BusinessEnterprise governance for AI coworkers: boundaries, SSO, and audit.](https://open.bot/business)[Setup guide for buildersChoose the models, tools, and infrastructure your coworkers run on.](https://open.bot/builders#start)
 
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-CopilotKit
-
-# Bring your agent  
-into any app
-
-CopilotKit is an open-source framework that connects your app to AI agents. Add chat, interactive UI, and human approvals, with your choice of any agent backend.
-
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Quickstart
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-OverviewAG-UI StreamsAutomatic Learning
-
-## Build agent-powered apps
-
-Connect your agent to your app with interactive UI, shared state, and human approvals.
-
-[Get started](https://docs.copilotkit.ai/quickstart)
-
-## AG-UI Streams
-
-Complement any existing thread system with AG-UI Streams. Add the full spectrum of generative UI, multimodal inputs and file uploads, plus reconnection and catch-up after network interruptions and across tabs and devices.
-
-[Explore AG-UI Streams](https://docs.copilotkit.ai/AG-UI-Streams)
-
-## Automatic Learning
-
-Turn patterns from real agent conversations into skills you can review and publish. See the learning loop in an expense-review workflow.
-
-[Explore Automatic Learning](https://docs.copilotkit.ai/learning)
-
-## Start building
-
-Start fresh or add to your existing app. Answer a few questions, then give the setup prompt to your coding agent.
-
-Your setup
-
-  1. 1Project
-  2. 2Frontend
-  3. 3Backend
-  4. 4Features
-  5. 5Prompt
-
-
-
-Step 1 of 5
-
-Step 1 of 5Project
-
-### What are you building?
-
-Choose an option to continue. We will tailor the setup to your starting point.
-
-______****______****____CopilotKit ____Existing project Add CopilotKit to what you haveChoose ______Start something new ______New project Start from scratchChoose
-
-Step 1 of 5Project
-
-## Fits the stack you already have
-
-Choose your frontend, then explore an agent integration.
-
-Your frontend
-
-ReactReact SPAVueReact NativeAngularSlackTeams
-
-### Your agent backend
-
-[CopilotKit](https://docs.copilotkit.ai/quickstart)[Langchain DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)[Google Antigravity](https://docs.copilotkit.ai/google-antigravity)[OpenAI Agents SDK (Python)](https://docs.copilotkit.ai/openai-agents-python)
-
-Built with CopilotKit
-
-## OpenBot
-
-The modular, self-hostable workspace for AI coworkers, built on CopilotKit and AG-UI. Bring any agent, then choose the models, tools and infrastructure it runs on. It’s enterprise-ready with governance built in, like SSO and SCIM, boundaries, a full audit trail and more.
-
-[Explore OpenBot ](https://open.bot)[OpenBot for Business ](https://open.bot/business)[Setup guide for builders ](https://open.bot/builders#start)
-
-[View on GitHub](https://github.com/CopilotKit/CopilotKit)Start building 
+[Discord](https://discord.gg/6dffbvGU3D)[X](https://x.com/CopilotKit)[GitHub](https://github.com/CopilotKit/CopilotKit)

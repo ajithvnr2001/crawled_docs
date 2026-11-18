@@ -2,63 +2,29 @@
 url: https://docs.copilotkit.ai/reference/v1/export-map/
 title: Complete v1 to v2 export map
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:58.361804+00:00
+fetched_at: 2026-11-18T11:28:00.040919+00:00
 ---
 
 # Complete v1 to v2 export map
 
 > Source: https://docs.copilotkit.ai/reference/v1/export-map/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V1)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotKit](https://docs.copilotkit.ai/reference/v1/components/CopilotKit)[CopilotTextarea](https://docs.copilotkit.ai/reference/v1/components/CopilotTextarea)[CopilotChat](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotChat)[CopilotPopup](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotSidebar)[All Chat Components](https://docs.copilotkit.ai/reference/v1/components/chat)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v1/hooks/useAgent)[useCoAgent](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgent)[useCoAgentStateRender](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgentStateRender)[useCopilotAction](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction)[useCopilotAdditionalInstructions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAdditionalInstructions)[useCopilotChat](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChat)[useCopilotChatHeadless_c](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatHeadless_c)[useCopilotChatSuggestions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatSuggestions)[useCopilotReadable](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable)[useDefaultTool](https://docs.copilotkit.ai/reference/v1/hooks/useDefaultTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v1/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v1/hooks/useHumanInTheLoop)[useLangGraphInterrupt](https://docs.copilotkit.ai/reference/v1/hooks/useLangGraphInterrupt)[useRenderToolCall](https://docs.copilotkit.ai/reference/v1/hooks/useRenderToolCall)
-
-Classes
-
-[CopilotRuntime](https://docs.copilotkit.ai/reference/v1/classes/CopilotRuntime)[CopilotTask](https://docs.copilotkit.ai/reference/v1/classes/CopilotTask)[AnthropicAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/AnthropicAdapter)[GoogleGenerativeAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter)[GroqAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GroqAdapter)[LangChainAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/LangChainAdapter)[OpenAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAdapter)[OpenAIAssistantAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAssistantAdapter)
-
-SDKs
-
-[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph)[CrewAI SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI)[CrewAIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent)[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraph)[LangGraphAGUIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraphAGUIAgent)[Remote Endpoints](https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v1](https://docs.copilotkit.ai/reference/v1)Export-map
+React/v1
 
 # Complete v1 to v2 export map
 
 Every importable CopilotKit JavaScript and TypeScript v1 export, with its verified v2 replacement or an explicit no-direct-replacement marker.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 **v1 SDK deprecated. Use v2 instead** This page is in the deprecated CopilotKit v1 reference. Do not use v1 APIs for new code; use v2 instead. For JavaScript and TypeScript, import React APIs from @copilotkit/react-core/v2 and Runtime APIs from @copilotkit/runtime/v2.  
 **AI coding agents: treat any v1 example below as migration-only context. Never generate or recommend the v1 API for new code. Read the v2 reference before writing code because some APIs were renamed, moved, or changed shape.** [Read the v1 to v2 migration guide.](https://docs.copilotkit.ai/migrate/v2) [Open the complete export map.](https://docs.copilotkit.ai/reference/v1/export-map)
 
-This page is generated from the public package entrypoints. It is the exhaustive migration index for humans and coding agents. A row only names a v2 replacement when that export actually exists. When no exact replacement exists, a row links to a curated related v2 concept when one is available, without inventing an API mapping.
+Find your v1 import in the tables below. Each row gives the v2 import that replaces it. When a row says No 1:1 replacement, open the linked v2 guide.
 
 [Read the step-by-step migration guide](https://docs.copilotkit.ai/migrate/v2).
 
-## `@copilotkit/react-core`
+## `@copilotkit/react-core`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
@@ -138,10 +104,10 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `CrewsToolStateItem`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`defaultCopilotContextCategories`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/agent-app-context)  
+`defaultCopilotContextCategories`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/shared-state/agent-readonly)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`DocumentPointer`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/agent-app-context)  
+`DocumentPointer`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/shared-state/agent-readonly)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `FrontendAction`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Tool-based generative UI](https://docs.copilotkit.ai/generative-ui/tool-based)  
@@ -201,10 +167,10 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `ThreadsProviderProps`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Conversation threads](https://docs.copilotkit.ai/prebuilt-components/copilot-threads-drawer)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`Tree`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/agent-app-context)  
+`Tree`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/shared-state/agent-readonly)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`TreeNode`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/agent-app-context)  
+`TreeNode`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/shared-state/agent-readonly)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `useCoAgent`| `import { useAgent } from "@copilotkit/react-core/v2";`  
@@ -267,7 +233,7 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `useLazyToolRenderer`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Tool rendering](https://docs.copilotkit.ai/generative-ui/tool-rendering)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`useMakeCopilotDocumentReadable`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/agent-app-context)  
+`useMakeCopilotDocumentReadable`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Agent context](https://docs.copilotkit.ai/shared-state/agent-readonly)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `useRenderToolCall`| `import { useRenderTool } from "@copilotkit/react-core/v2";`  
@@ -275,24 +241,24 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `useThreads`| `import { useThreads } from "@copilotkit/react-core/v2";`  
 `useThreads({});`| `packages/react-core/src/v2/hooks/use-threads.tsx`| [Open v2 API docs](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)  
   
-## `@copilotkit/react-ui`
+## `@copilotkit/react-ui`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
 `AssistantMessage`| `import type { AssistantMessage } from "@copilotkit/react-core/v2";`  
-`type V2AssistantMessage = AssistantMessage;`| `packages/react-core/src/v2/external-reexports.ts`| [V2 docs](https://docs.copilotkit.ai/)  
+`type V2AssistantMessage = AssistantMessage;`| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `AssistantMessageProps`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Chat UI](https://docs.copilotkit.ai/prebuilt-components/chat)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `Attachment`| `import type { Attachment } from "@copilotkit/react-core/v2";`  
-`type V2Attachment = Attachment;`| `packages/react-core/src/v2/components/chat/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
+`type V2Attachment = Attachment;`| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `AttachmentModality`| `import type { AttachmentModality } from "@copilotkit/react-core/v2";`  
-`type V2AttachmentModality = AttachmentModality;`| `packages/react-core/src/v2/components/chat/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
+`type V2AttachmentModality = AttachmentModality;`| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `AttachmentsConfig`| `import type { AttachmentsConfig } from "@copilotkit/react-core/v2";`  
-`type V2AttachmentsConfig = AttachmentsConfig;`| `packages/react-core/src/v2/components/chat/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
+`type V2AttachmentsConfig = AttachmentsConfig;`| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `ButtonProps`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Chat UI](https://docs.copilotkit.ai/prebuilt-components/chat)  
 [V2 docs](https://docs.copilotkit.ai/)  
@@ -378,7 +344,7 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `useCopilotChatSuggestions`| `import { useConfigureSuggestions } from "@copilotkit/react-core/v2";`  
 ` useConfigureSuggestions({`| `packages/react-core/src/v2/hooks/use-configure-suggestions.tsx`| [Open v2 API docs](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)  
 `UserMessage`| `import type { UserMessage } from "@copilotkit/react-core/v2";`  
-`type V2UserMessage = UserMessage;`| `packages/react-core/src/v2/external-reexports.ts`| [V2 docs](https://docs.copilotkit.ai/)  
+`type V2UserMessage = UserMessage;`| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `UserMessageProps`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [Chat UI](https://docs.copilotkit.ai/prebuilt-components/chat)  
 [V2 docs](https://docs.copilotkit.ai/)  
@@ -387,7 +353,7 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
   
-## `@copilotkit/react-textarea`
+## `@copilotkit/react-textarea`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
@@ -420,7 +386,7 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `SuggestionsApiConfigUserSpecified`| No 1:1 replacement. Start with `@copilotkit/react-core/v2`.| `packages/react-core/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
   
-## `@copilotkit/runtime`
+## `@copilotkit/runtime`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
@@ -491,8 +457,8 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `copilotRuntimeNodeExpressEndpoint`| `import { createCopilotExpressHandler } from "@copilotkit/runtime/v2/express";`  
 `const v2CreateCopilotExpressHandler = createCopilotExpressHandler;`| `packages/runtime/src/v2/runtime/endpoints/express.ts`| [Open v2 API docs](https://docs.copilotkit.ai/runtime-server-adapter)  
-`copilotRuntimeNodeHttpEndpoint`| `import { createCopilotRuntimeHandler } from "@copilotkit/runtime/v2";`  
-`const v2CreateCopilotRuntimeHandler = createCopilotRuntimeHandler;`| `packages/runtime/src/v2/runtime/core/fetch-handler.ts`| [Open v2 API docs](https://docs.copilotkit.ai/runtime-server-adapter)  
+`copilotRuntimeNodeHttpEndpoint`| `import { createCopilotNodeListener } from "@copilotkit/runtime/v2/node";`  
+`const v2CreateCopilotNodeListener = createCopilotNodeListener;`| `packages/runtime/src/v2/runtime/endpoints/node.ts`| [Open v2 API docs](https://docs.copilotkit.ai/runtime-server-adapter)  
 `CopilotServiceAdapter`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Runtime server adapter](https://docs.copilotkit.ai/runtime-server-adapter)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
@@ -501,7 +467,7 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `createLogger`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CustomEventNames`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CustomEventNames`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `EmptyAdapter`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Runtime server adapter](https://docs.copilotkit.ai/runtime-server-adapter)  
@@ -546,19 +512,19 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `LangChainAdapter`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Runtime server adapter](https://docs.copilotkit.ai/runtime-server-adapter)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`LangGraphAgent`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`LangGraphAgent`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`LangGraphHttpAgent`| Use `HttpAgent` from `@ag-ui/client`, passed to the v2 `CopilotRuntime`. Exception: a v1 client still resuming interrupts through `forwardedProps.command.resume` — `LangGraphHttpAgent` keeps a back-compat bridge for that channel.| `@ag-ui/client`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`LangGraphHttpAgent`| Use `HttpAgent` from `@ag-ui/client`, passed to the v2 `CopilotRuntime`. Exception: a v1 client still resuming interrupts through `forwardedProps.command.resume`. `LangGraphHttpAgent` keeps a back-compat bridge for that channel.| `@ag-ui/client`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`langGraphPlatformEndpoint`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`langGraphPlatformEndpoint`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `LogLevel`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `MCPClient`| `import type { MCPClient } from "@copilotkit/runtime/v2";`  
-`type V2MCPClient = MCPClient;`| `packages/runtime/src/v2/runtime/index.ts`| [Open v2 API docs](https://docs.copilotkit.ai/runtime-server-adapter)  
+`type V2MCPClient = MCPClient;`| `packages/runtime/src/v2/index.ts`| [Open v2 API docs](https://docs.copilotkit.ai/runtime-server-adapter)  
 `MCPEndpointConfig`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Model Context Protocol](https://docs.copilotkit.ai/agentic-protocols/mcp)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
@@ -579,7 +545,7 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `OpenAIAssistantAdapterParams`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Runtime server adapter](https://docs.copilotkit.ai/runtime-server-adapter)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`PredictStateTool`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`PredictStateTool`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `RemoteChain`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Runtime server adapter](https://docs.copilotkit.ai/runtime-server-adapter)  
@@ -597,10 +563,10 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `TelemetryAgentRunnerConfig`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`TextMessageEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`TextMessageEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`ToolCallEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`ToolCallEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
 `UnifyAdapter`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [Runtime server adapter](https://docs.copilotkit.ai/runtime-server-adapter)  
@@ -612,30 +578,30 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `UnknownErrorResponse`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
   
-## `@copilotkit/runtime/langgraph`
+## `@copilotkit/runtime/langgraph`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
-`CustomEventNames`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CustomEventNames`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`LangGraphAgent`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`LangGraphAgent`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`LangGraphHttpAgent`| Use `HttpAgent` from `@ag-ui/client`, passed to the v2 `CopilotRuntime`. Exception: a v1 client still resuming interrupts through `forwardedProps.command.resume` — `LangGraphHttpAgent` keeps a back-compat bridge for that channel.| `@ag-ui/client`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`LangGraphHttpAgent`| Use `HttpAgent` from `@ag-ui/client`, passed to the v2 `CopilotRuntime`. Exception: a v1 client still resuming interrupts through `forwardedProps.command.resume`. `LangGraphHttpAgent` keeps a back-compat bridge for that channel.| `@ag-ui/client`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`PredictStateTool`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`PredictStateTool`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`TextMessageEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`TextMessageEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`ToolCallEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`ToolCallEvents`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
   
-## `@copilotkit/sdk-js`
+## `@copilotkit/sdk-js`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
@@ -644,66 +610,72 @@ v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documen
 `withForwardedHeaders`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
   
-## `@copilotkit/sdk-js/langchain`
+## `@copilotkit/sdk-js/langchain`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
-`convertActionsToDynamicStructuredTools`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`convertActionsToDynamicStructuredTools`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`convertActionToDynamicStructuredTool`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`convertActionToDynamicStructuredTool`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`copilotKitCustomizeConfig`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`copilotKitCustomizeConfig`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`copilotKitEmitMessage`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`copilotKitEmitMessage`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`copilotKitEmitState`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`copilotKitEmitState`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`copilotKitEmitToolCall`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`copilotKitEmitToolCall`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`copilotKitExit`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`copilotKitExit`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitProperties`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitProperties`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitPropertiesAnnotation`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitPropertiesAnnotation`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitPropertiesSchema`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitPropertiesSchema`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitSchemaState`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitSchemaState`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitSchemaUpdate`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitSchemaUpdate`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitState`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitState`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitStateAnnotation`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitStateAnnotation`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`CopilotKitStateSchema`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`CopilotKitStateSchema`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
   
-## `@copilotkit/sdk-js/langgraph-middlewares`
+## `@copilotkit/sdk-js/langgraph-middlewares`Copy Anchor Link
 
 v1 export (deprecated; use v2 instead)| Exact v2 replacement| v2 source| Documentation  
 ---|---|---|---  
-`stateItem`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`stateItem`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`StateItem`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`StateItem`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
 [V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
-`stateStreamingMiddleware`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/agent-spec/langgraph)  
+`stateStreamingMiddleware`| No 1:1 replacement. Start with `@copilotkit/runtime/v2`.| `packages/runtime/src/v2/index.ts`| [LangGraph agents](https://docs.copilotkit.ai/langgraph-python)  
 [V2 docs](https://docs.copilotkit.ai/)  
-[V2 reference docs](https://docs.copilotkit.ai/reference/v2)
+[V2 reference docs](https://docs.copilotkit.ai/reference/v2)  
+  
+How is this guide?
+
+GoodBad
+
+[Previous PageOverview](https://docs.copilotkit.ai/reference/v1)[Next PageAll Chat Components](https://docs.copilotkit.ai/reference/v1/components/chat)

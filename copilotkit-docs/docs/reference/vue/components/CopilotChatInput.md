@@ -2,58 +2,50 @@
 url: https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput/
 title: CopilotChatInput
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:06.671112+00:00
+fetched_at: 2026-11-18T11:27:57.241651+00:00
 ---
 
 # CopilotChatInput
 
 > Source: https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Components
+Vue/Components
 
 # CopilotChatInput
 
 Primary text input and control surface for chat interactions in Vue 3
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+`CopilotChatInput` is the Vue 3 primary text input and control surface for chat interactions. It provides:
 
-## Overview
+  * A textarea that grows up to `maxRows` rows (default 5).
+  * Buttons to send a message and to record voice.
+  * An optional tools menu. Binding `@add-file` adds a file item to it.
+  * `/` slash commands for the menu items.
 
-`CopilotChatInput` is the Vue 3 primary text input and control surface for chat interactions. It provides a multi-line textarea that auto-grows up to a configurable maximum number of rows (default 5), action buttons for sending messages and voice transcription, and an optional tools menu for declarative command surfaces (which also surfaces a file-attachment item when you bind `@add-file`, and is reachable via inline `/` slash commands).
+
 
 The component operates in three modes: `"input"` (default text entry), `"transcribe"` (replaces the textarea with an audio recorder), and `"processing"` (shows a spinner while background processing is underway). When text spans multiple rows, the layout stacks the textarea above the control row.
 
 It supports both `v-model` (via `modelValue` / `update:modelValue`) and uncontrolled usage. When uncontrolled, the component manages its own text state internally and clears on submit (configurable via `clearOnSubmit`).
 
-The transcription buttons (microphone, cancel, finish) are only rendered when their corresponding event has a listener attached — for example, the microphone button appears only when you bind `@start-transcribe`. The send button, by contrast, always renders: it stays disabled until a `@submit-message` listener is attached and the input is non-empty, and while the agent is running it switches to a stop affordance that is enabled only when a `@stop` listener is attached. Binding `@add-file` adds a file-attachment item to the tools menu rather than a standalone button. This means you opt into features by listening for the events you intend to handle.
+You opt into each control by listening for its event:
 
-## Import
+  * Microphone: renders only with `@start-transcribe`.
+  * Cancel: renders only with `@cancel-transcribe`.
+  * Finish: renders only with `@finish-transcribe` or `@finish-transcribe-with-audio`.
+  * Send: always renders. It is enabled when a `@submit-message` listener is attached and the input has text.
+  * Stop: while the agent runs, the send button becomes a stop button. It is enabled only with `@stop`.
+  * Add file: binding `@add-file` adds a file item to the tools menu.
+
+
+
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -61,7 +53,9 @@ The transcription buttons (microphone, cancel, finish) are only rendered when th
     import "@copilotkit/vue/styles.css";
     </script>
 
-## Example
+## ExampleCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -80,7 +74,7 @@ The transcription buttons (microphone, cancel, finish) are only rendered when th
       <CopilotChatInput v-model="value" @submit-message="handleSubmit" />
     </template>
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -88,79 +82,31 @@ Type
 
 `modelValue?`string
 
-Prop
-
-Type
-
 `mode?`"input" | "transcribe" | "processing"
-
-Prop
-
-Type
 
 `disabled?`boolean
 
-Prop
-
-Type
-
 `placeholder?`string
-
-Prop
-
-Type
 
 `autoFocus?`boolean
 
-Prop
-
-Type
-
 `clearOnSubmit?`boolean
-
-Prop
-
-Type
 
 `isRunning?`boolean
 
-Prop
-
-Type
-
 `toolsMenu?`(ToolsMenuItem | '-')[]
-
-Prop
-
-Type
 
 `maxRows?`number
 
-Prop
-
-Type
-
 `positioning?`"static" | "absolute"
-
-Prop
-
-Type
 
 `keyboardHeight?`number
 
-Prop
-
-Type
-
 `showDisclaimer?`boolean
-
-Prop
-
-Type
 
 `bottomAnchored?`boolean
 
-## Events
+## EventsCopy Anchor Link
 
 `CopilotChatInput` emits the following events. Bind handlers with `v-on` (the `@` shorthand). Several action buttons only render when their corresponding event has a listener attached.
 
@@ -170,49 +116,21 @@ Type
 
 `update:modelValue?`(value: string) => void
 
-Prop
-
-Type
-
 `submit-message?`(value: string) => void
-
-Prop
-
-Type
 
 `stop?`() => void
 
-Prop
-
-Type
-
 `add-file?`() => void
-
-Prop
-
-Type
 
 `start-transcribe?`() => void
 
-Prop
-
-Type
-
 `cancel-transcribe?`() => void
-
-Prop
-
-Type
 
 `finish-transcribe?`() => void
 
-Prop
-
-Type
-
 `finish-transcribe-with-audio?`(audioBlob: Blob) => void
 
-## Slots
+## SlotsCopy Anchor Link
 
 `CopilotChatInput` exposes named slots so you can override individual parts of the UI while keeping the component's behavior. Each slot receives scoped slot props (event handlers, state, and labels) so your custom markup can drive the same logic as the defaults.
 
@@ -222,57 +140,27 @@ Type
 
 `text-area?`slot
 
-Prop
-
-Type
-
 `send-button?`slot
-
-Prop
-
-Type
 
 `add-menu-button?`slot
 
-Prop
-
-Type
-
 `start-transcribe-button?`slot
-
-Prop
-
-Type
 
 `cancel-transcribe-button?`slot
 
-Prop
-
-Type
-
 `finish-transcribe-button?`slot
-
-Prop
-
-Type
 
 `audio-recorder?`slot
 
-Prop
-
-Type
-
 `disclaimer?`slot
-
-Prop
-
-Type
 
 `layout?`slot
 
-## ToolsMenuItem
+## ToolsMenuItemCopy Anchor Link
 
 The `ToolsMenuItem` type defines items in the tools menu. Items can trigger actions directly or contain nested submenus.
+
+Copy Text
     
     
     type ToolsMenuItem = { label: string } & (
@@ -286,21 +174,15 @@ Type
 
 `label`string
 
-Prop
-
-Type
-
 `action?`() => void
-
-Prop
-
-Type
 
 `items?`(ToolsMenuItem | '-')[]
 
-### Separators
+### SeparatorsCopy Anchor Link
 
 Use the string `"-"` as an array entry to render a visual separator between menu items:
+
+Copy Text
     
     
     const toolsMenu = [
@@ -309,9 +191,11 @@ Use the string `"-"` as an array entry to render a visual separator between menu
       { label: "Settings", action: () => openSettings() },
     ];
 
-### Nested Submenus
+### Nested SubmenusCopy Anchor Link
 
-Menu items with an `items` array render as expandable submenus:
+A menu item with an `items` array renders as a group. The menu shows its label as a heading and lists the child items under it, indented:
+
+Copy Text
     
     
     const toolsMenu = [
@@ -326,20 +210,22 @@ Menu items with an `items` array render as expandable submenus:
       },
     ];
 
-## CopilotChatAudioRecorder
+## CopilotChatAudioRecorderCopy Anchor Link
 
 A visual audio waveform component used during transcription mode. It displays a real-time waveform visualization of the microphone input and exposes an imperative API via a template `ref`.
 
-### Import
+### ImportCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
     import { CopilotChatAudioRecorder } from "@copilotkit/vue/v2";
     </script>
 
-### Imperative API (CopilotChatAudioRecorderRef)
+### Imperative APICopy Anchor Link
 
-The component exposes the following members via a template `ref`:
+The component exposes the following members via a template `ref`. Type the ref as `InstanceType<typeof CopilotChatAudioRecorder>`, as in the usage example below.
 
 Prop
 
@@ -347,25 +233,15 @@ Type
 
 `state?`"idle" | "recording" | "processing"
 
-Prop
-
-Type
-
 `start?`() => Promise<void>
-
-Prop
-
-Type
 
 `stop?`() => Promise<Blob>
 
-Prop
-
-Type
-
 `dispose?`() => void
 
-### Usage
+### UsageCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -382,9 +258,11 @@ Type
       <button @click="recorder?.stop()">Stop</button>
     </template>
 
-## Usage
+## UsageCopy Anchor Link
 
-### With Voice Transcription
+### With Voice TranscriptionCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -411,7 +289,9 @@ Type
       />
     </template>
 
-### With Tools Menu
+### With Tools MenuCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -438,7 +318,11 @@ Type
       />
     </template>
 
-### With Stop Button During Execution
+### With Stop Button During ExecutionCopy Anchor Link
+
+This sample reads the running state from [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent).
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -474,7 +358,9 @@ Type
       />
     </template>
 
-### Styled Slots
+### Styled SlotsCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -495,20 +381,18 @@ Type
       </CopilotChatInput>
     </template>
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Auto-Growing Textarea** : The default textarea automatically expands as the user types, up to `maxRows` rows (default 5). After reaching the maximum, the textarea becomes scrollable.
   * **Layout Stacking** : When the input text spans multiple rows, the layout switches from inline (textarea and buttons side by side) to stacked (textarea above the control row containing the action buttons). On narrow viewports the stacked layout is used unconditionally.
   * **Mode Switching** : Setting `mode` to `"transcribe"` replaces the textarea with the `audio-recorder` slot and automatically starts the recorder. The cancel and finish buttons replace the standard send button. Setting `mode` to `"processing"` shows a spinner in place of the textarea.
   * **Controlled and Uncontrolled** : The component supports controlled mode (via `v-model` / `modelValue`) and uncontrolled mode (internal state). With `clearOnSubmit` enabled (the default), the input clears after each submission.
-  * **Tools Menu and Slash Commands** : A non-empty `toolsMenu` renders a menu button and also exposes the leaf actions as `/` slash commands typed inline. Use arrow keys to navigate the slash menu and Enter to run the highlighted command.
-  * **Listener-Gated Controls** : The transcription buttons (microphone, cancel, finish) are only rendered when their corresponding event listener is attached. The send button always renders but stays disabled until a `@submit-message` listener is attached and the input is non-empty; while the agent is running it switches to a stop affordance, enabled only when a `@stop` listener is attached. Binding `@add-file` adds a file-attachment item to the tools menu (not a standalone button). You opt into each feature by handling its event.
+  * **Tools Menu and Slash Commands** : The menu button always renders, and it is disabled while the menu has no items. The leaf actions of a non-empty `toolsMenu` are also available as `/` slash commands typed inline. Use arrow keys to navigate the slash menu and Enter to run the highlighted command.
 
 
 
-## Related
+How is this guide?
 
-  * [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration) \-- Provider/composable for localized input labels
-  * [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent) \-- Access the active agent to drive submission and stop handling
+GoodBad
 
-
+[Previous PageCopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[Next PageCopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)

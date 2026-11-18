@@ -2,58 +2,34 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool/
 title: useRenderTool
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:49.075814+00:00
+fetched_at: 2026-11-18T11:27:57.945964+00:00
 ---
 
 # useRenderTool
 
 > Source: https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Hooks
+React/Hooks
 
 # useRenderTool
 
 Register typed renderers for tool calls, by tool name or wildcard
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
-
-`useRenderTool` registers a chat renderer for tool calls. You can target a specific tool name (with a typed Zod `parameters` schema) or use a wildcard (`"*"`) fallback renderer.
+`useRenderTool` registers a chat renderer for tool calls. You can target a specific tool name (with a typed `parameters` schema, for example Zod) or use a wildcard (`"*"`) fallback renderer.
 
 This is part of the v2 tool rendering hook set with [`useComponent`](https://docs.copilotkit.ai/reference/hooks/useComponent), [`useDefaultRenderTool`](https://docs.copilotkit.ai/reference/hooks/useDefaultRenderTool), and [`useRenderToolCall`](https://docs.copilotkit.ai/reference/hooks/useRenderToolCall).
 
-This hook only handles rendering. It does not register a frontend handler.
+This hook only handles rendering. It does not register a frontend handler. To also run a handler in the browser, use [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool).
 
-## Signature
+## SignatureCopy Anchor Link
 
-### Wildcard overload
+### Wildcard overloadCopy Anchor Link
+
+Copy Text
     
     
     import { useRenderTool } from "@copilotkit/react-core/v2";
@@ -63,11 +39,14 @@ This hook only handles rendering. It does not register a frontend handler.
         name: "*",
         render: (props) => React.ReactElement | null,
         agentId?: string,
+        group?: boolean,
       },
       deps?: ReadonlyArray<unknown>,
     );
 
-### Named overload
+### Named overloadCopy Anchor Link
+
+Copy Text
     
     
     import { z } from "zod";
@@ -76,14 +55,15 @@ This hook only handles rendering. It does not register a frontend handler.
     useRenderTool(
       {
         name: string,
-        parameters: z.ZodTypeAny,
+        parameters: StandardSchemaV1,
         render: (props) => React.ReactElement | null,
         agentId?: string,
+        group?: boolean,
       },
       deps?: ReadonlyArray<unknown>,
     );
 
-## Render Props
+## Render PropsCopy Anchor Link
 
 `render` receives one of these states:
 
@@ -95,19 +75,23 @@ This hook only handles rendering. It does not register a frontend handler.
 
 `name` is always present in all states.
 
-## Behavior
+## BehaviorCopy Anchor Link
 
-  * `render` may return `null` to draw nothing for a tool call. `null` was always legal where a renderer is _invoked_ — `ReactToolCallRenderer.render` is a `React.ComponentType`, a function component returns `ReactNode`, and `null` is a member of `ReactNode` — so only the build-side signature forbade it.
+  * `render` can return `null` to draw nothing for a tool call.
   * Builds a renderer entry with `defineToolCallRenderer`.
+  * `group: true` lets the chat collapse calls this renderer draws into its tool-call groups (see [`toolCallDisplay`](https://docs.copilotkit.ai/reference/components/CopilotChatMessageView#toolcalldisplay)). Leave it unset for renderers that are part of your UI, or that may draw nothing; their calls always show on their own.
   * Deduplicates by `agentId:name` key (latest registration wins).
   * Intentionally does not remove the renderer on cleanup so previous chat history can still render.
   * Tracks updates by `config.name` plus values in `deps` (include changing captures in `deps`).
+  * **`deps` comparison**: compares plain data (strings, numbers, booleans, `null`, dates, and plain objects and arrays of those) by value, so an inline literal such as `[{ status }]` re-registers only when its contents change. A function never counts as changed, so keep a changing callback in a ref. Class instances and other objects compare by identity, so a circular value such as the `agent` from `useAgent` is safe to pass. Adding or removing an entry counts as a change.
 
 
 
-## Usage
+## UsageCopy Anchor Link
 
-### Named tool renderer
+### Named tool rendererCopy Anchor Link
+
+Copy Text
     
     
     function App() {
@@ -128,7 +112,9 @@ This hook only handles rendering. It does not register a frontend handler.
       return null;
     }
 
-### Wildcard fallback renderer
+### Wildcard fallback rendererCopy Anchor Link
+
+Copy Text
     
     
     function App() {
@@ -147,29 +133,27 @@ This hook only handles rendering. It does not register a frontend handler.
       return null;
     }
 
-### Disable rendering for a tool
+### Disable rendering for a toolCopy Anchor Link
 
-Return `null` to suppress the default UI. The wildcard (`"*"`) needs no schema; a named tool takes a pass-through schema (`z.any()`).
+If you call `useDefaultRenderTool()`, register a named renderer that returns `null` to hide one tool. A named tool takes a pass-through schema (`z.any()`).
+
+Copy Text
     
     
     import { z } from "zod";
     
     function App() {
-      // One specific tool…
+      // Hide one tool from the useDefaultRenderTool() card.
       useRenderTool(
         { name: "searchDocs", parameters: z.any(), render: () => null },
         [],
       );
-      // …or everything without its own renderer.
-      useRenderTool({ name: "*", render: () => null }, []);
     
       return null;
     }
 
-## Related
+How is this guide?
 
-  * [`useDefaultRenderTool`](https://docs.copilotkit.ai/reference/hooks/useDefaultRenderTool)
-  * [`useRenderToolCall`](https://docs.copilotkit.ai/reference/hooks/useRenderToolCall)
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool)
+GoodBad
 
-
+[Previous PageuseInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[Next PageuseRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)

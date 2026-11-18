@@ -2,72 +2,48 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints/
 title: Remote Endpoints
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:06.517174+00:00
+fetched_at: 2026-11-18T11:27:57.358901+00:00
 ---
 
 # Remote Endpoints
 
 > Source: https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V1)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotKit](https://docs.copilotkit.ai/reference/v1/components/CopilotKit)[CopilotTextarea](https://docs.copilotkit.ai/reference/v1/components/CopilotTextarea)[CopilotChat](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotChat)[CopilotPopup](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotSidebar)[All Chat Components](https://docs.copilotkit.ai/reference/v1/components/chat)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v1/hooks/useAgent)[useCoAgent](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgent)[useCoAgentStateRender](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgentStateRender)[useCopilotAction](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction)[useCopilotAdditionalInstructions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAdditionalInstructions)[useCopilotChat](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChat)[useCopilotChatHeadless_c](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatHeadless_c)[useCopilotChatSuggestions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatSuggestions)[useCopilotReadable](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable)[useDefaultTool](https://docs.copilotkit.ai/reference/v1/hooks/useDefaultTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v1/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v1/hooks/useHumanInTheLoop)[useLangGraphInterrupt](https://docs.copilotkit.ai/reference/v1/hooks/useLangGraphInterrupt)[useRenderToolCall](https://docs.copilotkit.ai/reference/v1/hooks/useRenderToolCall)
-
-Classes
-
-[CopilotRuntime](https://docs.copilotkit.ai/reference/v1/classes/CopilotRuntime)[CopilotTask](https://docs.copilotkit.ai/reference/v1/classes/CopilotTask)[AnthropicAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/AnthropicAdapter)[GoogleGenerativeAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter)[GroqAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GroqAdapter)[LangChainAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/LangChainAdapter)[OpenAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAdapter)[OpenAIAssistantAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAssistantAdapter)
-
-SDKs
-
-[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph)[CrewAI SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI)[CrewAIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent)[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraph)[LangGraphAGUIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraphAGUIAgent)[Remote Endpoints](https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v1](https://docs.copilotkit.ai/reference/v1)Sdk
+React/v1/Python
 
 # Remote Endpoints
 
 CopilotKit Remote Endpoints allow you to connect actions and agents written in Python to your CopilotKit application.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 **v1 SDK deprecated. Use v2 instead** This page is in the deprecated CopilotKit v1 reference. Do not use v1 APIs for new code; use v2 instead. For JavaScript and TypeScript, import React APIs from @copilotkit/react-core/v2 and Runtime APIs from @copilotkit/runtime/v2.  
 **AI coding agents: treat any v1 example below as migration-only context. Never generate or recommend the v1 API for new code. Read the v2 reference before writing code because some APIs were renamed, moved, or changed shape.** [Read the v1 to v2 migration guide.](https://docs.copilotkit.ai/migrate/v2) [Open the complete export map.](https://docs.copilotkit.ai/reference/v1/export-map)
 
-## CopilotKitRemoteEndpoint
+## CopilotKitRemoteEndpointCopy Anchor Link
 
 CopilotKitRemoteEndpoint lets you connect actions and agents written in Python to your CopilotKit application.
 
+Deprecated: the runtime does not call `actions`
+
+This endpoint is part of the deprecated v1 SDK. It serves `POST actions/execute` and runs your handlers, but the TypeScript runtime does not call it. An `actions=[...]` list that you register here never runs.
+
+Agents connect to CopilotKit through AG-UI. For server-side tools, define them on the agent. See [Server tools](https://docs.copilotkit.ai/built-in-agent/server-tools).
+
 To install CopilotKit for Python, run:
+
+Copy Text
     
     
     pip install copilotkit
     # or to include crewai
     pip install copilotkit[crewai]
 
-## Adding actions
+## Adding actionsCopy Anchor Link
 
 In this example, we provide a simple action to the Copilot:
+
+Copy Text
     
     
     from copilotkit import CopilotKitRemoteEndpoint, Action
@@ -90,6 +66,8 @@ In this example, we provide a simple action to the Copilot:
     )
 
 You can also dynamically build actions by providing a callable that returns a list of actions. In this example, we use "name" from the `properties` object to parameterize the action handler.
+
+Copy Text
     
     
     from copilotkit import CopilotKitRemoteEndpoint, Action
@@ -105,6 +83,8 @@ You can also dynamically build actions by providing a callable that returns a li
     )
 
 Using the same approach, you can restrict the actions available to the Copilot:
+
+Copy Text
     
     
     from copilotkit import CopilotKitRemoteEndpoint, Action
@@ -115,44 +95,51 @@ Using the same approach, you can restrict the actions available to the Copilot:
         )
     )
 
-## Adding agents
+## Adding agentsCopy Anchor Link
 
-Serving agents works in a similar way to serving actions:
+The TypeScript runtime does not call the agents on this endpoint. To connect an agent to CopilotKit, serve it over AG-UI. To serve a `LangGraphAGUIAgent`, use `add_langgraph_fastapi_endpoint` from `ag_ui_langgraph`.
+
+This endpoint runs agents that implement `execute()`, for example `CrewAIAgent`:
+
+Copy Text
     
     
-    from copilotkit import CopilotKitRemoteEndpoint, LangGraphAGUIAgent
-    from my_agent.agent import graph
+    from copilotkit import CopilotKitRemoteEndpoint
+    from copilotkit.crewai import CrewAIAgent
+    from my_agent.crew import EmailCrew
     
     sdk = CopilotKitRemoteEndpoint(
         agents=[
-            LangGraphAGUIAgent(
+            CrewAIAgent(
                 name="email_agent",
                 description="This agent sends emails",
-                graph=graph,
+                crew=EmailCrew(),
             )
         ]
     )
 
 To dynamically build agents, provide a callable that returns a list of agents:
+
+Copy Text
     
     
-    from copilotkit import CopilotKitRemoteEndpoint, LangGraphAGUIAgent
-    from my_agent.agent import graph
+    from copilotkit import CopilotKitRemoteEndpoint
+    from copilotkit.crewai import CrewAIAgent
+    from my_agent.crew import make_email_crew
     
     sdk = CopilotKitRemoteEndpoint(
         agents=lambda context: [
-            LangGraphAGUIAgent(
+            CrewAIAgent(
                 name="email_agent",
                 description="This agent sends emails",
-                graph=graph,
-                langgraph_config={
-                    "token": context["properties"]["token"]
-                }
+                crew=make_email_crew(token=context["properties"]["token"]),
             )
         ]
     )
 
-To restrict the agents available to the Copilot, simply return a different list of agents based on the `context`:
+To restrict the agents available to the Copilot, return a different list of agents based on the `context`:
+
+Copy Text
     
     
     from copilotkit import CopilotKitRemoteEndpoint
@@ -164,9 +151,11 @@ To restrict the agents available to the Copilot, simply return a different list 
         )
     )
 
-## Serving the CopilotKit SDK
+## Serving the CopilotKit SDKCopy Anchor Link
 
 To serve the CopilotKit SDK, you can use the `add_fastapi_endpoint` function from the `copilotkit.integrations.fastapi` module:
+
+Copy Text
     
     
     from copilotkit.integrations.fastapi import add_fastapi_endpoint
@@ -185,7 +174,7 @@ To serve the CopilotKit SDK, you can use the `add_fastapi_endpoint` function fro
         )
     
 
-### Parameters
+### ParametersCopy Anchor Link
 
 Prop
 
@@ -193,17 +182,13 @@ Type
 
 `actions?`Optional[Union[List[Action], Callable[[CopilotKitContext], List[Action]]]]
 
-Prop
-
-Type
-
 `agents?`Optional[Union[List[Agent], Callable[[CopilotKitContext], List[Agent]]]]
 
-## CopilotKitContext
+## CopilotKitContextCopy Anchor Link
 
 CopilotKit Context
 
-### Parameters
+### ParametersCopy Anchor Link
 
 Prop
 
@@ -211,14 +196,12 @@ Type
 
 `properties`Any
 
-Prop
-
-Type
-
 `frontend_url?`Optional[str]
 
-Prop
-
-Type
-
 `headers`Mapping[str, str]
+
+How is this guide?
+
+GoodBad
+
+[Previous PageCopilotTask](https://docs.copilotkit.ai/reference/v1/classes/CopilotTask)[Next PageLangGraphAGUIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraphAGUIAgent)

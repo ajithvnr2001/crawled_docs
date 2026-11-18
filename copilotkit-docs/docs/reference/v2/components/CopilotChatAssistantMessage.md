@@ -2,58 +2,34 @@
 url: https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage/
 title: CopilotChatAssistantMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:34.033041+00:00
+fetched_at: 2026-11-18T11:27:59.107447+00:00
 ---
 
 # CopilotChatAssistantMessage
 
 > Source: https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Components
+React/Components
 
 # CopilotChatAssistantMessage
 
 Component for displaying assistant messages with Markdown, tool calls, and an action toolbar
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+`CopilotChatAssistantMessage` displays assistant messages with Markdown support, tool call rendering, and an action toolbar. The default Markdown renderer is Streamdown. It renders GitHub Flavored Markdown, KaTeX math, and code blocks highlighted with Shiki. The toolbar provides copy, rating (thumbs up/down), read aloud, and regenerate buttons with localized tooltips sourced from `CopilotChatConfigurationProvider`. For user messages, see [`CopilotChatUserMessage`](https://docs.copilotkit.ai/reference/components/CopilotChatUserMessage).
 
-## Overview
+## ImportCopy Anchor Link
 
-`CopilotChatAssistantMessage` displays assistant messages with Markdown support, tool call rendering, and an action toolbar. The Markdown renderer uses `remark-gfm`, `remark-math`, syntax highlighting via `rehype-pretty-code`, and KaTeX support for mathematical expressions. The toolbar provides copy, rating (thumbs up/down), read aloud, and regenerate buttons with localized tooltips sourced from `CopilotChatConfigurationProvider`.
-
-## Import
+Copy Text
     
     
     import { CopilotChatAssistantMessage } from "@copilotkit/react-core/v2";
     import "@copilotkit/react-core/v2/styles.css";
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -61,61 +37,25 @@ Type
 
 `message`AssistantMessage
 
-Prop
-
-Type
-
 `messages?`Message[]
-
-Prop
-
-Type
 
 `isRunning?`boolean
 
-Prop
-
-Type
-
 `isLatest?`boolean
-
-Prop
-
-Type
 
 `onThumbsUp?`(message: AssistantMessage) => void
 
-Prop
-
-Type
-
 `onThumbsDown?`(message: AssistantMessage) => void
-
-Prop
-
-Type
 
 `onReadAloud?`(message: AssistantMessage) => void
 
-Prop
-
-Type
-
 `onRegenerate?`(message: AssistantMessage) => void
-
-Prop
-
-Type
 
 `additionalToolbarItems?`React.ReactNode
 
-Prop
-
-Type
-
 `toolbarVisible?`boolean
 
-## Slots
+## SlotsCopy Anchor Link
 
 All slot props follow the CopilotKit slot system: each accepts a replacement React component, a `className` string that is merged into the default component's classes, or a partial props object that extends the default component.
 
@@ -123,58 +63,38 @@ Prop
 
 Type
 
-`markdownRenderer?`SlotProp<typeof CopilotChatAssistantMessage.MarkdownRenderer>
+`markdownRenderer?`SlotValue<typeof CopilotChatAssistantMessage.MarkdownRenderer>
 
-Prop
+`toolbar?`SlotValue<typeof CopilotChatAssistantMessage.Toolbar>
 
-Type
+`copyButton?`SlotValue<typeof CopilotChatAssistantMessage.CopyButton>
 
-`toolbar?`SlotProp<typeof CopilotChatAssistantMessage.Toolbar>
+`thumbsUpButton?`SlotValue<typeof CopilotChatAssistantMessage.ThumbsUpButton>
 
-Prop
+`thumbsDownButton?`SlotValue<typeof CopilotChatAssistantMessage.ThumbsDownButton>
 
-Type
+`readAloudButton?`SlotValue<typeof CopilotChatAssistantMessage.ReadAloudButton>
 
-`copyButton?`SlotProp<typeof CopilotChatAssistantMessage.CopyButton>
+`regenerateButton?`SlotValue<typeof CopilotChatAssistantMessage.RegenerateButton>
 
-Prop
+`toolCallsView?`SlotValue<typeof CopilotChatToolCallsView>
 
-Type
+`feedbackComment?`SlotValue<typeof CopilotChatAssistantMessage.FeedbackComment>
 
-`thumbsUpButton?`SlotProp<typeof CopilotChatAssistantMessage.ThumbsUpButton>
+## CopilotChatToolCallsViewCopy Anchor Link
 
-Prop
+A companion component that renders the tool calls contained in an assistant message. Each call is drawn by the closest registered tool renderer (registered via `useFrontendTool`, `useHumanInTheLoop`, `useRenderTool` or `renderToolCalls` on the provider).
 
-Type
+Calls the agent makes in a row are collapsed into one group, drawn by the `group` slot, when their renderer opts into grouping. The built-in card from `useDefaultRenderTool()` does; a custom renderer opts in with `group: true`. Any other call always shows on its own. Inside a [`CopilotChatMessageView`](https://docs.copilotkit.ai/reference/components/CopilotChatMessageView), groups span messages and follow the view's `toolCallDisplay`; used on its own, this component groups the calls of `message`.
 
-`thumbsDownButton?`SlotProp<typeof CopilotChatAssistantMessage.ThumbsDownButton>
+### ImportCopy Anchor Link
 
-Prop
+Copy Text
+    
+    
+    import { CopilotChatToolCallsView } from "@copilotkit/react-core/v2";
 
-Type
-
-`readAloudButton?`SlotProp<typeof CopilotChatAssistantMessage.ReadAloudButton>
-
-Prop
-
-Type
-
-`regenerateButton?`SlotProp<typeof CopilotChatAssistantMessage.RegenerateButton>
-
-Prop
-
-Type
-
-`toolCallsView?`SlotProp<typeof CopilotChatToolCallsView>
-
-## CopilotChatToolCallsView
-
-A companion component that renders the tool calls contained in an assistant message. Given an assistant message, it iterates over each tool call and renders it using the closest registered tool renderer (registered via `useFrontendTool`, `useHumanInTheLoop`, or `renderToolCalls` on the provider).
-
-### Import
-
-
-### Props
+### PropsCopy Anchor Link
 
 Prop
 
@@ -182,15 +102,23 @@ Type
 
 `message`AssistantMessage
 
+`messages?`Message[]
+
+`display?`"grouped" | "line" | "stacked" | "turn" | "separate"
+
+### SlotsCopy Anchor Link
+
 Prop
 
 Type
 
-`messages?`Message[]
+`group?`SlotValue<typeof CopilotChatToolCallGroup>
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Assistant Message
+### Basic Assistant MessageCopy Anchor Link
+
+Copy Text
     
     
     function AssistantBubble({ message }) {
@@ -203,7 +131,9 @@ Type
       );
     }
 
-### Customizing the Toolbar
+### Customizing the ToolbarCopy Anchor Link
+
+Copy Text
     
     
     function CustomToolbarMessage({ message }) {
@@ -220,7 +150,9 @@ Type
       );
     }
 
-### Hiding the Toolbar
+### Hiding the ToolbarCopy Anchor Link
+
+Copy Text
     
     
     function MinimalMessage({ message }) {
@@ -229,7 +161,9 @@ Type
       );
     }
 
-### Custom Markdown Renderer
+### Custom Markdown RendererCopy Anchor Link
+
+Copy Text
     
     
     function CustomRendererMessage({ message }) {
@@ -243,7 +177,9 @@ Type
       );
     }
 
-### Standalone Tool Calls View
+### Standalone Tool Calls ViewCopy Anchor Link
+
+Copy Text
     
     
     function ToolCallsList({ message, allMessages }) {
@@ -254,21 +190,31 @@ Type
       );
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
-  * **Markdown Support** : The default Markdown renderer supports GitHub Flavored Markdown (tables, strikethrough, task lists), math expressions rendered with KaTeX, and syntax-highlighted code blocks via `rehype-pretty-code`.
-  * **Toolbar Visibility** : The toolbar appears on hover or focus by default, except on the latest message while `isRunning` is `true`. Individual buttons are only rendered when their corresponding callback prop (`onThumbsUp`, `onThumbsDown`, `onReadAloud`, `onRegenerate`) is provided. The copy button is always visible when the toolbar is shown.
+  * **Markdown Support** : The default Markdown renderer is Streamdown. It supports GitHub Flavored Markdown (tables, strikethrough, task lists), math expressions rendered with KaTeX, and code blocks highlighted with Shiki.
+  * **Toolbar Visibility** : The toolbar shows below every assistant message that has text, except the latest message while `isRunning` is `true`. Each of these buttons renders when its callback prop (`onThumbsUp`, `onThumbsDown`, `onReadAloud`, `onRegenerate`) or its slot is set. The thumbs also render inside `CopilotChatMessageView` while Automatic Learning records ratings. The copy button is always visible when the toolbar is shown.
   * **Localized Labels** : All toolbar button tooltips are sourced from the nearest `CopilotChatConfigurationProvider`. See [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration) for the full list of label keys.
-  * **Tool Call Rendering** : Tool calls embedded in the assistant message are rendered by the `toolCallsView` slot. Each tool call is resolved using the `useRenderToolCall` hook, which looks up registered renderers by tool name.
+  * **Tool Call Rendering** : Tool calls embedded in the assistant message are rendered by the `toolCallsView` slot. Each tool call is resolved using the [`useRenderToolCall`](https://docs.copilotkit.ai/reference/hooks/useRenderToolCall) hook, which looks up registered renderers by tool name.
   * **Slot System** : Each slot prop accepts three forms -- a replacement component, a className string merged into the default, or a partial props object that extends the default component's props.
 
 
 
-## Related
+## Reply ratingsCopy Anchor Link
 
-  * [`CopilotChatMessageView`](https://docs.copilotkit.ai/reference/components/CopilotChatMessageView) \-- Parent component that uses this as the default assistant message slot
-  * [`CopilotChatUserMessage`](https://docs.copilotkit.ai/reference/components/CopilotChatUserMessage) \-- Companion component for user messages
-  * [`useRenderToolCall`](https://docs.copilotkit.ai/reference/hooks/useRenderToolCall) \-- Hook used internally for resolving tool call renderers
-  * [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration) \-- Provider for localized toolbar labels
+Automatic Learning records ratings when this component renders inside `CopilotChatMessageView` under a `CopilotChatConfigurationProvider` and Automatic Learning capture has started. It keeps recording ratings while capture reconnects or is stopped. While Automatic Learning records ratings:
+
+  * A click rates the reply and opens a field for an optional comment next to the thumb.
+  * Pointing at or keyboard-focusing the chosen thumb opens its comment again. On a touch screen, tapping the chosen thumb removes the rating instead.
+  * Clicking the chosen thumb again removes the rating.
+  * The rating shows while the page is open and is sent to the active Trajectory as a `message.feedback` event. Like any Trajectory event, a rating given while no Trajectory captures is not sent.
 
 
+
+`onThumbsUp` and `onThumbsDown` run when a rating is given, not when it is removed. The comment field is the `feedbackComment` slot, `CopilotChatAssistantMessage.FeedbackComment` by default; its placeholder and send button use the `assistantMessageFeedbackCommentPlaceholder` and `assistantMessageFeedbackCommentSubmitLabel` labels. See [Collect reply ratings](https://docs.copilotkit.ai/intelligence/capture-interactions#collect-reply-ratings) for the event and how ratings reach Intelligence.
+
+How is this guide?
+
+GoodBad
+
+[Previous PageCopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[Next PageCopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)

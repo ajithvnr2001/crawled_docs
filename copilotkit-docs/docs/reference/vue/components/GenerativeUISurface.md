@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface/
 title: GenerativeUISurface
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T10:53:51.467562+00:00
+fetched_at: 2026-11-18T11:27:56.818919+00:00
 ---
 
 # GenerativeUISurface
 
 > Source: https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/vue/components/CopilotThreadsDrawer)[GenerativeUISurface](https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useGenerativeUIFunction](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIFunction)[useGenerativeUIState](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Components
+Vue/Components
 
 # GenerativeUISurface
 
 Vue 3 component that marks a named area of your page where the agent can render generated UI.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 The chat is not always the right place for generated UI. A product grid belongs in the product area of your page. `GenerativeUISurface` marks that area as a target. The agent can then render your components into it.
 
@@ -53,12 +27,14 @@ Generative UI is experimental. Use `GenerativeUISurface` under a [`CopilotKitPro
 
 For a full walkthrough, see [Surfaces](https://docs.copilotkit.ai/generative-ui/components/surfaces).
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import { GenerativeUISurface } from "@copilotkit/vue/v2/generative-ui";
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -66,33 +42,17 @@ Type
 
 `id`string
 
-Prop
-
-Type
-
 `description?`string
-
-Prop
-
-Type
 
 `ui?`GenerativeUI
 
-Prop
-
-Type
-
 `components?`readonly GenerativeUIComponentName<UI>[]
-
-Prop
-
-Type
 
 `autoScroll?`boolean
 
 Other attributes, such as `class` and `style`, go to the element around the rendered surface. That element has a `data-generative-ui-surface` attribute with the `id`.
 
-## Slots
+## SlotsCopy Anchor Link
 
 Prop
 
@@ -100,7 +60,9 @@ Type
 
 `default?`slot
 
-## Example
+## ExampleCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -124,13 +86,15 @@ Type
     </template>
 
 `shopUI` is the object from `createGenerativeUI`. The provider gets the same object:
+
+Copy Text
     
     
     <CopilotKitProvider runtime-url="/api/copilotkit" :generativeUI="{ ui: shopUI }">
       <App />
     </CopilotKitProvider>
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * The target registers after mount, so server rendering registers nothing.
   * The agent knows about the target only while it is mounted. When it unmounts, the agent cannot render into it.
@@ -139,7 +103,7 @@ Type
 
 
 
-## Related
+## RelatedCopy Anchor Link
 
   * [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) \- give the provider the `generativeUI` config
   * [`useGenerativeUIState`](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState) \- give generated components live app state
@@ -147,3 +111,9 @@ Type
   * [`CopilotChat`](https://docs.copilotkit.ai/reference/vue/components/CopilotChat) \- change the card around surfaces in the chat
 
 
+
+How is this guide?
+
+GoodBad
+
+[Previous PageCopilotThreadsDrawer](https://docs.copilotkit.ai/reference/vue/components/CopilotThreadsDrawer)[Next PageuseAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)

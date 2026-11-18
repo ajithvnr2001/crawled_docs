@@ -2,65 +2,43 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool/
 title: useRenderTool
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:25.032924+00:00
+fetched_at: 2026-11-18T11:27:55.884393+00:00
 ---
 
 # useRenderTool
 
 > Source: https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Hooks
+Vue/Hooks
 
 # useRenderTool
 
 Register typed Vue renderers for tool calls, by tool name or wildcard
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useRenderTool` is a Vue 3 composable that registers a chat renderer for tool calls. You can target a specific tool name (with a typed Zod `parameters` schema) or use a wildcard (`"*"`) fallback renderer.
 
 The render target is a Vue render function (returning a `VNodeChild`) or a Vue `Component`. It receives the tool `name`, the parsed `parameters`, the current `status`, and the `result` (when complete). This is not JSX; you render with Vue's `h()`, a setup-defined render function, or by passing a single-file Vue component.
 
-This composable only handles rendering. It does not register a frontend handler.
+This composable only handles rendering. It does not register a frontend handler. To register a handler, use [`useFrontendTool`](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool).
 
 Call `useRenderTool` from inside `setup()` (or `<script setup>`) of a component mounted under [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider). It reads the active CopilotKit instance from provider context, so it cannot be called outside that tree.
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import { useRenderTool } from "@copilotkit/vue/v2";
 
-## Signature
+## SignatureCopy Anchor Link
 
-### Wildcard overload
+### Wildcard overloadCopy Anchor Link
+
+Copy Text
     
     
     import { useRenderTool } from "@copilotkit/vue/v2";
@@ -75,7 +53,11 @@ Call `useRenderTool` from inside `setup()` (or `<script setup>`) of a component 
       deps?: WatchSource<unknown>[],
     ): void;
 
-### Named overload
+### Named overloadCopy Anchor Link
+
+In this signature, `RenderToolProps<S>` is shorthand for the discriminated union described under Render Props. It is not exported from `@copilotkit/vue/v2`; let the `render` callback infer its props from the schema, as shown in the examples below.
+
+Copy Text
     
     
     import { z } from "zod";
@@ -92,7 +74,7 @@ Call `useRenderTool` from inside `setup()` (or `<script setup>`) of a component 
       deps?: WatchSource<unknown>[],
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -100,13 +82,9 @@ Type
 
 `config`object
 
-Prop
-
-Type
-
 `deps?`WatchSource<unknown>[]
 
-## Render Props
+## Render PropsCopy Anchor Link
 
 `render` receives a discriminated union (`RenderToolProps`) keyed on `status`. `name` and `toolCallId` are present in all states.
 
@@ -116,27 +94,11 @@ Type
 
 `name`string
 
-Prop
-
-Type
-
 `toolCallId`string
-
-Prop
-
-Type
 
 `status`"inProgress" | "executing" | "complete"
 
-Prop
-
-Type
-
 `parameters`Partial<T> | T
-
-Prop
-
-Type
 
 `result?`string | undefined
 
@@ -148,9 +110,9 @@ The three states are:
 
 
 
-## Behavior
+## BehaviorCopy Anchor Link
 
-  * Builds a renderer entry with `defineToolCallRenderer` and registers it on the active CopilotKit instance via `addHookRenderToolCall`.
+  * Builds a renderer entry with `defineToolCallRenderer` (exported from `@copilotkit/vue/v2`) and registers it on the active CopilotKit instance via `addHookRenderToolCall`.
   * Maps the internal `args` prop onto `parameters` before calling `render`, so your render function always sees `parameters`.
   * Deduplicates by `agentId:name` key (latest registration wins).
   * Intentionally does not remove the renderer on cleanup, so previous chat history can still render.
@@ -158,9 +120,11 @@ The three states are:
 
 
 
-## Usage
+## UsageCopy Anchor Link
 
-### Named tool renderer (render function)
+### Named tool renderer (render function)Copy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -187,9 +151,11 @@ The three states are:
       <slot />
     </template>
 
-### Named tool renderer (Vue component)
+### Named tool renderer (Vue component)Copy Anchor Link
 
 Pass a Vue component instead of a render function. The render props become the component's props.
+
+Copy Text
     
     
     <!-- SearchDocsRenderer.vue -->
@@ -208,6 +174,8 @@ Pass a Vue component instead of a render function. The render props become the c
       <div v-else-if="status === 'executing'">Searching for: {{ parameters.query }}</div>
       <div v-else>Done: {{ result }}</div>
     </template>
+
+Copy Text
     
     
     <!-- App.vue -->
@@ -227,9 +195,11 @@ Pass a Vue component instead of a render function. The render props become the c
       <slot />
     </template>
 
-### Wildcard fallback renderer
+### Wildcard fallback rendererCopy Anchor Link
 
 Omit `parameters` and use `name: "*"` to provide a generic UI for any unhandled tool call.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -247,9 +217,11 @@ Omit `parameters` and use `name: "*"` to provide a generic UI for any unhandled 
       <slot />
     </template>
 
-### Reacting to changing values with `deps`
+### Reacting to changing values with `deps`Copy Anchor Link
 
 `deps` are Vue `WatchSource` values (refs or getters), not a dependency array. Pass them when `render` reads reactive state so the renderer re-registers on change.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -274,10 +246,8 @@ Omit `parameters` and use `name: "*"` to provide a generic UI for any unhandled 
       <slot />
     </template>
 
-## Related
+How is this guide?
 
-  * `defineToolCallRenderer` \-- build a renderer entry directly
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool) \-- register tools with handlers
-  * [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) \-- provide the CopilotKit instance to the tree
+GoodBad
 
-
+[Previous PageuseInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[Next PageuseSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)

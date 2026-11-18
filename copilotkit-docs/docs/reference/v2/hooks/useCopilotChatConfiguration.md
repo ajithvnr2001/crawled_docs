@@ -2,58 +2,34 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration/
 title: useCopilotChatConfiguration
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:41.161759+00:00
+fetched_at: 2026-11-18T11:27:58.420672+00:00
 ---
 
 # useCopilotChatConfiguration
 
 > Source: https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Hooks
+React/Hooks
 
 # useCopilotChatConfiguration
 
 React hook and provider for chat UI configuration and labels
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useCopilotChatConfiguration` is a React hook that reads the chat configuration context. It returns the configuration value from the nearest `CopilotChatConfigurationProvider`, or `null` if no provider is present.
 
-This page documents both the **hook** and the **`CopilotChatConfigurationProvider`** component, which together provide a lightweight context for localized labels, agent/thread binding, and modal state used by the chat UI components.
+Wrap your chat in `CopilotChatConfigurationProvider` to change its labels, bind it to an agent and thread, or control its modal. Read those values in any child with `useCopilotChatConfiguration`. [`CopilotChat`](https://docs.copilotkit.ai/reference/components/CopilotChat) wraps its children in this provider.
 
-## CopilotChatConfigurationProvider
+## CopilotChatConfigurationProviderCopy Anchor Link
 
-A provider component that exposes localized labels, agent and thread IDs, and optional modal state to all descendant chat components.
+A provider component that exposes localized labels, agent and thread IDs, and modal state to all descendant chat components.
 
-### Signature
+### SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotChatConfigurationProvider } from "@copilotkit/react-core/v2";
@@ -67,7 +43,7 @@ A provider component that exposes localized labels, agent and thread IDs, and op
       {children}
     </CopilotChatConfigurationProvider>
 
-### Props
+### PropsCopy Anchor Link
 
 Prop
 
@@ -75,44 +51,30 @@ Type
 
 `children`ReactNode
 
-Prop
-
-Type
-
 `labels?`Partial<CopilotChatLabels>
-
-Prop
-
-Type
 
 `agentId?`string
 
-Prop
-
-Type
-
 `threadId?`string
-
-Prop
-
-Type
 
 `isModalDefaultOpen?`boolean
 
-## useCopilotChatConfiguration
+## useCopilotChatConfigurationCopy Anchor Link
 
-### Signature
+### SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useCopilotChatConfiguration } from "@copilotkit/react-core/v2";
     
     function useCopilotChatConfiguration(): CopilotChatConfigurationValue | null;
 
-### Parameters
+### ParametersCopy Anchor Link
 
 This hook takes no parameters.
 
-### Return Value
+### Return ValueCopy Anchor Link
 
 Returns `null` if used outside of a `CopilotChatConfigurationProvider`. Otherwise returns a `CopilotChatConfigurationValue` object:
 
@@ -122,7 +84,7 @@ Type
 
 `config?`CopilotChatConfigurationValue
 
-## CopilotChatLabels
+## CopilotChatLabelsCopy Anchor Link
 
 The `CopilotChatLabels` type defines all customizable text strings used by the chat UI. The following keys are available with their default values:
 
@@ -132,26 +94,44 @@ Key| Default Value
 `chatInputToolbarStartTranscribeButtonLabel`| `"Transcribe"`  
 `chatInputToolbarCancelTranscribeButtonLabel`| `"Cancel"`  
 `chatInputToolbarFinishTranscribeButtonLabel`| `"Finish"`  
-`chatInputToolbarAddButtonLabel`| `"Add photos or files"`  
+`chatInputToolbarAddButtonLabel`| `"Add attachments"`  
 `chatInputToolbarToolsButtonLabel`| `"Tools"`  
+`chatInputToolbarSendButtonLabel`| `"Send message"`  
+`chatInputToolbarStopButtonLabel`| `"Stop"`  
 `assistantMessageToolbarCopyCodeLabel`| `"Copy"`  
 `assistantMessageToolbarCopyCodeCopiedLabel`| `"Copied"`  
 `assistantMessageToolbarCopyMessageLabel`| `"Copy"`  
 `assistantMessageToolbarThumbsUpLabel`| `"Good response"`  
 `assistantMessageToolbarThumbsDownLabel`| `"Bad response"`  
+`assistantMessageFeedbackCommentPlaceholder`| `"Add a comment (optional)"`  
+`assistantMessageFeedbackCommentSubmitLabel`| `"Send comment"`  
 `assistantMessageToolbarReadAloudLabel`| `"Read aloud"`  
 `assistantMessageToolbarRegenerateLabel`| `"Regenerate"`  
 `userMessageToolbarCopyMessageLabel`| `"Copy"`  
 `userMessageToolbarEditMessageLabel`| `"Edit"`  
+`userMessageToolbarPreviousBranchLabel`| `"Previous branch"`  
+`userMessageToolbarNextBranchLabel`| `"Next branch"`  
 `chatDisclaimerText`| `"AI can make mistakes. Please verify important information."`  
 `chatToggleOpenLabel`| `"Open chat"`  
 `chatToggleCloseLabel`| `"Close chat"`  
+`chatScrollToBottomLabel`| `"Scroll to bottom"`  
 `modalHeaderTitle`| `"CopilotKit Chat"`  
 `welcomeMessageText`| `"How can I help you today?"`  
+`reasoningMessageThinkingLabel`| `"Thinking…"`  
+`chatInputSlashMenuLabel`| `"Slash commands"`  
+`chatInputSlashMenuEmptyText`| `"No commands found"`  
+`attachmentRemoveButtonLabel`| `"Remove attachment"`  
+`attachmentPlayVideoButtonLabel`| `"Play video"`  
+`attachmentPreviewCloseButtonLabel`| `"Close preview"`  
+`modalHeaderCloseButtonLabel`| `"Close"`  
+`modalHeaderThreadsButtonLabel`| `"Open threads"`  
+`sidebarLabel`| `"Copilot chat sidebar"`  
   
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Label Customization
+### Basic Label CustomizationCopy Anchor Link
+
+Copy Text
     
     
     import {
@@ -174,7 +154,9 @@ Key| Default Value
       );
     }
 
-### Reading Configuration in a Component
+### Reading Configuration in a ComponentCopy Anchor Link
+
+Copy Text
     
     
     function ChatHeader() {
@@ -187,7 +169,9 @@ Key| Default Value
       return <h2>{config.labels.modalHeaderTitle}</h2>;
     }
 
-### Binding to a Specific Agent and Thread
+### Binding to a Specific Agent and ThreadCopy Anchor Link
+
+Copy Text
     
     
     function SupportChat() {
@@ -205,7 +189,9 @@ Key| Default Value
       );
     }
 
-### Modal State Management
+### Modal State ManagementCopy Anchor Link
+
+Copy Text
     
     
     import {
@@ -236,9 +222,11 @@ Key| Default Value
       );
     }
 
-### Nested Providers
+### Nested ProvidersCopy Anchor Link
 
 Providers can be nested. Child providers inherit and merge labels from their parent, with child overrides taking precedence.
+
+Copy Text
     
     
     function App() {
@@ -257,19 +245,18 @@ Providers can be nested. Child providers inherit and merge labels from their par
       );
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Label Merging** : Labels are merged in order: built-in defaults, then parent provider labels, then current provider labels. This allows partial overrides at any level.
-  * **Agent ID Resolution** : The `agentId` resolves from the nearest provider, falling back to parent providers, then to `"default"`.
+  * **Agent ID Resolution** : The `agentId` resolves from the nearest provider, falling back to parent providers, then to the `agentId` on `CopilotKitProvider`, then to `"default"`. [`useSuggestions`](https://docs.copilotkit.ai/reference/hooks/useSuggestions) reads this `agentId` when you do not pass one.
   * **Thread ID Generation** : If no `threadId` is provided at any level, a random UUID is generated and remains stable for the lifetime of the provider.
-  * **Modal State Ownership** : Modal state (`isModalOpen` / `setModalOpen`) is only created when a provider explicitly sets `isModalDefaultOpen`. Providers without this prop pass through the parent's modal state.
-  * **Null Return** : The hook returns `null` when used outside any `CopilotChatConfigurationProvider`, rather than throwing an error. Components should handle this case gracefully.
+  * **Modal State Ownership** : A provider that sets `isModalDefaultOpen` owns its modal state (`isModalOpen` and `setModalOpen`). A nested provider without this prop uses the parent state. A top-level provider without this prop owns its state, and the modal starts open.
+  * **Null Return** : The hook returns `null` when used outside any `CopilotChatConfigurationProvider`, rather than throwing an error. Components should handle this case.
 
 
 
-## Related
+How is this guide?
 
-  * [`useSuggestions`](https://docs.copilotkit.ai/reference/hooks/useSuggestions) \-- Uses `CopilotChatConfigurationProvider` context for agent ID resolution
-  * [`CopilotChat`](https://docs.copilotkit.ai/reference/components/CopilotChat) \-- Chat component that wraps its children with this provider
+GoodBad
 
-
+[Previous PageuseConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[Next PageuseCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)

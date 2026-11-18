@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools/
 title: useFrontendTools
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:44.517027+00:00
+fetched_at: 2026-11-18T11:27:58.031716+00:00
 ---
 
 # useFrontendTools
 
 > Source: https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Hooks
+React/Hooks
 
 # useFrontendTools
 
 React hook for registering a list of client-side tools whose length can change between renders
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useFrontendTools` registers many client-side tools in one call. Use it when the set of tools is not known when you write the component: tools built from state, from props, or from a list the backend returned.
 
@@ -51,17 +25,19 @@ Open your coding agent in your project's folder, or in an empty folder for a new
 
 Each entry is the same `ReactFrontendTool` object that `useFrontendTool` takes. See that page for the full tool shape, including `parameters`, `handler`, `render`, and `webmcp`.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
-    import { useFrontendTools } from "@copilotkit/react-core/v2";
+    import { useFrontendTools, ToolCallStatus } from "@copilotkit/react-core/v2";
     
     function useFrontendTools(
       tools: ReadonlyArray<ReactFrontendTool<any>> | undefined,
       deps?: ReadonlyArray<unknown>,
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -69,15 +45,13 @@ Type
 
 `tools`ReadonlyArray<ReactFrontendTool<any>> | undefined
 
-Prop
-
-Type
-
 `deps?`ReadonlyArray<unknown>
 
-## Usage
+## UsageCopy Anchor Link
 
-### Tools built from application state
+### Tools built from application stateCopy Anchor Link
+
+Copy Text
     
     
     function ReportTools({ reports }: { reports: Report[] }) {
@@ -100,8 +74,12 @@ Type
 
 When `reports` grows, the new tools are registered. When a report disappears from the list, its tool is unregistered and the rest stay registered.
 
-### Tools described by the backend
+### Tools described by the backendCopy Anchor Link
+
+Copy Text
     
+    
+    import { z } from "zod";
     
     function BackendTools() {
       const { data, isLoading } = useQuery({
@@ -129,7 +107,9 @@ When `reports` grows, the new tools are registered. When a report disappears fro
 
 Passing `undefined` while the query is in flight registers nothing. The tools appear once the data arrives, without a second code path for the loading state.
 
-### Turning a subset of tools off
+### Turning a subset of tools offCopy Anchor Link
+
+Copy Text
     
     
     function PermissionedTools({ isAdmin }: { isAdmin: boolean }) {
@@ -154,7 +134,9 @@ Passing `undefined` while the query is in flight registers nothing. The tools ap
 
 `available: false` keeps the tool registered but hides it from the agent. Toggling it re-registers that tool, the same as with `useFrontendTool`.
 
-### Tools with render components
+### Tools with render componentsCopy Anchor Link
+
+Copy Text
     
     
     function ChartTools({ metrics }: { metrics: Metric[] }) {
@@ -177,7 +159,9 @@ Passing `undefined` while the query is in flight registers nothing. The tools ap
       return null;
     }
 
-## Behavior
+To render a tool call without a handler, use [`useRenderTool`](https://docs.copilotkit.ai/reference/hooks/useRenderTool). To wait for the user before the tool returns, use [`useHumanInTheLoop`](https://docs.copilotkit.ai/reference/hooks/useHumanInTheLoop).
+
+## BehaviorCopy Anchor Link
 
   * **Value-based re-registration** : The array is normally built inline, so its identity changes on every render. The hook keys on the `name`, `description`, `agentId`, `available`, and `webmcp` of every entry instead. A re-render that produces an equal list does not re-register anything.
   * **Descriptions stay current** : `description` is part of the key. A description derived from your data, such as ``Open the ${report.title} report``, reaches the agent as soon as the data changes, with no `deps` entry. This is the one place the key differs from [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool), which keys only on `name`, `available`, and `webmcp`.
@@ -191,10 +175,8 @@ Passing `undefined` while the query is in flight registers nothing. The tools ap
 
 
 
-## Related
+How is this guide?
 
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool) \-- register a single tool; the reference for the tool shape
-  * [`useHumanInTheLoop`](https://docs.copilotkit.ai/reference/hooks/useHumanInTheLoop) \-- for tools that pause execution and wait for user input
-  * [`useRenderTool`](https://docs.copilotkit.ai/reference/hooks/useRenderTool) \-- register renderer-only tool call UI (named or wildcard)
+GoodBad
 
-
+[Previous PageuseFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[Next PageuseHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)

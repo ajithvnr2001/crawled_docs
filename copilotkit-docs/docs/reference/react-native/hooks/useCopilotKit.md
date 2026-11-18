@@ -2,69 +2,45 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit/
 title: useCopilotKit
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:51.986935+00:00
+fetched_at: 2026-11-18T11:28:01.224049+00:00
 ---
 
 # useCopilotKit
 
 > Source: https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Hooks
+React Native/Hooks
 
 # useCopilotKit
 
 Low-level React hook for accessing the CopilotKit context in React Native
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useCopilotKit` is a low-level React hook that returns the CopilotKit context value, providing direct access to the core instance and provider-level state. It subscribes to runtime connection status changes and triggers re-renders when the connection status updates.
 
 Re-exported from `@copilotkit/react-core/v2`, identical to the [React (V2) `useCopilotKit`](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit). The only difference is the import path.
 
-`useCopilotKit` is a low-level hook. Most applications should use higher-level hooks like `useAgent` or `useFrontendTool` instead.
+`useCopilotKit` is a low-level hook. Most applications should use higher-level hooks like [`useAgent`](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent) or [`useFrontendTool`](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool) instead.
 
-**Throws an error** if used outside of a `CopilotKitProvider`.
+**Throws an error** if used outside of a [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider).
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useCopilotKit } from "@copilotkit/react-native";
     
     function useCopilotKit(): CopilotKitContextValue;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 This hook takes no parameters.
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 Prop
 
@@ -72,9 +48,11 @@ Type
 
 `context?`CopilotKitContextValue
 
-## Usage
+## UsageCopy Anchor Link
 
-### Accessing the Core Instance
+### Accessing the Core InstanceCopy Anchor Link
+
+Copy Text
     
     
     import { Text, View } from "react-native";
@@ -95,9 +73,11 @@ Type
       );
     }
 
-### Running an Agent
+### Running an AgentCopy Anchor Link
 
 `copilotkit.runAgent()` triggers an agent run directly from code. This is the validated React Native pattern: add a message to the agent, then run it.
+
+Copy Text
     
     
     import { useCallback, useState } from "react";
@@ -140,7 +120,9 @@ Type
       );
     }
 
-### Subscribing to Core Events
+### Subscribing to Core EventsCopy Anchor Link
+
+Copy Text
     
     
     import { useEffect } from "react";
@@ -164,9 +146,11 @@ Type
       return null;
     }
 
-### Running a Tool Programmatically
+### Running a Tool ProgrammaticallyCopy Anchor Link
 
 `copilotkit.runTool()` lets you execute a registered frontend tool directly from code, with no LLM turn required. The tool's handler runs, render components appear in the UI, and both the tool call and result are added to the agent's message history.
+
+Copy Text
     
     
     import { Text, TouchableOpacity } from "react-native";
@@ -204,7 +188,7 @@ Type
       );
     }
 
-#### `runTool` Parameters
+#### `runTool` ParametersCopy Anchor Link
 
 Prop
 
@@ -212,7 +196,7 @@ Type
 
 `params?`CopilotKitCoreRunToolParams
 
-#### `runTool` Return Value
+#### `runTool` Return ValueCopy Anchor Link
 
 Prop
 
@@ -220,7 +204,9 @@ Type
 
 `result?`CopilotKitCoreRunToolResult
 
-### Checking Tool Execution State
+### Checking Tool Execution StateCopy Anchor Link
+
+Copy Text
     
     
     import { Text } from "react-native";
@@ -236,20 +222,17 @@ Type
       return <Text>Executing {executingToolCallIds.size} tool call(s)...</Text>;
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Error on Missing Provider** : Throws an error if the hook is used outside of `CopilotKitProvider`.
   * **Runtime Status Subscription** : The hook subscribes to `onRuntimeConnectionStatusChanged` events, so components re-render when the runtime connection completes or fails.
   * **Stable Core Reference** : The `copilotkit` instance is created once per provider and remains stable across re-renders. Only the `executingToolCallIds` set changes as tool calls begin and complete.
-  * **Provider-Level Tool Tracking** : `executingToolCallIds` is tracked at the provider level rather than in individual components. This ensures that tool execution start events fired before child components mount are not lost.
+  * **Provider-Level Tool Tracking** : `executingToolCallIds` is tracked at the provider level rather than in individual components. As a result, tool execution start events fired before child components mount are not lost.
 
 
 
-## Related
+How is this guide?
 
-  * [`useAgent`](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent): High-level hook for accessing agent instances
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool): Register frontend tools that `runTool()` can execute
-  * [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider): The provider component that creates the context
-  * [React (V2) reference](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit): The web equivalent this page mirrors
+GoodBad
 
-
+[Previous PageuseConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[Next PageuseFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)

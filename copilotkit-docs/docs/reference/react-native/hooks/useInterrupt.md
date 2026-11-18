@@ -2,58 +2,41 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt/
 title: useInterrupt
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:51.909238+00:00
+fetched_at: 2026-11-18T11:28:01.083760+00:00
 ---
 
 # useInterrupt
 
 > Source: https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Hooks
+React Native/Hooks
 
 # useInterrupt
 
 React hook for handling agent interrupt events and resuming execution with user input
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+`useInterrupt` handles agent interrupts and resumes execution with user input. It supports two interrupt flows:
 
-## Overview
+  * **AG-UI standard** : `RUN_FINISHED` with `outcome.type === "interrupt"`, carrying an `interrupts` array.
+  * **Custom event** : an `on_interrupt` custom event.
 
-`useInterrupt` handles agent interrupts and resumes execution with user input. It supports the **AG-UI standard interrupt flow** — `RUN_FINISHED` with `outcome.type === "interrupt"` carrying an `interrupts` array — and the legacy custom-event flow (`on_interrupt`). For standard interrupts, your `render`/`handler` receive `interrupt` (the primary one) and `interrupts` (the full open set); call `resolve(payload)` to resume or `cancel()` to cancel.
+
+
+In your `render` callback, call `resolve(payload)` to resume or `cancel()` to cancel. See `render` for every prop it receives. For a pause that is a tool call, use [`useHumanInTheLoop`](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop).
 
 Re-exported from `@copilotkit/react-core/v2`. It is identical to the [React (V2) `useInterrupt`](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt); only the import path differs.
 
-By default, interrupt UI is rendered inside [`CopilotChat`](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat) automatically. If you set `renderInChat: false`, the hook returns the element so you can place it manually. The element returned by `render` is a React Native element.
+The prebuilt [`CopilotChat`](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat#prebuilt-ui) and [`CopilotModal`](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal) from `@copilotkit/react-native/components` draw the in-chat interrupt element after the last message. The headless `CopilotChat`, `CopilotPopup`, and `CopilotSidebar` do not. With those, pass `renderInChat: false`, and the hook returns the element so you can render it in your own view. The element returned by `render` is a React Native element.
 
 `event.value` is typed as `any` since the interrupt payload shape depends on your agent. Type-narrow it in your callbacks (e.g. `handler`, `enabled`, `render`) as needed.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useInterrupt } from "@copilotkit/react-native";
@@ -69,7 +52,7 @@ By default, interrupt UI is rendered inside [`CopilotChat`](https://docs.copilot
         ? void
         : React.ReactElement | null | void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -77,7 +60,7 @@ Type
 
 `config`UseInterruptConfig<any, TResult, TRenderInChat>
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 Prop
 
@@ -85,16 +68,19 @@ Type
 
 `element?`Conditional by renderInChat
 
-## Usage
+## UsageCopy Anchor Link
 
-### In-chat interrupt UI (default)
+### Interrupt UI in your chat viewCopy Anchor Link
+
+Copy Text
     
     
     import { Text, TouchableOpacity, View } from "react-native";
     import { useInterrupt } from "@copilotkit/react-native";
     
     function ApprovalInterrupt() {
-      useInterrupt({
+      const element = useInterrupt({
+        renderInChat: false,
         render: ({ event, resolve }) => (
           <View style={{ padding: 12, borderWidth: 1, borderRadius: 8 }}>
             <Text>{event.value.question}</Text>
@@ -110,17 +96,20 @@ Type
         ),
       });
     
-      return null;
+      return <>{element}</>;
     }
 
-### AG-UI standard interrupt (approve / cancel)
+### AG-UI standard interrupt (approve / cancel)Copy Anchor Link
+
+Copy Text
     
     
     import { Text, TouchableOpacity, View } from "react-native";
     import { useInterrupt } from "@copilotkit/react-native";
     
     function ApprovalInterrupt() {
-      useInterrupt({
+      const element = useInterrupt({
+        renderInChat: false,
         render: ({ interrupt, resolve, cancel }) => (
           <View style={{ padding: 12, borderWidth: 1, borderRadius: 8 }}>
             <Text>{interrupt?.message ?? "Approve this action?"}</Text>
@@ -136,10 +125,12 @@ Type
         ),
       });
     
-      return null;
+      return <>{element}</>;
     }
 
-### Manual placement with async preprocessing
+### Manual placement with async preprocessingCopy Anchor Link
+
+Copy Text
     
     
     import { Text, TouchableOpacity, View } from "react-native";
@@ -164,9 +155,9 @@ Type
       return <>{element}</>;
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
-  * Standard interrupts are detected from `RUN_FINISHED` (`outcome.type === "interrupt"`); legacy interrupts from `on_interrupt` custom events.
+  * Standard interrupts are detected from `RUN_FINISHED` (`outcome.type === "interrupt"`); custom-event interrupts from `on_interrupt` events.
   * `resolve`/`cancel` accumulate one response per open interrupt; the resume run starts once every open interrupt is addressed.
   * Expired interrupts (past `expiresAt`) are not resumed.
   * Interrupt UI is surfaced when the run finalizes.
@@ -177,11 +168,8 @@ Type
 
 
 
-## Related
+How is this guide?
 
-  * [`useHumanInTheLoop`](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop): structured interactive tool workflows
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool): client-side tool registration
-  * [`useAgent`](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent): access and subscribe to agent events
-  * [React (V2) reference](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)
+GoodBad
 
-
+[Previous PageuseHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[Next PageuseRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)

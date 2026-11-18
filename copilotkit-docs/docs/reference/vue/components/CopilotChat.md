@@ -2,56 +2,41 @@
 url: https://docs.copilotkit.ai/reference/vue/components/CopilotChat/
 title: CopilotChat
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:06.473802+00:00
+fetched_at: 2026-11-18T11:27:57.304687+00:00
 ---
 
 # CopilotChat
 
 > Source: https://docs.copilotkit.ai/reference/vue/components/CopilotChat/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Components
+Vue/Components
 
 # CopilotChat
 
 Vue 3 component that connects an agent to a chat view
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+`CopilotChat` is a high-level chat container that wires an agent into [`CopilotChatView`](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView) while providing configuration context. `CopilotChat` handles these for you:
 
-## Overview
+  * Resolves the agent with [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent).
+  * Shows the messages and running state of the agent.
+  * Manages suggestions.
+  * Handles the input value and audio transcription.
+  * Manages file attachments.
+  * Clears the input after a message is sent.
 
-`CopilotChat` is a high-level chat container that wires an agent into [`CopilotChatView`](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView) while providing configuration context. It resolves the agent via [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent), subscribes to the agent's messages and running state, manages suggestions, handles input value and audio transcription, wires file attachments, and auto-clears the input after a message is submitted.
+
 
 You typically only need to specify which agent to connect and, optionally, customize labels or override one of the named slots.
 
 `CopilotChat` also exposes the underlying layout component as `CopilotChat.View`, which is the same component documented at [`CopilotChatView`](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView). Use it directly when you want the layout without the agent wiring.
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -59,11 +44,11 @@ You typically only need to specify which agent to connect and, optionally, custo
     import "@copilotkit/vue/styles.css";
     </script>
 
-## Props
+## PropsCopy Anchor Link
 
 All reactive props are declared with `defineProps`. `CopilotChat` extends `CopilotChatView` props but omits the ones it manages internally (`messages`, `isRunning`, `suggestions`, `suggestionLoadingIndexes`, `attachments`, `onRemoveAttachment`, `onAddFile`, `dragOver`, `onDragOver`, `onDragLeave`, `onDrop`).
 
-### Own props
+### Own propsCopy Anchor Link
 
 Prop
 
@@ -71,37 +56,17 @@ Type
 
 `agentId?`string
 
-Prop
-
-Type
-
 `threadId?`string
-
-Prop
-
-Type
 
 `throttleMs?`number
 
-Prop
-
-Type
-
 `labels?`Partial<CopilotChatLabels>
-
-Prop
-
-Type
 
 `attachments?`AttachmentsConfig
 
-Prop
-
-Type
-
 `onError?`(event: { error: Error; code: CopilotKitCoreErrorCode; context: Record<string, any> }) => void | Promise<void>
 
-### Inherited CopilotChatView props
+### Inherited CopilotChatView propsCopy Anchor Link
 
 Prop
 
@@ -109,37 +74,15 @@ Type
 
 `autoScroll?`AutoScrollMode | boolean
 
-Prop
-
-Type
-
 `welcomeScreen?`boolean
-
-Prop
-
-Type
 
 `inputValue?`string
 
-Prop
-
-Type
-
-`inputMode?`"input" | "transcribe" | "processing"
-
-Prop
-
-Type
-
 `inputToolsMenu?`(ToolsMenuItem | "-")[]
-
-Prop
-
-Type
 
 `onFinishTranscribeWithAudio?`(audioBlob: Blob) => void | Promise<void>
 
-## Events
+## EventsCopy Anchor Link
 
 `CopilotChat` emits the following events (listen with `@event-name` in templates). These fire in addition to the component's internal handling, so you can observe interactions without disabling default behavior.
 
@@ -154,7 +97,7 @@ Event| Payload| Fired when
 `cancel-transcribe`| none| Audio transcription is cancelled  
 `finish-transcribe`| none| Audio transcription finishes  
   
-## Slots
+## SlotsCopy Anchor Link
 
 Vue uses named slots in place of React's render props and sub-component props. Provide a slot to replace the corresponding piece of the chat. Each slot receives scoped props you can destructure with `v-slot`. Any slot not listed below is forwarded down through `CopilotChatView` to the message view.
 
@@ -164,47 +107,27 @@ Type
 
 `chat-view?`CopilotChatViewOverrideSlotProps
 
-Prop
-
-Type
-
 `message-view?`{ messages: Message[]; isRunning: boolean }
-
-Prop
-
-Type
 
 `input?`CopilotChatInputSlotProps
 
-Prop
-
-Type
-
 `suggestion-view?`CopilotChatSuggestionViewSlotProps
-
-Prop
-
-Type
 
 `welcome-screen?`CopilotChatWelcomeScreenSlotProps
 
-Prop
-
-Type
-
 `welcome-message?`() => unknown
-
-Prop
-
-Type
 
 `interrupt?`CopilotChatInterruptSlotProps
 
+`generative-ui-surface?`GenerativeUIChatSurfaceSlotProps
+
 Slots forwarded to the message view (for example custom assistant- or user-message slots) are passed straight through and rendered by `CopilotChatMessageView`. See [`CopilotChatView`](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView) for the full set of layout-level slots such as `scroll-view`, `feather`, and `scroll-to-bottom-button`.
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic usage
+### Basic usageCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -219,7 +142,9 @@ Slots forwarded to the message view (for example custom assistant- or user-messa
       />
     </template>
 
-### Custom welcome screen
+### Custom welcome screenCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -243,7 +168,29 @@ Slots forwarded to the message view (for example custom assistant- or user-messa
       </CopilotChat>
     </template>
 
-### Observing events
+### Custom generative UI cardCopy Anchor Link
+
+Copy Text
+    
+    
+    <script setup lang="ts">
+    import { CopilotChat } from "@copilotkit/vue/v2";
+    </script>
+    
+    <template>
+      <CopilotChat agent-id="my-agent">
+        <template #generative-ui-surface="{ isStreaming, error, children }">
+          <section class="my-card" :aria-busy="isStreaming">
+            <p v-if="error" role="alert">{{ error.message }}</p>
+            <component :is="children" v-if="children" />
+          </section>
+        </template>
+      </CopilotChat>
+    </template>
+
+### Observing eventsCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -258,9 +205,11 @@ Slots forwarded to the message view (for example custom assistant- or user-messa
       <CopilotChat agent-id="my-agent" @submit-message="onSubmit" />
     </template>
 
-### Using the layout directly
+### Using the layout directlyCopy Anchor Link
 
 `CopilotChat.View` is the layout component without agent wiring. Use it when you manage `messages` and handlers yourself.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -282,11 +231,8 @@ Slots forwarded to the message view (for example custom assistant- or user-messa
       <ChatView :messages="messages" @submit-message="handleSubmit" />
     </template>
 
-## Related
+How is this guide?
 
-  * [`CopilotChatView`](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView) \- the layout component used internally (also exposed as `CopilotChat.View`)
-  * [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent) \- composable used internally to resolve the agent
-  * [`useSuggestions`](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions) \- composable that powers the suggestion pills
-  * [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration) \- reads the labels, agent id, and thread id provided by `CopilotChat`
+GoodBad
 
-
+[Previous PageOverview](https://docs.copilotkit.ai/reference/vue)[Next PageCopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)

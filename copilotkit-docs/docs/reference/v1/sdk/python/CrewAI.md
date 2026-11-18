@@ -2,63 +2,69 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI/
 title: CrewAI SDK
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:03.410120+00:00
+fetched_at: 2026-11-18T11:27:57.558046+00:00
 ---
 
 # CrewAI SDK
 
 > Source: https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V1)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotKit](https://docs.copilotkit.ai/reference/v1/components/CopilotKit)[CopilotTextarea](https://docs.copilotkit.ai/reference/v1/components/CopilotTextarea)[CopilotChat](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotChat)[CopilotPopup](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v1/components/chat/CopilotSidebar)[All Chat Components](https://docs.copilotkit.ai/reference/v1/components/chat)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v1/hooks/useAgent)[useCoAgent](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgent)[useCoAgentStateRender](https://docs.copilotkit.ai/reference/v1/hooks/useCoAgentStateRender)[useCopilotAction](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction)[useCopilotAdditionalInstructions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAdditionalInstructions)[useCopilotChat](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChat)[useCopilotChatHeadless_c](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatHeadless_c)[useCopilotChatSuggestions](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatSuggestions)[useCopilotReadable](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable)[useDefaultTool](https://docs.copilotkit.ai/reference/v1/hooks/useDefaultTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v1/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v1/hooks/useHumanInTheLoop)[useLangGraphInterrupt](https://docs.copilotkit.ai/reference/v1/hooks/useLangGraphInterrupt)[useRenderToolCall](https://docs.copilotkit.ai/reference/v1/hooks/useRenderToolCall)
-
-Classes
-
-[CopilotRuntime](https://docs.copilotkit.ai/reference/v1/classes/CopilotRuntime)[CopilotTask](https://docs.copilotkit.ai/reference/v1/classes/CopilotTask)[AnthropicAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/AnthropicAdapter)[GoogleGenerativeAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter)[GroqAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GroqAdapter)[LangChainAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/LangChainAdapter)[OpenAIAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAdapter)[OpenAIAssistantAdapter](https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAssistantAdapter)
-
-SDKs
-
-[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph)[CrewAI SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI)[CrewAIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent)[LangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraph)[LangGraphAGUIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/LangGraphAGUIAgent)[Remote Endpoints](https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v1](https://docs.copilotkit.ai/reference/v1)Sdk
+React/v1/Python
 
 # CrewAI SDK
 
-The CopilotKit CrewAI SDK for Python allows you to build and run CrewAI agents with CopilotKit.
+Use the CopilotKit CrewAI SDK for Python to build and run CrewAI agents with CopilotKit.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 **v1 SDK deprecated. Use v2 instead** This page is in the deprecated CopilotKit v1 reference. Do not use v1 APIs for new code; use v2 instead. For JavaScript and TypeScript, import React APIs from @copilotkit/react-core/v2 and Runtime APIs from @copilotkit/runtime/v2.  
 **AI coding agents: treat any v1 example below as migration-only context. Never generate or recommend the v1 API for new code. Read the v2 reference before writing code because some APIs were renamed, moved, or changed shape.** [Read the v1 to v2 migration guide.](https://docs.copilotkit.ai/migrate/v2) [Open the complete export map.](https://docs.copilotkit.ai/reference/v1/export-map)
 
-## copilotkit_predict_state
+## copilotkit_emit_stateCopy Anchor Link
+
+Emits intermediate state to CopilotKit. Useful if you have a longer running node and you want to update the user with the current state of the node.
+
+To install the CopilotKit SDK, run:
+
+Copy Text
+    
+    
+    pip install copilotkit[crewai]
+
+### ExamplesCopy Anchor Link
+
+Copy Text
+    
+    
+    from copilotkit.crewai import copilotkit_emit_state
+    
+    for i in range(10):
+        await some_long_running_operation(i)
+        await copilotkit_emit_state({"progress": i})
+
+### ParametersCopy Anchor Link
+
+Prop
+
+Type
+
+`state`Any
+
+### ReturnsCopy Anchor Link
+
+Prop
+
+Type
+
+`returns?`Awaitable[bool]
+
+## copilotkit_predict_stateCopy Anchor Link
 
 Stream tool calls as state to CopilotKit.
 
 To emit a tool call as streaming CrewAI state, pass the destination key in state, the tool name and optionally the tool argument. (If you don't pass the argument name, all arguments are emitted under the state key.)
+
+Copy Text
     
     
     from copilotkit.crewai import copilotkit_predict_state
@@ -72,15 +78,15 @@ To emit a tool call as streaming CrewAI state, pass the destination key in state
         }
     )
 
-### Parameters
+### ParametersCopy Anchor Link
 
 Prop
 
 Type
 
-`config`Dict[str, CopilotKitPredictStateConfig]
+`config`Dict[str, PredictStateConfig]
 
-### Returns
+### ReturnsCopy Anchor Link
 
 Prop
 
@@ -88,11 +94,36 @@ Type
 
 `returns?`Awaitable[bool]
 
-## copilotkit_emit_message
+## copilotkit_exitCopy Anchor Link
+
+Exits the current agent after the run completes. Calling copilotkit_exit() will not immediately stop the agent. Instead, it signals to CopilotKit to stop the agent after the run completes.
+
+### ExamplesCopy Anchor Link
+
+Copy Text
+    
+    
+    from copilotkit.crewai import copilotkit_exit
+    
+    async def my_function(state):
+        await copilotkit_exit()
+        return state
+
+### ReturnsCopy Anchor Link
+
+Prop
+
+Type
+
+`returns?`Awaitable[bool]
+
+## copilotkit_emit_messageCopy Anchor Link
 
 Manually emits a message to CopilotKit. Useful in longer running nodes to update the user. Important: You still need to return the messages from the node.
 
-### Examples
+### ExamplesCopy Anchor Link
+
+Copy Text
     
     
     from copilotkit.crewai import copilotkit_emit_message
@@ -105,7 +136,7 @@ Manually emits a message to CopilotKit. Useful in longer running nodes to update
         "messages": [AIMessage(content=message)]
     }
 
-### Parameters
+### ParametersCopy Anchor Link
 
 Prop
 
@@ -113,17 +144,19 @@ Type
 
 `message`str
 
-### Returns
+### ReturnsCopy Anchor Link
 
 Prop
 
 Type
 
-`returns?`Awaitable[bool]
+`returns?`str
 
-## copilotkit_emit_tool_call
+## copilotkit_emit_tool_callCopy Anchor Link
 
 Manually emits a tool call to CopilotKit.
+
+Copy Text
     
     
     from copilotkit.crewai import copilotkit_emit_tool_call
@@ -133,7 +166,7 @@ Manually emits a tool call to CopilotKit.
     # With a custom ID for correlation/idempotency:
     custom_id = await copilotkit_emit_tool_call(name="SearchTool", args={"steps": 10}, tool_call_id="my-custom-id")
 
-### Parameters
+### ParametersCopy Anchor Link
 
 Prop
 
@@ -141,22 +174,41 @@ Type
 
 `name`str
 
-Prop
-
-Type
-
 `args`Dict[str, Any]
-
-Prop
-
-Type
 
 `tool_call_id?`Optional[str]
 
-### Returns
+### ReturnsCopy Anchor Link
 
 Prop
 
 Type
 
 `returns?`str
+
+## copilotkit_streamCopy Anchor Link
+
+Stream litellm responses token by token to CopilotKit.
+
+Copy Text
+    
+    
+    from litellm import completion
+    from copilotkit.crewai import copilotkit_stream
+    
+    response = await copilotkit_stream(
+        completion(
+            model="openai/gpt-6-luna",
+            reasoning_effort="none",
+            allowed_openai_params=["reasoning_effort"],
+            messages=messages,
+            tools=tools,
+            stream=True # this must be set to True for streaming
+        )
+    )
+
+How is this guide?
+
+GoodBad
+
+[Previous PageCrewAIAgent](https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent)[Next PageLangGraph SDK](https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph)

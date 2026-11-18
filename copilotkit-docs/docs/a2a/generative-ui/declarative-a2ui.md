@@ -1,0 +1,202 @@
+---
+url: https://docs.copilotkit.ai/a2a/generative-ui/declarative-a2ui/
+title: Declarative (A2UI)
+method: scrapling+scrapegraph
+fetched_at: 2026-11-18T11:27:52.309089+00:00
+---
+
+# Declarative (A2UI)
+
+> Source: https://docs.copilotkit.ai/a2a/generative-ui/declarative-a2ui/
+
+A2A
+
+# Declarative (A2UI)
+
+Use A2UI to declaratively generate user interfaces.
+
+Copy MarkdownOpen
+
+An A2A agent answers in text unless it sends UI. With A2UI, the agent sends a description of the UI, such as a list of cards, and CopilotKit draws it in the chat. Start from the A2A starter, then use the A2UI Composer to design components.
+
+Demo of the [A2UI Composer](https://a2ui-editor.ag-ui.com) \- powered by CopilotKit
+
+  
+
+
+## Getting startedCopy Anchor Link
+
+### Use the A2A starter templateCopy Anchor Link
+
+Copy Text
+    
+    
+    git clone https://github.com/CopilotKit/CopilotKit.git
+    cd CopilotKit/examples/integrations/a2a-a2ui
+
+The starter uses its own v0.8 renderer. Its agent emits a JSON list of v0.8 operation objects.
+
+### Install dependenciesCopy Anchor Link
+
+The install also sets up the Python agent. You need Python 3.13 or later and `uv`.
+
+Copy Text
+    
+    
+    pnpm install
+
+### Add your Gemini API keyCopy Anchor Link
+
+Create `agent/.env` with your key. The agent does not start without it.
+
+agent/.env
+
+Copy Text
+    
+    
+    GEMINI_API_KEY=your-gemini-api-key
+
+### Run and connect your agentCopy Anchor Link
+
+Copy Text
+    
+    
+    pnpm dev
+
+### Configure your agent to use A2UICopy Anchor Link
+
+The starter's agent already uses A2UI:
+
+  * `agent/__main__.py` lists the A2UI extension on the agent card.
+  * `agent/agent_executor.py` switches to the A2UI prompt when the client asks for the extension.
+  * The runtime's `A2AAgent` (from `@ag-ui/a2a`) asks for the extension on every request.
+
+
+
+### Setting up your agent with componentsCopy Anchor Link
+
+The starter's agent accepts the v0.8 operation list below. The starter agent sends each list entry as a separate A2A data part. The starter's renderer (`app/components/a2ui-v0-8-renderer.tsx`) draws only this list: the `title-heading` text and one card per entry in `items`. It does not draw other components.
+
+agent/prompt_builder.py
+
+Copy Text
+    
+    
+      RESTAURANT_UI_EXAMPLES = """
+      ...
+      ---BEGIN SINGLE_COLUMN_LIST_EXAMPLE---
+      [
+        {{ "beginRendering": {{ "surfaceId": "default", "root": "root-column", "styles": {{ "primaryColor": "#FF0000", "font": "Roboto" }} }} }},
+        {{ "surfaceUpdate": {{
+          "surfaceId": "default",
+          "components": [
+            {{ "id": "root-column", "component": {{ "Column": {{ "children": {{ "explicitList": ["title-heading", "item-list"] }} }} }} }},
+            {{ "id": "title-heading", "component": {{ "Text": {{ "usageHint": "h1", "text": {{ "literalString": "Top Restaurants" }} }} }} }},
+            {{ "id": "item-list", "component": {{ "List": {{ "direction": "vertical", "children": {{ "template": {{ "componentId": "item-card-template", "dataBinding": "/items" }} }} }} }} }},
+            {{ "id": "item-card-template", "component": {{ "Card": {{ "child": "card-layout" }} }} }},
+            {{ "id": "card-layout", "component": {{ "Row": {{ "children": {{ "explicitList": ["template-image", "card-details"] }} }} }} }},
+            {{ "id": "template-image", "weight": 1, "component": {{ "Image": {{ "url": {{ "path": "imageUrl" }} }} }} }},
+            {{ "id": "card-details", "weight": 2, "component": {{ "Column": {{ "children": {{ "explicitList": ["template-name", "template-rating", "template-detail", "template-link", "template-book-button"] }} }} }} }},
+            {{ "id": "template-name", "component": {{ "Text": {{ "usageHint": "h3", "text": {{ "path": "name" }} }} }} }},
+            {{ "id": "template-rating", "component": {{ "Text": {{ "text": {{ "path": "rating" }} }} }} }},
+            {{ "id": "template-detail", "component": {{ "Text": {{ "text": {{ "path": "detail" }} }} }} }},
+            {{ "id": "template-link", "component": {{ "Text": {{ "text": {{ "path": "infoLink" }} }} }} }},
+            {{ "id": "template-book-button", "component": {{ "Button": {{ "child": "book-now-text", "primary": true, "action": {{ "name": "book_restaurant", "context": [{{ "key": "restaurantName", "value": {{ "path": "name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "address" }}}} ] }} }} }} }},
+            {{ "id": "book-now-text", "component": {{ "Text": {{ "text": {{ "literalString": "Book Now" }} }} }} }}
+          ]
+        }} }},
+        {{ "dataModelUpdate": {{
+          "surfaceId": "default",
+          "path": "/",
+          "contents": [
+            {{ "key": "items", "valueMap": [
+              {{ "key": "item1", "valueMap": [
+                {{ "key": "name", "valueString": "The Fancy Place" }},
+                {{ "key": "rating", "valueNumber": 4.8 }},
+                {{ "key": "detail", "valueString": "Fine dining experience" }},
+                {{ "key": "infoLink", "valueString": "https://example.com/fancy" }},
+                {{ "key": "imageUrl", "valueString": "https://example.com/fancy.jpg" }},
+                {{ "key": "address", "valueString": "123 Main St" }}
+              ] }},
+              {{ "key": "item2", "valueMap": [
+                {{ "key": "name", "valueString": "Quick Bites" }},
+                {{ "key": "rating", "valueNumber": 4.2 }},
+                {{ "key": "detail", "valueString": "Casual and fast" }},
+                {{ "key": "infoLink", "valueString": "https://example.com/quick" }},
+                {{ "key": "imageUrl", "valueString": "https://example.com/quick.jpg" }},
+                {{ "key": "address", "valueString": "456 Oak Ave" }}
+              ] }}
+            ] }}
+          ]
+        }} }}
+      ]
+      ---END SINGLE_COLUMN_LIST_EXAMPLE---
+      # ... more examples below
+
+The starter adds the component examples to the agent's prompt with the `RESTAURANT_UI_EXAMPLES` variable. Each component is defined for the agent by an example of the JSON array that the agent outputs, wrapped in marker lines:
+
+  * A comment indicating the start of the example
+  * beginRendering: Starts the v0.8 surface
+  * surfaceUpdate: Defines the v0.8 component tree
+  * dataModelUpdate: Provides the v0.8 data model contents
+  * A comment indicating the end of the example
+
+
+
+The starter keeps all examples in one variable in `agent/prompt_builder.py`. You can split them up. Each example must sit between its own BEGIN and END marker lines.
+
+The starter's v0.8 renderer displays the `Book Now` control without an `onClick` handler or action dispatch. The button is inert, so no click reaches the agent and the executor's `book_restaurant` branch is not reached.
+
+### Generating components with the A2UI ComposerCopy Anchor Link
+
+If you want an easy way to generate components, you can use the A2UI Composer. Go to <https://a2ui-composer.ag-ui.com/> to create your own components. The Composer gives you the JSON spec for a component. The starter's renderer in `app/components/a2ui-v0-8-renderer.tsx` draws only the restaurant cards. A Composer component that you paste into the prompt does not render until you replace that renderer.
+
+[![The A2UI Composer gallery](https://docs.copilotkit.ai/images/a2ui-composer.png)](https://a2ui-editor.ag-ui.com/gallery)
+
+### Configuring your application to render A2UICopy Anchor Link
+
+AG-UI connects to your A2A agent and passes the A2UI messages to the app as `ActivityMessage` objects. To render them in your frontend, you need to configure activity message rendering.
+
+The starter registers its own v0.8 renderer with `renderActivityMessages`. This renderer draws the restaurant cards with Tailwind classes. The setup below mirrors that `app/page.tsx`. For the v0.9 renderer and the `a2ui_operations` envelope, see [A2UI](https://docs.copilotkit.ai/a2a/generative-ui/a2ui).
+
+app/page.tsx
+
+Copy Text
+    
+    
+    "use client";
+    
+    import { CopilotChat, CopilotKitProvider } from "@copilotkit/react-core/v2";
+    import { a2uiV08Renderer } from "./components/a2ui-v0-8-renderer";
+    
+    // Disable static optimization for this page
+    export const dynamic = "force-dynamic";
+    
+    const activityRenderers = [a2uiV08Renderer];
+    
+    export default function Home() {
+      return (
+        <CopilotKitProvider
+          runtimeUrl="/api/copilotkit"
+          useSingleEndpoint={false}
+          renderActivityMessages={activityRenderers}
+        >
+          <main
+            className="h-full overflow-auto w-screen"
+            style={{ minHeight: "100dvh" }}
+          >
+            <CopilotChat className="h-full" />
+          </main>
+        </CopilotKitProvider>
+      );
+    }
+
+### Give it a tryCopy Anchor Link
+
+Open <http://localhost:3000> and ask: `Find me the top 3 Chinese restaurants in New York`. The chat draws the restaurants as a list of cards.
+
+How is this guide?
+
+GoodBad
+
+[Previous PageWebMCP](https://docs.copilotkit.ai/a2a/webmcp)[Next PageSub-agents](https://docs.copilotkit.ai/a2a/multi-agent/subagents)

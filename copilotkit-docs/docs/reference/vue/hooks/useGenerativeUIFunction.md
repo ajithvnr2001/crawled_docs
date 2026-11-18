@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIFunction/
 title: useGenerativeUIFunction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T10:53:51.510090+00:00
+fetched_at: 2026-11-18T11:27:56.058285+00:00
 ---
 
 # useGenerativeUIFunction
 
 > Source: https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIFunction/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/vue/components/CopilotThreadsDrawer)[GenerativeUISurface](https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useGenerativeUIFunction](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIFunction)[useGenerativeUIState](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Hooks
+Vue/Hooks
 
 # useGenerativeUIFunction
 
 Run your own code when a generated component calls a declared function, such as add to cart
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 A user clicks "Add to cart" on a generated `ProductCard`. That click must add to the cart, with no message to the agent. `useGenerativeUIFunction` mounts the handler of a function that you declare in `createGenerativeUI({ functions })`. When generated UI calls the function, your handler runs.
 
@@ -51,12 +25,16 @@ Generative UI is experimental. Call `useGenerativeUIFunction` in `setup()` (or `
 
 For a full walkthrough, see [State and actions](https://docs.copilotkit.ai/generative-ui/components/state-and-actions).
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import { useGenerativeUIFunction } from "@copilotkit/vue/v2/generative-ui";
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import type { GenerativeUIFunctionArgs } from "@copilotkit/vue/v2/generative-ui";
@@ -67,7 +45,7 @@ For a full walkthrough, see [State and actions](https://docs.copilotkit.ai/gener
       handler: (args: GenerativeUIFunctionArgs<UI, Name>) => unknown,
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -75,27 +53,21 @@ Type
 
 `ui`GenerativeUI
 
-Prop
-
-Type
-
 `name`string
-
-Prop
-
-Type
 
 `handler`(args: GenerativeUIFunctionArgs<UI, Name>) => unknown
 
-## Return value
+## Return valueCopy Anchor Link
 
 None. The handler stays mounted until the effect scope is disposed.
 
-## Example
+## ExampleCopy Anchor Link
 
 `shopUI` declares the function:
 
 shop-ui.ts
+
+Copy Text
     
     
     export const shopUI = createGenerativeUI({
@@ -114,6 +86,8 @@ shop-ui.ts
 Mount the handler from a component:
 
 CartActions.vue
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -133,7 +107,7 @@ CartActions.vue
       <slot />
     </template>
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * Generated UI can call the function only while exactly one handler for it is mounted. Mount one handler for each function.
   * The handler is registered once. It reads refs, props, and stores when it runs, so it sees their current values.
@@ -142,10 +116,16 @@ CartActions.vue
 
 
 
-## Related
+## RelatedCopy Anchor Link
 
   * [`useGenerativeUIState`](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState) \- give generated components live app state
   * [`GenerativeUISurface`](https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface) \- mark an area of your page for generated UI
   * [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) \- give the provider the `generativeUI` config
 
 
+
+How is this guide?
+
+GoodBad
+
+[Previous PageuseFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[Next PageuseGenerativeUIState](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState)

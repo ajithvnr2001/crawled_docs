@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool/
 title: useDefaultRenderTool
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:44.243664+00:00
+fetched_at: 2026-11-18T11:27:58.245220+00:00
 ---
 
 # useDefaultRenderTool
 
 > Source: https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Hooks
+React/Hooks
 
 # useDefaultRenderTool
 
 Register a wildcard default renderer for unhandled tool calls
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useDefaultRenderTool` is a convenience wrapper around `useRenderTool` with `name: "*"`.
 
@@ -56,7 +30,9 @@ This is part of the v2 tool rendering hook set with [`useComponent`](https://doc
 
 Use this for catch-all rendering of tool calls that do not have a specific named renderer.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useDefaultRenderTool } from "@copilotkit/react-core/v2";
@@ -65,27 +41,33 @@ Use this for catch-all rendering of tool calls that do not have a specific named
       config?: {
         render?: (props: {
           name: string;
-          parameters: any;
-          status: string;
+          toolCallId: string;
+          parameters: unknown;
+          status: "inProgress" | "executing" | "complete";
           result: string | undefined;
         }) => React.ReactElement | null;
+        group?: boolean;
       },
       deps?: ReadonlyArray<unknown>,
     ): void;
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * Internally calls `useRenderTool({ name: "*", ... })`.
   * If `config.render` is omitted, uses an expandable default card UI that shows status, parameters, and result.
   * If `config.render` is provided, your renderer is used instead.
   * Your renderer can return `null` to draw nothing. Use this to render only the tool calls you care about and suppress the rest.
+  * `config.group` lets the chat group the calls that your renderer draws. The chat groups the calls of the built-in card in the same way (see [`toolCallDisplay`](https://docs.copilotkit.ai/reference/components/CopilotChatMessageView#toolcalldisplay)). It's on for the built-in card and off by default for a custom `render`, since a renderer that draws nothing would leave an empty group.
   * Inherits `useRenderTool` registration behavior and dependency semantics.
+  * Tool calls the agent makes in a row are grouped by default (see [`toolCallDisplay`](https://docs.copilotkit.ai/reference/components/CopilotChatMessageView#toolcalldisplay)). Inside a group, the built-in card draws itself as a compact row: status, tool name and main argument, opening to the arguments and result. A custom `render` is drawn as-is inside the group.
 
 
 
-## Usage
+## UsageCopy Anchor Link
 
-### Built-in default renderer
+### Built-in default rendererCopy Anchor Link
+
+Copy Text
     
     
     function App() {
@@ -93,7 +75,9 @@ Use this for catch-all rendering of tool calls that do not have a specific named
       return null;
     }
 
-### Custom wildcard renderer
+### Custom wildcard rendererCopy Anchor Link
+
+Copy Text
     
     
     function App() {
@@ -112,9 +96,8 @@ Use this for catch-all rendering of tool calls that do not have a specific named
       return null;
     }
 
-## Related
+How is this guide?
 
-  * [`useRenderTool`](https://docs.copilotkit.ai/reference/hooks/useRenderTool)
-  * [`useRenderToolCall`](https://docs.copilotkit.ai/reference/hooks/useRenderToolCall)
+GoodBad
 
-
+[Previous PageuseCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[Next PageuseFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)

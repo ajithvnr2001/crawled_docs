@@ -2,60 +2,36 @@
 url: https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput/
 title: CopilotChatInput
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:34.147123+00:00
+fetched_at: 2026-11-18T11:27:59.182118+00:00
 ---
 
 # CopilotChatInput
 
 > Source: https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Components
+React/Components
 
 # CopilotChatInput
 
 Primary text input and control surface for chat interactions
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
-
-`CopilotChatInput` is the primary text input and control surface for chat interactions. It provides a multi-line textarea that auto-grows up to a configurable maximum number of rows (default 5), action buttons for sending messages, voice transcription, and file attachment, and an optional tools menu for declarative command surfaces.
+`CopilotChatInput` is the primary text input and control surface for chat interactions. It provides a multi-line textarea that auto-grows up to 5 rows, action buttons for sending messages, voice transcription, and file attachment, and an optional tools menu for declarative command surfaces. [`CopilotChatView`](https://docs.copilotkit.ai/reference/components/CopilotChatView) renders it below the transcript. The placeholder and button labels come from [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration).
 
 The component operates in three modes: `"input"` (default text entry), `"transcribe"` (replaces the textarea with an audio recorder), and `"processing"` (indicates background processing is underway). When text spans multiple rows, the layout stacks the textarea above the control row.
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotChatInput } from "@copilotkit/react-core/v2";
     import "@copilotkit/react-core/v2/styles.css";
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -63,85 +39,33 @@ Type
 
 `mode?`"input" | "transcribe" | "processing"
 
-Prop
-
-Type
-
 `value?`string
-
-Prop
-
-Type
 
 `onChange?`(value: string) => void
 
-Prop
-
-Type
-
 `autoFocus?`boolean
-
-Prop
-
-Type
 
 `isRunning?`boolean
 
-Prop
-
-Type
-
 `onSubmitMessage?`(value: string) => void
-
-Prop
-
-Type
 
 `onStop?`() => void
 
-Prop
-
-Type
-
 `onStartTranscribe?`() => void
-
-Prop
-
-Type
 
 `onCancelTranscribe?`() => void
 
-Prop
-
-Type
-
 `onFinishTranscribe?`() => void
-
-Prop
-
-Type
 
 `onFinishTranscribeWithAudio?`(audioBlob: Blob) => Promise<void>
 
-Prop
-
-Type
-
 `onAddFile?`() => void
-
-Prop
-
-Type
 
 `toolsMenu?`(ToolsMenuItem | '-')[]
 
-Prop
+`children?`(props: { textArea: React.ReactElement; sendButton: React.ReactElement; addMenuButton: React.ReactElement; startTranscribeButton: React.ReactElement; cancelTranscribeButton: React.ReactElement; finishTranscribeButton: React.ReactElement; audioRecorder: React.ReactElement; disclaimer: React.ReactElement }) => React.ReactNode
 
-Type
-
-`children?`(props: { isMultiline: boolean }) => React.ReactElement
-
-## Slots
+## SlotsCopy Anchor Link
 
 All slot props follow the CopilotKit slot system: each accepts a replacement React component, a `className` string that is merged into the default component's classes, or a partial props object that extends the default component.
 
@@ -149,47 +73,25 @@ Prop
 
 Type
 
-`textArea?`SlotProp
+`textArea?`SlotValue<typeof CopilotChatInput.TextArea>
 
-Prop
+`sendButton?`SlotValue<typeof CopilotChatInput.SendButton>
 
-Type
+`startTranscribeButton?`SlotValue<typeof CopilotChatInput.StartTranscribeButton>
 
-`sendButton?`SlotProp
+`cancelTranscribeButton?`SlotValue<typeof CopilotChatInput.CancelTranscribeButton>
 
-Prop
+`finishTranscribeButton?`SlotValue<typeof CopilotChatInput.FinishTranscribeButton>
 
-Type
+`addMenuButton?`SlotValue<typeof CopilotChatInput.AddMenuButton>
 
-`startTranscribeButton?`SlotProp
+`audioRecorder?`SlotValue<typeof CopilotChatAudioRecorder>
 
-Prop
-
-Type
-
-`cancelTranscribeButton?`SlotProp
-
-Prop
-
-Type
-
-`finishTranscribeButton?`SlotProp
-
-Prop
-
-Type
-
-`addMenuButton?`SlotProp
-
-Prop
-
-Type
-
-`audioRecorder?`SlotProp
-
-## ToolsMenuItem
+## ToolsMenuItemCopy Anchor Link
 
 The `ToolsMenuItem` type defines items in the tools menu. Items can trigger actions directly or contain nested submenus.
+
+Copy Text
     
     
     type ToolsMenuItem = { label: string } & (
@@ -203,21 +105,15 @@ Type
 
 `label`string
 
-Prop
-
-Type
-
 `action?`() => void
-
-Prop
-
-Type
 
 `items?`(ToolsMenuItem | '-')[]
 
-### Separators
+### SeparatorsCopy Anchor Link
 
 Use the string `"-"` as an array entry to render a visual separator between menu items:
+
+Copy Text
     
     
     toolsMenu={[
@@ -226,9 +122,11 @@ Use the string `"-"` as an array entry to render a visual separator between menu
       { label: "Settings", action: () => openSettings() },
     ]}
 
-### Nested Submenus
+### Nested SubmenusCopy Anchor Link
 
 Menu items with an `items` array render as expandable submenus:
+
+Copy Text
     
     
     toolsMenu={[
@@ -243,14 +141,18 @@ Menu items with an `items` array render as expandable submenus:
       },
     ]}
 
-## CopilotChatAudioRecorder
+## CopilotChatAudioRecorderCopy Anchor Link
 
 A visual audio waveform component used during transcription mode. It displays a real-time waveform visualization of the microphone input and exposes an imperative API via `ref`.
 
-### Import
+### ImportCopy Anchor Link
 
+Copy Text
+    
+    
+    import { CopilotChatAudioRecorder } from "@copilotkit/react-core/v2";
 
-### Imperative API
+### Imperative APICopy Anchor Link
 
 The component exposes the following imperative methods via React `ref`:
 
@@ -258,27 +160,17 @@ Prop
 
 Type
 
-`state?`string
+`state?`"idle" | "recording" | "processing"
 
-Prop
+`start?`() => Promise<void>
 
-Type
-
-`start?`() => void
-
-Prop
-
-Type
-
-`stop?`() => void
-
-Prop
-
-Type
+`stop?`() => Promise<Blob>
 
 `dispose?`() => void
 
-### Usage
+### UsageCopy Anchor Link
+
+Copy Text
     
     
     function CustomRecorder() {
@@ -293,9 +185,11 @@ Type
       );
     }
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Chat Input
+### Basic Chat InputCopy Anchor Link
+
+Copy Text
     
     
     function ChatInput() {
@@ -314,7 +208,9 @@ Type
       );
     }
 
-### With Voice Transcription
+### With Voice TranscriptionCopy Anchor Link
+
+Copy Text
     
     
     function VoiceInput() {
@@ -329,16 +225,18 @@ Type
           onSubmitMessage={(text) => sendMessage(text)}
           onStartTranscribe={() => setMode("transcribe")}
           onCancelTranscribe={() => setMode("input")}
+          onFinishTranscribe={() => setMode("input")}
           onFinishTranscribeWithAudio={async (blob) => {
             const text = await transcribeAudio(blob);
             setValue(text);
-            setMode("input");
           }}
         />
       );
     }
 
-### With Tools Menu
+### With Tools MenuCopy Anchor Link
+
+Copy Text
     
     
     function InputWithTools() {
@@ -361,7 +259,9 @@ Type
       );
     }
 
-### With Stop Button During Execution
+### With Stop Button During ExecutionCopy Anchor Link
+
+Copy Text
     
     
     function ChatInputWithAgent() {
@@ -387,28 +287,27 @@ Type
       );
     }
 
-### Custom Layout with Children Render Prop
+### Custom Layout with Children Render PropCopy Anchor Link
+
+Copy Text
     
     
-    function AdaptiveInput() {
+    function CustomLayoutInput() {
       return (
         <CopilotChatInput onSubmitMessage={(text) => sendMessage(text)}>
-          {({ isMultiline }) => (
-            <div
-              className={
-                isMultiline ? "border-2 border-blue-300 rounded-xl p-2" : ""
-              }
-            >
-              {isMultiline && (
-                <div className="text-xs text-gray-400 mb-1">Multi-line mode</div>
-              )}
+          {({ textArea, sendButton }) => (
+            <div className="flex items-end gap-2 rounded-xl border p-2">
+              {textArea}
+              {sendButton}
             </div>
           )}
         </CopilotChatInput>
       );
     }
 
-### Styled Slots
+### Styled SlotsCopy Anchor Link
+
+Copy Text
     
     
     function StyledInput() {
@@ -421,21 +320,19 @@ Type
       );
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Auto-Growing Textarea** : The default textarea automatically expands as the user types, up to a maximum of 5 rows. After reaching the maximum, the textarea becomes scrollable.
   * **Layout Stacking** : When the input text spans multiple rows, the layout switches from inline (textarea and buttons side by side) to stacked (textarea above the control row containing the action buttons).
   * **Mode Switching** : Setting `mode` to `"transcribe"` replaces the textarea with the `audioRecorder` slot component. The transcription control buttons (`cancelTranscribeButton`, `finishTranscribeButton`) replace the standard send button.
   * **Controlled and Uncontrolled** : The component supports both controlled mode (via `value` and `onChange`) and uncontrolled mode (internal state management).
-  * **Tools Menu** : The `toolsMenu` prop enables a declarative menu with support for flat items, separators (`"-"`), and nested submenus. The menu button is only rendered when `toolsMenu` is provided.
+  * **Tools Menu** : The `toolsMenu` prop enables a declarative menu with support for flat items, separators (`"-"`), and nested submenus. The items appear in the add-menu (+) button, which always renders and is disabled when it has no items.
   * **Slot System** : Each slot prop accepts three forms -- a replacement component, a className string merged into the default, or a partial props object that extends the default component's props.
 
 
 
-## Related
+How is this guide?
 
-  * [`CopilotChatView`](https://docs.copilotkit.ai/reference/components/CopilotChatView) \-- Higher-level chat view that composes this component
-  * `CopilotChatAudioRecorder` \-- Audio recorder used during transcription mode
-  * [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration) \-- Provider for localized input labels
+GoodBad
 
-
+[Previous PageCopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[Next PageCopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)

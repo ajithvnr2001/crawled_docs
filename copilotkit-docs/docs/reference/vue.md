@@ -2,66 +2,46 @@
 url: https://docs.copilotkit.ai/reference/vue/
 title: Vue
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:06.262207+00:00
+fetched_at: 2026-11-18T11:27:57.501437+00:00
 ---
 
 # Vue
 
 > Source: https://docs.copilotkit.ai/reference/vue/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)
+Vue
 
 # Vue
 
 API reference for @copilotkit/vue: the CopilotKit provider, prebuilt chat components, and composables for building CopilotKit into a Vue 3 app.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 `@copilotkit/vue` brings CopilotKit to Vue 3. It ships a [provider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider), a set of prebuilt chat components, and composables that mirror the React SDK. Everything is built on the [AG-UI](https://docs.ag-ui.com) agent protocol.
 
-The v2 API lives under the `/v2` subpath, the same convention used by the web SDK. Import the provider, components, and composables from `@copilotkit/vue/v2`.
+The v2 API lives under the `/v2` subpath, the same convention as the React SDK (`@copilotkit/react-core/v2`). Import the provider, components, and composables from `@copilotkit/vue/v2`.
 
-## Installation
+## InstallationCopy Anchor Link
+
+Copy Text
     
     
     npm install @copilotkit/vue
 
-## Styling
+## StylingCopy Anchor Link
 
 When using the prebuilt UI components, import the stylesheet once at your app entry point:
+
+Copy Text
     
     
     import "@copilotkit/vue/styles.css";
 
-## Provider setup
+## Provider setupCopy Anchor Link
 
 Wrap your app (or a sub-tree) with [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) to configure the runtime connection. Composables and components read this context through Vue's [provide/inject](https://vuejs.org/guide/components/provide-inject), so they must be used within the provider.
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -75,19 +55,27 @@ Wrap your app (or a sub-tree) with [`CopilotKitProvider`](https://docs.copilotki
       </CopilotKitProvider>
     </template>
 
-## Vue conventions
+## Vue conventionsCopy Anchor Link
 
 A few patterns recur across this reference and differ from the React SDK:
 
-  * **Composables return refs.** A composable such as [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent) returns reactive refs (for example `{ agent }`). Read them with `.value` in `<script setup>`, or unwrapped directly in templates.
+  * **State-returning composables use refs.** A composable such as [`useAgent`](https://docs.copilotkit.ai/reference/vue/hooks/useAgent) returns reactive refs (for example `{ agent }`). Read them with `.value` in `<script setup>`, or unwrapped directly in templates. Registration composables such as `useFrontendTool` return no value.
   * **Reactive arguments.** Many composables accept `MaybeRefOrGetter` arguments, so you can pass a plain value, a `ref`, or a getter and the composable stays reactive to changes.
   * **Props are kebab-case in templates.** Component props are documented with their camelCase names but are written as kebab-case attributes in templates (for example `runtimeUrl` becomes `runtime-url`).
   * **Slots replace render props.** Where the React SDK uses render props or `children`, the Vue components expose named [slots](https://vuejs.org/guide/components/slots) for the same customization.
 
 
 
-## API Reference
+## API ReferenceCopy Anchor Link
 
 Looking for tool rendering composables? Start with [`useFrontendTool`](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool), [`useRenderTool`](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool), and [`useHumanInTheLoop`](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop).
 
+Building generative UI? Start with the [`generativeUI`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) prop of the provider, then use [`GenerativeUISurface`](https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface), [`useGenerativeUIState`](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState), and [`useGenerativeUIFunction`](https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIFunction). Import the component and the composables from `@copilotkit/vue/v2/generative-ui`.
+
 ### [ComposablesVue composables for agents, tools, context, suggestions, and chat configuration.](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)### [UI ComponentsPrebuilt chat components: CopilotChat, CopilotPopup, CopilotSidebar, and more.](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)
+
+How is this guide?
+
+GoodBad
+
+[Previous PageuseThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)[Next PageCopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)

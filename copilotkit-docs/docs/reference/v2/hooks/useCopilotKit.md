@@ -2,67 +2,43 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit/
 title: useCopilotKit
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:44.320716+00:00
+fetched_at: 2026-11-18T11:27:58.356790+00:00
 ---
 
 # useCopilotKit
 
 > Source: https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React (V2)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/v2/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/v2/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/v2/components/CopilotChatView)[CopilotKit](https://docs.copilotkit.ai/reference/v2/components/CopilotKit)[CopilotPopup](https://docs.copilotkit.ai/reference/v2/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/v2/components/CopilotSidebar)[CopilotThreadsDrawer](https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/v2/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/v2/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTool)[useFrontendTools](https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool)[useRenderToolCall](https://docs.copilotkit.ai/reference/v2/hooks/useRenderToolCall)[useSuggestions](https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/v2/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[v2](https://docs.copilotkit.ai/reference/v2)Hooks
+React/Hooks
 
 # useCopilotKit
 
 Low-level React hook for accessing the CopilotKit context
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+`useCopilotKit` is a low-level React hook that returns the CopilotKit context: the core instance and the provider-level state. The component re-renders when the runtime connection status changes.
 
-## Overview
+`useCopilotKit` is a low-level hook. Most applications should use higher-level hooks like [`useAgent`](https://docs.copilotkit.ai/reference/hooks/useAgent) or [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool) instead.
 
-`useCopilotKit` is a low-level React hook that returns the CopilotKit context value, providing direct access to the core instance and provider-level state. It subscribes to runtime connection status changes and triggers re-renders when the connection status updates.
+**Throws an error** if used outside [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/components/CopilotKit) (or the v1 `<CopilotKit>` wrapper, which renders it).
 
-`useCopilotKit` is a low-level hook. Most applications should use higher-level hooks like `useAgent` or `useFrontendTool` instead.
+## SignatureCopy Anchor Link
 
-**Throws an error** if used outside of a `CopilotKit` (or the `<CopilotKit>` wrapper component).
-
-## Signature
+Copy Text
     
     
     import { useCopilotKit } from "@copilotkit/react-core/v2";
     
     function useCopilotKit(): CopilotKitContextValue;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 This hook takes no parameters.
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 Prop
 
@@ -70,9 +46,11 @@ Type
 
 `context?`CopilotKitContextValue
 
-## Usage
+## UsageCopy Anchor Link
 
-### Accessing the Core Instance
+### Accessing the Core InstanceCopy Anchor Link
+
+Copy Text
     
     
     function DebugPanel() {
@@ -92,7 +70,9 @@ Type
       );
     }
 
-### Subscribing to Core Events
+### Subscribing to Core EventsCopy Anchor Link
+
+Copy Text
     
     
     function ConnectionMonitor() {
@@ -113,10 +93,15 @@ Type
       return null;
     }
 
-### Running a Tool Programmatically
+### Running a Tool ProgrammaticallyCopy Anchor Link
 
-`copilotkit.runTool()` lets you execute a registered frontend tool directly from code — no LLM turn required. The tool's handler runs, render components appear in the UI, and both the tool call and result are added to the agent's message history.
+`copilotkit.runTool()` lets you execute a frontend tool registered with [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool) directly from code. No LLM turn is required. The tool's handler runs, render components appear in the UI, and both the tool call and result are added to the agent's message history.
+
+Copy Text
     
+    
+    import { useCopilotKit, useFrontendTool } from "@copilotkit/react-core/v2";
+    import { z } from "zod";
     
     function ExportButton() {
       const { copilotkit } = useCopilotKit();
@@ -125,7 +110,7 @@ Type
       useFrontendTool({
         name: "exportData",
         description: "Export data as CSV",
-        parameters: [{ name: "format", type: "string" }],
+        parameters: z.object({ format: z.string() }),
         handler: async ({ format }) => {
           const csv = await generateCsv(format);
           downloadFile(csv);
@@ -135,17 +120,22 @@ Type
     
       // Trigger it from a button — no LLM needed
       const handleExport = async () => {
-        const { result, error } = await copilotkit.runTool({
-          name: "exportData",
-          parameters: { format: "csv" },
-        });
-        if (error) console.error(error);
+        try {
+          const { result, error } = await copilotkit.runTool({
+            name: "exportData",
+            parameters: { format: "csv" },
+          });
+          if (error) console.error(error);
+        } catch (e) {
+          // The tool or its agent was not found.
+          console.error(e);
+        }
       };
     
       return <button onClick={handleExport}>Export CSV</button>;
     }
 
-#### `runTool` Parameters
+#### `runTool` ParametersCopy Anchor Link
 
 Prop
 
@@ -153,7 +143,7 @@ Type
 
 `params?`CopilotKitCoreRunToolParams
 
-#### `runTool` Return Value
+#### `runTool` Return ValueCopy Anchor Link
 
 Prop
 
@@ -161,7 +151,11 @@ Type
 
 `result?`CopilotKitCoreRunToolResult
 
-### Checking Tool Execution State
+`runTool` throws `Tool not found: <name>` or `Agent not found: <agentId>` when either lookup fails. The `error` field does not report these failures.
+
+### Checking Tool Execution StateCopy Anchor Link
+
+Copy Text
     
     
     function ToolExecutionIndicator() {
@@ -174,19 +168,17 @@ Type
       return <div>Executing {executingToolCallIds.size} tool call(s)...</div>;
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
-  * **Error on Missing Provider** : Throws an error if the hook is used outside of `CopilotKit` or the `<CopilotKit>` wrapper component.
+  * **Error on Missing Provider** : Throws an error if the hook is used outside `CopilotKitProvider` or the v1 `<CopilotKit>` wrapper component.
   * **Runtime Status Subscription** : The hook subscribes to `onRuntimeConnectionStatusChanged` events, so components re-render when the runtime connection completes or fails.
   * **Stable Core Reference** : The `copilotkit` instance is created once per provider and remains stable across re-renders. Only the `executingToolCallIds` set changes as tool calls begin and complete.
-  * **Provider-Level Tool Tracking** : `executingToolCallIds` is tracked at the provider level rather than in individual components. This ensures that tool execution start events fired before child components mount are not lost.
+  * **Provider-Level Tool Tracking** : `executingToolCallIds` is tracked at the provider level rather than in individual components. As a result, tool execution start events fired before child components mount are not lost.
 
 
 
-## Related
+How is this guide?
 
-  * [`useAgent`](https://docs.copilotkit.ai/reference/hooks/useAgent) \-- High-level hook for accessing agent instances
-  * [`useFrontendTool`](https://docs.copilotkit.ai/reference/hooks/useFrontendTool) \-- Register frontend tools that `runTool()` can execute
-  * [`CopilotKit`](https://docs.copilotkit.ai/reference/v2) \-- The provider component that creates the context
+GoodBad
 
-
+[Previous PageuseCopilotChatConfiguration](https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration)[Next PageuseDefaultRenderTool](https://docs.copilotkit.ai/reference/v2/hooks/useDefaultRenderTool)

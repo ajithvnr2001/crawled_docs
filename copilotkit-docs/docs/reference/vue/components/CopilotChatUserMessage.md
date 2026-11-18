@@ -2,56 +2,32 @@
 url: https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage/
 title: CopilotChatUserMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:09.508162+00:00
+fetched_at: 2026-11-18T11:27:57.092930+00:00
 ---
 
 # CopilotChatUserMessage
 
 > Source: https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁VueSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[CopilotChat](https://docs.copilotkit.ai/reference/vue/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/vue/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/vue/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)[CopilotKitProvider](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider)[CopilotPopup](https://docs.copilotkit.ai/reference/vue/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/vue/components/CopilotSidebar)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/vue/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext)[useCapabilities](https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/vue/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useConfigureSuggestions)[useCopilotChatConfiguration](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration)[useCopilotKit](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit)[useDefaultRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useDefaultRenderTool)[useFrontendTool](https://docs.copilotkit.ai/reference/vue/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/vue/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/vue/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/vue/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[vue](https://docs.copilotkit.ai/reference/vue)Components
+Vue/Components
 
 # CopilotChatUserMessage
 
 Vue 3 component for displaying user-authored messages with copy, edit, and branch navigation.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 This is the Vue 3 component. Import it from `@copilotkit/vue/v2`.
 
-## Overview
+## OverviewCopy Anchor Link
 
 `CopilotChatUserMessage` renders a user-authored message aligned to the right of the chat. The default message renderer flattens the message content to text and displays it with `white-space: pre-wrap` so line breaks and spacing are preserved.
 
 Below the message it renders a toolbar containing a copy-to-clipboard button, an optional edit button, and optional branch navigation controls. The toolbar becomes visible on hover. The edit button is only shown when an `@edit-message` listener is attached, and the branch navigation is only shown when `numberOfBranches` is greater than 1 and a `@switch-to-branch` listener is attached.
 
-## Example
+## ExampleCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -70,7 +46,7 @@ Below the message it renders a toolbar containing a copy-to-clipboard button, an
       <CopilotChatUserMessage :message="message" />
     </template>
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -78,19 +54,11 @@ Type
 
 `message`UserMessage
 
-Prop
-
-Type
-
 `branchIndex?`number
-
-Prop
-
-Type
 
 `numberOfBranches?`number
 
-## Events
+## EventsCopy Anchor Link
 
 The action callbacks are emitted as Vue events. Attaching a listener for an event also enables the corresponding control: the edit button only renders when an `@edit-message` listener is present, and the branch navigation only renders when a `@switch-to-branch` listener is present (and `numberOfBranches` is greater than 1).
 
@@ -100,13 +68,9 @@ Type
 
 `edit-message?`(payload: { message: UserMessage }) => void
 
-Prop
-
-Type
-
 `switch-to-branch?`(payload: { message: UserMessage; branchIndex: number; numberOfBranches: number }) => void
 
-## Slots
+## SlotsCopy Anchor Link
 
 Each slot exposes scoped slot props (handlers and state) and falls back to the default rendering when not provided. Use a named template (`<template #slot-name="...">`) to override a slot.
 
@@ -116,45 +80,23 @@ Type
 
 `message-renderer?`{ message: UserMessage; content: string; isMultiline: boolean }
 
-Prop
-
-Type
-
 `toolbar?`{ message: UserMessage; showBranchNavigation: boolean; hasEditAction: boolean }
-
-Prop
-
-Type
 
 `toolbar-items?`(no props)
 
-Prop
-
-Type
-
 `copy-button?`{ onCopy: () => Promise<void>; copied: boolean; label: string }
-
-Prop
-
-Type
 
 `edit-button?`{ onEdit: () => void; label: string }
 
-Prop
-
-Type
-
 `branch-navigation?`{ branchIndex: number; numberOfBranches: number; canGoPrev: boolean; canGoNext: boolean; goPrev: () => void; goNext: () => void }
-
-Prop
-
-Type
 
 `layout?`{ message; content; isMultiline; showBranchNavigation; hasEditAction; branchIndex; numberOfBranches; canGoPrev; canGoNext; onCopy; onEdit; goPrev; goNext; copied }
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic user message
+### Basic user messageCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -168,7 +110,9 @@ Type
       <CopilotChatUserMessage :message="message" />
     </template>
 
-### With edit support
+### With edit supportCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -186,7 +130,9 @@ Type
       <CopilotChatUserMessage :message="message" @edit-message="handleEdit" />
     </template>
 
-### With branch navigation
+### With branch navigationCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -212,7 +158,9 @@ Type
       />
     </template>
 
-### Customizing appearance with slots
+### Customizing appearance with slotsCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -238,7 +186,9 @@ Type
       </CopilotChatUserMessage>
     </template>
 
-### Full edit and branch workflow
+### Full edit and branch workflowCopy Anchor Link
+
+Copy Text
     
     
     <script setup lang="ts">
@@ -265,7 +215,7 @@ Type
       />
     </template>
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Right-aligned layout** : User messages are rendered with right-aligned positioning to visually distinguish them from assistant messages.
   * **Content flattening** : When `message.content` is an array of parts, the default renderer joins the `text` parts with newlines. String content is rendered as-is.
@@ -278,9 +228,8 @@ Type
 
 
 
-## Related
+How is this guide?
 
-  * [`CopilotKitProvider`](https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider) \- Supplies the CopilotKit context to descendant components.
-  * [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration) \- Provider for localized toolbar labels.
+GoodBad
 
-
+[Previous PageCopilotChatMessageView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatMessageView)[Next PageCopilotChatView](https://docs.copilotkit.ai/reference/vue/components/CopilotChatView)
