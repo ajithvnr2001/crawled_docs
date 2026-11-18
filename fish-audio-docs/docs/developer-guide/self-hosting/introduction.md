@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/introduction/
 title: Introduction - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:43.119948+00:00
+fetched_at: 2026-11-18T16:38:20.047559+00:00
 ---
 
 # Introduction - Fish Audio
@@ -40,12 +40,12 @@ Reason| What it gives you
 ---|---  
 Colocation| Run inference in the same region, VPC, or rack as your application and remove public-internet round trips from time-to-first-audio.  
 Single-tenant isolation| Dedicated GPUs and queues. Capacity is not shared with other tenants, and you decide when the deployment is upgraded.  
-Security posture| Voice traffic never leaves your network. The offline modes need no outbound access at runtime and run on disconnected networks.  
+Security posture| Voice traffic never leaves your network. The Air-gapped mode needs no outbound access at runtime and runs on disconnected networks.  
 Data sovereignty| Input text, generated audio, and reference voices stay inside your boundary and under your own retention policy.  
   
 ## Platforms
 
-Each model ships on two platforms. Your agreement decides which ones your team gets, and in which modes; **Developer → Self Host** shows them.
+Each model ships on two platforms. Your agreement decides which models your team gets; **Developer → Self Host** shows them.
 
 | Helm (Kubernetes)| All-in-One (Docker)  
 ---|---|---  
@@ -60,13 +60,14 @@ The GPUs each model needs are on [Models](https://docs.fish.audio/developer-guid
 
 ## Billing
 
-Both platforms come in either billing mode:
+Each deployment you create under **Developer → Self Host** has its own license and one of three billing modes. To use more than one mode, create a deployment for each. The same chart and image serve all three.
 
-| Online| Offline  
----|---|---  
-Usage| Authorized and billed per request against Fish Audio| Recorded in a signed ledger on your side and reconciled with Fish Audio  
-Network needed at runtime| Outbound HTTPS to Fish Audio| None, so it can run air-gapped — see [Air-gapped deployments](https://docs.fish.audio/developer-guide/self-hosting/air-gapped)  
-Request token| A [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) with credit| Any stable, non-empty token, one per tenant, recorded as the billing identity and not checked: control access in front of the deployment  
+| Online| Networked Ledger| Air-gapped  
+---|---|---|---  
+Usage| Billed per request to your Fish Audio account| Recorded on your side and sent to Fish Audio automatically| Recorded on your side and uploaded in the dashboard each cycle  
+Network needed at runtime| Outbound HTTPS to Fish Audio| Outbound HTTPS to a storage bucket Fish Audio provides| None — see [Air-gapped deployments](https://docs.fish.audio/developer-guide/self-hosting/air-gapped)  
+License renewal| Automatic| Automatic| By hand, each cycle  
+Request token| A [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) with credit| Any stable, non-empty token, one per tenant, recorded as the billing identity and not checked: control access in front of the deployment| As Networked Ledger  
   
 ## Supported APIs
 
@@ -90,13 +91,13 @@ Self-hosting is enabled per team under an enterprise agreement. Reach out throug
 
 Get your team enabled
 
-Once your agreement is in place, Fish Audio grants your team the models and modes it is entitled to, and the charts and images that go with them.
+Once your agreement is in place, Fish Audio grants your team the models it is entitled to, and the charts and images that go with them.
 
 3
 
-Create a deploy token
+Create a deploy token and a deployment
 
-Sign in to fish.audio and open **Developer → Self Host** to see the models, platforms, and modes your team is granted and to create the token that authenticates against the registry. See [Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access).
+Sign in to fish.audio, open **Developer → Self Host** , and create a deploy token for the registry, then a deployment; the deployment’s page takes you through the install. See [Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access).
 
 ## Next steps
 
@@ -110,7 +111,7 @@ GPU, CPU, memory, storage, and platform baselines.
 
 ## Registry & license
 
-Create a deploy token, sign in, and download the license bundle.
+Create a deploy token and a deployment, and get its license.
 
 ## Kubernetes deployment
 

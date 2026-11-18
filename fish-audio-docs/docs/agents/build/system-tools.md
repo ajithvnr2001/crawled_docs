@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/system-tools/
 title: System Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:49.038812+00:00
+fetched_at: 2026-11-18T16:38:21.437806+00:00
 ---
 
 # System Tools - Fish Audio
@@ -13,8 +13,7 @@ fetched_at: 2026-11-13T15:33:49.038812+00:00
 
 Back to top
 
-  * Toggle in the Builder
-  * Toggle via the API
+  * Toggle a system tool
   * Farewell
     * Questions before hanging up
   * Transfer call
@@ -40,11 +39,16 @@ Hang up call| `hang_up_call`| Lets the agent end the call itself.
   
 Unlike [webhook tools](https://docs.fish.audio/agents/build/webhook-tools), system tools are not workspace resources shared across agents. The on/off state is stored per agent.
 
-## Toggle in the Builder
+## Toggle a system tool
+
+  * Console
+
+  * API
+
+
+
 
 Open your agent’s **Tools** page in the Builder. The **System tools** card holds the **Hang up call** switch.
-
-## Toggle via the API
 
 Over the REST API, system tool switches are part of the agent’s configuration, in the same `tools` section that holds its attached webhook tools. See [Configuration](https://docs.fish.audio/agents/build/configuration) for reading and updating an agent’s config.
 

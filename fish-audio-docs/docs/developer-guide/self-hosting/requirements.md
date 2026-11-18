@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/requirements/
 title: Requirements - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.785964+00:00
+fetched_at: 2026-11-18T16:38:19.843197+00:00
 ---
 
 # Requirements - Fish Audio
@@ -51,8 +51,8 @@ NVIDIA driver| Must support CUDA 13.x and your card’s compute capability.
 Traffic| Requirement  
 ---|---  
 Install| Access to the Fish Audio registry to pull the images and, on Helm, the chart. For a site with no outbound access, see [Air-gapped deployments](https://docs.fish.audio/developer-guide/self-hosting/air-gapped).  
-Billing| With online billing, every request is authorized over HTTPS against the Fish Audio billing endpoint; ask your account team for the hostname to allowlist. Offline billing needs no outbound access.  
-Voice sync| Optional. When turned on, the deployment downloads voices from Fish Audio over HTTPS.  
+Billing| Online reaches `api.fish.audio` over HTTPS; Networked Ledger reaches a storage bucket Fish Audio provides, named on the deployment’s page. Allow these without TLS inspection: a deployment that cannot sync its license for a week stops serving. Air-gapped needs no outbound access.  
+Voice sync| Optional, and on for an Online All-in-One. The deployment downloads voices from Fish Audio over HTTPS.  
 Inbound| Your own ingress, load balancer, or private endpoint, with DNS and TLS in place before production traffic.  
   
 ## Platform-specific requirements

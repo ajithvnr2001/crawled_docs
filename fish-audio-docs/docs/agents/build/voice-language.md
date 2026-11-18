@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/voice-language/
 title: Voice & Language - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:58.722272+00:00
+fetched_at: 2026-11-18T16:38:21.563343+00:00
 ---
 
 # Voice & Language - Fish Audio
@@ -13,9 +13,8 @@ fetched_at: 2026-11-16T17:13:58.722272+00:00
 
 Back to top
 
-  * Pick a voice in the Builder
+  * Pick a voice
   * Use any voice model
-  * Set the voice via API
   * Speaking language
   * Text-to-speech model
     * Live 3 (full duplex)
@@ -55,7 +54,14 @@ Browse public voices and manage your own.
 
 Create a custom voice, then use it here. See [Voice Cloning](https://docs.fish.audio/features/voice-cloning).
 
-## Pick a voice in the Builder
+## Pick a voice
+
+  * Console
+
+  * API
+
+
+
 
 The voice picker on the **Configuration** page has two levels: a curated list for a fast start, and the full Voice Library when you want something specific.
 
@@ -83,17 +89,6 @@ Publish
 
 Draft changes don’t affect live sessions until you **Publish**. See [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing).
 
-## Use any voice model
-
-The agent’s voice is a **voice model id** (`voice_id`): the same ids used as `reference_id` in [Text to Speech](https://docs.fish.audio/features/text-to-speech). Any public voice model from the Voice Library works, including:
-
-  * **Library voices** : Ready-made public voices. Find ids in the [Voice Library](https://docs.fish.audio/features/manage-voices).
-  * **Your cloned voices** : [Clone a voice](https://docs.fish.audio/features/voice-cloning) once, then use its model id as your agent’s voice.
-
-
-
-## Set the voice via API
-
 Voice settings live in the `voice` section of the agent’s configuration. Patches are partial: only the fields you send change, and the result is saved to the draft:
 
 API (curl)
@@ -110,6 +105,15 @@ API (curl)
     
 
 `voice.speaking_language` lives in the same section and is patched the same way. As in the Builder, API edits land in the draft. Publish to roll them out.
+
+## Use any voice model
+
+The agent’s voice is a **voice model id** (`voice_id`): the same ids used as `reference_id` in [Text to Speech](https://docs.fish.audio/features/text-to-speech). Any public voice model from the Voice Library works, including:
+
+  * **Library voices** : Ready-made public voices. Find ids in the [Voice Library](https://docs.fish.audio/features/manage-voices).
+  * **Your cloned voices** : [Clone a voice](https://docs.fish.audio/features/voice-cloning) once, then use its model id as your agent’s voice.
+
+
 
 ## Speaking language
 

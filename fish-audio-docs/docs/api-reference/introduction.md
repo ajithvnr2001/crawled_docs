@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/introduction/
 title: Introduction - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:45.158821+00:00
+fetched_at: 2026-11-18T16:38:20.554144+00:00
 ---
 
 # Introduction - Fish Audio
@@ -20,6 +20,7 @@ Back to top
   * Distributed Tracing
   * Create a Voice Clone
   * Generate Speech
+  * Edit Recorded Speech
   * Design a Voice
   * Real-time Streaming
   * Rate Limits
@@ -63,6 +64,10 @@ Use our [/model endpoint](https://docs.fish.audio/api-reference/endpoint/model/c
 ## Generate Speech
 
 Use our [/v1/tts endpoint](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech) to generate speech.
+
+## Edit Recorded Speech
+
+Use our [/v1/audio/infill endpoint](https://docs.fish.audio/api-reference/endpoint/openapi-v1/audio-infill) to regenerate part of a recording with drama-3 and get the whole take back.
 
 ## Design a Voice
 

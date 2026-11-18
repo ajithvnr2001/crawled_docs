@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/resources/agent-quickstart/
 title: Coding Assistant Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:33.704686+00:00
+fetched_at: 2026-11-18T16:38:21.290812+00:00
 ---
 
 # Coding Assistant Quickstart - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:33.704686+00:00
 > Source: https://docs.fish.audio/developer-guide/resources/agent-quickstart/
 
 ## On this page
+
+Back to top
 
   * Install options
   * Next steps
@@ -79,11 +81,7 @@ Prompt in plain language; it uses the correct client, methods, and error types:
 
 “Call the Fish Audio TTS REST API from Go, no SDK.”
 
-## 
-
-​
-
-Install options
+## Install options
 
 All skills
 
@@ -114,11 +112,7 @@ List / inspect first
 
 Targeting specific agents, the Fish Audio MCP server, and reading the skills before you install.
 
-## 
-
-​
-
-Next steps
+## Next steps
 
 ## Get your API key
 
@@ -136,11 +130,7 @@ Voices, formats, streaming, and the direct API.
 
 Endpoints, parameters, and the OpenAPI schema.
 
-## 
-
-​
-
-For autonomous agents & RAG pipelines
+## For autonomous agents & RAG pipelines
 
 Not a coding agent installing a skill, but an autonomous agent, RAG pipeline, or crawler? Start from these low-noise, machine-readable entry points:
 
@@ -189,6 +179,12 @@ High-value URLs by task
   * [JavaScript Authentication](https://docs.fish.audio/developer-guide/getting-started/api-key.md)
   * [Python SDK Overview](https://docs.fish.audio/api-reference/sdk/python/overview.md)
   * [JavaScript SDK Reference](https://docs.fish.audio/api-reference/sdk/javascript/api-reference.md)
+
+**Voice agents**
+
+  * [Agents Quickstart](https://docs.fish.audio/agents/quickstart.md)
+  * [Authenticated Sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions.md)
+  * [Phone Numbers](https://docs.fish.audio/agents/telephony/phone-numbers.md)
 
 **Core product tasks**
 

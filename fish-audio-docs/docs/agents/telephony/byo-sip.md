@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.609819+00:00
+fetched_at: 2026-11-18T16:38:21.090733+00:00
 ---
 
 # Bring Your Own Number - Fish Audio
@@ -16,8 +16,6 @@ Back to top
   * How it works
   * Prerequisites
   * Import the number
-    * In the console
-    * Through the API
   * Inbound authentication
   * Carrier walkthroughs
     * Twilio Elastic SIP Trunking
@@ -69,11 +67,14 @@ Origination URI
 
 ## Import the number
 
-### In the console
+  * Console
+
+  * API
+
+
+
 
 On the workspace **Phone numbers** page, choose **Import number**. Enter the number in E.164 format, set at least one inbound authentication factor, and optionally fill in the **Outbound calling (termination)** section, including any **Custom SIP headers** (one `X-Name: value` per line). The same form is available later from the number’s row menu as **Edit configuration**.
-
-### Through the API
 
 Import with the same endpoint that purchases numbers, using the `sip` provider variant:
 

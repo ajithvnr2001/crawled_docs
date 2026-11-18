@@ -217,3 +217,5 @@
 {"url": "https://docs.fish.audio/api-reference/endpoint/pronunciation-dictionary/list-versions/", "file": "api-reference/endpoint/pronunciation-dictionary/list-versions.md", "title": "List Versions - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/apikey/revoke-api-keys/", "file": "api-reference/endpoint/apikey/revoke-api-keys.md", "title": "Revoke Exposed API Keys - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/deploy/react-native/", "file": "agents/deploy/react-native.md", "title": "React Native SDK - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/openapi-v1/audio-infill/", "file": "api-reference/endpoint/openapi-v1/audio-infill.md", "title": "Audio Infill - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/features/text-to-speech/audio-infill/", "file": "features/text-to-speech/audio-infill.md", "title": "Audio Infill - Fish Audio", "method": "scrapling+scrapegraph"}

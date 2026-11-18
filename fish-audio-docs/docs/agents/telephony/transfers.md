@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/transfers/
 title: Call Transfers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:59:54.961225+00:00
+fetched_at: 2026-11-18T16:38:21.722160+00:00
 ---
 
 # Call Transfers - Fish Audio
@@ -15,26 +15,18 @@ Back to top
 
   * Prerequisites
   * Configure destinations
-    * In the console
-    * Through the API
   * How the agent decides to transfer
   * The transfer announcement
-    * In the console
-    * Through the API
     * Questions before transferring
   * Choosing the number per call
     * When no valid number can be filled in
   * What happens on a cold transfer
   * What happens on a warm transfer
     * Customizing the briefing
-    * In the console
-    * Through the API
   * Warm transfer settings
     * Timeouts
     * Waiting for a person to answer
   * Caller ID on transfers
-    * In the console
-    * Through the API
   * Transfer results
     * Outcomes
     * Why a call did not connect
@@ -73,11 +65,14 @@ When a caller needs a person, the agent can transfer the call. Configure one or 
 
 ## Configure destinations
 
-### In the console
+  * Console
+
+  * API
+
+
+
 
 On the agent’s **Phone** page, under **Inbound calls** , turn on **Call transfer** and fill in each destination: a name, the phone number, when to transfer there, its announcement, and the mode. A **Warm** destination also gets a handoff choice and the warm transfer settings. With more than one destination, each needs a distinct name. Changes take effect on live calls after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
-
-### Through the API
 
 Transfer destinations live in the `conversation` section of the [agent config](https://docs.fish.audio/agents/build/configuration), as `transfer_destinations`. An empty list disables transfers; the list is replaced as a whole on every write.
 
@@ -178,11 +173,14 @@ These apply to every option:
 
 
 
-### In the console
+  * Console
+
+  * API
+
+
+
 
 On each destination card, the **Transfer announcement** control sits above the transfer mode. Choosing **Fixed message** shows a field for the line.
-
-### Through the API
 
 Set `announcement_mode` on the destination, plus `announcement_message` for `fixed`. The message can use [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables), filled in when the session starts. Since the destination list is replaced as a whole on every write, send every destination you want to keep, not just the one you are changing.
 
@@ -227,7 +225,9 @@ Off
       }'
     
 
-To return to the default, set `announcement_mode` to `generated` or leave it out. As with every config edit, the change takes effect on live calls after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
+To return to the default, set `announcement_mode` to `generated` or leave it out.
+
+As with every config edit, the change takes effect on live calls after you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
 ### Questions before transferring
 
@@ -326,11 +326,14 @@ If the human cannot be reached, declines, or the consult call hits voicemail, th
 
 By default the agent introduces itself, reads out the caller’s number, relays the notes, and asks whether the person can take the call. A warm destination’s briefing instructions replace that introduction. The notes generated from the conversation and the handoff itself stay as they are: the agent still waits for a yes (or connects right away with `direct`), so the text only has to say what you want relayed and how. The text is rendered with [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) when the session starts, so it can carry facts the conversation may not mention. A custom text is spoken as written, so if it should include the caller’s number, put it in yourself with `{{system.caller_number_spoken}}`, which arrives pre-grouped for speech (`+1; 4 1 5; 5 5 5; 0 1 2 3`) so the voice reads it digit by digit in any language; see [Reading a number out loud](https://docs.fish.audio/agents/build/dynamic-variables#reading-a-number-out-loud). Two things to keep in mind. The variables are filled in once, when the session is created, so an order number the caller mentions later reaches the colleague only through the notes. And a withheld caller ID (the carrier sent `anonymous`, no digits, or one of Twilio’s placeholder numbers) renders as an empty string, so write the text to read well without it; `{{system.caller_id_withheld}}` is `"true"` then.
 
-#### In the console
+  * Console
+
+  * API
+
+
+
 
 On the destination card, choosing **Warm** shows a **Briefing instructions** field beneath the handoff choice. Leave it empty to keep the default introduction.
-
-#### Through the API
 
 Set `warm_briefing_instructions` on the destination; it is ignored on cold destinations.
 
@@ -421,14 +424,17 @@ Option| Your team sees| Good for
   
 The choice is set on each phone number, and applies to every transfer on that number, cold and warm. It is available on numbers you bought on Fish Audio. For imported numbers, see [Imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip#caller-id-on-transfers). If the caller hides their number, a warm transfer shows the agent’s number instead.
 
-### In the console
+  * Console
+
+  * API
+
+
+
 
   * **For all numbers of an agent** : open the agent’s **Phone** page and use the **Show the caller’s number on transfers** switch in the **Call transfer** section.
   * **For one number** : on the **Phone numbers** page, open the number’s menu and choose **Transfer caller ID**.
 
 Only team owners and admins can change it. You don’t need to publish the agent.
-
-### Through the API
 
 Set `transfer_caller_id` on the number: `original_caller` shows the caller’s number, `agent_number` shows the agent’s number.
 
@@ -441,7 +447,9 @@ Request
       --data '{ "transfer_caller_id": "original_caller" }'
     
 
-The caller ID is a setting on the number, not part of the agent, so it needs no publish and rolling back the agent leaves it as it is. Warm transfers use a new choice from the next call. The response is the updated number, with `caller_id_sync_status` normally `synced`, which means cold transfers use the new choice too. If it reads `pending` or `error`, the change has not reached the phone carrier yet and cold transfers still use the previous choice. Send `{ "retry_caller_id_sync": true }` to try again. The older boolean `cold_transfer_use_original_caller` still works, but it is deprecated. Use `transfer_caller_id` instead.
+The response is the updated number, with `caller_id_sync_status` normally `synced`, which means cold transfers use the new choice too. If it reads `pending` or `error`, the change has not reached the phone carrier yet and cold transfers still use the previous choice. Send `{ "retry_caller_id_sync": true }` to try again.The older boolean `cold_transfer_use_original_caller` still works, but it is deprecated. Use `transfer_caller_id` instead.
+
+The caller ID is a setting on the number, not part of the agent, so it needs no publish and rolling back the agent leaves it as it is. Warm transfers use a new choice from the next call.
 
 ## Transfer results
 

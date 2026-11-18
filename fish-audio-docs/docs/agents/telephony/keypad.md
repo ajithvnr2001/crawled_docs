@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/keypad/
 title: Keypad Menu and Input - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.772376+00:00
+fetched_at: 2026-11-18T16:38:21.202276+00:00
 ---
 
 # Keypad Menu and Input - Fish Audio
@@ -16,8 +16,6 @@ Back to top
   * Keypad menu
     * What the caller hears
     * Set up the menu
-    * In the console
-    * Through the API
     * Use the choice
     * Sessions without the menu
     * See what callers chose
@@ -80,7 +78,12 @@ While the menu runs, the agent doesn’t reply. What the caller says or presses 
 
 ### Set up the menu
 
-#### In the console
+  * Console
+
+  * API
+
+
+
 
 On the agent’s **Phone** page, turn on the **Keypad menu** card and fill it in:
 
@@ -96,8 +99,6 @@ Setting| What it does
 **Fallback value**|  Stored in the variable when the caller makes no valid choice.  
   
 Then [publish](https://docs.fish.audio/agents/deploy/versions-publishing). Calls always use the published configuration.
-
-#### Through the API
 
 Set `conversation.keypad_menu` in the config, then publish:
     

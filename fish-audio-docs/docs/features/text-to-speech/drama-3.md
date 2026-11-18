@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/text-to-speech/drama-3/
 title: Drama 3 - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.534368+00:00
+fetched_at: 2026-11-18T16:38:20.498380+00:00
 ---
 
 # Drama 3 - Fish Audio
@@ -25,6 +25,7 @@ Back to top
     * Switch language mid-line (Experimental)
   * Pronunciation
   * Multi-speaker dialogue
+  * Edit a recording
   * Support
 
 
@@ -139,6 +140,10 @@ The names in the script above are for reading. The request sends the same lines 
       --output dialogue.mp3
     
 
+## Edit a recording
+
+To change a few words in a take you already have, without re-recording it, use [Audio Infill](https://docs.fish.audio/features/text-to-speech/audio-infill). Send the take, the full revised transcript, and the span to replace to `POST /v1/audio/infill`. Drama 3 regenerates only that span in the speaker’s voice and returns the whole take.
+
 ## Support
 
 Need help? Check out these resources:
@@ -158,4 +163,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/features/text-to-speech/drama-3.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/features/text-to-speech/drama-3)
 
-[Overview](https://docs.fish.audio/features/text-to-speech)[Emotion Control](https://docs.fish.audio/developer-guide/core-features/emotions)
+[Overview](https://docs.fish.audio/features/text-to-speech)[Audio Infill](https://docs.fish.audio/features/text-to-speech/audio-infill)

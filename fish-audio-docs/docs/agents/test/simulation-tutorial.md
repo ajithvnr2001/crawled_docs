@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/simulation-tutorial/
 title: Tutorial: Simulate a Rescheduling Call - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:45.840078+00:00
+fetched_at: 2026-11-18T16:38:20.690966+00:00
 ---
 
 # Tutorial: Simulate a Rescheduling Call - Fish Audio
@@ -118,7 +118,7 @@ Set **Channel** to **Phone inbound** , so the agent speaks the way it does on re
 
 ## 7\. Create the test
 
-  * Dashboard
+  * Console
 
   * API
 

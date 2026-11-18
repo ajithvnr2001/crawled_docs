@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/versions-publishing/
 title: Versions & Publishing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:47.829026+00:00
+fetched_at: 2026-11-18T16:38:20.983947+00:00
 ---
 
 # Versions & Publishing - Fish Audio
@@ -14,8 +14,7 @@ fetched_at: 2026-11-13T15:33:47.829026+00:00
 Back to top
 
   * Draft vs. published
-  * Publish from the Builder
-  * Publish via the API
+  * Publish the draft
   * Version history
   * Restore a previous version
   * Clone an agent
@@ -59,7 +58,14 @@ An agent that has never been published cannot take production sessions: session 
 
 Phone number settings are not part of the agent, so they are not versioned. Which agent a number is bound to, its [transfer caller ID](https://docs.fish.audio/agents/telephony/transfers#caller-id-on-transfers), and an [imported number’s SIP configuration](https://docs.fish.audio/agents/telephony/byo-sip#update-the-configuration) live on the number. Changes to them apply from the next call without publishing, and publishing or rolling back the agent never changes them.
 
-## Publish from the Builder
+## Publish the draft
+
+  * Console
+
+  * API
+
+
+
 
 1
 
@@ -78,10 +84,6 @@ When the draft differs from the last published version, the **Publish** button b
 Publish
 
 Click **Publish**. Any pending edits are saved first, then the draft is snapshotted as the next version. A confirmation shows the new version number, and the agent shows as **Live** in your agents list.
-
-New sessions use the newly published version from that point on. To hear a change before it goes live, run a [preview call](https://docs.fish.audio/agents/test/preview-calls). Previews always use the draft.
-
-## Publish via the API
 
 Configuration edits (`PATCH`) go to the draft; a separate `publish` call rolls them out. A `version_title` and `version_description` are optional and make the version history easier to audit:
 
@@ -106,6 +108,8 @@ Publish
     
 
 The publish response includes the new `version_number`.
+
+New sessions use the newly published version from that point on. To hear a change before it goes live, run a [preview call](https://docs.fish.audio/agents/test/preview-calls). Previews always use the draft.
 
 ## Version history
 

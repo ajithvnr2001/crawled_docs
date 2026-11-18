@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/quickstart/
 title: Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:47.016086+00:00
+fetched_at: 2026-11-18T16:38:20.880542+00:00
 ---
 
 # Quickstart - Fish Audio
@@ -13,6 +13,8 @@ fetched_at: 2026-11-11T15:29:47.016086+00:00
 
 Back to top
 
+  * Build with a coding assistant
+  * Build it step by step
   * Next steps
 
 
@@ -27,15 +29,28 @@ Create a voice agent and have your first conversation in minutes
 
 Copy pageCopy page
 
-Build a voice agent and talk to it in a few minutes. Use the console for a no-code path, or provision everything over the API and connect from the browser with the SDK. **Prerequisites**
+Build a voice agent and talk to it in a few minutes. Use the console for a no-code path, or do everything over the API and reach your agent on the phone or on your own page. **Prerequisites**
 
-  * A Fish Audio account. Agents is in public beta and open to every account, no application needed.
-  * For the API path: a Fish Audio API key. Create one under [API keys](https://fish.audio/app/api-keys/) in the console
+  * A Fish Audio account.
   * Every account starts with a $5 trial balance, about 70 minutes of agent conversation. It pays for web, phone, and API sessions at the normal rates, including token-billed LLMs. After that, usage is billed per second against your API credit.
 
 
 
-  * Dashboard
+## Build with a coding assistant
+
+Working in Claude Code, Codex, Cursor, or another coding assistant? Paste this prompt. The assistant asks what your agent should do, then follows the API path on this page and builds a demo you can talk to. Along the way it needs an API key from you.
+
+Prompt
+    
+    
+    Build a voice agent using Fish Audio Voice Agents. Give me a browser demo I can talk to. Ask me questions.
+    
+    Follow the API in https://docs.fish.audio/agents/quickstart.md.
+    
+
+## Build it step by step
+
+  * Console
 
   * API
 
@@ -64,7 +79,7 @@ Choose a voice and a speaking language for your agent. You can pick from the fea
 
 Test it with a preview call
 
-Click **Test call** in the top bar, then **Start call** in the panel. Your browser asks for microphone access, then you talk to the agent directly, with a live transcript, call timer, and mute and hang-up controls in the side panel.Preview calls always run against your current draft, so you can iterate on the prompt and immediately hear the difference. See [Preview calls](https://docs.fish.audio/agents/test/preview-calls).
+Click **Test call** in the top bar. Your browser asks for microphone access, then you talk to the agent directly, with a live transcript, call timer, and mute and hang-up controls in the side panel.Preview calls always run against your current draft, so you can iterate on the prompt and immediately hear the difference. See [Preview calls](https://docs.fish.audio/agents/test/preview-calls).
 
 5
 
@@ -72,11 +87,42 @@ Publish
 
 Click **Publish** to turn the draft into an immutable version. Published versions are what real sessions connect to.You can keep editing the draft afterwards; nothing goes live until you publish again. See [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing).
 
+Your agent is live. Choose how people reach it.
+
+  * **Phone number.** Open **Phone numbers** in the console, click **Add number** , buy a number and bind it to your agent, then call it from your phone. See [Phone numbers](https://docs.fish.audio/agents/telephony/phone-numbers).
+  * **Widget.** On the agent’s **Deploy** page, turn on **Public access** and paste the two-line embed into your site. See [Widget](https://docs.fish.audio/agents/deploy/widget).
+  * **Your own backend.** Switch to the **API** tab above and start from **Get an API key**.
+
+
+
 1
+
+Get an API key
+
+Create a key on the [API keys](https://fish.audio/app/agents/api-keys?new=1) page of the console and copy it. The key is shown once. Keep it on your server and out of browsers and apps.
+
+Set the key
+    
+    
+    export FISH_API_KEY="your_api_key"
+    
+
+Check the key by listing your agents. The list is empty on a new account.
+
+Check the key
+    
+    
+    curl https://api.fish.audio/v1/agent/agents \
+      --header "Authorization: Bearer $FISH_API_KEY"
+    
+
+A `200` means the key works. A `401` means it is wrong or expired. This request creates nothing, so use it whenever you want to test your setup.
+
+2
 
 Create an agent
 
-Create the agent and configure it in one call. The `config` section is optional at creation time, and you can update it later with `PATCH /v1/agent/agents/{agent_id}/config`.
+Create the agent and configure it in one call. The `config` section is optional at creation time, and you can update it later with `PATCH /v1/agent/agents/{agent_id}/config`. See [Configuration](https://docs.fish.audio/agents/build/configuration) for the opening line, the speaking language, and the other settings.
 
 Create an agent
     
@@ -99,9 +145,15 @@ Create an agent
 
 The response includes the agent’s `agent_id`. Use it as `$AGENT_ID` below. `voice_id` accepts any voice model id from the [Voice Library](https://docs.fish.audio/features/manage-voices).
 
+Save the agent ID
+    
+    
+    export AGENT_ID="the agent_id from the response"
+    
+
 `system_prompt` is limited to 32,000 tokens; longer prompts return `422`. Keeping it under 2,000 tokens is recommended for latency and cost.
 
-2
+3
 
 Publish it
 
@@ -116,184 +168,242 @@ Publish the draft
 
 Each publish creates an immutable version with an auto-incremented `version_number`.
 
-3
-
-Create a session
-
-From your backend, exchange your API key for a short-lived session token. This is the credential the browser uses to join the call. Your API key never leaves your server.
-
-Create a session
-    
-    
-    curl --request POST https://api.fish.audio/v1/agent/sessions \
-      --header "Authorization: Bearer $FISH_API_KEY" \
-      --header "Content-Type: application/json" \
-      --data '{ "agent_id": "'$AGENT_ID'", "timezone": "Asia/Tokyo" }'
-    
-
-`timezone` overrides the agent’s timezone for this session: replace it with your user’s IANA timezone. The default is UTC, which you can change in the agent’s configuration. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone).
-
-Response
-    
-    
-    {
-      "session_id": "...",
-      "expires_at": "2026-07-23T12:34:56Z",
-      "max_duration_seconds": 1800,
-      "transport": "livekit",
-      "livekit_url": "wss://...",
-      "token": "<participant token>"
-    }
-    
-
-Return this response to your frontend as-is. `expires_at` is the deadline for joining the call.
-
 4
 
-Connect from the browser
+Talk to your agent
 
-Install the client SDK:
+Your agent is published. Reach it on the phone with nothing but API requests, hear it in the console with a test call, or talk to it on your own page with a one-file demo.
 
-Install
-    
-    
-    npm install @fishaudio/agent-client
-    
+  * Phone
 
-Pass the session token to `AgentSession.start`. The SDK requests the microphone, connects, and streams audio both ways:
+  * Console
 
-Connect and talk
+  * Your own page
+
+
+
+
+Give your agent a phone number and call it. Every step is an API request and the conversation happens on your phone, with no browser and no SDK. The number is a US or Canada local number.**Find a number**
+
+Search numbers
     
     
-    import { AgentSession } from "@fishaudio/agent-client";
-    
-    // sessionToken: the JSON response from POST /v1/agent/sessions,
-    // fetched from your backend
-    const session = await AgentSession.start({
-      sessionToken,
-      callbacks: {
-        onUserTranscript: ({ text }) => console.log("You:", text),
-        onAgentResponse: ({ text }) => console.log("Agent:", text),
-      },
-    });
-    
-    // When you are done:
-    await session.end();
+    curl "https://api.fish.audio/v1/agent/available-phone-numbers?country_code=US" \
+      --header "Authorization: Bearer $FISH_API_KEY"
     
 
-Start talking. You hear the agent reply and both sides of the conversation arrive as transcript events. See the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) for the full event and method surface, or the [React SDK](https://docs.fish.audio/agents/deploy/react-sdk) for hooks.
+Pick a `phone_number` from the `available_phone_numbers` array.**Buy it and bind your agent**
 
-5
-
-Put it together
-
-A complete local setup is one backend route that creates the session with your API key, and a page that starts the call. The frontend is served by Vite, which also proxies `/api` to the backend so the browser never sees your key.
-
-Install
+Buy a number
     
     
-    npm init -y
-    npm install express @fishaudio/agent-client
-    npm install --save-dev vite
+    curl --request POST https://api.fish.audio/v1/agent/phone-numbers \
+      --header "Authorization: Bearer $FISH_API_KEY" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "provider": "twilio",
+        "phone_number": "+14155550123",
+        "agent_id": "'$AGENT_ID'"
+      }'
     
+
+Passing `agent_id` binds the number in the same request, so it answers calls right away. The response includes the `phone_number_id`.**Call it** Dial the number from your phone. Your agent picks up.If you are not in the US or Canada, have the agent call you instead. Outbound calls reach numbers in the US, Canada, Japan, the UK, Italy, Australia, and Mexico. See [allowed destinations](https://docs.fish.audio/agents/telephony/outbound-calls#allowed-destinations).
+
+Have the agent call you
+    
+    
+    curl --request POST https://api.fish.audio/v1/agent/phone-calls \
+      --header "Authorization: Bearer $FISH_API_KEY" \
+      --header "Content-Type: application/json" \
+      --header "Idempotency-Key: quickstart-call-1" \
+      --data '{
+        "agent_id": "'$AGENT_ID'",
+        "phone_number_id": "YOUR_PHONE_NUMBER_ID",
+        "to_number": "+14155550123"
+      }'
+    
+
+**Read the conversation back**
+
+Find the call
+    
+    
+    curl "https://api.fish.audio/v1/agent/sessions?agent_id=$AGENT_ID" \
+      --header "Authorization: Bearer $FISH_API_KEY"
+    
+
+The newest session comes first. An outbound call also returns its `session_id` when you place it. Read the transcript with that id.
+
+Read the transcript
+    
+    
+    curl "https://api.fish.audio/v1/agent/sessions/SESSION_ID" \
+      --header "Authorization: Bearer $FISH_API_KEY"
+    
+
+`items` holds the messages and tool calls in order. See [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history).Keep the number as your agent’s line, or release it to stop the rental. See [Pricing](https://docs.fish.audio/agents/pricing#monthly-fees).
+
+Release the number
+    
+    
+    curl --request DELETE https://api.fish.audio/v1/agent/phone-numbers/YOUR_PHONE_NUMBER_ID \
+      --header "Authorization: Bearer $FISH_API_KEY"
+    
+
+Place a test call in the console. It takes no code and no phone number, so it is the quickest way to hear your agent.
+
+Print the link to your agent
+    
+    
+    echo "https://fish.audio/app/agents/$AGENT_ID"
+    
+
+Open the link. Agents created over the API appear in the console like any other. Click **Test call** in the top bar. Your browser asks for the microphone, then you are talking to your agent.A test call is a preview for you. It runs the agent’s draft, which right after publishing matches the published version. To put the agent in front of your users, use **Phone** or **Your own page**. See [Preview calls](https://docs.fish.audio/agents/test/preview-calls).
+
+Run one file to get a browser demo on your own page. It serves a page with the call widget and a route that creates a session with your API key when a call starts. It has no dependencies and no build step, and needs Node.js 18 or later, or Python 3.8 or later.
 
 server.mjs
+
+server.py
     
     
-    import express from "express";
+    import { createServer } from "node:http";
     
-    const app = express();
+    const page = `<!doctype html>
+    <meta charset="utf-8">
+    <title>Fish Agent demo</title>
+    <fish-agent agent-name="My agent"></fish-agent>
+    <script src="https://unpkg.com/@fishaudio/agent-widget-embed" async></script>
+    <script>
+      document.querySelector("fish-agent").sessionTokenProvider = async () => {
+        const response = await fetch("/voice-session", { method: "POST" });
+        if (!response.ok) throw new Error("backend answered " + response.status);
+        return response.json();
+      };
+    </script>`;
     
-    app.post("/api/voice-session", async (req, res) => {
-      const upstream = await fetch("https://api.fish.audio/v1/agent/sessions", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.FISH_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          agent_id: process.env.AGENT_ID,
-          timezone: "Asia/Tokyo", // your user's IANA timezone
-        }),
-      });
-      if (!upstream.ok) {
-        console.error("session creation failed:", upstream.status);
-        return res.status(502).json({ error: "session_unavailable" });
+    createServer(async (req, res) => {
+      if (req.method !== "POST" || req.url !== "/voice-session") {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        return res.end(page);
       }
-      res.json(await upstream.json());
-    });
+      try {
+        const upstream = await fetch("https://api.fish.audio/v1/agent/sessions", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.FISH_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ agent_id: process.env.AGENT_ID }),
+        });
+        const body = await upstream.text();
+        if (upstream.ok) console.log("session", JSON.parse(body).session_id);
+        else console.log("failed", upstream.status, body);
+        res.writeHead(upstream.status, { "Content-Type": "application/json" });
+        res.end(body);
+      } catch (error) {
+        console.error(error);
+        res.writeHead(502).end();
+      }
+    }).listen(3000, "localhost", () => console.log("open http://localhost:3000"));
     
-    app.listen(3001, () => console.log("backend on http://localhost:3001"));
+    
+    
+    import json
+    import os
+    import urllib.error
+    import urllib.request
+    from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+    
+    PAGE = b"""<!doctype html>
+    <meta charset="utf-8">
+    <title>Fish Agent demo</title>
+    <fish-agent agent-name="My agent"></fish-agent>
+    <script src="https://unpkg.com/@fishaudio/agent-widget-embed" async></script>
+    <script>
+      document.querySelector("fish-agent").sessionTokenProvider = async () => {
+        const response = await fetch("/voice-session", { method: "POST" });
+        if (!response.ok) throw new Error("backend answered " + response.status);
+        return response.json();
+      };
+    </script>"""
+    
+    
+    class Handler(BaseHTTPRequestHandler):
+        def reply(self, status, content_type, body):
+            self.send_response(status)
+            self.send_header("Content-Type", content_type)
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+    
+        def do_GET(self):
+            self.reply(200, "text/html", PAGE)
+    
+        def do_POST(self):
+            if self.path != "/voice-session":
+                return self.reply(404, "text/plain", b"not found")
+            request = urllib.request.Request(
+                "https://api.fish.audio/v1/agent/sessions",
+                data=json.dumps({"agent_id": os.environ["AGENT_ID"]}).encode(),
+                headers={
+                    "Authorization": f"Bearer {os.environ['FISH_API_KEY']}",
+                    "Content-Type": "application/json",
+                },
+            )
+            try:
+                with urllib.request.urlopen(request) as upstream:
+                    status, body = upstream.status, upstream.read()
+                print("session", json.loads(body)["session_id"], flush=True)
+            except urllib.error.HTTPError as error:
+                status, body = error.code, error.read()
+                print("failed", status, body.decode(), flush=True)
+            except urllib.error.URLError as error:
+                status, body = 502, b""
+                print("failed", error.reason, flush=True)
+            self.reply(status, "application/json", body)
+    
+    
+    print("open http://localhost:3000", flush=True)
+    ThreadingHTTPServer(("localhost", 3000), Handler).serve_forever()
     
 
-vite.config.mjs
+Start it in the terminal where you set `FISH_API_KEY` and `AGENT_ID`.
+
+Node.js
+
+Python
     
     
-    export default {
-      server: {
-        proxy: { "/api": "http://localhost:3001" },
-      },
-    };
+    node server.mjs
+    
+    
+    
+    python3 server.py
     
 
-index.html
+Open `http://localhost:3000`, click the launcher in the corner of the page, and start a voice chat. Your browser asks for the microphone, then you are talking to your agent.The terminal prints the `session_id` of each call. After you hang up, read the call back.
+
+Read the call
     
     
-    <!doctype html>
-    <button id="start">Start call</button>
-    <button id="end" disabled>Hang up</button>
-    <pre id="log"></pre>
-    <script type="module" src="/main.js"></script>
+    curl "https://api.fish.audio/v1/agent/sessions/SESSION_ID" \
+      --header "Authorization: Bearer $FISH_API_KEY"
     
 
-main.js
-    
-    
-    import { AgentSession } from "@fishaudio/agent-client";
-    
-    const startButton = document.getElementById("start");
-    const endButton = document.getElementById("end");
-    const log = (line) => (document.getElementById("log").textContent += line + "\n");
-    
-    let session;
-    
-    // Start from a click: browsers only grant the microphone and
-    // audio playback inside a user gesture.
-    startButton.onclick = async () => {
-      const sessionToken = await fetch("/api/voice-session", { method: "POST" })
-        .then((r) => r.json());
-    
-      session = await AgentSession.start({
-        sessionToken,
-        callbacks: {
-          onUserTranscript: ({ text, final }) => final && log("You: " + text),
-          onAgentResponse: ({ text }) => log("Agent: " + text),
-          onDisconnect: ({ reason }) => log("Call ended: " + reason),
-        },
-      });
-      startButton.disabled = true;
-      endButton.disabled = false;
-    };
-    
-    endButton.onclick = () => session?.end();
-    
+`status` is `completed` and `items` holds the transcript.
 
-Run the two processes in separate terminals, then open the Vite URL (`http://localhost:5173`) and click **Start call** :
+Open the page on `localhost` or over `https`. Browsers do not give a page the microphone on a plain `http` address such as a LAN IP.
 
-Run
-    
-    
-    FISH_API_KEY=your_key AGENT_ID=your_agent_id node server.mjs
-    npx vite
-    
+What the file does.
 
-Every request and response on this path is in the [Agents API reference](https://docs.fish.audio/api-reference/endpoint/agent/create-agent-session). For production, keep the same shape: your backend owns the API key and returns session tokens, and the SDK runs in the page.
+  * The route calls `POST /v1/agent/sessions` with your API key and returns the response to the page unchanged. Your key never reaches the browser.
+  * The response is a short-lived token for one conversation. Create a session when a user starts a call, one per call. Do not create sessions ahead of time or to test the API, because a session that no client joins ends as `failed`.
+  * The widget receives the token through `sessionTokenProvider`. To build your own interface, pass the same token to the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) or the [React SDK](https://docs.fish.audio/agents/deploy/react-sdk).
 
-## 
+For production, keep the same shape. Your backend owns the API key and returns session tokens, and the page runs the widget or the SDK. See [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions).
 
-​
-
-Next steps
+## Next steps
 
 ## Core concepts
 

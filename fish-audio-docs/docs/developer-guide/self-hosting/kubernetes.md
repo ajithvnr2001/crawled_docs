@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/kubernetes/
 title: Kubernetes deployment - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.675198+00:00
+fetched_at: 2026-11-18T16:38:19.907810+00:00
 ---
 
 # Kubernetes deployment - Fish Audio
@@ -13,7 +13,7 @@ fetched_at: 2026-10-30T14:25:07.675198+00:00
 
 Back to top
 
-  * Billing profile
+  * Billing mode
   * Before installing
   * What to expect
   * Next steps
@@ -30,49 +30,33 @@ Install a model’s speech stack on your own Kubernetes cluster with its Helm ch
 
 Copy pageCopy page
 
-Each model ships as its own Helm chart, which installs the whole speech stack into a cluster you run, with an online or an offline billing profile.
+Each model ships as its own Helm chart, which installs the whole speech stack into a cluster you run, in any billing mode.
 
 This page covers what the deployment involves and what you need to decide. The commands, values, and troubleshooting are in the **deployment runbook** , which you download from **Developer → Self Host** with the chart version you install. The runbook is versioned with the chart; this page is not, so follow the runbook when they differ.
 
-## 
+## Billing mode
 
-​
+One chart serves every [billing mode](https://docs.fish.audio/developer-guide/self-hosting/introduction#billing); the deployment’s license decides. The chart can also pull the model weights from S3-compatible storage, Fish Audio’s or your own, instead of the in-cluster model warehouse. Installing still pulls images and the chart from a registry; for a cluster with no network access at all, see [Air-gapped deployments](https://docs.fish.audio/developer-guide/self-hosting/air-gapped).
 
-Billing profile
-
-The [billing modes](https://docs.fish.audio/developer-guide/self-hosting/introduction#billing) are two profiles of the chart. The online profile can also pull the model weights from S3-compatible storage, Fish Audio’s or your own, instead of the in-cluster model warehouse. Installing either profile still pulls images and the chart from a registry; for a cluster with no network access at all, see [Air-gapped deployments](https://docs.fish.audio/developer-guide/self-hosting/air-gapped).
-
-## 
-
-​
-
-Before installing
+## Before installing
 
 The chart installs everything into one namespace. Arrange the rest yourself:
 
   * **Shared storage** , mounted at the same path on every node. See [Requirements](https://docs.fish.audio/developer-guide/self-hosting/requirements#helm-kubernetes).
   * **GPU scheduling** : tolerations and node selectors, if your GPU nodes are tainted or you run more than one GPU type.
   * **Ingress and TLS** , off by default: put your own ingress or load balancer in front of the API service, or turn on the chart’s.
-  * **Secrets** for registry credentials, the license bundle, and model storage, preferably from your secret manager. The services that check the license stay down until its Secret exists.
+  * **Secrets** for registry credentials, the install bundle, model storage and, for Online, the deploy token, preferably from your secret manager. The services that check the license stay down until its Secret exists.
   * **Metrics** : the chart exposes Prometheus scrape annotations and creates no ServiceMonitors.
   * **Reference voices** , staged on shared storage by you or the optional voice sync before traffic that uses them starts.
   * **Replica counts** : talk to your account team before changing them.
 
 
 
-## 
-
-​
-
-What to expect
+## What to expect
 
 The first install is slow: the inference worker and the vocoder fetch their weights and prepare for your GPU type before either becomes ready. What they download or compile stays on shared storage, so later starts are quicker, as long as that storage persists. Upgrades, rollback, and uninstall are standard Helm operations; the runbook covers the order and the checks.
 
-## 
-
-​
-
-Next steps
+## Next steps
 
   * [Requirements](https://docs.fish.audio/developer-guide/self-hosting/requirements): hardware, platform, and network baselines
   * [Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access): how your team gets the chart

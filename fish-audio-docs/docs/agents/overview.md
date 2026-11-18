@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/overview/
 title: Agents Overview - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:47.728445+00:00
+fetched_at: 2026-11-18T16:38:21.364178+00:00
 ---
 
 # Agents Overview - Fish Audio
@@ -30,8 +30,6 @@ Build voice agents in the console, ship them with the REST API and SDKs, and put
 Copy pageCopy page
 
 Fish Agents is a hosted platform for real-time voice agents. Define an agent’s prompt, voice, knowledge, and tools in the Builder console, publish it, and talk to it from your web app through the SDK, over a phone number, or anywhere the REST API reaches. Speech recognition, turn-taking, and speech synthesis are handled for you.
-
-Agents is in public beta. Every Fish Audio account can use it: open [Agents](https://fish.audio/app/agents) in the console to get started. Features and APIs may still change before general availability.
 
 ## Quickstart
 

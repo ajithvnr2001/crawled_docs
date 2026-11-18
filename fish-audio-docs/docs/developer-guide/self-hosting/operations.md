@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/operations/
 title: Operations - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.828478+00:00
+fetched_at: 2026-11-18T16:38:19.963024+00:00
 ---
 
 # Operations - Fish Audio
@@ -48,7 +48,7 @@ Agree an escalation path before production traffic starts.
 
 ## Monitoring signals
 
-Prometheus is the metrics baseline. Watch request success, latency, and time-to-first-audio; pod readiness and restarts, Redis included; CPU and memory against requests and limits, and GPU use; shared storage; image pull failures; and the license’s time to expiry. The services export it as a metric and log warnings well before the license lapses. Centralize logs, keep Kubernetes events long enough to investigate a bad rollout, and redact secrets before sharing logs outside your environment.
+Prometheus is the metrics baseline. Watch request success, latency, and time-to-first-audio; pod readiness and restarts, Redis included; CPU and memory against requests and limits, and GPU use; shared storage; image pull failures; and the license’s time to expiry. The services export it as a metric and log warnings well before the license lapses, and log each failed license sync. Centralize logs, keep Kubernetes events long enough to investigate a bad rollout, and redact secrets before sharing logs outside your environment.
 
 ## Scaling
 
@@ -59,7 +59,7 @@ Capacity is set in the release configuration (replicas, resource requests, and p
 Back up:
 
   * Reference voice archives, if your traffic uses reference ids. In a self-hosted deployment these are durable data, not cache.
-  * The offline usage ledger directories, before they are pruned by your own archival process.
+  * The usage ledger directories, before they are pruned by your own archival process.
   * The values file used for the production release.
   * Secret manager entries.
   * Dashboards and alert rules.
