@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-the-relight-task/
 title: Get the status of the relight task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:45.045073+00:00
+fetched_at: 2026-11-18T16:18:30.393452+00:00
 ---
 
 # Get the status of the relight task - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfyui-server/startup-flags/
 title: Flags de inicio de ComfyUI: referencia de l\u00ednea de comandos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:42.086488+00:00
+fetched_at: 2026-11-18T16:18:17.820193+00:00
 ---
 
 # Flags de inicio de ComfyUI: referencia de línea de comandos - ComfyUI
@@ -55,11 +55,7 @@ Ejecuta `python main.py --help` en tu directorio de ComfyUI para ver el texto de
     python main.py --listen 0.0.0.0 --port 8288 --disable-auto-launch --lowvram
     
 
-## 
-
-​
-
-Red y servidor
+## Red y servidor
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
@@ -82,11 +78,7 @@ Flag| Predeterminado| Descripción
     python main.py --port 8443 --tls-keyfile key.pem --tls-certfile cert.pem
     
 
-## 
-
-​
-
-Directorios
+## Directorios
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
@@ -96,13 +88,10 @@ Flag| Predeterminado| Descripción
 `--output-directory` `PATH`| —| Directorio de salida. Anula `--base-directory`.  
 `--temp-directory` `PATH`| —| Directorio temporal. Anula `--base-directory`.  
 `--input-directory` `PATH`| —| Directorio de entrada. Anula `--base-directory`.  
+`--previews-directory` `PATH`| —| Directorio de las vistas previas de los recursos generados. Anula `--base-directory`.  
 `--user-directory` `PATH`| —| Directorio de usuario (ruta absoluta). Anula `--base-directory`. La ruta debe existir y ser legible.  
   
-## 
-
-​
-
-Inicio y navegador
+## Inicio y navegador
 
 Opción| Predeterminado| Descripción  
 ---|---|---  
@@ -117,11 +106,7 @@ Opción| Predeterminado| Descripción
     python main.py --disable-auto-launch
     
 
-## 
-
-​
-
-Dispositivos y CUDA
+## Dispositivos y CUDA
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
@@ -129,35 +114,22 @@ Flag| Predeterminado| Descripción
 `--default-device` `ID`| Ninguno| ID de dispositivo predeterminado. Todos los demás dispositivos permanecen visibles.  
 `--cuda-malloc`| Automático (torch 2.0+)| Habilita cudaMallocAsync. Es mutuamente excluyente con `--disable-cuda-malloc`.  
 `--disable-cuda-malloc`| Ninguno| Deshabilita cudaMallocAsync. Es mutuamente excluyente con `--cuda-malloc`.  
-`--directml` `[DEVICE]`| Ninguno| Usa torch-directml. Índice de dispositivo opcional; el valor predeterminado es `-1` cuando no se proporciona ningún valor.  
 `--oneapi-device-selector` `STRING`| Ninguno| Cadena selectora de dispositivos oneAPI para dispositivos Intel.  
   
 En Windows, ComfyUI usa solo la GPU 0 de forma predeterminada. Para restaurar todas las GPU, pasa `--cuda-device all`.
 
-## 
-
-​
-
-Precisión e inferencia
+## Precisión e inferencia
 
 Los flags de los grupos **Global** , **UNET** , **VAE** y **Text Encoder** que aparecen abajo son mutuamente excluyentes dentro de cada grupo. Solo puedes usar un flag por grupo a la vez.
 
-### 
-
-​
-
-Punto flotante global
+### Punto flotante global
 
 Flag| Descripción  
 ---|---  
 `--force-fp32`| Fuerza fp32 de forma global. Reporta si esto mejora el rendimiento de la GPU.  
 `--force-fp16`| Fuerza fp16 de forma global. También establece `--fp16-unet`.  
   
-### 
-
-​
-
-Precisión de UNET
+### Precisión de UNET
 
 Flag| Descripción  
 ---|---  
@@ -177,11 +149,7 @@ Cada sufijo de flag FP8 corresponde a un formato de coma flotante de 8 bits de l
 
 
 
-### 
-
-​
-
-Precisión de VAE
+### Precisión de VAE
 
 Flag| Descripción  
 ---|---  
@@ -190,11 +158,7 @@ Flag| Descripción
 `--bf16-vae`| Ejecuta el VAE en bf16.  
 `--cpu-vae`| Ejecuta el VAE en la CPU (no es mutuamente excluyente con los flags de precisión de VAE).  
   
-### 
-
-​
-
-Precisión del codificador de texto
+### Precisión del codificador de texto
 
 Flag| Descripción  
 ---|---  
@@ -206,11 +170,7 @@ Flag| Descripción
   
 Consulta la sección Precisión de UNET para ver la explicación de cada sufijo de formato FP8.
 
-### 
-
-​
-
-Otras opciones de inferencia
+### Otras opciones de inferencia
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
@@ -220,22 +180,14 @@ Flag| Predeterminado| Descripción
 `--enable-triton-backend`| disabled| Habilita el backend Triton en comfy-kitchen. Deshabilitado de forma predeterminada al iniciar.  
 `--disable-triton-backend`| disabled| Fuerza la desactivación del backend Triton de comfy-kitchen, anulando `--enable-triton-backend`.  
   
-## 
-
-​
-
-Vista previa
+## Vista previa
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
 `--preview-method`| `none`| Método de vista previa para los nodos sampler. Opciones: `none`, `auto`, `latent2rgb`, `taesd`.  
 `--preview-size`| `512`| Tamaño máximo de la vista previa de imagen en píxeles.  
   
-## 
-
-​
-
-Caché
+## Caché
 
 Las flags de modo de caché son mutuamente excluyentes. Solo debes usar una de `--cache-ram`, `--cache-classic`, `--high-ram`, `--cache-lru` o `--cache-none`.
 
@@ -246,14 +198,11 @@ Flag| Predeterminado| Descripción
 `--high-ram`| deshabilitado| Puede mejorar ligeramente el rendimiento en sistemas con abundante RAM o donde se prefiere usar el archivo de paginación antes que recargar modelos. También habilita la caché clásica.  
 `--cache-lru` `N`| `0` (deshabilitado)| Caché LRU con un máximo de N resultados de nodo en caché. Sin límite superior estricto; está limitada por la RAM/VRAM disponible. Puede consumir más RAM/VRAM.  
 `--cache-none`| Ninguno| Menor uso de RAM/VRAM; vuelve a ejecutar todos los nodos en cada ejecución.  
+`--force-output-rerun`| Desactivado| Vuelve a ejecutar los nodos de salida en cada ejecución, incluso con acierto de caché, para que escriban sus archivos de nuevo. Sus entradas se reutilizan desde la caché mientras los resultados sigan ahí, así que los modelos y los latents no se recalculan. Se excluyen los nodos API, porque volver a ejecutarlos repite una llamada externa de pago, y los nodos de salida creados por un nodo de expansión en caché no se vuelven a ejecutar. Pensado para servidores multiinquilino que borran los archivos de salida después de cada trabajo.  
   
 ComfyUI reutiliza los resultados de nodo en caché entre ejecuciones de la misma sesión, y eso es lo que hace más rápidas las ejecuciones repetidas. Usa `--cache-none` cuando prefieras que cada ejecución empiece con una caché limpia, por ejemplo, al depurar un flujo de trabajo o al descartar la reutilización de caché entre ejecuciones. Todos los nodos se vuelven a ejecutar, así que las generaciones tardan más. Es una flag de inicio, así que reinicia ComfyUI para que surta efecto.
 
-## 
-
-​
-
-Atención
+## Atención
 
 Las flags del método de cross-attention son mutuamente excluyentes. Las atenciones split y quad se ignoran cuando se usa xformers.
 
@@ -269,11 +218,7 @@ Flag| Descripción
 `--force-upcast-attention`| Fuerza el upcasting de atención. Reporta si esto corrige las imágenes negras. Mutuamente excluyente con `--dont-upcast-attention`.  
 `--dont-upcast-attention`| Desactiva todo el upcasting de atención. Solo para depuración.  
   
-## 
-
-​
-
-VRAM y memoria
+## VRAM y memoria
 
 La descarga asíncrona de pesos está activada de forma predeterminada en GPUs Nvidia y AMD, y la VRAM dinámica se habilita automáticamente donde es compatible. Las flags siguientes anulan esos valores predeterminados.
 
@@ -304,11 +249,7 @@ Flag| Predeterminado| Descripción
 `--mmap-torch-files`| deshabilitado| Usa mmap al cargar archivos ckpt/pt.  
 `--disable-mmap`| deshabilitado| No usa mmap al cargar safetensors.  
   
-## 
-
-​
-
-Rendimiento y depuración
+## Rendimiento y depuración
 
 Opción| Predeterminado| Descripción  
 ---|---|---  
@@ -325,25 +266,18 @@ Opción| Predeterminado| Descripción
     python main.py --fast fp16_accumulation cublas_ops
     
 
-## 
-
-​
-
-Administrador de ComfyUI
+## Administrador de ComfyUI
 
 Consulta [Instalación de ComfyUI-Manager](https://docs.comfy.org/es/manager/install) para las instrucciones de configuración.
 
 Flag| Descripción  
 ---|---  
 `--enable-manager`| Habilita el Administrador de ComfyUI.  
+`--enable-agent`| Habilita la función agent de ComfyUI.  
 `--disable-manager-ui`| Deshabilita solo la interfaz y los endpoints del Administrador. Las tareas en segundo plano (instalaciones programadas, etc.) continúan. Requiere `--enable-manager`.  
 `--enable-manager-legacy-ui`| Usa la interfaz clásica del Administrador. Implica `--enable-manager`. Es mutuamente excluyente con `--disable-manager-ui`.  
   
-## 
-
-​
-
-Nodos personalizados y Nodos API
+## Nodos personalizados y Nodos API
 
 Bandera| Predeterminado| Descripción  
 ---|---|---  
@@ -365,11 +299,7 @@ Bandera| Predeterminado| Descripción
     python main.py --disable-all-custom-nodes --whitelist-custom-nodes ComfyUI-Manager
     
 
-## 
-
-​
-
-Frontend y API
+## Frontend y API
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
@@ -391,11 +321,7 @@ Flag| Predeterminado| Descripción
     python main.py --feature-flag show_signin_button=true
     
 
-## 
-
-​
-
-Registro y varios
+## Registro y varios
 
 Flag| Predeterminado| Descripción  
 ---|---|---  

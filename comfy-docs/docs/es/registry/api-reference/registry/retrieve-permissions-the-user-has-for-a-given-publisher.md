@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-permissions-the-user-has-for-a-given-publisher/
 title: Retrieve permissions the user has for a given publisher - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:41.374362+00:00
+fetched_at: 2026-11-18T16:18:26.136083+00:00
 ---
 
 # Retrieve permissions the user has for a given publisher - ComfyUI

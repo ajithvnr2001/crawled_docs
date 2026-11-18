@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-flare/code/
 title: Use GPT Image 2.6 Flare with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:37.350924+00:00
+fetched_at: 2026-11-18T16:18:19.649747+00:00
 ---
 
 # Use GPT Image 2.6 Flare with Comfy Router - ComfyUI
@@ -361,7 +361,7 @@ created
 
 integer
 
-Unix timestamp, in seconds, of when the generation completed. It is the one member OpenAI declares REQUIRED on an image-generation response, so it is present whenever OpenAI is the producer; a fal-, minimax-, pika-, wavespeed- or runware-served response on any of the alt-backed ids omits it entirely, like the other four resolved-parameter members. Declared `int64` because a present-day epoch value is close enough to 2^31 that an unformatted `integer` generates a 32-bit field in many SDK generators.Format: `int64`
+Unix timestamp, in seconds, of when the generation completed. It is the one member OpenAI declares REQUIRED on an image-generation response, so it is present whenever OpenAI is the producer; a fal-, minimax-, wavespeed- or runware-served response on any of the alt-backed ids omits it entirely, like the other four resolved-parameter members. Declared `int64` because a present-day epoch value is close enough to 2^31 that an unformatted `integer` generates a 32-bit field in many SDK generators.Format: `int64`
 
 output_format
 

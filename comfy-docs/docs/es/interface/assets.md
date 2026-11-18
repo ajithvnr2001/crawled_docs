@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/assets/
 title: Recursos - Biblioteca de recursos multimedia de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.543544+00:00
+fetched_at: 2026-11-18T16:18:18.088573+00:00
 ---
 
 # Recursos - Biblioteca de recursos multimedia de ComfyUI - ComfyUI
@@ -44,19 +44,11 @@ El panel **Recursos** es la biblioteca de ComfyUI para los recursos multimedia q
 
 Comfy Cloud agrega el menú de filtros, las opciones de ordenación, las descargas ZIP y la eliminación permanente de archivos. El resto del panel funciona igual en ambas versiones. ![El panel de Recursos en la pestaña Generados en vista de cuadrícula, con una tarjeta de múltiples salidas y su insignia de recuento de salidas](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_generated.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=f41c34090192b790a6eb21add2a83427) ![El panel de Recursos en la pestaña Importados, que muestra los archivos de entrada cargados](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_imported.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=49ce3a59d451156b893de797d9ad7d25) ![El menú de clic derecho en una tarjeta de recurso, con opciones para inspeccionar, insertar, descargar, exportar o eliminar el recurso](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_context_menu.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=2c379ca0533551e0405acb44d117e770)
 
-## 
-
-​
-
-Abrir el panel Recursos
+## Abrir el panel Recursos
 
 Haz clic en el icono **Recursos** de la barra lateral izquierda para abrir el panel.
 
-## 
-
-​
-
-Recursos generados e importados
+## Recursos generados e importados
 
 El panel divide tus archivos en dos pestañas:
 
@@ -65,11 +57,7 @@ El panel divide tus archivos en dos pestañas:
 
 Los modelos no forman parte de este panel. Los archivos de modelos locales están en el panel **Modelos** , y cómo subir tus propios modelos a Comfy Cloud se explica en [Importar modelos](https://docs.comfy.org/es/cloud/import-models).
 
-## 
-
-​
-
-Encontrar un recurso
+## Encontrar un recurso
 
 El encabezado del panel contiene la caja de búsqueda y los controles de visualización.
 
@@ -80,21 +68,13 @@ El encabezado del panel contiene la caja de búsqueda y los controles de visuali
 
 ![Menú de filtros de Recursos de Cloud abierto, con los chips Imagen y Últimos 7 días activos](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_filter_menu.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=bd9b8b4c2ab5ea2f83c348461c946f9a) ![Menú de vista y ordenación de Recursos de Cloud \(lista/cuadrícula y más reciente/más antiguo/nombre/tiempo de generación\)](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_sort_menu.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=e87e774e534ff65c38e44cbe8fbb0dc0)
 
-## 
-
-​
-
-Obtener una vista previa de un recurso
+## Obtener una vista previa de un recurso
 
 Haz clic en una tarjeta para seleccionarla, o haz doble clic en una imagen para abrirla en una vista previa ampliada. Los videos se reproducen directamente con una superposición de reproducción, y los archivos de audio y 3D se abren en visores dedicados. Haz clic derecho en una tarjeta y elige **Inspeccionar recurso** para abrir la misma vista previa.
 
-## 
+## Previsualización de imágenes HDR y EXR
 
-​
-
-Previsualización de imágenes HDR y EXR
-
-Un archivo con extensión `.exr` o `.hdr` no se abre en el visor de imágenes estándar. ComfyUI lo abre en el **Visor HDR** , un diálogo que renderiza la imagen a resolución completa y mantiene intactos los valores de luces altas por encima de 1.0 hasta que apliques el mapeo tonal tú mismo. El título del diálogo es el nombre del archivo. El Visor HDR se abre desde tres lugares:
+Un archivo con extensión `.exr` o `.hdr` no se abre en el visor de imágenes estándar. ComfyUI lo abre en el **Visor HDR** , un diálogo que renderiza la imagen a resolución completa y mantiene intactos los valores de luces altas por encima de 1.0 hasta que apliques el mapeo tonal tú mismo. El título del diálogo es el nombre del archivo. Tu navegador no admite la etiqueta de video.El Visor HDR se abre desde tres lugares:
 
   * **Vista previa de imagen del nodo** : una salida HDR muestra un marcador de posición con un botón **Abrir en el visor HDR** en lugar de la imagen. La misma acción está en el botón del sol de la fila de acciones de la vista previa.
   * **Panel de recursos** : haz doble clic en la tarjeta de un recurso `.exr` o `.hdr`, o elige **Inspeccionar recurso** en su menú de clic derecho.
@@ -112,11 +92,7 @@ El panel lateral contiene los controles de mapeo tonal:
 
 Desplázate para alejar hasta 0.05x o acercar hasta 64x. La lectura de la esquina superior izquierda sigue al puntero y muestra las coordenadas del píxel con los valores RGBA sin procesar debajo. Un archivo que el visor no puede decodificar muestra `No se pudo cargar la imagen HDR`.
 
-## 
-
-​
-
-Reutilizar un recurso en un flujo de trabajo
+## Reutilizar un recurso en un flujo de trabajo
 
   * **Insertar como nodo en el flujo de trabajo** : haz clic derecho en una tarjeta y elige esta entrada para añadir el nodo cargador correspondiente (por ejemplo `Load Image`, `Load Video` o `Load Audio`) en el centro del lienzo, con el recurso ya seleccionado en el nodo. Solo los tipos de archivo que tienen un nodo cargador muestran esta entrada.
   * **Arrastrar al lienzo** : arrastra una tarjeta al lienzo para cargarla de la misma forma. Mantén pulsado `Ctrl` o `Cmd` mientras haces clic para seleccionar recursos en lugar de iniciar un arrastre.
@@ -125,11 +101,7 @@ Reutilizar un recurso en un flujo de trabajo
 
 
 
-## 
-
-​
-
-Descargar recursos
+## Descargar recursos
 
 Abre el menú contextual con clic derecho en una o varias tarjetas y elige **Descargar** , o usa el botón de descarga que aparece en una tarjeta al pasar el cursor sobre ella.
 
@@ -139,27 +111,15 @@ Abre el menú contextual con clic derecho en una o varias tarjetas y elige **Des
 
 
 
-## 
-
-​
-
-Trabajar con varios recursos a la vez
+## Trabajar con varios recursos a la vez
 
 Arrastra un recuadro de selección sobre la cuadrícula para seleccionar un bloque de recursos y luego usa la barra de selección en la parte inferior del panel. Muestra cuántos recursos están seleccionados y ofrece **Deselect all** , **Download** y **Delete**. Si haces clic derecho en una tarjeta seleccionada, se abre el menú de acciones masivas con **Insert all assets as nodes** , **Open all workflows** , **Export all workflows** , **Download all** y **Delete all**.
 
-## 
-
-​
-
-Salidas agrupadas
+## Salidas agrupadas
 
 Cuando una ejecución produce varios archivos, la tarjeta muestra una insignia con la cantidad de salidas. Al hacer clic en esa insignia se abre una vista de carpeta para esa tarea en lugar de una cuadrícula plana. El encabezado de la carpeta muestra el ID de trabajo con un botón para copiar y la hora de ejecución de la tarea, y **Volver a todos los recursos** regresa a la lista completa.
 
-## 
-
-​
-
-Eliminar recursos
+## Eliminar recursos
 
 Elige **Eliminar** en el menú del botón derecho, o **Eliminar todo** para una selección. Un cuadro de diálogo de confirmación enumera primero los archivos afectados. Lo que ocurre después depende del servidor:
 
@@ -170,11 +130,7 @@ Elige **Eliminar** en el menú del botón derecho, o **Eliminar todo** para una 
 
 Eliminar un recurso también lo borra de los nodos de carga que lo referenciaban, los cuales pasan a mostrar el archivo como medio faltante.
 
-## 
-
-​
-
-Páginas relacionadas
+## Páginas relacionadas
 
   * [Resumen de la interfaz](https://docs.comfy.org/es/interface/overview): dónde se ubica el panel Recursos entre las demás entradas de la barra lateral.
   * [Importar modelos](https://docs.comfy.org/es/cloud/import-models): sube tus propios modelos a Comfy Cloud.

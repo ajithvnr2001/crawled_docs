@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/bria/background-removal/
 title: Bria en ComfyUI: eliminaci\u00f3n de fondo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:46.015438+00:00
+fetched_at: 2026-11-18T16:18:19.149935+00:00
 ---
 
 # Bria en ComfyUI: eliminación de fondo - ComfyUI
@@ -37,11 +37,7 @@ Copiar páginaCopiar página
 
 Los modelos de procesamiento de fondo con IA de Bria ya están disponibles en ComfyUI mediante los Nodos asociados. Esta página cubre la **eliminación de fondo de imagen** , la **eliminación de fondo de imagen guiada** , la **eliminación de fondo de video** , el **fondo transparente de video** , la **pantalla verde de video** y el **reemplazo de fondo de video**.
 
-## 
-
-​
-
-En qué destaca Bria Background Removal
+## En qué destaca Bria Background Removal
 
   * **Eliminación de fondo de imágenes** : Elimina automáticamente el fondo de una imagen y devuelve el resultado con un fondo transparente.
   * **Eliminación de fondo de imágenes guiada** : Conserva el sujeto que describe un prompt y elimina el resto, de modo que puedes recortar un solo sujeto de una escena recargada en lugar de conservar todo lo que no sea fondo.
@@ -52,11 +48,7 @@ En qué destaca Bria Background Removal
 
 
 
-## 
-
-​
-
-Salidas de ejemplo
+## Salidas de ejemplo
 
 Eliminación de fondo de imagen, devolviendo el sujeto sobre un fondo transparente: ![Bria: Remove Image Background, salida de ejemplo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_bria_remove_image_background.png)
 
@@ -85,13 +77,9 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-### 
+### Bria: Remove Image Background
 
-​
-
-Bria: Remove Image Background
-
-Sube una imagen para eliminar su fondo automáticamente usando la API de Bria. El resultado se devuelve como una imagen con fondo transparente. ![Vista previa del flujo de trabajo Bria: Remove Image Background](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_bria_remove_image_background-1.webp)
+Sube una imagen para eliminar su fondo automáticamente usando la API de Bria. El resultado se devuelve como una imagen con fondo transparente. El selector **model** del nodo alterna entre `RMBG2`, la opción predeterminada, y `RMBG3`. ![Vista previa del flujo de trabajo Bria: Remove Image Background](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_bria_remove_image_background-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -109,11 +97,7 @@ nodo `LoadImage` 26 · `denim_girl.png`
 
 ![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/denim_girl.png)![Bria: Remove Image Background, salida de ejemplo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_bria_remove_image_background.png)
 
-### 
-
-​
-
-Bria: Guided Remove Background
+### Bria: Guided Remove Background
 
 Elimina el fondo de una imagen y conserva lo que describe un prompt. En lugar de conservar todo lo que no es fondo, el nodo reduce el recorte al sujeto que indiques, y así una persona u objeto sale intacto de una escena con mucho contenido. Los píxeles originales vuelven a resolución completa con un nuevo canal alfa. ![Vista previa del flujo de trabajo Bria: Guided Remove Background](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_guided_remove_background-1.webp)
 
@@ -133,19 +117,11 @@ Cárgalo en el nodo `LoadImage`
 
 El `prompt` nombra lo que se conserva, por ejemplo `the man in the blue shirt` o `only the shoes`. Un prompt que no coincide con nada devuelve una imagen totalmente transparente. Con `moderation` activado aparecen controles separados de entrada y salida visual; desactivado, se omiten. Para un recorte simple sin orientación, usa **Bria: Remove Image Background** arriba.
 
-## 
-
-​
-
-Procesamiento de fondos de video
+## Procesamiento de fondos de video
 
 Los nodos de procesamiento de fondos de video de Bria te permiten eliminar, reemplazar o aplicar efectos de chroma key a los fondos de video. El video de entrada debe durar 60 segundos o menos.
 
-### 
-
-​
-
-Bria: Eliminar fondo de video
+### Bria: Eliminar fondo de video
 
 Reemplaza el fondo de un video con un color sólido de tu elección. ![Vista previa del flujo de trabajo Bria: Eliminar fondo de video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_remove_video_background-1.webp)
 
@@ -163,11 +139,7 @@ Descarga el JSON o busca “Bria: Remove Video Background” en la Biblioteca de
 
 nodo `LoadVideo` 4 · `spear_warrior.mp4`
 
-### 
-
-​
-
-Bria: Eliminar fondo de video (transparente)
+### Bria: Eliminar fondo de video (transparente)
 
 Elimina el fondo de un video y obtén una salida con transparencia. ![Vista previa del flujo de trabajo Bria: Eliminar fondo de video \(transparente\)](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_remove_video_background_transparent-1.webp)
 
@@ -185,11 +157,7 @@ Descarga el JSON o busca “Bria: Remove Video Background (Transparent)” en la
 
 nodo `LoadVideo` 5 · `ad_video_demo.mp4`
 
-### 
-
-​
-
-Bria: Pantalla verde de video
+### Bria: Pantalla verde de video
 
 Aplica a tu video un efecto profesional de pantalla verde o azul para chroma key, con varias opciones predefinidas como broadcast_green, chroma_green y blue_screen. ![Vista previa del flujo de trabajo Bria: Pantalla verde de video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_video_green_screen-1.webp)
 
@@ -207,11 +175,7 @@ Descarga el JSON o busca “Bria: Video Green Screen” en la Biblioteca de plan
 
 nodo `LoadVideo` 5 · `investigator.mp4`
 
-### 
-
-​
-
-Bria: Reemplazar el fondo de un video
+### Bria: Reemplazar el fondo de un video
 
 Reemplaza el fondo de un video con una imagen personalizada o con otro video. ![Vista previa del flujo de trabajo Bria: Reemplazar el fondo de un video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_video_replace_background-1.webp)
 

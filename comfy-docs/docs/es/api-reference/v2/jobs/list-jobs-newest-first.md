@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/list-jobs-newest-first/
 title: List jobs, newest first - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:59.252928+00:00
+fetched_at: 2026-11-18T16:18:20.921312+00:00
 ---
 
 # List jobs, newest first - ComfyUI

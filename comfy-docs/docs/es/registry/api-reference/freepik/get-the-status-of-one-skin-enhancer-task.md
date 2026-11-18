@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-one-skin-enhancer-task/
 title: Get the status of one skin enhancer task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:44.228921+00:00
+fetched_at: 2026-11-18T16:18:28.908757+00:00
 ---
 
 # Get the status of one skin enhancer task - ComfyUI

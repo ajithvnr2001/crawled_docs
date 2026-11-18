@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfyui-server/startup-flags/
 title: ComfyUI Startup Flags: Command-Line Reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:44.157475+00:00
+fetched_at: 2026-11-18T16:18:17.177220+00:00
 ---
 
 # ComfyUI Startup Flags: Command-Line Reference - ComfyUI
@@ -55,11 +55,7 @@ Run `python main.py --help` in your ComfyUI directory for the built-in help text
     python main.py --listen 0.0.0.0 --port 8288 --disable-auto-launch --lowvram
     
 
-## 
-
-​
-
-Network & Server
+## Network & Server
 
 Flag| Default| Description  
 ---|---|---  
@@ -82,11 +78,7 @@ Flag| Default| Description
     python main.py --port 8443 --tls-keyfile key.pem --tls-certfile cert.pem
     
 
-## 
-
-​
-
-Directories
+## Directories
 
 Flag| Default| Description  
 ---|---|---  
@@ -96,13 +88,10 @@ Flag| Default| Description
 `--output-directory` `PATH`| —| Output directory. Overrides `--base-directory`.  
 `--temp-directory` `PATH`| —| Temp directory. Overrides `--base-directory`.  
 `--input-directory` `PATH`| —| Input directory. Overrides `--base-directory`.  
+`--previews-directory` `PATH`| —| Directory for generated asset previews. Overrides `--base-directory`.  
 `--user-directory` `PATH`| —| User directory (absolute path). Overrides `--base-directory`. Path must exist and be readable.  
   
-## 
-
-​
-
-Launch & Browser
+## Launch & Browser
 
 Flag| Default| Description  
 ---|---|---  
@@ -117,11 +106,7 @@ Flag| Default| Description
     python main.py --disable-auto-launch
     
 
-## 
-
-​
-
-Devices & CUDA
+## Devices & CUDA
 
 Flag| Default| Description  
 ---|---|---  
@@ -129,35 +114,22 @@ Flag| Default| Description
 `--default-device` `ID`| —| Default device ID. All other devices remain visible.  
 `--cuda-malloc`| auto (torch 2.0+)| Enable cudaMallocAsync. Mutually exclusive with `--disable-cuda-malloc`.  
 `--disable-cuda-malloc`| —| Disable cudaMallocAsync. Mutually exclusive with `--cuda-malloc`.  
-`--directml` `[DEVICE]`| —| Use torch-directml. Optional device index; defaults to `-1` when no value is given.  
 `--oneapi-device-selector` `STRING`| —| oneAPI device selector string for Intel devices.  
   
 On Windows, ComfyUI uses GPU 0 only by default. To restore all GPUs, pass `--cuda-device all`.
 
-## 
-
-​
-
-Precision & Inference
+## Precision & Inference
 
 Flags in the **Global** , **UNET** , **VAE** , and **Text Encoder** groups below are mutually exclusive within each group. Only one flag per group can be used at a time.
 
-### 
-
-​
-
-Global floating point
+### Global floating point
 
 Flag| Description  
 ---|---  
 `--force-fp32`| Force fp32 globally. Report if this improves GPU performance.  
 `--force-fp16`| Force fp16 globally. Also sets `--fp16-unet`.  
   
-### 
-
-​
-
-UNET precision
+### UNET precision
 
 Flag| Description  
 ---|---  
@@ -177,11 +149,7 @@ Each FP8 flag suffix names an 8-bit float layout from the industry FP8 spec (ONN
 
 
 
-### 
-
-​
-
-VAE precision
+### VAE precision
 
 Flag| Description  
 ---|---  
@@ -190,11 +158,7 @@ Flag| Description
 `--bf16-vae`| Run the VAE in bf16.  
 `--cpu-vae`| Run the VAE on the CPU (not mutually exclusive with VAE precision flags).  
   
-### 
-
-​
-
-Text encoder precision
+### Text encoder precision
 
 Flag| Description  
 ---|---  
@@ -206,11 +170,7 @@ Flag| Description
   
 See the UNET precision section for the explanation of each FP8 format suffix.
 
-### 
-
-​
-
-Other inference options
+### Other inference options
 
 Flag| Default| Description  
 ---|---|---  
@@ -220,22 +180,14 @@ Flag| Default| Description
 `--enable-triton-backend`| disabled| Enable Triton backend in comfy-kitchen. Disabled by default at launch.  
 `--disable-triton-backend`| disabled| Force-disable the comfy-kitchen Triton backend, overriding `--enable-triton-backend`.  
   
-## 
-
-​
-
-Preview
+## Preview
 
 Flag| Default| Description  
 ---|---|---  
 `--preview-method`| `none`| Preview method for sampler nodes. Choices: `none`, `auto`, `latent2rgb`, `taesd`.  
 `--preview-size`| `512`| Maximum preview image size in pixels.  
   
-## 
-
-​
-
-Cache
+## Cache
 
 Cache mode flags are mutually exclusive. Only one of `--cache-ram`, `--cache-classic`, `--high-ram`, `--cache-lru`, or `--cache-none` should be used.
 
@@ -246,14 +198,11 @@ Flag| Default| Description
 `--high-ram`| disabled| Can improve performance slightly on systems with plenty of RAM or where pagefile use is preferred over reloading models. Also enables classic caching.  
 `--cache-lru` `N`| `0` (disabled)| LRU caching with a maximum of N node results cached. No hard upper limit; bounded by available RAM/VRAM. May use more RAM/VRAM.  
 `--cache-none`| —| Reduced RAM/VRAM usage; re-executes every node on each run.  
+`--force-output-rerun`| disabled| Re-executes output nodes on every run, even on a cache hit, so they write their files again. Their inputs are reused from the cache as long as the cached results are still there, so models and latents are not recomputed. API nodes are excluded because a re-run repeats a paid external call, and output nodes created by a cached expanding node are not re-run. For multi-tenant servers that delete output files after each job.  
   
 ComfyUI reuses cached node results between runs in the same session, which is what makes repeat runs faster. Use `--cache-none` when you would rather every run start from a clean cache, for example while debugging a workflow or ruling out cached reuse between runs. Every node re-executes, so generations take longer. It is a startup flag, so restart ComfyUI for it to take effect.
 
-## 
-
-​
-
-Attention
+## Attention
 
 Cross-attention method flags are mutually exclusive. Split and quad attention are ignored when xformers is used.
 
@@ -269,11 +218,7 @@ Flag| Description
 `--force-upcast-attention`| Force attention upcasting. Report if this fixes black images. Mutually exclusive with `--dont-upcast-attention`.  
 `--dont-upcast-attention`| Disable all attention upcasting. For debugging only.  
   
-## 
-
-​
-
-VRAM & Memory
+## VRAM & Memory
 
 Async weight offloading is on by default on Nvidia and AMD GPUs, and dynamic VRAM is enabled automatically where it is supported. The flags below override those defaults.
 
@@ -304,11 +249,7 @@ Flag| Default| Description
 `--mmap-torch-files`| disabled| Use mmap when loading ckpt/pt files.  
 `--disable-mmap`| disabled| Do not use mmap when loading safetensors.  
   
-## 
-
-​
-
-Performance & Debugging
+## Performance & Debugging
 
 Flag| Default| Description  
 ---|---|---  
@@ -325,25 +266,18 @@ Flag| Default| Description
     python main.py --fast fp16_accumulation cublas_ops
     
 
-## 
-
-​
-
-ComfyUI Manager
+## ComfyUI Manager
 
 See [ComfyUI-Manager Installation](https://docs.comfy.org/manager/install) for setup instructions.
 
 Flag| Description  
 ---|---  
 `--enable-manager`| Enable ComfyUI-Manager.  
+`--enable-agent`| Enable the ComfyUI agent feature.  
 `--disable-manager-ui`| Disable Manager UI and endpoints only. Background tasks (scheduled installs, etc.) continue. Requires `--enable-manager`.  
 `--enable-manager-legacy-ui`| Use the legacy Manager UI. Implies `--enable-manager`. Mutually exclusive with `--disable-manager-ui`.  
   
-## 
-
-​
-
-Custom Nodes & API Nodes
+## Custom Nodes & API Nodes
 
 Flag| Default| Description  
 ---|---|---  
@@ -365,11 +299,7 @@ Flag| Default| Description
     python main.py --disable-all-custom-nodes --whitelist-custom-nodes ComfyUI-Manager
     
 
-## 
-
-​
-
-Frontend & API
+## Frontend & API
 
 Flag| Default| Description  
 ---|---|---  
@@ -391,11 +321,7 @@ Flag| Default| Description
     python main.py --feature-flag show_signin_button=true
     
 
-## 
-
-​
-
-Logging & Misc
+## Logging & Misc
 
 Flag| Default| Description  
 ---|---|---  

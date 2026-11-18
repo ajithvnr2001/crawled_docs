@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/relight-an-image/
 title: Relight an image - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:44.980169+00:00
+fetched_at: 2026-11-18T16:18:29.941122+00:00
 ---
 
 # Relight an image - ComfyUI

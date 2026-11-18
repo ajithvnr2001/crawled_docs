@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code/
 title: Use GPT Image 2 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:14.757116+00:00
+fetched_at: 2026-11-18T16:18:19.055768+00:00
 ---
 
 # Use GPT Image 2 with Comfy Router - ComfyUI
@@ -181,7 +181,6 @@ This model is served by Comfy Router directly unless the request names another p
   * **Comfy** (default): `POST https://api.comfy.org/v2/models/openai/gpt-image-2`
   * **fal** , as `fal/fal-gpt-image-2`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2?model_provider=fal`
   * **MiniMax** , as `minimax/minimax-gpt-image-2`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2?model_provider=minimax`
-  * **Pika** , as `pika/pika-gpt-image-2`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2?model_provider=pika`
   * **Runware** , as `runware/runware-gpt-image-2`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2?model_provider=runware`
   * **WaveSpeed** , as `wavespeed/wavespeed-gpt-image-2`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2?model_provider=wavespeed`
 
@@ -353,7 +352,7 @@ created
 
 integer
 
-Unix timestamp, in seconds, of when the generation completed. It is the one member OpenAI declares REQUIRED on an image-generation response, so it is present whenever OpenAI is the producer; a fal-, minimax-, pika-, wavespeed- or runware-served response on any of the alt-backed ids omits it entirely, like the other four resolved-parameter members. Declared `int64` because a present-day epoch value is close enough to 2^31 that an unformatted `integer` generates a 32-bit field in many SDK generators.Format: `int64`
+Unix timestamp, in seconds, of when the generation completed. It is the one member OpenAI declares REQUIRED on an image-generation response, so it is present whenever OpenAI is the producer; a fal-, minimax-, wavespeed- or runware-served response on any of the alt-backed ids omits it entirely, like the other four resolved-parameter members. Declared `int64` because a present-day epoch value is close enough to 2^31 that an unformatted `integer` generates a 32-bit field in many SDK generators.Format: `int64`
 
 output_format
 

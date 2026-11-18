@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/create-or-reuse-an-asset-over-existing-bytes/
 title: Create or reuse an asset over existing bytes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:01.704414+00:00
+fetched_at: 2026-11-18T16:18:23.454557+00:00
 ---
 
 # Create or reuse an asset over existing bytes - ComfyUI
@@ -971,6 +971,7 @@ Example:
     
     
     { "client": "acme" }
+    
 
 Was this page helpful?
 

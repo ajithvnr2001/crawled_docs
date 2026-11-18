@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/asset-metadata/
 title: Asset metadata - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:01.578396+00:00
+fetched_at: 2026-11-18T16:18:22.797365+00:00
 ---
 
 # Asset metadata - ComfyUI

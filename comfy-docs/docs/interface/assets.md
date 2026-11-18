@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/assets/
 title: Assets - ComfyUI Media Asset Library - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:00.177206+00:00
+fetched_at: 2026-11-18T16:18:18.173590+00:00
 ---
 
 # Assets - ComfyUI Media Asset Library - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:00.177206+00:00
 > Source: https://docs.comfy.org/interface/assets/
 
 ## On this page
+
+Back to top
 
   * Opening the Assets panel
   * Generated and imported assets
@@ -42,19 +44,11 @@ The **Assets** panel is ComfyUI’s library for the media your workflows produce
 
 Cloud adds the filter menu, the sort options, ZIP downloads, and permanent file deletion. The rest of the panel works the same in both versions. ![The Assets panel on the Generated tab in grid view, with a multi-output card and its output count badge](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_generated.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=f41c34090192b790a6eb21add2a83427) ![The Assets panel on the Imported tab, listing uploaded input files](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_imported.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=49ce3a59d451156b893de797d9ad7d25) ![The right-click menu on an asset card, with options to inspect, insert, download, export, or delete the asset](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_context_menu.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=2c379ca0533551e0405acb44d117e770)
 
-## 
-
-​
-
-Opening the Assets panel
+## Opening the Assets panel
 
 Click the **Assets** icon in the left sidebar to open the panel.
 
-## 
-
-​
-
-Generated and imported assets
+## Generated and imported assets
 
 The panel splits your files into two tabs:
 
@@ -63,11 +57,7 @@ The panel splits your files into two tabs:
 
 Models are not part of this panel. Local model files live in the **Models** panel, and uploading your own models to Comfy Cloud is covered in [Import models](https://docs.comfy.org/cloud/import-models).
 
-## 
-
-​
-
-Finding an asset
+## Finding an asset
 
 The panel header holds the search box and the display controls.
 
@@ -78,21 +68,13 @@ The panel header holds the search box and the display controls.
 
 ![Cloud Assets filter menu open, with Image and Past 7 days chips active](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_filter_menu.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=bd9b8b4c2ab5ea2f83c348461c946f9a) ![Cloud Assets view and sort menu \(list/grid and newest/oldest/name/generation time\)](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/assets/assets_sort_menu.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=e87e774e534ff65c38e44cbe8fbb0dc0)
 
-## 
-
-​
-
-Previewing an asset
+## Previewing an asset
 
 Click a card to select it, or double-click an image to open it in a zoomed preview. Videos play inline with a play overlay, and audio and 3D files open in dedicated viewers. Right-click a card and choose **Inspect asset** to open the same preview.
 
-## 
+## Previewing HDR and EXR images
 
-​
-
-Previewing HDR and EXR images
-
-A file with an `.exr` or `.hdr` extension does not open in the standard image lightbox. ComfyUI opens it in the **HDR Viewer** , a dialog that renders the image at full resolution and keeps highlight values above 1.0 intact until you tone map them yourself. The dialog title is the file name. The HDR Viewer opens from three places:
+A file with an `.exr` or `.hdr` extension does not open in the standard image lightbox. ComfyUI opens it in the **HDR Viewer** , a dialog that renders the image at full resolution and keeps highlight values above 1.0 intact until you tone map them yourself. The dialog title is the file name. Your browser does not support the video tag.The HDR Viewer opens from three places:
 
   * **Node image preview** : an HDR output shows a placeholder with an **Open in HDR Viewer** button in place of the image. The same action sits on the sun button in the preview’s action row.
   * **Assets panel** : double-click the card of a `.exr` or `.hdr` asset, or pick **Inspect asset** from its right-click menu.
@@ -110,11 +92,7 @@ The side panel holds the tone mapping controls:
 
 Scroll to zoom out to 0.05x or in to 64x. The readout in the top-left corner follows the pointer and shows the pixel coordinates with the raw RGBA values under it. A file the viewer cannot decode reports `Failed to load HDR image`.
 
-## 
-
-​
-
-Reusing an asset in a workflow
+## Reusing an asset in a workflow
 
   * **Insert as node in workflow** : right-click a card and pick this entry to add the matching loader node (for example `Load Image`, `Load Video`, or `Load Audio`) at the center of the canvas with the asset already selected in the node. Only file types that have a loader node show this entry.
   * **Drag onto the canvas** : drag a card onto the canvas to load it the same way. Hold `Ctrl` or `Cmd` while clicking to select assets instead of starting a drag.
@@ -123,11 +101,7 @@ Reusing an asset in a workflow
 
 
 
-## 
-
-​
-
-Downloading assets
+## Downloading assets
 
 Open the right-click menu on one or more cards and choose **Download** , or use the download button that appears on a card when you hover it.
 
@@ -137,27 +111,15 @@ Open the right-click menu on one or more cards and choose **Download** , or use 
 
 
 
-## 
-
-​
-
-Working with several assets at once
+## Working with several assets at once
 
 Drag a marquee across the grid to select a block of assets, then use the selection bar at the bottom of the panel. It shows how many assets are selected and offers **Deselect all** , **Download** , and **Delete**. Right-clicking a selected card opens the bulk menu with **Insert all assets as nodes** , **Open all workflows** , **Export all workflows** , **Download all** , and **Delete all**.
 
-## 
-
-​
-
-Grouped outputs
+## Grouped outputs
 
 When a run produced several files, the card carries a badge with the output count. Clicking that badge opens a folder view for that job instead of a flat grid. The folder header shows the job ID with a copy button and the execution time of the run, and **Back to all assets** returns to the full list.
 
-## 
-
-​
-
-Deleting assets
+## Deleting assets
 
 Choose **Delete** from the right-click menu, or **Delete all** for a selection. A confirmation dialog lists the affected files first. What happens next depends on the server:
 
@@ -168,11 +130,7 @@ Choose **Delete** from the right-click menu, or **Delete all** for a selection. 
 
 Deleting an asset also clears it from the loader nodes that referenced it, which then show the file as missing media.
 
-## 
-
-​
-
-Related pages
+## Related pages
 
   * [Interface overview](https://docs.comfy.org/interface/overview): where the Assets panel sits among the other sidebar entries.
   * [Import models](https://docs.comfy.org/cloud/import-models): uploading your own models to Comfy Cloud.
@@ -186,26 +144,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/interface/assets.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/interface/assets)
 
-[Interface OverviewPrevious](https://docs.comfy.org/interface/overview)[Node Library - Browse and Add NodesNext](https://docs.comfy.org/interface/node-library)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Interface Overview](https://docs.comfy.org/interface/overview)[Node Library](https://docs.comfy.org/interface/node-library)

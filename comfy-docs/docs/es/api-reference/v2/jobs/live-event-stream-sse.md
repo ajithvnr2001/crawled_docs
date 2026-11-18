@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/live-event-stream-sse/
 title: Live event stream (SSE) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:58.886038+00:00
+fetched_at: 2026-11-18T16:18:20.019167+00:00
 ---
 
 # Live event stream (SSE) - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/run-a-partner-model-synchronously-by-canonical-model-id/
 title: Run a partner model synchronously by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:40.760004+00:00
+fetched_at: 2026-11-18T16:18:24.312776+00:00
 ---
 
 # Run a partner model synchronously by canonical model ID. - ComfyUI

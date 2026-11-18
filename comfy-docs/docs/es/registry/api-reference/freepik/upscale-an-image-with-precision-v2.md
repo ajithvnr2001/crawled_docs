@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/upscale-an-image-with-precision-v2/
 title: Upscale an image with Precision V2 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:44.767104+00:00
+fetched_at: 2026-11-18T16:18:29.610095+00:00
 ---
 
 # Upscale an image with Precision V2 - ComfyUI
