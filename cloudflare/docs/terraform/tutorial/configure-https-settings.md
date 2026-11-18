@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/terraform/tutorial/configure-https-settings/
 title: Configure HTTPS settings \u00b7 Cloudflare Terraform docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:01.524506+00:00
+fetched_at: 2026-11-18T09:55:26.027561+00:00
 ---
 
 # Configure HTTPS settings · Cloudflare Terraform docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:01.524506+00:00
 
 # 3 – Configure HTTPS settings
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/terraform/tutorial/configure-https-settings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites2\. Preview and apply the changes3\. Verify the settings
 
@@ -110,7 +110,7 @@ Commit and merge the changes:
     git merge step3-zone-settings
     git push
 
-Before applying the changes, try to connect with TLS 1.3. Technically, you should not be able to with default settings. To follow along with this test, you will need to [compile `curl` against BoringSSL ↗︎](https://everything.curl.dev/source/build/tls/boringssl#build-boringssl).
+Before applying the changes, try to connect with TLS 1.3. Technically, you should not be able to with default settings. To follow along with this test, you will need to [compile `curl` against BoringSSL ↗︎](https://everything.curl.dev/build/boringssl.html#build-boringssl).
     
     
     curl -v --tlsv1.3 https://www.example.com 2>&1 | grep "SSL connection\|error"

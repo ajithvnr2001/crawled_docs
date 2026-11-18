@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/polish/compression/
 title: Polish compression \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:36.297417+00:00
+fetched_at: 2026-11-18T09:55:29.764609+00:00
 ---
 
 # Polish compression · Cloudflare Images docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:36.297417+00:00
 
 # Polish compression
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/polish/compression/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCompression options Off Lossless Lossy WebPPolish interaction with Image optimization
+OverviewCompression options Off Lossless Lossy WebP AVIFPolish interaction with Image optimization
 
 With Lossless and Lossy modes, Cloudflare attempts to strip as much metadata as possible. However, Cloudflare cannot guarantee stripping all metadata because other factors, such as caching status, might affect which metadata is finally sent in the response.
 
@@ -59,17 +59,25 @@ The WebP version is served only when the `Accept` header from the browser includ
 
 Polish only converts standard image formats _to_ the WebP format. If the origin server serves WebP images, Polish will not convert them, and will not optimize them.
 
-#### File size, image quality, and WebP
+### AVIF
 
-Lossy formats like JPEG and WebP are able to generate files of any size, and every image could theoretically be made smaller. However, reduction in file size comes at a cost of reduction in image quality. Reduction of file sizes below each format's optimal size limit causes disproportionally large losses in quality. Re-encoding of files that are already optimized reduces their quality more than it reduces their file size.
+When enabled, in addition to other optimizations, Polish creates versions of images converted to the AVIF format. AVIF typically produces smaller files than WebP, for both JPEG and PNG origin images, but this [depends on several factors](https://developers.cloudflare.com/images/polish/no-avif/).
 
-Cloudflare will not convert from JPEG to WebP when the conversion would make the file bigger, or would reduce image quality by more than it would save in file size.
+The AVIF version is served only when the `Accept` header from the browser includes AVIF, and the AVIF image is significantly smaller than the original. If a browser's `Accept` header includes both AVIF and WebP, Polish serves AVIF.
+
+Polish does not produce AVIF versions of animated images.
+
+#### File size, image quality, and format selection
+
+Lossy formats like JPEG, WebP, and AVIF are able to generate files of any size, and every image could theoretically be made smaller. However, reduction in file size comes at a cost of reduction in image quality. Reduction of file sizes below each format's optimal size limit causes disproportionally large losses in quality. Re-encoding of files that are already optimized reduces their quality more than it reduces their file size.
+
+Cloudflare will not convert to WebP or AVIF when the conversion would make the file bigger, or would reduce image quality by more than it would save in file size.
 
 If you choose the Lossless Polish setting, then WebP will be used very rarely. This is due to the fact that, in this mode, WebP is only adequate for PNG images, and cannot improve compression for JPEG images.
 
 Although WebP compresses better than JPEG on average, there are exceptions, and in some occasions JPEG compresses better than WebP. Cloudflare tries to detect these cases and keep the JPEG format.
 
-If you serve low-quality JPEG images at the origin (quality setting 60 or lower), it may not be beneficial to convert them to WebP. This is because low-quality JPEG images have blocky edges and noise caused by compression, and these distortions increase file size of WebP images. We recommend serving high-quality JPEG images (quality setting between 80 and 90) at your origin server to avoid this issue.
+If you serve low-quality JPEG images at the origin (quality setting 60 or lower), it may not be beneficial to convert them to WebP or AVIF. This is because low-quality JPEG images have blocky edges and noise caused by compression, and these distortions increase file size of WebP and AVIF images. We recommend serving high-quality JPEG images (quality setting between 80 and 90) at your origin server to avoid this issue.
 
 If your server or Content Management System (CMS) has a built-in image converter or optimizer, it may interfere with Polish. It does not make sense to apply lossy optimizations twice to images, because quality degradation will be larger than the savings in file size.
 

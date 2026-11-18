@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/
 title: Validate JWTs \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:21.797434+00:00
+fetched_at: 2026-11-18T09:55:25.454069+00:00
 ---
 
 # Validate JWTs · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:21.797434+00:00
 
 # Validate JWTs
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess signing keysVerify the JWT manuallyProgrammatic verification Get your AUD tag Cloudflare Workers example Golang example Python example JavaScript (Node.js) example
 
@@ -94,21 +94,15 @@ Avoid key rotation issues
 To verify the token manually:
 
   1. Copy the JWT from the `Cf-Access-Jwt-Assertion` request header.
-
   2. Go to [jwt.io ↗︎](https://jwt.io/).
-
   3. Select the RS256 algorithm.
-
   4. Paste the JWT into the **Encoded** box.
-
-  5. In the **Payload** box, ensure that the `iss` field points to your team domain (`https://<your-team-name>.cloudflareaccess.com`). `jwt.io` uses the `iss` value to fetch the public key for token validation.
-
+  5. In the **Payload** box, confirm that `iss` matches your expected team domain (`https://<your-team-name>.cloudflareaccess.com`). Do not trust a domain solely because it appears in the token.
   6. Ensure that the page says **Signature Verified**.
 
 
 
-
-You can now trust that this request was sent by Access.
+Also confirm that `aud` contains your application's AUD tag, `exp` is in the future, and `nbf` is not in the future. A valid signature alone does not establish that the token is valid for your application. Use programmatic verification to enforce these checks on incoming requests.
 
 ## Programmatic verification
 
@@ -194,7 +188,11 @@ If you need to validate the JWT manually, read it from the `Cf-Access-Jwt-Assert
     }
     
     export default {
-    	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    	async fetch(
+    		request: Request,
+    		env: Env,
+    		ctx: ExecutionContext,
+    	): Promise<Response> {
     		// Verify the POLICY_AUD environment variable is set
     		if (!env.POLICY_AUD) {
     			return new Response("Missing required audience", {
@@ -217,7 +215,7 @@ If you need to validate the JWT manually, read it from the `Cf-Access-Jwt-Assert
     		try {
     			// Create JWKS from your team domain
     			const JWKS = createRemoteJWKSet(
-    				new URL(`${env.TEAM_DOMAIN}/cdn-cgi/access/certs`)
+    				new URL(`${env.TEAM_DOMAIN}/cdn-cgi/access/certs`),
     			);
     
     			// Verify the JWT
@@ -227,12 +225,9 @@ If you need to validate the JWT manually, read it from the `Cf-Access-Jwt-Assert
     			});
     
     			// Token is valid, proceed with your application logic
-    			return new Response(
-    				`Hello ${payload.email || "authenticated user"}!`,
-    				{
-    					headers: { "Content-Type": "text/plain" },
-    				}
-    			);
+    			return new Response(`Hello ${payload.email || "authenticated user"}!`, {
+    				headers: { "Content-Type": "text/plain" },
+    			});
     		} catch (error) {
     			// Token verification failed
     			const message = error instanceof Error ? error.message : "Unknown error";
@@ -353,7 +348,8 @@ You can set these variables by adding them to your Worker's [Wrangler configurat
         Returns:
             List of RSA public keys usable by PyJWT.
         """
-        r = requests.get(CERTS_URL)
+        r = requests.get(CERTS_URL, timeout=10)
+        r.raise_for_status()
         public_keys = []
         jwk_set = r.json()
         for key_dict in jwk_set['keys']:
@@ -366,15 +362,12 @@ You can set these variables by adding them to your Worker's [Wrangler configurat
         Decorator that wraps a Flask API call to verify the CF Access JWT
         """
         def wrapper():
-    				# Check for the POLICY_AUD environment variable
-    				if not POLICY_AUD:
-    					return "missing required audience", 403
+            if not POLICY_AUD or not TEAM_DOMAIN:
+                return "missing required Access configuration", 403
     
-            token = ''
-            if 'CF_Authorization' in request.cookies:
-                token = request.cookies['CF_Authorization']
-            else:
-                return "missing required cf authorization token", 403
+            token = request.headers.get('Cf-Access-Jwt-Assertion')
+            if not token:
+                return "missing required cf access jwt", 403
             keys = _get_public_keys()
     
             # Loop through the keys since we can't pass the key set to the decoder
@@ -382,10 +375,17 @@ You can set these variables by adding them to your Worker's [Wrangler configurat
             for key in keys:
                 try:
                     # decode returns the claims that has the email when needed
-                    jwt.decode(token, key=key, audience=POLICY_AUD, algorithms=['RS256'])
+                    jwt.decode(
+                        token,
+                        key=key,
+                        audience=POLICY_AUD,
+                        issuer=TEAM_DOMAIN,
+                        algorithms=['RS256'],
+                        options={"require": ["exp", "iss", "aud"]},
+                    )
                     valid_token = True
                     break
-                except:
+                except jwt.PyJWTError:
                     pass
             if not valid_token:
                 return "invalid token", 403

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/languages/typescript/
 title: Write Cloudflare Workers in TypeScript \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:56.896004+00:00
+fetched_at: 2026-11-18T09:55:21.952518+00:00
 ---
 
 # Write Cloudflare Workers in TypeScript · Cloudflare Workers docs
@@ -18,17 +18,17 @@ fetched_at: 2026-10-28T08:03:56.896004+00:00
 
 # TypeScript
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Resources
 
 TypeScript is a first-class language on Cloudflare Workers. All APIs provided in Workers are fully typed, and type definitions are generated directly from [workerd ↗︎](https://github.com/cloudflare/workerd), the open-source Workers runtime.
 
-We recommend you generate types for your Worker by running [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types). Cloudflare also publishes type definitions to [GitHub ↗︎](https://github.com/cloudflare/workers-types) and [npm ↗︎](https://www.npmjs.com/package/@cloudflare/workers-types) (`npm install -D @cloudflare/workers-types`).
+We recommend you generate types for your Worker by running [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types). Cloudflare also publishes type definitions to [GitHub ↗︎](https://github.com/cloudflare/workers-types) and [npm ↗︎](https://www.npmjs.com/package/@cloudflare/workers-types) (`npm install -D @cloudflare/workers-types`).
 
 Version 5 and later
 
-`@cloudflare/workers-types` version 5 exposes only the latest runtime types. The dated entrypoints, such as `@cloudflare/workers-types/2022-11-30`, are removed. Import from `@cloudflare/workers-types` for the latest stable types, or from `@cloudflare/workers-types/experimental` for APIs behind experimental compatibility flags. To match types to a specific compatibility date and flags, run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types).
+`@cloudflare/workers-types` version 5 exposes only the latest runtime types. The dated entrypoints, such as `@cloudflare/workers-types/2022-11-30`, are removed. Import from `@cloudflare/workers-types` for the latest stable types, or from `@cloudflare/workers-types/experimental` for APIs behind experimental compatibility flags. To match types to a specific compatibility date and flags, run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types).
 
 ### 
 
@@ -60,7 +60,7 @@ npmyarnpnpm
     
     pnpm wrangler types
 
-See [the `wrangler types` command docs](https://developers.cloudflare.com/workers/wrangler/commands/general/#types) for more details.
+Refer to [the `wrangler types` command docs](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types) for more details.
 
 Note
 

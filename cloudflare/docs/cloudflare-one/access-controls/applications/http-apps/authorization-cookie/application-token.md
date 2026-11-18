@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/application-token/
 title: Application token \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:11.961499+00:00
+fetched_at: 2026-11-18T09:55:24.874882+00:00
 ---
 
 # Application token · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:11.961499+00:00
 
 # Application token
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/application-token/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHeaderPayload Identity-based authentication Service token authenticationSignature
 
@@ -38,7 +38,7 @@ As shown above, the JWT contains three Base64-URL values separated by dots:
 
 
 
-Unless your application is connected to Access through Cloudflare Tunnel, your application must [validate the token](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/) to ensure the security of your origin. Validation of the header alone is not sufficient — the JWT and signature must be confirmed to avoid identity spoofing.
+Your origin must [validate the token](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/) to reject requests that bypass Access. You can instead configure Cloudflare Tunnel to validate tokens with [**Protect with Access**](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/origin-parameters/#access). Using a tunnel alone does not enable token validation. Checking that the header exists is not sufficient.
 
 ## Header
     
@@ -49,7 +49,7 @@ Unless your application is connected to Access through Cloudflare Tunnel, your a
     	"typ": "JWT"
     }
 
-  * `alg` identifies the encoding algorithm.
+  * `alg` identifies the signature algorithm.
   * `kid` identifies the key used to sign the token.
   * `typ` designates the token format.
 

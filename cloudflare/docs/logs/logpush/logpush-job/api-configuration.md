@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/logpush-job/api-configuration/
 title: API configuration \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:56.071465+00:00
+fetched_at: 2026-11-18T09:55:29.131840+00:00
 ---
 
 # API configuration · Cloudflare Logs docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:56.071465+00:00
 
 # API configuration
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpointsConnectingOwnershipDestinationNameKindOptionsConfiguration change timing Destination changes Field changesFilterDDoS attack trafficSampling rate Understanding sample_rate and SampleIntervalMax upload parameters When to adjust these parametersCustom fieldsAudit
 
@@ -30,7 +30,7 @@ OverviewEndpointsConnectingOwnershipDestinationNameKindOptionsConfiguration chan
 
 The table below summarizes the job operations available for both Logpush and Edge Log Delivery jobs. Account-scoped datasets use `/accounts/{account_id}`, and zone-scoped datasets use `/zones/{zone_id}`. For more information, refer to [Datasets](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/).
 
-The [HTTP requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/http_requests/) and [Firewall events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/firewall_events/) datasets support both scopes. To collect logs from every zone in an account, create an account-scoped job for the dataset through the `/accounts/{account_id}/logpush/jobs` endpoint. Use the `ZoneName` field to identify the source zone in each log entry.
+The [HTTP requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/) and [Firewall events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/firewall_events/) datasets support both scopes. To collect logs from every zone in an account, create an account-scoped job for the dataset through the `/accounts/{account_id}/logpush/jobs` endpoint. Use the `ZoneName` field to identify the source zone in each log entry.
 
 You can locate `{zone_id}` and `{account_id}` arguments based on the [Find zone and account IDs](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/) page. The `{job_id}` argument is numeric, like 123456. The `{dataset_id}` argument indicates the log category (such as `http_requests` or `audit_logs`).
 

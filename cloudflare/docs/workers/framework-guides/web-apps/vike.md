@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/vike/
 title: Vike \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:30.054463+00:00
+fetched_at: 2026-11-18T09:55:21.841134+00:00
 ---
 
 # Vike · Cloudflare Workers docs
@@ -22,7 +22,7 @@ Framework guides
 
 # Vike
 
-Last updated Jul 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/framework-guides/web-apps/vike/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is Vike?New appAdd to existing appCloudflare APIs (bindings)TypeScriptSee also
 
@@ -159,7 +159,7 @@ To access Cloudflare APIs (such as [D1](https://developers.cloudflare.com/d1/) a
 
 ## TypeScript
 
-If you use TypeScript, run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types) whenever you change your Cloudflare configuration to update the `worker-configuration.d.ts` file.
+If you use TypeScript, run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types) whenever you change your Cloudflare configuration to update the `worker-configuration.d.ts` file.
 
 npmyarnpnpm
     
@@ -196,7 +196,7 @@ See also: [Cloudflare Workers > TypeScript](https://developers.cloudflare.com/wo
 
 
 
-[PreviousSvelteKit](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/)[NextAnalog](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/analog/)
+[PreviousSvelteKit](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/)[NextFoldkit](https://developers.cloudflare.com/workers/framework-guides/web-apps/foldkit/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/headers/
 title: Headers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:44.676010+00:00
+fetched_at: 2026-11-18T09:55:21.146282+00:00
 ---
 
 # Headers · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:44.676010+00:00
 
 # Headers
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/headers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundDifferences getAll() method Set-Cookie handling USVString return typeCloudflare headersRelated resources
 
@@ -48,7 +48,7 @@ The Workers implementation of the `Headers` API differs from the web standard in
 
 TypeScript users
 
-Workers type definitions (from `@cloudflare/workers-types` or generated via [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types)) define a `Headers` type that includes Workers-specific methods like `getAll()`. This type is not directly compatible with the standard `Headers` type from `lib.dom.d.ts`. If you are working with code that uses both Workers types and standard web types, you may need to use type assertions.
+Workers type definitions (from `@cloudflare/workers-types` or generated via [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types)) define a `Headers` type that includes Workers-specific methods like `getAll()`. This type is not directly compatible with the standard `Headers` type from `lib.dom.d.ts`. If you are working with code that uses both Workers types and standard web types, you may need to use type assertions.
 
 ### `getAll()` method
 

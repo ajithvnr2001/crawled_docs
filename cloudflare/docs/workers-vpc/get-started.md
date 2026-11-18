@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/get-started/
 title: Get started \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:14.927207+00:00
+fetched_at: 2026-11-18T09:55:26.428009+00:00
 ---
 
 # Get started · Cloudflare Workers VPC
@@ -17,7 +17,7 @@ fetched_at: 2026-11-13T09:17:14.927207+00:00
 
 # Get started
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a new Worker project2\. Set up Cloudflare Tunnel Configuring your private network for Cloudflare Tunnel3\. Create a VPC Service4\. Configure your Worker5\. Write your Worker code6\. Test locally7\. Deploy your WorkerNext steps
 
@@ -172,6 +172,7 @@ You can also:
   * Create services using IP addresses by replacing `--hostname <YOUR_HOSTNAME>` with `--ipv4 <YOUR_IPV4_ADDRESS>`, `--ipv6 <YOUR_IPV6_ADDRESS>`, or both for dual-stack configuration
   * Specify custom ports for HTTP services by adding `--http-port <PORT>` and/or `--https-port <PORT>` (for example, `--http-port 8080 --https-port 8443`)
   * Set the TLS certificate verification mode with `--cert-verification-mode` (`verify_full`, `verify_ca`, or `disabled`)
+  * Trust a private certificate authority or present a client certificate for mTLS with `--certificate-authority` and `--client-certificate`. Refer to [Custom CA and client certificates](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates).
 
 
 
@@ -190,7 +191,7 @@ Add the VPC Service binding to your Wrangler configuration file:
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-13",
+    	"compatibility_date": "2026-11-18",
     	"vpc_services": [
     		{
     			"binding": "VPC_SERVICE",
@@ -206,7 +207,7 @@ Add the VPC Service binding to your Wrangler configuration file:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-13"
+    compatibility_date = "2026-11-18"
     
     [[vpc_services]]
     binding = "VPC_SERVICE"

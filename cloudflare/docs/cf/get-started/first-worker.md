@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/get-started/first-worker/
 title: Deploy your first Worker \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:46.801805+00:00
+fetched_at: 2026-11-18T09:55:28.603543+00:00
 ---
 
 # Deploy your first Worker · Cloudflare CLI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:46.801805+00:00
 
 # Deploy your first Worker
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cf/get-started/first-worker/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you begin1\. Create a project3\. DeployCreate a project without promptsStart from an existing projectNext steps
 
@@ -45,21 +45,27 @@ Apart from `node_modules` and the lockfile from the install, `cf init` creates t
         * index.d.ts
     * src/ 
       * index.ts
+    * test/ 
+      * index.test.ts
     * .gitignore
     * cloudflare.config.ts
     * package.json
     * tsconfig.json
     * vite.config.ts
+    * vitest.config.ts
 
 
 
   * `src/index.ts` is the Worker.
   * `cloudflare.config.ts` describes the Worker in TypeScript.
-  * `vite.config.ts` adds the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), which runs your code in the Workers runtime during development and builds it for deployment.
-  * `package.json` has `dev`, `build`, and `deploy` scripts that run the matching `cf` commands. It lists `cf` and the Vite plugin 2.0 beta (`@cloudflare/vite-plugin@beta`), which `cf` uses, but not Wrangler.
+  * `vite.config.ts` adds the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), which runs your code in the Workers runtime during development and builds it for deployment. The project uses [Vite+ ↗︎](https://viteplus.dev/), which includes Vite and Vitest.
+  * `test/index.test.ts` and `vitest.config.ts` run a test against the Worker in the Workers runtime.
+  * `package.json` has `dev`, `build`, and `deploy` scripts that run the matching `cf` commands, and `check`, `format`, `test`, and `typecheck` scripts that run Vite+. It lists `cf` and the release candidate of the Cloudflare Vite plugin 2.0, which `cf` uses, but not Wrangler.
   * `.cloudflare/types/index.d.ts` holds generated binding and runtime types. The Vite plugin updates it when you run `cf dev` or `cf build`. The generated `.gitignore` excludes `.cloudflare/`.
 
 
+
+With pnpm, `cf init` also writes `pnpm-workspace.yaml`, which approves the build scripts that the project's dependencies need. With Yarn, it writes `.yarnrc.yml`.
 
 The Worker reads a `WORLD` binding and returns a greeting:
 
@@ -155,9 +161,9 @@ env: { (env reference)
 
 `env`OptionalLink to env
 
-`env?: Record<string, Binding>`
+`env?: Record<string, Binding | false | null | undefined>`
 
-Bindings exposed on the Worker's `env` object. Construct entries with `bindings.kv(...)`, `bindings.r2(...)`, etc.
+Bindings exposed on the Worker's `env` object. Construct entries with `bindings.kv(...)`, `bindings.r2(...)`, etc. Entries set to `false`, `null`, or `undefined` are omitted, which allows bindings to be included conditionally.
 
 WORLD: bindings.text("World"), (text reference)
 
@@ -189,7 +195,7 @@ Open the local URL that `cf dev` prints, by default `http://localhost:5173/`. Th
 
 Change the response in `src/index.ts`, save the file, and refresh the page. The development server picks up the change without a restart.
 
-In this project, `cf dev` does not accept options such as `--port`. To change the port, set `server.port` in `vite.config.ts`.
+`cf dev` passes other options to the development server. For example, to use another port, run `cf dev --port 8788`.
 
 ## 3\. Deploy
 

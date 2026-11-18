@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/
 title: Independent MFA \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:09.589891+00:00
+fetched_at: 2026-11-18T09:55:25.787631+00:00
 ---
 
 # Independent MFA · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:09.589891+00:00
 
 # Independent MFA
 
-Last updated Aug 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported MFA methodsTurn on independent MFA Configure PIV key requirementsRestrict authenticators by AAGUID 1\. Create an AAGUID list 2\. Assign an AAGUID list to your organizationUse identity provider MFA Supported AMR values Turn on AMR matching When AMR matching is skippedTurn off independent MFAEnroll authenticators Enroll a FIDO2 key for infrastructure apps Enroll a PIV key for infrastructure apps Delete an authenticator MFA verification for authenticator changesManage user authenticators View user authenticators Delete a user authenticator Lockout recoveryRelated links
 
@@ -360,7 +360,7 @@ To turn off independent MFA for the organization:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Access settings**.
   2. Under **Allow multi-factor authentication (MFA)** , turn off **Apply global MFA settings by default**.
-  3. Turn off all MFA methods (**Biometrics** , **Security key** , and **Authenticator application**).
+  3. Turn off all MFA methods, including **Biometrics** , **Security key** , **Authenticator application** , **Personal Identity Verification (PIV) key** , and **FIDO2 key**.
 
 
 
@@ -630,11 +630,11 @@ If a user is locked out or you need to revoke an authenticator for security reas
 
 
 
-The user will need to enroll a new authenticator the next time they access an application that requires MFA.
+The user can no longer use the deleted authenticator for MFA challenges. If no usable authenticators remain, they must enroll another one before completing an independent MFA challenge.
 
 Send a `DELETE` request to remove a specific authenticator:
 
-Delete a user's MFA devicebash
+Delete a user's authenticatorbash
     
     
     curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/access/users/$USER_ID/mfa_authenticators/$AUTHENTICATOR_ID" \

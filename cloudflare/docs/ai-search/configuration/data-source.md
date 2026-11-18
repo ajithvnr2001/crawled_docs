@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/data-source/
 title: Data source \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:10.137350+00:00
+fetched_at: 2026-11-18T09:55:27.277306+00:00
 ---
 
 # Data source · Cloudflare AI Search docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-13T09:17:10.137350+00:00
 
 # Data source
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSupported file types Plain text file types Rich format file typesFile limitsImages and optical character recognition
+OverviewSupported file types Plain text file types Rich format file typesFile limitsImages and optical character recognitionFile summaries
 
 You can upload files directly to an instance or connect an external data source.
 
@@ -107,6 +107,37 @@ AI Search supports `.jpg`, `.jpeg`, `.png`, `.webp`, `.gif`, `.bmp`, `.tif`, `.t
 Optical character recognition (OCR) extracts text from scanned PDFs and images. Set `indexing_options.use_ocr` to `true` when creating or updating an instance. OCR is disabled by default and changing this setting triggers a full reindex.
 
 OCR is available for every account. OCR usage is billed as image-processing ingestion tokens. For pricing details, refer to [Limits and pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/).
+
+## File summaries
+
+File summaries use a large language model (LLM) to describe each file while it is indexed. For every eligible file, AI Search generates a short summary, a list of topics, and a list of keywords:
+
+  * The summary and keywords are stored in the item's `context` metadata when they fit within metadata size limits. AI Search passes `context` to the generation model with each retrieved document. If the file already has a `context` value, for example from R2 custom metadata or upload metadata, AI Search keeps your value. The model is still called, and billed, to generate topics.
+  * The topics are added to the context header of the file's chunks where they fit within the chunk size, so they never replace chunk content. Topics are not counted as ingestion tokens.
+
+
+
+Turn on file summaries in the dashboard, or set `indexing_options.file_summary` to `true` when you create or update an instance. File summaries are off by default, and changing this setting triggers a full reindex.
+
+`indexing_options` is replaced as a whole on every update, including updates through the Workers binding. Read the instance first and include the current value of every option. Options you leave out return to their defaults: for example, an update without `file_summary` turns file summaries off and triggers another full reindex. This also applies to tools that send `indexing_options`, such as Terraform.
+
+LLM costs are billed to your account
+
+File summaries are not part of the AI Search ingestion allotment. AI Search selects a Workers AI text-generation model suited to summarization and calls it through the AI Gateway connected to your instance, or the `default` gateway if none is set. These calls are billed to your account as [Workers AI usage](https://developers.cloudflare.com/workers-ai/platform/pricing/) and appear in your AI Gateway logs, where you can see the model used.
+
+Costs grow with the number of files you index. AI Search sends a limited sample of each file's text to the model, so the cost of a summary is capped regardless of file size. Every new or modified file is summarized, while unchanged files reuse their summary on later syncs. If AI Search changes the summary model, files are summarized again the next time they are processed.
+
+File summaries apply to text documents, including converted formats such as PDFs, that produce at least three chunks at your instance's chunk size. A smaller chunk size makes more files eligible and increases cost. Smaller files are indexed without a summary and make no model calls. Images are not summarized.
+
+Keep the following in mind:
+
+  * **Best effort** : AI Search makes one attempt per file version. If the model call fails, the file is indexed without a summary. Temporary failures, such as timeouts, rate limits, or model capacity errors, are retried only if the file is processed again at least 24 hours later, for example after a reindex. Other failures are not retried until the file content changes.
+  * **AI Gateway and account settings apply** : Guardrails or spend limits on your AI Gateway, a missing gateway, or running out of Workers AI usage, such as the daily free allocation on the Workers Free plan, stop summaries from being generated. Files indexed while this happens stay without a summary until their content changes, even after you fix the setting or reindex the instance.
+  * **Keyword search ranking** : Topics repeat in every chunk where they fit, which increases their weight in [keyword search](https://developers.cloudflare.com/ai-search/configuration/indexing/keyword-search/). Test search quality on a representative instance before you turn on file summaries in production.
+  * **Generation tokens** : The `context` value adds up to 1,000 characters to each retrieved document sent to the generation model, which increases generation token usage.
+  * **Indexing time** : Summarizing adds a model call to each eligible file, so indexing takes longer.
+
+
 
 [PreviousOverview](https://developers.cloudflare.com/ai-search/configuration/)[NextBuilt-in storage](https://developers.cloudflare.com/ai-search/configuration/data-source/built-in-storage/)
 

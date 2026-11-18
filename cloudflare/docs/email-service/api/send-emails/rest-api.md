@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
 title: REST API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:27.777604+00:00
+fetched_at: 2026-11-18T09:55:30.098405+00:00
 ---
 
 # REST API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # REST API
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthenticationRequest exampleAttachmentsCustom headersResponseError responsesRelated resources
 
@@ -102,7 +102,7 @@ Set custom headers for threading or tracking. Refer to the [email headers refere
 
 ## Response
 
-A successful response returns the delivery status for each recipient:
+A successful response returns the message ID and the delivery status for each recipient:
     
     
     {
@@ -110,21 +110,25 @@ A successful response returns the delivery status for each recipient:
     	"errors": [],
     	"messages": [],
     	"result": {
+    		"message_id": "<aB3xK9mP2qR5sT8uV0wX1yZ4cD6fG7hJ9kL0@example.com>",
     		"delivered": ["recipient@example.com"],
     		"permanent_bounces": [],
-    		"queued": []
+    		"queued": [],
+    		"suppressed_recipients": []
     	}
     }
 
+  * `message_id` \- Message ID of the sent email
   * `delivered` \- Email addresses to which the message was delivered immediately
   * `permanent_bounces` \- Email addresses that permanently bounced
   * `queued` \- Email addresses for which delivery was queued for later
+  * `suppressed_recipients` \- Email addresses dropped because they are on the [suppression list](https://developers.cloudflare.com/email-service/concepts/suppressions/). This list is populated only when [**Drop suppressed recipients**](https://developers.cloudflare.com/email-service/configuration/domains/#drop-suppressed-recipients) is on. When the setting is off, a request with a suppressed recipient fails instead.
 
 
 
 Workers binding vs REST API responses
 
-The REST API returns recipient-grouped delivery status. The [Workers binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/) returns a single `messageId` per `send()` call instead.
+Both APIs return the message ID of the sent email. The REST API returns it as `message_id` together with recipient-grouped delivery status. The [Workers binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/) returns only `messageId` from each `send()` call.
 
 ## Error responses
 

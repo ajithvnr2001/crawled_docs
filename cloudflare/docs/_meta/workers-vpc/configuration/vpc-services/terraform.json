@@ -3,8 +3,5 @@
   "file": "workers-vpc/configuration/vpc-services/terraform.md",
   "title": "Configure with Terraform \u00b7 Cloudflare Workers VPC",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:07.486639+00:00",
-  "html_len": 138703,
-  "md_len": 10639,
-  "depth": 0
+  "fetched_at": "2026-11-18T09:55:26.281917+00:00"
 }

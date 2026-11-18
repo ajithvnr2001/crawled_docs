@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/best-practices/workers-best-practices/
 title: Workers Best Practices \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:29.669330+00:00
+fetched_at: 2026-11-18T09:55:22.332331+00:00
 ---
 
 # Workers Best Practices · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:29.669330+00:00
 
 # Workers Best Practices
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfiguration Keep your compatibility date current Enable nodejs_compat Enable source maps Generate binding types with wrangler types Store secrets with wrangler secret, not in source Configure environments deliberately Set up custom domains or routes correctlyRequest and response handling Stream request and response bodies Use waitUntil for work after the responseArchitecture Use bindings for Cloudflare services, not REST APIs Use Queues and Workflows for async and background work Use service bindings for Worker-to-Worker communication Use Hyperdrive for external database connections Use Durable Objects for WebSockets Use Workers Static Assets for new projectsObservability Enable Workers Logs and TracesCode patterns Do not store request-scoped state in global scope Always await or waitUntil your PromisesSecurity Use Web Crypto for secure token generation Do not use passThroughOnException as error handlingDevelopment and testing Test with @cloudflare/vitest-pluginRelated resources
 
@@ -36,7 +36,7 @@ The [`compatibility_date`](https://developers.cloudflare.com/workers/configurati
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     }
     
@@ -45,7 +45,7 @@ The [`compatibility_date`](https://developers.cloudflare.com/workers/configurati
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
 
 For more information, refer to [Compatibility dates](https://developers.cloudflare.com/workers/configuration/compatibility-dates/).
@@ -60,7 +60,7 @@ The [`nodejs_compat`](https://developers.cloudflare.com/workers/runtime-apis/nod
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     }
     
@@ -69,7 +69,7 @@ The [`nodejs_compat`](https://developers.cloudflare.com/workers/runtime-apis/nod
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
 
 For more information, refer to [Node.js compatibility](https://developers.cloudflare.com/workers/runtime-apis/nodejs/).
@@ -91,7 +91,7 @@ If a framework or custom build tool bundles your Worker, enable external source 
 
 ### Generate binding types with wrangler types
 
-Do not hand-write your `Env` interface. Run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types) to generate a type definition file that matches your actual Wrangler configuration. This catches mismatches between your config and code at compile time instead of at deploy time.
+Do not hand-write your `Env` interface. Run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types) to generate a type definition file that matches your actual Wrangler configuration. This catches mismatches between your config and code at compile time instead of at deploy time.
 
 Re-run `wrangler types` whenever you add or rename a binding.
 
@@ -134,7 +134,7 @@ src/index.tsts
     	},
     } satisfies ExportedHandler<Env>;
 
-For more information, refer to [wrangler types](https://developers.cloudflare.com/workers/wrangler/commands/general/#types).
+For more information, refer to [wrangler types](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types).
 
 ### Store secrets with wrangler secret, not in source
 
@@ -146,7 +146,7 @@ Secrets (API keys, tokens, database credentials) must never appear in your Wrang
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     
     	// ✅ Good: non-secret configuration lives in version control
@@ -163,7 +163,7 @@ Secrets (API keys, tokens, database credentials) must never appear in your Wrang
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [vars]
@@ -204,7 +204,7 @@ Each environment is treated separately. Bindings and vars need to be declared pe
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     
     	// This binding only applies to the root Worker
@@ -233,7 +233,7 @@ Each environment is treated separately. Bindings and vars need to be declared pe
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[kv_namespaces]]
@@ -288,7 +288,7 @@ The most common mistake with routes is missing the DNS record. Without a proxied
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     
     	// Option 1: Custom domain — Worker is the origin, DNS is managed automatically
@@ -306,7 +306,7 @@ The most common mistake with routes is missing the DNS record. Without a proxied
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[routes]]
@@ -739,7 +739,7 @@ Create a new `Client` on each request. Hyperdrive manages the underlying pool, s
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     
     	"hyperdrive": [{ "binding": "HYPERDRIVE", "id": "<YOUR_HYPERDRIVE_ID>" }],
@@ -750,7 +750,7 @@ Create a new `Client` on each request. Hyperdrive manages the underlying pool, s
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[hyperdrive]]
@@ -961,7 +961,7 @@ For a purely static site, point `assets.directory` at your build output. No Work
     	// Static site — no Worker script needed
     	"name": "my-static-site",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     
     	"assets": {
@@ -972,7 +972,7 @@ For a purely static site, point `assets.directory` at your build output. No Work
     
     name = "my-static-site"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [assets]
@@ -996,7 +996,7 @@ Use structured JSON logging with `console.log` so logs are searchable and filter
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     
     	"observability": {
@@ -1017,7 +1017,7 @@ Use structured JSON logging with `console.log` so logs are searchable and filter
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [observability]

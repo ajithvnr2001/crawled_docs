@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/reference/limitations/
 title: Limitations \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:03.983588+00:00
+fetched_at: 2026-11-18T09:55:22.526829+00:00
 ---
 
 # Limitations · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:03.983588+00:00
 
 # Limitations
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIPv4 hostname quotaHTTPSUDPMinecraftUniversal SSLPrivate Network Load BalancingCloudflare TunnelListen on ports configurationIP access control
 
@@ -87,9 +87,11 @@ Spectrum will only ever proxy traffic to an origin if there is a Spectrum applic
 
 ## IP access control
 
-Currently, [custom rules](https://developers.cloudflare.com/waf/custom-rules/) do not work with Spectrum applications. Use [IP Access rules](https://developers.cloudflare.com/waf/tools/ip-access-rules/) to allowlist, block, and challenge traffic for Spectrum applications based on the request's IP address, Autonomous System Number (ASN), or country.
+For **TCP/UDP** Spectrum applications, [custom rules](https://developers.cloudflare.com/waf/custom-rules/) are not supported. Use [IP Access rules](https://developers.cloudflare.com/waf/tools/ip-access-rules/) to allowlist, block, and challenge traffic based on the request's IP address, Autonomous System Number (ASN), or country.
 
-Refer to [Configuration options](https://developers.cloudflare.com/spectrum/reference/configuration-options/#ip-access-rules) for more information.
+For **HTTP/HTTPS** Spectrum applications, [custom rules](https://developers.cloudflare.com/waf/custom-rules/) and other WAF features are fully supported. Refer to [Configuration options](https://developers.cloudflare.com/spectrum/reference/configuration-options/#application-type) for more information on application types.
+
+Refer to [Configuration options](https://developers.cloudflare.com/spectrum/reference/configuration-options/#ip-access-rules) for more information on enabling IP Access rules for TCP/UDP applications.
 
 [PreviousEvent logs](https://developers.cloudflare.com/spectrum/reference/logs/)[NextSettings by plan](https://developers.cloudflare.com/spectrum/reference/settings-by-plan/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/environment-variables/
 title: Environment variables \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:23.027341+00:00
+fetched_at: 2026-11-18T09:55:28.470620+00:00
 ---
 
 # Environment variables · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-12T09:30:23.027341+00:00
 
 # Environment variables
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported variablesCustom API headers
 
@@ -36,12 +36,14 @@ Variable | Default | Effect
 `CI` | Unset; `cf` also detects CI providers and the absence of a terminal. | Set to `true` in CI to avoid interactive prompts. Prompts use defaults or fail when an answer is required.  
 `CLOUDFLARE_ACCESS_CLIENT_ID` | Unset; no Access service-token client ID is supplied. | Identifies the service token used to connect to Access-protected Workers. Set it with `CLOUDFLARE_ACCESS_CLIENT_SECRET`.  
 `CLOUDFLARE_ACCESS_CLIENT_SECRET` | Unset; no Access service-token secret is supplied. | Supplies the secret for the Access service token. Set it with `CLOUDFLARE_ACCESS_CLIENT_ID`.  
-`CLOUDFLARE_ACCOUNT_ID` | Unset; `cf` uses project configuration, a saved selection, or an accessible account. | Selects the account for account-scoped commands. Overrides `accountId` in `cloudflare.config.ts`.  
+`CLOUDFLARE_ACCOUNT_ID` | Unset; `cf` uses project configuration or an accessible account. | Selects the account for account-scoped commands. Overrides `accountId` in `cloudflare.config.ts`.  
 `CLOUDFLARE_API_BASE_URL` | The Cloudflare API endpoint for the selected compliance region. | Overrides the API endpoint. Only point it at an endpoint you trust because API requests carry credentials.  
 `CLOUDFLARE_API_HEADERS` | Unset; no custom headers are added. | A JSON object of custom HTTP headers for Cloudflare API requests. Configured values override existing request headers.  
 `CLOUDFLARE_API_TOKEN` | Unset; `cf` uses the selected OAuth profile. | Authenticates API commands with this token instead of a saved profile. Use it for CI and other automation.  
+`CLOUDFLARE_AUTH_PROFILE` | Unset; `cf` uses the profile bound to the directory, or the default profile. | Selects a [named profile](https://developers.cloudflare.com/cf/get-started/#use-named-profiles). `--profile` takes precedence. `cf dev --profile` sets it for the development server.  
 `CLOUDFLARE_COMPLIANCE_REGION` | `public`, unless set in `cloudflare.config.ts`. | Selects the API compliance region and overrides the project configuration. Accepts `public`, `fedramp_high`, or `fedramp-high`.  
-`CLOUDFLARE_REGISTRY_PATH` | The `registry` directory in the `cf` configuration directory. | Sets the local development registry path shared with Wrangler and Miniflare processes started by `cf`.  
+`CLOUDFLARE_DEPENDENCIES_INSTRUMENTATION` | Unset; deployments include npm package dependency metadata. | Set to `false` to omit npm package dependency metadata from Worker deployments and version uploads.  
+`CLOUDFLARE_DEV_REGISTRY_PATH` | The `dev-registry/v5` directory in the `cf` configuration directory. | Sets the local development registry that lets Workers running locally in separate processes call each other. Set the same value for `cf`, Wrangler, and Vite processes that need to share it.  
 `CLOUDFLARE_ZONE_ID` | Unset; zone-scoped commands need a zone. | Supplies a default zone ID or domain name. The `--zone` or `-z` option takes precedence.  
 `DEBUG` | Unset; normal diagnostics are shown. | Set to a nonempty value to show additional diagnostics, including error stack traces and delegated command details.  
 `DO_NOT_TRACK` | Unset; telemetry follows the other settings. | Set to `1` to disable CLI telemetry, even if `CF_SEND_TELEMETRY` enables it.  
@@ -51,7 +53,7 @@ Variable | Default | Effect
 `WRANGLER_LOG_SANITIZE` | `true`. | Omits sensitive deployment debug sections by default. Set to `false` with `DEBUG` enabled to include headers, request options, query strings, and request/response bodies. Header values outside the diagnostic allowlist remain redacted, regardless of this setting.  
 `WRANGLER_SEND_METRICS` | Unset; `cf` uses its saved telemetry preference or enables telemetry. | Sets CLI telemetry when `CF_SEND_TELEMETRY` is not set. Accepts `true`, `false`, `1`, or `0`.  
   
-`cf` loads only selected authentication and context variables from a project `.env` file. Other variables in this table must be set in the process environment. For the supported file variables, precedence, and security guidance, refer to [Load credentials from a .env file](https://developers.cloudflare.com/cf/get-started/#load-credentials-from-a-env-file).
+`cf` loads only selected authentication and context variables from project `.env` files. Other variables in this table must be set in the process environment. For the supported file variables, precedence, and security guidance, refer to [Load credentials from a .env file](https://developers.cloudflare.com/cf/get-started/#load-credentials-from-a-env-file).
 
 For more on API tokens and account selection, refer to [Install and sign in](https://developers.cloudflare.com/cf/get-started/). For telemetry settings in CI, refer to [Use cf in CI](https://developers.cloudflare.com/cf/ci/#turn-off-telemetry).
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/reference-architecture/diagrams/ai/ai-vibe-coding-platform/
 title: AI Vibe Coding Platform \u00b7 Cloudflare Reference Architecture docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:40.587120+00:00
+fetched_at: 2026-11-18T09:55:27.804320+00:00
 ---
 
 # AI Vibe Coding Platform · Cloudflare Reference Architecture docs
@@ -22,7 +22,7 @@ Reference Architecture Diagrams
 
 # AI Vibe Coding Platform
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/reference-architecture/diagrams/ai/ai-vibe-coding-platform/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIntroductionCore Architecture ComponentsAI Integration and Code generationDevelopment environment for executing AI-generated codeDeploying applications to productionConclusion
 
@@ -113,7 +113,7 @@ When building an AI-powered coding platform, you need to be able to deploy and h
 **With Workers for Platforms, you get:**
 
   * **Isolation and multitenancy** — every application runs in its own dedicated Worker, a secure and isolated sandbox environment
-  * **Egress control and usage limits** — Configure firewall policies for all outgoing requests through an [outbound worker](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/) and [custom usage limits](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/custom-limits/) to prevent abuse
+  * **Egress control and usage limits** — Configure firewall policies for outgoing `fetch()` requests through an [outbound worker](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/) and [custom usage limits](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/custom-limits/) to prevent abuse
   * **Dedicated resources per project:** Attach a KV store or database to each application, enabling more powerful functionality while ensuring [resources](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/bindings/) are only accessible by the application they’re attached to.
   * **Logging & Observability** across the platform to gather insights, monitor performance, and troubleshoot issues across applications
 
@@ -127,7 +127,7 @@ Cloudflare has a template AI vibe coding platform that you can deploy, so you ca
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/vibesdk)
 
-[PreviousEmail Security Deployments](https://developers.cloudflare.com/reference-architecture/architectures/email-security-deployments/)[NextAutomatic captioning for video uploads](https://developers.cloudflare.com/reference-architecture/diagrams/ai/ai-video-caption/)
+[PreviousIdentity-gated edge](https://developers.cloudflare.com/reference-architecture/architectures/identity-gated-edge/)[NextAutomatic captioning for video uploads](https://developers.cloudflare.com/reference-architecture/diagrams/ai/ai-video-caption/)
 
 Was this helpful?
 

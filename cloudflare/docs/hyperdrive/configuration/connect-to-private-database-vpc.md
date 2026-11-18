@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/configuration/connect-to-private-database-vpc/
 title: Connect to a private database using Workers VPC (Recommended) \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:29.255615+00:00
+fetched_at: 2026-11-18T09:55:26.862477+00:00
 ---
 
 # Connect to a private database using Workers VPC (Recommended) · Cloudflare Hyperdrive docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:29.255615+00:00
 
 # Connect to a private database using Workers VPC (Recommended)
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/hyperdrive/configuration/connect-to-private-database-vpc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow it worksBefore you startPrerequisites1\. Set up a Cloudflare Tunnel2\. Create a TCP VPC Service TLS certificate verification3\. Create a Hyperdrive configuration4\. Bind Hyperdrive to a Worker5\. Query the databaseNext steps
+OverviewHow it worksBefore you startPrerequisites1\. Set up a Cloudflare Tunnel2\. Create a TCP VPC Service TLS certificate verification Private CA and client certificates3\. Create a Hyperdrive configuration4\. Bind Hyperdrive to a Worker5\. Query the databaseNext steps
 
 [Workers VPC](https://developers.cloudflare.com/workers-vpc/) provides a way to connect Hyperdrive to a private database without configuring Cloudflare Access applications or service tokens. Instead, you create a TCP [VPC Service](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/) that points to your database and pass its service ID to Hyperdrive.
 
@@ -130,11 +130,27 @@ For example, to create a VPC Service for a PostgreSQL database with a self-signe
 
 To update an existing VPC Service, use `wrangler vpc service update` with the same flag.
 
-Note
-
-Workers VPC trusts publicly trusted certificates and [Cloudflare Origin CA certificates](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/). Uploading a custom CA certificate to Workers VPC is not supported yet. If your database uses a certificate signed by a private CA, set `--cert-verification-mode` to `verify_ca` or `disabled` until custom CA support is available.
-
 For the full list of verification modes, refer to [TLS certificate verification mode](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#tls-certificate-verification-mode).
+
+### Private CA and client certificates
+
+If your database uses a certificate signed by a private CA (for example, the Amazon RDS CA bundle), or requires a client certificate, upload the certificates and attach them to the VPC Service instead of weakening verification:
+    
+    
+    npx wrangler cert upload certificate-authority --ca-cert ./db-ca.pem --name db-ca
+    npx wrangler cert upload mtls-certificate --cert ./client.pem --key ./client-key.pem --name db-client
+    
+    npx wrangler vpc service create my-postgres-db \
+      --type tcp \
+      --tcp-port 5432 \
+      --app-protocol postgresql \
+      --tunnel-id <YOUR_TUNNEL_ID> \
+      --hostname <YOUR_DATABASE_HOSTNAME> \
+      --certificate-authority <CA_CERTIFICATE_ID> \
+      --client-certificate <CLIENT_CERTIFICATE_ID> \
+      --cert-verification-mode verify_full
+
+Omit `--client-certificate` if your database does not require client certificate authentication. Refer to [Custom CA and client certificates](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates) for all options, including the API and certificate rotation.
 
 ## 3\. Create a Hyperdrive configuration
 
@@ -271,7 +287,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-18",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -283,7 +299,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-18"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"
@@ -364,7 +380,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-18",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -376,7 +392,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-18"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"

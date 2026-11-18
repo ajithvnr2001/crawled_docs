@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/response/
 title: Response \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:47.926593+00:00
+fetched_at: 2026-11-18T09:55:21.433428+00:00
 ---
 
 # Response · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:47.926593+00:00
 
 # Response
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/response/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConstructor ParametersPropertiesMethods Instance methods Additional instance methods Set the Content-Length headerDifferences The cf property The webSocket property The encodeBody option The headers propertyRelated resources
 
@@ -149,7 +149,7 @@ The Workers implementation of the `Response` interface includes several extensio
 
 TypeScript users
 
-Workers type definitions (from `@cloudflare/workers-types` or generated via [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types)) define a `Response` type that includes Workers-specific properties like `cf` and `webSocket`. This type is not directly compatible with the standard `Response` type from `lib.dom.d.ts`. If you are working with code that uses both Workers types and standard web types, you may need to use type assertions.
+Workers type definitions (from `@cloudflare/workers-types` or generated via [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types)) define a `Response` type that includes Workers-specific properties like `cf` and `webSocket`. This type is not directly compatible with the standard `Response` type from `lib.dom.d.ts`. If you are working with code that uses both Workers types and standard web types, you may need to use type assertions.
 
 ### The `cf` property
 

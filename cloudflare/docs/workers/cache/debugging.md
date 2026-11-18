@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/debugging/
 title: Debugging \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:10.685132+00:00
+fetched_at: 2026-11-18T09:55:20.420991+00:00
 ---
 
 # Debugging · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:10.685132+00:00
 
 # Debugging
 
-Last updated Oct 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/cache/debugging/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInspect Cf-Cache-StatusMy Worker runs on every requestMy Worker runs even after the first requestMy cache hit rate dropped after a deploymentMy cache still serves old content after a deploymentMy cache never updates after content changesTwo callers receive each other's cached responsesCf-Cache-Status: UPDATING appears constantlyCf-Cache-Status: UPDATING never appearsCf-Cache-Status: STALE appears unexpectedlyMy response is larger than the size limitI need more visibility
 
@@ -186,7 +186,19 @@ For per-plan response size limits, refer to [Cacheable size limits](https://deve
 
 ## I need more visibility
 
-At launch, the primary debugging surfaces are the `Cf-Cache-Status` response header and per-invocation cache-hit information in the [Workers observability dashboard](https://developers.cloudflare.com/workers/observability/).
+Beyond the `Cf-Cache-Status` response header and per-invocation cache-hit information in the [Workers observability dashboard](https://developers.cloudflare.com/workers/observability/), you can review aggregate cache analytics for your Worker in the Cloudflare dashboard:
+
+  1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
+
+[ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
+  2. Select your Worker.
+
+  3. Go to **Metrics** and find the cache analytics.
+
+
+
+
+Cache analytics show how your Worker's cached traffic behaves over time, which helps you confirm whether caching is working across all requests rather than one request at a time. Refer to [Workers metrics](https://developers.cloudflare.com/workers/observability/metrics-and-analytics/#workers-metrics) for more on the **Metrics** page.
 
 [PreviousExamples](https://developers.cloudflare.com/workers/cache/examples/)[NextLimitations](https://developers.cloudflare.com/workers/cache/limitations/)
 

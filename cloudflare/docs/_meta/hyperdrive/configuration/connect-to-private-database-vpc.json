@@ -3,8 +3,5 @@
   "file": "hyperdrive/configuration/connect-to-private-database-vpc.md",
   "title": "Connect to a private database using Workers VPC (Recommended) \u00b7 Cloudflare Hyperdrive docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:11:29.255872+00:00",
-  "html_len": 225457,
-  "md_len": 16906,
-  "depth": 0
+  "fetched_at": "2026-11-18T09:55:26.862818+00:00"
 }

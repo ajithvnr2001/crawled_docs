@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/api/instances/workers-binding/
 title: Workers binding \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T08:45:58.217078+00:00
+fetched_at: 2026-11-18T09:55:27.435077+00:00
 ---
 
 # Workers binding · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ API
 
 # Workers binding
 
-Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure the binding Namespace binding Instance bindingNamespace methods get() list() create() delete()Instance methods update() info() stats()Jobs methods jobs.list() jobs.create() jobs.get().info() jobs.get().cancel() jobs.get().logs()Local development
 
@@ -320,6 +320,8 @@ Configuration for how content is indexed.
     * The tokenizer used for keyword search indexing. Valid values: `porter` (stemming-based), `trigram` (character n-gram). Defaults to `porter`.
   * `use_ocr` `boolean` optional
     * Use optical character recognition (OCR) when ingesting PDFs and images. Defaults to `false`. OCR is available on every account and is billed as image-processing ingestion tokens.
+  * `file_summary` `boolean` optional
+    * Generate a summary, topics, and keywords for each eligible file during indexing. Defaults to `false`. The LLM calls are billed to your account as Workers AI usage, not as AI Search ingestion. Refer to [File summaries](https://developers.cloudflare.com/ai-search/configuration/data-source/#file-summaries).
 
 
 
@@ -354,7 +356,7 @@ The UUID of the [service API token](https://developers.cloudflare.com/ai-search/
 
 `ai_gateway_id` `string` optional
 
-The AI Gateway ID for generation, query rewriting, and external-provider requests. Workers AI embedding and reranking usage is included in AI Search usage. These requests do not appear in your AI Gateway logs or Workers AI bill.
+The AI Gateway ID for generation, query rewriting, file summaries, and external-provider requests. File summaries use the `default` gateway when this is not set. Workers AI embedding and reranking usage is included in AI Search usage. These requests do not appear in your AI Gateway logs or Workers AI bill.
 
 * * *
 
@@ -496,7 +498,7 @@ Partially updates the instance configuration. Only the fields you pass are modif
 
 #### Parameters
 
-Accepts a partial version of the create parameters. Only the fields you include are updated.
+Accepts a partial version of the create parameters. Only the fields you include are updated. `indexing_options` is replaced as a whole, so include the current value of every indexing option.
 
 Field | Type | Description  
 ---|---|---  
@@ -504,7 +506,7 @@ Field | Type | Description
 `embedding_model` | string | The embedding model.  
 `index_method` | object | Indexing methods: `\{ vector: boolean, keyword: boolean \}`.  
 `fusion_method` | string | How vector and keyword scores are combined (`rrf` or `max`).  
-`indexing_options` | object | Indexing configuration including `keyword_tokenizer` and `use_ocr`.  
+`indexing_options` | object | Indexing configuration including `keyword_tokenizer`, `use_ocr`, and `file_summary`.  
 `retrieval_options` | object | Retrieval configuration including `keyword_match_mode` and `boost_by`.  
 `reranking` | boolean | Turn on or off reranking.  
 `reranking_model` | string | The reranking model.  
@@ -554,7 +556,7 @@ Field | Type | Description
 `cache_ttl` | number | Cache entry time to live in seconds.  
 `index_method` | object | Which indexing methods are enabled (`vector`, `keyword`).  
 `fusion_method` | string | How vector and keyword scores are combined (`rrf` or `max`).  
-`indexing_options` | object | Indexing configuration including `keyword_tokenizer` and `use_ocr`.  
+`indexing_options` | object | Indexing configuration including `keyword_tokenizer`, `use_ocr`, and `file_summary`.  
 `retrieval_options` | object | Retrieval configuration including `keyword_match_mode` and `boost_by`.  
 `chunk_size` | number | Token size of each chunk.  
 `chunk_overlap` | number | Token overlap between chunks.  

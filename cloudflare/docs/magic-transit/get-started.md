@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/magic-transit/get-started/
 title: Get started \u00b7 Cloudflare Magic Transit docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:17.969404+00:00
+fetched_at: 2026-11-18T09:55:26.642751+00:00
 ---
 
 # Get started · Cloudflare Magic Transit docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:12:17.969404+00:00
 
 # Get started
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/magic-transit/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewScope your configurationIPsVerify router compatibilityDraft Letter of Agency Example of a Letter of AgencyVerify IRR entries Optional: RPKI check for prefix validationSet maximum segment size MSS clamping recommendationsFollow router vendor guidelinesConfigure tunnelsConfigure static routes or BGP peeringRun pre-flight checksAdvertise prefixesNext steps
 
@@ -41,7 +41,7 @@ To protect your network with a Cloudflare IP address, contact your account manag
 
 
 
-When you use a Cloudflare-owned IP space, you do not need a Letter of Agency (LOA). When using Cloudflare-leased IPs, Cloudflare automatically enables [Magic Transit Egress](https://developers.cloudflare.com/magic-transit/reference/egress/), which routes your egress traffic to Cloudflare instead of the Internet. Set up policy-based routing on your end to ensure return traffic routes properly.
+When you use a Cloudflare-owned IP space, you do not need a Letter of Agency (LOA). When using Cloudflare-leased IPs, your account team will enable [Magic Transit Egress](https://developers.cloudflare.com/magic-transit/reference/egress/), which allows Cloudflare to accept your return traffic. You then set up policy-based routing on your end to ensure return traffic routes via Cloudflare instead of the Internet.
 
 ## Verify router compatibility
 

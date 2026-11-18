@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/basin-pipelines/streams/writing-to-streams/
 title: Writing to streams \u00b7 Cloudflare Basin Pipelines Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:27.414981+00:00
+fetched_at: 2026-11-18T09:55:22.914304+00:00
 ---
 
 # Writing to streams · Cloudflare Basin Pipelines Docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:27.414981+00:00
 
 # Writing to streams
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-pipelines/streams/writing-to-streams/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSend via Workers Configure pipeline binding Workers APISend via HTTP Endpoint format Making requests AuthenticationSchema validation
 
@@ -83,7 +83,7 @@ Sends an array of JSON-serializable records to the stream. Returns a Promise tha
 
 ### Typed pipeline bindings
 
-When a stream has a defined schema, running `wrangler types` generates schema-specific TypeScript types for your pipeline bindings. Instead of the generic `Pipeline<PipelineRecord>`, your bindings get a named record type with full autocomplete and compile-time type checking. Refer to the [`wrangler types` documentation](https://developers.cloudflare.com/workers/wrangler/commands/general/#types) to learn more.
+When a stream has a defined schema, running `wrangler types` generates schema-specific TypeScript types for your pipeline bindings. Instead of the generic `Pipeline<PipelineRecord>`, your bindings get a named record type with full autocomplete and compile-time type checking. Refer to the [`wrangler types` documentation](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types) to learn more.
 
 #### Generated types
 

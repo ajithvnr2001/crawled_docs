@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/reference/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:25.267912+00:00
+fetched_at: 2026-11-18T09:55:29.934895+00:00
 ---
 
 # Troubleshooting · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:25.267912+00:00
 
 # Troubleshooting
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSPF (Sender Policy Framework) issues Multiple SPF records Missing SPF record SPF record syntax errors Checking SPF recordsDKIM (DomainKeys Identified Mail) issues Missing DKIM records DKIM key rotation Checking DKIM records DKIM signature validation failuresDMARC (Domain-based Message Authentication, Reporting & Conformance) issues Missing DMARC policy DMARC policy too strict DMARC alignment issues Checking DMARC recordsLocal development issues "Cannot serialize value: [object ArrayBuffer]"Common delivery issues Transactional email going to spam or junk High bounce rates Suppressed recipient Recipient blocked after expiration or deletion Bounces before suppression enforcement Complaint suppression does not appear Missing suppression after a bounceConflicts with external mail providers Onboarding fails with "Non-Cloudflare MX records exist"Testing toolsGetting help
 
@@ -156,6 +156,8 @@ If DKIM validation is failing:
 ### Missing DMARC policy
 
 While not required, DMARC significantly improves email deliverability. When Email Sending is enabled on a domain, Cloudflare adds a `p=reject` DMARC record to the sending domain if none exists. If you already have a DMARC record, Cloudflare keeps it unchanged.
+
+You can edit the record Cloudflare adds, and Cloudflare keeps your changes. To choose a policy, refer to [Sending records](https://developers.cloudflare.com/email-service/configuration/domains/#sending-records).
 
 To add a DMARC record manually:
 

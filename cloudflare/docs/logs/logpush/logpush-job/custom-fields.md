@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/
 title: Custom fields \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:26.489609+00:00
+fetched_at: 2026-11-18T09:55:29.537950+00:00
 ---
 
 # Custom fields · Cloudflare Logs docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-31T08:10:26.489609+00:00
 
 # Custom fields
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable custom rules via API 1\. Create a rule to configure the list of custom fields 2\. Include the custom fields in your Logpush jobEnable custom fields via dashboardUse case: Logging mTLS certificate headersLimitations
 
@@ -45,7 +45,7 @@ Custom fields can be enabled via API or the Cloudflare dashboard.
 
 Note
 
-Custom fields are only available for the HTTP requests dataset. They apply to [account-scoped](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/http_requests/) and [zone-scoped](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/) jobs.
+Custom fields are only available for the HTTP requests dataset. They apply to both account-scoped and zone-scoped [HTTP requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/) jobs.
 
 Note
 

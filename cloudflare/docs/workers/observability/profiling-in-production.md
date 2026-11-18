@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/profiling-in-production/
 title: Profiling in production \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:07.594667+00:00
+fetched_at: 2026-11-18T09:55:27.685680+00:00
 ---
 
 # Profiling in production · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-13T09:17:07.594667+00:00
 
 # Profiling in production
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a profile typePrepare trafficEnable source mapsCapture a profile Use dashboard Use Cloudflare CLI Use APIInspect the resultsDownload the captureLimits
 
@@ -99,7 +99,7 @@ Run the following to see all the available options for the profiling command:
     
     cf workers versions profile --help
 
-The command requires a positional version identifier and `--worker-id`. Use `latest-deployed`, a version's universally unique identifier (UUID), or a UUID prefix of at least eight characters.
+The command requires a positional version identifier and `--worker`. Use `latest-deployed`, a version's universally unique identifier (UUID), or a UUID prefix of at least eight characters.
 
 `latest-deployed` profiles a version in the active deployment. When traffic is split, versions are tried in traffic-share order until one has a loaded isolate. To profile a specific version, replace `latest-deployed` in the examples with that version's identifier.
 
@@ -116,7 +116,7 @@ The command writes raw binary pprof data to standard output.
   3. Capture a CPU profile for 5 seconds and save it to `worker-cpu.pprof`:
          
          cf workers versions profile latest-deployed \
-           --worker-id "$WORKER_ID" \
+           --worker "$WORKER_ID" \
            --duration-ms 5000 \
            --profile-type cpu > worker-cpu.pprof
 
@@ -134,7 +134,7 @@ Set `$NAMESPACE_ID` to the namespace ID and `$DURABLE_OBJECT_ID` to the [instanc
   3. Capture a heap profile for 5 seconds and save it to `durable-object-heap.pprof`. Pass both `--namespace-id` and `--actor-id` to target that exact instance:
          
          cf workers versions profile latest-deployed \
-           --worker-id "$WORKER_ID" \
+           --worker "$WORKER_ID" \
            --duration-ms 5000 \
            --profile-type heap \
            --namespace-id "$NAMESPACE_ID" \

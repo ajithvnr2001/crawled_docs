@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/browser/
 title: Browser \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:18.367441+00:00
+fetched_at: 2026-11-18T09:55:22.853377+00:00
 ---
 
 # Browser · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:18.367441+00:00
 
 # Browser
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use it in Pi's code mode Use another harnessInternal hostnames Add internal hostnames Let the model choose what a host serves LimitsLive View and human takeover Hand off to a person Close the browserRecordingBrowser APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
 
@@ -167,7 +167,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     	"name": "persistent-browser-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-11-04",
+    	"compatibility_date": "2026-11-18",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI" },
     	"browser": { "binding": "BROWSER" },
@@ -182,7 +182,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     name = "persistent-browser-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-11-04"
+    compatibility_date = "2026-11-18"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -202,7 +202,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     tag = "v1"
     new_sqlite_classes = [ "BrowserAssistant" ]
 
-Generate the `Env` type with [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types). The `LOADER` binding runs the model's browser code in a new [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/) for each call, with no network access. The code reaches the browser only through the browser API.
+Generate the `Env` type with [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types). The `LOADER` binding runs the model's browser code in a new [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/) for each call, with no network access. The code reaches the browser only through the browser API.
 
 `browserTool` does not use Code Mode, but keep `@cloudflare/codemode` installed. `agents/browser` still exports the legacy browser tools, which need it.
 

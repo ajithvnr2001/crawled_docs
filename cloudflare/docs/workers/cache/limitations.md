@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/limitations/
 title: Limitations \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:10.940102+00:00
+fetched_at: 2026-11-18T09:55:20.316306+00:00
 ---
 
 # Limitations · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:10.940102+00:00
 
 # Limitations
 
-Last updated Oct 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/cache/limitations/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUnsupported scenarios HTTP methods WebSocket upgrades Custom RPC methods Status codes that are never cached Other invocation types Purge by host Cache pre-warmingLimits Response size Cache-Tag limits Purge rate limitsRelationship to other caches Zone-level cache configuration Cache API (caches.default) fetch() subrequest cachingComing soon
 
@@ -140,9 +140,10 @@ The `cf` properties on a `Request` behave differently across the two:
 The following surfaces are in development:
 
   * **Dashboard UI** for enabling caching without Wrangler.
-  * **Cache Analytics in Workers Observability**.
 
 
+
+Cache analytics are available on your Worker's **Metrics** page in the dashboard. Refer to [I need more visibility](https://developers.cloudflare.com/workers/cache/debugging/#i-need-more-visibility).
 
 [PreviousDebugging](https://developers.cloudflare.com/workers/cache/debugging/)[NextOverview](https://developers.cloudflare.com/workers/runtime-apis/)
 

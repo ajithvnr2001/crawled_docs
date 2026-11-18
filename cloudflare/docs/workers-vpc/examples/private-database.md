@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/examples/private-database/
 title: Connect to a private database \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:07.828735+00:00
+fetched_at: 2026-11-18T09:55:26.356529+00:00
 ---
 
 # Connect to a private database · Cloudflare Workers VPC
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:07.828735+00:00
 
 # Connect to a private database
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-vpc/examples/private-database/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Set up a Cloudflare Tunnel2\. Create a TCP VPC Service3\. Create a Hyperdrive configuration4\. Bind Hyperdrive to a Worker5\. Query the database6\. Deploy and testNext steps
 
@@ -69,7 +69,7 @@ The command returns a service ID. Save this value for the next step.
 
 Note
 
-If your database uses a self-signed certificate, add `--cert-verification-mode verify_ca` to the command above. Refer to [TLS certificate verification mode](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#tls-certificate-verification-mode) for all options.
+If your database uses a certificate signed by a private certificate authority (CA), or requires a client certificate, attach them to the VPC Service with `--certificate-authority` and `--client-certificate`. Refer to [Custom CA and client certificates](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates). For other verification options, refer to [TLS certificate verification mode](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#tls-certificate-verification-mode).
 
 ## 3\. Create a Hyperdrive configuration
 
@@ -186,7 +186,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-18",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -198,7 +198,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-18"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"

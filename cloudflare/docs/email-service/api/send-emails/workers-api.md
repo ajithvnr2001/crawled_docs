@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/workers-api/
 title: Email Sending Workers API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:23.523826+00:00
+fetched_at: 2026-11-18T09:55:30.721421+00:00
 ---
 
 # Email Sending Workers API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # Email Sending Workers API
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEmail bindingsend() method Interface Basic usage AttachmentsError handlingError codesLegacy EmailMessage APINext steps
 
@@ -54,26 +54,29 @@ Send a single email using the `send()` method on your email binding.
     	send(message: EmailMessage | EmailMessageBuilder): Promise<EmailSendResult>;
     }
     
+    // Both fields are required. To send an address without a display name,
+    // pass it as a plain string instead of an object.
     interface EmailAddress {
     	email: string;
-    	name?: string;
+    	name: string;
     }
     
     // Structured email builder (recommended)
     interface EmailMessageBuilder {
-    	to: string | EmailAddress | (string | EmailAddress)[]; // Max 50 recipients
+    	// At least one of `to`, `cc`, or `bcc` is required. The combined number
+    	// of addresses in all three must not exceed 50.
+    	// See /email-service/platform/limits/ for all limits.
+    	to?: string | EmailAddress | (string | EmailAddress)[];
+    	cc?: string | EmailAddress | (string | EmailAddress)[];
+    	bcc?: string | EmailAddress | (string | EmailAddress)[];
     	from: string | EmailAddress;
     	subject: string;
     	html?: string;
     	text?: string;
-    	cc?: string | EmailAddress | (string | EmailAddress)[];
-    	bcc?: string | EmailAddress | (string | EmailAddress)[];
     	replyTo?: string | EmailAddress;
     	attachments?: Attachment[];
     	// Custom headers. See /email-service/reference/headers/
     	headers?: { [key: string]: string };
-    	// The combined number of addresses in `to`, `cc`, and `bcc` must not
-    	// exceed 50. See /email-service/platform/limits/ for all limits.
     }
     
     interface Attachment {
@@ -152,16 +155,27 @@ Handle email sending errors gracefully:
     				}),
     			);
     		} catch (error) {
-    			// Error has .code and .message properties
+    			// A malformed send() argument throws a TypeError without a code
+    			if (error instanceof TypeError) {
+    				return new Response(
+    					JSON.stringify({
+    						success: false,
+    						error: error.message,
+    					}),
+    					{ status: 400 },
+    				);
+    			}
+    
+    			// Email Service errors have .code and .message properties
     			console.error("Email sending failed:", error.code, error.message);
     
     			// Handle specific error types
     			switch (error.code) {
-    				case "E_SENDER_NOT_VERIFIED":
+    				case "E_SENDER_DOMAIN_NOT_AVAILABLE":
     					return new Response(
     						JSON.stringify({
     							success: false,
-    							error: "Please verify your sender domain first",
+    							error: "Onboard your sender domain to Email Service first",
     						}),
     						{ status: 400 },
     					);
@@ -190,22 +204,25 @@ Handle email sending errors gracefully:
 
 ## Error codes
 
-The following error codes may be returned when sending emails:
+Email Service errors have a `code` property. The following error codes may be returned when sending emails:
 
 Error code | Description | Common causes  
 ---|---|---  
-`E_VALIDATION_ERROR` | Validation error in the payload | Invalid email format, missing required fields, malformed data  
-`E_FIELD_MISSING` | Required field is missing | Missing `to`, `from`, or `subject` fields  
+`E_VALIDATION_ERROR` | Validation error in the payload | Invalid email address, no `text` or `html` content, malformed message  
+`E_FIELD_MISSING` | Required header is missing | A raw `EmailMessage` has no `From` or `Message-ID` header  
 `E_TOO_MANY_RECIPIENTS` | Too many recipients in to/cc/bcc arrays | Combined recipients exceed 50 limit  
 `E_TOO_MANY_ATTACHMENTS` | Too many attachments in `attachments` array | `attachments` array exceeds 32 entries  
-`E_SENDER_NOT_VERIFIED` | Sender domain not verified | Attempting to send from unverified domain  
-`E_RECIPIENT_NOT_ALLOWED` | Recipient not in allowed list | Recipient address not in `allowed_destination_addresses`  
-`E_RECIPIENT_SUPPRESSED` | Suppressed recipient while dropping is off | At least one recipient is suppressed and **Drop suppressed recipients** is off  
+`E_SENDER_NOT_VERIFIED` | Sender address not allowed | Sender address not in the binding's `allowed_sender_addresses`  
+`E_SENDER_DOMAIN_NOT_AVAILABLE` | Domain not available for sending | Sender domain not onboarded to Email Service, owned by another account, or not active for sending  
+`E_SENDER_DOMAIN_NOT_CONFIGURED` | Domain not configured for sending | The account or zone of the sender domain has no Email Sending configuration  
+`E_EMAIL_SENDING_NOT_READY` | Email Sending setup in progress | Domain onboarding has not finished. Retry the send later  
+`E_RECIPIENT_NOT_ALLOWED` | Recipient not allowed | Recipient not allowed by the binding's `destination_address` or `allowed_destination_addresses`, or an unverified recipient when the sender domain is not onboarded to Email Sending  
+`E_RECIPIENT_PLAN_RESTRICTED` | Recipient not allowed by plan | Recipient is not a [verified destination address](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#destination-addresses) and the account [plan](https://developers.cloudflare.com/email-service/platform/pricing/) allows sending only to verified destination addresses  
+`E_RECIPIENT_SUPPRESSED` | Suppressed address while dropping is off | At least one recipient is suppressed and **Drop suppressed recipients** is off, or the sender address is suppressed  
 `E_ACCOUNT_SUSPENDED` | Email Sending is paused for the account | Account paused because of poor sending reputation  
-`E_SENDER_DOMAIN_NOT_AVAILABLE` | Domain not available for sending | Domain not onboarded to Email Service  
 `E_CONTENT_TOO_LARGE` | Email content exceeds size limit | Total message size exceeds the maximum  
 `E_DELIVERY_FAILED` | Could not deliver the email | SMTP delivery failure, recipient server rejection  
-`E_RATE_LIMIT_EXCEEDED` | Rate limit exceeded | Sending rate limit reached  
+`E_RATE_LIMIT_EXCEEDED` | Rate limit exceeded | Sending rate or concurrent send limit reached  
 `E_DAILY_LIMIT_EXCEEDED` | Daily limit exceeded | Daily sending quota reached  
 `E_INTERNAL_SERVER_ERROR` | Internal service error | Email Service temporarily unavailable  
 `E_HEADER_NOT_ALLOWED` | Header not allowed | Header is platform-controlled or not on the [allowlist](https://developers.cloudflare.com/email-service/reference/headers/)  
@@ -216,6 +233,8 @@ Error code | Description | Common causes
 `E_HEADERS_TOO_LARGE` | Headers payload too large | Total custom headers exceed 16 KB limit  
 `E_HEADERS_TOO_MANY` | Too many headers | More than 20 allowlisted (non-X) custom headers  
   
+If the argument to `send()` does not match the interface, `send()` throws a `TypeError` without a `code` property. For example, this happens when the message has no `to`, `cc`, or `bcc` recipient, or when an `EmailAddress` object has no `name`.
+
 **Drop suppressed recipients** is off by default. When you [turn on the setting](https://developers.cloudflare.com/email-service/configuration/domains/#drop-suppressed-recipients), Email Service removes suppressed recipients and processes the remaining recipients.
 
 ## Legacy `EmailMessage` API

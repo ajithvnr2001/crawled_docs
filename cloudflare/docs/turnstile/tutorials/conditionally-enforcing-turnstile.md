@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/tutorials/conditionally-enforcing-turnstile/
 title: Conditionally enforce Turnstile \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:08.858052+00:00
+fetched_at: 2026-11-18T09:55:26.563738+00:00
 ---
 
 # Conditionally enforce Turnstile · Cloudflare Turnstile docs
@@ -12,21 +12,23 @@ fetched_at: 2026-10-08T07:16:08.858052+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Turnstile](https://developers.cloudflare.com/turnstile/)
   3. /[Tutorials](https://developers.cloudflare.com/turnstile/tutorials/)
-  4. /Conditionally Enforcing Turnstile
+  4. /Conditionally enforce Turnstile
 
 
 
 # Conditionally enforce Turnstile
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/tutorials/conditionally-enforcing-turnstile/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewOverviewImplementationServer-side integrationDemonstration
+OverviewOverviewExample 1: Use a Transform Rule for selected agents Server-side integration TestExample 2: Use HTMLRewriter Server-side integration Test
 
-This tutorial explains how to conditionally enforce Turnstile based on the incoming request, such as a pre-shared secret in a header or a specific IP address.
+Sometimes you may want to show Turnstile only for certain requests. For example, you might let an approved agent use a form without completing Turnstile. Here are two ways to conditionally render it: use a Transform Rule to pass request information to your site in a header, or use HTMLRewriter in a Worker to remove the widget from the response.
 
 ## Overview
 
-You may have setups such as automation that cannot load or run the Turnstile challenge. Using [`HTMLRewriter`](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter/), this tutorial will demonstrate how to conditionally handle the [client-side widget](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/) and [Siteverify API](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/) when specific criteria are met.
+Turnstile runs in the browser and gives your server a token to check. If you want someone to complete an action without Turnstile, do not show them the widget **and** do not require a token when they complete that action. Keep both checks for everyone else.
+
+This tutorial shows two ways to leave the widget off the page. In Example 1, a [Request Header Transform Rule](https://developers.cloudflare.com/rules/transform/request-header-modification/) sends request information to your site in a header. In Example 2, [HTMLRewriter](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter/) removes the widget using Bot Management metadata from the Worker request. Each example also covers the server-side token check.
 
 Note
 
@@ -34,89 +36,240 @@ While this tutorial removes Turnstile client-side elements when specific criteri
 
 Caution
 
-It is critical to make sure you are validating tokens with the Siteverify API when your criteria for enforcing Turnstile are not met.
+Always validate required Turnstile tokens with the Siteverify API.
 
-It is not sufficient to only remove the client-side widget from the page, as an attacker can forge the request to your API.
+Removing the client-side widget alone does not protect your endpoint. Visitors can send requests directly to it.
 
-## Implementation
+## Example 1: Use a Transform Rule for selected agents
 
-This tutorial will modify the existing [Turnstile demo ↗︎](https://github.com/cloudflare/turnstile-demo-workers/blob/main/src/) to conditionally remove the existing `script` and widget container elements.
+A Request Header Transform Rule can add or remove a header before a request reaches your website. This example uses two rules: the first removes any visitor-supplied `x-turnstile-bypass` header, and the second sets it to `true` for requests with detection IDs you choose.
 
-src/index.mjsdiff
+Configure your website to leave Turnstile off the page and accept submissions without a token when it receives `x-turnstile-bypass: true`. Other visitors still get Turnstile. This example requires Enterprise [Bot Management](https://developers.cloudflare.com/bots/get-started/bot-management/) to identify the selected agents.
+
+The rule evaluates each incoming request. It adds the header to eligible page requests and form submissions separately.
+
+  1. Find the Bot Detection ID or IDs for the agent in [Botbase](https://developers.cloudflare.com/bots/botbase/).
+
+  2. In the Cloudflare dashboard, go to **Rules** > **Overview**.
+
+[ Go to **Overview** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/rules/overview)
+  3. Create a rule that removes any incoming bypass header. This prevents visitors from forging the header to bypass Turnstile.
+
+     1. Select **Create rule** > **Request Header Transform Rule**.
+     2. Under **If incoming requests match…** , select **Custom filter expression**.
+     3. Under **When incoming requests match…** , enter an expression for every hostname where your application trusts this header. For example: `http.host eq "example.com"`.
+     4. Under **Then…** > **Modify request header** , set **Operation** to **Remove** and **Header name** to `x-turnstile-bypass`.
+     5. Deploy the rule.
+  4. Create a second rule that sets the header for approved detection IDs:
+
+     1. Select **Create rule** > **Request Header Transform Rule**.
+
+     2. Under **If incoming requests match…** , select **Custom filter expression**.
+
+     3. Under **When incoming requests match…** , enter an expression that matches your hostname and the detection ID or IDs you want to allow. For example, replace the hostname and IDs in this expression:
+            
+            http.host eq "example.com" and any(cf.bot_management.detection_ids[*] in {12345 6789})
+
+     4. Under **Then…** > **Modify request header** , set **Operation** to **Set static** , **Header name** to `x-turnstile-bypass`, and **Value** to `true`. This sets `x-turnstile-bypass: true` on matching requests so your site can skip Turnstile for them.
+
+     5. Set this rule's priority after the removal rule, then select **Deploy**. Ensure no later rule changes this header.
+
+
+
+
+### Server-side integration
+
+At your origin, check for exactly one `x-turnstile-bypass: true` header. Confirm the hostname and operation. Omit Turnstile on matching page requests, and skip Siteverify on matching submissions. Render and validate normally for other requests. The request header is not available to browser JavaScript. If browser code renders the widget, pass the rendering decision from your server to the page.
+
+In your form handler, check the header again. If it has exactly one value of `true`, accept the form without a Turnstile token. Otherwise, require a token and verify it with [Siteverify](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/). Keep your other form checks unchanged.
+
+For example, in an Express form handler with body parsing configured:
     
     
-    export default {
-      async fetch(request) {
-        // ...
+    async function handlePost(req, res) {
+    	// Read every value so duplicate headers cannot grant an exception.
+    	const bypassValues = [];
+    	for (let i = 0; i < req.rawHeaders.length; i += 2) {
+    		if (req.rawHeaders[i].toLowerCase() === "x-turnstile-bypass") {
+    			bypassValues.push(req.rawHeaders[i + 1]);
+    		}
+    	}
     
-    +    if (request.headers.get("x-bypass-turnstile") === "VerySecretValue") {
-    +      class RemoveHandler {
-    +        element(element) {
-    +          element.remove();
-    +        }
-    +      }
-    +
-    +      return new HTMLRewriter()
-    +        // Remove the script tag
-    +        .on(
-    +          'script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]',
-    +          new RemoveHandler(),
-    +        )
-    +       // Remove the container used in implicit rendering
-    +				.on(
-    +					'.cf-turnstile',
-    +					new RemoveHandler(),
-    +				)
-    +       // Remove the container used in explicit rendering
-    +				.on(
-    +					'#myWidget',
-    +					new RemoveHandler(),
-    +				)
-    +        .transform(body);
-    +    }
+    	const skipTurnstile =
+    		req.method === "POST" &&
+    		req.hostname === "example.com" &&
+    		req.path === "/submit" &&
+    		bypassValues.length === 1 &&
+    		bypassValues[0] === "true";
     
-        return new Response(body, {
-          headers: {
-            "Content-Type": "text/html",
-          },
-        });
-      },
-    };
+    	if (!skipTurnstile) {
+    		const token = req.body["cf-turnstile-response"];
+    		const result = token && (await verifyTurnstile(token));
+    		if (!result?.success) {
+    			return res.status(400).send("Turnstile verification failed");
+    		}
+    	}
+    
+    	// Continue processing the form as usual.
+    }
 
-## Server-side integration
+Replace the example hostname and path with yours. Use your existing Siteverify call for `verifyTurnstile()`.
 
-We will exit early in our validation if the same logic we used to remove the client-side elements is present.
+If clients can reach your origin directly, they can send this header themselves. Restrict origin access through Cloudflare, for example with Cloudflare Tunnel or authenticated origin connections. Reject duplicate or comma-joined header values.
 
-Caution
+If you cache the form page, use separate cache entries for responses with and without Turnstile. Otherwise, do not cache the page.
 
-The same logic must be used in both the client-side and the server-side implementations.
+### Test
 
-src/index.mjsdiff
+Test an approved agent, an ordinary visitor, a forged bypass header, and a submission that does not qualify. Ordinary visitors and ineligible submissions must provide valid tokens.
+
+## Example 2: Use HTMLRewriter
+
+This example modifies the existing [Turnstile demo ↗︎](https://github.com/cloudflare/turnstile-demo-workers/blob/main/src/) to remove Turnstile elements from the HTML response. It checks Bot Management detection IDs on each request, including form submissions. A standard form POST is a new request and does not inherit headers from the page request. This approach requires Enterprise [Bot Management](https://developers.cloudflare.com/bots/get-started/bot-management/).
+
+Replace the example IDs, hostname, and paths with your approved values. Find detection IDs in [Botbase](https://developers.cloudflare.com/bots/botbase/).
+    
+    
+    const approvedDetectionIds = new Set([12345, 6789]);
+    
+    function isApprovedAgent(request) {
+    	const url = new URL(request.url);
+    	const isTurnstilePage =
+    		request.method === "GET" && ["/", "/explicit"].includes(url.pathname);
+    	const isFormSubmission =
+    		request.method === "POST" && url.pathname === "/handler";
+    
+    	if (
+    		url.hostname !== "example.com" ||
+    		(!isTurnstilePage && !isFormSubmission)
+    	) {
+    		return false;
+    	}
+    
+    	const detectionIds = request.cf?.botManagement?.detectionIds ?? [];
+    	return detectionIds.some((id) => approvedDetectionIds.has(id));
+    }
+    
+    function rewriteTurnstilePage(request, response) {
+    	if (request.method !== "GET" || !isApprovedAgent(request)) {
+    		return response;
+    	}
+    
+    	class RemoveHandler {
+    		element(element) {
+    			element.remove();
+    		}
+    	}
+    
+    	return (
+    		new HTMLRewriter()
+    			// Match the script URL with or without query parameters.
+    			.on(
+    				'script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]',
+    				new RemoveHandler(),
+    			)
+    			// Remove the explicit-render callback and widget containers.
+    			.on("#turnstile-render", new RemoveHandler())
+    			.on(".cf-turnstile", new RemoveHandler())
+    			.on("#myWidget", new RemoveHandler())
+    			.transform(response)
+    	);
+    }
+    
+    
+    type BotManagedRequest = Request<unknown, IncomingRequestCfProperties>;
+    const approvedDetectionIds = new Set<number>([12345, 6789]);
+    
+    function isApprovedAgent(request: BotManagedRequest): boolean {
+    	const url = new URL(request.url);
+    	const isTurnstilePage =
+    		request.method === "GET" && ["/", "/explicit"].includes(url.pathname);
+    	const isFormSubmission =
+    		request.method === "POST" && url.pathname === "/handler";
+    
+    	if (
+    		url.hostname !== "example.com" ||
+    		(!isTurnstilePage && !isFormSubmission)
+    	) {
+    		return false;
+    	}
+    
+    	const detectionIds = request.cf?.botManagement?.detectionIds ?? [];
+    	return detectionIds.some((id) => approvedDetectionIds.has(id));
+    }
+    
+    function rewriteTurnstilePage(
+    	request: BotManagedRequest,
+    	response: Response,
+    ): Response {
+    	if (request.method !== "GET" || !isApprovedAgent(request)) {
+    		return response;
+    	}
+    
+    	class RemoveHandler {
+    		element(element: Element) {
+    			element.remove();
+    		}
+    	}
+    
+    	return (
+    		new HTMLRewriter()
+    			// Match the script URL with or without query parameters.
+    			.on(
+    				'script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]',
+    				new RemoveHandler(),
+    			)
+    			// Remove the explicit-render callback and widget containers.
+    			.on("#turnstile-render", new RemoveHandler())
+    			.on(".cf-turnstile", new RemoveHandler())
+    			.on("#myWidget", new RemoveHandler())
+    			.transform(response)
+    	);
+    }
+
+In the demo's `fetch()` handler, pass each page response to `rewriteTurnstilePage(request, response)` before returning it.
+
+In `src/explicit.html`, add an ID to the inline script that renders the widget:
+
+src/explicit.htmldiff
+    
+    
+    -<script>
+    +<script id="turnstile-render">
+
+### Server-side integration
+
+On each form submission, evaluate the detection IDs again. Skip only Siteverify for approved requests. Continue processing the form and running its other checks.
     
     
     async function handlePost(request) {
-    +  if (request.headers.get("x-bypass-turnstile") === "VerySecretValue") {
-    +    return new Response('Turnstile not enforced on this request')
-    +  }
-    	// Proceed with validation as normal!
     	const body = await request.formData();
-      // Turnstile injects a token in "cf-turnstile-response".
-      const token = body.get('cf-turnstile-response');
-      const ip = request.headers.get('CF-Connecting-IP');
-      // ...
+    
+    	if (!isApprovedAgent(request)) {
+    		// Keep the existing token extraction and Siteverify check here.
+    		const token = body.get("cf-turnstile-response");
+    	}
+    
+    	// Continue with the demo's normal form processing and response.
+    }
+    
+    
+    async function handlePost(request: BotManagedRequest) {
+    	const body = await request.formData();
+    
+    	if (!isApprovedAgent(request)) {
+    		// Keep the existing token extraction and Siteverify check here.
+    		const token = body.get("cf-turnstile-response");
+    	}
+    
+    	// Continue with the demo's normal form processing and response.
     }
 
-With these changes, Turnstile will not be enforced on requests with the header `x-bypass-turnstile: VerySecretValue` present.
+### Test
 
-## Demonstration
+If you cache the HTML response, use separate cache entries for eligible and other requests. Otherwise, do not cache the response.
 
-After running `npm run dev` in the project folder, you can test the changes by running the following command:
-    
-    
-    curl -X POST http://localhost:8787/handler -H "x-bypass-turnstile: VerySecretValue"
-    
-    
-    Turnstile not enforced on this request
+Test the page request and form submission with an approved agent and an ordinary browser. Confirm that only approved requests omit the widget and skip Siteverify.
 
 Was this helpful?
 

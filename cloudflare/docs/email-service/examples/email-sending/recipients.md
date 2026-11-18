@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/examples/email-sending/recipients/
 title: Specify recipients \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:27.357943+00:00
+fetched_at: 2026-11-18T09:55:30.631712+00:00
 ---
 
 # Specify recipients · Cloudflare Email Service docs
@@ -24,7 +24,7 @@ Examples
 
 Specify multiple recipients, CC and BCC, and named addresses when sending with Email Service.
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMultiple recipientsCC and BCCNamed recipientsMixed plain and named recipientsNext steps
 
@@ -125,7 +125,7 @@ Add a `Cc` header for CC recipients. BCC recipients are added as `--mail-rcpt` f
 
 ## Named recipients
 
-Provide a display name alongside the address for the sender and recipients.
+Provide a display name alongside the address for the sender and recipients. With the Workers binding, an address object requires both `email` and `name`. With the REST API, an address object requires `address`, and `name` is optional.
     
     
     const response = await env.EMAIL.send({

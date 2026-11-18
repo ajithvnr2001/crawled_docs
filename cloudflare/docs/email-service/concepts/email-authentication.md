@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/concepts/email-authentication/
 title: Email authentication \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:12.569603+00:00
+fetched_at: 2026-11-18T09:55:30.022602+00:00
 ---
 
 # Email authentication · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-08T07:11:12.569603+00:00
 
 Learn about SPF, DKIM, and DMARC for secure and deliverable email sending.
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/concepts/email-authentication/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSPF (Sender Policy Framework)DKIM (DomainKeys Identified Mail)DMARC (Domain-based Message Authentication, Reporting & Conformance)Key benefits
 
@@ -102,6 +102,8 @@ If the `rua` mailto address is on a different domain than the DMARC record (comm
   3. Finally implement `p=reject` after confirming legitimate mail authenticates
 
 
+
+When you onboard a domain to Email Sending and the domain has no DMARC record, Cloudflare adds a `p=reject` record. If other services also send email for the domain, relax that record and follow the deployment strategy, as described in [Domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/#sending-records).
 
 ## Key benefits
 

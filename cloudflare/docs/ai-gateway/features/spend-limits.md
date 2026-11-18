@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/spend-limits/
 title: Spend limits \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:11.975846+00:00
+fetched_at: 2026-11-18T09:55:29.847736+00:00
 ---
 
 # Spend limits · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:11.975846+00:00
 
 # Spend limits
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksScoping with dimensions Dimension examplesConfigure spend limits Set spend limits by userBehavior when a limit is reachedMonitoring spendLimitations
 
@@ -116,7 +116,7 @@ When a spend limit is exceeded, AI Gateway returns a `429 Too Many Requests` res
 
 ## Monitoring spend
 
-You can track your spend per model, provider, or any custom metadata attribute on the [Analytics dashboard](https://developers.cloudflare.com/ai-gateway/observability/analytics/). Use this to understand usage patterns and set informed budgets.
+You can track spend on the [Analytics dashboard](https://developers.cloudflare.com/ai-gateway/observability/analytics/) and filter it by provider, model, or a custom metadata key or value. To see spend for each value of one metadata key, such as a team or user ID, use the [GraphQL example](https://developers.cloudflare.com/ai-gateway/observability/analytics/#group-by-a-custom-metadata-key) that groups cost by `metadataValue(key: "<key>")`. Use this to understand usage patterns and set informed budgets.
 
 ## Limitations
 

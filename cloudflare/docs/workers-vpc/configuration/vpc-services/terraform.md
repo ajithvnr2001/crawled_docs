@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/terraform/
 title: Configure with Terraform \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:07.486368+00:00
+fetched_at: 2026-11-18T09:55:26.281503+00:00
 ---
 
 # Configure with Terraform · Cloudflare Workers VPC
@@ -22,9 +22,9 @@ Configuration
 
 # Configure with Terraform
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/terraform/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewVPC Service resource Hostname-based configuration IP-based configuration TCP service configuration TLS certificate verification Port configurationWorkers binding configurationData sources Look up a single VPC Service List VPC ServicesResource schema reference
+OverviewVPC Service resource Hostname-based configuration IP-based configuration TCP service configuration TLS certificate verification Custom CA and client certificates Port configurationWorkers binding configurationData sources Look up a single VPC Service List VPC ServicesResource schema reference
 
 VPC Services can be managed as infrastructure using the [`cloudflare_connectivity_directory_service` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/connectivity_directory_service) resource in the [Cloudflare Terraform provider](https://developers.cloudflare.com/terraform/).
 
@@ -149,6 +149,49 @@ Valid values for `cert_verification_mode` are:
 
 
 Refer to [TLS certificate verification mode](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#tls-certificate-verification-mode) for details.
+
+### Custom CA and client certificates
+
+To verify an origin that uses a private certificate authority (CA), or to present a client certificate for mutual TLS (mTLS), upload the certificates with `cloudflare_mtls_certificate` and reference their IDs in `tls_settings`. When you set `certificate_authority` or `client_certificate`, `cert_verification_mode` is required, and a custom CA cannot be combined with `disabled`.
+    
+    
+    resource "cloudflare_mtls_certificate" "private_ca" {
+      account_id   = var.account_id
+      name         = "private-ca"
+      ca           = true
+      certificates = file("${path.module}/ca.pem")
+    }
+    
+    resource "cloudflare_mtls_certificate" "client" {
+      account_id   = var.account_id
+      name         = "private-client"
+      ca           = false
+      certificates = file("${path.module}/client.pem")
+      private_key  = file("${path.module}/client-key.pem")
+    }
+    
+    resource "cloudflare_connectivity_directory_service" "my_database" {
+      account_id   = var.account_id
+      name         = "my-postgres-db"
+      type         = "tcp"
+      tcp_port     = 5432
+      app_protocol = "postgresql"
+    
+      host = {
+        hostname = "db.internal.example"
+        resolver_network = {
+          tunnel_id = var.tunnel_id
+        }
+      }
+    
+      tls_settings = {
+        certificate_authority  = cloudflare_mtls_certificate.private_ca.id
+        client_certificate     = cloudflare_mtls_certificate.client.id
+        cert_verification_mode = "verify_full"
+      }
+    }
+
+Custom CA and client certificate support requires version 5.29.0 or later of the Cloudflare Terraform provider. Refer to [Custom CA and client certificates](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates) for details.
 
 ### Port configuration
 

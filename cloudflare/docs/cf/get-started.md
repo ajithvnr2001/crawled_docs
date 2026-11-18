@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/get-started/
 title: Get started \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:48.556506+00:00
+fetched_at: 2026-11-18T09:55:28.534794+00:00
 ---
 
 # Get started · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:05:48.556506+00:00
 
 # Get started
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cf/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirementsInstall cfSign inRun your first command Find commandsSet up shell completionCredential orderSelect an accountSelect a zoneUse named profilesAuthenticate automationLoad credentials from a .env fileNext steps
 
@@ -26,7 +26,7 @@ Every `cf` workflow starts the same way: install the CLI, sign in, and run a com
 ## Requirements
 
   * A Cloudflare account. If you do not have one, [sign up ↗︎](https://dash.cloudflare.com/sign-up).
-  * Node.js 22.18 or later. Bun is not supported. When `cf` runs on Bun, commands that load `cloudflare.config.ts` fail.
+  * Node.js. `cf` supports the latest versions of the Node.js [LTS releases ↗︎](https://nodejs.org/en/about/previous-releases) and the latest active release of Node.js. Bun is not supported. When `cf` runs on Bun, commands that load `cloudflare.config.ts` fail.
 
 
 
@@ -130,8 +130,9 @@ Add completion to your shell profile, then restart your shell:
 
   1. The `CLOUDFLARE_API_TOKEN` environment variable, including a value loaded from a `.env` file.
   2. The profile selected with `--profile <NAME>`.
-  3. The profile bound to the current directory, or to its nearest parent, with `cf auth activate`.
-  4. The default profile, which `cf auth login` signs in to.
+  3. The profile named by the `CLOUDFLARE_AUTH_PROFILE` environment variable.
+  4. The profile bound to the current directory, or to its nearest parent, with `cf auth activate`.
+  5. The default profile, which `cf auth login` signs in to.
 
 
 
@@ -143,16 +144,15 @@ When a command needs an account, `cf` selects one in this order:
 
   1. The `CLOUDFLARE_ACCOUNT_ID` environment variable.
   2. The `accountId` field in the default export of `cloudflare.config.ts`.
-  3. The account `cf` saved for this project on an earlier command.
-  4. The only account your credentials can access. If there are several, `cf` asks you to choose one.
+  3. The only account your credentials can access. If there are several, `cf` asks you to choose one.
 
 
 
-When `cf` selects your only account, or you choose one, it saves that account and uses it on later commands in the same project without asking. It stores the account in `cloudflare-account.json`, or `cloudflare-account-<PROFILE>.json` for a named profile, in `.cache/cloudflare/` inside the nearest `node_modules` directory. It uses `.cloudflare/cache/` in the current directory instead when there is no `node_modules` directory, or when `.cloudflare/cache/` already exists and the `node_modules` cache does not.
+When your credentials can access several accounts and neither the environment nor `cloudflare.config.ts` sets one, `cf` asks each time it runs.
 
-To choose again, delete that file. Running `cf auth login --force` or `cf auth logout` from the project directory also clears it, but not while `CLOUDFLARE_API_TOKEN` is set.
+To use the same account across several projects, or across your whole machine, use a named profile. Sign in to the profile with credentials that can access only that account, so `cf` selects it automatically. Then bind the profile with `cf auth activate` to the directory that contains those projects, or to your home directory to use it everywhere. Your other profiles keep their own sign-in, so you can stay signed in to other accounts at the same time.
 
-In a non-interactive session, such as a script or CI job, a command fails if your credentials can access more than one account and no account is set or saved.
+In a non-interactive session, such as a script or CI job, a command fails if your credentials can access more than one account and no account is set.
 
 To set a default account for a project, refer to [Set account defaults](https://developers.cloudflare.com/cf/projects/cloudflare-config/#set-account-defaults).
 
@@ -193,7 +193,7 @@ Give the token only the permissions the job needs. To create one, refer to [Crea
 
 ## Load credentials from a `.env` file
 
-API commands read these variables from a `.env` file in the current directory:
+API commands read these variables from `.env` files in the current directory:
 
   * `CLOUDFLARE_API_TOKEN`
   * `CLOUDFLARE_ACCOUNT_ID`
@@ -201,6 +201,7 @@ API commands read these variables from a `.env` file in the current directory:
   * `CLOUDFLARE_COMPLIANCE_REGION`
   * `CLOUDFLARE_ACCESS_CLIENT_ID`
   * `CLOUDFLARE_ACCESS_CLIENT_SECRET`
+  * `CLOUDFLARE_DEPENDENCIES_INSTRUMENTATION`
 
 
 
@@ -212,7 +213,7 @@ For example:
     CLOUDFLARE_API_TOKEN=<API_TOKEN>
     CLOUDFLARE_ACCOUNT_ID=<ACCOUNT_ID>
 
-`cf` reads only `.env`. It does not read `.env.local` or mode-specific files such as `.env.<MODE>`. Variables already set in your environment override the file.
+`cf` reads `.env`, then `.env.local`. When you pass `--mode`, it also reads `.env.<MODE>` and then `.env.<MODE>.local`. A value in a later file overrides the same variable in an earlier one. Variables already set in your environment override every file.
 
 Commands run with `--local` do not read the file. `cf deploy`, `cf previews deploy`, `cf workers versions create`, and `cf workers triggers deploy` read it only after the build finishes.
 

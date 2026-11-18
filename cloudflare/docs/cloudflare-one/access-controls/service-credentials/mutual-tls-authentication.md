@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/mutual-tls-authentication/
 title: Mutual TLS \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:21.258785+00:00
+fetched_at: 2026-11-18T09:55:24.697600+00:00
 ---
 
 # Mutual TLS · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:21.258785+00:00
 
 # Mutual TLS
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnforce mTLS authentication Prerequisites Add mTLS to your Access applicationTest mTLS Test using cURL Test in a browserGenerate mTLS certificates OpenSSL Cloudflare PKIAdd Client-Cert and Client-Cert-Chain headers (RFC 9440) Security considerations Size limits Example Transform Rules Cloudflare WorkersForward a client certificate (legacy) Cloudflare API Managed Transforms Cloudflare WorkersKnown limitationsNotifications for mutual TLS certificates
 
@@ -39,7 +39,7 @@ This page covers Access mTLS for Service Auth policies. [Zone-level mTLS](https:
 
 
 
-When you upload a root certificate authority (CA) to Access, only requests from devices with a matching client certificate are allowed through. When a request reaches the application, Access asks the client to present a certificate. If the client cannot present a valid certificate, the request is blocked. If the client presents a valid certificate, Access completes a key exchange to verify.
+Uploading a certificate authority (CA) configures client certificate validation for its associated hostnames. To require a valid client certificate for an application, you must also create and attach an Access policy with a **Valid Certificate** or **Common Name** rule. Uploading the CA alone does not create a policy or prevent another policy from allowing access without a certificate.
 
 ![mTLS handshake diagram](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=865,height=1146,format=webp/_astro/mtls.BbZYLY1o.png)
 
@@ -105,7 +105,7 @@ Do not include any SSL/TLS server certificates; Access only uses the CA chain to
 
 These FQDNs will be the hostnames used for the resources being protected in the [Access policy](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/). You must associate the Root CA with the FQDN that the application being protected uses.
 
-  6. Save the policy.
+  6. Save the certificate configuration.
 
   7. Go to **Access controls** > **Policies**.
 
@@ -282,12 +282,12 @@ This guide uses [Cloudflare's PKI toolkit ↗︎](https://github.com/cloudflare/
 
 The process requires two packages from Cloudflare's PKI toolkit:
 
-  * `cf-ssl`
+  * `cfssl`
   * `cfssljson`
 
 
 
-You can install these packages from the [Cloudflare SSL GitHub repository ↗︎](https://github.com/cloudflare/cfssl). You will need a working installation of Go, version 1.12 or later. Alternatively, you can [download the packages ↗︎](https://github.com/cloudflare/cfssl) directly. Use the instructions under Installation to install the toolkit, and ensure that you install all of the utility programs in the toolkit.
+You can install these packages from the [Cloudflare SSL GitHub repository ↗︎](https://github.com/cloudflare/cfssl). To build from source, use the Go version required by the release you are installing. Alternatively, download prebuilt binaries from the repository's releases. Use the instructions under Installation to install the toolkit, and ensure that you install all of the utility programs in the toolkit.
 
 #### 2\. Generate the root CA
 

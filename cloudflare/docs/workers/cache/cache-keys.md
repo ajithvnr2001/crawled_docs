@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/cache-keys/
 title: Cache keys \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:28.690861+00:00
+fetched_at: 2026-11-18T09:55:20.635168+00:00
 ---
 
 # Cache keys · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:28.690861+00:00
 
 # Cache keys
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat goes into the cache keyThe cache belongs to the Worker, not to a domainInvalidating cache across deployments Share the cache across versions Tag responses by version, purge the tag on rollback Purge everything after deployMulti-tenant safety with ctx.props Service binding URLInspecting the cache keyCustom cache keys What you can do with a custom cache key Custom keys apply to same-account calls only
 
@@ -59,7 +59,7 @@ Notably, the cache key does **not** include:
 
 
 
-At launch, you cannot inspect the exact cache key Cloudflare computed for a request. The primary signals you have for understanding cache behavior are the `Cf-Cache-Status` response header and per-invocation cache-hit information in the [Workers observability dashboard](https://developers.cloudflare.com/workers/observability/). See Inspecting the cache key.
+At launch, you cannot inspect the exact cache key Cloudflare computed for a request. The primary signals you have for understanding cache behavior are the `Cf-Cache-Status` response header, per-invocation cache-hit information in the [Workers observability dashboard](https://developers.cloudflare.com/workers/observability/), and cache analytics on your Worker's **Metrics** page (refer to [I need more visibility](https://developers.cloudflare.com/workers/cache/debugging/#i-need-more-visibility)). See Inspecting the cache key.
 
 ## The cache belongs to the Worker, not to a domain
 
@@ -321,7 +321,7 @@ In this pattern the default entrypoint is a gateway that should run on every req
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-18",
     	"cache": { "enabled": true },
     	"exports": {
     		"default": { "type": "worker", "cache": { "enabled": false } },
@@ -334,7 +334,7 @@ In this pattern the default entrypoint is a gateway that should run on every req
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-18"
     
     [cache]
     enabled = true

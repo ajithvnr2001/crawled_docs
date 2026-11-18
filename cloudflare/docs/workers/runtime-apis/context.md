@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/context/
 title: Context (ctx) \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:36.187428+00:00
+fetched_at: 2026-11-18T09:55:21.679169+00:00
 ---
 
 # Context (ctx) · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:36.187428+00:00
 
 # Context (ctx)
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewpropsexports Specifying ctx.props when using ctx.exports TypeScript types for ctx.exports and ctx.propstracingwaitUntilpassThroughOnException
 
@@ -195,7 +195,7 @@ Note that `props` values specified in this way are allowed to contain any "persi
 
 ### TypeScript types for `ctx.exports` and `ctx.props`
 
-If using TypeScript, you should use [the `wrangler types` command](https://developers.cloudflare.com/workers/wrangler/commands/general/#types) to auto-generate types for your project. The generated types will ensure `ctx.exports` is typed correctly.
+If using TypeScript, you should use [the `wrangler types` command](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types) to auto-generate types for your project. The generated types will ensure `ctx.exports` is typed correctly.
 
 When declaring an entrypoint class that accepts `props`, make sure to declare it as `extends WorkerEntrypoint<Env, Props>`, where `Props` is the type of `ctx.props`. See the example above.
 

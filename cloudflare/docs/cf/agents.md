@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/agents/
 title: Use cf with coding agents \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T08:45:56.849491+00:00
+fetched_at: 2026-11-18T09:55:28.795780+00:00
 ---
 
 # Use cf with coding agents · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-14T08:45:56.849491+00:00
 
 # Use cf with coding agents
 
-Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up cf for your agentHelp your agent find commandsFind Cloudflare documentationRead command outputRun commands safelyControl usage costsWork in Wrangler projectsAuthenticate unattended agentsInspect local resourcesRelated resources
 
@@ -138,7 +138,7 @@ A failed command exits with a non-zero status and prints the error to standard e
 ## Run commands safely
 
   * **Preview changes.** Add `--dry-run` to print the request as JSON without sending it. Dry runs need no credentials.
-  * **Check for aborted deletes.** In a non-interactive session, a destructive command without `--force` prints `Aborted.` to standard error and exits with status `0`. A successful exit does not mean the resource was deleted.
+  * **Check for aborted deletes.** In a non-interactive session, a destructive command without `--force` prints `Aborted.` to standard error, makes no change, and exits with status `1`.
   * **Review`--force` before you allow it.** On some commands, `--force` is also an API parameter. For example, `cf workers delete --force` also deletes a Worker that other Workers still reference.
   * **Use local data where supported.** `--local` works only for a few resources that local development provides, mainly KV keys, D1 databases through `cf d1 raw`, `cf d1 migrations list`, and `cf d1 migrations apply`, and R2 objects. Commands without a local equivalent, including `cf d1 query`, return an error instead of calling the Cloudflare API.
 

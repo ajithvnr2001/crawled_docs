@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/workers-api/
 title: Workers API \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:24.735038+00:00
+fetched_at: 2026-11-18T09:55:20.994821+00:00
 ---
 
 # Workers API · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-12T09:30:24.735038+00:00
 
 # Workers API
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkflowEntrypoint runWorkflowEventWorkflowStep stepWorkflowStepConfigRollback optionsWorkflowStepContextWorkflow step limitsWorkflow concurrency limitsDefault instance retentionWorkflow jurisdictionDeclare Workflows in exports Call a Workflow through ctx.exportsNonRetryableErrorCall Workflows from Workers Bind from Pages Cross-script callsWorkflow create createBatch deleteBatch getWorkflowInstanceCreateOptionsWorkflowInstance id status pause resume restart terminate delete sendEvent subscribe InstanceStatus
 
@@ -479,7 +479,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-12",
+    	"compatibility_date": "2026-11-18",
     	"exports": {
     		"MyWorkflow": {
     			"type": "workflow",
@@ -495,7 +495,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-12"
+    compatibility_date = "2026-11-18"
     
     [exports.MyWorkflow]
     type = "workflow"
@@ -621,7 +621,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-12",
+    	"compatibility_date": "2026-11-18",
     	"workflows": [
     		{
     			// name of your workflow
@@ -640,7 +640,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-12"
+    compatibility_date = "2026-11-18"
     
     [[workflows]]
     name = "workflows-starter"
@@ -666,7 +666,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-12",
+    	"compatibility_date": "2026-11-18",
     	"workflows": [
     		{
     			// name of your workflow
@@ -688,7 +688,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-12"
+    compatibility_date = "2026-11-18"
     
     [[workflows]]
     name = "billing-workflow"
@@ -696,7 +696,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     class_name = "MyWorkflow"
     script_name = "billing-worker"
 
-If you're using TypeScript, run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types) whenever you modify your Wrangler configuration file. This generates types for the `env` object based on your bindings, as well as [runtime types](https://developers.cloudflare.com/workers/languages/typescript/).
+If you're using TypeScript, run [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types) whenever you modify your Wrangler configuration file. This generates types for the `env` object based on your bindings, as well as [runtime types](https://developers.cloudflare.com/workers/languages/typescript/).
 
 ## Workflow
 
@@ -704,7 +704,7 @@ Note
 
 Ensure you have a compatibility date `2024-10-22` or later installed when binding to Workflows from within a Workers project.
 
-The `Workflow` type provides methods that allow you to create, inspect the status, and manage running Workflow instances from within a Worker script. It is part of the generated types produced by [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types).
+The `Workflow` type provides methods that allow you to create, inspect the status, and manage running Workflow instances from within a Worker script. It is part of the generated types produced by [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types).
 
 ./worker-configuration.d.tsts
     

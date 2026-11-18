@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/
 title: Cloudflare CLI \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:46.404194+00:00
+fetched_at: 2026-11-18T09:55:28.704098+00:00
 ---
 
 # Cloudflare CLI · Cloudflare CLI docs
@@ -16,15 +16,15 @@ fetched_at: 2026-10-08T07:05:46.404194+00:00
 
 # Cloudflare CLI
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cf/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose your pathWhat cf providescf and Wrangler
 
 The Cloudflare CLI, `cf`, is one command-line interface for the public Cloudflare API and for Workers projects. Use it to manage zones, DNS, storage, and security settings, and to create, develop, and deploy Workers. Coding agents run the same commands you do.
 
-Beta
+Release candidate
 
-`cf` is in beta. Commands, configuration, and Build Output can change before the stable release.
+`cf` 1.0 is in release candidate. The configuration format, Build Output, and the commands that develop and deploy projects are stable. A small number of less commonly used API commands can still change before 1.0.
 
 Install `cf` globally:
 

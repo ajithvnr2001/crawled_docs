@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/reference-architecture/diagrams/serverless/programmable-platforms/
 title: Programmable Platforms \u00b7 Cloudflare Reference Architecture docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:42.654522+00:00
+fetched_at: 2026-11-18T09:55:27.578553+00:00
 ---
 
 # Programmable Platforms · Cloudflare Reference Architecture docs
@@ -22,7 +22,7 @@ Reference Architecture Diagrams
 
 # Programmable Platforms
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/reference-architecture/diagrams/serverless/programmable-platforms/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIntroductionCore Architecture ComponentsMain Request FlowInvocation & Metadata FlowEgress Control PatternMetrics & Logging ArchitectureResource Isolation ModelDeployment & Management FlowConclusionRelated resources
 
@@ -81,7 +81,7 @@ For many use cases, it makes sense to retrieve additional metadata, user data, o
 
 ![Figure 3: Workers for Platforms: Egress Control](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1200,height=594,format=svg/_astro/programmable-platforms-3.C-LkeZtS.svg)Figure 3: Workers for Platforms: Egress Control
 
-Data observability and control is crucial for security. [Outbound Workers](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/) allow for interception of all outgoing requests in User Worker scripts.
+Data observability and control is crucial for security. [Outbound Workers](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/) allow for interception of outgoing `fetch()` requests in User Worker scripts. Requests made through bindings are [not intercepted](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/#requests-that-outbound-workers-do-not-intercept).
 
   1. **Worker Invocation** : Route requests to the appropriate User Worker in the Dispatch Namespace. Optionally pass additional parameters to the Outbound Worker during User Worker invocation.
 

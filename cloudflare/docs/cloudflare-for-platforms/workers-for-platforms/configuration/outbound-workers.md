@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/
 title: Outbound Workers \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:04.628414+00:00
+fetched_at: 2026-11-18T09:55:27.750650+00:00
 ---
 
 # Outbound Workers · Cloudflare for Platforms docs
@@ -22,11 +22,11 @@ fetched_at: 2026-10-08T07:08:04.628414+00:00
 
 # Outbound Workers
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGeneral Use CasesUse Outbound Workers
+OverviewGeneral Use CasesUse Outbound WorkersRequests that Outbound Workers do not intercept
 
-Outbound Workers sit between your customer's Workers and the public Internet. They give you visibility into all outgoing `fetch()` requests from user Workers.
+Outbound Workers sit between your customer's Workers and the public Internet. They give you visibility into outgoing requests that user Workers make with the global `fetch()`. Requests made through bindings are not intercepted. Refer to Requests that Outbound Workers do not intercept.
 
 ![Outbound Workers diagram information](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1100,height=400,format=webp/_astro/outbound-worker-diagram.BSvN4KG0.png)
 
@@ -34,7 +34,7 @@ Outbound Workers sit between your customer's Workers and the public Internet. Th
 
 Outbound Workers can be used to:
 
-  * Log all subrequests to identify malicious domains or usage patterns.
+  * Log outgoing `fetch()` requests to identify malicious domains or usage patterns.
   * Create, allow, or block lists for hostnames requested by user Workers.
   * Configure authentication to your APIs behind the scenes (without end developers needing to set credentials).
 
@@ -42,7 +42,9 @@ Outbound Workers can be used to:
 
 Note
 
-When an Outbound Worker is enabled, your customer's Worker will no longer be able to use the [`connect() API`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#connect) to create outbound TCP Sockets. This is to ensure all outbound communication goes through the Outbound Worker's `fetch` method.
+When an Outbound Worker is enabled, your customer's Worker will no longer be able to use the [`connect() API`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#connect) to create outbound TCP Sockets. This ensures that user code cannot bypass the Outbound Worker by opening a TCP socket instead of calling the global `fetch()`.
+
+[Hyperdrive](https://developers.cloudflare.com/hyperdrive/) bindings continue to work when an Outbound Worker is enabled, including database drivers that use `connect()` with the connection details of the binding.
 
 ## Use Outbound Workers
 
@@ -117,7 +119,7 @@ Make sure that you have `wrangler@3.3.0` or later [installed](https://developers
     	},
     };
 
-  4. The Outbound Worker will now be invoked on any `fetch()` requests from a user Worker. The user Worker will trigger a [FetchEvent](https://developers.cloudflare.com/workers/runtime-apis/handlers/fetch/) on the Outbound Worker. The variables declared in the binding can be accessed in the Outbound Worker through `env.<VAR_NAME>`.
+  4. The Outbound Worker will now be invoked on any global `fetch()` requests from a user Worker. The user Worker will trigger a [FetchEvent](https://developers.cloudflare.com/workers/runtime-apis/handlers/fetch/) on the Outbound Worker. The variables declared in the binding can be accessed in the Outbound Worker through `env.<VAR_NAME>`.
 
 
 
@@ -160,9 +162,19 @@ The following is an example of an Outbound Worker that logs the fetch request fr
     	},
     };
 
-Note
+## Requests that Outbound Workers do not intercept
 
-Outbound Workers do not intercept fetch requests made from [Durable Objects](https://developers.cloudflare.com/durable-objects/) or [mTLS certificate bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/mtls/).
+Outbound Workers only intercept requests made with the global `fetch()` of a user Worker. Requests made through a binding use that binding's own channel and are not intercepted. For example, Outbound Workers do not intercept requests made:
+
+  * Through [Workers VPC](https://developers.cloudflare.com/workers-vpc/) bindings, with `fetch()` or `connect()` on the binding. [VPC Network](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/) bindings can also reach public Internet destinations.
+  * Through [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) bindings, including database drivers that use `connect()` with the connection details of the binding.
+  * With [mTLS certificate bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/mtls/).
+  * Through [service bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) and other bindings, such as [R2](https://developers.cloudflare.com/r2/) or [KV](https://developers.cloudflare.com/kv/).
+  * From [Durable Objects](https://developers.cloudflare.com/durable-objects/).
+
+
+
+An Outbound Worker does not control all outbound traffic from user Workers on its own. To restrict where user Workers can send traffic, also control which bindings you attach to user Workers when you upload them.
 
 [PreviousObservability](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/observability/)[NextStatic assets](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/static-assets/)
 

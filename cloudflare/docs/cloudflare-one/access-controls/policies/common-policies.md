@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/common-policies/
 title: Common Access policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:23.479914+00:00
+fetched_at: 2026-11-18T09:55:24.079728+00:00
 ---
 
 # Common Access policies · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-13T08:48:23.479914+00:00
 
 # Common policies
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAllow employees by email domainAllow employees from specific countriesRequire device posture for sensitive applicationsRequire MFA for high-security applications Identity provider-based MFA Independent MFAAllow contractor access with email-based authenticationIsolate contractor access to internal applicationsBlock requests from high-risk countriesExclude high-risk usersAuthenticate a service using a service tokenAuthenticate a service using mutual TLSRequire purpose justification for sensitive applicationsBypass a public endpoint
 
@@ -88,7 +88,7 @@ You can add multiple email domains to the Include rule if your organization uses
 
 ## Allow employees from specific countries
 
-Organizations that operate in specific regions or need to comply with data residency requirements can restrict application access to users in approved countries. This policy is useful when you want to limit where employees can connect from, while still allowing exceptions for individual users such as traveling executives.
+This policy allows corporate users from approved countries, except for the email addresses in the Exclude rule. Excluded users do not match this policy, even when they connect from an approved country. To allow specific users outside the approved countries, create a separate Allow policy for those users.
 
 Because Require rules use AND logic, you cannot add multiple countries directly to a single Require rule — that would require the user to be in all countries simultaneously. Instead, first create a [rule group](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/groups/) that lists the approved countries:
 
@@ -533,7 +533,7 @@ To configure the [`cloudflare_zero_trust_access_identity_provider` ↗︎](https
 
 Caution
 
-Adding `Login Methods: One-time PIN` as an Include rule without restricting email domains allows anyone with any email address to receive a code and access the application. Always pair OTP with specific email domains or an email list in the Include rule.
+Adding `Login Methods: One-time PIN` as an Include rule allows anyone who authenticates with that login method to match the policy. Adding email restrictions as more Include rules does not narrow access, because Include rules use OR logic. Put the allowed email domains or addresses in Include and the One-time PIN login method in Require, as shown above.
 
 ## Isolate contractor access to internal applications
 
@@ -747,7 +747,7 @@ Block policies are best used together with Allow policies to carve out exception
 
 ## Exclude high-risk users
 
-If your organization uses [Cloudflare User Risk Scores](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/) to flag users with anomalous behavior, you can exclude high-risk users from accessing sensitive applications. This is useful as a dynamic safeguard that automatically restricts access when a user's behavior triggers a risk level change, without requiring manual intervention.
+If your organization uses [Cloudflare User Risk Scores](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/), you can exclude high-risk users from an Allow policy. This prevents that policy from granting access when it evaluates a user as high risk. Another Allow policy can still grant access. To deny high-risk users regardless of other Allow policies, use a Block policy evaluated before those Allow policies.
 
 Action | Rule type | Selector | Value  
 ---|---|---|---  
@@ -814,7 +814,7 @@ Configure the [`cloudflare_zero_trust_access_policy` ↗︎](https://registry.te
       }]
     }
 
-In this example, any user scored as high risk is excluded even if they match the Include rule. To learn how risk scores are calculated and how to configure risk behaviors, refer to [User risk score](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/).
+In this example, users scored as high risk do not match this policy, even if they match the Include rule. To learn how risk scores are calculated and how to configure risk behaviors, refer to [User risk score](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/).
 
 ## Authenticate a service using a service token
 

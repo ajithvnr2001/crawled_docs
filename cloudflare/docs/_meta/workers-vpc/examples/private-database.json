@@ -3,8 +3,5 @@
   "file": "workers-vpc/examples/private-database.md",
   "title": "Connect to a private database \u00b7 Cloudflare Workers VPC",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:07.828928+00:00",
-  "html_len": 170095,
-  "md_len": 9073,
-  "depth": 0
+  "fetched_at": "2026-11-18T09:55:26.356912+00:00"
 }

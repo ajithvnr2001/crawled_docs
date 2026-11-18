@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/platform/limits-pricing/
 title: Limits & pricing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:08.807888+00:00
+fetched_at: 2026-11-18T09:55:27.050906+00:00
 ---
 
 # Limits & pricing · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-13T09:17:08.807888+00:00
 
 # Limits & pricing
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLimitsPricing How ingestion tokens are counted How storage is measuredHistorical billing
 
@@ -92,7 +92,7 @@ AI Search counts ingestion tokens the same way for every instance, regardless of
 
 
 
-Workers AI embedding and reranking usage is included in AI Search usage and does not appear on your Workers AI bill or in your AI Gateway logs. Generation, query rewriting, and external model providers continue to use your account and gateway. Their usage is billed and logged through the applicable service.
+Workers AI embedding and reranking usage is included in AI Search usage and does not appear on your Workers AI bill or in your AI Gateway logs. Generation, query rewriting, [file summaries](https://developers.cloudflare.com/ai-search/configuration/data-source/#file-summaries), and external model providers continue to use your account and gateway. Their usage is billed and logged through the applicable service.
 
 The R2, Vectorize, and [Browser Run](https://developers.cloudflare.com/browser-run/pricing/) usage that AI Search runs on your behalf for storage, vector indexing, and website crawling does not appear on separate R2, Vectorize, or Browser Run bills. Storage is billed as AI Search storage, as described in How storage is measured.
 

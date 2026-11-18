@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/reference/troubleshooting/
 title: Troubleshoot and debug \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:08.281250+00:00
+fetched_at: 2026-11-18T09:55:26.089237+00:00
 ---
 
 # Troubleshoot and debug · Cloudflare Workers VPC
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:08.281250+00:00
 
 # Troubleshoot and debug
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-vpc/reference/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFind a Worker's sessions in logsConnection error codes Bad Upstream errors Client errors Internal errorsTunnel errorsPermission errors
 
@@ -60,7 +60,7 @@ Error code | Description | Recommended fix
 `dns_error` | DNS resolution failed (for example, SERVFAIL). | Check that the hostname configured for your VPC Service is resolvable from within your private network. Verify your DNS resolver is working correctly. Refer to Tunnel errors for common DNS causes.  
 `dns_timeout` | DNS resolution timed out. | Check your DNS resolver is reachable and responding. Consider configuring a custom DNS resolver in your VPC Service settings.  
 `tls_protocol_error` | A TLS handshake or protocol error occurred when connecting to your service. | Verify your service's TLS configuration. Ensure the TLS version and cipher suites are compatible.  
-`tls_certificate_error` | Your service's TLS certificate failed verification. | Ensure your service presents a valid certificate from a [publicly trusted CA](https://developers.cloudflare.com/ssl/reference/certificate-authorities/) or a [Cloudflare Origin CA certificate](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/).  
+`tls_certificate_error` | Your service's TLS certificate failed verification. | Ensure your service presents a valid certificate from a [publicly trusted CA](https://developers.cloudflare.com/ssl/reference/certificate-authorities/), a [Cloudflare Origin CA certificate](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/), or the [custom CA](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates) attached to your VPC Service. With `verify_full`, the certificate must also match the VPC Service hostname.  
 `http_request_error` | An HTTP request error occurred. | Check your service logs for details on what caused the error response.  
 `http_upgrade_failed` | An HTTP upgrade (for example, WebSocket) failed. | Verify your service supports the requested protocol upgrade.  
 `http_request_denied` | The request was rejected by policy before being forwarded. | Review your service's access policies and configuration.  

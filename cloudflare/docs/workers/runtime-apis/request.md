@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/request/
 title: Request \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:20.607918+00:00
+fetched_at: 2026-11-18T09:55:21.333571+00:00
 ---
 
 # Request · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:20.607918+00:00
 
 # Request
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundConstructor ParametersProperties IncomingRequestCfPropertiesMethods Instance methodsThe Request context When passing a promise to fetch event .respondWith() Errors when attempting to access an inactive Request context Set the Content-Length headerDifferences The cf property The headers property ImmutabilityRelated resources
 
@@ -509,7 +509,7 @@ The Workers implementation of the `Request` interface includes several extension
 
 TypeScript users
 
-Workers type definitions (from `@cloudflare/workers-types` or generated via [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types)) define a `Request` type that includes Workers-specific properties like `cf`. This type is not directly compatible with the standard `Request` type from `lib.dom.d.ts`. If you are working with code that uses both Workers types and standard web types, you may need to use type assertions or create a new `Request` object.
+Workers type definitions (from `@cloudflare/workers-types` or generated via [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#types)) define a `Request` type that includes Workers-specific properties like `cf`. This type is not directly compatible with the standard `Request` type from `lib.dom.d.ts`. If you are working with code that uses both Workers types and standard web types, you may need to use type assertions or create a new `Request` object.
 
 ### The `cf` property
 

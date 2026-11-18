@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/configuration/domains/
 title: Domain configuration \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:26.387492+00:00
+fetched_at: 2026-11-18T09:55:30.187151+00:00
 ---
 
 # Domain configuration · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-31T08:10:26.387492+00:00
 
 Configure domains for Cloudflare Email Service, manage DNS records, and verify domain setup for both email sending and routing.
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAutomatic DNS configurationDNS record configuration details Sending records Routing recordsDomain verification Verify Email Sending records Verify Email Routing records If records are not configured Locked DNS records _dc-mx DNS responses Verification troubleshootingDomain management Remove a domain from Email Sending Remove a domain from Email Routing Move to Email Routing from another provider Transfer domain ownershipDrop suppressed recipientsEmail previewNext steps
 
@@ -143,11 +143,22 @@ These records authenticate your outbound emails. Email Sending creates DNS recor
 
 
 
+Cloudflare adds this record only if the domain has no DMARC record. If a DMARC record already exists, Cloudflare keeps it unchanged.
+
+The DMARC record is not locked, so you can edit or delete it in **DNS** > **Records**. Cloudflare does not overwrite your changes.
+
 **Policy options:**
 
-  * `p=none` \- Monitor only (recommended for new setups)
+  * `p=none` \- Monitor only
   * `p=quarantine` \- Quarantine suspicious emails
   * `p=reject` \- Reject unauthenticated emails
+
+
+
+**Choose a policy:**
+
+  * If Email Service is the only service that sends email for the domain, keep the default `p=reject` policy.
+  * If other services also send email for the domain, change the policy to `p=none` until their mail passes SPF or DKIM alignment. Then move to `p=quarantine` and `p=reject`. Refer to [DMARC deployment strategy](https://developers.cloudflare.com/email-service/concepts/email-authentication/#dmarc-domain-based-message-authentication-reporting--conformance).
 
 
 

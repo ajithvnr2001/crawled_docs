@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/
 title: Service tokens \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:25.016522+00:00
+fetched_at: 2026-11-18T09:55:24.432744+00:00
 ---
 
 # Service tokens · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-12T09:30:25.016522+00:00
 
 # Service tokens
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a service token Client Secret formatTag service tokens Add or edit tags Authorize service tokens by tagConnect your service to Access RequestStrict service token authenticationRotate service token secretsRecover a leaked service tokenRenew service tokensManage inactive service tokensTurn a service token on or offRevoke service tokensSet a token expiration alertReceive leaked service token alerts
 
@@ -396,19 +396,19 @@ Attempting to re-enable a token before rotation returns `409`. Requesting a futu
 
 ## Renew service tokens
 
-Service tokens expire according to the token duration you selected when you created the token.
+Refreshing a service token resets its expiration to the current time plus its configured duration. It does not add that duration to the existing expiration date or change the Client ID or Client Secret. For example, refreshing a token configured for 24 hours makes it expire 24 hours from the refresh.
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Service credentials** > **Service Tokens**.
   2. Locate the token you want to renew.
-  3. To extend the token's lifetime by one year, select **Refresh**.
-  4. To extend the token's lifetime by more than a year: 
+  3. To renew using the current duration, select the token's refresh action.
+  4. To use a different duration: 
      1. Select **Edit**.
      2. Choose a new **Service Token Duration**.
-     3. Select **Save**. The expiration date will be extended by the selected amount of time.
+     3. Select **Save**. Access resets the expiration relative to the time of the update.
 
 
 
-To extend the token's lifetime by one year, make a `POST` request to the [Refresh a service token](https://developers.cloudflare.com/api/resources/zero_trust/subresources/access/subresources/service_tokens/methods/refresh/) endpoint:
+To renew using the token's configured duration, make a `POST` request to the [Refresh a service token](https://developers.cloudflare.com/api/resources/zero_trust/subresources/access/subresources/service_tokens/methods/refresh/) endpoint:
 
 Required API token permissions
 
@@ -423,7 +423,7 @@ Refresh a service tokenbash
     	--request POST \
     	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 
-To extend the token's lifetime by a custom duration, make a `PUT` request to the [Update a service token](https://developers.cloudflare.com/api/resources/zero_trust/subresources/access/subresources/service_tokens/methods/update/) endpoint with the new `duration`:
+To change the duration and reset the expiration, make a `PUT` request to the [Update a service token](https://developers.cloudflare.com/api/resources/zero_trust/subresources/access/subresources/service_tokens/methods/update/) endpoint with the new `duration`:
 
 Required API token permissions
 
@@ -570,7 +570,7 @@ To revoke the service token, remove the [`cloudflare_zero_trust_access_service_t
 
 Note
 
-When editing an Access application, selecting **Revoke existing tokens** revokes existing sessions but does not prevent the user from starting a new session. As long as the Client ID and Client Secret are still valid, they can be exchanged for a new token on the next request. To revoke access, you must delete the service token.
+When editing an Access application, selecting **Revoke existing tokens** revokes existing sessions but does not prevent new sessions while the service token remains valid. To prevent new sessions, disable or delete the service token.
 
 ## Set a token expiration alert
 

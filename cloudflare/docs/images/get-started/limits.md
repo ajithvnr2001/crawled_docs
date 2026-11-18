@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/get-started/limits/
 title: Limits and formats \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:34.194317+00:00
+fetched_at: 2026-11-18T09:55:25.836212+00:00
 ---
 
 # Limits and formats · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:34.194317+00:00
 
 # Limits and formats
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/get-started/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLimits Remote images Hosted images Limits for animated images Limits for the Images bindingSupported formats Input formats Output formats Progressive JPEG SVG
 
@@ -84,6 +84,7 @@ Images supports a wide range of input formats for both remote and hosted images:
   * SVG
   * AVIF*
   * HEIC
+  * TIFF (first page)
 
 
 

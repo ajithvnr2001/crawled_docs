@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/workers/workers-api-usage/
 title: Use R2 from Workers \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:43.421398+00:00
+fetched_at: 2026-11-18T09:55:25.584012+00:00
 ---
 
 # Use R2 from Workers · Cloudflare R2 docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:12:43.421398+00:00
 
 # Use R2 from Workers
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/api/workers/workers-api-usage/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create a new application with C32\. Create your bucket3\. Bind your bucket to a Worker4\. Access your R2 bucket from your Worker6\. Deploy your WorkerRelated resources
 
@@ -49,6 +49,7 @@ For setup, select the following options:
   * For _Which template would you like to use?_ , choose `Worker only`.
   * For _Which language do you want to use?_ , choose `JavaScript`.
   * For _Do you want to use git for version control?_ , choose `Yes`.
+  * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
   * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 
@@ -370,7 +371,7 @@ You can verify your authorization logic is working through the following command
 
 Caution
 
-When uploading files to R2 via `curl`, ensure you use **[`--data-binary` ↗︎](https://everything.curl.dev/http/post/binary)** instead of `--data` or `-d`. Files will otherwise be truncated.
+When uploading files to R2 via `curl`, ensure you use **[`--data-binary` ↗︎](https://everything.curl.dev/http/post/binary.html)** instead of `--data` or `-d`. Files will otherwise be truncated.
     
     
     # Attempt to write an object without providing the "X-Custom-Auth-Key" header

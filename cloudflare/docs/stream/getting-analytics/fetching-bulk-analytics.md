@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/getting-analytics/fetching-bulk-analytics/
 title: GraphQL Analytics API \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:23.433571+00:00
+fetched_at: 2026-11-18T09:55:22.454209+00:00
 ---
 
 # GraphQL Analytics API · Cloudflare Stream docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-31T08:10:23.433571+00:00
 
 # GraphQL Analytics API
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGetting startedVideo delivered via HLS/DASH and WebRTC Filters and dimensions Metrics ExampleRTMP and SRT input metrics Event fields Filters and dimensions MetricsHLS/DASH quality of experience metrics Filters and dimensions MetricsWebRTC WHIP/WHEP metrics Raw fields Filters and dimensions MetricsPaginationLimitations
+OverviewGetting startedTime groupingVideo delivered via HLS/DASH and WebRTC Filters and dimensions Metrics ExampleRTMP and SRT input metrics Event fields Filters and dimensions MetricsHLS/DASH quality of experience metrics Filters and dimensions MetricsWebRTC WHIP/WHEP metrics WHIP ingest metrics WHEP playback metricsPaginationLimitations
 
 Stream provides analytics about both live video and video uploaded to Stream, via the GraphQL API described below, as well as on the Stream **Analytics** page of the Cloudflare dashboard.
 
@@ -50,6 +50,21 @@ Dotted field paths indicate nested selections: `sum.minutesViewed` means `sum { 
 
 To find current fields and filter operators, [explore the GraphQL schema](https://developers.cloudflare.com/analytics/graphql-api/getting-started/explore-graphql-schema/) using introspection. The following is a summary with explanations of useful fields.
 
+## Time grouping
+
+In addition to all the fields listed by dataset below, all five datasets on this page include these time grouping and filter dimensions:
+
+Field | Description  
+---|---  
+`date` | Observation or event date, at day granularity  
+`datetime` | Observation or event timestamp, without truncation  
+`datetimeMinute` | Timestamp truncated to the start of the minute  
+`datetimeFiveMinutes` | Timestamp truncated to the start of the five-minute interval  
+`datetimeFifteenMinutes` | Timestamp truncated to the start of the 15-minute interval  
+`datetimeHour` | Timestamp truncated to the start of the hour  
+  
+These fields can be used to aggregate a bucket interval when combined with other dataset-specific dimensions and `filter` options below.
+
 ## Video delivered via HLS/DASH and WebRTC
 
 Stream collects minutes of video delivered for live and on-demand video. These data include minutes delivered via HLS/DASH and WebRTC (WHEP), regardless of your player. This is a [billable metric](https://developers.cloudflare.com/stream/pricing/), but GraphQL data are sampled so it may not precisely match billable usage reported on invoices.
@@ -62,12 +77,13 @@ The dataset supports these filters and grouping dimensions:
 
 Field | Description  
 ---|---  
-`date` | Date  
-`datetime` | Date and time  
 `uid` | Video ID (for HLS/DASH) or Input ID (for WebRTC/WHEP)  
 `clientCountryName` | ISO 3166-1 alpha-2 country code for the viewer  
 `creator` | [Creator ID](https://developers.cloudflare.com/stream/manage-video-library/creator-id/) associated with the video, if set  
+`mediaType` | Delivery type: `playback` or `downloads`  
   
+_Note:_ `playback` includes HLS/DASH and WebRTC/WHEP delivery.
+
 Some filters, like `date`, can be used with operators, such as `gt` (greater than) and `lt` (less than), as shown in the example query below. For more advanced filtering options, refer to [filtering](https://developers.cloudflare.com/analytics/graphql-api/features/filtering/).
 
 ### Metrics
@@ -174,8 +190,6 @@ Field | Description
 
 Field | Description  
 ---|---  
-`date` | Date  
-`datetime` | Date and time  
 `eventCode` | Stored segment event code  
 `inputId` | Live input ID  
   
@@ -233,8 +247,6 @@ Field | Description
 `hlsType` | `hls` or `ll-hls`, otherwise blank  
 `topBitrate` | Highest bitrate rendition  
 `playbackRate` | Playback rate: `1` for real time, `2` for twice real time, or `0` when not playing  
-`date` | Date  
-`datetime` | Date and time  
   
 ### Metrics
 
@@ -273,11 +285,15 @@ Field | Description
   
 ## WebRTC WHIP/WHEP metrics
 
-Use `streamWHIPBroadcastMetricsAdaptive` and `streamWHIPBroadcastMetricsAdaptiveGroups` to inspect WebRTC-HTTP Ingestion Protocol (WHIP) ingest. For WebRTC-HTTP Egress Protocol (WHEP) playback, query [minutes delivered](https://developers.cloudflare.com/stream/getting-analytics/fetching-bulk-analytics/#video-delivered-via-hlsdash-and-webrtc).
+Use these datasets to inspect WebRTC-HTTP Ingestion Protocol (WHIP) ingest and WebRTC-HTTP Egress Protocol (WHEP) playback quality. For delivery and billing metrics, query [minutes delivered](https://developers.cloudflare.com/stream/getting-analytics/fetching-bulk-analytics/#video-delivered-via-hlsdash-and-webrtc).
+
+### WHIP ingest metrics
+
+Use `streamWHIPBroadcastMetricsAdaptive` for raw observations and `streamWHIPBroadcastMetricsAdaptiveGroups` for aggregates.
 
 Stream collects WHIP observations every 15 seconds. They can take two to three minutes to become queryable.
 
-### Raw fields
+#### Raw fields
 
 `streamWHIPBroadcastMetricsAdaptive` returns these fields directly. You can also use these fields in filters:
 
@@ -299,14 +315,12 @@ Field | Description
 `droppedPackets` | RTP packets dropped from the ingest buffer during the observation, not all network loss  
 `observationDurationSeconds` | Observed time, in seconds  
   
-### Filters and dimensions
+#### Filters and dimensions
 
 `streamWHIPBroadcastMetricsAdaptiveGroups` supports these filters and grouping dimensions:
 
 Field | Description  
 ---|---  
-`date` | Date  
-`datetime` | Date and time  
 `sampleInterval` | Adaptive sampling interval  
 `inputId` | Live input ID  
 `peerConnectionState` | Peer connection state  
@@ -318,7 +332,7 @@ Field | Description
 `trackId` | Track ID  
 `mediaKind` | `audio` or `video`  
   
-### Metrics
+#### Metrics
 
 The grouped dataset exposes these metrics. Select `count` directly, and nested fields under `sum` or `avg`:
 
@@ -333,6 +347,109 @@ Field | Description
 `avg.ingestBitrate` | Received bits divided by observed seconds, in bits per second  
 `avg.ingestPacketRate` | Ingest packet rate, in packets per second  
   
+### WHEP playback metrics
+
+Use `streamWHEPPlaybackMetricsAdaptiveGroups` to query WHEP playback quality across connections. This dataset exposes aggregates only, without raw observations or per-peer-connection metrics.
+
+Metrics can take two to three minutes to become queryable.
+
+#### Filters and dimensions
+
+The dataset supports these filters and grouping dimensions:
+
+Field | Description  
+---|---  
+`sampleInterval` | Adaptive sampling interval, not the observation duration  
+`inputId` | Live input ID  
+`peerConnectionState` | WebRTC peer connection state  
+`iceConnectionState` | ICE connection state  
+`dtlsState` | Datagram Transport Layer Security (DTLS) transport state  
+  
+#### Metrics
+
+The dataset uses adaptive sampling and does not expose unique-viewer or session counts. Grouping by connection state counts observations in each state, not sessions.
+
+`sum.observationDurationSeconds` combines monitoring time across observed connections. It is not the wall-clock broadcast duration.
+
+Select `count` directly, and nested fields under `sum`, `avg`, or `max`:
+
+Field | Description  
+---|---  
+`count` | Estimated number of observations, adjusted for sampling  
+`sum.observationDurationSeconds` | Estimated total observation time, in seconds  
+`sum.videoPacketsLost` | Estimated total video RTP packets lost  
+`sum.videoPacketsExpected` | Estimated total video RTP packets expected  
+`sum.audioPacketsLost` | Estimated total audio RTP packets lost  
+`sum.audioPacketsExpected` | Estimated total audio RTP packets expected  
+`sum.nackPackets` | Estimated total negative acknowledgment (NACK) packets sent  
+`sum.nackRequestedPackets` | Estimated total packets requested by NACKs, not necessarily unique packets  
+`sum.pliCount` | Estimated total picture loss indications (PLI) sent  
+`avg.sampleInterval` | Average adaptive sampling interval  
+`avg.videoPacketLossRate` | Sampling-adjusted total video packets lost divided by total expected  
+`avg.audioPacketLossRate` | Sampling-adjusted total audio packets lost divided by total expected  
+`avg.videoJitterSeconds` | Average video jitter, in seconds, weighted by jitter sample count  
+`avg.audioJitterSeconds` | Average audio jitter, in seconds, weighted by jitter sample count  
+`avg.iceRttSeconds` | Average ICE round-trip time, in seconds, from total time divided by responses  
+`avg.iceCurrentRttSeconds` | Sampling-weighted average of the most recent ICE round-trip time per observation, in seconds  
+`avg.rembBitsPerSecond` | Average receiver estimated maximum bitrate (REMB), in bits per second  
+`max.iceCurrentRttSeconds` | Highest most recent ICE round-trip time among sampled observations, in seconds  
+`max.videoPacketsLost` | Most video packets lost in a single sampled observation  
+`max.audioPacketsLost` | Most audio packets lost in a single sampled observation  
+  
+Packet loss rates divide sampling-adjusted lost packets by sampling-adjusted expected packets. A rate is `null` when no packets are expected.
+
+These rates are fractions. Multiply by 100 for percentages.
+
+`avg.rembBitsPerSecond` reports a receiver bandwidth estimate, not actual delivered playback bitrate. Maximum values describe sampled observations, not all connections.
+
+#### Example
+
+This query returns up to 100 per-minute playback quality groups for one live input, across connections. Set `$start` and `$end` to the observation time range.
+
+WHEP playback quality by minutegraphql
+    
+    
+    query StreamWHEPPlaybackMetrics(
+    	$accountTag: string!
+    	$inputId: string!
+    	$start: string!
+    	$end: string!
+    ) {
+    	viewer {
+    		accounts(filter: { accountTag: $accountTag }) {
+    			streamWHEPPlaybackMetricsAdaptiveGroups(
+    				filter: { inputId: $inputId, datetime_geq: $start, datetime_lt: $end }
+    				orderBy: [datetimeMinute_ASC]
+    				limit: 100
+    			) {
+    				count
+    				sum {
+    					observationDurationSeconds
+    					videoPacketsLost
+    					videoPacketsExpected
+    				}
+    				avg {
+    					videoPacketLossRate
+    					audioPacketLossRate
+    					videoJitterSeconds
+    					audioJitterSeconds
+    					iceRttSeconds
+    					iceCurrentRttSeconds
+    					rembBitsPerSecond
+    				}
+    				max {
+    					iceCurrentRttSeconds
+    					videoPacketsLost
+    				}
+    				dimensions {
+    					datetimeMinute
+    					inputId
+    				}
+    			}
+    		}
+    	}
+    }
+
 ## Pagination
 
 GraphQL API supports seek pagination: using filters, you can specify the last video UID so the response only includes data for videos after the last video UID.
@@ -389,6 +506,7 @@ Dataset | Maximum query interval | Data retention
 `streamCMCDAdaptiveGroups` | 30 days | 31 days  
 `streamWHIPBroadcastMetricsAdaptive` | 30 days | 30 days  
 `streamWHIPBroadcastMetricsAdaptiveGroups` | 30 days | 30 days  
+`streamWHEPPlaybackMetricsAdaptiveGroups` | 30 days | 30 days  
   
 Use the [settings node](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/settings/) under `viewer.accounts` to check limits for your account. The `maxDuration` and `notOlderThan` fields report the query interval and retention period in seconds.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/
 title: Access policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:20.118911+00:00
+fetched_at: 2026-11-18T09:55:25.180066+00:00
 ---
 
 # Access policies · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:20.118911+00:00
 
 # Policies
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare Access policy actions Allow Block Bypass Service AuthCloudflare Access rule types Include Exclude RequireCloudflare Access selectorsConnection context in Cloudflare AccessCloudflare Access policy order of executionCommon Cloudflare Access misconfigurations Include everyone Include all valid emailsAdditional Cloudflare Access resources
 
@@ -47,7 +47,7 @@ Action | Rule type | Selector | Value
 ---|---|---|---  
 Allow | Include | Emails ending in | `@example.com`  
   
-You can add a Require rule in the same policy action to enforce additional checks. Finally, if the policy contains an Exclude rule, users meeting that definition are prevented from reaching the application.
+Add Require rules to enforce additional checks. Users who match an Exclude rule do not match this policy, but another Allow policy can still grant them access.
 
 For example, the following table shows an Allow policy with Require and Exclude rules. This configuration lets any user from Portugal with an `@team.com` email address, as validated against an IdP, reach the application, except for `user-1` and `user-2`:
 
@@ -123,7 +123,7 @@ The Include rule in Cloudflare Access is similar to an OR logical operator. In c
 
 ### Exclude
 
-The Exclude rule in Cloudflare Access works like a NOT logical operator. A user meeting any Exclusion criteria will not be allowed access to the application.
+The Exclude rule works like a NOT logical operator. A user who matches any Exclude rule does not match that policy. Access continues evaluating other policies, which may still grant access. To deny access explicitly, use a Block policy and place it before the Allow policies it must override.
 
 ### Require
 

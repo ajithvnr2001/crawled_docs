@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/cloud-and-saas/troubleshooting/casb/
 title: CASB \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:00.448069+00:00
+fetched_at: 2026-11-18T09:55:26.989374+00:00
 ---
 
 # CASB · Cloudflare One docs
@@ -22,9 +22,9 @@ Integrations[Cloud and SaaS integrations](https://developers.cloudflare.com/clou
 
 # CASB
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/cloud-and-saas/troubleshooting/casb/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewIntegration fails to connect or returns an error Check permissions in the third-party application Clear previous installations Verify OAuth permissionsFindings are stale or not updating after remediation Understand scan frequency Force a re-scanRemediation action fails in the dashboard Verify permissions Remediate manuallyWebhook test or delivery fails Check destination requirements Check authentication settings Understand delivery timingCASB is generating false positives Review finding details Report the issue Hide the finding
+OverviewIntegration fails to connect or returns an error Check permissions in the third-party application Move an integration to another Cloudflare account Verify OAuth permissionsFindings are stale or not updating after remediation Understand scan frequency Force a re-scanRemediation action fails in the dashboard Verify permissions Remediate manuallyWebhook test or delivery fails Check destination requirements Check authentication settings Understand delivery timingCASB is generating false positives Review finding details Report the issue Hide the finding
 
 Use this guide to troubleshoot common issues with Cloud Access Security Broker (CASB).
 
@@ -38,17 +38,19 @@ Integration connection problems are the most common issue during CASB setup. If 
 
 Ensure the account you are using to authorize the integration has the necessary administrative privileges in the third-party application (for example, **Global Administrator** for Microsoft 365, **Super Admin** for Google Workspace, or **Organization Owner** for GitHub). Insufficient permissions are the leading cause of setup failures.
 
-### Clear previous installations
+### Move an integration to another Cloudflare account
 
-If the SaaS application was previously integrated with a different Cloudflare account, you must manually revoke the old Cloudflare application from within the SaaS provider's admin console.
+If you are moving a CASB integration to a different Cloudflare account, remove the Cloudflare app from the SaaS provider and delete the existing integration from the old Cloudflare account. The provider-side cleanup alone does not immediately release the tenant or organization for use by another Cloudflare account.
 
-  * **For Microsoft 365** : Go to **Microsoft 365 admin center** > **Enterprise applications** and delete the existing Cloudflare One application.
-  * **For Google Workspace** : Go to **Google Admin Console** > **Security** > **Access and data control** > **API controls** and remove the Cloudflare app from third-party app access.
-  * **For GitHub** : Go to your organization's **Settings** > **Third-party access** and revoke the Cloudflare CASB application.
+For Microsoft 365, Box, and GitHub, Cloudflare retains a deleted integration for approximately seven days before permanently deleting it. During this period, the tenant or organization remains reserved to help prevent another account from claiming it while the Cloudflare app may still be installed. This means that deleting the app in the SaaS provider does not necessarily let you create the integration in a new Cloudflare account right away.
+
+  * **Microsoft 365** : In the **Microsoft 365 admin center** , go to **Enterprise applications** and delete the existing Cloudflare One application.
+  * **Google Workspace** : In the **Google Admin Console** , go to **Security** > **Access and data control** > **API controls** and remove the Cloudflare app from third-party app access. The approximately seven-day retention described above applies to Microsoft 365, Box, and GitHub, not Google Workspace.
+  * **GitHub** : In your organization’s **Settings** > **Third-party access** , revoke the Cloudflare CASB application.
 
 
 
-After cleaning up the old app, wait a few minutes and then try the integration process again from the Cloudflare One dashboard.
+After removing the app and deleting the old Cloudflare integration, wait up to seven days before creating the integration in the new Cloudflare account. If you still cannot connect after that period, or need to migrate sooner, [contact Cloudflare Support ↗︎](https://support.cloudflare.com/) for help.
 
 ### Verify OAuth permissions
 

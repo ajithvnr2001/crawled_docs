@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/get-started/resources/
 title: Manage resources from the command line \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:46.625583+00:00
+fetched_at: 2026-11-18T09:55:28.656203+00:00
 ---
 
 # Manage resources from the command line · Cloudflare CLI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:46.625583+00:00
 
 # Manage resources from the command line
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cf/get-started/resources/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you begin1\. Find a zone2\. List DNS records3\. Preview a change4\. Create the record5\. Filter the output6\. Delete the record7\. Find other commandsNext steps
 
@@ -119,14 +119,14 @@ Delete the record by its ID:
 
 `cf` asks you to confirm before it deletes anything. The default answer is no.
 
-In a non-interactive session, such as a script or CI job, `cf` cannot ask. It prints the question and `Aborted.`, makes no change, and exits with status `0`. To delete without confirmation, pass `--force`:
+In a non-interactive session, such as a script or CI job, `cf` cannot ask. It prints the question and `Aborted.`, makes no change, and exits with status `1`. To delete without confirmation, pass `--force`:
     
     
     cf dns records delete <RECORD_ID> --zone example.com --force
 
 Caution
 
-Because a skipped deletion exits with status `0`, a script cannot tell from the exit status that nothing was deleted. On some commands, `--force` also changes what the API operation does. Read the `--help` output of a command before you pass `--force` in a script.
+On some commands, `--force` also changes what the API operation does. Read the `--help` output of a command before you pass `--force` in a script.
 
 ## 7\. Find other commands
 

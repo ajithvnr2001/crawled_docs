@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/observability/metrics-analytics/
 title: Metrics and analytics \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.866630+00:00
+fetched_at: 2026-11-18T09:55:30.462696+00:00
 ---
 
 # Metrics and analytics · Cloudflare Email Service docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-16T06:38:30.866630+00:00
 
 # Metrics and analytics
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewMetricsView metrics in the dashboardQuery via the GraphQL API Email Sending dimensions Email Routing dimensions ExamplesNext steps
+OverviewMetricsView metrics in the dashboardQuery via the GraphQL API Email Sending dimensions Email Routing dimensions Email complaints dimensions ExamplesNext steps
 
 Email Service exposes analytics that allow you to inspect email sending performance and delivery rates across all your domains.
 
@@ -36,6 +36,7 @@ Sending (aggregated) | `emailSendingAdaptiveGroups` | Aggregated email sending c
 Sending (events) | `emailSendingAdaptive` | Individual email sending events with full detail including sender, recipient, subject, message ID, and error information.  
 Routing (aggregated) | `emailRoutingAdaptiveGroups` | Aggregated email routing counts grouped by dimensions such as status, date, recipient domain, and authentication results.  
 Routing (events) | `emailRoutingAdaptive` | Individual email routing events with full detail including sender, recipient, subject, message ID, and processing decisions.  
+Complaints (aggregated) | `emailComplaintsAdaptiveGroups` | Aggregated counts of spam complaints that mailbox providers report for sent emails, grouped by dimensions such as date, sending domain, and provider.  
   
 Metrics can be queried (and are retained) for the past 31 days.
 
@@ -58,14 +59,19 @@ You can programmatically query analytics for your Email Service domains via the 
 
 To get started using the [GraphQL Analytics API](https://developers.cloudflare.com/analytics/graphql-api/), follow the documentation to setup [Authentication for the GraphQL Analytics API](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/). Your API token must include the **Analytics Read** permission.
 
-These are **zone-level** datasets. To query them, provide your zone ID (not account ID) as the `zoneTag` filter. The GraphQL datasets for Email Service include:
+The GraphQL datasets for Email Service include:
 
   * `emailSendingAdaptiveGroups` — aggregated email sending counts with groupable dimensions
   * `emailSendingAdaptive` — individual email sending events
   * `emailRoutingAdaptiveGroups` — aggregated email routing counts with groupable dimensions
   * `emailRoutingAdaptive` — individual email routing events
+  * `emailComplaintsAdaptiveGroups` — aggregated spam complaint counts with groupable dimensions
 
 
+
+You can query the sending and complaints datasets for a single zone or for a whole account. To query one zone, use `zones` with your zone ID as the `zoneTag` filter. To query all zones in an account, use `accounts` with your account ID as the `accountTag` filter.
+
+The routing datasets are only available per zone. Query them through `zones` with the `zoneTag` filter.
 
 ### Email Sending dimensions
 
@@ -84,6 +90,7 @@ Dimension | Type | Description
 `sendingDomain` | string | The domain used to send the email  
 `envelopeTo` | string | Recipient envelope address  
 `errorCause` | string | Error cause for failed sends  
+`errorAttribution` | string | Whether your sending behavior or message data caused the failure: `customer`, `non_customer`, or empty when there is no error  
 `arc` | string | ARC authentication result  
 `dkim` | string | DKIM authentication result  
 `dmarc` | string | DMARC authentication result  
@@ -120,9 +127,33 @@ Dimension | Type | Description
   
 The `emailRoutingAdaptive` dataset includes all of the above plus per-event fields: `from`, `to`, `subject`, `messageId`, `sessionId`, `errorDetail`, `ruleMatched`.
 
+### Email complaints dimensions
+
+The `emailComplaintsAdaptiveGroups` dataset counts spam complaints that mailbox providers report for emails you send. It supports the following dimensions for grouping and filtering:
+
+Dimension | Type | Description  
+---|---|---  
+`date` | Date | Day-level grouping of when the complaint was recorded  
+`datetime` | Time | Exact time the complaint was recorded  
+`datetimeMinute` | Time | Minute-level grouping  
+`datetimeFiveMinutes` | Time | 5-minute interval grouping  
+`datetimeFifteenMinutes` | Time | 15-minute interval grouping  
+`datetimeHour` | Time | Hour-level grouping  
+`sendingDomain` | string | The sending domain associated with the complaint  
+`provider` | string | Mailbox provider that sent the complaint (for example, `yahoo`)  
+`source` | string | Complaint report format (for example, `arf`)  
+`deliveryTimestamp` | Time | Exact time the email that received the complaint was delivered  
+`deliveryDate` | Date | Day-level grouping of when the email was delivered  
+`deliveryDatetimeMinute` | Time | Minute-level grouping of when the email was delivered  
+`deliveryDatetimeFiveMinutes` | Time | 5-minute interval grouping of when the email was delivered  
+`deliveryDatetimeFifteenMinutes` | Time | 15-minute interval grouping of when the email was delivered  
+`deliveryDatetimeHour` | Time | Hour-level grouping of when the email was delivered  
+  
 ### Examples
 
-The following are common GraphQL queries that you can use to retrieve information about Email Service analytics. These queries use the variable `$zoneTag`, which should be set to your Cloudflare Zone ID. You can find this in the Cloudflare dashboard under your domain's **Overview** page.
+The following are common GraphQL queries that you can use to retrieve information about Email Service analytics. Most of these queries use the variable `$zoneTag`, which should be set to your Cloudflare Zone ID. You can find this in the Cloudflare dashboard under your domain's **Overview** page.
+
+The account-wide sending operations example uses the variable `$accountTag` instead, which should be set to your Cloudflare account ID.
     
     
     {
@@ -147,6 +178,30 @@ To query the count of emails for a given date range, grouped by `date` and `stat
     				count
     				dimensions {
     					date
+    					status
+    				}
+    			}
+    		}
+    	}
+    }
+
+#### Account-wide sending operations
+
+To query the count of emails sent from all zones in an account, grouped by `date`, `sendingDomain`, and `status`:
+    
+    
+    query EmailSendingByAccount($accountTag: string!, $start: Date!, $end: Date!) {
+    	viewer {
+    		accounts(filter: { accountTag: $accountTag }) {
+    			emailSendingAdaptiveGroups(
+    				filter: { date_geq: $start, date_leq: $end }
+    				limit: 10000
+    				orderBy: [date_DESC]
+    			) {
+    				count
+    				dimensions {
+    					date
+    					sendingDomain
     					status
     				}
     			}
@@ -228,6 +283,30 @@ To query individual email events for troubleshooting specific delivery issues. T
     				dmarc
     				spf
     				isSpam
+    			}
+    		}
+    	}
+    }
+
+#### Spam complaints
+
+To query spam complaints for a given date range, grouped by `date`, `sendingDomain`, and `provider`:
+    
+    
+    query EmailComplaints($zoneTag: string!, $start: Date!, $end: Date!) {
+    	viewer {
+    		zones(filter: { zoneTag: $zoneTag }) {
+    			emailComplaintsAdaptiveGroups(
+    				filter: { date_geq: $start, date_leq: $end }
+    				limit: 10000
+    				orderBy: [date_DESC]
+    			) {
+    				count
+    				dimensions {
+    					date
+    					sendingDomain
+    					provider
+    				}
     			}
     		}
     	}

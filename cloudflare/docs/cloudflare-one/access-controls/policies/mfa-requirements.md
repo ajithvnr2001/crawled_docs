@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/mfa-requirements/
 title: Enforce MFA \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:21.660740+00:00
+fetched_at: 2026-11-18T09:55:24.238759+00:00
 ---
 
 # Enforce MFA · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:21.660740+00:00
 
 # Enforce MFA
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIdentity provider-based MFA Authentication methods in the JWTIndependent MFA Prerequisites Configure independent MFA for an application Configure independent MFA for a policy MFA session duration Precedence exampleInfrastructure applications Configure MFA for an infrastructure application Configure MFA for an infrastructure policy MFA session duration for SSH Precedence and conflict resolution
 
@@ -97,7 +97,7 @@ Level | Description
 Application | Require or turn off MFA for a specific application.  
 Policy | Require or turn off MFA for users who match a specific policy.  
   
-MFA settings use this precedence: **Policy** > **Application** > **Organization**.
+Allowed authenticators and MFA session durations use this precedence: **Policy** > **Application** > **Organization**. For browser-based applications, selecting **Disable MFA** at either the application or matching policy level skips independent MFA. A custom policy MFA configuration does not re-enable MFA on an application where it is disabled.
 
 ### Prerequisites
 
@@ -105,7 +105,7 @@ Before you configure independent MFA on applications or policies, you must [turn
 
 Tip
 
-At the organization level, you can also [restrict which authenticators can be enrolled using AAGUIDs](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/#restrict-authenticators-by-aaguid) and [skip independent MFA when the identity provider already performed MFA](/cloudflare-one/access-controls/access-settings/independent-mfa/#use-identity-provider-mfa.
+At the organization level, you can also [restrict which authenticators can be enrolled using AAGUIDs](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/#restrict-authenticators-by-aaguid) and [skip independent MFA when the identity provider already performed MFA](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/#use-identity-provider-mfa).
 
 ### Configure independent MFA for an application
 
@@ -134,7 +134,7 @@ To configure MFA for an infrastructure application, refer to Infrastructure appl
 
 ### Configure independent MFA for a policy
 
-Each policy has the same three MFA options described in Configure independent MFA for an application. Policy-level settings override application-level settings.
+Each policy has the same three MFA options described in Configure independent MFA for an application. Policy-level allowed authenticators and session durations override inherited values, but do not re-enable MFA when the application has **Disable MFA** selected.
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Policies**.
   2. Choose an **Allow** policy and select **Edit**.
@@ -216,7 +216,7 @@ In this example:
 
   * Users who access Application A and match Policy 1 must use a security key and re-authenticate every hour.
   * Users who access Application A and match Policy 2 are not prompted for MFA.
-  * Users who access Application A and match neither policy must use an authenticator application or a security key, with a 24-hour session.
+  * Users allowed by another policy on Application A that inherits MFA settings must use an authenticator application or a security key, with a 24-hour session. Users who do not match any Allow policy are denied access.
   * Users who access Application B are not prompted for MFA.
 
 
