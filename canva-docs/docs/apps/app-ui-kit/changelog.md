@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/app-ui-kit/changelog/
 title: Changelog - App UI Kit reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:21.102598+00:00
+fetched_at: 2026-11-19T18:43:18.037776+00:00
 ---
 
 # Changelog - App UI Kit reference - Canva Developers SDK Documentation
@@ -30,6 +30,55 @@ UI Patterns
 The latest changes to the App UI Kit.
 
 Copy page
+
+## 5.16.0 - 2026-11-18
+
+### Changed
+
+  * The global typography element defaults in styles.css are now only declared inside the app-ui-kit-defaults cascade layer; the unlayered copy for browsers without cascade layer support has been removed.
+
+  * `TabList` now uses CSS grid instead of flexbox: custom children no longer respond to flex properties or shrink below their content width (the list scrolls instead), and `height: 100%` fills the list's height. Spacing now uses `column-gap`, so custom children's `margin-inline-start` adds to the spacing rather than being overridden; `Tab` children are unaffected and require no changes.
+
+  * Dependency changes, apps on React 19.2 should upgrade both `react` and `react-dom`. The App UI Kit uses its own isolated copy of MobX, so apps only need to install `mobx` if they use it directly. The kit now uses the browser’s native `ResizeObserver`.
+        
+        react                     ^19.2.3          -> ^19.3.0
+        
+        react-dom                 ^19.2.3          -> ^19.3.0
+        
+        mobx                      ^6.16.0 (peer)   -> ^7.1.6 (direct)
+        
+        mobx-react-lite           ^4.1.0           -> ^5.1.2
+        
+        @floating-ui/react        ^0.26.16         -> ^0.27.20
+        
+        mobx-utils                ^6.1.1           -> removed
+        
+        tslib                     ^2.5.0           -> removed
+        
+        resize-observer-polyfill  ^1.5.1           -> removed
+        
+        smoothscroll-polyfill     ^0.4.4           -> removed
+
+Copy
+
+
+
+
+### Fixed
+
+  * Fixed an error in screen-size calculations that could occur when folding or unfolding a device while an overlay is open.
+  * Fixed `Link`, `Swatch`, input decorators, `NumberInput`, and `Switch` displaying placeholder icons instead of their intended icons in native environments.
+  * Fixed an accessibility issue in `Badge`: badges with an `ariaLabel` now use `role="img"` so assistive technology can announce the label.
+  * Fixed an issue where disabled `Swatch` components displayed a pressed state.
+  * The `Tab`, `TabList`, and `TabPanel` components now respect the device’s reduced motion preference.
+  * Restored the animated gradient sweep on the `ProgressBar` fill.
+  * Fixed `ThemeBoundary` so CSS `light-dark()` colors respect the selected color scheme.
+  * Fixed dragging interactions in Slider when using macOS Sidecar in Chrome.
+  * Fixed `Button` text alignment so it defaults to centered rather than inheriting alignment from surrounding content. This also fixes alignment for buttons in components such as `Alert` and `Carousel`.
+  * Fixed an issue where the iOS native date picker's Reset button did not clear `DateInput`. On touch devices using the native picker, Reset now clears the value and calls `onChange` with `undefined`.
+  * Fixed scrolling to the selected option when reopening a long `Select` dropdown during its opening animation, including scroll-position rounding issues in Safari.
+
+
 
 ## 5.15.0 - 2026-10-06
 
