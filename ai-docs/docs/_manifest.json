@@ -19,8 +19,8 @@
     "crawl4ai (AsyncWebCrawler fallback)",
     "scrapegraph-ai (cleanup_html/convert_to_md)"
   ],
-  "generated_at": "2026-11-18T12:36:49.553969+00:00",
-  "last_verified": "2026-11-18",
+  "generated_at": "2026-11-19T12:26:56.957233+00:00",
+  "last_verified": "2026-11-19",
   "pages": 5645,
   "pruned_404": 152,
   "pruned_non_page": 3
