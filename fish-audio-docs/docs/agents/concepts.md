@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/concepts/
 title: Core Concepts - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.812899+00:00
+fetched_at: 2026-11-19T16:42:09.762250+00:00
 ---
 
 # Core Concepts - Fish Audio
@@ -126,9 +126,9 @@ Except [preview calls](https://docs.fish.audio/agents/test/preview-calls), which
 
 ## Cascade vs. full duplex
 
-An agent speaks in one of two ways, set by its [text-to-speech model](https://docs.fish.audio/agents/build/voice-language#text-to-speech-model). In both, speech recognition transcribes the caller and the LLM writes the reply from your prompt, tools, and knowledge sources. They differ in how the reply is spoken.
+An agent talks with callers in one of two ways, set by its [speech model](https://docs.fish.audio/agents/build/voice-language#text-to-speech-model). In both, what the agent says comes from your prompt, tools, and knowledge sources. They differ in how the agent listens and speaks.
 
-  * **Cascade** (Drama 3, S2.1 Pro): a text-to-speech model speaks the reply. The agent listens while the caller talks and speaks once they finish.
+  * **Cascade** (Drama 3, S2.1 Pro): three models in a chain. Speech recognition transcribes the caller, the LLM writes the reply, and a text-to-speech model speaks it. The agent listens while the caller talks and speaks once they finish.
   * **Full duplex** ([Live 3](https://docs.fish.audio/agents/build/voice-language#live-3-full-duplex)): one speech model listens while it speaks and decides when to talk. It backchannels naturally while the caller talks and acknowledges when they finish, then speaks the reply.
 
 

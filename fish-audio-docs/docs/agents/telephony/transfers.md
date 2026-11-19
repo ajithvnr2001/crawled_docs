@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/transfers/
 title: Call Transfers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.722160+00:00
+fetched_at: 2026-11-19T16:42:08.533243+00:00
 ---
 
 # Call Transfers - Fish Audio
@@ -434,7 +434,7 @@ The choice is set on each phone number, and applies to every transfer on that nu
   * **For all numbers of an agent** : open the agent’s **Phone** page and use the **Show the caller’s number on transfers** switch in the **Call transfer** section.
   * **For one number** : on the **Phone numbers** page, open the number’s menu and choose **Transfer caller ID**.
 
-Only team owners and admins can change it. You don’t need to publish the agent.
+You don’t need to publish the agent.
 
 Set `transfer_caller_id` on the number: `original_caller` shows the caller’s number, `agent_number` shows the agent’s number.
 

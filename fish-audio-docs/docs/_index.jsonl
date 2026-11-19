@@ -219,3 +219,7 @@
 {"url": "https://docs.fish.audio/agents/deploy/react-native/", "file": "agents/deploy/react-native.md", "title": "React Native SDK - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/openapi-v1/audio-infill/", "file": "api-reference/endpoint/openapi-v1/audio-infill.md", "title": "Audio Infill - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/features/text-to-speech/audio-infill/", "file": "features/text-to-speech/audio-infill.md", "title": "Audio Infill - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/delete-background-sound/", "file": "api-reference/endpoint/agent/delete-background-sound.md", "title": "Delete Background Sound - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/agents/build/background-sound-voice-effect/", "file": "agents/build/background-sound-voice-effect.md", "title": "Background Sound & Voice Effect - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/list-background-sounds/", "file": "api-reference/endpoint/agent/list-background-sounds.md", "title": "List Background Sounds - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound/", "file": "api-reference/endpoint/agent/create-background-sound.md", "title": "Create Background Sound - Fish Audio", "method": "scrapling+scrapegraph"}

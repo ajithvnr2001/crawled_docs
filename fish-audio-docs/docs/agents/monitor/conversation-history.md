@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/conversation-history/
 title: Conversation History - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:57.027732+00:00
+fetched_at: 2026-11-19T16:42:09.463927+00:00
 ---
 
 # Conversation History - Fish Audio
@@ -401,7 +401,7 @@ When `transferred_call_ended_at` is `null`, the other two are `null` as well. A 
 
 ## Download recordings
 
-`GET /v1/agent/sessions/{session_id}/recording` returns the recording status and signed download URLs: one audio track per speaker, so you can play or process the agent and the user separately. For sessions that never recorded (recording turned off, or no audio produced), the endpoint returns `404`.
+`GET /v1/agent/sessions/{session_id}/recording` returns the recording status and signed download URLs: one audio track per speaker, so you can play or process the agent and the user separately. An agent with a [background sound](https://docs.fish.audio/agents/build/background-sound-voice-effect#recordings) has a second `agent` track, which holds the ambience. For sessions that never recorded (recording turned off, or no audio produced), the endpoint returns `404`.
 
 API (curl)
     

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.090733+00:00
+fetched_at: 2026-11-19T16:42:09.137206+00:00
 ---
 
 # Bring Your Own Number - Fish Audio
@@ -61,7 +61,7 @@ Origination URI
 ## Prerequisites
 
   * A number at your carrier and access to its SIP trunk configuration.
-  * Team owner or admin role (console), or an API key.
+  * An API key, if you use the API.
 
 
 

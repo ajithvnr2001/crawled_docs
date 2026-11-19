@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/voice-language/
 title: Voice & Language - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.563343+00:00
+fetched_at: 2026-11-19T16:42:09.345694+00:00
 ---
 
 # Voice & Language - Fish Audio
@@ -156,14 +156,14 @@ Both settings can also be replaced for a single session: send `overrides.voice_i
 
 ## Text-to-speech model
 
-**Text-to-speech model** picks the Fish Audio model that renders the agent’s voice (`voice.tts_model` on the wire). Every voice from the Voice Library works with either model. The same selector offers Live 3, a full-duplex model set with `voice.engine`.
+**Text-to-speech model** picks the Fish Audio model that renders the agent’s voice (`voice.tts_model` on the wire). Every voice from the Voice Library works with either model. In the Builder, both sit in the **Speech model** selector next to Live 3, a full-duplex model set with `voice.engine`.
 
 Value| Model| Status| Notes  
 ---|---|---|---  
 `drama-3`| Drama 3| Default| The directable model from [Drama 3](https://docs.fish.audio/features/text-to-speech/drama-3). Time to first audio is comparable to S2.1 Pro.  
 `s2.1-pro`| S2.1 Pro| Available|   
   
-Choose it with the **Text-to-speech model** selector in the Builder’s voice section, or via the API:
+Choose it with the **Speech model** selector in the Builder’s voice section, or via the API:
 
 API (curl)
     
@@ -184,11 +184,11 @@ The model applies to everything the agent speaks in voice and phone sessions. As
 
 **Live 3** is Fish Audio’s full-duplex speech model. Instead of speaking the reply once the caller finishes, it listens while it speaks and decides on its own when to acknowledge, wait, respond, or stop. See [Cascade vs. full duplex](https://docs.fish.audio/agents/concepts#cascade-vs-full-duplex).
 
-  * **Backchannels:** while the caller reads out a phone number in chunks, it answers with a quick “mm-hmm” and waits for the rest instead of cutting in.
+  * **Backchannels:** while the caller reads out a phone number in chunks, it answers with a quick “mm-hmm” and waits for the rest instead of cutting in. To turn them down or off, see [Backchannels](https://docs.fish.audio/agents/build/configuration#backchannels).
   * **Interruptions:** a “yeah” or “mm-hmm” from the caller doesn’t stop it, but a real interjection such as “Wait, actually…” does.
   * **Corrections:** when the caller changes their mind mid-order, it follows along without answering too early.
 
-Your agent’s instructions and tools still decide what the agent says. Live 3 decides when and how it is said. New agents start on Live 3 with the Clara voice. To create one with another Live 3 voice or situation, pass the same `voice` fields in `config` on [Create agent](https://docs.fish.audio/api-reference/endpoint/agent/create-agent). To switch an existing agent, pick **Live 3** in the **Text-to-speech model** selector, or set `voice.engine` to `live3` via the API:
+Your agent’s instructions and tools still decide what the agent says. Live 3 decides when and how it is said. New agents start on Live 3 with the Clara voice. To create one with another Live 3 voice or situation, pass the same `voice` fields in `config` on [Create agent](https://docs.fish.audio/api-reference/endpoint/agent/create-agent). To switch an existing agent, pick **Live 3** in the **Speech model** selector, or set `voice.engine` to `live3` via the API:
 
 API (curl)
     
@@ -225,8 +225,7 @@ empty (default)| Phone support, same as `P2`
   
 #### What else changes
 
-  * Speech recognition is fixed to Fish Transcribe Stream 1 (see Speech recognition model).
-  * Speaking speed, expressive mode, and pronunciation dictionaries apply only to Drama 3 and S2.1 Pro. Live 3 sets its own pacing and delivery.
+  * The speech recognition model, speaking speed, expressive mode, and pronunciation dictionaries apply only to Drama 3 and S2.1 Pro. Live 3 does its own listening and sets its own pacing and delivery.
   * If Live 3 can’t start a session, or drops during one, the agent keeps talking through its text-to-speech model.
   * In a [warm transfer](https://docs.fish.audio/agents/telephony/transfers), the briefing to your team member is spoken by the text-to-speech model.
 
@@ -342,6 +341,10 @@ Keep your system prompt about **what** the agent says: who it is, what it knows,
 
 ## Going further
 
+## Background sound & voice effect
+
+Play an ambience under the voice, or make web calls sound like a phone line.
+
 ## Agent configuration
 
 System prompt, first message, and conversation settings.
@@ -364,4 +367,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/build/voice-language.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/build/voice-language)
 
-[Configuration](https://docs.fish.audio/agents/build/configuration)[Time & Timezone](https://docs.fish.audio/agents/build/time-timezone)
+[Configuration](https://docs.fish.audio/agents/build/configuration)[Background Sound & Voice Effect](https://docs.fish.audio/agents/build/background-sound-voice-effect)

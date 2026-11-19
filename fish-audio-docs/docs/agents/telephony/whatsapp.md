@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/whatsapp/
 title: WhatsApp Business Calling - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.016356+00:00
+fetched_at: 2026-11-19T16:42:08.340504+00:00
 ---
 
 # WhatsApp Business Calling - Fish Audio
@@ -56,7 +56,6 @@ Outbound calls| No
   * A WhatsApp Business Account (WABA) with a phone number registered for the Cloud API: the **WhatsApp Business Account ID** and the number’s **Phone number ID**.
   * A **System User access token** for that app with the `whatsapp_business_management` and `whatsapp_business_messaging` permissions.
   * Calling enabled on the number. The import turns it on for you; Meta grants it once the business has completed Business Verification. A number Meta declines still connects, with calling off and Meta’s reason kept on the number (shown on its status badge, and as `status_detail` over the API).
-  * Team owner or admin role in the console.
 
 
 

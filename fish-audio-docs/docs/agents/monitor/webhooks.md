@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/webhooks/
 title: Webhooks - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:59:54.808811+00:00
+fetched_at: 2026-11-19T16:42:08.866181+00:00
 ---
 
 # Webhooks - Fish Audio
@@ -129,7 +129,7 @@ phone_call.dial_finished
       "event": "call.ended",
       "event_id": "evt_3f9c2a7b5d1e4f60a8b9c0d1e2f3a4b5",
       "session": {
-        "id": "5f3e…",
+        "id": "sess_5f3e…",
         "agent_id": "a1b2…",
         "branch_id": "b7d4…",
         "source": "phone",
@@ -153,7 +153,7 @@ phone_call.dial_finished
       "event": "call.analyzed",
       "event_id": "evt_8a41d0c97e2b4f13b6c5a9d8e7f60123",
       "session": {
-        "id": "5f3e…",
+        "id": "sess_5f3e…",
         "agent_id": "a1b2…",
         "branch_id": "b7d4…",
         "source": "phone",
@@ -207,7 +207,7 @@ phone_call.dial_finished
       "dial_status": "answered",
       "answered_by": "human",
       "session": {
-        "id": "5f3e…",
+        "id": "sess_5f3e…",
         "agent_id": "a1b2…",
         "branch_id": "b7d4…",
         "source": "phone",
@@ -389,12 +389,19 @@ call.inbound
         "dialed_number": "+14155550100",
         "agent_id": "a1b2…",
         "phone_number_id": "7e9f…",
-        "call_sid": "CA5d3a…"
+        "call_sid": "CA5d3a…",
+        "session_id": "sess_5f3e…"
       }
     }
     
 
-`caller_number` and `dialed_number` are E.164. `caller_number` is an empty string when the carrier withholds the caller’s number, and `caller_id_withheld` is a boolean that says so: `true` when the number is withheld, `false` otherwise. Withheld means the carrier sent no digits (`anonymous`, `restricted`, an empty value) or one of the placeholder numbers Twilio uses when it has none, so a placeholder never reaches you as a number. When it is `true`, skip the lookup by number in your endpoint; the agent can ask who is calling instead, see [Withheld caller ID](https://docs.fish.audio/agents/build/dynamic-variables#withheld-caller-id). `call_sid` is empty when the call did not come through a Twilio number. To match this request with the call, keep `call_sid`. Once the call is connected, `GET /v1/agent/sessions?call_sid=…` returns its session, and post-call webhooks carry the same value. This works only when `call_sid` is not empty, that is for calls through a Twilio number. During the call, webhook tools can send the session id with `{{system.session_id}}`. New fields can be added to this request, see Forward compatibility.
+`caller_number` and `dialed_number` are E.164. `caller_number` is an empty string when the carrier withholds the caller’s number, and `caller_id_withheld` is a boolean that says so: `true` when the number is withheld, `false` otherwise. Withheld means the carrier sent no digits (`anonymous`, `restricted`, an empty value) or one of the placeholder numbers Twilio uses when it has none, so a placeholder never reaches you as a number. When it is `true`, skip the lookup by number in your endpoint; the agent can ask who is calling instead, see [Withheld caller ID](https://docs.fish.audio/agents/build/dynamic-variables#withheld-caller-id). `call_sid` is empty when the call did not come through a Twilio number. To match this request with the call, keep `session_id`. It is the id the call’s session gets once the call connects, the same value you see elsewhere:
+
+  * `session_id` in the [sessions API](https://docs.fish.audio/agents/monitor/conversation-history)
+  * `session.id` in post-call webhooks
+  * `{{system.session_id}}` in [webhook tools](https://docs.fish.audio/agents/build/webhook-tools)
+
+For calls through a Twilio number, `call_sid` works too: `GET /v1/agent/sessions?call_sid=…` returns the session. New fields can be added to this request, see Forward compatibility.
 
 ### Response
 
