@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/development/api-development/workflow-api-format/
-title: Formato de API de flujos de trabajo - ComfyUI
+title: Formato de API de flujos de trabajo en ComfyUI: exportar JSON - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:52.475303+00:00
+fetched_at: 2026-11-19T16:26:06.621329+00:00
 ---
 
-# Formato de API de flujos de trabajo - ComfyUI
+# Formato de API de flujos de trabajo en ComfyUI: exportar JSON - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/api-development/workflow-api-format/
 
@@ -22,11 +22,11 @@ Volver arriba
 
 Ejecutar flujos de trabajo
 
-# Formato de API de flujos de trabajo
+# Formato de API de flujos de trabajo en ComfyUI: exportar JSON
 
 Copiar páginaCopiar página
 
-Comprende el formato de API de los flujos de trabajo de ComfyUI y cómo exportarlos
+La estructura JSON que acepta la API de ComfyUI: en qué se diferencia del flujo guardado, qué datos de la interfaz omite y cómo exportarlo.
 
 Copiar páginaCopiar página
 
@@ -34,11 +34,7 @@ Los flujos de trabajo de ComfyUI son objetos JSON que describen un gráfico de n
 
 * * *
 
-## 
-
-​
-
-Formato de guardado vs. formato de API
+## Formato de guardado vs. formato de API
 
 El frontend de ComfyUI puede guardar flujos de trabajo en dos formatos:
 
@@ -57,11 +53,7 @@ La diferencia clave: **el formato de API omite los metadatos de la UI** (posicio
 
 * * *
 
-## 
-
-​
-
-Cómo exportar
+## Cómo exportar
 
 Abre tu flujo de trabajo en el frontend de ComfyUI y luego ve a `File → Export Workflow (API)`:
 
@@ -183,11 +175,7 @@ Esto descargará un archivo `.json` que contiene solo los datos relevantes para 
 
 * * *
 
-## 
-
-​
-
-Convertir entre formatos
+## Convertir entre formatos
 
 Si tienes un flujo de trabajo en formato de guardado y lo necesitas en formato API, el método más sencillo es:
 
@@ -198,11 +186,7 @@ Si tienes un flujo de trabajo en formato de guardado y lo necesitas en formato A
 
 * * *
 
-## 
-
-​
-
-Páginas relacionadas
+## Páginas relacionadas
 
   * [Ejecutar flujos de trabajo](https://docs.comfy.org/es/development/run-workflows/overview): compara las opciones de API y de despliegue
   * [Descripción general de la API de Cloud](https://docs.comfy.org/es/development/cloud/overview): envía flujos de trabajo en formato API a Comfy Cloud
@@ -217,4 +201,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/api-development/workflow-api-format.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/api-development/workflow-api-format)
 
-[Proxy de API](https://docs.comfy.org/es/development/comfyui-server/api-proxy)[Metadatos de flujos de trabajo](https://docs.comfy.org/es/development/api-development/workflow-metadata)
+[Proxy de API](https://docs.comfy.org/es/development/comfyui-server/api-proxy)[Metadatos de flujos](https://docs.comfy.org/es/development/api-development/workflow-metadata)

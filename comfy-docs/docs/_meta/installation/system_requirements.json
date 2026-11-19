@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/installation/system_requirements/",
   "file": "installation/system_requirements.md",
-  "title": "System Requirements - ComfyUI",
+  "title": "ComfyUI System Requirements: OS, Python, and GPU - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:59.335006+00:00",
-  "html_len": 498721,
-  "md_len": 7606,
-  "depth": 0
+  "fetched_at": "2026-11-19T16:26:06.002610+00:00"
 }

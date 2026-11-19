@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/cloud-custom-builds/
 title: Adding Custom Builds to Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:34.080852+00:00
+fetched_at: 2026-11-19T16:26:12.564969+00:00
 ---
 
 # Adding Custom Builds to Comfy Cloud - ComfyUI
@@ -59,12 +59,12 @@ If your Workflow uses Custom Nodes Comfy Cloud doesn’t support, Comfy Cloud sh
 
 Open the Developer Platform
 
-In the dialog, click **Create on Platform**. The Developer Platform opens in a new tab, on its **Deploy** page.![Comfy Cloud dialog for a Workflow with Custom Nodes Comfy Cloud doesn't have, listing the missing Nodes above the Read the docs link, the Build with your agent button, and the Create on Platform button](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on-custom-deployment.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=da981d7d6d591244e63f7c3e91979419)![Run on menu open next to the Run button, with Comfy Cloud checked, the message This workspace has no deployments yet, and Create a custom deployment below it](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=3ed4851ed8cf0355d60d208bc64650c4)
+In the dialog, click **Create on Platform**. The Developer Platform opens in a new tab, on its **Deploy** page.![Comfy Cloud dialog for a Workflow with Custom Nodes Comfy Cloud doesn't have, listing the missing Nodes above the Read the docs link, the Build with your agent button, and the Create on Platform button](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on-custom-deployment.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=da981d7d6d591244e63f7c3e91979419)
 
 To create a Build without the dialog, click the cloud menu to the left of **Run**. By default, it’s set to **Comfy Cloud**.
 
   * If your workspace has no deployments yet, select **Create a custom deployment** , and then click **Create on Platform**.
-  * If it already has deployments, select **Manage deployments**.
+  * If it already has deployments, select **Manage deployments**. ![Run on menu open next to the Run button, with Comfy Cloud checked, the message This workspace has no deployments yet, and Create a custom deployment below it](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=3ed4851ed8cf0355d60d208bc64650c4)
 
 
 
@@ -97,8 +97,10 @@ Click **Build with defaults…**. The **Choose build targets** dialog opens.If *
 
 To change what goes into the Build, click **Customise build** instead and go through the steps. Two steps decide what the Build holds:
 
-  * **Which custom nodes does the build need?** : choose the Custom Nodes.
-  * **Which models ship inside the build?** : choose which models the Build includes. A model the Build doesn’t include downloads the first time a job uses it.
+  * **Which custom nodes does the build need?**
+    * Select the Custom Nodes.
+  * **Which models ship inside the build?**
+    * Choose which models the Build includes. A model the Build doesn’t include downloads the first time a job uses it.
 
 
 

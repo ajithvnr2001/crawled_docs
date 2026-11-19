@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-replace-background/code/
 title: Use Image Edit Replace Background with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:38.421296+00:00
+fetched_at: 2026-11-19T16:26:17.225854+00:00
 ---
 
 # Use Image Edit Replace Background with Comfy Router - ComfyUI

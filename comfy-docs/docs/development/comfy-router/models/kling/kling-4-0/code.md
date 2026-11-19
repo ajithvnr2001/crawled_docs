@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code/
 title: Use Kling 4.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:18.359598+00:00
+fetched_at: 2026-11-19T16:26:15.618741+00:00
 ---
 
 # Use Kling 4.0 with Comfy Router - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/byteplus/seedream-5-0-pro-260628/code/
 title: Usa Seedream 5.0 Pro 260628 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:02.816173+00:00
+fetched_at: 2026-11-19T16:26:11.136818+00:00
 ---
 
 # Usa Seedream 5.0 Pro 260628 con Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copiar páginaCopiar página
 
 Referencia de API para `byteplus/seedream-5-0-pro-260628`, servida por Comfy Router desde BytePlus. **Entrada:** Texto, Imagen · **Salida:** Imagen
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada sobre HTTP puro. **ID del modelo:** `byteplus/seedream-5-0-pro-260628` **Endpoint:** `POST https://api.comfy.org/v2/models/byteplus/seedream-5-0-pro-260628`
 
@@ -177,19 +173,15 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Esquema
 
-​
+### Entrada
 
-Esquema
+background
 
-### 
+string
 
-​
-
-Entrada
-
-​
+Controla si la imagen generada tiene un fondo transparente (canal alfa). Es compatible con seedream-5.0-pro, 5.0-flash y los modelos Seedream más recientes cuyo propio esquema lo documenta. auto: El modelo decide a partir del prompt y de output_format. Con output_format jpeg, la salida siempre es opaca. transparent: Devuelve una imagen RGBA con un fondo transparente. Con output_format jpeg se devuelve un error. opaque: Devuelve una imagen RGB con un fondo opaco. Es el valor predeterminado de seedream-5.0-pro. seedream-5.0-pro solo admite salida transparente para imagen a imagen, con una única imagen de entrada png que tenga canal alfa. No se admite en el escenario de separación de capas: pasarlo con layer_decomposition habilitado devuelve un error.Posibles valores: `auto`, `transparent`, `opaque`
 
 guidance_scale
 
@@ -197,15 +189,11 @@ number
 
 Controla qué tan fielmente se alinea la imagen de salida con el prompt de entrada. Rango [1, 10]. Los valores más altos producen una mayor adherencia al prompt. No es compatible con seedream-5.0-pro, 5.0-lite, 4.5 y 4.0.Rango: `1` a `10`Formato: `float`
 
-​
-
 image
 
 string | string[]
 
 La imagen o las imágenes a editar, como una URL accesible o una carga útil Base64 con prefijo data-URI. Idéntico al campo compartido de Seedream, excepto por el límite de imágenes de referencia, que es 10 en este modelo en lugar de 14.
-
-​
 
 layer_decomposition
 
@@ -213,25 +201,33 @@ boolean
 
 predeterminado:"false"
 
-Controla si se habilita la separación de capas. Solo seedream-5.0-pro y 5.0-flash admiten este parámetro. true: Modo de separación de capas. El modelo descompone la única imagen de entrada en una imagen base más varias capas (hasta 16) y devuelve la información de posición y contenido de cada capa producida, incluidos el orden de apilamiento (z_index), la caja delimitadora (bounding_box), el nombre (name) y la descripción (description). false: Modo estándar de generación de imágenes; no se realiza separación de capas. Notas sobre el modo de separación de capas: solo se admite una única imagen de entrada (pasar varias imágenes devuelve un error); si alguna capa individual no se genera, toda la solicitud falla, no se admite el éxito parcial; se devuelven como máximo 17 imágenes (1 imagen base + 16 capas). sequential_image_generation, sequential_image_generation_options, tools y stream devuelven un error si los pasas.
+Controla si se habilita la separación de capas. Solo seedream-5.0-pro, 5.0-flash y 5.5 admiten este parámetro. true: Modo de separación de capas. El modelo descompone la única imagen de entrada en una imagen base más varias capas (hasta 16; hasta 99 en seedream-5.5) y devuelve la información de posición y contenido de cada capa producida, incluidos el orden de apilamiento (z_index), la caja delimitadora (bounding_box), el nombre (name) y la descripción (description). false: Modo estándar de generación de imágenes; no se realiza separación de capas. Notas sobre el modo de separación de capas: solo se admite una única imagen de entrada (pasar varias imágenes devuelve un error); si alguna capa individual no se genera, toda la solicitud falla, no se admite el éxito parcial; se devuelven como máximo 17 imágenes (1 imagen base + 16 capas). seedream-5.5 devuelve como máximo layer_decomposition_options.max_images imágenes (1 imagen base + hasta 99 capas). sequential_image_generation, sequential_image_generation_options, tools y stream devuelven un error si los pasas.
 
-​
+layer_decomposition_options
+
+object
+
+Opciones para el modo de separación de capas. Solo seedream-5.5 admite este parámetro, y solo se aplica cuando layer_decomposition es true.
+
+layer_decomposition_options.max_images
+
+integer
+
+predeterminado:"30"
+
+El número total máximo de imágenes que devuelve esta solicitud, la imagen base y las capas juntas. Rango: [2, 100]. Cuando el prompt no indica cómo dividir la imagen, el modelo planifica las capas a partir de max_images y de la complejidad de la imagen de entrada; un valor mayor suele dar capas más finas.Rango: `2` a `100`
 
 model
 
 string
 
-Identificador del modelo. Modelos admitidos: seedream-4-0-250828, seedream-4-5-251128, seedream-5-0-260128, seedream-5-0-pro-260628 y seedream-5-0-flash-260915. Una llamada directa v1 a POST /proxy/byteplus/api/v3/images/generations DEBE proporcionarlo: el proxy rechaza cualquier otro valor y rechaza uno omitido con un 400. NO está en la lista `required` de este esquema porque Comfy Router lo rellena desde el segmento de ruta `{model}` de /v2/models/byteplus/{model}, así que quien llama desde Router lo omite.
-
-​
+Identificador del modelo. Modelos admitidos: seedream-4-0-250828, seedream-4-5-251128, seedream-5-0-260128, seedream-5-0-pro-260628, seedream-5-0-flash-260915 y seedream-5-5-261028. Una llamada directa v1 a POST /proxy/byteplus/api/v3/images/generations DEBE proporcionarlo: el proxy rechaza cualquier otro valor y rechaza uno omitido con un 400. NO está en la lista `required` de este esquema porque Comfy Router lo rellena desde el segmento de ruta `{model}` de /v2/models/byteplus/{model}, así que quien llama desde Router lo omite.
 
 optimize_prompt_options
 
 object
 
-Configuración para la función de optimización del prompt. Solo seedream-5.0-pro/5.0-lite/4.5 (que solo admiten el modo standard) y seedream-4.0 admiten este parámetro.
-
-​
+Configuración para la función de optimización del prompt. Solo seedream-5.0-pro/5.0-lite/4.5/5.5 (que solo admiten el modo standard; seedream-5.5 devuelve un error con fast) y seedream-4.0 admiten este parámetro.
 
 optimize_prompt_options.mode
 
@@ -241,25 +237,19 @@ predeterminado:"\"standard\""
 
 Establece el modo para la función de optimización del prompt. standard = Mayor calidad, mayor tiempo de generación. fast = Más rápido, pero con una calidad más media.Posibles valores: `standard`, `fast`
 
-​
-
 output_format
 
 string
 
 predeterminado:"\"jpeg\""
 
-Especifica el formato de la imagen de salida. Solo seedream-5.0-pro, 5.0-flash y 5.0-lite admiten este parámetro. En el escenario de separación de capas, output_format solo controla el formato de la imagen base; cada capa siempre se genera como png.Posibles valores: `png`, `jpeg`
-
-​
+Especifica el formato de la imagen de salida. Solo seedream-5.0-pro, 5.0-flash, 5.0-lite y 5.5 admiten este parámetro. seedream-5.5 usa png de forma predeterminada. En el escenario de separación de capas, output_format solo controla el formato de la imagen base; cada capa siempre se genera como png.Posibles valores: `png`, `jpeg`
 
 prompt
 
 string
 
-Descripción de texto para la generación o transformación de imágenes. Opcional en el escenario de separación de capas (seedream-5.0-pro o 5.0-flash con layer_decomposition habilitado): si incluyes un prompt, el modelo reconoce y separa los elementos que especifiques según la intención del prompt; si no incluyes ninguno, el modelo detecta automáticamente todos los elementos principales de la imagen y los separa en capas independientes.
-
-​
+Descripción de texto para la generación o transformación de imágenes. Opcional en el escenario de separación de capas (seedream-5.0-pro, 5.0-flash o 5.5 con layer_decomposition habilitado): si proporcionas un prompt, el modelo reconoce y separa los elementos que especifiques según la intención del prompt; si no proporcionas ninguno, el modelo detecta automáticamente todos los elementos principales de la imagen y los separa en capas independientes.
 
 response_format
 
@@ -267,9 +257,7 @@ string
 
 predeterminado:"\"url\""
 
-Especifica el formato de la imagen generada que se devuelve en la respuesta.Posibles valores: `url`, `b64_json`
-
-​
+Especifica el formato de la imagen generada que se devuelve en la respuesta. b64_json se rechaza junto con layer_decomposition en esta ruta (400 en v1, 422 en response_format en Comfy Router), porque las capas base64 insertadas en línea pueden superar el límite de tamaño de resultado de Comfy Router y fallar después de que la imagen ya se haya generado y facturado; usa url (el valor predeterminado) para las solicitudes de separación de capas.Posibles valores: `url`, `b64_json`
 
 seed
 
@@ -279,23 +267,17 @@ predeterminado:"-1"
 
 Semilla aleatoria para controlar la estocasticidad de la generación de imágenes. Rango: [-1, 2147483647]. Si no se especifica, se generará una semilla automáticamente. Para reproducir la misma salida, usa el mismo valor de semilla.Rango: `-1` a `2147483647`
 
-​
-
 sequential_image_generation
 
 string
 
-Controla si se deshabilita la función de generación por lotes. Este parámetro solo es compatible con seedream-5.0-lite, 4.5 y 4.0 (no es compatible con seedream-5.0-pro ni 5.0-flash). Valores válidos: auto: En el modo automático, el modelo determina automáticamente si devolver varias imágenes y cuántas imágenes contendrá según el prompt del usuario. disabled: Deshabilita la función de generación por lotes. El modelo solo generará una imagen.Posibles valores: `auto`, `disabled`
-
-​
+Indica si desactivar la función de generación por lotes. Este parámetro solo es compatible con seedream-5.0-lite, 4.5 y 4.0 (no es compatible con seedream-5.0-pro, 5.0-flash ni 5.5). Valores válidos: auto: En el modo automático, el modelo determina por sí mismo si devolver varias imágenes y cuántas imágenes incluirá según el prompt del usuario. disabled: Deshabilita la función de generación por lotes. El modelo solo generará una imagen.Posibles valores: `auto`, `disabled`
 
 sequential_image_generation_options
 
 object
 
-Solo seedream-5.0-lite, 4.5 y 4.0 admiten este parámetro (no es compatible con seedream-5.0-pro ni 5.0-flash). Configuración para la función de generación de imágenes por lotes. Este parámetro solo tiene efecto cuando sequential_image_generation se establece en auto.
-
-​
+Solo seedream-5.0-lite, 4.5 y 4.0 admiten este parámetro (seedream-5.0-pro, 5.0-flash y 5.5 no lo admiten). Configuración de la función de generación de imágenes por lotes. Este parámetro solo tiene efecto cuando sequential_image_generation está definido como auto.
 
 sequential_image_generation_options.max_images
 
@@ -305,15 +287,11 @@ predeterminado:"15"
 
 Especifica el número máximo de imágenes a generar en esta solicitud. Número de imágenes de referencia de entrada + Número de imágenes generadas ≤ 15.Rango: `1` a `15`
 
-​
-
 size
 
 string
 
-“seedream-4-0-250828”: Establece la especificación de la imagen generada. Hay dos métodos disponibles, pero no se pueden usar juntos. Método 1 | Especifica la resolución. Valores opcionales: 1K, 2K, 4K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 2048x2048, píxeles totales: [1024x1024, 4096x4096], relación de aspecto: [1/16, 16] “seedream-4-5-251128”: Dos métodos disponibles. Método 1 | Especifica la resolución. Valores opcionales: 2K, 4K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 2048x2048, píxeles totales: [2560x1440, 4096x4096], relación de aspecto: [1/16, 16] “seedream-5-0-260128”: Dos métodos disponibles. Método 1 | Especifica la resolución. Valores opcionales: 2K, 3K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 2048x2048, píxeles totales: [2560x1440, ~3072x3072], relación de aspecto: [1/16, 16] “seedream-5-0-pro-260628”: Dos métodos disponibles (no se pueden usar juntos). Método 1 | Especifica la resolución y describe en el prompt la relación de aspecto, la forma o el propósito de la imagen; el modelo decide el tamaño final. Valores opcionales: 1K, 2K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 1024x1024, total de píxeles: [1024x1024 (1048576), 2048x2048 (4194304)], relación de aspecto: [1/16, 16] “seedream-5-0-flash-260915”: Dos métodos disponibles (no se pueden usar juntos). Método 1 | Especifica la resolución y describe en el prompt la relación de aspecto, la forma o el propósito de la imagen; el modelo decide el tamaño final. Valores opcionales: 1K, 1.5K, 2K. Predeterminado: 2K Método 2 | Especifica el ancho y el alto en píxeles. Total de píxeles: [1280x720 (921600), 2048x2048x1.1025 (4624220)], relación de aspecto: [1/16, 16] “seedream-5-0-pro-260628” y “seedream-5-0-flash-260915” con layer_decomposition habilitado: Solo se admite el método basado en la resolución. Valores opcionales: 1K, 1.5K, 2K, auto. Predeterminado: auto. La imagen base se genera en la resolución especificada con la relación de aspecto de la imagen de entrada original; cada capa se genera cerca de la resolución especificada, manteniendo la relación de aspecto que tenía en la imagen original. auto: La salida se basa en el tamaño y la relación de aspecto de la imagen de entrada. Las entradas dentro de [1280x720, ~2048x2048] se generan con el tamaño original de la entrada; las entradas menores que 1K se generan en 1K; las entradas mayores que 2K se generan en 2K.
-
-​
+“seedream-4-0-250828”: Establece la especificación de la imagen generada. Hay dos métodos disponibles, pero no pueden combinarse. Método 1 | Especifica la resolución. Valores opcionales: 1K, 2K, 4K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 2048x2048, píxeles totales: [1024x1024, 4096x4096], relación de aspecto: [1/16, 16] “seedream-4-5-251128”: Dos métodos disponibles. Método 1 | Especifica la resolución. Valores opcionales: 2K, 4K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 2048x2048, píxeles totales: [2560x1440, 4096x4096], relación de aspecto: [1/16, 16] “seedream-5-0-260128”: Dos métodos disponibles. Método 1 | Especifica la resolución. Valores opcionales: 2K, 3K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 2048x2048, píxeles totales: [2560x1440, ~3072x3072], relación de aspecto: [1/16, 16] “seedream-5-0-pro-260628”: Dos métodos disponibles (no pueden combinarse). Método 1 | Especifica la resolución y describe en el prompt la relación de aspecto, la forma o el propósito de la imagen; el modelo decide el tamaño final. Valores opcionales: 1K, 2K Método 2 | Especifica el ancho y el alto en píxeles. Predeterminado: 1024x1024, píxeles totales: [1024x1024 (1048576), 2048x2048 (4194304)], relación de aspecto: [1/16, 16] “seedream-5-0-flash-260915”: Dos métodos disponibles (no pueden combinarse). Método 1 | Especifica la resolución y describe en el prompt la relación de aspecto, la forma o el propósito de la imagen; el modelo decide el tamaño final. Valores opcionales: 1K, 1.5K, 2K. Predeterminado: 2K Método 2 | Especifica el ancho y el alto en píxeles. Píxeles totales: [1280x720 (921600), 2048x2048x1.1025 (4624220)], relación de aspecto: [1/16, 16] “seedream-5-5-261028”: Dos métodos disponibles (no pueden combinarse). Método 1 | Especifica la resolución. Valores opcionales: 1K, 1.5K, 2K. Predeterminado: 2K Método 2 | Especifica el ancho y el alto en píxeles. Píxeles totales: [1280x720 (921600), 2048x2048x1.1025 (4624220)], relación de aspecto: [1/16, 16] “seedream-5-0-pro-260628”, “seedream-5-0-flash-260915” y “seedream-5-5-261028” con layer_decomposition habilitado: Solo se admite el método basado en la resolución. Valores opcionales: 1K, 1.5K, 2K, auto. Predeterminado: auto. La imagen base se produce en la resolución especificada con la relación de aspecto de la imagen de entrada original; cada capa se produce cerca de la resolución especificada, manteniendo la relación de aspecto que tenía en la imagen original. auto: La salida se basa en el tamaño y la relación de aspecto de la imagen de entrada. Las entradas dentro de [1280x720, ~2048x2048] se producen con el tamaño original de la entrada; las entradas menores que 1K se producen en 1K; las entradas mayores que 2K se producen en 2K.
 
 stream
 
@@ -321,9 +299,7 @@ boolean
 
 predeterminado:"false"
 
-Comfy Router fija en false un flag stream proporcionado explícitamente, ya que captura un resultado JSON completo. En el proxy v1, este campo controla si habilitar el modo de salida en streaming. Solo seedream-5.0-lite, 4.5 y 4.0 admiten este parámetro (seedream-5.0-pro y 5.0-flash no lo admiten). false = Todas las imágenes de salida se devuelven a la vez. true = Cada imagen de salida se devuelve inmediatamente después de generarse.
-
-​
+Comfy Router fija en false el flag stream cuando se proporciona explícitamente, ya que captura un resultado JSON completo. En el proxy v1, este campo controla si se habilita el modo de salida en streaming. Solo seedream-5.0-lite, 4.5 y 4.0 admiten este parámetro (seedream-5.0-pro, 5.0-flash y 5.5 no lo admiten). false = Todas las imágenes de salida se devuelven a la vez. true = Cada imagen de salida se devuelve inmediatamente después de generarse.
 
 watermark
 
@@ -331,17 +307,11 @@ boolean
 
 predeterminado:"true"
 
-Especifica si se agrega una marca de agua a la imagen generada. false = Sin marca de agua, true = Agrega una marca de agua con la etiqueta ‘AI generated’
+Indica si agregar una marca de agua a la imagen generada. false = Sin marca de agua, true = Agrega una marca de agua con la etiqueta ‘AI generated’
 
-Generado a partir del esquema que Router sirve en `GET /v2/models/byteplus/seedream-5-0-pro-260628/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
+Generado a partir del esquema que Router publica en `GET /v2/models/byteplus/seedream-5-0-pro-260628/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 created
 
@@ -349,15 +319,11 @@ integer
 
 Marca de tiempo Unix (en segundos) que indica cuándo se creó la solicitud
 
-​
-
 data
 
 object[]
 
 Contiene información sobre las imágenes generadas. En el escenario de separación de capas, el primer elemento del arreglo es la imagen base (z_index=0) y los elementos siguientes son las capas, ordenadas por z_index creciente.
-
-​
 
 data[].b64_json
 
@@ -365,7 +331,11 @@ string
 
 Datos de imagen codificados en Base64 (si response_format es “b64_json”)
 
-​
+data[].background
+
+string
+
+El tipo de fondo que realmente tiene la imagen: transparent u opaque. En el escenario de separación de capas, la imagen base siempre es opaque y cada capa es transparent. Solo seedream-5.5 devuelve este campo.
 
 data[].bounding_box
 
@@ -373,15 +343,11 @@ object
 
 La información de la caja delimitadora de la región que ocupa la capa actual dentro de la imagen base. Solo las capas devuelven este campo; la imagen base cubre todo el lienzo y no devuelve bounding_box. Se devuelve solo cuando layer_decomposition es true.
 
-​
-
 data[].bounding_box.absolute
 
 integer[]
 
 Las coordenadas absolutas en píxeles de la caja delimitadora de la capa, en el sistema de coordenadas de la imagen base de salida con la esquina superior izquierda en (0, 0). Formato de coordenadas: [left, top, right, bottom].
-
-​
 
 data[].bounding_box.normalized
 
@@ -389,15 +355,11 @@ integer[]
 
 Las coordenadas cuantizadas (normalizadas) en partes por mil de la caja delimitadora de la capa, asignadas proporcionalmente a un rango entero discreto de [0, 1000] según el tamaño de la imagen base y truncadas a un máximo de 1000. Formato de coordenadas: [left, top, right, bottom].
 
-​
-
 data[].description
 
 string
 
 Una descripción detallada del elemento separado actual, que ofrece características de capa más ricas (como color, estado y material) que name. Solo las capas devuelven este campo; la imagen base no. Se devuelve solo cuando layer_decomposition es true.
-
-​
 
 data[].name
 
@@ -405,23 +367,17 @@ string
 
 El nombre o etiqueta del elemento separado actual, generado automáticamente por el modelo a partir de las características del sujeto separado. Solo las capas devuelven este campo; la imagen base no. Se devuelve solo cuando layer_decomposition es true.
 
-​
-
 data[].output_format
 
 string
 
-El formato de archivo de la imagen de salida. Solo seedream-5.0-pro admite este campo.
-
-​
+El formato de archivo de la imagen de salida. Solo seedream-5.0-pro y 5.5 admiten este campo.
 
 data[].size
 
 string
 
-El ancho y el alto de la imagen en píxeles, con el formato <width>x<height>. Solo seedream-5.0-pro, 5.0-lite, 4.5 y 4.0 admiten este parámetro.
-
-​
+El ancho y el alto de la imagen en píxeles, con el formato <width>x<height>. Solo seedream-5.0-pro, 5.0-lite, 5.5, 4.5 y 4.0 admiten este parámetro.
 
 data[].url
 
@@ -429,15 +385,11 @@ string (uri)
 
 URL para descargar la imagen (si response_format es “url”)Formato: `uri`
 
-​
-
 data[].z_index
 
 integer
 
 El orden de apilamiento de la capa, que aumenta de abajo hacia arriba: 0 es la capa inferior (la imagen base) y los valores mayores quedan más arriba. Úsalo para recomponer las capas en la imagen completa con el orden de apilamiento correcto. Se devuelve solo cuando layer_decomposition es true.
-
-​
 
 error
 
@@ -445,15 +397,11 @@ object
 
 Información de error (si la hay)
 
-​
-
 error.code
 
 string
 
-Código de error upstream de ModelArk. SensitiveContentDetected, InputTextSensitiveContentDetected, InputImageSensitiveContentDetected, InputVideoSensitiveContentDetected, InputAudioSensitiveContentDetected, OutputTextSensitiveContentDetected, OutputImageSensitiveContentDetected, OutputVideoSensitiveContentDetected y OutputAudioSensitiveContentDetected identifican rechazos por políticas de contenido. Una familia puede tener un motivo separado por puntos, como InputImageSensitiveContentDetected.PrivacyInformation, OutputVideoSensitiveContentDetected.PolicyViolation u OutputImageSensitiveContentDetected.DeepFake. Esta es una cadena abierta, no un enum: otros códigos describen fallos de validación y del proveedor. Router reconoce las familias de políticas en las respuestas de error HTTP 400 y en las respuestas HTTP 200 de tareas fallidas sin sobrescribir los fallos de transporte.
-
-​
+Código de error de ModelArk upstream. SensitiveContentDetected, InputTextSensitiveContentDetected, InputImageSensitiveContentDetected, InputVideoSensitiveContentDetected, InputAudioSensitiveContentDetected, OutputTextSensitiveContentDetected, OutputImageSensitiveContentDetected, OutputVideoSensitiveContentDetected y OutputAudioSensitiveContentDetected identifican rechazos por políticas de contenido. Una familia puede tener un motivo separado por puntos, como InputImageSensitiveContentDetected.PrivacyInformation, OutputVideoSensitiveContentDetected.PolicyViolation u OutputImageSensitiveContentDetected.DeepFake. Esta es una cadena abierta, no un enum: otros códigos describen fallos de validación y del proveedor. Router reconoce las familias de políticas en las respuestas de error HTTP 400 y en las respuestas HTTP 200 de tareas fallidas sin sobrescribir los fallos de transporte.
 
 error.message
 
@@ -461,21 +409,15 @@ string
 
 Mensaje de error
 
-​
-
 model
 
 string
 
 El ID del modelo usado para la solicitud
 
-​
-
 usage
 
 object
-
-​
 
 usage.generated_images
 
@@ -483,15 +425,11 @@ integer
 
 Número de imágenes generadas por el modelo
 
-​
-
 usage.input_images
 
 integer
 
-El número de imágenes de entrada al modelo. Solo seedream-5.0-pro admite este campo.
-
-​
+El número de imágenes de entrada del modelo. Solo seedream-5.0-pro y 5.5 admiten este campo.
 
 usage.output_tokens
 
@@ -499,25 +437,15 @@ integer
 
 El número de tokens usados para la imagen generada por el modelo.
 
-​
-
 usage.total_tokens
 
 integer
 
 El número total de tokens consumidos por esta solicitud.
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -527,11 +455,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -549,11 +473,7 @@ Salida
     }
     
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 
@@ -575,4 +495,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfy-router/models/byteplus/seedream-5-0-pro-260628/code.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfy-router/models/byteplus/seedream-5-0-pro-260628/code)
 
-[Seedream 5.0 Flash 260915](https://docs.comfy.org/es/development/comfy-router/models/byteplus/seedream-5-0-flash-260915/code)[Eleven Multilingual V2](https://docs.comfy.org/es/development/comfy-router/models/elevenlabs/eleven-multilingual-v2/code)
+[Seedream 5.0 Flash 260915](https://docs.comfy.org/es/development/comfy-router/models/byteplus/seedream-5-0-flash-260915/code)[Seedream 5.5 261028](https://docs.comfy.org/es/development/comfy-router/models/byteplus/seedream-5-5-261028/code)

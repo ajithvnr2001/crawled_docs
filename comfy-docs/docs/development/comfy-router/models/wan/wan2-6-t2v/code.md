@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/wan/wan2-6-t2v/code/
 title: Use Wan 2.6 T2V with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:47.434780+00:00
+fetched_at: 2026-11-19T16:26:13.452163+00:00
 ---
 
 # Use Wan 2.6 T2V with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:47.434780+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/wan/wan2-6-t2v/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for Wan 2.6 T2V. Wan 2.6 text-to-video builds a short video from a prompt alone, at 720P or 1080P and up to 15 seconds. **Input:** Audio, Text · **Output:** Video + Audio
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `wan/wan2.6-t2v` **Endpoint:** `POST https://api.comfy.org/v2/models/wan/wan2.6-t2v`
 
@@ -199,19 +197,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 input
 
@@ -221,23 +209,17 @@ required
 
 Enter basic information, such as prompt words, etc.
 
-​
-
 input.audio_url
 
 string
 
 Audio file download URL. Supported formats: mp3 and wav. Cannot be used with reference_video_urls.
 
-​
-
 input.img_url
 
 string
 
 First frame image URL or Base64 encoded data. Required for the wan2.5-i2v-preview and wan2.6-i2v models. The happyhorse-1.x i2v spellings do NOT take their first frame here — they take it as a media element of type first_frame (see media below), and an img_url body that succeeds on wan2.6-i2v is refused by the provider on happyhorse-1.0-i2v and happyhorse-1.1-i2v — and the wan2.7/wan3.0 spellings take their reference assets in media as well. Image formats: JPEG, JPG, PNG, BMP, WEBP. Resolution: 360-2000 pixels. File size: max 10MB.
-
-​
 
 input.media
 
@@ -257,8 +239,6 @@ Media asset list. Specifies reference materials (image, audio, video) for video 
 
 
 
-​
-
 input.media[].type
 
 string
@@ -266,8 +246,6 @@ string
 required
 
 Media asset typePossible values: `first_frame`, `last_frame`, `driving_audio`, `first_clip`, `reference_image`, `reference_video`, `reference_audio`, `video`, `file`, `link`
-
-​
 
 input.media[].url
 
@@ -277,23 +255,17 @@ required
 
 URL of the media file: a public HTTP/HTTPS URL, or — for exactly the IMAGE inputs the `media` description above lists for each model: first_frame and last_frame on wan2.7-i2v; first_frame and reference_image on wan2.7-r2v; reference_image on wan2.7-videoedit; first_frame, last_frame and reference_image on wan3.0-video and wan3.0-video-prime; first_frame on happyhorse-1.0-i2v and happyhorse-1.1-i2v; reference_image on happyhorse-1.0-r2v and happyhorse-1.1-r2v; and reference_image on happyhorse-1.0-video-edit — an inline `data:{MIME_type};base64,...` URL. No video, audio, file or link input on any of these models takes an inline data: URL. An oss://dashscope-instant temporary URL from the partner’s own upload service, or (on wan2.7-videoedit) an Asset Center asset_id, resolves only against the Alibaba Cloud account that uploaded it; Comfy makes the model call with its own key and exposes no upload route, so a caller’s own oss:// URL or asset_id is not a supported input. This field does not validate the URL scheme, so such a value is forwarded to the partner as-is rather than rejected here. See the `media` description for the per-model size and pixel limits and for the 100 MiB Router request-body cap that bounds an inline payload in aggregate.
 
-​
-
 input.negative_prompt
 
 string
 
-Reverse prompt words are used to describe content that you do not want to see in the video screen
-
-​
+Reverse prompt words are used to describe content that you do not want to see in the video screen. Past 500 characters a wan model truncates it rather than refusing it. It counts toward the same input budget as prompt.
 
 input.prompt
 
 string
 
-Text prompt words. Support Chinese and English, length not exceeding 800 characters (up to 20,000 characters for wan3.0-video; content exceeding the limit is truncated). For wan2.6-r2v with multiple reference videos, use ‘character1’, ‘character2’, etc. to refer to subjects in the order of reference videos. Example: “Character1 sings on the roadside, Character2 dances beside it” For wan3.0-video reference mode, use ‘Image 1’, ‘Video 1’, ‘Audio 1’, etc. to refer to media assets in the corresponding order within the media array.
-
-​
+Text prompt words. Supports Chinese and English. Past its own documented length a wan2.x model truncates the prompt rather than refusing it: 1,500 characters for wan2.5 and wan2.6 and 5,000 for wan2.7. wan3.0-video and wan3.0-video-prime take at most 20,000 characters. The provider refuses a request whose prompt and negative_prompt together are longer than about 60,850 bytes of UTF-8 text (about 20,000 Chinese characters), answering InvalidParameter `Range of input length should be [1, 61440]`. For wan2.6-r2v with multiple reference videos, use ‘character1’, ‘character2’, etc. to refer to subjects in the order of reference videos. Example: “Character1 sings on the roadside, Character2 dances beside it” For wan3.0-video reference mode, use ‘Image 1’, ‘Video 1’, ‘Audio 1’, etc. to refer to media assets in the corresponding order within the media array.
 
 input.reference_video_urls
 
@@ -309,15 +281,11 @@ Reference video URLs for wan2.6-r2v model only. Array of 1-3 video URLs. Input r
 
 
 
-​
-
 input.template
 
 string
 
 Video effect template name. Optional. Currently supported: squish, flying, carousel. When used, prompt parameter is ignored.
-
-​
 
 model
 
@@ -325,15 +293,11 @@ string
 
 The ID of the model to call. NOT constrained on this component: Comfy Router fills it from the `{model}` path segment of `POST /v2/models/wan/{model}`, so a Router caller omits it. A direct v1 call to `POST /proxy/wan/api/v1/services/aigc/video-generation/video-synthesis` MUST supply it, and the enum of accepted spellings lives on that operation’s own component, `WanVideoGenerationRequest`.
 
-​
-
 parameters
 
 object
 
 Video processing parameters
-
-​
 
 parameters.audio
 
@@ -342,8 +306,6 @@ boolean
 default:"true"
 
 Whether to add audio to the video. Supported for wan3.0-video and wan3.0-video-prime only; the provider documents no such switch for the other wan models.
-
-​
 
 parameters.audio_setting
 
@@ -357,8 +319,6 @@ Video audio setting for wan2.7-videoedit model.
   * origin: Forcefully preserve the original audio from the input video Possible values: `auto`, `origin`
 
 
-
-​
 
 parameters.duration
 
@@ -377,8 +337,6 @@ The duration of the video generated, in seconds:
 
 
 
-​
-
 parameters.prompt_extend
 
 boolean
@@ -387,15 +345,11 @@ default:"true"
 
 Is it enabled prompt intelligent rewriting. Default is true
 
-​
-
 parameters.ratio
 
 string
 
 Aspect ratio of the generated video. For wan2.7 and wan3.0 models only. For wan2.7 models, defaults based on the resolution tier if not provided. For wan3.0-video, adaptive (the default) automatically recommends a suitable aspect ratio based on the input media proportions and intent.Possible values: `adaptive`, `16:9`, `9:16`, `1:1`, `4:3`, `3:4`
-
-​
 
 parameters.resolution
 
@@ -412,15 +366,11 @@ Resolution level. Supported values vary by model:
 
 
 
-​
-
 parameters.seed
 
 integer
 
 Random number seed, used to control the randomness of the model generated contentRange: `0` to `2147483647`
-
-​
 
 parameters.shot_type
 
@@ -435,15 +385,11 @@ Intelligent multi-lens control. Only active when prompt_extend is enabled. For w
 
 
 
-​
-
 parameters.size
 
 string
 
 Video resolution in format width _height. Supported resolutions vary by model: For wan2.5 T2V: 480P (480_ 832, 832 _480, 624_ 624), 720P, 1080P sizes For wan2.6 T2V/R2V (no 480P): 720P: 1280 _720, 720_ 1280, 960 _960, 1088_ 832, 832 _1088 1080P: 1920_ 1080, 1080 _1920, 1440_ 1440, 1632 _1248, 1248_ 1632 When both size and resolution are sent, size selects the billed tier, and resolution must still be a value this proxy accepts for the model. A 480P size returns 400 on every model the resolution description lists as having no 480P.
-
-​
 
 parameters.watermark
 
@@ -455,13 +401,7 @@ Whether to add a watermark logo, the watermark is located in the lower right cor
 
 Generated from the schema Router serves at `GET /v2/models/wan/wan2.6-t2v/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 output
 
@@ -469,15 +409,11 @@ object
 
 required
 
-​
-
 output.actual_prompt
 
 string
 
 Actual prompt after intelligent rewriting (for video tasks)
-
-​
 
 output.check_audio
 
@@ -485,15 +421,11 @@ string
 
 Audio URL for I2V tasks with audio generation
 
-​
-
 output.code
 
 string
 
 The error code for the failed request (not returned if request is successful)
-
-​
 
 output.end_time
 
@@ -501,15 +433,11 @@ string
 
 Task completion time
 
-​
-
 output.message
 
 string
 
 Detailed information about the failed request (not returned if request is successful)
-
-​
 
 output.orig_prompt
 
@@ -517,15 +445,11 @@ string
 
 Original input prompt (for video tasks)
 
-​
-
 output.results
 
 object[]
 
 List of task results for image generation tasks
-
-​
 
 output.results[].actual_prompt
 
@@ -533,15 +457,11 @@ string
 
 Actual prompt after intelligent rewriting (if enabled)
 
-​
-
 output.results[].code
 
 string
 
 Image error code (returned when some tasks fail)
-
-​
 
 output.results[].message
 
@@ -549,15 +469,11 @@ string
 
 Image error information (returned when some tasks fail)
 
-​
-
 output.results[].orig_prompt
 
 string
 
 Original input prompt
-
-​
 
 output.results[].url
 
@@ -565,23 +481,17 @@ string
 
 Generated image URL address
 
-​
-
 output.scheduled_time
 
 string
 
 Task execution time
 
-​
-
 output.submit_time
 
 string
 
 Task submission time
-
-​
 
 output.task_id
 
@@ -591,15 +501,11 @@ required
 
 Task ID
 
-​
-
 output.task_metrics
 
 object
 
 Task result statistics for image generation tasks
-
-​
 
 output.task_metrics.FAILED
 
@@ -607,23 +513,17 @@ integer
 
 Number of failed tasks
 
-​
-
 output.task_metrics.SUCCEEDED
 
 integer
 
 Number of successful tasks
 
-​
-
 output.task_metrics.TOTAL
 
 integer
 
 Total number of tasks
-
-​
 
 output.task_status
 
@@ -633,15 +533,11 @@ required
 
 Task statusPossible values: `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELED`, `UNKNOWN`
 
-​
-
 output.video_url
 
 string
 
 Video URL for completed video generation tasks. Link validity period 24 hours
-
-​
 
 request_id
 
@@ -651,15 +547,11 @@ required
 
 Unique request identifier
 
-​
-
 usage
 
 object
 
 Output information statistics. Only successful results are counted
-
-​
 
 usage.SR
 
@@ -667,15 +559,11 @@ integer
 
 Video resolution level (I2V and wan3.0-video tasks)
 
-​
-
 usage.duration
 
 number
 
 Duration of generated video in seconds (I2V and wan3.0-video tasks)
-
-​
 
 usage.fps
 
@@ -683,15 +571,11 @@ integer
 
 Frame rate of the generated video (wan3.0-video tasks)
 
-​
-
 usage.image_count
 
 integer
 
 Number of generated images (T2I and I2I tasks)
-
-​
 
 usage.input_video_duration
 
@@ -699,15 +583,11 @@ number
 
 Duration of the input video in seconds, 0.0 when no video input (wan3.0-video tasks)
 
-​
-
 usage.output_video_duration
 
 number
 
 Duration of the output video in seconds (wan3.0-video tasks)
-
-​
 
 usage.ratio
 
@@ -715,15 +595,11 @@ string
 
 Aspect ratio of the generated video, e.g. 16:9 (wan3.0-video tasks)
 
-​
-
 usage.size
 
 string
 
 Image resolution (T2I and I2I tasks)
-
-​
 
 usage.video_count
 
@@ -731,15 +607,11 @@ integer
 
 Number of generated videos (T2V tasks)
 
-​
-
 usage.video_duration
 
 number
 
 Duration of generated video in seconds (T2V tasks)
-
-​
 
 usage.video_ratio
 
@@ -747,15 +619,11 @@ string
 
 Video resolution ratio (T2V tasks)
 
-​
-
 code
 
 string
 
 Error code for a failed request, reported at the ROOT of the envelope rather than under `output` (not returned if the request succeeded).
-
-​
 
 message
 
@@ -763,17 +631,9 @@ string
 
 Detailed information about a failed request, reported at the ROOT of the envelope rather than under `output` (not returned if the request succeeded). Read this before falling back to `output.message`.
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -787,11 +647,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -816,11 +672,7 @@ Output
 
 The video URL is valid for 24 hours. Download the video promptly if you need to keep it.
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -842,26 +694,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/wan/wan2-6-t2v/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/wan/wan2-6-t2v/code)
 
-[Use Wan 2.6 R2V with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/wan/wan2-6-r2v/code)[Use Wan 2.7 I2V with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/wan/wan2-7-i2v/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Wan 2.6 R2V](https://docs.comfy.org/development/comfy-router/models/wan/wan2-6-r2v/code)[Wan 2.7 I2V](https://docs.comfy.org/development/comfy-router/models/wan/wan2-7-i2v/code)

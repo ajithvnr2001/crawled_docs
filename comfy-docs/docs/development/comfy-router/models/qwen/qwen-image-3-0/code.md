@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0/code/
 title: Use Qwen Image 3.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:13.323031+00:00
+fetched_at: 2026-11-19T16:26:14.438511+00:00
 ---
 
 # Use Qwen Image 3.0 with Comfy Router - ComfyUI

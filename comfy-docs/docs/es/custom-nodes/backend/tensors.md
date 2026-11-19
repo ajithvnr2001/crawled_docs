@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/backend/tensors/
-title: Trabajar con torch.Tensor - ComfyUI
+title: torch.Tensor en ComfyUI: formas y operaciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.268731+00:00
+fetched_at: 2026-11-19T16:26:07.559751+00:00
 ---
 
-# Trabajar con torch.Tensor - ComfyUI
+# torch.Tensor en ComfyUI: formas y operaciones - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/backend/tensors/
 
@@ -24,35 +24,23 @@ Volver arriba
 
 Python (backend)
 
-# Trabajar con torch.Tensor
+# torch.Tensor en ComfyUI: formas y operaciones
 
 Copiar páginaCopiar página
 
-Aprende los básicos de torch.Tensor para nodos personalizados de ComfyUI: formas, squeeze/unsqueeze, notación y operaciones elemento a elemento.
+Trabaja con torch.Tensor en un nodo personalizado de ComfyUI: formas de tensor, squeeze y unsqueeze, notación y operaciones elemento a elemento.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-pytorch, tensores y torch.Tensor
+## pytorch, tensores y torch.Tensor
 
 Todo el procesamiento numérico central en Comfy lo hace [pytorch](https://pytorch.org/). Si tus nodos personalizados van a meterse en las entrañas de Stable Diffusion, necesitarás familiarizarte con esta librería, algo que queda muy fuera del alcance de esta introducción. Sin embargo, muchos nodos personalizados tendrán que manipular imágenes, latents y máscaras, y cada uno de ellos se representa internamente como `torch.Tensor`, así que te conviene guardar en marcadores la [documentación de torch.Tensor](https://pytorch.org/docs/stable/tensors.html).
 
-### 
-
-​
-
-¿Qué es un tensor?
+### ¿Qué es un tensor?
 
 `torch.Tensor` representa un tensor, que es la generalización matemática de un vector o una matriz a cualquier número de dimensiones. El _rango_ de un tensor es el número de dimensiones que tiene (así, un vector tiene _rango_ 1 y una matriz _rango_ 2); su _forma_ describe el tamaño de cada dimensión. Así, una imagen RGB (de alto H y ancho W) podría concebirse como tres arreglos (uno por cada canal de color), cada uno de H x W, que se podría representar como un tensor con _forma_ `[H,W,3]`. En Comfy las imágenes casi siempre vienen en un lote (aunque el lote solo contenga una imagen). `torch` siempre coloca la dimensión del lote primero, así que las imágenes de Comfy tienen _forma_ `[B,H,W,3]`, generalmente escrita como `[B,H,W,C]`, donde C significa Canales.
 
-### 
-
-​
-
-squeeze, unsqueeze y reshape
+### squeeze, unsqueeze y reshape
 
 Si un tensor tiene una dimensión de tamaño 1 (conocida como dimensión colapsada), equivale al mismo tensor con esa dimensión eliminada (un lote con 1 imagen es simplemente una imagen). Eliminar esa dimensión colapsada se conoce como squeeze, e insertar una se conoce como unsqueeze.
 
@@ -60,11 +48,7 @@ Parte del código de torch, y algunos autores de nodos personalizados, devolver�
 
 Representar los mismos datos con una forma diferente se conoce como reshape. A menudo esto requiere que conozcas la estructura de datos subyacente, así que ¡manipúlalo con cuidado!
 
-### 
-
-​
-
-Notación importante
+### Notación importante
 
 `torch.Tensor` admite la mayor parte de la notación de slicing de Python, la iteración y otras operaciones comunes similares a listas. Un tensor también tiene un atributo `.shape` que devuelve su tamaño como un `torch.Size` (que es una subclase de `tuple` y se puede tratar como tal). Hay otras piezas de notación importantes que verás a menudo (varias son notación estándar de Python menos común, que se ve mucho más cuando se trabaja con tensores)
 
@@ -85,11 +69,7 @@ Notación importante
     torch.Size([1, 2])
     
 
-### 
-
-​
-
-Operaciones elemento a elemento
+### Operaciones elemento a elemento
 
 Muchas operaciones binarias en `torch.Tensor` (incluidos ’+’, ’-’, ’*’, ’/’ y ’==’) se aplican elemento a elemento (se aplican de forma independiente a cada elemento). Los operandos deben ser _o bien_ dos tensores de la misma forma, _o bien_ un tensor y un escalar. Así:
     
@@ -112,11 +92,7 @@ Muchas operaciones binarias en `torch.Tensor` (incluidos ’+’, ’-’, ’*�
     RuntimeError: The size of tensor a (2) must match the size of tensor b (3) at non-singleton dimension 0
     
 
-### 
-
-​
-
-Veracidad de un tensor
+### Veracidad de un tensor
 
 El valor de “veracidad” de un tensor no es el mismo que el de las listas de Python.
 
@@ -142,4 +118,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/backend/tensors.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/backend/tensors)
 
-[Listas y procesamiento de listas](https://docs.comfy.org/es/custom-nodes/backend/lists)[Inversión del modelo de ejecución](https://docs.comfy.org/es/development/comfyui-server/execution_model_inversion_guide)
+[Listas y procesamiento de listas](https://docs.comfy.org/es/custom-nodes/backend/lists)[Fragmentos Python](https://docs.comfy.org/es/custom-nodes/backend/snippets)

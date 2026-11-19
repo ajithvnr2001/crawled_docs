@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/changelog/
 title: Registro de cambios - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:04.623566+00:00
+fetched_at: 2026-11-19T16:26:07.995910+00:00
 ---
 
 # Registro de cambios - ComfyUI
@@ -13,6 +13,9 @@ fetched_at: 2026-11-16T16:52:04.623566+00:00
 
 Volver arriba
 
+  * v0.46.0
+  * v0.45.6
+  * v0.45.5
   * v0.45.4
   * v0.45.3
   * v0.45.2
@@ -173,6 +176,69 @@ Copiar páginaCopiar página
 Historial de ComfyUI: novedades, mejoras y correcciones de cada versión, actualizado a medida que se publican.
 
 Copiar páginaCopiar página
+
+v0.46.0
+
+18 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Relaciones de aspecto de Kling 4.0**](https://github.com/Comfy-Org/ComfyUI/pull/17815): se añaden 4:3 y 3:4 a los nodos de Kling 4.0
+  * [**Beeble y Higgsfield en Comfy Router**](https://github.com/Comfy-Org/ComfyUI/pull/17794): la transferencia de movimiento de SwitchX y Genjutsu pasa al backend Router
+  * [**Claude Sonnet 4.5 eliminado**](https://github.com/Comfy-Org/ComfyUI/pull/17819): retirado del nodo Anthropic Claude
+  * [**Voz a texto de Fish Audio**](https://github.com/Comfy-Org/ComfyUI/pull/17828): ahora ejecuta transcribe-1-pro
+
+**Nuevo soporte de modelos de código abierto**
+
+  * [**PAN 2**](https://github.com/Comfy-Org/ComfyUI/pull/17755): soporte del modelo de generación de video en el núcleo
+
+**Nuevos nodos**
+
+  * [**Video Deflicker**](https://github.com/Comfy-Org/ComfyUI/pull/17754): elimina el parpadeo del video, con un flujo óptico RAFT más rápido
+  * [**Split Image Channels**](https://github.com/Comfy-Org/ComfyUI/pull/13548): salidas de rojo, verde, azul y alfa desde una sola imagen
+
+**Mejoras**
+
+  * [**SenseNova**](https://github.com/Comfy-Org/ComfyUI/pull/16032): razonamiento, generación intercalada y autocorrección, además del nuevo nodo ModelSamplingSenseNova
+  * [**Qwen3-1.7B**](https://github.com/Comfy-Org/ComfyUI/pull/17787): compatible con Generar texto
+  * [**Guardar Imagen Avanzado**](https://github.com/Comfy-Org/ComfyUI/pull/17727): guarda PNG de un solo canal
+  * [**Crear información de cámara**](https://github.com/Comfy-Org/ComfyUI/pull/17730): entrada de malla para encuadrar cualquier malla
+  * [**Concatenar video**](https://github.com/Comfy-Org/ComfyUI/pull/17621): los clips se ajustan a la frecuencia de cuadros y al audio del primer clip
+  * [**—force-output-rerun**](https://github.com/Comfy-Org/ComfyUI/pull/17809): los nodos de salida vuelven a escribir sus archivos cuando hay un acierto de caché
+  * [**Checkpoints Qwen con vocabulario podado**](https://github.com/Comfy-Org/ComfyUI/pull/17633): se admiten tokenizers integrados
+
+**Correcciones de errores**
+
+  * [**VRAM dinámica**](https://github.com/Comfy-Org/ComfyUI/pull/16491): se corrigió una fuga de la programación de muestreo entre modelos
+  * [**APG**](https://github.com/Comfy-Org/ComfyUI/pull/17741): se corrigieron cambios en la salida a cfg 1.0
+  * [**Google Omni**](https://github.com/Comfy-Org/ComfyUI/pull/17785): el video se descarga cuando Google marca su archivo como fallido
+
+**Eliminaciones**
+
+  * [**Se eliminó el soporte de DirectML**](https://github.com/Comfy-Org/ComfyUI/pull/17711): la marca —directml ya no existe, usa CUDA o CPU
+
+
+
+v0.45.6
+
+17 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Kling 4.0 Image and Long Image**](https://github.com/Comfy-Org/ComfyUI/pull/17797): Generación y edición de imágenes con hasta 10 imágenes de referencia, nuevos diseños largos para páginas web y comercio electrónico
+  * [**HeyGen Avatar 6**](https://github.com/Comfy-Org/ComfyUI/pull/17793): Reference to Video e Identity to Video en 1080p y 2K
+
+
+
+v0.45.5
+
+17 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Bria RMBG 3.0**](https://github.com/Comfy-Org/ComfyUI/pull/17780): opción de modelo RMBG 3.0 en el nodo Bria: Quitar fondo de imagen
+
+
 
 v0.45.4
 

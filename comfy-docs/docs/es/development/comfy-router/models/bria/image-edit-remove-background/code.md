@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/bria/image-edit-remove-background/code/
 title: Usa Image Edit Remove Background con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:59.255826+00:00
+fetched_at: 2026-11-19T16:26:12.143423+00:00
 ---
 
 # Usa Image Edit Remove Background con Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copiar páginaCopiar página
 
 Referencia de API para `bria/image-edit-remove-background`, servida por Comfy Router desde Bria. **Entrada:** Imagen · **Salida:** Imagen
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP directo. **ID del modelo:** `bria/image-edit-remove-background` **Endpoint:** `POST https://api.comfy.org/v2/models/bria/image-edit-remove-background`
 
@@ -169,19 +165,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Esquema
 
-​
-
-Esquema
-
-### 
-
-​
-
-Entrada
-
-​
+### Entrada
 
 image
 
@@ -189,9 +175,13 @@ string
 
 requerido
 
-La imagen a la que se le quitará el fondo. Los tipos de entrada admitidos son una cadena codificada en Base64 o una URL que apunte a un archivo de imagen de acceso público. Formatos aceptados: JPEG, JPG, PNG, WEBP.
+La imagen de la que se eliminará el fondo. Los tipos de entrada admitidos son una cadena codificada en Base64 o una URL que apunte a un archivo de imagen de acceso público. Formatos aceptados: JPEG, JPG, PNG, WEBP.
 
-​
+model
+
+string
+
+El modelo de eliminación de fondo. Los valores aceptados son RMBG2 y RMBG3. Si se omite, el valor predeterminado es RMBG2.
 
 preserve_alpha
 
@@ -199,23 +189,17 @@ boolean
 
 Controla si las áreas parcialmente transparentes de la imagen de entrada se conservan en la salida después de la eliminación de fondo.
 
-​
-
 sync
 
 boolean
 
-Cuando es `false` (predeterminado), la solicitud se procesa de forma asíncrona. Cuando es `true`, la API mantiene la conexión abierta hasta completarla. EN COMFY ROUTER ese segundo modo se rechaza en lugar de reenviarse: Router fija el modo de retorno antes del despacho y consulta el resultado dentro de la llamada, así que `POST /v2/models/bria/{model}` responde 422 invalid_input para cualquier `sync` que transporte esta ruta distinto de `false` o `null`. La llamada síncrona sigue disponible en la ruta `/proxy/` propia de esta operación, que es la superficie que también describe este esquema.
-
-​
+Debe ser `false` u omitirse. Comfy Router y la ruta `/proxy/` propia de esta operación rechazan el modo síncrono de Bria (`true`) en lugar de reenviarlo: Comfy Router fija el modo de retorno antes del despacho y consulta el resultado dentro de la llamada, y la ruta `/proxy/` devuelve el request_id y la status_url que hay que consultar.
 
 visual_input_content_moderation
 
 boolean
 
 Cuando está habilitado, aplica moderación de contenido a la entrada visual. Devuelve 422 si la imagen no pasa la moderación.
-
-​
 
 visual_output_content_moderation
 
@@ -225,13 +209,7 @@ Cuando está habilitado, aplica moderación de contenido al resultado visual. De
 
 Generado a partir del esquema que Router sirve en `GET /v2/models/bria/image-edit-remove-background/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 error
 
@@ -239,15 +217,11 @@ object
 
 Objeto de error (solo presente cuando el estado es ERROR)
 
-​
-
 error.code
 
 integer
 
 Código de error.
-
-​
 
 error.details
 
@@ -255,15 +229,11 @@ string
 
 Detalles adicionales del error.
 
-​
-
 error.message
 
 string
 
 Mensaje de error.
-
-​
 
 request_id
 
@@ -271,15 +241,11 @@ string
 
 Identificador único de la solicitud.
 
-​
-
 result
 
 object
 
 Objeto de resultado (solo presente cuando el estado es COMPLETED)
-
-​
 
 result.image_url
 
@@ -287,15 +253,11 @@ string
 
 URL de la imagen generada o editada.
 
-​
-
 result.prompt
 
 string
 
 Prompt original.
-
-​
 
 result.refined_prompt
 
@@ -303,15 +265,11 @@ string
 
 Versión refinada del prompt, o null en una generación COMPLETED que Bria no refinó. Es anulable porque la clave está PRESENTE y lleva null en lugar de omitirse; se observó en vivo en bria/image-edit-gen-fill.
 
-​
-
 result.seed
 
 integer
 
 Semilla usada para la generación.
-
-​
 
 result.structured_instruction
 
@@ -319,15 +277,11 @@ string
 
 La instrucción estructurada, un documento JSON serializado como cadena, que devuelve `/v2/structured_instruction/generate`. Esa operación no rellena ninguna de las dos URL.
 
-​
-
 result.structured_prompt
 
 string
 
 El prompt estructurado en JSON detallado.
-
-​
 
 result.video_url
 
@@ -335,25 +289,15 @@ string
 
 URL del video generado.
 
-​
-
 status
 
 string
 
 Estado actual de la solicitud.Valores posibles: `IN_PROGRESS`, `COMPLETED`, `ERROR`, `UNKNOWN`
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -361,11 +305,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -378,11 +318,7 @@ Salida
     }
     
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 

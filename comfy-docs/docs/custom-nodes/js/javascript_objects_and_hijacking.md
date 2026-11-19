@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking/
-title: Comfy Objects - ComfyUI
+title: ComfyUI Frontend Objects: LiteGraph, ComfyApp, and ComfyNode - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:36.357616+00:00
+fetched_at: 2026-11-19T16:26:07.185010+00:00
 ---
 
-# Comfy Objects - ComfyUI
+# ComfyUI Frontend Objects: LiteGraph, ComfyApp, and ComfyNode - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking/
 
@@ -37,11 +37,11 @@ Back to top
 
 JavaScript (UI)
 
-# Comfy Objects
+# ComfyUI Frontend Objects: LiteGraph, ComfyApp, and ComfyNode
 
 Copy pageCopy page
 
-Reference guide to ComfyUI’s core frontend objects - LiteGraph, ComfyApp, LGraph, LLink, and ComfyNode - with their properties, functions, and widget types.
+Reference for ComfyUI’s core frontend objects: LiteGraph, ComfyApp, LGraph, LLink, and ComfyNode, with their properties, functions, and input widget types.
 
 Copy pageCopy page
 

@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/installation/system_requirements/
-title: System Requirements - ComfyUI
+title: ComfyUI System Requirements: OS, Python, and GPU - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:59.334741+00:00
+fetched_at: 2026-11-19T16:26:06.002224+00:00
 ---
 
-# System Requirements - ComfyUI
+# ComfyUI System Requirements: OS, Python, and GPU - ComfyUI
 
 > Source: https://docs.comfy.org/installation/system_requirements/
 
 ## On this page
+
+Back to top
 
   * Supported Operating Systems
   * Python Version
@@ -22,21 +24,17 @@ fetched_at: 2026-10-17T10:50:59.334741+00:00
 
 Local (Self-Hosted)
 
-# System Requirements
+# ComfyUI System Requirements: OS, Python, and GPU
 
 Copy pageCopy page
 
-Hardware and software requirements for installing and running ComfyUI.
+What ComfyUI needs to run: supported operating systems, the recommended Python 3.13 build, browser version, and GPU backends per vendor.
 
 Copy pageCopy page
 
 In this guide, we will introduce the system requirements for installing ComfyUI. Due to frequent updates of ComfyUI, this document may not be updated in a timely manner. Please refer to the relevant instructions in [ComfyUI](https://github.com/Comfy-Org/ComfyUI). Regardless of which version of ComfyUI you use, it runs in a separate Python environment.
 
-### 
-
-​
-
-Supported Operating Systems
+### Supported Operating Systems
 
 Currently, we support the following operating systems:
 
@@ -93,11 +91,7 @@ Manual Installation
 
 Supports all system types and GPU types (Nvidia, AMD, Intel, Apple Silicon, Ascend NPU, Cambricon MLU)
 
-### 
-
-​
-
-Python Version
+### Python Version
 
   * **Python 3.13** is very well supported and recommended
   * Python 3.14 works but some custom nodes may have issues. The free threaded variant works but some dependencies will enable the GIL so it’s not fully supported
@@ -105,19 +99,11 @@ Python Version
 
 
 
-### 
-
-​
-
-Browser Requirements
+### Browser Requirements
 
 For the best experience, use **Google Chrome version 143 or later**. Earlier versions of Chrome (142 and below) have known issues that can cause visual glitches and performance problems in ComfyUI.
 
-### 
-
-​
-
-Supported Hardware
+### Supported Hardware
 
   * **NVIDIA GPU** \- Install stable pytorch with CUDA 13.0: `pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130`
   * **AMD GPU (Linux)** \- ROCm 7.2 stable or nightly
@@ -133,11 +119,7 @@ Please refer to the [ComfyUI Windows and Linux manual installation section](http
 
 PyTorch 2.7 and above is supported, but using a newer version is strongly recommended. A cu130 or above version of PyTorch is required on Nvidia 20 series and above. Some features and optimizations might only work on newer versions. We generally recommend using the latest major version of PyTorch with the latest CUDA version unless it is less than 2 weeks old.The Windows portable build currently comes with Python 3.13 and PyTorch CUDA 13.0. Update your Nvidia drivers if it doesn’t start.
 
-### 
-
-​
-
-Dependencies
+### Dependencies
 
   * Install PyTorch (version specific to your hardware)
   * Install all dependencies in the requirements.txt of ComfyUI: `pip install -r requirements.txt`
@@ -148,11 +130,7 @@ Dependencies
 
 Please refer to the manual installation section for detailed installation steps.
 
-## 
-
-​
-
-FAQ
+## FAQ
 
 Does ComfyUI support MLX (Apple's machine learning framework)?
 
@@ -170,26 +148,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/system_requirements.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/system_requirements)
 
-[ComfyUI Official DocumentationPrevious](https://docs.comfy.org/)[Comfy Desktop OverviewNext](https://docs.comfy.org/installation/desktop/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Comfy Cloud](https://docs.comfy.org/get_started/cloud)[Overview](https://docs.comfy.org/installation/desktop/overview)

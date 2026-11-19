@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code/
 title: Usa GPT Image 2.5 Flare con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:14.674478+00:00
+fetched_at: 2026-11-19T16:26:10.359597+00:00
 ---
 
 # Usa GPT Image 2.5 Flare con Comfy Router - ComfyUI
@@ -37,11 +37,7 @@ Copiar páginaCopiar página
 
 Referencia de la API para `openai/gpt-image-2.5-flare`, servida por Comfy Router desde OpenAI. **Entrada:** Texto, Imagen · **Salida:** Imagen
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP directo. **ID del modelo:** `openai/gpt-image-2.5-flare` **Endpoint:** `POST https://api.comfy.org/v2/models/openai/gpt-image-2.5-flare`
 
@@ -178,34 +174,21 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
-
-​
-
-Proveedores de servicio
+## Proveedores de servicio
 
 Comfy Router sirve este modelo directamente a menos que la solicitud indique otro proveedor. Los proveedores siguientes también lo sirven, en el mismo endpoint y con el mismo ID de modelo, seleccionados con el parámetro de consulta `model_provider`.
 
   * **Comfy** (predeterminado): `POST https://api.comfy.org/v2/models/openai/gpt-image-2.5-flare`
   * **fal** , como `fal/fal-gpt-image-2.5-flare`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2.5-flare?model_provider=fal`
+  * **MiniMax** , como `minimax/minimax-gpt-image-2.5-flare`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2.5-flare?model_provider=minimax`
   * **Runware** , como `runware/runware-gpt-image-2.5-flare`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2.5-flare?model_provider=runware`
   * **WaveSpeed** , como `wavespeed/wavespeed-gpt-image-2.5-flare`: `POST https://api.comfy.org/v2/models/openai/gpt-image-2.5-flare?model_provider=wavespeed`
 
-El valor predeterminado de `strict_mode` es false, por lo que Router traduce el cuerpo de la solicitud nativo documentado en esta página al esquema propio del proveedor y traduce la respuesta de vuelta. Consulta [`model_provider`, `strict_mode` y `fallback_provider`](https://docs.comfy.org/es/development/comfy-router/reference#post-v2modelsprovidermodel) en la Referencia de la API y [Proveedores de servicio](https://docs.comfy.org/es/development/comfy-router/providers) para ver todos los modelos enrutados de esta forma.
+El valor predeterminado de `strict_mode` es falso, por lo que Router traduce el cuerpo de la solicitud nativo documentado en esta página al esquema propio del proveedor y traduce la respuesta de vuelta. Consulta [`model_provider`, `strict_mode` y `fallback_provider`](https://docs.comfy.org/es/development/comfy-router/reference#post-v2modelsprovidermodel) en la Referencia de la API y [Proveedores de servicio](https://docs.comfy.org/es/development/comfy-router/providers) para ver todos los modelos enrutados de esta forma.
 
-## 
+## Esquema
 
-​
-
-Esquema
-
-### 
-
-​
-
-Entrada
-
-​
+### Entrada
 
 background
 
@@ -213,23 +196,17 @@ string
 
 Transparencia del fondo. `auto` deja que el modelo elija.Valores posibles: `transparent`, `opaque`, `auto`
 
-​
-
 image
 
 string | string[]
 
 La imagen o imágenes fuente que se van a editar. LA PRESENCIA DE ESTE CAMPO SELECCIONA LA OPERACIÓN DE EDICIÓN: omítelo por completo para la generación de texto a imagen. El ejemplo publicado del modelo es la llamada de GENERACIÓN, que omite este campo. Añadir `image` es toda la diferencia entre los dos modos: el mismo endpoint, el mismo id de modelo, salvo que un prompt de edición describe el CAMBIO que quieres, no la escena, así que el cuerpo de edición de abajo se lee de forma distinta al ejemplo de generación aunque solo este campo sea estructuralmente nuevo. Se puede copiar exactamente tal como está impreso: `{"prompt": "give the rocketship rainbow coloring", "image": ["data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="], "size": "1024x1024"}`. El payload es un PNG de 1x1 completo, no una abreviatura, y este cuerpo está fijado como un caso aceptado en las propias pruebas de validación de solicitudes de Router. Sustituye los bytes por los de tu propia imagen. Acepta una imagen o un arreglo de ellas; gpt-image-1 y posteriores admiten hasta 16, y Router lo aplica desde este esquema antes de despachar.
 
-​
-
 mask
 
 string
 
-Una imagen, ya sea como una URL https que Router obtiene en nombre de quien llama o como un URI `data:image/<format>;base64,<payload>` que lleva los bytes en línea. Los tipos de imagen aceptados son png, webp y jpeg, y ese conjunto SE HACE CUMPLIR en el momento de la resolución en lugar de dejarse al proveedor: un svg, gif, avif o tiff se rechaza aquí, indicando la imagen que enviaste, en lugar de convertirse en un error del socio a dos saltos de la causa. Prefiere la forma con URL. Un payload base64 se infla aproximadamente 4/3 y el cuerpo completo de la solicitud tiene un límite de 100 MiB, así que la forma en línea llega como máximo a una imagen fuente de cerca de 75 MB; una URL evita eso por completo. Los límites de medios por imagen y por solicitud indicados al final de esta descripción son más estrictos que el límite del cuerpo, así que, para una imagen de cualquier tamaño real, son los que encuentras primero. LA URL DEBE RESOLVERSE SIN TUS CREDENCIALES. Router la obtiene del lado del servidor y no envía ninguna credencial de quien llama con la solicitud, así que una URL prefirmada, es decir, una cuya firma está en la cadena de consulta, es la forma admitida. Un endpoint autenticado como `/api/assets/{id}/content` responde a Router con 401 en lugar de la imagen; solicita esa URL tú mismo y pasa la URL firmada a la que redirige. LA OBTENCIÓN ESTÁ LIMITADA A UN CONJUNTO NOMBRADO DE HOSTS, no a la internet abierta, y la misma lista se vuelve a aplicar a cada salto de redirección, así como a la URL que envías. Por eso, una URL en cualquier otro host, o una que redirige fuera de la lista, se rechaza antes de contactar a cualquier proveedor. Hoy esa lista es solo la entrega de recursos propia de Comfy: una URL firmada de `storage.googleapis.com` bajo un bucket de recursos de Comfy, que es la forma a la que te redirige `/api/assets/{id}/content`. Un CDN de socio o un host https simple NO está en la lista. HAY DOS AMPLIACIONES EN DESPLIEGUE Y AMBAS ESTÁN DESACTIVADAS POR DEFECTO HOY. Se lanzan detrás de UN interruptor y se habilitan juntas, así que trata todo lo siguiente como algo próximo, no como algo sobre lo que construir todavía: pregunta antes de depender de cualquiera de las dos. La PRIMERA es el bucket en el que `POST /customers/storage` firma tu subida. Hasta que el despliegue llegue a tu entorno, una URL de subida de ese endpoint se rechaza aquí, aunque el bucket sea de Comfy y el host sea el mismo. Por eso, “subir a Comfy y luego pasar la URL” NO funciona todavía, y la forma que sí funciona es la URL firmada a la que redirige `/api/assets/{id}/content`. La SEGUNDA SE HABILITA POR CUENTA, no para todos a la vez, porque el bucket detrás de estos hosts es tuyo, no nuestro: incluso cuando el interruptor anterior esté activado, una cuenta que no tenga habilitados los medios entrantes de terceros se rechaza, y se le dice con esas palabras en lugar de decirle que el host no es compatible. Pide a tu contacto de Comfy que lo habilite para tu cuenta. Además, admite estos hosts de almacenamiento de objetos de terceros, donde el bucket es tuyo y Router no reclama su propiedad: Cloudflare R2 (`<account>.r2.cloudflarestorage.com`, `pub-<hash>.r2.dev`), Amazon S3 (`s3.amazonaws.com` y `s3.<region>.amazonaws.com`, en la forma de estilo de ruta o con el prefijo `<bucket>.`), Azure Blob Storage (`<account>.blob.core.windows.net`) y Alibaba Cloud OSS (`<bucket>.oss-<region>.aliyuncs.com`, incluido el endpoint `oss-accelerate`). Esos son endpoints de almacenamiento de objetos específicamente: un endpoint de propósito general en el mismo dominio del proveedor, como un trigger de Alibaba Function Compute, no está en la lista y se rechaza. LO QUE SE COMPARA ES LA FORMA DEL NOMBRE DE HOST, NO EL PROVEEDOR. Por eso, nombrar un proveedor arriba NO significa que se acepte cada URL que ese proveedor pueda emitir, y vale la pena señalar directamente tres casos que se le parecen mucho porque quien llama puede llegar razonablemente con cualquiera de ellos. Un DOMINIO PERSONALIZADO DE R2 (`cdn.example.com`) NO se acepta: Cloudflare documenta `pub-<hash>.r2.dev` como un nombre de host de depuración con límite de tasa y, en su lugar, dirige el tráfico de producción a un dominio personalizado, pero un dominio personalizado no lleva nada en su nombre de host que lo identifique como R2, así que Router no puede distinguirlo de cualquier otro host y lo rechaza. Prefirma el endpoint `<account>.r2.cloudflarestorage.com` o usa la forma `pub-<hash>.r2.dev`. El endpoint dualstack IPv6 de S3 (`s3.dualstack.<region>.amazonaws.com`) tampoco se acepta; usa el endpoint regional simple. Tampoco se acepta la zona DNS alternativa de Azure Blob (`<account>.z<N>.blob.storage.azure.net`); usa `<account>.blob.core.windows.net`. El rechazo que recibes nombra estas mismas formas, así que no tienes que venir aquí a leerlas. Los marcadores `<account>` y `pub-<hash>` de arriba muestran la forma con la que normalmente llegarás; no son una restricción de profundidad. La coincidencia se hace sobre el sufijo de dominio del almacenamiento de objetos, por lo que también es válido un nombre más profundo bajo el mismo espacio de nombres (`a.b.pub-<hash>.r2.dev`). Lo que NO se amplía con eso es el propio espacio de nombres: el sufijo sigue teniendo que ser uno de los de la lista. El ejemplo de abajo muestra solo la forma: un valor real también incluye los parámetros de consulta de firma, que se omiten aquí a propósito porque un ejemplo publicado permanece en la especificación para siempre y una firma real es a la vez una credencial filtrada y un enlace que deja de funcionar. Cada imagen tiene un límite de 25 MiB y las imágenes de una solicitud suman un máximo de 64 MiB en total.
-
-​
+Una imagen, ya sea una URL https que Router descarga en nombre de quien llama, o un URI `data:image/<format>;base64,<payload>` que lleva los bytes en línea. Los tipos de imagen aceptados son png, webp y jpeg, y ese conjunto se APLICA al resolver la solicitud en lugar de dejarlo al proveedor: un svg, gif, avif o tiff se rechaza aquí, indicando la imagen enviada, en vez de convertirse en un error del socio a dos saltos de la causa. Prefiere la forma de URL. Un payload base64 se infla aproximadamente 4/3 y el cuerpo completo de la solicitud está limitado a 100 MiB, así que la forma en línea se agota cerca de una imagen de origen de 75 MB; una URL evita ese problema por completo. Los límites de multimedia por imagen y por solicitud que se indican al final de esta descripción son más estrictos que el límite del cuerpo, así que para una imagen de tamaño real son los que encuentras primero. LA URL DEBE RESOLVERSE SIN TUS CREDENCIALES. Router la descarga en el servidor y no envía ninguna credencial de quien llama con la solicitud, así que la forma admitida es una URL prefirmada, es decir, una cuya firma está en la cadena de consulta. Un endpoint autenticado como `/api/assets/{id}/content` responde a Router con 401 en lugar de la imagen; solicita esa URL tú mismo y pasa la URL firmada a la que redirige. LA DESCARGA ESTÁ LIMITADA A UN CONJUNTO NOMBRADO DE HOSTS y no a internet abierto, y la misma lista se vuelve a aplicar a cada salto de redirección además de a la URL enviada: por eso una URL en cualquier otro host, o una que redirija fuera de la lista, se rechaza antes de contactar con ningún proveedor. Hoy esa lista es solo el reparto de assets de Comfy: una URL firmada de `storage.googleapis.com` bajo un bucket de assets de Comfy, que es la forma a la que te redirige `/api/assets/{id}/content`. Un CDN de un socio o un host https normal NO está en la lista. HAY DOS AMPLIACIONES EN DESPLIEGUE Y AMBAS ESTÁN DESACTIVADAS POR DEFECTO HOY. Se publican tras UN solo interruptor y se habilitan juntas, así que considera todo lo siguiente como algo futuro y no como algo sobre lo que construir todavía: pregunta antes de basarte en cualquiera de las dos. La PRIMERA es el bucket en el que `POST /customers/storage` firma tu subida. Hasta que el despliegue llegue a tu entorno, una URL de subida de ese endpoint se rechaza aquí, aunque el bucket sea de Comfy y el host el mismo: así que “subir a Comfy y luego pasar la URL” NO funciona todavía, y la forma que sí funciona es la URL firmada a la que redirige `/api/assets/{id}/content`. La SEGUNDA se HABILITA POR CUENTA y no para todos a la vez, porque el bucket que hay detrás de estos hosts es tuyo y no nuestro: incluso con el interruptor anterior activado, una cuenta que no tenga habilitada la multimedia entrante de terceros recibe un rechazo, y se le indica con esas mismas palabras en lugar de decirle que el host no es compatible. Pide a tu contacto de Comfy que la habilite para tu cuenta. Además admite estos hosts de almacenamiento de objetos de terceros, donde el bucket es tuyo y Router no reclama su propiedad: Cloudflare R2 (`<account>.r2.cloudflarestorage.com`, `pub-<hash>.r2.dev`), Amazon S3 (`s3.amazonaws.com` y `s3.<region>.amazonaws.com`, tanto en la forma de estilo de ruta como en la prefijada con `<bucket>.`), Azure Blob Storage (`<account>.blob.core.windows.net`) y Alibaba Cloud OSS (`<bucket>.oss-<region>.aliyuncs.com`, incluido el endpoint `oss-accelerate`). Son endpoints de almacenamiento de objetos específicamente: un endpoint de propósito general en el mismo dominio del proveedor, como un trigger de Alibaba Function Compute, no está en la lista y se rechaza. LO QUE SE COMPARA ES LA FORMA DEL NOMBRE DE HOST Y NO EL PROVEEDOR: por eso nombrar arriba un proveedor NO significa que se acepte cualquier URL que ese proveedor pueda emitir, y conviene enumerar tres casos casi válidos porque quien llama puede llegar razonablemente con cada uno de ellos. Un DOMINIO PERSONALIZADO de R2 (`cdn.example.com`) NO se acepta: Cloudflare documenta `pub-<hash>.r2.dev` como un nombre de host de depuración con límite de tasa y dirige el tráfico de producción a un dominio personalizado, pero un dominio personalizado no lleva nada en su nombre de host que lo identifique como R2, así que Router no puede distinguirlo de cualquier otro host y lo rechaza: prefirma el endpoint `<account>.r2.cloudflarestorage.com` o usa la forma `pub-<hash>.r2.dev`. El endpoint dualstack IPv6 de S3 (`s3.dualstack.<region>.amazonaws.com`) tampoco se acepta; usa el endpoint regional simple. Tampoco la zona DNS alternativa de Azure Blob (`<account>.z<N>.blob.storage.azure.net`); usa `<account>.blob.core.windows.net`. El rechazo que recibes nombra estas mismas formas, así que no tienes que venir aquí a leerlas. Los marcadores `<account>` y `pub-<hash>` de arriba muestran la forma con la que llegarás normalmente; no son una restricción de profundidad. La comparación es sobre el sufijo de dominio del almacenamiento de objetos, así que también se acepta un nombre más profundo bajo el mismo espacio de nombres (`a.b.pub-<hash>.r2.dev`). Lo que NO se amplía con eso es el espacio de nombres en sí: el sufijo todavía tiene que ser uno de los listados. El ejemplo siguiente muestra solo la forma: un valor real además lleva los parámetros de consulta de firma, que aquí se omiten deliberadamente porque un ejemplo publicado permanece en la especificación para siempre y una firma real es a la vez una credencial filtrada y un enlace que deja de funcionar. Cada imagen está limitada a 25 MiB y las imágenes de una solicitud a 64 MiB en total. La única excepción es Precise Edit de ideogram/ideogram-4-5 (una llamada que envía `image`) cuando `context_window` está disponible: ahí cada imagen puede llegar a 50 MB (50,000,000 bytes) y 67,108,864 píxeles, y las imágenes de una solicitud a 128 MiB en total.
 
 model
 
@@ -237,15 +214,11 @@ string
 
 El modelo gpt-image que se va a ejecutar. Router inserta el id del modelo al que se dirige la llamada, así que quien llama a /v2/models/openai/gpt-image-2 no envía este campo.
 
-​
-
 moderation
 
 string
 
 Configuración de moderación de contenidoValores posibles: `low`, `auto`
-
-​
 
 n
 
@@ -253,15 +226,11 @@ integer
 
 El número de imágenes que se van a generar (1-10).Rango: de `1` a `10`
 
-​
-
 output_compression
 
 integer
 
 Nivel de compresión para JPEG o WebP (0-100)Rango: de `0` a `100`
-
-​
 
 output_format
 
@@ -269,15 +238,11 @@ string
 
 Formato de la imagen de salidaValores posibles: `png`, `webp`, `jpeg`
 
-​
-
 partial_images
 
 integer
 
 Solo tiene sentido junto con un stream en vivo, que esta superficie no puede atender: `stream` se fija en `false` incluso cuando lo envías. En una generación, cualquier valor distinto de `0` o `null` se rechaza con un 400, tanto si la solicitud también envía `stream: true` como si no; en una solicitud que incluye `image`, el campo se descarta en lugar de reenviarse. Omítelo.Rango: de `0` a `3`
-
-​
 
 prompt
 
@@ -287,15 +252,11 @@ requerido
 
 Una descripción textual de la imagen que se va a generar, o de la edición que se va a hacer en `image`.
 
-​
-
 quality
 
 string
 
 La calidad de la imagen generada o editada. `xhigh` y `max` son los dos niveles para los que se añadieron gpt-image-2.5-flare y gpt-image-2.5-sunburst; `standard` y `hd` son grafías de la era de dall-e que ningún modelo admitido reconoce.Valores posibles: `auto`, `low`, `medium`, `high`, `xhigh`, `max`, `standard`, `hd`
-
-​
 
 size
 
@@ -303,15 +264,11 @@ string
 
 Tamaño de la imagen (p. ej., 1024x1024, 1536x1024, auto)
 
-​
-
 stream
 
 boolean
 
 Se declara para que quien lo envía no sea rechazado, pero es INERTE en esta superficie: Router lo FIJA en `false` antes de enviar la solicitud, porque captura la respuesta del proveedor en lugar de retransmitir un `text/event-stream` (una solicitud que incluye `image` descarta el campo en cambio, ya que la edición se recodifica sin él). Ninguna superficie de Comfy ofrece streaming de imágenes parciales de gpt-image: el punto de entrada v1 `POST /proxy/openai/images/generations` rechaza `stream: true` con un 400 y nunca reenvía la solicitud al proveedor, así que omite el campo y lee la respuesta completada como un solo cuerpo JSON. Como el stream nunca se abre, la restricción de OpenAI sobre combinar `stream: true` con `n` mayor que 1 no se aplica aquí; `n` se reenvía tal como se envió.
-
-​
 
 user
 
@@ -321,19 +278,11 @@ Un identificador único para el monitoreo de usuarios finales
 
 Generado a partir del esquema que Router expone en `GET /v2/models/openai/gpt-image-2.5-flare/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 data
 
 object[]
-
-​
 
 data[].b64_json
 
@@ -341,15 +290,11 @@ string
 
 Datos de imagen codificados en Base64
 
-​
-
 data[].revised_prompt
 
 string
 
 Prompt revisado
-
-​
 
 data[].url
 
@@ -357,67 +302,45 @@ string
 
 URL de la imagen
 
-​
-
 usage
 
 object
-
-​
 
 usage.input_tokens
 
 integer
 
-​
-
 usage.input_tokens_details
 
 object
-
-​
 
 usage.input_tokens_details.image_tokens
 
 integer
 
-​
-
 usage.input_tokens_details.text_tokens
 
 integer
-
-​
 
 usage.output_tokens
 
 integer
 
-​
-
 usage.output_tokens_details
 
 object
-
-​
 
 usage.output_tokens_details.image_tokens
 
 integer
 
-​
-
 usage.output_tokens_details.text_tokens
 
 integer
 
-​
-
 usage.total_tokens
 
 integer
-
-​
 
 background
 
@@ -425,15 +348,11 @@ string
 
 Si el fondo de la imagen generada es `opaque` o `transparent`, tal como OpenAI lo resolvió para esta generación. El parámetro de la solicitud toma `auto` por defecto, así que aquí es donde quien llama y no lo fijó se entera de cuál se produjo.
 
-​
-
 created
 
 integer
 
-Marca de tiempo Unix, en segundos, de cuándo se completó la generación. Es el único miembro que OpenAI declara REQUIRED en una respuesta de generación de imágenes, por lo que está presente siempre que OpenAI es el productor; una respuesta servida por fal, pika, wavespeed o runware en cualquiera de los ids respaldados por alternativos lo omite por completo, igual que los otros cuatro miembros de parámetros resueltos. Se declara `int64` porque un valor de época actual está lo bastante cerca de 2^31 como para que un `integer` sin formato genere un campo de 32 bits en muchos generadores de SDK.Formato: `int64`
-
-​
+Marca de tiempo Unix, en segundos, de cuándo se completó la generación. Es el único miembro que OpenAI declara REQUIRED en una respuesta de generación de imágenes, por lo que está presente siempre que OpenAI es el productor; una respuesta servida por fal, minimax, wavespeed o runware en cualquiera de los ids respaldados por alternativos lo omite por completo, igual que los otros cuatro miembros de parámetros resueltos. Se declara `int64` porque un valor de época actual está lo bastante cerca de 2^31 como para que un `integer` sin formato genere un campo de 32 bits en muchos generadores de SDK.Formato: `int64`
 
 output_format
 
@@ -441,15 +360,11 @@ string
 
 La codificación de los bytes en `data[].b64_json`: `png`, `webp` o `jpeg`. Es el formato que OpenAI codificó realmente, que es el `output_format` de la solicitud cuando se envió uno y `png` cuando no se envió ninguno, de modo que un decodificador puede basarse en él en lugar de volver a deducir el formato a partir de la solicitud.
 
-​
-
 quality
 
 string
 
 El nivel de calidad en el que realmente se ejecutó la generación: OpenAI informa uno de `low`, `medium`, `high`, `xhigh` o `max`. Es el nivel RESUELTO, no un eco de la solicitud, cuyo propio `quality` toma `auto` por defecto.
-
-​
 
 size
 
@@ -457,17 +372,9 @@ string
 
 Las dimensiones en píxeles en las que realmente se ejecutó la generación, como `<width>x<height>`. Es el tamaño RESUELTO: el `size` de la solicitud toma `auto` por defecto y admite explícitamente `auto`, así que este es el único lugar donde se informan las dimensiones realmente usadas.
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -477,11 +384,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -503,11 +406,7 @@ Salida
     }
     
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 
@@ -529,4 +428,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code)
 
-[GPT Image 1](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-1/code)[GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)
+[GPT Image 1.5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-1-5/code)[GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)

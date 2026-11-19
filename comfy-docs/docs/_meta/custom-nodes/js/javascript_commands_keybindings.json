@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/js/javascript_commands_keybindings/",
   "file": "custom-nodes/js/javascript_commands_keybindings.md",
-  "title": "Commands and Keybindings - ComfyUI",
+  "title": "ComfyUI Commands and Keybindings API - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:38.994168+00:00",
-  "html_len": 470568,
-  "md_len": 7190,
-  "depth": 0
+  "fetched_at": "2026-11-19T16:26:07.498059+00:00"
 }

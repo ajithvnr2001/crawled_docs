@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/providers/
 title: Comfy Router serving providers - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:18.432266+00:00
+fetched_at: 2026-11-19T16:26:12.959982+00:00
 ---
 
 # Comfy Router serving providers - ComfyUI

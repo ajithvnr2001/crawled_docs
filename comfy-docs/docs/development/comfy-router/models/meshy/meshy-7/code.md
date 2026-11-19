@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7/code/
 title: Use Meshy 7 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:15.557593+00:00
+fetched_at: 2026-11-19T16:26:15.496997+00:00
 ---
 
 # Use Meshy 7 with Comfy Router - ComfyUI

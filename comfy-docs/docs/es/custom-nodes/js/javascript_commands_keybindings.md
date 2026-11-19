@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings/
-title: Comandos y atajos de teclado - ComfyUI
+title: Comandos y atajos de teclado en ComfyUI: API de extensiones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:25.392683+00:00
+fetched_at: 2026-11-19T16:26:07.418470+00:00
 ---
 
-# Comandos y atajos de teclado - ComfyUI
+# Comandos y atajos de teclado en ComfyUI: API de extensiones - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings/
 
@@ -25,21 +25,17 @@ Volver arriba
 
 JavaScript (UI)
 
-# Comandos y atajos de teclado
+# Comandos y atajos de teclado en ComfyUI: API de extensiones
 
 Copiar páginaCopiar página
 
-Domina los comandos y atajos de teclado de Comfy para registrar acciones y atajos personalizados en tus extensiones.
+Registra comandos y atajos de teclado propios desde una extensión de ComfyUI: sintaxis de keybinds, teclas especiales, ejemplos y limitaciones.
 
 Copiar páginaCopiar página
 
 La API de Commands and Keybindings permite que las extensiones registren comandos personalizados y los asocien a atajos de teclado. Así, los usuarios pueden activar acciones rápidamente sin usar el ratón.
 
-## 
-
-​
-
-Uso básico
+## Uso básico
     
     
     app.registerExtension({
@@ -64,11 +60,7 @@ Uso básico
     });
     
 
-## 
-
-​
-
-Configuración de comandos
+## Configuración de comandos
 
 Cada comando requiere un `id`, una `label` y una `function`:
     
@@ -80,11 +72,7 @@ Cada comando requiere un `id`, una `label` y una `function`:
     }
     
 
-## 
-
-​
-
-Configuración de combinaciones de teclas
+## Configuración de combinaciones de teclas
 
 Cada combinación de teclas requiere un `combo` y un `commandId`:
     
@@ -101,11 +89,7 @@ Cada combinación de teclas requiere un `combo` y un `commandId`:
     }
     
 
-### 
-
-​
-
-Teclas especiales
+### Teclas especiales
 
 Para las teclas que no son caracteres, usa uno de estos valores:
 
@@ -115,11 +99,7 @@ Para las teclas que no son caracteres, usa uno de estos valores:
 
 
 
-## 
-
-​
-
-Ejemplos de comandos
+## Ejemplos de comandos
     
     
     app.registerExtension({
@@ -160,11 +140,7 @@ Ejemplos de comandos
     });
     
 
-## 
-
-​
-
-Ejemplos de atajos de teclado
+## Ejemplos de atajos de teclado
     
     
     app.registerExtension({
@@ -197,11 +173,7 @@ Ejemplos de atajos de teclado
     });
     
 
-## 
-
-​
-
-Notas y limitaciones
+## Notas y limitaciones
 
   * Las extensiones no pueden sobrescribir los atajos de teclado definidos en el núcleo de ComfyUI. Consulta los atajos de teclado del núcleo en estos archivos fuente:
     * [Comandos del núcleo](https://github.com/Comfy-Org/ComfyUI_frontend/blob/e76e9ec61a068fd2d89797762f08ee551e6d84a0/src/composables/useCoreCommands.ts)
@@ -219,4 +191,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_commands_keybindings.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_commands_keybindings)
 
-[Selection Toolbox](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)[API del menú de la barra superior](https://docs.comfy.org/es/custom-nodes/js/javascript_topbar_menu)
+[Herramientas de selección](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)[API del menú de la barra superior](https://docs.comfy.org/es/custom-nodes/js/javascript_topbar_menu)

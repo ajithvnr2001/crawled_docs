@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/utility/relayvsr/
 title: RelayVSR: 2x and 4x video upscaling in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:02.015321+00:00
+fetched_at: 2026-11-19T16:26:08.053916+00:00
 ---
 
 # RelayVSR: 2x and 4x video upscaling in ComfyUI - ComfyUI

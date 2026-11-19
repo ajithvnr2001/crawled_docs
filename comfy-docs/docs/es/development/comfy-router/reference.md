@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/reference/
 title: Referencia de la API de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:59.496516+00:00
+fetched_at: 2026-11-19T16:26:09.130839+00:00
 ---
 
 # Referencia de la API de Comfy Router - ComfyUI
@@ -81,7 +81,7 @@ Rutas canónicas de Comfy Router, direccionadas por ID de modelo. URL base: `htt
 
 ### `GET /v2/models`
 
-**Enumera los modelos que Comfy Router puede ejecutar.** Consulta los IDs de modelo disponibles y los datos de facturación. Usa `next_cursor` mientras `has_more` sea `true`. **Parámetros**
+**Enumera los modelos que Comfy Router puede ejecutar.** Consulta los IDs de modelo disponibles y los datos de facturación. Usa `next_cursor` mientras `has_more` sea verdadero. **Parámetros**
 
 cursor
 
@@ -143,7 +143,7 @@ RouterErrorResponse
 
 RouterErrorResponse
 
-Router no está disponible temporalmente. Reintenta con retroceso exponencial.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+Router no está disponible temporalmente. Reintenta con retroceso.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 ### `GET /v2/models/{provider}/{model}`
 
@@ -201,19 +201,19 @@ La solicitud no está permitida para este cliente o modelo.Cuerpo: `RouterErrorR
 
 RouterErrorResponse
 
-No se encontró el ID de modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+No se encontró el ID del modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 429
 
 RouterErrorResponse
 
-`rate_limited`: se agotó la cuota de solicitudes por cliente. Espera el `Retry-After` antes de enviar la siguiente solicitud.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
+`rate_limited`: se agotó la cuota de solicitudes por cliente. Espera el tiempo indicado en `Retry-After` antes de enviar la siguiente solicitud.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
 503
 
 RouterErrorResponse
 
-El router no está disponible temporalmente. Reintenta con retroceso exponencial.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+El Router no está disponible temporalmente. Reintenta con retroceso exponencial.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 ### `POST /v2/models/{provider}/{model}`
 
@@ -245,7 +245,7 @@ model_provider
 
 string
 
-Selecciona un proveedor alternativo para servir este modelo, en lugar de su valor predeterminado actual; `fal`, `wavespeed`, `runware` y `higgsfield` son los alternativos, y `GET /v2/models/{provider}/{model}` informa cuáles de ellos admite un modelo dado. Sus rechazos se comprueban en un orden fijo, y los anteriores responden tanto si los posteriores lo harían como si no: un valor no reconocido, que no es un proveedor registrado en absoluto, se rechaza con `400`; luego, un proveedor alternativo en una solicitud cuyo cuerpo selecciona una operación multipart (una edición) se rechaza con `409` con un `detail` que comienza con “this request’s `image` selects the edit operation”, pero solo cuando el traductor de ese proveedor para este modelo no puede servir la operación; una rama cuyo traductor sí admite los medios continúa con normalidad; luego, cualquier proveedor alternativo en una solicitud que resolvió una credencial de bring-your-own-key se rechaza con `409` con un `detail` que comienza con `this request resolved a BYOK credential` (ver esa respuesta), independientemente de si ese proveedor sirve este modelo; luego, la compuerta propia del proveedor nombrado, que rechaza con `403` con `error_type: not_enabled` cuando ese proveedor no está activado para ti y con `503` con `error_type: service_unavailable` cuando la compuerta no se puede evaluar; y solo tras las cuatro se rechaza con `400` con `error_type: invalid_input` un proveedor real sin rama para este modelo, la misma respuesta que la de un valor no reconocido. `fallback_provider` queda inerte en lugar de rechazarse en una solicitud de bring-your-own-key, en una solicitud cuyo cuerpo selecciona una operación multipart y con `strict_mode=true`.
+Selecciona un proveedor alternativo para servir este modelo, en lugar de su valor predeterminado actual; `fal`, `wavespeed`, `runware` y `higgsfield` son los alternativos, y `GET /v2/models/{provider}/{model}` informa cuáles de ellos admite un modelo dado. Sus rechazos se comprueban en un orden fijo, y los primeros responden tanto si los posteriores también lo harían como si no: un valor no reconocido, que no es un proveedor registrado en absoluto, se rechaza con `400`; luego, un proveedor alternativo en una solicitud cuyo cuerpo selecciona una operación multipart (una edición) se rechaza con `409` con un `detail` que comienza con “this request’s `image` selects the edit operation”, pero solo cuando el traductor de ese proveedor para este modelo no puede servir la operación; una rama cuyo traductor sí transporta los medios continúa con normalidad; luego, cualquier proveedor alternativo en una solicitud que resolvió una credencial de bring-your-own-key se rechaza con `409` con un `detail` que comienza con `this request resolved a BYOK credential` (ver esa respuesta), independientemente de si ese proveedor sirve este modelo; luego, la compuerta propia del proveedor nombrado, que rechaza con `403` con `error_type: not_enabled` cuando ese proveedor no está activado para ti y con `503` con `error_type: service_unavailable` cuando la compuerta no se puede evaluar; y solo después de las cuatro se rechaza con `400` con `error_type: invalid_input` un proveedor real sin rama para este modelo, la misma respuesta que la de un valor no reconocido. `fallback_provider` queda inerte en lugar de rechazarse en una solicitud de bring-your-own-key, en una solicitud cuyo cuerpo selecciona una operación multipart y con `strict_mode=true`.
 
 strict_mode
 
@@ -263,9 +263,9 @@ reject_unknown_fields
 
 boolean
 
-Opta por rechazar un campo de nivel superior del cuerpo de la solicitud que el esquema de entrada de este modelo no declara, en lugar de aceptarlo; los campos anidados no se comprueban, y no se rechaza nada para un modelo cuyo esquema permite campos no declarados o que no tiene un esquema escrito, ni en un envío en cola enviado con `strict_mode=true`.Predeterminado: False
+Activa el rechazo de un campo de nivel superior del cuerpo de la solicitud que el esquema de entrada de este modelo no declara, en lugar de aceptarlo; los campos anidados no se comprueban, y no se rechaza nada para un modelo cuyo esquema permite campos no declarados o que no tiene un esquema definido, ni en un envío en cola enviado con `strict_mode=true`.Predeterminado: False
 
-**Cuerpo de la solicitud** `application/json` — `RouterModelInput` (requerido) La entrada JSON nativa del modelo socio. Sin `model_provider`, la solicitud ejecuta el despacho nativo en el proveedor predeterminado del modelo y este cuerpo es el esquema nativo propio del modelo, reenviado sin cambios (`strict_mode` no tiene sentido ahí y no cambia nada). Con `model_provider` seleccionando un proveedor alternativo y `strict_mode=false` (el valor predeterminado), el cuerpo se traduce al esquema real de ese proveedor antes de enviarse: cualquier campo nativo que no se pueda expresar exactamente se descarta y se divulga mediante el encabezado `X-Comfy-Router-Dropped-Params` de la respuesta, nunca en silencio. Con `model_provider` seleccionando un proveedor alternativo y `strict_mode=true` no se ejecuta ninguna traducción: el cuerpo ya debe ser el esquema real propio de ese proveedor alternativo, no el nativo de este modelo (ver `strict_mode`), y se reenvía sin cambios. Los campos del propio cuerpo también seleccionan qué operación ejecuta Router en un modelo que admite más de una: en un modelo de imagen editable, incluir una imagen de entrada lo cambia de la operación texto a imagen a la operación imagen a imagen (edición), que puede facturarse a su propia tarifa; en un modelo de video Seedance, `content[].role` selecciona la operación (una imagen de primer fotograma selecciona imagen a video, una imagen o un clip de referencia selecciona referencia a video). En el despacho nativo, la facturación de Seedance sigue los tipos de medios en `content`, no los roles: una solicitud con cualquier entrada de video se factura como video a video; de lo contrario, una con cualquier imagen se factura como imagen a video; de lo contrario, texto a video; salvo que un render final a partir de un elemento `draft_task` se factura como la operación del Draft que renderiza; algunos modelos cobran la misma tarifa por texto a video e imagen a video. Con `model_provider` seleccionando un proveedor alternativo, cada operación condicionada puede facturarse a la tarifa propia de ese proveedor. **Respuestas**
+**Cuerpo de la solicitud** `application/json` — `RouterModelInput` (requerido) La entrada JSON nativa del modelo socio. Sin `model_provider`, este cuerpo es el esquema nativo propio del modelo, y el `strict_mode` del solicitante no cambia nada cuando el proveedor propio del modelo atiende la llamada; cuando el propio Comfy Router enruta esa llamada a otro proveedor, Router traduce el cuerpo para ese proveedor, y cómo se aplica `strict_mode` allí no forma parte de este contrato. Con `model_provider` seleccionando un proveedor alternativo y `strict_mode=false` (el valor predeterminado), el cuerpo se traduce al esquema real de ese proveedor antes de enviarse: cualquier campo nativo que no se pueda expresar exactamente se descarta y se divulga mediante el encabezado `X-Comfy-Router-Dropped-Params` de la respuesta, nunca de forma silenciosa. Con `model_provider` seleccionando un proveedor alternativo y `strict_mode=true` no se ejecuta ninguna traducción: el cuerpo ya debe ser el esquema real propio de ese proveedor alternativo, no el nativo de este modelo (ver `strict_mode`), y se reenvía sin cambios. Los campos del propio cuerpo también seleccionan qué operación ejecuta Router en un modelo que admite más de una: en un modelo de imagen editable, incluir una imagen de entrada lo cambia de la operación texto a imagen a la operación imagen a imagen (edición), que puede facturarse a su propia tarifa; en un modelo de video Seedance, `content[].role` selecciona la operación (una imagen de primer fotograma selecciona imagen a video, una imagen o un clip de referencia selecciona referencia a video). Cuando el proveedor propio del modelo atiende la llamada, la facturación de Seedance sigue los tipos de medios en `content`, no los roles: una solicitud con cualquier entrada de video se factura como video a video; de lo contrario, una con cualquier imagen se factura como imagen a video; de lo contrario, texto a video; salvo que un render final a partir de un elemento `draft_task` se factura como la operación del Draft que renderiza; algunos modelos cobran la misma tarifa por texto a video e imagen a video. Con `model_provider` seleccionando un proveedor alternativo, o cuando Comfy Router atiende la llamada en otro proveedor, cada operación condicionada puede facturarse a la tarifa propia de ese proveedor. **Respuestas**
 
 200
 
@@ -319,7 +319,7 @@ El cuerpo de la solicitud es demasiado grande.Cuerpo: `RouterErrorResponse` — 
 
 RouterValidationErrorResponse
 
-El contenido de la solicitud fue rechazado según el esquema del modelo.Cuerpo: `RouterValidationErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Idempotent-Replayed`
+El contenido de la solicitud se rechazó por no ajustarse al esquema del modelo.Cuerpo: `RouterValidationErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Idempotent-Replayed`
 
 429
 
@@ -331,7 +331,7 @@ Inspecciona `X-Comfy-Error-Type`: `concurrency_limit_exceeded` significa reducir
 
 RouterErrorResponse
 
-La respuesta propia del proveedor no se pudo convertir en un resultado (`provider_error`).Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`
+La respuesta del propio proveedor no se pudo convertir en un resultado (`provider_error`).Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`, `Retry-After` (cuando la etapa de sondeo dejó la generación sin resolver)
 
 503
 
@@ -443,7 +443,7 @@ RouterProviderSegment
 
 requerido
 
-Porción de proveedor del ID de modelo canónico `{provider}/{model}`.Tipo: `RouterProviderSegment` — Slug alfanumérico, p. ej. `anthropic`, Hasta 64 caracteres
+Porción de proveedor del ID canónico de modelo `{provider}/{model}`.Tipo: `RouterProviderSegment` — Slug alfanumérico, p. ej. `anthropic`, Hasta 64 caracteres
 
 model
 
@@ -451,13 +451,13 @@ RouterModelSegment
 
 requerido
 
-Porción de modelo del ID de modelo canónico `{provider}/{model}`.Tipo: `RouterModelSegment` — Slug alfanumérico, p. ej. `claude-opus-4-6`, Hasta 128 caracteres
+Porción de modelo del ID canónico de modelo `{provider}/{model}`.Tipo: `RouterModelSegment` — Slug alfanumérico, p. ej. `claude-opus-4-6`, Hasta 128 caracteres
 
 If-None-Match
 
 string
 
-El `ETag` que quien llama conserva de un `200` anterior.
+El `ETag` que el solicitante conserva de un `200` anterior.
 
 **Respuestas**
 
@@ -471,7 +471,7 @@ OK: los esquemas de entrada y salida del modelo, como un documento OpenAPI indep
 
 no body
 
-Not Modified: el documento no ha cambiado desde el `ETag` que quien llama envió en `If-None-Match`.Encabezados: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
+No modificado: el documento no ha cambiado desde el `ETag` que el solicitante envió en `If-None-Match`.Encabezados: `X-Comfy-Request-Id`, `ETag`, `Cache-Control`
 
 401
 
@@ -483,7 +483,7 @@ Credenciales faltantes o no válidas.Cuerpo: `RouterErrorResponse` — Encabezad
 
 RouterErrorResponse
 
-La solicitud no está permitida para quien llama ni para este modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+La solicitud no está permitida para este solicitante ni para este modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 404
 
@@ -501,13 +501,13 @@ Router no pudo completar la solicitud.Cuerpo: `RouterErrorResponse` — Encabeza
 
 RouterErrorResponse
 
-`rate_limited`: se agotó la cuota de solicitudes por quien llama. Espera el tiempo indicado en `Retry-After` antes de enviar la siguiente solicitud.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
+`rate_limited`: se agotó la cuota de solicitudes de este solicitante. Espera `Retry-After` antes de enviar la siguiente solicitud.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
 503
 
 RouterErrorResponse
 
-Router no está disponible temporalmente. Reintenta aplicando una espera progresiva.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+Router no está disponible temporalmente. Reintenta con espera progresiva.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 ### `POST /v2/models/{provider}/{model}/requests`
 
@@ -553,7 +553,7 @@ boolean
 
 Actívalo para rechazar un campo de nivel superior del cuerpo de la solicitud que el esquema de entrada de este modelo no declara, en lugar de aceptarlo; los campos anidados no se verifican, y no se rechaza nada para un modelo cuyo esquema permite campos no declarados o que no tiene esquema definido, ni en un envío en cola enviado con `strict_mode=true`.Predeterminado: False
 
-**Cuerpo de la solicitud** `application/json` — `RouterModelInput` (requerido) La entrada JSON nativa del modelo del socio, idéntica al cuerpo que la ruta sincrónica acepta para este modelo, y que además selecciona la operación y se factura de la misma manera: los propios campos del cuerpo eligen qué operación ejecuta Router en un modelo que admite más de una (una imagen de entrada cambia un modelo de imagen editable a imagen a imagen, que puede facturarse con su propia tarifa; una imagen de primer fotograma de Seedance selecciona imagen a video y una imagen o clip de referencia selecciona referencia a video). En el despacho nativo, una solicitud de Seedance se factura según los tipos de medios en `content`, no según los roles: cualquier entrada de video se factura como video a video; si no, cualquier imagen se factura como imagen a video; si no, texto a video; salvo que un render final de un elemento `draft_task` se factura como la operación del Draft que renderiza, y algunos modelos cobran la misma tarifa para texto a video y para imagen a video; cuando `model_provider` selecciona un proveedor alternativo, cada operación condicionada puede facturarse con la tarifa propia de ese proveedor. El mismo contrato de selección de proveedor se aplica en el despacho: sin `model_provider`, o con `model_provider` y `strict_mode=false` (el valor predeterminado), el cuerpo es el documento nativo del modelo y se valida contra el esquema de entrada propio del modelo antes de admitir la ejecución, de modo que un cuerpo que el modelo rechazaría es un `422` aquí en lugar de una solicitud en cola que falla minutos más tarde; además, un cuerpo de proveedor alternativo no estricto se traduce al esquema real de ese proveedor en el despacho. Con `strict_mode=true`, el cuerpo ya debe ser el esquema propio del proveedor alternativo y se reenvía sin cambios: la validación contra el esquema nativo se omite, exactamente igual que en la ruta sincrónica (consulta `model_provider` y `strict_mode`). **Respuestas**
+**Cuerpo de la solicitud** `application/json` — `RouterModelInput` (requerido) La entrada JSON nativa del modelo del socio, idéntica al cuerpo que la ruta sincrónica acepta para este modelo, y es la que selecciona la operación y se factura de la misma manera: los propios campos del cuerpo eligen qué operación ejecuta Router en un modelo que admite más de una (una imagen de entrada cambia un modelo de imagen editable a imagen a imagen, que puede facturarse con su propia tarifa; una imagen de primer fotograma de Seedance selecciona imagen a video y una imagen o clip de referencia selecciona referencia a video). Cuando el propio proveedor del modelo sirve la llamada, una solicitud de Seedance se factura según los tipos de medios en `content`, no según los roles: cualquier entrada de video se factura como video a video; si no, cualquier imagen se factura como imagen a video; si no, texto a video; salvo que un render final de un elemento `draft_task` se factura como la operación del Draft que renderiza, y algunos modelos cobran la misma tarifa para texto a video y para imagen a video. Cuando `model_provider` selecciona un proveedor alternativo, o cuando Comfy Router sirve la llamada en otro proveedor, cada operación condicionada puede facturarse con la tarifa propia de ese proveedor. El mismo contrato de selección de proveedor se aplica en el despacho: sin `model_provider`, o con `model_provider` y `strict_mode=false` (el valor predeterminado), el cuerpo es el documento nativo del modelo y se valida contra el esquema de entrada propio del modelo antes de admitir la ejecución, de modo que un cuerpo que el modelo rechazaría es un `422` aquí en lugar de una solicitud en cola que falla minutos más tarde; además, un cuerpo de proveedor alternativo no estricto se traduce al esquema real de ese proveedor en el despacho. Con `strict_mode=true`, el cuerpo ya debe ser el esquema propio del proveedor alternativo y se reenvía sin cambios: la validación contra el esquema nativo se omite, exactamente igual que en la ruta sincrónica (consulta `model_provider` y `strict_mode`). **Respuestas**
 
 201
 
@@ -601,7 +601,7 @@ No se encontró el ID de modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `
 
 RouterErrorResponse
 
-Inspecciona `X-Comfy-Error-Type`: `concurrency_limit_exceeded` significa que la llamada original sigue en ejecución, así que espera `Retry-After` y reutiliza la misma clave; `invalid_input` requiere una clave nueva. Dos conflictos `invalid_input` en esta ruta no tienen nada que ver con la clave y ninguna clave nueva resuelve ninguno de los dos: `model_provider` que nombra un proveedor alternativo se rechaza cuando el cuerpo de la solicitud selecciona una operación multipart (una edición) que el traductor de ese proveedor para este modelo no puede atender, cuyo `detail` comienza con “this request’s `image` selects the edit operation”; y, comprobado después de eso, cuando la solicitud ya resolvió una credencial bring-your-own-key para el proveedor de la ruta, cuyo `detail` comienza con `this request resolved a BYOK credential`. Quita `model_provider`, o envía la solicitud sin la credencial BYOK y (para el caso multipart) sin la edición.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (cuando es `concurrency_limit_exceeded`)
+Inspecciona `X-Comfy-Error-Type`: `concurrency_limit_exceeded` significa que la llamada original sigue en ejecución, así que espera `Retry-After` y reutiliza la misma clave; `invalid_input` requiere una clave nueva. Dos conflictos `invalid_input` en esta ruta no tienen nada que ver con la clave y ninguna clave nueva resuelve ninguno de los dos: se rechaza un `model_provider` que nombre un proveedor alternativo cuando el cuerpo de la solicitud selecciona una operación multipart (una edición) que el traductor de ese proveedor para este modelo no puede atender, y cuyo `detail` comienza con “this request’s `image` selects the edit operation”; y, comprobado después de eso, cuando la solicitud ya resolvió una credencial bring-your-own-key para el proveedor de la ruta, cuyo `detail` comienza con `this request resolved a BYOK credential`. Quita `model_provider`, o envía la solicitud sin la credencial BYOK y (para el caso multipart) sin la edición.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (cuando es `concurrency_limit_exceeded`)
 
 422
 
@@ -613,13 +613,13 @@ El contenido de la solicitud se rechazó contra el esquema del modelo.Cuerpo: `R
 
 RouterErrorResponse
 
-Inspecciona `X-Comfy-Error-Type`: `queue_backlog_full` significa que ya tienes tantas solicitudes en cola sin terminar como se te permite, así que envía de nuevo cuando una de ellas termine; `rate_limited` significa esperar el número de segundos indicado en `Retry-After`.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (cuando es `rate_limited`)
+Inspecciona `X-Comfy-Error-Type`: `queue_backlog_full` significa que ya tienes tantas solicitudes en cola sin terminar como se te permite, así que envía de nuevo cuando una de ellas termine; `rate_limited` significa que debes esperar el número de segundos indicado en `Retry-After`.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (cuando es `rate_limited`)
 
 503
 
 RouterErrorResponse
 
-El router no está disponible temporalmente. Reintenta con retroceso exponencial.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (solo rechazos por capacidad)
+El Router no está disponible temporalmente. Reintenta con espera progresiva.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (solo rechazos por capacidad)
 
 504
 
@@ -629,7 +629,7 @@ La solicitud superó un plazo límite. Revisa el tipo de error antes de reintent
 
 ### `GET /v2/models/{provider}/{model}/requests/{request_id}`
 
-**Recoge el resultado de una solicitud enviada.** El endpoint de recogida. Sobre una solicitud que terminó correctamente, devuelve la salida nativa del modelo del socio: byte por byte lo mismo que lleva el `200` de la ruta síncrona para ese mismo modelo y esa misma entrada, de modo que los dos modos de entrega producen una sola forma de resultado y quien llama puede moverse entre ellos sin un segundo analizador. **Parámetros**
+**Recoge el resultado de una solicitud enviada.** El endpoint de recogida. Sobre una solicitud que terminó correctamente, devuelve la salida nativa del modelo del socio: byte por byte lo mismo que lleva el `200` de la ruta síncrona para ese mismo modelo y esa misma entrada, de modo que los dos modos de entrega producen una sola forma de resultado y el llamador puede moverse entre ellos sin un segundo analizador. **Parámetros**
 
 provider
 
@@ -679,7 +679,7 @@ Credenciales faltantes o no válidas.Cuerpo: `RouterErrorResponse` — Encabezad
 
 RouterErrorResponse
 
-La solicitud no está permitida para este llamador ni para este modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+La solicitud no está permitida para este llamador o este modelo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 404
 
@@ -703,7 +703,7 @@ RouterErrorResponse
 
 RouterErrorResponse
 
-El Router no está disponible temporalmente. Reintenta con retroceso exponencial.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+El Router no está disponible temporalmente. Reintenta con retroceso progresivo.Cuerpo: `RouterErrorResponse` — Encabezados: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 409
 
@@ -725,7 +725,7 @@ Un fallo a nivel de solicitud del Router: la solicitud nunca llegó al modelo, o
 
 ### `PUT /v2/models/{provider}/{model}/requests/{request_id}/cancel`
 
-**Solicita la cancelación de una solicitud ya enviada.** Le pide a Comfy que detenga una solicitud que no ha finalizado. Es una petición, no una garantía, y el `202` lo dice exactamente: `CANCELLATION_REQUESTED` significa que la petición fue aceptada, no que la ejecución se haya detenido. Una ejecución que ya está en curso en un socio puede completarse de todos modos, y una generación del socio que se completa se cobra, la haya recogido alguien o no, así que quien necesita saber qué ocurrió realmente consulta el endpoint de estado después, donde una cancelación que surtió efecto aparece como `COMPLETED` con un `error_type`, igual que cualquier otro resultado terminal. **Parámetros**
+**Solicita la cancelación de una solicitud ya enviada.** Le pide a Comfy que detenga una solicitud que no ha finalizado. Es una petición, no una garantía, y el `202` lo dice exactamente: `CANCELLATION_REQUESTED` significa que la petición fue aceptada, no que la ejecución se haya detenido. Una ejecución que ya está en curso en un socio puede completarse de todos modos, y una generación del socio que se completa se cobra, la haya recogido alguien o no, así que quien necesite saber qué ocurrió realmente consulta después el endpoint de estado, donde una cancelación que surtió efecto aparece como `COMPLETED` con un `error_type`, igual que cualquier otro resultado terminal. **Parámetros**
 
 provider
 
@@ -903,6 +903,7 @@ Se generan para una solicitud que el Router aceptó y luego no pudo completar.
 `provider_timeout`| El proveedor socio no respondió dentro de su plazo.  
 `insufficient_credits`| El espacio de trabajo que llama no tiene créditos suficientes para ejecutar el modelo.  
 `model_not_found`| El ID `{provider}/{model}` no nombra ningún modelo que Router pueda ejecutar: un proveedor desconocido, un id no enrolado, uno que el catálogo ya retiró después de su fecha de retiro, o un ID catalogado que el proveedor no sirve actualmente para Comfy.  
+`byok_credential_rejected`| El proveedor rechazó la clave enviada para esta llamada.  
   
 ### Categorías a nivel de transporte
 
@@ -979,19 +980,19 @@ Retry-After
 
 integer
 
-Segundos de espera antes de reintentar la misma solicitud con la misma `Idempotency-Key`.Se envía en: `409`, `504`
+Segundos de espera antes de reintentar la misma solicitud con la misma `Idempotency-Key`.Se envía en: `409`, `502`, `504`
 
 X-Comfy-Credits-Used
 
 string
 
-Cuánto costó esta ejecución, en créditos de Comfy, con el precio de la misma tarifa con la que se factura el cargo: así el llamador no necesita su propia tabla de precios, y en una ejecución que llegó al proveedor mediante más de una llamada facturada es la suma de todas ellas y no la de la última.
+Lo que costó esta ejecución, en créditos de Comfy, calculado con la misma tarifa con la que se factura el cargo: así el llamador no necesita su propia tabla de precios, y en una ejecución que llegó al proveedor a través de más de una llamada facturada, es la suma de todas ellas y no la de la última.
 
 X-Comfy-Error-Type
 
 RouterErrorType
 
-Categoría gruesa y legible por máquina del fallo, establecida por Router en cada respuesta de error.Tipo: `RouterErrorType`
+Categoría general y legible por máquina del fallo, establecida por Router en cada respuesta de error.Tipo: `RouterErrorType`
 
 X-Comfy-Estimate-Source
 
@@ -1015,7 +1016,7 @@ X-Comfy-Refusal-Subject
 
 string
 
-Sobre qué entrada o salida trataba un rechazo por política de contenido, como vocabulario cerrado a nivel de Router: `input`, `output`, `input_text`, `input_image`, `input_video`, `input_audio`, `output_text`, `output_image`, `output_video`, `output_audio`.
+A qué entrada o salida se refería un rechazo por política de contenido, como vocabulario cerrado a nivel de Router: `input`, `output`, `input_text`, `input_image`, `input_video`, `input_audio`, `output_text`, `output_image`, `output_video`, `output_audio`.
 
 X-Comfy-Request-Id
 
@@ -1027,7 +1028,7 @@ X-Comfy-Router-Dropped-Params
 
 string
 
-Una sola cadena codificada en JSON que contiene un arreglo de cadenas: decódificala con un analizador de JSON en lugar de dividirla por comas, porque es una única cadena en el cable, no un arreglo OpenAPI separado por comas, y cada entrada es una oración que lleva sus propias comas. Está presente siempre que una traducción produjo el cuerpo de la solicitud de esta llamada y no pudo expresar uno o más campos nativos exactamente en el proveedor que la sirvió, indicando cada campo descartado y el motivo, ya sea que el llamador haya pedido esa traducción con `model_provider` (`strict_mode=false`, el valor predeterminado) o que la haya ejecutado un reintento automático de `fallback_provider`.
+Una sola cadena codificada en JSON que contiene un arreglo de cadenas: decodifícala con un analizador de JSON en lugar de dividirla por comas, porque es una única cadena en el cable, no un arreglo OpenAPI separado por comas, y cada entrada es una oración que lleva sus propias comas. Está presente siempre que una traducción produjo el cuerpo de la solicitud de esta llamada y no pudo expresar uno o más campos nativos con exactitud en el proveedor que la sirvió, indicando cada campo descartado y por qué, ya sea que el llamador haya pedido esa traducción con `model_provider` (`strict_mode=false`, el valor predeterminado) o que la haya ejecutado un reintento automático de `fallback_provider`.
 
 X-Comfy-Router-Fallback-Provider
 
@@ -1039,7 +1040,7 @@ X-Comfy-Router-Provider
 
 string
 
-El proveedor del tramo de Router que sirvió esta llamada, presente en cada respuesta de ejecución exitosa: el proveedor propio del modelo en una ejecución nativa, el proveedor alternativo que indicó `model_provider`, o el proveedor en el que aterrizó un reintento de `fallback_provider` (que `X-Comfy-Router-Fallback-Provider` también nombra, solo en ese caso). Es el tramo al que Router despachó y no necesariamente el proveedor que produjo la salida, ya que una cascada a nivel de proxy dentro de un tramo nativo (la cadena de imágenes Gemini de `vertexai`, por ejemplo) puede entregar la llamada a otro proveedor que ningún encabezado nombra.
+El proveedor del tramo de Router que sirvió esta llamada, presente en cada respuesta de ejecución exitosa: el proveedor que Comfy Router eligió para servir una llamada que no nombraba ningún `model_provider` (el propio del modelo, u otro al que Comfy la enrutó), el proveedor alternativo que nombraba `model_provider`, o el proveedor en el que recayó un reintento de `fallback_provider` (que `X-Comfy-Router-Fallback-Provider` también nombra, solo en ese caso). Es el tramo al que Router despachó y no necesariamente el vendedor que produjo la salida, ya que una cascada a nivel de proxy dentro de un tramo nativo (la cadena de imágenes Gemini de `vertexai`, por ejemplo) puede entregar la llamada a un vendedor diferente que ningún encabezado nombra.
 
 X-Comfy-Upstream-Detail
 
@@ -1140,7 +1141,7 @@ modelos de video `byteplus/*` (`seedance`, `dreamina-seedance`)| el video finali
 `minimax/*`| el video finalizado| 12 horas  
 `xai/*`| cada imagen generada, y el video finalizado| 24 horas  
   
-Estos tiempos de vida empiezan cuando se firma la URL, no cuando la abres. Las URL en caché o de una respuesta repetida pueden tener menos tiempo restante; repetir la llamada no las renueva. Un registro de `Idempotency-Key` puede sobrevivir a las URL que contiene, así que desde una hora antes de que expire una URL de ese tipo, un reintento con la misma clave recibe `409 invalid_input` en lugar de la respuesta registrada; una respuesta que ya estaba tan cerca de expirar cuando se sirvió sigue siendo reproducible durante 5 minutos. Descarga el recurso cuanto antes. Solo se copian los recursos indicados en cada fila: las imágenes `byteplus/seedream-*` y `byteplus/seededit-*` no están cubiertas por la fila de video de BytePlus. La copia la realiza únicamente el proveedor nativo del modelo. Una ejecución atendida por un proveedor alternativo (`model_provider` que nombre uno, o una ejecución nativa cuyo reintento de respaldo haya recaído en uno, indicado por `X-Comfy-Router-Fallback-Provider`) devuelve las URL propias de ese proveedor, que siguen la caducidad del proveedor y no se copian. Los valores `default`, `comfy` y `comfyui` de `model_provider` no nombran ningún proveedor alternativo, por lo que esas ejecuciones son nativas y se copian como se describe arriba, igual que una ejecución con `model_provider` cuyo reintento de respaldo haya vuelto a recaer en el proveedor nativo. **Veo (`veo/*`) tiene una ruta de almacenamiento aparte.** En `response.videos[]`, lee el miembro que esté presente: `bytesBase64Encoded` contiene el clip en línea, mientras que `gcsUri` contiene un enlace HTTPS firmado por Comfy cuando el entorno está configurado para que el proveedor escriba directamente en el almacenamiento de Comfy. Ese enlace es válido durante 24 horas desde la respuesta. En este último caso el recurso se escribe directamente en lugar de copiarse, por lo que Veo no figura en la tabla de realojamiento. Otros modelos devuelven referencias a recursos del proveedor o bytes en línea. Las URL del proveedor siguen la caducidad del proveedor, que puede ser mucho más corta que los tiempos de vida anteriores y no está especificada por el contrato del Router. **URL originales de BytePlus (Seedance 2.x, opcional).** En un espacio de trabajo en el que Comfy haya habilitado la opción del lado del servidor, un resultado de Seedance 2.x también incluye las URL propias de BytePlus en `content.upstream_video_url` y `content.upstream_last_frame_url`, junto a las copiadas, además de `content.upstream_expires_at`. No hay ningún parámetro de solicitud y ningún espacio de trabajo tiene la opción habilitada de forma predeterminada. Estas URL expiran 24 horas después de la generación y dejan de estar presentes cuando BytePlus las borra; en Seedance 2.5, BytePlus limita cada una a 100 descargas, y la copia propia de Router consume una. Cada una es una credencial de portador para su objeto: cualquiera que la tenga puede descargar el recurso hasta que expire. **Espacios de trabajo con retención cero de datos.** Para un espacio de trabajo que Comfy haya configurado para retención cero de datos, los resultados de BytePlus no se copian en el almacenamiento de Comfy: la fila de video de `byteplus/*` anterior no se aplica, y `content.video_url` y `content.last_frame_url` son las URL del proveedor propio de BytePlus, devueltas tal como BytePlus las envió. Son válidas durante 24 horas y, en Seedance 2.5, BytePlus limita cada una a 100 descargas, así que descarga el recurso cuanto antes. Ese resultado no se reproduce a partir de su registro de `Idempotency-Key`. La copia se realiza con el mejor esfuerzo posible para cada recurso. Si una copia falla, esa entrada conserva su referencia del proveedor; la respuesta puede contener tanto URL de Comfy como del proveedor, sin un campo explícito de estado de copia por recurso. La generación se completa igualmente y se cobra. No deduzcas el tiempo de vida de todas las URL a partir de un recurso realojado con éxito. Que un resultado esté alojado en Comfy también determina si más tarde aún es posible repetir una llamada completada desde su registro de `Idempotency-Key`; el parámetro `Idempotency-Key` de arriba indica qué recibe un reintento cuando no es posible.
+Estos tiempos de vida empiezan cuando se firma la URL, no cuando la abres. Las URL en caché o de una respuesta repetida pueden tener menos tiempo restante; repetir la llamada no las renueva. Un registro de `Idempotency-Key` puede sobrevivir a las URL que contiene, así que desde una hora antes de que expire una URL de ese tipo, un reintento con la misma clave recibe `409 invalid_input` en lugar de la respuesta registrada; una respuesta que ya estaba tan cerca de expirar cuando se sirvió sigue siendo reproducible durante 5 minutos. Descarga el recurso cuanto antes. Solo se copian los recursos indicados en cada fila: las imágenes `byteplus/seedream-*` y `byteplus/seededit-*` no están cubiertas por la fila de video de BytePlus. La copia la realiza únicamente el proveedor nativo del modelo. Una ejecución atendida por un proveedor alternativo devuelve las URL propias de ese proveedor, que siguen la caducidad del proveedor y no se copian. Ese caso abarca tres situaciones: un `model_provider` que nombra uno; una ejecución que no nombró ningún `model_provider` y que Comfy Router atendió en otro proveedor (indicado por `X-Comfy-Router-Provider` en la ruta síncrona de ejecución); o una ejecución nativa cuyo reintento de respaldo recayó en uno (indicado por `X-Comfy-Router-Fallback-Provider`). Los valores `default`, `comfy` y `comfyui` de `model_provider` no nombran ningún proveedor alternativo, por lo que esas ejecuciones son nativas y se copian como se describe arriba, igual que una ejecución con `model_provider` cuyo reintento de respaldo haya vuelto a recaer en el proveedor nativo. **Veo (`veo/*`) tiene una ruta de almacenamiento aparte.** En `response.videos[]`, lee el miembro que esté presente: `bytesBase64Encoded` contiene el clip en línea, mientras que `gcsUri` contiene un enlace HTTPS firmado por Comfy cuando el entorno está configurado para que el proveedor escriba directamente en el almacenamiento de Comfy. Ese enlace es válido durante 24 horas desde la respuesta. En este último caso el recurso se escribe directamente en lugar de copiarse, por lo que Veo no figura en la tabla de realojamiento. Otros modelos devuelven referencias a recursos del proveedor o bytes en línea. Las URL del proveedor siguen la caducidad del proveedor, que puede ser mucho más corta que los tiempos de vida anteriores y no está especificada por el contrato del Router. **URL originales de BytePlus (Seedance 2.x, opcional).** En un espacio de trabajo en el que Comfy haya habilitado la opción del lado del servidor, un resultado de Seedance 2.x también incluye las URL propias de BytePlus en `content.upstream_video_url` y `content.upstream_last_frame_url`, junto a las copiadas, además de `content.upstream_expires_at`. No hay ningún parámetro de solicitud y ningún espacio de trabajo tiene la opción habilitada de forma predeterminada. Estas URL expiran 24 horas después de la generación y dejan de estar presentes cuando BytePlus las borra; en Seedance 2.5, BytePlus limita cada una a 100 descargas, y la copia propia de Router consume una. Cada una es una credencial de portador para su objeto: cualquiera que la tenga puede descargar el recurso hasta que expire. **Espacios de trabajo con retención cero de datos.** Para un espacio de trabajo que Comfy haya configurado para retención cero de datos, los resultados de BytePlus no se copian en el almacenamiento de Comfy: la fila de video de `byteplus/*` anterior no se aplica, y `content.video_url` y `content.last_frame_url` son las URL del proveedor propio de BytePlus, devueltas tal como BytePlus las envió. Son válidas durante 24 horas y, en Seedance 2.5, BytePlus limita cada una a 100 descargas, así que descarga el recurso cuanto antes. Ese resultado no se reproduce a partir de su registro de `Idempotency-Key`. La copia se realiza con el mejor esfuerzo posible para cada recurso. Si una copia falla, esa entrada conserva su referencia del proveedor; la respuesta puede contener tanto URL de Comfy como del proveedor, sin un campo explícito de estado de copia por recurso. La generación se completa igualmente y se cobra. No deduzcas el tiempo de vida de todas las URL a partir de un recurso realojado con éxito. Que un resultado esté alojado en Comfy también determina si más tarde aún es posible repetir una llamada completada desde su registro de `Idempotency-Key`; el parámetro `Idempotency-Key` de arriba indica qué recibe un reintento cuando no es posible.
 
 ## Esquema de entrada y salida por modelo
 
@@ -1286,7 +1287,7 @@ RouterErrorType
 
 requerido
 
-Categoría general legible por máquina para un fallo del Router, replicada en el encabezado de respuesta `X-Comfy-Error-Type` para que quien llama pueda ramificar sin analizar el cuerpo. El conjunto está cerrado en veinte valores: las seis categorías de nivel de solicitud `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` y `model_not_found`, más las de nivel de transporte `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` y `result_expired`. Que el conjunto esté cerrado describe cómo se documenta hoy, no un límite que se mantenga para siempre: se espera que el conjunto crezca, por lo que esto es deliberadamente una cadena simple y no un `enum`, así que un cliente debe tratar cualquier valor no reconocido como `internal_error` en lugar de ramificar de forma exhaustiva sobre la lista anterior y romper con la próxima adición.Tipo: `RouterErrorType`
+Categoría general legible por máquina para un fallo del Router, replicada en el encabezado de respuesta `X-Comfy-Error-Type` para que quien llama pueda ramificar sin analizar el cuerpo. El conjunto está cerrado en veintiún valores: las seis categorías de nivel de solicitud `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` y `model_not_found`, más las de nivel de transporte `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full`, `result_expired` y la de nivel de solicitud `byok_credential_rejected`. Que el conjunto esté cerrado describe cómo se documenta hoy, no un límite que se mantenga para siempre: se espera que el conjunto crezca, por lo que esto es deliberadamente una cadena simple y no un `enum`, así que un cliente debe tratar cualquier valor no reconocido como `internal_error` en lugar de ramificar de forma exhaustiva sobre la lista anterior y romper con la próxima adición.Tipo: `RouterErrorType`
 
 upstream_detail
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/kling-long-image-4-0/code/
 title: Use Kling Long Image 4.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:17.333293+00:00
+fetched_at: 2026-11-19T16:26:15.391643+00:00
 ---
 
 # Use Kling Long Image 4.0 with Comfy Router - ComfyUI

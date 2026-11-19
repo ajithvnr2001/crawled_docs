@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/byteplus/seedream-5-5-261028/code/
 title: Usa Seedream 5.5 261028 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:55.084262+00:00
+fetched_at: 2026-11-19T16:26:10.923628+00:00
 ---
 
 # Usa Seedream 5.5 261028 con Comfy Router - ComfyUI
@@ -243,7 +243,7 @@ string
 
 predeterminado:"\"jpeg\""
 
-Especifica el formato de la imagen de salida. Solo seedream-5.0-pro, 5.0-flash, 5.0-lite y 5.5 admiten este parámetro. seedream-5.5 usa png de forma predeterminada. En el escenario de separación de capas, output_format solo controla el formato de la imagen base; todas las capas se devuelven siempre como png.Valores posibles: `png`, `jpeg`
+Especifica el formato de la imagen de salida. Solo seedream-5.0-pro, 5.0-flash, 5.0-lite y 5.5 admiten este parámetro. seedream-5.5 usa png de forma predeterminada. En el escenario de separación de capas, output_format solo controla el formato de la imagen base; cada capa se devuelve siempre como png.Valores posibles: `png`, `jpeg`
 
 prompt
 
@@ -257,7 +257,7 @@ string
 
 predeterminado:"\"url\""
 
-Especifica el formato de la imagen generada que se devuelve en la respuestaValores posibles: `url`, `b64_json`
+Especifica el formato de la imagen generada que se devuelve en la respuesta. b64_json se rechaza junto con layer_decomposition en esta ruta (400 en v1, 422 en response_format en Comfy Router), porque las capas en base64 insertadas en línea pueden superar el límite de tamaño de resultado de Comfy Router y fallar después de que la imagen ya se haya generado y facturado; para las solicitudes de separación de capas usa url (el valor predeterminado).Valores posibles: `url`, `b64_json`
 
 seed
 
@@ -271,7 +271,7 @@ sequential_image_generation
 
 string
 
-Controla si se deshabilita la función de generación por lote. Este parámetro solo se admite en seedream-5.0-lite, 4.5 y 4.0 (no es compatible con seedream-5.0-pro, 5.0-flash ni 5.5). Valores válidos: auto: En modo automático, el modelo determina automáticamente si devuelve varias imágenes y cuántas imágenes contendrá cada una, según el prompt del usuario. disabled: Desactiva la función de generación por lote. El modelo solo generará una imagen.Valores posibles: `auto`, `disabled`
+Controla si se deshabilita la función de generación por lote. Este parámetro solo se admite en seedream-5.0-lite, 4.5 y 4.0 (no es compatible con seedream-5.0-pro, 5.0-flash ni 5.5). Valores válidos: auto: En modo automático, el modelo determina automáticamente si devuelve varias imágenes y cuántas imágenes contendrá, según el prompt del usuario. disabled: Desactiva la función de generación por lote. El modelo solo generará una imagen.Valores posibles: `auto`, `disabled`
 
 sequential_image_generation_options
 
@@ -401,7 +401,7 @@ error.code
 
 string
 
-Código de error del ModelArk de origen. SensitiveContentDetected, InputTextSensitiveContentDetected, InputImageSensitiveContentDetected, InputVideoSensitiveContentDetected, InputAudioSensitiveContentDetected, OutputTextSensitiveContentDetected, OutputImageSensitiveContentDetected, OutputVideoSensitiveContentDetected y OutputAudioSensitiveContentDetected identifican rechazos por políticas de contenido. Una familia puede tener un motivo separado por punto, como InputImageSensitiveContentDetected.PrivacyInformation, OutputVideoSensitiveContentDetected.PolicyViolation u OutputImageSensitiveContentDetected.DeepFake. Es una cadena abierta, no una enumeración: otros códigos describen fallos de validación y del proveedor. Router reconoce las familias de políticas en las respuestas de error HTTP 400 y en las respuestas HTTP 200 de tareas fallidas, sin sobrescribir los fallos de transporte.
+Código de error de ModelArk de origen. SensitiveContentDetected, InputTextSensitiveContentDetected, InputImageSensitiveContentDetected, InputVideoSensitiveContentDetected, InputAudioSensitiveContentDetected, OutputTextSensitiveContentDetected, OutputImageSensitiveContentDetected, OutputVideoSensitiveContentDetected y OutputAudioSensitiveContentDetected identifican rechazos por políticas de contenido. Una familia puede tener un motivo separado por punto, como InputImageSensitiveContentDetected.PrivacyInformation, OutputVideoSensitiveContentDetected.PolicyViolation u OutputImageSensitiveContentDetected.DeepFake. Es una cadena abierta, no una enumeración: otros códigos describen fallos de validación y del proveedor. Router reconoce las familias de políticas en las respuestas de error HTTP 400 y en las respuestas HTTP 200 de tareas fallidas, sin sobrescribir los fallos de transporte.
 
 error.message
 
@@ -413,7 +413,7 @@ model
 
 string
 
-El ID del modelo usado para la solicitud
+El ID del modelo utilizado para la solicitud
 
 usage
 

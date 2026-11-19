@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/stability/generate-ultra/code/
 title: Use Generate Ultra with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:39.236629+00:00
+fetched_at: 2026-11-19T16:26:13.624033+00:00
 ---
 
 # Use Generate Ultra with Comfy Router - ComfyUI

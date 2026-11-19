@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/stability/generate-ultra/code/
 title: Usar Generate Ultra con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:56.672034+00:00
+fetched_at: 2026-11-19T16:26:09.451946+00:00
 ---
 
 # Usar Generate Ultra con Comfy Router - ComfyUI
@@ -187,7 +187,7 @@ image
 
 string (uri)
 
-Solo `stability/generate-ultra`. Una URL de recurso firmada por Comfy de una imagen de origen; si la envías, cambia a imagen a imagen y requiere `strength`.Formato: `uri`
+Solo `stability/generate-ultra`. Una URL de recurso firmada por Comfy de una imagen de origen; si la envías, cambia a imagen a imagen y requiere `strength`. Se rechaza con 400 en `stability/generate-core`.Formato: `uri`
 
 negative_prompt
 
@@ -219,7 +219,7 @@ strength
 
 number
 
-Solo imagen a imagen de `stability/generate-ultra`. Cuánto desplazarse desde la imagen de origen; 1 la ignora.Alcance: `0` a `1`
+Solo imagen a imagen de `stability/generate-ultra`. Cuánto desplazarse desde la imagen de origen; 1 la ignora. Se rechaza con 400 en `stability/generate-core`.Alcance: `0` a `1`
 
 style_preset
 

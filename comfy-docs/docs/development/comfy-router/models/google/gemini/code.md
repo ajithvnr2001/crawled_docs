@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/google/gemini/code/
 title: Use Google Gemini with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:18.959945+00:00
+fetched_at: 2026-11-19T16:26:16.293989+00:00
 ---
 
 # Use Google Gemini with Comfy Router - ComfyUI

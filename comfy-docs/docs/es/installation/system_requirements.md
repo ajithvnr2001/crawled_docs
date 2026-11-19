@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/es/installation/system_requirements/
-title: Requisitos del sistema - ComfyUI
+title: Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.109468+00:00
+fetched_at: 2026-11-19T16:26:06.441286+00:00
 ---
 
-# Requisitos del sistema - ComfyUI
+# Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI
 
 > Source: https://docs.comfy.org/es/installation/system_requirements/
 
 ## En esta página
+
+Volver arriba
 
   * Sistemas operativos compatibles
   * Versión de Python
@@ -22,23 +24,19 @@ fetched_at: 2026-10-25T12:24:49.109468+00:00
 
 Local (autoalojado)
 
-# Requisitos del sistema
+# Requisitos del sistema en ComfyUI: OS, Python y GPU
 
 Copiar páginaCopiar página
 
-Requisitos de hardware y software para instalar y ejecutar ComfyUI.
+Qué necesita ComfyUI para funcionar: sistemas operativos compatibles, la versión recomendada de Python 3.13, el navegador y los backends de GPU por fabricante.
 
 Copiar páginaCopiar página
 
-En esta guía presentaremos los requisitos del sistema para instalar ComfyUI. Debido a las frecuentes actualizaciones de ComfyUI, es posible que este documento no se actualice de forma oportuna. Consulta las instrucciones correspondientes en [ComfyUI](https://github.com/Comfy-Org/ComfyUI). Independientemente de la versión de ComfyUI que uses, se ejecuta en un entorno Python separado.
+Aquí verás los requisitos del sistema para instalar ComfyUI. Como ComfyUI se actualiza con frecuencia, es posible que este documento no esté siempre al día. Consulta también las instrucciones en [ComfyUI](https://github.com/Comfy-Org/ComfyUI). Sea cual sea la versión de ComfyUI que uses, se ejecuta en un entorno Python aparte.
 
-### 
+### Sistemas operativos compatibles
 
-​
-
-Sistemas operativos compatibles
-
-Actualmente, admitimos los siguientes sistemas operativos:
+Por ahora admitimos estos sistemas operativos:
 
   * Windows
   * Linux
@@ -93,31 +91,19 @@ Instalación manual
 
 Compatible con todos los tipos de sistema y de GPU (Nvidia, AMD, Intel, Apple Silicon, Ascend NPU, Cambricon MLU)
 
-### 
-
-​
-
-Versión de Python
+### Versión de Python
 
   * **Python 3.13** tiene muy buen soporte y es la versión recomendada
-  * Python 3.14 funciona, pero algunos nodos personalizados pueden tener problemas. La variante free threaded funciona, pero algunas dependencias habilitarán el GIL, por lo que no tiene soporte completo
-  * Python 3.12 es una buena alternativa si tienes problemas con las dependencias de algunos nodos personalizados en 3.13
+  * Python 3.14 funciona, pero algunos nodos personalizados pueden fallar. La variante free-threaded también funciona, aunque algunas dependencias reactivan el GIL, así que el soporte no es completo
+  * Python 3.12 es una buena alternativa si en 3.13 te fallan dependencias de nodos personalizados
 
 
 
-### 
+### Requisitos del navegador
 
-​
+Para la mejor experiencia, usa **Google Chrome 143 o posterior**. Las versiones anteriores (142 e inferiores) tienen problemas conocidos que pueden provocar fallos visuales y de rendimiento en ComfyUI.
 
-Requisitos del navegador
-
-Para obtener la mejor experiencia, usa **Google Chrome versión 143 o posterior**. Las versiones anteriores de Chrome (142 y anteriores) tienen problemas conocidos que pueden causar fallos visuales y problemas de rendimiento en ComfyUI.
-
-### 
-
-​
-
-Hardware compatible
+### Hardware compatible
 
   * **GPU NVIDIA** \- Instala pytorch estable con CUDA 13.0: `pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130`
   * **GPU AMD (Linux)** \- ROCm 7.2 estable o nocturna
@@ -133,11 +119,7 @@ Consulta la [sección de instalación manual de ComfyUI para Windows y Linux](ht
 
 Se admite PyTorch 2.7 y versiones posteriores, pero se recomienda encarecidamente usar una versión más reciente. En las tarjetas Nvidia de la serie 20 y posteriores se requiere una versión de PyTorch con cu130 o superior. Algunas funciones y optimizaciones podrían funcionar solo en versiones más recientes. Por lo general, recomendamos usar la última versión principal de PyTorch con la última versión de CUDA, a menos que tenga menos de 2 semanas de antigüedad.La compilación portable para Windows actualmente incluye Python 3.13 y PyTorch CUDA 13.0. Actualiza tus controladores de Nvidia si no se inicia.
 
-### 
-
-​
-
-Dependencias
+### Dependencias
 
   * Instala PyTorch (la versión específica para tu hardware)
   * Instala todas las dependencias del archivo requirements.txt de ComfyUI: `pip install -r requirements.txt`
@@ -148,11 +130,7 @@ Dependencias
 
 Consulta la sección de instalación manual para ver los pasos de instalación detallados.
 
-## 
-
-​
-
-Preguntas frecuentes
+## Preguntas frecuentes
 
 ¿ComfyUI es compatible con MLX (el framework de aprendizaje automático de Apple)?
 

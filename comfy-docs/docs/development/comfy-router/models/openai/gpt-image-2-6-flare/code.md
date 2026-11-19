@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-flare/code/
 title: Use GPT Image 2.6 Flare with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:19.649747+00:00
+fetched_at: 2026-11-19T16:26:14.876370+00:00
 ---
 
 # Use GPT Image 2.6 Flare with Comfy Router - ComfyUI

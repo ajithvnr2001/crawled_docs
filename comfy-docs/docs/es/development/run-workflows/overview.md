@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/development/run-workflows/overview/
-title: Ejecutar flujos de trabajo - ComfyUI
+title: Ejecutar flujos de trabajo en ComfyUI: SDK y API del servidor - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.225301+00:00
+fetched_at: 2026-11-19T16:26:06.672756+00:00
 ---
 
-# Ejecutar flujos de trabajo - ComfyUI
+# Ejecutar flujos de trabajo en ComfyUI: SDK y API del servidor - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/run-workflows/overview/
 
@@ -23,21 +23,17 @@ Volver arriba
 
 Ejecutar flujos de trabajo
 
-# Ejecutar flujos de trabajo
+# Ejecutar flujos de trabajo en ComfyUI: SDK y API del servidor
 
 Copiar páginaCopiar página
 
-Cómo ejecutar flujos de trabajo de ComfyUI en una implementación activa y qué cliente funciona con cada una
+Con qué cliente ejecutar flujos de trabajo de ComfyUI, desde los SDK de Python y TypeScript hasta la API del servidor, y qué cubre cada uno.
 
 Copiar páginaCopiar página
 
 Una vez que ComfyUI está [desplegado en algún lugar](https://docs.comfy.org/es/development/deploy/overview), tu aplicación ejecuta flujos de trabajo contra él: envía un flujo de trabajo, espera la ejecución y descarga las salidas. Esta página describe qué cliente usar para cada despliegue.
 
-## 
-
-​
-
-Empieza aquí: los SDK de Comfy
+## Empieza aquí: los SDK de Comfy
 
 Para una nueva integración, usa los **SDK de Comfy** oficiales (Python y TypeScript) y la [API de Comfy v2](https://docs.comfy.org/es/api-reference/v2/overview) a la que llaman. El mismo código funciona con cualquier objetivo de despliegue; solo cambia la URL base.
 
@@ -45,11 +41,7 @@ Para una nueva integración, usa los **SDK de Comfy** oficiales (Python y TypeSc
 
 Instala un SDK para enviar flujos de trabajo y descargar salidas desde Python o TypeScript.
 
-## 
-
-​
-
-Qué funciona con qué
+## Qué funciona con qué
 
 Despliegue| SDK de Comfy / API v2| Notas  
 ---|---|---  
@@ -59,11 +51,7 @@ Despliegue| SDK de Comfy / API v2| Notas
   
 Las instancias autoalojadas también pueden omitir el SDK por completo y usar directamente la [API del Servidor de ComfyUI](https://docs.comfy.org/es/development/comfyui-server/comms_overview) (REST + WebSocket). Expone toda la superficie local, incluidas la cola y la información del nodo, pero no ofrece garantía de compatibilidad entre versiones.
 
-## 
-
-​
-
-¿Qué API debería usar?
+## ¿Qué API debería usar?
 
 | Comfy API v2 + SDKs| API de Cloud v1| API de servidor de ComfyUI  
 ---|---|---|---  
@@ -77,11 +65,7 @@ Las instancias autoalojadas también pueden omitir el SDK por completo y usar di
   
 Todas aceptan el mismo formato de flujo de trabajo ([formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format)), así que puedes desarrollar y probar flujos de trabajo localmente y moverlos a otro despliegue sin cambios.
 
-## 
-
-​
-
-Primeros pasos
+## Primeros pasos
 
 ## SDK de Comfy
 
@@ -99,11 +83,7 @@ Exporta flujos de trabajo en el formato JSON que aceptan las API.
 
 La API REST y WebSocket sin procesar de una instancia autoalojada.
 
-## 
-
-​
-
-Requisitos previos
+## Requisitos previos
 
   * Una [clave API](https://docs.comfy.org/es/development/api-development/getting-an-api-key) para cualquier cosa que se conecte con Comfy Cloud, un despliegue de Comfy API o los Nodos asociados. Un ComfyUI que sea puramente local no la necesita.
   * Un flujo de trabajo exportado en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format).
@@ -116,4 +96,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/run-workflows/overview.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/run-workflows/overview)
 
-[Autenticación de Nodos asociados](https://docs.comfy.org/es/development/comfyui-server/api-key-integration)[Primer flujo de trabajo](https://docs.comfy.org/es/development/api-development/quickstart)
+[Integración de clave API](https://docs.comfy.org/es/development/comfyui-server/api-key-integration)[Primer flujo de trabajo](https://docs.comfy.org/es/development/api-development/quickstart)

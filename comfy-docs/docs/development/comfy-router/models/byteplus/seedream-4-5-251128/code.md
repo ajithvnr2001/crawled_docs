@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-4-5-251128/code/
 title: Use Seedream 4.5 251128 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:38.000919+00:00
+fetched_at: 2026-11-19T16:26:17.438841+00:00
 ---
 
 # Use Seedream 4.5 251128 with Comfy Router - ComfyUI

@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_commands_keybindings/
-title: Commands and Keybindings - ComfyUI
+title: ComfyUI Commands and Keybindings API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:38.993552+00:00
+fetched_at: 2026-11-19T16:26:07.497656+00:00
 ---
 
-# Commands and Keybindings - ComfyUI
+# ComfyUI Commands and Keybindings API - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_commands_keybindings/
 
 ## On this page
+
+Back to top
 
   * Basic Usage
   * Command Configuration
@@ -23,21 +25,17 @@ fetched_at: 2026-10-17T10:49:38.993552+00:00
 
 JavaScript (UI)
 
-# Commands and Keybindings
+# ComfyUI Commands and Keybindings API
 
 Copy pageCopy page
 
-Master Comfy commands and keybindings to register custom actions and shortcuts for your extensions. Read the guide and start optimizing today.
+Register custom commands and keyboard shortcuts from a ComfyUI extension, with keybinding syntax, special keys, command examples, and the known limitations.
 
 Copy pageCopy page
 
 The Commands and Keybindings API allows extensions to register custom commands and associate them with keyboard shortcuts. This enables users to quickly trigger actions without using the mouse.
 
-## 
-
-​
-
-Basic Usage
+## Basic Usage
     
     
     app.registerExtension({
@@ -62,11 +60,7 @@ Basic Usage
     });
     
 
-## 
-
-​
-
-Command Configuration
+## Command Configuration
 
 Each command requires an `id`, `label`, and `function`:
     
@@ -78,11 +72,7 @@ Each command requires an `id`, `label`, and `function`:
     }
     
 
-## 
-
-​
-
-Keybinding Configuration
+## Keybinding Configuration
 
 Each keybinding requires a `combo` and `commandId`:
     
@@ -99,11 +89,7 @@ Each keybinding requires a `combo` and `commandId`:
     }
     
 
-### 
-
-​
-
-Special Keys
+### Special Keys
 
 For non-character keys, use one of these values:
 
@@ -113,11 +99,7 @@ For non-character keys, use one of these values:
 
 
 
-## 
-
-​
-
-Command Examples
+## Command Examples
     
     
     app.registerExtension({
@@ -158,11 +140,7 @@ Command Examples
     });
     
 
-## 
-
-​
-
-Keybinding Examples
+## Keybinding Examples
     
     
     app.registerExtension({
@@ -195,11 +173,7 @@ Keybinding Examples
     });
     
 
-## 
-
-​
-
-Notes and Limitations
+## Notes and Limitations
 
   * Keybindings defined in the ComfyUI core cannot be overwritten by extensions. Check the core keybindings in these source files:
     * [Core Commands](https://github.com/Comfy-Org/ComfyUI_frontend/blob/e76e9ec61a068fd2d89797762f08ee551e6d84a0/src/composables/useCoreCommands.ts)
@@ -217,26 +191,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_commands_keybindings.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_commands_keybindings)
 
-[Selection ToolboxPrevious](https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox)[ComfyUI Topbar Menu APINext](https://docs.comfy.org/custom-nodes/js/javascript_topbar_menu)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Selection Toolbox](https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox)[Topbar menu API](https://docs.comfy.org/custom-nodes/js/javascript_topbar_menu)

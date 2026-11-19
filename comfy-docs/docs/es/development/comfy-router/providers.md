@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/providers/
 title: Proveedores de servicio de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:59.540331+00:00
+fetched_at: 2026-11-19T16:26:09.263652+00:00
 ---
 
 # Proveedores de servicio de Comfy Router - ComfyUI
@@ -38,7 +38,7 @@ Modelo / proveedor| **Comfy (predeterminado)**| **fal**| **Higgsfield**| **Kelly
 [Dreamina Seedance 2.5 260628](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code)| ✓| ✓| ✓| ✓| -| -| ✓| -| ✓  
 [Gemini 2.5 Flash Image](https://docs.comfy.org/es/development/comfy-router/models/google/gemini-2-5-flash-image/code)| ✓| -| -| -| ✓| -| -| -| -  
 [Gemini Nano Banana 2.1](https://docs.comfy.org/es/development/comfy-router/models/google/gemini-nano-banana-2-1/code)| ✓| -| -| -| ✓| -| -| -| -  
-[GPT Image 2](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2/code)| ✓| ✓| -| -| ✓| ✓| ✓| -| ✓  
+[GPT Image 2](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2/code)| ✓| ✓| -| -| ✓| -| ✓| -| ✓  
 [GPT Image 2.5 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code)| ✓| ✓| -| -| ✓| -| ✓| -| ✓  
 [GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)| ✓| ✓| -| -| ✓| -| ✓| -| ✓  
 [GPT Image 2.6 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-6-flare/code)| ✓| -| -| -| ✓| -| -| -| -  

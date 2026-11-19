@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/deploy/cloud-custom-builds/
 title: Agregar Builds personalizados a Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:55.000661+00:00
+fetched_at: 2026-11-19T16:26:08.793636+00:00
 ---
 
 # Agregar Builds personalizados a Comfy Cloud - ComfyUI
@@ -59,12 +59,12 @@ Si tu flujo de trabajo usa Nodos Personalizados que Comfy Cloud no admite, Comfy
 
 Abrir la Developer Platform
 
-En el diálogo, haz clic en **Create on Platform**. La Developer Platform se abre en una pestaña nueva, en su página **Deploy**.![Diálogo de Comfy Cloud para un flujo de trabajo con Nodos Personalizados que Comfy Cloud no tiene, donde se enumeran los Nodos faltantes encima del enlace Leer la documentación, el botón Crea con tu agente y el botón Create on Platform](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on-custom-deployment.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=da981d7d6d591244e63f7c3e91979419)![Menú Run on abierto junto al botón Run, con Comfy Cloud marcado, el mensaje This workspace has no deployments yet y Create a custom deployment debajo](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=3ed4851ed8cf0355d60d208bc64650c4)
+En el diálogo, haz clic en **Create on Platform**. La Developer Platform se abre en una pestaña nueva, en su página **Deploy**.![Diálogo de Comfy Cloud para un flujo de trabajo con Nodos Personalizados que Comfy Cloud no tiene, donde se enumeran los Nodos faltantes encima del enlace Leer la documentación, el botón Crea con tu agente y el botón Create on Platform](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on-custom-deployment.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=da981d7d6d591244e63f7c3e91979419)
 
 Para crear una Build sin el diálogo, haz clic en el menú de la nube a la izquierda de **Run**. De forma predeterminada, está configurado en **Comfy Cloud**.
 
   * Si tu espacio de trabajo aún no tiene implementaciones, selecciona **Create a custom deployment** y luego haz clic en **Create on Platform**.
-  * Si ya tiene implementaciones, selecciona **Manage deployments**.
+  * Si ya tiene implementaciones, selecciona **Manage deployments**. ![Menú Run on abierto junto al botón Run, con Comfy Cloud marcado, el mensaje This workspace has no deployments yet y Create a custom deployment debajo](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/run-on.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=3ed4851ed8cf0355d60d208bc64650c4)
 
 
 
@@ -97,8 +97,10 @@ Haz clic en **Build with defaults…**. Se abre el diálogo **Choose build targe
 
 Para cambiar lo que incluye la Build, haz clic en **Customise build** y recorre los pasos. Dos pasos determinan el contenido de la Build:
 
-  * **Which custom nodes does the build need?** : elige los Nodos Personalizados.
-  * **Which models ship inside the build?** : elige qué modelos incluye la Build. Un modelo que la Build no incluye se descarga la primera vez que un trabajo lo usa.
+  * **Which custom nodes does the build need?**
+    * elige los Nodos Personalizados.
+  * **Which models ship inside the build?**
+    * elige qué modelos incluye la Build. Un modelo que la Build no incluye se descarga la primera vez que un trabajo lo usa.
 
 
 

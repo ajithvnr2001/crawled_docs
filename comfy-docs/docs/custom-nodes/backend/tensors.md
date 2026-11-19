@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/custom-nodes/backend/tensors/
-title: Working with torch.Tensor - ComfyUI
+title: torch.Tensor in ComfyUI: Shapes and Operations - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:37.133170+00:00
+fetched_at: 2026-11-19T16:26:07.336305+00:00
 ---
 
-# Working with torch.Tensor - ComfyUI
+# torch.Tensor in ComfyUI: Shapes and Operations - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/backend/tensors/
 
 ## On this page
+
+Back to top
 
   * pytorch, tensors, and torch.Tensor
     * What is a Tensor?
@@ -22,35 +24,23 @@ fetched_at: 2026-10-17T10:49:37.133170+00:00
 
 Python (Backend)
 
-# Working with torch.Tensor
+# torch.Tensor in ComfyUI: Shapes and Operations
 
 Copy pageCopy page
 
-Learn the torch.Tensor basics needed for ComfyUI custom nodes: tensor shapes, squeeze/unsqueeze, notation, elementwise operations, and tensor truthiness.
+Manipulate torch.Tensor values inside a ComfyUI custom node: tensor shapes, squeeze and unsqueeze, notation, elementwise operations, and truthiness.
 
 Copy pageCopy page
 
-## 
-
-​
-
-pytorch, tensors, and torch.Tensor
+## pytorch, tensors, and torch.Tensor
 
 All the core number crunching in Comfy is done by [pytorch](https://pytorch.org/). If your custom nodes are going to get into the guts of stable diffusion you will need to become familiar with this library, which is way beyond the scope of this introduction. However, many custom nodes will need to manipulate images, latents and masks, each of which are represented internally as `torch.Tensor`, so you’ll want to bookmark the [documentation for torch.Tensor](https://pytorch.org/docs/stable/tensors.html).
 
-### 
-
-​
-
-What is a Tensor?
+### What is a Tensor?
 
 `torch.Tensor` represents a tensor, which is the mathematical generalization of a vector or matrix to any number of dimensions. A tensor’s _rank_ is the number of dimensions it has (so a vector has _rank_ 1, a matrix _rank_ 2); its _shape_ describes the size of each dimension. So an RGB image (of height H and width W) might be thought of as three arrays (one for each color channel), each measuring H x W, which could be represented as a tensor with _shape_ `[H,W,3]`. In Comfy images almost always come in a batch (even if the batch only contains a single image). `torch` always places the batch dimension first, so Comfy images have _shape_ `[B,H,W,3]`, generally written as `[B,H,W,C]` where C stands for Channels.
 
-### 
-
-​
-
-squeeze, unsqueeze, and reshape
+### squeeze, unsqueeze, and reshape
 
 If a tensor has a dimension of size 1 (known as a collapsed dimension), it is equivalent to the same tensor with that dimension removed (a batch with 1 image is just an image). Removing such a collapsed dimension is referred to as squeezing, and inserting one is known as unsqueezing.
 
@@ -58,11 +48,7 @@ Some torch code, and some custom node authors, will return a squeezed tensor whe
 
 To represent the same data in a different shape is referred to as reshaping. This often requires you to know the underlying data structure, so handle with care!
 
-### 
-
-​
-
-Important notation
+### Important notation
 
 `torch.Tensor` supports most Python slice notation, iteration, and other common list-like operations. A tensor also has a `.shape` attribute which returns its size as a `torch.Size` (which is a subclass of `tuple` and can be treated as such). There are some other important bits of notation you’ll often see (several of these are less common standard Python notation, seen much more frequently when dealing with tensors)
 
@@ -83,11 +69,7 @@ Important notation
     torch.Size([1, 2])
     
 
-### 
-
-​
-
-Elementwise operations
+### Elementwise operations
 
 Many binary on `torch.Tensor` (including ’+’, ’-’, ’*’, ’/’ and ’==’) are applied elementwise (independently applied to each element). The operands must be _either_ two tensors of the same shape, _or_ a tensor and a scalar. So:
     
@@ -110,11 +92,7 @@ Many binary on `torch.Tensor` (including ’+’, ’-’, ’*’, ’/’ and 
     RuntimeError: The size of tensor a (2) must match the size of tensor b (3) at non-singleton dimension 0
     
 
-### 
-
-​
-
-Tensor truthiness
+### Tensor truthiness
 
 The ‘truthiness’ value of a Tensor is not the same as that of Python lists.
 
@@ -140,26 +118,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/backend/tensors.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/backend/tensors)
 
-[ComfyUI Data Lists and List ProcessingPrevious](https://docs.comfy.org/custom-nodes/backend/lists)[Annotated ExamplesNext](https://docs.comfy.org/custom-nodes/backend/snippets)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Lists & list processing](https://docs.comfy.org/custom-nodes/backend/lists)[Python snippets](https://docs.comfy.org/custom-nodes/backend/snippets)

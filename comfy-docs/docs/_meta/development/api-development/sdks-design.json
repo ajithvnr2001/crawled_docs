@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/development/api-development/sdks-design/",
   "file": "development/api-development/sdks-design.md",
-  "title": "Design Notes - ComfyUI",
+  "title": "Comfy API v2 Design Notes: Versioning and Jobs - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:42.124064+00:00",
-  "html_len": 454969,
-  "md_len": 7612,
-  "depth": 0
+  "fetched_at": "2026-11-19T16:26:06.851659+00:00"
 }

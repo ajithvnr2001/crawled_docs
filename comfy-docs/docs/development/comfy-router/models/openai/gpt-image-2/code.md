@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code/
 title: Use GPT Image 2 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:19.055768+00:00
+fetched_at: 2026-11-19T16:26:14.340296+00:00
 ---
 
 # Use GPT Image 2 with Comfy Router - ComfyUI

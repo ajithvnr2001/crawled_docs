@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/runway/gen4-image/code/
 title: Usa Gen 4 Image con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:19.237498+00:00
+fetched_at: 2026-11-19T16:26:09.840452+00:00
 ---
 
 # Usa Gen 4 Image con Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copiar páginaCopiar página
 
 Referencia de API para `runway/gen4_image`, que Comfy Router sirve desde Runway. **Entrada:** Texto, Imagen · **Salida:** Imagen
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP sin procesar. **ID del modelo:** `runway/gen4_image` **Endpoint:** `POST https://api.comfy.org/v2/models/runway/gen4_image`
 
@@ -173,19 +169,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Esquema
 
-​
-
-Esquema
-
-### 
-
-​
-
-Entrada
-
-​
+### Entrada
 
 model
 
@@ -193,17 +179,13 @@ string
 
 Modelo que se usará para la generación. En la ruta de Comfy Router `POST /v2/models/runway/{model}`, este campo se obtiene de la ruta y NO DEBE enviarse; en la ruta v1 `POST /proxy/runway/text_to_image`, es requerido y está restringido a `gen4_image`.
 
-​
-
 promptText
 
 string
 
 requerido
 
-Prompt de texto para la generación de la imagen
-
-​
+Prompt de texto para la generación de la imagen, como máximo 1000 unidades de código UTF-16 (un carácter fuera del Plano Básico Multilingüe, como la mayoría de los emojis, cuenta como dos)
 
 ratio
 
@@ -211,9 +193,7 @@ string
 
 requerido
 
-Posibles valores: `1920:1080`, `1080:1920`, `1024:1024`, `1360:768`, `1080:1080`, `1168:880`, `1440:1080`, `1080:1440`, `1808:768`, `2112:912`
-
-​
+Valores posibles: `1920:1080`, `1080:1920`, `1024:1024`, `1360:768`, `1080:1080`, `1168:880`, `1440:1080`, `1080:1440`, `1808:768`, `2112:912`, `1280:720`, `720:1280`, `720:720`, `960:720`, `720:960`, `1680:720`
 
 referenceImages
 
@@ -221,25 +201,17 @@ object[]
 
 Arreglo de imágenes de referencia para guiar la generación
 
-​
-
 referenceImages[].uri
 
 string
 
 requerido
 
-Una URL HTTPS o un URI de datos que contiene una imagen codificada
+Una URL HTTPS, un URI de subida de Runway (runway://) o un URI de datos que contenga una imagen codificada
 
 Generado a partir del esquema que Router expone en `GET /v2/models/runway/gen4_image/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 createdAt
 
@@ -249,8 +221,6 @@ requerido
 
 Marca de tiempo de creación de la tareaFormato: `date-time`
 
-​
-
 id
 
 string
@@ -259,15 +229,11 @@ requerido
 
 ID de la tarea
 
-​
-
 output
 
 string[]
 
 Las URL de los recursos de la generación finalizada: para `runway/gen4_image`, cada elemento es una URL de IMAGEN. Disponible una vez que la tarea termina correctamente; esta lista ES el resultado.
-
-​
 
 progress
 
@@ -275,27 +241,17 @@ number
 
 Valor flotante entre 0 y 1 que representa el progreso de la tarea. Solo disponible si el estado es RUNNING.Rango: `0` a `1`Formato: `float`
 
-​
-
 status
 
 string
 
 requerido
 
-Estados posibles de una tarea de Runway.Posibles valores: `SUCCEEDED`, `RUNNING`, `FAILED`, `PENDING`, `CANCELLED`, `THROTTLED`
+Estados posibles de una tarea de Runway.Valores posibles: `SUCCEEDED`, `RUNNING`, `FAILED`, `PENDING`, `CANCELLED`, `THROTTLED`
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -304,11 +260,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -321,11 +273,7 @@ Salida
     }
     
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 

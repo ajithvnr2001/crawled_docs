@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openrouter/chat-completions/code/
 title: Use Chat Completions with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:14.565920+00:00
+fetched_at: 2026-11-19T16:26:14.236992+00:00
 ---
 
 # Use Chat Completions with Comfy Router - ComfyUI

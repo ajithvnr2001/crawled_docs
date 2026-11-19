@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/google/nano-banana-pro/code/
 title: Use Nano Banana Pro with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:18.515732+00:00
+fetched_at: 2026-11-19T16:26:15.903697+00:00
 ---
 
 # Use Nano Banana Pro with Comfy Router - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/bria/image-edit-increase-resolution/code/
 title: Usa Image Edit Increase Resolution con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:58.422944+00:00
+fetched_at: 2026-11-19T16:26:37.486752+00:00
 ---
 
 # Usa Image Edit Increase Resolution con Comfy Router - ComfyUI
@@ -36,11 +36,7 @@ Copiar páginaCopiar página
 
 Referencia de API para `bria/image-edit-increase-resolution`, servida por Comfy Router de Bria. **Entrada:** Imagen · **Salida:** Imagen
 
-## 
-
-​
-
-Inicio rápido
+## Inicio rápido
 
 Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP directo. **ID del modelo:** `bria/image-edit-increase-resolution` **Endpoint:** `POST https://api.comfy.org/v2/models/bria/image-edit-increase-resolution`
 
@@ -173,27 +169,15 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Esquema
 
-​
-
-Esquema
-
-### 
-
-​
-
-Entrada
-
-​
+### Entrada
 
 desired_increase
 
 integer
 
 Multiplicador de resolución que se aplica. Los valores admitidos son 2 y 4. La resolución máxima de salida es 8192x8192.
-
-​
 
 image
 
@@ -203,47 +187,33 @@ requerido
 
 La imagen a ampliar. Los tipos de entrada admitidos son una cadena codificada en Base64 o una URL que apunte a un archivo de imagen accesible públicamente. Formatos aceptados: JPEG, JPG, PNG, WEBP.
 
-​
-
 preserve_alpha
 
 boolean
 
 Controla si las áreas parcialmente transparentes de la imagen de entrada se conservan en la salida.
 
-​
-
 sync
 
 boolean
 
-Cuando es false (predeterminado), la solicitud se procesa de forma asíncrona. Cuando es true, la API mantiene la conexión abierta hasta que la operación termina. EN COMFY ROUTER ese segundo modo se rechaza en lugar de reenviarse: Router fija el modo de retorno antes del despacho y consulta el resultado dentro de la propia llamada, por lo que `POST /v2/models/bria/{model}` responde 422 invalid_input para cualquier `sync` que lleve esta ruta y que no sea `false` o `null`. La llamada síncrona sigue disponible en la ruta `/proxy/` propia de esta operación, que es la superficie que este esquema también describe.
-
-​
+Debe ser false u omitirse. El modo síncrono de Bria (true) se rechaza en lugar de reenviarse, tanto en Comfy Router como en la ruta `/proxy/` propia de esta operación: Comfy Router fija el modo de retorno antes del despacho y consulta el resultado dentro de la llamada, y la ruta `/proxy/` devuelve el request_id y la status_url para consultarlos.
 
 visual_input_content_moderation
 
 boolean
 
-Cuando está habilitado, aplica moderación de contenido a la imagen de entrada. Devuelve 422 si la imagen no pasa la moderación.
-
-​
+Cuando está habilitado, aplica moderación de contenido al visual de entrada. Devuelve 422 si la imagen no pasa la moderación.
 
 visual_output_content_moderation
 
 boolean
 
-Cuando está habilitado, aplica moderación de contenido a la imagen del resultado. Devuelve 422 si la salida no pasa la moderación.
+Cuando está habilitado, aplica moderación de contenido al visual del resultado. Devuelve 422 si la salida no pasa la moderación.
 
 Generado a partir del esquema que Router sirve en `GET /v2/models/bria/image-edit-increase-resolution/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
-### 
-
-​
-
-Salida
-
-​
+### Salida
 
 error
 
@@ -251,15 +221,11 @@ object
 
 Objeto de error (solo está presente cuando el estado es ERROR)
 
-​
-
 error.code
 
 integer
 
 Código de error.
-
-​
 
 error.details
 
@@ -267,15 +233,11 @@ string
 
 Detalles adicionales del error.
 
-​
-
 error.message
 
 string
 
 Mensaje de error.
-
-​
 
 request_id
 
@@ -283,15 +245,11 @@ string
 
 Identificador único de la solicitud.
 
-​
-
 result
 
 object
 
 Objeto de resultado (solo está presente cuando el estado es COMPLETED)
-
-​
 
 result.image_url
 
@@ -299,15 +257,11 @@ string
 
 URL de la imagen generada o editada.
 
-​
-
 result.prompt
 
 string
 
 Prompt original.
-
-​
 
 result.refined_prompt
 
@@ -315,15 +269,11 @@ string
 
 Versión refinada del prompt, o null en una generación COMPLETED que Bria no refinó. Es anulable porque la clave está PRESENTE con null en lugar de omitirse; se observó en vivo en bria/image-edit-gen-fill.
 
-​
-
 result.seed
 
 integer
 
 Semilla usada para la generación.
-
-​
 
 result.structured_instruction
 
@@ -331,15 +281,11 @@ string
 
 La instrucción estructurada, un documento JSON serializado como cadena, que devuelve `/v2/structured_instruction/generate`. Esa operación no rellena ninguna de las dos URL.
 
-​
-
 result.structured_prompt
 
 string
 
 El prompt estructurado detallado en JSON.
-
-​
 
 result.video_url
 
@@ -347,25 +293,15 @@ string
 
 URL del video generado.
 
-​
-
 status
 
 string
 
 Estado actual de la solicitud.Valores posibles: `IN_PROGRESS`, `COMPLETED`, `ERROR`, `UNKNOWN`
 
-## 
+## Ejemplos
 
-​
-
-Ejemplos
-
-### 
-
-​
-
-Entrada
+### Entrada
     
     
     {
@@ -374,11 +310,7 @@ Entrada
     }
     
 
-### 
-
-​
-
-Salida
+### Salida
     
     
     {
@@ -391,11 +323,7 @@ Salida
     }
     
 
-## 
-
-​
-
-Antes de lanzar
+## Antes de lanzar
 
 Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
 

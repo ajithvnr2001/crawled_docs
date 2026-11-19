@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_objects_and_hijacking/
-title: Objetos de Comfy - ComfyUI
+title: Objetos del frontend de ComfyUI: LiteGraph, ComfyApp y ComfyNode - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:23.374900+00:00
+fetched_at: 2026-11-19T16:26:09.344234+00:00
 ---
 
-# Objetos de Comfy - ComfyUI
+# Objetos del frontend de ComfyUI: LiteGraph, ComfyApp y ComfyNode - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_objects_and_hijacking/
 
@@ -37,27 +37,19 @@ Volver arriba
 
 JavaScript (UI)
 
-# Objetos de Comfy
+# Objetos del frontend de ComfyUI: LiteGraph, ComfyApp y ComfyNode
 
 Copiar páginaCopiar página
 
-Guía de referencia de los objetos centrales del frontend de ComfyUI: LiteGraph, ComfyApp, LGraph, LLink y ComfyNode, con sus propiedades y funciones.
+Referencia de los objetos centrales del frontend de ComfyUI: LiteGraph, ComfyApp, LGraph, LLink y ComfyNode, con propiedades, funciones y tipos de widget.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-LiteGraph
+## LiteGraph
 
 La interfaz de Comfy UI está construida sobre [LiteGraph](https://github.com/jagenjo/litegraph.js). Gran parte de la funcionalidad de Comfy la proporciona LiteGraph, así que si desarrollas nodos más complejos, probablemente te resulte útil clonar ese repositorio y explorar la documentación, que se encuentra en `doc/index.html`.
 
-## 
-
-​
-
-ComfyApp
+## ComfyApp
 
 El objeto `app` (siempre accesible mediante `import { app } from "../../scripts/app.js";`) representa la aplicación de Comfy que se ejecuta en el navegador y contiene varias propiedades y funciones útiles, algunas de las cuales se enumeran a continuación.
 
@@ -65,11 +57,7 @@ El objeto `app` (siempre accesible mediante `import { app } from "../../scripts/
 
 No se recomienda secuestrar funciones en `app`, ya que Comfy está en constante desarrollo y el comportamiento del núcleo puede cambiar.
 
-### 
-
-​
-
-Propiedades
+### Propiedades
 
 Entre las propiedades importantes de `app` se incluyen (esta no es una lista exhaustiva):
 
@@ -83,11 +71,7 @@ propiedad| contenido
   
 `canvas` (para los elementos gráficos) y `graph` (para las conexiones lógicas) son probablemente los que más querrás consultar.
 
-### 
-
-​
-
-Funciones
+### Funciones
 
 De nuevo, hay muchas. Algunas de las más importantes son:
 
@@ -98,11 +82,7 @@ loadGraphData| Carga un gráfico
 queuePrompt| Envía un prompt a la cola  
 registerExtension| Ya lo has visto: se usa para agregar una extensión  
   
-## 
-
-​
-
-LGraph
+## LGraph
 
 El objeto `LGraph` forma parte del framework LiteGraph y representa el estado lógico actual del gráfico (nodos y conexiones). Si quieres manipular el gráfico, la documentación de LiteGraph (en `doc/index.html` si clonas `https://github.com/jagenjo/litegraph.js`) describe las funciones que necesitarás. Puedes usar `graph` para obtener detalles de nodos y conexiones, por ejemplo:
     
@@ -118,21 +98,13 @@ El objeto `LGraph` forma parte del framework LiteGraph y representa el estado l�
     });
     
 
-## 
-
-​
-
-LLink
+## LLink
 
 El objeto `LLink`, accesible a través de `graph.links`, representa un enlace individual del gráfico, desde el slot de salida `link.origin_slot` del nodo `link.origin_id` hasta el slot `link.target_slot` del nodo `link.target_id`. También incluye una cadena que representa el tipo de dato en `link.type`, además de `link.id`. Los `LLink` se crean en el método `connect` de un `LGraphNode` (del cual `ComfyNode` es una subclase).
 
 Evita crear tus propios objetos LLink: usa las funciones de LiteGraph en su lugar.
 
-## 
-
-​
-
-ComfyNode
+## ComfyNode
 
 `ComfyNode` es una subclase de `LGraphNode`, por lo que la documentación de LiteGraph resulta útil para operaciones más genéricas. Sin embargo, Comfy ha ampliado de forma significativa el comportamiento del núcleo de LiteGraph y tampoco hace uso de toda la funcionalidad de LiteGraph.
 
@@ -150,11 +122,7 @@ Para hacerte una idea más completa del objeto nodo, puede resultarte útil inse
     }
     
 
-### 
-
-​
-
-Propiedades
+### Propiedades
 
 propiedad| contenido  
 ---|---  
@@ -176,19 +144,11 @@ propiedad| contenido
 `widgets`| Una lista de widgets (se describe más abajo)  
 `widgets_values`| Una lista de los valores actuales de los widgets  
   
-### 
-
-​
-
-Funciones
+### Funciones
 
 Hay una cantidad muy grande de funciones (85, la última vez que las conté). A continuación se muestra una selección. La mayoría de estas funciones no presentan modificaciones respecto al código central de LiteGraph.
 
-#### 
-
-​
-
-Entradas, salidas y widgets
+#### Entradas, salidas y widgets
 
 función| notas  
 ---|---  
@@ -206,11 +166,7 @@ Widgets|
 `addDOMWidget`| Agrega un widget definido por un elemento DOM  
 `convertWidgetToInput`| Convierte un widget en una entrada si `isConvertableWidget` lo permite (en `widgetInputs.js`)  
   
-#### 
-
-​
-
-Conexiones
+#### Conexiones
 
 función| notas  
 ---|---  
@@ -222,11 +178,7 @@ función| notas
 `onConnectionChange`| Se llama en cada nodo. `side==1` si es una entrada en este nodo  
 `onConnectInput`| Se llama _antes_ de que se realice una conexión. Si devuelve `false`, la conexión se rechaza  
   
-#### 
-
-​
-
-Visualización
+#### Visualización
 
 función| notas  
 ---|---  
@@ -238,21 +190,13 @@ función| notas
   
 `collapse` tiene un nombre poco adecuado: _alterna_ el estado contraído. Recibe un parámetro booleano, que se puede usar para anular `node.collapsable === false`.
 
-#### 
-
-​
-
-Otros
+#### Otros
 
 función| notas  
 ---|---  
 `changeMode`| Se usa para poner el nodo en modo bypass (`mode == 4`) o no (`mode == 0`)  
   
-## 
-
-​
-
-Entradas y widgets
+## Entradas y widgets
 
 Las entradas y los widgets representan las dos formas de introducir datos en un nodo. Por lo general, puedes convertir un widget en una entrada, pero no todas las entradas pueden convertirse en un widget (ya que muchos tipos de datos no se pueden introducir mediante un elemento de la interfaz). `node.inputs` es una lista de las entradas actuales (los puntos de colores del lado izquierdo del nodo), que especifica su `.name`, `.type` y `.link` (una referencia al `LLink` conectado en `app.graph.links`). Si una entrada es un widget que se ha convertido, también guarda una referencia al widget, ahora inactivo, en `.widget`. `node.widgets` es una lista de todos los widgets, tanto si se han convertido en una entrada como si no. Un widget tiene:
 
@@ -265,35 +209,19 @@ propiedad/función| notas
 `type`| El nombre del tipo de widget (ver abajo) en minúsculas  
 `value`| El valor actual del widget. Es una propiedad con métodos `get` y `set`  
   
-### 
-
-​
-
-Tipos de widget
+### Tipos de widget
 
 `app.widgets` es un diccionario de los tipos de widget registrados actualmente, indexado por la versión en MAYÚSCULAS del nombre del tipo. Entre los tipos de widget integrados de Comfy se incluyen los obvios `BOOLEAN`, `INT` y `FLOAT`, así como `STRING` (que tiene dos variantes, de una línea y de varias líneas), `COMBO` para seleccionar de una lista desplegable, e `IMAGEUPLOAD`, que se usa en los nodos Load Image. Puedes agregar tipos de widget personalizados proporcionando un método `getCustomWidgets` en tu extensión.
 
-### 
-
-​
-
-Widgets enlazados
+### Widgets enlazados
 
 También puedes enlazar widgets, como ocurre con el comportamiento integrado de `seed` y `control_after_generate`, por ejemplo. Un widget enlazado tiene `.type = 'base_widget_type:base_widget_name'`; así, `control_after_generate` puede tener el tipo `int:seed`.
 
-## 
-
-​
-
-Prompt
+## Prompt
 
 Cuando presionas el botón `Queue Prompt` en Comfy, se llama al método `app.graphToPrompt()` para convertir el gráfico actual en un prompt que se pueda enviar al servidor. `app.graphToPrompt` devuelve un objeto (al que aquí llamamos `prompt`) con dos propiedades, `output` y `workflow`.
 
-### 
-
-​
-
-output
+### output
 
 `prompt.output` asigna el `node_id` de cada nodo del gráfico a un objeto con dos propiedades.
 
@@ -308,11 +236,7 @@ output
 
 Ten en cuenta que el `upstream_node_id` del arreglo que describe una entrada conectada se representa como una cadena, no como un entero.
 
-### 
-
-​
-
-workflow
+### workflow
 
 `prompt.workflow` contiene las siguientes propiedades:
 

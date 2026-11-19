@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-increase-resolution/code/
 title: Use Image Edit Increase Resolution with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:39.038712+00:00
+fetched_at: 2026-11-19T16:26:17.730179+00:00
 ---
 
 # Use Image Edit Increase Resolution with Comfy Router - ComfyUI

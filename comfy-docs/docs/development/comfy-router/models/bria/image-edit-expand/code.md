@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-expand/code/
 title: Use Image Edit Expand with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:38.805700+00:00
+fetched_at: 2026-11-19T16:26:17.903594+00:00
 ---
 
 # Use Image Edit Expand with Comfy Router - ComfyUI

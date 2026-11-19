@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/stability/generate-core/code/
 title: Usar Generate Core con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:56.023299+00:00
+fetched_at: 2026-11-19T16:26:09.215548+00:00
 ---
 
 # Usar Generate Core con Comfy Router - ComfyUI
@@ -187,7 +187,7 @@ image
 
 string (uri)
 
-Solo para `stability/generate-ultra`. Una URL de recurso firmada por Comfy de una imagen de origen; enviarla cambia a imagen a imagen y requiere `strength`.Formato: `uri`
+Solo para `stability/generate-ultra`. Una URL de recurso firmada por Comfy de una imagen de origen; enviarla cambia a imagen a imagen y requiere `strength`. Se rechaza con un error 400 en `stability/generate-core`.Formato: `uri`
 
 negative_prompt
 
@@ -219,7 +219,7 @@ strength
 
 number
 
-Solo para imagen a imagen de `stability/generate-ultra`. Cuánto mover desde la imagen de origen; 1 la ignora.Alcance: `0` a `1`
+Solo para imagen a imagen de `stability/generate-ultra`. Cuánto mover desde la imagen de origen; 1 la ignora. Se rechaza con un error 400 en `stability/generate-core`.Alcance: `0` a `1`
 
 style_preset
 
@@ -245,13 +245,13 @@ string (uri)
 
 requerido
 
-URL firmada por Comfy de la (primera) imagen PNG, válida hasta 24 horas.Formato: `uri`
+URL firmada por Comfy de la (primera) imagen PNG, válida hasta por 24 horas.Formato: `uri`
 
 images
 
 string (uri)[]
 
-Solo SDXL, cuando se devolvió más de una imagen. Todas las URL de imagen firmadas por Comfy, en el orden de salida, cada una válida hasta 24 horas.
+Solo SDXL, cuando se devolvió más de una imagen. Todas las URL de imagen firmadas por Comfy, en el orden de salida, cada una válida hasta por 24 horas.
 
 seed
 

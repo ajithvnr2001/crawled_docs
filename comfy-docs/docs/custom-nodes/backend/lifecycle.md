@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/backend/lifecycle/
 title: ComfyUI Custom Node Lifecycle - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:36.546512+00:00
+fetched_at: 2026-11-19T16:26:07.611107+00:00
 ---
 
 # ComfyUI Custom Node Lifecycle - ComfyUI
@@ -27,7 +27,7 @@ Python (Backend)
 
 Copy pageCopy page
 
-Understand how ComfyUI loads custom nodes: **init**.py imports, NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS, and WEB_DIRECTORY for client-side JavaScript.
+ComfyUI loads custom nodes at startup and reads NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS, and WEB_DIRECTORY to register nodes and JavaScript.
 
 Copy pageCopy page
 

@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/development/api-development/workflow-api-format/
-title: Workflow API Format - ComfyUI
+title: ComfyUI Workflow API Format: Export JSON for API Submission - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:42.743411+00:00
+fetched_at: 2026-11-19T16:26:07.100494+00:00
 ---
 
-# Workflow API Format - ComfyUI
+# ComfyUI Workflow API Format: Export JSON for API Submission - ComfyUI
 
 > Source: https://docs.comfy.org/development/api-development/workflow-api-format/
 
 ## On this page
+
+Back to top
 
   * Save Format vs API Format
   * How to Export
@@ -20,11 +22,11 @@ fetched_at: 2026-10-17T10:49:42.743411+00:00
 
 Run Workflows
 
-# Workflow API Format
+# ComfyUI Workflow API Format: Export JSON for API Submission
 
 Copy pageCopy page
 
-Understanding the API format for ComfyUI workflows and how to export them
+The JSON shape a ComfyUI API accepts: how API format differs from the saved workflow, which UI data it drops, and how to export it from the frontend.
 
 Copy pageCopy page
 
@@ -32,11 +34,7 @@ ComfyUI workflows are JSON objects that describe a graph of nodes. When calling 
 
 * * *
 
-## 
-
-​
-
-Save Format vs API Format
+## Save Format vs API Format
 
 The ComfyUI frontend can save workflows in two formats:
 
@@ -55,11 +53,7 @@ The key difference: **API format omits UI metadata** (positions, colors, groups,
 
 * * *
 
-## 
-
-​
-
-How to Export
+## How to Export
 
 Open your workflow in the ComfyUI frontend, then navigate to `File → Export Workflow (API)`:
 
@@ -181,11 +175,7 @@ This will download a `.json` file containing only the API-relevant data:
 
 * * *
 
-## 
-
-​
-
-Converting Between Formats
+## Converting Between Formats
 
 If you have a save-format workflow and need it in API format, the simplest method is:
 
@@ -196,11 +186,7 @@ If you have a save-format workflow and need it in API format, the simplest metho
 
 * * *
 
-## 
-
-​
-
-Related Pages
+## Related Pages
 
   * [Running Workflows](https://docs.comfy.org/development/run-workflows/overview): compare the API and deployment options
   * [Cloud API Overview](https://docs.comfy.org/development/cloud/overview): submit API-format workflows to Comfy Cloud
@@ -215,26 +201,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/api-development/workflow-api-format.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/api-development/workflow-api-format)
 
-[API Proxy for Self-Hosted ComfyUIPrevious](https://docs.comfy.org/development/comfyui-server/api-proxy)[Workflow MetadataNext](https://docs.comfy.org/development/api-development/workflow-metadata)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[API Proxy](https://docs.comfy.org/development/comfyui-server/api-proxy)[Workflow Metadata](https://docs.comfy.org/development/api-development/workflow-metadata)

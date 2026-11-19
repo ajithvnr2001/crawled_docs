@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-erase/code/
 title: Use Image Edit Erase with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:38.951399+00:00
+fetched_at: 2026-11-19T16:26:17.534683+00:00
 ---
 
 # Use Image Edit Erase with Comfy Router - ComfyUI

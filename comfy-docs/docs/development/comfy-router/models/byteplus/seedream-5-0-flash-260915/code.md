@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-0-flash-260915/code/
 title: Use Seedream 5.0 Flash 260915 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:46:37.891230+00:00
+fetched_at: 2026-11-19T16:26:16.985000+00:00
 ---
 
 # Use Seedream 5.0 Flash 260915 with Comfy Router - ComfyUI

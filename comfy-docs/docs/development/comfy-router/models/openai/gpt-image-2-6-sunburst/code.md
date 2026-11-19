@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code/
 title: Use GPT Image 2.6 Sunburst with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:18.652543+00:00
+fetched_at: 2026-11-19T16:26:14.551353+00:00
 ---
 
 # Use GPT Image 2.6 Sunburst with Comfy Router - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/runway/gen4-image/code/
 title: Use Gen 4 Image with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:39.534175+00:00
+fetched_at: 2026-11-19T16:26:14.006224+00:00
 ---
 
 # Use Gen 4 Image with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:39.534175+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/runway/gen4-image/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -34,11 +36,7 @@ Copy pageCopy page
 
 API Reference for `runway/gen4_image`, served by Comfy Router from Runway. **Input:** Text, Image · **Output:** Image
 
-## 
-
-​
-
-Quick start
+## Quick start
 
 Create a key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router) and export it as `COMFY_API_KEY`. The Python and TypeScript snippets use the Comfy SDKs (`pip install comfy-sdk` and `npm install @comfyorg/sdk`); the cURL snippet is the same call over raw HTTP. **Model ID:** `runway/gen4_image` **Endpoint:** `POST https://api.comfy.org/v2/models/runway/gen4_image`
 
@@ -171,19 +169,9 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY"
     
 
-## 
+## Schema
 
-​
-
-Schema
-
-### 
-
-​
-
-Input
-
-​
+### Input
 
 model
 
@@ -191,17 +179,13 @@ string
 
 Model to use for generation. On the Comfy Router route `POST /v2/models/runway/{model}` this field is supplied from the path and MUST NOT be sent; on the v1 `POST /proxy/runway/text_to_image` route it is required and constrained to `gen4_image`.
 
-​
-
 promptText
 
 string
 
 required
 
-Text prompt for the image generation
-
-​
+Text prompt for the image generation, at most 1000 UTF-16 code units (a character outside the Basic Multilingual Plane, such as most emoji, counts as two)
 
 ratio
 
@@ -209,9 +193,7 @@ string
 
 required
 
-Possible values: `1920:1080`, `1080:1920`, `1024:1024`, `1360:768`, `1080:1080`, `1168:880`, `1440:1080`, `1080:1440`, `1808:768`, `2112:912`
-
-​
+Possible values: `1920:1080`, `1080:1920`, `1024:1024`, `1360:768`, `1080:1080`, `1168:880`, `1440:1080`, `1080:1440`, `1808:768`, `2112:912`, `1280:720`, `720:1280`, `720:720`, `960:720`, `720:960`, `1680:720`
 
 referenceImages
 
@@ -219,25 +201,17 @@ object[]
 
 Array of reference images to guide the generation
 
-​
-
 referenceImages[].uri
 
 string
 
 required
 
-A HTTPS URL or data URI containing an encoded image
+A HTTPS URL, Runway upload URI (runway://) or data URI containing an encoded image
 
 Generated from the schema Router serves at `GET /v2/models/runway/gen4_image/openapi.json`, the same document it validates a call against before the request reaches the provider.
 
-### 
-
-​
-
-Output
-
-​
+### Output
 
 createdAt
 
@@ -247,8 +221,6 @@ required
 
 Task creation timestampFormat: `date-time`
 
-​
-
 id
 
 string
@@ -257,23 +229,17 @@ required
 
 Task ID
 
-​
-
 output
 
 string[]
 
 The finished generation’s asset URLs — for `runway/gen4_image` each element is an IMAGE URL. Present once the task terminates successfully; this list IS the result.
 
-​
-
 progress
 
 number
 
 Float value between 0 and 1 representing the progress of the task. Only available if status is RUNNING.Range: `0` to `1`Format: `float`
-
-​
 
 status
 
@@ -283,17 +249,9 @@ required
 
 Possible statuses for a Runway task.Possible values: `SUCCEEDED`, `RUNNING`, `FAILED`, `PENDING`, `CANCELLED`, `THROTTLED`
 
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Input
+### Input
     
     
     {
@@ -302,11 +260,7 @@ Input
     }
     
 
-### 
-
-​
-
-Output
+### Output
     
     
     {
@@ -319,11 +273,7 @@ Output
     }
     
 
-## 
-
-​
-
-Before you ship
+## Before you ship
 
 The SDKs create an `Idempotency-Key` and reuse it for automatic retries. For manual retries, reuse the original key. Router can hold the connection for up to 10 minutes. When a request fails, Router sends an `X-Comfy-Error-Type` response header explaining why. A `422` means Router rejected the input before calling the provider, and a `413` means the request body was larger than Router accepts. Download generated assets promptly because [result URLs can expire](https://docs.comfy.org/development/comfy-router/reference#result-assets). Any size limit named in a field description above is the provider’s own bound on that field, quoted from the provider’s specification. Router applies a separate cap to the whole request body, which base64-encoded media counts against: see [request body size](https://docs.comfy.org/development/comfy-router/limitations#request-bodies-are-capped). This page documents one partner model called through Comfy Router. The same `comfy-sdk` / `@comfyorg/sdk` package also ships a second client, for running a whole ComfyUI workflow graph on Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, with `client.workflows`, `client.assets` and `client.jobs`. See [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
@@ -345,26 +295,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/runway/gen4-image/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/runway/gen4-image/code)
 
-[Use Aleph 2 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/runway/aleph2/code)[Use Gen 4 Turbo with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Aleph 2](https://docs.comfy.org/development/comfy-router/models/runway/aleph2/code)[Gen 4 Turbo](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code)

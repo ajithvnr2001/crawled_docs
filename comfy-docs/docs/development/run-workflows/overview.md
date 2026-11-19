@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/development/run-workflows/overview/
-title: Running Workflows - ComfyUI
+title: Running ComfyUI Workflows: SDKs and Server APIs - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:55.993080+00:00
+fetched_at: 2026-11-19T16:26:06.773454+00:00
 ---
 
-# Running Workflows - ComfyUI
+# Running ComfyUI Workflows: SDKs and Server APIs - ComfyUI
 
 > Source: https://docs.comfy.org/development/run-workflows/overview/
 
 ## On this page
+
+Back to top
 
   * Start here: the Comfy SDKs
   * What works against what
@@ -21,21 +23,17 @@ fetched_at: 2026-10-17T10:50:55.993080+00:00
 
 Run Workflows
 
-# Running Workflows
+# Running ComfyUI Workflows: SDKs and Server APIs
 
 Copy pageCopy page
 
-How to run ComfyUI workflows against a live deployment, and which client works with which deployment
+Which client to run ComfyUI workflows with, from the Python and TypeScript SDKs to the raw server API, and what each one covers per deployment.
 
 Copy pageCopy page
 
 Once ComfyUI is [deployed somewhere](https://docs.comfy.org/development/deploy/overview), your application runs workflows against it: submit a workflow, wait for execution, download the outputs. This page maps out which client to use for which deployment.
 
-## 
-
-​
-
-Start here: the Comfy SDKs
+## Start here: the Comfy SDKs
 
 For a new integration, use the official **Comfy SDKs** (Python and TypeScript) and the [Comfy API v2](https://docs.comfy.org/api-reference/v2/overview) they call. The same code runs against every deployment target; only the base URL changes.
 
@@ -43,11 +41,7 @@ For a new integration, use the official **Comfy SDKs** (Python and TypeScript) a
 
 Install an SDK to submit workflows and download outputs from Python or TypeScript.
 
-## 
-
-​
-
-What works against what
+## What works against what
 
 Deployment| Comfy SDKs / API v2| Notes  
 ---|---|---  
@@ -57,11 +51,7 @@ Deployment| Comfy SDKs / API v2| Notes
   
 Self-hosted instances can also skip the SDK entirely and use the raw [ComfyUI Server API](https://docs.comfy.org/development/comfyui-server/comms_overview) (REST + WebSocket). It exposes the full local surface, including the queue and node info, but has no compatibility guarantee across releases.
 
-## 
-
-​
-
-Which API should I use?
+## Which API should I use?
 
 | Comfy API v2 + SDKs| v1 Cloud API| ComfyUI Server API  
 ---|---|---|---  
@@ -75,11 +65,7 @@ Which API should I use?
   
 All of them accept the same workflow format ([API format](https://docs.comfy.org/development/api-development/workflow-api-format)), so you can develop and test workflows locally and move them to another deployment without changes.
 
-## 
-
-​
-
-Getting started
+## Getting started
 
 ## Comfy SDKs
 
@@ -97,11 +83,7 @@ Export workflows in the JSON format the APIs accept.
 
 The raw REST and WebSocket API of a self-hosted instance.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
   * An [API key](https://docs.comfy.org/development/api-development/getting-an-api-key) for anything that touches Comfy Cloud, a Comfy API deployment, or Partner Nodes. A purely local ComfyUI does not need one.
   * A workflow exported in [API format](https://docs.comfy.org/development/api-development/workflow-api-format).
@@ -114,26 +96,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/run-workflows/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/run-workflows/overview)
 
-[ComfyUI Account API Key IntegrationPrevious](https://docs.comfy.org/development/comfyui-server/api-key-integration)[Run your first workflowNext](https://docs.comfy.org/development/api-development/quickstart)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[API Key Integration](https://docs.comfy.org/development/comfyui-server/api-key-integration)[First workflow](https://docs.comfy.org/development/api-development/quickstart)

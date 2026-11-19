@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking/",
   "file": "custom-nodes/js/javascript_objects_and_hijacking.md",
-  "title": "Comfy Objects - ComfyUI",
+  "title": "ComfyUI Frontend Objects: LiteGraph, ComfyApp, and ComfyNode - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-14T14:00:36.357927+00:00"
+  "fetched_at": "2026-11-19T16:26:07.185495+00:00"
 }

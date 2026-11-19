@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code/
 title: Usa GPT Image 2.6 Sunburst con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:54.001343+00:00
+fetched_at: 2026-11-19T16:26:10.236237+00:00
 ---
 
 # Usa GPT Image 2.6 Sunburst con Comfy Router - ComfyUI
@@ -245,7 +245,7 @@ output_format
 
 string
 
-Formato de la imagen de salida. `gif` además rechaza `mask`, un `n` distinto de 1, un `size` omitido, `auto` o mal formado, `stream: true`, `partial_images` mayor que 0 y `output_compression` (ver la descripción de cada campo), y se rechaza de plano a menos que Comfy lo haya habilitado para este entorno.Valores posibles: `png`, `webp`, `jpeg`, `gif`
+Formato de la imagen de salida. `gif` además rechaza `image` (la edición de GIF todavía no está disponible), un `n` distinto de 1, un `size` distinto de 512x512 (incluidos el omitido, `auto`, los mal formados y los bien formados como 1024x1024), `stream: true`, `partial_images` mayor que 0 y `output_compression` (ver la descripción de cada campo), y se rechaza de plano a menos que Comfy lo haya habilitado para este entorno. Un `mask` en una generación GIF (sin `image`) se descarta en lugar de rechazarse; ver `mask`.Valores posibles: `png`, `webp`, `jpeg`, `gif`
 
 partial_images
 
@@ -271,7 +271,7 @@ size
 
 string
 
-Tamaño de la imagen (p. ej., 1024x1024, 1536x1024, auto). Una solicitud GIF (ver `output_format`) rechaza `auto` y rechaza omitir este campo: un tamaño explícito es lo que mantiene finitos la cotización previa y el límite de resultado de 64 MiB antes de un recuento de fotogramas que los multiplica.
+Tamaño de la imagen (p. ej., 1024x1024, 1536x1024, auto). Una solicitud GIF (ver `output_format`) solo admite 512x512 y rechaza omitir este campo, `auto`, un valor mal formado y cualquier otro tamaño bien formado (incluido 1024x1024): un tamaño explícito de 512x512 es lo que mantiene finitos la cotización previa y el límite de resultado de 64 MiB antes de un recuento de fotogramas que los multiplica.
 
 stream
 
@@ -361,7 +361,7 @@ created
 
 integer
 
-Marca de tiempo Unix, en segundos, de cuándo se completó la generación. Es el único miembro que OpenAI declara REQUIRED en una respuesta de generación de imágenes, así que está presente siempre que OpenAI sea el productor; una respuesta servida por fal, minimax, pika, wavespeed o runware en cualquiera de los ids respaldados por alternativas lo omite por completo, igual que los otros cuatro miembros de parámetros resueltos. Se declara `int64` porque un valor de epoch de la actualidad está lo bastante cerca de 2^31 como para que un `integer` sin formato genere un campo de 32 bits en muchos generadores de SDK.Formato: `int64`
+Marca de tiempo Unix, en segundos, de cuándo se completó la generación. Es el único miembro que OpenAI declara REQUIRED en una respuesta de generación de imágenes, así que está presente siempre que OpenAI sea el productor; una respuesta servida por fal, minimax, wavespeed o runware en cualquiera de los ids respaldados por alternativas lo omite por completo, igual que los otros cuatro miembros de parámetros resueltos. Se declara `int64` porque un valor de epoch de la actualidad está lo bastante cerca de 2^31 como para que un `integer` sin formato genere un campo de 32 bits en muchos generadores de SDK.Formato: `int64`
 
 output_format
 

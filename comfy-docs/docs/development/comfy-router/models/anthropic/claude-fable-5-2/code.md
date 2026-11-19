@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-2/code/
 title: Use Claude Fable 5.2 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:51.955962+00:00
+fetched_at: 2026-11-19T16:26:18.081031+00:00
 ---
 
 # Use Claude Fable 5.2 with Comfy Router - ComfyUI

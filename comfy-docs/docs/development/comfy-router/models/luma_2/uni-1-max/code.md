@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1-max/code/
 title: Use Uni 1 Max with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:16.054098+00:00
+fetched_at: 2026-11-19T16:26:15.288072+00:00
 ---
 
 # Use Uni 1 Max with Comfy Router - ComfyUI

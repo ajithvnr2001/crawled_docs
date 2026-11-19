@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox/
-title: Selection Toolbox - ComfyUI
+title: ComfyUI Selection Toolbox API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:39.687441+00:00
+fetched_at: 2026-11-19T16:26:07.273132+00:00
 ---
 
-# Selection Toolbox - ComfyUI
+# ComfyUI Selection Toolbox API - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox/
 
 ## On this page
+
+Back to top
 
   * Basic Usage
   * Command Definition
@@ -23,21 +25,17 @@ fetched_at: 2026-10-17T10:49:39.687441+00:00
 
 JavaScript (UI)
 
-# Selection Toolbox
+# ComfyUI Selection Toolbox API
 
 Copy pageCopy page
 
-Add custom action commands to ComfyUI’s Selection Toolbox for selected nodes, groups, and canvas items using getSelectionToolboxCommands.
+Add custom action buttons to ComfyUI’s Selection Toolbox with getSelectionToolboxCommands, including icon options and dynamic command visibility.
 
 Copy pageCopy page
 
 The Selection Toolbox API allows extensions to add custom action buttons that appear when nodes are selected on the canvas. This provides quick access to context-sensitive commands for selected items (nodes, groups, etc.).
 
-## 
-
-​
-
-Basic Usage
+## Basic Usage
 
 To add commands to the selection toolbox, your extension needs to:
 
@@ -53,7 +51,7 @@ Note: The `getSelectionToolboxCommands` method is called for each item in the se
         {
           id: "my-extension.duplicate-special",
           label: "Duplicate Special",
-          icon: "pi pi-copy",
+          icon: "icon-[lucide--copy]",
           function: (selectedItem) => {
             // Your command logic here
             console.log("Duplicating selected nodes with special behavior");
@@ -67,11 +65,7 @@ Note: The `getSelectionToolboxCommands` method is called for each item in the se
     });
     
 
-## 
-
-​
-
-Command Definition
+## Command Definition
 
 Commands for the selection toolbox use the standard ComfyUI command interface:
     
@@ -86,24 +80,11 @@ Commands for the selection toolbox use the standard ComfyUI command interface:
 
 The `function` receives the selected item(s) as a parameter, allowing you to perform actions on the current selection.
 
-## 
+## Icon Options
 
-​
+Selection toolbox buttons use [Lucide](https://lucide.dev/icons/) icon classes in the form `icon-[lucide--<icon-name>]` (e.g., `icon-[lucide--star]`). The frontend generates these classes when it is built, so only the Lucide icons that the frontend itself uses are available. If an icon does not render, pick another icon, or define your own icon class in a stylesheet that your extension loads. PrimeIcons (`pi pi-*`) and Material Design Icons (`mdi mdi-*`) classes still render for now, but they are being phased out. Don’t use them in new code. See [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration).
 
-Icon Options
-
-Selection toolbox buttons support the same icon libraries as other UI elements:
-
-  * PrimeVue icons: `pi pi-[icon-name]` (e.g., `pi pi-star`)
-  * Material Design icons: `mdi mdi-[icon-name]` (e.g., `mdi mdi-content-copy`)
-
-
-
-## 
-
-​
-
-Dynamic Command Visibility
+## Dynamic Command Visibility
 
 The `getSelectionToolboxCommands` method is called each time the selection changes, allowing you to show different commands based on what’s selected:
     
@@ -114,7 +95,7 @@ The `getSelectionToolboxCommands` method is called each time the selection chang
         {
           id: "my-ext.align-nodes",
           label: "Align Nodes",
-          icon: "pi pi-align-left",
+          icon: "icon-[lucide--align-start-vertical]",
           function: () => {
             // Align multiple nodes
           }
@@ -122,7 +103,7 @@ The `getSelectionToolboxCommands` method is called each time the selection chang
         {
           id: "my-ext.configure-single",
           label: "Configure",
-          icon: "pi pi-cog",
+          icon: "icon-[lucide--settings]",
           function: () => {
             // Configure single node
           }
@@ -145,11 +126,7 @@ The `getSelectionToolboxCommands` method is called each time the selection chang
     });
     
 
-## 
-
-​
-
-Working with Selected Items
+## Working with Selected Items
 
 Access information about selected items through the app’s canvas object. The `selectedItems` property is a Set that includes nodes, groups, and other canvas elements:
     
@@ -160,7 +137,7 @@ Access information about selected items through the app’s canvas object. The `
         {
           id: "my-ext.show-info",
           label: "Show Selection Info",
-          icon: "pi pi-info-circle",
+          icon: "icon-[lucide--info]",
           function: () => {
             const selectedItems = app.canvas.selectedItems;
             
@@ -181,11 +158,7 @@ Access information about selected items through the app’s canvas object. The `
     });
     
 
-## 
-
-​
-
-Complete Example
+## Complete Example
 
 Here’s a simple example showing various selection toolbox features:
     
@@ -196,7 +169,7 @@ Here’s a simple example showing various selection toolbox features:
         {
           id: "selection-tools.count",
           label: "Count Selection",
-          icon: "pi pi-hashtag",
+          icon: "icon-[lucide--tag]",
           function: () => {
             const count = app.canvas.selectedItems?.size || 0;
             app.extensionManager.toast.add({
@@ -210,7 +183,7 @@ Here’s a simple example showing various selection toolbox features:
         {
           id: "selection-tools.copy-ids",
           label: "Copy IDs",
-          icon: "pi pi-copy",
+          icon: "icon-[lucide--copy]",
           function: () => {
             const items = Array.from(app.canvas.selectedItems || []);
             const ids = items.map(item => item.id).filter(id => id !== undefined);
@@ -229,7 +202,7 @@ Here’s a simple example showing various selection toolbox features:
         {
           id: "selection-tools.log-types",
           label: "Log Types",
-          icon: "pi pi-info-circle",
+          icon: "icon-[lucide--info]",
           function: () => {
             const items = Array.from(app.canvas.selectedItems || []);
             const typeCount = {};
@@ -263,11 +236,7 @@ Here’s a simple example showing various selection toolbox features:
     });
     
 
-## 
-
-​
-
-Notes
+## Notes
 
   * The selection toolbox must be enabled in settings: `Comfy.Canvas.SelectionToolbox`
   * Commands must be defined in the `commands` array before being referenced in `getSelectionToolboxCommands`
@@ -284,26 +253,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_selection_toolbox.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_selection_toolbox)
 
-[Sidebar TabsPrevious](https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs)[Commands and KeybindingsNext](https://docs.comfy.org/custom-nodes/js/javascript_commands_keybindings)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Sidebar Tabs](https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs)[Commands and keybindings](https://docs.comfy.org/custom-nodes/js/javascript_commands_keybindings)

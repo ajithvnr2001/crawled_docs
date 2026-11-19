@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-4-0/code/
 title: Usar Kling 4.0 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:51:53.001165+00:00
+fetched_at: 2026-11-19T16:26:09.956191+00:00
 ---
 
 # Usar Kling 4.0 con Comfy Router - ComfyUI
@@ -301,7 +301,7 @@ settings.aspect_ratio
 
 string
 
-Relación de aspecto (ancho:alto) de los fotogramas generados. Una de “21:9”, “16:9”, “9:16” o “1:1” para texto a video (predeterminada “16:9”), esas mismas o “adaptive” para omni video (predeterminada “adaptive”). Imagen a video sigue a las imágenes. Un null explícito se trata como ausente, igual que lo hacen la comprobación de Kling 4.0 en /proxy y Kling.Valores posibles: `21:9`, `16:9`, `9:16`, `1:1`, `adaptive`
+Relación de aspecto (ancho:alto) de los fotogramas generados. Una de “21:9”, “16:9”, “9:16”, “1:1”, “4:3” o “3:4” para texto a video (predeterminada “16:9”), esas mismas o “adaptive” para omni video (predeterminada “adaptive”). Imagen a video sigue a las imágenes. Un null explícito se trata como ausente, igual que lo hacen la comprobación de Kling 4.0 en /proxy y Kling.Valores posibles: `21:9`, `16:9`, `9:16`, `1:1`, `4:3`, `3:4`, `adaptive`
 
 settings.duration
 
@@ -579,4 +579,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfy-router/models/kling/kling-4-0/code.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfy-router/models/kling/kling-4-0/code)
 
-[Kling 3.0 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code)[Kling Image O1](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-image-o1/code)
+[Kling 3.0 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code)[Kling Image 4.0](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-image-4-0/code)

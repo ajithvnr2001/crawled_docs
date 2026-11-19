@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox/
-title: Cuadro de herramientas de selecci\u00f3n - ComfyUI
+title: Cuadro de herramientas de selecci\u00f3n en ComfyUI: API de extensiones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:51.712511+00:00
+fetched_at: 2026-11-19T16:26:06.985995+00:00
 ---
 
-# Cuadro de herramientas de selección - ComfyUI
+# Cuadro de herramientas de selección en ComfyUI: API de extensiones - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox/
 
@@ -25,21 +25,17 @@ Volver arriba
 
 JavaScript (UI)
 
-# Cuadro de herramientas de selección
+# Cuadro de herramientas de selección en ComfyUI: API de extensiones
 
 Copiar páginaCopiar página
 
-Añade comandos de acción personalizados a Selection Toolbox de ComfyUI para nodos, grupos y elementos del lienzo seleccionados con getSelectionToolboxCommands.
+Añade botones de acción propios al Selection Toolbox de ComfyUI con getSelectionToolboxCommands: opciones de icono y visibilidad dinámica.
 
 Copiar páginaCopiar página
 
 La API de Selection Toolbox permite a las extensiones agregar botones de acción personalizados que aparecen al seleccionar nodos en el lienzo. Esto brinda acceso rápido a comandos contextuales para los elementos seleccionados (nodos, grupos, etc.).
 
-## 
-
-​
-
-Uso básico
+## Uso básico
 
 Para agregar comandos al cuadro de herramientas de selección, tu extensión necesita:
 
@@ -69,11 +65,7 @@ Nota: el método `getSelectionToolboxCommands` se llama para cada elemento del c
     });
     
 
-## 
-
-​
-
-Definición de comandos
+## Definición de comandos
 
 Los comandos del cuadro de herramientas de selección usan la interfaz de comandos estándar de ComfyUI:
     
@@ -88,19 +80,11 @@ Los comandos del cuadro de herramientas de selección usan la interfaz de comand
 
 La `function` recibe el elemento o los elementos seleccionados como parámetro, lo que te permite realizar acciones sobre la selección actual.
 
-## 
-
-​
-
-Opciones de iconos
+## Opciones de iconos
 
 Los botones del cuadro de herramientas de selección usan clases de iconos de [Lucide](https://lucide.dev/icons/) con el formato `icon-[lucide--<icon-name>]` (por ejemplo, `icon-[lucide--star]`). El frontend genera estas clases al compilarse, así que solo están disponibles los iconos de Lucide que usa el propio frontend. Si un icono no se muestra, elige otro o define tu propia clase de icono en una hoja de estilos que cargue tu extensión. Las clases de PrimeIcons (`pi pi-*`) y de Material Design Icons (`mdi mdi-*`) todavía se muestran por ahora, pero se están retirando gradualmente. No las uses en código nuevo. Consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration).
 
-## 
-
-​
-
-Visibilidad dinámica de comandos
+## Visibilidad dinámica de comandos
 
 Cada vez que cambia la selección se llama al método `getSelectionToolboxCommands`, lo que te permite mostrar comandos diferentes según lo que esté seleccionado:
     
@@ -142,11 +126,7 @@ Cada vez que cambia la selección se llama al método `getSelectionToolboxComman
     });
     
 
-## 
-
-​
-
-Trabajar con elementos seleccionados
+## Trabajar con elementos seleccionados
 
 Accede a la información sobre los elementos seleccionados a través del objeto canvas de la aplicación. La propiedad `selectedItems` es un Set que incluye nodos, grupos y otros elementos del lienzo:
     
@@ -178,11 +158,7 @@ Accede a la información sobre los elementos seleccionados a través del objeto 
     });
     
 
-## 
-
-​
-
-Ejemplo completo
+## Ejemplo completo
 
 Aquí tienes un ejemplo sencillo que muestra varias funciones del cuadro de herramientas de selección:
     
@@ -260,11 +236,7 @@ Aquí tienes un ejemplo sencillo que muestra varias funciones del cuadro de herr
     });
     
 
-## 
-
-​
-
-Notas
+## Notas
 
   * El cuadro de herramientas de selección debe estar habilitado en las configuraciones: `Comfy.Canvas.SelectionToolbox`
   * Los comandos deben definirse en el arreglo `commands` antes de referenciarlos en `getSelectionToolboxCommands`
