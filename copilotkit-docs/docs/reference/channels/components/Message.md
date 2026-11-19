@@ -2,60 +2,24 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Message/
 title: Message
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:17.874859+00:00
+fetched_at: 2026-11-19T11:26:33.782547+00:00
 ---
 
 # Message
 
 > Source: https://docs.copilotkit.ai/reference/channels/components/Message/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁ChannelsSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[Actions](https://docs.copilotkit.ai/reference/channels/components/Actions)[Button](https://docs.copilotkit.ai/reference/channels/components/Button)[Chart](https://docs.copilotkit.ai/reference/channels/components/Chart)[Context](https://docs.copilotkit.ai/reference/channels/components/Context)[Divider](https://docs.copilotkit.ai/reference/channels/components/Divider)[Fields and Field](https://docs.copilotkit.ai/reference/channels/components/Fields)[Header](https://docs.copilotkit.ai/reference/channels/components/Header)[Image](https://docs.copilotkit.ai/reference/channels/components/Image)[Input](https://docs.copilotkit.ai/reference/channels/components/Input)[Markdown](https://docs.copilotkit.ai/reference/channels/components/Markdown)[Message](https://docs.copilotkit.ai/reference/channels/components/Message)[Modal](https://docs.copilotkit.ai/reference/channels/components/Modal)[Section](https://docs.copilotkit.ai/reference/channels/components/Section)[Select](https://docs.copilotkit.ai/reference/channels/components/Select)[Table, Row, and Cell](https://docs.copilotkit.ai/reference/channels/components/Table)
-
-Functions
-
-[bind](https://docs.copilotkit.ai/reference/channels/functions/bind)[createChannel](https://docs.copilotkit.ai/reference/channels/functions/createChannel)[defineChannelCommand](https://docs.copilotkit.ai/reference/channels/functions/defineChannelCommand)[defineChannelTool](https://docs.copilotkit.ai/reference/channels/functions/defineChannelTool)[renderToIR](https://docs.copilotkit.ai/reference/channels/functions/renderToIR)
-
-Classes
-
-[Channel](https://docs.copilotkit.ai/reference/channels/classes/Channel)[MemoryStore](https://docs.copilotkit.ai/reference/channels/classes/MemoryStore)[Thread](https://docs.copilotkit.ai/reference/channels/classes/Thread)[Transcripts](https://docs.copilotkit.ai/reference/channels/classes/Transcripts)
-
-Types
-
-[ActionStore](https://docs.copilotkit.ai/reference/channels/types/ActionStore)[AgentContentPart](https://docs.copilotkit.ai/reference/channels/types/AgentContentPart)[ChannelNode](https://docs.copilotkit.ai/reference/channels/types/ChannelNode)[IncomingMessage](https://docs.copilotkit.ai/reference/channels/types/IncomingMessage)[InteractionContext](https://docs.copilotkit.ai/reference/channels/types/InteractionContext)[JSX callbacks](https://docs.copilotkit.ai/reference/channels/types/JSXCallbacks)[MessageRef](https://docs.copilotkit.ai/reference/channels/types/MessageRef)[StateStore](https://docs.copilotkit.ai/reference/channels/types/StateStore)[StoreConfig](https://docs.copilotkit.ai/reference/channels/types/StoreConfig)
-
-SDKs
-
-[Direct provider adapters](https://docs.copilotkit.ai/reference/channels/sdk/direct-adapters)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[channels](https://docs.copilotkit.ai/reference/channels)Components
+Channels/Components
 
 # Message
 
 Root container for portable Channels content and reaction behavior.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 `Message` groups one portable message tree.
+
+Copy Text
     
     
     import { Message, Section } from "@copilotkit/channels/ui";
@@ -64,15 +28,18 @@ Open your coding agent in your project's folder, or in an empty folder for a new
       <Section>Checkout latency is above the SLO.</Section>
     </Message>;
 
-## Props
+## PropsCopy Anchor Link
 
 Prop| Type| Description  
 ---|---|---  
 `accent`| `string`| Optional renderer hint. Direct adapters may map it natively; the current managed Slack and Teams connectors ignore it.  
+`fallbackText`| `string`| Plain-text notification and screen-reader summary for rich Slack output.  
 `onReaction`| `MessageReactionHandler`| Handles an added or removed reaction on this posted message.  
 `children`| `BotChildren`| Portable Channels content.  
   
-`onReaction` receives the normalized emoji first and a reaction context second. The context contains `added`, `rawEmoji`, `user`, `thread`, `messageId`, and `messageRef`.
+`onReaction` receives the normalized emoji first and a reaction context second. The context contains `emoji`, `rawEmoji`, `added`, `user`, `actor`, `thread`, `messageId`, and `messageRef`. `actor` is the provider account that reacted. Use it when `user` is `null`.
+
+Copy Text
     
     
     <Message
@@ -86,8 +53,14 @@ Prop| Type| Description
       <Section>React with 👀 to request follow-up.</Section>
     </Message>
 
-Managed Slack routes reactions on bot-authored messages. Managed Teams routes delivered `messageReaction` activities. The managed adapter cannot add or remove the bot's own reactions.
+Managed Slack routes reactions on bot-authored messages. Managed Teams routes delivered `messageReaction` activities. The bot can also add and remove its own reactions with `thread.react(ref, emoji)` and `thread.unreact(ref, emoji)`.
 
 An output-free managed reaction callback is finalized and acknowledged. Silent audit-only work is supported, but make the side effect idempotent because managed delivery is at-least-once.
 
-Register named components containing `onReaction` in `createChannel({ components })`; a durable `StateStore` is also required for a reaction to an older message to survive a process restart.
+Register named components containing `onReaction` in `createChannel({ components })`. A reaction to an older message survives a process restart when the snapshot is in a durable `StateStore`: the default managed store, or your own `store.adapter`.
+
+How is this guide?
+
+GoodBad
+
+[Previous PageMarkdown](https://docs.copilotkit.ai/reference/channels/components/Markdown)[Next PageModal](https://docs.copilotkit.ai/reference/channels/components/Modal)

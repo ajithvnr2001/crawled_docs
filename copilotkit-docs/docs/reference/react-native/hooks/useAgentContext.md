@@ -2,63 +2,39 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext/
 title: useAgentContext
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:48.080430+00:00
+fetched_at: 2026-11-19T11:26:30.797955+00:00
 ---
 
 # useAgentContext
 
 > Source: https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Hooks
+React Native/Hooks
 
 # useAgentContext
 
 React hook for providing dynamic context to agents
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useAgentContext` registers a dynamic context object with the active Copilot runtime for the lifetime of the component. The hook adds the context on mount and removes it on unmount, so the agent always sees an up-to-date snapshot of your application state without manual cleanup.
 
 Re-exported from `@copilotkit/react-core/v2`. It is identical to the [React (V2) `useAgentContext`](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext); only the import path differs.
 
-Update the incoming context object to refresh what the agent sees. This is the v2 equivalent of `useCopilotReadable`. It lets you surface any serializable application state (user preferences, selected items, computed values, and so on) as context that agents can reference when generating responses or making decisions.
+Update the incoming context object to refresh what the agent sees. It lets you surface any serializable application state (user preferences, selected items, computed values, and so on) as context that agents can reference when generating responses or making decisions.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useAgentContext } from "@copilotkit/react-native";
     
     function useAgentContext(context: AgentContextInput): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -66,11 +42,13 @@ Type
 
 `context`AgentContextInput
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Usage
+### Basic UsageCopy Anchor Link
 
 Provide simple application state as context for the agent.
+
+Copy Text
     
     
     import { useAgentContext } from "@copilotkit/react-native";
@@ -89,9 +67,11 @@ Provide simple application state as context for the agent.
       );
     }
 
-### Dynamic Context from Component State
+### Dynamic Context from Component StateCopy Anchor Link
 
 The context updates automatically when the value changes between renders.
+
+Copy Text
     
     
     import { useState } from "react";
@@ -125,9 +105,11 @@ The context updates automatically when the value changes between renders.
       );
     }
 
-### Multiple Contexts in Nested Components
+### Multiple Contexts in Nested ComponentsCopy Anchor Link
 
 Each component can register its own context. All registered contexts are visible to the agent simultaneously.
+
+Copy Text
     
     
     import { useState } from "react";
@@ -159,11 +141,13 @@ Each component can register its own context. All registered contexts are visible
       return <View>{/* ... */}</View>;
     }
 
-## What the agent receives
+## What the agent receivesCopy Anchor Link
 
 Every registered entry reaches the agent as `{ description, value }`, and `value` is a **JSON string** : not the object or array you passed. The AG-UI protocol types it as a string, so this is not an implementation detail you can ignore when writing the agent.
 
 Registering this:
+
+Copy Text
     
     
     useAgentContext({
@@ -172,6 +156,8 @@ Registering this:
     });
 
 delivers this to the agent:
+
+Copy Text
     
     
     {
@@ -180,6 +166,8 @@ delivers this to the agent:
     }
 
 Parse it before reading any field. In a Python agent:
+
+Copy Text
     
     
     import json
@@ -192,6 +180,8 @@ Parse it before reading any field. In a Python agent:
         return None if entry is None else json.loads(entry["value"])
 
 In a TypeScript agent:
+
+Copy Text
     
     
     const entry = context.find(
@@ -203,19 +193,18 @@ Where that context list surfaces in your agent depends on your framework's AG-UI
 
 Do not type-check `value` against the shape you registered. `isinstance(entry["value"], list)` in Python, or `Array.isArray(entry.value)` in TypeScript, can never be true, because `value` is always a string on the wire. An agent that reads such a failed check as "no context was sent" will refuse every request while the app is registering context correctly, and the two cases are indistinguishable from the UI.
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Mount/Unmount lifecycle** : The context is registered when the component mounts and automatically removed when it unmounts. There is no manual cleanup required.
   * **Reactive updates** : When the `context` object changes between renders, the agent immediately sees the updated value.
   * **Serialization** : The `value` must conform to `JsonSerializable` (`string | number | boolean | null | JsonSerializable[] | { [key: string]: JsonSerializable }`). Non-serializable values such as functions, class instances, or symbols will cause errors. Strings are sent through unchanged; every other value is stringified, so the agent always reads a string: see What the agent receives.
   * **Multiple contexts** : Multiple `useAgentContext` calls across your component tree are all visible to the agent concurrently. Each is identified by its description and value.
-  * **No return value** : The hook returns `void`. Unlike `useCopilotReadable`, it does not return an ID for parent-child hierarchies.
+  * **No return value** : The hook returns `void`.
 
 
 
-## Related
+How is this guide?
 
-  * [`useCopilotReadable`](https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable): v1 equivalent for providing context
-  * [React (V2) reference](https://docs.copilotkit.ai/reference/v2/hooks/useAgentContext): the web `useAgentContext` this hook mirrors
+GoodBad
 
-
+[Previous PageuseAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[Next PageuseAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)

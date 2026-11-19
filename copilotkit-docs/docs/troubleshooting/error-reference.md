@@ -2,124 +2,30 @@
 url: https://docs.copilotkit.ai/troubleshooting/error-reference/
 title: Error message reference
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T10:48:44.249184+00:00
+fetched_at: 2026-11-19T11:26:34.497828+00:00
 ---
 
 # Error message reference
 
 > Source: https://docs.copilotkit.ai/troubleshooting/error-reference/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendCopilotKit
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
-Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/webmcp)
-
-Agent capabilities
-
-Built-in Agent
-
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)
-
-[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
-
-[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
 Troubleshooting
-
-[Common Copilot Issues](https://docs.copilotkit.ai/troubleshooting/common-issues)[Error message reference](https://docs.copilotkit.ai/troubleshooting/error-reference)[Error Debugging & Observability](https://docs.copilotkit.ai/troubleshooting/error-debugging)[Inspector and dev console](https://docs.copilotkit.ai/troubleshooting/inspector-dev-console)[Debug Mode](https://docs.copilotkit.ai/troubleshooting/debug-mode)[AG-UI Event Inspector](https://docs.copilotkit.ai/troubleshooting/event-inspector)[Hook Explorer](https://docs.copilotkit.ai/troubleshooting/hook-explorer)
-
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-Error message reference
-
-OtherTroubleshooting
 
 # Error message reference
 
 Find the cause and fix for common CopilotKit console, network, and error UI messages.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 This page lists the error strings CopilotKit surfaces in your console, network responses, and error UI. If you hit an error, search this page with Cmd/Ctrl-F for a distinctive phrase from the message.
 
 For the programmatic `onError` **codes** (`runtime_info_fetch_failed`, `tool_handler_failed`, ...) rather than these human-readable strings, see [Error Debugging](https://docs.copilotkit.ai/troubleshooting/error-debugging).
 
-## Missing runtime configuration#
+## Missing runtime configurationCopy Anchor Link
 
 Error string:
+
+Copy Text
     
     
     Missing required prop: 'runtimeUrl' or 'publicApiKey' or 'publicLicenseKey'
@@ -128,11 +34,13 @@ Error string:
 
 v1 behaves differently
 
-The **v1** `<CopilotKit>` provider throws in **both development and production** when nothing is configured, whereas the v2 `<CopilotKitProvider>` only warns in development. Either way, registering `selfManagedAgents` or `agents__unsafe_dev_only` satisfies the check — no `runtimeUrl` or Copilot Cloud key required.
+The **v1** `<CopilotKit>` provider throws in **both development and production** when nothing is configured, whereas the v2 `<CopilotKitProvider>` only warns in development. Either way, registering `selfManagedAgents` or `agents__unsafe_dev_only` satisfies the check. No `runtimeUrl` or Copilot Cloud key is required.
 
 **Cause:** the provider has no way to reach an agent. You didn't pass a `runtimeUrl`, a Copilot Cloud key (`publicApiKey` / `publicLicenseKey`), **and** you didn't register any local agents.
 
 **Fix (v2):** provide one of these values to `CopilotKitProvider`, imported from `@copilotkit/react-core/v2`:
+
+Copy Text
     
     
     // Runtime-backed (recommended)
@@ -146,9 +54,11 @@ The **v1** `<CopilotKit>` provider throws in **both development and production**
 
 See [Self-managed agents](https://docs.copilotkit.ai/backend/self-managed-agents) for the local-agent path.
 
-## Agent discovery failed#
+## Agent discovery failedCopy Anchor Link
 
 Error name:
+
+Copy Text
     
     
     CopilotKitAgentDiscoveryError
@@ -161,11 +71,20 @@ This is the error **name** (`error.name`). The accompanying message is one of:
 
 
 
+`CopilotKitAgentDiscoveryError` comes from the v1 hooks, such as `useCoAgentStateRender`, and from the v1 GraphQL runtime. With `@copilotkit/react-core/v2`, `useAgent` throws an `Error` with this message for the same cause:
+
+Copy Text
+    
+    
+    useAgent: Agent '<id>' not found after runtime sync (runtimeUrl=<url>). ...
+
 **Cause:** the frontend asked for an `agentId` that the runtime didn't return from its `/info` discovery. This is usually a typo, a missing registration, or a runtime that has no agents at all. The prebuilt components default to the agent named `"default"`.
 
 **Fix:**
 
   * Register the agent under the id you're requesting (or under `"default"` if you pass no `agentId`): 
+
+Copy Text
         
         new CopilotRuntime({ agents: { default: myAgent } });
 
@@ -176,26 +95,32 @@ This is the error **name** (`error.name`). The accompanying message is one of:
 
 `CopilotKitAgentDiscoveryError` is a **banner** error. It renders as a fixed banner in the dev console rather than a dismissible toast.
 
-## Agent route returned 404#
+## Agent route returned 404Copy Anchor Link
 
 Error strings:
+
+Copy Text
     
     
     Agent not found
     Agent '<id>' does not exist
 
 **Where:** an HTTP `404` JSON body from the runtime's agent routes:
+
+Copy Text
     
     
     { "error": "Agent not found", "message": "Agent 'my-agent' does not exist" }
 
-**Cause:** a `POST /agent/:agentId/run`, `/connect`, or `/stop/:threadId` request named an `agentId` that isn't registered on the runtime. This is the server-side counterpart to the client-side `CopilotKitAgentDiscoveryError`.
+**Cause:** a `POST /agent/:agentId/run`, `/connect`, or `/stop/:threadId` request named an `agentId` that isn't registered on the runtime. This is the server-side counterpart to the client-side errors in Agent discovery failed.
 
 **Fix:** register the agent under that key in `new CopilotRuntime({ agents: { ... } })`. If you see this on the `/connect` route **before sending any message** , also read [the `/connect` 404 entry](https://docs.copilotkit.ai/troubleshooting/common-issues#connect-route-returns-404-on-a-fresh-thread).
 
-## Agent run failed#
+## Agent run failedCopy Anchor Link
 
 Error string:
+
+Copy Text
     
     
     Failed to run agent
@@ -206,27 +131,23 @@ Error string:
 
 **Fix:** read the `message` field and check your server logs (the runtime logs the error name, message, and stack). Common culprits: an unset `OPENAI_API_KEY` (or equivalent) on the server, or a model string the provider doesn't recognize.
 
-## Capability discovery failed#
+## Capability discovery failedCopy Anchor Link
 
 Error string:
+
+Copy Text
     
     
     Failed to fetch capabilities for agent "<name>"
 
-**Where:** logged on the client when capability discovery for an agent fails.
+**Where:** a `console.warn` in the runtime's server logs, from the `/info` handler.
 
-**Cause:** the runtime couldn't be reached, or the named agent's capabilities endpoint errored.
+**Cause:** the `getCapabilities()` call of the named agent threw. The `/info` response still lists the agent, without capabilities.
 
-**Fix:** confirm `runtimeUrl` is correct and the runtime is up; verify `GET {runtimeUrl}/info` returns the agent. See [Common Issues: Network errors](https://docs.copilotkit.ai/troubleshooting/common-issues#network-errors--api-not-found).
+**Fix:** read the error after the colon, and correct the `getCapabilities()` method of the agent.
 
-## Related#
+How is this guide?
 
-  * [Error Debugging](https://docs.copilotkit.ai/troubleshooting/error-debugging): the `onError` callback and its programmatic error **codes**.
-  * [Common Issues](https://docs.copilotkit.ai/troubleshooting/common-issues): network, endpoint, and tunnel problems.
-  * [Runtime HTTP endpoints](https://docs.copilotkit.ai/backend/runtime-endpoints): probing `/info` and the agent routes with `curl`.
+GoodBad
 
-
-
-### On this page
-
-Missing runtime configurationAgent discovery failedAgent route returned 404Agent run failedCapability discovery failedRelated
+[Previous PageCommon Copilot Issues](https://docs.copilotkit.ai/troubleshooting/common-issues)[Next PageError Debugging & Observability](https://docs.copilotkit.ai/troubleshooting/error-debugging)

@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotModal/
 title: CopilotModal
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:45.687786+00:00
+fetched_at: 2026-11-19T11:26:31.503997+00:00
 ---
 
 # CopilotModal
 
 > Source: https://docs.copilotkit.ai/reference/react-native/components/CopilotModal/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Components
+React Native/Components
 
 # CopilotModal
 
 Headless modal wrapper around CopilotChat, plus a prebuilt bottom-sheet chat from the /components subpath.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 Like [`CopilotChat`](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat), `CopilotModal` ships in **two** versions, chosen by import path:
 
@@ -52,7 +26,11 @@ Like [`CopilotChat`](https://docs.copilotkit.ai/reference/react-native/component
 
 
 
-## Headless `CopilotModal`
+For a drawer or a floating button, see [`CopilotSidebar`](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar) or [`CopilotPopup`](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup).
+
+## Headless `CopilotModal`Copy Anchor Link
+
+Copy Text
     
     
     import { CopilotModal } from "@copilotkit/react-native";
@@ -65,7 +43,9 @@ Type
 
 `children?`ReactNode
 
-### Usage
+### UsageCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotModal } from "@copilotkit/react-native";
@@ -81,14 +61,16 @@ Type
       );
     }
 
-## Prebuilt UI
+## Prebuilt UICopy Anchor Link
 
 Import `CopilotModal` from the `/components` subpath for a bottom-sheet chat. Control it imperatively through a `CopilotModalRef`, or declaratively with the `visible` prop. Requires the `@gorhom/bottom-sheet`, `react-native-gesture-handler`, and `react-native-reanimated` peer dependencies.
+
+Copy Text
     
     
     import { CopilotModal, type CopilotModalRef } from "@copilotkit/react-native/components";
 
-### Props
+### PropsCopy Anchor Link
 
 Like the prebuilt `CopilotChat`, this component selects its agent with `agentName` (the prop the prebuilt UI currently exposes), not the headless `agentId`.
 
@@ -98,61 +80,25 @@ Type
 
 `visible?`boolean
 
-Prop
-
-Type
-
 `onDismiss?`() => void
-
-Prop
-
-Type
 
 `snapPoints?`(string | number)[]
 
-Prop
-
-Type
-
 `initialSnapIndex?`number
-
-Prop
-
-Type
 
 `enableDismissOnClose?`boolean
 
-Prop
-
-Type
-
 `backdropOpacity?`number
-
-Prop
-
-Type
 
 `agentName?`string
 
-Prop
-
-Type
-
 `placeholder?`string
-
-Prop
-
-Type
 
 `initialMessages?`string[]
 
-Prop
-
-Type
-
 `headerTitle?`string
 
-### Ref handle
+### Ref handleCopy Anchor Link
 
 Prop
 
@@ -160,7 +106,9 @@ Type
 
 `CopilotModalRef?`{ open(): void; close(): void }
 
-### Usage
+### UsageCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotModal, type CopilotModalRef } from "@copilotkit/react-native/components";
@@ -183,10 +131,8 @@ Type
       );
     }
 
-## Related
+How is this guide?
 
-  * [`CopilotChat`](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat): the underlying chat primitive and prebuilt UI
-  * [`CopilotSidebar`](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar): slide-in drawer variant
-  * [`CopilotPopup`](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup): floating action button + overlay
+GoodBad
 
-
+[Previous PageCopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[Next PageCopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)

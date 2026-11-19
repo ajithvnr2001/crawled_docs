@@ -2,64 +2,28 @@
 url: https://docs.copilotkit.ai/reference/angular/production-lifecycle/
 title: Production and lifecycle
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:10.717384+00:00
+fetched_at: 2026-11-19T11:26:38.339318+00:00
 ---
 
 # Production and lifecycle
 
 > Source: https://docs.copilotkit.ai/reference/angular/production-lifecycle/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁AngularSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Guides
-
-[Public API inventory](https://docs.copilotkit.ai/reference/angular/public-api)[Production and lifecycle](https://docs.copilotkit.ai/reference/angular/production-lifecycle)
-
-Components
-
-[CopilotActivity](https://docs.copilotkit.ai/reference/angular/components/CopilotActivity)[CopilotChat](https://docs.copilotkit.ai/reference/angular/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/angular/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatView)[CopilotPopup](https://docs.copilotkit.ai/reference/angular/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/angular/components/CopilotSidebar)
-
-Functions
-
-[connectAgentContext](https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext)[injectAgentStore](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)[injectCapabilities](https://docs.copilotkit.ai/reference/angular/functions/injectCapabilities)[injectChatLabels](https://docs.copilotkit.ai/reference/angular/functions/injectChatLabels)[injectCopilotKitConfig](https://docs.copilotkit.ai/reference/angular/functions/injectCopilotKitConfig)[injectInterrupt](https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt)[injectThreads](https://docs.copilotkit.ai/reference/angular/functions/injectThreads)[provideCopilotChatLabels](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels)[provideCopilotKit](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit)[provideMCPApps](https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps)[registerComponent](https://docs.copilotkit.ai/reference/angular/functions/registerComponent)[registerFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)[registerHumanInTheLoop](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop)[registerRenderActivityMessage](https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage)[registerRenderToolCall](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)
-
-Services
-
-[CopilotKit](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
-
-Directives
-
-[CopilotKitAgentContext](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[angular](https://docs.copilotkit.ai/reference/angular)Production-lifecycle
+Angular
 
 # Production and lifecycle
 
 Cleanup, errors, SSR, hydration, and zoneless behavior for @copilotkit/angular.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+`@copilotkit/angular` uses signals and standalone Angular APIs and is compatible with zoneless Angular. Most UI components use `OnPush`. `RenderToolCalls` uses the `Eager` change-detection strategy.
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-`@copilotkit/angular` uses signals and standalone Angular APIs and is compatible with zoneless Angular. Most UI components use `OnPush`; `RenderToolCalls` currently uses Angular's default change-detection strategy. This page describes the environment and ownership rules that apply across the public API.
-
-## Minimal production setup
+## Minimal production setupCopy Anchor Link
 
 src/app/app.config.ts
+
+Copy Text
     
     
     import {
@@ -79,7 +43,7 @@ src/app/app.config.ts
 
 Use a same-origin runtime URL where possible. If server and browser origins differ, resolve an absolute URL independently in each environment while keeping the rendered component tree and initial input values identical.
 
-## Ownership and cleanup
+## Ownership and cleanupCopy Anchor Link
 
 Call injectable helpers from a field initializer, constructor, or another Angular injection context. They use the owning `DestroyRef`:
 
@@ -97,10 +61,10 @@ MCP Apps and Open Generative UI| Iframe listeners, queues, sandbox instances| Ca
   
 Application-owned work stays application-owned. For example, abort a fetch started by a frontend tool when the tool's host is destroyed. Do not retain an injected controller outside its injector. `AgentStore.teardown()` exists for manually constructed advanced stores; injected stores clean themselves up.
 
-## Error behavior
+## Error behaviorCopy Anchor Link
 
   * Agent lookup throws an error containing the requested agent, runtime URL, and known agent IDs after runtime synchronization cannot resolve it.
-  * Activity-renderer content must pass its Standard Schema before rendering. Frontend-tool and tool-call-renderer schemas define advertised JSON Schema and TypeScript types, but runtime arguments are only JSON-parsed. Unknown tools remain hidden unless `defaultToolRendering` is explicitly enabled.
+  * Activity-renderer content must pass the renderer's `content` schema (its `safeParse` method) before rendering. Frontend-tool and tool-call-renderer schemas define advertised JSON Schema and TypeScript types, but runtime arguments are only JSON-parsed. Unknown tools remain hidden unless `defaultToolRendering` is explicitly enabled.
   * Interrupt predicate and preparation failures are exposed on the controller's `error` signal. Expired interrupts produce `InterruptExpiredError`. Resume failures are not retried automatically.
   * Thread and memory controllers expose errors as signals; mutation promises reject so the application can announce or display the failure.
   * A2UI recovery visibility is controlled by `A2UIRecoveryOptions` and may be overridden by authoritative server lifecycle content.
@@ -108,7 +72,7 @@ Application-owned work stays application-owned. For example, abort a fetch start
 
 
 
-## SSR and hydration
+## SSR and hydrationCopy Anchor Link
 
 Browser-only behavior is inert during server rendering and activates after hydration. Follow these rules:
 
@@ -122,10 +86,16 @@ Browser-only behavior is inert during server rendering and activates after hydra
 
 Keep popup and sidebar initial `open`, `mode`, and `position` inputs stable through hydration so the server and browser produce matching semantics. Treat their generated dialog IDs as implementation details rather than persisting or querying them from application code.
 
-## Zoneless behavior
+## Zoneless behaviorCopy Anchor Link
 
 The package does not require Zone.js. Signals, signal inputs/models, Angular outputs, `afterNextRender`, and explicit observer callbacks drive updates. Custom renderer components should also be standalone and OnPush- or zoneless-compatible. When bridging a third-party callback, update an Angular signal or use Angular's supported scheduling APIs instead of relying on Zone.js to notice arbitrary mutation.
 
-## Security boundaries
+## Security boundariesCopy Anchor Link
 
 `headers`, `properties`, tool arguments, activity content, and MCP host context are browser-visible. Never put model-provider credentials or other secrets in them. Keep model credentials behind Copilot Runtime. Open Generative UI functions should expose narrow application capabilities, and MCP Apps runtime traffic should continue through the selected AG-UI agent rather than a browser-supplied server URL.
+
+How is this guide?
+
+GoodBad
+
+[Previous PageOverview](https://docs.copilotkit.ai/reference/angular)[Next PagePublic API inventory](https://docs.copilotkit.ai/reference/angular/public-api)

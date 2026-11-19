@@ -2,133 +2,37 @@
 url: https://docs.copilotkit.ai/threads-lifecycle/
 title: Thread & History Lifecycle
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T10:48:44.545537+00:00
+fetched_at: 2026-11-19T11:26:34.651660+00:00
 ---
 
 # Thread & History Lifecycle
 
 > Source: https://docs.copilotkit.ai/threads-lifecycle/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendCopilotKit
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
-Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/webmcp)
-
-Agent capabilities
-
-Built-in Agent
-
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Overview](https://docs.copilotkit.ai/AG-UI-Streams)[Bring your own thread system](https://docs.copilotkit.ai/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained)
-
-[Automatic Learning](https://docs.copilotkit.ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)
-
-[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
-
-[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-Thread & History Lifecycle
-
-IntelligenceFeaturesAG-UI Streams
+Features/AG-UI Streams
 
 # Thread & History Lifecycle
 
 How a threadId is created, how conversation history is restored, how to switch or start threads, and how CopilotKit threads relate to your agent framework's own persistence.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## What is this?Copy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Users leave a chat and come back later, or open an earlier conversation. Each conversation is a **thread** with its own `threadId`. This page shows how CopilotKit creates the id, restores history, and switches threads. It also shows where CopilotKit threads end and your agent framework's own persistence (for example, a LangGraph checkpointer) begins.
 
-## What is this?#
+This page describes the hooks and components imported from `@copilotkit/react-core/v2`.
 
-Every CopilotKit conversation is scoped to a **thread** , identified by a `threadId`. This page explains the full lifecycle of that thread on the client: how the id is created, how prior history is restored when a conversation loads, how to switch between threads or start a new one, and where CopilotKit's threads end and your agent framework's own persistence (e.g. a LangGraph checkpointer) begins.
-
-This page describes the **v2** hooks and components imported from `@copilotkit/react-core/v2`. The v1 API (`useCopilotChat`, `initialMessages`, the v1 `useThreads`) behaves differently; see the v1 vs v2 notes at the end.
-
-## The lifecycle at a glance#
+## The lifecycle at a glanceCopy Anchor Link
 
   1. **Mint.** When a chat mounts without an explicit `threadId`, the client generates one (a UUID v4).
-  2. **Run.** Messages and tool calls stream under that `threadId`. If a server-side store is configured (CopilotKit Intelligence, or a persisting `AgentRunner`), they are persisted as they happen so the thread can be replayed later. A runtime with no persistence layer keeps nothing server-side. See [AG-UI Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained) for the full server-side model.
+  2. **Run.** Messages and tool calls stream under that `threadId`. If a server-side store is configured (CopilotKit Intelligence, or a persisting `AgentRunner`), they are persisted as they happen so the thread can be replayed later. Without one, the runtime's default in-memory runner keeps the history only in the runtime process. A restart or a second server instance loses it. See [AG-UI Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained) for the full server-side model.
   3. **Hydrate.** When a chat mounts _with_ a known `threadId`, the client connects and replays the persisted history into the UI.
   4. **Switch / start.** You change the active thread (restoring its history) or start a fresh one (clearing the view).
 
 
 
-## How the threadId is created#
+## How the threadId is createdCopy Anchor Link
 
 When you don't supply one, CopilotKit mints a `threadId` **on the client, at mount** , using a UUID v4. The value is resolved by this precedence (highest first):
 
@@ -141,6 +45,8 @@ When you don't supply one, CopilotKit mints a `threadId` **on the client, at mou
 
 
 Explicit threadId (recommended when you own persistence)
+
+Copy Text
     
     
     import { CopilotChat } from "@copilotkit/react-core/v2";
@@ -148,26 +54,30 @@ Explicit threadId (recommended when you own persistence)
     // You control the id: history replays for it, and it's stable across remounts.
     <CopilotChat agentId="my-agent" threadId={myThreadId} />
 
-**Auto-minted ids are stable across re-renders, but re-mint on remount.** The fallback id is computed with `useMemo`, so a component _remount_ (a changed React `key`, a parent unmount/remount, or React StrictMode's double-mount in dev) produces a **new** id and silently starts a new conversation. If you need an id that survives remounts, mint it yourself and pass it as the `threadId` prop (or persist it and restore it via `setActiveThreadId`). Don't rely on the auto-mint for continuity.
+**Auto-minted ids are stable across re-renders, but re-mint on remount.** The fallback id comes from `useMemo`. A _remount_ creates a **new** id and starts a new conversation. A remount happens when the React `key` changes, when a parent remounts, or in React StrictMode in development. If you need an id that survives remounts, mint it yourself and pass it as the `threadId` prop (or persist it and restore it via `setActiveThreadId`). Don't rely on the auto-mint for continuity.
 
-## How history is restored (hydration)#
+## How history is restored (hydration)Copy Anchor Link
 
-CopilotKit v2 does **not** use an `initialMessages` prop to seed a conversation. History is restored one of two ways:
+History is restored in one of two ways:
 
 **1\. Server-side replay.** When a chat mounts with an _explicit_ `threadId`, the client sets `agent.threadId` and calls `connectAgent()`, which replays that thread's persisted event history back into the UI, with no manual message wiring:
 
 History replays for a known threadId (given a server-side store)
+
+Copy Text
     
     
     <CopilotChat agentId="my-agent" threadId={someExistingThreadId} />
 
-Replay requires a **server-side store to replay from** : CopilotKit Intelligence, or a persisting `AgentRunner` (e.g. the SQLite runner). A self-hosted runtime with no persistence layer has nothing to replay, so `connectAgent()` returns an empty stream and the conversation starts blank. If history isn't restoring, check that a store is configured, not the client code. The [Persistence Architecture](https://docs.copilotkit.ai/intelligence/threads-explained) page covers how replay works server-side.
+Durable replay requires a **server-side store to replay from** : CopilotKit Intelligence, or a persisting `AgentRunner` (for example, the SQLite runner). The default in-memory runner replays history only while the same runtime process runs. After a restart, or on another server instance, `connectAgent()` returns an empty stream and the conversation starts blank. If history isn't restoring, check that a store is configured, not the client code. The [Persistence Architecture](https://docs.copilotkit.ai/intelligence/threads-explained) page covers how replay works server-side.
 
 For a _fresh_ (non-explicit) thread, e.g. after `startNewThread()`, there's nothing to replay, so `connect` is skipped and the message view is cleared.
 
 **2\. Manual hydration.** If you're managing messages yourself (for non-platform or custom cases), read them from the agent and set them directly:
 
 Read and set messages via the agent
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/react-core/v2";
@@ -184,13 +94,17 @@ Read and set messages via the agent
       return null;
     }
 
-There is no v2 `useCopilotChat` hook and no v2 `initialMessages` prop. Read messages from `useAgent().agent.messages` and mutate with `agent.setMessages(...)` / `agent.addMessage(...)`. (`initialMessages` still exists on the **v1** `useCopilotChat` hook; see below.)
+Read messages from `useAgent().agent.messages`. Change them with `agent.setMessages(...)` or `agent.addMessage(...)`.
 
-## Scope AG-UI Streams to the signed-in user#
+## Scope CopilotKit threads to the signed-in userCopy Anchor Link
+
+This section is for multi-user apps on an Intelligence-enabled Runtime. It sets up `identifyUser` on the server. To switch threads on the client, skip to Switching threads and starting new ones.
 
 Your application owns end-user authentication. For an Intelligence-enabled Runtime, implement `identifyUser(request)` with the server-verified session or token from your auth provider and return a stable user `id` and `name`:
 
 app/api/copilotkit/[[...slug]]/route.ts
+
+Copy Text
     
     
     import { CopilotKitIntelligence, CopilotRuntime } from "@copilotkit/runtime/v2";
@@ -217,17 +131,19 @@ app/api/copilotkit/[[...slug]]/route.ts
 
 CopilotKit Intelligence combines that application user identity with the selected project when it scopes thread lists, subscriptions, history, rename, archive, unarchive, and delete operations. The project Runtime API key is a separate credential: keep it on the server and do not use the developer who created that key as the application user.
 
-[Connect your runtime to Intelligence](https://docs.copilotkit.ai/intelligence/quickstart) covers the `CopilotKitIntelligence` constructor in full — where the project API key comes from, the self-hosted `apiUrl` / `wsUrl` override rule, and how to confirm the credential is actually being read rather than silently ignored.
+[Connect your runtime to Intelligence](https://docs.copilotkit.ai/intelligence/quickstart) covers the `CopilotKitIntelligence` constructor in full: where the project API key comes from, the self-hosted `apiUrl` / `wsUrl` override rule, and how to confirm the credential is actually being read rather than silently ignored.
 
 A static `identifyUser` value is suitable only for a single-user demo. In a multi-user application, every request must resolve the authenticated application user or those users will share the same thread scope.
 
 See [Authentication](https://docs.copilotkit.ai/auth) for forwarding and verifying your provider's auth context. `identifyUser` is the additional Runtime contract that assigns the verified application user to threads.
 
-## Switching threads and starting new ones#
+## Switching threads and starting new onesCopy Anchor Link
 
 Set the active thread to restore its history, or start a fresh conversation:
 
 Switch or start a thread
+
+Copy Text
     
     
     import { useCopilotChatConfiguration } from "@copilotkit/react-core/v2";
@@ -249,13 +165,13 @@ Switch or start a thread
     }
 
   * `setActiveThreadId(threadId, { explicit })`: `explicit: true` (the default) treats it as a known thread and replays its history, while `explicit: false` shows the welcome screen.
-  * `startNewThread()`: resets to a freshly minted, non-explicit id. Also available from `useThreads()` for thread-sidebar UIs.
+  * `startNewThread()`: resets to a freshly minted, non-explicit id. Also available from `useThreads()` for thread-sidebar UIs. See [Headless Threads](https://docs.copilotkit.ai/headless-threads) for the full `useThreads` API.
 
 
 
 Both setters **no-op and log a warning when the`threadId` is prop-controlled** (i.e. you passed an authoritative `threadId` prop). If you drive threads imperatively with these setters, don't also pass a `threadId` prop. Pick one source of truth.
 
-## Creating a thread with your own API on the first message#
+## Creating a thread with your own API on the first messageCopy Anchor Link
 
 A common ask: intercept the user's first message to mint a thread via your own backend (e.g. create a DB row and get its id) before the conversation starts.
 
@@ -264,6 +180,8 @@ A common ask: intercept the user's first message to mint a thread via your own b
 **Recommended: mint up front and drive the id.** Create your thread when the user starts a new conversation (e.g. on a "New chat" action, or lazily just before you render the chat), then hand the id to CopilotKit:
 
 Mint your thread, then drive it
+
+Copy Text
     
     
     async function startConversation() {
@@ -272,12 +190,14 @@ Mint your thread, then drive it
       // or render <CopilotChat threadId={id} />
     }
 
-**At submit-time (headless only).** If you must intercept exactly when the user hits send, compose the UI yourself with `CopilotChatInput` / `CopilotChatView` and pass your own `onSubmitMessage` (the built-in `<CopilotChat>` ignores it). Because the handler is yours, you set the thread on the agent and drive the send:
+**At submit-time (headless only).** If you must intercept exactly when the user hits send, compose the UI yourself with `CopilotChatInput` / `CopilotChatView` and pass your own `onSubmitMessage`. Because the handler is yours, you set the thread on the agent and drive the send:
 
 Headless: set the thread on the agent before sending
+
+Copy Text
     
     
-    import { CopilotChatInput, useAgent } from "@copilotkit/react-core/v2";
+    import { CopilotChatInput, randomUUID, useAgent } from "@copilotkit/react-core/v2";
     
     function MyInput() {
       const { agent } = useAgent({ agentId: "my-agent" });
@@ -287,18 +207,16 @@ Headless: set the thread on the agent before sending
           onSubmitMessage={async (text) => {
             const { id } = await myApi.createThread(); // your backend
             agent.threadId = id;                       // set it on the agent directly
-            agent.addMessage({ role: "user", content: text });
+            agent.addMessage({ id: randomUUID(), role: "user", content: text });
             // ...then trigger the run with your send logic
           }}
         />
       );
     }
 
-For a send you fire in the same handler, set the id on the **agent** (`agent.threadId = id`); don't rely on `setActiveThreadId(id)`. `setActiveThreadId` updates React state and only reaches the agent on the next render (and only when a `<CopilotChat>` is mounted to sync it), so a run kicked off immediately would still use the previous thread. Use `setActiveThreadId` / `startNewThread` for switching threads in the UI, and set `agent.threadId` directly when it must take effect before an imperative send.
+For a send you fire in the same handler, set the id on the **agent** (`agent.threadId = id`); don't rely on `setActiveThreadId(id)`. `setActiveThreadId` updates React state. The agent gets the new id on the next render, and only when a `<CopilotChat>` is mounted. A run that starts in the same handler still uses the old thread. Use `setActiveThreadId` / `startNewThread` for switching threads in the UI, and set `agent.threadId` directly when it must take effect before an imperative send.
 
-`onSubmitMessage` is only a real interception seam in the **headless** path. On the built-in `<CopilotChat>` it's overridden, so reach for the "mint up front" approach there.
-
-## CopilotKit threads vs. your framework's checkpointer#
+## CopilotKit threads vs. your framework's checkpointerCopy Anchor Link
 
 These are **two different layers** , correlated only by the shared `threadId`:
 
@@ -307,44 +225,39 @@ Layer| What it stores| Managed by
 **CopilotKit threads**|  Conversation list + full AG-UI event history (messages, tool calls, state), with realtime sync| CopilotKit Intelligence, via `useThreads`  
 **Framework-native persistence**|  Framework-internal state/checkpoints| Your agent, e.g. a LangGraph `AsyncPostgresSaver`  
   
-A LangGraph checkpointer (an `AsyncPostgresSaver` \+ `compile(checkpointer=...)`) creates LangGraph's own **checkpoint tables**. It does _not_ create a CopilotKit "threads" table, and you won't see a threads table appear just from configuring a checkpointer. Conversely, `useThreads` rename/archive/delete operate on platform threads and do **not** reach into LangGraph (or ADK, etc.) stores unless your backend explicitly bridges them.
+A LangGraph checkpointer (an `AsyncPostgresSaver` \+ `compile(checkpointer=...)`) creates LangGraph's own **checkpoint tables**. It does _not_ create a CopilotKit "threads" table, and you won't see a threads table appear just from configuring a checkpointer. Conversely, `useThreads` rename/archive/delete operate on CopilotKit threads and do **not** reach into LangGraph (or ADK, etc.) stores unless your backend explicitly bridges them.
 
 The bridge between the two is the `threadId`: when you pass an explicit CopilotKit `threadId`, it's forwarded to the backend as the AG-UI `threadId`, which your framework can use directly as (or map to) its own checkpoint/thread id.
 
-### Future runs can remain durable in both places#
+With CrewAI Flows, `@persist` stores the Flow's own state, and the CopilotKit `threadId` becomes the CrewAI `session_id`.
+
+### Future runs can remain durable in both placesCopy Anchor Link
 
 Once Intelligence is connected, conversations that run through that runtime are recorded automatically in Intelligence. Historical import is optional. If your LangGraph agent continues using a durable checkpointer or LangGraph Platform, those same runs also continue through LangGraph's native persistence. The same applies to an ADK agent that remains connected to a durable session service with retained sessions. This lets you keep native framework storage and analytics while users get replay, generative UI, multimodal history, and realtime continuity through CopilotKit.
 
-This is coordinated persistence during future CopilotKit-mediated runs, not general database replication. CopilotKit lifecycle actions such as rename, archive, and delete apply to the CopilotKit Intelligence thread; they do not rename, archive, or delete records in the native framework store.
+This is coordinated persistence during future CopilotKit-mediated runs, not general database replication. CopilotKit lifecycle actions such as rename, archive, and delete apply to the CopilotKit thread; they do not rename, archive, or delete records in the native framework store.
 
-See [LangGraph persistence](https://docs.copilotkit.ai/integrations/langgraph/advanced/persistence/message-persistence) for the framework-native (checkpointer) side, and [Importing and synchronizing thread history](https://docs.copilotkit.ai/threads-import) for bringing existing framework conversations into the platform store. (LangGraph _Platform_ requires thread ids to be UUIDs, which CopilotKit's auto-minted ids already are.)
+See [LangGraph persistence](https://docs.copilotkit.ai/langgraph-python/advanced/persistence/message-persistence) for the framework-native (checkpointer) side, and [Importing and synchronizing thread history](https://docs.copilotkit.ai/threads-import) for bringing existing framework conversations into the platform store. (LangGraph _Platform_ requires thread ids to be UUIDs, which CopilotKit's auto-minted ids already are.)
 
-## Example: keep an existing LangGraph conversation#
+## Example: keep an existing LangGraph conversationCopy Anchor Link
 
 Follow [Bring your own thread system](https://docs.copilotkit.ai/intelligence/bring-your-own-thread-system#example-keep-an-existing-langgraph-conversation) for an example that keeps native persistence and continues the same conversation.
 
-## MCP Apps activity and history#
+## MCP Apps activity and historyCopy Anchor Link
 
 MCP Apps render through **activity messages** (`activityType: "mcp-apps"`), and that rendering is a **client-side** concern: the registered renderer resolves the referenced UI resource and runs any follow-up in the browser. So the visible MCP App UI is _re-derived on the client from the conversation_ when it loads. It isn't a separately-stored artifact you persist on its own.
 
 Practically, MCP App UI restores the same way the rest of the conversation does: if your server-side store replays the thread's history (see server-side replay above), the tool-call/activity messages come back and the renderers run again on hydration. There's no separate MCP-Apps store to configure.
 
-## v1 vs v2#
+## v1 vs v2Copy Anchor Link
 
-  * **v2** (`@copilotkit/react-core/v2`): `useThreads` returns the platform thread list; `threadId` lives per-chat (on `<CopilotChat>` / `<CopilotChatConfigurationProvider>`), not on the provider; read messages via `useAgent().agent.messages` and mutate via `agent.setMessages(...)`. No `initialMessages`.
-  * **v1** (`@copilotkit/react-core`): `useThreads` returns `{ threadId, setThreadId, isThreadIdExplicit }` (a single-conversation id manager, not the platform list). Its `setThreadId` silently no-ops when a `threadId` prop is present, because the prop shadows internal state. `<CopilotKit threadId>` sets the id at the provider, and `useCopilotChat()` exposes `setMessages(...)` and an `initialMessages` option. (Separately, the `setThreadId` on the main `<CopilotKit>` hooks _throws_ if you call it while `threadId` is prop-supplied.)
-
-
-
-## See also#
-
-  * [Headless Threads](https://docs.copilotkit.ai/headless-threads) — the full `useThreads` API
-  * [AG-UI Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained) — server-side replay, resume, realtime sync
-  * [Multi-conversation chat](https://docs.copilotkit.ai/tutorials/multi-conversation-chat) — build a chat-history sidebar
-  * [Importing and synchronizing thread history](https://docs.copilotkit.ai/threads-import) — bring existing framework conversations into the platform and keep future runs continuous
+  * **v2** (`@copilotkit/react-core/v2`): `useThreads` returns the CopilotKit thread list; `threadId` lives per-chat (on `<CopilotChat>` / `<CopilotChatConfigurationProvider>`), not on the provider; read messages via `useAgent().agent.messages` and mutate via `agent.setMessages(...)`. No `initialMessages`.
+  * **v1** (`@copilotkit/react-core`): `useThreads` returns `{ threadId, setThreadId, isThreadIdExplicit }` (a single-conversation id manager, not the platform list). Its `setThreadId` silently no-ops when a `threadId` prop is present, because the prop shadows internal state. `<CopilotKit threadId>` sets the id at the provider. (Separately, the `setThreadId` on the main `<CopilotKit>` hooks _throws_ if you call it while `threadId` is prop-supplied.)
 
 
 
-### On this page
+How is this guide?
 
-What is this?The lifecycle at a glanceHow the threadId is createdHow history is restored (hydration)Scope AG-UI Streams to the signed-in userSwitching threads and starting new onesCreating a thread with your own API on the first messageCopilotKit threads vs. your framework's checkpointerFuture runs can remain durable in both placesExample: keep an existing LangGraph conversationMCP Apps activity and historyv1 vs v2See also
+GoodBad
+
+[Previous PageAdd to Existing Threads](https://docs.copilotkit.ai/threads-import)[Next PageStreams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained)

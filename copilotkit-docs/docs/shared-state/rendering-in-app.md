@@ -2,120 +2,30 @@
 url: https://docs.copilotkit.ai/shared-state/rendering-in-app/
 title: Render agent state in your app
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:29.795927+00:00
+fetched_at: 2026-11-19T11:26:37.389756+00:00
 ---
 
 # Render agent state in your app
 
 > Source: https://docs.copilotkit.ai/shared-state/rendering-in-app/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendCopilotKit
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
 Shared state
-
-[Shared State](https://docs.copilotkit.ai/shared-state)[Render agent state in your app](https://docs.copilotkit.ai/shared-state/rendering-in-app)[State Streaming](https://docs.copilotkit.ai/shared-state/streaming)[Agent Read-Only Context](https://docs.copilotkit.ai/shared-state/agent-readonly)
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/webmcp)
-
-Agent capabilities
-
-Built-in Agent
-
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-Render agent state in your app
-
-InteractivityShared state
 
 # Render agent state in your app
 
 Read agent.state with useAgent and render it in your main view or canvas.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+[Shared state](https://docs.copilotkit.ai/shared-state) is most useful when the agent's state shows up in your main view, such as a dashboard, document canvas, map, or table. Because `agent.state` is plain React data, you can subscribe to it from any component in your tree and render it however you like.
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+## The patternCopy Anchor Link
 
-[Shared state](https://docs.copilotkit.ai/shared-state) is most powerful when the agent's state shows up in your application UI, such as a dashboard, document canvas, map, or table. Because `agent.state` is plain React data, you can subscribe to it from any component in your tree and render it however you like.
-
-## The pattern#
-
-`useAgent` works in any component under `<CopilotKit>`. It doesn't have to be near the chat. Call it in your main-view component, read `agent.state`, and render:
+[`useAgent`](https://docs.copilotkit.ai/reference/v2/hooks/useAgent) works in any component under `<CopilotKit>`. It doesn't have to be near the chat. Call it in your main-view component, read `agent.state`, and render:
 
 components/Canvas.tsx
+
+Copy Text
     
     
     import { useEffect } from "react";
@@ -175,11 +85,13 @@ The `INITIAL_CANVAS_STATE` value is UI-owned initial state for this example. It 
 
 Every time the agent mutates its state, whether from a tool call, node transition, or [streamed update](https://docs.copilotkit.ai/shared-state/streaming), `useAgent` re-renders this component with the new values. The chat can be in a sidebar, a popup, or absent entirely; your canvas updates the same way.
 
-## Put it anywhere in your layout#
+## Put it anywhere in your layoutCopy Anchor Link
 
-The agent lives on the `<CopilotKit>` provider, so the chat surface and your main-view components are just two consumers of the same agent. A typical layout renders the canvas as the primary content and the chat as a docked sidebar:
+The agent lives on the `<CopilotKit>` provider, so the chat surface and your main-view components are just two consumers of the same agent. A typical layout renders the canvas as the main view and the chat as a docked sidebar:
 
 app/page.tsx
+
+Copy Text
     
     
     import { CopilotKit, CopilotSidebar } from "@copilotkit/react-core/v2";
@@ -200,9 +112,11 @@ app/page.tsx
 
 `<Canvas>` and `<CopilotSidebar>` both call `useAgent()` for the same `agentId`, so they share one agent instance and one state object. There's nothing chat-specific about reading `agent.state`. The sidebar is not special.
 
-## Writing back from the main view#
+## Writing back from the main viewCopy Anchor Link
 
 The same `agent` exposes `setState`, so your canvas can be interactive, not just a read-only mirror. A click handler in the main view can push a new value that the agent reads on its next turn:
+
+Copy Text
     
     
     function toggleItem(id: string) {
@@ -214,9 +128,11 @@ The same `agent` exposes `setState`, so your canvas can be interactive, not just
       });
     }
 
-This is the same two-way channel described in [Shared State](https://docs.copilotkit.ai/shared-state). The only difference here is that the reads and writes happen in your application's main surface rather than in the chat.
+This is the same two-way channel described in [Shared State](https://docs.copilotkit.ai/shared-state). The only difference here is that the reads and writes happen in your main view.
 
-## Tips#
+If the agent must only read a UI value, and never write it, use [agent read-only context](https://docs.copilotkit.ai/shared-state/agent-readonly).
+
+## TipsCopy Anchor Link
 
   * **Target a specific agent** with `useAgent({ agentId: "research-agent" })` when you have more than one. The default is the agent named `"default"`.
   * **Throttle high-frequency updates** with `useAgent({ throttleMs })` if a streaming run re-renders a heavy canvas too often.
@@ -224,15 +140,12 @@ This is the same two-way channel described in [Shared State](https://docs.copilo
 
 
 
-## Related#
+## Try itCopy Anchor Link
 
-  * [Shared State](https://docs.copilotkit.ai/shared-state): the full read/write model and the underlying `useAgent` subscription.
-  * [State streaming](https://docs.copilotkit.ai/shared-state/streaming): stream a tool argument into a state key so the canvas fills in token-by-token.
-  * [Agent read-only context](https://docs.copilotkit.ai/shared-state/agent-readonly): push UI values _to_ the agent without letting it write back.
-  * [`useAgent` reference](https://docs.copilotkit.ai/reference/v2/hooks/useAgent): full hook signature and options.
+Ask the agent to add a task called "Write the launch post". A new item appears in the canvas list. Then mark an item done with `toggleItem`, and ask the agent which tasks are done. The agent names the item that you marked.
 
+How is this guide?
 
+GoodBad
 
-### On this page
-
-The patternPut it anywhere in your layoutWriting back from the main viewTipsRelated
+[Previous PageShared State](https://docs.copilotkit.ai/shared-state)[Next PageAgent Read-Only Context](https://docs.copilotkit.ai/shared-state/agent-readonly)

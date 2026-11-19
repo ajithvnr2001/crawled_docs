@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useAgent/
 title: useAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:47.983179+00:00
+fetched_at: 2026-11-19T11:26:30.501074+00:00
 ---
 
 # useAgent
 
 > Source: https://docs.copilotkit.ai/reference/react-native/hooks/useAgent/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Hooks
+React Native/Hooks
 
 # useAgent
 
 React hook for accessing AG-UI agent instances in React Native
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `useAgent` is a React hook that returns an [AG-UI AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent) instance. The hook subscribes to agent state changes and triggers re-renders when the agent's state, messages, or execution status changes.
 
@@ -53,7 +27,9 @@ By default it binds to a shared agent from the CopilotKit registry. It can also 
 
 **Throws an error** if no agent is configured with the specified `agentId`, or if only part of the thread-scoped option set is provided.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/react-native";
@@ -64,11 +40,13 @@ By default it binds to a shared agent from the CopilotKit registry. It can also 
     };
 
 For fully headless UI that does not import the built-in chat rendering stack, import the hook from the headless entry:
+
+Copy Text
     
     
     import { useAgent } from "@copilotkit/react-native/headless";
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -83,7 +61,7 @@ There are two valid option shapes:
 
 
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 Prop
 
@@ -91,9 +69,11 @@ Type
 
 `object?`{ agent: AbstractAgent; isReady: boolean }
 
-## Usage
+## UsageCopy Anchor Link
 
-### Basic Usage
+### Basic UsageCopy Anchor Link
+
+Copy Text
     
     
     import { Text, View } from "react-native";
@@ -111,7 +91,9 @@ Type
       );
     }
 
-### Accessing and Updating State
+### Accessing and Updating StateCopy Anchor Link
+
+Copy Text
     
     
     import { Text, TouchableOpacity, View } from "react-native";
@@ -132,28 +114,33 @@ Type
       );
     }
 
-### Event Subscription
+### Event SubscriptionCopy Anchor Link
+
+Copy Text
     
     
     import { useEffect } from "react";
     import { useAgent } from "@copilotkit/react-native";
     
     function EventListener() {
-      const { agent } = useAgent();
+      const { agent, isReady } = useAgent();
     
       useEffect(() => {
+        if (!isReady) return;
         const { unsubscribe } = agent.subscribe({
           onRunStartedEvent: () => console.log("Started"),
           onRunFinalized: () => console.log("Finished"),
         });
     
         return unsubscribe;
-      }, []);
+      }, [agent, isReady]);
     
       return null;
     }
 
-### Multiple Agents
+### Multiple AgentsCopy Anchor Link
+
+Copy Text
     
     
     import { Text, View } from "react-native";
@@ -171,9 +158,11 @@ Type
       );
     }
 
-### Thread-scoped Agent
+### Thread-scoped AgentCopy Anchor Link
 
 Use the thread-scoped form when one runtime agent needs multiple independent frontend instances, for example one per open conversation. The local `agentId` must be unique in the current provider.
+
+Copy Text
     
     
     import { Text } from "react-native";
@@ -192,7 +181,9 @@ Use the thread-scoped form when one runtime agent needs multiple independent fro
       return <Text>{agent.messages.length} messages</Text>;
     }
 
-### Optimizing Re-renders
+### Optimizing Re-rendersCopy Anchor Link
+
+Copy Text
     
     
     import { Text } from "react-native";
@@ -207,7 +198,7 @@ Use the thread-scoped form when one runtime agent needs multiple independent fro
       return <Text>Messages: {agent.messages.length}</Text>;
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Automatic Re-renders** : Component re-renders when agent state, messages, or execution status changes (configurable via `updates` parameter)
   * **Optional Throttling** : Message and state update re-renders can be throttled with `throttleMs` or the provider's `defaultThrottleMs`.
@@ -219,10 +210,8 @@ Use the thread-scoped form when one runtime agent needs multiple independent fro
 
 
 
-## Related
+How is this guide?
 
-  * [AG-UI AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent) \- Full agent interface documentation
-  * [`useCopilotKit`](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit) \- Low-level hook for accessing the CopilotKit core instance
-  * [React (V2) reference](https://docs.copilotkit.ai/reference/v2/hooks/useAgent) \- The web equivalent this page mirrors
+GoodBad
 
-
+[Previous PageUserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)[Next PageuseAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)

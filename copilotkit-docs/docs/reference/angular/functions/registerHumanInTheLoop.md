@@ -2,60 +2,22 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop/
 title: registerHumanInTheLoop
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:10.053897+00:00
+fetched_at: 2026-11-19T11:26:38.629502+00:00
 ---
 
 # registerHumanInTheLoop
 
 > Source: https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁AngularSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Guides
-
-[Public API inventory](https://docs.copilotkit.ai/reference/angular/public-api)[Production and lifecycle](https://docs.copilotkit.ai/reference/angular/production-lifecycle)
-
-Components
-
-[CopilotActivity](https://docs.copilotkit.ai/reference/angular/components/CopilotActivity)[CopilotChat](https://docs.copilotkit.ai/reference/angular/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/angular/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatView)[CopilotPopup](https://docs.copilotkit.ai/reference/angular/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/angular/components/CopilotSidebar)
-
-Functions
-
-[connectAgentContext](https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext)[injectAgentStore](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)[injectCapabilities](https://docs.copilotkit.ai/reference/angular/functions/injectCapabilities)[injectChatLabels](https://docs.copilotkit.ai/reference/angular/functions/injectChatLabels)[injectCopilotKitConfig](https://docs.copilotkit.ai/reference/angular/functions/injectCopilotKitConfig)[injectInterrupt](https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt)[injectThreads](https://docs.copilotkit.ai/reference/angular/functions/injectThreads)[provideCopilotChatLabels](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels)[provideCopilotKit](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit)[provideMCPApps](https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps)[registerComponent](https://docs.copilotkit.ai/reference/angular/functions/registerComponent)[registerFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)[registerHumanInTheLoop](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop)[registerRenderActivityMessage](https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage)[registerRenderToolCall](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)
-
-Services
-
-[CopilotKit](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
-
-Directives
-
-[CopilotKitAgentContext](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[angular](https://docs.copilotkit.ai/reference/angular)Functions
+Angular/Functions
 
 # registerHumanInTheLoop
 
 Angular function for registering a human-in-the-loop tool with CopilotKit that pauses the agent and resumes it when the user responds from a rendered component
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `registerHumanInTheLoop` registers a tool that pauses the agent and waits for human input. When the agent calls the tool, CopilotKit renders the `component` you provide and suspends the agent run. The component collects a decision from the user (for example a confirm or reject choice) and calls `respond(result)`. That call resolves the tool with the value you passed to `respond`, serialized as described below, and lets the run continue.
 
@@ -65,7 +27,9 @@ Unlike [`registerFrontendTool`](https://docs.copilotkit.ai/reference/angular/fun
 
 Import from the package root, `@copilotkit/angular`. There is no `/v2` subpath. `registerHumanInTheLoop` must run in an injection context that has [`provideCopilotKit`](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit) in scope.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { registerHumanInTheLoop } from "@copilotkit/angular";
@@ -74,7 +38,7 @@ Import from the package root, `@copilotkit/angular`. There is no `/v2` subpath. 
       humanInTheLoop: HumanInTheLoopConfig<Args>,
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -82,13 +46,15 @@ Type
 
 `humanInTheLoop`HumanInTheLoopConfig<Args>
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 `registerHumanInTheLoop` returns `void`. It registers the tool as a side effect and wires up name-and-agent-id cleanup for the owning injector.
 
-## The renderer component
+## The renderer componentCopy Anchor Link
 
-Your `component` implements the `HumanInTheLoopToolRenderer<Args>` interface. It exposes a single `toolCall` signal input, so declare it with Angular's `input()`:
+For a renderer with no handler, see [`registerRenderToolCall`](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall). Your `component` implements the `HumanInTheLoopToolRenderer<Args>` interface. It exposes a single `toolCall` signal input, so declare it with Angular's `input()`:
+
+Copy Text
     
     
     import { Signal } from "@angular/core";
@@ -97,9 +63,11 @@ Your `component` implements the `HumanInTheLoopToolRenderer<Args>` interface. It
       toolCall: Signal<HumanInTheLoopToolCall<Args>>;
     }
 
-### HumanInTheLoopToolCall
+### HumanInTheLoopToolCallCopy Anchor Link
 
 `toolCall()` returns a discriminated union keyed on `status`. Every variant carries a `respond` callback:
+
+Copy Text
     
     
     type HumanInTheLoopToolCall<Args extends Record<string, unknown>> =
@@ -125,15 +93,23 @@ Your `component` implements the `HumanInTheLoopToolRenderer<Args>` interface. It
           respond: (result: unknown) => void;
         };
 
-The `respond(result)` callback is how your component resumes the agent. The value you pass to `respond` becomes the tool result directly: a string is stored as-is, and any other value is serialized to JSON by core. It is not wrapped in an envelope, so the agent sees the same shape it would from the React and Vue adapters. While the agent waits, `status` is `executing` (or `in-progress` while the arguments are still streaming). Once the tool message arrives, `status` becomes `complete` and `result` contains the stored tool-message string.
+The `respond(result)` callback is how your component resumes the agent. The value you pass to `respond` becomes the tool result directly: a string is stored as-is, and any other value is serialized to JSON by core. The `status` values are:
 
-## Usage
+  * `in-progress`: the agent run is still active, for example while the arguments stream.
+  * `executing`: the agent waits for `respond`.
+  * `complete`: the tool message arrived, and `result` contains the stored tool-message string.
 
-### A confirmation dialog
+
+
+## UsageCopy Anchor Link
+
+### A confirmation dialogCopy Anchor Link
 
 This component renders a confirm and a reject button. Each records a different decision and resumes the agent.
 
 src/app/confirm-dialog.component.ts
+
+Copy Text
     
     
     import { Component, computed, input } from "@angular/core";
@@ -167,6 +143,8 @@ src/app/confirm-dialog.component.ts
 Register the tool with that component:
 
 src/app/chat.component.ts
+
+Copy Text
     
     
     import { Component } from "@angular/core";
@@ -196,6 +174,8 @@ When the agent calls `confirmAction`, the dialog appears in the chat and the run
 
 Cleanup uses the same shared name-and-agent-id removal path as the other tool registration helpers. Frontend tools, human-in-the-loop tools, and tool-call renderers that share that key are removed together.
 
-## Related
+How is this guide?
 
-### [registerFrontendToolRegister a client-side tool with an async handler and an optional renderer component.](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)### [registerRenderToolCallRegister a renderer for a tool call with access to streaming status and results, without a handler.](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)### [CopilotKit serviceThe central service that holds agents, tools, and the runtime connection.](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
+GoodBad
+
+[Previous PageregisterFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)[Next PageregisterRenderActivityMessage](https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage)

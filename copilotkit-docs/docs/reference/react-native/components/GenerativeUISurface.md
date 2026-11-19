@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface/
 title: GenerativeUISurface
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T10:53:51.803561+00:00
+fetched_at: 2026-11-19T11:26:30.664114+00:00
 ---
 
 # GenerativeUISurface
 
 > Source: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[GenerativeUIActivity](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity)[GenerativeUIProvider](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider)[GenerativeUISurface](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Components
+React Native/Components
 
 # GenerativeUISurface
 
 A named place in a React Native app where the agent can render UI, with a description the agent reads in each run that starts while it is mounted.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `GenerativeUISurface` marks a place in your app as a **target** for generated UI. The targets are sent when a run starts, so the agent sees its `id` and `description` in each run that starts while it is mounted, and can render a surface into it. Until then it shows `fallback`.
 
@@ -53,12 +27,14 @@ Render it under [`GenerativeUIProvider`](https://docs.copilotkit.ai/reference/re
 
 The operations of its surface that were rejected, by the runtime or by the app, reach its `Wrapper` (see below); by default it shows "Part of this UI couldn't be shown." under the surface. The ones that the runtime rejected never reach `errorBoundary.onError`; the ones that the app rejected go there too, as usual.
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import { GenerativeUISurface } from "@copilotkit/react-native/generative-ui";
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -66,49 +42,23 @@ Type
 
 `id`string
 
-Prop
-
-Type
-
 `description?`string
-
-Prop
-
-Type
 
 `ui?`GenerativeUI
 
-Prop
-
-Type
-
 `components?`readonly GenerativeUIComponentName<UI>[]
-
-Prop
-
-Type
 
 `fallback?`ReactNode
 
-Prop
-
-Type
-
 `style?`StyleProp<ViewStyle>
-
-Prop
-
-Type
 
 `onGenerationStart?`() => void
 
-Prop
-
-Type
-
 `Wrapper?`ComponentType<GenerativeUIActivityWrapperProps>
 
-## Usage
+## UsageCopy Anchor Link
+
+Copy Text
     
     
     import { useRef } from "react";
@@ -159,9 +109,15 @@ Type
       );
     }
 
-## Related
+## RelatedCopy Anchor Link
 
   * [`GenerativeUIActivity`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity): render one agent's surface from its activity message
   * [Surfaces](https://docs.copilotkit.ai/generative-ui/components/surfaces): descriptions, component limits and one target per item
 
 
+
+How is this guide?
+
+GoodBad
+
+[Previous PageGenerativeUIProvider](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider)[Next PageUserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)

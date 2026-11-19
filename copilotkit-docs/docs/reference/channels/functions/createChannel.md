@@ -2,62 +2,26 @@
 url: https://docs.copilotkit.ai/reference/channels/functions/createChannel/
 title: createChannel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:19.792912+00:00
+fetched_at: 2026-11-19T11:26:33.414831+00:00
 ---
 
 # createChannel
 
 > Source: https://docs.copilotkit.ai/reference/channels/functions/createChannel/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁ChannelsSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[Actions](https://docs.copilotkit.ai/reference/channels/components/Actions)[Button](https://docs.copilotkit.ai/reference/channels/components/Button)[Chart](https://docs.copilotkit.ai/reference/channels/components/Chart)[Context](https://docs.copilotkit.ai/reference/channels/components/Context)[Divider](https://docs.copilotkit.ai/reference/channels/components/Divider)[Fields and Field](https://docs.copilotkit.ai/reference/channels/components/Fields)[Header](https://docs.copilotkit.ai/reference/channels/components/Header)[Image](https://docs.copilotkit.ai/reference/channels/components/Image)[Input](https://docs.copilotkit.ai/reference/channels/components/Input)[Markdown](https://docs.copilotkit.ai/reference/channels/components/Markdown)[Message](https://docs.copilotkit.ai/reference/channels/components/Message)[Modal](https://docs.copilotkit.ai/reference/channels/components/Modal)[Section](https://docs.copilotkit.ai/reference/channels/components/Section)[Select](https://docs.copilotkit.ai/reference/channels/components/Select)[Table, Row, and Cell](https://docs.copilotkit.ai/reference/channels/components/Table)
-
-Functions
-
-[bind](https://docs.copilotkit.ai/reference/channels/functions/bind)[createChannel](https://docs.copilotkit.ai/reference/channels/functions/createChannel)[defineChannelCommand](https://docs.copilotkit.ai/reference/channels/functions/defineChannelCommand)[defineChannelTool](https://docs.copilotkit.ai/reference/channels/functions/defineChannelTool)[renderToIR](https://docs.copilotkit.ai/reference/channels/functions/renderToIR)
-
-Classes
-
-[Channel](https://docs.copilotkit.ai/reference/channels/classes/Channel)[MemoryStore](https://docs.copilotkit.ai/reference/channels/classes/MemoryStore)[Thread](https://docs.copilotkit.ai/reference/channels/classes/Thread)[Transcripts](https://docs.copilotkit.ai/reference/channels/classes/Transcripts)
-
-Types
-
-[ActionStore](https://docs.copilotkit.ai/reference/channels/types/ActionStore)[AgentContentPart](https://docs.copilotkit.ai/reference/channels/types/AgentContentPart)[ChannelNode](https://docs.copilotkit.ai/reference/channels/types/ChannelNode)[IncomingMessage](https://docs.copilotkit.ai/reference/channels/types/IncomingMessage)[InteractionContext](https://docs.copilotkit.ai/reference/channels/types/InteractionContext)[JSX callbacks](https://docs.copilotkit.ai/reference/channels/types/JSXCallbacks)[MessageRef](https://docs.copilotkit.ai/reference/channels/types/MessageRef)[StateStore](https://docs.copilotkit.ai/reference/channels/types/StateStore)[StoreConfig](https://docs.copilotkit.ai/reference/channels/types/StoreConfig)
-
-SDKs
-
-[Direct provider adapters](https://docs.copilotkit.ai/reference/channels/sdk/direct-adapters)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[channels](https://docs.copilotkit.ai/reference/channels)Functions
+Channels/Functions
 
 # createChannel
 
 Declare a managed Slack or Teams Channel, its agent, handlers, tools, components, and SDK persistence.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 `createChannel(options)` creates the provider-neutral Channel registered with `CopilotRuntime({ channels })`.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     function createChannel<TStateSchema>(
@@ -65,13 +29,17 @@ Open your coding agent in your project's folder, or in an empty folder for a new
     ): Channel<ThreadStateOf<TStateSchema>>;
 
 Import it from the umbrella package:
+
+Copy Text
     
     
     import { createChannel } from "@copilotkit/channels";
 
-## Managed example
+## Managed exampleCopy Anchor Link
 
 channel.ts
+
+Copy Text
     
     
     const channel = createChannel({
@@ -95,7 +63,7 @@ The Channel name is the project-unique Intelligence Code. A single managed runti
 
 Handlers that reply directly without `runAgent()` may omit `agent`.
 
-## Options
+## OptionsCopy Anchor Link
 
 Option| Type| Notes  
 ---|---|---  
@@ -107,18 +75,19 @@ Option| Type| Notes
 `sanitizeAgentEvents`| `boolean`| Defaults to `true`. Repairs the known nullable AG-UI parent-message field before strict HTTP-stream validation.  
 `tools`| `ChannelTool[]`| Channel-level typed tools.  
 `context`| `ContextEntry[]`| Stable context added to every agent run.  
-`components`| `ChannelComponent[]`| Named JSX components used to reconstruct callbacks.  
+`components`| `ChannelComponentRegistration[] | Record<string, ChannelComponent>`| Component definitions from `defineChannelComponent` (these become agent tools) or named JSX components. Both let the Channel rebuild callbacks after a restart.  
 `commands`| `ChannelCommand[]`| Declared commands routed from provider ingress.  
 `store`| `StoreConfig`| State, persistence, turn concurrency (`parallel` default), transcripts, and dedup.  
 `adapters`| `PlatformAdapter[]`| Developer-owned direct transports that may coexist with the cloud-hosted Intelligence adapter.  
+`render`| `RenderConfig`| Image-render configuration: `renderer`, `fonts`, `stylesheets`, `width`, `height`, and `allowImageUrl`. To post JSX as an image, set `renderer`.  
   
-The managed runtime validates `name` as lowercase kebab-case, 3–64 characters, not equal to `channels`, and unique within the Runtime.
+The managed runtime validates `name` as lowercase kebab-case, 3 to 64 characters, not equal to `channels`, and unique within the Runtime.
 
 Handlers receive both the required provider `actor` and the nullable application `user`. The SDK resolves that pair once for each incoming event. Both objects are immutable snapshots. The SDK does not link accounts by email, name, or handle.
 
 Malformed callback output rejects with `channel_identity_invalid`. A callback exception rejects with `channel_identity_failed` and never falls back to the standard platform policy.
 
-### Tune long Slack replies
+### Tune long Slack repliesCopy Anchor Link
 
 Slack replies continue into additional messages when they exceed one message's soft byte limit. The defaults are 11,000 UTF-8 bytes per message and 20 messages per reply, followed by a visible English truncation notice. Most Channels should keep those defaults; customize them when the product needs a tighter bound or a localized notice:
 
@@ -127,7 +96,9 @@ Field| Behavior
 `messageByteLimit`| Soft UTF-8 byte limit before continuing into another Slack message.  
 `maxMessages`| Maximum messages occupied by one reply before truncation.  
 `truncationMarker`| Visible notice appended when the message limit is reached.  
-      
+  
+Copy Text
+    
     
     const channel = createChannel({
       name: "support",
@@ -139,13 +110,13 @@ Field| Behavior
       },
     });
 
-### Sanitize HTTP agent events
+### Sanitize HTTP agent eventsCopy Anchor Link
 
 `sanitizeAgentEvents` defaults to `true`. It repairs the nullable `parentMessageId` emitted by some LangGraph tool-call and interrupt streams so strict client validation does not abort the run. The sanitizer applies only to agents that stream over HTTP and only to the known malformed field. Set it to `false` to forward events unchanged and let malformed events fail validation.
 
-Every run uses a distinct result from `agent.clone()`, including when `agent` is a factory. A custom agent whose subclass fields contain configuration should override `clone()` to preserve that configuration without sharing mutable per-run state. Channels 0.6.1 warns when enumerable fields are dropped; that warning alone no longer refuses the turn.
+Every run uses a distinct result from `agent.clone()`, including when `agent` is a factory. A custom agent whose subclass fields contain configuration should override `clone()` to preserve that configuration without sharing mutable per-run state. When `clone()` drops enumerable fields, Channels logs a warning and still runs the turn.
 
-## Registration methods
+## Registration methodsCopy Anchor Link
 
 The returned Channel supports:
 
@@ -162,3 +133,9 @@ The returned Channel supports:
 
 
 See [`Channel`](https://docs.copilotkit.ai/reference/channels/classes/Channel) for handler signatures and [`StoreConfig`](https://docs.copilotkit.ai/reference/channels/types/StoreConfig) for persistence.
+
+How is this guide?
+
+GoodBad
+
+[Previous Pagebind](https://docs.copilotkit.ai/reference/channels/functions/bind)[Next PagedefineChannelCommand](https://docs.copilotkit.ai/reference/channels/functions/defineChannelCommand)

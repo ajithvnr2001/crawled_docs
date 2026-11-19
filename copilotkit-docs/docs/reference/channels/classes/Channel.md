@@ -2,62 +2,26 @@
 url: https://docs.copilotkit.ai/reference/channels/classes/Channel/
 title: Channel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:14.123944+00:00
+fetched_at: 2026-11-19T11:26:38.511766+00:00
 ---
 
 # Channel
 
 > Source: https://docs.copilotkit.ai/reference/channels/classes/Channel/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁ChannelsSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[Actions](https://docs.copilotkit.ai/reference/channels/components/Actions)[Button](https://docs.copilotkit.ai/reference/channels/components/Button)[Chart](https://docs.copilotkit.ai/reference/channels/components/Chart)[Context](https://docs.copilotkit.ai/reference/channels/components/Context)[Divider](https://docs.copilotkit.ai/reference/channels/components/Divider)[Fields and Field](https://docs.copilotkit.ai/reference/channels/components/Fields)[Header](https://docs.copilotkit.ai/reference/channels/components/Header)[Image](https://docs.copilotkit.ai/reference/channels/components/Image)[Input](https://docs.copilotkit.ai/reference/channels/components/Input)[Markdown](https://docs.copilotkit.ai/reference/channels/components/Markdown)[Message](https://docs.copilotkit.ai/reference/channels/components/Message)[Modal](https://docs.copilotkit.ai/reference/channels/components/Modal)[Section](https://docs.copilotkit.ai/reference/channels/components/Section)[Select](https://docs.copilotkit.ai/reference/channels/components/Select)[Table, Row, and Cell](https://docs.copilotkit.ai/reference/channels/components/Table)
-
-Functions
-
-[bind](https://docs.copilotkit.ai/reference/channels/functions/bind)[createChannel](https://docs.copilotkit.ai/reference/channels/functions/createChannel)[defineChannelCommand](https://docs.copilotkit.ai/reference/channels/functions/defineChannelCommand)[defineChannelTool](https://docs.copilotkit.ai/reference/channels/functions/defineChannelTool)[renderToIR](https://docs.copilotkit.ai/reference/channels/functions/renderToIR)
-
-Classes
-
-[Channel](https://docs.copilotkit.ai/reference/channels/classes/Channel)[MemoryStore](https://docs.copilotkit.ai/reference/channels/classes/MemoryStore)[Thread](https://docs.copilotkit.ai/reference/channels/classes/Thread)[Transcripts](https://docs.copilotkit.ai/reference/channels/classes/Transcripts)
-
-Types
-
-[ActionStore](https://docs.copilotkit.ai/reference/channels/types/ActionStore)[AgentContentPart](https://docs.copilotkit.ai/reference/channels/types/AgentContentPart)[ChannelNode](https://docs.copilotkit.ai/reference/channels/types/ChannelNode)[IncomingMessage](https://docs.copilotkit.ai/reference/channels/types/IncomingMessage)[InteractionContext](https://docs.copilotkit.ai/reference/channels/types/InteractionContext)[JSX callbacks](https://docs.copilotkit.ai/reference/channels/types/JSXCallbacks)[MessageRef](https://docs.copilotkit.ai/reference/channels/types/MessageRef)[StateStore](https://docs.copilotkit.ai/reference/channels/types/StateStore)[StoreConfig](https://docs.copilotkit.ai/reference/channels/types/StoreConfig)
-
-SDKs
-
-[Direct provider adapters](https://docs.copilotkit.ai/reference/channels/sdk/direct-adapters)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[channels](https://docs.copilotkit.ai/reference/channels)Classes
+Channels/Classes
 
 # Channel
 
 Reference for createChannel options, managed providers, handlers, tools, storage, and runtime lifecycle.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
-
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Copy MarkdownOpen
 
 `createChannel(options)` returns the Channel you declare on `CopilotRuntime({ channels })`.
 
 channel.ts
+
+Copy Text
     
     
     import { createChannel } from "@copilotkit/channels";
@@ -69,13 +33,13 @@ channel.ts
       agent: makeAgent,
     });
 
-Use the project-unique Intelligence Channel Code. The managed runtime declares both Slack and Teams for this Channel and keeps each delivery provider-scoped.
+Set `name` to the project-unique Intelligence Channel Code. The managed runtime declares both Slack and Teams for this Channel and keeps each delivery provider-scoped.
 
-## createChannel options
+## createChannel optionsCopy Anchor Link
 
 Option| Type| Description  
 ---|---|---  
-`name`| `string`| Project-unique Intelligence Code. Required for managed Channels; lowercase kebab-case, 3–64 characters, and not `channels`.  
+`name`| `string`| Project-unique Intelligence Channel Code. Required for managed Channels; lowercase kebab-case, 3 to 64 characters, and not `channels`.  
 `identifyUser`| `"platform" | ChannelIdentifyUser`| Required identity policy. Returns one application user or `null` for each provider event.  
 `showToolStatus`| `boolean`| Controls managed Slack tool-call progress. It is hidden by default; set `true` to show it.  
 `replyContinuation`| `ReplyContinuationOptions`| Managed Slack long-reply limits: `messageByteLimit`, `maxMessages`, and `truncationMarker`.  
@@ -83,21 +47,22 @@ Option| Type| Description
 `sanitizeAgentEvents`| `boolean`| Defaults to `true`; repairs a known malformed AG-UI parent-message field in HTTP event streams.  
 `tools`| `ChannelTool[]`| Typed tools forwarded to the agent.  
 `context`| `ContextEntry[]`| Stable `{ description, value }` context sent on each run.  
-`components`| `ChannelComponent[]`| Named JSX components whose callbacks can be reconstructed from stored snapshots.  
+`components`| `ChannelComponentRegistration[] | Record<string, ChannelComponent>`| Component definitions from `defineChannelComponent`, which become agent tools, or named JSX components. Both let the Channel rebuild callbacks from stored snapshots after a restart.  
 `commands`| `ChannelCommand[]`| Declared commands for providers that support them.  
 `store`| `StoreConfig`| State schema, persistence, turn concurrency (`parallel` default), dedup, and optional transcript bridge.  
 `adapters`| `PlatformAdapter[]`| Low-level direct transports. They may coexist with the cloud-hosted Intelligence adapter on this Channel.  
+`render`| `RenderConfig`| Image-render configuration: `renderer`, `fonts`, `stylesheets`, `width`, `height`, and `allowImageUrl`. To post JSX as an image, set `renderer`.  
   
 One Channel may receive managed Slack and Teams deliveries. Names must be unique inside one `CopilotRuntime`.
 
 For long-reply defaults, event sanitization, and agent clone requirements, see the detailed [`createChannel` options](https://docs.copilotkit.ai/reference/channels/functions/createChannel).
 
-## StoreConfig
+## StoreConfigCopy Anchor Link
 
 Option| Type| Description  
 ---|---|---  
 `state`| `StandardSchema`| Types `thread.state()` and validates every `setState(value)`.  
-`adapter`| `StateStore`| Persistence implementation for SDK state. Without it, the current managed realtime path falls back to process memory.  
+`adapter`| `StateStore`| Persistence implementation for SDK state. Without it, a managed Channel keeps `thread.state()` and component snapshots in Intelligence, and keeps lists, locks, deduplication, and queues in process memory.  
 `transcripts`| `TranscriptsConfig`| SDK-owned cross-platform transcript configuration keyed by the application user from top-level `identifyUser`.  
 `actionRetentionMs`| `number`| Durable callback and one-use HITL continuation retention. Default: seven days.  
 `concurrency`| `"parallel" | "serial" | "drop"`| How overlapping turns on the same conversation are handled. Default: `"parallel"`. See [`StoreConfig`](https://docs.copilotkit.ai/reference/channels/types/StoreConfig).  
@@ -107,11 +72,13 @@ Option| Type| Description
   
 `StateStore` contains `kv`, `list`, `lock`, `dedup`, and `queue` facets. Remote implementations must preserve JSON-serializable values.
 
-### StateStore contract
+### StateStore contractCopy Anchor Link
 
 A production adapter implements this asynchronous contract. Locks, deduplication, and queue operations must remain atomic when multiple runner instances share the same backend.
 
 state-store.ts
+
+Copy Text
     
     
     interface StateStore {
@@ -158,11 +125,11 @@ state-store.ts
 
 All values must round-trip through JSON. A distributed implementation must release a lock only when the supplied token still owns it.
 
-## Properties
+## PropertiesCopy Anchor Link
 
 Property| Type| Description  
 ---|---|---  
-`name`| `string | undefined`| Declared Intelligence Code.  
+`name`| `string | undefined`| Declared Intelligence Channel Code.  
 `showToolStatus`| `boolean | undefined`| Managed Slack tool-call visibility preference from `createChannel()`.  
 `replyContinuation`| `ReplyContinuationOptions | undefined`| Managed Slack continuation preference from `createChannel()`.  
 `adapters`| `readonly PlatformAdapter[]`| Attached transport snapshot. Managed Channels start empty and receive the Intelligence adapter at activation.  
@@ -171,9 +138,11 @@ Property| Type| Description
   
 The `transcripts` getter is only available after Channel activation and throws if it is read before the runtime listener starts the Channel.
 
-## Message handlers
+## Message handlersCopy Anchor Link
 
 channel.ts
+
+Copy Text
     
     
     channel.onMessage(async ({ thread, message }) => {
@@ -198,7 +167,7 @@ Method| Handler input| Notes
   
 `message.platform` is the native provider (`"slack"` or `"teams"`). `thread.platform` carries that same native provider on a managed Channel.
 
-## Interaction and interrupt handlers
+## Interaction and interrupt handlersCopy Anchor Link
 
 Method| Purpose| Managed Slack/Teams  
 ---|---|---  
@@ -211,18 +180,20 @@ Method| Purpose| Managed Slack/Teams
   
 See the [Slack interactive messages guide](https://docs.copilotkit.ai/slack/interactive), the [Teams interactive messages guide](https://docs.copilotkit.ai/teams/interactive), and the [JSX callback reference](https://docs.copilotkit.ai/reference/channels/types/JSXCallbacks).
 
-## Register a tool
+## Register a toolCopy Anchor Link
 
 Pass tools in `createChannel({ tools })`, or add one before activation:
 
 channel.ts
+
+Copy Text
     
     
     channel.tool(getIncident);
 
 See [Tools and context for Slack](https://docs.copilotkit.ai/slack/tools) or [Tools and context for Teams](https://docs.copilotkit.ai/teams/tools).
 
-## Runtime lifecycle
+## Runtime lifecycleCopy Anchor Link
 
 A Channel has no public `start()` method. Node and Express listeners own a long-running process lifetime, so creating either listener starts the managed Channel automatically. On those mounts, `ready()` is optional: await it when startup must observe the initial managed status before the rest of the process continues.
 
@@ -238,6 +209,8 @@ Generic Fetch mount| Lazy| Explicitly await before expecting managed traffic
 Install shutdown handlers before waiting for readiness so a slow or incomplete provider setup cannot prevent graceful teardown:
 
 channel.ts
+
+Copy Text
     
     
     const listener = createCopilotNodeListener({ runtime });
@@ -268,4 +241,10 @@ Status| Meaning
 `setup_required`| The runtime declaration exists but provider setup is incomplete.  
 `reconnecting`| The gateway connection dropped and is retrying.  
 `error`| Activation or bounded reconnect failed.  
-`stopped`| The listener was torn down.
+`stopped`| The listener was torn down.  
+  
+How is this guide?
+
+GoodBad
+
+[Previous PageOverview](https://docs.copilotkit.ai/reference/channels)[Next PageMemoryStore](https://docs.copilotkit.ai/reference/channels/classes/MemoryStore)

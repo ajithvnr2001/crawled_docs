@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider/
 title: GenerativeUIProvider
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T10:53:51.655168+00:00
+fetched_at: 2026-11-19T11:26:30.421756+00:00
 ---
 
 # GenerativeUIProvider
 
 > Source: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[GenerativeUIActivity](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity)[GenerativeUIProvider](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider)[GenerativeUISurface](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Components
+React Native/Components
 
 # GenerativeUIProvider
 
 Turn on generative UI for the agent runs of a CopilotKitProvider: the agent renders the components of your native catalog with the render_ui tool.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `GenerativeUIProvider` turns on [generative UI](https://docs.copilotkit.ai/generative-ui/components) on React Native. It sends your catalog with every agent run on the core of the enclosing `CopilotKitProvider`, wherever in the component tree the run starts, so the runtime gives those runs a `render_ui` tool; a catalog with no components gets no `render_ui` tool. Only `agentIds` narrows it to some agents. It also keeps the surfaces that the agent renders. Show them with [`GenerativeUIActivity`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity) (one activity message, in a chat list or on a screen with no chat) or [`GenerativeUISurface`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface) (a named place in your app).
 
@@ -57,12 +31,14 @@ Experimental
 
 Generative UI on React Native uses the tool transport only, has no standard catalog (the catalog holds your own native components), and has no `theme` prop. The prebuilt `CopilotChat` does not draw surfaces yet.
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import { GenerativeUIProvider } from "@copilotkit/react-native/generative-ui";
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -70,39 +46,21 @@ Type
 
 `ui`GenerativeUI
 
-Prop
-
-Type
-
 `children`ReactNode
-
-Prop
-
-Type
 
 `agentIds?`string[]
 
-Prop
-
-Type
-
 `errorBoundary?`GenerativeUIErrorBoundaryConfig
 
-Prop
-
-Type
-
 `host?`GenerativeUIHost
-
-Prop
-
-Type
 
 `transport?`"tool"
 
 There is no `theme` prop: the web theme is a set of CSS variables, which React Native does not use, so passing `theme` is a type error, and a `theme` that gets past the types is dropped, with a warning in development. Style the components of your catalog instead. The `GenerativeUIToolConfig` type exported from `/generative-ui` is the web config without `theme`.
 
-## Usage
+## UsageCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotKitProvider } from "@copilotkit/react-native/headless";
@@ -126,7 +84,7 @@ There is no `theme` prop: the web theme is a set of CSS variables, which React N
       );
     }
 
-## Also exported from `/generative-ui`
+## Also exported from `/generative-ui`Copy Anchor Link
 
 The entry re-exports the catalog API from `@copilotkit/react-core/v2/generative-ui/native`, the build of `@copilotkit/react-core/v2/generative-ui` without DOM. It works the same on React Native:
 
@@ -146,10 +104,16 @@ The types of these APIs come from the same entry, for example `GenerativeUICompo
 
 `standardUI` and the markdown surfaces are not exported: they render DOM.
 
-## Related
+## RelatedCopy Anchor Link
 
   * [`GenerativeUIActivity`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity): render the surface of an activity message
   * [`GenerativeUISurface`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface): a named place where the agent can render
   * [Components and surfaces](https://docs.copilotkit.ai/generative-ui/components): the feature, with React, Angular and React Native examples
 
 
+
+How is this guide?
+
+GoodBad
+
+[Previous PageGenerativeUIActivity](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity)[Next PageGenerativeUISurface](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface)

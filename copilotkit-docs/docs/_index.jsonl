@@ -2943,7 +2943,7 @@
 {"url": "https://docs.copilotkit.ai/pydantic-ai/whats-new/v1-50/", "file": "pydantic-ai/whats-new/v1-50.md", "title": "CopilotKit v1.50", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/react-spa/using-these-docs/", "file": "react-spa/using-these-docs.md", "title": "React SPA: Docs status", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/react-native/using-these-docs/", "file": "react-native/using-these-docs.md", "title": "React Native: Docs status", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.copilotkit.ai/reference/", "file": "reference.md", "title": "CopilotKit Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/reference/", "file": "reference.md", "title": "Reference", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/quickstart/", "file": "quickstart.md", "title": "Quickstart", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/react-spa/", "file": "react-spa.md", "title": "React SPA quickstart", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/react-native/", "file": "react-native.md", "title": "React Native quickstart", "method": "scrapling+scrapegraph"}
@@ -3381,7 +3381,7 @@
 {"url": "https://docs.copilotkit.ai/slack/strands/interactive/", "file": "slack/strands/interactive.md", "title": "Slack + AWS Strands (Python): Interactive messages and approvals", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/slack/strands/rich-messages/", "file": "slack/strands/rich-messages.md", "title": "Slack + AWS Strands (Python): Rich messages and components", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/slack/strands/persistence-and-scaling/", "file": "slack/strands/persistence-and-scaling.md", "title": "Slack + AWS Strands (Python): Persistence and scaling", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.copilotkit.ai/strands-typescript/", "file": "strands-typescript.md", "title": "Introduction", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/strands-typescript/", "file": "strands-typescript.md", "title": "AWS Strands", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/slack/threads-and-state/", "file": "slack/threads-and-state.md", "title": "Slack: Threads and state", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/slack/strands/threads-and-state/", "file": "slack/strands/threads-and-state.md", "title": "Slack + AWS Strands (Python): Threads and state", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands-typescript/ag-ui/", "file": "strands-typescript/ag-ui.md", "title": "AG-UI", "method": "scrapling+scrapegraph"}
@@ -3545,7 +3545,7 @@
 {"url": "https://docs.copilotkit.ai/strands-typescript/whats-new/generative-ui-spec-support/", "file": "strands-typescript/whats-new/generative-ui-spec-support.md", "title": "Generative UI Spec Support", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands-typescript/whats-new/mcp-apps-support/", "file": "strands-typescript/whats-new/mcp-apps-support.md", "title": "Full MCP Apps Support", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/agent-spec/", "file": "strands/agent-spec.md", "title": "Open Agent Spec", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.copilotkit.ai/strands/", "file": "strands.md", "title": "Introduction", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/strands/", "file": "strands.md", "title": "AWS Strands", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/agent-config/", "file": "strands/agent-config.md", "title": "Agent Config", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/ag-ui/", "file": "strands/ag-ui.md", "title": "AG-UI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands-typescript/whats-new/v1-50/", "file": "strands-typescript/whats-new/v1-50.md", "title": "CopilotKit v1.50", "method": "scrapling+scrapegraph"}

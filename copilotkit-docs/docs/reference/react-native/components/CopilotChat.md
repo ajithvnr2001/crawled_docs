@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotChat/
 title: CopilotChat
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:43.918471+00:00
+fetched_at: 2026-11-19T11:26:31.813868+00:00
 ---
 
 # CopilotChat
 
 > Source: https://docs.copilotkit.ai/reference/react-native/components/CopilotChat/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Components
+React Native/Components
 
 # CopilotChat
 
 Headless chat primitive that wires an agent into context, plus a prebuilt full-screen chat UI from the /components subpath.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `CopilotChat` connects an agent and exposes its conversation state to descendants. There are **two** versions, chosen by import path:
 
@@ -52,12 +26,14 @@ Open your coding agent in your project's folder, or in an empty folder for a new
 
 
 
-## Headless `CopilotChat`
+## Headless `CopilotChat`Copy Anchor Link
+
+Copy Text
     
     
     import { CopilotChat, useCopilotChatContext } from "@copilotkit/react-native";
 
-### Props
+### PropsCopy Anchor Link
 
 Prop
 
@@ -65,45 +41,23 @@ Type
 
 `agentId?`string
 
-Prop
-
-Type
-
 `agentName?`string
-
-Prop
-
-Type
 
 `threadId?`string
 
-Prop
-
-Type
-
 `onError?`(event: { error: Error; code: CopilotKitCoreErrorCode; context: Record<string, any> }) => void | Promise<void>
-
-Prop
-
-Type
 
 `throttleMs?`number
 
-Prop
-
-Type
-
 `attachments?`NativeAttachmentsConfig
-
-Prop
-
-Type
 
 `children?`ReactNode
 
-### `useCopilotChatContext`
+### `useCopilotChatContext`Copy Anchor Link
 
 Call inside a `<CopilotChat>` tree to read the conversation state and actions. Throws if called outside a `<CopilotChat>`.
+
+Copy Text
     
     
     function useCopilotChatContext(): CopilotChatContextValue;
@@ -114,49 +68,23 @@ Type
 
 `agent?`AbstractAgent
 
-Prop
-
-Type
-
 `isRunning?`boolean
-
-Prop
-
-Type
 
 `messages?`Message[]
 
-Prop
-
-Type
-
 `attachments?`Attachment[]
-
-Prop
-
-Type
 
 `attachmentsEnabled?`boolean
 
-Prop
-
-Type
-
 `openPicker?`() => Promise<void>
-
-Prop
-
-Type
 
 `removeAttachment?`(id: string) => void
 
-Prop
-
-Type
-
 `submitMessage?`(text: string) => Promise<void>
 
-### Usage
+### UsageCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotChat, useCopilotChatContext } from "@copilotkit/react-native";
@@ -206,16 +134,18 @@ Type
       );
     }
 
-## Prebuilt UI
+## Prebuilt UICopy Anchor Link
 
-For a ready-made interface, import `CopilotChat` from the `/components` subpath. It renders a full-screen chat with a message list, input bar, optional header, and inline tool-call rendering — it reads the shared renderer registry that [`useRenderTool`](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool), `useFrontendTool` and `useComponent` write to.
+For a ready-made interface, import `CopilotChat` from the `/components` subpath. It renders a full-screen chat with a message list, an input bar, an optional header, and tool calls. Tool calls render with the renderers that [`useRenderTool`](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool), `useFrontendTool`, and `useComponent` register. For a modal, a drawer, or a popup, see [`CopilotModal`](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal), [`CopilotSidebar`](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar), or [`CopilotPopup`](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup).
+
+Copy Text
     
     
     import { CopilotChat } from "@copilotkit/react-native/components";
 
-### Props
+### PropsCopy Anchor Link
 
-The prebuilt UI components select their agent with `agentName` (not the headless `agentId`). The two are equivalent; `agentName` is simply the prop name the prebuilt components currently expose.
+The prebuilt UI components select their agent with `agentName` (not the headless `agentId`). The two are equivalent; `agentName` is the prop name the prebuilt components currently expose.
 
 Prop
 
@@ -223,79 +153,33 @@ Type
 
 `agentName?`string
 
-Prop
-
-Type
-
 `placeholder?`string
-
-Prop
-
-Type
 
 `initialMessages?`string[]
 
-Prop
-
-Type
-
 `emptyStateTitle?`string
-
-Prop
-
-Type
 
 `emptyStateSubtitle?`string
 
-Prop
-
-Type
-
 `headerTitle?`string
-
-Prop
-
-Type
 
 `showHeader?`boolean
 
-Prop
-
-Type
-
 `style?`ViewStyle
-
-Prop
-
-Type
 
 `messageContainerStyle?`ViewStyle
 
-Prop
-
-Type
-
 `inputContainerStyle?`ViewStyle
-
-Prop
-
-Type
 
 `onSendMessage?`(text: string) => void
 
-Prop
-
-Type
-
 `FlatListComponent?`React.ComponentType<any>
-
-Prop
-
-Type
 
 `disableKeyboardAvoiding?`boolean
 
-### Usage
+### UsageCopy Anchor Link
+
+Copy Text
     
     
     import { CopilotChat } from "@copilotkit/react-native/components";
@@ -311,11 +195,8 @@ Type
       );
     }
 
-## Related
+How is this guide?
 
-  * [`useCopilotKit`](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit): access the runtime client directly
-  * [`useRenderTool`](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool): render React Native UI for agent tool calls
-  * [`CopilotModal`](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal): modal variants of the chat
-  * [`CopilotSidebar`](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar) · [`CopilotPopup`](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup): prebuilt chrome
+GoodBad
 
-
+[Previous PageAssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[Next PageCopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)

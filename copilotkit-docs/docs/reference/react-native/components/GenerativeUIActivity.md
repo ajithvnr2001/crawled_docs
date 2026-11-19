@@ -2,48 +2,22 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity/
 title: GenerativeUIActivity
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T10:53:51.713251+00:00
+fetched_at: 2026-11-19T11:26:30.955691+00:00
 ---
 
 # GenerativeUIActivity
 
 > Source: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁React NativeSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Components
-
-[AssistantMessage](https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage)[CopilotChat](https://docs.copilotkit.ai/reference/react-native/components/CopilotChat)[CopilotKitProvider](https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider)[CopilotMarkdown](https://docs.copilotkit.ai/reference/react-native/components/CopilotMarkdown)[CopilotModal](https://docs.copilotkit.ai/reference/react-native/components/CopilotModal)[CopilotPopup](https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[GenerativeUIActivity](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIActivity)[GenerativeUIProvider](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider)[GenerativeUISurface](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface)[UserMessage](https://docs.copilotkit.ai/reference/react-native/components/UserMessage)
-
-Hooks
-
-[useAgent](https://docs.copilotkit.ai/reference/react-native/hooks/useAgent)[useAgentContext](https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext)[useAttachments](https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments)[useCapabilities](https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities)[useComponent](https://docs.copilotkit.ai/reference/react-native/hooks/useComponent)[useConfigureSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions)[useCopilotKit](https://docs.copilotkit.ai/reference/react-native/hooks/useCopilotKit)[useFrontendTool](https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool)[useHumanInTheLoop](https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop)[useInterrupt](https://docs.copilotkit.ai/reference/react-native/hooks/useInterrupt)[useRenderTool](https://docs.copilotkit.ai/reference/react-native/hooks/useRenderTool)[useSuggestions](https://docs.copilotkit.ai/reference/react-native/hooks/useSuggestions)[useThreads](https://docs.copilotkit.ai/reference/react-native/hooks/useThreads)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[react-native](https://docs.copilotkit.ai/reference/react-native)Components
+React Native/Components
 
 # GenerativeUIActivity
 
 Render the surface that an agent rendered with render_ui, from its activity message, in a chat list or on a screen with no chat.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 Every surface the agent renders arrives as an **activity message** in `agent.messages`, and is updated in place while the agent streams. `GenerativeUIActivity` draws the surface of one such message with the components of your catalog. Put it wherever your app shows the agent's output: in your own message list, one per activity message, or on a screen with no chat at all, for example a home screen that a background agent run composes.
 
@@ -64,7 +38,9 @@ In development each instance warns once for each distinct cause, also when a cau
 
 For a complete walkthrough, see [Generative UI with your own components](https://docs.copilotkit.ai/react-native#generative-ui-with-your-own-components).
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import {
@@ -73,7 +49,7 @@ For a complete walkthrough, see [Generative UI with your own components](https:/
       isGenerativeUIActivity,
     } from "@copilotkit/react-native/generative-ui";
 
-## Props
+## PropsCopy Anchor Link
 
 Prop
 
@@ -81,25 +57,15 @@ Type
 
 `message`GenerativeUIActivityMessage
 
-Prop
-
-Type
-
 `agent`{ threadId?: string; agentId?: string } | undefined
-
-Prop
-
-Type
 
 `target?`string
 
-Prop
-
-Type
-
 `Wrapper?`ComponentType<GenerativeUIActivityWrapperProps>
 
-## `isGenerativeUIActivity`
+## `isGenerativeUIActivity`Copy Anchor Link
+
+Copy Text
     
     
     function isGenerativeUIActivity<M extends GenerativeUIActivityMessage>(
@@ -108,9 +74,11 @@ Type
 
 True for the activity messages that carry a generated surface: `role` is `"activity"` and `activityType` is the generative UI activity type. It is a type guard, so `agent.messages.filter(isGenerativeUIActivity)` gives activity messages. It does not check the content; `GenerativeUIActivity` does.
 
-## Usage
+## UsageCopy Anchor Link
 
-### In a message list
+### In a message listCopy Anchor Link
+
+Copy Text
     
     
     <FlatList
@@ -127,7 +95,9 @@ True for the activity messages that carry a generated surface: `role` is `"activ
 
 A surface aimed at a named [`GenerativeUISurface`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface) target renders nothing in the list, because `target` defaults to `"chat"`, so it does not show twice. It still takes a cell of the list, and so does a surface that the agent deleted, so the [guide's chat screen](https://docs.copilotkit.ai/react-native#render-surfaces-in-your-message-list) leaves both out of `data` with its `isChatSurface` helper.
 
-### On a screen with no chat
+### On a screen with no chatCopy Anchor Link
+
+Copy Text
     
     
     import { isChatSurface } from "./agentTurns"; // the helper from the guide
@@ -150,7 +120,9 @@ Render every chat surface, not only the latest activity message: the latest can 
 
 Something has to run the `home` agent, and this part does not: on its own it shows the skeleton forever. The [home screen step](https://docs.copilotkit.ai/react-native#compose-a-screen-with-no-chat) of the guide starts the run once `isReady` from `useAgent` is true, so it goes to the registered agent rather than the stand-in used while the runtime connects, and shows a spinner while it runs and, when a run fails or renders nothing here, the reason with a retry, after it has taken the run's prompt back.
 
-### With your own streaming and error state
+### With your own streaming and error stateCopy Anchor Link
+
+Copy Text
     
     
     import { ActivityIndicator, Text, View } from "react-native";
@@ -168,9 +140,15 @@ Something has to run the `home` agent, and this part does not: on its own it sho
     
     <GenerativeUIActivity message={message} agent={agent} Wrapper={SurfaceCard} />;
 
-## Related
+## RelatedCopy Anchor Link
 
   * [`GenerativeUIProvider`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider): turns on generative UI and holds the catalog
   * [`GenerativeUISurface`](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface): a named place where the agent can render
 
 
+
+How is this guide?
+
+GoodBad
+
+[Previous PageCopilotSidebar](https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar)[Next PageGenerativeUIProvider](https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider)

@@ -2,61 +2,35 @@
 url: https://docs.copilotkit.ai/reference/core/types/Suggestion/
 title: Suggestion
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:35.994472+00:00
+fetched_at: 2026-11-19T11:26:31.650699+00:00
 ---
 
 # Suggestion
 
 > Source: https://docs.copilotkit.ai/reference/core/types/Suggestion/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁Core (TypeScript)SDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Classes
-
-[CopilotKitCore](https://docs.copilotkit.ai/reference/core/classes/CopilotKitCore)[ProxiedCopilotRuntimeAgent](https://docs.copilotkit.ai/reference/core/classes/ProxiedCopilotRuntimeAgent)
-
-Types
-
-[CopilotKitCoreConfig](https://docs.copilotkit.ai/reference/core/types/CopilotKitCoreConfig)[CopilotKitCoreSubscriber](https://docs.copilotkit.ai/reference/core/types/CopilotKitCoreSubscriber)[FrontendTool](https://docs.copilotkit.ai/reference/core/types/FrontendTool)[ProxiedCopilotRuntimeAgentConfig](https://docs.copilotkit.ai/reference/core/types/ProxiedCopilotRuntimeAgentConfig)[Suggestion](https://docs.copilotkit.ai/reference/core/types/Suggestion)[SuggestionsConfig](https://docs.copilotkit.ai/reference/core/types/SuggestionsConfig)
-
-Enums
-
-[CopilotKitCoreErrorCode](https://docs.copilotkit.ai/reference/core/enums/CopilotKitCoreErrorCode)[CopilotKitCoreRuntimeConnectionStatus](https://docs.copilotkit.ai/reference/core/enums/CopilotKitCoreRuntimeConnectionStatus)[ToolCallStatus](https://docs.copilotkit.ai/reference/core/enums/ToolCallStatus)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[core](https://docs.copilotkit.ai/reference/core)Types
+TypeScript/Types
 
 # Suggestion
 
 A single suggested prompt presented to the user.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `Suggestion` represents one suggested prompt shown to the user (typically as a clickable pill). Suggestions are produced from a [`SuggestionsConfig`](https://docs.copilotkit.ai/reference/core/types/SuggestionsConfig) and surfaced through [`CopilotKitCoreSubscriber.onSuggestionsChanged`](https://docs.copilotkit.ai/reference/core/types/CopilotKitCoreSubscriber).
 
-## Import
+## ImportCopy Anchor Link
+
+Copy Text
     
     
     import type { Suggestion } from "@copilotkit/core";
 
-## Definition
+## DefinitionCopy Anchor Link
+
+Copy Text
     
     
     type Suggestion = {
@@ -66,7 +40,7 @@ Open your coding agent in your project's folder, or in an empty folder for a new
       className?: string;
     };
 
-## Properties
+## PropertiesCopy Anchor Link
 
 Prop
 
@@ -74,25 +48,15 @@ Type
 
 `title`string
 
-Prop
-
-Type
-
 `message`string
-
-Prop
-
-Type
 
 `isLoading`boolean
 
-Prop
-
-Type
-
 `className?`string
 
-## Usage
+## UsageCopy Anchor Link
+
+Copy Text
     
     
     import type { Suggestion } from "@copilotkit/core";
@@ -103,9 +67,8 @@ Type
       isLoading: false,
     };
 
-## Related
+How is this guide?
 
-  * [SuggestionsConfig](https://docs.copilotkit.ai/reference/core/types/SuggestionsConfig)
-  * [CopilotKitCoreSubscriber](https://docs.copilotkit.ai/reference/core/types/CopilotKitCoreSubscriber)
+GoodBad
 
-
+[Previous PageProxiedCopilotRuntimeAgentConfig](https://docs.copilotkit.ai/reference/core/types/ProxiedCopilotRuntimeAgentConfig)[Next PageSuggestionsConfig](https://docs.copilotkit.ai/reference/core/types/SuggestionsConfig)

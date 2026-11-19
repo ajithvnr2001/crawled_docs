@@ -2,237 +2,239 @@
 url: https://docs.copilotkit.ai/shared-state/
 title: Shared State
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:26:29.715821+00:00
+fetched_at: 2026-11-19T11:26:37.596328+00:00
 ---
 
 # Shared State
 
 > Source: https://docs.copilotkit.ai/shared-state/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendCopilotKit
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
 Shared state
-
-[Shared State](https://docs.copilotkit.ai/shared-state)[Render agent state in your app](https://docs.copilotkit.ai/shared-state/rendering-in-app)[State Streaming](https://docs.copilotkit.ai/shared-state/streaming)[Agent Read-Only Context](https://docs.copilotkit.ai/shared-state/agent-readonly)
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/webmcp)
-
-Agent capabilities
-
-Built-in Agent
-
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-Shared State
-
-InteractivityShared state
 
 # Shared State
 
-Bidirectional state sharing between your app and the Built-in Agent.
+Create a two-way connection between your UI and agent state.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## What is shared state?Copy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Agentic Copilots maintain a shared state that connects your UI with the agent's execution. This shared state lets you:
 
-Share state bidirectionally between your React app and the Built-in Agent. Your app can read and write agent state, and the agent can update state that your UI reacts to in real time.
+  * Display the agent's current progress and intermediate results
+  * Update the agent's state through UI interactions
+  * React to state changes in real-time across your application
 
-## What is this?#
+![Shared State Demo](https://cdn.copilotkit.ai/docs/copilotkit/images/coagents/SharedStateCoAgents.gif)
 
-Shared state lets your frontend and agent stay in sync. The agent can update state (like adding items to a list or changing a setting), and your React components re-render automatically. Your app can also write state that the agent can read.
+See this in Inspector
 
-## When should I use this?#
+Open Inspector on localhost. Go to **Inspect** , then **Agent**. The **Current State** section shows the agent state as the run proceeds. With Intelligence on, you can also open a thread in **Rich Threads** and click **State** to see its saved state.
 
-  * The agent should be able to modify your app's UI (add items, update fields, toggle settings)
-  * You want real-time UI updates as the agent works
-  * Your app needs to read what the agent is doing (progress indicators, intermediate results)
+More detail: [Inspector](https://docs.copilotkit.ai/inspector).
 
+## When should I use this?Copy Anchor Link
 
+Use shared state when you want the agent and the user to collaborate through the same application state. The UI shows what the agent writes. The agent reads what the user changes in the UI.
 
-For a complete example of selecting a prepared control with structured AI judgments and returning user actions to the agent, follow the [CopilotKit + Jev cookbook](https://docs.copilotkit.ai/cookbook/jev-generative-ui).
+[Building stateful agents?Persistent threads ship with CopilotKit Intelligence on the free Developer tier.Get CopilotKit Intelligence free](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=docs_shared_state&utm_frontend=react&utm_backend=built-in-agent)
 
-## Reading agent state#
+## Reading agent stateCopy Anchor Link
 
-Use the `useAgent` hook to access the agent's current state:
+### No backend setup in config modeCopy Anchor Link
+
+A `BuiltInAgent` built from configuration gets two state tools on every run, `AGUISendStateSnapshot` and `AGUISendStateDelta`. When the model calls one, the runtime sends the update to the frontend, and `useAgent` re-renders. You declare nothing on the agent:
+
+app/api/copilotkit/[[...slug]]/route.ts
+
+Copy Text
+    
+    
+    import { BuiltInAgent } from "@copilotkit/runtime/v2";
+    
+    const builtInAgent = new BuiltInAgent({
+      model: "openai:gpt-6-luna",
+      prompt: SYSTEM_PROMPT,
+    });
+
+A factory owns its model call and its tool list, so in factory mode the agent does not add these state tools for you.
+
+### Seed the state so the model sees its shapeCopy Anchor Link
+
+The agent adds the current state to its system prompt only when the state is not empty. Set a starting value from the UI, so the model knows the keys and the shape of each item before its first update:
 
 app/page.tsx
+
+Copy Text
     
     
-    import { useAgent } from "@copilotkit/react-core/v2"; 
-    
-    function TaskBoard() {
-      const { agent } = useAgent();
-    
-      // Read state set by the agent
-      const tasks = (agent.state.tasks as any[]) ?? [];
-    
-      return (
-        <div>
-          <h2>Tasks</h2>
-          <ul>
-            {tasks.map((task, i) => (
-              <li key={i}>
-                {task.title} — {task.status}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-`agent.state` is reactive — your component re-renders automatically when the agent updates state.
-
-## Writing state from the frontend#
-
-You can also push state from the frontend to the agent:
-
-app/page.tsx
-    
-    
-    import { useAgent } from "@copilotkit/react-core/v2";
-    
-    function SettingsPanel() {
-      const { agent } = useAgent();
-    
-      const handleThemeChange = (theme: string) => {
-        agent.setState({ 
-          ...agent.state, 
-          userPreferences: { theme }, 
-        }); 
-      };
-    
-      return (
-        <div>
-          <button onClick={() => handleThemeChange("dark")}>Dark Mode</button>
-          <button onClick={() => handleThemeChange("light")}>Light Mode</button>
-        </div>
-      );
-    }
-
-## How it works#
-
-The Built-in Agent automatically has access to state tools (`AGUISendStateSnapshot` and `AGUISendStateDelta`) through the AG-UI protocol. When the agent calls these tools:
-
-  1. The agent sends a state update (full snapshot or delta)
-  2. The CopilotKit runtime delivers the update to the frontend via SSE
-  3. Your `useAgent` hook receives the update and triggers a re-render
-
-
-
-No additional backend configuration is required — state tools are available to the Built-in Agent by default.
-
-## Example: collaborative todo list#
-
-Here's a complete example where the agent can add and manage tasks:
-
-app/page.tsx
-    
-    
-    import { CopilotChat } from "@copilotkit/react-core/v2";
+    import { useEffect } from "react";
     import { useAgent } from "@copilotkit/react-core/v2";
     
     function TodoApp() {
       const { agent } = useAgent();
     
-      const todos = (agent.state.todos as any[]) ?? [];
+      // Seed the state, so the agent sees the shape of a todo in its prompt
+      useEffect(() => {
+        if (!agent.state.todos) {
+          agent.setState({ todos: [{ text: "Try the agent", done: false }] });
+        }
+      }, [agent]);
     
+      // ...
+    }
+
+Subscribe a component to the agent's state with `useAgent`. Any time the agent mutates its state, for example via a tool call, the hook fires and your UI re-renders with the new values.
+
+page.tsx
+
+Copy Text
+    
+    
+      // Subscribe the component to agent state changes. Any time the agent
+      // mutates its state (e.g. via its `set_notes` tool) this hook fires,
+      // we re-render, and the sidebar panels reflect the new values.
+      const { agent } = useAgent({
+        agentId: "shared-state-read-write",
+        updates: [UseAgentUpdate.OnStateChanged],
+      });
+
+The returned `agent.state` is just a plain object. Read it like any other piece of React state and render the parts you care about: agent-written notes, structured outputs, progress indicators, anything the agent has put there.
+
+## Writing agent stateCopy Anchor Link
+
+The same `agent` object exposes a `setState` setter. Calling it from a UI event handler pushes the new value into shared state, and the agent reads it back on its next turn. The UI's writes visibly steer the model.
+
+page.tsx
+
+Copy Text
+    
+    
+      // WRITE: every edit in the sidebar goes straight into agent state.
+      // On the agent's next turn, `PreferencesInjectorMiddleware` reads this
+      // back out of state and adds it to the system prompt — so the UI's
+      // writes visibly steer the model.
+      const handlePreferencesChange = (next: Preferences) => {
+        agent.setState({
+          preferences: next,
+          notes, // preserve what the agent has written
+        } as RWAgentState);
+      };
+
+This makes shared state two-way. The UI can also send the agent new inputs, such as preferences, selections, or partial work. These inputs do not go through the chat.
+
+The agent reads the new state on its next run. To run it right away, call `copilotkit.runAgent({ agent })` (from `useCopilotKit`) after `setState`. Running through `copilotkit` also sends your frontend tools and context with the run. To tell the model what changed, add a hint message first:
+
+Copy Text
+    
+    
+    const { copilotkit } = useCopilotKit();
+    
+    agent.setState({ language: newLanguage });
+    agent.addMessage({
+      id: crypto.randomUUID(),
+      role: "user",
+      content: `the language has been updated to ${newLanguage}`,
+    });
+    await copilotkit.runAgent({ agent });
+
+See [Programmatic control](https://docs.copilotkit.ai/programmatic-control) for more ways to run the agent from code.
+
+## Rendering shared state in the UICopy Anchor Link
+
+Because `agent.state` is plain React data, the UI layer is whatever you'd normally build. The demo on this page wires the agent's outputs into a small card component and feeds user edits back through `setState`.
+
+notes-card.tsx
+
+Copy Text
+    
+    
+    // Read-side render: this card reflects the agent-authored `notes` slice
+    // of shared state. The parent page passes `state.notes` in; we never
+    // touch agent state ourselves — we just render it. The Clear button is
+    // a small write-back, exposed as an `onClear` prop.
+    export function NotesCard({ notes, onClear }: NotesCardProps) {
       return (
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <div>
-            <h2>My Todos</h2>
-            <ul>
-              {todos.map((todo, i) => (
-                <li key={i} style={{ textDecoration: todo.done ? "line-through" : "none" }}>
-                  {todo.text}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <CopilotChat
-            labels={{
-              welcomeMessageText: "I can help manage your todos. Try 'Add a task to buy groceries'.",
-            }}
-          />
-        </div>
+        <Card data-testid="notes-card" className="w-full">
+          <CardHeader>
+            <div className="flex items-start justify-between gap-3">
+              <div className="space-y-1.5">
+                <CardTitle>Agent Scratch pad</CardTitle>
+                <CardDescription>
+                  The agent writes here via its{" "}
+                  <code className="font-mono text-[11px] text-[#010507] dark:text-foreground">
+                    set_notes
+                  </code>{" "}
+                  tool. The UI re-renders from shared state.
+                </CardDescription>
+              </div>
+              {notes.length > 0 && (
+                <Button
+                  type="button"
+                  onClick={onClear}
+                  data-testid="notes-clear-button"
+                  variant="destructive"
+                  size="sm"
+                  className="uppercase tracking-[0.14em] text-[10px]"
+                >
+                  Clear
+                </Button>
+              )}
+            </div>
+          </CardHeader>
+    
+          <CardContent>
+            {notes.length === 0 ? (
+              <div
+                data-testid="notes-empty"
+                className="text-sm text-[#838389] italic min-h-[160px] flex items-center justify-center text-center px-4 border border-dashed border-[#E9E9EF] rounded-xl bg-[#FAFAFC] dark:text-muted-foreground dark:border-border dark:bg-muted"
+              >
+                the agent will make observations about you and note them here!
+              </div>
+            ) : (
+              <ul
+                data-testid="notes-list"
+                className="space-y-2 text-sm text-[#010507] dark:text-foreground"
+              >
+                {notes.map((note, i) => (
+                  <li
+                    key={i}
+                    data-testid="note-item"
+                    className="flex gap-2 rounded-lg border border-[#E9E9EF] bg-[#FAFAFC] px-3 py-2 dark:border-border dark:bg-muted"
+                  >
+                    <span className="text-[#838389] font-mono text-xs leading-5 select-none dark:text-muted-foreground">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="flex-1">{note}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </CardContent>
+        </Card>
       );
     }
 
-When you tell the agent "Add a task to buy groceries", it updates the shared state and your todo list renders the new item immediately.
+Nothing about this is chat-specific: `useAgent` works in any component under `<CopilotKit>`, so you can render `agent.state` in your main view or canvas, not just inside the chat panel. See **[Render agent state in your app](https://docs.copilotkit.ai/shared-state/rendering-in-app)** for the full main-view pattern.
 
-### On this page
+## Streaming partial state updatesCopy Anchor Link
 
-What is this?When should I use this?Reading agent stateWriting state from the frontendHow it worksExample: collaborative todo list
+By default, agent state only updates _between_ backend checkpoints, so a long-running tool call appears as one big burst at the end. State streaming copies one tool argument into a state key while the model writes it. The UI shows the answer token by token.
+
+State streaming isn't available on this framework yet. The UI gets the agent's state between checkpoints.
+
+## Read-only contextCopy Anchor Link
+
+When the value is **UI-owned** and the agent should read it but never write it back, such as current user, selected record, or scroll position, reach for `useAgentContext` instead of full shared state. It publishes values as a one-way UI-to-agent channel that auto-unregisters on unmount.
+
+See **[Agent read-only context](https://docs.copilotkit.ai/shared-state/agent-readonly)** for the full pattern.
+
+## Choose your AI backendCopy Anchor Link
+
+[![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)LangGraph (Python)](https://docs.copilotkit.ai/langgraph-python/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)LangGraph (TypeScript)](https://docs.copilotkit.ai/langgraph-typescript/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)LangGraph (FastAPI)](https://docs.copilotkit.ai/langgraph-fastapi/shared-state)### [Langchain DeepAgents](https://docs.copilotkit.ai/deepagents/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/google-adk.png)Google ADK](https://docs.copilotkit.ai/google-adk/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)Mastra](https://docs.copilotkit.ai/mastra/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/crewai-crews.png)CrewAI Flows](https://docs.copilotkit.ai/crewai-crews/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/pydantic-ai.svg)PydanticAI](https://docs.copilotkit.ai/pydantic-ai/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/google-antigravity.png)Google Antigravity](https://docs.copilotkit.ai/google-antigravity/shared-state)### [OpenAI Agents SDK (Python)](https://docs.copilotkit.ai/openai-agents-python/shared-state)### [Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python/shared-state)### [Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/ag2-light.svg)![](https://docs.copilotkit.ai/logos/frameworks/ag2-dark.svg)AG2](https://docs.copilotkit.ai/ag2/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/llamaindex.png)LlamaIndex](https://docs.copilotkit.ai/llamaindex/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/strands.svg)AWS Strands (Python)](https://docs.copilotkit.ai/strands/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/strands.svg)AWS Strands (TypeScript)](https://docs.copilotkit.ai/strands-typescript/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/ms-agent-python.svg)MS Agent Framework (Python)](https://docs.copilotkit.ai/ms-agent-python/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/ms-agent-python.svg)MS Agent Framework (.NET)](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state)[![](https://docs.copilotkit.ai/logos/frameworks/ms-agent-python.svg)MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet/shared-state)
+
+How is this guide?
+
+GoodBad
+
+[Previous PageOpen Generative UI](https://docs.copilotkit.ai/generative-ui/open-generative-ui)[Next PageRender agent state in your app](https://docs.copilotkit.ai/shared-state/rendering-in-app)
