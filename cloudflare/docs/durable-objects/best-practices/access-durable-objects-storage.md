@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/
 title: Access Durable Objects Storage \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:22.401250+00:00
+fetched_at: 2026-11-19T10:02:07.893036+00:00
 ---
 
 # Access Durable Objects Storage · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:22.401250+00:00
 
 # Access Durable Objects Storage
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess storage Create SQLite-backed Durable Object class Initialize instance variables from storage Remove a Durable Object's storageSQL API ExamplesTypeScript and query resultsIndexes in SQLiteSQL in Durable Objects vs D1Related resources
 

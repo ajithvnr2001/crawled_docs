@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/how-to/enable-proxy-protocol/
 title: Enable Proxy protocol \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:32.929850+00:00
+fetched_at: 2026-11-19T10:02:05.535487+00:00
 ---
 
 # Enable Proxy protocol · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:32.929850+00:00
 
 # Enable Proxy protocol
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/how-to/enable-proxy-protocol/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable Proxy Protocol v1 for TCP The Proxy Protocol v1 HeaderEnable Proxy Protocol v2 for TCP/UDP The Proxy Protocol v2 HeaderEnable Simple Proxy Protocol for UDP
 
@@ -35,9 +35,11 @@ This feature requires an Enterprise plan. If you would like to upgrade, contact 
   1. In the Cloudflare dashboard, go to the **Spectrum** page.
 
 [ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
-  2. Locate the application that will use the PROXY protocol and select **Configure**.
+  2. Locate the application that will use the PROXY protocol and select its hostname, or select the three dots next to it > **Edit**.
 
-  3. From the dropdown, select **PROXY Protocol v1**.
+  3. Under **Advanced Options** , select **PROXY Protocol v1** in **Proxy Protocols**.
+
+  4. Select **Save**.
 
 
 
@@ -66,9 +68,11 @@ An example PROXY Protocol line for an IPv6 address would look like:
   1. In the Cloudflare dashboard, go to the **Spectrum** page.
 
 [ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
-  2. Locate the application that will use the PROXY protocol and select **Configure**.
+  2. Locate the application that will use the PROXY protocol and select its hostname, or select the three dots next to it > **Edit**.
 
-  3. From the dropdown, select **PROXY Protocol v2**.
+  3. Under **Advanced Options** , select **PROXY Protocol v2** in **Proxy Protocols**.
+
+  4. Select **Save**.
 
 
 
@@ -139,7 +143,7 @@ A PROXY Protocol binary header for a IPv6 incoming address has the format:
 
 When using Spectrum for UDP, the client source IP and port information can be obtained by using Simple Proxy Protocol, a lightweight protocol developed specifically for UDP.
 
-To enable it, select **Configure** on a Spectrum application and toggle the setting for Simple Proxy Protocol to **On**.
+To enable it, edit a UDP Spectrum application, select **Simple Proxy Protocol** in **Proxy Protocols** under **Advanced Options** , and select **Save**.
 
 Simple Proxy Protocol dictates that your origin must also prepend packets meant for the client with the same header, including original client source information. This is done to validate that packets coming in are in fact intended for the client.
 

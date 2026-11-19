@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/api/alarms/
 title: Alarms \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:05.559097+00:00
+fetched_at: 2026-11-19T10:02:06.684729+00:00
 ---
 
 # Alarms · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:05.559097+00:00
 
 # Alarms
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/api/alarms/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundScheduling multiple events with a single alarmStorage methods getAlarm setAlarm deleteAlarmHandler methods alarmExampleRelated resources
 
@@ -36,7 +36,7 @@ Notably:
 
 How are alarms different from Cron Triggers?
 
-Alarms are more fine grained than [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/). A Worker can have up to three Cron Triggers configured at once, but it can have an unlimited amount of Durable Objects, each of which can have an alarm set.
+Alarms are more fine grained than [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/). Cron Triggers have a [per-account limit](https://developers.cloudflare.com/workers/platform/limits/#account-plan-limits), but a Worker can have an unlimited number of Durable Objects, each of which can have an alarm set.
 
 Alarms are directly scheduled from within your Durable Object. Cron Triggers, on the other hand, are not programmatic. [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/) execute based on their schedules, which have to be configured through the Cloudflare dashboard or API.
 

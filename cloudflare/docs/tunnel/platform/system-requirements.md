@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/tunnel/platform/system-requirements/
 title: System requirements \u00b7 Cloudflare Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:05.488818+00:00
+fetched_at: 2026-11-19T10:02:08.185053+00:00
 ---
 
 # System requirements · Cloudflare Docs
@@ -18,15 +18,30 @@ fetched_at: 2026-10-08T07:16:05.488818+00:00
 
 # System requirements
 
-Last updated Sep 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/tunnel/platform/system-requirements/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBaseline recommendationsPort configurationulimits (Linux and macOS)Capacity calculator
+OverviewBaseline recommendationsThroughputPort configurationulimits (Linux and macOS)Capacity calculator
 
 `cloudflared` is lightweight enough to run on a Raspberry Pi or a data center server. Tunnel throughput is primarily limited by the number of ports configured in system software, not hardware.
 
 ## Baseline recommendations
 
 Run a `cloudflared` [replica](https://developers.cloudflare.com/tunnel/configuration/#replicas-and-high-availability) on two dedicated hosts per location with a minimum of 4 GB RAM and 4 CPU cores. Allocate 50,000 ports per host.
+
+## Throughput
+
+On a host that meets the baseline recommendations, one `cloudflared` replica typically carries:
+
+  * About 750 Mbps of public Internet traffic to published applications.
+  * 350 to 500 Mbps of private traffic from Cloudflare One Client users.
+
+
+
+Use these figures for planning. They are not guarantees, because your traffic and network path also affect throughput.
+
+A host with fewer resources delivers less throughput. At this time, a host with more resources does not raise one replica above these values. To add capacity, run more replicas on identical hosts. For sustained throughput above 1 Gbps at a site, use [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/).
+
+To compare throughput across connectors, refer to [Connector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/#throughput).
 
 ## Port configuration
 

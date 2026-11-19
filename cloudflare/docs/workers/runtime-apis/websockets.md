@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/websockets/
 title: WebSockets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:40.217087+00:00
+fetched_at: 2026-11-19T10:02:09.346521+00:00
 ---
 
 # WebSockets · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-13T08:48:40.217087+00:00
 
 # WebSockets
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBackgroundConstructorMethods accept addEventListener close sendProperties readyState binaryTypeEventsTypes MessageConnection lifetimeClose behavior Half-open mode for proxying Prior behaviorBinary messages Reading binary payloads When the value takes effect Worker-wide opt-outRelated resources
+OverviewBackgroundConstructorMethods accept addEventListener close sendProperties readyState binaryTypeEventsTypes MessageConnection lifetimeClose behavior State and error behavior Half-open mode for proxying Prior behaviorBinary messages Reading binary payloads When the value takes effect Worker-wide opt-outRelated resources
 
 ## Background
 
@@ -98,12 +98,24 @@ These WebSockets are commonly referred to as `client` and `server`. The below ex
 
 
 
+By default, Workers accepts close codes from `1000` through `4999`, except `1004`, `1005`, `1006`, and `1015`. These reserved codes cannot be sent in a Close frame. Do not pass every received close code back to `close()`. An invalid code throws an `InvalidAccessError`.
+
+With the `pedantic_wpt` compatibility flag, `close()` accepts only `1000` or codes from `3000` through `4999`, matching the [WebSocket standard ↗︎](https://websockets.spec.whatwg.org/#dom-websocket-close). For application-defined codes, use the private-use range `4000–4999`; `3000–3999` is reserved for registered libraries, frameworks, and applications.
+
+If you provide a reason, also provide a code. Otherwise, `close()` throws an `InvalidAccessError`. With the `websocket_close_reason_byte_limit` compatibility flag (enabled by default on compatibility dates on or after `2026-03-03`), a reason longer than 123 UTF-8 bytes throws a `SyntaxError`.
+
+The runtime validates arguments before checking the connection state. These errors can also occur when the WebSocket is already closing or closed.
+
+For automatic replies to Close frames, refer to Close behavior.
+
 ### send
 
   * `send(messagestring | ArrayBuffer | ArrayBufferView)`
     * Send a message to the other WebSocket in this WebSocket pair.
 
 
+
+Calling `send()` after sending a Close frame throws a `TypeError`. This includes automatic replies to received Close frames. Refer to State and error behavior for other connection states.
 
 #### Parameters
 
@@ -178,7 +190,7 @@ Design clients to reconnect after a disconnection and restore application state.
 
 With the [`web_socket_auto_reply_to_close`](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#websocket-auto-reply-to-close) compatibility flag (enabled by default on compatibility dates on or after `2026-04-07`), the Workers runtime automatically sends a reciprocal Close frame when it receives a Close frame from the peer. The `readyState` transitions to `CLOSED` before the `close` event fires. This matches the [WebSocket specification ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close_event) and standard browser behavior.
 
-If you still call `close()` inside the `close` event handler, the call is silently ignored. Existing code that manually replies to Close frames will continue to work without changes.
+Calling `close()` inside the `close` event handler does nothing, provided its arguments are valid. Refer to `close()` for argument restrictions.
     
     
     server.addEventListener("close", (event) => {
@@ -188,9 +200,30 @@ If you still call `close()` inside the `close` event handler, the call is silent
       console.log(event.wasClean);    // true
     });
 
+### State and error behavior
+
+The following behaviors apply to accepted Worker WebSockets, including [hibernatable WebSockets](https://developers.cloudflare.com/durable-objects/best-practices/websockets/) accepted with `DurableObjectState.acceptWebSocket()`.
+
+`readyState` alone does not determine whether `send()` throws. In particular, `CLOSING` can mean that either side has sent a Close frame:
+
+State or condition | `send()` | `close()` with valid arguments  
+---|---|---  
+`OPEN` after acceptance | Queues the message. | Starts the closing handshake.  
+`CLOSING` after sending a Close frame | Throws `TypeError`. | Does nothing.  
+`CLOSING` after receiving a Close frame, before replying, while the connection is still writable | Queues the message. | Sends a Close frame to complete the handshake.  
+`CLOSED` after sending and receiving Close frames | Throws `TypeError`. | Does nothing.  
+  
+After a connection failure, `send()` may silently discard messages. A non-throwing call does not guarantee delivery.
+
+The receive-only `CLOSING` case applies to manual-reply and half-open modes, and to hibernatable WebSockets. For standard WebSockets with automatic replies enabled, the runtime closes the outgoing side before delivering the `close` event.
+
+When a hibernatable WebSocket receives a Close frame, reply with `ws.close()` in `webSocketClose()`, unless you have already closed the outgoing side. This is required even when `web_socket_auto_reply_to_close` is enabled. Before your reply, `readyState` is `CLOSING`; afterward, it is `CLOSED`. An abnormal disconnection reported as `1006` has no Close frame to acknowledge.
+
+Before accepting the server side of a `WebSocketPair`, `send()` throws `TypeError`. A `close()` call with valid arguments also throws `TypeError`. Call `accept()` or `DurableObjectState.acceptWebSocket()` first.
+
 ### Half-open mode for proxying
 
-The automatic close behavior can interfere with WebSocket proxying, where a Worker sits between a client and a backend and needs to coordinate the close on both sides independently. To support this, pass `{ allowHalfOpen: true }` to `accept()`:
+The automatic close behavior can interfere with WebSocket proxying, where a Worker sits between a client and a backend and needs to coordinate the close on both sides independently. To support this, pass `{ allowHalfOpen: true }` to `accept()`. This example assumes the `pedantic_wpt` compatibility flag is disabled:
     
     
     server.accept({ allowHalfOpen: true });
@@ -200,9 +233,18 @@ The automatic close behavior can interfere with WebSocket proxying, where a Work
       // to coordinate the close on the other side.
       console.log(server.readyState); // WebSocket.CLOSING
     
-      // Manually close when ready.
-      server.close(event.code, "done");
+      // Preserve the peer's code and reason when they can be sent.
+      if (event.code >= 1000 && event.code < 5000 &&
+          ![1004, 1005, 1006, 1015].includes(event.code)) {
+        server.close(event.code, event.reason);
+      } else {
+        server.close();
+      }
     });
+
+Preserve a sendable peer code and its reason when replying manually. Replacing every code with `1000` loses distinctions such as going away (`1001`), policy violations (`1008`), and application-defined errors. With `pedantic_wpt` enabled, you cannot manually forward protocol codes such as `1001` or `1008` unchanged through `close()`.
+
+The example omits both arguments for codes that cannot be sent. For `1005`, calling `close()` preserves the absence of a status code. Codes such as `1006` describe a local failure and cannot be forwarded as Close frames. If a backend disconnects abnormally, a proxy can close its downstream client connection with `1011` to report an unexpected server condition. Choose an error code appropriate to the connection and application instead of reporting normal closure (`1000`).
 
 Note
 

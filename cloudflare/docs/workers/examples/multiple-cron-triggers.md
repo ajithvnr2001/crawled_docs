@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/examples/multiple-cron-triggers/
 title: Multiple Cron Triggers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:24.085402+00:00
+fetched_at: 2026-11-19T10:02:06.208427+00:00
 ---
 
 # Multiple Cron Triggers · Cloudflare Workers docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-08T07:17:24.085402+00:00
 
 Set multiple Cron Triggers on three different schedules.
 
-Last updated Sep 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/examples/multiple-cron-triggers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTest Cron Triggers using Wrangler
 
@@ -44,7 +44,7 @@ This creates a repository in your GitHub account and deploys the application to 
     				await updateAPI2();
     				break;
     			case "*/45 * * * *":
-    				// Every forty-five minutes
+    				// At minutes 0 and 45 of every hour
     				await updateAPI3();
     				break;
     		}
@@ -71,7 +71,7 @@ This creates a repository in your GitHub account and deploys the application to 
     				await updateAPI2();
     				break;
     			case "*/45 * * * *":
-    				// Every forty-five minutes
+    				// At minutes 0 and 45 of every hour
     				await updateAPI3();
     				break;
     		}
@@ -112,7 +112,7 @@ This creates a repository in your GitHub account and deploys the application to 
     				await updateAPI2();
     				break;
     			case "*/45 * * * *":
-    				// Every forty-five minutes
+    				// At minutes 0 and 45 of every hour
     				await updateAPI3();
     				break;
     		}

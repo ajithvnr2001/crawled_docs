@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/ci/
 title: Use cf in CI \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:28.329208+00:00
+fetched_at: 2026-11-19T10:02:09.832172+00:00
 ---
 
 # Use cf in CI · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-18T09:55:28.329208+00:00
 
 # Use cf in CI
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy from GitHub ActionsProvide credentials Use a .env file for local automationPin the cf versionUnderstand non-interactive behavior Commit the project configurationBuild once, then deploy the buildCheck pull requests with a dry runDeploy previews from CITurn off telemetryRelated resources
 
@@ -69,7 +69,7 @@ Projects created with `cf init` or migrated with `cf migrate` already include it
                - uses: actions/checkout@v6
                - uses: actions/setup-node@v6
                  with:
-                   node-version: 22
+                   node-version: 24
                    cache: npm
                - run: npm ci
                - run: npx cf build

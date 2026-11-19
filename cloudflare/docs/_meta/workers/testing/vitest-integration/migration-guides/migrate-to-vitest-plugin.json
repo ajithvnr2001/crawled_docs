@@ -3,8 +3,5 @@
   "file": "workers/testing/vitest-integration/migration-guides/migrate-to-vitest-plugin.md",
   "title": "Migrate to Vitest plugin \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:59.008646+00:00",
-  "html_len": 192682,
-  "md_len": 2912,
-  "depth": 0
+  "fetched_at": "2026-11-19T10:02:08.949981+00:00"
 }

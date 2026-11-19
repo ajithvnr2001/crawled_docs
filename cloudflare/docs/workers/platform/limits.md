@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/limits/
 title: Limits \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T08:45:56.343946+00:00
+fetched_at: 2026-11-19T10:02:06.468438+00:00
 ---
 
 # Limits · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-14T08:45:56.343946+00:00
 
 # Limits
 
-Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSpending limitsAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
 
@@ -43,7 +43,7 @@ Worker size | 64 MiB | 64 MiB
 Worker startup time | 1 second | 1 second  
 Number of Workers | 100 | 5001  
 Number of [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/)  
-per account | 5 | 250  
+per account | 5 | 1,000  
 Number of Static Asset files per Worker version | 20,000 | 100,000  
 Individual Static Asset file size | 25 MiB | 25 MiB  
   
@@ -86,8 +86,8 @@ CPU time measures how long the CPU spends executing your Worker code. Waiting on
 Limit | Workers Free | Workers Paid  
 ---|---|---  
 CPU time per HTTP request | 10 ms | 5 min (default: 30 seconds)  
-CPU time per Cron Trigger | 10 ms | 30 seconds (< 1 hour interval)   
-15 min (>= 1 hour interval)  
+CPU time per Cron Trigger | 10 ms | 5 min (default: 30 seconds) for intervals under 1 hour   
+15 min for intervals of 1 hour or more  
   
 Most Workers consume very little CPU time. The average Worker uses approximately 2.2 ms per request. Heavier workloads that handle authentication, server-side rendering, or parse large payloads typically use 10-20 ms.
 

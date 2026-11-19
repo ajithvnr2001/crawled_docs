@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/api/durable-object-container/
 title: Durable Object Container API \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:49.197391+00:00
+fetched_at: 2026-11-19T10:02:08.042408+00:00
 ---
 
 # Durable Object Container API · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:49.197391+00:00
 
 # Durable Object Container API
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAttributes images  runningMethods start inspect exec snapshotContainer  destroy signal setInactivityTimeout getTcpPort monitor interceptOutboundHttp interceptAllOutboundHttp interceptOutboundHttpsRelated resources
 
@@ -436,7 +436,9 @@ Container snapshots are immutable. Snapshot handles have an implicit 30-day time
 
 ### `destroy`
 
-`destroy()` stops the container and can include an optional reason for the operation.
+`destroy()` stops the container immediately, without a graceful shutdown period.
+
+To request a graceful shutdown, send `SIGTERM` with `signal()`, wait for `monitor()` within an application-defined deadline, and call `destroy()` if the container has not stopped.
     
     
     await this.ctx.container.destroy("Manually Destroyed");

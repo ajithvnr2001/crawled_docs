@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/
 title: Syncing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:09.568589+00:00
+fetched_at: 2026-11-19T10:02:08.076620+00:00
 ---
 
 # Syncing · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-13T09:17:09.568589+00:00
 
 # Syncing
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExternal data sources Sync interval Trigger syncs from automated pipelinesBuilt-in storageControlsPerformanceAutomatic pausing for inactive instancesBest practices
 
@@ -50,6 +50,10 @@ Trigger a sync job with the Wrangler CLI, for example from a CI/CD step or deplo
     npx wrangler ai-search jobs create <INSTANCE_NAME>
 
 Or call the [Create job REST API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/#jobs) from a CMS webhook or a Worker. Sync jobs can be triggered at most once every 30 seconds.
+
+The [Create job REST API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/#jobs) returns HTTP `429` (sync in cooldown) when called too soon. Wait at least 30 seconds between sync requests. Refer to [`7020` (`sync_in_cooldown`)](https://developers.cloudflare.com/ai-search/troubleshooting/api-error-codes/) for error details.
+
+Website syncs fetch pages according to the [recrawl rules](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/).
 
 ## Built-in storage
 

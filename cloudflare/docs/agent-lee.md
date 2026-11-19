@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agent-lee/
 title: Overview \u00b7 Agent Lee docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:06.592110+00:00
+fetched_at: 2026-11-19T10:02:05.908457+00:00
 ---
 
 # Overview · Agent Lee docs
@@ -16,9 +16,9 @@ fetched_at: 2026-10-28T08:04:06.592110+00:00
 
 # Agent Lee
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCapabilities Account-aware answers Write operations Undo a change Network diagnostics Generative UI Dashboard navigation Conversation history Support case handoff Product knowledgeData access and privacy What Agent Lee can access What Agent Lee cannot access Conversation storage Data usageLimitationsBuilt on CloudflareRelated resources
+OverviewCapabilities Account-aware answers Attachments Write operations Build and deploy code Undo a change Network diagnostics Generative UI Dashboard navigation Conversation history Support case handoff Product knowledgeData access and privacy What Agent Lee can access What Agent Lee cannot access Conversation storage Data usageLimitationsBuilt on CloudflareRelated resources
 
 An AI co-pilot built into the Cloudflare dashboard. Ask questions about your account, take actions, and run diagnostics, all in plain language.
 
@@ -31,6 +31,7 @@ If you are on an Enterprise plan and would like access, contact your account tea
 With Agent Lee, you can:
 
   * Ask questions about your account configuration and get answers based on your actual data.
+  * Attach screenshots, PDFs, and log or configuration files for Agent Lee to read.
   * Make changes to DNS records, zone settings, and security rules, with your approval required before anything executes.
   * Undo a change Agent Lee made earlier in the conversation.
   * Run network diagnostics like DNS lookups and certificate checks.
@@ -55,6 +56,39 @@ Agent Lee answers based on your actual account data, not just documentation. Whe
 
 It can also tell you whether your account is entitled to a particular Cloudflare feature, and which plan tier you are on, so you know whether something is available to you before you try to configure it.
 
+### Attachments
+
+Attach files to a message, and Agent Lee reads them as part of your question. Select the paperclip next to the message box, paste an image, or drag files onto the chat panel.
+
+File type | Formats | Size limit  
+---|---|---  
+Images | PNG, JPEG, WebP | 3.5 MiB each, up to 8,192 pixels on a side and 40 megapixels in total  
+Documents | PDF | 5 MiB each  
+Text files | `.txt`, `.log`, `.csv`, `.md` | Up to 100 MiB, trimmed to 1 MiB before sending  
+Structured text | `.json`, `.har`, `.yaml`, `.yml`, `.toml`, `.xml` | Up to 100 MiB, trimmed to 2 MiB before sending  
+  
+You can attach up to four files per message, up to 14 MiB in total after trimming. SVG and GIF images are not supported.
+
+How Agent Lee reads each kind of file:
+
+  * **Images** go to a vision-capable model, which reads text, error messages, and layout in screenshots.
+  * **PDFs** are converted to text. A PDF that is only scanned images, with no text layer, cannot be read. For a long PDF, Agent Lee reads from the start of the document.
+  * **Text files** are read in full when they fit. For a long file, such as a log, Agent Lee reads the start and the end, where errors usually appear.
+
+
+
+Your browser trims a text file over 1 MiB (2 MiB for structured text) before sending it, keeping its first and last lines. HAR files are always compacted before sending: request and response bodies and cookies are removed, and the values of credential headers such as `Authorization`, `Cookie`, and `X-Auth-Key` are replaced with `[redacted]`.
+
+Agent Lee keeps attachments from your most recent messages in view. Older attachments are removed from the conversation. Attach a file again to bring it back.
+
+Example requests:
+
+  * "Here is a screenshot of the error I get when I open my site. What is wrong?"
+  * "This HAR file is from a slow page load. Which requests are taking the longest?"
+  * "Here is the error log from my Worker. What is causing these failures?"
+
+
+
 ### Write operations
 
 You can ask Agent Lee to create, update, or delete resources across your account using natural language. Every write operation requires your explicit approval before it executes, Agent Lee shows you exactly what it plans to do and waits for confirmation.
@@ -66,8 +100,13 @@ Example requests:
   * "Add an A record for blog.example.com pointing to 192.0.2.10."
   * "Enable Always Use HTTPS on my zone."
   * "Set the SSL mode for example.com to Full (strict)."
+  * "Deploy a Worker named hello-world that returns 'Hello, world'."
 
 
+
+### Build and deploy code
+
+Agent Lee can write and run code for small projects, then deploy them to your account as Workers. Deploying is a write operation, so Agent Lee waits for your approval first. It needs write access to Workers Scripts: the **Full access** template includes it, and under **Custom** you turn on write for Workers Scripts. To keep working on the code locally, [export the source](https://developers.cloudflare.com/agent-lee/take-home-code/).
 
 ### Undo a change
 
@@ -158,6 +197,8 @@ Conversations are stored per user using [Durable Objects](https://developers.clo
 
 Agent Lee can list, search, and summarize conversations you have had with it. It cannot read another user's conversations.
 
+Files you attach are stored with the conversation. When an attachment ages out, it is removed from the stored conversation. Do not attach files that contain passwords, API tokens, or other secrets.
+
 ### Data usage
 
 Agent Lee does not currently use your conversations, prompts, or account data to train AI models, nor do we share your data with other Cloudflare customers. Should these practices change in the future, we will provide advance notice to keep you informed. For Cloudflare's authoritative data handling commitments, refer to the [Cloudflare Privacy Policy ↗︎](https://www.cloudflare.com/privacypolicy/).
@@ -168,11 +209,11 @@ Agent Lee does not currently use your conversations, prompts, or account data to
 
 Agent Lee cannot:
 
-  * Deploy applications on your behalf or run code for you (it can generate small starter projects and [export the source](https://developers.cloudflare.com/agent-lee/take-home-code/) for you to clone)
   * Replace [Cloudflare Support ↗︎](https://support.cloudflare.com) for account recovery or outages (it can prepare a support case for you, but only if your account is eligible and you confirm it)
   * Access payment methods, billing history, or API tokens
   * Operate across multiple accounts: sessions are scoped to your authenticated account
   * Query raw log data or Logpush datasets
+  * Read scanned PDFs that have no text layer, or SVG and GIF images
   * Execute write operations without your explicit approval
 
 

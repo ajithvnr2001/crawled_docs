@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/get-started/
 title: Get started \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:32.846905+00:00
+fetched_at: 2026-11-19T10:02:05.612747+00:00
 ---
 
 # Get started · Cloudflare Spectrum docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:15:32.846905+00:00
 
 # Get started
 
-Last updated Jun 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a Spectrum application using an IP addressCreate a Spectrum application using a CNAME recordCreate a Spectrum application using a load balancerCreate a Spectrum application using a virtual network origin Before you beginView traffic
 
@@ -29,29 +29,33 @@ Certain fields in Spectrum request and response bodies require an Enterprise pla
 
 ## Create a Spectrum application using an IP address
 
-To create a Spectrum application using an IP address, Cloudflare normally assigns you an arbitrary IP from Cloudflare’s IP pool to your application. If you want to use your own IP addresses, you can use [BYOIP](https://developers.cloudflare.com/spectrum/about/byoip/) or you can also use a [Static IP](https://developers.cloudflare.com/spectrum/about/static-ip/). In these two last cases, you need to create your Spectrum application through the API, as these features are not available via dash. When using the API, the field `origin_direct` takes as input the IP address.
+To create a Spectrum application using an IP address, Cloudflare normally assigns you an arbitrary IP from Cloudflare’s IP pool to your application. If you want to use your own IP addresses, you can use [BYOIP](https://developers.cloudflare.com/spectrum/about/byoip/) or you can also use a [Static IP](https://developers.cloudflare.com/spectrum/about/static-ip/). In these two last cases, select **Dedicated IPs** under **Edge IP Type** in the dashboard, or set `edge_ips` in the API. When using the API, the field `origin_direct` takes as input the IP address.
 
 Add your application via Dashboard
 
   1. In the Cloudflare dashboard, go to the **Spectrum** page.
 
 [ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
-  2. Select **Create an Application**. If this is your first time using Spectrum, the **Create an Application** modal appears.
+  2. Select **Create an Application**.
 
-  3. Select your **Application Type**.
+  3. Under **Application Configuration** , select your **Application Type**.
 
-  4. Under **Domain** , enter the domain that will use Spectrum.
+  4. In **Subdomain** , enter the subdomain that will use Spectrum. The dashboard adds your zone name after it. Leave it blank to use the zone apex (for example, `example.com`).
 
-  5. Under **Edge Port** , enter the port Cloudflare should use for your application.
+  5. In **Edge Port** , enter the port Cloudflare should use for your application.
 
-  6. Under **Origin** , enter your application's origin IP and port.
+  6. Under **Origin Configuration** , select **IP or DNS record** as the **Origin type**.
 
-  7. If your application requires the client IP and supports [Proxy Protocol ↗︎](https://www.haproxy.com/blog/haproxy/proxy-protocol/), enable **Proxy Protocols**. Proxy Protocol is a method for a proxy like Cloudflare to send the client IP to the origin application.
+  7. In **Origin IP or DNS record** , enter your application's origin IP. In **Port** , enter the origin port.
 
-  8. Select **Add**.
+  8. (Optional) If your application requires the client IP and supports [Proxy Protocol ↗︎](https://www.haproxy.com/blog/haproxy/proxy-protocol/), go to **Advanced Options** and select a version in **Proxy Protocols**. Proxy Protocol is a method for a proxy like Cloudflare to send the client IP to the origin application.
+
+  9. Select **Add Application**.
 
 
 
+
+On Pro and Business plans, the application type sets the edge and origin ports, and the origin must be an IP address.
 
 Add your application via API
 
@@ -129,17 +133,19 @@ Add your application via Dashboard
   1. In the Cloudflare dashboard, go to the **Spectrum** page.
 
 [ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
-  2. Select **Create an Application**. If this is your first time using Spectrum, the **Create an Application** modal appears.
+  2. Select **Create an Application**.
 
-  3. Select your **Application Type**.
+  3. Under **Application Configuration** , select your **Application Type**.
 
-  4. Under **Domain** , enter the domain that will use Spectrum.
+  4. In **Subdomain** , enter the subdomain that will use Spectrum. The dashboard adds your zone name after it. Leave it blank to use the zone apex (for example, `example.com`).
 
-  5. Under **Edge Port** , enter the port Cloudflare should use for your application.
+  5. In **Edge Port** , enter the port Cloudflare should use for your application.
 
-  6. Under **Origin** , enter your `CNAME` record name.
+  6. Under **Origin Configuration** , select **IP or DNS record** as the **Origin type**.
 
-  7. Select **Add**.
+  7. In **Origin IP or DNS record** , enter your `CNAME` record name. In **Port** , enter the origin port.
+
+  8. Select **Add Application**.
 
 
 
@@ -210,19 +216,21 @@ Add your application via Dashboard
   1. In the Cloudflare dashboard, go to the **Spectrum** page.
 
 [ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
-  2. Select **Create an Application**. If this is your first time using Spectrum, the **Create an Application** modal appears.
+  2. Select **Create an Application**.
 
-  3. Select your **[Application Type](https://developers.cloudflare.com/spectrum/reference/configuration-options/#application-type)**.
+  3. Under **Application Configuration** , select your **[Application Type](https://developers.cloudflare.com/spectrum/reference/configuration-options/#application-type)**.
 
-  4. Under **Domain** , enter the domain that will use Spectrum.
+  4. In **Subdomain** , enter the subdomain that will use Spectrum. The dashboard adds your zone name after it.
 
-  5. Under **Edge Port** , enter the port Cloudflare should use for your application.
+  5. In **Edge Port** , enter the port Cloudflare should use for your application.
 
-  6. Under **Origin** , select **Load Balancer**.
+  6. Under **Origin Configuration** , select **Load Balancer** as the **Origin type**.
 
-  7. Select the load balancer you want to use from the dropdown. Disabled load balancers will not show on the **Load Balancer** menu.
+  7. In **Load Balancer** , select the load balancer you want to use. Disabled load balancers do not appear in the list.
 
-  8. Select **Add**.
+  8. In **Port** , enter the origin port.
+
+  9. Select **Add Application**.
 
 
 
@@ -306,21 +314,21 @@ Add your application via Dashboard
 [ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
   2. Select **Create an Application**.
 
-  3. Under **Application Type** , select **TCP** or **UDP**.
+  3. Under **Application Configuration** , select **TCP** or **UDP** as the **Application Type**.
 
-  4. Under **Domain** , enter the domain that will use Spectrum.
+  4. In **Subdomain** , enter the subdomain that will use Spectrum. The dashboard adds your zone name after it. Leave it blank to use the zone apex (for example, `example.com`).
 
-  5. Under **Edge Port** , enter the port Cloudflare should use for your application.
+  5. In **Edge Port** , enter the port Cloudflare should use for your application.
 
-  6. Under **Origin** , select **Virtual Network**.
+  6. Under **Origin Configuration** , select **Virtual Network** as the **Origin type**.
 
-  7. Under **Virtual Network** , select the virtual network that contains your origin.
+  7. In **Virtual Network** , select the virtual network that contains your origin.
 
-  8. Under **IP** , enter the private IP address of your origin.
+  8. In **Port** , enter a single port (port ranges are not supported).
 
-  9. Under **Port** , enter a single port (port ranges are not supported).
+  9. In **Origin IP** , enter the private IP address of your origin.
 
-  10. Select **Add**.
+  10. Select **Add Application**.
 
 
 
@@ -396,7 +404,7 @@ Set `origin_direct` to the private IP of your origin and `virtual_network_id` to
 
 ## View traffic
 
-You can now proxy traffic through Cloudflare without additional configuration. As you run traffic through Cloudflare, you will see the last minute of traffic from **Spectrum** in the dashboard.
+You can now proxy traffic through Cloudflare without additional configuration. As you run traffic through Cloudflare, the **Spectrum** page in the dashboard shows the last minute of connections, ingress, and egress for each application.
 
 If you have any feedback, please [let us know ↗︎](https://community.cloudflare.com/c/website-application-performance/spectrum/48).
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/path-mtu-discovery/
 title: Path MTU Discovery (PMTUD) \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:00.380540+00:00
+fetched_at: 2026-11-19T10:02:09.028711+00:00
 ---
 
 # Path MTU Discovery (PMTUD) · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Path MTU Discovery (PMTUD)
 
-Last updated Sep 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/path-mtu-discovery/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesEnable or disable Path MTU DiscoveryVerify PMTUD is enabledMinimum MTUs Recommended MTU Path MTU Discovery IPv6 WebRTCCheck your MTU
 
@@ -41,10 +41,14 @@ System | Availability | Minimum WARP version
 Windows | ✅ | 2025.9.173.1  
 macOS | ✅ | 2025.9.173.1  
 Linux | ✅ | 2025.9.173.1  
-iOS | ❌ |   
-Android | ❌ |   
-ChromeOS | ❌ |   
+iOS | ✅ | 1.12.5  
+Android | ✅ | 2.5.5  
+ChromeOS | ✅ | 2.5.5  
   
+Note
+
+PMTUD is disabled by default on iOS, Android, and ChromeOS. To enable it, set `enable_pmtud` to `true` in your [MDM configuration](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/#ios).
+
 The [Maximum Transmission Unit (MTU) ↗︎](https://www.cloudflare.com/learning/network-layer/what-is-mtu/) is the largest data packet size that a device can send over a network without fragmentation. When you connect to services through the Cloudflare One Client (formerly WARP), your data is encapsulated, which adds extra headers and increases the overall packet size. On some networks, especially cellular or guest Wi-Fi networks, the network's MTU may be smaller than the Cloudflare One Client's default packet size. This mismatch forces packets to be fragmented or dropped entirely, leading to connection instability or complete connection failures.
 
 The Cloudflare One Client's Path MTU Discovery (PMTUD) feature solves this problem by actively probing for the minimum MTU along the entire network path between the device and Cloudflare. The Cloudflare One Client will then dynamically adjust its [tunnel interface](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/client-architecture/#virtual-interface) MTU based on the probe results. This allows the Cloudflare One Client to maintain a stable connection on low MTU networks and take advantage of higher MTUs when available.
@@ -61,7 +65,7 @@ Certain features may be disabled or degraded at low MTU thresholds. For details,
 
 ## Enable or disable Path MTU Discovery
 
-PMTUD is now enabled by default (Cloudflare One Client version 2026.6.822.0 and above). To disable PMTUD on your devices, [deploy an MDM file](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/#windows) with the `enable_pmtud` key set to `false`. For example:
+PMTUD is enabled by default on Windows, macOS, and Linux starting with Cloudflare One Client version 2026.6.822.0. To disable it on these platforms, [deploy an MDM file](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/#windows) with the `enable_pmtud` key set to `false`. For example:
     
     
     <dict>

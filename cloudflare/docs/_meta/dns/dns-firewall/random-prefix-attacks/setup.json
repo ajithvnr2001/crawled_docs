@@ -3,8 +3,5 @@
   "file": "dns/dns-firewall/random-prefix-attacks/setup.md",
   "title": "Protect against random prefix attacks \u00b7 Cloudflare DNS docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:10:56.686686+00:00",
-  "html_len": 130221,
-  "md_len": 2917,
-  "depth": 0
+  "fetched_at": "2026-11-19T10:02:09.950886+00:00"
 }

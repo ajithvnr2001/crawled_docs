@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/about/byoip/
 title: BYOIP \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:32.423995+00:00
+fetched_at: 2026-11-19T10:02:05.736493+00:00
 ---
 
 # BYOIP · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:32.423995+00:00
 
 # BYOIP
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/about/byoip/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAssign an IP addressExample
 
@@ -40,7 +40,7 @@ Spectrum UDP applications are supported with BYOIP, including [CDN and Spectrum 
 
 ## Assign an IP address
 
-To use an IP, it must be assigned to a Spectrum app to create the appropriate A (IPv4) or AAAA (IPv6) records. This is done by specifying one or more IP addresses when creating an application through the API. Any change to the application's properties also needs to be done via API. In addition, you must update the DNS `"type"` field to `"ADDRESS"` to create a Spectrum app using BYOIP.
+To use an IP, it must be assigned to a Spectrum app to create the appropriate A (IPv4) or AAAA (IPv6) records. In the dashboard, select **Dedicated IPs** under **Edge IP Type** when you create the application and enter your IP addresses in **Leased IPs**. In the API, specify one or more IP addresses in `edge_ips` and set the DNS `"type"` field to `"ADDRESS"`. The edge IP type cannot change after the application is created.
     
     
     {

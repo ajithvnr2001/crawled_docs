@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/preview-deployments/
 title: Preview deployments \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:11.512875+00:00
+fetched_at: 2026-11-19T10:02:07.204302+00:00
 ---
 
 # Preview deployments · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:11.512875+00:00
 
 # Preview deployments
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustomize preview deployments accessPreview aliasesDelete preview deploymentsPreview indexing by search engines X-Robots-Tag: noindex on Preview Deployments
 

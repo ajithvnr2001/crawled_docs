@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/cron-triggers/
 title: Cron Triggers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:06.761516+00:00
+fetched_at: 2026-11-19T10:02:06.383074+00:00
 ---
 
 # Cron Triggers · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-13T09:17:06.761516+00:00
 
 # Cron Triggers
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundAdd a Cron Trigger 1\. Define a scheduled event listener 2\. Update configurationSupported cron expressions ExamplesTest Cron Triggers locally Use Local Explorer Use an HTTP requestView past eventsRemove a Cron Trigger Via the dashboardLimitsGreen ComputeRelated resources
 
@@ -267,6 +267,9 @@ Some common time intervals that may be useful for setting up your Cron Trigger:
   * `*/30 * * * *`
 
     * At every 30th minute
+  * `*/45 * * * *`
+
+    * At minutes 0 and 45 of every hour (not every 45 minutes)
   * `45 * * * *`
 
     * On the 45th minute of every hour

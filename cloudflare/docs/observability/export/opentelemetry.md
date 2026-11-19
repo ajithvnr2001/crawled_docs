@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/export/opentelemetry/
 title: OpenTelemetry export \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:26.141493+00:00
+fetched_at: 2026-11-19T10:02:05.767717+00:00
 ---
 
 # OpenTelemetry export · Cloudflare Observability docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:12:26.141493+00:00
 
 # OpenTelemetry export
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/observability/export/opentelemetry/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSupported telemetryAvailable destinationsCreate a destinationEnable export for Cloudflare TracesEnable OpenTelemetry export for your WorkerCheck destination statusKnown limitations
+OverviewSupported telemetryAvailable destinationsCreate a destinationCustom receiver requirementsEnable export for Cloudflare TracesEnable OpenTelemetry export for your WorkerCheck destination statusKnown limitations
 
 Cloudflare exports telemetry to destinations that support the OpenTelemetry Protocol (OTLP). Use these destinations with Cloudflare telemetry and your existing observability tools.
 
@@ -84,6 +84,28 @@ Cloudflare does not support the [binary format ↗︎](https://opentelemetry.io/
 
 
 ![Edit Destination dialog showing configuration for Honeycomb tracing with destination name, type selection, OTLP endpoint, and custom headers](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1942,height=974,format=webp/_astro/destination-setup.B8cxx8yd.png)
+
+## Custom receiver requirements
+
+A custom receiver must accept OTLP over HTTP with JSON encoding. Use separate endpoints for traces and logs, typically `/v1/traces` and `/v1/logs`. Configure any authentication headers when you create the destination. Cloudflare sends a test export to the receiver using those headers before saving the destination.
+
+For traces, accept a JSON export request with a `resourceSpans` array. For logs, accept `resourceLogs`. Handle empty arrays as valid requests. For example, test the traces endpoint with the same authentication headers as your destination:
+    
+    
+    curl --include --request POST https://otel.example.com/v1/traces \
+      --header "Content-Type: application/json" \
+      --header "Authorization: Bearer <TOKEN>" \
+      --data '{"resourceSpans": []}'
+
+For a successful export with no partial failures, return:
+    
+    
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+    
+    {}
+
+If destination creation fails, check the receiver logs, URL, authentication headers, and response against the [OTLP/HTTP response contract ↗︎](https://opentelemetry.io/docs/specs/otlp/#otlphttp-response).
 
 ## Enable export for Cloudflare Traces
 

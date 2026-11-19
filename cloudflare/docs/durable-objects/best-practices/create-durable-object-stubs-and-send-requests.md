@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/create-durable-object-stubs-and-send-requests/
 title: Invoke methods \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:06.720832+00:00
+fetched_at: 2026-11-19T10:02:07.822015+00:00
 ---
 
 # Invoke methods · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:06.720832+00:00
 
 # Invoke methods
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/best-practices/create-durable-object-stubs-and-send-requests/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInvoking methods on a Durable Object Invoke RPC methods Invoking the fetch handler
 
@@ -264,7 +264,7 @@ Without RPC, customers frequently construct requests which corresponded to priva
     	},
     } satisfies ExportedHandler<Env>;
 
-[PreviousRules of Durable Objects](https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/)[NextAccess Durable Objects Storage](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/)
+[PreviousArchitecture examples](https://developers.cloudflare.com/durable-objects/best-practices/architecture-examples/)[NextAccess Durable Objects Storage](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/)
 
 Was this helpful?
 

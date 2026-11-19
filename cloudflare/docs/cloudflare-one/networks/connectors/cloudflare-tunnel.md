@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
 title: Cloudflare Tunnel \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:10.582690+00:00
+fetched_at: 2026-11-19T10:02:08.445374+00:00
 ---
 
 # Cloudflare Tunnel · Cloudflare One docs
@@ -22,13 +22,17 @@ Networks
 
 # Cloudflare Tunnel
 
-Last updated Aug 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it works Outbound-only connectionsNext steps
 
 Looking to expose public applications?
 
 This documentation covers Cloudflare Tunnel use cases for private networking and Zero Trust, like VPN replacement and private network access. For publishing public web applications, APIs, and services to the Internet through Cloudflare refer to the [Cloudflare Tunnel documentation](https://developers.cloudflare.com/tunnel).
+
+Choosing a connector
+
+[Cloudflare Mesh](https://developers.cloudflare.com/mesh/) is the default connector for private access and private networks. To publish an HTTP application on the public Internet, use [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/). For code on Cloudflare, use [Workers VPC](https://developers.cloudflare.com/workers-vpc/). For whole sites, use [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/). To compare them, refer to [Connector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/).
 
 Cloudflare Tunnel provides you with a secure way to connect your resources to Cloudflare without a publicly routable IP address. With Tunnel, you do not send traffic to an external IP — instead, a lightweight daemon in your infrastructure (`cloudflared`) creates outbound-only connections to Cloudflare's global network. Cloudflare Tunnel can connect HTTP web servers, [SSH servers](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/ssh/), [remote desktops](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/rdp/), and other protocols safely to Cloudflare. This way, your origins can serve traffic through Cloudflare without being vulnerable to attacks that bypass Cloudflare.
 
@@ -58,7 +62,7 @@ Because Cloudflare Tunnel does not use an inbound listener on your origin, [Auth
 
 
 
-[PreviousConnectivity options](https://developers.cloudflare.com/cloudflare-one/networks/connectivity-options/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/)
+[PreviousConnector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/)
 
 Was this helpful?
 

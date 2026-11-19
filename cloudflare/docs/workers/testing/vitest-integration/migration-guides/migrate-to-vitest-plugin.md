@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/migration-guides/migrate-to-vitest-plugin/
 title: Migrate to Vitest plugin \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:59.008464+00:00
+fetched_at: 2026-11-19T10:02:08.949774+00:00
 ---
 
 # Migrate to Vitest plugin · Cloudflare Workers docs
@@ -22,11 +22,11 @@ fetched_at: 2026-10-08T07:17:59.008464+00:00
 
 # Migrate to Vitest plugin
 
-Last updated Aug 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/testing/vitest-integration/migration-guides/migrate-to-vitest-plugin/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRun the codemodUpdate manuallyUpdate request mocking
 
-`@cloudflare/vitest-plugin` replaces `@cloudflare/vitest-pool-workers`. The package API and Vitest configuration are unchanged.
+`@cloudflare/vitest-plugin` replaces `@cloudflare/vitest-pool-workers`. Configuration helpers move from the `/config` subpath to the package root; other APIs and Vitest options are unchanged.
 
 ## Run the codemod
 
@@ -45,7 +45,7 @@ npmyarnpnpm
 
 Use `--dry-run` to preview the changes. Use `--files <glob>` to limit the files the codemod updates.
 
-The codemod updates your dependency, imports, and test TypeScript configuration.
+The codemod updates your dependency, imports, and test TypeScript configuration. It renames the package in imports but leaves `/config` subpaths in place. Update those helper imports manually.
 
 ## Update manually
 
@@ -61,7 +61,11 @@ If you cannot run the codemod, update the package name in your `package.json`, i
     - "types": ["@cloudflare/vitest-pool-workers/types"]
     + "types": ["@cloudflare/vitest-plugin/types"]
 
-The same rename applies to subpath imports, including `@cloudflare/vitest-plugin/config`.
+Import configuration helpers from the package root. `@cloudflare/vitest-plugin` does not export a `/config` subpath.
+    
+    
+    - import { readD1Migrations } from "@cloudflare/vitest-pool-workers/config";
+    + import { readD1Migrations } from "@cloudflare/vitest-plugin";
 
 ## Update request mocking
 

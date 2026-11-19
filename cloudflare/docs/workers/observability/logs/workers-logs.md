@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
 title: Workers Logs \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:06.270167+00:00
+fetched_at: 2026-11-19T10:02:09.487773+00:00
 ---
 
 # Workers Logs · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-13T09:17:06.270167+00:00
 
 # Workers Logs
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEnable Workers Logs Enabling with environmentsView logs from the dashboardBest Practices Logging structured JSON objectsFeatures Invocation Logs Custom logs Head-based samplingLimitsData locationPricing Examples
+OverviewEnable Workers Logs Enabling with environmentsView logs from the dashboardAlert on application events Notify on failures with Issues Alert on warning queries with MonitorsBest Practices Logging structured JSON objectsFeatures Invocation Logs Custom logs Head-based samplingLimitsData locationPricing Examples
 
 Workers Logs lets you automatically collect, store, filter, and analyze logging data emitted from Cloudflare Workers. Data is written to your Cloudflare Account, and you can query it in the dashboard for each of your Workers. All newly created Workers will come with the observability setting enabled by default.
 
@@ -100,6 +100,59 @@ Access logs for your Worker from the Cloudflare dashboard:
 
 
 
+
+## Alert on application events
+
+Use [Workers Issues](https://developers.cloudflare.com/workers/observability/issues/) for failure notifications. Use [Monitors](https://developers.cloudflare.com/notifications/monitors/) for alerts based on custom log queries, such as budget warnings.
+
+### Notify on failures with Issues
+
+[Turn on Issues](https://developers.cloudflare.com/workers/observability/issues/#enable-issues) to detect and group production failures. Issues detects uncaught exceptions, failed invocations, HTTP `5xx` responses, and console logs at error level or containing an `Error` object or stack trace. To report a handled failure, pass the caught error to `console.error(error)` before returning a fallback response.
+
+Create an [Issues automation](https://developers.cloudflare.com/workers/observability/issues/automations/) to send matching issues to a webhook, chat service, or incident-management tool. Set an occurrence threshold of `1` to notify on the first occurrence. Use a recurrence trigger to notify when an issue returns after inactivity.
+
+Occurrence thresholds run once when crossed. They do not count matching logs within a rolling time window. A plain `console.warn()` message without an error object or stack trace does not meet the documented [Issues detection criteria](https://developers.cloudflare.com/workers/observability/issues/investigate/#detected-failures).
+
+### Alert on warning queries with Monitors
+
+Monitors evaluate a SQL API query on a schedule. They can notify you when matching log counts exceed a threshold within a time window.
+
+The required log dataset must be available to your account. Dataset and field access depend on your plan and permissions. Use [SQL API dataset discovery](https://developers.cloudflare.com/analytics/sql-api/datasets/#discover-datasets) to inspect the dataset, columns, and attributes. The SQL API documents `logs.workersLogs` as a [log dataset](https://developers.cloudflare.com/analytics/sql-api/datasets/#log-datasets).
+
+For example, log a structured event when an application budget is exhausted:
+    
+    
+    console.warn({
+    	event: "budget_exhausted",
+    	budget: "vector_search",
+    	message: "Daily vector search budget exhausted",
+    });
+    
+    
+    console.warn({
+    	event: "budget_exhausted",
+    	budget: "vector_search",
+    	message: "Daily vector search budget exhausted",
+    });
+
+To notify on this event, create a [threshold monitor](https://developers.cloudflare.com/notifications/monitors/#create-a-monitor) with these settings:
+
+Setting | Example value  
+---|---  
+Dataset scope | Your account  
+Dataset | Workers Logs, if available  
+Metric | `COUNT`, returned as `value`  
+Filters | Your Worker, warning-level logs, and the structured `event` value `budget_exhausted`  
+Evaluation window | `15m`  
+Comparison | Greater than `0`  
+Execution interval | A dataset-supported interval no longer than the evaluation window  
+Destination | Email, webhook, or PagerDuty, subject to destination availability  
+  
+Use the column and attribute names discovered for your dataset when adding filters. Preview the query to verify that it matches your event before saving the monitor. For custom SQL requirements, refer to [Monitor query](https://developers.cloudflare.com/notifications/monitors/#custom-sql).
+
+Set the repeat notification interval to control reminders while the monitor remains active. A `24h` interval does not guarantee one notification per event kind per calendar day. For interval limits, refer to [Evaluation and notification frequency](https://developers.cloudflare.com/notifications/monitors/#evaluation-and-notification-frequency).
+
+Log-query alerts evaluate retained data. Head-based sampling can omit individual warnings, so choose a sampling rate appropriate for the events you monitor.
 
 ## Best Practices
 

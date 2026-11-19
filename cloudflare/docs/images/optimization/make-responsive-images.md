@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/make-responsive-images/
 title: Make responsive images \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:35.373986+00:00
+fetched_at: 2026-11-19T10:02:05.711702+00:00
 ---
 
 # Make responsive images · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:35.373986+00:00
 
 # Make responsive images
 
-Last updated May 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/optimization/make-responsive-images/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOptimize for high-DPI displaysUse the srcset attribute Create responsive layoutsUse width=auto Client hints (preferred) User-agent detection (fallback)
 
@@ -154,7 +154,7 @@ Detected viewport width | Served image width
 960px | 960px  
 1500px | 1200px  
   
-You can override the default breakpoints using the [`wbreakpoints`](https://developers.cloudflare.com/images/optimization/features/#width) sub-parameter, which accepts positive integers separated by semicolons.
+You can override the default breakpoints using the [`breakpoints`](https://developers.cloudflare.com/images/optimization/features/#width) setting, which accepts a list of positive integers.
 
 #### Enabling client hints
 
@@ -191,7 +191,7 @@ Device type | Default size
 Mobile (`iPhone` or `Android` in user-agent) | 768px  
 Desktop (all other user-agents) | 1200px  
   
-You can override the default sizes using the [`wmobile` and `wdesktop`](https://developers.cloudflare.com/images/optimization/features/#width) sub-parameters, which accept positive integers.
+You can override the default sizes using the [`mobile` and `desktop`](https://developers.cloudflare.com/images/optimization/features/#width) settings, which accept positive integers.
 
 [PreviousDraw overlays and watermarks](https://developers.cloudflare.com/images/optimization/draw-overlays/)[NextMethods](https://developers.cloudflare.com/images/storage/upload-images/methods/)
 

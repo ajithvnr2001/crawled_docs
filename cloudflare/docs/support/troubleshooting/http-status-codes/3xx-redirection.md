@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/3xx-redirection/
 title: 3xx Redirection \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:53.088924+00:00
+fetched_at: 2026-11-19T10:02:05.316108+00:00
 ---
 
 # 3xx Redirection · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:53.088924+00:00
 
 # 3xx Redirection
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/3xx-redirection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview300 Multiple Choices Common use cases Cloudflare-specific information301 Moved Permanently Common use cases Cloudflare-specific information302 Found Common use cases Cloudflare-specific information303 See Other (since HTTP/1.1) Common use cases Cloudflare-specific information304 Not Modified Common use cases Cloudflare-specific information305 Use Proxy (deprecated)306 Switch Proxy (deprecated)307 Temporary Redirect Common use cases Cloudflare-specific information308 Permanent Redirect Common use cases Cloudflare-specific information
 
@@ -39,7 +39,7 @@ The redirect location should be specified in one of the following ways:
 
 The 300 Multiple Choices status indicates that multiple options are available for the requested resource, and the client may select one.
 
-For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.1).
 
 ### Common use cases
 
@@ -61,7 +61,7 @@ Cloudflare generally bypasses the 300 Multiple Choices response for automated re
 
 The 301 Moved Permanently status indicates that the requested resource has been assigned a new permanent URI. All future references to this resource should use one of the enclosed URIs.
 
-For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2).
 
 ### Common use cases
 
@@ -85,7 +85,7 @@ The 302 Found status, also referred to as a temporary redirect, indicates that t
 
 While the User-Agent may follow the `Location` header to retrieve the resource, it should not replace the current URI as it would for a 301 Moved Permanently.
 
-For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.3).
 
 ### Common use cases
 
@@ -105,7 +105,7 @@ Cloudflare can generate these responses, eliminating the need to send a request 
 
 The 303 See Other status indicates that the client should retrieve the resource at a different URI using a `GET` request. Unlike a 301 Moved Permanently redirect, the resource at the redirect location is not necessarily equivalent to the originally requested resource.
 
-For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.4).
 
 ### Common use cases
 
@@ -119,9 +119,9 @@ Cloudflare allows for the configuration of 303 redirects through [Redirect Rules
 
 ## 304 Not Modified
 
-The 304 Not Modified status indicates that the requested resource is available and valid in the client's cache. This means that the origin server has not modified the resource since the client's last request, allowing the client to use the cached resource without connecting to the origin server again. Requirements for caches receiving a 304 response are defined in [Section 4.3.4 of RFC 7234 ↗︎](https://tools.ietf.org/html/rfc7234#section-4.3.4).
+The 304 Not Modified status indicates that the requested resource is available and valid in the client's cache. This means that the origin server has not modified the resource since the client's last request, allowing the client to use the cached resource without connecting to the origin server again. Requirements for caches receiving a 304 response are defined in [Section 4.3.4 of RFC 9111 ↗︎](https://www.rfc-editor.org/rfc/rfc9111#section-4.3.4).
 
-For more information, refer to [RFC 7232 ↗︎](https://tools.ietf.org/html/rfc7232).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.5).
 
 ### Common use cases
 
@@ -150,7 +150,7 @@ This status code indicates that subsequent requests should be sent through the s
 
 The 307 Temporary Redirect status indicates that a requested resource has been temporarily moved to a different URI, as specified in the `Location` header. Unlike a 302 redirect, the original request method (for example, `GET` or `POST`) must remain unchanged when the redirect is followed automatically. This ensures that temporary changes to a resource's location do not disrupt the intended behavior of the request. User agents may automatically follow the redirect using the `Location` header, but should not replace the original URI for future requests.
 
-For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.8).
 
 ### Common use cases
 
@@ -164,7 +164,7 @@ Cloudflare can handle 307 Temporary Redirect responses efficiently, enabling tem
 
 The 308 Permanent Redirect status indicates that the requested resource has been permanently moved to a new URI, as specified in the `Location` header. Unlike a 301 redirect, the original request method (for example, `GET`, `POST`) must remain unchanged when automatically following the redirect. User agents should follow the redirect using the `Location` header and replace the original URI with the new one for subsequent requests.
 
-For more information, refer to [RFC 7538 ↗︎](https://tools.ietf.org/html/rfc7538#section-3).
+For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.9).
 
 ### Common use cases
 

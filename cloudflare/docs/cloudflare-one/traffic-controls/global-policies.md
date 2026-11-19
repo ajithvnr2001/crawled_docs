@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/traffic-controls/global-policies/
 title: Global policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:46:33.361213+00:00
+fetched_at: 2026-11-19T10:02:08.789356+00:00
 ---
 
 # Global policies · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:46:33.361213+00:00
 
 # Global policies
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDNS resolution policiesNetwork proxy policiesHTTP inspection policies
 
@@ -101,9 +101,9 @@ Allow Access Apps L7 | `00000001-8d6b-4951-8a18-3bbc9010976c` | Hostname | `*.cl
 Prevent Block Page Loop | `00000001-48b1-4ade-93c1-f0f3759dc19c` | Hostname | `blocked.teams.cloudflare.com` and `blocked.teams.fed.cloudflare.com` | bypass | Prevents an infinite loop on the Gateway block page.  
 Always Blocked Categories | `00000001-bed5-462e-b0f1-2e2c3555e9f7` | Content Category | [Child Abuse category](https://developers.cloudflare.com/cloudflare-one/traffic-controls/domain-categories/#category-and-subcategory-ids) | block | Blocks child abuse materials (CSAM).  
 Don't Isolate RBI Help Pages | `00000001-1a18-431f-9c9d-bce431f1002a` | Hostname | `developers.cloudflare.com` and `help.cloudflarebrowser.com` | noisolate | Prevents browser isolation of Cloudflare developer docs and help pages to help users troubleshoot configuration issues.  
-Don't AV Scan CF Speed | `00000001-c194-408f-87dd-9a366ce76e12` | Hostname | `speed.cloudflare.com` | noscan | Allows files transferred by the Cloudflare speed test.  
+Don't AV Scan CF Speed | `00000001-c194-408f-87dd-9a366ce76e12` | Hostname | `speed.cloudflare.com` and `custom-inside-tunnel.h3.speed.cloudflare.com` | noscan | Allows files transferred by the Cloudflare speed test and the Cloudflare One Client speed test.  
   
-[PreviousDNS over HTTPS (DoH)](https://developers.cloudflare.com/cloudflare-one/traffic-controls/resolver-endpoints/dns-over-https/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/traffic-controls/proxy-endpoints/)
+[PreviousDNS64](https://developers.cloudflare.com/cloudflare-one/traffic-controls/resolver-endpoints/dns64/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/traffic-controls/proxy-endpoints/)
 
 Was this helpful?
 

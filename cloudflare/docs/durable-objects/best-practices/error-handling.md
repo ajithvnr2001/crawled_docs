@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/error-handling/
 title: Error handling \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:47.288533+00:00
+fetched_at: 2026-11-19T10:02:07.400057+00:00
 ---
 
 # Error handling · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-06T09:03:47.288533+00:00
 
 # Error handling
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow exceptions are thrownExample
 
@@ -118,7 +118,7 @@ The runtime also retries each attempt in this loop, so three attempts here can b
     	}
     }
 
-[PreviousUse WebSockets](https://developers.cloudflare.com/durable-objects/best-practices/websockets/)[NextAutomatic retries](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/)
+[PreviousAutomatic retries](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/)[NextDurable Object Base Class](https://developers.cloudflare.com/durable-objects/api/base/)
 
 Was this helpful?
 

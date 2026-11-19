@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/with-durable-objects/
 title: With Durable Objects \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:10.191679+00:00
+fetched_at: 2026-11-19T10:02:07.253450+00:00
 ---
 
 # With Durable Objects · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-19T07:11:10.191679+00:00
 
 # With Durable Objects
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExampleDurable Object class lifecycle changes
 
@@ -64,6 +64,8 @@ Note
 Typically, a Worker bundle will define both the Durable Object class and a Worker that interacts with it. In this case, you cannot deploy changes to your Durable Object and its Worker independently.
 
 You should ensure that API changes between your Durable Object and its Worker are [forwards and backwards compatible](https://developers.cloudflare.com/durable-objects/platform/known-issues/#code-updates) whether you are using gradual deployments or not. However, using gradual deployments will make it even more likely that different versions of your Durable Objects and its Worker will interact with each other.
+
+To deploy your request-serving Worker and Durable Object class families independently, refer to [Split Workers by class family](https://developers.cloudflare.com/durable-objects/best-practices/architecture-guidance/#split-workers-by-class-family).
 
 ## Durable Object class lifecycle changes
 

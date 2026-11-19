@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/account/account-security/audit-logs/
 title: Audit Logs - version 2 \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:59.757810+00:00
+fetched_at: 2026-11-19T10:02:09.614947+00:00
 ---
 
 # Audit Logs - version 2 · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Accounts
 
 # Audit Logs - version 2
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/account/account-security/audit-logs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKey featuresRetentionAccess Audit Logs API Dashboard LogpushResource History What Resource History gives you Use Resource History in the dashboard Use Resource History via the APIAudit Log structure Initiation type Activity ScopeExample how to query Audit LogsCommon terms and definitions Actor Action Account Resource Audit Log ID
 
@@ -413,6 +413,8 @@ The actor represents who or what performed the action. Its identity attributes d
   * `origin_ca_key`: The action was authenticated with an Origin CA key.
 
 
+
+Context is recorded only for actions performed through the Cloudflare dashboard or API. System-initiated actions are performed internally by Cloudflare, so they do not include a context.
 
 ### Action
 

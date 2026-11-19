@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/nodejs/dns/
 title: dns \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:45.590560+00:00
+fetched_at: 2026-11-19T10:02:10.027319+00:00
 ---
 
 # dns · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:45.590560+00:00
 
 # dns
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/nodejs/dns/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Note
 
@@ -35,23 +35,24 @@ index.jsjs
     
     import dns from "node:dns";
     
-    let response = await dns.promises.resolve4("cloudflare.com", "NS");
+    const addresses = await dns.promises.resolve4("cloudflare.com");
+    console.log(addresses);
 
 index.tsts
     
     
-    import dns from 'node:dns';
+    import dns from "node:dns";
     
-    let response = await dns.promises.resolve4('cloudflare.com', 'NS');
+    const addresses = await dns.promises.resolve4("cloudflare.com");
+    console.log(addresses);
 
-All `node:dns` functions are available, except `lookup`, `lookupService`, and `resolve` which throw "Not implemented" errors when called.
+All `node:dns` functions are available, except `lookupService`, which throws a "Not implemented" error when called.
 
 Note
 
 DNS requests will execute a subrequest, counts for your [Worker's subrequest limit](https://developers.cloudflare.com/workers/platform/limits/#subrequests).
 
 The full `node:dns` API is documented in the [Node.js documentation for `node:dns` ↗︎](https://nodejs.org/api/dns.html).
-
 
 [PreviousDiagnostics Channel](https://developers.cloudflare.com/workers/runtime-apis/nodejs/diagnostics-channel/)[NextEventEmitter](https://developers.cloudflare.com/workers/runtime-apis/nodejs/eventemitter/)
 

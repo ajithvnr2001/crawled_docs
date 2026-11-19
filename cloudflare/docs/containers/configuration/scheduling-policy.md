@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/scheduling-policy/
 title: Scheduling Policies \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:11.646332+00:00
+fetched_at: 2026-11-19T10:02:09.080133+00:00
 ---
 
 # Scheduling Policies · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:11.646332+00:00
 
 # Scheduling Policies
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse the default scheduling policyUse the Durable Object scheduling policy Use the Cloudflare-managed image Configure named images Choose an instance size at runtime Start from an image or snapshot Manage updates from application code Configure SSHRelated resources
 
@@ -170,7 +170,7 @@ src/index.tsts
     	}
     }
 
-`ctx.container.start()` initiates startup and returns before the Container is ready to accept requests. Add an application-specific readiness check before sending traffic or calling [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec).
+`ctx.container.start()` initiates startup and returns before the Container is ready to accept requests. [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec) waits for container startup, but does not check whether your application is ready. Add an application-specific readiness check before sending traffic to the application.
 
 The `durable_object` policy does not support `max_instances`. Running instances count toward your [account limits](https://developers.cloudflare.com/containers/platform/limits/#account-limits).
 

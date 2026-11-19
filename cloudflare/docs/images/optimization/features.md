@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/features/
 title: Features \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:34.885409+00:00
+fetched_at: 2026-11-19T10:02:06.088312+00:00
 ---
 
 # Features · Cloudflare Images docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:34.885409+00:00
 
 # Features
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/optimization/features/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow to apply optimization URL interface WorkersParameters anim background blur border brightness compression contrast dpr fit flip format | f gamma gravity | g height | h metadata onerror quality | q rotate saturation segment sharpen slow-connection-quality | scq trim upscale width | w zoom | face-zoomRecommended image sizesCaching
+OverviewHow to apply optimization URL interface WorkersParameters anim background blur border brightness compression contrast dpr draw fit flip format | f gamma gravity | g height | h metadata onerror quality | q rotate saturation segment sharpen trim width | w zoomRecommended image sizesCaching
 
 Cloudflare enables developers to optimize images at scale by dynamically generating different versions in real time.
 
@@ -50,7 +50,7 @@ Part | Description
 ---|---  
 `<ZONE>` | Your domain name at Cloudflare. Transformations can be requested on every Cloudflare zone that has transformations enabled.  
 `/cdn-cgi/image/` | A fixed prefix that identifies that this path is a request to optimize an image. To hide this part, you can set up [Transform Rules](https://developers.cloudflare.com/images/optimization/transformations/rewrite-rules/) to serve images from a custom path.  
-`<OPTIONS>` | A list of optimization parameters, separated by a comma. A valid URL must specify at least one parameter.  
+`<OPTIONS>` | A comma-separated list of optimization parameters. For parameters that accept related settings, group those settings within parentheses, such as `gravity=(x=0.5,y=0.3)`. A valid URL must specify at least one parameter.  
 `<SOURCE-IMAGE>` | The original image that you want to transform. You can use an absolute path on the origin server or an absolute URL (that starts with `https://` or `http://`).  
   
 For images stored in Cloudflare Images, use the delivery URL with a variant or custom options:
@@ -65,7 +65,7 @@ Part | Description
 `imagedelivery.net` | A shared, Cloudflare-owned domain for optimizing images that are hosted in Images. As an alternative, you can also [serve images from your own domain](https://developers.cloudflare.com/images/optimization/hosted-images/serve-from-custom-domains/).  
 `<ACCOUNT_HASH>` | A unique identifier for your Cloudflare account. You can find your account hash in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/?to=/:account/images/hosted) under **Images** > **Developer Resources**.  
 `<IMAGE-ID>` | The unique identifier for a hosted image. When you upload to Images, Cloudflare automatically generates an image ID. You can also set a [custom ID](https://developers.cloudflare.com/images/storage/upload-images/upload-custom-path/) to use your own path structure.  
-`<VARIANT-OR-OPTIONS>` | Here, you can specify a [predefined variant](https://developers.cloudflare.com/images/optimization/hosted-images/create-variants/) or a list of optimization parameters, separated by a comma. A valid URL must specify either a variant or at least one parameter.  
+`<VARIANT-OR-OPTIONS>` | Here, you can specify a [predefined variant](https://developers.cloudflare.com/images/optimization/hosted-images/create-variants/) or a comma-separated list of optimization parameters. For parameters that accept related settings, group those settings within parentheses, such as `gravity=(x=0.5,y=0.3)`. A valid URL must specify either a predefined variant or at least one parameter.  
   
 ### Workers
 
@@ -90,23 +90,23 @@ Specifies whether to preserve animation frames from input files.
 
 
 
-This setting is recommended when enlarging images or processing arbitrary user-uploaded content, as animated GIFs can have large file sizes and increase page load times. When using `format=json`, it is also useful to set `anim=false` to get a quicker response without the number of frames.
-
-![Original animation](https://developers.cloudflare.com/_astro/anim.B4kULVAW.gif)| ![anim=false output](https://developers.cloudflare.com/_astro/anim.Cxswk-aF.png)  
----|---  
-**Original**| `anim=false`  
-      
+Animated GIFs can have large file sizes and take longer to process. To reduce processing time, set `anim=false` when enlarging images or processing arbitrary user uploads. When used with `format=json`, this setting also returns a faster response by omitting the frame count.
+    
     
     anim=false
     
     
     cf: {image: {anim: false}}
 
+![Original animation](https://developers.cloudflare.com/_astro/anim.B4kULVAW.gif)| ![anim=false output](https://developers.cloudflare.com/_astro/anim.Cxswk-aF.png)  
+---|---  
+**Original**| `anim=false`  
+  
 ### `background`
 
 Specifies an opaque or transparent color to fill blank or transparent pixels in the image. The default is `%23FFFFFF` (white).
 
-Accepts the following properties:
+Accepts a color value in the following formats:
 
   * A HEX color code, formatted as `%23RRGGBB`.
   * A CSS color name, e.g. `white` or `red`.
@@ -115,59 +115,78 @@ Accepts the following properties:
 
 
 The background color is visible in images with transparent pixels, including images that are resized with `fit=pad`.
+    
+    
+    background=%23ff0000
+    background=red
+    background=rgb(240,40,145)
+    
+    
+    cf: {image: {background: "#RRGGBB"}}
+    cf: {image: {background: "rgba(240,40,145,0)"}}
 
 ![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![background=red output](https://developers.cloudflare.com/_astro/background-red.BDIBWvns.jpg)  
 ---|---  
 **Original**  
 1080 x 720| **Output**  
 1080 x 900  
-      
-    
-    background=%23ff0000
-    background=red
-    background=rgb%28240%2C40%2C145%29
-    
-    
-    cf: {image: {background: "#RRGGBB"}}
-    cf: {image: {background: "rgba(240,40,145,0)"}}
-
+  
 ### `blur`
 
 Applies a blur radius to the image. Accepts an integer from `0` (no blur) to `250` (maximum blur). The default is `0`.
 
 This parameter should not be used to reliably obscure image content when optimizing via URL, as the URL can be modified to remove the blur parameter. Instead, you can [restrict access to the original image](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/) through Workers.
-
-![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![blur=50 output](https://developers.cloudflare.com/_astro/blur-50.CHVCNtdi.jpg)  
----|---  
-**Original**| `blur=50`  
-      
+    
     
     blur=50
     
     
     cf: {image: {blur: 50}}
 
+![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![blur=50 output](https://developers.cloudflare.com/_astro/blur-50.CHVCNtdi.jpg)  
+---|---  
+**Original**| `blur=50`  
+  
 ### `border`
 
 Adds a border around the image.
 
-Note
+Accepts the following settings:
 
-This feature is available only in Workers.
-
-Accepts the following properties:
-
-  * `color` — Sets the color of the border. Accepts any valid CSS color value, for example `#FF0000`, `rgb(0,0,0)`, or `red`.
-  * `width` — Sets the uniform border, in pixels, on all four sides.
-  * `top`, `right`, `bottom`, `left` — Sets the border width, in pixels, for individual sides.
-
-
-
+Setting | Description | Accepted values  
+---|---|---  
+`color` | Sets the color of the border. | Any valid CSS color  
+`width` | Sets a uniform border on all four sides. | Integer pixel count or percentage string, such as `50p`  
+`top`, `right`, `bottom`, `left` | Sets the border width for individual sides. | Integer pixel count or percentage string, such as `50p`  
+  
 The border is applied after the image has been resized. The border width automatically scales with the [`dpr`](https://developers.cloudflare.com/images/optimization/features#dpr) parameter to ensure sharpness on high-resolution screens.
     
     
-    cf: {image: {border: {color: "rgb(0,0,0,0)", top: 5, right: 10, bottom: 5, left: 10}}}
-    cf: {image: {border: {color: "#FFFFFF", width: 10}}}
+    border=(color=%23ffffff,width=10)
+    border=(color=%23ffffff,width=10p)
+    border=(color=rgba(0,0,0,0),top=5,right=10,bottom=5,left=10)
+    
+    
+    cf: {
+      image: {
+        border: {
+          color: "rgba(0,0,0,0)",
+          top: 5,
+          right: 10,
+          bottom: 5,
+          left: 10,
+        },
+      },
+    }
+    
+    cf: {
+      image: {
+        border: {
+          color: "#FFFFFF",
+          width: "10p",
+        },
+      },
+    }
 
 ### `brightness`
 
@@ -177,16 +196,18 @@ Adjusts the image's overall luminance using a multiplier.
   * `< 1.0` — Darkens the image, e.g. `0.5` is half as bright.
   * `> 1.0` — Lightens the image, e.g. `2` is twice as bright.
 
-![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![brightness=0.5 output](https://developers.cloudflare.com/_astro/brightness-0.5.D3jxMNxf.jpg)| ![brightness=2 output](https://developers.cloudflare.com/_astro/brightness-2.D-IbGyod.jpg)  
----|---|---  
-**Original**| `brightness=0.5`| `brightness=2`  
-      
+
+    
     
     brightness=0.5
     
     
     cf: {image: {brightness: 0.5}}
 
+![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![brightness=0.5 output](https://developers.cloudflare.com/_astro/brightness-0.5.D3jxMNxf.jpg)| ![brightness=2 output](https://developers.cloudflare.com/_astro/brightness-2.D-IbGyod.jpg)  
+---|---|---  
+**Original**| `brightness=0.5`| `brightness=2`  
+  
 ### `compression`
 
 Selects the output format that is quickest to compress. Accepts `fast`. The default is none.
@@ -209,16 +230,18 @@ Adjusts the image's overall difference between the darkest and lightest parts us
   * `< 1.0` — Decreases contrast, which makes shadows lighter and highlights darker.
   * `> 1.0` — Increases contrast, which pushes shadows toward black and highlights toward white.
 
-![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![contrast=0.5 output](https://developers.cloudflare.com/_astro/contrast-0.5.BJSw_Q0N.jpg)| ![contrast=2 output](https://developers.cloudflare.com/_astro/contrast-2.yLjBBcQQ.jpg)  
----|---|---  
-**Original**| `contrast=0.5`| `contrast=2`  
-      
+
+    
     
     contrast=0.5
     
     
     cf: {image: {contrast: 0.5}}
 
+![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![contrast=0.5 output](https://developers.cloudflare.com/_astro/contrast-0.5.BJSw_Q0N.jpg)| ![contrast=2 output](https://developers.cloudflare.com/_astro/contrast-2.yLjBBcQQ.jpg)  
+---|---|---  
+**Original**| `contrast=0.5`| `contrast=2`  
+  
 ### `dpr`
 
 Scales the output resolution by a multiplier to match a user's specific screen density (for example, Retina or 4K). The default is `1`, which delivers the image at the exact width and height requested. The maximum supported value is `2`.
@@ -226,49 +249,99 @@ Scales the output resolution by a multiplier to match a user's specific screen d
 Modern devices have more physical pixels than CSS pixels. If you serve a 300px image in a 300px container on a high-DPR smartphone, then it will look blurry. Using `dpr=2` tells Cloudflare to send a 600px image for the same 300px container, which results in a clearer, crisper image.
 
 The `dpr` parameter can be used with `srcset` to [serve responsive images](https://developers.cloudflare.com/images/optimization/make-responsive-images/).
-
-![dpr=1 output](https://developers.cloudflare.com/_astro/dpr-1.kw44tjdd.jpg)| ![dpr=2 output](https://developers.cloudflare.com/_astro/dpr-2.frEHI63e.jpg)  
----|---  
-`width=300,height=200,dpr=1`| `width=300,height=200,dpr=2`  
-      
+    
     
     dpr=1
     
     
     cf: {image: {dpr: 1}}
 
+![dpr=1 output](https://developers.cloudflare.com/_astro/dpr-1.kw44tjdd.jpg)| ![dpr=2 output](https://developers.cloudflare.com/_astro/dpr-2.frEHI63e.jpg)  
+---|---  
+`width=300,height=200,dpr=1`| `width=300,height=200,dpr=2`  
+  
+### `draw`
+
+Adds a text or image overlay. Overlays are drawn in the order they appear; the last overlay is the topmost layer.
+
+Note
+
+The URL interface supports `draw` only in transformation URLs for remote images.
+
+To watermark a hosted image, configure the overlay in a [predefined variant](https://developers.cloudflare.com/images/optimization/hosted-images/create-variants/) or use the [Images binding in Workers](https://developers.cloudflare.com/images/optimization/binding/).
+
+An overlay can be configured with the following settings:
+
+Setting | Applies to | Description  
+---|---|---  
+`url` | Image | Sets the absolute URL of the overlay image.  
+`text` | Text | Sets the text string to render.  
+`font` | Text | Sets the font used to render the text.  
+`color` | Text | Sets the fill color for the text.  
+`size` | Text | Sets the font size in pixels.  
+`width`, `height` | Image | Sets the overlay dimensions in pixels or as percentage strings, such as `50p`.  
+`top`, `right`, `bottom`, `left` | Both | Positions the overlay as an offset, in pixels, to the specified edge.  
+`opacity` | Both | Sets the overlay opacity from `0.0` to `1.0`.  
+`repeat` | Both | Repeats the overlay horizontally, vertically, or in both directions.  
+`composite` | Both | Controls how the overlay blends with the base image.  
+  
+The `draw` parameter also accepts additional optimization settings, such as `width`, `height`, `blur`, and `rotate`.
+    
+    
+    draw=((url=/logo.png,bottom=5,right=5,width=50p))
+    
+    
+    cf: {
+      image: {
+        draw: [
+          {
+            url: "https://example.com/logo.png",
+            bottom: 5,
+            right: 5,
+            width: "50p",
+          },
+        ],
+      },
+    }
+
+For detailed setting descriptions and additional examples, refer to [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/draw-overlays/).
+
+For binding-specific methods and image sources, refer to [Optimize with Workers](https://developers.cloudflare.com/images/optimization/binding/).
+
 ### `fit`
 
-Specifies how the image is fit to the target area.
+Specifies how the image is fit to the target area. To select the upscaling algorithm on fit modes that enlarge an image, specify the `mode` and `upscale` settings.
 
 Fit is performed after setting the `width` and `height` dimensions of the image.
 
-Option | Result | Match original aspect ratio | Upscales  
+Mode | Result | Preserve source aspect ratio | Upscales  
 ---|---|---|---  
 `scale-down` (default) | Show entire image without cropping or upscaling | Yes | No  
 `contain` | Show entire image without cropping | Yes | Yes  
 `cover` | Fill the entire requested area, cropping if needed | No | Yes  
 `crop` | Fill the entire requested area, but never upscales | No | No  
 `aspect-crop` | Crop to match the target aspect ratio, but never upscales | No | No  
-`pad` | Fit within the target area, adding space for remaining area | Yes | Yes  
+`pad` | Fit within the target area, adding space for remaining area | Yes | No  
 `squeeze` | Scale to exact dimensions, distorting if needed | No | Yes  
 `scale-up` | Upscales while showing the entire image, but never downscales | Yes | Yes  
       
     
-    fit=pad
+    fit=contain
+    fit=(mode=contain,upscale=generate)
     
     
-    cf: {image: {fit: "pad"}}
+    cf: {image: {fit: "contain"}}
+    cf: {image: {fit: {mode: "contain", upscale: "generate"}}}
 
 #### `scale-down`
 
-Resizes the image to fit within the specified dimensions while preserving its original aspect ratio, but never upscales the image. This is the default `fit` behavior.
+Resizes the image to fit within the requested `width` and `height` dimensions while preserving its source aspect ratio, but never upscales the image. This is the default `fit` behavior.
 
 When the original image is smaller than the target area, it is returned at its original dimensions. For example, a request to serve a 1080x720 image at 2000x2000 will return the image at 1080x720.
 
-When larger, it downscales the image to fit the target area while matching the original aspect ratio.
+When larger, it downscales the image to fit the target area while matching the source aspect ratio.
 
-In the example below, the 1080x720 image is resized to fit within the target 500x500 area. Since `scale-down` preserves the original aspect ratio (3:2), the final dimensions of the output image are 500x333.
+In the example below, the 1080x720 image is resized to fit within the target 500x500 area. Since `scale-down` preserves the source aspect ratio (3:2), the final dimensions of the output image are 500x333.
 
 ![original image](https://developers.cloudflare.com/_astro/pete-landscape.C1O-FBM1.jpg)| ![target area](https://developers.cloudflare.com/_astro/1296x1296.BYEj6EvB.png)| ![fit=scale-down output](https://developers.cloudflare.com/_astro/pete-contain.B_qfOwMN.png)  
 ---|---|---  
@@ -279,19 +352,19 @@ In the example below, the 1080x720 image is resized to fit within the target 500
   
 #### `contain`
 
-Resizes the image to be as large as possible within the target `width` and `height` dimensions while preserving its original aspect ratio.
+Resizes the image to be as large as possible within the requested `width` and `height` dimensions while preserving its source aspect ratio.
 
 When the original image is larger than the target area, it downscales to fit the target area (like `scale-down`).
 
-When smaller, it upscales instead (like `scale-up`). Works with the `upscale` parameter to control the algorithm for enlarging an image. To avoid upscaling, use `scale-down`.
+When smaller, it upscales instead (like `scale-up`). It can be configured with the `upscale` setting to control the algorithm for enlarging an image. To avoid upscaling, use `scale-down`.
 
 #### `cover`
 
 Fills the entire target area, shrinking or enlarging the image if needed. The output area always matches the requested `width` and `height` dimensions exactly.
 
-When the original and target aspect ratios differ, the image is resized to cover the full target area and any overflow is cropped. Use the `gravity` parameter to control which part of the image is preserved during cropping.
+When the source and target aspect ratios differ, the image is resized to cover the full target area and any overflow is cropped. Use the `gravity` parameter to control which part of the image is preserved during cropping.
 
-Works with the `upscale` parameter to control the algorithm for enlarging an image.
+It can be configured with the `upscale` setting to control the algorithm for enlarging an image.
 
 In the example below, the 1080×720 image is first resized to 750×500 (matching the requested height) to fit the target area, then cropped from the left and right edges to its final 500x500 dimensions.
 
@@ -308,9 +381,9 @@ When the original image is smaller than the target area, it upscales instead. To
 
 Resizes the image to fill the target area without upscaling.
 
-When the original image is smaller than the target area, it keeps its original size and aspect ratio (like `scale-down`).
+When the original image is smaller than the target area, it keeps its original size and source aspect ratio (like `scale-down`).
 
-In the example below, the original image (1080x720) is smaller than the target area (1296x1296), so it preserves its original size and aspect ratio.
+In the example below, the original image (1080x720) is smaller than the target area (1296x1296), so it preserves its original size and source aspect ratio.
 
 ![original image](https://developers.cloudflare.com/_astro/pete-landscape.C1O-FBM1.jpg)| ![target area](https://developers.cloudflare.com/_astro/1296x1296.BYEj6EvB.png)| ![fit=crop output](https://developers.cloudflare.com/_astro/pete-landscape.C1O-FBM1.jpg)  
 ---|---|---  
@@ -325,7 +398,7 @@ When the original image is larger than the target area, it behaves like `cover` 
 
 Crops the image to match the target aspect ratio, scaling down if needed but never upscaling.
 
-When the original image is larger than the target area, it downscales to the smallest size that still fills the target dimensions, then is cropped to match the target aspect ratio (like `cover`).
+When the original image is larger than the target area, it downscales to the smallest size that still fills the target area, then is cropped to match the target aspect ratio (like `cover`).
 
 When the original image is smaller than the target area, it keeps its original size but is cropped to match the target aspect ratio. Unlike `crop`, which preserves the original size and dimensions of smaller images, `aspect-crop` always enforces the target aspect ratio.
 
@@ -333,7 +406,7 @@ For example, a 612x613 image requested at 1920x1120 will not be upscaled. Instea
 
 #### `pad`
 
-Resizes the image to be as large as possible within the dimensions. If applicable, the output area will be expanded to match the `width` and `height` dimensions exactly.
+Resizes the image to be as large as possible within the requested `width` and `height` dimensions while preserving its source aspect ratio. If the image does not fill the target area, then `pad` expands the final canvas to match the target area, but does not enlarge the original image within the canvas.
 
 Works with the `background` parameter to fill any blank or transparent pixels. However, for web apps, you can often achieve the same visual result using the `contain` option with the CSS `object-fit: contain` property, which avoids encoding padding pixels into the image itself.
 
@@ -348,9 +421,7 @@ In the example below, the original image (1080x720) is smaller than the target a
   
 #### `squeeze`
 
-Resizes the image to exactly match the requested width and height, without cropping the edges or constraining the portions.
-
-When the original and target aspect ratios differ, the image will be distorted to fit the target area.
+Resizes the image to match the requested width and height dimensions without cropping. This can distort the source image because `squeeze` does not preserve its aspect ratio.
 
 ![original image](https://developers.cloudflare.com/_astro/pete-landscape.C1O-FBM1.jpg)| ![fit=squeeze output](https://developers.cloudflare.com/_astro/pete-squeeze.BalgFHoW.jpg)  
 ---|---  
@@ -365,11 +436,57 @@ When the original and target aspect ratios differ, the image will be distorted t
   
 #### `scale-up`
 
-Resizes the image to fit within the specified dimensions while preserving its original aspect ratio, but never downscales the image. This is the inverse of `scale-down`.
+Resizes the image to fit within the specified dimensions while preserving its source aspect ratio, but never downscales the image. This is the inverse of `scale-down`.
 
 When the original image is larger than the target area, it is returned at its original dimensions.
 
-When the original image is smaller than the target area, it is enlarged to fit within the target dimensions. Use the `upscale` parameter to control the algorithm used for upscaling images — set `upscale=generate` for AI-powered upscaling or `upscale=interpolate` (default) for bicubic interpolation.
+When the original image is smaller than the target area, it is enlarged to fit within the target area. It can be configured with the `upscale` setting to control the algorithm for enlarging an image.
+
+#### `upscale`
+
+Controls the algorithm used when an image needs to be enlarged. This setting is nested under `fit` with any mode that upscales, such as `contain`, `cover`, and `scale-up`. It has no effect when `fit=scale-down` or when the target area is smaller than the source.
+
+Accepts the following values:
+
+  * `interpolate` (default) — Uses bicubic interpolation, which may reduce image quality. This is the default behavior when `upscale` is not specified.
+  * `generate` — Uses AI upscaling ([ESRGAN ↗︎](https://github.com/xinntao/ESRGAN)) to produce sharper, more detailed results when enlarging images.
+
+
+
+When `upscale=generate` is specified, the AI model runs a single pass at the nearest supported scale (2x or 4x), then adjusts to the exact target area. Scale factors beyond 4x are handled with AI upscaling to 4x, then bicubic interpolation for the remainder.
+
+Note
+
+`upscale=generate` has higher latency than `upscale=interpolate` due to GPU inference. Results are cached following the same [caching rules](https://developers.cloudflare.com/images/optimization/features/#caching) as other optimizations.
+    
+    
+    fit=(mode=contain,upscale=generate)
+    
+    
+    cf: {image: {fit: {mode: "contain", upscale: "generate"}}}
+
+#### `upscale`
+
+Controls the algorithm used when an image needs to be enlarged. This setting is nested under `fit` with any mode that upscales, such as `contain`, `cover`, and `scale-up`. It has no effect when `fit=scale-down` or when the target area is smaller than the source.
+
+Accepts the following values:
+
+  * `interpolate` (default) — Uses bicubic interpolation, which may reduce image quality. This is the default behavior when `upscale` is not specified.
+  * `generate` — Uses AI upscaling ([ESRGAN ↗︎](https://github.com/xinntao/ESRGAN)) to produce sharper, more detailed results when enlarging images.
+
+
+
+When `upscale=generate` is specified, the AI model runs a single pass at the nearest supported scale (2x or 4x), then adjusts to the exact target area. Scale factors beyond 4x are handled with AI upscaling to 4x, then bicubic interpolation for the remainder.
+
+Note
+
+`upscale=generate` has higher latency than `upscale=interpolate` due to GPU inference. Results are cached following the same [caching rules](https://developers.cloudflare.com/images/optimization/features/#caching) as other optimizations.
+    
+    
+    fit=(mode=contain,upscale=generate)
+    
+    
+    cf: {image: {fit: {mode: "contain", upscale: "generate"}}}
 
 ### `flip`
 
@@ -384,17 +501,17 @@ Accepts the following values:
 
 
 Flip can be used with the `rotate` parameter to set the orientation of the image. Flip is performed before rotation. For example, if you apply `flip=h,rotate=90`, then the image will be flipped horizontally, then rotated by 90 degrees.
-
-![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![flip=h output](https://developers.cloudflare.com/_astro/flip-h.Qc63pcHu.jpg)| ![flip=v output](https://developers.cloudflare.com/_astro/flip-v.DuCcWsSK.jpg)  
----|---|---  
-**Original**| `flip=h`| `flip=v`  
-      
+    
     
     flip=h
     
     
     cf: {image: {flip: "h"}}
 
+![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![flip=h output](https://developers.cloudflare.com/_astro/flip-h.Qc63pcHu.jpg)| ![flip=v output](https://developers.cloudflare.com/_astro/flip-v.DuCcWsSK.jpg)  
+---|---|---  
+**Original**| `flip=h`| `flip=v`  
+  
 ### `format` | `f`
 
 Specifies the output format for the image.
@@ -441,34 +558,36 @@ Adjusts the exposure of an image using a multiplier. Gamma controls the midtone 
   * `< 1.0` — Increases midtone brightness, making the image appear lighter overall.
   * `> 1.0` — Decreases midtone brightness, making the image appear darker overall.
 
-![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![gamma=0.5 output](https://developers.cloudflare.com/_astro/gamma-0.5.Bcga364K.jpg)| ![gamma=2 output](https://developers.cloudflare.com/_astro/gamma-2.BrZb1hEC.jpg)  
----|---|---  
-**Original**| `gamma=0.5`| `gamma=2`  
-      
+
+    
     
     gamma=0.5
     
     
     cf: {image: {gamma: 0.5}}
 
+![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![gamma=0.5 output](https://developers.cloudflare.com/_astro/gamma-0.5.Bcga364K.jpg)| ![gamma=2 output](https://developers.cloudflare.com/_astro/gamma-2.BrZb1hEC.jpg)  
+---|---|---  
+**Original**| `gamma=0.5`| `gamma=2`  
+  
 ### `gravity` | `g`
 
-Specifies how the image should be cropped when used with `fit=cover` and `fit=crop`. By default, Cloudflare will crop toward the center point of the original image.
+Specifies which part of the image to preserve when cropping with `fit=cover`, `fit=crop`, or `fit=aspect-crop`. If omitted, Cloudflare crops toward the center point of the source image.
 
-Accepts `auto`, `face`, a side (`left`, `right`, `top`, `bottom`), and relative coordinates (`XxY`).
+Accepts `auto`, `face`, a side (`left`, `right`, `top`, `bottom`), or relative coordinates (`x` and `y`).
     
     
     gravity=auto
-    g=auto
     gravity=face
     gravity=left
-    gravity=0.5x1
+    gravity=(x=0.5,y=0.3)
+    g=auto
     
     
     cf: {image: {gravity: "auto"}}
     cf: {image: {gravity: "face"}}
     cf: {image: {gravity: "left"}}
-    cf: {image: {gravity: {x:0.5, y:0.2}}}
+    cf: {image: {gravity: {x:0.5, y:0.3}}}
 
 #### `auto`
 
@@ -502,9 +621,9 @@ In the example below, the 1080x720 image is cropped to a 1080x400 area, starting
 ---|---  
 **Original**| `gravity=bottom`  
   
-#### `XxY`
+#### `x`, `y`
 
-Sets the focal point (X,Y) so that the relative coordinates of the output image are positioned at the relative coordinates of the original image. Accepts a coordinate pair formatted as `XxY`, where X and Y are decimal values between `0.0` and `1.0`.
+Sets the focal point using relative `x` and `y` coordinates. Each setting accepts a decimal value from `0.0` to `1.0`. Cloudflare positions the relative coordinates of the output at the relative coordinates of the source image.
 
 ![Change the focal point using the relative coordinates](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1363,height=904,format=webp/_astro/xxy.pMA7L7Ny.png)
 
@@ -513,12 +632,12 @@ Sets the focal point (X,Y) so that the relative coordinates of the output image 
 
 
 
-The example below crops a 900x900 image to 300x900 using a 0.33x0.5 gravity point:
+The example below crops a 900x900 image to 300x900 using (`x=0.33, y=0.5`) as the gravity point:
 
   * Both the original image and target area will have gravity points set at 1/3 of the width from the left edge and 1/2 of the height from the top edge.
   * The relative coordinates of the output gravity point are positioned at the relative coordinates of the original image. That is, the target area is positioned so that its gravity point sits at the same relative position in the original image (0.33, 0.5).
   * The darkened parts of the image show the area outside of the requested output, which will be cropped.
-  * The final cropped result captures the 300x900 content that is around the gravity point (0.33, 0.5).
+  * The final cropped result captures the 300x900 content that is around the gravity point (`0.33, 0.5`).
 
 ![original image](https://developers.cloudflare.com/_astro/base.DwQU1Wiz.png)| ![align gravity points on original and target area](https://developers.cloudflare.com/_astro/rel-points.tebmJ081.png)| ![crop using new gravity point](https://developers.cloudflare.com/_astro/rel-alignment.u2L4c77x.png)| ![final output](https://developers.cloudflare.com/_astro/rel-output.1DSTik2r.png)  
 ---|---|---|---  
@@ -528,8 +647,6 @@ The example below crops a 900x900 image to 300x900 using a 0.33x0.5 gravity poin
 | **Output**  
   
   
-When optimizing through Workers, use an object `{x, y}` to specify coordinates. For example, `{fit: "cover", gravity: {x:0.5, y:0.2}}` will crop each side to preserve as much as possible around a point at 20% of the height of the original image.
-
 ### `height` | `h`
 
 Sets the height of the output image in pixels using a positive integer value. By default, Cloudflare uses the original height of the input image.
@@ -545,7 +662,21 @@ When `height` is set, the exact behavior depends on the `fit` parameter.
 
 ### `metadata`
 
-Controls the amount of invisible metadata (EXIF) that should be preserved for a JPEG image. For all other output formats (e.g. WebP or PNG), all metadata will always be discarded.
+Controls the amount of invisible metadata (EXIF and XMP) that should be preserved in the output image. Support for extracting metadata from the source image (decode) and writing it to the output image (encode) varies by format:
+
+Format | Decode EXIF | Decode XMP | Encode EXIF | Encode XMP  
+---|---|---|---|---  
+JPEG | Yes | Yes | Yes | Yes  
+PNG | Yes | Yes | Yes | Yes  
+WebP | Yes | Yes | Yes | Yes  
+AVIF | Yes | Yes | Yes | No  
+HEIC | Yes | Yes | N/A | N/A  
+GIF | No | No | No | Yes  
+TIFF | No | No | N/A | N/A  
+  
+HEIC and TIFF are supported as input formats, but not as output formats.
+
+Each of EXIF and XMP is capped at 64 KB after `metadata` mode filtering is applied. If the filtered metadata still exceeds this limit, it is dropped entirely rather than truncated.
 
 Color profiles and EXIF rotation are applied to the image even if the metadata is discarded.
 
@@ -575,7 +706,7 @@ Note
 
 This feature is available only when optimizing remote images through the URL interface. This is not supported for hosted images.
 
-This option works only if the image is in the same zone (subdomains are accepted). If the original image is from a different zone, then the option does not have any effect.
+`onerror=redirect` works only if the source image is in the same zone (subdomains accepted).
 
 This may be useful in cases where an image requires user authentication and the image cannot be fetched anonymously via Workers. However, this option is not recommended if the source image is very large.
     
@@ -584,40 +715,68 @@ This may be useful in cases where an image requires user authentication and the 
 
 ### `quality` | `q`
 
-Specifies the output quality of an image for JPEG, WebP, and AVIF formats, expressed as a fixed value or perceptual quality level. The default is `85`.
+Specifies the output quality of an image for JPEG, WebP, and AVIF formats. The default is `85`.
+
+Accepts either a fixed value or a perceptual quality level:
 
   * **Fixed quality** — Accepts a positive integer from `1` (low quality, small file size) to `100` (high quality, large file size).
   * **Perceptual quality** — Accepts `high`, `medium-high`, `medium-low`, and `low`.
 
 
 
+To override the specified quality when Cloudflare detects a slow connection, use the `level` setting for standard quality and the `slow-connection` setting for the quality for slow connections.
+
 When the output format is PNG, an explicit `quality` setting allows the use of PNG8 (palette) variant of the format.
     
     
     quality=50
     quality=low
+    quality=(level=80,slow-connection=40)
     q=50
+    q=(v=80,sc=40)
     
     
     cf: {image: {quality: 50}}
     cf: {image: {quality: "high"}}
+
+#### `slow-connection`
+
+Overrides `level` when Images detects a slow connection. Accepts the same fixed or perceptual values as `quality`. The default is none.
+
+Note
+
+This setting is available only when optimizing through the URL interface on Chromium-based browsers such as Chrome, Edge, and Opera.
+
+To detect slow connections, enable any of the following client hints with an HTTP header:
+    
+    
+    accept-ch: rtt, save-data, ect, downlink
+
+The `slow-connection` setting applies when the client hint is present and any of the following conditions are met:
+
+  * [rtt ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/RTT): Greater than 150 ms.
+  * [save-data ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Save-Data): Value is `on`.
+  * [ect ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/ECT): Value is `slow-2g`, `2g`, or `3g`.
+  * [downlink ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Downlink): Less than 5 Mbps.
+
+
 
 ### `rotate`
 
 Rotates an image by a number of degrees. Accepts `90`, `180`, or `270`. The default is `0` (no rotation).
 
 Rotation is performed before resizing; `width` and `height` options will refer to the axes after the image is rotated.
+    
+    
+    rotate=180
+    
+    
+    cf: {image: {rotate: 180}}
 
 ![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![rotate=180 output](https://developers.cloudflare.com/_astro/rotate-180.Dx3iw1mv.jpg)  
 ---|---  
 **Original**| `rotate=180`  
-      
-    
-    rotate=90
-    
-    
-    cf: {image: {rotate: 90}}
-
+  
 ### `saturation`
 
 Adjusts the color saturation of an image using a multiplier.
@@ -627,148 +786,191 @@ Adjusts the color saturation of an image using a multiplier.
   * `1` (default) — No change to the original saturation.
   * `> 1.0` — Increases color intensity. For example, `2` is twice as saturated.
 
+
+    
+    
+    saturation=0
+    saturation=2
+    
+    
+    cf: {image: {saturation: 0}}
+    cf: {image: {saturation: 2}}
+
 ![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![saturation=0 output](https://developers.cloudflare.com/_astro/saturation-0.Cn9J5pmH.jpg)| ![saturation=2 output](https://developers.cloudflare.com/_astro/saturation-2.B7Pl0-wE.jpg)  
 ---|---|---  
 **Original**| `saturation=0`| `saturation=2`  
-      
-    
-    saturation=0.5
-    
-    
-    cf: {image: {saturation: 0.5}}
-
+  
 ### `segment`
 
 Automatically isolates the subject of an image by replacing the background with transparent pixels. Accepts `foreground`. The default is none.
 
 This feature uses an open-source model called BiRefNet through [Workers AI](https://developers.cloudflare.com/workers-ai/). Read more about Cloudflare's [approach to responsible AI ↗︎](https://www.cloudflare.com/trust-hub/responsible-ai/).
 
-![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![segment=foreground output](https://developers.cloudflare.com/_astro/segment-foreground.B6UYNLDs.png)  
----|---  
-**Original**| `segment=foreground`  
-      
+Pricing
+
+Parameters that use AI inference are billed as standard Images transformations. Each unique request counts toward your [Images Transformed](https://developers.cloudflare.com/images/pricing/#images-transformed) usage. There is no additional charge from [Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/) or separate Neuron billing for these parameters.
+    
     
     segment=foreground
     
     
     cf: {image: {segment: "foreground"}}
 
+![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![segment=foreground output](https://developers.cloudflare.com/_astro/segment-foreground.B6UYNLDs.png)  
+---|---  
+**Original**| `segment=foreground`  
+  
 ### `sharpen`
 
-Applies a sharpening filter to enhance edge definition in an image. Accepts a decimal value from `0` (no sharpening) to `10` (maximum sharpening). The default is `0`. The recommended value for downscaled images is `1`.
+Applies a sharpening filter to increase edge definition in an image. Supports both box and Gaussian filters using `mode`.
+
+To apply a box-filter unsharp mask, set `sharpen` to a decimal value from `0` (no sharpening) to `10` (maximum sharpening). The recommended value for downscaled images is `1`. When `mode` is not specified, this is the default mask.
+
+To configure a Gaussian-filter unsharp mask, set `mode` to `gaussian` and specify the following settings:
+
+Setting | Description | Accepted values  
+---|---|---  
+`mode` | Applies a Gaussian sharpening filter. | `gaussian`  
+`amount` | Sets the sharpening strength to control how much isolated detail is added back. | Decimal from `0` to `10`  
+`sigma` | Controls how broadly the blur spreads. | Decimal greater than `0` and less than or equal to `5`  
+`threshold` (optional) | Sets the minimum difference required between the source and blurred pixels before sharpening is applied. If omitted, the default is `0`. | Integer from `0` to `255`  
+  
+A higher `sigma` value makes larger edges and object outlines more pronounced. A higher `threshold` limits sharpening to stronger edges. Pixels whose differences fall below the threshold are not sharpened.
+    
+    
+    sharpen=5
+    sharpen=(mode=box,amount=5)
+    sharpen=(mode=gaussian,amount=1,sigma=1.5,threshold=0)
+    
+    
+    cf: {image: {sharpen: 5}}
+    cf: {image: {sharpen: {mode: "box", amount: 5}}}
+    cf: {image: {sharpen: {mode: "gaussian", amount: 1, sigma: 1.5, threshold: 0}}}
 
 ![Original image](https://developers.cloudflare.com/_astro/original.DuemPfHh.jpg)| ![sharpen=5 output](https://developers.cloudflare.com/_astro/sharpen-5.CyEreNja.jpg)  
 ---|---  
 **Original**| `sharpen=5`  
-      
-    
-    sharpen=2
-    
-    
-    cf: {image: {sharpen: 2}}
-
-### `slow-connection-quality` | `scq`
-
-Overrides the `quality` value whenever a slow connection is detected. Accepts the same fixed or perceptual settings as quality. The default is none.
-
-Note
-
-This feature is available only when optimizing through the URL interface on Chromium-based browsers such as Chrome, Edge, and Opera.
-
-To detect slow connections, enable any of the following client hints via HTTP in a header:
-    
-    
-    accept-ch: rtt, save-data, ect, downlink
-
-`slow-connection-quality` applies when the client hint is present and any of the following conditions are met:
-
-  * [rtt ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/RTT): Greater than 150ms.
-  * [save-data ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Save-Data): Value is "on".
-  * [ect ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/ECT): Value is one of `slow-2g|2g|3g`.
-  * [downlink ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Downlink): Less than 5Mbps.
-
-
-    
-    
-    slow-connection-quality=50
-    scq=50
-
+  
 ### `trim`
 
-Removes pixels around the sides of an image.
+Removes pixels around the sides of an image. You can trim an image based on its border color, remove pixels from individual sides, or preserve a rectangular area.
 
-This feature can be used to trim an image by its border colors or by a specified number of pixels from its side(s).
+The `left` and `top` settings are used both to trim individual sides and to preserve a rectangle. Their meaning depends on the trim form:
 
-Trim takes into account the `dpr` parameter and is performed before resizing and rotation.
-
-#### `border`
-
-Automatically trims the sides of the image based on its border color.
-
-The `trim=border` option can be further adjusted using the following parameters:
-
-  * `trim.border.color` — Selects the border color to trim. Accepts any CSS color using CSS4 modern syntax. If omitted, the color is detected automatically.
-  * `trim.border.tolerance` — Sets how closely the detected pixels must match in color. Accepts an integer between `0` (doesn't need to match) and 255 (must match exactly).
-  * `trim.border.keep` — Specifies the number of pixels of the original border to leave untrimmed.
+  * When trimming individual sides, `left` and `top` specify the amount removed from the corresponding edge.
+  * When preserving a rectangle, `left` and `top` specify the position of the rectangle’s upper-left corner. The `width` and `height` settings define the size of the preserved area.
 
 
 
-#### `top;right;bottom;left`
+Trim accounts for the `dpr` setting and runs before resizing and rotation.
 
-Specifies the number of pixels to remove from the sides of an image. Accepts four values, separated by a semicolon, to set the trim on all four sides of an image at once.
+#### `color`
 
-All trim values accept either an integer (pixel count) or a decimal between `0` and `1` representing a fraction of the image dimension. For example, `0.25` trims 25% from that side.
+Automatically trims the sides of the image based on its border color. By default, Cloudflare detects the border color automatically.
 
-Trim can also be applied to a specific side using the following parameters:
+To configure color detection, set `mode` to `color` and specify the following settings:
 
-  * `trim.top` — Removes pixels from the top of the image.
-  * `trim.left` — Removes pixels from the left of the image.
-  * `trim.height` — Sets the height of the image from the top edge, then trims everything below.
-  * `trim.width` — Sets the width of the image from the left edge, then trims everything to the right.
-
-
+Setting | Description | Accepted values  
+---|---|---  
+`mode` | Applies border-color trimming. | `color`  
+`color` | Sets the border color to trim. If omitted, Images detects the color automatically. | Any valid CSS color  
+`tolerance` | Sets how closely pixels must match the border color. | Integer from `0` (no match required) to `255` (must match exactly)  
+`keep` | Sets the number of pixels from the original border to leave untrimmed. | Positive integer  
+      
+    
+    trim=color
+    trim=(mode=color,color=%23ffffff,tolerance=10,keep=5)
     
     
-    trim=border
-    trim.height=800
-    // This sets the height of the image to 800 pixels from the top of the image, then trims everything below that point
+    cf: {
+      image: {
+        trim: "color",
+      },
+    }
     
-    trim.left=800
-    // This removes 800 pixels from the left of the image
-    
-    trim=0.1;0.2;0.1;0.2
-    // This trims 10% from the top and bottom, and 20% from the left and right
-    
-    trim.top=0.25
-    // This trims 25% of the image height from the top
-    
-    
-    cf: {image: {trim: {top: 12, right: 78, bottom: 34, left: 56, width: 678, height: 678}}}
-    // Using decimals to trim 10% from each side:
-    cf: {image: {trim: {top: 0.1, right: 0.1, bottom: 0.1, left: 0.1}}}
+    cf: {
+      image: {
+        trim: {
+          mode: "color",
+          color: "#ffffff",
+          tolerance: 10,
+          keep: 5,
+        },
+      },
+    }
 
-### `upscale`
+#### `top`, `right`, `bottom`, `left`
 
-Controls the algorithm used when an image needs to be enlarged. This parameter works with any `fit` mode that upscales, such as `contain`, `cover`, and `scale-up`. It has no effect when `fit=scale-down` or when the target dimensions are smaller than the source.
+Sets how much to remove from each side of the image. Each setting accepts a nonnegative integer pixel count or a percentage as a decimal between `0` and `1` or a string from `0p` through `100p`.
 
-Accepts the following values:
-
-  * `interpolate` (default) — Uses bicubic interpolation, which may reduce image quality. This is the default behavior when `upscale` is not specified.
-  * `generate` — Uses AI upscaling ([ESRGAN ↗︎](https://github.com/xinntao/ESRGAN)) to produce sharper, more detailed results when enlarging images.
-
-
-
-When `upscale=generate` is specified, the AI model runs a single pass at the nearest supported scale (2x or 4x), then adjusts to the exact target dimensions. Scale factors beyond 4x are handled with AI upscaling to 4x, then bicubic interpolation for the remainder.
-
-Note
-
-`upscale=generate` has higher latency than `upscale=interpolate` due to GPU inference. Results are cached following the same [caching rules](https://developers.cloudflare.com/images/optimization/features/#caching) as other optimizations.
+To trim 10% from the top and bottom and 20% from the left and right:
     
     
-    upscale=generate
+    trim=(mode=area,top=10p,right=20p,bottom=10p,left=20p)
+    trim=(mode=area,top=0.1,right=0.2,bottom=0.1,left=0.2)
     
     
-    cf: {image: {upscale: "generate"}}
+    // Trims 10% from the top and bottom, and 20% from the left and right
+    cf: {
+      image: {
+        trim: {
+          mode: "area",
+          top: "10p",
+          right: "20p",
+          bottom: "10p",
+          left: "20p",
+        },
+      },
+    }
+      cf: {
+      image: {
+        trim: {
+          mode: "area",
+          top: "0.1",
+          right: "0.2",
+          bottom: "0.1",
+          left: "0.2",
+        },
+      },
+    }
+
+To remove 800 pixels from the left side:
+    
+    
+    trim=(left=800)
+    
+    
+    cf: {
+      image: {
+        trim: {
+          left: 800,
+        },
+      },
+    }
+
+#### `width`, `height`, `left`, `top`
+
+Preserves a rectangular area of the image. `left` and `top` locate the area's upper-left corner within the source image. From that point, `width` sets how far the area extends to the right and `height` sets how far it extends down.
+
+Each setting accepts an integer pixel count or a percentage string. `left` and `top` accept values from `0p` through `100p`. `width` and `height` accept values greater than `0p` through `100p`.
+
+To remove 10 pixels from the left and top edges and preserve a 500x300 pixel area:
+    
+    
+    trim=(mode=area,left=10,top=10,width=500,height=300)
+    
+    
+    cf: {
+      image: {
+        trim: {
+          mode: "area",
+          left: 10,
+          top: 10,
+          width: 500,
+          height: 300,
+        },
+      },
+    }
 
 ### `width` | `w`
 
@@ -779,7 +981,7 @@ When `width` is set, the exact behavior depends on the `fit` parameter.
 Accepts the following values:
 
   * A number in pixels (for example, `250`).
-  * `auto` — Automatically serves the image in the most optimal width based on available information about the browser and device. Accepts `wbreakpoints` (client hints), `wmobile` (user-agent detection), and `wdesktop` (user-agent detection) as sub-parameters.
+  * `auto` — Automatically serves the image in the most optimal width based on available information about the browser and device. Supports `breakpoints` (client hints), `mobile` (user-agent detection), and `desktop` (user-agent detection) as settings.
 
 
     
@@ -788,32 +990,43 @@ Accepts the following values:
     w=250
     
     
-    cf: {image: {width: 250}}
+    cf: {
+      image: {
+        width: 250,
+      },
+    }
 
-#### `width=auto` sub-parameters
+#### `width=auto`
 
-When `width=auto` is specified, Cloudflare resizes the image using information from client hints (sent by the browser) or by user-agent detection as a fallback.
+When `width=auto` is set, Cloudflare resizes the image using information from client hints (sent by the browser) or by user-agent detection as a fallback.
 
-You can customize the `width=auto` behavior with the following sub-parameters:
+To override the default widths, set `mode` to `auto` and specify any of the following settings:
 
-Sub-parameter | Description | Default  
----|---|---  
-`wbreakpoints` | Override default breakpoint widths, in pixels (client hints) | `320;768;960;1200`  
-`wmobile` | Override default width, in pixels, for mobile devices (user-agent detection) | `768`  
-`wdesktop` | Override default width, in pixels, for desktop devices (user-agent detection) | `1200`  
+Setting | Description | Accepted values | Default  
+---|---|---|---  
+`mode` | `m` | Applies automatic width selection. | `auto` | —  
+`breakpoints` | `b` | Sets the available breakpoint widths, in pixels, when used with Client Hints. | List of integers | `320`, `768`, `960`, and `1200`  
+`mobile` | `mb` | Sets the fallback width for mobile devices. | Integer | `768`  
+`desktop` | `dt` | Sets the fallback width for desktop devices. | Integer | `1200`  
   
 When optimizing remote images with `width=auto`, each unique width counts as a separate [billable transformation](https://developers.cloudflare.com/images/pricing/#images-transformed).
 
 To learn how `width=auto` works, refer to our guide on [serving responsive images](https://developers.cloudflare.com/images/optimization/make-responsive-images/).
     
     
-    wbreakpoints=320;768;960;1920 // Changes the largest breakpoint to 1920 pixels
-    wbreakpoints=320;768;960;1200;1920 // Adds another breakpoint at 1920 pixels
+    width=250
+    w=250
+    width=(mode=auto,mobile=600,desktop=1400,breakpoints=(400,800))
+    width=(m=auto,mb=600,dt=1400,bp=(400,800))
     
     
-    cf: {image: {wbreakpoints: "320;768;960;1920"}}
+    cf: {
+      image: {
+        width: "250",
+      },
+    }
 
-### `zoom` | `face-zoom`
+### `zoom`
 
 Specifies how closely the image is cropped toward detected faces when combined with the `gravity=face` option. Accepts a valid range between `0.0` (includes as much of the background as possible) and `1.0` (crops the image as closely to the face as possible). The default is `0`.
     

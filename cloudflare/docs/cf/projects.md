@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/projects/
 title: Develop, build, and deploy \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:28.111625+00:00
+fetched_at: 2026-11-19T10:02:09.553513+00:00
 ---
 
 # Develop, build, and deploy · Cloudflare CLI docs
@@ -17,9 +17,9 @@ fetched_at: 2026-11-18T09:55:28.111625+00:00
 
 # Develop, build, and deploy
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow cf runs your projectAutomatic configurationStart development Local variables and secretsBuildDeploy Deploy a static assets directoryModesDeploy a prebuilt buildUpload a versionDeploy triggersDeploy a previewProfile Worker startupGenerate typesLocal resource dataWhich configuration each command readsTroubleshooting No dev server is installed Dependencies are not installed A framework rejects --mode A prebuilt deploy rejects the mode Build Output is missing Preview output reaches a production deploy The preview name cannot be determined A local command has no local equivalent
+OverviewHow cf runs your projectAutomatic configurationStart development Local variables and secretsBuildDeploy Deploy a static assets directoryModesDeploy a prebuilt buildUpload a versionDeploy triggersDeploy a previewProfile Worker startupGenerate typesLocal resource dataWhich configuration each command readsTroubleshooting No dev server is installed Dependencies are not installed Arguments are rejected A framework rejects --mode A prebuilt deploy rejects the mode Build Output is missing Preview output reaches a production deploy The preview name cannot be determined A local command has no local equivalent
 
 `cf` develops, builds, and deploys Workers projects with the same CLI that manages the rest of your Cloudflare account. To create a project, follow [Deploy your first Worker](https://developers.cloudflare.com/cf/get-started/first-worker/).
 
@@ -49,7 +49,19 @@ package.jsonjson
     	}
     }
 
-`cf dev` forwards extra arguments to the development server it starts, so `cf dev --port 8788` works in a Vite project. The development server decides which arguments it accepts and rejects the rest. To separate the server's arguments from `cf` options, put them after `--`, as in `cf dev -- --host 0.0.0.0`. `cf build` accepts only `--mode`.
+`cf dev` forwards extra arguments to the selected development server. This applies to framework commands and installed Cloudflare build tools. To set the port and host in a Vite project, run:
+    
+    
+    cf dev --port 8788 --host 127.0.0.1
+
+Use `--` to separate server arguments from `cf` options:
+    
+    
+    cf dev -- --port 8788 --host 127.0.0.1
+
+Supported arguments depend on the selected development server. The server rejects arguments it does not support, even after `--`.
+
+`cf build` accepts only `--mode`. For framework support for `--mode`, refer to Modes.
 
 ## Automatic configuration
 
@@ -415,6 +427,10 @@ API credentials, such as `CLOUDFLARE_API_TOKEN`, can also come from a `.env` fil
 ### Dependencies are not installed
 
 In a configured project whose dependencies are not installed, Vite reports that it cannot resolve `@cloudflare/vite-plugin`, or `cf` reports that a build tool is declared but not installed. Install dependencies with your package manager, then run the command again.
+
+### Arguments are rejected
+
+Check which development server `cf dev` selects and which arguments it supports. If a server argument conflicts with a `cf` option, pass it after `--`. The selected server still rejects unsupported arguments and invalid values.
 
 ### A framework rejects `--mode`
     

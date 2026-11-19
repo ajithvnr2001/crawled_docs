@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/about/static-ip/
 title: Static IP \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:32.568803+00:00
+fetched_at: 2026-11-19T10:02:05.451568+00:00
 ---
 
 # Static IP · Cloudflare Spectrum docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:15:32.568803+00:00
 
 # Static IP
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/about/static-ip/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewUse static IPs with SpectrumCheck your static IPs
+OverviewUse static IPs with Spectrum Use static IPs in the dashboard Use static IPs with the APICheck your static IPs
 
 When you create a Spectrum application, you are assigned an IP. These IPs are normally dynamic, meaning that they will change over time. But, for instance, if you want to set up WAF custom rules for specific IPs, you may want to use static IPs.
 
@@ -36,9 +36,29 @@ Availability
 
 Static IP is an Enterprise feature that does not come standard with Spectrum. Contact your account team to request access.
 
-Once you get your static IP from Cloudflare, you can use it via API, just like [BYOIP](https://developers.cloudflare.com/byoip/). For the moment, there is still no UI available for this feature.
+Once you get your static IP from Cloudflare, you can use it in the dashboard or the API, just like [BYOIP](https://developers.cloudflare.com/spectrum/about/byoip/).
 
-When creating a Spectrum application through the API, specify the static IPs that you have been provided. See, for instance, the API example below that creates an application routing traffic through Cloudflare’s HTTP pipeline.
+The edge IP type cannot change after the application is created. To move an existing application to static IPs, delete it and create it again.
+
+### Use static IPs in the dashboard
+
+  1. In the Cloudflare dashboard, go to the **Spectrum** page.
+
+[ Go to **Spectrum** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/spectrum)
+  2. Select **Create an Application** and fill in the application and origin details. Refer to [Get started](https://developers.cloudflare.com/spectrum/get-started/) for each field.
+
+  3. Under **Edge IP Type** , select **Dedicated IPs**.
+
+  4. In **Leased IPs** , enter each static IP that you have been provided.
+
+  5. Select **Add Application**.
+
+
+
+
+### Use static IPs with the API
+
+When creating a Spectrum application through the API, specify the static IPs that you have been provided and set the DNS `type` to `ADDRESS`. See, for instance, the API example below that creates an application routing traffic through Cloudflare’s HTTP pipeline.
 
 Required API token permissions
 

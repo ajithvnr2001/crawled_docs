@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/2xx-success/
 title: 2xx Success \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:52.921051+00:00
+fetched_at: 2026-11-19T10:02:05.380868+00:00
 ---
 
 # 2xx Success · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:52.921051+00:00
 
 # 2xx Success
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/2xx-success/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview200 OK Common use cases Cloudflare-specific information201 Created Common use cases Cloudflare-specific information203 Non-authoritative information Common use cases Cloudflare-specific information204 No content Common use cases Cloudflare-specific information205 Reset content Common use cases Cloudflare-specific information206 Partial content Common use cases Cloudflare-specific information
 
@@ -60,7 +60,7 @@ Creating a new resource in response to a POST request. For example, creating a n
 
 Cloudflare forwards 201 responses without modification.
 
-For further information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231#section-7.2) for more details about validator headers, like **ETag** and **Last-Modified** in a 201 response.
+For further information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-8.8) for more details about validator headers, like **ETag** and **Last-Modified** in a 201 response.
 
 ## 203 Non-authoritative information
 
@@ -113,7 +113,7 @@ A 206 response includes either:
 
 
 
-For more details, refer to [Section 4.1 of RFC 7233 ↗︎](https://tools.ietf.org/html/rfc7233#page-10).
+For more details, refer to [Section 15.3.7 of RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.3.7).
 
 ### Cloudflare-specific information
 

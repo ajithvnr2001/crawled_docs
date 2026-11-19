@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/
 title: Versions & deployments \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:12.195135+00:00
+fetched_at: 2026-11-19T10:02:06.732230+00:00
 ---
 
 # Versions & deployments · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-13T09:17:12.195135+00:00
 
 # Versions & deployments
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewVersionsDeploymentsDefault behaviorView versions and deployments Via Wrangler Via the Cloudflare dashboardNext steps
 

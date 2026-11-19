@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/tunnel/
 title: Cloudflare Tunnel \u00b7 Cloudflare Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:02.484236+00:00
+fetched_at: 2026-11-19T10:02:08.210269+00:00
 ---
 
 # Cloudflare Tunnel · Cloudflare Docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:16:02.484236+00:00
 
 # Cloudflare Tunnel
 
-Last updated Sep 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/tunnel/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksUse casesGet started
 
@@ -26,7 +26,11 @@ Available on all plans
 
 Looking for private networking or Zero Trust?
 
-This documentation covers Cloudflare Tunnel use cases for public applications. For VPN replacement, private network access, and network traffic filtering, refer to the [Cloudflare One Tunnel documentation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/).
+This documentation covers Cloudflare Tunnel use cases for public applications. For VPN replacement and private network access, we recommend [Cloudflare Mesh](https://developers.cloudflare.com/mesh/). For existing Tunnel private network routes, refer to the [Cloudflare One Tunnel documentation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/).
+
+Choosing a connector
+
+[Cloudflare Mesh](https://developers.cloudflare.com/mesh/) is the default connector for private access and private networks. To publish an HTTP application on the public Internet, use [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/). For code on Cloudflare, use [Workers VPC](https://developers.cloudflare.com/workers-vpc/). For whole sites, use [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/). To compare them, refer to [Connector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/).
 
 Cloudflare Tunnel connects your infrastructure to Cloudflare through an outbound-only, [post-quantum encrypted](https://developers.cloudflare.com/ssl/post-quantum-cryptography/) connection. Instead of exposing a public IP, you install a lightweight daemon called `cloudflared` on your server. It creates a persistent tunnel to Cloudflare's global network, so all traffic to your origins flows through Cloudflare — where CDN caching, WAF, Bot Management, and DDoS protection are applied automatically.
 

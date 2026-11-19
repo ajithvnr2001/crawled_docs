@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-401/
 title: Error 401 \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:09.861868+00:00
+fetched_at: 2026-11-19T10:02:09.902052+00:00
 ---
 
 # Error 401 · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-15T14:53:09.861868+00:00
 
 # Error 401
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview401 Unauthorized Common use cases Cloudflare-specific information
 
@@ -34,7 +34,7 @@ For more details, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9
 
 ### Common use cases
 
-A `401 Unauthorized` error occurs when the client fails to provide valid authentication credentials. The server responds with at least one challenge in the form of a `WWW-Authenticate` header field, as outlined in [section 4.1 ↗︎](https://datatracker.ietf.org/doc/html/rfc7235#section-4.1).
+A `401 Unauthorized` error occurs when the client fails to provide valid authentication credentials. The server responds with at least one challenge in the form of a `WWW-Authenticate` header field, as outlined in [RFC 9110, section 11.6.1 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-11.6.1).
 
 If the client resends the request with the same credentials and the challenge remains unchanged, the server may return an entity to assist the client in identifying the correct credentials needed.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/leaked-credentials/get-started/
 title: Get started with leaked credentials detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:41.809761+00:00
+fetched_at: 2026-11-19T10:02:09.666112+00:00
 ---
 
 # Get started with leaked credentials detection · Cloudflare Web Application Firewall (WAF) docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:16:41.809761+00:00
 
 # Get started
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/leaked-credentials/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview1\. Turn on the detection2\. Validate the leaked credentials detection behavior3\. Mitigate requests with leaked credentials Handle detected leaked credentials at the origin server4\. (Optional) Configure a custom detection locationTest your configuration
+Overview1\. Turn on the detection2\. Validate the leaked credentials detection behavior3\. Mitigate requests with leaked credentials Handle detected leaked credentials at the origin server4\. (Optional) Configure a custom detection locationTest your configuration Test individual credential signals Check results at your origin server
 
 ## 1\. Turn on the detection
 
@@ -221,25 +221,41 @@ For more examples of custom detection locations for different request types, ref
 
 ## Test your configuration
 
-Cloudflare provides a special set of case-sensitive credentials for testing the configuration of the leaked credentials detection.
+Cloudflare provides case-sensitive credential pairs with predefined test results. After turning on and configuring leaked credentials detection, send each username with its matching password in your test HTTP requests.
 
-After enabling and configuring the detection, you can use the credentials mentioned in this section in your test HTTP requests.
+The following pairs trigger these signals, subject to plan availability:
 
-Test credentials for users on a Free plan (will also work in paid plans):
+Username | Password | Test result  
+---|---|---  
+`CF_LEAKED_USERNAME_FREE` | `CF_LEAKED_PASSWORD` | Password Leaked  
+`CF_EXPOSED_USERNAME`, `CF_EXPOSED_USERNAME@example.com`, or `CF_EXPOSED_USERNAME@cloudflare.com` | `CF_EXPOSED_PASSWORD` | User and Password Leaked, Username Leaked, and Password Leaked  
+`CF_LEAKED_USERNAME`, `CF_LEAKED_USERNAME@example.com`, or `CF_LEAKED_USERNAME@cloudflare.com` | `CF_LEAKED_PASSWORD` | User and Password Leaked, Username Leaked, and Password Leaked  
+  
+Use the `@cloudflare.com` variants if your application rejects `@example.com` addresses.
 
-  * Username: `CF_LEAKED_USERNAME_FREE`
-  * Password: `CF_LEAKED_PASSWORD`
+The test pairs are accepted on all plans. The fields you can use depend on your plan:
 
+Test result | Rules language field | Availability  
+---|---|---  
+Password Leaked | [`cf.waf.credential_check.password_leaked`](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/cf.waf.credential_check.password_leaked/) | All plans  
+User and Password Leaked | [`cf.waf.credential_check.username_and_password_leaked`](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/cf.waf.credential_check.username_and_password_leaked/) | Pro plan and above  
+Username Leaked | [`cf.waf.credential_check.username_leaked`](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/cf.waf.credential_check.username_leaked/) | Enterprise plan  
+  
+To test only the **Password Leaked** signal on any plan, use `CF_LEAKED_USERNAME_FREE` with `CF_LEAKED_PASSWORD`.
 
+### Test individual credential signals
 
-Test credentials for users on paid plans (will not work on Free plans):
+Use the exact listed username/password combinations to reproduce the predefined results. Substituting your own username does not trigger the predefined password-leaked result, even when you use `CF_LEAKED_PASSWORD` or `CF_EXPOSED_PASSWORD`. This limitation applies to the test credentials. For real credentials, password-only detection checks the password independently of the username.
 
-  * Username: `CF_EXPOSED_USERNAME` or `CF_EXPOSED_USERNAME@example.com`
-  * Password: `CF_EXPOSED_PASSWORD`
+On Enterprise plans, a recognized test username with a different password still triggers **Username Leaked**. Mixing test and non-test values therefore does not always produce a clean result.
 
+### Check results at your origin server
 
+To inspect test results at your origin server, turn on the [**Add Leaked Credentials Checks Header** managed transform](https://developers.cloudflare.com/rules/transform/managed-transforms/configure/). Inspect the `Exposed-Credential-Check` request header received by your origin, not the response headers returned to your client.
 
-Cloudflare considers these specific credentials as having been previously leaked. Use them in your tests to check the behavior of your current configuration.
+For the password-only test pair, expect `Exposed-Credential-Check: 4`. For a matching username/password-pair test on a paid plan, expect `Exposed-Credential-Check: 1`.
+
+Multiple leaked credentials fields can be `true`, but the header reports a single result. It does not list a separate value for every matching field. For header values and plan availability, refer to [Add leaked credentials checks header](https://developers.cloudflare.com/rules/transform/managed-transforms/reference/#add-leaked-credentials-checks-header).
 
 [PreviousOverview](https://developers.cloudflare.com/waf/detections/leaked-credentials/)[NextCommon API calls](https://developers.cloudflare.com/waf/detections/leaked-credentials/api-calls/)
 

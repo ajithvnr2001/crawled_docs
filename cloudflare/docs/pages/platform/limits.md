@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/platform/limits/
 title: Limits \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:36.605315+00:00
+fetched_at: 2026-11-19T10:02:06.885260+00:00
 ---
 
 # Limits · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:36.605315+00:00
 
 # Limits
 
-Last updated Sep 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBuildsCustom domainsFilesFile sizeFunctionsHeadersPreview deploymentsRedirectsUsersProjects
 

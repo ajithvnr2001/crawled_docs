@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/vite-plugin/get-started/
 title: Get started \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.411413+00:00
+fetched_at: 2026-11-19T10:02:09.725179+00:00
 ---
 
 # Get started · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-13T08:48:26.411413+00:00
 
 # Get started
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewStart with a basic package.jsonInstall the dependenciesCreate your Vite config file and include the Cloudflare pluginCreate your Worker config fileCreate your Worker entry fileDev, build, preview and deploy
+OverviewStart with a basic package.jsonInstall the dependenciesCreate your Vite config file and include the Cloudflare pluginCreate your Worker config fileCreate your Worker entry fileDev, build, preview and deployUse Vite+
 
 Note
 
@@ -90,7 +90,7 @@ Refer to the [API reference](https://developers.cloudflare.com/workers/vite-plug
     	"$schema": "./node_modules/wrangler/config-schema.json",
     	"name": "cloudflare-vite-get-started",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-19",
     	"main": "./src/index.ts",
     	"upload_source_maps": true
     }
@@ -99,7 +99,7 @@ Refer to the [API reference](https://developers.cloudflare.com/workers/vite-plug
     "$schema" = "./node_modules/wrangler/config-schema.json"
     name = "cloudflare-vite-get-started"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-19"
     main = "./src/index.ts"
     upload_source_maps = true
 
@@ -126,7 +126,11 @@ A request to this Worker will return **'Running in Cloudflare-Workers!'** , demo
 
 You can now start the Vite development server (`npm run dev`), build the application (`npm run build`), preview the built application (`npm run preview`), and deploy to Cloudflare (`npm run deploy`).
 
-[PreviousOverview](https://developers.cloudflare.com/workers/vite-plugin/)[NextTutorial - React SPA with an API](https://developers.cloudflare.com/workers/vite-plugin/tutorial/)
+## Use Vite+
+
+To use Vite with formatting, linting, type checking, and testing in one toolchain, refer to [Vite+ on Workers](https://developers.cloudflare.com/workers/vite-plugin/vite-plus/).
+
+[PreviousSystem environment variables](https://developers.cloudflare.com/workers/wrangler/system-environment-variables/)[NextTutorial - React SPA with an API](https://developers.cloudflare.com/workers/vite-plugin/tutorial/)
 
 Was this helpful?
 

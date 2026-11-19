@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/
 title: Version URLs \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:03.864538+00:00
+fetched_at: 2026-11-19T10:02:06.587185+00:00
 ---
 
 # Version URLs · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:18:03.864538+00:00
 
 # Version URLs
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewURL formatVersion URLs View Version URLs with Wrangler View Version URLs in the dashboardAliased Version URLsManage access to Version URLsEnable or disable Version URLs From the dashboard From Wrangler configLimitsLimitations
 
@@ -159,7 +159,7 @@ If `preview_urls` is omitted, Wrangler does not change an existing Version URL s
 
 ## Limitations
 
-  * Version URLs are not generated for Workers that implement a [Durable Object](https://developers.cloudflare.com/durable-objects/), including [Containers](https://developers.cloudflare.com/containers/) and [Sandbox](https://developers.cloudflare.com/sandbox/) Workers. For Containers testing options, refer to [Deploy Containers](https://developers.cloudflare.com/containers/guides/deploy/#before-production).
+  * Version URLs are not generated for Workers that implement a [Durable Object](https://developers.cloudflare.com/durable-objects/), including [Containers](https://developers.cloudflare.com/containers/) and [Sandbox](https://developers.cloudflare.com/sandbox/) Workers. To test Durable Objects in isolation, use [Previews](https://developers.cloudflare.com/workers/previews/). For Containers testing options, refer to [Deploy Containers](https://developers.cloudflare.com/containers/guides/deploy/#before-production).
   * Version URLs are not generated for [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/) [user Workers](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/how-workers-for-platforms-works/#user-workers).
   * You cannot configure Version URLs to run on a subdomain other than [`workers.dev`](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/).
   * You cannot view logs for Version URLs with Workers Logs, Wrangler tail, or Logpush.

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/dns-firewall/random-prefix-attacks/
 title: Random prefix attack mitigation \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:56.633945+00:00
+fetched_at: 2026-11-19T10:02:09.979245+00:00
 ---
 
 # Random prefix attack mitigation · Cloudflare DNS docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:56.633945+00:00
 
 # Random prefix attack mitigation
 
-Last updated Apr 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/dns-firewall/random-prefix-attacks/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewResourcesLimitations
 
@@ -42,6 +42,8 @@ To reduce the impact of false positives, Cloudflare does not block entire [publi
 In addition, the default setting for the automatic mitigation ensures that it will only be deployed if upstream authoritative nameservers are determined to be unresponsive (and likely overloaded by an attack). This means that, as long as your authoritative nameservers can handle the traffic during a random prefix attack, Cloudflare will not actively block queries in order to avoid false positives. This setting is called `"only_when_upstream_unhealthy"` and is always true if not explicitly disabled during [Setup](https://developers.cloudflare.com/dns/dns-firewall/random-prefix-attacks/setup/).
 
 Because Cloudflare does not know which domains and subdomains exist as DNS records on an upstream nameserver, this feature takes a best effort approach by blocking DNS queries to affected subdomains in order to allow upstream nameservers to keep responding to DNS queries to unaffected subdomains.
+
+Attack mitigation is evaluated continuously based on observed traffic patterns across the cluster. Because Cloudflare cannot know for certain all subdomains that legitimately exist on your nameservers, some queries may pass through before or during mitigation. This is expected behavior — mitigation is not instantaneous and is not guaranteed to block every query that is part of an attack.
 
 [PreviousFAQ](https://developers.cloudflare.com/dns/dns-firewall/faq/)[NextAbout](https://developers.cloudflare.com/dns/dns-firewall/random-prefix-attacks/about/)
 

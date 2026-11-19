@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/infrastructure-as-code/
 title: Infrastructure as Code (IaC) \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:39.770014+00:00
+fetched_at: 2026-11-19T10:02:07.053203+00:00
 ---
 
 # Infrastructure as Code (IaC) · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:39.770014+00:00
 
 # Infrastructure as Code (IaC)
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/platform/infrastructure-as-code/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkers BundlingTerraformBindings in Terraform KV Namespace Binding R2 Bucket Binding D1 Database Binding Durable Object Binding Service Binding Queue Binding Vectorize Binding Workers AI Binding Hyperdrive Binding VPC Service Binding Analytics Engine Binding Environment Variables Secret Text Binding Complete ExampleCloudflare API LibrariesCloudflare REST API multipart/form-data upload API Python WorkersConsiderations with Durable ObjectsConsiderations with Worker Versions Resource immutability Module Content Import Behavior Examples
 

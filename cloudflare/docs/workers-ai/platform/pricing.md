@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/platform/pricing/
 title: Pricing \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:06.936338+00:00
+fetched_at: 2026-11-19T10:02:05.660711+00:00
 ---
 
 # Pricing · Cloudflare Workers AI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-13T09:17:06.936338+00:00
 
 # Pricing
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPay with AI Gateway creditsWhat are Neurons?LLM model pricingEmbeddings model pricingImage model pricingAudio model pricingOther model pricing
 
@@ -271,6 +271,10 @@ Model | Price in Tokens | Price in Neurons
   
 ## Other model pricing
 
+Launch promo: Clairic 58% off
+
+`@cf/cloudflare/clairic` costs $0.100 per M input tokens (9091 neurons) until December 1, 2026. From December 1, 2026, it costs $0.240 per M input tokens (21818 neurons). `@cf/cloudflare/clairic-flash` stays at $0.100 per M input tokens.
+
 Model | Price in Tokens | Price in Neurons  
 ---|---|---  
 @cf/huggingface/distilbert-sst-2-int8 | $0.026 per M input tokens | 2394 neurons per M input tokens  
@@ -288,7 +292,8 @@ $1.000 per M output tokens | 27273 neurons per M input tokens
 @cf/cloudflare/clef | $0.240 per M input tokens | 21818 neurons per M input tokens  
 @cf/cloudflare/clef-omni | $0.150 per M input tokens | 13636 neurons per M input tokens  
 @cf/cloudflare/clef-flash | $0.038 per M input tokens | 3455 neurons per M input tokens  
-@cf/cloudflare/clairic | $0.100 per M input tokens | 9091 neurons per M input tokens  
+@cf/cloudflare/clairic | $0.100 per M input tokens (promo until Dec 1, 2026; then $0.240) | 9091 neurons per M input tokens (then 21818)  
+@cf/cloudflare/clairic-flash | $0.100 per M input tokens | 9091 neurons per M input tokens  
   
 [PreviousAgents ↗︎](https://developers.cloudflare.com/agents/)[NextData usage](https://developers.cloudflare.com/workers-ai/platform/data-usage/)
 

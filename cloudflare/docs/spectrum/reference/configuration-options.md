@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/reference/configuration-options/
 title: Configuration options \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.833568+00:00
+fetched_at: 2026-11-19T10:02:05.423680+00:00
 ---
 
 # Configuration options · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:31.833568+00:00
 
 # Configuration options
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewApplication typeIP addressesSMTPPortsPort rangesIP Access rulesArgo Smart RoutingVirtual network originEdge TLS TerminationOrigin TLS TerminationSupported cipher suites by protocol
 
@@ -102,6 +102,8 @@ The number of ports in an origin port range must match the number of ports speci
 ## IP Access rules
 
 If [IP Access rules](https://developers.cloudflare.com/waf/tools/ip-access-rules/create/) are enabled for a Spectrum application, Cloudflare will respect the IP Access rules configured for that domain. Cloudflare only respects rules created for specific IP addresses, IP blocks, countries, or ASNs for Spectrum applications. Spectrum will also only respect rules created with the actions `allow` or `block`.
+
+IP Access Rules are off by default for new TCP and UDP applications, whether you create them in the dashboard or through the API with `ip_firewall` omitted. To turn them on, edit the application in the dashboard and turn on **IP Access Rules** under **Advanced Options** , or set `ip_firewall` to `true` through the API. The `ip_firewall` setting applies only to TCP and UDP applications. The API rejects `ip_firewall: true` for HTTP and HTTPS applications, and the dashboard does not show the switch for them.
 
 Note
 

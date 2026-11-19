@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/unified-billing/
 title: Unified Billing \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:46.323011+00:00
+fetched_at: 2026-11-19T10:02:07.934565+00:00
 ---
 
 # Unified Billing · Cloudflare AI Gateway docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-06T09:03:46.323011+00:00
 
 # Unified Billing
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPre-requisitesLoad credits Auto-top upCredential precedencePrevent Unified Billing fallback for BYOK third-party providersUse Unified Billing AI binding HTTP API Spend limits Zero Data Retention (ZDR)
+OverviewPrerequisitesLoad credits Auto top-upCredential precedencePrevent Unified Billing fallback for BYOK third-party providersUse Unified Billing AI binding HTTP API Spend limits Zero Data Retention (ZDR)
 
 Unified Billing allows users to call Workers AI and connect to various AI providers (such as OpenAI, Anthropic, and Google AI Studio) and receive a single Cloudflare bill. To use Unified Billing, you must purchase and load credits into your Cloudflare account in the Cloudflare dashboard, which you can then spend with AI Gateway.
 
@@ -30,7 +30,7 @@ Caution
 
 In rare instances, your credit balance may go negative. If this happens, Cloudflare will charge the payment method on file for the outstanding amount. Charges occur at the beginning of each month for the previous month.
 
-## Pre-requisites
+## Prerequisites
 
   * Ensure your Cloudflare account has sufficient credits loaded.
   * Ensure you have [authenticated](https://developers.cloudflare.com/ai-gateway/configuration/authentication/) your AI Gateway.
@@ -52,7 +52,7 @@ To load credits for AI Gateway:
 
 [ Go to **AI Gateway** ↗ ](https://dash.cloudflare.com/?to=/:account/ai/ai-gateway)
 
-The **Credits Available** card on the top right shows how many AI gateway credits you have on your account currently.
+The **Credits Available** card on the top right shows how many AI Gateway credits you have on your account currently.
 
   2. In **Credits Available** , select **Manage**.
 
@@ -65,7 +65,7 @@ The **Credits Available** card on the top right shows how many AI gateway credit
 
 
 
-### Auto-top up
+### Auto top-up
 
 You can configure AI Gateway to automatically replenish your credits when they fall below a certain threshold. To configure auto top-up:
 

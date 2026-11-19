@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:06.468784+00:00
+fetched_at: 2026-11-19T10:02:09.273104+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-13T09:17:06.468784+00:00
 
 # Configuration
 
-Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPIs cloudflareTest(options) buildPagesASSETSBinding(assetsPath) readD1Migrations(migrationsPath)CloudflareTestOptionsDynamic configuration with injectSourcelessWorkerOptions
 
@@ -86,7 +86,7 @@ It also accepts an optionally-`async` function returning `options`.
 
 ### `buildPagesASSETSBinding(assetsPath)`
 
-Exported from `@cloudflare/vitest-plugin/config`. Creates a Pages ASSETS binding that serves files inside the `assetsPath`. This is required if you use `createPagesEventContext()` to test your **Pages Functions**. Refer to the [Pages recipe](https://developers.cloudflare.com/workers/testing/vitest-integration/recipes) for a full example.
+Exported from `@cloudflare/vitest-plugin`. Creates a Pages ASSETS binding that serves files inside the `assetsPath`. This is required if you use `createPagesEventContext()` to test your **Pages Functions**. Refer to the [Pages recipe](https://developers.cloudflare.com/workers/testing/vitest-integration/recipes) for a full example.
     
     
     import path from "node:path";
@@ -111,7 +111,7 @@ Exported from `@cloudflare/vitest-plugin/config`. Creates a Pages ASSETS binding
 
 ### `readD1Migrations(migrationsPath)`
 
-Exported from `@cloudflare/vitest-plugin/config`. Reads all [D1 migrations](https://developers.cloudflare.com/d1/reference/migrations/) stored at `migrationsPath` and returns them ordered by migration number. Each migration will have its contents split into an array of individual SQL queries. Call the [`applyD1Migrations()`](https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/#d1) function inside a test or [setup file ↗︎](https://vitest.dev/config/setupfiles) to apply migrations. Refer to the [D1 recipe ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-plugin-examples/d1) for an example project using migrations.
+Exported from `@cloudflare/vitest-plugin`. Reads all [D1 migrations](https://developers.cloudflare.com/d1/reference/migrations/) stored at `migrationsPath` and returns them ordered by migration number. Each migration will have its contents split into an array of individual SQL queries. Call the [`applyD1Migrations()`](https://developers.cloudflare.com/workers/testing/vitest-integration/test-apis/#d1) function inside a test or [setup file ↗︎](https://vitest.dev/config/setupfiles) to apply migrations. Refer to the [D1 recipe ↗︎](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-plugin-examples/d1) for an example project using migrations.
     
     
     import path from "node:path";

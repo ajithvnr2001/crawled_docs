@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/about/ftp/
 title: FTP \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:32.471033+00:00
+fetched_at: 2026-11-19T10:02:05.561037+00:00
 ---
 
 # FTP · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:32.471033+00:00
 
 # FTP
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/about/ftp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow FTP OperatesWhat Does and Does Not WorkProtect an FTP Server with Spectrum Protect the Control Port Protect Data Ports Spectrum FTPS (ProFTPD) instructionsSFTPMicrosoft Windows IIS FTP
 
@@ -50,10 +50,17 @@ Configuring Spectrum to protect your FTP server requires creating a set of Spect
 
 ### Protect the Control Port
 
-The control plane runs on port 21 by default, and there is nothing special that needs to be to protect this part of the FTP server. In the example below, replace 198.51.100.1 with the IP of the origin server.
+The control plane runs on port 21 by default, and there is nothing special that needs to be to protect this part of the FTP server. Create a Spectrum application with the following settings, replacing `198.51.100.1` with the IP of the origin server.
 
-![Add an application dialog with IP address and port set to 21](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=656,height=1153,format=webp/_astro/ftp-control-plane-app.CCDNXmIO.png)
-
+Setting | Value  
+---|---  
+Application Type | TCP  
+Subdomain | `ftp` (for `ftp.example.com`)  
+Edge Port | `21`  
+Origin type | IP or DNS record  
+Origin IP or DNS record | `198.51.100.1`  
+Port | `21`  
+  
 This configuration proxies incoming connections to the origin. However, if clients issue a PASV command, they will still receive the IP of the actual origin for the data connection. This is not preferred, as this exposes the origin's IP to the client instead of being masked behind Spectrum. Steps to prevent this are documented in sections below.
 
 ### Protect Data Ports

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/1xx-informational/
 title: 1xx Informational \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:53.320471+00:00
+fetched_at: 2026-11-19T10:02:05.802765+00:00
 ---
 
 # 1xx Informational · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:53.320471+00:00
 
 # 1xx Informational
 
-Last updated Jul 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/1xx-informational/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview100 Continue Common use cases Cloudflare-specific information101 Switching Protocols Common use cases Cloudflare-specific information102 Processing Common use cases Cloudflare-specific information
 
@@ -39,7 +39,7 @@ Cloudflare forwards all 1xx responses from origin servers but does not generate 
 
 ## 100 Continue
 
-The 100 Continue status indicates that the server has received the request headers and is ready for the client to send the request body. For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+The 100 Continue status indicates that the server has received the request headers and is ready for the client to send the request body. For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.2.1).
 
 ### Common use cases
 
@@ -53,7 +53,7 @@ Cloudflare uses Keep-Alive connections to maintain persistent communication betw
 
 ## 101 Switching Protocols
 
-The 101 Switching Protocols status code indicates that the origin server accepts the client's request to switch protocols. For more information, refer to [RFC 7231 ↗︎](https://tools.ietf.org/html/rfc7231).
+The 101 Switching Protocols status code indicates that the origin server accepts the client's request to switch protocols. For more information, refer to [RFC 9110 ↗︎](https://www.rfc-editor.org/rfc/rfc9110#section-15.2.2).
 
 ### Common use cases
 
@@ -65,7 +65,7 @@ Cloudflare supports WebSocket connections, which often involve the 101 Switching
 
 ## 102 Processing
 
-102 Processing status code indicates that the server has received the request and is currently processing it, but the final response is not yet ready. This status code is only applicable to HTTP/1.1 and higher. For more information, refer to [RFC 2518 ↗︎](https://tools.ietf.org/html/rfc2518).
+102 Processing status code indicates that the server has received the request and is currently processing it, but the final response is not yet ready. This status code is only applicable to HTTP/1.1 and higher. For more information, refer to [RFC 2518 ↗︎](https://www.rfc-editor.org/rfc/rfc2518).
 
 ### Common use cases
 

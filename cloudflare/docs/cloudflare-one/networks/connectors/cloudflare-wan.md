@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/
 title: Overview \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:23.282670+00:00
+fetched_at: 2026-11-19T10:02:08.519845+00:00
 ---
 
 # Overview · Cloudflare One docs
@@ -22,7 +22,7 @@ Networks
 
 # Cloudflare WAN
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated productsMore resources
 
@@ -39,6 +39,10 @@ You connect your sites to Cloudflare through on-ramps — tunnels or direct conn
 Refer to [WAN transformation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/) to compare approaches and plan your migration, or go straight to [get started](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/get-started/).
 
 * * *
+
+Choosing a connector
+
+[Cloudflare Mesh](https://developers.cloudflare.com/mesh/) is the default connector for private access and private networks. To publish an HTTP application on the public Internet, use [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/). For code on Cloudflare, use [Workers VPC](https://developers.cloudflare.com/workers-vpc/). For whole sites, use [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/). To compare them, refer to [Connector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/).
 
 ## Features
 
@@ -102,7 +106,7 @@ Cloudflare Load Balancing distributes traffic across your endpoints, which reduc
 
 Explore the architecture of Cloudflare One as a SASE platform, including how Cloudflare WAN handles connectivity, routing, and security.
 
-[PreviousPlatform](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/platform/)[NextWAN transformation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/)
+[PreviousTroubleshooting](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/troubleshooting/)[NextWAN transformation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/)
 
 Was this helpful?
 

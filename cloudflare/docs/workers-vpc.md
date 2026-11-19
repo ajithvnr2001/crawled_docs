@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/
 title: Overview \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:28.991722+00:00
+fetched_at: 2026-11-19T10:02:08.109668+00:00
 ---
 
 # Overview · Cloudflare Workers VPC
@@ -16,7 +16,7 @@ fetched_at: 2026-10-30T08:19:28.991722+00:00
 
 # Cloudflare Workers VPC
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse cases Access private APIs from Workers applications API gateway Internal tooling, agents, dashboards Apply Zero Trust controls to Worker egressGet startedRelated products
 
@@ -98,6 +98,10 @@ Workers VPC is currently in beta. Features and APIs may change before general av
     		]
     	}
 
+Choosing a connector
+
+[Cloudflare Mesh](https://developers.cloudflare.com/mesh/) is the default connector for private access and private networks. To publish an HTTP application on the public Internet, use [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/). For code on Cloudflare, use [Workers VPC](https://developers.cloudflare.com/workers-vpc/). For whole sites, use [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/). To compare them, refer to [Connector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/).
+
 ## Use cases
 
 ### Access private APIs from Workers applications
@@ -144,7 +148,7 @@ Build serverless applications and deploy instantly across the globe for exceptio
 
 Connect to PostgreSQL and MySQL databases from Workers with connection pooling and caching built-in, available to all Workers plans.
 
-[NextGet started](https://developers.cloudflare.com/workers-vpc/get-started/)
+[NextConnector selection ↗︎](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/)
 
 Was this helpful?
 

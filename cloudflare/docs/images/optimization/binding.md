@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/binding/
 title: Optimize with Workers \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:34.518550+00:00
+fetched_at: 2026-11-19T10:02:05.959957+00:00
 ---
 
 # Optimize with Workers · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:34.518550+00:00
 
 # Optimize with Workers
 
-Last updated Sep 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/optimization/binding/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSetupMethods .input(stream) .text(content, options) .transform(options) .draw(image, options) .output(options) .info(stream)Interact with your Images binding locally
 
@@ -222,7 +222,7 @@ Draws an overlay image over another image.
 
 The overlay can be a stream of image bytes or another `.input()` chain. You can pass a child `.transform()` function inside this method to resize or manipulate the overlay before drawing it.
 
-Accepts `opacity`, `repeat`, a side (`left`, `right`, `top`, `bottom`), and `composite`. For the full list of draw options and examples, refer to [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/draw-overlays/#options).
+Accepts `opacity`, `repeat`, a side (`left`, `right`, `top`, `bottom`), and `composite`. For the full list of draw options and examples, refer to [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/draw-overlays/#settings).
 
 ### `.output(options)`
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/
 title: Configure with Connector \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:24.598300+00:00
+fetched_at: 2026-11-19T10:02:08.368839+00:00
 ---
 
 # Configure with Connector · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # Configure with Connector
 
-Last updated Aug 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Cloudflare One Appliance is a lightweight appliance you can install in corporate network locations to automatically connect and steer any IP traffic through [secure IPsec tunnels](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/reference/#security-and-other-information). Cloudflare One Appliance is the easiest way to onboard your network locations to Cloudflare One. It is managed remotely through the Cloudflare dashboard, so you do not require an onsite IT team.
 
@@ -31,6 +31,10 @@ You can [purchase Cloudflare One Appliance](https://developers.cloudflare.com/cl
 Either option ensures the best possible connectivity to the closest Cloudflare network location, where Cloudflare will apply security controls and send traffic on an optimized route to its destination.
 
 Cloudflare One Appliance has the same type of support process as other Cloudflare Enterprise products. Contact your team account manager to learn more.
+
+Choosing a connector
+
+[Cloudflare Mesh](https://developers.cloudflare.com/mesh/) is the default connector for private access and private networks. To publish an HTTP application on the public Internet, use [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/). For code on Cloudflare, use [Workers VPC](https://developers.cloudflare.com/workers-vpc/). For whole sites, use [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/). To compare them, refer to [Connector selection](https://developers.cloudflare.com/cloudflare-one/networks/connectors/choose-a-connector/).
 
 Review this section to learn how to configure and deploy Cloudflare One Appliance.
 

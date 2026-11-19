@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/websockets/
 title: Use WebSockets \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:22.736605+00:00
+fetched_at: 2026-11-19T10:02:07.368329+00:00
 ---
 
 # Use WebSockets · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:22.736605+00:00
 
 # Use WebSockets
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat are WebSockets? Why use Hibernation?Durable Objects Hibernation WebSocket API How hibernation works Hibernation example Automatic ping/pong handling Batch messages to reduce overhead Extended methods
 
@@ -58,6 +58,12 @@ The Hibernation WebSocket API reduces costs by allowing Durable Objects to sleep
 ## Durable Objects Hibernation WebSocket API
 
 The Hibernation WebSocket API extends the [Web Standard WebSocket API](https://developers.cloudflare.com/workers/runtime-apis/websockets/) to reduce costs during periods of inactivity.
+
+When a hibernatable WebSocket receives a Close frame, reply with `close()` in `webSocketClose()`, unless you have already closed the outgoing side. An abnormal disconnection reported as `1006` has no Close frame to acknowledge.
+
+For method errors, refer to [State and error behavior](https://developers.cloudflare.com/workers/runtime-apis/websockets/#state-and-error-behavior).
+
+The examples [preserve sendable peer close codes and reasons](https://developers.cloudflare.com/workers/runtime-apis/websockets/#half-open-mode-for-proxying), and otherwise reply without a status code. They assume the `pedantic_wpt` compatibility flag is disabled; refer to [`close()` argument restrictions](https://developers.cloudflare.com/workers/runtime-apis/websockets/#close) for the narrower range with that flag enabled.
 
 ### How hibernation works
 
@@ -115,9 +121,12 @@ If an event occurs for a hibernated Durable Object, the runtime re-initializes i
     	}
     
     	async webSocketClose(ws, code, reason, wasClean) {
-    		// With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-    		// auto-replies to Close frames. Calling close() is safe but no longer required.
-    		ws.close(code, reason);
+    		// Reply to complete the closing handshake.
+    		if (code >= 1000 && code < 5000 && ![1004, 1005, 1006, 1015].includes(code)) {
+    			ws.close(code, reason);
+    		} else {
+    			ws.close();
+    		}
     	}
     }
     
@@ -160,9 +169,12 @@ If an event occurs for a hibernated Durable Object, the runtime re-initializes i
     		reason: string,
     		wasClean: boolean,
     	) {
-    		// With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-    		// auto-replies to Close frames. Calling close() is safe but no longer required.
-    		ws.close(code, reason);
+    		// Reply to complete the closing handshake.
+    		if (code >= 1000 && code < 5000 && ![1004, 1005, 1006, 1015].includes(code)) {
+    			ws.close(code, reason);
+    		} else {
+    			ws.close();
+    		}
     	}
     }
     
@@ -200,9 +212,11 @@ If an event occurs for a hibernated Durable Object, the runtime re-initializes i
             )
     
         async def webSocketClose(self, ws, code, reason, was_clean):
-            # With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-            # auto-replies to Close frames. Calling close() is safe but no longer required.
-            ws.close(code, reason)
+            # Reply to complete the closing handshake.
+            if 1000 <= code < 5000 and code not in (1004, 1005, 1006, 1015):
+                ws.close(code, reason)
+            else:
+                ws.close()
 
 Configure your Wrangler file with a Durable Object [binding](https://developers.cloudflare.com/durable-objects/get-started/#4-configure-durable-object-bindings) and [migration](https://developers.cloudflare.com/durable-objects/reference/durable-objects-migrations/):
     
@@ -424,9 +438,16 @@ Use `serializeAttachment` and `deserializeAttachment` to persist per-connection 
     	async webSocketClose(ws, code, reason, wasClean) {
     		const state = ws.deserializeAttachment();
     		console.log(`${state.orderId} disconnected`);
-    		// With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-    		// auto-replies to Close frames. Calling close() is safe but no longer required.
-    		ws.close(code, reason);
+    		// Reply to complete the closing handshake.
+    		if (
+    			code >= 1000 &&
+    			code < 5000 &&
+    			![1004, 1005, 1006, 1015].includes(code)
+    		) {
+    			ws.close(code, reason);
+    		} else {
+    			ws.close();
+    		}
     	}
     }
     
@@ -467,9 +488,12 @@ Use `serializeAttachment` and `deserializeAttachment` to persist per-connection 
         async webSocketClose(ws: WebSocket, code: number, reason: string, wasClean: boolean) {
         	const state = ws.deserializeAttachment() as ConnectionState;
         	console.log(`${state.orderId} disconnected`);
-        	// With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-        	// auto-replies to Close frames. Calling close() is safe but no longer required.
-        	ws.close(code, reason);
+            // Reply to complete the closing handshake.
+            if (code >= 1000 && code < 5000 && ![1004, 1005, 1006, 1015].includes(code)) {
+                ws.close(code, reason);
+            } else {
+                ws.close();
+            }
         }
     
     }
@@ -634,10 +658,14 @@ The following Durable Object creates a WebSocket connection and responds to mess
     
     		// When the client closes the connection, clean up the server side.
     		// With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-    		// auto-replies to Close frames. Calling close() is safe but no longer required.
+    		// auto-replies to Close frames. Calling close() with valid arguments is optional.
     		server.addEventListener("close", (cls) => {
     			this.currentlyConnectedWebSockets -= 1;
-    			server.close(cls.code, "Durable Object is closing WebSocket");
+    			if (cls.code >= 1000 && cls.code < 5000 && ![1004, 1005, 1006, 1015].includes(cls.code)) {
+    				server.close(cls.code, cls.reason);
+    			} else {
+    				server.close();
+    			}
     		});
     
     		return new Response(null, {
@@ -676,10 +704,14 @@ The following Durable Object creates a WebSocket connection and responds to mess
     
     		// When the client closes the connection, clean up the server side.
     		// With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-    		// auto-replies to Close frames. Calling close() is safe but no longer required.
+    		// auto-replies to Close frames. Calling close() with valid arguments is optional.
     		server.addEventListener("close", (cls: CloseEvent) => {
     			this.currentlyConnectedWebSockets -= 1;
-    			server.close(cls.code, "Durable Object is closing WebSocket");
+    			if (cls.code >= 1000 && cls.code < 5000 && ![1004, 1005, 1006, 1015].includes(cls.code)) {
+    				server.close(cls.code, cls.reason);
+    			} else {
+    				server.close();
+    			}
     		});
     
     		return new Response(null, {
@@ -720,10 +752,13 @@ The following Durable Object creates a WebSocket connection and responds to mess
     
             # When the client closes the connection, clean up the server side.
             # With web_socket_auto_reply_to_close (compat date >= 2026-04-07), the runtime
-            # auto-replies to Close frames. Calling close() is safe but no longer required.
+            # auto-replies to Close frames. Calling close() with valid arguments is optional.
             def on_close(event):
                 self.currently_connected_websockets -= 1
-                server.close(event.code, "Durable Object is closing WebSocket")
+                if 1000 <= event.code < 5000 and event.code not in (1004, 1005, 1006, 1015):
+                    server.close(event.code, event.reason)
+                else:
+                    server.close()
     
             server.addEventListener("close", create_proxy(on_close))
     
@@ -787,7 +822,7 @@ Refer to [Durable Objects code updates](https://developers.cloudflare.com/durabl
 
 
 
-[PreviousAccess Durable Objects Storage](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/)[NextError handling](https://developers.cloudflare.com/durable-objects/best-practices/error-handling/)
+[PreviousAccess Durable Objects Storage](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/)[NextAutomatic retries](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/)
 
 Was this helpful?
 

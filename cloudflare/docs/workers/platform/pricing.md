@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/pricing/
 title: Pricing \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T08:45:56.431178+00:00
+fetched_at: 2026-11-19T10:02:06.301642+00:00
 ---
 
 # Pricing · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-14T08:45:56.431178+00:00
 
 # Pricing
 
-Last updated Nov 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewControl usage costsWorkers Example pricing How to switch usage modelsWorkers LogsWorkers Trace Events LogpushWorkers KVHyperdriveQueuesWorkflowsD1 DefinitionsDurable Objects Compute billing Storage billingVectorize Calculating vector dimensionsR2Containers Network EgressService bindingsFine Print
 
@@ -50,7 +50,7 @@ Users on the Workers Paid plan have access to the Standard usage model. Workers 
 +$0.02 per additional million CPU milliseconds  
   
 Max of [5 minutes of CPU time](https://developers.cloudflare.com/workers/platform/limits/#account-plan-limits) per invocation (default: 30 seconds)  
-Max of 15 minutes of CPU time per [Cron Trigger](https://developers.cloudflare.com/workers/configuration/cron-triggers/) or [Queue Consumer](https://developers.cloudflare.com/queues/configuration/javascript-apis/#consumer) invocation  
+Max of [15 minutes of CPU time](https://developers.cloudflare.com/workers/platform/limits/#cpu-time) per [Cron Trigger](https://developers.cloudflare.com/workers/configuration/cron-triggers/) invocation for intervals of 1 hour or more  
   
 1 Inbound requests to your Worker. Cloudflare does not bill for [subrequests](https://developers.cloudflare.com/workers/platform/limits/#subrequests) you make from your Worker.
 

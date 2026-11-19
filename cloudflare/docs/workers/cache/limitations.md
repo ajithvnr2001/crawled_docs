@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/limitations/
 title: Limitations \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:20.316306+00:00
+fetched_at: 2026-11-19T10:02:09.155223+00:00
 ---
 
 # Limitations · Cloudflare Workers docs
@@ -20,11 +20,15 @@ fetched_at: 2026-11-18T09:55:20.316306+00:00
 
 Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewUnsupported scenarios HTTP methods WebSocket upgrades Custom RPC methods Status codes that are never cached Other invocation types Purge by host Cache pre-warmingLimits Response size Cache-Tag limits Purge rate limitsRelationship to other caches Zone-level cache configuration Cache API (caches.default) fetch() subrequest cachingComing soon
+OverviewUnsupported scenarios Local tests HTTP methods WebSocket upgrades Custom RPC methods Status codes that are never cached Other invocation types Purge by host Cache pre-warmingLimits Response size Cache-Tag limits Purge rate limitsRelationship to other caches Zone-level cache configuration Cache API (caches.default) fetch() subrequest cachingComing soon
 
 This page lists the scenarios where Workers Caching does not apply, followed by notes on how it relates to other caches you may already be using.
 
 ## Unsupported scenarios
+
+### Local tests
+
+Local Vitest tests do not exercise Workers Caching. Test cache behavior on a [Preview with its own cache](https://developers.cloudflare.com/workers/cache/#what-gets-cached) or a deployed test Worker with caching enabled. Check for `Cf-Cache-Status: HIT` using the [two-request debugging example](https://developers.cloudflare.com/workers/cache/debugging/#inspect-cf-cache-status).
 
 ### HTTP methods
 
