@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useCapabilities/
 title: useCapabilities
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:30.558556+00:00
+fetched_at: 2026-11-20T11:16:30.210534+00:00
 ---
 
 # useCapabilities

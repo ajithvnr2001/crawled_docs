@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAdditionalInstructions/
 title: useCopilotAdditionalInstructions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:59.754642+00:00
+fetched_at: 2026-11-20T11:16:27.176173+00:00
 ---
 
 # useCopilotAdditionalInstructions

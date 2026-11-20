@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/components/GenerativeUISurface/
 title: GenerativeUISurface
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:56.818919+00:00
+fetched_at: 2026-11-20T11:16:22.829177+00:00
 ---
 
 # GenerativeUISurface

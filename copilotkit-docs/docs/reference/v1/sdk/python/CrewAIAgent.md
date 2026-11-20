@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAIAgent/
 title: CrewAIAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:57.651213+00:00
+fetched_at: 2026-11-20T11:16:26.198134+00:00
 ---
 
 # CrewAIAgent

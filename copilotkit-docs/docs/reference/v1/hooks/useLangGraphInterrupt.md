@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useLangGraphInterrupt/
 title: useLangGraphInterrupt
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:59.222286+00:00
+fetched_at: 2026-11-20T11:16:26.632607+00:00
 ---
 
 # useLangGraphInterrupt

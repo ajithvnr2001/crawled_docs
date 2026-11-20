@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotSidebar/
 title: CopilotSidebar
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:30.867166+00:00
+fetched_at: 2026-11-20T11:16:30.664222+00:00
 ---
 
 # CopilotSidebar

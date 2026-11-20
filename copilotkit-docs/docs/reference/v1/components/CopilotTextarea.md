@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/components/CopilotTextarea/
 title: CopilotTextarea
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:28:00.355436+00:00
+fetched_at: 2026-11-20T11:16:28.094185+00:00
 ---
 
 # CopilotTextarea

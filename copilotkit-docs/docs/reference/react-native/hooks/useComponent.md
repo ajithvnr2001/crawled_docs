@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useComponent/
 title: useComponent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:30.721820+00:00
+fetched_at: 2026-11-20T11:16:29.978734+00:00
 ---
 
 # useComponent

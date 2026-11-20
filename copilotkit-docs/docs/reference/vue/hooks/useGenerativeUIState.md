@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useGenerativeUIState/
 title: useGenerativeUIState
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:55.777494+00:00
+fetched_at: 2026-11-20T11:16:21.676117+00:00
 ---
 
 # useGenerativeUIState

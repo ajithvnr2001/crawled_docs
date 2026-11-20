@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useAgentContext/
 title: useAgentContext
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:56.659422+00:00
+fetched_at: 2026-11-20T11:16:22.929079+00:00
 ---
 
 # useAgentContext

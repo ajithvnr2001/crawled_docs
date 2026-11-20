@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useComponent/
 title: useComponent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:58.585230+00:00
+fetched_at: 2026-11-20T11:16:25.581259+00:00
 ---
 
 # useComponent

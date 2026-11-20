@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useCapabilities/
 title: useCapabilities
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:58.628487+00:00
+fetched_at: 2026-11-20T11:16:25.658831+00:00
 ---
 
 # useCapabilities

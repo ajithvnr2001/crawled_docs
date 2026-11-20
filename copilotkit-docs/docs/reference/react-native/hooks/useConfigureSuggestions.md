@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useConfigureSuggestions/
 title: useConfigureSuggestions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:28:01.344962+00:00
+fetched_at: 2026-11-20T11:16:29.615155+00:00
 ---
 
 # useConfigureSuggestions

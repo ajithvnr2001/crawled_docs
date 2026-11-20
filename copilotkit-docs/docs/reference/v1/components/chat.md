@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/components/chat/
 title: All Chat Components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:28:00.196516+00:00
+fetched_at: 2026-11-20T11:16:28.019555+00:00
 ---
 
 # All Chat Components

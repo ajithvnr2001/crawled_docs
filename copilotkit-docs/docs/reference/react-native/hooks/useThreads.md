@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useThreads/
 title: useThreads
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:28:00.874077+00:00
+fetched_at: 2026-11-20T11:16:29.097110+00:00
 ---
 
 # useThreads

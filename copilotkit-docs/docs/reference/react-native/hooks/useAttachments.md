@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useAttachments/
 title: useAttachments
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:30.365397+00:00
+fetched_at: 2026-11-20T11:16:30.380471+00:00
 ---
 
 # useAttachments

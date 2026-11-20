@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useCopilotKit/
 title: useCopilotKit
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:56.245239+00:00
+fetched_at: 2026-11-20T11:16:22.328202+00:00
 ---
 
 # useCopilotKit

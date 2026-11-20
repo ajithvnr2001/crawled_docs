@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useComponent/
 title: useComponent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:56.367341+00:00
+fetched_at: 2026-11-20T11:16:23.185905+00:00
 ---
 
 # useComponent

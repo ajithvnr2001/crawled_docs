@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useHumanInTheLoop/
 title: useHumanInTheLoop
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:58.207296+00:00
+fetched_at: 2026-11-20T11:16:24.973924+00:00
 ---
 
 # useHumanInTheLoop
