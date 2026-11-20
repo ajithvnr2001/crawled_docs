@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/create-comfy-nodes-for-certain-node/
 title: create comfy-nodes for certain node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T15:52:16.940670+00:00
+fetched_at: 2026-11-20T15:58:59.570609+00:00
 ---
 
 # create comfy-nodes for certain node - ComfyUI
@@ -433,15 +433,11 @@ cURL
 
 #### Path Parameters
 
-​
-
 nodeId
 
 string
 
 required
-
-​
 
 version
 
@@ -453,15 +449,11 @@ required
 
 application/json
 
-​
-
 cloud_build_info
 
 object
 
 Show child attributes
-
-​
 
 nodes
 
@@ -469,19 +461,13 @@ object
 
 Show child attributes
 
-​
-
 reason
 
 string
 
-​
-
 status
 
 string
-
-​
 
 success
 

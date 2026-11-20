@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/list-the-models-comfy-router-can-run/
 title: List the models Comfy Router can run. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:07.269749+00:00
+fetched_at: 2026-11-20T15:58:51.331289+00:00
 ---
 
 # List the models Comfy Router can run. - ComfyUI
@@ -134,7 +134,20 @@ cURL
           "billing": {
             "charges_on_policy_rejection": "unknown"
           },
-          "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""
+          "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
+          "realtime": {
+            "connect_url": "/v2/realtime/google/google/genie-4",
+            "method": "GET",
+            "transport": "websocket",
+            "wire_format": "json",
+            "auth": [
+              "x-api-key",
+              "comfy-realtime.v1",
+              "comfy-bearer"
+            ],
+            "billing_unit": "per_second",
+            "max_session_seconds": 120
+          }
         }
       ],
       "has_more": true,
@@ -223,7 +236,7 @@ Comfy Router
 
 Copiar páginaCopiar página
 
-Comfy Router’s model catalog - one page of the canonical model IDs that `POST /v2/models/{provider}/{model}` accepts. An SDK calls this on cold start to discover what is runnable, and the `model_not_found` suggestions come from the same catalog, so an ID listed here that then 404s on invocation would be worse than either failure alone. That agreement is structural rather than a promise: an entry’s `provider` and `model` are the two path segments of the invocation route and reference the same schema components that route’s path parameters do, and `id` is those two segments joined by `/`.
+Comfy Router’s model catalog - one page of the canonical model IDs Comfy Router serves. An entry without a `realtime` block is a model that `POST /v2/models/{provider}/{model}` runs. An SDK calls this on cold start to discover what is runnable, and the `model_not_found` suggestions come from the same catalog, so an ID listed here that then 404s on invocation would be worse than either failure alone. That agreement is structural rather than a promise: an entry’s `provider` and `model` are the two path segments of the invocation route and reference the same schema components that route’s path parameters do, and `id` is those two segments joined by `/`.
 
 Copiar páginaCopiar página
 
@@ -364,7 +377,20 @@ cURL
           "billing": {
             "charges_on_policy_rejection": "unknown"
           },
-          "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""
+          "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
+          "realtime": {
+            "connect_url": "/v2/realtime/google/google/genie-4",
+            "method": "GET",
+            "transport": "websocket",
+            "wire_format": "json",
+            "auth": [
+              "x-api-key",
+              "comfy-realtime.v1",
+              "comfy-bearer"
+            ],
+            "billing_unit": "per_second",
+            "max_session_seconds": 120
+          }
         }
       ],
       "has_more": true,

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id/
 title: Read one partner model's catalog entry by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:05.770671+00:00
+fetched_at: 2026-11-20T15:58:51.407279+00:00
 ---
 
 # Read one partner model's catalog entry by canonical model ID. - ComfyUI
@@ -133,6 +133,19 @@ cURL
         "charges_on_policy_rejection": "unknown"
       },
       "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
+      "realtime": {
+        "connect_url": "/v2/realtime/google/google/genie-4",
+        "method": "GET",
+        "transport": "websocket",
+        "wire_format": "json",
+        "auth": [
+          "x-api-key",
+          "comfy-realtime.v1",
+          "comfy-bearer"
+        ],
+        "billing_unit": "per_second",
+        "max_session_seconds": 120
+      },
       "input_schema_url": "<string>"
     }
     
@@ -365,6 +378,19 @@ cURL
         "charges_on_policy_rejection": "unknown"
       },
       "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
+      "realtime": {
+        "connect_url": "/v2/realtime/google/google/genie-4",
+        "method": "GET",
+        "transport": "websocket",
+        "wire_format": "json",
+        "auth": [
+          "x-api-key",
+          "comfy-realtime.v1",
+          "comfy-bearer"
+        ],
+        "billing_unit": "per_second",
+        "max_session_seconds": 120
+      },
       "input_schema_url": "<string>"
     }
     
@@ -576,6 +602,14 @@ The current strong `ETag` of this model's `GET /v2/models/{provider}/{model}/ope
 Ejemplo:
 
 `"\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""`
+
+realtime
+
+object
+
+How to open a session with a realtime model. Present only on realtime models, and absent on every model that runs through `POST /v2/models/{provider}/{model}`: a realtime model is not run through that route, which refuses its id with `model_not_found`. Read the connection details from here rather than building them from a table of serving providers or wire formats in the client.
+
+Show child attributes
 
 input_schema_url
 

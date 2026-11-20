@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/retrieve-a-node-by-comfyui-node-name/
 title: Retrieve a node by ComfyUI node name - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:02.341924+00:00
+fetched_at: 2026-11-20T15:58:59.724990+00:00
 ---
 
 # Retrieve a node by ComfyUI node name - ComfyUI
@@ -437,8 +437,6 @@ cURL
 
 #### Path Parameters
 
-​
-
 comfyNodeName
 
 string
@@ -455,21 +453,15 @@ application/json
 
 Node details
 
-​
-
 author
 
 string
-
-​
 
 banner_url
 
 string
 
 URL to the node's banner.
-
-​
 
 category
 
@@ -479,21 +471,15 @@ deprecated
 
 DEPRECATED: The category of the node. Use 'tags' field instead. This field will be removed in a future version.
 
-​
-
 created_at
 
 string<date-time>
 
 The date and time when the node was created
 
-​
-
 description
 
 string
-
-​
 
 downloads
 
@@ -501,15 +487,11 @@ integer
 
 The number of downloads of the node.
 
-​
-
 github_stars
 
 integer
 
 Number of stars on the GitHub repository.
-
-​
 
 icon
 
@@ -517,15 +499,11 @@ string
 
 URL to the node's icon.
 
-​
-
 id
 
 string
 
 The unique identifier of the node.
-
-​
 
 latest_version
 
@@ -533,15 +511,11 @@ object
 
 Show child attributes
 
-​
-
 license
 
 string
 
 The path to the LICENSE file in the node's repository.
-
-​
 
 name
 
@@ -549,15 +523,11 @@ string
 
 The display name of the node.
 
-​
-
 preempted_comfy_node_names
 
 string[]
 
 A list of Comfy node names that are preempted by this node.
-
-​
 
 publisher
 
@@ -565,15 +535,11 @@ object
 
 Show child attributes
 
-​
-
 rating
 
 number
 
 The average rating of the node.
-
-​
 
 repository
 
@@ -581,15 +547,11 @@ string
 
 URL to the node's repository.
 
-​
-
 search_ranking
 
 integer
 
 A numerical value representing the node's search ranking, used for sorting search results.
-
-​
 
 status
 
@@ -603,15 +565,11 @@ Available options:
 
 `NodeStatusBanned`
 
-​
-
 status_detail
 
 string
 
 The status detail of the node.
-
-​
 
 supported_accelerators
 
@@ -619,15 +577,11 @@ string[]
 
 List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports
 
-​
-
 supported_comfyui_frontend_version
 
 string
 
 Supported versions of ComfyUI frontend
-
-​
 
 supported_comfyui_version
 
@@ -635,29 +589,21 @@ string
 
 Supported versions of ComfyUI
 
-​
-
 supported_os
 
 string[]
 
 List of operating systems that this node supports
 
-​
-
 tags
 
 string[]
-
-​
 
 tags_admin
 
 string[]
 
 Admin-only tags for security warnings and admin metadata
-
-​
 
 translations
 

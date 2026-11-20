@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-video/
 title: Generate music from video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:28.813581+00:00
+fetched_at: 2026-11-20T15:58:56.298001+00:00
 ---
 
 # Generate music from video - ComfyUI

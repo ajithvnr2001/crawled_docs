@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/update-a-publisher/
 title: Update a publisher - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:26.796250+00:00
+fetched_at: 2026-11-20T15:58:55.242587+00:00
 ---
 
 # Update a publisher - ComfyUI

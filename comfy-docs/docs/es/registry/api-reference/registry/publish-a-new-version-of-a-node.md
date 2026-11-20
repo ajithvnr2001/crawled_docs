@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/publish-a-new-version-of-a-node/
 title: Publish a new version of a node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:26.048048+00:00
+fetched_at: 2026-11-20T15:58:54.064005+00:00
 ---
 
 # Publish a new version of a node - ComfyUI

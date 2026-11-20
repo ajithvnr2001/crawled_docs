@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:13.201696+00:00
+fetched_at: 2026-11-20T15:58:52.497312+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -45,6 +45,7 @@ Back to top
     * RouterModelListEntry
     * RouterModelListResponse
     * RouterModelOutput
+    * RouterModelRealtime
     * RouterModelSegment
     * RouterPageCursor
     * RouterProviderSegment
@@ -325,7 +326,7 @@ The request’s contents were rejected against the model’s schema.Body: `Route
 
 RouterErrorResponse
 
-Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means reduce in-flight calls; `rate_limited` means wait for `Retry-After`.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Committed-Spend-Limit`, `X-Committed-Spend-Current`, `X-Committed-Spend-Remaining`, `X-Model-Concurrency-Limit`, `X-Model-Concurrency-Current`, `X-Model-Concurrency-Remaining`, `Retry-After` (when `rate_limited`)
+Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means reduce in-flight calls; `rate_limited` means wait for `Retry-After`, which on a provider’s limit (`X-Comfy-Upstream-Status` is `429`) is the provider’s own wait and is sent only when the provider sent one.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Committed-Spend-Limit`, `X-Committed-Spend-Current`, `X-Committed-Spend-Remaining`, `X-Model-Concurrency-Limit`, `X-Model-Concurrency-Current`, `X-Model-Concurrency-Remaining`, `Retry-After` (when `rate_limited`)
 
 502
 
@@ -919,7 +920,7 @@ Raised by Router itself, before or around the call to the model.
 `deadline_exceeded`| Comfy stopped holding the connection at its own configured bound before an answer arrived.  
 `not_enabled`| Comfy Router is not switched on for this caller yet.  
 `service_unavailable`| A service Comfy Router depends on is temporarily unavailable and the caller did nothing wrong.  
-`rate_limited`| The caller has spent an allowance measured over a window and must wait for that window to roll.  
+`rate_limited`| The caller has spent an allowance measured over a window and must wait for that window to roll, or the model provider throttled the call before starting any generation.  
 `cancelled`| A queued request was withdrawn — through the cancel route, or by an operator — before it produced a result; it is terminal, and it is not by itself a statement about the charge.  
 `queue_timeout`| A queued request waited past its queue timeout without ever being admitted.  
 `request_not_found`| The `request_id` names no request of the caller’s under this model.  
@@ -1403,6 +1404,12 @@ string
 
 The current strong `ETag` of this model’s `GET /v2/models/{provider}/{model}/openapi.json` document. Send it as `If-None-Match` on that read to get a `304` while the schema is unchanged, or compare it with the value seen last time to learn which models’ schemas changed without fetching every document. Absent whenever that read would not answer `200` for this caller at this moment: the schema service is not available, the model’s document cannot be rendered, or the model stopped being available to this caller while the response was being built. An absent tag is not a schema change; re-read the model’s document to learn its current tag.
 
+realtime
+
+RouterModelRealtime
+
+How to open a session with a realtime model. Present only on realtime models, and absent on every model that runs through `POST /v2/models/{provider}/{model}`: a realtime model is not run through that route, which refuses its id with `model_not_found`. Read the connection details from here rather than building them from a table of serving providers or wire formats in the client.Type: `RouterModelRealtime`
+
 ### RouterModelListResponse
 
 One page of the Router model catalog. **Fields**
@@ -1440,6 +1447,66 @@ The page size actually served. A requested `limit` above the maximum is clamped 
 ### RouterModelOutput
 
 The model result object. Read the selected model’s output schema for its exact shape. Type: `object`
+
+### RouterModelRealtime
+
+How to open a session with a realtime model. Present only on realtime models, and absent on every model that runs through `POST /v2/models/{provider}/{model}`: a realtime model is not run through that route, which refuses its id with `model_not_found`. Read the connection details from here rather than building them from a table of serving providers or wire formats in the client. **Fields**
+
+connect_url
+
+string
+
+required
+
+The path, on the same host that served this catalog, that opens a session with this model. It is a path, not a full URL: take the scheme and host from the base URL used to read `GET /v2/models`, using `wss` (or `ws`) for a `GET` WebSocket upgrade and keeping `https` for a `POST`. Use it as given; it already names the serving route Comfy chose for the model, and the client is not asked to choose one.
+
+method
+
+string
+
+required
+
+The HTTP method `connect_url` is called with: `GET` for a WebSocket upgrade, `POST` for a route that mints a session or carries WebRTC signalling over HTTP.
+
+transport
+
+string
+
+required
+
+How the session runs. `websocket` \- a WebSocket that carries the session’s messages. `websocket_media_frames` \- a WebSocket whose messages also carry image or video frames. `webrtc` \- media flows over WebRTC, negotiated either over the WebSocket at `connect_url` (`GET`) or by HTTP signalling calls to it (`POST`). `session_post` \- a `POST` that mints a session and answers with the details to join it.
+
+wire_format
+
+string
+
+required
+
+The encoding of the messages the client sends and receives on `connect_url`: `json` or `msgpack`. For a `POST` route it is the request and response body encoding.
+
+auth
+
+array of string
+
+required
+
+The ways `connect_url` accepts the caller’s credentials. `x-api-key` \- a Comfy API key in the `X-API-Key` header. `comfy-realtime.v1` \- the `Sec-WebSocket-Protocol` value the client offers, which the upgrade selects. `comfy-bearer` \- a Firebase ID token offered as the `Sec-WebSocket-Protocol` entry `comfy-bearer.<token>` beside `comfy-realtime.v1`, for a browser that cannot set headers on a WebSocket. A method the route does not accept is not listed.
+
+billing_unit
+
+string
+
+required
+
+What a session is metered in. `per_second` \- wall-clock seconds of an open session.
+
+max_session_seconds
+
+integer
+
+required
+
+The longest one session can run, in seconds. A session also ends sooner when the caller’s balance runs out.At least 1
 
 ### RouterModelSegment
 
@@ -1655,4 +1722,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/reference.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/reference)
 
-[Realtime voice](https://docs.comfy.org/development/comfy-router/realtime)[Headers](https://docs.comfy.org/development/comfy-router/headers)
+[Realtime models](https://docs.comfy.org/development/comfy-router/realtime)[Headers](https://docs.comfy.org/development/comfy-router/headers)

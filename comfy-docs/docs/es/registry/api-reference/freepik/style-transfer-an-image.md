@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/style-transfer-an-image/
 title: Style transfer an image - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:30.195829+00:00
+fetched_at: 2026-11-20T15:58:57.545096+00:00
 ---
 
 # Style transfer an image - ComfyUI
