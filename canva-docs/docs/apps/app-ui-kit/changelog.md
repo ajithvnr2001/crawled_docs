@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/app-ui-kit/changelog/
 title: Changelog - App UI Kit reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T18:43:18.037776+00:00
+fetched_at: 2026-11-20T18:03:47.387391+00:00
 ---
 
 # Changelog - App UI Kit reference - Canva Developers SDK Documentation
@@ -30,6 +30,15 @@ UI Patterns
 The latest changes to the App UI Kit.
 
 Copy page
+
+## 5.16.1 - 2026-11-20
+
+### Fixed
+
+  * Restored the `ResizeObserver` polyfill dependency removed in 5.16.0. This fixes downstream Jest CI failures when apps mount App UI Kit components in jsdom without `ResizeObserver`.
+  * Fixed an issue where loading video thumbnails in `VideoCard` could retain video elements and buffers in memory on iOS.
+
+
 
 ## 5.16.0 - 2026-11-18
 
