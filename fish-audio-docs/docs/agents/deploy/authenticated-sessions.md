@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 title: Authenticated Sessions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:57.147058+00:00
+fetched_at: 2026-11-20T16:17:52.764740+00:00
 ---
 
 # Authenticated Sessions - Fish Audio
@@ -200,7 +200,7 @@ the conversation language, taking precedence over the configured [speaking langu
         "llm": {
           "fallback": {
             "mode": "manual",
-            "models": [{ "model": "google/gemini-3.6-flash" }]
+            "models": [{ "model": "google/gemini-3.8-flash" }]
           }
         }
       }
@@ -271,7 +271,7 @@ Status| Meaning
 `403`| Public-agent request rejected: the agent is not public, or the page’s `Origin` is not on the allow-list.  
 `409`| Conflict: most commonly the agent has no published version yet. [Publish](https://docs.fish.audio/agents/deploy/versions-publishing) to resolve.  
 `422`| The request body failed validation: an unknown field, an unsupported `language` code, an invalid `timezone`, or an invalid dynamic variable.  
-`429`| Rate limited: a public-agent request exceeded the per-agent or per-IP limit.  
+`429`| Every [concurrent line](https://docs.fish.audio/agents/pricing#concurrent-calls) of the team is in use (the code `concurrency_limit_exceeded`, with `retry_after`), or a public-agent request exceeded the per-agent or per-IP rate limit.  
   
 The complete status-code reference for every `/v1/agent` endpoint (error shapes, `400` vs `422`, conflict semantics) is on [Agents API errors](https://docs.fish.audio/api-reference/agent-errors).
 

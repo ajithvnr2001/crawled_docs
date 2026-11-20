@@ -20,7 +20,7 @@
 {"url": "https://docs.fish.audio/agents/monitor/post-call-analysis/", "file": "agents/monitor/post-call-analysis.md", "title": "Post-call Analysis - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/quickstart/", "file": "agents/quickstart.md", "title": "Quickstart - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/deploy/versions-publishing/", "file": "agents/deploy/versions-publishing.md", "title": "Versions & Publishing - Fish Audio", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.fish.audio/agents/pricing/", "file": "agents/pricing.md", "title": "Pricing - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/agents/pricing/", "file": "agents/pricing.md", "title": "Pricing & Limits - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/telephony/byo-sip/", "file": "agents/telephony/byo-sip.md", "title": "Bring Your Own Number - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/overview/", "file": "agents/overview.md", "title": "Agents Overview - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/telephony/keypad/", "file": "agents/telephony/keypad.md", "title": "Keypad Menu and Input - Fish Audio", "method": "scrapling+scrapegraph"}
@@ -223,3 +223,7 @@
 {"url": "https://docs.fish.audio/agents/build/background-sound-voice-effect/", "file": "agents/build/background-sound-voice-effect.md", "title": "Background Sound & Voice Effect - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/agent/list-background-sounds/", "file": "api-reference/endpoint/agent/list-background-sounds.md", "title": "List Background Sounds - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound/", "file": "api-reference/endpoint/agent/create-background-sound.md", "title": "Create Background Sound - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/create-knowledge-folder/", "file": "api-reference/endpoint/agent/create-knowledge-folder.md", "title": "Create Knowledge Folder - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-folders/", "file": "api-reference/endpoint/agent/list-knowledge-folders.md", "title": "List Knowledge Folders - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-folder/", "file": "api-reference/endpoint/agent/delete-knowledge-folder.md", "title": "Delete Knowledge Folder - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-folder/", "file": "api-reference/endpoint/agent/update-knowledge-folder.md", "title": "Rename Knowledge Folder - Fish Audio", "method": "scrapling+scrapegraph"}

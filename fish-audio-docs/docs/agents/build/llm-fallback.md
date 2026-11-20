@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/llm-fallback/
 title: LLM Fallback - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.912739+00:00
+fetched_at: 2026-11-20T16:17:52.926236+00:00
 ---
 
 # LLM Fallback - Fish Audio
@@ -17,9 +17,12 @@ Back to top
   * Configure manual fallback
     * models
     * Timeouts
+    * When a reply has started
+    * What total_timeout_ms covers
     * Run a fallback in parallel
   * What triggers a switch
   * What doesn’t switch
+  * When a reply fails
   * Per-session override
   * See which model answered
   * Billing
@@ -53,11 +56,20 @@ Mode| Behavior
 ---|---  
 `platform` (default)| The platform’s own failover chain for platform models. A [custom LLM](https://docs.fish.audio/agents/build/custom-llm) gets no fallback in this mode. The chain is maintained by the platform and may change without notice.  
 `manual`| Only the models you list in `llm.fallback.models`, tried in order.  
-`off`| No model switch. A failed reply goes to the agent’s [failure handling](https://docs.fish.audio/agents/build/custom-llm#failure-behavior).  
+`off`| No model switch. A reply the agent’s own model does not produce is a failed reply.  
   
 With `manual` you choose which models back up the agent, in what order, and with what timing.
 
 ## Configure manual fallback
+
+  * Console
+
+  * API
+
+
+
+
+On your agent’s **Configuration** page, open **Fallback models** in the **Model** section and pick **Custom**. Select **Add fallback** and choose a model for each one, then select **Save**.The agent’s own model appears as **Primary model**. Every model has a **First token timeout (s)** and a **Total timeout (s)** , entered in seconds.
 
 Set `llm.fallback` on the agent’s draft configuration through [`PATCH /v1/agent/agents/{agent_id}/config`](https://docs.fish.audio/agents/build/configuration#configure-through-the-api). It works like any other `llm` field.
     
@@ -71,7 +83,7 @@ Set `llm.fallback` on the agent’s draft configuration through [`PATCH /v1/agen
             "mode": "manual",
             "models": [
               {
-                "model": "google/gemini-3.6-flash",
+                "model": "google/gemini-3.8-flash",
                 "parallel": { "kick_in_ms": 1200 }
               },
               {
@@ -80,8 +92,7 @@ Set `llm.fallback` on the agent’s draft configuration through [`PATCH /v1/agen
                   "model": "backup-70b",
                   "api_key": "sk-your-endpoint-key"
                 },
-                "ttft_timeout_ms": 4000,
-                "total_timeout_ms": 15000
+                "ttft_timeout_ms": 4000
               }
             ],
             "primary": { "ttft_timeout_ms": 3000 }
@@ -118,34 +129,89 @@ Each entry in `models` can set two timeouts. `primary` sets the same two for the
 
 Field| Range| Default| Meaning  
 ---|---|---|---  
-`ttft_timeout_ms`| 500–30,000| 5000| Milliseconds to the first token or tool call. Past it, the reply moves to the next model.  
-`total_timeout_ms`| 1,000–120,000| no limit| Milliseconds to finish the reply. Must be at least `ttft_timeout_ms` when both are set.  
+`ttft_timeout_ms`| 500–30,000| 5000| Milliseconds the model has to start its reply. Past it, the reply moves to the next model.  
+`total_timeout_ms`| 1,000–120,000| no limit| Milliseconds the model has to finish generating its reply. Must be at least `ttft_timeout_ms` when both are set.  
   
-When `total_timeout_ms` runs out:
+The defaults apply to every model in `manual` mode. That includes the agent’s own model when you leave `primary` out. Both timeouts count from the moment a request goes to the model. A reply that calls a tool and then answers is two requests, and each has its own count. These numbers are starting points, not thresholds. A shorter `ttft_timeout_ms` reaches a fallback sooner. It also switches away from a model that was about to answer.
 
-  * Nothing spoken yet: the reply moves to the next model.
-  * Playback already started: the reply counts as failed. No switch.
+#### When a reply has started
 
-These numbers are starting points, not thresholds. A shorter `ttft_timeout_ms` reaches a fallback sooner. It also switches away from a model that was about to answer.
+`ttft_timeout_ms` stops counting at the first of these.
+
+  * The first text of the reply.
+  * A tool call whose name and arguments have arrived in full. The beginning of a streamed tool call does not stop the count.
+
+
+
+#### What `total_timeout_ms` covers
+
+`total_timeout_ms` measures the model’s generation, tool call arguments included.
+
+  * It does not measure playback. A reply can still be playing after the model has finished generating it.
+  * It does not include the time a tool takes to run.
+  * It keeps counting after the reply has started.
+
+When it runs out, the reply has usually started, because `ttft_timeout_ms` comes first.
+
+  * What the model generated so far is still spoken. The rest is lost.
+  * The reply counts as a failed reply. It does not move to the next model.
+
+If the model had not started its reply yet, the reply moves to the next model.
+
+A short `total_timeout_ms` cuts replies that are simply long. On a platform model, a reply cut this way is generated again from the start, so the caller can hear its first words twice. Leave it unset unless you need a hard cap, and then keep it well above the time your longest reply takes to generate, tool call arguments included. To move away from a model that is slow to start, use `ttft_timeout_ms`.
 
 ### Run a fallback in parallel
 
-The first entry in `models` can set `parallel.kick_in_ms`. Range 300–10,000, default 1500.
+The first fallback can run alongside the agent’s own model, so a slow start does not hold the reply.
 
-  * The platform requests the agent’s own model and this fallback at the same time.
-  * If the main model has no first token by `kick_in_ms`, the fallback’s reply is used.
-  * The other request is cancelled.
-  * Only the first entry can set `parallel`. On a later entry it is `422`.
+  * Console
 
-Parallel trades cost for latency. Both requests bill their own tokens, whichever reply is used.
+  * API
+
+
+
+
+In **Fallback models** , turn on **Run with the primary model** on **Fallback 1** , then set **Switch after (ms)**.
+
+Set `parallel.kick_in_ms` on the first entry in `models`. On a later entry it is `422`.
+    
+    
+    curl --request PATCH "https://api.fish.audio/v1/agent/agents/$AGENT_ID/config" \
+      --header "Authorization: Bearer $FISH_API_KEY" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "llm": {
+          "fallback": {
+            "mode": "manual",
+            "models": [
+              {
+                "model": "google/gemini-3.8-flash",
+                "parallel": { "kick_in_ms": 1200 }
+              }
+            ]
+          }
+        }
+      }'
+    
+
+The switch-over time is 300 to 10,000 ms, 1500 by default. On every reply, the platform requests the agent’s own model and this fallback at the same time.
+
+What happens| Whose reply is used  
+---|---  
+The main model starts its reply within `kick_in_ms`| The main model’s  
+`kick_in_ms` passes first| Whichever of the two starts first  
+One of the two fails| The other’s, without waiting for `kick_in_ms`  
+Both fail| The next entry in `models`  
+  
+Parallel trades cost for latency. Both requests bill their own tokens, whichever reply is used. The request that was not used is cancelled.
 
 ## What triggers a switch
 
 A reply moves to the next model on:
 
   * A provider error.
-  * No first token within `ttft_timeout_ms`. Outside `manual`, within the platform’s own limit.
-  * `total_timeout_ms` reached before anything was spoken.
+  * A model that has not started its reply within `ttft_timeout_ms`. Outside `manual`, within the platform’s own limit.
+  * `total_timeout_ms` reached before the model started its reply.
   * A response stream that breaks off with no output.
 
 
@@ -153,7 +219,16 @@ A reply moves to the next model on:
 ## What doesn’t switch
 
   * **The agent choosing silence.** A model that finishes normally with an empty reply is the agent staying quiet on purpose. Nothing switches.
-  * **A reply already playing.** Once the caller hears the answer, a problem finishing it counts as a failed reply.
+  * **A reply that has started.** Once a model has started its reply, a problem finishing it counts as a failed reply.
+
+
+
+## When a reply fails
+
+A reply fails when no model produced it, or when a problem cut it after it had started. What the caller hears depends on the agent’s own model.
+
+  * **A platform model.** The agent generates the reply again. If that fails too, it asks the caller to repeat. After three failed replies in a row it apologizes and hangs up.
+  * **A custom LLM.** See [Failure behavior](https://docs.fish.audio/agents/build/custom-llm#failure-behavior).
 
 
 
@@ -168,8 +243,8 @@ The session detail endpoint reports every switch and which model wrote each repl
 ## Billing
 
   * Each reply is billed by the model that answered it, at that model’s rate.
+  * A request that a timeout cut is still billed for the tokens it used.
   * A reply from a [custom LLM](https://docs.fish.audio/agents/build/custom-llm#point-the-agent-at-your-endpoint) endpoint has no LLM charge. Main model or fallback.
-  * The whole call is free of LLM charges only when the main model and every fallback are free.
 
 
 

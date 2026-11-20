@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/conversation-history/
 title: Conversation History - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.463927+00:00
+fetched_at: 2026-11-20T16:17:53.054348+00:00
 ---
 
 # Conversation History - Fish Audio
@@ -281,7 +281,7 @@ Sessions on a [custom LLM](https://docs.fish.audio/agents/build/custom-llm) also
         {
           "occurred_at": "2026-10-15T15:45:10Z",
           "turn_id": 3,
-          "from": { "model": "google/gemini-3.6-flash" },
+          "from": { "model": "openai/gpt-6.1-terra-fast" },
           "to": { "custom": { "base_url": "https://llm.example.com/v1", "model": "backup-70b" } },
           "reason": "ttft_timeout"
         }
@@ -297,10 +297,10 @@ Sessions on a [custom LLM](https://docs.fish.audio/agents/build/custom-llm) also
 ---|---  
 `error`| The model’s provider returned an error.  
 `timeout`| No reply within the platform’s own time limit (outside `manual` mode).  
-`ttft_timeout`| No first token within the model’s `ttft_timeout_ms`.  
-`total_timeout`| The reply did not finish within the model’s `total_timeout_ms` and nothing was spoken yet.  
+`ttft_timeout`| The model did not [start its reply](https://docs.fish.audio/agents/build/llm-fallback#when-a-reply-has-started) within its `ttft_timeout_ms`.  
+`total_timeout`| The model’s `total_timeout_ms` ran out before it started its reply.  
 `empty`| The response stream broke off with no output and no end signal. A reply that finished normally with nothing in it is the agent staying silent. That is not a fallback.  
-`kick_in`| The fallback ran in parallel and its reply was used. The agent’s own model had no first token within `kick_in_ms`.  
+`kick_in`| The fallback ran in parallel and its reply was used. The agent’s own model had not started its reply within `kick_in_ms`.  
   
 New reasons may be added.
 

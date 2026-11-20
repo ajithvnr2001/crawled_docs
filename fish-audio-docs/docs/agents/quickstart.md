@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/quickstart/
 title: Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:20.880542+00:00
+fetched_at: 2026-11-20T16:17:52.515635+00:00
 ---
 
 # Quickstart - Fish Audio
@@ -32,7 +32,7 @@ Copy pageCopy page
 Build a voice agent and talk to it in a few minutes. Use the console for a no-code path, or do everything over the API and reach your agent on the phone or on your own page. **Prerequisites**
 
   * A Fish Audio account.
-  * Every account starts with a $5 trial balance, about 70 minutes of agent conversation. It pays for web, phone, and API sessions at the normal rates, including token-billed LLMs. After that, usage is billed per second against your API credit.
+  * Every account starts with a $5 trial balance. It pays for web, phone, and API sessions at the normal rates, including token-billed LLMs. After that, usage is billed per second against your API credit.
 
 
 
@@ -46,6 +46,14 @@ Prompt
     Build a voice agent using Fish Audio Voice Agents. Give me a browser demo I can talk to. Ask me questions.
     
     Follow the API in https://docs.fish.audio/agents/quickstart.md.
+    
+
+Optionally, install the Fish Audio agents skill first. It also gives the assistant the error codes and the pages to read for tools, deployment, and telephony.
+
+Install the skill (optional)
+    
+    
+    npx skills add https://docs.fish.audio --skill fish-audio-agents
     
 
 ## Build it step by step
@@ -241,7 +249,7 @@ Read the transcript
       --header "Authorization: Bearer $FISH_API_KEY"
     
 
-`items` holds the messages and tool calls in order. See [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history).Keep the number as your agent’s line, or release it to stop the rental. See [Pricing](https://docs.fish.audio/agents/pricing#monthly-fees).
+`items` holds the messages and tool calls in order. See [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history).Keep the number as your agent’s line, or release it to stop the rental. See [Pricing](https://docs.fish.audio/agents/pricing#phone-number-rental).
 
 Release the number
     

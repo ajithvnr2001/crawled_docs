@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/outbound-calls/
 title: Outbound Calls - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.399261+00:00
+fetched_at: 2026-11-20T16:17:52.844066+00:00
 ---
 
 # Outbound Calls - Fish Audio
@@ -168,6 +168,8 @@ Status| Reason| Cause
 `422`| `sip_headers_unsupported`| `sip_headers` was sent with a platform-purchased number. See per-call SIP headers.  
 `422`| `destination_invalid`, `destination_not_allowed`, `premium_destination_blocked`, `self_call_blocked`| The destination is refused; see allowed destinations.  
 `422`| `idempotency_key_reuse`| The key was already used with a different body; mint a fresh key per distinct call.  
+`429`| `concurrency_limit_exceeded`| Every [line](https://docs.fish.audio/agents/pricing#concurrent-calls) of your team is in use. Retry after `retry_after`.  
+`429`| `cps_limit_exceeded`| New calls are being started faster than your team’s [dial rate](https://docs.fish.audio/agents/pricing#outbound-dial-rate). Retry after `retry_after`.  
   
 `502` and `503` follow the [general guidance](https://docs.fish.audio/api-reference/agent-errors#5xx): retrying is safe, especially with an `Idempotency-Key`.
 

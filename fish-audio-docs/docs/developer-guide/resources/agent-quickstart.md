@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/resources/agent-quickstart/
 title: Coding Assistant Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.290812+00:00
+fetched_at: 2026-11-20T16:17:51.729842+00:00
 ---
 
 # Coding Assistant Quickstart - Fish Audio
@@ -39,7 +39,7 @@ Install the skill
     npx skills add https://docs.fish.audio
     
 
-This installs both Fish Audio skills (a canonical copy in `.agents/skills/`, with symlinks for Claude Code and Cursor). Run `npx skills update` later to refresh them.
+This installs the Fish Audio skills (a canonical copy in `.agents/skills/`, with symlinks for Claude Code and Cursor). Run `npx skills update` later to refresh them.
 
 ## fish-audio-sdk
 
@@ -48,6 +48,10 @@ Python (`fish-audio-sdk`) and JavaScript (`fish-audio`): exact method signatures
 ## fish-audio-api
 
 Raw REST + WebSocket for any language: auth, endpoints, MessagePack/JSON/multipart rules, and the streaming protocol.
+
+## fish-audio-agents
+
+Voice agents over the Agents API: create and publish an agent, reach it in the console, on your own page, or by phone, and read the conversation back.
 
 2
 
@@ -80,6 +84,10 @@ Prompt in plain language; it uses the correct client, methods, and error types:
 ## Raw API, any language
 
 “Call the Fish Audio TTS REST API from Go, no SDK.”
+
+## Build a voice agent
+
+“Build a Fish Audio voice agent that takes orders for my bakery, and give me a browser demo I can talk to.”
 
 ## Install options
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/agent-tests/
 title: Agent Tests - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.330267+00:00
+fetched_at: 2026-11-20T16:17:52.286298+00:00
 ---
 
 # Agent Tests - Fish Audio
@@ -385,7 +385,7 @@ Simulation tests take minutes, so give the job a timeout that covers your longes
 
 ## Billing
 
-Single Turn and Tool tests are free. Each Simulation run that ends in **Pass** or **Fail** is charged a platform fee of $0.003 per agent reply, plus the LLM tokens of the agent, the simulated user, and the judge. A fixed first message is not counted as a reply, a generated one is. Runs that end in **Error** are not charged, and every repeat is a run of its own. The basic models are billed on their tokens in Simulation tests, see [Pricing](https://docs.fish.audio/agents/pricing#simulation-tests) for the rates. Runs draw on the trial balance first, then your API credit, and each one is itemized on the [Agents billing page](https://fish.audio/app/agents/billing): the reply fee, then the tokens of each participant by model and token category with their rates. The test name on each line opens that run’s result. Over the API, a run’s `usage.cost_usd` is what it was charged, `0` for a run that is not charged, and two fields show what it adds up to: `usage.platform_fee` gives the rate per reply and the fee, and `usage.llm` has one entry per participant and model with its amount and the tokens and cost of each token category (input, cached input, cache writes, output). The charge is usually settled as soon as the run ends, and until then `usage.cost_usd` and `usage.platform_fee` are `null` and `usage.llm` is empty. Running a Simulation test needs the trial balance or your API credit above zero: otherwise the Builder and [Run Tests](https://docs.fish.audio/api-reference/endpoint/agent/run-tests) refuse it with a 402, and a queued run that finds the balance used up ends in **Error** without being charged.
+Each Simulation run that ends in **Pass** or **Fail** is charged a platform fee of $0.003 per agent reply, plus the LLM tokens of the agent, the simulated user, and the judge. A fixed first message is not counted as a reply, a generated one is. Runs that end in **Error** are not charged, and every repeat is a run of its own. The basic models are billed on their tokens in Simulation tests, see [Pricing](https://docs.fish.audio/agents/pricing#simulation-tests). Runs draw on the trial balance first, then your API credit, and each one is listed on the [Agents billing page](https://fish.audio/app/agents/billing): the reply fee, then the tokens of each participant by model and token category with their rates. The test name on each line opens that run’s result. Over the API, a run’s `usage.cost_usd` is what it was charged, `0` for a run that is not charged, and two fields show what it adds up to: `usage.platform_fee` gives the rate per reply and the fee, and `usage.llm` has one entry per participant and model with its amount and the tokens and cost of each token category (input, cached input, cache writes, output). The charge is usually settled as soon as the run ends, and until then `usage.cost_usd` and `usage.platform_fee` are `null` and `usage.llm` is empty. Running a Simulation test needs the trial balance or your API credit above zero: otherwise the Builder and [Run Tests](https://docs.fish.audio/api-reference/endpoint/agent/run-tests) refuse it with a 402, and a queued run that finds the balance used up ends in **Error** without being charged.
 
 ## Limits
 

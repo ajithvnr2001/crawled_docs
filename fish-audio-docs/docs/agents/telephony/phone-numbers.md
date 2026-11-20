@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/phone-numbers/
 title: Phone Numbers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:46.231604+00:00
+fetched_at: 2026-11-20T16:17:52.658649+00:00
 ---
 
 # Phone Numbers - Fish Audio
@@ -85,7 +85,7 @@ Field| Description
 `label`| Optional free-form label, up to 120 characters.  
 `agent_id`| Optional: bind an agent so the number answers inbound calls right away.  
   
-A `409` means the number is already on the platform; a `502` means the provider refused the purchase; the number stays visible with status `error` and is safe to release.
+A `409` means the number is already on the platform; a `502` means the provider refused the purchase; the number stays visible with status `error` and is safe to release. A `403` with the reason `phone_number_limit_reached` means your team holds as many numbers as it may. A free account holds one, see [Limits](https://docs.fish.audio/agents/pricing#phone-numbers).
 
 Already have a number at your own carrier? The same endpoint imports it with `provider: "sip"` instead of buying one: no rental fee, no telephony charges. See [Bring your own number](https://docs.fish.audio/agents/telephony/byo-sip).
 

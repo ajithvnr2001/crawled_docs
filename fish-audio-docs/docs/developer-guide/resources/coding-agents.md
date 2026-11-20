@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/resources/coding-agents/
 title: AI Coding Assistants - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:00.990031+00:00
+fetched_at: 2026-11-20T16:17:51.796805+00:00
 ---
 
 # AI Coding Assistants - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:52:00.990031+00:00
 > Source: https://docs.fish.audio/developer-guide/resources/coding-agents/
 
 ## On this page
+
+Back to top
 
   * Install the skill
     * Install options
@@ -32,17 +34,13 @@ Copy pageCopy page
 
 Install the Fish Audio **agent skill** , and your coding agent (Claude Code, Cursor, Codex, and others) writes correct, current Fish Audio code: right method names, units, and error types, instead of guessing.
 
-## 
-
-​
-
-Install the skill
+## Install the skill
     
     
     npx skills add https://docs.fish.audio
     
 
-This installs both Fish Audio skills into your agent (a canonical copy in `.agents/skills/`, with symlinks for Claude Code and Cursor). Run `npx skills update` later to refresh them.
+This installs the Fish Audio skills into your agent (a canonical copy in `.agents/skills/`, with symlinks for Claude Code and Cursor). Run `npx skills update` later to refresh them.
 
 ## fish-audio-sdk
 
@@ -52,11 +50,11 @@ Python (`fish-audio-sdk`) and JavaScript (`fish-audio`): exact method signatures
 
 Raw REST + WebSocket for any language or edge runtime: auth, endpoints, MessagePack/JSON/multipart rules, and the streaming protocol.
 
-### 
+## fish-audio-agents
 
-​
+Voice agents over the Agents API: create and publish an agent, reach it in the console, on your own page, or by phone, and read the conversation back.
 
-Install options
+### Install options
 
 All skills
 
@@ -85,11 +83,7 @@ List / inspect first
 
 Want to read them before installing? The skills are served at [/.well-known/agent-skills/index.json](https://docs.fish.audio/.well-known/agent-skills/index.json), with each skill’s markdown at `/.well-known/agent-skills/<name>/SKILL.md`.
 
-## 
-
-​
-
-Try it
+## Try it
 
 Once installed, ask your agent in plain language; it will use the correct client, methods, and error types:
 
@@ -109,21 +103,17 @@ Once installed, ask your agent in plain language; it will use the correct client
 
 “Call the Fish Audio TTS REST API from Go, no SDK.”
 
-## 
+## Build a voice agent
 
-​
+“Build a Fish Audio voice agent that takes orders for my bakery, and give me a browser demo I can talk to.”
 
-Or connect via MCP
+## Or connect via MCP
 
 The [Fish Audio MCP server](https://docs.fish.audio/overview/mcp) at `https://api.fish.audio/mcp` gives your agent tools instead of docs: it can search the voice library, clone voices, generate speech, transcribe audio, create images and videos, and produce Story Studio projects with your Fish Audio account (OAuth sign-in, no API key). See the [MCP server guide](https://docs.fish.audio/overview/mcp) for client setup and the [tool list](https://docs.fish.audio/overview/mcp/tools) for what the agent can call.
 
 This site also exposes [llms.txt](https://docs.fish.audio/llms.txt) and [llms-full.txt](https://docs.fish.audio/llms-full.txt) for agents that fetch docs directly.
 
-## 
-
-​
-
-Next steps
+## Next steps
 
 ## Get your API key
 
@@ -141,11 +131,7 @@ Endpoints, parameters, and the OpenAPI schema.
 
 Status codes, retries, and SDK exception handling.
 
-## 
-
-​
-
-Support
+## Support
 
   * **Technical support** : [support@fish.audio](mailto:support@fish.audio)
   * **Issues** : [GitHub](https://github.com/fishaudio)
@@ -159,4 +145,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/developer-guide/resources/coding-agents.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/developer-guide/resources/coding-agents)
 
-[Releases](https://docs.fish.audio/developer-guide/self-hosting/enterprise-releases)[Contributing](https://docs.fish.audio/contributing)
+[Operations](https://docs.fish.audio/developer-guide/self-hosting/operations)[Contributing](https://docs.fish.audio/contributing)
