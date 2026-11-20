@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/api/stub/
 title: Durable Object Stub \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:03:47.387630+00:00
+fetched_at: 2026-11-20T09:50:39.542679+00:00
 ---
 
 # Durable Object Stub · Cloudflare Durable Objects docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-06T09:03:47.387630+00:00
 
 # Durable Object Stub
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewDescriptionProperties id nameRelated resources
+OverviewDescriptionProperties id nameMethods connect
 
 ## Description
 
@@ -118,9 +118,76 @@ The runtime may retry a failed call before the exception reaches your code. For 
     stub = env.MY_DURABLE_OBJECT.getByName("foo")
     assert stub.name == "foo", "This should always be true"
 
+## Methods
+
+### `connect`
+
+Public beta
+
+Raw TCP connections to Workers and Durable Objects are in public beta.
+
+`connect(address, options)` opens a raw TCP connection to the Durable Object and invokes its [`connect()` handler](https://developers.cloudflare.com/durable-objects/api/base/#connect).
+    
+    
+    connect(address: SocketAddress | string, options?: SocketOptions): Socket
+
+#### Parameters
+
+  * `address` (`SocketAddress | string`) — A logical destination, expressed as a `host:port` string or a [`SocketAddress`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#socketaddress) with `hostname` and `port` fields. The Durable Object receives the resulting `host:port` string as the socket's `localAddress`.
+  * `options` (`SocketOptions`, optional) — Socket configuration. Refer to [`SocketOptions`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#socketoptions).
+
+
+
+#### Return values
+
+Returns a [`Socket`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#socket).
+
+#### Example
+    
+    
+    export default {
+    	async connect(socket, env) {
+    		const stub = env.TCP_SESSION.getByName("shared-session");
+    		const durableObjectSocket = stub.connect("tcp-session:8080", {
+    			allowHalfOpen: true,
+    		});
+    
+    		try {
+    			await durableObjectSocket.opened;
+    			await Promise.all([
+    				socket.readable.pipeTo(durableObjectSocket.writable),
+    				durableObjectSocket.readable.pipeTo(socket.writable),
+    			]);
+    		} finally {
+    			await Promise.allSettled([socket.close(), durableObjectSocket.close()]);
+    		}
+    	},
+    };
+    
+    
+    export default {
+    	async connect(socket: Socket, env: Env): Promise<void> {
+    		const stub = env.TCP_SESSION.getByName("shared-session");
+    		const durableObjectSocket = stub.connect("tcp-session:8080", {
+    			allowHalfOpen: true,
+    		});
+    
+    		try {
+    			await durableObjectSocket.opened;
+    			await Promise.all([
+    				socket.readable.pipeTo(durableObjectSocket.writable),
+    				durableObjectSocket.readable.pipeTo(socket.writable),
+    			]);
+    		} finally {
+    			await Promise.allSettled([socket.close(), durableObjectSocket.close()]);
+    		}
+    	},
+    } satisfies ExportedHandler<Env>;
+
 ## Related resources
 
   * [Durable Objects: Easy, Fast, Correct – Choose Three ↗︎](https://blog.cloudflare.com/durable-objects-easy-fast-correct-choose-three/).
+  * [Connect handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/).
 
 
 

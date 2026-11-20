@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/usage/providers/azureopenai/
 title: Azure OpenAI \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:40.488883+00:00
+fetched_at: 2026-11-20T09:50:38.926567+00:00
 ---
 
 # Azure OpenAI · Cloudflare AI Gateway docs
@@ -22,11 +22,11 @@ Using AI Gateway
 
 # Azure OpenAI
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/usage/providers/azureopenai/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpointPrerequisitesURL structureExamples cURL Use openai JavaScript SDK
 
-[Azure OpenAI ↗︎](https://azure.microsoft.com/en-gb/products/ai-services/openai-service/) allows you apply natural language algorithms on your data.
+[Azure OpenAI ↗︎](https://azure.microsoft.com/en-gb/products/ai-services/openai-service/) allows you to apply natural language algorithms on your data.
 
 ## Endpoint
     

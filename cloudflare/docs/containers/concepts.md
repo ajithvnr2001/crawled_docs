@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/concepts/
 title: Container Fundamentals \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:33.279158+00:00
+fetched_at: 2026-11-20T09:50:40.102844+00:00
 ---
 
 # Container Fundamentals · Cloudflare Containers docs
@@ -17,11 +17,11 @@ fetched_at: 2026-10-08T07:10:33.279158+00:00
 
 # Container Fundamentals
 
-Last updated Sep 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/concepts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewThe Container runtimeHow requests reach a ContainerContainer lifecycleSizingPlacementStorage and connectivityStart buildingRelated resources
 
-A Cloudflare Container runs your container image in a full Linux environment on Cloudflare's network, alongside a Worker. The Worker handles incoming HTTP requests, while the Container provides the runtime, binaries, and languages your application needs. Together, they let you run Linux workloads without managing the underlying infrastructure.
+A Cloudflare Container runs your container image in a full Linux environment on Cloudflare's network, alongside a Worker. The Worker handles incoming HTTP requests and can handle raw TCP connections in public beta. The Container provides the runtime, binaries, and languages your application needs. Together, they let you run Linux workloads without managing the underlying infrastructure.
 
 ## The Container runtime
 
@@ -34,6 +34,8 @@ PlayReset
 A request reaches the Worker, which routes it to a Container running inside its own virtual machine. The Worker remains in front of the Container while the Container serves the request.
 
 For more information, refer to [Lifecycle of a Container](https://developers.cloudflare.com/containers/concepts/architecture/).
+
+For TCP applications, Spectrum can invoke a Worker's [`connect()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/). The Worker can then forward the raw socket to a process in the Container. This supports protocols such as bidirectional gRPC. Refer to [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/).
 
 ## How requests reach a Container
 
@@ -112,11 +114,16 @@ Deploy your first container.
 
 Task-focused walkthroughs for common container workloads.
 
+### [Bidirectional gRPC](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/)
+
+Route a gRPC stream through Spectrum and Workers to a Container.
+
 ## Related resources
 
   * [Lifecycle of a Container](https://developers.cloudflare.com/containers/concepts/architecture/): the deep dive on deployment, routing, and shutdown.
   * [Placement](https://developers.cloudflare.com/containers/concepts/placement/): where instances run and how to constrain them.
   * [Connect to Workers and bindings](https://developers.cloudflare.com/containers/configuration/workers-connections/): reaching Cloudflare resources from a container.
+  * [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/): routing raw TCP streams to a containerized gRPC server.
   * [Limits and instance types](https://developers.cloudflare.com/containers/platform/limits/) and [Pricing](https://developers.cloudflare.com/containers/platform/pricing/): sizes, account limits, and billing.
   * [Rollouts](https://developers.cloudflare.com/containers/configuration/rollouts/): how new versions roll out across instances.
 

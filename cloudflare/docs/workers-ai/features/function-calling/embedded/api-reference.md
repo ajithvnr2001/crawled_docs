@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/api-reference/
 title: API Reference - Embedded function calling \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:57.472179+00:00
+fetched_at: 2026-11-20T09:50:38.813272+00:00
 ---
 
 # API Reference - Embedded function calling · Cloudflare Workers AI docs
@@ -22,7 +22,7 @@ Features[Function calling](https://developers.cloudflare.com/workers-ai/features
 
 # API Reference
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/api-reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewrunWithToolscreateToolsFromOpenAPISpec
 
@@ -32,19 +32,19 @@ Learn more about the API reference for [embedded function calling](https://devel
 
 This wrapper method enables you to do embedded function calling. You pass it the AI binding, model, inputs (`messages` array and `tools` array), and optional configurations.
 
-  * `AI Binding`Ai 
+  * `ai` `Ai` required
     * The AI binding, such as `env.AI`.
-  * `model`BaseAiTextGenerationModels 
+  * `model` `BaseAiTextGenerationModels` required
     * The ID of the model that supports function calling. For example, `@hf/nousresearch/hermes-2-pro-mistral-7b`.
-  * `input`Object 
-    * `messages`RoleScopedChatInput[]
-    * `tools`AiTextGenerationToolInputWithFunction[]
-  * `config`Object 
-    * `streamFinalResponse`boolean optional
-    * `maxRecursiveToolRuns`number optional
-    * `strictValidation`boolean optional
-    * `verbose`boolean optional
-    * `trimFunction`boolean optional - For the `trimFunction`, you can pass it `autoTrimTools`, which is another helper method we've devised to automatically choose the correct tools (using an LLM) before sending it off for inference. This means that your final inference call will have fewer input tokens.
+  * `input` `object` required
+    * `messages` `RoleScopedChatInput[]` required
+    * `tools` `AiTextGenerationToolInputWithFunction[]` required
+  * `config` `object` optional
+    * `streamFinalResponse` `boolean` (default: false) optional
+    * `maxRecursiveToolRuns` `number` (default: 0) optional
+    * `strictValidation` `boolean` (default: false) optional
+    * `verbose` `boolean` (default: false) optional
+    * `trimFunction` `function` optional \- For the `trimFunction`, you can pass it `autoTrimTools`, which is another helper method we've devised to automatically choose the correct tools (using an LLM) before sending it off for inference. This means that your final inference call will have fewer input tokens.
 
 
 
@@ -54,12 +54,13 @@ This method lets you automatically create tool schemas based on OpenAPI specs, s
 
 `createToolsFromOpenAPISpec` has a config input that allows you to perform overrides if you need to provide headers like Authentication or User-Agent.
 
-  * `spec`string 
+  * `spec` `string` required
     * The OpenAPI specification in either JSON or YAML format, or a URL to a remote OpenAPI specification.
-  * `config`Config optional - Configuration options for the createToolsFromOpenAPISpec function 
-    * `overrides`ConfigRule[] optional
-    * `matchPatterns`RegExp[] optional
-    * `options` Object optional { `verbose` boolean optional }
+  * `config` `Config` optional \- Configuration options for the `createToolsFromOpenAPISpec` function 
+    * `overrides` `ConfigRule[]` required
+    * `matchPatterns` `RegExp[]` optional
+    * `options` `object` optional
+      * `verbose` `boolean` (default: false) optional
 
 
 

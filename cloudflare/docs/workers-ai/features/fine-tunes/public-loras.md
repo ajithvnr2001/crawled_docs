@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/features/fine-tunes/public-loras/
 title: Public LoRA adapters \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:57.286620+00:00
+fetched_at: 2026-11-20T09:50:38.697359+00:00
 ---
 
 # Public LoRA adapters · Cloudflare Workers AI docs
@@ -22,7 +22,7 @@ Features
 
 # Public LoRA adapters
 
-Last updated Jun 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/features/fine-tunes/public-loras/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRunning inference with public LoRAs cURL JavaScript
 
@@ -90,7 +90,7 @@ We recommend that you use the prompt template that the LoRA was trained on. You 
     		{
     			role: "user",
     			content:
-    				"Summarize the following: Some newspapers, TV channels and well-known companies publish false news stories to fool people on 1 April. One of the earliest examples of this was in 1957 when a programme on the BBC, the UKs national TV channel, broadcast a report on how spaghetti grew on trees. The film showed a family in Switzerland collecting spaghetti from trees and many people were fooled into believing it, as in the 1950s British people didn't eat much pasta and many didn't know how it was made! Most British people wouldnt fall for the spaghetti trick today, but in 2008 the BBC managed to fool their audience again with their Miracles of Evolution trailer, which appeared to show some special penguins that had regained the ability to fly. Two major UK newspapers, The Daily Telegraph and the Daily Mirror, published the important story on their front pages.",
+    				"Summarize the following: Some newspapers, TV channels and well-known companies publish false news stories to fool people on 1 April. One of the earliest examples of this was in 1957 when a programme on the BBC, the UK's national TV channel, broadcast a report on how spaghetti grew on trees. The film showed a family in Switzerland collecting spaghetti from trees and many people were fooled into believing it, as in the 1950s British people didn't eat much pasta and many didn't know how it was made! Most British people would not fall for the spaghetti trick today, but in 2008 the BBC managed to fool their audience again with their Miracles of Evolution trailer, which appeared to show some special penguins that had regained the ability to fly. Two major UK newspapers, The Daily Telegraph and the Daily Mirror, published the important story on their front pages.",
     		},
     	],
     	lora: "cf-public-cnn-summarization",

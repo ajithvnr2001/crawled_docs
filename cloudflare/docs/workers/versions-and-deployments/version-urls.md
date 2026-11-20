@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/
 title: Version URLs \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:06.587185+00:00
+fetched_at: 2026-11-20T09:50:40.062062+00:00
 ---
 
 # Version URLs · Cloudflare Workers docs
@@ -18,11 +18,15 @@ fetched_at: 2026-11-19T10:02:06.587185+00:00
 
 # Version URLs
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewURL formatVersion URLs View Version URLs with Wrangler View Version URLs in the dashboardAliased Version URLsManage access to Version URLsEnable or disable Version URLs From the dashboard From Wrangler configLimitsLimitations
 
 Version URLs, previously called preview URLs, let you access an uploaded version of your Worker before deploying it to production. A Version URL uses that Worker version's existing configuration and resources instead of creating a separate environment.
+
+Version URLs are not Previews
+
+A Version URL runs one uploaded version against your production resources, and it is deleted with its version under [version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention). For branches and pull requests, use [Previews](https://developers.cloudflare.com/workers/previews/), which have their own variables, secrets, bindings, and URL. For which resources are isolated, refer to [Resources and isolation](https://developers.cloudflare.com/workers/previews/resources/).
 
 This is useful for testing a specific version directly. To test the version with your zone's performance or security settings, use [version overrides](https://developers.cloudflare.com/workers/versions-and-deployments/version-overrides/).
 
@@ -77,7 +81,7 @@ The [`wrangler versions upload`](https://developers.cloudflare.com/workers/wrang
 
 ## Aliased Version URLs
 
-Aliased Version URLs let you assign a readable alias to a specific Worker version. This can be useful when you want a stable URL for a manually uploaded version.
+Aliased Version URLs let you assign a readable alias to a specific Worker version. This can be useful when you want a readable URL for a manually uploaded version. An aliased Version URL runs against your production resources, and it stops working when its version is deleted under [version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention). For branches and pull requests, use [Previews](https://developers.cloudflare.com/workers/previews/) instead.
 
 Create an alias during version upload with `--preview-alias`:
     
@@ -154,6 +158,7 @@ If `preview_urls` is omitted, Wrangler does not change an existing Version URL s
   * Aliases must begin with a lowercase letter.
   * The alias and Worker name combined with a dash must not exceed 63 characters due to DNS label limits.
   * Only the 1000 most recently deployed aliases are retained. When a new alias is created beyond this limit, the least recently deployed alias is deleted.
+  * A Version URL and any aliases pointing to it stop working when the version is deleted under [version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention). An alias does not prevent its version from being deleted. For URLs that keep working, use [Previews](https://developers.cloudflare.com/workers/previews/compare-workflows/#migrate-from-aliased-version-urls-to-previews).
 
 
 

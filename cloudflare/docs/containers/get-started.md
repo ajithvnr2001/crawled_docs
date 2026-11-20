@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/get-started/
 title: Get started \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:48.276381+00:00
+fetched_at: 2026-11-20T09:50:39.898721+00:00
 ---
 
 # Get started · Cloudflare Containers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-10T09:28:48.276381+00:00
 
 # Get started
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites Ensure Docker is running locallyDeploy your first Container Check deployment status Make requests to ContainersUnderstanding the Code Configuration The Container Image Worker codeView Containers in your DashboardNext Steps
 
@@ -342,6 +342,7 @@ To do more:
 
   * Modify the image by changing the Dockerfile and running `wrangler deploy`
   * Refer to [Deploy Containers](https://developers.cloudflare.com/containers/guides/deploy/) for Workers Builds and rollout behavior
+  * Build a [bidirectional gRPC service](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/) that receives raw TCP connections through a Worker
   * Browse [examples](https://developers.cloudflare.com/containers/examples/) for more patterns
   * Check the [Frequently Asked Questions](https://developers.cloudflare.com/containers/faq/) for platform behavior and limitations
 

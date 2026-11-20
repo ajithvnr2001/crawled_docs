@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/stream-live/troubleshooting/
 title: Troubleshooting a live stream \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:49.565712+00:00
+fetched_at: 2026-11-20T09:50:41.046576+00:00
 ---
 
 # Troubleshooting a live stream · Cloudflare Stream docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:15:49.565712+00:00
 
 # Troubleshooting a live stream
 
-Last updated Jul 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/stream/stream-live/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBuffering, freezing, and latencyEncoder failing to connect or keeps disconnectingConnecting but the player says "Stream has not started yet"
+OverviewBuffering, freezing, and latencyEncoder failing to connect or keeps disconnectingConnecting but the player says "Stream has not started yet"Error codes
 
 In addition to following the live stream troubleshooting steps in this guide, make sure that your video settings align with [Cloudflare live stream recommendations](https://developers.cloudflare.com/stream/stream-live/start-stream-live/#recommendations-requirements-and-limitations). If you use OBS, you can also check these [OBS-specific recommendations](https://developers.cloudflare.com/stream/examples/obs-from-scratch/#6-optional-optimize-settings).
 
@@ -45,21 +45,7 @@ What is a keyframe interval?
 
 The keyframe interval (also called GOP size) is a measurement of how often keyframes are sent to Stream. A shorter keyframe interval requires more Internet bandwidth on the broadcast side, but can reduce glass-to-glass latency. A longer keyframe requires less Internet bandwidth and can reduce buffering and freezing, but can increase glass-to-glass latency.
 
-  4. Look at your **Upload-to-Duration Ratio** chart.
-
-It should be a consistent flat line below 90%. If you see an inconsistent or wavy line, or a line that is consistently above 100%, try the following troubleshooting steps:
-
-     * [Check that your Internet upload speed ↗︎](https://speed.cloudflare.com/) is at least 20 Mbps. If it is below 20 Mbps, use common troubleshooting steps such as restarting your router, using an Ethernet connection instead of Wi-Fi, or contacting your Internet service provider.
-
-     * Check the video bitrate setting in the software or service you use to send the stream to Cloudflare.
-
-       * If it is "variable", change it to "constant" with a specific number, like 8 Mbps.
-       * If it is above 15 Mbps, lower it to 8 Mbps or 70% of your Internet speed, whichever is lower.
-     * Follow the steps above (the keyframe interval steps) to _increase_ the keyframe interval in the software or service you use to send the stream to Cloudflare.
-
-What is the upload-to-duration ratio?
-
-The upload-to-duration ratio is a measurement of how long it takes to upload a part of the stream compared to how long that part would take to play. A ratio of less than 100% means that the stream is uploading at least as fast as it would take to play, so most users should not experience buffering or freezing. A ratio of 100% or more means that your video is uploading slower than it would take to play, so it is likely that most users will experience buffering and freezing.
+  4. Select the **Logs** tab and check for errors. Refer to Error codes to identify the cause.
 
 
 
@@ -72,7 +58,7 @@ If your encoder shows a connection error such as "Failed to connect to server" o
 
   * If the connection fails, check whether the live input is [disabled](https://developers.cloudflare.com/stream/stream-live/start-stream-live/#enable-or-disable-a-live-input) or its [broadcast keys have been rotated](https://developers.cloudflare.com/stream/stream-live/start-stream-live/#rotate-broadcast-keys).
 
-  * If you use [Live Webhooks](https://developers.cloudflare.com/stream/stream-live/webhooks/), check for a `live_input.errored` event. The webhook payload includes an [error code](https://developers.cloudflare.com/stream/stream-live/webhooks/#error-codes) that can help you troubleshoot the specific cause.
+  * If you use [Live Webhooks](https://developers.cloudflare.com/stream/stream-live/webhooks/), check for a `live_input.errored` event. The webhook payload includes an error code that can help you troubleshoot the specific cause.
 
 
 
@@ -91,6 +77,52 @@ If your encoder is connected and the dashboard shows a green **Connected** statu
 
 
 
+
+## Error codes
+
+Live input warnings and errors are communicated both in the **Logs** tab for your live input, the `live_input.errored` [live webhook payload](https://developers.cloudflare.com/stream/stream-live/webhooks/), and via [GraphQL](https://developers.cloudflare.com/stream/getting-analytics/fetching-bulk-analytics/#event-fields). The following codes are reported:
+
+Fatal conditions that will block playback or recording completely:
+
+  * `ERR_UNSUPPORTED_VIDEO_CODEC` – The input video codec is unsupported for the protocol used.
+  * `ERR_UNSUPPORTED_AUDIO_CODEC` – The input audio codec is unsupported for the protocol used.
+  * `ERR_STORAGE_QUOTA_EXHAUSTED` – The account storage quota has been exceeded. Delete older content or purchase additional storage.
+  * `ERR_MISSING_SUBSCRIPTION` – Unauthorized to start a live stream. Check subscription or log into Dash for details.
+
+
+
+Non-fatal errors that will negatively affect playback or recordings:
+
+  * `ERR_GOP_OUT_OF_RANGE` – The input GOP size or keyframe interval is less than 2 seconds or greater than 8.
+  * `ERR_UNHEALTHY` – The active broadcast cannot be processed for an unknown reason that is most often due to encoder misconfiguration. Confirm the broadcast follows [required and recommended settings](https://developers.cloudflare.com/stream/stream-live/start-stream-live/#recommendations-requirements-and-limitations), then disconnect and reconnect to try again.
+  * `ERR_LIVE_INPUT_LLHLS_INCOMPATIBLE` – The input is enabled for Low-Latency HLS and encountered a B-Frame, which are not supported in LL-HLS and may result in buffering or stuttering on playback.
+
+
+
+The following example shows an error code in a `live_input.errored` webhook payload:
+
+Example live_input.errored webhook payloadjson
+    
+    
+    {
+      "name": "Live Webhook Test",
+      "text": "Notification type: Stream Live Input\nInput ID: 2c28dd2cc444cb77578c4840b51e43a8\nEvent type: live_input.errored\nUpdated at: 2024-07-09T18:07:51.077371662Z\nError Code: ERR_GOP_OUT_OF_RANGE\nError Message: Input GOP size or keyframe interval is out of range.\nVideo Codec: \nAudio Codec: ",
+      "data": {
+        "notification_name": "Stream Live Input",
+        "input_id": "eb222fcca08eeb1ae84c981ebe8aeeb6",
+        "event_type": "live_input.errored",
+        "updated_at": "2024-07-09T18:07:51.077371662Z",
+        "live_input_errored": {
+          "error": {
+            "code": "ERR_GOP_OUT_OF_RANGE",
+            "message": "Input GOP size or keyframe interval is out of range."
+          },
+          "video_codec": "",
+          "audio_codec": ""
+        }
+      },
+      "ts": 1720548474
+    }
 
 [PreviousReceive Live Webhooks](https://developers.cloudflare.com/stream/stream-live/webhooks/)[NextDVR for Live](https://developers.cloudflare.com/stream/stream-live/dvr-for-live/)
 

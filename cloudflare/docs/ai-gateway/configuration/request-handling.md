@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/configuration/request-handling/
 title: Request handling \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:12.443918+00:00
+fetched_at: 2026-11-20T09:50:38.881509+00:00
 ---
 
 # Request handling · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:12.443918+00:00
 
 # Request handling
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequest timeouts ConfigurationRequest retries Configuration
 
@@ -26,7 +26,7 @@ Note
 
 [Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) also offer timeouts and retries per model, along with conditional routing, rate limiting, and budget limiting through a visual interface. This page documents request-handling configuration available through per-request `cf-aig-*` headers that work with any provider endpoint. You can also configure retries at the [gateway level](https://developers.cloudflare.com/ai-gateway/configuration/manage-gateway/#retry-requests).
 
-Your AI gateway supports different strategies for handling requests to providers, which allows you to manage AI interactions effectively and ensure your applications remain responsive and reliable.
+Your AI Gateway supports different strategies for handling requests to providers, which allows you to manage AI interactions effectively and ensure your applications remain responsive and reliable.
 
 ## Request timeouts
 

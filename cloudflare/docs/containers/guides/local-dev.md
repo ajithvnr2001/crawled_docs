@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/guides/local-dev/
 title: Local Development \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:36.131356+00:00
+fetched_at: 2026-11-20T09:50:39.841159+00:00
 ---
 
 # Local Development · Cloudflare Containers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:10:36.131356+00:00
 
 # Local Development
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/guides/local-dev/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewFUSE supportIterating on Container codeDifferences after you deploy The hostname is longer than a DNS label Other Linux users keep root capabilitiesTroubleshooting Ports Socket configuration - internal error SSL errors with the Cloudflare One Client or a VPN
+OverviewTest TCP and gRPC locallyFUSE supportIterating on Container codeDifferences after you deploy The hostname is longer than a DNS label Other Linux users keep root capabilitiesTroubleshooting Ports Socket configuration - internal error SSL errors with the Cloudflare One Client or a VPN
 
 You can run both your container and your Worker locally by running [`npx wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#dev) (or `vite dev` for Vite projects using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/)) in your project's directory.
 
@@ -41,6 +41,24 @@ If you use a private Docker Hub, Amazon ECR, or Google Artifact Registry image i
 As a workaround for Cloudflare Registry images, point `vite dev` at a local Dockerfile that uses `FROM <IMAGE_REFERENCE>`. Docker then pulls the base image during the local build.
 
 Container instances will be launched locally when your Worker code calls to create a new container. Requests will then automatically be routed to the correct locally-running container.
+
+## Test TCP and gRPC locally
+
+To receive raw TCP connections locally, export a [`connect()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/) and configure a TCP listener in `wrangler.jsonc`:
+    
+    
+    {
+    	"connect": [{ "protocol": "tcp", "port": 8788 }],
+    }
+    
+    
+    [[connect]]
+    protocol = "tcp"
+    port = 8_788
+
+Connect TCP or gRPC clients to `localhost:8788`. The port comes from this configuration; exporting the handler alone does not create a listener.
+
+Refer to [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/) for a complete local development workflow.
 
 When the dev session ends, all associated container instances should be stopped, but local images are not removed, so that they can be reused in subsequent builds.
 

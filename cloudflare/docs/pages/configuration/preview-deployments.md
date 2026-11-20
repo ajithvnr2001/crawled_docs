@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/preview-deployments/
 title: Preview deployments \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:07.204302+00:00
+fetched_at: 2026-11-20T09:50:40.740930+00:00
 ---
 
 # Preview deployments · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:07.204302+00:00
 
 # Preview deployments
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustomize preview deployments accessPreview aliasesDelete preview deploymentsPreview indexing by search engines X-Robots-Tag: noindex on Preview Deployments
 
@@ -80,9 +80,9 @@ If you want to enable Access for your `*.pages.dev` domain and your custom domai
 
 ## Preview aliases
 
-When a preview deployment is published, it is given a unique, hash-based address — for example, `<hash>.<project>.pages.dev`. These are atomic and may always be visited in the future. However, Pages also creates an alias for `git` branch's name and updates it so that the alias always maps to the latest commit of that branch.
+When a preview deployment is published, it is given a unique, hash-based address — for example, `<hash>.<project>.pages.dev`. These are atomic and keep pointing to the same deployment until it is deleted. Deployments older than 30 days are deleted, except the project's 100 most recent and your current production deployment. For more information, refer to [Deployments limits](https://developers.cloudflare.com/pages/platform/limits/#deployments). Pages also creates an alias for `git` branch's name and updates it so that the alias always maps to the latest commit of that branch.
 
-For example, if you push changes to a `development` branch (which is not associated with your Production environment), then Pages will deploy to `abc123.<project>.pages.dev` and alias `development.<project>.pages.dev` to it. Later, you may push new work to the `development` branch, which creates the `xyz456.<project>.pages.dev` deployment. At this point, the `development.<project>.pages.dev` alias points to the `xyz456` deployment, but `abc123.<project>.pages.dev` remains accessible directly.
+For example, if you push changes to a `development` branch (which is not associated with your Production environment), then Pages will deploy to `abc123.<project>.pages.dev` and alias `development.<project>.pages.dev` to it. Later, you may push new work to the `development` branch, which creates the `xyz456.<project>.pages.dev` deployment. At this point, the `development.<project>.pages.dev` alias points to the `xyz456` deployment, but `abc123.<project>.pages.dev` remains accessible directly until that deployment is deleted.
 
 Branch name aliases are lowercased and non-alphanumeric characters are replaced with a hyphen — for example, the `fix/api` branch creates the `fix-api.<project>.pages.dev` alias.
 

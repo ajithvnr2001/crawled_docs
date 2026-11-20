@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/examples/
 title: Examples \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:34.495684+00:00
+fetched_at: 2026-11-20T09:50:39.934747+00:00
 ---
 
 # Examples · Cloudflare Containers docs
@@ -11,13 +11,14 @@ fetched_at: 2026-10-08T07:10:34.495684+00:00
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Containers](https://developers.cloudflare.com/containers/)
-  3. /Examples
+  3. /[Containers](https://developers.cloudflare.com/containers/)
+  4. /Examples
 
 
 
 # Examples
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/examples/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Build with Containers using the `durable_object` scheduling policy. Each example configures a named image and starts it from a Durable Object with the [Container API](https://developers.cloudflare.com/containers/api/durable-object-container/).
 
@@ -38,6 +39,8 @@ Start with [Stateless instances](https://developers.cloudflare.com/containers/ex
 [**Monitor container lifecycle** Execute Workers code in reaction to Container status changes](https://developers.cloudflare.com/containers/examples/status-hooks/)
 
 [**WebSocket to container** Forwarding a Websocket request to a Container](https://developers.cloudflare.com/containers/examples/websocket/)
+
+[**Bidirectional gRPC with Workers and Containers** Build a bidirectional gRPC service that receives TCP connections in a Worker and forwards them to a Cloudflare Container.](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/platform/limits/
 title: Limits \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:06.885260+00:00
+fetched_at: 2026-11-20T09:50:40.681749+00:00
 ---
 
 # Limits · Cloudflare Pages docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-19T10:02:06.885260+00:00
 
 # Limits
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBuildsCustom domainsFilesFile sizeFunctionsHeadersPreview deploymentsRedirectsUsersProjects
+OverviewBuildsCustom domainsDeploymentsFilesFile sizeFunctionsHeadersPreview deploymentsRedirectsUsersProjects
 
 Below are limits observed by the Cloudflare Free plan. For more details on removing these limits, refer to the [Cloudflare plans ↗︎](https://www.cloudflare.com/plans) page.
 
@@ -47,6 +47,30 @@ Free | Pro | Business | Enterprise
 ---|---|---|---  
 100 | 250 | 500 | 5001  
   
+## Deployments
+
+Limit | Value  
+---|---  
+Deployment retention | 30 days  
+Deployments always kept | 100 most recent, plus your current production deployment  
+  
+Deployments are kept for 30 days. After 30 days, a deployment is deleted unless:
+
+  * It is one of the project's 100 most recent deployments. Both production and preview deployments count.
+  * It is your current production deployment.
+
+
+
+For example, a project has 250 deployments. Its 100 most recent deployments are always kept. Of the other 150, deployments created in the last 30 days are kept, and older ones are deleted unless one of them is your current production deployment.
+
+When a deployment is deleted:
+
+  * It no longer appears in your project's deployment list in the dashboard or API.
+  * Its unique preview URL, such as `<hash>.<project>.pages.dev`, stops working.
+  * You cannot [roll back](https://developers.cloudflare.com/pages/configuration/rollbacks/) to it.
+
+
+
 ## Files
 
 Pages uploads each file on your site to Cloudflare's globally distributed network to deliver a low latency experience to every user that visits your site. Cloudflare Pages sites can contain up to 20,000 files on the Free plan.
@@ -75,7 +99,7 @@ An individual header in a `_headers` file can have a maximum of 2,000 characters
 
 ## Preview deployments
 
-You can have an unlimited number of [preview deployments](https://developers.cloudflare.com/pages/configuration/preview-deployments/) active on your project at a time.
+Preview deployments count toward the deployments that Cloudflare keeps for each project. Preview deployments older than 30 days are deleted, unless they are one of the project's 100 most recent deployments. For more information, refer to Deployments.
 
 ## Redirects
 

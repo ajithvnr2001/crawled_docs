@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/reference/configuration-options/
 title: Configuration options \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:05.423680+00:00
+fetched_at: 2026-11-20T09:50:39.474115+00:00
 ---
 
 # Configuration options · Cloudflare Spectrum docs
@@ -18,13 +18,13 @@ fetched_at: 2026-11-19T10:02:05.423680+00:00
 
 # Configuration options
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewApplication typeIP addressesSMTPPortsPort rangesIP Access rulesArgo Smart RoutingVirtual network originEdge TLS TerminationOrigin TLS TerminationSupported cipher suites by protocol
+OverviewApplication typeWorker originIP addressesSMTPPortsPort rangesIP Access rulesArgo Smart RoutingVirtual network originEdge TLS TerminationOrigin TLS TerminationSupported cipher suites by protocol
 
 Spectrum is a global TCP and UDP proxy running on Cloudflare's edge nodes. It does not terminate the connection in the application-layer sense. However, at Layer 4, Spectrum does terminate the TCP and UDP sockets in both directions. The L4 payloads of TCP segments and UDP datagrams are passed back and forth as-is, without modifications.
 
-This means Spectrum does not inspect, modify, or upgrade application-layer protocols. For example, Spectrum cannot convert an HTTP connection to HTTPS, add HTTP headers, or apply WAF rules to TCP traffic. To add Layer 7 functionality such as CDN, Workers, or Bot Management, set the application type to **HTTP/HTTPS**.
+This means Spectrum does not inspect, modify, or upgrade application-layer protocols. For example, Spectrum cannot convert an HTTP connection to HTTPS, add HTTP headers, or apply WAF rules to TCP traffic. To add Layer 7 functionality such as CDN or Bot Management, set the application type to **HTTP/HTTPS**.
 
 For common issues and troubleshooting guidance, refer to [Spectrum Troubleshooting](https://developers.cloudflare.com/spectrum/reference/troubleshooting/).
 
@@ -34,7 +34,34 @@ Some of these features require an Enterprise plan. If you would like to upgrade,
 
 ## Application type
 
-The application type determines the protocol by which data travels from the edge to your origin. Select _TCP/UDP_ if you want to proxy directly to the origin. If you want to set up products like CDN, Workers, or Bot management, you need to select _HTTP/HTTPS_. In this case, traffic is routed through Cloudflare's pipeline instead of connecting directly to your origin.
+The application type determines how data travels from the edge to your origin:
+
+  * Select **TCP/UDP** to proxy directly to an IP address, hostname, load balancer, or virtual network.
+  * Select **HTTP/HTTPS** to route traffic through Cloudflare's Layer 7 pipeline.
+
+
+
+For a TCP application, you can select a Worker origin to send connections to a Worker's `connect()` handler.
+
+## Worker origin
+
+Public beta
+
+Spectrum applications with Worker origins are in public beta.
+
+Set `traffic_type` to `worker` and `origin_worker_id` to the immutable 32-character tag assigned to the target Worker. Refer to [Route TCP traffic to a Worker](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/) for setup instructions.
+
+Worker origins have the following constraints:
+
+  * For the TCP beta, `protocol` must specify TCP on a single port. Port ranges are not supported.
+  * Pro and Business zones without Spectrum Enterprise support one Worker-origin application per zone, in addition to their existing plan-supported applications. Free zones are not supported.
+  * On Pro and Business zones without Spectrum Enterprise, omit `tls`. Spectrum does not terminate TLS for these applications.
+  * With Spectrum Enterprise, `tls` can be `off` or `flexible`.
+  * `origin_direct`, `origin_dns`, `origin_port`, `virtual_network_id`, Proxy Protocol, and Argo Smart Routing are not supported.
+
+
+
+Without TLS termination, Spectrum passes the TCP payload to the Worker. An encrypted service must terminate TLS behind the Worker. With Spectrum Enterprise and `tls` set to `flexible`, Spectrum terminates TLS at the edge and sends the decrypted TCP payload to the Worker.
 
 ## IP addresses
 
@@ -68,6 +95,8 @@ Cloudflare supports all TCP ports.
 ## Port ranges
 
 Spectrum applications can be configured to proxy traffic on ranges of ports.
+
+Worker origins do not support port ranges. Configure a single TCP port instead.
 
 For direct origins:
     

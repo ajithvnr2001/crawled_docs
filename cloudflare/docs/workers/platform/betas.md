@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/betas/
 title: Betas \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:37.479089+00:00
+fetched_at: 2026-11-20T09:50:39.141712+00:00
 ---
 
 # Betas · Cloudflare Workers docs
@@ -18,22 +18,18 @@ fetched_at: 2026-10-08T07:17:37.479089+00:00
 
 # Betas
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/platform/betas/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-These are the current alphas and betas relevant to the Cloudflare Workers platform.
+These Cloudflare Workers features are in public beta. They are openly available, but may have limitations due to their early stage of development.
 
-  * **Public alphas and betas are openly available** , but may have limitations and caveats due to their early stage of development.
-  * Private alphas and betas require explicit access to be granted. Refer to the documentation to join the relevant product waitlist.
-
-
-
-Product | Private Beta | Public Beta | More Info  
----|---|---|---  
-Email Workers |  | ✅ | [Docs](https://developers.cloudflare.com/email-service/api/route-emails/email-handler/)  
-Green Compute |  | ✅ | [Blog ↗︎](https://blog.cloudflare.com/earth-day-2022-green-compute-open-beta/)  
-[TCP Sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) |  | ✅ | [Docs](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets)  
+Product | Status | More info  
+---|---|---  
+Email Workers | Public beta | [Docs](https://developers.cloudflare.com/email-service/api/route-emails/email-handler/)  
+Green Compute | Public beta | [Blog ↗︎](https://blog.cloudflare.com/earth-day-2022-green-compute-open-beta/)  
+[Outbound TCP sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) | Public beta | [Docs](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/)  
+[Inbound TCP connections](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/) | Public beta | [Docs](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/)  
   
-[PreviousChoose a data or storage product](https://developers.cloudflare.com/workers/platform/storage-options/)[NextDeploy to Cloudflare buttons](https://developers.cloudflare.com/workers/platform/deploy-buttons/)
+[PreviousSpending limits](https://developers.cloudflare.com/workers/platform/spend-management/)[NextDeploy to Cloudflare buttons](https://developers.cloudflare.com/workers/platform/deploy-buttons/)
 
 Was this helpful?
 

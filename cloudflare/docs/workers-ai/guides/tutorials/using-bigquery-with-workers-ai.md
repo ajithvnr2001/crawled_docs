@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/guides/tutorials/using-bigquery-with-workers-ai/
 title: Using BigQuery with Workers AI \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:01.220374+00:00
+fetched_at: 2026-11-20T09:50:38.409515+00:00
 ---
 
 # Using BigQuery with Workers AI · Cloudflare Workers AI docs
@@ -10,19 +10,19 @@ fetched_at: 2026-10-08T07:17:01.220374+00:00
 > Source: https://developers.cloudflare.com/workers-ai/guides/tutorials/using-bigquery-with-workers-ai/
 
   1. [Home](https://developers.cloudflare.com/)
-  2. /[Workers Ai](https://developers.cloudflare.com/workers-ai/)
+  2. /[Workers AI](https://developers.cloudflare.com/workers-ai/)
   3. /…
 
-[Guides](https://developers.cloudflare.com/workers-ai/guides/)
+Guides
 
   4. /[Tutorials](https://developers.cloudflare.com/workers-ai/guides/tutorials/)
-  5. /Using Bigquery With Workers Ai
+  5. /Using BigQuery with Workers AI
 
 
 
 # Using BigQuery with Workers AI
 
-Last updated Jan 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/guides/tutorials/using-bigquery-with-workers-ai/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Set up your Cloudflare Worker2\. Import GCP Service key into the Worker as Secrets3\. Install library to handle JWT operations4\. Generate JSON web token5\. Make authenticated requests to Google BigQuery6\. Format results from the query7\. Feed data into Workers AIFinal resultConclusionNext Steps
 
@@ -451,7 +451,7 @@ Restart the Worker that is running locally, and after doing so, go to your appli
     
     curl http://localhost:8787
 
-It is likely that you will be asked to log in to your Cloudflare account and grant temporary access to Wrangler (the Cloudflare CLI) to use your account when using Worker AI.
+It is likely that you will be asked to log in to your Cloudflare account and grant temporary access to Wrangler (the Cloudflare CLI) to use your account when using Workers AI.
 
 Once you access `http://localhost:8787` you should see an output similar to the following:
     

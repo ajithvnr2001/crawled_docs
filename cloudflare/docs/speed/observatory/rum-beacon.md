@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/speed/observatory/rum-beacon/
 title: RUM beacon for Web Analytics \u00b7 Cloudflare Speed docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:34.072493+00:00
+fetched_at: 2026-11-20T09:50:42.332753+00:00
 ---
 
 # RUM beacon for Web Analytics · Cloudflare Speed docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:15:34.072493+00:00
 
 # RUM beacon for Web Analytics
 
-Last updated Oct 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/speed/observatory/rum-beacon/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewData collectionData processingPrivacy informationRUM excluding EEA/EU
+OverviewData collectionData processingPrivacy informationRUM excluding EEA/GB/CH
 
 The RUM beacon is a JavaScript snippet that runs when a Cloudflare customer enables RUM through [Web Analytics](https://developers.cloudflare.com/web-analytics/) or [Observatory](https://developers.cloudflare.com/speed/observatory/). This script runs in users' browsers when they visit the customer's site, and its purpose is to collect performance-related data, for example, page load time, and send it to Cloudflare's systems for processing. This [data](https://developers.cloudflare.com/web-analytics/data-metrics/) is then presented to the customer, providing valuable insights into the website's performance and usage.
 
@@ -64,11 +64,11 @@ RUM data is generally processed at the nearest Cloudflare data center based on h
 
 The RUM beacon script does not store any data in the browser or access any storage data, such as [cookies ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie), [localStorage ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [sessionStorage ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), IP address, or [IndexedDB ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB). The data we collect is performance data from the browser performance [APIs ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API). This performance data is ephemeral and only relates to the current webpage that is being viewed. If the user refreshes their browser, all the previous performance data is gone and new performance data starts being available. This data is not stored or accessed from anywhere on the device, it is only available as in-memory data.
 
-## RUM excluding EEA/EU
+## RUM excluding EEA/GB/CH
 
-Customers have the option to enable RUM globally or to limit its application to exclude users connecting to Cloudflare data centers in the EEA/EU. If the latter option is selected, the RUM beacon does not process performance data for users connecting to a Cloudflare data center located in the following countries (ISO codes): AT, BE, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR, HU, IS, IE, IT, LV, LI, LT, LU, MT, NL, NO, PL, PT, RO, SK, SI, ES, SE, CH, GB.
+Customers can enable RUM globally or exclude visitors whose estimated location, based on IP address, is in the European Economic Area (EEA), the United Kingdom, or Switzerland. If the exclusion is enabled, the RUM beacon does not process performance data for visitors estimated to be located in one of the following countries (ISO codes): AT, BE, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR, HU, IS, IE, IT, LV, LI, LT, LU, MT, NL, NO, PL, PT, RO, SK, SI, ES, SE, CH, GB.
 
-Free customers have RUM enabled automatically, with EU traffic excluded, and can switch it off if they prefer. Customers on other plans may enable RUM as needed.
+Free customers have RUM enabled automatically, with EEA/GB/CH traffic excluded, and can switch it off if they prefer. Customers on other plans may enable RUM as needed.
 
 ![Enable RUM in the dashboard.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=512,height=511,format=webp/_astro/enable-rum.BsPZ4NVP.png)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/
 title: Overview \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:48.835010+00:00
+fetched_at: 2026-11-20T09:50:39.990707+00:00
 ---
 
 # Overview · Cloudflare Containers docs
@@ -16,7 +16,7 @@ fetched_at: 2026-11-10T09:28:48.835010+00:00
 
 # Containers
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewNext stepsMore resources
 
@@ -192,7 +192,7 @@ src/utils.tsts
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-10",
+    	"compatibility_date": "2026-11-20",
     	"containers": [
     		{
     			"class_name": "MyContainer",
@@ -221,7 +221,7 @@ src/utils.tsts
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-10"
+    compatibility_date = "2026-11-20"
     
     [[containers]]
     class_name = "MyContainer"
@@ -250,7 +250,7 @@ Deploy a Container
 
 [Examples](https://developers.cloudflare.com/containers/examples/)
 
-Stateless and stateful routing, regional placement, Workflow and Queue integrations, AI-generated code execution, and short-lived workloads.
+Bidirectional gRPC, stateless and stateful routing, regional placement, Workflow and Queue integrations, AI-generated code execution, and short-lived workloads.
 
 See Examples
 
@@ -297,6 +297,10 @@ CLI commands for images and containers.
 ### [APIs](https://developers.cloudflare.com/containers/api/)
 
 Control containers from a Durable Object with `ctx.container`.
+
+### [Bidirectional gRPC](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/)
+
+Route a gRPC stream through Spectrum and Workers to a Container.
 
 ### [SSH](https://developers.cloudflare.com/containers/guides/ssh/)
 

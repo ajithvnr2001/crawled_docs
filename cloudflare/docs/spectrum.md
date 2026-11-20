@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/
 title: Cloudflare Spectrum \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:32.183127+00:00
+fetched_at: 2026-11-20T09:50:39.500950+00:00
 ---
 
 # Cloudflare Spectrum · Cloudflare Spectrum docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:15:32.183127+00:00
 
 # Cloudflare Spectrum
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview:::note Custom TCP/UDP applications require an Enterprise plan with Spectrum as a paid add-on. See Protocols per plan for details, or contact your account team to enable. :::FeaturesRelated productsMore resources
 
@@ -33,6 +33,12 @@ Custom TCP/UDP applications require an Enterprise plan with Spectrum as a paid a
 * * *
 
 ## Features
+
+[Route TCP traffic to a Worker](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/)
+
+Send inbound TCP connections to a Worker's `connect()` handler. Worker origins are in public beta.
+
+Use Route TCP traffic to a Worker
 
 [Enable Proxy protocol](https://developers.cloudflare.com/spectrum/how-to/enable-proxy-protocol/)
 

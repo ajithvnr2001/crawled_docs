@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/features/function-calling/
 title: Function calling \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:57.440237+00:00
+fetched_at: 2026-11-20T09:50:38.788422+00:00
 ---
 
 # Function calling · Cloudflare Workers AI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:57.440237+00:00
 
 # Function calling
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/features/function-calling/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow can I use function calling?What models support function calling?
 
@@ -28,7 +28,7 @@ In essence, function calling allows you to perform actions with LLMs by executin
 
 ## How can I use function calling?
 
-Workers AI has [embedded function calling](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/) which allows you to execute function code alongside your inference calls. We have a package called [`@cloudflare/ai-utils` ↗︎](https://www.npmjs.com/package/@cloudflare/ai-utils) to help facilitate this, which we have open-sourced on [Github ↗︎](https://github.com/cloudflare/ai-utils).
+Workers AI has [embedded function calling](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/) which allows you to execute function code alongside your inference calls. We have a package called [`@cloudflare/ai-utils` ↗︎](https://www.npmjs.com/package/@cloudflare/ai-utils) to help facilitate this, which we have open-sourced on [GitHub ↗︎](https://github.com/cloudflare/ai-utils).
 
 For industry-standard function calling, take a look at the documentation on [Traditional Function Calling](https://developers.cloudflare.com/workers-ai/features/function-calling/traditional/).
 
@@ -53,7 +53,7 @@ Embedded function calling examplejs
     			env.AI,
     			"@hf/nousresearch/hermes-2-pro-mistral-7b",
     			{
-    				messages: [{ role: "user", content: "Who is Cloudflare on github?" }],
+    				messages: [{ role: "user", content: "Who is Cloudflare on GitHub?" }],
     				tools: [
     					// You can pass the OpenAPI spec link or contents directly
     					...(await createToolsFromOpenAPISpec(
@@ -123,7 +123,7 @@ Traditional function calling examplejs
     				const url = `https://api.github.com/users/${username}`;
     				res = await fetch(url, {
     					headers: {
-    						// Github API requires a User-Agent header
+    						// GitHub API requires a User-Agent header
     						"User-Agent":
     							"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
     					},

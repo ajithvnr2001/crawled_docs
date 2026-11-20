@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/terraform/advanced-topics/import-cloudflare-resources/
 title: Import Cloudflare resources \u00b7 Cloudflare Terraform docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:00.796861+00:00
+fetched_at: 2026-11-20T09:50:38.292406+00:00
 ---
 
 # Import Cloudflare resources · Cloudflare Terraform docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:00.796861+00:00
 
 # Import Cloudflare resources
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/terraform/advanced-topics/import-cloudflare-resources/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewcf-terraforming Installation Basic usageImport existing Cloudflare resources Generate Terraform configuration with cf-terraforming Import resources into Terraform state
 
@@ -80,10 +80,10 @@ If you do not have a Terraform configuration file defined, you need the `provide
 
 Note
 
-Terraform code snippets below refer to the v4 SDK only.
+Terraform code snippets below refer to the v5 SDK only.
     
     
-    provider 'cloudflare' {
+    provider "cloudflare" {
      # Cloudflare email saved in $CLOUDFLARE_EMAIL
      # Cloudflare API token saved in $CLOUDFLARE_API_TOKEN
     }
@@ -91,51 +91,59 @@ Terraform code snippets below refer to the v4 SDK only.
 Remember to keep your credentials saved in environment variables or terraform autovars that are not checked into your source files.
 
 Start by making a call to `cf-terraforming generate` to generate the Terraform configuration for the DNS records in the zone you want to manage with Terraform.
-    
-    
-    cf-terraforming generate --email $CLOUDFLARE_EMAIL --token $CLOUDFLARE_API_TOKEN -z 1109d899a5ff5fd74bc01e581693685b --resource-type cloudflare_record > importing-example.tf
-
-If you had not redirected the output to the `importing-example.tf` file, the result displayed in the standard output (your terminal window) would look like the following:
 
 Note
 
-Terraform code snippets below refer to the v4 SDK only.
+The examples on this page use the v5 Cloudflare Terraform provider, where DNS records use the `cloudflare_dns_record` resource type. If you are using the v4 provider, use `cloudflare_record` instead.
     
     
-    resource "cloudflare_record" "terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31" {
-        name    = "@"
-        type    = "A"
-        ttl     = 1
-        proxied = true
-        value   = "192.0.2.1"
-        zone_id = "1109d899a5ff5fd74bc01e581693685b"
+    cf-terraforming generate --email $CLOUDFLARE_EMAIL --token $CLOUDFLARE_API_TOKEN -z 1109d899a5ff5fd74bc01e581693685b --resource-type cloudflare_dns_record > importing-example.tf
+
+If you had not redirected the output to the `importing-example.tf` file, the result displayed in the standard output (your terminal window) would look like the following:
+    
+    
+    resource "cloudflare_dns_record" "terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0" {
+      content  = "192.0.2.1"
+      name     = "example.com"
+      proxied  = true
+      tags     = []
+      ttl      = 1
+      type     = "A"
+      zone_id  = "1109d899a5ff5fd74bc01e581693685b"
+      settings = {}
     }
     
-    resource "cloudflare_record" "terraform_managed_resource_5e10399a590a45279f09aa8fb1163354" {
-        name    = "www"
-        type    = "CNAME"
-        ttl     = 1
-        proxied = true
-        value   = "mitigateddos.net"
-        zone_id = "1109d899a5ff5fd74bc01e581693685b"
+    resource "cloudflare_dns_record" "terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1" {
+      content  = "example.com"
+      name     = "www.example.com"
+      proxied  = true
+      tags     = []
+      ttl      = 1
+      type     = "CNAME"
+      zone_id  = "1109d899a5ff5fd74bc01e581693685b"
+      settings = {}
     }
     
-    resource "cloudflare_record" "terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248" {
-        name    = "a123"
-        type    = "NS"
-        ttl     = 300
-        proxied = false
-        value   = "rafe.ns.cloudflare.com"
-        zone_id = "1109d899a5ff5fd74bc01e581693685b"
+    resource "cloudflare_dns_record" "terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2" {
+      content  = "rafe.ns.cloudflare.com"
+      name     = "a123.example.com"
+      proxied  = false
+      tags     = []
+      ttl      = 300
+      type     = "NS"
+      zone_id  = "1109d899a5ff5fd74bc01e581693685b"
+      settings = {}
     }
     
-    resource "cloudflare_record" "terraform_managed_resource_5799bb01054843eea726758f935d2aa2" {
-        name    = "a123"
-        type    = "NS"
-        ttl     = 300
-        proxied = false
-        value   = "terin.ns.cloudflare.com"
-        zone_id = "1109d899a5ff5fd74bc01e581693685b"
+    resource "cloudflare_dns_record" "terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3" {
+      content  = "terin.ns.cloudflare.com"
+      name     = "a123.example.com"
+      proxied  = false
+      tags     = []
+      ttl      = 300
+      type     = "NS"
+      zone_id  = "1109d899a5ff5fd74bc01e581693685b"
+      settings = {}
     }
 
 Calling `terraform plan` at this point will try to create these resources as if they did not exist, since they are not present in the local state file:
@@ -150,72 +158,80 @@ Calling `terraform plan` at this point will try to create these resources as if 
     
     Terraform will perform the following actions:
     
-      # cloudflare_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31 will be created
-      + resource "cloudflare_record" "terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31" {
-          + id          = (known after apply)>
-          + created_on  = (known after apply)
-          + domain      = "mitigateddos.net"
-          + hostname    = (known after apply)
-          + metadata    = (known after apply)
-          + modified_on = (known after apply)
-          + name        = "mitigateddos.net"
-          + proxiable   = (known after apply)
-          + proxied     = true
-          + ttl         = 1
-          + type        = "A"
-          + value       = "192.0.2.1"
-          + zone_id     = "1109d899a5ff5fd74bc01e581693685b"
+      # cloudflare_dns_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0 will be created
+      + resource "cloudflare_dns_record" "terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0" {
+          + comment_modified_on = (known after apply)
+          + content             = "192.0.2.1"
+          + created_on          = (known after apply)
+          + id                  = (known after apply)
+          + meta                = (known after apply)
+          + modified_on         = (known after apply)
+          + name                = "example.com"
+          + proxiable           = (known after apply)
+          + proxied             = true
+          + settings            = {}
+          + tags                = []
+          + tags_modified_on    = (known after apply)
+          + ttl                 = 1
+          + type                = "A"
+          + zone_id             = "1109d899a5ff5fd74bc01e581693685b"
         }
     
-      # cloudflare_record.terraform_managed_resource_5e10399a590a45279f09aa8fb1163354 will be created
-      + resource "cloudflare_record" "terraform_managed_resource_5e10399a590a45279f09aa8fb1163354" {
-          + id          = (known after apply)
-          + created_on  = (known after apply)
-          + domain      = "mitigateddos.net"
-          + hostname    = (known after apply)
-          + metadata    = (known after apply)
-          + modified_on = (known after apply)
-          + name        = "www.mitigateddos.net"
-          + proxiable   = (known after apply)
-          + proxied     = true
-          + ttl         = 1
-          + type        = "CNAME"
-          + value       = "mitigateddos.net"
-          + zone_id     = "1109d899a5ff5fd74bc01e581693685b"
+      # cloudflare_dns_record.terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1 will be created
+      + resource "cloudflare_dns_record" "terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1" {
+          + comment_modified_on = (known after apply)
+          + content             = "example.com"
+          + created_on          = (known after apply)
+          + id                  = (known after apply)
+          + meta                = (known after apply)
+          + modified_on         = (known after apply)
+          + name                = "www.example.com"
+          + proxiable           = (known after apply)
+          + proxied             = true
+          + settings            = {}
+          + tags                = []
+          + tags_modified_on    = (known after apply)
+          + ttl                 = 1
+          + type                = "CNAME"
+          + zone_id             = "1109d899a5ff5fd74bc01e581693685b"
         }
     
-      # cloudflare_record.terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248 will be created
-      + resource "cloudflare_record" "terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248" {
-          + id          = (known after apply)
-          + created_on  = (known after apply)
-          + domain      = "mitigateddos.net"
-          + hostname    = (known after apply)
-          + metadata    = (known after apply)
-          + modified_on = (known after apply)
-          + name        = "a123.mitigateddos.net"
-          + proxiable   = (known after apply)
-          + proxied     = false
-          + ttl         = 300
-          + type        = "NS"
-          + value       = "rafe.ns.cloudflare.com"
-          + zone_id     = "1109d899a5ff5fd74bc01e581693685b"
+      # cloudflare_dns_record.terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2 will be created
+      + resource "cloudflare_dns_record" "terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2" {
+          + comment_modified_on = (known after apply)
+          + content             = "rafe.ns.cloudflare.com"
+          + created_on          = (known after apply)
+          + id                  = (known after apply)
+          + meta                = (known after apply)
+          + modified_on         = (known after apply)
+          + name                = "a123.example.com"
+          + proxiable           = (known after apply)
+          + proxied             = false
+          + settings            = {}
+          + tags                = []
+          + tags_modified_on    = (known after apply)
+          + ttl                 = 300
+          + type                = "NS"
+          + zone_id             = "1109d899a5ff5fd74bc01e581693685b"
         }
     
-      # cloudflare_record.terraform_managed_resource_5799bb01054843eea726758f935d2aa2 will be created
-      + resource "cloudflare_record" "terraform_managed_resource_5799bb01054843eea726758f935d2aa2" {
-          + id          = (known after apply)
-          + created_on  = (known after apply)
-          + domain      = "mitigateddos.net"
-          + hostname    = (known after apply)
-          + metadata    = (known after apply)
-          + modified_on = (known after apply)
-          + name        = "a123.mitigateddos.net"
-          + proxiable   = (known after apply)
-          + proxied     = false
-          + ttl         = 300
-          + type        = "NS"
-          + value       = "terin.ns.cloudflare.com"
-          + zone_id     = "1109d899a5ff5fd74bc01e581693685b"
+      # cloudflare_dns_record.terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3 will be created
+      + resource "cloudflare_dns_record" "terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3" {
+          + comment_modified_on = (known after apply)
+          + content             = "terin.ns.cloudflare.com"
+          + created_on          = (known after apply)
+          + id                  = (known after apply)
+          + meta                = (known after apply)
+          + modified_on         = (known after apply)
+          + name                = "a123.example.com"
+          + proxiable           = (known after apply)
+          + proxied             = false
+          + settings            = {}
+          + tags                = []
+          + tags_modified_on    = (known after apply)
+          + ttl                 = 300
+          + type                = "NS"
+          + zone_id             = "1109d899a5ff5fd74bc01e581693685b"
         }
     
     Plan: 4 to add, 0 to change, 0 to destroy.
@@ -231,11 +247,11 @@ To fix this, you must import the real state of those resources from Cloudflare i
 
 `cf-terraforming` allows you to import local state (`.tfstate` file) for the same resources you imported during configuration.
 
-When you run `cf-terraforming import ...`, you will obtain a list of `terraform import ...` commands that you must run manually afterward to import those resources into Terraform state. This is currently a manual process, but it may be automated in the future.
+When you run `cf-terraforming import ...`, you will obtain a list of `terraform import ...` commands that you must run manually afterward to import those resources into Terraform state. If you use Terraform 1.5 or later, you can add the `--modern-import-block` flag to generate [`import` blocks ↗︎](https://developer.hashicorp.com/terraform/language/import) instead, which Terraform processes on the next `terraform apply`.
 
   1. Run the following command:
          
-         cf-terraforming import --resource-type "cloudflare_record" --email $CLOUDFLARE_EMAIL --key $CLOUDFLARE_API_KEY --zone $CLOUDFLARE_ZONE_ID
+         cf-terraforming import --resource-type "cloudflare_dns_record" --email $CLOUDFLARE_EMAIL --key $CLOUDFLARE_API_KEY --zone $CLOUDFLARE_ZONE_ID
 
   2. Copy each `terraform import ...` command included in the output and run it. Terraform will import each resource individually into Terraform state.
 
@@ -245,35 +261,21 @@ When you run `cf-terraforming import ...`, you will obtain a list of `terraform 
 For example, if the output of the first command (`cf-terraforming import ...`) contained the following `terraform` commands:
     
     
-    terraform import cloudflare_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31 1109d899a5ff5fd74bc01e581693685b/3c0b456bc2aa443089c5f40f45f51b31
-    terraform import cloudflare_record.terraform_managed_resource_5e10399a590a45279f09aa8fb1163354 1109d899a5ff5fd74bc01e581693685b/d09d916d059aa9fc8cb54bdd49deea5f
-    terraform import cloudflare_record.terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248 1109d899a5ff5fd74bc01e581693685b/8d6ec0d02c5b22212ff673782c816ef8
-    terraform import cloudflare_record.terraform_managed_resource_5799bb01054843eea726758f935d2aa2 1109d899a5ff5fd74bc01e581693685b/3766b952a2dda4c47e71952aeef33c77
+    terraform import cloudflare_dns_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0 1109d899a5ff5fd74bc01e581693685b/3c0b456bc2aa443089c5f40f45f51b31
+    terraform import cloudflare_dns_record.terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1 1109d899a5ff5fd74bc01e581693685b/d09d916d059aa9fc8cb54bdd49deea5f
+    terraform import cloudflare_dns_record.terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2 1109d899a5ff5fd74bc01e581693685b/8d6ec0d02c5b22212ff673782c816ef8
+    terraform import cloudflare_dns_record.terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3 1109d899a5ff5fd74bc01e581693685b/3766b952a2dda4c47e71952aeef33c77
 
 You would run each command individually in the terminal:
     
     
-    terraform import cloudflare_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31 1109d899a5ff5fd74bc01e581693685b/3c0b456bc2aa443089c5f40f45f51b31
+    terraform import cloudflare_dns_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0 1109d899a5ff5fd74bc01e581693685b/3c0b456bc2aa443089c5f40f45f51b31
     
     
-    cloudflare_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31: Importing from ID "1109d899a5ff5fd74bc01e581693685b/3c0b456bc2aa443089c5f40f45f51b31"...
-    cloudflare_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31: Import complete!
-      Imported cloudflare_record [id=3c0b456bc2aa443089c5f40f45f51b31]
-    cloudflare_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31: Refreshing state... [id=3c0b456bc2aa443089c5f40f45f51b31]
-    
-    Import successful!
-    
-    The resources that were imported are shown above. These resources are now in
-    your Terraform state and will henceforth be managed by Terraform.
-    
-    
-    terraform import cloudflare_record.terraform_managed_resource_5e10399a590a45279f09aa8fb1163354 1109d899a5ff5fd74bc01e581693685b/d09d916d059aa9fc8cb54bdd49deea5f
-    
-    
-    cloudflare_record.terraform_managed_resource_5e10399a590a45279f09aa8fb1163354: Importing from ID "1109d899a5ff5fd74bc01e581693685b/d09d916d059aa9fc8cb54bdd49deea5f"...
-    cloudflare_record.terraform_managed_resource_5e10399a590a45279f09aa8fb1163354: Import complete!
-      Imported cloudflare_record [id=d09d916d059aa9fc8cb54bdd49deea5f]
-    cloudflare_record.terraform_managed_resource_5e10399a590a45279f09aa8fb1163354: Refreshing state... [id=d09d916d059aa9fc8cb54bdd49deea5f]
+    cloudflare_dns_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0: Importing from ID "1109d899a5ff5fd74bc01e581693685b/3c0b456bc2aa443089c5f40f45f51b31"...
+    cloudflare_dns_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0: Import prepared!
+      Prepared cloudflare_dns_record for import
+    cloudflare_dns_record.terraform_managed_resource_3c0b456bc2aa443089c5f40f45f51b31_0: Refreshing state... [id=3c0b456bc2aa443089c5f40f45f51b31]
     
     Import successful!
     
@@ -281,13 +283,13 @@ You would run each command individually in the terminal:
     your Terraform state and will henceforth be managed by Terraform.
     
     
-    terraform import cloudflare_record.terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248 1109d899a5ff5fd74bc01e581693685b/8d6ec0d02c5b22212ff673782c816ef8
+    terraform import cloudflare_dns_record.terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1 1109d899a5ff5fd74bc01e581693685b/d09d916d059aa9fc8cb54bdd49deea5f
     
     
-    cloudflare_record.terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248: Importing from ID "1109d899a5ff5fd74bc01e581693685b/8d6ec0d02c5b22212ff673782c816ef8"...
-    cloudflare_record.terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248: Import complete!
-      Imported cloudflare_record [id=8d6ec0d02c5b22212ff673782c816ef8]
-    cloudflare_record.terraform_managed_resource_de1cb74bae184b569bb7f83fefe72248: Refreshing state... [id=8d6ec0d02c5b22212ff673782c816ef8]
+    cloudflare_dns_record.terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1: Importing from ID "1109d899a5ff5fd74bc01e581693685b/d09d916d059aa9fc8cb54bdd49deea5f"...
+    cloudflare_dns_record.terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1: Import prepared!
+      Prepared cloudflare_dns_record for import
+    cloudflare_dns_record.terraform_managed_resource_d09d916d059aa9fc8cb54bdd49deea5f_1: Refreshing state... [id=d09d916d059aa9fc8cb54bdd49deea5f]
     
     Import successful!
     
@@ -295,26 +297,40 @@ You would run each command individually in the terminal:
     your Terraform state and will henceforth be managed by Terraform.
     
     
-    terraform import cloudflare_record.terraform_managed_resource_5799bb01054843eea726758f935d2aa2 1109d899a5ff5fd74bc01e581693685b/3766b952a2dda4c47e71952aeef33c77
+    terraform import cloudflare_dns_record.terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2 1109d899a5ff5fd74bc01e581693685b/8d6ec0d02c5b22212ff673782c816ef8
     
     
-    cloudflare_record.terraform_managed_resource_5799bb01054843eea726758f935d2aa2: Importing from ID "1109d899a5ff5fd74bc01e581693685b/3766b952a2dda4c47e71952aeef33c77"...
-    cloudflare_record.terraform_managed_resource_5799bb01054843eea726758f935d2aa2: Import complete!
-      Imported cloudflare_record [id=3766b952a2dda4c47e71952aeef33c77]
-    cloudflare_record.terraform_managed_resource_5799bb01054843eea726758f935d2aa2: Refreshing state... [id=3766b952a2dda4c47e71952aeef33c77]
+    cloudflare_dns_record.terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2: Importing from ID "1109d899a5ff5fd74bc01e581693685b/8d6ec0d02c5b22212ff673782c816ef8"...
+    cloudflare_dns_record.terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2: Import prepared!
+      Prepared cloudflare_dns_record for import
+    cloudflare_dns_record.terraform_managed_resource_8d6ec0d02c5b22212ff673782c816ef8_2: Refreshing state... [id=8d6ec0d02c5b22212ff673782c816ef8]
+    
+    Import successful!
+    
+    The resources that were imported are shown above. These resources are now in
+    your Terraform state and will henceforth be managed by Terraform.
+    
+    
+    terraform import cloudflare_dns_record.terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3 1109d899a5ff5fd74bc01e581693685b/3766b952a2dda4c47e71952aeef33c77
+    
+    
+    cloudflare_dns_record.terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3: Importing from ID "1109d899a5ff5fd74bc01e581693685b/3766b952a2dda4c47e71952aeef33c77"...
+    cloudflare_dns_record.terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3: Import prepared!
+      Prepared cloudflare_dns_record for import
+    cloudflare_dns_record.terraform_managed_resource_3766b952a2dda4c47e71952aeef33c77_3: Refreshing state... [id=3766b952a2dda4c47e71952aeef33c77]
     
     Import successful!
     
     The resources that were imported are shown above. These resources are now in
     your Terraform state and will henceforth be managed by Terraform.
 
-If you now run `terraform plan`, you will notice that Terraform will no longer try to re-create the `cloudflare_record` resources:
+If you now run `terraform plan`, you will notice that Terraform will no longer try to re-create the `cloudflare_dns_record` resources:
     
     
     terraform plan | grep changes
     
     
-    No changes. Infrastructure is up-to-date.
+    No changes. Your infrastructure matches the configuration.
 
 [PreviousBest practices](https://developers.cloudflare.com/terraform/advanced-topics/best-practices/)[NextProvider customization](https://developers.cloudflare.com/terraform/advanced-topics/provider-customization/)
 

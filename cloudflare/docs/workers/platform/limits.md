@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/limits/
 title: Limits \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:06.468438+00:00
+fetched_at: 2026-11-20T09:50:40.415856+00:00
 ---
 
 # Limits · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-19T10:02:06.468438+00:00
 
 # Limits
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSpending limitsAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
+OverviewSpending limitsAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersVersionsRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
 
 ## Spending limits
 
@@ -42,6 +42,7 @@ size | 5 KB | 5 KB
 Worker size | 64 MiB | 64 MiB  
 Worker startup time | 1 second | 1 second  
 Number of Workers | 100 | 5001  
+Version retention | 30 days | 30 days  
 Number of [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/)  
 per account | 5 | 1,000  
 Number of Static Asset files per Worker version | 20,000 | 100,000  
@@ -350,6 +351,22 @@ Limit | Workers Free | Workers Paid
 Workers per account | 100 | 5001  
   
 If you are building a platform where your end customers deploy their own sites or applications, use [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/), which runs an unlimited number of user Workers.
+
+* * *
+
+## Versions
+
+Limit | Value  
+---|---  
+Version retention | 30 days  
+Versions always kept | 100 most recent, plus any deployed version  
+Versions available to deploy or roll back to | 100 most recent  
+  
+Versions older than 30 days are deleted, unless they are one of the Worker's 100 most recent versions or are currently deployed.
+
+You can only deploy, create a gradual deployment with, or roll back to the 100 most recent versions of a Worker.
+
+For more information, refer to [Version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention).
 
 * * *
 

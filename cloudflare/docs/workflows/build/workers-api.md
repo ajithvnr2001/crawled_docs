@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/workers-api/
 title: Workers API \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:20.994821+00:00
+fetched_at: 2026-11-20T09:50:40.977987+00:00
 ---
 
 # Workers API · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:20.994821+00:00
 
 # Workers API
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkflowEntrypoint runWorkflowEventWorkflowStep stepWorkflowStepConfigRollback optionsWorkflowStepContextWorkflow step limitsWorkflow concurrency limitsDefault instance retentionWorkflow jurisdictionDeclare Workflows in exports Call a Workflow through ctx.exportsNonRetryableErrorCall Workflows from Workers Bind from Pages Cross-script callsWorkflow create createBatch deleteBatch getWorkflowInstanceCreateOptionsWorkflowInstance id status pause resume restart terminate delete sendEvent subscribe InstanceStatus
 
@@ -479,7 +479,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-18",
+    	"compatibility_date": "2026-11-20",
     	"exports": {
     		"MyWorkflow": {
     			"type": "workflow",
@@ -495,7 +495,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-18"
+    compatibility_date = "2026-11-20"
     
     [exports.MyWorkflow]
     type = "workflow"
@@ -621,7 +621,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-18",
+    	"compatibility_date": "2026-11-20",
     	"workflows": [
     		{
     			// name of your workflow
@@ -640,7 +640,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-18"
+    compatibility_date = "2026-11-20"
     
     [[workflows]]
     name = "workflows-starter"
@@ -666,7 +666,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-18",
+    	"compatibility_date": "2026-11-20",
     	"workflows": [
     		{
     			// name of your workflow
@@ -688,7 +688,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-18"
+    compatibility_date = "2026-11-20"
     
     [[workflows]]
     name = "billing-workflow"
@@ -741,6 +741,33 @@ An ID is automatically generated, but a user-provided ID can be specified (up to
 Returns a `WorkflowInstance`.
 
 Throws an error if the provided ID is already used by an existing instance that has not yet passed its [retention limit](https://developers.cloudflare.com/workflows/reference/limits/). To re-run a workflow with the same ID, you can [`restart`](https://developers.cloudflare.com/workflows/build/trigger-workflows/#restart-a-workflow) the existing instance.
+
+`create()` rejects with an `Error` when it cannot create the instance. For the following failures, `error.message` includes an identifier in parentheses:
+
+Identifier | Cause  
+---|---  
+`(instance.already_exists)` | An instance with this ID already exists.  
+`(instance.invalid_id)` | The ID is not valid, for example because it is longer than 100 characters.  
+`(body)` | An option has an invalid value, such as a `retention` duration in the wrong format or an `id` that is not a string.  
+  
+These errors have no numeric `code` property. Other failures, such as rate limiting, can include a different identifier or none.
+
+To handle a duplicate ID, check `error.message` for the identifier:
+    
+    
+    try {
+    	await env.MY_WORKFLOW.create({ id: myIdDefinedFromOtherSystem });
+    } catch (err) {
+    	if (
+    		!(err instanceof Error) ||
+    		!err.message.includes("(instance.already_exists)")
+    	) {
+    		throw err;
+    	}
+    	// An instance with this ID already exists
+    }
+
+To get numeric codes for duplicate IDs instead, use the object form of `createBatch()`. It does not throw when an ID is already in use. Instead, it returns an entry in `errors` with code `10405` if the ID already exists, or `10415` if the ID repeats within the same batch.
 
 Caution
 

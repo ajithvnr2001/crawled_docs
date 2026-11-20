@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/compare-workflows/
 title: Compare workflows \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:07.106697+00:00
+fetched_at: 2026-11-20T09:50:40.646492+00:00
 ---
 
 # Compare workflows · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:07.106697+00:00
 
 # Compare workflows
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick comparisonVersion URLs Migrate from aliased Version URLs to PreviewsWrangler environments
 
@@ -53,7 +53,7 @@ Version URLs are the right fit for:
 
 ### Migrate from aliased Version URLs to Previews
 
-If you are using aliased Version URLs created with `wrangler versions upload --preview-alias` for branch or pull request previews, switch to Previews instead. Aliased Version URLs do not create branch-isolated resources.
+If you are using aliased Version URLs created with `wrangler versions upload --preview-alias` for branch or pull request previews, switch to Previews instead. Aliased Version URLs do not create branch-isolated resources, and they stop working when their version is deleted under [version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention).
 
 What you do today | What to do instead  
 ---|---  

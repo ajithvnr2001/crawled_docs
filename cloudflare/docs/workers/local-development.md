@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/
 title: Local development \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:00.202973+00:00
+fetched_at: 2026-11-20T09:50:39.417203+00:00
 ---
 
 # Local development · Cloudflare Workers docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-29T08:14:00.202973+00:00
 
 # Local development
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSecurity considerationsCore concepts Worker execution vs BindingsStart a local development server Defaults Bindings during local developmentRemote bindings Example configuration Integration with environments Recommended remote bindings Unsupported remote bindings Important Considerations Connect to Access-protected Workers APIwrangler dev --remote (Legacy) When to use Remote development Considerations Limitations
+OverviewSecurity considerationsCore concepts Worker execution vs BindingsStart a local development server Inbound TCP and gRPC Defaults Bindings during local developmentRemote bindings Example configuration Integration with environments Recommended remote bindings Unsupported remote bindings Important Considerations Connect to Access-protected Workers APIwrangler dev --remote (Legacy) When to use Remote development Considerations Limitations
 
 You can build, run, and test your Worker code on your own local machine before deploying it to Cloudflare's network. This is made possible through [Miniflare](https://developers.cloudflare.com/workers/testing/miniflare/), a simulator that executes your Worker code in a local [`workerd` ↗︎](https://github.com/cloudflare/workerd) process. `workerd` also powers the hosted Workers platform.
 
@@ -89,6 +89,24 @@ Both Wrangler and the Cloudflare Vite plugin use [Miniflare](https://developers.
 
 
 
+### Inbound TCP and gRPC
+
+To receive raw TCP connections locally, export a [`connect()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/) and configure a TCP listener in `wrangler.jsonc`:
+    
+    
+    {
+    	"connect": [{ "protocol": "tcp", "port": 8788 }],
+    }
+    
+    
+    [[connect]]
+    protocol = "tcp"
+    port = 8_788
+
+Connect TCP or gRPC clients to `localhost:8788`. The port comes from this configuration; exporting the handler alone does not create a listener.
+
+Refer to [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/) for an example that uses the local TCP listener to test a gRPC server running in a Container.
+
 ### Defaults
 
 By default, running `wrangler dev` / `vite dev` (when using the [Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/get-started/)) means that:
@@ -121,7 +139,7 @@ During local development, your Worker code interacts with these bindings using t
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-29",
+    	"compatibility_date": "2026-11-20",
     
     	"r2_buckets": [
     		{
@@ -135,7 +153,7 @@ During local development, your Worker code interacts with these bindings using t
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-29"
+    compatibility_date = "2026-11-20"
     
     [[r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -154,7 +172,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-29",
+    	"compatibility_date": "2026-11-20",
     
     	"env": {
     		"production": {
@@ -180,7 +198,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-29"
+    compatibility_date = "2026-11-20"
     
     [[env.production.r2_buckets]]
     bucket_name = "screenshots-bucket"

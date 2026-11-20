@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/faq/
 title: Frequently Asked Questions \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:47.857832+00:00
+fetched_at: 2026-11-20T09:50:39.802968+00:00
 ---
 
 # Frequently Asked Questions · Cloudflare Containers docs
@@ -17,9 +17,9 @@ fetched_at: 2026-11-10T09:28:47.857832+00:00
 
 # Frequently Asked Questions
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow do Container logs work?How are container instance locations selected?How do container updates and rollouts work?How do Workers Builds work with Containers?How does scaling work? Is built-in autoscaling for stateless applications available?What are cold starts? How fast are they?How do I use an existing container image?Is disk persistent? What happens to my disk when my container sleeps?What happens if I run out of memory?How long can instances run for? What happens when a host server is shut down?How can I pass secrets to my container?Can I run Docker inside a container (Docker-in-Docker)?How do I allow or disallow egress from my container?
+OverviewHow do Container logs work?How are container instance locations selected?How do container updates and rollouts work?How do Workers Builds work with Containers?How does scaling work? Is built-in autoscaling for stateless applications available?Can a Container receive inbound TCP or gRPC traffic?What are cold starts? How fast are they?How do I use an existing container image?Is disk persistent? What happens to my disk when my container sleeps?What happens if I run out of memory?How long can instances run for? What happens when a host server is shut down?How can I pass secrets to my container?Can I run Docker inside a container (Docker-in-Docker)?How do I allow or disallow egress from my container?
 
 ## How do Container logs work?
 
@@ -107,6 +107,12 @@ Refer to [scaling and routing](https://developers.cloudflare.com/containers/conf
 Not today, though Cloudflare plans to add built-in autoscaling in a future release.
 
 Until then, route to a random instance from a fixed pool for simple stateless routing, and use specific instance names when you need explicit control over container lifecycle.
+
+## Can a Container receive inbound TCP or gRPC traffic?
+
+Yes. Inbound TCP connections to Workers are in public beta. A Spectrum application sends the connection to a Worker's [`connect()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/), which can forward the raw socket to a process running in a Container.
+
+Refer to [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/) for a complete example.
 
 ## What are cold starts? How fast are they?
 

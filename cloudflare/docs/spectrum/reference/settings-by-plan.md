@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/reference/settings-by-plan/
 title: Settings by plan \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:34.595476+00:00
+fetched_at: 2026-11-20T09:50:39.272437+00:00
 ---
 
 # Settings by plan · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:34.595476+00:00
 
 # Settings by plan
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/reference/settings-by-plan/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Certain fields in Spectrum request and response bodies require an Enterprise plan. To upgrade your plan, contact your account team.
 
@@ -35,6 +35,8 @@ A request must contain either an `origin_dns` parameter or an `origin_direct` pa
 `argo_smart_routing` | boolean | Enables Argo Smart Routing for the application. Note that it is only available for TCP applications with traffic_type set to `direct`. | `true`  
   
 Review the [Spectrum API documentation](https://developers.cloudflare.com/api/resources/spectrum/subresources/apps/methods/list/) for example API requests.
+
+For [Worker-origin applications](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/) on Pro and Business zones without Spectrum Enterprise, send only `dns`, `protocol`, `traffic_type`, and `origin_worker_id`. Omit the Enterprise-only fields in this table, even when setting them to `false` or `off`. These applications pass TCP traffic through without TLS termination.
 
 [PreviousLimitations](https://developers.cloudflare.com/spectrum/reference/limitations/)[NextSimple Proxy Protocol Header](https://developers.cloudflare.com/spectrum/reference/simple-proxy-protocol-header/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/
 title: Rollbacks \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:06.520674+00:00
+fetched_at: 2026-11-20T09:50:40.328111+00:00
 ---
 
 # Rollbacks · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:06.520674+00:00
 
 # Rollbacks
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewVia WranglerVia the Cloudflare DashboardRolling back from a split deploymentLimits Rollbacks limit Bindings
 
@@ -81,6 +81,8 @@ Errors could occur if using code for a prior version if the structure of data ha
 ### Rollbacks limit
 
 You can only roll back to the 100 most recently published versions.
+
+Cloudflare always keeps the 100 most recent versions. Versions older than 30 days can be deleted under [version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention), and you cannot roll back to a deleted version.
 
 Note
 

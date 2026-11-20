@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/
 title: VPC Networks \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:28.649331+00:00
+fetched_at: 2026-11-20T09:50:42.103291+00:00
 ---
 
 # VPC Networks · Cloudflare Workers VPC
@@ -18,9 +18,9 @@ fetched_at: 2026-10-30T08:19:28.649331+00:00
 
 # VPC Networks
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBind to a Cloudflare TunnelBind to Cloudflare MeshSelect a virtual network TCP via connect()LogsVPC Networks vs VPC ServicesNext steps
+OverviewBind to a Cloudflare TunnelBind to Cloudflare MeshEgress to the public Internet Use dedicated egress IPsSelect a virtual network TCP via connect()LogsVPC Networks vs VPC ServicesNext steps
 
 VPC Networks allow your Workers to access any service in your private network without pre-registering individual hosts or ports. You can bind to a specific [Cloudflare Tunnel](https://developers.cloudflare.com/workers-vpc/configuration/tunnel/) to reach any service behind that tunnel, or bind to [Cloudflare Mesh](https://developers.cloudflare.com/mesh/) to reach any Mesh node, client device, subnet route or hostname route announced through Cloudflare Tunnel or Mesh, or destination reachable through a [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/) on-ramp (GRE, IPsec, or CNI).
 
@@ -83,7 +83,7 @@ Gateway drops HTTP traffic from Workers VPC if it matches a [Forward policy](htt
 
 Note
 
-Your account must have at least one active [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), [Cloudflare Mesh](https://developers.cloudflare.com/mesh/) node, or [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/) on-ramp that can reach the target services.
+To reach **private** destinations, your account must have at least one active [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), [Cloudflare Mesh](https://developers.cloudflare.com/mesh/) node, or [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/) on-ramp that can reach the target services. This requirement does not apply to public Internet destinations. Refer to Egress to the public Internet.
 
 For destinations behind Cloudflare WAN on-ramps (GRE, IPsec, or CNI), your network must also route the [Cloudflare source IP range](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/) (`100.64.0.0/12` by default) back through the on-ramp so reply traffic returns to Cloudflare. This is part of standard Cloudflare WAN onboarding. If you have already configured this for Gateway, Load Balancing, or other Cloudflare services that reach your private network through Cloudflare WAN, no additional setup is required.
 
@@ -105,6 +105,66 @@ Bind to Cloudflare Mesh using `network_id: "cf1:network"`:
     binding = "MY_VPC"
     network_id = "cf1:network"
     remote = true
+
+## Egress to the public Internet
+
+A binding with `network_id: "cf1:network"` sends your Worker's traffic to public Internet destinations through [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/). Gateway enforces your [DNS](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/), [HTTP](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/), and [Network](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/) policies and logs the traffic.
+
+You do not need a Cloudflare Tunnel, Cloudflare Mesh node, or Cloudflare WAN on-ramp to egress to public destinations. The only dependency is Cloudflare Gateway: your account needs a Zero Trust organization with Gateway set up, and you must [turn on the Gateway proxy](https://developers.cloudflare.com/cloudflare-one/traffic-controls/proxy/#turn-on-the-gateway-proxy) for Network and HTTP policies to apply.
+    
+    
+    {
+      "vpc_networks": [
+        {
+          "binding": "EGRESS",
+          "network_id": "cf1:network",
+          "remote": true
+        }
+      ]
+    }
+    
+    
+    [[vpc_networks]]
+    binding = "EGRESS"
+    network_id = "cf1:network"
+    remote = true
+
+Call `fetch()` on the binding to send a request through Gateway:
+
+src/index.jsjs
+    
+    
+    export default {
+    	async fetch(_request, env) {
+    		return env.EGRESS.fetch("https://api.example.com/data");
+    	},
+    };
+
+src/index.tsts
+    
+    
+    export default {
+    	async fetch(_request: Request, env: Env): Promise<Response> {
+    		return env.EGRESS.fetch("https://api.example.com/data");
+    	},
+    } satisfies ExportedHandler<Env>;
+
+When you route Worker egress through Gateway, note these behaviors:
+
+  * Only calls made on the binding go through Gateway. A global `fetch()` does not.
+  * The binding works in request handlers, Durable Object alarms, Queue consumers, and Cron Triggers, because it is part of the Worker version.
+  * [Service bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) between Workers stay inside Cloudflare. They never reach the public Internet and do not use an egress IP.
+  * `connect()` supports plaintext TCP only. Refer to TCP via `connect()`.
+
+
+
+### Use dedicated egress IPs
+
+Gateway [dedicated egress IPs](https://developers.cloudflare.com/cloudflare-one/traffic-controls/egress-policies/dedicated-egress-ips/) and [egress policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/egress-policies/) apply to Network and HTTP traffic that Gateway proxies, including traffic from a `cf1:network` binding. Dedicated egress IPs are an add-on to Zero Trust Enterprise plans.
+
+Configure a fallback egress IP in every egress policy. Without one, traffic that does not match a policy can fall back to the shared Cloudflare egress range.
+
+[Dedicated CDN Egress IPs](https://developers.cloudflare.com/smart-shield/configuration/dedicated-egress-ips/) from Smart Shield are a different product. They cover proxied HTTP and HTTPS traffic from Cloudflare to your origin, and `connect()` does not use them. They do not give you static IP addresses for traffic you send through `cf1:network`.
 
 ## Select a virtual network
 
@@ -217,7 +277,7 @@ When a VPC Network cannot establish a TCP connection, `connect()` throws an exce
 
 Note
 
-`connect()` over VPC Networks currently supports plaintext TCP only.
+`connect()` over VPC Networks currently supports plaintext TCP only. Workers VPC does not establish TLS for `connect()`, so destinations that require implicit TLS, such as SMTP on port 465, are not supported. To reach an HTTPS destination, use `fetch()` with an `https://` URL.
 
 ## Logs
 

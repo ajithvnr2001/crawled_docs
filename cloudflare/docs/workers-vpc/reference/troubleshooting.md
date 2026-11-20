@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/reference/troubleshooting/
 title: Troubleshoot and debug \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:26.089237+00:00
+fetched_at: 2026-11-20T09:50:42.049288+00:00
 ---
 
 # Troubleshoot and debug · Cloudflare Workers VPC
@@ -18,9 +18,9 @@ fetched_at: 2026-11-18T09:55:26.089237+00:00
 
 # Troubleshoot and debug
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewFind a Worker's sessions in logsConnection error codes Bad Upstream errors Client errors Internal errorsTunnel errorsPermission errors
+OverviewFind a Worker's sessions in logsConnection error codes Bad Upstream errors Client errors Internal errorsTunnel errorsPermission errors Error 10196 when deploying a Worker with a VPC binding
 
 Troubleshoot and debug errors commonly associated with Workers VPC.
 
@@ -121,6 +121,19 @@ If your roles were recently updated and commands are still failing, refresh Wran
     npx wrangler login
 
 If you authenticate with an API token (`CLOUDFLARE_API_TOKEN`), ensure the token belongs to a user with the required roles.
+
+### Error 10196 when deploying a Worker with a VPC binding
+
+Error `10196` means the account member or API token that deploys the Worker cannot use Workers VPC.
+
+To fix this error:
+
+  1. Assign the **Connectivity Directory Bind** or **Connectivity Directory Admin** role to the member. Binding directly to a Cloudflare Tunnel with `tunnel_id` requires **Connectivity Directory Admin**.
+  2. If you deploy with an API token, add the matching permission to the token.
+
+
+
+API tokens inherit the permissions of the member who created them. Roles that come only from a single sign-on (SSO) group mapping may not be inherited, so assign the role to the member directly.
 
 [PreviousWrangler commands](https://developers.cloudflare.com/workers-vpc/reference/wrangler-commands/)[NextWorkers Binding API](https://developers.cloudflare.com/workers-vpc/api/)
 

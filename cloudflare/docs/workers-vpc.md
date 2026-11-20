@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/
 title: Overview \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:08.109668+00:00
+fetched_at: 2026-11-20T09:50:42.010259+00:00
 ---
 
 # Overview · Cloudflare Workers VPC
@@ -16,7 +16,7 @@ fetched_at: 2026-11-19T10:02:08.109668+00:00
 
 # Cloudflare Workers VPC
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse cases Access private APIs from Workers applications API gateway Internal tooling, agents, dashboards Apply Zero Trust controls to Worker egressGet startedRelated products
 
@@ -48,7 +48,7 @@ Reach destinations through GRE, IPsec, or CNI on-ramps
 
 [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/)
 
-Mesh and WAN traffic flows through Gateway, with policies enforced and traffic [logged](https://developers.cloudflare.com/cloudflare-one/insights/logs/dashboard-logs/gateway-logs/).
+Public Internet, Mesh, and WAN traffic flows through Gateway, with policies enforced and traffic [logged](https://developers.cloudflare.com/cloudflare-one/insights/logs/dashboard-logs/gateway-logs/).
 
 [DNS](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/)[HTTP](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/)[Network](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/)
 
@@ -58,11 +58,15 @@ APIs, databases, hosts in your network — reachable via any on-ramp
 
 Public Internet
 
-Reachable via Mesh or WAN
+Reachable directly through Gateway with `cf1:network`, no on-ramp required
 
 Note
 
 Workers VPC is currently in beta. Features and APIs may change before general availability. While in beta, Workers VPC is available for free to all Workers plans.
+
+Public Internet egress does not need an on-ramp
+
+A Cloudflare Tunnel, Cloudflare Mesh node, or Cloudflare WAN on-ramp is only required to reach **private** destinations. To send a Worker's traffic to public Internet destinations through Cloudflare Gateway, bind to `cf1:network` and call the binding's `fetch()`. You do not need to deploy a Tunnel, Mesh node, or WAN on-ramp first. Refer to [Egress to the public Internet](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/#egress-to-the-public-internet).
     
     
     export default {

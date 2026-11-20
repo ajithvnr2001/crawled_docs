@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/get-started/
 title: Get Started \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:58.805650+00:00
+fetched_at: 2026-11-20T09:50:38.669091+00:00
 ---
 
 # Get Started · Cloudflare Workers AI docs
@@ -22,7 +22,7 @@ Features[Function calling](https://developers.cloudflare.com/workers-ai/features
 
 # Get Started
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create a Worker project with Workers AI2\. Install additional npm package3\. Add Workers AI Embedded function calling4\. Local development & deploymentAPI reference
 
@@ -34,7 +34,7 @@ Follow the [Workers AI Get Started Guide](https://developers.cloudflare.com/work
 
 ## 2\. Install additional npm package
 
-Next, run the following command in your project repository to install the Worker AI utilities package.
+Next, run the following command in your project repository to install the Workers AI utilities package.
 
 npmyarnpnpmbun
     
@@ -76,7 +76,7 @@ index.jsjs
     				messages: [
     					{
     						role: "user",
-    						content: "What the result of 123123123 + 10343030?",
+    						content: "What is the result of 123123123 + 10343030?",
     					},
     				],
     				// Definition of available tools the AI model can leverage
@@ -128,7 +128,7 @@ index.tsts
     				messages: [
     					{
     						role: "user",
-    						content: "What the result of 123123123 + 10343030?",
+    						content: "What is the result of 123123123 + 10343030?",
     					},
     				],
     				// Definition of available tools the AI model can leverage
@@ -154,9 +154,9 @@ index.tsts
     	},
     } satisfies ExportedHandler<Env>;
 
-This example imports the utils with `import { runWithTools} from "@cloudflare/ai-utils"` and follows the API reference below.
+This example imports the utils with `import { runWithTools } from "@cloudflare/ai-utils"` and follows the [embedded function calling API reference](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/api-reference/).
 
-Moreover, in this example we define and describe a list of tools that the LLM can leverage to respond to the user query. Here, the list contains of only one tool, the `sum` function.
+Moreover, in this example we define and describe a list of tools that the LLM can leverage to respond to the user query. Here, the list contains only one tool, the `sum` function.
 
 Abstracted by the `runWithTools` function, the following steps occur:
     
@@ -172,7 +172,7 @@ Abstracted by the `runWithTools` function, the following steps occur:
         WorkersAI-->>-Worker: Send response incorporating function output
     
 
-The `ai-utils package` is also open-sourced on [Github ↗︎](https://github.com/cloudflare/ai-utils).
+The `ai-utils` package is also open-sourced on [GitHub ↗︎](https://github.com/cloudflare/ai-utils).
 
 ## 4\. Local development & deployment
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-routes/
 title: Configure routes \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.454851+00:00
+fetched_at: 2026-11-20T09:50:42.298775+00:00
 ---
 
 # Configure routes · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # Configure routes
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure static routes Create a static route Edit a static route Delete static routeConfigure Automatic Return RoutingConfigure BGP routes Choose an ASN for BGP peering Set up BGP peering Important remarks for GRE/IPsec tunnels Filter BGP routesNext steps
 
@@ -301,6 +301,8 @@ Delete Routebash
 ## Configure Automatic Return Routing
 
 [Automatic Return Routing](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/reference/traffic-steering/#automatic-return-routing) allows Cloudflare to track network flows from your Cloudflare WAN (formerly Magic WAN) connected locations, ensuring return traffic is routed back to the connection where it was received without requiring static or dynamic routes. This functionality requires [Unified Routing mode](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/reference/traffic-steering/#unified-routing).
+
+For traffic between a Cloudflare WAN connection with ARR enabled and another Cloudflare WAN connection, Cloudflare will source NAT the traffic to a [Cloudflare Source IP](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/). The destination must route replies to this prefix back to Cloudflare. Allow the prefix in destination-side firewall rules as needed.
 
 To enable ARR:
 

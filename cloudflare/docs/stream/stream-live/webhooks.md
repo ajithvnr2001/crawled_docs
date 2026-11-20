@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/stream-live/webhooks/
 title: Receive Live Webhooks \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:49.561279+00:00
+fetched_at: 2026-11-20T09:50:41.158048+00:00
 ---
 
 # Receive Live Webhooks · Cloudflare Stream docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-10T09:28:49.561279+00:00
 
 # Receive Live Webhooks
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSubscribe to Stream Live WebhooksError codes
+OverviewSubscribe to Stream Live Webhooks
 
 Stream Live offers webhooks to notify your service when an Input connects, disconnects, or encounters an error with Stream Live.
 
@@ -98,39 +98,7 @@ Example webhook payloadjson
 
 The `event_type` property of the data object will either be `live_input.connected`, `live_input.disconnected`, or `live_input.errored`.
 
-If there are issues detected with the input, the `event_type` will be `live_input.errored`. Additional data will be under the `live_input_errored` json key and will include a `code` with one of the values listed below.
-
-## Error codes
-
-  * `ERR_GOP_OUT_OF_RANGE` – The input GOP size or keyframe interval is out of range.
-  * `ERR_UNSUPPORTED_VIDEO_CODEC` – The input video codec is unsupported for the protocol used.
-  * `ERR_UNSUPPORTED_AUDIO_CODEC` – The input audio codec is unsupported for the protocol used.
-  * `ERR_STORAGE_QUOTA_EXHAUSTED` – The account storage quota has been exceeded. Delete older content or purchase additional storage.
-  * `ERR_MISSING_SUBSCRIPTION` – Unauthorized to start a live stream. Check subscription or log into Dash for details.
-  * `ERR_UNHEALTHY` – The active broadcast cannot be processed for an unknown reason that is most often due to encoder misconfiguration. Confirm the broadcast follows [required and recommended settings](https://developers.cloudflare.com/stream/stream-live/start-stream-live/#recommendations-requirements-and-limitations), then disconnect and reconnect to try again.
-
-Example live_input.errored webhook payloadjson
-    
-    
-    {
-      "name": "Live Webhook Test",
-      "text": "Notification type: Stream Live Input\nInput ID: 2c28dd2cc444cb77578c4840b51e43a8\nEvent type: live_input.errored\nUpdated at: 2024-07-09T18:07:51.077371662Z\nError Code: ERR_GOP_OUT_OF_RANGE\nError Message: Input GOP size or keyframe interval is out of range.\nVideo Codec: \nAudio Codec: ",
-      "data": {
-        "notification_name": "Stream Live Input",
-        "input_id": "eb222fcca08eeb1ae84c981ebe8aeeb6",
-        "event_type": "live_input.errored",
-        "updated_at": "2024-07-09T18:07:51.077371662Z",
-        "live_input_errored": {
-          "error": {
-            "code": "ERR_GOP_OUT_OF_RANGE",
-            "message": "Input GOP size or keyframe interval is out of range."
-          },
-          "video_codec": "",
-          "audio_codec": ""
-        }
-      },
-      "ts": 1720548474
-    }
+If there are issues detected with the input, the `event_type` will be `live_input.errored`. Additional data will be under the `live_input_errored` json key and will include a `code` with one of the values listed in [Error codes](https://developers.cloudflare.com/stream/stream-live/troubleshooting/#error-codes).
 
 [PreviousSimulcast (restream) videos](https://developers.cloudflare.com/stream/stream-live/simulcasting/)[NextTroubleshooting a live stream](https://developers.cloudflare.com/stream/stream-live/troubleshooting/)
 

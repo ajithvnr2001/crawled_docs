@@ -3,8 +3,5 @@
   "file": "terraform/advanced-topics/remote-backend.md",
   "title": "Remote R2 backend \u00b7 Cloudflare Terraform docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:16:00.855496+00:00",
-  "html_len": 121065,
-  "md_len": 4800,
-  "depth": 0
+  "fetched_at": "2026-11-20T09:50:38.319178+00:00"
 }

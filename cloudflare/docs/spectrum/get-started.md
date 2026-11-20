@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/get-started/
 title: Get started \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:05.612747+00:00
+fetched_at: 2026-11-20T09:50:39.738232+00:00
 ---
 
 # Get started · Cloudflare Spectrum docs
@@ -17,13 +17,15 @@ fetched_at: 2026-11-19T10:02:05.612747+00:00
 
 # Get started
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a Spectrum application using an IP addressCreate a Spectrum application using a CNAME recordCreate a Spectrum application using a load balancerCreate a Spectrum application using a virtual network origin Before you beginView traffic
 
 Spectrum is available on all paid plans. Pro and Business support selected protocols only, whereas Enterprise supports all TCP and UDP based traffic. Refer to [Configuration options](https://developers.cloudflare.com/spectrum/reference/configuration-options/) for more configuration details.
 
-To create a Spectrum application, you can either use an IP address, a CNAME Record or a load balancer. Independently of the method you use, you can create the application through the dashboard or via [API](https://developers.cloudflare.com/api/resources/spectrum/subresources/apps/methods/list/).
+To create a Spectrum application, you can use an IP address, a CNAME record, a load balancer, a virtual network, or a Worker. Independently of the method you use, you can create the application through the dashboard or via [API](https://developers.cloudflare.com/api/resources/spectrum/subresources/apps/methods/list/).
+
+To send inbound TCP connections to a Worker's `connect()` handler, refer to [Route TCP traffic to a Worker](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/). Worker origins are in public beta.
 
 Certain fields in Spectrum request and response bodies require an Enterprise plan. Refer to the [Settings by plan](https://developers.cloudflare.com/spectrum/reference/settings-by-plan/) page for more details.
 
@@ -408,7 +410,7 @@ You can now proxy traffic through Cloudflare without additional configuration. A
 
 If you have any feedback, please [let us know ↗︎](https://community.cloudflare.com/c/website-application-performance/spectrum/48).
 
-[PreviousStatic IP](https://developers.cloudflare.com/spectrum/about/static-ip/)[NextEnable Proxy protocol](https://developers.cloudflare.com/spectrum/how-to/enable-proxy-protocol/)
+[PreviousStatic IP](https://developers.cloudflare.com/spectrum/about/static-ip/)[NextRoute TCP traffic to a Worker](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/)
 
 Was this helpful?
 

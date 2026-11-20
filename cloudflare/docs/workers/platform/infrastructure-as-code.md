@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/infrastructure-as-code/
 title: Infrastructure as Code (IaC) \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:07.053203+00:00
+fetched_at: 2026-11-20T09:50:40.551845+00:00
 ---
 
 # Infrastructure as Code (IaC) · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:07.053203+00:00
 
 # Infrastructure as Code (IaC)
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkers BundlingTerraformBindings in Terraform KV Namespace Binding R2 Bucket Binding D1 Database Binding Durable Object Binding Service Binding Queue Binding Vectorize Binding Workers AI Binding Hyperdrive Binding VPC Service Binding Analytics Engine Binding Environment Variables Secret Text Binding Complete ExampleCloudflare API LibrariesCloudflare REST API multipart/form-data upload API Python WorkersConsiderations with Durable ObjectsConsiderations with Worker Versions Resource immutability Module Content Import Behavior Examples
 
@@ -1033,7 +1033,7 @@ To make this succeed, you first have to comment out the `durable_object` binding
 
 ### Resource immutability
 
-Worker versions are immutable at the API level, meaning they cannot be updated after creation, only re-created with any desired changes. This means that meaningful changes to the `cloudflare_worker_version` Terraform resource will always trigger replacement. When the `cloudflare_worker_version` resource is replaced, a new version with the desired changes is created, but the previous version is not deleted. This ensures the Worker has a complete version history when managed via Terraform. In other words, versions are both immutable and append-only. When the parent `cloudflare_worker` resource is deleted, all existing versions associated with the Worker are also deleted.
+Worker versions are immutable at the API level, meaning they cannot be updated after creation, only re-created with any desired changes. This means that meaningful changes to the `cloudflare_worker_version` Terraform resource will always trigger replacement. When the `cloudflare_worker_version` resource is replaced, a new version with the desired changes is created, but Terraform does not delete the previous version. Previous versions are still subject to [version retention](https://developers.cloudflare.com/workers/versions-and-deployments/#version-retention), so Cloudflare can delete older versions that are not deployed. When the parent `cloudflare_worker` resource is deleted, all existing versions associated with the Worker are also deleted.
 
 ### Module Content
 

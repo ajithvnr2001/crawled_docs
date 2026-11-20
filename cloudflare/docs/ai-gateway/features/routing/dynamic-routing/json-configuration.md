@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/json-configuration/
 title: JSON Configuration \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:07.022879+00:00
+fetched_at: 2026-11-20T09:50:38.247957+00:00
 ---
 
 # JSON Configuration · Cloudflare AI Gateway docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-05T09:11:07.022879+00:00
 
 # JSON Configuration
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSupported elements Start Element Conditional Element (If/Else) Percentage Split Rate/Budget Limit Model End element
+OverviewRequest metadataSupported elements Start Element Conditional Element (If/Else) Percentage Split Rate/Budget Limit Model End element
 
 Instead of using the **dashboard editor UI** to define the route graph, you can do it using the REST API. Routes are internally represented using a simple JSON structure:
     
@@ -34,6 +34,19 @@ Instead of using the **dashboard editor UI** to define the route graph, you can 
       "name": "<route name>",
       "elements": [<array of elements>]
     }
+
+## Request metadata
+
+Conditional and rate/budget limit elements read data from the request's metadata only. They do not read the request body, headers, model, or task. AI Gateway does not detect a task or add it to metadata.
+
+Reference metadata keys as `metadata.<key>`. The keys available are:
+
+  * The [custom metadata](https://developers.cloudflare.com/ai-gateway/observability/custom-metadata/) that you send in the `cf-aig-metadata` header. For example, if you send `cf-aig-metadata: {"plan": "free", "task": "summarize"}`, you can use `metadata.plan` and `metadata.task`.
+  * `metadata.cf.user_id`, which AI Gateway adds when a user authenticates with [Cloudflare Access](https://developers.cloudflare.com/ai-gateway/configuration/cloudflare-access/). Service-token requests and requests without a user subject do not include this key. Refer to [Reserved metadata](https://developers.cloudflare.com/ai-gateway/observability/custom-metadata/#reserved-metadata).
+
+
+
+To route on a value that AI Gateway does not supply, such as the task type, add it to `cf-aig-metadata` in your application.
 
 ## Supported elements
 
@@ -60,7 +73,7 @@ Marks the beginning of a route. Every route must start with a Start element.
 
 ### Conditional Element (If/Else)
 
-Evaluates a condition based on request parameters and routes the request accordingly.
+Evaluates a condition against the request metadata and routes the request accordingly.
 
   * **Inputs** : Request
   * **Outputs** : 
@@ -69,7 +82,7 @@ Evaluates a condition based on request parameters and routes the request accordi
 
 
 
-`conditions` supports MongoDB-like operators such as `$eq`, `$ne`, `$in`, `$and`, and `$or`.
+`conditions` supports MongoDB-like operators such as `$eq`, `$ne`, `$in`, `$and`, and `$or`. If the request does not include a metadata key, the condition evaluates the key as missing. For example, `$eq` evaluates to false and `$ne` evaluates to true.
     
     
     {
@@ -121,7 +134,7 @@ Apply limits based on request metadata. Supports both count-based and cost-based
 **Properties** :
 
   * `limitType`: "count" or "cost"
-  * `key`: Request field to use for rate limiting (e.g. "metadata.user_id")
+  * `key`: Metadata key to use for rate limiting. For example, `metadata.user_id` for a custom key that your application sends, or `metadata.cf.user_id` for the Access user ID. Requests that do not include this key share one limit.
   * `limit`: Maximum allowed requests/cost
   * `window`: Time window in seconds
 

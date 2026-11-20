@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/examples/fetch/
 title: Use fetch() handler \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:57.655136+00:00
+fetched_at: 2026-11-20T09:50:38.723666+00:00
 ---
 
 # Use fetch() handler · Cloudflare Workers AI docs
@@ -22,13 +22,13 @@ Features[Function calling](https://developers.cloudflare.com/workers-ai/features
 
 # Use fetch() handler
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/examples/fetch/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 A very common use case is to provide the LLM with the ability to perform API calls via function calling.
 
-In this example the LLM will retrieve the weather forecast for the next 5 days. To do so a `getWeather` function is defined that is passed to the LLM as tool.
+In this example the LLM will retrieve the weather forecast for the next 5 days. To do so a `getWeather` function is defined that is passed to the LLM as a tool.
 
-The `getWeather`function extracts the user's location from the request and calls the external weather API via the Workers' [`Fetch API`](https://developers.cloudflare.com/workers/runtime-apis/fetch/) and returns the result.
+The `getWeather` function extracts the user's location from the request and calls the external weather API via the Workers' [`Fetch API`](https://developers.cloudflare.com/workers/runtime-apis/fetch/) and returns the result.
 
 Embedded function calling example with fetch()ts
     

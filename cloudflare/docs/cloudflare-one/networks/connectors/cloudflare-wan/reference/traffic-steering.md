@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/reference/traffic-steering/
 title: Traffic steering \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:19.782107+00:00
+fetched_at: 2026-11-20T09:50:41.798200+00:00
 ---
 
 # Traffic steering · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # Traffic steering
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare Virtual Network routing table Allowed IP ranges Default routing Route prioritization Set priority and weights for static routes Set priority for BGP routes Change route priorities with BGP attributesAutomatic Return Routing How ARR works Traffic and destinations affectedUnified Routing mode Compare routing modes How to upgrade to Unified RoutingRoute evaluation with Zero Trust connections Terminology Unified Routing mode Legacy Routing mode Check your routing modeScoping routes to specific regions Region codes and associated regionsEqual-cost multi-path routing Examples ECMP and bandwidth utilizationBGP information Release status BGP architecture BGP peering with the Cloudflare Virtual Network routing table BGP route distribution and convergence BGP timers and settings BGP capabilities and limitations Tunnel health checksApplication-aware policies
 
@@ -197,10 +197,11 @@ Automatic Return Routing applies when:
     * A Cloudflare One Client
     * A private network connected to Cloudflare through Cloudflare Tunnel
     * A private network connected to Cloudflare through Cloudflare Mesh
+    * A private network connected through another Cloudflare WAN connection (TCP and UDP only)
 
 
 
-ARR does not change routing for traffic between Cloudflare WAN connections (for example, traffic from one IPsec/GRE tunnel or interconnect to another). That traffic continues to follow your configured Cloudflare WAN routes.
+For TCP and UDP traffic destined towards another Cloudflare WAN connection, ARR will source NAT to a [Cloudflare Source IP](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/). The initial request still follows your configured routes, but the traffic returning from the origin will route back to the original tunnel. ICMP traffic will be unaffected by ARR and will strictly follow your configured Cloudflare WAN routes.
 
 ## Unified Routing mode
 
@@ -233,7 +234,7 @@ The following features require Unified Routing.
 
 Feature | Availability with Unified Routing  
 ---|---  
-Automatic Return Routing | Generally available for Internet return traffic. Routing between WAN connections is not available.  
+Automatic Return Routing | Generally available for Internet return traffic. Site-to-site traffic uses Cloudflare Source IPs.  
 BGP over IPsec and GRE | Generally available.  
 [Cloudflare source IPs](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/) | Generally available.  
 [Custom Cloudflare One Client device subnets](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-ips/) with Cloudflare WAN | Generally available.  
@@ -306,7 +307,7 @@ Zero Trust route | WAN route | Traffic destination | Selected route
   
 When routes have the same prefix length, Zero Trust routes take precedence over WAN routes.
 
-For scenarios with overlapping IP space across sites, enable Automatic Return Routing to ensure return traffic reaches the correct origin.
+For scenarios with overlapping IP space across sites, Automatic Return Routing can direct return traffic to the originating connection. You still need a route to select the destination site for the initial request.
 
 ### Legacy Routing mode
 

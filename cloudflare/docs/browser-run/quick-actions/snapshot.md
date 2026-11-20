@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/quick-actions/snapshot/
 title: /snapshot - Capture multiple page formats \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:38.836719+00:00
+fetched_at: 2026-11-20T09:50:41.972693+00:00
 ---
 
 # /snapshot - Capture multiple page formats · Cloudflare Browser Run docs
@@ -18,15 +18,15 @@ fetched_at: 2026-10-08T07:05:38.836719+00:00
 
 # /snapshot - Capture multiple page formats
 
-Last updated Sep 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/quick-actions/snapshot/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEndpointRequired fieldsCommon use casesBasic usage Capture a snapshot from a URLAdvanced usage Create a snapshot from custom HTML Choose which formats to return Improve blurry screenshot resolution Handling JavaScript-heavy pages Set a custom user agentTroubleshooting
+OverviewEndpointRequired fieldsCommon use casesBasic usage Capture a snapshot from a URLAdvanced usage Create a snapshot from custom HTML Choose which formats to return Capture a PDF, links, and scraped elements Extract JSON from the page Improve blurry screenshot resolution Handling JavaScript-heavy pages Set a custom user agentTroubleshooting
 
-Browser Run provides individual endpoints for [HTML content](https://developers.cloudflare.com/browser-run/quick-actions/content-endpoint/), [screenshots](https://developers.cloudflare.com/browser-run/quick-actions/screenshot-endpoint/), [Markdown](https://developers.cloudflare.com/browser-run/quick-actions/markdown-endpoint/), and more. The `/snapshot` endpoint combines multiple formats into a single request, so you do not need to call each endpoint separately. By default, it returns HTML content and a screenshot. You can use the `formats` parameter to customize which formats are included, such as adding Markdown and the accessibility tree to the response.
+Browser Run provides individual endpoints for [HTML content](https://developers.cloudflare.com/browser-run/quick-actions/content-endpoint/), [screenshots](https://developers.cloudflare.com/browser-run/quick-actions/screenshot-endpoint/), [Markdown](https://developers.cloudflare.com/browser-run/quick-actions/markdown-endpoint/), and more. The `/snapshot` endpoint combines multiple formats into a single request, so you do not need to call each endpoint separately. By default, it returns HTML content and a screenshot. You can use the `formats` parameter to customize which formats are included, such as adding a PDF, extracted JSON, or the accessibility tree to the response.
 
 You can use this endpoint in two ways:
 
-  * **REST API** : [Create a custom API Token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with `Browser Rendering - Edit` permission.
+  * **REST API** : [Create a custom API Token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with `Browser Run - Edit` permission.
   * **Workers Bindings** : Call the endpoint directly from a [Cloudflare Worker](https://developers.cloudflare.com/workers/) using the [Workers Bindings](https://developers.cloudflare.com/browser-run/reference/wrangler/#bindings). No API token is needed.
 
 
@@ -52,6 +52,7 @@ You must provide either `url` or `html`:
   * Capture both the rendered HTML and a visual screenshot in a single API call
   * Archive pages with visual and structural data together
   * Build monitoring tools that compare visual and DOM differences over time
+  * Save a page as a PDF together with the data extracted from it
 
 
 
@@ -164,9 +165,26 @@ This example uses the `html` property to render `<html><body>Advanced Snapshot</
 
 ### Choose which formats to return
 
-Use the `formats` parameter to control which representations of the page are included in the response. Accepted values are `"content"`, `"screenshot"`, `"markdown"`, and `"accessibilityTree"`. If omitted, the default is `["content", "screenshot"]`.
+Use the `formats` parameter to control which representations of the page are included in the response. Accepted values are `"content"`, `"screenshot"`, `"markdown"`, `"accessibilityTree"`, `"pdf"`, `"links"`, `"scrape"`, and `"json"`. If omitted, the default is `["content", "screenshot"]`.
 
-You must request at least two formats. If you only need a single format, use the corresponding single-format endpoint instead: [`/content`](https://developers.cloudflare.com/browser-run/quick-actions/content-endpoint/), [`/screenshot`](https://developers.cloudflare.com/browser-run/quick-actions/screenshot-endpoint/), [`/markdown`](https://developers.cloudflare.com/browser-run/quick-actions/markdown-endpoint/), or [`/accessibilityTree`](https://developers.cloudflare.com/browser-run/quick-actions/accessibility-tree-endpoint/).
+Format | Result field | Options it uses | Standalone endpoint  
+---|---|---|---  
+`content` | `result.content` | — | [`/content`](https://developers.cloudflare.com/browser-run/quick-actions/content-endpoint/)  
+`screenshot` | `result.screenshot` | `screenshotOptions`, `selector`, `scrollPage` | [`/screenshot`](https://developers.cloudflare.com/browser-run/quick-actions/screenshot-endpoint/)  
+`markdown` | `result.markdown` | — | [`/markdown`](https://developers.cloudflare.com/browser-run/quick-actions/markdown-endpoint/)  
+`accessibilityTree` | `result.accessibilityTree` | `interestingOnly`, `root` | [`/accessibilityTree`](https://developers.cloudflare.com/browser-run/quick-actions/accessibility-tree-endpoint/)  
+`pdf` | `result.pdf` | `pdfOptions` | [`/pdf`](https://developers.cloudflare.com/browser-run/quick-actions/pdf-endpoint/)  
+`links` | `result.links` | `visibleLinksOnly`, `excludeExternalLinks` | [`/links`](https://developers.cloudflare.com/browser-run/quick-actions/links-endpoint/)  
+`scrape` | `result.scrape` | `elements` (required) | [`/scrape`](https://developers.cloudflare.com/browser-run/quick-actions/scrape-endpoint/)  
+`json` | `result.json` | `prompt` (required), `response_format`, `custom_ai` | [`/json`](https://developers.cloudflare.com/browser-run/quick-actions/json-endpoint/)  
+  
+You must request at least two distinct formats. If you only need a single format, use the corresponding single-format endpoint instead.
+
+Workers AI usage
+
+The `json` format uses [Workers AI](https://developers.cloudflare.com/workers-ai/) to extract data, which incurs usage on Workers AI. For a JSON snapshot, one `actionTimeout` budget (default 60 seconds, maximum 120 seconds) covers navigation, captures, retries, and the AI request.
+
+Formats are captured in a fixed order rather than the order of the `formats` array, and a live page can change between captures. If any requested format fails, the whole request fails.
 
 The following example requests a screenshot, Markdown, and the accessibility tree in one call:
     
@@ -240,6 +258,82 @@ The following example requests a screenshot, Markdown, and the accessibility tre
     		});
     	},
     } satisfies ExportedHandler<Env>;
+
+### Capture a PDF, links, and scraped elements
+
+This example returns a PDF of the page, the links it contains, and the text of each paragraph. It does not use Workers AI.
+    
+    
+    curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-run/snapshot' \
+      -H 'Authorization: Bearer <apiToken>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "url": "https://example.com/",
+        "formats": ["pdf", "links", "scrape"],
+        "elements": [{ "selector": "p" }],
+        "pdfOptions": {
+          "format": "a4"
+        }
+      }'
+    
+    
+    {
+    	"success": true,
+    	"result": {
+    		"pdf": "JVBERi0xLjQK...",
+    		"links": ["https://iana.org/help/example-domains"],
+    		"scrape": [
+    			{
+    				"selector": "p",
+    				"results": [
+    					{
+    						"attributes": [{ "name": "lang", "value": "en" }],
+    						"html": "This domain is for use in documentation examples...",
+    						"text": "This domain is for use in documentation examples...",
+    						"left": 752,
+    						"top": 286,
+    						"height": 102,
+    						"width": 416
+    					}
+    				]
+    			}
+    		]
+    	},
+    	"meta": {
+    		"status": 200,
+    		"title": "Example Domain"
+    	}
+    }
+
+### Extract JSON from the page
+
+This example captures the page HTML and uses Workers AI to extract structured data from it in the same request. The `prompt` describes the shape you want back.
+    
+    
+    curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-run/snapshot' \
+      -H 'Authorization: Bearer <apiToken>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "url": "https://example.com/",
+        "formats": ["content", "json"],
+        "prompt": "Return {\"title\": string, \"paragraphCount\": number} for the page."
+      }'
+    
+    
+    {
+    	"success": true,
+    	"result": {
+    		"content": "<!DOCTYPE html><html>...</html>",
+    		"json": {
+    			"title": "Example Domain",
+    			"paragraphCount": 6
+    		}
+    	},
+    	"meta": {
+    		"status": 200,
+    		"title": "Example Domain"
+    	}
+    }
 
 ### Improve blurry screenshot resolution
 

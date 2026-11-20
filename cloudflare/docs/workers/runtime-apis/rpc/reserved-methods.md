@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/rpc/reserved-methods/
 title: Workers RPC \u2014 Reserved Methods \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:24.834381+00:00
+fetched_at: 2026-11-20T09:50:39.247107+00:00
 ---
 
 # Workers RPC — Reserved Methods · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-14T06:59:24.834381+00:00
 
 # Reserved Methods
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSpecial Methods fetch() connect()Disallowed Method Names
 
@@ -44,7 +44,11 @@ Some properties of `Request` control the behavior of `fetch()` on the client sid
 
 ### `connect()`
 
-The `connect()` method of the `WorkerEntrypoint` class is reserved for accepting a socket-like connection forwarded from another Worker. Implement it to handle inbound TCP connections — refer to the [connect handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/) documentation. You can also [open a TCP socket from a Worker](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) or connect directly to databases over a TCP socket with [Hyperdrive](https://developers.cloudflare.com/hyperdrive/get-started/).
+The `connect()` method is reserved for handling a raw socket connection. Implement it on a `WorkerEntrypoint` or `DurableObject` to receive a [`Socket`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#socket).
+
+On the client side, call `connect()` on a service binding or Durable Object stub to open the socket. Refer to the [`connect()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/) and [`DurableObjectStub.connect()`](https://developers.cloudflare.com/durable-objects/api/stub/#connect) for details.
+
+Inbound TCP connections and Spectrum applications with Worker origins are in public beta. For a gRPC example, refer to [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/).
 
 ## Disallowed Method Names
 

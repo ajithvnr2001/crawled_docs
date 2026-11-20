@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/examples/openapi/
 title: Tools based on OpenAPI Spec \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:57.804954+00:00
+fetched_at: 2026-11-20T09:50:38.633501+00:00
 ---
 
 # Tools based on OpenAPI Spec · Cloudflare Workers AI docs
@@ -22,11 +22,11 @@ Features[Function calling](https://developers.cloudflare.com/workers-ai/features
 
 # Tools based on OpenAPI Spec
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/features/function-calling/embedded/examples/openapi/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Oftentimes APIs are defined and documented via [OpenAPI specification ↗︎](https://swagger.io/specification/). The Cloudflare `ai-utils` package's `createToolsFromOpenAPISpec` function creates tools from the OpenAPI spec, which the LLM can then leverage to fulfill the prompt.
 
-In this example the LLM will describe the a Github user, based Github's API and its OpenAPI spec.
+In this example, the LLM will describe a GitHub user based on GitHub's API and its OpenAPI spec.
 
 Embedded function calling example from OpenAPI Spects
     
@@ -70,7 +70,7 @@ Embedded function calling example from OpenAPI Spects
     				messages: [
     					{
     						role: 'user',
-    						content: 'Who is cloudflare on Github and how many repos does the organization have?',
+    						content: 'Who is Cloudflare on GitHub and how many repos does the organization have?',
     					},
     				],
     				tools: toolsFromOpenAPISpec,

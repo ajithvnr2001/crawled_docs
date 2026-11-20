@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/concepts/architecture/
 title: Lifecycle of a Container \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:48.442027+00:00
+fetched_at: 2026-11-20T09:50:39.770116+00:00
 ---
 
 # Lifecycle of a Container · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:48.442027+00:00
 
 # Lifecycle of a Container
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploymentContainer instance lifecycleLifecycle of a request Client to Worker Worker to Durable Object Starting a Container Requests to running Containers Container runtime Container shutdown Lifecycle eventsAn example request
 
@@ -69,7 +69,13 @@ Manage this lifecycle through the [Durable Object Container API](https://develop
 
 Recall that Containers are backed by [Durable Objects](https://developers.cloudflare.com/durable-objects/) and [Workers](https://developers.cloudflare.com/workers/). Requests are first routed through a Worker, which is generally handled by a datacenter in a location with the best latency between itself and the requesting user. A different datacenter may be selected to optimize overall latency, if [Smart Placement](https://developers.cloudflare.com/workers/configuration/placement/) is on, or if the nearest location is under heavy load.
 
-Because all Container requests are passed through a Worker, end-users cannot make non-HTTP TCP or UDP requests to a Container instance. If you have a use case that requires inbound TCP or UDP from an end-user, please [let us know ↗︎](https://forms.gle/AGSq54VvUje6kmKu8).
+HTTP requests reach a Container through the Worker's [`fetch()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/fetch/).
+
+For raw TCP traffic, a [Spectrum application with a Worker origin](https://developers.cloudflare.com/spectrum/how-to/route-tcp-traffic-to-a-worker/) invokes the Worker's [`connect()` handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/). The Worker can forward the socket through the Container's Durable Object to a process listening on a container port. This path supports protocols such as bidirectional gRPC. Refer to [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/) for a complete example.
+
+Public beta
+
+Inbound TCP connections to Workers are in public beta.
 
 ### Worker to Durable Object
 

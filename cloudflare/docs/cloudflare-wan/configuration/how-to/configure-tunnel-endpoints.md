@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-tunnel-endpoints/
 title: Configure tunnel endpoints \u00b7 Cloudflare WAN docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:27.808321+00:00
+fetched_at: 2026-11-20T09:50:41.620851+00:00
 ---
 
 # Configure tunnel endpoints · Cloudflare WAN docs
@@ -22,7 +22,7 @@ Configuration
 
 # Configure tunnel endpoints
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-tunnel-endpoints/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginWays to onboard traffic to Cloudflare GRE and IPsec tunnels Network Interconnect (CNI)Add tunnelsBidirectional vs unidirectional health checks Legacy bidirectional health checksNext stepsTroubleshooting
 
@@ -118,7 +118,7 @@ Health check options
      * **Health check target** : The customer end of the tunnel. This field is only visible when **Health check direction** is set to _Unidirectional_.
   11. _(Optional)_ We recommend you test your tunnel before officially adding it. To test the tunnel, select **Test tunnels**.
 
-  12. (_Optional_) Select **Automatic return routing** if you are setting up this tunnel for a site that only needs to send traffic to and receive responses from Cloudflare, and does not need to receive traffic from other sites in your WAN. This feature requires [Unified Routing](https://developers.cloudflare.com/cloudflare-wan/reference/traffic-steering/#unified-routing). Refer to [Configure Automatic Return Routing](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-routes/#configure-automatic-return-routing) for more information.
+  12. (_Optional_) Select **Automatic return routing** to return supported traffic over the connection where it entered Cloudflare. This includes traffic to other sites in your WAN when you configure a route to the destination site and route responses to the [Cloudflare Source IP](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/) prefix back to Cloudflare. This feature requires [Unified Routing](https://developers.cloudflare.com/cloudflare-wan/reference/traffic-steering/#unified-routing). Refer to [Configure Automatic Return Routing](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-routes/#configure-automatic-return-routing) for more information.
 
   13. To add multiple tunnels, select **Add GRE tunnel** for each new tunnel.
 
@@ -165,7 +165,7 @@ IPsec tunnels will not function without a pre-shared key (PSK).
      4. Select **Add tunnels**.
   12. _(Optional)_ Enable **Replay protection** if you have devices that do not support disabling it. Refer to [Anti-replay protection](https://developers.cloudflare.com/cloudflare-wan/reference/anti-replay-protection/) for more information.
 
-  13. (_Optional_) Select **Automatic return routing** if you are setting up this tunnel for a site that only needs to send traffic to and receive responses from Cloudflare, and does not need to receive traffic from other sites in your WAN. This feature requires [Unified Routing](https://developers.cloudflare.com/cloudflare-wan/reference/traffic-steering/#unified-routing). Refer to [Configure Automatic Return Routing](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-routes/#configure-automatic-return-routing) for more information.
+  13. (_Optional_) Select **Automatic return routing** to return supported traffic over the connection where it entered Cloudflare. This includes traffic to other sites in your WAN when you configure a route to the destination site and route responses to the [Cloudflare Source IP](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/) prefix back to Cloudflare. This feature requires [Unified Routing](https://developers.cloudflare.com/cloudflare-wan/reference/traffic-steering/#unified-routing). Refer to [Configure Automatic Return Routing](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-routes/#configure-automatic-return-routing) for more information.
 
   14. To add multiple tunnels, select **Add IPsec tunnel** for each new tunnel.
 

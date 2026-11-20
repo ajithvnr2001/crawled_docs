@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/api/base/
 title: Durable Object Base Class \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:05.992342+00:00
+fetched_at: 2026-11-20T09:50:39.691259+00:00
 ---
 
 # Durable Object Base Class · Cloudflare Durable Objects docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:05.992342+00:00
 
 # Durable Object Base Class
 
-Last updated Jun 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/api/base/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewMethods fetch alarm webSocketMessage webSocketClose webSocketErrorProperties ctx envRelated resources
+OverviewMethods fetch connect webSocketMessage webSocketClose webSocketErrorProperties ctx envRelated resources
 
 The `DurableObject` base class is an abstract class which all Durable Objects inherit from. This base class provides a set of optional methods, frequently referred to as handler methods, which can respond to events, for example a `webSocketMessage` when using the [WebSocket Hibernation API](https://developers.cloudflare.com/durable-objects/best-practices/websockets/#durable-objects-hibernation-websocket-api). To provide a concrete example, here is a Durable Object `MyDurableObject` which extends `DurableObject` and implements the fetch handler to return "Hello, World!" to the calling Worker.
     
@@ -112,6 +112,53 @@ The `DurableObject` base class is an abstract class which all Durable Objects in
             if path == "/hello":
                 return Response("Hello, World!")
             return Response("Not found", status=404)
+
+### `connect`
+
+Public beta
+
+Raw TCP connections to Workers and Durable Objects are in public beta.
+
+  * `connect(socket `Socket`)` : `void` | `Promise<void>`
+    * Called when a Worker or another Durable Object opens a raw socket through a [`DurableObjectStub`](https://developers.cloudflare.com/durable-objects/api/stub/#connect).
+    * Use the socket's readable and writable streams to process or proxy the connection.
+    * This method can be `async`.
+
+
+
+#### Parameters
+
+  * `socket` `Socket` \- the established TCP connection. Refer to the [Socket API](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/#socket).
+
+
+
+#### Return values
+
+  * None.
+
+
+
+Keep the returned promise pending while the Durable Object is processing the connection. When the promise settles, the inbound socket closes.
+
+#### Example
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    
+    export class TcpSession extends DurableObject {
+    	async connect(socket) {
+    		await socket.readable.pipeTo(socket.writable);
+    	}
+    }
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    
+    export class TcpSession extends DurableObject<Env> {
+    	async connect(socket: Socket): Promise<void> {
+    		await socket.readable.pipeTo(socket.writable);
+    	}
+    }
 
 ### `alarm`
 
@@ -337,6 +384,7 @@ The `DurableObject` base class is an abstract class which all Durable Objects in
   * [Use WebSockets](https://developers.cloudflare.com/durable-objects/best-practices/websockets/) for WebSocket handler best practices.
   * [Alarms API](https://developers.cloudflare.com/durable-objects/api/alarms/) for scheduling future work.
   * [RPC methods](https://developers.cloudflare.com/durable-objects/best-practices/create-durable-object-stubs-and-send-requests/) for type-safe method calls.
+  * [Connect handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/connect/) for inbound TCP connections to Workers.
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/rollbacks/
 title: Rollbacks \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:06.852236+00:00
+fetched_at: 2026-11-20T09:50:40.703632+00:00
 ---
 
 # Rollbacks · Cloudflare Pages docs
@@ -18,13 +18,13 @@ fetched_at: 2026-11-19T10:02:06.852236+00:00
 
 # Rollbacks
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRelated resources
 
 Rollbacks allow you to instantly revert your project to a previous production deployment.
 
-Any production deployment that has been successfully built is a valid rollback target. When your project has rolled back to a previous deployment, you may still rollback to deployments that are newer than your current version. Note that preview deployments are not valid rollback targets.
+Any production deployment that has been successfully built, and has not been deleted, is a valid rollback target. Deployments older than 30 days are deleted, except your 100 most recent and your current production deployment, and you cannot roll back to a deleted deployment. For more information, refer to [Deployments limits](https://developers.cloudflare.com/pages/platform/limits/#deployments). When your project has rolled back to a previous deployment, you may still rollback to deployments that are newer than your current version. Note that preview deployments are not valid rollback targets.
 
 In order to perform a rollback, go to **Deployments** in your Pages project. Browse the **All deployments** list and select the three dotted actions menu for the desired target. Select **Rollback to this deployment** for a confirmation window to appear. When confirmed, your project's production deployment will change instantly.
 
