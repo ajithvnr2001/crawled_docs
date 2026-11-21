@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Select/
 title: Select
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.605832+00:00
+fetched_at: 2026-11-21T10:52:47.501685+00:00
 ---
 
 # Select

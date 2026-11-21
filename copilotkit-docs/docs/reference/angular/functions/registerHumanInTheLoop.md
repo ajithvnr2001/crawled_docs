@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop/
 title: registerHumanInTheLoop
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:38.629502+00:00
+fetched_at: 2026-11-21T10:52:49.026768+00:00
 ---
 
 # registerHumanInTheLoop

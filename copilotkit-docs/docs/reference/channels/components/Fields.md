@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Fields/
 title: Fields and Field
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:37.752905+00:00
+fetched_at: 2026-11-21T10:52:48.076605+00:00
 ---
 
 # Fields and Field

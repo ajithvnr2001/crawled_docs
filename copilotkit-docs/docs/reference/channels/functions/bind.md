@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/functions/bind/
 title: bind
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.357429+00:00
+fetched_at: 2026-11-21T10:52:47.660510+00:00
 ---
 
 # bind

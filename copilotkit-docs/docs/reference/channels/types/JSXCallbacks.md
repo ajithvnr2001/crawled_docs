@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/JSXCallbacks/
 title: JSX callbacks
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:32.784866+00:00
+fetched_at: 2026-11-21T10:52:46.962869+00:00
 ---
 
 # JSX callbacks

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/components/CopilotChatToolCallGroup/
 title: CopilotChatToolCallGroup
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:55.457178+00:00
+fetched_at: 2026-11-21T10:52:45.393749+00:00
 ---
 
 # CopilotChatToolCallGroup

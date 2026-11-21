@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/core/enums/ToolCallStatus/
 title: ToolCallStatus
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:32.448944+00:00
+fetched_at: 2026-11-21T10:52:46.216841+00:00
 ---
 
 # ToolCallStatus

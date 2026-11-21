@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Input/
 title: Input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.733006+00:00
+fetched_at: 2026-11-21T10:52:47.989918+00:00
 ---
 
 # Input

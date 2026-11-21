@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands-typescript/programmatic-control/
 title: Programmatic Control
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:36.525276+00:00
+fetched_at: 2026-11-21T10:52:44.867887+00:00
 ---
 
 # Programmatic Control

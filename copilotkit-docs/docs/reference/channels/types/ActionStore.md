@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/ActionStore/
 title: ActionStore
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.029532+00:00
+fetched_at: 2026-11-21T10:52:47.108942+00:00
 ---
 
 # ActionStore

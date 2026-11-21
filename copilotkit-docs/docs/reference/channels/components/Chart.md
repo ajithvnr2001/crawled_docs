@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Chart/
 title: Chart
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:37.826102+00:00
+fetched_at: 2026-11-21T10:52:48.177322+00:00
 ---
 
 # Chart

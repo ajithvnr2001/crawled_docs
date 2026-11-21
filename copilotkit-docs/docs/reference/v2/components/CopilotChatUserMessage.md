@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/components/CopilotChatUserMessage/
 title: CopilotChatUserMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:58.921459+00:00
+fetched_at: 2026-11-21T10:52:45.542664+00:00
 ---
 
 # CopilotChatUserMessage

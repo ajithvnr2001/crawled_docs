@@ -2,64 +2,26 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerComponent/
 title: registerComponent
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:25:10.104542+00:00
+fetched_at: 2026-11-21T10:52:49.225835+00:00
 ---
 
 # registerComponent
 
 > Source: https://docs.copilotkit.ai/reference/angular/functions/registerComponent/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁AngularSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Guides
-
-[Public API inventory](https://docs.copilotkit.ai/reference/angular/public-api)[Production and lifecycle](https://docs.copilotkit.ai/reference/angular/production-lifecycle)
-
-Components
-
-[CopilotActivity](https://docs.copilotkit.ai/reference/angular/components/CopilotActivity)[CopilotChat](https://docs.copilotkit.ai/reference/angular/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/angular/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatView)[CopilotPopup](https://docs.copilotkit.ai/reference/angular/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/angular/components/CopilotSidebar)
-
-Functions
-
-[connectAgentContext](https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext)[injectAgentStore](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)[injectCapabilities](https://docs.copilotkit.ai/reference/angular/functions/injectCapabilities)[injectChatLabels](https://docs.copilotkit.ai/reference/angular/functions/injectChatLabels)[injectCopilotKitConfig](https://docs.copilotkit.ai/reference/angular/functions/injectCopilotKitConfig)[injectInterrupt](https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt)[injectThreads](https://docs.copilotkit.ai/reference/angular/functions/injectThreads)[provideCopilotChatLabels](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels)[provideCopilotKit](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit)[provideMCPApps](https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps)[registerComponent](https://docs.copilotkit.ai/reference/angular/functions/registerComponent)[registerFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)[registerHumanInTheLoop](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop)[registerRenderActivityMessage](https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage)[registerRenderToolCall](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)
-
-Services
-
-[CopilotKit](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
-
-Directives
-
-[CopilotKitAgentContext](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[angular](https://docs.copilotkit.ai/reference/angular)Functions
+Angular/Functions
 
 # registerComponent
 
 Angular function for registering a standalone component the agent can call as a tool to display it in the chat, with no handler and nothing to add on the agent side
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## OverviewCopy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+`registerComponent` registers a standalone Angular component as a tool the agent can call to display it. When the agent calls the tool, CopilotKit renders your component in the chat with the tool call's arguments. There is no handler, no user interaction, and no server-side execution: the agent decides when to show the component and populates its data. For a component that waits for the user, use [`registerHumanInTheLoop`](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop).
 
-## Overview
-
-`registerComponent` registers a standalone Angular component as a tool the agent can call to display it. When the agent calls the tool, CopilotKit renders your component in the chat with the tool call's arguments. There is no handler, no user interaction, and no server-side execution: the agent decides when to show the component and populates its data.
-
-This is the simplest form of generative UI, and the only one that needs nothing on the agent side. The tool is declared by the frontend and forwarded to the agent over AG-UI, so it behaves the same behind a Python agent as a TypeScript one. Contrast [`registerRenderToolCall`](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall), which draws a tool the agent already has and therefore requires that tool to exist in the agent.
+It needs nothing on the agent side. The tool is declared by the frontend and forwarded to the agent over AG-UI, so it behaves the same behind a Python agent as a TypeScript one. Contrast [`registerRenderToolCall`](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall), which draws a tool the agent already has and therefore requires that tool to exist in the agent.
 
 You call `registerComponent` inside an Angular injection context (a component or service constructor, or a field initializer). The registration happens immediately and is removed when the owning injector is destroyed.
 
@@ -67,7 +29,9 @@ You call `registerComponent` inside an Angular injection context (a component or
 
 Import from the package root, `@copilotkit/angular`. There is no `/v2` subpath. `registerComponent` must run in an injection context that has [`provideCopilotKit`](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit) in scope.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { registerComponent } from "@copilotkit/angular";
@@ -76,7 +40,7 @@ Import from the package root, `@copilotkit/angular`. There is no `/v2` subpath. 
       config: RegisterComponentConfig<Args>,
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -86,13 +50,15 @@ Type
 
 There is no `handler` field. A display-only component runs no application code, and CopilotKit completes the agent's turn with an empty tool result rather than an invented one. If you want to run browser code as well as render, use [`registerFrontendTool`](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool) with both `handler` and `component`.
 
-## Return Value
+## Return ValueCopy Anchor Link
 
 `registerComponent` returns `void`. It registers the tool and its renderer as a side effect, and removes both when the owning injector is destroyed.
 
-## The component
+## The componentCopy Anchor Link
 
-Your `component` implements the `ToolRenderer<Args>` interface — the same contract every other Angular renderer uses. Declare the `toolCall` input with Angular's `input.required()` and read `toolCall().args`:
+Your `component` implements the `ToolRenderer<Args>` interface, the same contract every other Angular renderer uses. Declare the `toolCall` input with Angular's `input.required()` and read `toolCall().args`:
+
+Copy Text
     
     
     import { Signal } from "@angular/core";
@@ -103,11 +69,13 @@ Your `component` implements the `ToolRenderer<Args>` interface — the same cont
 
 `toolCall()` is a discriminated union keyed on `status`. While the model is still streaming the payload the status is `in-progress` and `args` is `Partial<Args>`, so narrow on `status` before reading a field you require. See [`registerRenderToolCall`](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall#angulartoolcall) for the full union.
 
-## Usage
+## UsageCopy Anchor Link
 
-### Display a card the agent fills in
+### Display a card the agent fills inCopy Anchor Link
 
 src/app/incident-card.component.ts
+
+Copy Text
     
     
     import { Component, input } from "@angular/core";
@@ -140,6 +108,8 @@ src/app/incident-card.component.ts
 Register it once, anywhere under `provideCopilotKit`:
 
 src/app/chat.component.ts
+
+Copy Text
     
     
     import { Component } from "@angular/core";
@@ -169,7 +139,9 @@ src/app/chat.component.ts
 
 Nothing is added to the agent. The tool reaches it in the run's tool list, and the agent calls it by name.
 
-### Scoping to one agent
+### Scoping to one agentCopy Anchor Link
+
+Copy Text
     
     
     registerComponent({
@@ -179,12 +151,14 @@ Nothing is added to the agent. The tool reaches it in the run's tool list, and t
       agentId: "support-agent",
     });
 
-## Grounding the component in your own data
+## Grounding the component in your own dataCopy Anchor Link
 
-A component that renders correctly over records your application does not hold looks identical to a correct one, in the browser and in a screenshot alike. The model fills these props from what it knows, so a component whose data never reached the agent is drawn from what the agent invented.
+The agent fills the component's arguments. If your data never reached the agent, the agent invents the values, and the component still looks correct.
 
 Registering the component is the rendering half. Give the agent the data it should describe with [`CopilotKitAgentContext`](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext) or [`connectAgentContext`](https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext), then check the rendered fields against the records your application holds.
 
-## Related
+How is this guide?
 
-### [registerFrontendToolRegister a client-side tool with an async handler and an optional renderer component.](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)### [registerRenderToolCallDraw a tool the agent already has, with access to streaming arguments, status, and result.](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)### [registerHumanInTheLoopRegister a tool that pauses the agent and waits for the user to respond from a rendered component.](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop)### [CopilotKitAgentContextShare the data on the page with the agent, so a rendered component describes records you hold.](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)
+GoodBad
+
+[Previous PageprovideMCPApps](https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps)[Next PageregisterFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)

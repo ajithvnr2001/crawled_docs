@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Section/
 title: Section
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.649050+00:00
+fetched_at: 2026-11-21T10:52:47.751701+00:00
 ---
 
 # Section

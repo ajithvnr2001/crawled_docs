@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Context/
 title: Context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:37.860586+00:00
+fetched_at: 2026-11-21T10:52:48.131278+00:00
 ---
 
 # Context

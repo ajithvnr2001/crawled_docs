@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/functions/createChannel/
 title: createChannel
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.414831+00:00
+fetched_at: 2026-11-21T10:52:47.395202+00:00
 ---
 
 # createChannel

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/functions/defineChannelTool/
 title: defineChannelTool
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.197999+00:00
+fetched_at: 2026-11-21T10:52:47.449299+00:00
 ---
 
 # defineChannelTool

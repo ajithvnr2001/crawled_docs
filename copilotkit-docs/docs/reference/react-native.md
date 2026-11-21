@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/
 title: React Native
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:31.607300+00:00
+fetched_at: 2026-11-21T10:52:40.686751+00:00
 ---
 
 # React Native

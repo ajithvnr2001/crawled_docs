@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/AssistantMessage/
 title: AssistantMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:31.692826+00:00
+fetched_at: 2026-11-21T10:52:40.321234+00:00
 ---
 
 # AssistantMessage

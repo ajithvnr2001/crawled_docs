@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/sdk/direct-adapters/
 title: Direct provider adapters
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:33.101918+00:00
+fetched_at: 2026-11-21T10:52:47.221875+00:00
 ---
 
 # Direct provider adapters
