@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/worker-api/prepared-statements/
 title: Prepared statement methods \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:41.556429+00:00
+fetched_at: 2026-11-21T09:24:36.141792+00:00
 ---
 
 # Prepared statement methods · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:41.556429+00:00
 
 # Prepared statement methods
 
-Last updated Jun 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/worker-api/prepared-statements/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMethods bind() run() raw() first()
 
@@ -88,6 +88,28 @@ Order and anonymous examples:
 
 
 
+
+#### Bind a list with one parameter
+
+D1 allows [100 bound parameters per query](https://developers.cloudflare.com/d1/platform/limits/).
+
+For an `IN` query, bind a JSON array as one string and expand it with [`json_each()`](https://developers.cloudflare.com/d1/sql-api/query-json/#expand-arrays-for-in-queries):
+    
+    
+    const customerIds = [1, 2, 3];
+    const result = await env.DB.prepare(
+    	"SELECT * FROM Customers WHERE CustomerId IN (SELECT value FROM json_each(?1))",
+    )
+    	.bind(JSON.stringify(customerIds))
+    	.all();
+    
+    
+    const customerIds = [1, 2, 3];
+    const result = await env.DB.prepare(
+      "SELECT * FROM Customers WHERE CustomerId IN (SELECT value FROM json_each(?1))",
+    ).bind(JSON.stringify(customerIds)).all();
+
+The JSON string counts as one bound parameter. The [maximum string size](https://developers.cloudflare.com/d1/platform/limits/) still applies.
 
 #### Static statements
 

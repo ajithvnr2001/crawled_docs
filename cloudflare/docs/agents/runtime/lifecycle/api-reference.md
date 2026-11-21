@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/lifecycle/api-reference/
 title: Lifecycle API \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:17.635827+00:00
+fetched_at: 2026-11-21T09:24:32.140547+00:00
 ---
 
 # Lifecycle API · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:17.635827+00:00
 
 # Lifecycle API
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExportsLifecycle Static methods and constructor Instance members LifecycleOptionsLifecycleObjectDurableObjectCapability Context typesLifecycleCapabilityLifecycleServices LifecycleSockets LifecycleHostContextScope LifecycleEvents and LifecycleEvent LifecycleRoutesOwn WebSocket connectionsJob typesConnection typesgetCurrentAgent() types
 
@@ -106,6 +106,7 @@ Hook | Returns | When it runs
 ---|---|---  
 `onStart(props?)` | `void | Promise<void>` | Once per in-memory lifetime, after every capability has started  
 `onRequest(request)` | `Response | Promise<Response>` | For each HTTP request no capability handled  
+`onFetchError(request, error)` | `Response | void` or a promise | When a request or WebSocket upgrade fails. Return a response to replace the default `500`, or `1011` close for an upgrade. Refer to [Failed requests](https://developers.cloudflare.com/agents/runtime/lifecycle/#failed-requests)  
 `onAlarm()` | `void | Promise<void>` | Once per alarm, after due jobs  
 `onJob(context)` | `LifecycleJobOutcome | void` or a promise | When a host job comes due  
 `onAlarmMemoryLimit(context)` | `void | Promise<void>` | After an alarm ends in a memory-limit reset, after capability hooks  

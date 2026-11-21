@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/lifecycle/
 title: Lifecycle \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:22.648360+00:00
+fetched_at: 2026-11-21T09:24:31.799009+00:00
 ---
 
 # Lifecycle · Cloudflare Agents docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-30T08:19:22.648360+00:00
 
 # Lifecycle
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewInstall the LifecycleHost hooksStart the Lifecycle Start from an RPC methodRequest dispatchInstall capabilitiesObject namesQuery SQLiteJobs and alarmsTear down an objectOn the Agent classRelated resources
+OverviewInstall the LifecycleHost hooksStart the Lifecycle Start from an RPC methodRequest dispatchFailed requestsInstall capabilitiesObject namesQuery SQLiteJobs and alarmsTear down an objectOn the Agent classRelated resources
 
 `Lifecycle` from `agents/lifecycle` coordinates startup and incoming events for a [Durable Object](https://developers.cloudflare.com/durable-objects/). It also stores pending jobs in SQLite and manages the object's single alarm. Multiple features can schedule work without replacing each other's wake-up time.
 
@@ -157,6 +157,7 @@ Hook | When it runs
 ---|---  
 `onStart(props?)` | Once per in-memory lifetime, after every capability has started  
 `onRequest(request)` | For each HTTP request that no capability handled  
+`onFetchError(request, error)` | When startup, a capability's request or upgrade hook, or `onRequest()` throws. Returns the response to send. Refer to Failed requests  
 `onAlarm()` | Once per alarm, after the Lifecycle has run the due jobs  
 `onJob(context)` | When a job the host pushed through `lifecycle.jobs` comes due  
 `onAlarmMemoryLimit(context)` | After an alarm ends in a memory-limit reset, after every capability's policy has run  
@@ -262,6 +263,63 @@ WebSocket upgrade | The first capability that returns a `Response`, otherwise `4
 WebSocket message, close, or error | The capability that owns the connection, otherwise ignored  
 Alarm | Due jobs, then the host's `onAlarm()`  
   
+## Failed requests
+
+When startup, a capability's `onRequest()` or `onWebSocketUpgrade()` hook, or the host's `onRequest()` throws, the Lifecycle logs the error with `console.error` and sends a response that does not include it:
+
+  * An HTTP request gets `500 Internal Server Error`.
+  * A WebSocket upgrade gets a socket that closes at once with code `1011`.
+
+
+
+An error's message and stack can reveal internals, such as secret names or file paths, to callers who are not authenticated. To send something else, implement `onFetchError()`. It runs after the error is logged, with the request and the thrown value:
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    import { Lifecycle } from "agents/lifecycle";
+    
+    export class MyObject extends DurableObject {
+    	lifecycle = Lifecycle.install(this);
+    
+    	onFetchError(request, error) {
+    		// Show details only in local development.
+    		if (this.env.ENVIRONMENT !== "development") return;
+    		const detail = error instanceof Error ? error.stack : String(error);
+    		return new Response(detail, { status: 500 });
+    	}
+    }
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    import { Lifecycle } from "agents/lifecycle";
+    
+    export class MyObject extends DurableObject<Env> {
+    	readonly lifecycle = Lifecycle.install(this);
+    
+    	onFetchError(request: Request, error: unknown): Response | undefined {
+    		// Show details only in local development.
+    		if (this.env.ENVIRONMENT !== "development") return;
+    		const detail = error instanceof Error ? error.stack : String(error);
+    		return new Response(detail, { status: 500 });
+    	}
+    }
+
+Return nothing to send the default response. If `onFetchError()` throws, the Lifecycle logs that error and also sends the default. In both cases, if the original thrown value is not an `Error`, the Lifecycle rethrows it to the runtime instead. `error` is whatever was thrown, so narrow it before you read it. `request` may already have had its body read.
+
+For a WebSocket upgrade, return either an HTTP error response or a `101` response with your own socket:
+    
+    
+    onFetchError(request: Request, error: unknown): Response | undefined {
+    	if (request.headers.get("Upgrade")?.toLowerCase() !== "websocket") return;
+    	const pair = new WebSocketPair();
+    	pair[1].accept();
+    	pair[1].send(JSON.stringify({ error: "unavailable" }));
+    	pair[1].close(1011, "Startup failed");
+    	return new Response(null, { status: 101, webSocket: pair[0] });
+    }
+
+`onFetchError()` runs in the object's context, so [`getCurrentAgent()`](https://developers.cloudflare.com/agents/runtime/lifecycle/get-current-agent/) returns the object and the request. After a failed startup, `onStart()` has not finished, so do not rely on state it sets up.
+
 ## Install capabilities
 
 A capability is a reusable piece of a Durable Object, such as WebSocket connections or a scheduler. Construct each one as a field, then register it with `use()`:

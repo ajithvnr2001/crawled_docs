@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpull/requesting-logs/
 title: Requesting logs \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:09.896531+00:00
+fetched_at: 2026-11-21T09:24:36.484263+00:00
 ---
 
 # Requesting logs · Cloudflare Logs docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:09.896531+00:00
 
 # Requesting logs
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpull/requesting-logs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpointsRequired authentication headersParametersExample API requests using cURLFields
 
@@ -71,7 +71,7 @@ count | \- Return up to that many records \- Do not include if returning all rec
 sample | \- Return only a sample of records \- Do not include if returning all records \- Value can range from `0.0` (exclusive) to `1.0` (inclusive) \- `sample=0.1` means return 10% (1 in 10) of all records \- Results are random; therefore, different numbers of results for repeated requests are likely | /logs/received | No  
 fields | \- Comma-separated list of fields to return \- If empty, the default list is returned | /logs/received /logs/rayids | No  
 timestamps | \- Format in which timestamp fields will be returned \- Value options are: `unixnano` (default), `unix`, `rfc3339` \- Timestamps returned as integers for `unix` and `unixnano` and as strings for `rfc3339` | /logs/received /logs/rayids | No  
-CVE-2021-44228 | \- Optional redaction for [CVE-2021-44228 ↗︎](https://www.cve.org/CVERecord?id=CVE-2021-44228). This option will replace every occurrence of the string `${` with `x{`. For example: `CVE-2021-44228=true` | /logs/received | No  
+[CVE-2021-44228 ↗︎](https://radar.cloudflare.com/zero-wire/cves/CVE-2021-44228) | \- Optional redaction for [CVE-2021-44228 ↗︎](https://radar.cloudflare.com/zero-wire/cves/CVE-2021-44228). This option will replace every occurrence of the string `${` with `x{`. For example: `CVE-2021-44228=true` | /logs/received | No  
   
 Note
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/capabilities/mcp-client-manager/
 title: MCPClientManager \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:16.884588+00:00
+fetched_at: 2026-11-21T09:24:32.681246+00:00
 ---
 
 # MCPClientManager · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:16.884588+00:00
 
 # MCPClientManager
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall the capabilityAdd a serverHandle OAuthUse tools, prompts, and resourcesAnswer elicitation requestsManage serversCall the manager over RPCStorageOn the Agent class
 
@@ -161,7 +161,7 @@ Option | Description
 `transport` | `type` is `"auto"`, `"streamable-http"`, or `"sse"`. Also takes `authProvider` and the MCP transport options, such as `requestInit` for headers  
 `client` | MCP client options, such as the `capabilities` to advertise  
 `clientId` | A pre-registered OAuth client ID  
-`retry` | Retry policy for connecting and reconnecting. Defaults to three attempts, 500 ms base, 5 s maximum  
+`retry` | How many quick attempts each connection makes before the server counts as failed. Defaults to three attempts, 500 ms base, 5 s maximum  
   
 `connectToServer()` returns one of these states:
 
@@ -173,7 +173,11 @@ State | Meaning
   
 `discoverIfConnected(id, { timeoutMs? })` waits up to 30 seconds by default and returns `{ success, state, error? }`.
 
-The server stays registered after the object leaves memory. On the next start, the manager reconnects to every stored server in the background.
+The server stays registered after the object leaves memory. On the next start, the manager reconnects to every stored server in the background, so startup never waits on an MCP server.
+
+A connection that fails after its quick attempts, or whose authorization was refused, is recorded as `failed`. Nothing retries it on a timer, and later starts do not contact the server again. `connectToServer(id)` is the explicit retry: it clears the recorded failure and the step-up budget before it connects. For which failures count as refused, refer to [Failures and reconnecting](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#failures-and-reconnecting).
+
+Connection work for one server runs one operation at a time: `connectToServer()`, `discoverIfConnected()`, OAuth callback handling, and restore for the same server wait for each other instead of interleaving. Work for different servers runs in parallel.
 
 ## Handle OAuth
 
@@ -233,6 +237,8 @@ Method | Returns
 `readResource({ serverId, uri })` | The contents of one resource  
   
 A `filter` limits the results by `serverId`, `serverName`, or connection `state`. Each field takes one value or an array.
+
+When a request needs the user to authorize again, such as a tool call that needs a scope the grant lacks, `callTool()`, `readResource()`, and `getPrompt()` throw `MCPAuthorizationRequiredError` with the link in `authUrl`, and the server moves to `authenticating`. A call for a `serverId` with no connection throws `MCPConnectionNotFoundError`. Refer to [Re-authorization during a session](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#re-authorization-during-a-session).
 
 The manager reconnects in the background after a wake. Call `waitForConnections()` before you read tools, so that servers that are still reconnecting are included. It never rejects. Without a `timeout`, it waits until every pending connection settles.
     
@@ -430,7 +436,7 @@ The manager stores servers in the `cf_agents_mcp_servers` table. The default OAu
 
 ## On the Agent class
 
-The [`Agent` class](https://developers.cloudflare.com/agents/agent-class/) installs `MCPClientManager` as `this.mcp`. Its `addMcpServer()` method runs the register, connect, and discover steps in one call and builds the callback URL for you. `removeMcpServer()` and `getMcpServers()` wrap the manager too, and the Agent sends the server list to its clients for `useAgent({ onMcpUpdate })`. For more information, refer to [McpClient](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/).
+The [`Agent` class](https://developers.cloudflare.com/agents/agent-class/) installs `MCPClientManager` as `this.mcp`. Its `addMcpServer()` method runs the register, connect, and discover steps in one call and builds the callback URL for you. `reconnectMcpServer()`, `removeMcpServer()`, and `getMcpServers()` wrap the manager too, and the Agent sends the server list to its clients for `useAgent({ onMcpUpdate })`. For more information, refer to [McpClient](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/).
 
 [PreviousScheduler](https://developers.cloudflare.com/agents/runtime/capabilities/scheduler/)[NextStreams](https://developers.cloudflare.com/agents/runtime/capabilities/streams/)
 

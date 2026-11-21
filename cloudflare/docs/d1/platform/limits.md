@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/platform/limits/
 title: Limits \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:20.625050+00:00
+fetched_at: 2026-11-21T09:24:35.813165+00:00
 ---
 
 # Limits · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:20.625050+00:00
 
 # Limits
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFrequently Asked Questions How much work can a D1 database do? How many simultaneous connections can a Worker open to D1?
 
@@ -31,10 +31,12 @@ Maximum storage per account | 1 TB (Workers Paid) 1 / 5 GB (Free)
 Maximum Time Travel restore operations | 10 restores per 10 minutes (per database)  
 Queries per Worker invocation (read [subrequest limits](https://developers.cloudflare.com/workers/platform/limits/#subrequests)) | 1000 (Workers Paid) / 50 (Free)  
 Maximum number of columns per table | 100  
+Maximum number of columns in a query result | 100  
 Maximum number of rows per table | Unlimited (excluding per-database storage limits)  
 Maximum string, `BLOB` or table row size | 2,000,000 bytes (2 MB)  
 Maximum SQL statement length | 100,000 bytes (100 KB)  
 Maximum bound parameters per query | 100  
+Maximum `SELECT` terms in a compound statement (`UNION`, `UNION ALL`, `INTERSECT`, or `EXCEPT`) | 5  
 Maximum arguments per SQL function | 32  
 Maximum characters (bytes) in a `LIKE` or `GLOB` pattern | 50 bytes  
 Maximum bindings per Workers script | Approximately 5,000 2  

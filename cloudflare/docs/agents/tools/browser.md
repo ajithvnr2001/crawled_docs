@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/browser/
 title: Browser \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:22.853377+00:00
+fetched_at: 2026-11-21T09:24:32.575988+00:00
 ---
 
 # Browser · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:22.853377+00:00
 
 # Browser
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use it in Pi's code mode Use another harnessInternal hostnames Add internal hostnames Let the model choose what a host serves LimitsLive View and human takeover Hand off to a person Close the browserRecordingBrowser APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
 
@@ -50,7 +50,7 @@ npmyarnpnpmbun
     
     bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/codemode
 
-The Pi packages are optional peer dependencies of `agents`, at `~1.5.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
+The Pi packages are optional peer dependencies of `agents`, at `~1.6.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
 
 This example installs a `Browser` and `PiHarness` on a plain Durable Object. Pi chooses when to call the browser tool. [Lifecycle](https://developers.cloudflare.com/agents/runtime/lifecycle/) starts both components and provides their storage.
 
@@ -87,7 +87,7 @@ src/index.jsjs
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	lifecycle = Lifecycle.install(this).use(this.browser).use(this.harness);
@@ -139,7 +139,7 @@ src/index.tsts
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	lifecycle = Lifecycle.install(this).use(this.browser).use(this.harness);
@@ -167,7 +167,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     	"name": "persistent-browser-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-11-18",
+    	"compatibility_date": "2026-11-21",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI" },
     	"browser": { "binding": "BROWSER" },
@@ -182,7 +182,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     name = "persistent-browser-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-11-18"
+    compatibility_date = "2026-11-21"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]

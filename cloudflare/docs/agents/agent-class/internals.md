@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/internals/
 title: Agent class internals \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:25.553153+00:00
+fetched_at: 2026-11-21T09:24:35.348620+00:00
 ---
 
 # Agent class internals · Cloudflare Agents docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-30T08:19:25.553153+00:00
 
 # Agent class internals
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWhat is the Agent?Layer 0: Durable Object constructor RPC fetch() WebSockets alarm() this.ctx this.ctx.storage this.ctx.envLayer 1: Server (partyserver) Addressing onStart onRequest and onConnect WebSockets this.nameLayer 2: Agent this.state and this.setState() this.sql RPC and Callable Methods this.queue and friends this.schedule and friends this.mcp and friends Email Handling Context Management this.onError this.destroy static options this.keepAlive() and this.keepAliveWhile() RoutingLayer 3: AIChatAgent
+OverviewWhat is the Agent?Layer 0: Durable Object constructor RPC fetch() WebSockets alarm() this.ctx this.ctx.storage this.ctx.envLayer 1: Server (partyserver) Addressing onStart onRequest and onConnect WebSockets this.nameLayer 2: Agent this.state and this.setState() this.sql RPC and Callable Methods this.queue and friends this.schedule and friends this.mcp and friends Email Handling Context Management this.onError this.onFetchError this.destroy static options this.keepAlive() and this.keepAliveWhile() RoutingLayer 3: AIChatAgent
 
 The core of the `agents` library is the `Agent` class. You extend it, override a few methods, and get state management, WebSockets, scheduling, RPC, and more for free. This page explains how `Agent` is built, layer by layer, so you understand what is happening under the hood.
 
@@ -412,10 +412,32 @@ To route emails to your Agent, use `routeAgentEmail` in your Worker's email hand
     			console.error("Server error:", connectionOrError);
     		}
     
-    		// Optionally throw to propagate the error
+    		// Throw to replace the error. If onError returns, the original error
+    		// continues, and for a request reaches onFetchError.
     		throw connectionOrError;
     	}
     }
+
+### `this.onFetchError`
+
+When an HTTP request or WebSocket upgrade fails, including a failed `onStart`, the Agent logs the error and sends a response that does not include it: `500 Internal Server Error`, or for an upgrade, a socket that closes with code `1011`. Override `onFetchError` to send something else, and return nothing to keep the default:
+    
+    
+    class MyAgent extends Agent<Env> {
+    	onFetchError(request: Request, error: unknown) {
+    		if (this.env.ENVIRONMENT !== "development") return;
+    		const detail = error instanceof Error ? error.stack : String(error);
+    		return new Response(detail, { status: 500 });
+    	}
+    }
+
+Errors from `onStart`, `onRequest`, and `onConnect` pass through `onError` first. If `onError` throws, `onFetchError` receives what it threw. If `onError` returns, `onFetchError` receives the original error.
+
+For a [sub-agent](https://developers.cloudflare.com/agents/agent-class/sub-agents/), the object that accepts the request or socket answers it. A failed HTTP request reaches the child's `onFetchError`. A failed WebSocket upgrade reaches the parent's, because the parent accepts the socket and passes the connection to the child, even when the child's `onConnect` threw. If `onBeforeSubAgent` throws, no `onFetchError` runs, and the error reaches the caller of `fetch`.
+
+When the parent's `onFetchError` answers a child's failed upgrade, `error` is a copy that crossed from the child to the parent. It is still an `Error` with the same `name` and `message`, but it is no longer an instance of the child's error class, so `error instanceof MyError` is `false`. Check `error.name` instead.
+
+For the full behavior, refer to [Failed requests](https://developers.cloudflare.com/agents/runtime/lifecycle/#failed-requests).
 
 ### `this.destroy`
 

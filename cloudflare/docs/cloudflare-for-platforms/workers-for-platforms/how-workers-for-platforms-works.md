@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/how-workers-for-platforms-works/
 title: How Workers for Platforms works \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:05.223388+00:00
+fetched_at: 2026-11-21T09:24:36.241039+00:00
 ---
 
 # How Workers for Platforms works · Cloudflare for Platforms docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:08:05.223388+00:00
 
 # How Workers for Platforms works
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/how-workers-for-platforms-works/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewArchitecture Dispatch namespace Dynamic dispatch Worker User Workers Outbound Worker (optional) Request lifecycleWorkers for Platforms versus Service bindings
 
@@ -43,6 +43,8 @@ Best practice
 All your customers' Workers should live in a single namespace (for example, `production`). Do not create a namespace per customer.
 
 If you need to test changes safely, create a separate `staging` namespace.
+
+You cannot rename a dispatch namespace after you create it. A request that changes the name of a namespace returns error `100413`. To use a different name, create a new namespace and upload your user Workers to it. Then update the [dispatch namespace binding](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/dynamic-dispatch/) in your dispatch Worker to use the new namespace, and delete the old one.
 
 ### Dynamic dispatch Worker
 

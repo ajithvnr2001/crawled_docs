@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/workflows/
 title: Workflows \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:00.956888+00:00
+fetched_at: 2026-11-21T09:24:33.328757+00:00
 ---
 
 # Workflows · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:04:00.956888+00:00
 
 # Workflows
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPI Behavior notesHow it runsIdempotencyTimeoutsBoundary with other primitives
 
@@ -145,7 +145,7 @@ Unsupported Zod features that cannot be represented as JSON Schema fail while cr
   * **The Agent may use its tools first.** A `step.prompt()` turn is a full agentic turn: the Agent can call its own tools across multiple steps and then call the final-answer tool. Allow at least `maxSteps: 2` if you expect the Agent to use a tool before answering — with `maxSteps: 1` it is forced to answer on the first step and cannot call any other tool.
   * **Tool use is forced during a structured turn.** To guarantee the Agent terminates with a structured answer (rather than replying in plain text), Think sets `toolChoice` for the turn. Do not override `toolChoice` from `beforeTurn` on a `step.prompt()` turn — doing so can prevent the Agent from calling the final-answer tool, which makes the prompt fail.
   * **`think_final_answer` is reserved.** Think injects an internal `think_final_answer` tool to carry the structured result. This name (and any `think_final_answer_*` variant) is reserved; its call and result are stripped from the persisted conversation, so the transcript and later turns do not see Think's internal plumbing.
-  * **The model must support streaming tool calls.** Think streams every turn, so `step.prompt()` works only with models that reliably emit a forced tool call while streaming. Strong tool-callers (for example OpenAI `gpt-4o-mini`, Anthropic `claude-haiku-4-5`, and Workers AI `@cf/moonshotai/kimi-k2.6`) are verified to work. Some models honor a forced `toolChoice` only on non-streaming requests and will reply in plain text and stop while streaming — for example Workers AI `@cf/meta/llama-3.3-70b-instruct-fp8-fast`. With those models the turn ends without a `think_final_answer` call and `step.prompt()` fails (`Model ended the turn without calling the think_final_answer tool`); use a model with working streaming tool calls instead.
+  * **The model must support streaming tool calls.** Think streams every turn, so `step.prompt()` works only with models that reliably emit a forced tool call while streaming. Strong tool-callers (for example OpenAI `gpt-4o-mini`, Anthropic `claude-haiku-4-5`, and Workers AI `@cf/deepseek-ai/deepseek-v4.1-flash-1017`) are verified to work. Some models honor a forced `toolChoice` only on non-streaming requests and will reply in plain text and stop while streaming — for example Workers AI `@cf/meta/llama-3.3-70b-instruct-fp8-fast`. With those models the turn ends without a `think_final_answer` call and `step.prompt()` fails (`Model ended the turn without calling the think_final_answer tool`); use a model with working streaming tool calls instead.
 
 
 

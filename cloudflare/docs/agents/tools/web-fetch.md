@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/web-fetch/
 title: Web fetch \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:06:34.006744+00:00
+fetched_at: 2026-11-21T09:24:31.583300+00:00
 ---
 
 # Web fetch · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:06:34.006744+00:00
 
 # Web fetch
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/web-fetch/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat the tool addsAdd the tool to your harness Pi Durable AI SDK TanStack AI Other harnessesRead long pagesControl requestsHandle errors and choose a browser when needed
 
@@ -102,6 +102,20 @@ In your [Pi harness factory](https://developers.cloudflare.com/agents/harnesses/
 Ask your agent to read a URL, such as a documentation page or PDF report. The model can call `web_fetch` with a `url`, then pass the suggested continuation offset to read more.
 
 The Pi tool is marked `replay: "safe"`. Pi reruns a fetch interrupted by an eviction when the session recovers. Completed results remain stored and are not fetched again during recovery. The tool also honors Pi's abort signal when you cancel a running call.
+
+In [Pi's code mode](https://developers.cloudflare.com/agents/tools/browser/#use-it-in-pis-code-mode), a script calls `tools.web_fetch({ url, offset, format })` and gets the window as an object instead of the model's text:
+    
+    
+    { url, status, contentType, title?, content, offset, nextOffset, totalChars }
+
+`url` is the URL after redirects. `content` stays wrapped in the `untrusted_web_content` tags, so text that a script hands back to the model is still marked as data. Pass `nextOffset` as `offset` to read on. It is `null` at the end. A failed fetch rejects with the model's text. With [`web_search`](https://developers.cloudflare.com/agents/tools/web-search/) installed too, one script can search and read the results in parallel:
+    
+    
+    const found = await tools.web_search({ query: "Durable Objects alarms" });
+    const pages = await Promise.all(
+    	found.items.slice(0, 3).map((item) => tools.web_fetch({ url: item.url })),
+    );
+    return pages.map((page) => ({ title: page.title, content: page.content }));
 
 ### AI SDK
 

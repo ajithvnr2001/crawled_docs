@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/planetscale/
 title: PlanetScale Postgres & MySQL \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:33.129919+00:00
+fetched_at: 2026-11-21T09:24:36.800823+00:00
 ---
 
 # PlanetScale Postgres & MySQL · Cloudflare Hyperdrive docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:11:33.129919+00:00
 
 # PlanetScale Postgres & MySQL
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/hyperdrive/planetscale/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCreate a database from the command lineWorkers + PlanetScaleHow you benefit?PlanetScale developer experience Postgres or MySQL Performance and reliability Modern development workflow Cloudflare billingFAQ
+OverviewCreate a database from the command lineWorkers + PlanetScaleHow you benefit?PlanetScale developer experience Postgres or MySQL Performance and reliability Modern development workflow Cloudflare billingStartup ProgramFAQ
 
 Create PlanetScale Postgres or MySQL databases with globally distributed Workers applications.
 
@@ -111,6 +111,24 @@ Use [development branches ↗︎](https://planetscale.com/docs/postgres/branchin
 ### Cloudflare billing
 
 When you create a PlanetScale database from the Cloudflare dashboard, you are billed via your Cloudflare account — you will see a line item on your Cloudflare invoice for your PlanetScale usage. The pricing for PlanetScale is the same when you create and use databases via Cloudflare as it is when you buy directly from PlanetScale. For more pricing details, refer to [PlanetScale's pricing ↗︎](https://planetscale.com/pricing). You can introspect per-database billing usage via PlanetScale's [dashboard ↗︎](https://planetscale.com/docs/billing#organization-usage-and-billing-page).
+
+## Startup Program
+
+Customers in the [Cloudflare Startup Program ↗︎](https://www.cloudflare.com/startups/) can create PlanetScale Postgres and MySQL databases from Cloudflare, with usage billed through their Cloudflare account.
+
+Startup credits applied to PlanetScale usage is limited for each tier. PlanetScale usage beyond a tier's limit is billed to your account.
+
+Tier | PlanetScale credit limit  
+---|---  
+Tier 3 | $2,500  
+Tier 2 | $10,000  
+Tier 1 | $50,000  
+  
+Check your program tier to confirm the limit that applies to your account.
+
+To start using it, open the Hyperdrive section of the dashboard. The **Create PlanetScale** button appears there for eligible accounts.
+
+Refer to [Connect Postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/planetscale-postgres/) or [Connect MySQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/planetscale/) for database setup.
 
 ## FAQ
 

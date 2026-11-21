@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/filesystem/
 title: File system \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:58.991414+00:00
+fetched_at: 2026-11-21T09:24:31.972066+00:00
 ---
 
 # File system · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-07T08:31:58.991414+00:00
 
 # File system
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksInstallAdd a workspace to a Durable Object Work with filesGive the model file tools Think AI SDK Pi OpenCode Configure the toolsRun JavaScript in the workspace Run code from the agent Configure the backend Give code access to your own functionsResume runs after a restart Calls that must not run twice Wait for an answer Current limitationsLimitsSecurity considerationsAPI reference Workspace workspace.fs workspace.runtime Tool functions Host modulesRelated resources
 
@@ -138,7 +138,7 @@ Configure the Durable Object binding and a SQLite migration in your Wrangler con
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-11-07",
+    	"compatibility_date": "2026-11-21",
     	"compatibility_flags": ["nodejs_compat"],
     	"durable_objects": {
     		"bindings": [
@@ -158,7 +158,7 @@ Configure the Durable Object binding and a SQLite migration in your Wrangler con
     
     
     # Set this to today's date
-    compatibility_date = "2026-11-07"
+    compatibility_date = "2026-11-21"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[durable_objects.bindings]]
@@ -252,7 +252,9 @@ For more information, refer to [Built-in workspace tools](https://developers.clo
     
     	async write(prompt) {
     		const { text } = await generateText({
-    			model: createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6"),
+    			model: createAI({ binding: this.env.AI })(
+    				"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    			),
     			system:
     				"You are a writing assistant. Keep drafts and notes as files under /workspace.",
     			prompt,
@@ -279,7 +281,7 @@ For more information, refer to [Built-in workspace tools](https://developers.clo
     	async write(prompt: string) {
     		const { text } = await generateText({
     			model: createAI({ binding: this.env.AI })(
-    				"@cf/moonshotai/kimi-k2.6",
+    				"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     			),
     			system:
     				"You are a writing assistant. Keep drafts and notes as files under /workspace.",
@@ -522,7 +524,7 @@ The backend needs a [Worker Loader binding](https://developers.cloudflare.com/dy
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-11-07",
+    	"compatibility_date": "2026-11-21",
     	"compatibility_flags": ["nodejs_compat"],
     	"worker_loaders": [
     		{
@@ -533,7 +535,7 @@ The backend needs a [Worker Loader binding](https://developers.cloudflare.com/dy
     
     
     # Set this to today's date
-    compatibility_date = "2026-11-07"
+    compatibility_date = "2026-11-21"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[worker_loaders]]
@@ -919,7 +921,7 @@ Built-in workspace tools, custom tools, and approvals for Think agents.
 
 Load and run Workers on demand from another Worker.
 
-[PreviousLong-running agents](https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/)[NextSandbox](https://developers.cloudflare.com/agents/tools/sandbox/)
+[PreviousDiagnostics channels](https://developers.cloudflare.com/agents/runtime/observability/diagnostics-channels/)[NextSandbox](https://developers.cloudflare.com/agents/tools/sandbox/)
 
 Was this helpful?
 

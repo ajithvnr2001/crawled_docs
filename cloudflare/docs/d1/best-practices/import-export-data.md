@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/best-practices/import-export-data/
 title: Import and export data \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:36.818577+00:00
+fetched_at: 2026-11-21T09:24:35.864589+00:00
 ---
 
 # Import and export data · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:36.818577+00:00
 
 # Import and export data
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/best-practices/import-export-data/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewImport an existing database Convert SQLite database filesExport an existing D1 database Known limitationsTroubleshooting Resolve Statement too long errorForeign key constraintsNext Steps
 
@@ -197,6 +197,24 @@ After:
       ('901', 'Roran Eroi', '2022-08-20 05:39:52'),
       ...
       ('1000', 'Boris Pewter', '2022-12-15 22:16:15');
+
+If one large value makes an `INSERT` exceed the [100,000-byte SQL statement limit](https://developers.cloudflare.com/d1/platform/limits/), splitting rows cannot help. This can also affect D1 exports. In a restore script, bind the values instead of including them as SQL literals:
+    
+    
+    await env.DB.prepare(
+    	"INSERT INTO users (id, full_name, created_on) VALUES (?, ?, ?)",
+    )
+    	.bind(id, fullName, createdOn)
+    	.run();
+    
+    
+    await env.DB.prepare(
+      "INSERT INTO users (id, full_name, created_on) VALUES (?, ?, ?)",
+    )
+      .bind(id, fullName, createdOn)
+      .run();
+
+The value and row size limits still apply. Verify restored data in a separate database.
 
 ## Foreign key constraints
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/configuration/
 title: Configuration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:21.307260+00:00
+fetched_at: 2026-11-21T09:24:33.749136+00:00
 ---
 
 # Configuration · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:21.307260+00:00
 
 # Configuration
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfiguration overridesDynamic configurationSession integrationPackage exportsDependencies
 
@@ -61,8 +61,8 @@ Think's class generics match `Agent<Env, State, Props>`. Persisted runtime confi
     	getModel() {
     		const tier = this.getConfig()?.modelTier ?? "fast";
     		const models = {
-    			fast: "@cf/moonshotai/kimi-k2.6",
-    			capable: "@cf/meta/llama-4-scout-17b-16e-instruct",
+    			fast: "@cf/qwen/qwen3.8-27b",
+    			capable: "@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     		};
     		return createAI({ binding: this.env.AI })(models[tier]);
     	}
@@ -75,8 +75,8 @@ Think's class generics match `Agent<Env, State, Props>`. Persisted runtime confi
     	getModel() {
     		const tier = this.getConfig<MyConfig>()?.modelTier ?? "fast";
     		const models = {
-    			fast: "@cf/moonshotai/kimi-k2.6",
-    			capable: "@cf/meta/llama-4-scout-17b-16e-instruct",
+    			fast: "@cf/qwen/qwen3.8-27b",
+    			capable: "@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     		};
     		return createAI({ binding: this.env.AI })(models[tier]);
     	}

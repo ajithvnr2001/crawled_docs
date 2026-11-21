@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/websockets/
 title: WebSockets \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:24.727348+00:00
+fetched_at: 2026-11-21T09:24:34.850921+00:00
 ---
 
 # WebSockets · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:24.727348+00:00
 
 # WebSockets
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHandle connectionsAgent methodsHibernationNext steps
 
@@ -95,6 +95,10 @@ Agent method | What it does
 `shouldSendProtocolMessages(connection, ctx)` | Return `false` to turn off identity, state, and MCP frames for a connection  
   
 These methods map to the `WebSockets` capability's handlers and options. For the `Connection` object, refer to [Connections](https://developers.cloudflare.com/agents/runtime/capabilities/websockets/#connections).
+
+`onError()` observes errors. If `onConnect()` or startup throws during an upgrade, the client gets a socket that closes with code `1011`, without the error's details. To choose the response instead, override [`onFetchError()`](https://developers.cloudflare.com/agents/agent-class/internals/#thisonfetcherror).
+
+To reject a client, check it in your Worker with `onBeforeConnect`, before `routeAgentRequest()` forwards the upgrade. A client you reject there never reaches the Agent, and the Agent does not wake up for it. Refer to [Authentication](https://developers.cloudflare.com/agents/runtime/routing/authentication/). You can also reject a connection from `onConnect()` by calling `connection.close()`. The Agent runs no message, callable, or state update that the client sends after that close, including frames the client sends as soon as it connects, before it receives the Close frame. `onConnect()` runs inside the Agent, so every client rejected there still wakes it.
 
 ## Hibernation
 

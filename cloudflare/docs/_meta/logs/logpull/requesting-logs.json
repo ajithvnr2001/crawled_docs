@@ -3,8 +3,5 @@
   "file": "logs/logpull/requesting-logs.md",
   "title": "Requesting logs \u00b7 Cloudflare Logs docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:12:09.896703+00:00",
-  "html_len": 128811,
-  "md_len": 6627,
-  "depth": 0
+  "fetched_at": "2026-11-21T09:24:36.484681+00:00"
 }

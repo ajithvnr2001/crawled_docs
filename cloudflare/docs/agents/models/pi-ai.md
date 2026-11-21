@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/pi-ai/
 title: Pi AI \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:12.866611+00:00
+fetched_at: 2026-11-21T09:24:32.986266+00:00
 ---
 
 # Pi AI · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:12.866611+00:00
 
 # Pi AI
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and time out requestsFall back to another modelRead gateway metadataResume a dropped streamHow requests are routedGenerate imagesRelated resources
 
@@ -26,7 +26,7 @@ OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and
 
 ## Install
 
-The provider needs `@earendil-works/pi-ai@~1.5.0`, an optional peer dependency of `agents`:
+The provider needs `@earendil-works/pi-ai@~1.6.0`, an optional peer dependency of `agents`:
 
 npmyarnpnpmbun
     
@@ -77,9 +77,12 @@ The provider carries Pi AI's entry points, so nothing is registered globally:
     	async fetch(request, env) {
     		const ai = createAI({ binding: env.AI });
     
-    		const reply = await ai.complete(ai("@cf/zai-org/glm-5.3-flash"), {
-    			messages: [{ role: "user", content: "Hello", timestamp: Date.now() }],
-    		});
+    		const reply = await ai.complete(
+    			ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
+    			{
+    				messages: [{ role: "user", content: "Hello", timestamp: Date.now() }],
+    			},
+    		);
     
     		// `content` holds text, thinking, and tool call parts.
     		const text = reply.content
@@ -98,9 +101,12 @@ The provider carries Pi AI's entry points, so nothing is registered globally:
     	async fetch(request: Request, env: Env) {
     		const ai = createAI({ binding: env.AI });
     
-    		const reply = await ai.complete(ai("@cf/zai-org/glm-5.3-flash"), {
-    			messages: [{ role: "user", content: "Hello", timestamp: Date.now() }],
-    		});
+    		const reply = await ai.complete(
+    			ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
+    			{
+    				messages: [{ role: "user", content: "Hello", timestamp: Date.now() }],
+    			},
+    		);
     
     		// `content` holds text, thinking, and tool call parts.
     		const text = reply.content
@@ -139,7 +145,7 @@ There are four ways to name a model:
     const ai = createAI({ binding: env.AI, id: "my-gateway" });
     
     // 1. A Workers AI model, by its @cf/ id.
-    ai("@cf/zai-org/glm-5.3-flash");
+    ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017");
     
     // 2. An AI Gateway dynamic route, by dynamic/<route>.
     ai("dynamic/support");
@@ -174,7 +180,7 @@ Pi Durable's `Harness` takes a Pi AI `Models` registry. Register the provider on
     models.setProvider(ai.provider);
     
     // In PiHarness options:
-    // defaults: { model: ai("@cf/zai-org/glm-5.3-flash") }
+    // defaults: { model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") }
     
     // For one session:
     await session.setModel(ai("anthropic/claude-opus-5.5"));
@@ -208,6 +214,8 @@ The options are the same as the [AI SDK provider's options](https://developers.c
 
 Pi AI's own call options map onto them. `headers` merge last, `metadata` joins the gateway metadata, `sessionId` sets session affinity, and `reasoning` maps through the model's own `thinkingLevelMap`. A call option wins over a model option, which wins over `createAI`.
 
+With a `sessionId`, an Anthropic model whose `baseUrl` is `api.anthropic.com` uses Pi AI's message threads, and AI Gateway forwards the thread, so later requests send only the new messages. A thread expires after a few minutes idle. When Anthropic can no longer continue a thread, Pi AI sends the whole conversation again as a new thread instead of failing the turn. To send the whole conversation every time, set `disableContinuation: true` on the call, or `compat.supportsMessageThreads: false` on the model.
+
 `@cf/` models also take Pi AI metadata overrides: `name`, `contextWindow`, `maxTokens`, `reasoning`, `input`, `cost`, and `streamIdleTimeoutMs`. A Workers AI id that Pi AI does not list resolves with a 128,000 token context window, 8,192 output tokens, and zero cost, so pass overrides when you know the real values.
 
 A Pi AI model is plain data. Per-model options are stored on it under symbol keys, which `JSON.stringify` and `structuredClone` drop. A model you store and read back still routes to its vendor, but loses its options. Pass them again with `ai(model, options)` after you load it.
@@ -216,7 +224,7 @@ A Pi AI model is plain data. Per-model options are stored on it under symbol key
     
     
     ai(getBuiltinModel("anthropic", "claude-opus-5-5"), {
-    	fallback: ["@cf/zai-org/glm-5.3-flash"],
+    	fallback: ["@cf/deepseek-ai/deepseek-v4.1-flash-1017"],
     });
 
 Fallback models can be Workers AI ids, dynamic routes, `<provider>/<id>` strings, or model objects. The provider tries them in order. It moves on when a stream ends with an `error` before producing any output. Once a model has produced output, its answer is final.
@@ -282,7 +290,11 @@ Image generation uses Workers AI models:
     	input: [{ type: "text", text: "A red bicycle" }],
     });
 
-`flux-1-schnell` takes a prompt and `steps` only. For it, `width`, `height`, `seed`, `guidance`, and `negativePrompt` are dropped and listed in a `cloudflare-compat` diagnostic. Other image models in the catalog take all of them.
+`flux-1-schnell` takes a prompt and `steps` only. For it, `width`, `height`, `seed`, `guidance`, and `negativePrompt` are dropped and listed in a `cloudflare-compat` diagnostic.
+
+The FLUX.2 models, `@cf/black-forest-labs/flux-2-klein-9b`, `flux-2-klein-4b`, and `flux-2-dev`, take `width`, `height`, `seed`, and `guidance`, and `steps` on `flux-2-dev` only. They also take up to four image input parts as reference images. They take multipart form data, which goes straight to Workers AI, so the gateway options do not apply to them.
+
+Other image models in the catalog take all of the options.
 
 ## Related resources
 

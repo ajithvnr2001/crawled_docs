@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/pi/extensions/
 title: Extensions \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:18.183123+00:00
+fetched_at: 2026-11-21T09:24:34.458319+00:00
 ---
 
 # Extensions · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:18.183123+00:00
 
 # Extensions
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall an extensionWrite a toolMark tools replay-safeWrite a prompt sectionAdd skillsUse more of Pi Durable
 
@@ -78,7 +78,7 @@ src/index.jsjs
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	lifecycle = Lifecycle.install(this).use(this.harness);
@@ -134,7 +134,7 @@ src/index.tsts
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	lifecycle = Lifecycle.install(this).use(this.harness);
@@ -152,6 +152,7 @@ A tool is a Pi Durable `ToolRegistration`:
   * **What a running call can use.** `execute(args, api, context)` gets Pi's operations for the call. `api.output()` streams running output, `api.details()` sends data for a UI, and `api.memo()` stores values that survive an eviction.
   * **Abort.** `context.abortSignal` is aborted when the call is. Honor it: `session.abort()` waits until every running tool returns.
   * **Parallel calls.** Pi runs the tool calls in one model round at the same time by default. Set `executionMode: "sequential"` on a tool whose calls must run one after another. One sequential call makes its whole round sequential.
+  * **Waiting.** A tool that waits for a person, a webhook, or another session can park instead of returning a result, and the Durable Object can hibernate while it waits. Refer to [Tools that wait](https://developers.cloudflare.com/agents/harnesses/pi/#tools-that-wait).
 
 
     
@@ -226,7 +227,8 @@ The tools match the ones [Think](https://developers.cloudflare.com/agents/harnes
 
 Because the registry is Pi's own, everything else Pi Durable extensions can do also works:
 
-  * Hooks on model requests, tool calls, and compaction, such as `hook(ToolTask, { beforeTool })`.
+  * Hooks on model requests, tool calls, and compaction, such as `hook(ToolTask, { beforeTool })`. A `beforeTool` hook can park a call until it is approved.
+  * Grouping an extension's tools in Pi's code mode with `namespace: { name, description, instructions }`.
   * Durable custom tasks that resume after a restart.
   * Wrapping another extension's tools and sections.
   * Choosing extensions per conversation.

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/cloud-connector/
 title: Cloud Connector \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:45.503780+00:00
+fetched_at: 2026-11-21T09:24:36.958913+00:00
 ---
 
 # Cloud Connector · Cloudflare Rules docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:14:45.503780+00:00
 
 # Cloud Connector
 
-Last updated Aug 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/cloud-connector/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksApplied configurationsAvailability
 
@@ -60,7 +60,7 @@ Cloud Connector will not apply any of the following configurations:
 
 ## Availability
 
-Cloud Connector is available in beta to all customers. The maximum number of rules depends on your Cloudflare plan:
+Cloud Connector is generally available to all customers. The maximum number of rules depends on your Cloudflare plan:
 
 | Free | Pro | Business | Enterprise  
 ---|---|---|---|---  

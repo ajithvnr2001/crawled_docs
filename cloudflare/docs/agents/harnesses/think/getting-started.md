@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/getting-started/
 title: Getting started \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:20.670842+00:00
+fetched_at: 2026-11-21T09:24:33.549486+00:00
 ---
 
 # Getting started · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:20.670842+00:00
 
 # Getting started
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a project2\. Configure wrangler3\. Define the agent4\. Connect a React client5\. Run it6\. Add persistent memory7\. Add custom tools8\. Add lifecycle hooksNext steps
 
@@ -143,7 +143,9 @@ Create `src/server.ts`:
     
     export class MyAgent extends Think {
     	getModel() {
-    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6");
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     
     	getSystemPrompt() {
@@ -168,7 +170,7 @@ Create `src/server.ts`:
     export class MyAgent extends Think<Env> {
     	getModel() {
     		return createAI({ binding: this.env.AI })(
-    			"@cf/moonshotai/kimi-k2.6",
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     		);
     	}
     
@@ -321,7 +323,9 @@ Override `configureSession` to give the model writable memory that survives rest
     
     export class MyAgent extends Think {
     	getModel() {
-    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6");
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     
     	configureSession(session) {
@@ -344,7 +348,7 @@ Override `configureSession` to give the model writable memory that survives rest
     export class MyAgent extends Think<Env> {
     	getModel(): LanguageModel {
     		return createAI({ binding: this.env.AI })(
-    			"@cf/moonshotai/kimi-k2.6",
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     		);
     	}
     

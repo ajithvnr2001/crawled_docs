@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/voice-agent/
 title: Voice agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:22.051415+00:00
+fetched_at: 2026-11-21T09:24:34.659128+00:00
 ---
 
 # Voice agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:22.051415+00:00
 
 # Voice agent
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the project2\. Configure wrangler3\. Build the server4\. Build the client5\. Run itAdding pipeline hooksUsing third-party providersNext steps
 
@@ -59,7 +59,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     {
     	"name": "voice-agent",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-30",
+    	"compatibility_date": "2026-11-21",
     	"compatibility_flags": ["nodejs_compat"],
     	"main": "src/server.ts",
     	"upload_source_maps": true,
@@ -85,7 +85,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     
     name = "voice-agent"
     # Set this to today's date
-    compatibility_date = "2026-10-30"
+    compatibility_date = "2026-11-21"
     compatibility_flags = [ "nodejs_compat" ]
     main = "src/server.ts"
     upload_source_maps = true
@@ -122,7 +122,7 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: ai("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
     			system:
     				"You are a helpful voice assistant. Keep responses concise — you are being spoken aloud.",
     			messages: [
@@ -187,7 +187,7 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: ai("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
     			system:
     				"You are a helpful voice assistant. Keep responses concise — you are being spoken aloud.",
     			messages: [

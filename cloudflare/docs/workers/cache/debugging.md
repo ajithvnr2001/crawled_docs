@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/debugging/
 title: Debugging \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:20.420991+00:00
+fetched_at: 2026-11-21T09:24:31.308169+00:00
 ---
 
 # Debugging · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:20.420991+00:00
 
 # Debugging
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInspect Cf-Cache-StatusMy Worker runs on every requestMy Worker runs even after the first requestMy cache hit rate dropped after a deploymentMy cache still serves old content after a deploymentMy cache never updates after content changesTwo callers receive each other's cached responsesCf-Cache-Status: UPDATING appears constantlyCf-Cache-Status: UPDATING never appearsCf-Cache-Status: STALE appears unexpectedlyMy response is larger than the size limitI need more visibility
 
@@ -121,6 +121,7 @@ If your origin data changed but requests still return stale content:
   * **Check the TTL.** The response stays cached for `max-age` seconds. You may be looking at a response that is still within its freshness window.
   * **Purge the affected responses.** Use `ctx.cache.purge()` with tags or a path prefix to delete specific entries. Refer to [Purging the cache](https://developers.cloudflare.com/workers/cache/purge/).
   * **Add tags at write time.** If you did not set `Cache-Tag` headers, you cannot purge by tag. Add tags to your cached responses, deploy, and once new entries are written they become purgeable.
+  * **Change the`ETag` when the content changes.** If your Worker answers a revalidation with a `200` that carries the same `ETag` as the cached response, the lower cache tier and visitors' browsers keep the old body. Refer to [Answer conditional requests](https://developers.cloudflare.com/workers/cache/purge/#answer-conditional-requests).
 
 
 

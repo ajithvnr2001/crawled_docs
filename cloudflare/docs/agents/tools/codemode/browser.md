@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/codemode/browser/
 title: Browser integration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:58.664576+00:00
+fetched_at: 2026-11-21T09:24:31.693070+00:00
 ---
 
 # Browser integration · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Tools
 
 # Browser integration
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall Code ModeAdd Code Mode to an Agent chat UIIframe execution and securityApproval constraints
 
@@ -264,7 +264,7 @@ src/server.jsjs
          		const ai = createAI({ binding: this.env.AI });
          
          		const result = streamText({
-         			model: ai("@cf/moonshotai/kimi-k2.7-code"),
+         			model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
          			system:
          				"Use the codemode tool to write JavaScript that calls browser-provided tools.",
          			messages: await convertToModelMessages(this.messages),
@@ -292,7 +292,7 @@ src/server.tsts
              const ai = createAI({ binding: this.env.AI });
          
              const result = streamText({
-               model: ai("@cf/moonshotai/kimi-k2.7-code"),
+               model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
                system:
                  "Use the codemode tool to write JavaScript that calls browser-provided tools.",
                messages: await convertToModelMessages(this.messages),

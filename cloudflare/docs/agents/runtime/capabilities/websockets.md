@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/capabilities/websockets/
 title: WebSockets \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:17.397752+00:00
+fetched_at: 2026-11-21T09:24:32.391085+00:00
 ---
 
 # WebSockets · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:17.397752+00:00
 
 # WebSockets
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall the capabilityOptionsHandle connections Connections Find connections Tag connections Share connections with another handler setCallables Choose a callable Declare callables Call from a client Stream results ContextTransportsSync stateReadonly connectionsControl the protocol per connectionMethodsOn the Agent class
 
@@ -121,6 +121,8 @@ Handler | When it runs
 `onError(connection, error)` | When the connection fails mid-session  
   
 A message wakes a hibernated object. The constructor and Lifecycle startup run again before `onMessage`. Keep anything you need after a wake in storage or on the connection.
+
+Once the host closes a connection with `connection.close()`, no handler or callable runs for another message from it, on either transport. This includes frames the client sent before it received the Close frame, so a client that `onConnect` rejects cannot run anything. Messages the client sent before closing the connection itself still run.
 
 ### Connections
 
@@ -357,7 +359,7 @@ src/server.jsjs
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     	webSockets = new WebSockets({
     		callables: new RunCallables(this.harness),
@@ -414,7 +416,7 @@ src/server.tsts
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     	readonly webSockets = new WebSockets({
     		callables: new RunCallables(this.harness),

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/
 title: Models \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:13.353781+00:00
+fetched_at: 2026-11-21T09:24:33.129380+00:00
 ---
 
 # Models · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-05T09:11:13.353781+00:00
 
 # Models
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow a model is chosenWhat every model getsConnect to CloudflareCall models from a Durable Object Generate text with the AI SDK Stream over WebSocketsCall the AI binding directlyOpenAI-compatible endpointsChoose a provider
 
@@ -35,7 +35,7 @@ Both take the same options, route through the same gateway, and handle Workers A
 Name a model with a string, or pass a model object built by the vendor's own package:
     
     
-    ai("@cf/zai-org/glm-5.3-flash"); // Workers AI
+    ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"); // Workers AI
     ai("anthropic/claude-opus-5.5"); // AI Gateway catalog
     ai("dynamic/support"); // AI Gateway dynamic route
     ai(anthropic("claude-opus-5-5")); // the vendor's own model object
@@ -187,7 +187,7 @@ src/index.tsts
     	}
     }
 
-To use a different model, change the string, such as `ai("openai/gpt-5.5")` or `ai("@cf/zai-org/glm-5.3-flash")`, or pass the vendor's own model object, such as `ai(openai("gpt-5.5"))`. All of these route through AI Gateway, so you do not need a vendor API key in your Worker.
+To use a different model, change the string, such as `ai("openai/gpt-5.5")` or `ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017")`, or pass the vendor's own model object, such as `ai(openai("gpt-5.5"))`. All of these route through AI Gateway, so you do not need a vendor API key in your Worker.
 
 You can also use any other AI SDK provider directly, without `createAI`. The call then goes straight to the vendor, with your own API key, and skips AI Gateway:
 
@@ -361,15 +361,18 @@ src/index.jsjs
     	lifecycle = Lifecycle.install(this);
     
     	async onRequest(request) {
-    		const stream = await this.env.AI.run("@cf/zai-org/glm-5.3-flash", {
-    			messages: [
-    				{
-    					role: "user",
-    					content: "Build me a Cloudflare Worker that returns JSON.",
-    				},
-    			],
-    			stream: true,
-    		});
+    		const stream = await this.env.AI.run(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    			{
+    				messages: [
+    					{
+    						role: "user",
+    						content: "Build me a Cloudflare Worker that returns JSON.",
+    					},
+    				],
+    				stream: true,
+    			},
+    		);
     
     		return new Response(stream, {
     			headers: { "content-type": "text/event-stream" },
@@ -391,7 +394,7 @@ src/index.tsts
     	readonly lifecycle = Lifecycle.install(this);
     
     	async onRequest(request: Request): Promise<Response> {
-    		const stream = await this.env.AI.run("@cf/zai-org/glm-5.3-flash", {
+    		const stream = await this.env.AI.run("@cf/deepseek-ai/deepseek-v4.1-flash-1017", {
     			messages: [
     				{
     					role: "user",
@@ -420,7 +423,7 @@ src/index.jsjs
     
     	async onRequest(request) {
     		const response = await this.env.AI.run(
-    			"@cf/zai-org/glm-5.3-flash",
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     			{
     				messages: [
     					{
@@ -457,7 +460,7 @@ src/index.tsts
     
     	async onRequest(request: Request): Promise<Response> {
     		const response = await this.env.AI.run(
-    			"@cf/zai-org/glm-5.3-flash",
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
     			{
     				messages: [
     					{

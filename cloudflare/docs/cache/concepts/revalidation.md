@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/concepts/revalidation/
 title: Revalidation \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:41.735547+00:00
+fetched_at: 2026-11-21T09:24:30.781070+00:00
 ---
 
 # Revalidation · Cloudflare Cache (CDN) docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:05:41.735547+00:00
 
 # Revalidation
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/concepts/revalidation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewStale-while-revalidateAsynchronous revalidationControlling stale behavior Directives that disable stale-while-revalidateSmart revalidation towards users
+OverviewStale-while-revalidateAsynchronous revalidationOrigin requirements for revalidationControlling stale behavior Directives that disable stale-while-revalidateSmart revalidation towards users
 
 Cloudflare revalidates cached content with your origin after the content expires. To revalidate cached content before it expires, [invalidate it](https://developers.cloudflare.com/cache/guides/invalidate-cache/).
 
@@ -32,7 +32,19 @@ When a cached asset expires, Cloudflare uses the [`stale-while-revalidate`](http
 
 Revalidation is fully asynchronous. When a cached asset expires and `stale-while-revalidate` is set, the first request that arrives after expiry triggers revalidation in the background. That request immediately receives stale content with an [UPDATING](https://developers.cloudflare.com/cache/concepts/cache-responses/#updating) status instead of blocking until the origin responds. All following requests also receive stale content with an `UPDATING` status until the origin responds. Once revalidation completes, subsequent requests receive fresh content with a [HIT](https://developers.cloudflare.com/cache/concepts/cache-responses/#hit) status.
 
-If the stale content is still valid, Cloudflare sets a new TTL. If the content has changed, the origin provides fresh content to replace the old.
+If the stale content is still valid, your origin answers `304 Not Modified` and Cloudflare sets a new TTL. If the content has changed, your origin sends the new content with a new `ETag`, or a later `Last-Modified` if it sends no `ETag`, and it replaces the old content. For the rules your origin must follow, refer to Origin requirements for revalidation.
+
+## Origin requirements for revalidation
+
+To revalidate, Cloudflare sends your origin a conditional request. `If-None-Match` carries the cached `ETag`, and `If-Modified-Since` carries the cached `Last-Modified`. Your origin must follow the HTTP rules for conditional requests:
+
+  * **Answer a matching`If-None-Match` with `304`.** On a `GET` or `HEAD` request, if an entity tag listed in `If-None-Match` matches the `ETag` of the response your origin would send, respond with `304 Not Modified`, not `200` ([RFC 9110, section 13.1.2 ↗︎](https://www.rfc-editor.org/rfc/rfc9110.html#section-13.1.2)). Compare entity tags with the weak comparison function, which ignores the `W/` prefix ([RFC 9110, section 8.8.3.2 ↗︎](https://www.rfc-editor.org/rfc/rfc9110.html#section-8.8.3.2)).
+  * **Change the`ETag` whenever the content changes.** Responses that share an `ETag` are interchangeable as far as caches are concerned. A strong `ETag` changes whenever the response body changes, by definition. A weak `ETag` ought to change whenever you want caches to stop using old responses ([RFC 9110, section 8.8.1 ↗︎](https://www.rfc-editor.org/rfc/rfc9110.html#section-8.8.1)).
+  * **Keep`Last-Modified` accurate.** It is the time the content last changed ([RFC 9110, section 8.8.2 ↗︎](https://www.rfc-editor.org/rfc/rfc9110.html#section-8.8.2)). When a `GET` or `HEAD` request carries `If-Modified-Since` without `If-None-Match`, answer `304` if the content has not changed since that time. When the request carries both, ignore `If-Modified-Since` and let `If-None-Match` decide ([RFC 9110, section 13.1.3 ↗︎](https://www.rfc-editor.org/rfc/rfc9110.html#section-13.1.3)).
+
+
+
+A `200` response that repeats the cached `ETag` tells every cache that the old and new content are interchangeable, even if its `Last-Modified` is later, so the new content does not reliably replace the old content. With [Tiered Cache](https://developers.cloudflare.com/cache/how-to/tiered-cache/), a lower-tier data center revalidates its copy with its upper-tier data center. The upper tier receives the new content from your origin, but its `ETag` matches the lower tier's copy, so the upper tier answers the lower tier with `304` and the lower tier keeps serving the old content. Browsers that cached the old response revalidate the same way and keep their copy too. This applies whether the content expired or was [invalidated](https://developers.cloudflare.com/cache/guides/invalidate-cache/).
 
 ## Controlling stale behavior
 

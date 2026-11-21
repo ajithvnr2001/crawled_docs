@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/getting-started/quick-start/
 title: Build your first Durable Agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:23.347564+00:00
+fetched_at: 2026-11-21T09:24:34.801957+00:00
 ---
 
 # Build your first Durable Agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:23.347564+00:00
 
 # Build your first Durable Agent
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesCreate a projectConfigure WranglerRun a harness on a Durable ObjectRun the agent locallyGive the agent a workspaceConnect over WebSocketsDeploy to CloudflareNext steps
 
@@ -59,15 +59,15 @@ npmyarnpnpm
 
 npmyarnpnpmbun
          
-         npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/computer
+         npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/computer
          
-         yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/computer
+         yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/computer
          
-         pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/computer
+         pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/computer
          
-         bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/computer
+         bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/computer
 
-The Pi packages are optional peer dependencies of `agents`, at `~1.4.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
+The Pi packages are optional peer dependencies of `agents`, at `~1.6.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
 
 
 
@@ -82,7 +82,7 @@ Add the `AI` binding and a SQLite-backed Durable Object to your Wrangler configu
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-30",
+    	"compatibility_date": "2026-11-21",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": {
     		"binding": "AI",
@@ -100,7 +100,7 @@ Add the `AI` binding and a SQLite-backed Durable Object to your Wrangler configu
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-30"
+    compatibility_date = "2026-11-21"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -152,7 +152,7 @@ src/index.jsjs
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	// The Lifecycle starts the harness inside the Durable Object
@@ -204,7 +204,7 @@ src/index.tsts
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	// The Lifecycle starts the harness inside the Durable Object
@@ -314,7 +314,7 @@ src/index.jsjs
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	// lifecycle and onRequest() are unchanged
@@ -358,7 +358,7 @@ src/index.tsts
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	// lifecycle and onRequest() are unchanged
@@ -491,7 +491,7 @@ src/index.jsjs
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	// Capability: clients send prompts and get replies over WebSockets
@@ -572,7 +572,7 @@ src/index.tsts
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    		defaults: { model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017") },
     	});
     
     	// Capability: clients send prompts and get replies over WebSockets

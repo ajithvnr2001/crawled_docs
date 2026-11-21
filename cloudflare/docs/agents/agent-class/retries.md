@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/retries/
 title: Retries \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:50.539650+00:00
+fetched_at: 2026-11-21T09:24:35.230891+00:00
 ---
 
 # Retries · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:50.539650+00:00
 
 # Retries
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick startthis.retry() ExamplesRetries in schedulesRetries in queuesValidationDefault behavior Class-level defaultsRetryOptionsHow it works Backoff strategy MCP server retriesPatterns Retry with logging Retry with fallback Combining retries with schedulingLimitationsNext steps
 
@@ -512,7 +512,7 @@ Attempt | Upper Bound | Actual Delay
   
 ### MCP server retries
 
-When adding an MCP server, you can configure retry options for connection and reconnection attempts:
+When adding an MCP server, you can configure how many quick attempts each connection makes:
     
     
     await this.addMcpServer("github", "https://mcp.github.com", {
@@ -524,14 +524,9 @@ When adding an MCP server, you can configure retry options for connection and re
     	retry: { maxAttempts: 5, baseDelayMs: 1000, maxDelayMs: 10000 },
     });
 
-These options are persisted and used when:
+These options are persisted and used for every connection attempt: adding the server, restoring it after hibernation, establishing it after OAuth completes, and `reconnectMcpServer()`.
 
-  * Restoring server connections after hibernation
-  * Establishing connections after OAuth completion
-
-
-
-Default: 3 attempts, 500ms base delay, 5s max delay.
+Default: 3 attempts, 500ms base delay, 5s max delay. If those attempts fail, the server is `failed` until you call `reconnectMcpServer()`. Refer to [Failures and reconnecting](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#failures-and-reconnecting).
 
 ## Patterns
 

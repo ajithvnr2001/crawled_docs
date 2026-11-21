@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/opencode/
 title: OpenCode \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:50.364645+00:00
+fetched_at: 2026-11-21T09:24:35.021603+00:00
 ---
 
 # OpenCode · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:50.364645+00:00
 
 # OpenCode
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksInstallUse it in a Durable ObjectChoose a modelSend promptsWork with sessionsStream events to clientsAdd pluginsConnect an MCP serverAdd an Agent Skill
 
@@ -89,7 +89,7 @@ Add the `AI` binding, a SQLite-backed Durable Object, and `nodejs_compat` to you
     	"name": "opencode-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-11-10",
+    	"compatibility_date": "2026-11-21",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI", "remote": true },
     	"durable_objects": {
@@ -102,7 +102,7 @@ Add the `AI` binding, a SQLite-backed Durable Object, and `nodejs_compat` to you
     name = "opencode-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-11-10"
+    compatibility_date = "2026-11-21"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -208,7 +208,7 @@ src/index.jsjs
     				plugins: [this.ai.plugin, workerTools],
     			}),
     		defaults: {
-    			model: this.ai("@cf/moonshotai/kimi-k2.7-code", {
+    			model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017", {
     				reasoningEffort: "low",
     			}),
     			agent: "build",
@@ -251,7 +251,7 @@ src/index.tsts
     				plugins: [this.ai.plugin, workerTools],
     			}),
     		defaults: {
-    			model: this.ai("@cf/moonshotai/kimi-k2.7-code", {
+    			model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017", {
     				reasoningEffort: "low",
     			}),
     			agent: "build",
@@ -284,7 +284,7 @@ The `"demo"` object name is for this example. In an application, choose an objec
 `this.ai()` takes the same model ids as the [AI SDK provider](https://developers.cloudflare.com/agents/models/ai-sdk/), and accepts its model options:
     
     
-    this.ai("@cf/moonshotai/kimi-k2.7-code"); // Workers AI
+    this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"); // Workers AI
     this.ai("anthropic/claude-opus-5.5"); // AI Gateway catalog
     this.ai("dynamic/support"); // AI Gateway dynamic route
 
@@ -347,7 +347,7 @@ Session method | Description
 `steer(input, options)` | Submit with `whenBusy: "steer"`.  
 `wait(operationId, signal)` | Wait for an operation. Aborting the signal stops only the wait.  
 `abort(operationId)` | Withdraw a queued operation or interrupt the run it joined. Without an ID, abort all work in the session.  
-`setModel(model)` | Change the model, using a reference such as `this.ai("@cf/moonshotai/kimi-k2.7-code")`.  
+`setModel(model)` | Change the model, using a reference such as `this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017")`.  
 `setAgent(agent)` | Change the OpenCode agent, such as `"build"` or `"plan"`.  
 `messages()` | Read the active context after the latest compaction.  
 `history()` | Read the full transcript, including compacted messages.  

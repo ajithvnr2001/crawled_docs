@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/
 title: Agent class \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:21.910016+00:00
+fetched_at: 2026-11-21T09:24:35.685293+00:00
 ---
 
 # Agent class · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-30T08:19:21.910016+00:00
 
 # Agent class
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewAgent classLifecycleCore propertiesServer-side API referenceSQL APIClient-side API reference Quick exampleChat agentsRoutingNext steps
 
@@ -84,6 +84,7 @@ Method | When it runs
 `onConnect(connection, ctx)` | When a WebSocket connection is established  
 `onMessage(connection, message)` | For each WebSocket message received  
 `onError(connection, error)` | When a WebSocket error occurs  
+`onFetchError(request, error)` | When an HTTP request or WebSocket upgrade fails. Return a response to replace the default, which does not include the error. Refer to [`onFetchError`](https://developers.cloudflare.com/agents/agent-class/internals/#thisonfetcherror)  
 `onClose(connection, code, reason, wasClean)` | When a WebSocket connection closes  
 `onEmail(email)` | When an email is routed to the instance  
 `onStateChanged(state, source)` | When state changes (from server or client)  

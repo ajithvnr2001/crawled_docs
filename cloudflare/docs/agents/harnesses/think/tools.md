@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/tools/
 title: Tools \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:21.072990+00:00
+fetched_at: 2026-11-21T09:24:33.687890+00:00
 ---
 
 # Tools · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:21.072990+00:00
 
 # Tools
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTool merge orderBuilt-in workspace tools Run code with exec Call the agent's tools from code Change the tools Upgrade from @cloudflare/shellCustom toolsTool approvalPer-turn tool overridesMCP toolsCode execution tool Approvals (human-in-the-loop) The runtime handleBrowser toolsExtensions Static extensions LLM-driven extensions Extension context blocks
 
@@ -74,7 +74,7 @@ The default Workspace has no execution backends, so there is no `exec` tool unti
     
     import { Think } from "@cloudflare/think";
     import { Workspace } from "@cloudflare/computer";
-    import { WorkerJavaScriptBackend } from "@cloudflare/computer/backends/worker-javascript";
+    import { CodemodeBackend } from "@cloudflare/computer/backends/codemode";
     import { createGitClient } from "@cloudflare/computer/git";
     import { createGitModule } from "@cloudflare/computer/modules/git";
     
@@ -83,11 +83,10 @@ The default Workspace has no execution backends, so there is no `exec` tool unti
     		storage: this.ctx.storage,
     		git: createGitClient(),
     		backends: [
-    			new WorkerJavaScriptBackend({
-    				id: "js",
+    			new CodemodeBackend({
     				loader: this.env.LOADER,
     				access: "read-write",
-    				modules: { "ws:git": createGitModule() },
+    				modules: { "codemode:git": createGitModule() },
     			}),
     		],
     	});
@@ -100,7 +99,7 @@ The default Workspace has no execution backends, so there is no `exec` tool unti
     
     import { Think } from "@cloudflare/think";
     import { Workspace } from "@cloudflare/computer";
-    import { WorkerJavaScriptBackend } from "@cloudflare/computer/backends/worker-javascript";
+    import { CodemodeBackend } from "@cloudflare/computer/backends/codemode";
     import { createGitClient } from "@cloudflare/computer/git";
     import { createGitModule } from "@cloudflare/computer/modules/git";
     
@@ -109,11 +108,10 @@ The default Workspace has no execution backends, so there is no `exec` tool unti
     		storage: this.ctx.storage,
     		git: createGitClient(),
     		backends: [
-    			new WorkerJavaScriptBackend({
-    				id: "js",
+    			new CodemodeBackend({
     				loader: this.env.LOADER,
     				access: "read-write",
-    				modules: { "ws:git": createGitModule() },
+    				modules: { "codemode:git": createGitModule() },
     			}),
     		],
     	});
@@ -123,7 +121,7 @@ The default Workspace has no execution backends, so there is no `exec` tool unti
     	}
     }
 
-The JavaScript backend runs code in a [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/), so it needs a Worker Loader binding:
+The codemode backend runs JavaScript in a [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/), so it needs a Worker Loader binding:
     
     
     {
@@ -143,17 +141,16 @@ Computer also ships a `just-bash` shell backend that runs in Dynamic Workers, an
 
 ### Call the agent's tools from code
 
-Give a JavaScript backend a `ws:tools` module, and code the model runs with `exec` can import the agent's tools. Code reads files through `node:fs/promises`, so serve `getTools()` rather than the workspace tools:
+Give a codemode backend a `codemode:tools` module, and code the model runs with `exec` can import the agent's tools. Code reads files through `node:fs/promises`, so serve `getTools()` rather than the workspace tools:
     
     
     import { createToolBindings } from "@cloudflare/computer/modules/tools";
     import { forAISDKTools } from "@cloudflare/computer/tools/ai-sdk";
     
-    new WorkerJavaScriptBackend({
-    	id: "js",
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	modules: {
-    		"ws:tools": createToolBindings(forAISDKTools(() => this.getTools())),
+    		"codemode:tools": createToolBindings(forAISDKTools(() => this.getTools())),
     	},
     });
     
@@ -161,11 +158,10 @@ Give a JavaScript backend a `ws:tools` module, and code the model runs with `exe
     import { createToolBindings } from "@cloudflare/computer/modules/tools";
     import { forAISDKTools } from "@cloudflare/computer/tools/ai-sdk";
     
-    new WorkerJavaScriptBackend({
-    	id: "js",
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	modules: {
-    		"ws:tools": createToolBindings(forAISDKTools(() => this.getTools())),
+    		"codemode:tools": createToolBindings(forAISDKTools(() => this.getTools())),
     	},
     });
 
@@ -173,7 +169,7 @@ Code the model runs with `exec`:
     
     
     import { readFile } from "node:fs/promises";
-    import { getWeather } from "ws:tools";
+    import { getWeather } from "codemode:tools";
     
     export default async function () {
     	const cities = JSON.parse(await readFile("/workspace/cities.json", "utf8"));
@@ -182,7 +178,7 @@ Code the model runs with `exec`:
     	return reports;
     }
 
-`ws:tools` does not export tools that need approval or tools that run in the browser, because nothing can approve or run them from code. Calls from code do not go through `beforeToolCall`. Refer to [`ws:tools` ↗︎](https://github.com/cloudflare/computer/blob/main/docs/17_isolate_javascript.md#wstools) for how calls and results work.
+`codemode:tools` does not export tools that need approval or tools that run in the browser, because nothing can approve or run them from code. Calls from code do not go through `beforeToolCall`. Refer to [`codemode:tools` ↗︎](https://github.com/cloudflare/computer/blob/main/docs/17_isolate_javascript.md#codemodetools) for how calls and results work.
 
 ### Change the tools
 
@@ -401,7 +397,7 @@ Add MCP servers programmatically or via `@callable` methods:
 
 Deprecated
 
-`createExecuteTool` and `createExecuteRuntime` are deprecated. Use `exec` on a JavaScript backend with a `ws:tools` module instead. Refer to Call the agent's tools from code. The execute tool keeps working until it is removed along with `@cloudflare/codemode`.
+`createExecuteTool` and `createExecuteRuntime` are deprecated. Use `exec` on a codemode backend with a `codemode:tools` module instead. Refer to Call the agent's tools from code. The execute tool keeps working until it is removed along with `@cloudflare/codemode`.
 
 Let the LLM write and run JavaScript in a sandboxed Worker, recorded on a durable Code Mode runtime (abort-and-replay, human approvals, audit trail, reusable snippets). Requires `@cloudflare/codemode` and a `worker_loaders` binding.
     

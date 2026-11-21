@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/capabilities/sessions/
 title: Sessions \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:17.036339+00:00
+fetched_at: 2026-11-21T09:24:32.900067+00:00
 ---
 
 # Sessions · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:17.036339+00:00
 
 # Sessions
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a session storeInstall the capabilityWrite messages Untrusted inputRead historyBranchesCompactionSearchObserve changesSeveral sessions in one objectStorageOn the Agent class
 
@@ -310,7 +310,7 @@ src/index.jsjs
     			createCompactFunction({
     				summarize: async (prompt) => {
     					const { text } = await generateText({
-    						model: this.ai("@cf/zai-org/glm-5.3-flash"),
+    						model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
     						prompt,
     					});
     					return text;
@@ -340,7 +340,7 @@ src/index.tsts
     			createCompactFunction({
     				summarize: async (prompt) => {
     					const { text } = await generateText({
-    						model: this.ai("@cf/zai-org/glm-5.3-flash"),
+    						model: this.ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
     						prompt,
     					});
     					return text;

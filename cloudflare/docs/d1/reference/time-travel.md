@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/reference/time-travel/
 title: Time Travel and backups \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:58.158759+00:00
+fetched_at: 2026-11-21T09:24:35.763160+00:00
 ---
 
 # Time Travel and backups · Cloudflare D1 docs
@@ -18,11 +18,11 @@ fetched_at: 2026-11-07T08:31:58.158759+00:00
 
 # Time Travel and backups
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBookmarksTimestampsRequirementsRetrieve a bookmarkRestore a databaseUndo a restoreExport D1 into R2 using WorkflowsNotes
 
-Time Travel is D1's approach to backups and point-in-time-recovery, and allows you to restore a database to any minute within the last 30 days.
+Time Travel is D1's approach to backups and point-in-time recovery. You can restore a database to any minute within the last 7 days on the Workers Free plan or 30 days on the Workers Paid plan.
 
   * You do not need to enable Time Travel. It is always on.
   * Database history and restoring a database incur no additional costs.
@@ -42,7 +42,7 @@ To understand which storage subsystem your database uses, run `wrangler d1 info 
 
 Time Travel leverages D1's concept of a  bookmark  to restore to a point in time.
 
-  * Bookmarks older than 30 days are invalid and cannot be used as a restore point.
+  * Bookmarks outside your plan's retention window cannot be used as a restore point.
   * Restoring a database to a specific bookmark does not remove or delete older bookmarks. For example, if you restore to a bookmark representing the state of your database 10 minutes ago, and determine that you needed to restore to an earlier point in time, you can still do so.
   * Bookmarks are lexicographically sortable. Sorting orders a list of bookmarks from oldest-to-newest.
   * Bookmarks can be derived from a [Unix timestamp ↗︎](https://en.wikipedia.org/wiki/Unix_time) (seconds since Jan 1st, 1970), and conversion between a specific timestamp and a bookmark is deterministic (stable).

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/
 title: Voice \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:22.517627+00:00
+fetched_at: 2026-11-21T09:24:35.548665+00:00
 ---
 
 # Voice · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:22.517627+00:00
 
 # Voice
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick start Install Server Client (React) Wrangler configurationHow it worksServer API: withVoice Providers onTurn(transcript, context) Lifecycle hooks Pipeline hooks Convenience methods Configuration optionsServer API: withVoiceInput onTranscript(text, connection) HooksClient API: React hooks useVoiceAgent useVoiceInputClient API: VoiceClient Events Advanced optionsProviders Built-in (Workers AI) Third-party providersTelephony Server-side adapters (Twilio and Plivo) Browser WebRTC bridge (Telnyx) PCM output for telephony Complete examplesText messagesCustom messagesSingle-speaker enforcementPipeline metricsConversation history
 
@@ -305,7 +305,7 @@ Return a `string`, `AsyncIterable<string>`, or `ReadableStream` for streaming re
     		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: ai("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
     			system: "You are a helpful voice assistant. Keep responses concise.",
     			messages: [
     				...context.messages.map((m) => ({
@@ -333,7 +333,7 @@ Return a `string`, `AsyncIterable<string>`, or `ReadableStream` for streaming re
     		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: ai("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/deepseek-ai/deepseek-v4.1-flash-1017"),
     			system: "You are a helpful voice assistant. Keep responses concise.",
     			messages: [
     				...context.messages.map((m) => ({

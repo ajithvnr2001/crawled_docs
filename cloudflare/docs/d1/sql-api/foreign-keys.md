@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/sql-api/foreign-keys/
 title: Define foreign keys \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:01:02.673372+00:00
+fetched_at: 2026-11-21T09:24:35.954080+00:00
 ---
 
 # Define foreign keys · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:01:02.673372+00:00
 
 # Define foreign keys
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefer foreign key constraintsDefine a foreign key relationshipForeign key actionsNext Steps
 
@@ -39,6 +39,8 @@ D1's foreign key enforcement is equivalent to SQLite's `PRAGMA foreign_keys = on
 Instead, D1 allows you to call `PRAGMA defer_foreign_keys = on` or `off`, which allows you to violate foreign key constraints temporarily (until the end of the current transaction).
 
 Calling `PRAGMA defer_foreign_keys = on` does not disable foreign key enforcement outside of the current transaction. If you have not resolved outstanding foreign key violations at the end of your transaction, it will fail with a `FOREIGN KEY constraint failed` error.
+
+Deferring checks does not disable `ON DELETE CASCADE`. Dropping a parent table can still delete child rows. Test table rebuilds on a copy of your data and check child row counts.
 
 To defer foreign key enforcement, set `PRAGMA defer_foreign_keys = on` at the start of your transaction, or ahead of changes that would violate constraints:
     

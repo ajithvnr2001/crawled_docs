@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/integrations/pi-ai/
 title: Pi AI \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:12.072276+00:00
+fetched_at: 2026-11-21T09:24:31.502248+00:00
 ---
 
 # Pi AI · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:12.072276+00:00
 
 # Pi AI
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallationCall a catalog modelCall a Pi AI model objectFall back to another modelSet gateway optionsUse an account id and API tokenRelated resources
 
@@ -26,7 +26,7 @@ To call AI Gateway from [Pi AI ↗︎](https://github.com/earendil-works/pi/tree
 
 ## Installation
 
-Install the Agents SDK and Pi AI. `createAI` needs `@earendil-works/pi-ai@~1.5.0`:
+Install the Agents SDK and Pi AI. `createAI` needs `@earendil-works/pi-ai@~1.6.0`:
 
 npmyarnpnpmbun
     

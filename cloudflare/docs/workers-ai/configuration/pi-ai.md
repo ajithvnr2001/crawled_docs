@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/configuration/pi-ai/
 title: Pi AI \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:17.835127+00:00
+fetched_at: 2026-11-21T09:24:30.741175+00:00
 ---
 
 # Pi AI · Cloudflare Workers AI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:17.835127+00:00
 
 # Pi AI
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSetupGenerate textStream textSet model detailsGenerate imagesUse AI GatewayRelated resources
 
@@ -26,7 +26,7 @@ To use Workers AI with [Pi AI ↗︎](https://github.com/earendil-works/pi/tree/
 
 ## Setup
 
-Install the Agents SDK and Pi AI. `createAI` needs `@earendil-works/pi-ai@~1.5.0`:
+Install the Agents SDK and Pi AI. `createAI` needs `@earendil-works/pi-ai@~1.6.0`:
 
 npmyarnpnpmbun
     

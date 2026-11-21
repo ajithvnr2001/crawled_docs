@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/pricing/
 title: Pricing \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:37.337712+00:00
+fetched_at: 2026-11-21T09:24:36.994224+00:00
 ---
 
 # Pricing · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:05:37.337712+00:00
 
 # Pricing
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExamples of Workers Paid pricingPricing FAQ How do I estimate my Browser Run costs? Do failed API calls, such as those that time out, add to billable browser hours? How is the number of concurrent browsers calculated? How is billing time calculated?
 
@@ -26,11 +26,11 @@ Available on Free and Paid plans
 Billing depends on how you use Browser Run:
 
   * [**Quick Actions**](https://developers.cloudflare.com/browser-run/quick-actions/): Charged for browser hours only.
-  * **Browser Sessions** ([Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/), [CDP](https://developers.cloudflare.com/browser-run/cdp/)): Direct browser control, charged for both browser hours and concurrent browsers.
+  * **Browser Sessions** ([Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/), [CDP](https://developers.cloudflare.com/browser-run/cdp/), [Custom scripts](https://developers.cloudflare.com/browser-run/script/)): Direct browser control, charged for both browser hours and concurrent browsers.
 
 
 
-Browser hours are shared across all methods.
+Browser hours are shared across all methods. [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) runs, including `/script?browser=kitesurf`, follow Kitesurf pricing instead.
 
 | Workers Free | Workers Paid  
 ---|---|---  
@@ -109,7 +109,7 @@ You can monitor Browser Run usage in two ways:
   * To monitor your Browser Run usage in the Cloudflare dashboard, go to the **Browser Run** page.
 
 [ Go to **Browser Run** ↗ ](https://dash.cloudflare.com/?to=/:account/workers/browser-run)
-  * The `X-Browser-Ms-Used` header, which is returned in every Quick Actions response, reports browser time used for the request (in milliseconds). You can also access this header using the Typescript SDK with the .asResponse() method:
+  * The `X-Browser-Ms-Used` header is returned in all Quick Actions and [`/script`](https://developers.cloudflare.com/browser-run/script/) responses, and reports browser time in milliseconds. For Quick Actions, it reports the time used by that request. For `/script` requests, it reports the cumulative time since the session began, and the session may stay active after the last script execution, so total billed time may be higher. You can also access this header using the Typescript SDK with the .asResponse() method:
         
         const contentRes = await client.browserRendering.content
         	.create({

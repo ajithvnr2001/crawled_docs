@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/claude-code/
 title: Claude Code \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T09:00:58.668440+00:00
+fetched_at: 2026-11-21T09:24:35.098991+00:00
 ---
 
 # Claude Code · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-11T09:00:58.668440+00:00
 
 # Claude Code
 
-Last updated Nov 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a projectCreate the agentCustomize Claude CodeRun locallySessions and recoverySecurityDeploy
 
@@ -185,7 +185,7 @@ To send model requests through [AI Gateway](https://developers.cloudflare.com/ai
 
 Option | Description  
 ---|---  
-`model` | The model new sessions start with. `session.setModel()` changes it  
+`model` | The model new sessions start with, `claude-sonnet-5-5` by default. `session.setModel()` changes it  
 `appendSystemPrompt` | Passed to `--append-system-prompt`  
 `allowedTools` | Passed to `--allowedTools`  
 `disallowedTools` | Passed to `--disallowedTools`  

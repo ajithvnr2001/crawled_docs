@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/concepts/what-are-durable-objects/
 title: What are Durable Objects? \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:07.666315+00:00
+fetched_at: 2026-11-21T09:24:30.821500+00:00
 ---
 
 # What are Durable Objects? · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:07.666315+00:00
 
 # What are Durable Objects?
 
-Last updated Jul 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/concepts/what-are-durable-objects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDurable Objects highlightsDurable Objects features In-memory state Storage API Alarms API WebSockets RPCActor programming modelDurable Objects in CloudflareGet started
 
@@ -53,6 +53,7 @@ Durable Objects have properties that make them a great fit for distributed state
 
   * Each [Durable Object instance has an identifier](https://developers.cloudflare.com/durable-objects/api/id/), either randomly-generated or user-generated, which allows you to globally address which Durable Object should handle a specific action or request.
   * Durable Objects are single-threaded and cooperatively multi-tasked, just like code running in a web browser. For more details on how safety and correctness are achieved, refer to the blog post ["Durable Objects: Easy, Fast, Correct — Choose three" ↗︎](https://blog.cloudflare.com/durable-objects-easy-fast-correct-choose-three/).
+  * Multiple instances of the same Durable Object class can share an isolate. Only one thread can execute JavaScript in that isolate at a time, so synchronous work in one object can delay others sharing it. Refer to [Shared isolates and event-loop contention](https://developers.cloudflare.com/durable-objects/best-practices/architecture-guidance/#shared-isolates) for workload sizing and testing guidance.
 
 
 
@@ -60,7 +61,7 @@ Durable Objects have properties that make them a great fit for distributed state
 
   * Durable Objects can be spread around the world, and you can [optionally influence where each instance should be located](https://developers.cloudflare.com/durable-objects/reference/data-location/#provide-a-location-hint). Durable Objects are not yet available in every Cloudflare data center; refer to the [where.durableobjects.live ↗︎](https://where.durableobjects.live/) project for live locations.
   * Each Durable Object type (or ["Namespace binding"](https://developers.cloudflare.com/durable-objects/api/namespace/) in Cloudflare terms) corresponds to a JavaScript class implementing the actual logic. There is no hard limit on how many Durable Objects can be created for each namespace.
-  * Durable Objects scale elastically as your application creates millions of objects. There is no need for applications to manage infrastructure or plan ahead for capacity.
+  * Durable Objects scale elastically as your application creates millions of objects. Cloudflare manages the infrastructure, but you still need to [size and load-test your workloads](https://developers.cloudflare.com/durable-objects/best-practices/architecture-guidance/#step-2-size).
 
 
 

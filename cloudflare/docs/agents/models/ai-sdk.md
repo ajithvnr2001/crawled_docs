@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/ai-sdk/
 title: AI SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:13.091606+00:00
+fetched_at: 2026-11-21T09:24:33.264084+00:00
 ---
 
 # AI SDK · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:13.091606+00:00
 
 # AI SDK
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallUse an account id and API tokenCall a Workers AI modelCall an AI Gateway catalog modelCall a dynamic routeCall a vendor's model object Unified billing and BYOKStream, call tools, and return structured outputResume a dropped streamUse it in ThinkCache responsesTag requests for logs and analyticsFall back to another modelSet optionsRead gateway metadataHandle errorsUse other modalitiesUse a provider registryLimitationsRelated resources
 
@@ -403,7 +403,9 @@ Return a model from `getModel()`:
     
     export class Assistant extends Think {
     	getModel() {
-    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.7-code");
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     }
     
@@ -413,7 +415,9 @@ Return a model from `getModel()`:
     
     export class Assistant extends Think<Env> {
     	getModel() {
-    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.7-code");
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     }
 
@@ -620,11 +624,20 @@ Model-specific settings go under `providerOptions.cloudflare`:
 Modality | Call options used | `providerOptions.cloudflare`  
 ---|---|---  
 Image | `prompt`, `n`, `size`, `seed`, `files`, `mask` | `steps`, `guidance`, `negativePrompt`, `strength`  
-Speech | `text`, `voice` (as `speaker`), `outputFormat` (as `encoding`), `language` (MeloTTS only) | None  
+Speech | `text`, `voice` (as `speaker`), `outputFormat` (as `encoding`) | None  
 Transcription | `audio`, `mediaType` | `language`, `task`, `initialPrompt`, `prefix`, `vadFilter`  
 Reranking | `query`, `documents`, `topN` (as `top_k`) | None  
   
-An option a model does not take is listed in the result's `warnings` instead of being sent. For example, `flux-1-schnell` takes only a prompt and `steps`, and `@cf/deepgram/nova-3` takes `language` but not the Whisper-only transcription options. Image generation makes one image per request, so `generateImage` with a larger `n` sends parallel requests.
+An option a model does not take is listed in the result's `warnings` instead of being sent. For example, `flux-1-schnell` takes only a prompt and `steps`, Aura speech models take their language from the model id, such as `@cf/deepgram/aura-2-es`, and `@cf/deepgram/nova-3` takes `language` but not the Whisper-only transcription options. Image generation makes one image per request, so `generateImage` with a larger `n` sends parallel requests.
+
+The FLUX.2 image models, `@cf/black-forest-labs/flux-2-klein-9b`, `flux-2-klein-4b`, and `flux-2-dev`, take multipart form data instead of JSON. The provider sends it straight to Workers AI, so the gateway options do not apply, and a `warnings` entry says so when any are set. These models take `size`, `seed`, and `guidance`, and `steps` on `flux-2-dev` only, because the klein models always run four steps. They also take up to four reference images from the prompt's `images`, which the prompt can refer to as image 0 to image 3:
+    
+    
+    const { image } = await generateImage({
+    	model: ai.image("@cf/black-forest-labs/flux-2-klein-9b"),
+    	prompt: { text: "Put the lizard from image 0 in the snow", images: [lizard] },
+    	size: "1024x768",
+    });
 
 These methods take Workers AI `@cf/` ids only, including in `fallback`. To route a vendor's own embedding, image, speech, or transcription model through AI Gateway, pass it to `ai.routed(model)`. It goes to the provider-native endpoint, like `ai(model)`. `ai.routed()` takes the gateway options, `headers`, `sessionAffinity`, and `vendorKey`.
 

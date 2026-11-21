@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/guardrails/
 title: Guardrails \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:29.545355+00:00
+fetched_at: 2026-11-21T09:24:35.720761+00:00
 ---
 
 # Guardrails · Cloudflare AI Gateway docs
@@ -18,45 +18,43 @@ fetched_at: 2026-10-08T07:04:29.545355+00:00
 
 # Guardrails
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/features/guardrails/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewVideo demoHow Guardrails workRelated resource
+OverviewVideo demoHow Guardrails workRelated resources
 
-Guardrails help you deploy AI applications safely by intercepting and evaluating both user prompts and model responses for harmful content. Acting as a proxy between your application and [model providers](https://developers.cloudflare.com/ai-gateway/usage/providers/) (such as OpenAI, Anthropic, DeepSeek, and others), AI Gateway's Guardrails ensure a consistent and secure experience across your entire AI ecosystem.
+AI Gateway Guardrails checks traffic between your application and your [model providers](https://developers.cloudflare.com/ai-gateway/usage/providers/). Guardrails uses [`@cf/meta/llama-guard-3-8b`](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/) to check for content hazards (`S1` to `S14`). It uses `@cf/meta/prompt-guard-2-86m` to check prompts for [prompt injection ↗︎](https://www.cloudflare.com/learning/ai/prompt-injection/) (`P1`).
 
-Guardrails proactively monitor interactions between users and AI models, giving you:
+Configure one policy per gateway and apply it to supported traffic across providers, including OpenAI, Anthropic, DeepSeek, and Workers AI. Set the action for each supported category to **Flag** , **Block** , or **Ignore**.
 
-  * **Consistent moderation** : Uniform moderation layer that works across models and providers.
-  * **Enhanced safety and user trust** : Proactively protect users from harmful or inappropriate interactions.
-  * **Flexibility and control over allowed content** : Specify which categories to monitor and choose between flagging or outright blocking.
-  * **Auditing and compliance capabilities** : Receive updates on evolving regulatory requirements with logs of user prompts, model responses, and enforced guardrails.
-
-
+Use [AI Gateway Logs](https://developers.cloudflare.com/ai-gateway/observability/logging/) to review evaluations for logged requests. Prompt and response bodies are available only when payloads are stored.
 
 ## Video demo
 
 ## How Guardrails work
 
-AI Gateway inspects all interactions in real time by evaluating content against predefined safety parameters. Guardrails work by:
+Guardrails applies your configured policy in three steps:
 
-  1. Intercepting interactions: AI Gateway proxies requests and responses, sitting between the user and the AI model.
-
-  2. Inspecting content:
-
-     * User prompts: AI Gateway checks prompts against safety parameters (for example, violence, hate, or sexual content). Based on your settings, prompts can be flagged or blocked before reaching the model.
-     * Model responses: Once processed, the AI model response is inspected. If hazardous content is detected, it can be flagged or blocked before being delivered to the user.
-  3. Applying actions: Depending on your configuration, flagged content is logged for review, while blocked content is prevented from proceeding.
+  1. **Intercept traffic** : AI Gateway proxies requests and responses between your application and its model provider.
+  2. **Evaluate prompts and responses** : 
+     * **User prompts** : Guardrails checks prompts for content hazards and prompt injection. If a prompt matches a category set to **Block** , it does not reach the model provider.
+     * **Model responses** : Guardrails checks eligible response text for content hazards. It skips responses from embedding and unknown model types. For streaming requests, the REST API evaluates responses without enforcing the response policy. Gateway endpoints buffer streamed responses for evaluation and return a single non-streamed payload.
+  3. **Apply configured actions** : **Flag** marks a match for review without blocking it. **Ignore** takes no action for that category. A block returns error code `2016` for a prompt or `2017` for a response.
 
 
 
+For setup steps, [hazard categories](https://developers.cloudflare.com/ai-gateway/features/guardrails/usage-considerations/#hazard-categories), [supported model types](https://developers.cloudflare.com/ai-gateway/features/guardrails/supported-model-types/), and [streaming behavior](https://developers.cloudflare.com/ai-gateway/features/guardrails/usage-considerations/#streaming-behavior), refer to [Set up Guardrails](https://developers.cloudflare.com/ai-gateway/features/guardrails/set-up-guardrail/).
 
-## Related resource
+## Related resources
 
-  * [Cloudflare Blog: Keep AI interactions secure and risk-free with Guardrails in AI Gateway ↗︎](https://blog.cloudflare.com/guardrails-in-ai-gateway/)
+  * [Cloudflare Learning Center: How to prevent misuse of AI ↗︎](https://www.cloudflare.com/learning/ai/ai-misuse/)
+  * [Cloudflare Learning Center: How to prevent prompt injection ↗︎](https://www.cloudflare.com/learning/ai/prompt-injection/)
+  * [Cloudflare Learning Center: What is AI security? ↗︎](https://www.cloudflare.com/learning/ai/what-is-ai-security/)
+  * [Cloudflare Learning Center: What are the OWASP Top 10 risks for LLMs? ↗︎](https://www.cloudflare.com/learning/ai/owasp-top-10-risks-for-llms/)
+  * [Cloudflare Blog: Guardrails launch announcement ↗︎](https://blog.cloudflare.com/guardrails-in-ai-gateway/)
 
 
 
-[PreviousAuto Router](https://developers.cloudflare.com/ai-gateway/features/auto-router/)[NextSet up Guardrails](https://developers.cloudflare.com/ai-gateway/features/guardrails/set-up-guardrail/)
+[PreviousSet up Data Loss Prevention (DLP)](https://developers.cloudflare.com/ai-gateway/features/dlp/set-up-dlp/)[NextSet up Guardrails](https://developers.cloudflare.com/ai-gateway/features/guardrails/set-up-guardrail/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/architecture-guidance/
 title: Architecture guidance \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:04.988638+00:00
+fetched_at: 2026-11-21T09:24:31.231904+00:00
 ---
 
 # Architecture guidance · Cloudflare Durable Objects docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-19T10:02:04.988638+00:00
 
 # Architecture guidance
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewRecommended architecture: separate control and data planesStarting considerations Primary recommendations Anti-patterns Terms used on this pageApply the separation pattern Keep routine traffic independent of control-plane writes Recommended service responsibilities Account for propagation consistency Use Durable Objects as coordinatorsStep 1: Choose the atom of coordination Model your Durable Objects around your "atom" of coordination Find the right level of granularity Avoid one object for unrelated application trafficStep 2: Size each atom Limits at a glance Message throughput: measure before sharding Illustrative sizing decisionsStep 3: Name and route Use deterministic IDs for predictable routing Recommended naming pattern: compound names from your atom keyStep 4: Compose parents and children Use parent-child relationships for related entities Keep parents bounded and off the hot pathStep 5: Place near users and spread capacity Consider location hints for latency-sensitive applications Use regional instances for global audiences Spread capacity across regionsStep 6: Select an architecture exampleStep 7: Plan for scalability with a hot Durable Object Broadcast capacity: add a fan-out tree Write capacity: add hash shards Storage limit: add time buckets Mixed load: split by responsibility When not to split furtherDeploy related classes independently Split Workers by class familyDesign checklistRelated resources
+OverviewRecommended architecture: separate control and data planesStarting considerations Primary recommendations Anti-patterns Terms used on this pageApply the separation pattern Keep routine traffic independent of control-plane writes Recommended service responsibilities Account for propagation consistency Use Durable Objects as coordinatorsStep 1: Choose the atom of coordination Model your Durable Objects around your "atom" of coordination Find the right level of granularity Avoid one object for unrelated application trafficStep 2: Size each atom Shared isolates and event-loop contention Limits at a glance Message throughput: measure before sharding Illustrative sizing decisionsStep 3: Name and route Use deterministic IDs for predictable routing Recommended naming pattern: compound names from your atom keyStep 4: Compose parents and children Use parent-child relationships for related entities Keep parents bounded and off the hot pathStep 5: Place near users and spread capacity Consider location hints for latency-sensitive applications Use regional instances for global audiences Spread capacity across regionsStep 6: Select an architecture exampleStep 7: Plan for scalability with a hot Durable Object Broadcast capacity: add a fan-out tree Write capacity: add hash shards Storage limit: add time buckets Mixed load: split by responsibility When not to split furtherDeploy related classes independently Split Workers by class familyDesign checklistRelated resources
 
 Durable Objects provide stateful coordination in both control planes and data planes. Applications scale best by distributing independent work across many objects, rather than requiring every request to pass through one object.
 
@@ -79,7 +79,7 @@ For a worked design that follows the administrative, resource, and analytics flo
 
   1. **Separate control-plane changes from data-plane traffic.** Durable Objects can serve either role. Publish configuration outward so routine application requests do not depend on a control-plane object.
   2. **Choose an atom of coordination.** Use one object for a room, session, document, account, or other unit whose state must change together.
-  3. **Measure each object's capacity.** Load-test the expected workload, allow headroom, and shard when one object cannot meet your targets.
+  3. **Measure each object's capacity.** Load-test the expected workload across many active objects, account for shared isolates, and shard when one object cannot meet your targets.
   4. **Route with deterministic names** built from the resource key, using `getByName()`.
   5. **Use complementary services.** Distribute configuration with KV, store large objects in R2, and send analytical events to [Basin Pipelines](https://developers.cloudflare.com/basin-pipelines/) instead of collecting them in one global object.
   6. **Plan for hot Durable Objects.** Identify the limiting resource, then add shards or layers that preserve the coordination your application needs.
@@ -329,6 +329,20 @@ Diagram as text
            result: rooms run in parallel; failures are isolated
 
 ## Step 2: Size each atom
+
+### Shared isolates and event-loop contention
+
+Cloudflare does not deliberately place your Durable Objects together on the same physical host. For most accounts, a Durable Object is typically the only Durable Object in its isolate. However, multiple instances of the same Durable Object class can share an [isolate](https://developers.cloudflare.com/workers/reference/how-workers-works/#isolates). Different object IDs do not guarantee separate isolates.
+
+Only one thread can execute JavaScript in an isolate at a time. Synchronous work—including expensive SQLite queries or parsing large JSON payloads—can delay other objects sharing that isolate. For example, a query that scans a large table because an appropriate index is missing can cause delays even if the objects never communicate.
+
+Staying within the [per-request CPU limit](https://developers.cloudflare.com/durable-objects/platform/limits/) does not prevent this contention. Design for shared execution as your application grows:
+
+  * **Keep synchronous work short.** Avoid long CPU-bound loops and unbounded payload processing. Declaring a function `async` does not make its synchronous work nonblocking.
+  * **Load-test many active objects together.** Include realistic traffic and bursts, not just requests to one object. Measure tail latency across objects while CPU-heavy operations run.
+  * **Shard for coordination and capacity, not dedicated compute.** Sharding can distribute work, but does not guarantee a separate isolate for each shard. Keep headroom and validate the combined workload after sharding.
+
+
 
 ### Limits at a glance
 
@@ -1095,7 +1109,7 @@ The diagram illustrates immediate updates. The default `deferred` [code update s
       "name": "api",
       "main": "src/index.ts",
       // Set this to today's date
-      "compatibility_date": "2026-11-19",
+      "compatibility_date": "2026-11-21",
       "durable_objects": {
         "bindings": [
           {
@@ -1111,7 +1125,7 @@ The diagram illustrates immediate updates. The default `deferred` [code update s
     name = "api"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-11-19"
+    compatibility_date = "2026-11-21"
     
     [[durable_objects.bindings]]
     name = "ENGINE"
@@ -1123,7 +1137,7 @@ The diagram illustrates immediate updates. The default `deferred` [code update s
   * **Responsibilities:** identify administrative operations, routine resource traffic, and analytics. Workers and Durable Objects can participate in either application plane.
   * **Propagation:** data-plane traffic does not need to write control-plane state. Configuration has a version, a freshness policy, and a recovery path for failed publication.
   * **Coordination:** each object owns a defined unit of state. Cross-object operations account for the absence of a shared transaction.
-  * **Capacity:** objects meet latency and throughput targets under load, with headroom for bursts and growth.
+  * **Capacity:** objects meet latency and throughput targets under concurrent load across many objects, accounting for shared-isolate contention and leaving headroom for bursts and growth.
   * **Routing:** names are deterministic, and layout changes preserve access to existing state and retries.
   * **Composition:** resource requests bypass administrative parents when parent coordination is unnecessary.
   * **Placement:** location hints match the workload and are treated as hints, not placement guarantees.

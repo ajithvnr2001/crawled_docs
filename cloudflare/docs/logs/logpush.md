@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/
 title: Logpush \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:20.672779+00:00
+fetched_at: 2026-11-21T09:24:36.277299+00:00
 ---
 
 # Logpush · Cloudflare Logs docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-31T08:10:20.672779+00:00
 
 # Logpush
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEstimating log volume Quick sizing for HTTP RequestsLimitsAvailability
 
@@ -76,6 +76,8 @@ If you reach a limit, the API returns `creating a new job is not allowed: exceed
 Availability | Yes | Yes | Yes | Yes  
   
 Dataset availability depends on the Cloudflare products on your account. Workers Trace Events Logpush requires the [Workers Paid](https://developers.cloudflare.com/workers/platform/pricing/#workers-trace-events-logpush) plan and retains separate request-based pricing.
+
+Most [Zero Trust datasets](https://developers.cloudflare.com/cloudflare-one/insights/logs/logpush/#zero-trust-datasets) require a paid [Zero Trust plan ↗︎](https://www.cloudflare.com/plans/zero-trust-services/). Dataset availability varies by plan. Zero Trust Pay-as-you-go and Zero Trust Enterprise both include Access Requests and the Gateway datasets. An Enterprise contract for other Cloudflare products does not include them.
 
 For usage rates and included monthly usage, refer to [Pricing](https://developers.cloudflare.com/logs/logpush/pricing/).
 

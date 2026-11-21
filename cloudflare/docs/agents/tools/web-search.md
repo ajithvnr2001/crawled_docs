@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/web-search/
 title: Web search \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:06:38.571610+00:00
+fetched_at: 2026-11-21T09:24:31.453008+00:00
 ---
 
 # Web search · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:06:38.571610+00:00
 
 # Web search
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/web-search/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use itWhy use the toolAdd the tool to your harness Pi Durable AI SDK TanStack AI Other harnessesRead search resultsControl searchesSearch without a modelHandle errorsRelated resources
 
@@ -111,6 +111,13 @@ In your [Pi harness factory](https://developers.cloudflare.com/agents/harnesses/
 Ask your agent a question that needs current information. The model can call `web_search` with a `query` and an optional `limit`.
 
 The Pi tool is marked `replay: "safe"`. If an eviction interrupts a search, Pi reruns only that search when the session recovers, which is a second billed search. Finished calls already have their results in the transcript. The tool does not cache results, so when the model repeats a search, it makes and bills a new one. The tool also honors Pi's abort signal when you cancel a running call.
+
+In [Pi's code mode](https://developers.cloudflare.com/agents/tools/browser/#use-it-in-pis-code-mode), a script calls `tools.web_search({ query, limit })` and gets the results as an object instead of the model's text:
+    
+    
+    { query, items: [{ title, url, description?, lastModifiedDate? }] }
+
+Descriptions are trimmed as they are for the model. A failed search rejects with the model's text. To search, then read the results in the same script, refer to [Web fetch](https://developers.cloudflare.com/agents/tools/web-fetch/#pi-durable).
 
 ### AI SDK
 

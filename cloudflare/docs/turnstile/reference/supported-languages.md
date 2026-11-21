@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/reference/supported-languages/
 title: Supported languages \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:08.240134+00:00
+fetched_at: 2026-11-21T09:24:36.718153+00:00
 ---
 
 # Supported languages · Cloudflare Turnstile docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:08.240134+00:00
 
 # Supported languages
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/reference/supported-languages/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Turnstile supports `auto` (default), which uses the visitor's browser language if it is supported. You can also explicitly set the widget's language using the [client-side configuration attribute](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations) to one listed on the table below:
 
@@ -65,6 +65,7 @@ Serbian (Bosnia and Herzegovina) | `sr-ba` | `sr`
 Slovak (Slovakia) | `sk-sk` | `sk`  
 Slovenian (Slovenia) | `sl-si` | `sl`  
 Spanish (Spain) | `es-es` | `es`  
+Swahili (Kenya) | `sw-ke` | `sw`  
 Swedish (Sweden) | `sv-se` | `sv`  
 Tagalog (Philippines) | `tl-ph` | `tl`  
 Thai (Thailand) | `th-th` | `th`  

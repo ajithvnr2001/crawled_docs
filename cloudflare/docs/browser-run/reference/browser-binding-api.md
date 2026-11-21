@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/reference/browser-binding-api/
 title: Browser binding API \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.273428+00:00
+fetched_at: 2026-11-21T09:24:36.919506+00:00
 ---
 
 # Browser binding API · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.273428+00:00
 
 # Browser binding API
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSession methodsAcquire and connect to a session Session optionsDevTools methodsNext steps
 
@@ -33,7 +33,7 @@ Configure a [browser binding](https://developers.cloudflare.com/browser-run/refe
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-11-21",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -47,7 +47,7 @@ Configure a [browser binding](https://developers.cloudflare.com/browser-run/refe
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-21"
     compatibility_flags = ["nodejs_compat"]
     
     [browser]
@@ -66,6 +66,7 @@ Method | Description
 `limits()` | Returns the current session limits and usage values.  
 `getSession(sessionId)` | Returns session details or `null` when the session does not exist.  
 `closeSession(sessionId)` | Closes a session and returns `closing` or `closed`.  
+`script(code, options?)` | Runs a [custom script](https://developers.cloudflare.com/browser-run/script/#use-the-browser-binding) in a new session, or in an existing one when `options.sessionId` is set.  
 `devtools` | Provides typed methods for the DevTools JSON endpoints.  
   
 ## Acquire and connect to a session

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/debug-d1/
 title: Debug D1 \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:58.651461+00:00
+fetched_at: 2026-11-21T09:24:35.916983+00:00
 ---
 
 # Debug D1 · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-07T08:31:58.651461+00:00
 
 # Debug D1
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewError listAutomatic retriesView logsReport issuesRelated resourcesD1 binding timeout behaviorAPI error codes Error 7429 and analytics Error 10000 and token permissions
 
@@ -169,7 +169,7 @@ Code | Name | Common cause | Recommended action
 7404 | Database not found | The database UUID does not exist in the account, or the binding is misconfigured. | Confirm the `database_id` in your `wrangler.toml` matches the database UUID shown in the Cloudflare dashboard.  
 7406 | Limit exceeded | The account has reached the maximum number of D1 databases allowed on its plan. | Review your [current limits](https://developers.cloudflare.com/d1/platform/limits/). Enterprise accounts with a custom database limit should contact Cloudflare support if the limit is not reflected.  
 7429 | DB overloaded | Too many concurrent requests are queued, or queued requests are taking too long to complete. | Retry with exponential backoff and jitter. If the error recurs while SQL execution time (`queryBatchTimeMs`) is fast and your workload is low, check the [Cloudflare System Status ↗︎](https://www.cloudflarestatus.com/) page.  
-7500 | Internal error | A platform-side storage event made the database temporarily unavailable. | Check the [Cloudflare System Status ↗︎](https://www.cloudflarestatus.com/) page. Retry with exponential backoff. If the database remains unavailable after the incident resolves, [contact Cloudflare support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).  
+7500 | D1 error | Can report a platform failure or a SQLite error, such as `SQLITE_AUTH` for a disallowed `PRAGMA`. | Inspect the full error message. Fix SQL or permission errors before retrying. For a transient platform failure, check [Cloudflare System Status ↗︎](https://www.cloudflarestatus.com/) and retry with exponential backoff. Contact [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/) if the database remains unavailable after the incident is resolved.  
 10000 | Authentication error | The API token does not have the required scope for the endpoint. | Check the required permission for the endpoint in the [API reference](https://developers.cloudflare.com/api/resources/d1/) and create a token with the correct scope. Refer to Error 10000 and token permissions.  
   
 ### Error 7429 and analytics

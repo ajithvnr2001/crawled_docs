@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/sql-api/query-json/
 title: Query JSON \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:39.640233+00:00
+fetched_at: 2026-11-21T09:24:36.197584+00:00
 ---
 
 # Query JSON · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:39.640233+00:00
 
 # Query JSON
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/sql-api/query-json/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTypesSupported functionsError HandlingGenerated columnsExample usage Extract values Get the length of an array Insert a value into an existing object Expand arrays for IN queries
 
@@ -225,15 +225,26 @@ In this example, `SELECT * FROM json_each('[183183, 13913, 94944]')` would retur
     1|13913|integer|2|$[1]|$
     2|94944|integer|3|$[2]|$
 
-You can use `json_each` with [D1 Workers Binding API](https://developers.cloudflare.com/d1/worker-api/) in a Worker by creating a statement and using `JSON.stringify` to pass an array as a [bound parameter](https://developers.cloudflare.com/d1/worker-api/d1-database/#guidance):
+You can use `json_each` with [D1 Workers Binding API](https://developers.cloudflare.com/d1/worker-api/) in a Worker by creating a statement and using `JSON.stringify` to pass an array as a [bound parameter](https://developers.cloudflare.com/d1/worker-api/prepared-statements/#bind):
     
     
-    const stmt = context.env.DB
-        .prepare("UPDATE users SET last_audited = ? WHERE id IN (SELECT value FROM json_each(?1))")
-    const resp = await stmt.bind(
+    const stmt = context.env.DB.prepare(
+    	"UPDATE users SET last_audited = ?1 WHERE id IN (SELECT value FROM json_each(?2))",
+    );
+    const resp = await stmt
+    	.bind("2023-05-16T11:24:08+00:00", JSON.stringify([183183, 13913, 94944]))
+    	.run();
+    
+    
+    const stmt = context.env.DB.prepare(
+        "UPDATE users SET last_audited = ?1 WHERE id IN (SELECT value FROM json_each(?2))",
+    );
+    const resp = await stmt
+      .bind(
         "2023-05-16T11:24:08+00:00",
-        JSON.stringify([183183, 13913, 94944])
-        ).run()
+        JSON.stringify([183183, 13913, 94944]),
+      )
+      .run();
 
 This would only update rows in your `users` table where the `id` matches one of the three provided.
 

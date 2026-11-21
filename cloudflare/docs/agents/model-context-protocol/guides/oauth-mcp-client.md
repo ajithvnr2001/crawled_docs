@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/guides/oauth-mcp-client/
 title: Handle OAuth with MCP servers \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:24.598247+00:00
+fetched_at: 2026-11-21T09:24:34.130742+00:00
 ---
 
 # Handle OAuth with MCP servers · Cloudflare Agents docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-10T14:39:24.598247+00:00
 
 # Handle OAuth with MCP servers
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow it worksInitiate OAuth Alternative approachesConfigure callback behavior Redirect to your application Close popup windowMonitor connection status React applications Other frameworksHandle failuresComplete exampleRelated
+OverviewHow it worksInitiate OAuth Alternative approachesConfigure callback behavior Redirect to your application Close popup windowMonitor connection status React applications Other frameworksHandle failures Authorize again during a sessionComplete exampleRelated
 
 When connecting to OAuth-protected MCP servers (like Slack or Notion), your users need to authenticate before your Agent can access their data. This guide covers implementing OAuth flows for seamless authorization.
 
@@ -336,7 +336,33 @@ Connection states flow: `authenticating` (needs OAuth) → `connecting` (complet
 
 ## Handle failures
 
-When OAuth fails, the connection state becomes `"failed"` and the error message is stored in the `server.error` field. Display this error in your UI and allow users to retry:
+When OAuth fails, the connection state becomes `"failed"` and the error message is stored in the `server.error` field. A failed server stays failed: the agent does not retry it on a timer or when it wakes, so a flow the user turned down does not start again on its own. Display the error in your UI, and let users try again with `reconnectMcpServer(id)`.
+
+Expose `reconnectMcpServer()` to the client with a callable method:
+    
+    
+    import { Agent, callable } from "agents";
+    
+    export class MyAgent extends Agent {
+    	@callable()
+    	async reconnectServer(id) {
+    		return this.reconnectMcpServer(id);
+    	}
+    }
+
+src/index.tsts
+    
+    
+    import { Agent, callable } from "agents";
+    
+    export class MyAgent extends Agent<Env> {
+    	@callable()
+    	async reconnectServer(id: string) {
+    		return this.reconnectMcpServer(id);
+    	}
+    }
+
+Call it from a **Reconnect** button, and open the new authorization link when the server needs one:
     
     
     import { useAgent } from "agents/react";
@@ -356,20 +382,10 @@ When OAuth fails, the connection state becomes `"failed"` and the error message 
     		onMcpUpdate: setMcpState,
     	});
     
-    	const handleRetry = async (serverId, serverUrl, name) => {
-    		// Remove failed connection
-    		await fetch(`/agents/my-agent/session-id/disconnect`, {
-    			method: "POST",
-    			body: JSON.stringify({ serverId }),
-    		});
-    
-    		// Retry connection
-    		const response = await fetch(`/agents/my-agent/session-id/connect`, {
-    			method: "POST",
-    			body: JSON.stringify({ serverUrl, name }),
-    		});
-    		const { authUrl } = await response.json();
-    		if (authUrl) window.open(authUrl, "_blank");
+    	const handleReconnect = async (serverId) => {
+    		const result = await agent.stub.reconnectServer(serverId);
+    		if (result.state === "authenticating")
+    			window.open(result.authUrl, "_blank");
     	};
     
     	return (
@@ -380,10 +396,8 @@ When OAuth fails, the connection state becomes `"failed"` and the error message 
     					{server.state === "failed" && (
     						<div>
     							{server.error && <p className="error">{server.error}</p>}
-    							<button
-    								onClick={() => handleRetry(id, server.server_url, server.name)}
-    							>
-    								Retry Connection
+    							<button onClick={() => void handleReconnect(id)}>
+    								Reconnect
     							</button>
     						</div>
     					)}
@@ -399,6 +413,7 @@ src/App.tsxtsx
     import { useAgent } from "agents/react";
     import { useState } from "react";
     import type { MCPServersState } from "agents";
+    import type { MyAgent } from "./index";
     
     function App() {
     	const [mcpState, setMcpState] = useState<MCPServersState>({
@@ -408,30 +423,16 @@ src/App.tsxtsx
     		tools: [],
     	});
     
-    	const agent = useAgent({
+    	const agent = useAgent<MyAgent>({
     		agent: "my-agent",
     		name: "session-id",
     		onMcpUpdate: setMcpState,
     	});
     
-    	const handleRetry = async (
-    		serverId: string,
-    		serverUrl: string,
-    		name: string,
-    	) => {
-    		// Remove failed connection
-    		await fetch(`/agents/my-agent/session-id/disconnect`, {
-    			method: "POST",
-    			body: JSON.stringify({ serverId }),
-    		});
-    
-    		// Retry connection
-    		const response = await fetch(`/agents/my-agent/session-id/connect`, {
-    			method: "POST",
-    			body: JSON.stringify({ serverUrl, name }),
-    		});
-    		const { authUrl } = await response.json();
-    		if (authUrl) window.open(authUrl, "_blank");
+    	const handleReconnect = async (serverId: string) => {
+    		const result = await agent.stub.reconnectServer(serverId);
+    		if (result.state === "authenticating")
+    			window.open(result.authUrl, "_blank");
     	};
     
     	return (
@@ -442,10 +443,8 @@ src/App.tsxtsx
     					{server.state === "failed" && (
     						<div>
     							{server.error && <p className="error">{server.error}</p>}
-    							<button
-    								onClick={() => handleRetry(id, server.server_url, server.name)}
-    							>
-    								Retry Connection
+    							<button onClick={() => void handleReconnect(id)}>
+    								Reconnect
     							</button>
     						</div>
     					)}
@@ -457,14 +456,18 @@ src/App.tsxtsx
 
 Common failure reasons:
 
-  * **User canceled** : Closed OAuth window before completing authorization
+  * **User canceled** : Denied access, or closed the OAuth window before completing authorization
   * **Invalid credentials** : Provider credentials were incorrect
-  * **Permission denied** : User lacks required permissions
+  * **Permission denied** : User lacks required permissions, or the authorization server refused the requested scopes
   * **Expired session** : OAuth session timed out
 
 
 
-Failed connections remain in state until removed with `removeMcpServer(serverId)`. The error message is automatically escaped to prevent XSS attacks, so it is safe to display directly in your UI.
+Calling `addMcpServer()` again for a failed server throws its recorded error instead of retrying. Failed connections remain in state until you reconnect them with `reconnectMcpServer(serverId)` or remove them with `removeMcpServer(serverId)`. The error message is automatically escaped to prevent XSS attacks, so it is safe to display directly in your UI. For which failures count as refused, refer to [Failures and reconnecting](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#failures-and-reconnecting).
+
+### Authorize again during a session
+
+A server that is `ready` can need authorization again, for example when a tool call needs a scope the grant lacks, or a token refresh fails. The request throws `MCPAuthorizationRequiredError`, the server moves to `authenticating`, and `onMcpUpdate` delivers its new `auth_url`, so the **Authorize** button in Monitor connection status shows again. Refer to [Re-authorization during a session](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#re-authorization-during-a-session).
 
 ## Complete example
 

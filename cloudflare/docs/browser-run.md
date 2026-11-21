@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/
 title: Browser Run \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:35.109066+00:00
+fetched_at: 2026-11-21T09:24:36.840102+00:00
 ---
 
 # Browser Run · Cloudflare Browser Run docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:05:35.109066+00:00
 
 # Browser Run
 
-Last updated Aug 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse casesIntegration methodsKey featuresRelated productsMore resources
 
@@ -34,6 +34,7 @@ Programmatically load and fully render dynamic webpages or raw HTML and capture 
   * [Screenshots](https://developers.cloudflare.com/browser-run/quick-actions/screenshot-endpoint/)
   * [PDFs](https://developers.cloudflare.com/browser-run/quick-actions/pdf-endpoint/)
   * [Snapshots](https://developers.cloudflare.com/browser-run/quick-actions/snapshot/)
+  * [Accessibility trees](https://developers.cloudflare.com/browser-run/quick-actions/accessibility-tree-endpoint/)
   * [Links](https://developers.cloudflare.com/browser-run/quick-actions/links-endpoint/)
   * [HTML elements](https://developers.cloudflare.com/browser-run/quick-actions/scrape-endpoint/)
   * [Structured data](https://developers.cloudflare.com/browser-run/quick-actions/json-endpoint/)
@@ -46,7 +47,7 @@ Programmatically load and fully render dynamic webpages or raw HTML and capture 
 Browser Run offers two categories of integration methods:
 
   * **[Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/)** : Simple, stateless browser tasks like screenshots, PDFs, and scraping. No code deployment needed.
-  * **Browser Sessions** : Direct browser control via [Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/), [CDP](https://developers.cloudflare.com/browser-run/cdp/), or [Stagehand](https://developers.cloudflare.com/browser-run/stagehand/). Deploy within Cloudflare Workers or connect from any environment via CDP.
+  * **Browser Sessions** : Direct browser control via [Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/), [CDP](https://developers.cloudflare.com/browser-run/cdp/), or [Stagehand](https://developers.cloudflare.com/browser-run/stagehand/). Deploy within Cloudflare Workers, connect from any environment via CDP, or submit a script over HTTP with [Custom scripts](https://developers.cloudflare.com/browser-run/script/).
 
 
 
@@ -54,6 +55,7 @@ Use case | Recommended | Why
 ---|---|---  
 Simple screenshot, PDF, or scrape | [Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/) | No code deployment; single HTTP request  
 Browser automation | [Playwright](https://developers.cloudflare.com/browser-run/playwright/), [Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), or [CDP](https://developers.cloudflare.com/browser-run/cdp/) | Full browser control with scripting  
+Multi-step automation | [Custom scripts](https://developers.cloudflare.com/browser-run/script/) | Run Playwright, Puppeteer, or CDP code in one HTTP request  
 Porting existing scripts | [Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/), or [CDP](https://developers.cloudflare.com/browser-run/cdp/) | Minimal code changes from standard libraries  
 AI-powered data extraction | [JSON endpoint](https://developers.cloudflare.com/browser-run/quick-actions/json-endpoint/) | Structured data via natural language prompts  
 Site-wide crawling | [Crawl endpoint](https://developers.cloudflare.com/browser-run/quick-actions/crawl-endpoint/) | Multi-page content extraction with async results  

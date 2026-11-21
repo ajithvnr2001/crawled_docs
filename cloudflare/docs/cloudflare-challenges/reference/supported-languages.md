@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-challenges/reference/supported-languages/
 title: Supported languages \u00b7 Cloudflare challenges docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:07:59.214089+00:00
+fetched_at: 2026-11-21T09:24:36.745176+00:00
 ---
 
 # Supported languages · Cloudflare challenges docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:07:59.214089+00:00
 
 # Supported languages
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-challenges/reference/supported-languages/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMulti-language support Turnstile language support
 
@@ -48,6 +48,7 @@ Polish (Poland) | `pl-pl` | `pl`
 Portuguese (Brazil) | `pt-br` | `pt`  
 Russian (Russia) | `ru-ru` | `ru`  
 Spanish (Spain) | `es-es` | `es`  
+Swahili (Kenya) | `sw-ke` | `sw`  
 Turkish (Turkey) | `tr-tr` | `tr`  
   
 ### Turnstile language support
