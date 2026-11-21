@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/returns-a-node-version-to-be-installed/
 title: Returns a node version to be installed. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:02.654465+00:00
+fetched_at: 2026-11-21T15:11:40.896872+00:00
 ---
 
 # Returns a node version to be installed. - ComfyUI
@@ -353,8 +353,6 @@ cURL
 
 #### Path Parameters
 
-​
-
 nodeId
 
 string
@@ -364,8 +362,6 @@ required
 The unique identifier of the node.
 
 #### Query Parameters
-
-​
 
 version
 
@@ -383,15 +379,11 @@ application/json
 
 Node data returned successfully.
 
-​
-
 changelog
 
 string
 
 Summary of changes made in this version
-
-​
 
 comfy_node_extract_status
 
@@ -399,15 +391,11 @@ string
 
 The status of comfy node extraction process.
 
-​
-
 createdAt
 
 string<date-time>
 
 The date and time the version was created.
-
-​
 
 dependencies
 
@@ -415,15 +403,11 @@ string[]
 
 A list of pip dependencies required by the node.
 
-​
-
 deprecated
 
 boolean
 
 Indicates if this version is deprecated.
-
-​
 
 downloadUrl
 
@@ -431,21 +415,15 @@ string
 
 [Output Only] URL to download this version of the node
 
-​
-
 id
 
 string
-
-​
 
 node_id
 
 string
 
 The unique identifier of the node.
-
-​
 
 status
 
@@ -463,13 +441,9 @@ Available options:
 
 `NodeVersionStatusFlagged`
 
-​
-
 status_reason
 
 string
-
-​
 
 supported_accelerators
 
@@ -477,15 +451,11 @@ string[]
 
 List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports
 
-​
-
 supported_comfyui_frontend_version
 
 string
 
 Supported versions of ComfyUI frontend
-
-​
 
 supported_comfyui_version
 
@@ -493,29 +463,21 @@ string
 
 Supported versions of ComfyUI
 
-​
-
 supported_os
 
 string[]
 
 List of operating systems that this node supports
 
-​
-
 tags
 
 string[]
-
-​
 
 tags_admin
 
 string[]
 
 Admin-only tags for security warnings and admin metadata. Read-only for publishers - omitted from all public responses and ignored if sent on publish; only returned on admin-authenticated responses.
-
-​
 
 version
 

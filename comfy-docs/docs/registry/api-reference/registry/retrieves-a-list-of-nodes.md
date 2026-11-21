@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/retrieves-a-list-of-nodes/
 title: Retrieves a list of nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:29:02.776101+00:00
+fetched_at: 2026-11-21T15:11:41.894470+00:00
 ---
 
 # Retrieves a list of nodes - ComfyUI
@@ -433,8 +433,6 @@ cURL
 
 #### Query Parameters
 
-​
-
 page
 
 integer
@@ -442,8 +440,6 @@ integer
 default:1
 
 Page number of the nodes list
-
-​
 
 limit
 
@@ -455,15 +451,11 @@ Number of nodes to return per page. Values above the declared maximum are outsid
 
 Required range: `x <= 100`
 
-​
-
 search
 
 string
 
 Keyword to search the nodes
-
-​
 
 repository_url_search
 
@@ -471,15 +463,11 @@ string
 
 Keyword to search the nodes by repository URL
 
-​
-
 comfy_node_search
 
 string
 
 Keyword to search the nodes by comfy node name
-
-​
 
 supported_os
 
@@ -487,15 +475,11 @@ string
 
 Filter nodes by supported operating systems
 
-​
-
 supported_accelerator
 
 string
 
 Filter nodes by supported accelerator
-
-​
 
 include_banned
 
@@ -511,15 +495,11 @@ application/json
 
 A paginated list of nodes
 
-​
-
 limit
 
 integer
 
 Maximum number of nodes per page
-
-​
 
 nodes
 
@@ -527,23 +507,17 @@ object[]
 
 Show child attributes
 
-​
-
 page
 
 integer
 
 Current page number
 
-​
-
 total
 
 integer
 
 Total number of nodes available
-
-​
 
 totalPages
 

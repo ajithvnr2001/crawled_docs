@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code/
 title: Use Dreamina Seedance 2.5 260628 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:22.409731+00:00
+fetched_at: 2026-11-21T15:11:29.201449+00:00
 ---
 
 # Use Dreamina Seedance 2.5 260628 with Comfy Router - ComfyUI
@@ -205,7 +205,6 @@ This model is served by Comfy Router directly unless the request names another p
   * **Comfy** (default): `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628`
   * **fal** , as `fal/fal-seedance-2.5`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628?model_provider=fal`
   * **Higgsfield** , as `higgsfield/higgsfield-seedance-2.5`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628?model_provider=higgsfield`
-  * **Kelly** , as `kelly/kelly-seedance-2.5`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628?model_provider=kelly`
   * **Runware** , as `runware/runware-seedance-2.5`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628?model_provider=runware`
   * **WaveSpeed** , as `wavespeed/wavespeed-seedance-2.5`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628?model_provider=wavespeed`
 

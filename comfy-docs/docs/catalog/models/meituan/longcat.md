@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/catalog/models/meituan/longcat/
+title: LongCat image generation model (meituan/longcat): where to run it - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-21T15:11:17.335357+00:00
+---
+
+# LongCat image generation model (meituan/longcat): where to run it - ComfyUI
+
+> Source: https://docs.comfy.org/catalog/models/meituan/longcat/
+
+## On this page
+
+Back to top
+
+  * Where you can run it
+  * Model files for running it locally
+  * Workflow templates
+
+
+
+Catalog
+
+# LongCat image generation model (meituan/longcat): where to run it
+
+Copy pageCopy page
+
+LongCat is a image generation model from Meituan (LongCat). Run it with ComfyUI locally and Comfy Cloud; templates, files, nodes, and pricing.
+
+Copy pageCopy page
+
+Model ID: meituan/longcat Provider: meituan Product: local, cloud, workflows Input: image, text Output: image License: open-weights LongCat is a image generation model from Meituan (LongCat). It takes image and text as input and produces image. It has open weights, so you can download the files and run it locally in ComfyUI.
+
+## Where you can run it
+
+Where| Page| Use it when  
+---|---|---  
+Comfy Cloud| [Open `image_longcat_image_edit` on Comfy Cloud](https://cloud.comfy.org/?template=image_longcat_image_edit)| You want to run a ready-made workflow without installing anything  
+  
+## Model files for running it locally
+
+Put each file in the matching folder under `ComfyUI/models/`. These come from the workflow templates below (workflow_templates at `3c2199b9`).
+
+File| Folder| Download  
+---|---|---  
+`longcat_image_edit_bf16.safetensors`| `models/diffusion_models/`| [Download](https://huggingface.co/TalmajM/LongCat-Image-Edit_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/longcat_image_edit_bf16.safetensors)  
+`longcat_image_bf16.safetensors`| `models/diffusion_models/`| [Download](https://huggingface.co/Comfy-Org/LongCat-Image/resolve/main/split_files/diffusion_models/longcat_image_bf16.safetensors)  
+`qwen_2.5_vl_7b_fp8_scaled.safetensors`| `models/text_encoders/`| [Download](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors)  
+`ae.safetensors`| `models/vae/`| [Download](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors)  
+  
+## Workflow templates
+
+Template| Title| Added  
+---|---|---  
+`image_longcat_image_edit`| LongCat Image Edit| 2026-03-23  
+`image_longcat_text_to_image`| LongCat Image: Text to Image| 2026-03-02  
+  
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/catalog/models/meituan/longcat.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/catalog/models/meituan/longcat)

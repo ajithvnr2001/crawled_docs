@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/relight-an-image/
 title: Relight an image - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:57.629034+00:00
+fetched_at: 2026-11-21T15:11:36.412649+00:00
 ---
 
 # Relight an image - ComfyUI
@@ -20,27 +20,8 @@ cURL
       --header 'Content-Type: application/json' \
       --data '
     {
-      "image": "<string>",
-      "advanced_settings": {
-        "blacks": 50,
-        "brightness": 50,
-        "contrast": 50,
-        "engine": "automatic",
-        "fixed_generation": false,
-        "saturation": 50,
-        "transfer_light_a": "automatic",
-        "transfer_light_b": "automatic",
-        "whites": 50
-      },
-      "change_background": true,
-      "interpolate_from_original": false,
-      "light_transfer_strength": 100,
-      "preserve_details": true,
-      "prompt": "<string>",
-      "style": "standard",
-      "transfer_light_from_lightmap": "<string>",
-      "transfer_light_from_reference_image": "<string>",
-      "webhook_url": "https://www.example.com/webhook"
+      "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+      "prompt": "warm golden-hour sunlight from the left"
     }
     '
     
@@ -50,27 +31,8 @@ cURL
     url = "https://api.comfy.org/proxy/freepik/v1/ai/image-relight"
     
     payload = {
-        "image": "<string>",
-        "advanced_settings": {
-            "blacks": 50,
-            "brightness": 50,
-            "contrast": 50,
-            "engine": "automatic",
-            "fixed_generation": False,
-            "saturation": 50,
-            "transfer_light_a": "automatic",
-            "transfer_light_b": "automatic",
-            "whites": 50
-        },
-        "change_background": True,
-        "interpolate_from_original": False,
-        "light_transfer_strength": 100,
-        "preserve_details": True,
-        "prompt": "<string>",
-        "style": "standard",
-        "transfer_light_from_lightmap": "<string>",
-        "transfer_light_from_reference_image": "<string>",
-        "webhook_url": "https://www.example.com/webhook"
+        "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+        "prompt": "warm golden-hour sunlight from the left"
     }
     headers = {
         "Authorization": "Bearer <token>",
@@ -86,27 +48,8 @@ cURL
       method: 'POST',
       headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
       body: JSON.stringify({
-        image: '<string>',
-        advanced_settings: {
-          blacks: 50,
-          brightness: 50,
-          contrast: 50,
-          engine: 'automatic',
-          fixed_generation: false,
-          saturation: 50,
-          transfer_light_a: 'automatic',
-          transfer_light_b: 'automatic',
-          whites: 50
-        },
-        change_background: true,
-        interpolate_from_original: false,
-        light_transfer_strength: 100,
-        preserve_details: true,
-        prompt: '<string>',
-        style: 'standard',
-        transfer_light_from_lightmap: '<string>',
-        transfer_light_from_reference_image: '<string>',
-        webhook_url: 'https://www.example.com/webhook'
+        image: 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        prompt: 'warm golden-hour sunlight from the left'
       })
     };
     
@@ -129,27 +72,8 @@ cURL
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => json_encode([
-        'image' => '<string>',
-        'advanced_settings' => [
-            'blacks' => 50,
-            'brightness' => 50,
-            'contrast' => 50,
-            'engine' => 'automatic',
-            'fixed_generation' => false,
-            'saturation' => 50,
-            'transfer_light_a' => 'automatic',
-            'transfer_light_b' => 'automatic',
-            'whites' => 50
-        ],
-        'change_background' => true,
-        'interpolate_from_original' => false,
-        'light_transfer_strength' => 100,
-        'preserve_details' => true,
-        'prompt' => '<string>',
-        'style' => 'standard',
-        'transfer_light_from_lightmap' => '<string>',
-        'transfer_light_from_reference_image' => '<string>',
-        'webhook_url' => 'https://www.example.com/webhook'
+        'image' => 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        'prompt' => 'warm golden-hour sunlight from the left'
       ]),
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
@@ -182,7 +106,7 @@ cURL
     
     	url := "https://api.comfy.org/proxy/freepik/v1/ai/image-relight"
     
-    	payload := strings.NewReader("{\n  \"image\": \"<string>\",\n  \"advanced_settings\": {\n    \"blacks\": 50,\n    \"brightness\": 50,\n    \"contrast\": 50,\n    \"engine\": \"automatic\",\n    \"fixed_generation\": false,\n    \"saturation\": 50,\n    \"transfer_light_a\": \"automatic\",\n    \"transfer_light_b\": \"automatic\",\n    \"whites\": 50\n  },\n  \"change_background\": true,\n  \"interpolate_from_original\": false,\n  \"light_transfer_strength\": 100,\n  \"preserve_details\": true,\n  \"prompt\": \"<string>\",\n  \"style\": \"standard\",\n  \"transfer_light_from_lightmap\": \"<string>\",\n  \"transfer_light_from_reference_image\": \"<string>\",\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+    	payload := strings.NewReader("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"prompt\": \"warm golden-hour sunlight from the left\"\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -202,7 +126,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.comfy.org/proxy/freepik/v1/ai/image-relight")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"image\": \"<string>\",\n  \"advanced_settings\": {\n    \"blacks\": 50,\n    \"brightness\": 50,\n    \"contrast\": 50,\n    \"engine\": \"automatic\",\n    \"fixed_generation\": false,\n    \"saturation\": 50,\n    \"transfer_light_a\": \"automatic\",\n    \"transfer_light_b\": \"automatic\",\n    \"whites\": 50\n  },\n  \"change_background\": true,\n  \"interpolate_from_original\": false,\n  \"light_transfer_strength\": 100,\n  \"preserve_details\": true,\n  \"prompt\": \"<string>\",\n  \"style\": \"standard\",\n  \"transfer_light_from_lightmap\": \"<string>\",\n  \"transfer_light_from_reference_image\": \"<string>\",\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+      .body("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"prompt\": \"warm golden-hour sunlight from the left\"\n}")
       .asString();
     
     
@@ -217,7 +141,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"image\": \"<string>\",\n  \"advanced_settings\": {\n    \"blacks\": 50,\n    \"brightness\": 50,\n    \"contrast\": 50,\n    \"engine\": \"automatic\",\n    \"fixed_generation\": false,\n    \"saturation\": 50,\n    \"transfer_light_a\": \"automatic\",\n    \"transfer_light_b\": \"automatic\",\n    \"whites\": 50\n  },\n  \"change_background\": true,\n  \"interpolate_from_original\": false,\n  \"light_transfer_strength\": 100,\n  \"preserve_details\": true,\n  \"prompt\": \"<string>\",\n  \"style\": \"standard\",\n  \"transfer_light_from_lightmap\": \"<string>\",\n  \"transfer_light_from_reference_image\": \"<string>\",\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}"
+    request.body = "{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"prompt\": \"warm golden-hour sunlight from the left\"\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -296,27 +220,8 @@ cURL
       --header 'Content-Type: application/json' \
       --data '
     {
-      "image": "<string>",
-      "advanced_settings": {
-        "blacks": 50,
-        "brightness": 50,
-        "contrast": 50,
-        "engine": "automatic",
-        "fixed_generation": false,
-        "saturation": 50,
-        "transfer_light_a": "automatic",
-        "transfer_light_b": "automatic",
-        "whites": 50
-      },
-      "change_background": true,
-      "interpolate_from_original": false,
-      "light_transfer_strength": 100,
-      "preserve_details": true,
-      "prompt": "<string>",
-      "style": "standard",
-      "transfer_light_from_lightmap": "<string>",
-      "transfer_light_from_reference_image": "<string>",
-      "webhook_url": "https://www.example.com/webhook"
+      "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+      "prompt": "warm golden-hour sunlight from the left"
     }
     '
     
@@ -326,27 +231,8 @@ cURL
     url = "https://api.comfy.org/proxy/freepik/v1/ai/image-relight"
     
     payload = {
-        "image": "<string>",
-        "advanced_settings": {
-            "blacks": 50,
-            "brightness": 50,
-            "contrast": 50,
-            "engine": "automatic",
-            "fixed_generation": False,
-            "saturation": 50,
-            "transfer_light_a": "automatic",
-            "transfer_light_b": "automatic",
-            "whites": 50
-        },
-        "change_background": True,
-        "interpolate_from_original": False,
-        "light_transfer_strength": 100,
-        "preserve_details": True,
-        "prompt": "<string>",
-        "style": "standard",
-        "transfer_light_from_lightmap": "<string>",
-        "transfer_light_from_reference_image": "<string>",
-        "webhook_url": "https://www.example.com/webhook"
+        "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+        "prompt": "warm golden-hour sunlight from the left"
     }
     headers = {
         "Authorization": "Bearer <token>",
@@ -362,27 +248,8 @@ cURL
       method: 'POST',
       headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
       body: JSON.stringify({
-        image: '<string>',
-        advanced_settings: {
-          blacks: 50,
-          brightness: 50,
-          contrast: 50,
-          engine: 'automatic',
-          fixed_generation: false,
-          saturation: 50,
-          transfer_light_a: 'automatic',
-          transfer_light_b: 'automatic',
-          whites: 50
-        },
-        change_background: true,
-        interpolate_from_original: false,
-        light_transfer_strength: 100,
-        preserve_details: true,
-        prompt: '<string>',
-        style: 'standard',
-        transfer_light_from_lightmap: '<string>',
-        transfer_light_from_reference_image: '<string>',
-        webhook_url: 'https://www.example.com/webhook'
+        image: 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        prompt: 'warm golden-hour sunlight from the left'
       })
     };
     
@@ -405,27 +272,8 @@ cURL
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => json_encode([
-        'image' => '<string>',
-        'advanced_settings' => [
-            'blacks' => 50,
-            'brightness' => 50,
-            'contrast' => 50,
-            'engine' => 'automatic',
-            'fixed_generation' => false,
-            'saturation' => 50,
-            'transfer_light_a' => 'automatic',
-            'transfer_light_b' => 'automatic',
-            'whites' => 50
-        ],
-        'change_background' => true,
-        'interpolate_from_original' => false,
-        'light_transfer_strength' => 100,
-        'preserve_details' => true,
-        'prompt' => '<string>',
-        'style' => 'standard',
-        'transfer_light_from_lightmap' => '<string>',
-        'transfer_light_from_reference_image' => '<string>',
-        'webhook_url' => 'https://www.example.com/webhook'
+        'image' => 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        'prompt' => 'warm golden-hour sunlight from the left'
       ]),
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
@@ -458,7 +306,7 @@ cURL
     
     	url := "https://api.comfy.org/proxy/freepik/v1/ai/image-relight"
     
-    	payload := strings.NewReader("{\n  \"image\": \"<string>\",\n  \"advanced_settings\": {\n    \"blacks\": 50,\n    \"brightness\": 50,\n    \"contrast\": 50,\n    \"engine\": \"automatic\",\n    \"fixed_generation\": false,\n    \"saturation\": 50,\n    \"transfer_light_a\": \"automatic\",\n    \"transfer_light_b\": \"automatic\",\n    \"whites\": 50\n  },\n  \"change_background\": true,\n  \"interpolate_from_original\": false,\n  \"light_transfer_strength\": 100,\n  \"preserve_details\": true,\n  \"prompt\": \"<string>\",\n  \"style\": \"standard\",\n  \"transfer_light_from_lightmap\": \"<string>\",\n  \"transfer_light_from_reference_image\": \"<string>\",\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+    	payload := strings.NewReader("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"prompt\": \"warm golden-hour sunlight from the left\"\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -478,7 +326,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.comfy.org/proxy/freepik/v1/ai/image-relight")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"image\": \"<string>\",\n  \"advanced_settings\": {\n    \"blacks\": 50,\n    \"brightness\": 50,\n    \"contrast\": 50,\n    \"engine\": \"automatic\",\n    \"fixed_generation\": false,\n    \"saturation\": 50,\n    \"transfer_light_a\": \"automatic\",\n    \"transfer_light_b\": \"automatic\",\n    \"whites\": 50\n  },\n  \"change_background\": true,\n  \"interpolate_from_original\": false,\n  \"light_transfer_strength\": 100,\n  \"preserve_details\": true,\n  \"prompt\": \"<string>\",\n  \"style\": \"standard\",\n  \"transfer_light_from_lightmap\": \"<string>\",\n  \"transfer_light_from_reference_image\": \"<string>\",\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+      .body("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"prompt\": \"warm golden-hour sunlight from the left\"\n}")
       .asString();
     
     
@@ -493,7 +341,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"image\": \"<string>\",\n  \"advanced_settings\": {\n    \"blacks\": 50,\n    \"brightness\": 50,\n    \"contrast\": 50,\n    \"engine\": \"automatic\",\n    \"fixed_generation\": false,\n    \"saturation\": 50,\n    \"transfer_light_a\": \"automatic\",\n    \"transfer_light_b\": \"automatic\",\n    \"whites\": 50\n  },\n  \"change_background\": true,\n  \"interpolate_from_original\": false,\n  \"light_transfer_strength\": 100,\n  \"preserve_details\": true,\n  \"prompt\": \"<string>\",\n  \"style\": \"standard\",\n  \"transfer_light_from_lightmap\": \"<string>\",\n  \"transfer_light_from_reference_image\": \"<string>\",\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}"
+    request.body = "{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"prompt\": \"warm golden-hour sunlight from the left\"\n}"
     
     response = http.request(request)
     puts response.read_body

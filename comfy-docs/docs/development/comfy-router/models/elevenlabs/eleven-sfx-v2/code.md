@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v2/code/
 title: Use Eleven Sfx V2 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:20.412902+00:00
+fetched_at: 2026-11-21T15:11:28.977203+00:00
 ---
 
 # Use Eleven Sfx V2 with Comfy Router - ComfyUI
@@ -187,13 +187,13 @@ boolean
 
 default:"false"
 
-Whether to create a sound effect that loops smoothly. ElevenLabs documents this as available only for the ‘eleven_text_to_sound_v2’ model, which is the model this route forwards ‘eleven_sfx_v2’ as (see model_id), so it applies here.
+Whether to create a sound effect that loops smoothly.
 
 model_id
 
 string
 
-The model ID to use for the sound generation. This route admits ‘eleven_sfx_v2’ and nothing else; any other value is rejected with 400 before the request reaches ElevenLabs. ‘eleven_sfx_v2’ is Comfy’s id for the model ElevenLabs calls ‘eleven_text_to_sound_v2’; the proxy rewrites the forwarded body to that vendor spelling, which ElevenLabs’ own enum requires (it refuses ‘eleven_sfx_v2’ with 422), so a caller never sends the vendor id. It is NOT in this schema’s `required` list because Comfy Router fills it from the `{model}` path segment of /v2/models/elevenlabs/{model}, so a Router caller omits it.
+The model ID to use for the sound generation. This route admits only the Comfy ids in the v1 request’s enum; any other value is rejected with 400 before the request reaches ElevenLabs. Each is Comfy’s id for an ElevenLabs model (‘eleven_sfx_v2’ is the model ElevenLabs calls ‘eleven_text_to_sound_v2’). The proxy rewrites the forwarded body to the vendor spelling, which ElevenLabs’ own enum requires (it refuses ‘eleven_sfx_v2’ with 422), so a caller never sends the vendor id. It is NOT in this schema’s `required` list because Comfy Router fills it from the `{model}` path segment of /v2/models/elevenlabs/{model}, so a Router caller omits it.
 
 prompt_influence
 
@@ -256,4 +256,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/elevenlabs/eleven-sfx-v2/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/elevenlabs/eleven-sfx-v2/code)
 
-[Eleven Multilingual V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-multilingual-v2/code)[Eleven V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v3/code)
+[Eleven Multilingual V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-multilingual-v2/code)[Eleven Sfx V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v3/code)

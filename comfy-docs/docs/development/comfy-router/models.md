@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:18.336068+00:00
+fetched_at: 2026-11-21T15:11:29.481899+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -27,6 +27,7 @@ Back to top
   * HeyGen
   * Higgsfield
   * Ideogram
+  * Kelly
   * Kling
   * Krea
   * LTX
@@ -67,7 +68,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 ## Find by output
 
-Video (84)
+Video (88)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -91,6 +92,10 @@ Video (84)
   * [Higgsfield Genjutsu Motion Transfer V1.0](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-genjutsu-motion-transfer-v1-0/code): `higgsfield/higgsfield-genjutsu-motion-transfer-v1.0`
   * [Higgsfield Kling 3.4k](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-4k/code): `higgsfield/higgsfield-kling-3-4k`
   * [Higgsfield Kling 3 Pro](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-pro/code): `higgsfield/higgsfield-kling-3-pro`
+  * [Kelly Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-kling-4-0/code): `kelly/kelly-kling-4.0`
+  * [Kelly Seedance 2.0 Fast](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0-fast/code): `kelly/kelly-seedance-2.0-fast`
+  * [Kelly Seedance 2.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0/code): `kelly/kelly-seedance-2.0`
+  * [Kelly Seedance 2.5](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-5/code): `kelly/kelly-seedance-2.5`
   * [Kling 3.0 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code): `kling/kling-3.0-turbo`
   * [Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code): `kling/kling-4.0`
   * [Kling V2.5 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code): `kling/kling-v2-5-turbo`
@@ -156,7 +161,7 @@ Video (84)
 
 
 
-Image (121)
+Image (124)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [Erase V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code): `bfl/erase-v1`
@@ -194,6 +199,8 @@ Image (121)
   * [Seedream 5.5 261028](https://docs.comfy.org/development/comfy-router/models/byteplus/seedream-5-5-261028/code): `byteplus/seedream-5-5-261028`
   * [Crystal Upscaler](https://docs.comfy.org/development/comfy-router/models/fal/crystal-upscaler/code): `fal/crystal-upscaler`
   * [Patina](https://docs.comfy.org/development/comfy-router/models/fal/patina/code): `fal/patina`
+  * [AI Image Relight](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-relight/code): `freepik/ai-image-relight`
+  * [AI Image Style Transfer](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-style-transfer/code): `freepik/ai-image-style-transfer`
   * [AI Image Upscaler Precision V2](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-upscaler-precision-v2/code): `freepik/ai-image-upscaler-precision-v2`
   * [AI Skin Enhancer Creative](https://docs.comfy.org/development/comfy-router/models/freepik/ai-skin-enhancer-creative/code): `freepik/ai-skin-enhancer-creative`
   * [AI Skin Enhancer Faithful](https://docs.comfy.org/development/comfy-router/models/freepik/ai-skin-enhancer-faithful/code): `freepik/ai-skin-enhancer-faithful`
@@ -206,6 +213,7 @@ Image (121)
   * [Nano Banana 2](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2/code): `vertexai/gemini-3.1-flash-image`
   * [Nano Banana Pro](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-pro/code): `vertexai/gemini-3-pro-image`
   * [Ideogram 4.5](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-4-5/code): `ideogram/ideogram-4-5`
+  * [Ideogram 4.6](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-4-6/code): `ideogram/ideogram-4-6`
   * [Ideogram V3](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-v3/code): `ideogram/ideogram-v3`
   * [Ideogram 4.0](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-v4/code): `ideogram/ideogram-v4`
   * [P Image Ideogram](https://docs.comfy.org/development/comfy-router/models/ideogram/p-image-ideogram/code): `ideogram/p-image-ideogram`
@@ -282,7 +290,7 @@ Image (121)
 
 
 
-Audio (47)
+Audio (51)
 
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
   * [Dreamina Seedance 2.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code): `byteplus/dreamina-seedance-2-0-260128`
@@ -293,6 +301,7 @@ Audio (47)
   * [Seed Audio 1.0](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-audio-1-0/code): `byteplus/seed-audio-1.0`
   * [Eleven Multilingual V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-multilingual-v2/code): `elevenlabs/eleven_multilingual_v2`
   * [Eleven Sfx V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v2/code): `elevenlabs/eleven_sfx_v2`
+  * [Eleven Sfx V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v3/code): `elevenlabs/eleven_sfx_v3`
   * [Eleven V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v3/code): `elevenlabs/eleven_v3`
   * [Eleven V4 Turbo](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v4-turbo/code): `elevenlabs/eleven_v4_turbo`
   * [Eleven V4](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v4/code): `elevenlabs/eleven_v4`
@@ -304,6 +313,9 @@ Audio (47)
   * [Starfish](https://docs.comfy.org/development/comfy-router/models/heygen/starfish/code): `heygen/starfish`
   * [Higgsfield Kling 3.4k](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-4k/code): `higgsfield/higgsfield-kling-3-4k`
   * [Higgsfield Kling 3 Pro](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-pro/code): `higgsfield/higgsfield-kling-3-pro`
+  * [Kelly Seedance 2.0 Fast](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0-fast/code): `kelly/kelly-seedance-2.0-fast`
+  * [Kelly Seedance 2.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0/code): `kelly/kelly-seedance-2.0`
+  * [Kelly Seedance 2.5](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-5/code): `kelly/kelly-seedance-2.5`
   * [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
   * [LTX Video Upscale](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-video-upscale/code): `ltx/ltx-video-upscale`
@@ -351,7 +363,7 @@ Audio (47)
 
 
 
-Text (49)
+Text (50)
 
   * [Claude Fable 5.1](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5.2](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-2/code): `anthropic/claude-fable-5-2`
@@ -379,6 +391,7 @@ Text (49)
   * [Gemini 4 Argon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-argon/code): `vertexai/gemini-4-argon`
   * [Gemini 4 Carbon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-carbon/code): `vertexai/gemini-4-carbon`
   * [Gemini 4 Hydrogen](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-hydrogen/code): `vertexai/gemini-4-hydrogen`
+  * [Gemini 4 Neon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-neon/code): `vertexai/gemini-4-neon`
   * [Gemini Nano Banana 2.1](https://docs.comfy.org/development/comfy-router/models/google/gemini-nano-banana-2-1/code): `vertexai/gemini-nano-banana-2.1`
   * [Google Gemini](https://docs.comfy.org/development/comfy-router/models/google/gemini/code): `vertexai/gemini-3.1-pro-preview`
   * [Nano Banana 2 Lite](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2-lite/code): `vertexai/gemini-3.1-flash-lite-image`
@@ -501,6 +514,7 @@ Model| ID| Input| Output
 ---|---|---|---  
 [Eleven Multilingual V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-multilingual-v2/code)| `elevenlabs/eleven_multilingual_v2`| Text| Audio  
 [Eleven Sfx V2](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v2/code)| `elevenlabs/eleven_sfx_v2`| Text| Audio  
+[Eleven Sfx V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-sfx-v3/code)| `elevenlabs/eleven_sfx_v3`| Text| Audio  
 [Eleven V3](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v3/code)| `elevenlabs/eleven_v3`| Text| Audio  
 [Eleven V4 Turbo](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v4-turbo/code)| `elevenlabs/eleven_v4_turbo`| Text| Audio  
 [Eleven V4](https://docs.comfy.org/development/comfy-router/models/elevenlabs/eleven-v4/code)| `elevenlabs/eleven_v4`| Text| Audio  
@@ -520,6 +534,8 @@ Model| ID| Input| Output
 
 Model| ID| Input| Output  
 ---|---|---|---  
+[AI Image Relight](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-relight/code)| `freepik/ai-image-relight`| Text, Image| Image  
+[AI Image Style Transfer](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-style-transfer/code)| `freepik/ai-image-style-transfer`| Text, Image| Image  
 [AI Image Upscaler Precision V2](https://docs.comfy.org/development/comfy-router/models/freepik/ai-image-upscaler-precision-v2/code)| `freepik/ai-image-upscaler-precision-v2`| Image| Image  
 [AI Skin Enhancer Creative](https://docs.comfy.org/development/comfy-router/models/freepik/ai-skin-enhancer-creative/code)| `freepik/ai-skin-enhancer-creative`| Image| Image  
 [AI Skin Enhancer Faithful](https://docs.comfy.org/development/comfy-router/models/freepik/ai-skin-enhancer-faithful/code)| `freepik/ai-skin-enhancer-faithful`| Image| Image  
@@ -544,6 +560,7 @@ Model| ID| Input| Output
 [Gemini 4 Argon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-argon/code)| `vertexai/gemini-4-argon`| Text, Image, Audio, Video| Text  
 [Gemini 4 Carbon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-carbon/code)| `vertexai/gemini-4-carbon`| Text, Image, Audio, Video| Text  
 [Gemini 4 Hydrogen](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-hydrogen/code)| `vertexai/gemini-4-hydrogen`| Text, Image, Audio, Video| Text  
+[Gemini 4 Neon](https://docs.comfy.org/development/comfy-router/models/google/gemini-4-neon/code)| `vertexai/gemini-4-neon`| Text, Image, Audio, Video| Text  
 [Gemini Nano Banana 2.1](https://docs.comfy.org/development/comfy-router/models/google/gemini-nano-banana-2-1/code)| `vertexai/gemini-nano-banana-2.1`| Text, Image, Video| Image + Text  
 [Google Gemini](https://docs.comfy.org/development/comfy-router/models/google/gemini/code)| `vertexai/gemini-3.1-pro-preview`| Text, Image, Audio, Video| Text  
 [Nano Banana 2 Lite](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2-lite/code)| `vertexai/gemini-3.1-flash-lite-image`| Text, Image, Video| Image + Text  
@@ -569,9 +586,19 @@ Model| ID| Input| Output
 Model| ID| Input| Output  
 ---|---|---|---  
 [Ideogram 4.5](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-4-5/code)| `ideogram/ideogram-4-5`| Text, Image| Image  
+[Ideogram 4.6](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-4-6/code)| `ideogram/ideogram-4-6`| Text, Image| Image  
 [Ideogram V3](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-v3/code)| `ideogram/ideogram-v3`| Text| Image  
 [Ideogram 4.0](https://docs.comfy.org/development/comfy-router/models/ideogram/ideogram-v4/code)| `ideogram/ideogram-v4`| Text| Image  
 [P Image Ideogram](https://docs.comfy.org/development/comfy-router/models/ideogram/p-image-ideogram/code)| `ideogram/p-image-ideogram`| Text| Image  
+  
+## Kelly
+
+Model| ID| Input| Output  
+---|---|---|---  
+[Kelly Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-kling-4-0/code)| `kelly/kelly-kling-4.0`| Text| Video  
+[Kelly Seedance 2.0 Fast](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0-fast/code)| `kelly/kelly-seedance-2.0-fast`| Text, Image, Video, Audio| Video + Audio  
+[Kelly Seedance 2.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0/code)| `kelly/kelly-seedance-2.0`| Text, Image, Video, Audio| Video + Audio  
+[Kelly Seedance 2.5](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-5/code)| `kelly/kelly-seedance-2.5`| Text, Image, Video, Audio| Video + Audio  
   
 ## Kling
 

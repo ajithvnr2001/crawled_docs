@@ -1,0 +1,7 @@
+{
+  "url": "https://docs.comfy.org/catalog/models/openrouter/chat-completions/",
+  "file": "catalog/models/openrouter/chat-completions.md",
+  "title": "Chat Completions text generation model (openrouter/chat-completions): where to run it and pricing - ComfyUI",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-11-21T15:11:19.756179+00:00"
+}

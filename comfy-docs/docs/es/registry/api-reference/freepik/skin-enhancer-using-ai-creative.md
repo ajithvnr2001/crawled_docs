@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/skin-enhancer-using-ai-creative/
 title: Skin enhancer using AI (Creative) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:56.908025+00:00
+fetched_at: 2026-11-21T15:11:35.396360+00:00
 ---
 
 # Skin enhancer using AI (Creative) - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/list-the-models-comfy-router-can-run/
 title: List the models Comfy Router can run. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:53.419518+00:00
+fetched_at: 2026-11-21T15:11:31.672466+00:00
 ---
 
 # List the models Comfy Router can run. - ComfyUI
@@ -134,6 +134,19 @@ cURL
           "id": "bfl/flux-2-pro",
           "model": "flux-2-pro",
           "provider": "bfl",
+          "realtime": {
+            "auth": [
+              "x-api-key",
+              "comfy-realtime.v1",
+              "comfy-bearer"
+            ],
+            "billing_unit": "per_second",
+            "connect_url": "/v2/realtime/google/google/genie-4",
+            "max_session_seconds": 120,
+            "method": "GET",
+            "transport": "websocket",
+            "wire_format": "json"
+          },
           "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""
         }
       ],
@@ -223,7 +236,7 @@ Comfy Router
 
 Copiar páginaCopiar página
 
-Comfy Router’s model catalog - one page of the canonical model IDs that `POST /v2/models/{provider}/{model}` accepts. An SDK calls this on cold start to discover what is runnable, and the `model_not_found` suggestions come from the same catalog, so an ID listed here that then 404s on invocation would be worse than either failure alone. That agreement is structural rather than a promise: an entry’s `provider` and `model` are the two path segments of the invocation route and reference the same schema components that route’s path parameters do, and `id` is those two segments joined by `/`. Pagination is CURSOR-based, deliberately not offset-based. The catalog is a moving list - models are added, and embargoed, between calls - and an offset walk silently skips or repeats entries when the list changes underneath it. Pass a page’s `next_cursor` back as `cursor` to fetch the next page, and stop when `has_more` is false rather than when a page comes back short. A cursor is opaque: it is not an offset, not a model ID, and not stable across catalog rebuilds, so a cursor that is malformed or no longer valid is answered with a `400` from the Router error contract (`error_type: invalid_input`), never a `500`. A model that is deployed but NOT yet released is EXCLUDED from every page. This is a requirement of this route specifically, not something it inherits: `PartnerModelEmbargoMiddleware` gates `/proxy/*` only, and only methods that can carry a body, so a bodyless `GET` outside `/proxy/` is outside the embargo gate on both axes. Confirming that a specific unreleased model exists is precisely the disclosure `modelembargo` was built to prevent, and a catalog is the most direct way to make that confirmation - so the handler must filter the embargo set out of the page itself. An excluded model is simply absent: the catalog does not mark it, does not reserve a slot for it, and `has_more`/`limit` describe the page AFTER exclusion, so the omission is not inferable from a short page either. Per-model detail and the per-model input/output schemas are separate routes; this one carries only the identity of each model. A page is cacheable by the caller. It carries a strong `ETag` over the page bytes and honours `If-None-Match` with a `304`, so a client that re-reads the catalog pays for a page only when it changed.
+Comfy Router’s model catalog - one page of the canonical model IDs Comfy Router serves. An entry without a `realtime` block is a model that `POST /v2/models/{provider}/{model}` runs. An SDK calls this on cold start to discover what is runnable, and the `model_not_found` suggestions come from the same catalog, so an ID listed here that then 404s on invocation would be worse than either failure alone. That agreement is structural rather than a promise: an entry’s `provider` and `model` are the two path segments of the invocation route and reference the same schema components that route’s path parameters do, and `id` is those two segments joined by `/`. An entry WITH a `realtime` block is a realtime model: it is not run through `POST /v2/models/{provider}/{model}`, which refuses its id with `model_not_found`. Open a session at the block’s `connect_url` instead. A realtime model is listed only while its session route is serving it in this environment. Pagination is CURSOR-based, deliberately not offset-based. The catalog is a moving list - models are added, and embargoed, between calls - and an offset walk silently skips or repeats entries when the list changes underneath it. Pass a page’s `next_cursor` back as `cursor` to fetch the next page, and stop when `has_more` is false rather than when a page comes back short. A cursor is opaque: it is not an offset, not a model ID, and not stable across catalog rebuilds, so a cursor that is malformed or no longer valid is answered with a `400` from the Router error contract (`error_type: invalid_input`), never a `500`. A model that is deployed but NOT yet released is EXCLUDED from every page. This is a requirement of this route specifically, not something it inherits: `PartnerModelEmbargoMiddleware` gates `/proxy/*` only, and only methods that can carry a body, so a bodyless `GET` outside `/proxy/` is outside the embargo gate on both axes. Confirming that a specific unreleased model exists is precisely the disclosure `modelembargo` was built to prevent, and a catalog is the most direct way to make that confirmation - so the handler must filter the embargo set out of the page itself. An excluded model is simply absent: the catalog does not mark it, does not reserve a slot for it, and `has_more`/`limit` describe the page AFTER exclusion, so the omission is not inferable from a short page either. Per-model detail and the per-model input/output schemas are separate routes; this one carries only the identity of each model. A page is cacheable by the caller. It carries a strong `ETag` over the page bytes and honours `If-None-Match` with a `304`, so a client that re-reads the catalog pays for a page only when it changed.
 
 Copiar páginaCopiar página
 
@@ -364,6 +377,19 @@ cURL
           "id": "bfl/flux-2-pro",
           "model": "flux-2-pro",
           "provider": "bfl",
+          "realtime": {
+            "auth": [
+              "x-api-key",
+              "comfy-realtime.v1",
+              "comfy-bearer"
+            ],
+            "billing_unit": "per_second",
+            "connect_url": "/v2/realtime/google/google/genie-4",
+            "max_session_seconds": 120,
+            "method": "GET",
+            "transport": "websocket",
+            "wire_format": "json"
+          },
           "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""
         }
       ],

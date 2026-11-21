@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-fast-260128/code/
 title: Use Dreamina Seedance 2.0 Fast 260128 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:12:22.016132+00:00
+fetched_at: 2026-11-21T15:11:29.932559+00:00
 ---
 
 # Use Dreamina Seedance 2.0 Fast 260128 with Comfy Router - ComfyUI
@@ -14,7 +14,6 @@ fetched_at: 2026-11-13T15:12:22.016132+00:00
 Back to top
 
   * Quick start
-  * Serving providers
   * Schema
     * Input
     * Output
@@ -197,15 +196,6 @@ cURL
     curl https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-fast-260128/requests/$REQUEST_ID \
       -H "X-API-Key: $COMFY_API_KEY"
     
-
-## Serving providers
-
-This model is served by Comfy Router directly unless the request names another provider. The providers below serve it too, on the same endpoint and with the same model ID, selected with the `model_provider` query parameter.
-
-  * **Comfy** (default): `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-fast-260128`
-  * **Kelly** , as `kelly/kelly-seedance-2.0-fast`: `POST https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-0-fast-260128?model_provider=kelly`
-
-`strict_mode` defaults to false, so Router translates the native request body documented on this page into the provider’s own schema and translates the response back. See [`model_provider`, `strict_mode` and `fallback_provider`](https://docs.comfy.org/development/comfy-router/reference#post-v2modelsprovidermodel) in the API reference, and [Serving providers](https://docs.comfy.org/development/comfy-router/providers) for every model routed this way.
 
 ## Schema
 

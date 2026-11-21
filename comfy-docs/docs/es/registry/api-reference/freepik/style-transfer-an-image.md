@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/style-transfer-an-image/
 title: Style transfer an image - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:57.545096+00:00
+fetched_at: 2026-11-21T15:11:36.031679+00:00
 ---
 
 # Style transfer an image - ComfyUI
@@ -20,17 +20,9 @@ cURL
       --header 'Content-Type: application/json' \
       --data '
     {
-      "image": "<string>",
-      "reference_image": "<string>",
-      "engine": "balanced",
-      "fixed_generation": false,
-      "flavor": "faithful",
-      "is_portrait": false,
-      "portrait_style": "standard",
-      "prompt": "<string>",
-      "structure_strength": 50,
-      "style_strength": 100,
-      "webhook_url": "https://www.example.com/webhook"
+      "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+      "reference_image": "https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80",
+      "style_strength": 80
     }
     '
     
@@ -40,17 +32,9 @@ cURL
     url = "https://api.comfy.org/proxy/freepik/v1/ai/image-style-transfer"
     
     payload = {
-        "image": "<string>",
-        "reference_image": "<string>",
-        "engine": "balanced",
-        "fixed_generation": False,
-        "flavor": "faithful",
-        "is_portrait": False,
-        "portrait_style": "standard",
-        "prompt": "<string>",
-        "structure_strength": 50,
-        "style_strength": 100,
-        "webhook_url": "https://www.example.com/webhook"
+        "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+        "reference_image": "https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80",
+        "style_strength": 80
     }
     headers = {
         "Authorization": "Bearer <token>",
@@ -66,17 +50,9 @@ cURL
       method: 'POST',
       headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
       body: JSON.stringify({
-        image: '<string>',
-        reference_image: '<string>',
-        engine: 'balanced',
-        fixed_generation: false,
-        flavor: 'faithful',
-        is_portrait: false,
-        portrait_style: 'standard',
-        prompt: '<string>',
-        structure_strength: 50,
-        style_strength: 100,
-        webhook_url: 'https://www.example.com/webhook'
+        image: 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        reference_image: 'https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80',
+        style_strength: 80
       })
     };
     
@@ -99,17 +75,9 @@ cURL
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => json_encode([
-        'image' => '<string>',
-        'reference_image' => '<string>',
-        'engine' => 'balanced',
-        'fixed_generation' => false,
-        'flavor' => 'faithful',
-        'is_portrait' => false,
-        'portrait_style' => 'standard',
-        'prompt' => '<string>',
-        'structure_strength' => 50,
-        'style_strength' => 100,
-        'webhook_url' => 'https://www.example.com/webhook'
+        'image' => 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        'reference_image' => 'https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80',
+        'style_strength' => 80
       ]),
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
@@ -142,7 +110,7 @@ cURL
     
     	url := "https://api.comfy.org/proxy/freepik/v1/ai/image-style-transfer"
     
-    	payload := strings.NewReader("{\n  \"image\": \"<string>\",\n  \"reference_image\": \"<string>\",\n  \"engine\": \"balanced\",\n  \"fixed_generation\": false,\n  \"flavor\": \"faithful\",\n  \"is_portrait\": false,\n  \"portrait_style\": \"standard\",\n  \"prompt\": \"<string>\",\n  \"structure_strength\": 50,\n  \"style_strength\": 100,\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+    	payload := strings.NewReader("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"reference_image\": \"https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80\",\n  \"style_strength\": 80\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -162,7 +130,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.comfy.org/proxy/freepik/v1/ai/image-style-transfer")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"image\": \"<string>\",\n  \"reference_image\": \"<string>\",\n  \"engine\": \"balanced\",\n  \"fixed_generation\": false,\n  \"flavor\": \"faithful\",\n  \"is_portrait\": false,\n  \"portrait_style\": \"standard\",\n  \"prompt\": \"<string>\",\n  \"structure_strength\": 50,\n  \"style_strength\": 100,\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+      .body("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"reference_image\": \"https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80\",\n  \"style_strength\": 80\n}")
       .asString();
     
     
@@ -177,7 +145,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"image\": \"<string>\",\n  \"reference_image\": \"<string>\",\n  \"engine\": \"balanced\",\n  \"fixed_generation\": false,\n  \"flavor\": \"faithful\",\n  \"is_portrait\": false,\n  \"portrait_style\": \"standard\",\n  \"prompt\": \"<string>\",\n  \"structure_strength\": 50,\n  \"style_strength\": 100,\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}"
+    request.body = "{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"reference_image\": \"https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80\",\n  \"style_strength\": 80\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -254,17 +222,9 @@ cURL
       --header 'Content-Type: application/json' \
       --data '
     {
-      "image": "<string>",
-      "reference_image": "<string>",
-      "engine": "balanced",
-      "fixed_generation": false,
-      "flavor": "faithful",
-      "is_portrait": false,
-      "portrait_style": "standard",
-      "prompt": "<string>",
-      "structure_strength": 50,
-      "style_strength": 100,
-      "webhook_url": "https://www.example.com/webhook"
+      "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+      "reference_image": "https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80",
+      "style_strength": 80
     }
     '
     
@@ -274,17 +234,9 @@ cURL
     url = "https://api.comfy.org/proxy/freepik/v1/ai/image-style-transfer"
     
     payload = {
-        "image": "<string>",
-        "reference_image": "<string>",
-        "engine": "balanced",
-        "fixed_generation": False,
-        "flavor": "faithful",
-        "is_portrait": False,
-        "portrait_style": "standard",
-        "prompt": "<string>",
-        "structure_strength": 50,
-        "style_strength": 100,
-        "webhook_url": "https://www.example.com/webhook"
+        "image": "https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80",
+        "reference_image": "https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80",
+        "style_strength": 80
     }
     headers = {
         "Authorization": "Bearer <token>",
@@ -300,17 +252,9 @@ cURL
       method: 'POST',
       headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
       body: JSON.stringify({
-        image: '<string>',
-        reference_image: '<string>',
-        engine: 'balanced',
-        fixed_generation: false,
-        flavor: 'faithful',
-        is_portrait: false,
-        portrait_style: 'standard',
-        prompt: '<string>',
-        structure_strength: 50,
-        style_strength: 100,
-        webhook_url: 'https://www.example.com/webhook'
+        image: 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        reference_image: 'https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80',
+        style_strength: 80
       })
     };
     
@@ -333,17 +277,9 @@ cURL
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
       CURLOPT_POSTFIELDS => json_encode([
-        'image' => '<string>',
-        'reference_image' => '<string>',
-        'engine' => 'balanced',
-        'fixed_generation' => false,
-        'flavor' => 'faithful',
-        'is_portrait' => false,
-        'portrait_style' => 'standard',
-        'prompt' => '<string>',
-        'structure_strength' => 50,
-        'style_strength' => 100,
-        'webhook_url' => 'https://www.example.com/webhook'
+        'image' => 'https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80',
+        'reference_image' => 'https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80',
+        'style_strength' => 80
       ]),
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
@@ -376,7 +312,7 @@ cURL
     
     	url := "https://api.comfy.org/proxy/freepik/v1/ai/image-style-transfer"
     
-    	payload := strings.NewReader("{\n  \"image\": \"<string>\",\n  \"reference_image\": \"<string>\",\n  \"engine\": \"balanced\",\n  \"fixed_generation\": false,\n  \"flavor\": \"faithful\",\n  \"is_portrait\": false,\n  \"portrait_style\": \"standard\",\n  \"prompt\": \"<string>\",\n  \"structure_strength\": 50,\n  \"style_strength\": 100,\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+    	payload := strings.NewReader("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"reference_image\": \"https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80\",\n  \"style_strength\": 80\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -396,7 +332,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.comfy.org/proxy/freepik/v1/ai/image-style-transfer")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"image\": \"<string>\",\n  \"reference_image\": \"<string>\",\n  \"engine\": \"balanced\",\n  \"fixed_generation\": false,\n  \"flavor\": \"faithful\",\n  \"is_portrait\": false,\n  \"portrait_style\": \"standard\",\n  \"prompt\": \"<string>\",\n  \"structure_strength\": 50,\n  \"style_strength\": 100,\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}")
+      .body("{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"reference_image\": \"https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80\",\n  \"style_strength\": 80\n}")
       .asString();
     
     
@@ -411,7 +347,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"image\": \"<string>\",\n  \"reference_image\": \"<string>\",\n  \"engine\": \"balanced\",\n  \"fixed_generation\": false,\n  \"flavor\": \"faithful\",\n  \"is_portrait\": false,\n  \"portrait_style\": \"standard\",\n  \"prompt\": \"<string>\",\n  \"structure_strength\": 50,\n  \"style_strength\": 100,\n  \"webhook_url\": \"https://www.example.com/webhook\"\n}"
+    request.body = "{\n  \"image\": \"https://img.magnific.com/free-photo/light-through-mountains_395237-33.jpg?semt=ais_hybrid&w=740&q=80\",\n  \"reference_image\": \"https://img.magnific.com/free-photo/beautiful-sunset_395237-33.jpg?w=740&q=80\",\n  \"style_strength\": 80\n}"
     
     response = http.request(request)
     puts response.read_body

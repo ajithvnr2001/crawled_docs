@@ -1,0 +1,59 @@
+---
+url: https://docs.comfy.org/catalog/models/bfl/flux-3-image/
+title: FLUX 3 Image image generation model (bfl/flux-3-image): where to run it and pricing - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-21T15:11:09.336842+00:00
+---
+
+# FLUX 3 Image image generation model (bfl/flux-3-image): where to run it and pricing - ComfyUI
+
+> Source: https://docs.comfy.org/catalog/models/bfl/flux-3-image/
+
+## On this page
+
+Back to top
+
+  * Where you can run it
+  * Call it with Comfy Router
+  * Pricing
+
+
+
+Catalog
+
+# FLUX 3 Image image generation model (bfl/flux-3-image): where to run it and pricing
+
+Copy pageCopy page
+
+FLUX 3 Image is a image generation model from Black Forest Labs. Run it with Comfy Router; templates, files, nodes, and pricing.
+
+Copy pageCopy page
+
+Model ID: bfl/flux-3-image Provider: bfl Product: router Input: text, image Output: image License: closed FLUX 3 Image is a image generation model from Black Forest Labs. It takes text and image as input and produces image. It has no open weights. It runs on Black Forest Labs’s servers, so you use it through Comfy Router.
+
+## Where you can run it
+
+Where| Page| Use it when  
+---|---|---  
+Comfy Router (API)| [FLUX 3 Image with Comfy Router](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-image/code)| You call `bfl/flux-3-image` from your own code with `COMFY_API_KEY`  
+  
+## Call it with Comfy Router
+
+  * `POST https://api.comfy.org/v2/models/bfl/flux-3-image`. Live request schema: `GET /v2/models/bfl/flux-3-image/openapi.json`.
+
+
+
+## Pricing
+
+Comfy Router charges the model maker’s list price, billed from your workspace credits (211 credits = $1 USD). Current per-model prices are on [router.comfy.org](https://router.comfy.org).
+
+  * Price a call before you run it: `POST https://api.comfy.org/v2/models/bfl/flux-3-image/estimate`.
+  * Billing facts, such as whether a refused request is charged: the `billing` field from `GET https://api.comfy.org/v2/models/bfl/flux-3-image`.
+
+See [Comfy Router pricing](https://docs.comfy.org/development/comfy-router/pricing) and [Billing](https://docs.comfy.org/development/comfy-router/billing#model-billing-facts).
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/catalog/models/bfl/flux-3-image.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/catalog/models/bfl/flux-3-image)

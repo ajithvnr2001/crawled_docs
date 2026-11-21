@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id/
 title: Read one partner model's catalog entry by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:53.323640+00:00
+fetched_at: 2026-11-21T15:11:33.339825+00:00
 ---
 
 # Read one partner model's catalog entry by canonical model ID. - ComfyUI
@@ -132,6 +132,19 @@ cURL
       "id": "bfl/flux-2-pro",
       "model": "flux-2-pro",
       "provider": "bfl",
+      "realtime": {
+        "auth": [
+          "x-api-key",
+          "comfy-realtime.v1",
+          "comfy-bearer"
+        ],
+        "billing_unit": "per_second",
+        "connect_url": "/v2/realtime/google/google/genie-4",
+        "max_session_seconds": 120,
+        "method": "GET",
+        "transport": "websocket",
+        "wire_format": "json"
+      },
       "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
       "input_schema_url": "<string>"
     }
@@ -364,6 +377,19 @@ cURL
       "id": "bfl/flux-2-pro",
       "model": "flux-2-pro",
       "provider": "bfl",
+      "realtime": {
+        "auth": [
+          "x-api-key",
+          "comfy-realtime.v1",
+          "comfy-bearer"
+        ],
+        "billing_unit": "per_second",
+        "connect_url": "/v2/realtime/google/google/genie-4",
+        "max_session_seconds": 120,
+        "method": "GET",
+        "transport": "websocket",
+        "wire_format": "json"
+      },
       "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
       "input_schema_url": "<string>"
     }
@@ -566,6 +592,14 @@ Pattern: `^[a-z0-9]+([._-][a-z0-9]+)*$`
 Ejemplo:
 
 `"bfl"`
+
+realtime
+
+object
+
+How to open a session with a realtime model. Present only on realtime models, and absent on every model that runs through `POST /v2/models/{provider}/{model}`: a realtime model is not run through that route, which refuses its id with `model_not_found`. Read the connection details from here rather than building them from a table of serving providers or wire formats in the client. Every value is a plain string rather than an `enum`, like every other extensible Router vocabulary, so treat an unrecognized value as a mode the client does not support and skip the model.
+
+Show child attributes
 
 schema_etag
 
