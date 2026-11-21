@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-20",
-  "at": "2026-11-20T16:17:51.243794+00:00",
+  "date": "2026-11-21",
+  "at": "2026-11-21T15:30:11.882837+00:00",
   "new": {
-    "docs": 4
+    "docs": 2
   },
-  "refreshed": 12,
-  "stale_total": 12,
-  "total_index": 225
+  "refreshed": 4,
+  "stale_total": 4,
+  "total_index": 229
 }

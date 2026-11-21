@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/widget/
 title: Widget - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:57.290318+00:00
+fetched_at: 2026-11-21T15:30:12.678140+00:00
 ---
 
 # Widget - Fish Audio
@@ -36,7 +36,7 @@ Embed a complete voice and chat UI on any website with two lines of HTML, no bui
 
 Copy pageCopy page
 
-The widget is the zero-code way to put your agent on a website. A `<fish-agent>` custom element renders the complete experience (a floating launcher that expands into a voice-first chat card with live transcript, typing during the call, and inline tool activity), and a single script tag registers it. Under the hood it runs the same sessions as the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk), so everything downstream (history, analysis, webhooks) works unchanged.
+The widget is the zero-code way to put your agent on a website. A `<fish-agent>` custom element renders the complete experience (a floating launcher that expands into a voice-first chat card with live transcript, typing during the call, and inline tool activity), and a single script tag registers it. Under the hood it runs the same sessions as the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk), so everything downstream (history, analysis, webhooks) works unchanged. For iOS and Android apps, use the [React Native widget](https://docs.fish.audio/agents/deploy/react-native-widget).
 
 ## Prerequisites
 

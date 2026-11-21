@@ -227,3 +227,5 @@
 {"url": "https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-folders/", "file": "api-reference/endpoint/agent/list-knowledge-folders.md", "title": "List Knowledge Folders - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-folder/", "file": "api-reference/endpoint/agent/delete-knowledge-folder.md", "title": "Delete Knowledge Folder - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-folder/", "file": "api-reference/endpoint/agent/update-knowledge-folder.md", "title": "Rename Knowledge Folder - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/agents/deploy/react-native-widget/", "file": "agents/deploy/react-native-widget.md", "title": "React Native Widget - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models/", "file": "api-reference/endpoint/agent/list-llm-models.md", "title": "List LLM Models - Fish Audio", "method": "scrapling+scrapegraph"}

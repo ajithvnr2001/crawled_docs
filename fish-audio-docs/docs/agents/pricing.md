@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/pricing/
 title: Pricing & Limits - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.043279+00:00
+fetched_at: 2026-11-21T15:30:12.316534+00:00
 ---
 
 # Pricing & Limits - Fish Audio
@@ -101,7 +101,7 @@ The LLM your agent runs is chosen in the Builder.
 
   * **Basic models** are Gemini 3.5 Flash Lite, GPT-6 Luna, GPT-5.6 Luna, and Gemma 4 26B. Every model has a per-token cost. For now the conversation rate covers it for the basic models as a promotional offer, so they carry no separate charge.
   * **Fast mode and Priority** run a model on its provider’s faster tier, which is billed on token usage, on a basic model too.
-  * **Every other model** is billed on token usage, in USD per 1 million tokens, with separate rates for input tokens, cached input, and output tokens. These rates are set by the LLM providers and may change. Refer to the provider’s documentation for current pricing.
+  * **Every other model** is billed on token usage, in USD per 1 million tokens, with separate rates for input tokens, cached input, and output tokens. These rates are set by the LLM providers and change when a provider changes its pricing. [`GET /v1/agent/llm-models`](https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models) returns the current rates of every model.
   * **A[custom LLM](https://docs.fish.audio/agents/build/custom-llm) endpoint** carries no LLM charge.
 
 What a minute costs on a token-billed model depends on your agent.

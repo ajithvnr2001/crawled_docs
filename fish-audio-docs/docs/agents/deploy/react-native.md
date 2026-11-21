@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/react-native/
 title: React Native SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:59:55.332468+00:00
+fetched_at: 2026-11-21T15:30:12.229904+00:00
 ---
 
 # React Native SDK - Fish Audio
@@ -45,7 +45,7 @@ Copy pageCopy page
   * Background calls: an Android foreground service and iOS background audio
   * An Expo config plugin for the native settings
 
-It works in Expo apps and in bare React Native apps. Expo is not required.
+It works in Expo apps and in bare React Native apps. Expo is not required. For a ready-made call UI on top of it, see the [React Native widget](https://docs.fish.audio/agents/deploy/react-native-widget).
 
 ## React SDK
 
@@ -64,7 +64,7 @@ Events, client tools, and error codes.
   * **A native build.** WebRTC is a native module. In Expo, build with `npx expo run:ios` / `run:android` or EAS Build. Expo Go cannot run it (`expo-dev-client` is optional). Bare React Native apps build as usual; see Bare React Native.
   * **A physical device** for anything involving the microphone.
   * **Your own backend** to create session tokens, or a public agent. Never ship an API key inside an app.
-  * **Tested with** Expo SDK 58 and bare React Native 0.88, `@livekit/react-native` 3.1, `@livekit/react-native-webrtc` 150.1, and `livekit-client` 2.20 to 2.23, on iOS 26 and Android 17. Other versions may work but are untested.
+  * **Tested with** Expo SDK 58 and bare React Native 0.88, `@livekit/react-native` 3.2, `@livekit/react-native-webrtc` 150.2, `@livekit/react-native-expo-plugin` 1.2, and `livekit-client` 2.20 to 2.23, on iOS 26 to 27 and Android 17, in debug and release builds. Other versions may work but are untested.
 
 
 
@@ -357,9 +357,15 @@ Android: the agent stops hearing the user while the app is in the background| `c
 A prompt about local networks or nearby devices at first launch| Debug builds look for the development server on the local network. It does not come from the call  
 On iPhones sold in mainland China, an “Allow to use wireless data” prompt at first network use| The system asks this for every new app. Choose WLAN & Cellular  
 `ping timeout triggered` or `not found in senderGetStats()` warnings after hanging up| Harmless messages from LiveKit’s teardown. To quiet them: `import { setLogLevel } from "livekit-client"; setLogLevel("warn");`  
-Odd failures after installing in a monorepo| Make sure only one copy of `@livekit/react-native` and `livekit-client` is installed (`npm ls @livekit/react-native livekit-client`)  
+Android release build fails in `minifyReleaseWithR8` with `Missing class livekit.org.jni_zero.JniZeroJni`| `@livekit/react-native-webrtc` before 150.2 lacks a keep rule, and Expo SDK 58 turns R8 on for release builds. Upgrade together to `@livekit/react-native` 3.2, `@livekit/react-native-webrtc` 150.2, and (Expo) `@livekit/react-native-expo-plugin` 1.2; the 3.1 and 150.2 lines do not compile together  
+A release build crashes at launch with `WebRTC native module not found`| Two versions of `@livekit/react-native-webrtc` are installed, often in a monorepo. Keep one (`npm ls @livekit/react-native-webrtc`), then rebuild without caches  
+Odd failures after installing in a monorepo| Make sure only one copy of `@livekit/react-native`, `@livekit/react-native-webrtc`, and `livekit-client` is installed (`npm ls @livekit/react-native @livekit/react-native-webrtc livekit-client`)  
   
 ## Going further
+
+## React Native widget
+
+A ready-made floating button and call panel.
 
 ## Client tools
 
@@ -383,4 +389,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/deploy/react-native.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/deploy/react-native)
 
-[React SDK](https://docs.fish.audio/agents/deploy/react-sdk)[Wire Protocol](https://docs.fish.audio/agents/deploy/protocol)
+[React SDK](https://docs.fish.audio/agents/deploy/react-sdk)[React Native Widget](https://docs.fish.audio/agents/deploy/react-native-widget)
