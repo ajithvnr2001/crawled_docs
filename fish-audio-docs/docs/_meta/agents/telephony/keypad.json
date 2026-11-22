@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/agents/telephony/keypad/",
   "file": "agents/telephony/keypad.md",
-  "title": "Keypad Menu and Input - Fish Audio",
+  "title": "Keypad Menu and Input for Voice Agents - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-18T16:38:21.202677+00:00"
+  "fetched_at": "2026-11-22T15:30:40.398538+00:00"
 }

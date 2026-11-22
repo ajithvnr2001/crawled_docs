@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/update-agent/
-title: Update Agent - Fish Audio
+title: Update Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:16.097073+00:00
+fetched_at: 2026-11-22T15:30:33.916889+00:00
 ---
 
-# Update Agent - Fish Audio
+# Update Voice Agent - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/update-agent/
 
@@ -26,6 +26,7 @@ cURL
       "allowed_origins": [
         "<string>"
       ],
+      "restrict_origins": true,
       "overrides_allowed": []
     }
     '
@@ -40,6 +41,7 @@ cURL
         "description": "<string>",
         "public_enabled": True,
         "allowed_origins": ["<string>"],
+        "restrict_origins": True,
         "overrides_allowed": []
     }
     headers = {
@@ -60,6 +62,7 @@ cURL
         description: '<string>',
         public_enabled: true,
         allowed_origins: ['<string>'],
+        restrict_origins: true,
         overrides_allowed: []
       })
     };
@@ -89,6 +92,7 @@ cURL
         'allowed_origins' => [
             '<string>'
         ],
+        'restrict_origins' => true,
         'overrides_allowed' => [
             
         ]
@@ -124,7 +128,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/agents/{agent_id}"
     
-    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"overrides_allowed\": []\n}")
+    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"restrict_origins\": true,\n  \"overrides_allowed\": []\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -144,7 +148,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/agents/{agent_id}")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"overrides_allowed\": []\n}")
+      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"restrict_origins\": true,\n  \"overrides_allowed\": []\n}")
       .asString();
     
     
@@ -159,7 +163,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"overrides_allowed\": []\n}"
+    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"restrict_origins\": true,\n  \"overrides_allowed\": []\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -188,6 +192,7 @@ cURL
       "allowed_origins": [
         "<string>"
       ],
+      "restrict_origins": false,
       "overrides_allowed": [
         "first_message"
       ]
@@ -223,7 +228,7 @@ cURL
 
 Agents
 
-# Update Agent
+# Update Voice Agent
 
 Copy pageCopy page
 
@@ -268,6 +273,7 @@ cURL
       "allowed_origins": [
         "<string>"
       ],
+      "restrict_origins": true,
       "overrides_allowed": []
     }
     '
@@ -282,6 +288,7 @@ cURL
         "description": "<string>",
         "public_enabled": True,
         "allowed_origins": ["<string>"],
+        "restrict_origins": True,
         "overrides_allowed": []
     }
     headers = {
@@ -302,6 +309,7 @@ cURL
         description: '<string>',
         public_enabled: true,
         allowed_origins: ['<string>'],
+        restrict_origins: true,
         overrides_allowed: []
       })
     };
@@ -331,6 +339,7 @@ cURL
         'allowed_origins' => [
             '<string>'
         ],
+        'restrict_origins' => true,
         'overrides_allowed' => [
             
         ]
@@ -366,7 +375,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/agents/{agent_id}"
     
-    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"overrides_allowed\": []\n}")
+    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"restrict_origins\": true,\n  \"overrides_allowed\": []\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -386,7 +395,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/agents/{agent_id}")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"overrides_allowed\": []\n}")
+      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"restrict_origins\": true,\n  \"overrides_allowed\": []\n}")
       .asString();
     
     
@@ -401,7 +410,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"overrides_allowed\": []\n}"
+    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"public_enabled\": true,\n  \"allowed_origins\": [\n    \"<string>\"\n  ],\n  \"restrict_origins\": true,\n  \"overrides_allowed\": []\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -430,6 +439,7 @@ cURL
       "allowed_origins": [
         "<string>"
       ],
+      "restrict_origins": false,
       "overrides_allowed": [
         "first_message"
       ]
@@ -465,8 +475,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -479,8 +487,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
@@ -491,23 +497,17 @@ required
 
 application/json
 
-​
-
 name
 
 string | null
 
 Required string length: `1 - 120`
 
-​
-
 description
 
 string | null
 
 Maximum string length: `2000`
-
-​
 
 status
 
@@ -519,23 +519,25 @@ Available options:
 
 `archived`
 
-​
-
 public_enabled
 
 boolean | null
 
-Allow keyless session creation from the browser SDK, gated by allowed_origins.
-
-​
+Allow keyless session creation from the browser SDK. Any origin can start a session unless restrict_origins is true.
 
 allowed_origins
 
 string[] | null
 
+Origins that may start public sessions while restrict_origins is true. Setting this without restrict_origins on an agent that never chose it turns the restriction on.
+
 Maximum array length: `20`
 
-​
+restrict_origins
+
+boolean | null
+
+Limit public access to allowed_origins. With an empty list, every public request is rejected.
 
 overrides_allowed
 
@@ -555,7 +557,9 @@ Available options:
 
 `language`, 
 
-`asr.model`
+`asr.model`, 
+
+`llm.fallback`
 
 #### Response
 
@@ -565,15 +569,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -581,15 +581,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 status
 
@@ -602,8 +598,6 @@ Available options:
 `active`, 
 
 `archived`
-
-​
 
 publication_state
 
@@ -619,15 +613,11 @@ Available options:
 
 `draft`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 updated_at
 
@@ -635,15 +625,11 @@ string<date-time>
 
 required
 
-​
-
 description
 
 string
 
 default:""
-
-​
 
 public_enabled
 
@@ -651,13 +637,17 @@ boolean
 
 default:false
 
-​
-
 allowed_origins
 
 string[]
 
-​
+restrict_origins
+
+boolean
+
+default:false
+
+Whether public access is limited to `allowed_origins`. When false, any origin can start a public session.
 
 overrides_allowed
 
@@ -673,7 +663,9 @@ Available options:
 
 `language`, 
 
-`asr.model`
+`asr.model`, 
+
+`llm.fallback`
 
 Was this page helpful?
 

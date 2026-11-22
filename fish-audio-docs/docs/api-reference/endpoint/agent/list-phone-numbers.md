@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-phone-numbers/
-title: List Phone Numbers - Fish Audio
+title: List Voice Agent Phone Numbers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:12.304468+00:00
+fetched_at: 2026-11-22T15:30:36.012168+00:00
 ---
 
-# List Phone Numbers - Fish Audio
+# List Voice Agent Phone Numbers - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-phone-numbers/
 
@@ -185,7 +185,7 @@ cURL
 
 Phone Numbers
 
-# List Phone Numbers
+# List Voice Agent Phone Numbers
 
 Copy pageCopy page
 
@@ -385,8 +385,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -399,15 +397,11 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 phone_number
 
 string | null
 
 Exact E.164 match, e.g. +14155550123.
-
-​
 
 agent_id
 
@@ -415,13 +409,9 @@ string | null
 
 Only numbers bound to this agent.
 
-​
-
 cursor
 
 string | null
-
-​
 
 page
 
@@ -431,15 +421,11 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
 
 default:false
-
-​
 
 page_size
 
@@ -457,8 +443,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 phone_numbers
 
 PublicPhoneNumberEntity · object[]
@@ -467,21 +451,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

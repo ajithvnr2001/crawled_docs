@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/knowledge-base/
-title: Knowledge Base - Fish Audio
+title: Voice Agent Knowledge Base - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.379200+00:00
+fetched_at: 2026-11-22T15:30:42.322001+00:00
 ---
 
-# Knowledge Base - Fish Audio
+# Voice Agent Knowledge Base - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/knowledge-base/
 
@@ -31,7 +31,7 @@ Back to top
 
 Build
 
-# Knowledge Base
+# Voice Agent Knowledge Base
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-source/
-title: Delete Knowledge Source - Fish Audio
+title: Delete Voice Agent Knowledge Source - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:06.093938+00:00
+fetched_at: 2026-11-22T15:30:38.601603+00:00
 ---
 
-# Delete Knowledge Source - Fish Audio
+# Delete Voice Agent Knowledge Source - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-source/
 
@@ -150,7 +150,7 @@ cURL
 
 Knowledge Sources
 
-# Delete Knowledge Source
+# Delete Voice Agent Knowledge Source
 
 Copy pageCopy page
 
@@ -319,8 +319,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -332,8 +330,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 source_id
 

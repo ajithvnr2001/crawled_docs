@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/client-tools/
-title: Client Tools - Fish Audio
+title: Client Tools for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:49.560626+00:00
+fetched_at: 2026-11-22T15:30:42.844232+00:00
 ---
 
-# Client Tools - Fish Audio
+# Client Tools for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/client-tools/
 
@@ -26,7 +26,7 @@ Back to top
 
 Tools
 
-# Client Tools
+# Client Tools for Voice Agents
 
 Copy pageCopy page
 

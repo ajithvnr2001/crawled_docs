@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-tests/
-title: List Tests - Fish Audio
+title: List Voice Agent Tests - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:14.093864+00:00
+fetched_at: 2026-11-22T15:30:35.933484+00:00
 ---
 
-# List Tests - Fish Audio
+# List Voice Agent Tests - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-tests/
 
@@ -172,7 +172,7 @@ cURL
 
 Tests
 
-# List Tests
+# List Voice Agent Tests
 
 Copy pageCopy page
 
@@ -359,8 +359,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -373,23 +371,17 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 search
 
 string | null
 
 Case-insensitive match on name.
 
-​
-
 agent_id
 
 string | null
 
 Only tests attached to this agent.
-
-​
 
 test_type
 
@@ -403,13 +395,9 @@ Available options:
 
 `simulation`
 
-​
-
 cursor
 
 string | null
-
-​
 
 page
 
@@ -419,15 +407,11 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
 
 default:false
-
-​
 
 page_size
 
@@ -445,8 +429,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 tests
 
 PublicAgentTestSummary · object[]
@@ -455,21 +437,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

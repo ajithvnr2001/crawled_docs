@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/delete-background-sound/
-title: Delete Background Sound - Fish Audio
+title: Delete Voice Agent Background Sound - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:08.418232+00:00
+fetched_at: 2026-11-22T15:30:38.417801+00:00
 ---
 
-# Delete Background Sound - Fish Audio
+# Delete Voice Agent Background Sound - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/delete-background-sound/
 
@@ -141,7 +141,7 @@ cURL
 
 Background Sounds
 
-# Delete Background Sound
+# Delete Voice Agent Background Sound
 
 Copy pageCopy page
 
@@ -331,4 +331,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/api-reference/endpoint/agent/delete-background-sound.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/endpoint/agent/delete-background-sound)
 
-[Create Background Sound](https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound)[Search Available Phone Numbers](https://docs.fish.audio/api-reference/endpoint/agent/search-available-phone-numbers)
+[Create Background Sound](https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound)[List LLM Models](https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models)

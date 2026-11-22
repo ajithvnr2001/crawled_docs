@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/background-sound-voice-effect/
-title: Background Sound & Voice Effect - Fish Audio
+title: Agent Background Sound & Voice Effect - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:08.951117+00:00
+fetched_at: 2026-11-22T15:30:42.616380+00:00
 ---
 
-# Background Sound & Voice Effect - Fish Audio
+# Agent Background Sound & Voice Effect - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/background-sound-voice-effect/
 
@@ -25,7 +25,7 @@ Back to top
 
 Build
 
-# Background Sound & Voice Effect
+# Agent Background Sound & Voice Effect
 
 Copy pageCopy page
 

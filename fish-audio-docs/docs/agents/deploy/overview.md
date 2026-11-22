@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/overview/
-title: Deploy Your Agent - Fish Audio
+title: Deploy Your Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:30:12.391991+00:00
+fetched_at: 2026-11-22T15:30:41.445825+00:00
 ---
 
-# Deploy Your Agent - Fish Audio
+# Deploy Your Voice Agent - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/overview/
 
@@ -23,7 +23,7 @@ Back to top
 
 Deploy
 
-# Deploy Your Agent
+# Deploy Your Voice Agent
 
 Copy pageCopy page
 

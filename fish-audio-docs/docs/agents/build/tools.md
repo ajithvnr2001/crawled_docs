@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/tools/
-title: Tools - Fish Audio
+title: Voice Agent Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.427672+00:00
+fetched_at: 2026-11-22T15:30:41.788277+00:00
 ---
 
-# Tools - Fish Audio
+# Voice Agent Tools - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/tools/
 
@@ -23,7 +23,7 @@ Back to top
 
 Tools
 
-# Tools
+# Voice Agent Tools
 
 Copy pageCopy page
 

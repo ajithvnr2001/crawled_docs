@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/agent-errors/
-title: Agents API Errors - Fish Audio
+title: Voice Agents API Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.581626+00:00
+fetched_at: 2026-11-22T15:30:39.441209+00:00
 ---
 
-# Agents API Errors - Fish Audio
+# Voice Agents API Errors - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/agent-errors/
 
@@ -26,7 +26,7 @@ Back to top
 
 Agents API
 
-# Agents API Errors
+# Voice Agents API Errors
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/overview/
-title: Agents Overview - Fish Audio
+title: Voice Agents Overview - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.364178+00:00
+fetched_at: 2026-11-22T15:30:40.459489+00:00
 ---
 
-# Agents Overview - Fish Audio
+# Voice Agents Overview - Fish Audio
 
 > Source: https://docs.fish.audio/agents/overview/
 
@@ -21,7 +21,7 @@ Back to top
 
 Get Started
 
-# Agents Overview
+# Voice Agents Overview
 
 Copy pageCopy page
 

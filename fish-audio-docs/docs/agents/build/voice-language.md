@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/voice-language/
-title: Voice & Language - Fish Audio
+title: Agent Voice & Language - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.345694+00:00
+fetched_at: 2026-11-22T15:30:41.880196+00:00
 ---
 
-# Voice & Language - Fish Audio
+# Agent Voice & Language - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/voice-language/
 
@@ -32,7 +32,7 @@ Back to top
 
 Build
 
-# Voice & Language
+# Agent Voice & Language
 
 Copy pageCopy page
 

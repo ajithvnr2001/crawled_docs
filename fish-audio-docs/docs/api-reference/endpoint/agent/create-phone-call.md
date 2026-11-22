@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/create-phone-call/
-title: Create Phone Call - Fish Audio
+title: Create Voice Agent Phone Call - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:04.397796+00:00
+fetched_at: 2026-11-22T15:30:38.953233+00:00
 ---
 
-# Create Phone Call - Fish Audio
+# Create Voice Agent Phone Call - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/create-phone-call/
 
@@ -40,7 +40,26 @@ cURL
             "first_message_prompt": "<string>",
             "system_prompt": "<string>",
             "voice_id": "<string>",
-            "asr": {}
+            "asr": {},
+            "llm": { "fallback": {
+                    "models": [
+                        {
+                            "custom": {
+                                "base_url": "<string>",
+                                "model": "<string>",
+                                "api_key": "<string>",
+                                "headers": {}
+                            },
+                            "ttft_timeout_ms": 15250,
+                            "total_timeout_ms": 60500,
+                            "parallel": { "kick_in_ms": 1500 }
+                        }
+                    ],
+                    "primary": {
+                        "ttft_timeout_ms": 15250,
+                        "total_timeout_ms": 60500
+                    }
+                } }
         },
         "metadata": {},
         "llm_extra_body": {},
@@ -69,7 +88,20 @@ cURL
           first_message_prompt: '<string>',
           system_prompt: '<string>',
           voice_id: '<string>',
-          asr: {}
+          asr: {},
+          llm: {
+            fallback: {
+              models: [
+                {
+                  custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+                  ttft_timeout_ms: 15250,
+                  total_timeout_ms: 60500,
+                  parallel: {kick_in_ms: 1500}
+                }
+              ],
+              primary: {ttft_timeout_ms: 15250, total_timeout_ms: 60500}
+            }
+          }
         },
         metadata: {},
         llm_extra_body: {},
@@ -109,6 +141,31 @@ cURL
             'voice_id' => '<string>',
             'asr' => [
                     
+            ],
+            'llm' => [
+                    'fallback' => [
+                                    'models' => [
+                                                                    [
+                                                                                                                                    'custom' => [
+                                                                                                                                                                                                                                                                    'base_url' => '<string>',
+                                                                                                                                                                                                                                                                    'model' => '<string>',
+                                                                                                                                                                                                                                                                    'api_key' => '<string>',
+                                                                                                                                                                                                                                                                    'headers' => [
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                    ]
+                                                                                                                                    ],
+                                                                                                                                    'ttft_timeout_ms' => 15250,
+                                                                                                                                    'total_timeout_ms' => 60500,
+                                                                                                                                    'parallel' => [
+                                                                                                                                                                                                                                                                    'kick_in_ms' => 1500
+                                                                                                                                    ]
+                                                                    ]
+                                    ],
+                                    'primary' => [
+                                                                    'ttft_timeout_ms' => 15250,
+                                                                    'total_timeout_ms' => 60500
+                                    ]
+                    ]
             ]
         ],
         'metadata' => [
@@ -152,7 +209,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/phone-calls"
     
-    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
+    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -172,7 +229,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/agent/phone-calls")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
+      .body("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
       .asString();
     
     
@@ -187,7 +244,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}"
+    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -283,7 +340,7 @@ cURL
 
 Phone Calls
 
-# Create Phone Call
+# Create Voice Agent Phone Call
 
 Copy pageCopy page
 
@@ -338,7 +395,26 @@ cURL
             "first_message_prompt": "<string>",
             "system_prompt": "<string>",
             "voice_id": "<string>",
-            "asr": {}
+            "asr": {},
+            "llm": { "fallback": {
+                    "models": [
+                        {
+                            "custom": {
+                                "base_url": "<string>",
+                                "model": "<string>",
+                                "api_key": "<string>",
+                                "headers": {}
+                            },
+                            "ttft_timeout_ms": 15250,
+                            "total_timeout_ms": 60500,
+                            "parallel": { "kick_in_ms": 1500 }
+                        }
+                    ],
+                    "primary": {
+                        "ttft_timeout_ms": 15250,
+                        "total_timeout_ms": 60500
+                    }
+                } }
         },
         "metadata": {},
         "llm_extra_body": {},
@@ -367,7 +443,20 @@ cURL
           first_message_prompt: '<string>',
           system_prompt: '<string>',
           voice_id: '<string>',
-          asr: {}
+          asr: {},
+          llm: {
+            fallback: {
+              models: [
+                {
+                  custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+                  ttft_timeout_ms: 15250,
+                  total_timeout_ms: 60500,
+                  parallel: {kick_in_ms: 1500}
+                }
+              ],
+              primary: {ttft_timeout_ms: 15250, total_timeout_ms: 60500}
+            }
+          }
         },
         metadata: {},
         llm_extra_body: {},
@@ -407,6 +496,31 @@ cURL
             'voice_id' => '<string>',
             'asr' => [
                     
+            ],
+            'llm' => [
+                    'fallback' => [
+                                    'models' => [
+                                                                    [
+                                                                                                                                    'custom' => [
+                                                                                                                                                                                                                                                                    'base_url' => '<string>',
+                                                                                                                                                                                                                                                                    'model' => '<string>',
+                                                                                                                                                                                                                                                                    'api_key' => '<string>',
+                                                                                                                                                                                                                                                                    'headers' => [
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                    ]
+                                                                                                                                    ],
+                                                                                                                                    'ttft_timeout_ms' => 15250,
+                                                                                                                                    'total_timeout_ms' => 60500,
+                                                                                                                                    'parallel' => [
+                                                                                                                                                                                                                                                                    'kick_in_ms' => 1500
+                                                                                                                                    ]
+                                                                    ]
+                                    ],
+                                    'primary' => [
+                                                                    'ttft_timeout_ms' => 15250,
+                                                                    'total_timeout_ms' => 60500
+                                    ]
+                    ]
             ]
         ],
         'metadata' => [
@@ -450,7 +564,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/phone-calls"
     
-    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
+    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -470,7 +584,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/agent/phone-calls")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
+      .body("{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}")
       .asString();
     
     
@@ -485,7 +599,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}"
+    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"phone_number_id\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"dynamic_variables\": {},\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"sip_headers\": {}\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -581,8 +695,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -594,8 +706,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Headers
-
-​
 
 idempotency-key
 
@@ -611,15 +721,11 @@ POST phone-calls body, shared by the public and console routes.
 
 to_number is deliberately not format-validated here: the contract orders the E.164 check after the agent/published checks, so it runs in the service with a machine-readable reason.
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 phone_number_id
 
@@ -629,8 +735,6 @@ required
 
 The team-owned number to dial from (twilio provider only).
 
-​
-
 to_number
 
 string
@@ -639,15 +743,11 @@ required
 
 Destination in E.164, e.g. +14155550123.
 
-​
-
 dynamic_variables
 
 Dynamic Variables · object | null
 
 Show child attributes
-
-​
 
 overrides
 
@@ -659,23 +759,17 @@ Every field must be allow-listed in Agent.overrides_allowed; unauthorized fields
 
 Show child attributes
 
-​
-
 metadata
 
 Metadata · object | null
 
 Show child attributes
 
-​
-
 llm_extra_body
 
 Llm Extra Body · object | null
 
 Show child attributes
-
-​
 
 sip_headers
 
@@ -693,15 +787,11 @@ application/json
 
 Document created, URL follows
 
-​
-
 session_id
 
 string
 
 required
-
-​
 
 status
 

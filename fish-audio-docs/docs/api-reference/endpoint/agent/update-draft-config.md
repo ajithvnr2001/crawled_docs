@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/update-draft-config/
-title: Update Draft Config - Fish Audio
+title: Update Voice Agent Draft Config - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:15.694588+00:00
+fetched_at: 2026-11-22T15:30:34.086529+00:00
 ---
 
-# Update Draft Config - Fish Audio
+# Update Voice Agent Draft Config - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/update-draft-config/
 
@@ -47,7 +47,13 @@ cURL
             "voice_id": "<string>",
             "expressive": True,
             "speed": 1.25,
-            "pronunciation_dictionary_ids": ["<string>"]
+            "live3_prompt": "<string>",
+            "pronunciation_dictionary_ids": ["<string>"],
+            "background_sound": {
+                "preset": "off",
+                "volume": 0.15,
+                "custom_asset_id": "<string>"
+            }
         },
         "asr": {
             "multilingual": True,
@@ -60,10 +66,29 @@ cURL
             "response_max_wait_ms": 2000,
             "interruptible": True,
             "interruption_ignore_phrases": ["<string>"],
+            "backchannel": {
+                "enabled": True,
+                "strength": 5
+            },
             "speculative_response": True,
-            "reengage_enabled": True,
+            "reengage": {
+                "enabled": True,
+                "steps": [
+                    {
+                        "after_seconds": 301,
+                        "message": ""
+                    }
+                ],
+                "exhausted_after_seconds": 301,
+                "schedule": {
+                    "first_seconds": 301,
+                    "interval_seconds": 301,
+                    "count": 5,
+                    "messages": ["<string>"]
+                }
+            },
             "hangup_after_seconds": 1805,
-            "hangup_farewell_enabled": True,
+            "hangup_farewell_message": "<string>",
             "record_audio": True,
             "timezone": "<string>",
             "transfer_destinations": [
@@ -72,19 +97,24 @@ cURL
                     "label": "",
                     "phone_number": "<string>",
                     "sip_uri": "<string>",
+                    "headers": {},
                     "description": "",
                     "mode": "cold",
                     "warm_connect": "confirm",
                     "warm_briefing_instructions": "",
+                    "warm_briefing_speed": 1.25,
                     "warm_ring_timeout_seconds": 30,
                     "warm_confirm_timeout_seconds": 60,
                     "warm_human_detection": False,
+                    "warm_consult_uses_agent_settings": True,
                     "on_failure": {
                         "action": "return_to_agent",
                         "message": ""
                     },
                     "announcement_mode": "generated",
-                    "announcement_message": ""
+                    "announcement_message": "",
+                    "auth_username": "<string>",
+                    "auth_password": "<string>"
                 }
             ],
             "transfer_refuse_questions": True,
@@ -110,7 +140,13 @@ cURL
                 "enabled": False,
                 "terminator": "#",
                 "inter_digit_timeout_seconds": 2
-            }
+            },
+            "echo_guard": {
+                "web_voice": True,
+                "phone_inbound": True,
+                "phone_outbound": True
+            },
+            "turn_detector": {}
         },
         "tools": {
             "enabled": True,
@@ -125,12 +161,14 @@ cURL
             "conversation_init": {
                 "url": "<string>",
                 "secret": "<string>",
+                "keep_previous_secret_for_seconds": 302400,
                 "timeout_seconds": 5
             },
             "post_call": [
                 {
                     "url": "<string>",
-                    "secret": "<string>"
+                    "secret": "<string>",
+                    "keep_previous_secret_for_seconds": 302400
                 }
             ]
         },
@@ -161,13 +199,37 @@ cURL
         },
         "guardrails": {
             "focus": True,
-            "manipulation": True
+            "manipulation": True,
+            "pre_tool_speech": True
         },
-        "llm": { "custom": {
+        "context": { "current_time": True },
+        "llm": {
+            "custom": {
                 "base_url": "<string>",
                 "model": "<string>",
-                "api_key": "<string>"
-            } },
+                "api_key": "<string>",
+                "headers": {}
+            },
+            "fallback": {
+                "models": [
+                    {
+                        "custom": {
+                            "base_url": "<string>",
+                            "model": "<string>",
+                            "api_key": "<string>",
+                            "headers": {}
+                        },
+                        "ttft_timeout_ms": 15250,
+                        "total_timeout_ms": 60500,
+                        "parallel": { "kick_in_ms": 1500 }
+                    }
+                ],
+                "primary": {
+                    "ttft_timeout_ms": 15250,
+                    "total_timeout_ms": 60500
+                }
+            }
+        },
         "variables": { "defaults": {} }
     }
     headers = {
@@ -193,7 +255,9 @@ cURL
           voice_id: '<string>',
           expressive: true,
           speed: 1.25,
-          pronunciation_dictionary_ids: ['<string>']
+          live3_prompt: '<string>',
+          pronunciation_dictionary_ids: ['<string>'],
+          background_sound: {preset: 'off', volume: 0.15, custom_asset_id: '<string>'}
         },
         asr: {multilingual: true, strict_language: true, keyterms: ['<string>']},
         conversation: {
@@ -202,10 +266,16 @@ cURL
           response_max_wait_ms: 2000,
           interruptible: true,
           interruption_ignore_phrases: ['<string>'],
+          backchannel: {enabled: true, strength: 5},
           speculative_response: true,
-          reengage_enabled: true,
+          reengage: {
+            enabled: true,
+            steps: [{after_seconds: 301, message: ''}],
+            exhausted_after_seconds: 301,
+            schedule: {first_seconds: 301, interval_seconds: 301, count: 5, messages: ['<string>']}
+          },
           hangup_after_seconds: 1805,
-          hangup_farewell_enabled: true,
+          hangup_farewell_message: '<string>',
           record_audio: true,
           timezone: '<string>',
           transfer_destinations: [
@@ -214,16 +284,21 @@ cURL
               label: '',
               phone_number: '<string>',
               sip_uri: '<string>',
+              headers: {},
               description: '',
               mode: 'cold',
               warm_connect: 'confirm',
               warm_briefing_instructions: '',
+              warm_briefing_speed: 1.25,
               warm_ring_timeout_seconds: 30,
               warm_confirm_timeout_seconds: 60,
               warm_human_detection: false,
+              warm_consult_uses_agent_settings: true,
               on_failure: {action: 'return_to_agent', message: ''},
               announcement_mode: 'generated',
-              announcement_message: ''
+              announcement_message: '',
+              auth_username: '<string>',
+              auth_password: '<string>'
             }
           ],
           transfer_refuse_questions: true,
@@ -239,7 +314,9 @@ cURL
             retry_message: '',
             fallback_value: ''
           },
-          keypad_input: {enabled: false, terminator: '#', inter_digit_timeout_seconds: 2}
+          keypad_input: {enabled: false, terminator: '#', inter_digit_timeout_seconds: 2},
+          echo_guard: {web_voice: true, phone_inbound: true, phone_outbound: true},
+          turn_detector: {}
         },
         tools: {
           enabled: true,
@@ -251,8 +328,15 @@ cURL
           }
         },
         webhooks: {
-          conversation_init: {url: '<string>', secret: '<string>', timeout_seconds: 5},
-          post_call: [{url: '<string>', secret: '<string>'}]
+          conversation_init: {
+            url: '<string>',
+            secret: '<string>',
+            keep_previous_secret_for_seconds: 302400,
+            timeout_seconds: 5
+          },
+          post_call: [
+            {url: '<string>', secret: '<string>', keep_previous_secret_for_seconds: 302400}
+          ]
         },
         knowledge_base: {enabled: true, knowledge_source_ids: ['<string>']},
         analysis: {
@@ -260,8 +344,22 @@ cURL
           data_fields: [{name: '<string>', type: 'text', description: '', enum_options: ['<string>']}],
           criteria: [{name: '<string>', description: ''}]
         },
-        guardrails: {focus: true, manipulation: true},
-        llm: {custom: {base_url: '<string>', model: '<string>', api_key: '<string>'}},
+        guardrails: {focus: true, manipulation: true, pre_tool_speech: true},
+        context: {current_time: true},
+        llm: {
+          custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+          fallback: {
+            models: [
+              {
+                custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+                ttft_timeout_ms: 15250,
+                total_timeout_ms: 60500,
+                parallel: {kick_in_ms: 1500}
+              }
+            ],
+            primary: {ttft_timeout_ms: 15250, total_timeout_ms: 60500}
+          }
+        },
         variables: {defaults: {}}
       })
     };
@@ -294,8 +392,14 @@ cURL
             'voice_id' => '<string>',
             'expressive' => true,
             'speed' => 1.25,
+            'live3_prompt' => '<string>',
             'pronunciation_dictionary_ids' => [
                     '<string>'
+            ],
+            'background_sound' => [
+                    'preset' => 'off',
+                    'volume' => 0.15,
+                    'custom_asset_id' => '<string>'
             ]
         ],
         'asr' => [
@@ -313,10 +417,31 @@ cURL
             'interruption_ignore_phrases' => [
                     '<string>'
             ],
+            'backchannel' => [
+                    'enabled' => true,
+                    'strength' => 5
+            ],
             'speculative_response' => true,
-            'reengage_enabled' => true,
+            'reengage' => [
+                    'enabled' => true,
+                    'steps' => [
+                                    [
+                                                                    'after_seconds' => 301,
+                                                                    'message' => ''
+                                    ]
+                    ],
+                    'exhausted_after_seconds' => 301,
+                    'schedule' => [
+                                    'first_seconds' => 301,
+                                    'interval_seconds' => 301,
+                                    'count' => 5,
+                                    'messages' => [
+                                                                    '<string>'
+                                    ]
+                    ]
+            ],
             'hangup_after_seconds' => 1805,
-            'hangup_farewell_enabled' => true,
+            'hangup_farewell_message' => '<string>',
             'record_audio' => true,
             'timezone' => '<string>',
             'transfer_destinations' => [
@@ -325,19 +450,26 @@ cURL
                                     'label' => '',
                                     'phone_number' => '<string>',
                                     'sip_uri' => '<string>',
+                                    'headers' => [
+                                                                    
+                                    ],
                                     'description' => '',
                                     'mode' => 'cold',
                                     'warm_connect' => 'confirm',
                                     'warm_briefing_instructions' => '',
+                                    'warm_briefing_speed' => 1.25,
                                     'warm_ring_timeout_seconds' => 30,
                                     'warm_confirm_timeout_seconds' => 60,
                                     'warm_human_detection' => false,
+                                    'warm_consult_uses_agent_settings' => true,
                                     'on_failure' => [
                                                                     'action' => 'return_to_agent',
                                                                     'message' => ''
                                     ],
                                     'announcement_mode' => 'generated',
-                                    'announcement_message' => ''
+                                    'announcement_message' => '',
+                                    'auth_username' => '<string>',
+                                    'auth_password' => '<string>'
                     ]
             ],
             'transfer_refuse_questions' => true,
@@ -365,6 +497,14 @@ cURL
                     'enabled' => false,
                     'terminator' => '#',
                     'inter_digit_timeout_seconds' => 2
+            ],
+            'echo_guard' => [
+                    'web_voice' => true,
+                    'phone_inbound' => true,
+                    'phone_outbound' => true
+            ],
+            'turn_detector' => [
+                    
             ]
         ],
         'tools' => [
@@ -382,12 +522,14 @@ cURL
             'conversation_init' => [
                     'url' => '<string>',
                     'secret' => '<string>',
+                    'keep_previous_secret_for_seconds' => 302400,
                     'timeout_seconds' => 5
             ],
             'post_call' => [
                     [
                                     'url' => '<string>',
-                                    'secret' => '<string>'
+                                    'secret' => '<string>',
+                                    'keep_previous_secret_for_seconds' => 302400
                     ]
             ]
         ],
@@ -422,13 +564,43 @@ cURL
         ],
         'guardrails' => [
             'focus' => true,
-            'manipulation' => true
+            'manipulation' => true,
+            'pre_tool_speech' => true
+        ],
+        'context' => [
+            'current_time' => true
         ],
         'llm' => [
             'custom' => [
                     'base_url' => '<string>',
                     'model' => '<string>',
-                    'api_key' => '<string>'
+                    'api_key' => '<string>',
+                    'headers' => [
+                                    
+                    ]
+            ],
+            'fallback' => [
+                    'models' => [
+                                    [
+                                                                    'custom' => [
+                                                                                                                                    'base_url' => '<string>',
+                                                                                                                                    'model' => '<string>',
+                                                                                                                                    'api_key' => '<string>',
+                                                                                                                                    'headers' => [
+                                                                                                                                                                                                                                                                    
+                                                                                                                                    ]
+                                                                    ],
+                                                                    'ttft_timeout_ms' => 15250,
+                                                                    'total_timeout_ms' => 60500,
+                                                                    'parallel' => [
+                                                                                                                                    'kick_in_ms' => 1500
+                                                                    ]
+                                    ]
+                    ],
+                    'primary' => [
+                                    'ttft_timeout_ms' => 15250,
+                                    'total_timeout_ms' => 60500
+                    ]
             ]
         ],
         'variables' => [
@@ -468,7 +640,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/agents/{agent_id}/config"
     
-    	payload := strings.NewReader("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"speculative_response\": true,\n    \"reengage_enabled\": true,\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_enabled\": true,\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    }\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\"\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
+    	payload := strings.NewReader("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"live3_prompt\": \"<string>\",\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ],\n    \"background_sound\": {\n      \"preset\": \"off\",\n      \"volume\": 0.15,\n      \"custom_asset_id\": \"<string>\"\n    }\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"backchannel\": {\n      \"enabled\": true,\n      \"strength\": 5\n    },\n    \"speculative_response\": true,\n    \"reengage\": {\n      \"enabled\": true,\n      \"steps\": [\n        {\n          \"after_seconds\": 301,\n          \"message\": \"\"\n        }\n      ],\n      \"exhausted_after_seconds\": 301,\n      \"schedule\": {\n        \"first_seconds\": 301,\n        \"interval_seconds\": 301,\n        \"count\": 5,\n        \"messages\": [\n          \"<string>\"\n        ]\n      }\n    },\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_message\": \"<string>\",\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"headers\": {},\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_briefing_speed\": 1.25,\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"warm_consult_uses_agent_settings\": true,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\",\n        \"auth_username\": \"<string>\",\n        \"auth_password\": \"<string>\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    },\n    \"echo_guard\": {\n      \"web_voice\": true,\n      \"phone_inbound\": true,\n      \"phone_outbound\": true\n    },\n    \"turn_detector\": {}\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"keep_previous_secret_for_seconds\": 302400,\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\",\n        \"keep_previous_secret_for_seconds\": 302400\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true,\n    \"pre_tool_speech\": true\n  },\n  \"context\": {\n    \"current_time\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\",\n      \"headers\": {}\n    },\n    \"fallback\": {\n      \"models\": [\n        {\n          \"custom\": {\n            \"base_url\": \"<string>\",\n            \"model\": \"<string>\",\n            \"api_key\": \"<string>\",\n            \"headers\": {}\n          },\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500,\n          \"parallel\": {\n            \"kick_in_ms\": 1500\n          }\n        }\n      ],\n      \"primary\": {\n        \"ttft_timeout_ms\": 15250,\n        \"total_timeout_ms\": 60500\n      }\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -488,7 +660,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/agents/{agent_id}/config")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"speculative_response\": true,\n    \"reengage_enabled\": true,\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_enabled\": true,\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    }\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\"\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
+      .body("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"live3_prompt\": \"<string>\",\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ],\n    \"background_sound\": {\n      \"preset\": \"off\",\n      \"volume\": 0.15,\n      \"custom_asset_id\": \"<string>\"\n    }\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"backchannel\": {\n      \"enabled\": true,\n      \"strength\": 5\n    },\n    \"speculative_response\": true,\n    \"reengage\": {\n      \"enabled\": true,\n      \"steps\": [\n        {\n          \"after_seconds\": 301,\n          \"message\": \"\"\n        }\n      ],\n      \"exhausted_after_seconds\": 301,\n      \"schedule\": {\n        \"first_seconds\": 301,\n        \"interval_seconds\": 301,\n        \"count\": 5,\n        \"messages\": [\n          \"<string>\"\n        ]\n      }\n    },\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_message\": \"<string>\",\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"headers\": {},\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_briefing_speed\": 1.25,\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"warm_consult_uses_agent_settings\": true,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\",\n        \"auth_username\": \"<string>\",\n        \"auth_password\": \"<string>\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    },\n    \"echo_guard\": {\n      \"web_voice\": true,\n      \"phone_inbound\": true,\n      \"phone_outbound\": true\n    },\n    \"turn_detector\": {}\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"keep_previous_secret_for_seconds\": 302400,\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\",\n        \"keep_previous_secret_for_seconds\": 302400\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true,\n    \"pre_tool_speech\": true\n  },\n  \"context\": {\n    \"current_time\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\",\n      \"headers\": {}\n    },\n    \"fallback\": {\n      \"models\": [\n        {\n          \"custom\": {\n            \"base_url\": \"<string>\",\n            \"model\": \"<string>\",\n            \"api_key\": \"<string>\",\n            \"headers\": {}\n          },\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500,\n          \"parallel\": {\n            \"kick_in_ms\": 1500\n          }\n        }\n      ],\n      \"primary\": {\n        \"ttft_timeout_ms\": 15250,\n        \"total_timeout_ms\": 60500\n      }\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
       .asString();
     
     
@@ -503,7 +675,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"speculative_response\": true,\n    \"reengage_enabled\": true,\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_enabled\": true,\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    }\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\"\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}"
+    request.body = "{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"live3_prompt\": \"<string>\",\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ],\n    \"background_sound\": {\n      \"preset\": \"off\",\n      \"volume\": 0.15,\n      \"custom_asset_id\": \"<string>\"\n    }\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"backchannel\": {\n      \"enabled\": true,\n      \"strength\": 5\n    },\n    \"speculative_response\": true,\n    \"reengage\": {\n      \"enabled\": true,\n      \"steps\": [\n        {\n          \"after_seconds\": 301,\n          \"message\": \"\"\n        }\n      ],\n      \"exhausted_after_seconds\": 301,\n      \"schedule\": {\n        \"first_seconds\": 301,\n        \"interval_seconds\": 301,\n        \"count\": 5,\n        \"messages\": [\n          \"<string>\"\n        ]\n      }\n    },\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_message\": \"<string>\",\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"headers\": {},\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_briefing_speed\": 1.25,\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"warm_consult_uses_agent_settings\": true,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\",\n        \"auth_username\": \"<string>\",\n        \"auth_password\": \"<string>\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    },\n    \"echo_guard\": {\n      \"web_voice\": true,\n      \"phone_inbound\": true,\n      \"phone_outbound\": true\n    },\n    \"turn_detector\": {}\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"keep_previous_secret_for_seconds\": 302400,\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\",\n        \"keep_previous_secret_for_seconds\": 302400\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true,\n    \"pre_tool_speech\": true\n  },\n  \"context\": {\n    \"current_time\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\",\n      \"headers\": {}\n    },\n    \"fallback\": {\n      \"models\": [\n        {\n          \"custom\": {\n            \"base_url\": \"<string>\",\n            \"model\": \"<string>\",\n            \"api_key\": \"<string>\",\n            \"headers\": {}\n          },\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500,\n          \"parallel\": {\n            \"kick_in_ms\": 1500\n          }\n        }\n      ],\n      \"primary\": {\n        \"ttft_timeout_ms\": 15250,\n        \"total_timeout_ms\": 60500\n      }\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -533,14 +705,22 @@ cURL
         "first_message_prompt": "Greet the caller and ask what you can help with."
       },
       "voice": {
-        "voice_id": "b347db033a6549378b48d00acb0d06cd",
+        "voice_id": "<string>",
         "speaking_language": "en",
         "expressive": false,
         "speed": 1,
         "tts_model": "s2.1-pro",
+        "engine": "fish_tts",
+        "live3_prompt": "<string>",
+        "effect": "none",
         "pronunciation_dictionary_ids": [
           "<string>"
-        ]
+        ],
+        "background_sound": {
+          "preset": "off",
+          "volume": 0.15,
+          "custom_asset_id": "<string>"
+        }
       },
       "asr": {
         "model": "deepgram:nova-3",
@@ -558,10 +738,25 @@ cURL
         "interruptible": true,
         "interruption_sensitivity": "balanced",
         "interruption_ignore_phrases": [],
+        "backchannel": {
+          "enabled": true,
+          "strength": 5
+        },
         "speculative_response": true,
-        "reengage_enabled": false,
+        "reengage": {
+          "enabled": false,
+          "steps": [
+            {
+              "after_seconds": 123,
+              "message": ""
+            }
+          ],
+          "exhausted_action": "wait",
+          "exhausted_after_seconds": 10
+        },
         "hangup_after_seconds": 60,
-        "hangup_farewell_enabled": false,
+        "hangup_farewell_mode": "off",
+        "hangup_farewell_message": "",
         "record_audio": true,
         "timezone": "",
         "transfer_destinations": [],
@@ -588,6 +783,14 @@ cURL
           "enabled": false,
           "terminator": "#",
           "inter_digit_timeout_seconds": 2
+        },
+        "echo_guard": {
+          "web_voice": true,
+          "phone_inbound": true,
+          "phone_outbound": true
+        },
+        "turn_detector": {
+          "model": "fish"
         }
       },
       "tools": {
@@ -606,12 +809,14 @@ cURL
         "conversation_init": {
           "url": "<string>",
           "has_secret": false,
+          "previous_secret_expires_at": "2023-11-07T05:31:56Z",
           "timeout_seconds": 5
         },
         "post_call": [
           {
             "url": "<string>",
-            "has_secret": false
+            "has_secret": false,
+            "previous_secret_expires_at": "2023-11-07T05:31:56Z"
           }
         ]
       },
@@ -646,14 +851,42 @@ cURL
       },
       "guardrails": {
         "focus": false,
-        "manipulation": false
+        "manipulation": false,
+        "pre_tool_speech": false
+      },
+      "context": {
+        "current_time": true
       },
       "llm": {
-        "model": "google/gemini-3.6-flash",
+        "model": "openai/gpt-6.1-terra-fast",
         "custom": {
           "base_url": "<string>",
           "model": "<string>",
-          "api_key": null
+          "api_key": null,
+          "headers": {}
+        },
+        "fallback": {
+          "mode": "platform",
+          "models": [
+            {
+              "model": "google/gemini-3.5-flash-lite",
+              "custom": {
+                "base_url": "<string>",
+                "model": "<string>",
+                "api_key": null,
+                "headers": {}
+              },
+              "ttft_timeout_ms": 123,
+              "total_timeout_ms": 123,
+              "parallel": {
+                "kick_in_ms": 1500
+              }
+            }
+          ],
+          "primary": {
+            "ttft_timeout_ms": 123,
+            "total_timeout_ms": 123
+          }
         }
       },
       "updated_at": "2023-11-07T05:31:56Z",
@@ -707,7 +940,7 @@ cURL
 
 Agents
 
-# Update Draft Config
+# Update Voice Agent Draft Config
 
 Copy pageCopy page
 
@@ -777,7 +1010,13 @@ cURL
             "voice_id": "<string>",
             "expressive": True,
             "speed": 1.25,
-            "pronunciation_dictionary_ids": ["<string>"]
+            "live3_prompt": "<string>",
+            "pronunciation_dictionary_ids": ["<string>"],
+            "background_sound": {
+                "preset": "off",
+                "volume": 0.15,
+                "custom_asset_id": "<string>"
+            }
         },
         "asr": {
             "multilingual": True,
@@ -790,10 +1029,29 @@ cURL
             "response_max_wait_ms": 2000,
             "interruptible": True,
             "interruption_ignore_phrases": ["<string>"],
+            "backchannel": {
+                "enabled": True,
+                "strength": 5
+            },
             "speculative_response": True,
-            "reengage_enabled": True,
+            "reengage": {
+                "enabled": True,
+                "steps": [
+                    {
+                        "after_seconds": 301,
+                        "message": ""
+                    }
+                ],
+                "exhausted_after_seconds": 301,
+                "schedule": {
+                    "first_seconds": 301,
+                    "interval_seconds": 301,
+                    "count": 5,
+                    "messages": ["<string>"]
+                }
+            },
             "hangup_after_seconds": 1805,
-            "hangup_farewell_enabled": True,
+            "hangup_farewell_message": "<string>",
             "record_audio": True,
             "timezone": "<string>",
             "transfer_destinations": [
@@ -802,19 +1060,24 @@ cURL
                     "label": "",
                     "phone_number": "<string>",
                     "sip_uri": "<string>",
+                    "headers": {},
                     "description": "",
                     "mode": "cold",
                     "warm_connect": "confirm",
                     "warm_briefing_instructions": "",
+                    "warm_briefing_speed": 1.25,
                     "warm_ring_timeout_seconds": 30,
                     "warm_confirm_timeout_seconds": 60,
                     "warm_human_detection": False,
+                    "warm_consult_uses_agent_settings": True,
                     "on_failure": {
                         "action": "return_to_agent",
                         "message": ""
                     },
                     "announcement_mode": "generated",
-                    "announcement_message": ""
+                    "announcement_message": "",
+                    "auth_username": "<string>",
+                    "auth_password": "<string>"
                 }
             ],
             "transfer_refuse_questions": True,
@@ -840,7 +1103,13 @@ cURL
                 "enabled": False,
                 "terminator": "#",
                 "inter_digit_timeout_seconds": 2
-            }
+            },
+            "echo_guard": {
+                "web_voice": True,
+                "phone_inbound": True,
+                "phone_outbound": True
+            },
+            "turn_detector": {}
         },
         "tools": {
             "enabled": True,
@@ -855,12 +1124,14 @@ cURL
             "conversation_init": {
                 "url": "<string>",
                 "secret": "<string>",
+                "keep_previous_secret_for_seconds": 302400,
                 "timeout_seconds": 5
             },
             "post_call": [
                 {
                     "url": "<string>",
-                    "secret": "<string>"
+                    "secret": "<string>",
+                    "keep_previous_secret_for_seconds": 302400
                 }
             ]
         },
@@ -891,13 +1162,37 @@ cURL
         },
         "guardrails": {
             "focus": True,
-            "manipulation": True
+            "manipulation": True,
+            "pre_tool_speech": True
         },
-        "llm": { "custom": {
+        "context": { "current_time": True },
+        "llm": {
+            "custom": {
                 "base_url": "<string>",
                 "model": "<string>",
-                "api_key": "<string>"
-            } },
+                "api_key": "<string>",
+                "headers": {}
+            },
+            "fallback": {
+                "models": [
+                    {
+                        "custom": {
+                            "base_url": "<string>",
+                            "model": "<string>",
+                            "api_key": "<string>",
+                            "headers": {}
+                        },
+                        "ttft_timeout_ms": 15250,
+                        "total_timeout_ms": 60500,
+                        "parallel": { "kick_in_ms": 1500 }
+                    }
+                ],
+                "primary": {
+                    "ttft_timeout_ms": 15250,
+                    "total_timeout_ms": 60500
+                }
+            }
+        },
         "variables": { "defaults": {} }
     }
     headers = {
@@ -923,7 +1218,9 @@ cURL
           voice_id: '<string>',
           expressive: true,
           speed: 1.25,
-          pronunciation_dictionary_ids: ['<string>']
+          live3_prompt: '<string>',
+          pronunciation_dictionary_ids: ['<string>'],
+          background_sound: {preset: 'off', volume: 0.15, custom_asset_id: '<string>'}
         },
         asr: {multilingual: true, strict_language: true, keyterms: ['<string>']},
         conversation: {
@@ -932,10 +1229,16 @@ cURL
           response_max_wait_ms: 2000,
           interruptible: true,
           interruption_ignore_phrases: ['<string>'],
+          backchannel: {enabled: true, strength: 5},
           speculative_response: true,
-          reengage_enabled: true,
+          reengage: {
+            enabled: true,
+            steps: [{after_seconds: 301, message: ''}],
+            exhausted_after_seconds: 301,
+            schedule: {first_seconds: 301, interval_seconds: 301, count: 5, messages: ['<string>']}
+          },
           hangup_after_seconds: 1805,
-          hangup_farewell_enabled: true,
+          hangup_farewell_message: '<string>',
           record_audio: true,
           timezone: '<string>',
           transfer_destinations: [
@@ -944,16 +1247,21 @@ cURL
               label: '',
               phone_number: '<string>',
               sip_uri: '<string>',
+              headers: {},
               description: '',
               mode: 'cold',
               warm_connect: 'confirm',
               warm_briefing_instructions: '',
+              warm_briefing_speed: 1.25,
               warm_ring_timeout_seconds: 30,
               warm_confirm_timeout_seconds: 60,
               warm_human_detection: false,
+              warm_consult_uses_agent_settings: true,
               on_failure: {action: 'return_to_agent', message: ''},
               announcement_mode: 'generated',
-              announcement_message: ''
+              announcement_message: '',
+              auth_username: '<string>',
+              auth_password: '<string>'
             }
           ],
           transfer_refuse_questions: true,
@@ -969,7 +1277,9 @@ cURL
             retry_message: '',
             fallback_value: ''
           },
-          keypad_input: {enabled: false, terminator: '#', inter_digit_timeout_seconds: 2}
+          keypad_input: {enabled: false, terminator: '#', inter_digit_timeout_seconds: 2},
+          echo_guard: {web_voice: true, phone_inbound: true, phone_outbound: true},
+          turn_detector: {}
         },
         tools: {
           enabled: true,
@@ -981,8 +1291,15 @@ cURL
           }
         },
         webhooks: {
-          conversation_init: {url: '<string>', secret: '<string>', timeout_seconds: 5},
-          post_call: [{url: '<string>', secret: '<string>'}]
+          conversation_init: {
+            url: '<string>',
+            secret: '<string>',
+            keep_previous_secret_for_seconds: 302400,
+            timeout_seconds: 5
+          },
+          post_call: [
+            {url: '<string>', secret: '<string>', keep_previous_secret_for_seconds: 302400}
+          ]
         },
         knowledge_base: {enabled: true, knowledge_source_ids: ['<string>']},
         analysis: {
@@ -990,8 +1307,22 @@ cURL
           data_fields: [{name: '<string>', type: 'text', description: '', enum_options: ['<string>']}],
           criteria: [{name: '<string>', description: ''}]
         },
-        guardrails: {focus: true, manipulation: true},
-        llm: {custom: {base_url: '<string>', model: '<string>', api_key: '<string>'}},
+        guardrails: {focus: true, manipulation: true, pre_tool_speech: true},
+        context: {current_time: true},
+        llm: {
+          custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+          fallback: {
+            models: [
+              {
+                custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+                ttft_timeout_ms: 15250,
+                total_timeout_ms: 60500,
+                parallel: {kick_in_ms: 1500}
+              }
+            ],
+            primary: {ttft_timeout_ms: 15250, total_timeout_ms: 60500}
+          }
+        },
         variables: {defaults: {}}
       })
     };
@@ -1024,8 +1355,14 @@ cURL
             'voice_id' => '<string>',
             'expressive' => true,
             'speed' => 1.25,
+            'live3_prompt' => '<string>',
             'pronunciation_dictionary_ids' => [
                     '<string>'
+            ],
+            'background_sound' => [
+                    'preset' => 'off',
+                    'volume' => 0.15,
+                    'custom_asset_id' => '<string>'
             ]
         ],
         'asr' => [
@@ -1043,10 +1380,31 @@ cURL
             'interruption_ignore_phrases' => [
                     '<string>'
             ],
+            'backchannel' => [
+                    'enabled' => true,
+                    'strength' => 5
+            ],
             'speculative_response' => true,
-            'reengage_enabled' => true,
+            'reengage' => [
+                    'enabled' => true,
+                    'steps' => [
+                                    [
+                                                                    'after_seconds' => 301,
+                                                                    'message' => ''
+                                    ]
+                    ],
+                    'exhausted_after_seconds' => 301,
+                    'schedule' => [
+                                    'first_seconds' => 301,
+                                    'interval_seconds' => 301,
+                                    'count' => 5,
+                                    'messages' => [
+                                                                    '<string>'
+                                    ]
+                    ]
+            ],
             'hangup_after_seconds' => 1805,
-            'hangup_farewell_enabled' => true,
+            'hangup_farewell_message' => '<string>',
             'record_audio' => true,
             'timezone' => '<string>',
             'transfer_destinations' => [
@@ -1055,19 +1413,26 @@ cURL
                                     'label' => '',
                                     'phone_number' => '<string>',
                                     'sip_uri' => '<string>',
+                                    'headers' => [
+                                                                    
+                                    ],
                                     'description' => '',
                                     'mode' => 'cold',
                                     'warm_connect' => 'confirm',
                                     'warm_briefing_instructions' => '',
+                                    'warm_briefing_speed' => 1.25,
                                     'warm_ring_timeout_seconds' => 30,
                                     'warm_confirm_timeout_seconds' => 60,
                                     'warm_human_detection' => false,
+                                    'warm_consult_uses_agent_settings' => true,
                                     'on_failure' => [
                                                                     'action' => 'return_to_agent',
                                                                     'message' => ''
                                     ],
                                     'announcement_mode' => 'generated',
-                                    'announcement_message' => ''
+                                    'announcement_message' => '',
+                                    'auth_username' => '<string>',
+                                    'auth_password' => '<string>'
                     ]
             ],
             'transfer_refuse_questions' => true,
@@ -1095,6 +1460,14 @@ cURL
                     'enabled' => false,
                     'terminator' => '#',
                     'inter_digit_timeout_seconds' => 2
+            ],
+            'echo_guard' => [
+                    'web_voice' => true,
+                    'phone_inbound' => true,
+                    'phone_outbound' => true
+            ],
+            'turn_detector' => [
+                    
             ]
         ],
         'tools' => [
@@ -1112,12 +1485,14 @@ cURL
             'conversation_init' => [
                     'url' => '<string>',
                     'secret' => '<string>',
+                    'keep_previous_secret_for_seconds' => 302400,
                     'timeout_seconds' => 5
             ],
             'post_call' => [
                     [
                                     'url' => '<string>',
-                                    'secret' => '<string>'
+                                    'secret' => '<string>',
+                                    'keep_previous_secret_for_seconds' => 302400
                     ]
             ]
         ],
@@ -1152,13 +1527,43 @@ cURL
         ],
         'guardrails' => [
             'focus' => true,
-            'manipulation' => true
+            'manipulation' => true,
+            'pre_tool_speech' => true
+        ],
+        'context' => [
+            'current_time' => true
         ],
         'llm' => [
             'custom' => [
                     'base_url' => '<string>',
                     'model' => '<string>',
-                    'api_key' => '<string>'
+                    'api_key' => '<string>',
+                    'headers' => [
+                                    
+                    ]
+            ],
+            'fallback' => [
+                    'models' => [
+                                    [
+                                                                    'custom' => [
+                                                                                                                                    'base_url' => '<string>',
+                                                                                                                                    'model' => '<string>',
+                                                                                                                                    'api_key' => '<string>',
+                                                                                                                                    'headers' => [
+                                                                                                                                                                                                                                                                    
+                                                                                                                                    ]
+                                                                    ],
+                                                                    'ttft_timeout_ms' => 15250,
+                                                                    'total_timeout_ms' => 60500,
+                                                                    'parallel' => [
+                                                                                                                                    'kick_in_ms' => 1500
+                                                                    ]
+                                    ]
+                    ],
+                    'primary' => [
+                                    'ttft_timeout_ms' => 15250,
+                                    'total_timeout_ms' => 60500
+                    ]
             ]
         ],
         'variables' => [
@@ -1198,7 +1603,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/agents/{agent_id}/config"
     
-    	payload := strings.NewReader("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"speculative_response\": true,\n    \"reengage_enabled\": true,\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_enabled\": true,\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    }\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\"\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
+    	payload := strings.NewReader("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"live3_prompt\": \"<string>\",\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ],\n    \"background_sound\": {\n      \"preset\": \"off\",\n      \"volume\": 0.15,\n      \"custom_asset_id\": \"<string>\"\n    }\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"backchannel\": {\n      \"enabled\": true,\n      \"strength\": 5\n    },\n    \"speculative_response\": true,\n    \"reengage\": {\n      \"enabled\": true,\n      \"steps\": [\n        {\n          \"after_seconds\": 301,\n          \"message\": \"\"\n        }\n      ],\n      \"exhausted_after_seconds\": 301,\n      \"schedule\": {\n        \"first_seconds\": 301,\n        \"interval_seconds\": 301,\n        \"count\": 5,\n        \"messages\": [\n          \"<string>\"\n        ]\n      }\n    },\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_message\": \"<string>\",\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"headers\": {},\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_briefing_speed\": 1.25,\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"warm_consult_uses_agent_settings\": true,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\",\n        \"auth_username\": \"<string>\",\n        \"auth_password\": \"<string>\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    },\n    \"echo_guard\": {\n      \"web_voice\": true,\n      \"phone_inbound\": true,\n      \"phone_outbound\": true\n    },\n    \"turn_detector\": {}\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"keep_previous_secret_for_seconds\": 302400,\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\",\n        \"keep_previous_secret_for_seconds\": 302400\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true,\n    \"pre_tool_speech\": true\n  },\n  \"context\": {\n    \"current_time\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\",\n      \"headers\": {}\n    },\n    \"fallback\": {\n      \"models\": [\n        {\n          \"custom\": {\n            \"base_url\": \"<string>\",\n            \"model\": \"<string>\",\n            \"api_key\": \"<string>\",\n            \"headers\": {}\n          },\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500,\n          \"parallel\": {\n            \"kick_in_ms\": 1500\n          }\n        }\n      ],\n      \"primary\": {\n        \"ttft_timeout_ms\": 15250,\n        \"total_timeout_ms\": 60500\n      }\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -1218,7 +1623,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/agents/{agent_id}/config")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"speculative_response\": true,\n    \"reengage_enabled\": true,\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_enabled\": true,\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    }\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\"\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
+      .body("{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"live3_prompt\": \"<string>\",\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ],\n    \"background_sound\": {\n      \"preset\": \"off\",\n      \"volume\": 0.15,\n      \"custom_asset_id\": \"<string>\"\n    }\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"backchannel\": {\n      \"enabled\": true,\n      \"strength\": 5\n    },\n    \"speculative_response\": true,\n    \"reengage\": {\n      \"enabled\": true,\n      \"steps\": [\n        {\n          \"after_seconds\": 301,\n          \"message\": \"\"\n        }\n      ],\n      \"exhausted_after_seconds\": 301,\n      \"schedule\": {\n        \"first_seconds\": 301,\n        \"interval_seconds\": 301,\n        \"count\": 5,\n        \"messages\": [\n          \"<string>\"\n        ]\n      }\n    },\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_message\": \"<string>\",\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"headers\": {},\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_briefing_speed\": 1.25,\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"warm_consult_uses_agent_settings\": true,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\",\n        \"auth_username\": \"<string>\",\n        \"auth_password\": \"<string>\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    },\n    \"echo_guard\": {\n      \"web_voice\": true,\n      \"phone_inbound\": true,\n      \"phone_outbound\": true\n    },\n    \"turn_detector\": {}\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"keep_previous_secret_for_seconds\": 302400,\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\",\n        \"keep_previous_secret_for_seconds\": 302400\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true,\n    \"pre_tool_speech\": true\n  },\n  \"context\": {\n    \"current_time\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\",\n      \"headers\": {}\n    },\n    \"fallback\": {\n      \"models\": [\n        {\n          \"custom\": {\n            \"base_url\": \"<string>\",\n            \"model\": \"<string>\",\n            \"api_key\": \"<string>\",\n            \"headers\": {}\n          },\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500,\n          \"parallel\": {\n            \"kick_in_ms\": 1500\n          }\n        }\n      ],\n      \"primary\": {\n        \"ttft_timeout_ms\": 15250,\n        \"total_timeout_ms\": 60500\n      }\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}")
       .asString();
     
     
@@ -1233,7 +1638,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"speculative_response\": true,\n    \"reengage_enabled\": true,\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_enabled\": true,\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    }\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\"\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}"
+    request.body = "{\n  \"prompt\": {\n    \"system_prompt\": \"<string>\",\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\"\n  },\n  \"voice\": {\n    \"voice_id\": \"<string>\",\n    \"expressive\": true,\n    \"speed\": 1.25,\n    \"live3_prompt\": \"<string>\",\n    \"pronunciation_dictionary_ids\": [\n      \"<string>\"\n    ],\n    \"background_sound\": {\n      \"preset\": \"off\",\n      \"volume\": 0.15,\n      \"custom_asset_id\": \"<string>\"\n    }\n  },\n  \"asr\": {\n    \"multilingual\": true,\n    \"strict_language\": true,\n    \"keyterms\": [\n      \"<string>\"\n    ]\n  },\n  \"conversation\": {\n    \"max_duration_seconds\": 1830,\n    \"response_wait_ms\": 1150,\n    \"response_max_wait_ms\": 2000,\n    \"interruptible\": true,\n    \"interruption_ignore_phrases\": [\n      \"<string>\"\n    ],\n    \"backchannel\": {\n      \"enabled\": true,\n      \"strength\": 5\n    },\n    \"speculative_response\": true,\n    \"reengage\": {\n      \"enabled\": true,\n      \"steps\": [\n        {\n          \"after_seconds\": 301,\n          \"message\": \"\"\n        }\n      ],\n      \"exhausted_after_seconds\": 301,\n      \"schedule\": {\n        \"first_seconds\": 301,\n        \"interval_seconds\": 301,\n        \"count\": 5,\n        \"messages\": [\n          \"<string>\"\n        ]\n      }\n    },\n    \"hangup_after_seconds\": 1805,\n    \"hangup_farewell_message\": \"<string>\",\n    \"record_audio\": true,\n    \"timezone\": \"<string>\",\n    \"transfer_destinations\": [\n      {\n        \"type\": \"phone\",\n        \"label\": \"\",\n        \"phone_number\": \"<string>\",\n        \"sip_uri\": \"<string>\",\n        \"headers\": {},\n        \"description\": \"\",\n        \"mode\": \"cold\",\n        \"warm_connect\": \"confirm\",\n        \"warm_briefing_instructions\": \"\",\n        \"warm_briefing_speed\": 1.25,\n        \"warm_ring_timeout_seconds\": 30,\n        \"warm_confirm_timeout_seconds\": 60,\n        \"warm_human_detection\": false,\n        \"warm_consult_uses_agent_settings\": true,\n        \"on_failure\": {\n          \"action\": \"return_to_agent\",\n          \"message\": \"\"\n        },\n        \"announcement_mode\": \"generated\",\n        \"announcement_message\": \"\",\n        \"auth_username\": \"<string>\",\n        \"auth_password\": \"<string>\"\n      }\n    ],\n    \"transfer_refuse_questions\": true,\n    \"outbound\": {\n      \"amd_enabled\": true,\n      \"voicemail\": {\n        \"action\": \"hangup\",\n        \"message\": \"\"\n      }\n    },\n    \"keypad_menu\": {\n      \"enabled\": false,\n      \"prompt\": \"\",\n      \"options\": [],\n      \"accept_speech\": true,\n      \"variable\": \"menu_choice\",\n      \"no_input_timeout_seconds\": 5,\n      \"max_attempts\": 2,\n      \"retry_message\": \"\",\n      \"fallback_value\": \"\"\n    },\n    \"keypad_input\": {\n      \"enabled\": false,\n      \"terminator\": \"#\",\n      \"inter_digit_timeout_seconds\": 2\n    },\n    \"echo_guard\": {\n      \"web_voice\": true,\n      \"phone_inbound\": true,\n      \"phone_outbound\": true\n    },\n    \"turn_detector\": {}\n  },\n  \"tools\": {\n    \"enabled\": true,\n    \"tool_ids\": [\n      \"<string>\"\n    ],\n    \"system_tools\": {\n      \"hang_up_call\": true,\n      \"hang_up_call_farewell_message\": \"<string>\",\n      \"hang_up_call_refuse_questions\": true\n    }\n  },\n  \"webhooks\": {\n    \"conversation_init\": {\n      \"url\": \"<string>\",\n      \"secret\": \"<string>\",\n      \"keep_previous_secret_for_seconds\": 302400,\n      \"timeout_seconds\": 5\n    },\n    \"post_call\": [\n      {\n        \"url\": \"<string>\",\n        \"secret\": \"<string>\",\n        \"keep_previous_secret_for_seconds\": 302400\n      }\n    ]\n  },\n  \"knowledge_base\": {\n    \"enabled\": true,\n    \"knowledge_source_ids\": [\n      \"<string>\"\n    ]\n  },\n  \"analysis\": {\n    \"summary\": {\n      \"enabled\": true,\n      \"prompt\": \"<string>\",\n      \"language\": \"en\"\n    },\n    \"data_fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"text\",\n        \"description\": \"\",\n        \"enum_options\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"criteria\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"\"\n      }\n    ]\n  },\n  \"guardrails\": {\n    \"focus\": true,\n    \"manipulation\": true,\n    \"pre_tool_speech\": true\n  },\n  \"context\": {\n    \"current_time\": true\n  },\n  \"llm\": {\n    \"custom\": {\n      \"base_url\": \"<string>\",\n      \"model\": \"<string>\",\n      \"api_key\": \"<string>\",\n      \"headers\": {}\n    },\n    \"fallback\": {\n      \"models\": [\n        {\n          \"custom\": {\n            \"base_url\": \"<string>\",\n            \"model\": \"<string>\",\n            \"api_key\": \"<string>\",\n            \"headers\": {}\n          },\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500,\n          \"parallel\": {\n            \"kick_in_ms\": 1500\n          }\n        }\n      ],\n      \"primary\": {\n        \"ttft_timeout_ms\": 15250,\n        \"total_timeout_ms\": 60500\n      }\n    }\n  },\n  \"variables\": {\n    \"defaults\": {}\n  }\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -1263,14 +1668,22 @@ cURL
         "first_message_prompt": "Greet the caller and ask what you can help with."
       },
       "voice": {
-        "voice_id": "b347db033a6549378b48d00acb0d06cd",
+        "voice_id": "<string>",
         "speaking_language": "en",
         "expressive": false,
         "speed": 1,
         "tts_model": "s2.1-pro",
+        "engine": "fish_tts",
+        "live3_prompt": "<string>",
+        "effect": "none",
         "pronunciation_dictionary_ids": [
           "<string>"
-        ]
+        ],
+        "background_sound": {
+          "preset": "off",
+          "volume": 0.15,
+          "custom_asset_id": "<string>"
+        }
       },
       "asr": {
         "model": "deepgram:nova-3",
@@ -1288,10 +1701,25 @@ cURL
         "interruptible": true,
         "interruption_sensitivity": "balanced",
         "interruption_ignore_phrases": [],
+        "backchannel": {
+          "enabled": true,
+          "strength": 5
+        },
         "speculative_response": true,
-        "reengage_enabled": false,
+        "reengage": {
+          "enabled": false,
+          "steps": [
+            {
+              "after_seconds": 123,
+              "message": ""
+            }
+          ],
+          "exhausted_action": "wait",
+          "exhausted_after_seconds": 10
+        },
         "hangup_after_seconds": 60,
-        "hangup_farewell_enabled": false,
+        "hangup_farewell_mode": "off",
+        "hangup_farewell_message": "",
         "record_audio": true,
         "timezone": "",
         "transfer_destinations": [],
@@ -1318,6 +1746,14 @@ cURL
           "enabled": false,
           "terminator": "#",
           "inter_digit_timeout_seconds": 2
+        },
+        "echo_guard": {
+          "web_voice": true,
+          "phone_inbound": true,
+          "phone_outbound": true
+        },
+        "turn_detector": {
+          "model": "fish"
         }
       },
       "tools": {
@@ -1336,12 +1772,14 @@ cURL
         "conversation_init": {
           "url": "<string>",
           "has_secret": false,
+          "previous_secret_expires_at": "2023-11-07T05:31:56Z",
           "timeout_seconds": 5
         },
         "post_call": [
           {
             "url": "<string>",
-            "has_secret": false
+            "has_secret": false,
+            "previous_secret_expires_at": "2023-11-07T05:31:56Z"
           }
         ]
       },
@@ -1376,14 +1814,42 @@ cURL
       },
       "guardrails": {
         "focus": false,
-        "manipulation": false
+        "manipulation": false,
+        "pre_tool_speech": false
+      },
+      "context": {
+        "current_time": true
       },
       "llm": {
-        "model": "google/gemini-3.6-flash",
+        "model": "openai/gpt-6.1-terra-fast",
         "custom": {
           "base_url": "<string>",
           "model": "<string>",
-          "api_key": null
+          "api_key": null,
+          "headers": {}
+        },
+        "fallback": {
+          "mode": "platform",
+          "models": [
+            {
+              "model": "google/gemini-3.5-flash-lite",
+              "custom": {
+                "base_url": "<string>",
+                "model": "<string>",
+                "api_key": null,
+                "headers": {}
+              },
+              "ttft_timeout_ms": 123,
+              "total_timeout_ms": 123,
+              "parallel": {
+                "kick_in_ms": 1500
+              }
+            }
+          ],
+          "primary": {
+            "ttft_timeout_ms": 123,
+            "total_timeout_ms": 123
+          }
         }
       },
       "updated_at": "2023-11-07T05:31:56Z",
@@ -1437,8 +1903,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -1451,8 +1915,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
@@ -1463,15 +1925,11 @@ required
 
 application/json
 
-​
-
 prompt
 
 PublicAgentPromptPatch · object | null
 
 Show child attributes
-
-​
 
 voice
 
@@ -1479,15 +1937,11 @@ PublicAgentVoicePatch · object | null
 
 Show child attributes
 
-​
-
 asr
 
 PublicAgentAsrPatch · object | null
 
 Show child attributes
-
-​
 
 conversation
 
@@ -1495,15 +1949,11 @@ PublicAgentConversationPatch · object | null
 
 Show child attributes
 
-​
-
 tools
 
 PublicAgentToolsPatch · object | null
 
 Show child attributes
-
-​
 
 webhooks
 
@@ -1511,15 +1961,11 @@ PublicAgentWebhooksPatch · object | null
 
 Show child attributes
 
-​
-
 knowledge_base
 
 PublicAgentKnowledgeBasePatch · object | null
 
 Show child attributes
-
-​
 
 analysis
 
@@ -1527,23 +1973,23 @@ PublicAgentAnalysisPatch · object | null
 
 Show child attributes
 
-​
-
 guardrails
 
 PublicAgentGuardrailsPatch · object | null
 
 Show child attributes
 
-​
+context
+
+PublicAgentContextPatch · object | null
+
+Show child attributes
 
 llm
 
 PublicAgentLLMPatch · object | null
 
 Show child attributes
-
-​
 
 variables
 
@@ -1561,15 +2007,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 config_hash
 
@@ -1577,9 +2019,7 @@ string
 
 required
 
-Content hash of the draft; equal to a version's config_hash when the draft has no unpublished changes.
-
-​
+Opaque content hash of this configuration as stored. On a draft it is the config_hash the next publish gives the version, so it equals the live version's config_hash when nothing is unpublished. Pass it to Publish Agent as expected_config_hash.
 
 prompt
 
@@ -1589,19 +2029,15 @@ required
 
 Show child attributes
 
-​
-
 voice
 
-AgentVoiceConfigView · object
+PublicAgentVoiceConfig · object
 
 required
 
-Read shape of the voice section. The ASR fields that moved to the asr section stay mirrored here, deprecated, so clients written before the split keep reading them.
+The voice section as the public API reads it: without the console-only sentence buffering switch, live-3 playout and live-3 self-ASR model.
 
 Show child attributes
-
-​
 
 asr
 
@@ -1613,8 +2049,6 @@ The asr section as the public API reads it: without the console-only noise cance
 
 Show child attributes
 
-​
-
 conversation
 
 AgentConversationConfig · object
@@ -1622,8 +2056,6 @@ AgentConversationConfig · object
 required
 
 Show child attributes
-
-​
 
 tools
 
@@ -1633,8 +2065,6 @@ required
 
 Show child attributes
 
-​
-
 webhooks
 
 PublicAgentWebhooksConfig · object
@@ -1642,8 +2072,6 @@ PublicAgentWebhooksConfig · object
 required
 
 Show child attributes
-
-​
 
 knowledge_base
 
@@ -1653,8 +2081,6 @@ required
 
 Show child attributes
 
-​
-
 analysis
 
 AgentAnalysisConfig · object
@@ -1662,8 +2088,6 @@ AgentAnalysisConfig · object
 required
 
 Show child attributes
-
-​
 
 guardrails
 
@@ -1673,7 +2097,15 @@ required
 
 Show child attributes
 
-​
+context
+
+AgentContextConfig · object
+
+required
+
+Facts the platform tells the agent on its own, one switch per fact. The same mechanism as a guardrail with the opposite sign: a guardrail is a prompt addition that constrains, a context switch is one that informs.
+
+Show child attributes
 
 llm
 
@@ -1683,15 +2115,11 @@ required
 
 Show child attributes
 
-​
-
 updated_at
 
 string<date-time>
 
 required
-
-​
 
 variables
 

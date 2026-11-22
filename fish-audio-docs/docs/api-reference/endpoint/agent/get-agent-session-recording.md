@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-agent-session-recording/
-title: Get Agent Session Recording - Fish Audio
+title: Get Voice Agent Session Recording - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:07.457295+00:00
+fetched_at: 2026-11-22T15:30:38.196349+00:00
 ---
 
-# Get Agent Session Recording - Fish Audio
+# Get Voice Agent Session Recording - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-agent-session-recording/
 
@@ -202,7 +202,7 @@ cURL
 
 Sessions
 
-# Get Agent Session Recording
+# Get Voice Agent Session Recording
 
 Copy pageCopy page
 
@@ -427,8 +427,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -440,8 +438,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 session_id
 
@@ -457,15 +453,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 session_id
 
 string
 
 required
-
-​
 
 status
 
@@ -481,8 +473,6 @@ Available options:
 
 `failed`
 
-​
-
 tracks
 
 AgentSessionRecordingTrackEntity · object[]
@@ -491,27 +481,19 @@ required
 
 Show child attributes
 
-​
-
 transfers
 
 AgentSessionTransferRecordingEntity · object[]
 
 Show child attributes
 
-​
-
 error
 
 string | null
 
-​
-
 error_code
 
 string | null
-
-​
 
 error_message
 

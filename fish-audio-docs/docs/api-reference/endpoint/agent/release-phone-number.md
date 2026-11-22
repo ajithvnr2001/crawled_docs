@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/release-phone-number/
-title: Release Phone Number - Fish Audio
+title: Release Voice Agent Phone Number - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:14.227481+00:00
+fetched_at: 2026-11-22T15:30:34.862411+00:00
 ---
 
-# Release Phone Number - Fish Audio
+# Release Voice Agent Phone Number - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/release-phone-number/
 
@@ -116,7 +116,16 @@ cURL
 
 404
 
+409
+
 503
+    
+    
+    {
+      "status": 123,
+      "message": "<string>",
+      "reason": "<string>"
+    }
     
     
     {
@@ -141,7 +150,7 @@ cURL
 
 Phone Numbers
 
-# Release Phone Number
+# Release Voice Agent Phone Number
 
 Copy pageCopy page
 
@@ -276,7 +285,16 @@ cURL
 
 404
 
+409
+
 503
+    
+    
+    {
+      "status": 123,
+      "message": "<string>",
+      "reason": "<string>"
+    }
     
     
     {
@@ -301,8 +319,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -314,8 +330,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 phone_number_id
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/webhook-tools/
-title: Webhook Tools - Fish Audio
+title: Webhook Tools for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.589505+00:00
+fetched_at: 2026-11-22T15:30:41.962294+00:00
 ---
 
-# Webhook Tools - Fish Audio
+# Webhook Tools for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/webhook-tools/
 
@@ -32,7 +32,7 @@ Back to top
 
 Tools
 
-# Webhook Tools
+# Webhook Tools for Voice Agents
 
 Copy pageCopy page
 

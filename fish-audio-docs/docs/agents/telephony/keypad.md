@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/telephony/keypad/
-title: Keypad Menu and Input - Fish Audio
+title: Keypad Menu and Input for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.202276+00:00
+fetched_at: 2026-11-22T15:30:40.397402+00:00
 ---
 
-# Keypad Menu and Input - Fish Audio
+# Keypad Menu and Input for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/telephony/keypad/
 
@@ -31,7 +31,7 @@ Back to top
 
 Telephony
 
-# Keypad Menu and Input
+# Keypad Menu and Input for Voice Agents
 
 Copy pageCopy page
 

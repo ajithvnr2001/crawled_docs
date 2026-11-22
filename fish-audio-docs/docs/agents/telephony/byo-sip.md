@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/telephony/byo-sip/
-title: Bring Your Own Number - Fish Audio
+title: Bring Your Own Number to Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.137206+00:00
+fetched_at: 2026-11-22T15:30:40.316616+00:00
 ---
 
-# Bring Your Own Number - Fish Audio
+# Bring Your Own Number to Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/telephony/byo-sip/
 
@@ -33,7 +33,7 @@ Back to top
 
 Telephony
 
-# Bring Your Own Number
+# Bring Your Own Number to Voice Agents
 
 Copy pageCopy page
 

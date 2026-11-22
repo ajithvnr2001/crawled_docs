@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound/
-title: Create Background Sound - Fish Audio
+title: Create Voice Agent Background Sound - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.250140+00:00
+fetched_at: 2026-11-22T15:30:39.107301+00:00
 ---
 
-# Create Background Sound - Fish Audio
+# Create Voice Agent Background Sound - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound/
 
@@ -176,7 +176,7 @@ cURL
 
 Background Sounds
 
-# Create Background Sound
+# Create Voice Agent Background Sound
 
 Copy pageCopy page
 

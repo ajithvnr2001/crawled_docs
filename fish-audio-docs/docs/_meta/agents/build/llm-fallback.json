@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/agents/build/llm-fallback/",
   "file": "agents/build/llm-fallback.md",
-  "title": "LLM Fallback - Fish Audio",
+  "title": "LLM Fallback for Voice Agents - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-20T16:17:52.932689+00:00"
+  "fetched_at": "2026-11-22T15:30:42.394743+00:00"
 }

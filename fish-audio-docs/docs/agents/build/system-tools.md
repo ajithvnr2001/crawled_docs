@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/system-tools/
-title: System Tools - Fish Audio
+title: System Tools for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:21.437806+00:00
+fetched_at: 2026-11-22T15:30:42.457277+00:00
 ---
 
-# System Tools - Fish Audio
+# System Tools for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/system-tools/
 
@@ -23,7 +23,7 @@ Back to top
 
 Tools
 
-# System Tools
+# System Tools for Voice Agents
 
 Copy pageCopy page
 

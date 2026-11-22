@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/delete-tool/
-title: Delete Tool - Fish Audio
+title: Delete Voice Agent Tool - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:06.256317+00:00
+fetched_at: 2026-11-22T15:30:37.975042+00:00
 ---
 
-# Delete Tool - Fish Audio
+# Delete Voice Agent Tool - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/delete-tool/
 
@@ -150,7 +150,7 @@ cURL
 
 Tools
 
-# Delete Tool
+# Delete Voice Agent Tool
 
 Copy pageCopy page
 
@@ -319,8 +319,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -332,8 +330,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 tool_id
 

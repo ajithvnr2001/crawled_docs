@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/api-reference/endpoint/agent/create-knowledge-folder/",
   "file": "api-reference/endpoint/agent/create-knowledge-folder.md",
-  "title": "Create Knowledge Folder - Fish Audio",
+  "title": "Create Voice Agent Knowledge Folder - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-20T16:17:51.905244+00:00"
+  "fetched_at": "2026-11-22T15:30:38.752922+00:00"
 }

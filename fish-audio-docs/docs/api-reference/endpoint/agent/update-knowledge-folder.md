@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-folder/
-title: Rename Knowledge Folder - Fish Audio
+title: Rename Voice Agent Knowledge Folder - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.182445+00:00
+fetched_at: 2026-11-22T15:30:33.735776+00:00
 ---
 
-# Rename Knowledge Folder - Fish Audio
+# Rename Voice Agent Knowledge Folder - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-folder/
 
@@ -196,7 +196,7 @@ cURL
 
 Knowledge Folders
 
-# Rename Knowledge Folder
+# Rename Voice Agent Knowledge Folder
 
 Copy pageCopy page
 

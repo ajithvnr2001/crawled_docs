@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/create-knowledge-folder/
-title: Create Knowledge Folder - Fish Audio
+title: Create Voice Agent Knowledge Folder - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:51.905053+00:00
+fetched_at: 2026-11-22T15:30:38.752537+00:00
 ---
 
-# Create Knowledge Folder - Fish Audio
+# Create Voice Agent Knowledge Folder - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/create-knowledge-folder/
 
@@ -196,7 +196,7 @@ cURL
 
 Knowledge Folders
 
-# Create Knowledge Folder
+# Create Voice Agent Knowledge Folder
 
 Copy pageCopy page
 

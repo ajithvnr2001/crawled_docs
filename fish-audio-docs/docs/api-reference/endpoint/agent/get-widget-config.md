@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-widget-config/
-title: Get Widget Config - Fish Audio
+title: Get Voice Agent Widget Config - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:10.815984+00:00
+fetched_at: 2026-11-22T15:30:36.566184+00:00
 ---
 
-# Get Widget Config - Fish Audio
+# Get Voice Agent Widget Config - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-widget-config/
 
@@ -129,7 +129,7 @@ cURL
 
 Agents
 
-# Get Widget Config
+# Get Voice Agent Widget Config
 
 Copy pageCopy page
 
@@ -281,15 +281,11 @@ cURL
 
 #### Headers
 
-​
-
 origin
 
 string | null
 
 #### Path Parameters
-
-​
 
 agent_id
 
@@ -308,8 +304,6 @@ Request fulfilled, document follows
 Display config for the embeddable `<fish-agent>` widget.
 
 Served without authentication for public agents; HTML attributes on the embed tag override every field. Grows alongside the Builder widget tab (greeting, policy switches, styles) — additions only, never renames.
-
-​
 
 agent_name
 

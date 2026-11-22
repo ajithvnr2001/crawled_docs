@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/create-knowledge-source/
-title: Create Knowledge Source - Fish Audio
+title: Create Voice Agent Knowledge Source - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:03.866170+00:00
+fetched_at: 2026-11-22T15:30:39.035758+00:00
 ---
 
-# Create Knowledge Source - Fish Audio
+# Create Voice Agent Knowledge Source - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/create-knowledge-source/
 
@@ -20,7 +20,8 @@ cURL
       --header 'Content-Type: multipart/form-data' \
       --form source=@example-file \
       --form 'name=<string>' \
-      --form description=
+      --form description= \
+      --form 'folder_id=<string>'
     
     
     import requests
@@ -30,7 +31,8 @@ cURL
     files = { "source": ("example-file", open("example-file", "rb")) }
     payload = {
         "name": "<string>",
-        "description": ""
+        "description": "",
+        "folder_id": "<string>"
     }
     headers = {"Authorization": "Bearer <token>"}
     
@@ -43,6 +45,7 @@ cURL
     form.append('source', '<string>');
     form.append('name', '<string>');
     form.append('description', '');
+    form.append('folder_id', '<string>');
     
     const options = {method: 'POST', headers: {Authorization: 'Bearer <token>'}};
     
@@ -66,7 +69,7 @@ cURL
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--",
+      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--",
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
         "Content-Type: multipart/form-data"
@@ -98,7 +101,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/knowledge-sources"
     
-    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--")
+    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -116,7 +119,7 @@ cURL
     
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/agent/knowledge-sources")
       .header("Authorization", "Bearer <token>")
-      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--")
+      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
       .asString();
     
     
@@ -130,7 +133,7 @@ cURL
     
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
-    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--"
+    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
     
     response = http.request(request)
     puts response.read_body
@@ -142,6 +145,8 @@ cURL
 401
 
 403
+
+404
 
 422
 
@@ -159,7 +164,15 @@ cURL
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
       "content": "<string>",
-      "description": ""
+      "description": "",
+      "folder_id": "<string>"
+    }
+    
+    
+    {
+      "status": 123,
+      "message": "<string>",
+      "reason": "<string>"
     }
     
     
@@ -199,7 +212,7 @@ cURL
 
 Knowledge Sources
 
-# Create Knowledge Source
+# Create Voice Agent Knowledge Source
 
 Copy pageCopy page
 
@@ -234,7 +247,8 @@ cURL
       --header 'Content-Type: multipart/form-data' \
       --form source=@example-file \
       --form 'name=<string>' \
-      --form description=
+      --form description= \
+      --form 'folder_id=<string>'
     
     
     import requests
@@ -244,7 +258,8 @@ cURL
     files = { "source": ("example-file", open("example-file", "rb")) }
     payload = {
         "name": "<string>",
-        "description": ""
+        "description": "",
+        "folder_id": "<string>"
     }
     headers = {"Authorization": "Bearer <token>"}
     
@@ -257,6 +272,7 @@ cURL
     form.append('source', '<string>');
     form.append('name', '<string>');
     form.append('description', '');
+    form.append('folder_id', '<string>');
     
     const options = {method: 'POST', headers: {Authorization: 'Bearer <token>'}};
     
@@ -280,7 +296,7 @@ cURL
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--",
+      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--",
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
         "Content-Type: multipart/form-data"
@@ -312,7 +328,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/knowledge-sources"
     
-    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--")
+    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -330,7 +346,7 @@ cURL
     
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/agent/knowledge-sources")
       .header("Authorization", "Bearer <token>")
-      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--")
+      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
       .asString();
     
     
@@ -344,7 +360,7 @@ cURL
     
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
-    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001--"
+    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"; filename=\"example-file\"\r\nContent-Type: application/octet-stream\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
     
     response = http.request(request)
     puts response.read_body
@@ -356,6 +372,8 @@ cURL
 401
 
 403
+
+404
 
 422
 
@@ -373,7 +391,15 @@ cURL
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
       "content": "<string>",
-      "description": ""
+      "description": "",
+      "folder_id": "<string>"
+    }
+    
+    
+    {
+      "status": 123,
+      "message": "<string>",
+      "reason": "<string>"
     }
     
     
@@ -413,8 +439,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -429,27 +453,27 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 multipart/form-data
 
-​
-
 source
 
 file
 
 required
 
-​
-
 name
 
 string | null
-
-​
 
 description
 
 string
 
 default:""
+
+folder_id
+
+string | null
+
+Put the source in this knowledge folder, which must be in the workspace the source is created in (your default workspace). Omit it, or send `root` (or an empty value), to create it outside any folder. 404 if the folder does not exist there.
 
 #### Response
 
@@ -459,15 +483,11 @@ application/json
 
 Document created, URL follows
 
-​
-
 knowledge_source_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -475,15 +495,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 file_name
 
@@ -491,23 +507,17 @@ string
 
 required
 
-​
-
 size_bytes
 
 integer
 
 required
 
-​
-
 chunk_count
 
 integer
 
 required
-
-​
 
 revision_number
 
@@ -517,23 +527,17 @@ required
 
 Increments every time the content is replaced. Drafts always use the newest revision; published versions pin the revision current at publish time.
 
-​
-
 created_at
 
 string<date-time>
 
 required
 
-​
-
 updated_at
 
 string<date-time>
 
 required
-
-​
 
 content
 
@@ -543,13 +547,17 @@ required
 
 The full current text content.
 
-​
-
 description
 
 string
 
 default:""
+
+folder_id
+
+string | null
+
+The knowledge folder this source is in; null at the root. Folders are managed with `/v1/agent/knowledge-folders`.
 
 Was this page helpful?
 

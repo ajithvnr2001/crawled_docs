@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools/
-title: List Test Tools - Fish Audio
+title: List Voice Agent Test Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:12.921340+00:00
+fetched_at: 2026-11-22T15:30:35.500599+00:00
 ---
 
-# List Test Tools - Fish Audio
+# List Voice Agent Test Tools - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools/
 
@@ -160,7 +160,7 @@ cURL
 
 Tests
 
-# List Test Tools
+# List Voice Agent Test Tools
 
 Copy pageCopy page
 
@@ -343,8 +343,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -356,8 +354,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 agent_id
 
@@ -372,8 +368,6 @@ required
 application/json
 
 Request fulfilled, document follows
-
-​
 
 tools
 

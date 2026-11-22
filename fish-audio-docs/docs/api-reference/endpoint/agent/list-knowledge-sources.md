@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-sources/
-title: List Knowledge Sources - Fish Audio
+title: List Voice Agent Knowledge Sources - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:14.959792+00:00
+fetched_at: 2026-11-22T15:30:35.570202+00:00
 ---
 
-# List Knowledge Sources - Fish Audio
+# List Voice Agent Knowledge Sources - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-sources/
 
@@ -133,7 +133,8 @@ cURL
           "revision_number": 123,
           "created_at": "2023-11-07T05:31:56Z",
           "updated_at": "2023-11-07T05:31:56Z",
-          "description": ""
+          "description": "",
+          "folder_id": "<string>"
         }
       ],
       "has_more": true,
@@ -164,7 +165,7 @@ cURL
 
 Knowledge Sources
 
-# List Knowledge Sources
+# List Voice Agent Knowledge Sources
 
 Copy pageCopy page
 
@@ -312,7 +313,8 @@ cURL
           "revision_number": 123,
           "created_at": "2023-11-07T05:31:56Z",
           "updated_at": "2023-11-07T05:31:56Z",
-          "description": ""
+          "description": "",
+          "folder_id": "<string>"
         }
       ],
       "has_more": true,
@@ -343,8 +345,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -357,21 +357,21 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 search
 
 string | null
 
 Case-insensitive match on name and file name.
 
-​
+folder_id
+
+string | null
+
+Only sources in this knowledge folder. Omit it, or pass `root` (an empty value counts as omitted), to list every source across all workspaces, in a folder or not; sources outside any folder have a null `folder_id`. An unknown or deleted folder id gives an empty list. Combines with `search`.
 
 cursor
 
 string | null
-
-​
 
 page
 
@@ -381,15 +381,11 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
 
 default:false
-
-​
 
 page_size
 
@@ -407,8 +403,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 knowledge_sources
 
 PublicKnowledgeSourceSummary · object[]
@@ -417,21 +411,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

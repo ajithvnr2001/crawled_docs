@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-tool/
-title: Get Tool - Fish Audio
+title: Get Voice Agent Tool - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:10.639225+00:00
+fetched_at: 2026-11-22T15:30:36.667480+00:00
 ---
 
-# Get Tool - Fish Audio
+# Get Voice Agent Tool - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-tool/
 
@@ -130,6 +130,7 @@ cURL
       "url": "<string>",
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
+      "parameters": {},
       "content_type": "<string>",
       "timeout_seconds": 123,
       "error_handling": "passthrough",
@@ -141,6 +142,7 @@ cURL
           "description": ""
         }
       ],
+      "parameter_mode": "legacy",
       "body_template": "",
       "headers": [
         {
@@ -159,7 +161,16 @@ cURL
         }
       ],
       "expects_response": true,
-      "execution_mode": "blocking"
+      "execution_mode": "blocking",
+      "pre_tool_speech": {
+        "mode": "auto",
+        "message": ""
+      },
+      "signing": {
+        "enabled": false,
+        "secret_created_at": "2023-11-07T05:31:56Z",
+        "previous_secret_expires_at": "2023-11-07T05:31:56Z"
+      }
     }
     
     
@@ -185,7 +196,7 @@ cURL
 
 Tools
 
-# Get Tool
+# Get Voice Agent Tool
 
 Copy pageCopy page
 
@@ -334,6 +345,7 @@ cURL
       "url": "<string>",
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
+      "parameters": {},
       "content_type": "<string>",
       "timeout_seconds": 123,
       "error_handling": "passthrough",
@@ -345,6 +357,7 @@ cURL
           "description": ""
         }
       ],
+      "parameter_mode": "legacy",
       "body_template": "",
       "headers": [
         {
@@ -363,7 +376,16 @@ cURL
         }
       ],
       "expects_response": true,
-      "execution_mode": "blocking"
+      "execution_mode": "blocking",
+      "pre_tool_speech": {
+        "mode": "auto",
+        "message": ""
+      },
+      "signing": {
+        "enabled": false,
+        "secret_created_at": "2023-11-07T05:31:56Z",
+        "previous_secret_expires_at": "2023-11-07T05:31:56Z"
+      }
     }
     
     
@@ -389,8 +411,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -402,8 +422,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 tool_id
 
@@ -419,15 +437,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 tool_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -435,15 +449,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 tool_type
 
@@ -456,8 +466,6 @@ Available options:
 `webhook`, 
 
 `client`
-
-​
 
 method
 
@@ -477,15 +485,11 @@ Available options:
 
 `DELETE`
 
-​
-
 url
 
 string
 
 required
-
-​
 
 created_at
 
@@ -493,15 +497,21 @@ string<date-time>
 
 required
 
-​
-
 updated_at
 
 string<date-time>
 
 required
 
-​
+parameters
+
+Parameters · object
+
+required
+
+Call parameters as a JSON Schema object (draft 2020-12): `type: object` (filled in when omitted), `properties`, `required`. Standard meaning throughout: `required` means the key must be present, `type: ["string", "null"]` allows null, `minLength: 1` makes a string non-empty, `enum` and `pattern` constrain the value, `default` fills a key the model left out. Mutually exclusive with `arguments` in one request. A tool created with `parameters` starts in `parameter_mode: strict`.
+
+Show child attributes
 
 content_type
 
@@ -509,15 +519,11 @@ string
 
 required
 
-​
-
 timeout_seconds
 
 integer
 
 required
-
-​
 
 error_handling
 
@@ -531,15 +537,11 @@ Available options:
 
 `hide`
 
-​
-
 description
 
 string
 
 default:""
-
-​
 
 used_by
 
@@ -549,15 +551,27 @@ default:0
 
 How many agents reference this tool in their draft configuration.
 
-​
-
 arguments
 
 AgentWebhookArgumentPayload · object[]
 
+Older shape of `parameters`: each entry becomes a required string parameter. Mutually exclusive with `parameters` in one request. Reads return both, `arguments` being the string parameters of the schema.
+
 Show child attributes
 
-​
+parameter_mode
+
+enum<string>
+
+default:legacy
+
+Whether the agent runtime checks each call's arguments against `parameters` before running the tool. `legacy` (the default for tools created with `arguments`, and every tool from before this field existed): no check, the model's arguments run as sent. `strict` (the default for tools created with `parameters`): a call that does not satisfy the schema is refused and the model is told to ask the caller for the missing information, and the LLM provider's constrained decoding is turned on where the model supports it (OpenAI models and a custom OpenAI-compatible endpoint receive the tool with `strict: true`, Gemini on the platform's native channel runs validated function calling). Changing `parameters` never changes the mode, and the mode can be changed on its own.
+
+Available options: 
+
+`legacy`, 
+
+`strict`
 
 body_template
 
@@ -565,15 +579,11 @@ string
 
 default:""
 
-​
-
 headers
 
 PublicToolHeader · object[]
 
 Show child attributes
-
-​
 
 mock_responses
 
@@ -581,15 +591,11 @@ AgentWebhookMockResponsePayload · object[]
 
 Show child attributes
 
-​
-
 expects_response
 
 boolean
 
 default:true
-
-​
 
 execution_mode
 
@@ -604,6 +610,22 @@ Available options:
 `fire_and_forget`, 
 
 `background`
+
+pre_tool_speech
+
+AgentToolPreToolSpeech · object
+
+What the caller hears as this tool starts, when the agent's own reply has not said anything yet. `auto` (the default for a new tool): the platform decides for each call whether a line is worth saying, and the model writes the line when one is said. `static`: the agent says `message` as written (required, one language). `off`: nothing (what a tool created before this field reads as). Applies to blocking webhook tools and to client tools with `expects_response: true`. It is stored but not used for other tools.
+
+Show child attributes
+
+signing
+
+AgentWebhookToolSigningStatus · object
+
+Request signing state. Secrets are write-only: rotate returns the new one once.
+
+Show child attributes
 
 Was this page helpful?
 

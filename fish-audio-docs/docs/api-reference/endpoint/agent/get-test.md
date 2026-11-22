@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-test/
-title: Get Test - Fish Audio
+title: Get Voice Agent Test - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:09.772620+00:00
+fetched_at: 2026-11-22T15:30:36.935479+00:00
 ---
 
-# Get Test - Fish Audio
+# Get Voice Agent Test - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-test/
 
@@ -219,7 +219,10 @@ cURL
         },
         "simulated_user_model": "<string>",
         "repeat_count": 1,
-        "channel": "web_voice"
+        "channel": "web_voice",
+        "context": {
+          "current_time": false
+        }
       },
       "dynamic_variables": {}
     }
@@ -247,7 +250,7 @@ cURL
 
 Tests
 
-# Get Test
+# Get Voice Agent Test
 
 Copy pageCopy page
 
@@ -485,7 +488,10 @@ cURL
         },
         "simulated_user_model": "<string>",
         "repeat_count": 1,
-        "channel": "web_voice"
+        "channel": "web_voice",
+        "context": {
+          "current_time": false
+        }
       },
       "dynamic_variables": {}
     }
@@ -513,8 +519,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -526,8 +530,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 test_id
 
@@ -543,15 +545,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 test_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -559,15 +557,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 test_type
 
@@ -583,15 +577,11 @@ Available options:
 
 `simulation`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 updated_at
 
@@ -599,15 +589,11 @@ string<date-time>
 
 required
 
-​
-
 agent_ids
 
 string[]
 
 Agents this test is attached to.
-
-​
 
 conversation
 
@@ -615,27 +601,19 @@ PublicAgentTestMessage · object[]
 
 Show child attributes
 
-​
-
 expectation
 
 string
 
 default:""
 
-​
-
 success_examples
 
 string[]
 
-​
-
 failure_examples
 
 string[]
-
-​
 
 referenced_tool
 
@@ -645,15 +623,11 @@ Tool the runner should (or should not) observe on the next turn. A webhook or cl
 
 Show child attributes
 
-​
-
 tool_parameters
 
 AgentTestToolParameter · object[]
 
 Show child attributes
-
-​
 
 verify_absence
 
@@ -661,15 +635,11 @@ boolean
 
 default:false
 
-​
-
 simulation
 
 AgentTestSimulationConfig · object | null
 
 Show child attributes
-
-​
 
 dynamic_variables
 

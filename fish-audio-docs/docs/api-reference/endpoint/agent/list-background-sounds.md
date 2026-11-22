@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-background-sounds/
-title: List Background Sounds - Fish Audio
+title: List Voice Agent Background Sounds - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.015627+00:00
+fetched_at: 2026-11-22T15:30:36.233501+00:00
 ---
 
-# List Background Sounds - Fish Audio
+# List Voice Agent Background Sounds - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-background-sounds/
 
@@ -148,7 +148,7 @@ cURL
 
 Background Sounds
 
-# List Background Sounds
+# List Voice Agent Background Sounds
 
 Copy pageCopy page
 
@@ -349,4 +349,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/api-reference/endpoint/agent/list-background-sounds.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/endpoint/agent/list-background-sounds)
 
-[List Agents Using Knowledge Source](https://docs.fish.audio/api-reference/endpoint/agent/list-agents-using-knowledge-source)[Create Background Sound](https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound)
+[Delete Knowledge Folder](https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-folder)[Create Background Sound](https://docs.fish.audio/api-reference/endpoint/agent/create-background-sound)

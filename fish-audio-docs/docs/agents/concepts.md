@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/concepts/
-title: Core Concepts - Fish Audio
+title: Voice Agents Core Concepts - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.762250+00:00
+fetched_at: 2026-11-22T15:30:42.096855+00:00
 ---
 
-# Core Concepts - Fish Audio
+# Voice Agents Core Concepts - Fish Audio
 
 > Source: https://docs.fish.audio/agents/concepts/
 
@@ -29,7 +29,7 @@ Back to top
 
 Get Started
 
-# Core Concepts
+# Voice Agents Core Concepts
 
 Copy pageCopy page
 
@@ -184,4 +184,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/concepts.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/concepts)
 
-[Quickstart](https://docs.fish.audio/agents/quickstart)[Pricing](https://docs.fish.audio/agents/pricing)
+[Quickstart](https://docs.fish.audio/agents/quickstart)[Pricing & Limits](https://docs.fish.audio/agents/pricing)

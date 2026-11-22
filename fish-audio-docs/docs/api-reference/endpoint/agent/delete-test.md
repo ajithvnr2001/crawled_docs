@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/delete-test/
-title: Delete Test - Fish Audio
+title: Delete Voice Agent Test - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:05.903982+00:00
+fetched_at: 2026-11-22T15:30:38.040093+00:00
 ---
 
-# Delete Test - Fish Audio
+# Delete Voice Agent Test - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/delete-test/
 
@@ -141,7 +141,7 @@ cURL
 
 Tests
 
-# Delete Test
+# Delete Voice Agent Test
 
 Copy pageCopy page
 
@@ -301,8 +301,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -314,8 +312,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 test_id
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-test-batches/
-title: List Test Batches - Fish Audio
+title: List Voice Agent Test Batches - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:13.357433+00:00
+fetched_at: 2026-11-22T15:30:35.857678+00:00
 ---
 
-# List Test Batches - Fish Audio
+# List Voice Agent Test Batches - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-test-batches/
 
@@ -174,7 +174,7 @@ cURL
 
 Tests
 
-# List Test Batches
+# List Voice Agent Test Batches
 
 Copy pageCopy page
 
@@ -371,8 +371,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -385,8 +383,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
@@ -395,13 +391,9 @@ required
 
 #### Query Parameters
 
-​
-
 cursor
 
 string | null
-
-​
 
 page_size
 
@@ -419,8 +411,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 batches
 
 PublicAgentTestBatchSummary · object[]
@@ -429,15 +419,11 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
-
-​
 
 next_cursor
 

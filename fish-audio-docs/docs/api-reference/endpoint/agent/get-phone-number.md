@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-phone-number/
-title: Get Phone Number - Fish Audio
+title: Get Voice Agent Phone Number - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:09.223807+00:00
+fetched_at: 2026-11-22T15:30:37.412506+00:00
 ---
 
-# Get Phone Number - Fish Audio
+# Get Voice Agent Phone Number - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-phone-number/
 
@@ -171,7 +171,7 @@ cURL
 
 Phone Numbers
 
-# Get Phone Number
+# Get Voice Agent Phone Number
 
 Copy pageCopy page
 
@@ -361,8 +361,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -374,8 +372,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 phone_number_id
 
@@ -391,23 +387,17 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 phone_number_id
 
 string
 
 required
 
-​
-
 workspace_id
 
 string
 
 required
-
-​
 
 phone_number
 
@@ -416,8 +406,6 @@ string
 required
 
 E.164, e.g. +14155550123.
-
-​
 
 provider
 
@@ -431,9 +419,9 @@ Available options:
 
 `twilio`, 
 
-`sip`
+`sip`, 
 
-​
+`whatsapp`
 
 agent_id
 
@@ -442,8 +430,6 @@ string | null
 required
 
 Inbound calls route to this agent; unbound numbers ring busy.
-
-​
 
 status
 
@@ -461,15 +447,11 @@ Available options:
 
 `released`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 updated_at
 
@@ -477,15 +459,11 @@ string<date-time>
 
 required
 
-​
-
 label
 
 string
 
 default:""
-
-​
 
 transfer_caller_id
 
@@ -499,8 +477,6 @@ Available options:
 
 `original_caller`
 
-​
-
 cold_transfer_use_original_caller
 
 boolean | null
@@ -509,8 +485,6 @@ deprecated
 
 Deprecated, read `transfer_caller_id`. True when it is `original_caller`.
 
-​
-
 cold_transfer_use_original_caller_effective
 
 boolean | null
@@ -518,8 +492,6 @@ boolean | null
 deprecated
 
 Deprecated, read `caller_id_sync_status`. Whether the carrier has confirmed the original caller policy for cold transfers, `null` while unknown.
-
-​
 
 caller_id_sync_status
 
@@ -539,8 +511,6 @@ Available options:
 
 `carrier_managed`
 
-​
-
 caller_id_sync_error
 
 string
@@ -548,8 +518,6 @@ string
 default:""
 
 Why the last synchronization failed; empty otherwise.
-
-​
 
 status_detail
 
@@ -559,8 +527,6 @@ default:""
 
 What failed when status is `error`; empty otherwise.
 
-​
-
 supports_outbound
 
 boolean
@@ -569,15 +535,11 @@ default:false
 
 Whether the number can place calls (outbound and warm-transfer consult legs): managed `twilio` always, imported `sip` only when a termination was configured.
 
-​
-
 termination_uri
 
 string | null
 
 Imported `sip` numbers: the customer trunk's termination host.
-
-​
 
 inbound_auth_username
 
@@ -585,15 +547,11 @@ string | null
 
 Imported `sip` numbers: the inbound digest username. Passwords are never echoed.
 
-​
-
 inbound_allowed_addresses
 
 string[]
 
 Imported `sip` numbers: allowed source IPs/CIDRs.
-
-​
 
 termination_transport
 
@@ -601,15 +559,11 @@ string | null
 
 Imported `sip` numbers: termination transport.
 
-​
-
 termination_auth_username
 
 string | null
 
 Imported `sip` numbers: the termination digest username. Passwords are never echoed.
-
-​
 
 termination_headers
 

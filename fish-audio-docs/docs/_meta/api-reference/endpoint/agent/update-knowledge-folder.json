@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-folder/",
   "file": "api-reference/endpoint/agent/update-knowledge-folder.md",
-  "title": "Rename Knowledge Folder - Fish Audio",
+  "title": "Rename Voice Agent Knowledge Folder - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-20T16:17:52.182621+00:00"
+  "fetched_at": "2026-11-22T15:30:33.736188+00:00"
 }

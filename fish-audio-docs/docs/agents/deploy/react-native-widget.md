@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/react-native-widget/
-title: React Native Widget - Fish Audio
+title: Voice Agent React Native Widget - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:30:12.494811+00:00
+fetched_at: 2026-11-22T15:30:41.522995+00:00
 ---
 
-# React Native Widget - Fish Audio
+# Voice Agent React Native Widget - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/react-native-widget/
 
@@ -28,7 +28,7 @@ Back to top
 
 Deploy
 
-# React Native Widget
+# Voice Agent React Native Widget
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-agent-version/
-title: Get Agent Version - Fish Audio
+title: Get Voice Agent Version - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:07.905208+00:00
+fetched_at: 2026-11-22T15:30:37.665892+00:00
 ---
 
-# Get Agent Version - Fish Audio
+# Get Voice Agent Version - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-agent-version/
 
@@ -135,14 +135,22 @@ cURL
           "first_message_prompt": "Greet the caller and ask what you can help with."
         },
         "voice": {
-          "voice_id": "b347db033a6549378b48d00acb0d06cd",
+          "voice_id": "<string>",
           "speaking_language": "en",
           "expressive": false,
           "speed": 1,
           "tts_model": "s2.1-pro",
+          "engine": "fish_tts",
+          "live3_prompt": "<string>",
+          "effect": "none",
           "pronunciation_dictionary_ids": [
             "<string>"
-          ]
+          ],
+          "background_sound": {
+            "preset": "off",
+            "volume": 0.15,
+            "custom_asset_id": "<string>"
+          }
         },
         "asr": {
           "model": "deepgram:nova-3",
@@ -160,10 +168,25 @@ cURL
           "interruptible": true,
           "interruption_sensitivity": "balanced",
           "interruption_ignore_phrases": [],
+          "backchannel": {
+            "enabled": true,
+            "strength": 5
+          },
           "speculative_response": true,
-          "reengage_enabled": false,
+          "reengage": {
+            "enabled": false,
+            "steps": [
+              {
+                "after_seconds": 123,
+                "message": ""
+              }
+            ],
+            "exhausted_action": "wait",
+            "exhausted_after_seconds": 10
+          },
           "hangup_after_seconds": 60,
-          "hangup_farewell_enabled": false,
+          "hangup_farewell_mode": "off",
+          "hangup_farewell_message": "",
           "record_audio": true,
           "timezone": "",
           "transfer_destinations": [],
@@ -190,6 +213,14 @@ cURL
             "enabled": false,
             "terminator": "#",
             "inter_digit_timeout_seconds": 2
+          },
+          "echo_guard": {
+            "web_voice": true,
+            "phone_inbound": true,
+            "phone_outbound": true
+          },
+          "turn_detector": {
+            "model": "fish"
           }
         },
         "tools": {
@@ -208,12 +239,14 @@ cURL
           "conversation_init": {
             "url": "<string>",
             "has_secret": false,
+            "previous_secret_expires_at": "2023-11-07T05:31:56Z",
             "timeout_seconds": 5
           },
           "post_call": [
             {
               "url": "<string>",
-              "has_secret": false
+              "has_secret": false,
+              "previous_secret_expires_at": "2023-11-07T05:31:56Z"
             }
           ]
         },
@@ -248,14 +281,42 @@ cURL
         },
         "guardrails": {
           "focus": false,
-          "manipulation": false
+          "manipulation": false,
+          "pre_tool_speech": false
+        },
+        "context": {
+          "current_time": true
         },
         "llm": {
-          "model": "google/gemini-3.6-flash",
+          "model": "openai/gpt-6.1-terra-fast",
           "custom": {
             "base_url": "<string>",
             "model": "<string>",
-            "api_key": null
+            "api_key": null,
+            "headers": {}
+          },
+          "fallback": {
+            "mode": "platform",
+            "models": [
+              {
+                "model": "google/gemini-3.5-flash-lite",
+                "custom": {
+                  "base_url": "<string>",
+                  "model": "<string>",
+                  "api_key": null,
+                  "headers": {}
+                },
+                "ttft_timeout_ms": 123,
+                "total_timeout_ms": 123,
+                "parallel": {
+                  "kick_in_ms": 1500
+                }
+              }
+            ],
+            "primary": {
+              "ttft_timeout_ms": 123,
+              "total_timeout_ms": 123
+            }
           }
         },
         "updated_at": "2023-11-07T05:31:56Z",
@@ -291,7 +352,7 @@ cURL
 
 Agents
 
-# Get Agent Version
+# Get Voice Agent Version
 
 Copy pageCopy page
 
@@ -453,14 +514,22 @@ cURL
           "first_message_prompt": "Greet the caller and ask what you can help with."
         },
         "voice": {
-          "voice_id": "b347db033a6549378b48d00acb0d06cd",
+          "voice_id": "<string>",
           "speaking_language": "en",
           "expressive": false,
           "speed": 1,
           "tts_model": "s2.1-pro",
+          "engine": "fish_tts",
+          "live3_prompt": "<string>",
+          "effect": "none",
           "pronunciation_dictionary_ids": [
             "<string>"
-          ]
+          ],
+          "background_sound": {
+            "preset": "off",
+            "volume": 0.15,
+            "custom_asset_id": "<string>"
+          }
         },
         "asr": {
           "model": "deepgram:nova-3",
@@ -478,10 +547,25 @@ cURL
           "interruptible": true,
           "interruption_sensitivity": "balanced",
           "interruption_ignore_phrases": [],
+          "backchannel": {
+            "enabled": true,
+            "strength": 5
+          },
           "speculative_response": true,
-          "reengage_enabled": false,
+          "reengage": {
+            "enabled": false,
+            "steps": [
+              {
+                "after_seconds": 123,
+                "message": ""
+              }
+            ],
+            "exhausted_action": "wait",
+            "exhausted_after_seconds": 10
+          },
           "hangup_after_seconds": 60,
-          "hangup_farewell_enabled": false,
+          "hangup_farewell_mode": "off",
+          "hangup_farewell_message": "",
           "record_audio": true,
           "timezone": "",
           "transfer_destinations": [],
@@ -508,6 +592,14 @@ cURL
             "enabled": false,
             "terminator": "#",
             "inter_digit_timeout_seconds": 2
+          },
+          "echo_guard": {
+            "web_voice": true,
+            "phone_inbound": true,
+            "phone_outbound": true
+          },
+          "turn_detector": {
+            "model": "fish"
           }
         },
         "tools": {
@@ -526,12 +618,14 @@ cURL
           "conversation_init": {
             "url": "<string>",
             "has_secret": false,
+            "previous_secret_expires_at": "2023-11-07T05:31:56Z",
             "timeout_seconds": 5
           },
           "post_call": [
             {
               "url": "<string>",
-              "has_secret": false
+              "has_secret": false,
+              "previous_secret_expires_at": "2023-11-07T05:31:56Z"
             }
           ]
         },
@@ -566,14 +660,42 @@ cURL
         },
         "guardrails": {
           "focus": false,
-          "manipulation": false
+          "manipulation": false,
+          "pre_tool_speech": false
+        },
+        "context": {
+          "current_time": true
         },
         "llm": {
-          "model": "google/gemini-3.6-flash",
+          "model": "openai/gpt-6.1-terra-fast",
           "custom": {
             "base_url": "<string>",
             "model": "<string>",
-            "api_key": null
+            "api_key": null,
+            "headers": {}
+          },
+          "fallback": {
+            "mode": "platform",
+            "models": [
+              {
+                "model": "google/gemini-3.5-flash-lite",
+                "custom": {
+                  "base_url": "<string>",
+                  "model": "<string>",
+                  "api_key": null,
+                  "headers": {}
+                },
+                "ttft_timeout_ms": 123,
+                "total_timeout_ms": 123,
+                "parallel": {
+                  "kick_in_ms": 1500
+                }
+              }
+            ],
+            "primary": {
+              "ttft_timeout_ms": 123,
+              "total_timeout_ms": 123
+            }
           }
         },
         "updated_at": "2023-11-07T05:31:56Z",
@@ -609,8 +731,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -623,15 +743,11 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 version_number
 
@@ -647,15 +763,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 version_number
 
 integer
 
 required
-
-​
 
 config_hash
 
@@ -663,15 +775,11 @@ string
 
 required
 
-​
-
 published_at
 
 string<date-time>
 
 required
-
-​
 
 config
 
@@ -683,13 +791,9 @@ The immutable configuration snapshot this version pinned at publish time.
 
 Show child attributes
 
-​
-
 version_title
 
 string | null
-
-​
 
 version_description
 

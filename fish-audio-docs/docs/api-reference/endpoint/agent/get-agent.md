@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-agent/
-title: Get Agent - Fish Audio
+title: Get Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:08.176563+00:00
+fetched_at: 2026-11-22T15:30:37.760256+00:00
 ---
 
-# Get Agent - Fish Audio
+# Get Voice Agent - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-agent/
 
@@ -134,6 +134,7 @@ cURL
       "allowed_origins": [
         "<string>"
       ],
+      "restrict_origins": false,
       "overrides_allowed": [
         "first_message"
       ]
@@ -162,7 +163,7 @@ cURL
 
 Agents
 
-# Get Agent
+# Get Voice Agent
 
 Copy pageCopy page
 
@@ -315,6 +316,7 @@ cURL
       "allowed_origins": [
         "<string>"
       ],
+      "restrict_origins": false,
       "overrides_allowed": [
         "first_message"
       ]
@@ -343,8 +345,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -356,8 +356,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 agent_id
 
@@ -373,15 +371,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -389,15 +383,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 status
 
@@ -410,8 +400,6 @@ Available options:
 `active`, 
 
 `archived`
-
-​
 
 publication_state
 
@@ -427,15 +415,11 @@ Available options:
 
 `draft`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 updated_at
 
@@ -443,15 +427,11 @@ string<date-time>
 
 required
 
-​
-
 description
 
 string
 
 default:""
-
-​
 
 public_enabled
 
@@ -459,13 +439,17 @@ boolean
 
 default:false
 
-​
-
 allowed_origins
 
 string[]
 
-​
+restrict_origins
+
+boolean
+
+default:false
+
+Whether public access is limited to `allowed_origins`. When false, any origin can start a public session.
 
 overrides_allowed
 
@@ -481,7 +465,9 @@ Available options:
 
 `language`, 
 
-`asr.model`
+`asr.model`, 
+
+`llm.fallback`
 
 Was this page helpful?
 

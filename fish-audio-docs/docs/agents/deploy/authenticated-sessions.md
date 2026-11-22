@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
-title: Authenticated Sessions - Fish Audio
+title: Authenticated Sessions for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.764740+00:00
+fetched_at: 2026-11-22T15:30:42.245980+00:00
 ---
 
-# Authenticated Sessions - Fish Audio
+# Authenticated Sessions for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 
@@ -27,7 +27,7 @@ Back to top
 
 Deploy
 
-# Authenticated Sessions
+# Authenticated Sessions for Voice Agents
 
 Copy pageCopy page
 

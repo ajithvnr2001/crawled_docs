@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/update-test/
-title: Update Test - Fish Audio
+title: Update Voice Agent Test - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:16.637376+00:00
+fetched_at: 2026-11-22T15:30:34.582107+00:00
 ---
 
-# Update Test - Fish Audio
+# Update Voice Agent Test - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/update-test/
 
@@ -105,7 +105,10 @@ cURL
           ]
         },
         "simulated_user_model": "<string>",
-        "repeat_count": 1
+        "repeat_count": 1,
+        "context": {
+          "current_time": false
+        }
       },
       "dynamic_variables": {}
     }
@@ -194,7 +197,8 @@ cURL
                 ]
             },
             "simulated_user_model": "<string>",
-            "repeat_count": 1
+            "repeat_count": 1,
+            "context": { "current_time": False }
         },
         "dynamic_variables": {}
     }
@@ -250,7 +254,8 @@ cURL
             real_tools: [{id: '<string>', name: '<string>', type: 'webhook', description: ''}]
           },
           simulated_user_model: '<string>',
-          repeat_count: 1
+          repeat_count: 1,
+          context: {current_time: false}
         },
         dynamic_variables: {}
       })
@@ -364,7 +369,10 @@ cURL
                     ]
             ],
             'simulated_user_model' => '<string>',
-            'repeat_count' => 1
+            'repeat_count' => 1,
+            'context' => [
+                    'current_time' => false
+            ]
         ],
         'dynamic_variables' => [
             
@@ -401,7 +409,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/tests/{test_id}"
     
-    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1\n  },\n  \"dynamic_variables\": {}\n}")
+    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1,\n    \"context\": {\n      \"current_time\": false\n    }\n  },\n  \"dynamic_variables\": {}\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -421,7 +429,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/tests/{test_id}")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1\n  },\n  \"dynamic_variables\": {}\n}")
+      .body("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1,\n    \"context\": {\n      \"current_time\": false\n    }\n  },\n  \"dynamic_variables\": {}\n}")
       .asString();
     
     
@@ -436,7 +444,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1\n  },\n  \"dynamic_variables\": {}\n}"
+    request.body = "{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1,\n    \"context\": {\n      \"current_time\": false\n    }\n  },\n  \"dynamic_variables\": {}\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -550,7 +558,10 @@ cURL
         },
         "simulated_user_model": "<string>",
         "repeat_count": 1,
-        "channel": "web_voice"
+        "channel": "web_voice",
+        "context": {
+          "current_time": false
+        }
       },
       "dynamic_variables": {}
     }
@@ -585,7 +596,7 @@ cURL
 
 Tests
 
-# Update Test
+# Update Voice Agent Test
 
 Copy pageCopy page
 
@@ -709,7 +720,10 @@ cURL
           ]
         },
         "simulated_user_model": "<string>",
-        "repeat_count": 1
+        "repeat_count": 1,
+        "context": {
+          "current_time": false
+        }
       },
       "dynamic_variables": {}
     }
@@ -798,7 +812,8 @@ cURL
                 ]
             },
             "simulated_user_model": "<string>",
-            "repeat_count": 1
+            "repeat_count": 1,
+            "context": { "current_time": False }
         },
         "dynamic_variables": {}
     }
@@ -854,7 +869,8 @@ cURL
             real_tools: [{id: '<string>', name: '<string>', type: 'webhook', description: ''}]
           },
           simulated_user_model: '<string>',
-          repeat_count: 1
+          repeat_count: 1,
+          context: {current_time: false}
         },
         dynamic_variables: {}
       })
@@ -968,7 +984,10 @@ cURL
                     ]
             ],
             'simulated_user_model' => '<string>',
-            'repeat_count' => 1
+            'repeat_count' => 1,
+            'context' => [
+                    'current_time' => false
+            ]
         ],
         'dynamic_variables' => [
             
@@ -1005,7 +1024,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/tests/{test_id}"
     
-    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1\n  },\n  \"dynamic_variables\": {}\n}")
+    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1,\n    \"context\": {\n      \"current_time\": false\n    }\n  },\n  \"dynamic_variables\": {}\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -1025,7 +1044,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/tests/{test_id}")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1\n  },\n  \"dynamic_variables\": {}\n}")
+      .body("{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1,\n    \"context\": {\n      \"current_time\": false\n    }\n  },\n  \"dynamic_variables\": {}\n}")
       .asString();
     
     
@@ -1040,7 +1059,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1\n  },\n  \"dynamic_variables\": {}\n}"
+    request.body = "{\n  \"name\": \"<string>\",\n  \"conversation\": [\n    {\n      \"text\": \"<string>\"\n    }\n  ],\n  \"expectation\": \"<string>\",\n  \"success_examples\": [\n    \"<string>\"\n  ],\n  \"failure_examples\": [\n    \"<string>\"\n  ],\n  \"referenced_tool\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"webhook\",\n    \"description\": \"\"\n  },\n  \"tool_parameters\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"verify_absence\": true,\n  \"simulation\": {\n    \"scenario\": \"<string>\",\n    \"success_conditions\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"max_turns\": 10,\n    \"assertions\": {\n      \"tool_calls\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"params\": {},\n          \"min_calls\": 1,\n          \"max_calls\": 50\n        }\n      ],\n      \"forbidden_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"tool_mocks\": {\n      \"strategy\": \"all\",\n      \"fallback\": \"error\",\n      \"tools\": [\n        {\n          \"tool\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"webhook\",\n            \"description\": \"\"\n          },\n          \"result\": \"<unknown>\",\n          \"status\": 349,\n          \"when\": {},\n          \"error\": false\n        }\n      ],\n      \"real_tools\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"webhook\",\n          \"description\": \"\"\n        }\n      ]\n    },\n    \"simulated_user_model\": \"<string>\",\n    \"repeat_count\": 1,\n    \"context\": {\n      \"current_time\": false\n    }\n  },\n  \"dynamic_variables\": {}\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -1154,7 +1173,10 @@ cURL
         },
         "simulated_user_model": "<string>",
         "repeat_count": 1,
-        "channel": "web_voice"
+        "channel": "web_voice",
+        "context": {
+          "current_time": false
+        }
       },
       "dynamic_variables": {}
     }
@@ -1189,8 +1211,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -1203,8 +1223,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 test_id
 
 string
@@ -1215,15 +1233,11 @@ required
 
 application/json
 
-​
-
 name
 
 string | null
 
 Required string length: `1 - 200`
-
-​
 
 test_type
 
@@ -1237,15 +1251,11 @@ Available options:
 
 `simulation`
 
-​
-
 conversation
 
 AgentTestMessagePayload · object[] | null
 
 Show child attributes
-
-​
 
 expectation
 
@@ -1253,19 +1263,13 @@ string | null
 
 Maximum string length: `400`
 
-​
-
 success_examples
 
 string[] | null
 
-​
-
 failure_examples
 
 string[] | null
-
-​
 
 referenced_tool
 
@@ -1275,29 +1279,21 @@ Tool the runner should (or should not) observe on the next turn. A webhook or cl
 
 Show child attributes
 
-​
-
 tool_parameters
 
 AgentTestToolParameter · object[] | null
 
 Show child attributes
 
-​
-
 verify_absence
 
 boolean | null
-
-​
 
 simulation
 
 AgentTestSimulationConfig · object | null
 
 Show child attributes
-
-​
 
 dynamic_variables
 
@@ -1313,15 +1309,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 test_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -1329,15 +1321,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 test_type
 
@@ -1353,15 +1341,11 @@ Available options:
 
 `simulation`
 
-​
-
 created_at
 
 string<date-time>
 
 required
-
-​
 
 updated_at
 
@@ -1369,15 +1353,11 @@ string<date-time>
 
 required
 
-​
-
 agent_ids
 
 string[]
 
 Agents this test is attached to.
-
-​
 
 conversation
 
@@ -1385,27 +1365,19 @@ PublicAgentTestMessage · object[]
 
 Show child attributes
 
-​
-
 expectation
 
 string
 
 default:""
 
-​
-
 success_examples
 
 string[]
 
-​
-
 failure_examples
 
 string[]
-
-​
 
 referenced_tool
 
@@ -1415,15 +1387,11 @@ Tool the runner should (or should not) observe on the next turn. A webhook or cl
 
 Show child attributes
 
-​
-
 tool_parameters
 
 AgentTestToolParameter · object[]
 
 Show child attributes
-
-​
 
 verify_absence
 
@@ -1431,15 +1399,11 @@ boolean
 
 default:false
 
-​
-
 simulation
 
 AgentTestSimulationConfig · object | null
 
 Show child attributes
-
-​
 
 dynamic_variables
 

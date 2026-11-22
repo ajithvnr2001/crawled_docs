@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/api-reference/endpoint/agent/list-background-sounds/",
   "file": "api-reference/endpoint/agent/list-background-sounds.md",
-  "title": "List Background Sounds - Fish Audio",
+  "title": "List Voice Agent Background Sounds - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-19T16:42:09.015826+00:00"
+  "fetched_at": "2026-11-22T15:30:36.234014+00:00"
 }

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/update-tool/
-title: Update Tool - Fish Audio
+title: Update Voice Agent Tool - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:17.433100+00:00
+fetched_at: 2026-11-22T15:30:34.217609+00:00
 ---
 
-# Update Tool - Fish Audio
+# Update Voice Agent Tool - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/update-tool/
 
@@ -28,6 +28,7 @@ cURL
           "description": ""
         }
       ],
+      "parameters": {},
       "url": "<string>",
       "content_type": "<string>",
       "body_template": "<string>",
@@ -47,7 +48,10 @@ cURL
           "body": ""
         }
       ],
-      "expects_response": true
+      "expects_response": true,
+      "pre_tool_speech": {
+        "message": ""
+      }
     }
     '
     
@@ -65,6 +69,7 @@ cURL
                 "description": ""
             }
         ],
+        "parameters": {},
         "url": "<string>",
         "content_type": "<string>",
         "body_template": "<string>",
@@ -84,7 +89,8 @@ cURL
                 "body": ""
             }
         ],
-        "expects_response": True
+        "expects_response": True,
+        "pre_tool_speech": { "message": "" }
     }
     headers = {
         "Authorization": "Bearer <token>",
@@ -103,6 +109,7 @@ cURL
         name: '<string>',
         description: '<string>',
         arguments: [{name: '<string>', description: ''}],
+        parameters: {},
         url: '<string>',
         content_type: '<string>',
         body_template: '<string>',
@@ -116,7 +123,8 @@ cURL
             body: JSON.stringify('')
           }
         ],
-        expects_response: true
+        expects_response: true,
+        pre_tool_speech: {message: ''}
       })
     };
     
@@ -147,6 +155,9 @@ cURL
                     'description' => ''
             ]
         ],
+        'parameters' => [
+            
+        ],
         'url' => '<string>',
         'content_type' => '<string>',
         'body_template' => '<string>',
@@ -166,7 +177,10 @@ cURL
                     'body' => ''
             ]
         ],
-        'expects_response' => true
+        'expects_response' => true,
+        'pre_tool_speech' => [
+            'message' => ''
+        ]
       ]),
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
@@ -199,7 +213,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/tools/{tool_id}"
     
-    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true\n}")
+    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"parameters\": {},\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true,\n  \"pre_tool_speech\": {\n    \"message\": \"\"\n  }\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -219,7 +233,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/tools/{tool_id}")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true\n}")
+      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"parameters\": {},\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true,\n  \"pre_tool_speech\": {\n    \"message\": \"\"\n  }\n}")
       .asString();
     
     
@@ -234,7 +248,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true\n}"
+    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"parameters\": {},\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true,\n  \"pre_tool_speech\": {\n    \"message\": \"\"\n  }\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -261,6 +275,7 @@ cURL
       "url": "<string>",
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
+      "parameters": {},
       "content_type": "<string>",
       "timeout_seconds": 123,
       "error_handling": "passthrough",
@@ -272,6 +287,7 @@ cURL
           "description": ""
         }
       ],
+      "parameter_mode": "legacy",
       "body_template": "",
       "headers": [
         {
@@ -290,7 +306,16 @@ cURL
         }
       ],
       "expects_response": true,
-      "execution_mode": "blocking"
+      "execution_mode": "blocking",
+      "pre_tool_speech": {
+        "mode": "auto",
+        "message": ""
+      },
+      "signing": {
+        "enabled": false,
+        "secret_created_at": "2023-11-07T05:31:56Z",
+        "previous_secret_expires_at": "2023-11-07T05:31:56Z"
+      }
     }
     
     
@@ -330,7 +355,7 @@ cURL
 
 Tools
 
-# Update Tool
+# Update Voice Agent Tool
 
 Copy pageCopy page
 
@@ -377,6 +402,7 @@ cURL
           "description": ""
         }
       ],
+      "parameters": {},
       "url": "<string>",
       "content_type": "<string>",
       "body_template": "<string>",
@@ -396,7 +422,10 @@ cURL
           "body": ""
         }
       ],
-      "expects_response": true
+      "expects_response": true,
+      "pre_tool_speech": {
+        "message": ""
+      }
     }
     '
     
@@ -414,6 +443,7 @@ cURL
                 "description": ""
             }
         ],
+        "parameters": {},
         "url": "<string>",
         "content_type": "<string>",
         "body_template": "<string>",
@@ -433,7 +463,8 @@ cURL
                 "body": ""
             }
         ],
-        "expects_response": True
+        "expects_response": True,
+        "pre_tool_speech": { "message": "" }
     }
     headers = {
         "Authorization": "Bearer <token>",
@@ -452,6 +483,7 @@ cURL
         name: '<string>',
         description: '<string>',
         arguments: [{name: '<string>', description: ''}],
+        parameters: {},
         url: '<string>',
         content_type: '<string>',
         body_template: '<string>',
@@ -465,7 +497,8 @@ cURL
             body: JSON.stringify('')
           }
         ],
-        expects_response: true
+        expects_response: true,
+        pre_tool_speech: {message: ''}
       })
     };
     
@@ -496,6 +529,9 @@ cURL
                     'description' => ''
             ]
         ],
+        'parameters' => [
+            
+        ],
         'url' => '<string>',
         'content_type' => '<string>',
         'body_template' => '<string>',
@@ -515,7 +551,10 @@ cURL
                     'body' => ''
             ]
         ],
-        'expects_response' => true
+        'expects_response' => true,
+        'pre_tool_speech' => [
+            'message' => ''
+        ]
       ]),
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
@@ -548,7 +587,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/tools/{tool_id}"
     
-    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true\n}")
+    	payload := strings.NewReader("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"parameters\": {},\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true,\n  \"pre_tool_speech\": {\n    \"message\": \"\"\n  }\n}")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -568,7 +607,7 @@ cURL
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/tools/{tool_id}")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true\n}")
+      .body("{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"parameters\": {},\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true,\n  \"pre_tool_speech\": {\n    \"message\": \"\"\n  }\n}")
       .asString();
     
     
@@ -583,7 +622,7 @@ cURL
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true\n}"
+    request.body = "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"arguments\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"\"\n    }\n  ],\n  \"parameters\": {},\n  \"url\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"body_template\": \"<string>\",\n  \"headers\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"kind\": \"custom\"\n    }\n  ],\n  \"timeout_seconds\": 150,\n  \"mock_responses\": [\n    {\n      \"name\": \"\",\n      \"status_code\": 200,\n      \"content_type\": \"application/json\",\n      \"body\": \"\"\n    }\n  ],\n  \"expects_response\": true,\n  \"pre_tool_speech\": {\n    \"message\": \"\"\n  }\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -610,6 +649,7 @@ cURL
       "url": "<string>",
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
+      "parameters": {},
       "content_type": "<string>",
       "timeout_seconds": 123,
       "error_handling": "passthrough",
@@ -621,6 +661,7 @@ cURL
           "description": ""
         }
       ],
+      "parameter_mode": "legacy",
       "body_template": "",
       "headers": [
         {
@@ -639,7 +680,16 @@ cURL
         }
       ],
       "expects_response": true,
-      "execution_mode": "blocking"
+      "execution_mode": "blocking",
+      "pre_tool_speech": {
+        "mode": "auto",
+        "message": ""
+      },
+      "signing": {
+        "enabled": false,
+        "secret_created_at": "2023-11-07T05:31:56Z",
+        "previous_secret_expires_at": "2023-11-07T05:31:56Z"
+      }
     }
     
     
@@ -679,8 +729,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -693,8 +741,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 tool_id
 
 string
@@ -705,15 +751,11 @@ required
 
 application/json
 
-​
-
 name
 
 string | null
 
 Required string length: `1 - 120`
-
-​
 
 description
 
@@ -721,15 +763,33 @@ string | null
 
 Maximum string length: `2000`
 
-​
-
 arguments
 
 AgentWebhookArgumentPayload · object[] | null
 
+Older shape of `parameters`: each entry becomes a required string parameter. Mutually exclusive with `parameters` in one request. Reads return both, `arguments` being the string parameters of the schema.
+
 Show child attributes
 
-​
+parameters
+
+Parameters · object | null
+
+Call parameters as a JSON Schema object (draft 2020-12): `type: object` (filled in when omitted), `properties`, `required`. Standard meaning throughout: `required` means the key must be present, `type: ["string", "null"]` allows null, `minLength: 1` makes a string non-empty, `enum` and `pattern` constrain the value, `default` fills a key the model left out. Mutually exclusive with `arguments` in one request. A tool created with `parameters` starts in `parameter_mode: strict`.
+
+Show child attributes
+
+parameter_mode
+
+enum<string> | null
+
+Whether the agent runtime checks each call's arguments against `parameters` before running the tool. `legacy` (the default for tools created with `arguments`, and every tool from before this field existed): no check, the model's arguments run as sent. `strict` (the default for tools created with `parameters`): a call that does not satisfy the schema is refused and the model is told to ask the caller for the missing information, and the LLM provider's constrained decoding is turned on where the model supports it (OpenAI models and a custom OpenAI-compatible endpoint receive the tool with `strict: true`, Gemini on the platform's native channel runs validated function calling). Changing `parameters` never changes the mode, and the mode can be changed on its own.
+
+Available options: 
+
+`legacy`, 
+
+`strict`
 
 method
 
@@ -747,23 +807,17 @@ Available options:
 
 `DELETE`
 
-​
-
 url
 
 string | null
 
 Required string length: `1 - 4000`
 
-​
-
 content_type
 
 string | null
 
 Maximum string length: `128`
-
-​
 
 body_template
 
@@ -773,23 +827,17 @@ Request body sent for non-GET calls. `{{argument}}`, `{{system.*}}` and custom s
 
 Maximum string length: `100000`
 
-​
-
 headers
 
 AgentWebhookHeaderPayload · object[] | null
 
 Show child attributes
 
-​
-
 timeout_seconds
 
 integer | null
 
 Required range: `1 <= x <= 300`
-
-​
 
 error_handling
 
@@ -801,21 +849,15 @@ Available options:
 
 `hide`
 
-​
-
 mock_responses
 
 AgentWebhookMockResponsePayload · object[] | null
 
 Show child attributes
 
-​
-
 expects_response
 
 boolean | null
-
-​
 
 execution_mode
 
@@ -829,6 +871,14 @@ Available options:
 
 `background`
 
+pre_tool_speech
+
+AgentToolPreToolSpeech · object | null
+
+What the caller hears as this tool starts, when the agent's own reply has not said anything yet. `auto` (the default for a new tool): the platform decides for each call whether a line is worth saying, and the model writes the line when one is said. `static`: the agent says `message` as written (required, one language). `off`: nothing (what a tool created before this field reads as). Applies to blocking webhook tools and to client tools with `expects_response: true`. It is stored but not used for other tools.
+
+Show child attributes
+
 #### Response
 
 200
@@ -837,15 +887,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 tool_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -853,15 +899,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 tool_type
 
@@ -874,8 +916,6 @@ Available options:
 `webhook`, 
 
 `client`
-
-​
 
 method
 
@@ -895,15 +935,11 @@ Available options:
 
 `DELETE`
 
-​
-
 url
 
 string
 
 required
-
-​
 
 created_at
 
@@ -911,15 +947,21 @@ string<date-time>
 
 required
 
-​
-
 updated_at
 
 string<date-time>
 
 required
 
-​
+parameters
+
+Parameters · object
+
+required
+
+Call parameters as a JSON Schema object (draft 2020-12): `type: object` (filled in when omitted), `properties`, `required`. Standard meaning throughout: `required` means the key must be present, `type: ["string", "null"]` allows null, `minLength: 1` makes a string non-empty, `enum` and `pattern` constrain the value, `default` fills a key the model left out. Mutually exclusive with `arguments` in one request. A tool created with `parameters` starts in `parameter_mode: strict`.
+
+Show child attributes
 
 content_type
 
@@ -927,15 +969,11 @@ string
 
 required
 
-​
-
 timeout_seconds
 
 integer
 
 required
-
-​
 
 error_handling
 
@@ -949,15 +987,11 @@ Available options:
 
 `hide`
 
-​
-
 description
 
 string
 
 default:""
-
-​
 
 used_by
 
@@ -967,15 +1001,27 @@ default:0
 
 How many agents reference this tool in their draft configuration.
 
-​
-
 arguments
 
 AgentWebhookArgumentPayload · object[]
 
+Older shape of `parameters`: each entry becomes a required string parameter. Mutually exclusive with `parameters` in one request. Reads return both, `arguments` being the string parameters of the schema.
+
 Show child attributes
 
-​
+parameter_mode
+
+enum<string>
+
+default:legacy
+
+Whether the agent runtime checks each call's arguments against `parameters` before running the tool. `legacy` (the default for tools created with `arguments`, and every tool from before this field existed): no check, the model's arguments run as sent. `strict` (the default for tools created with `parameters`): a call that does not satisfy the schema is refused and the model is told to ask the caller for the missing information, and the LLM provider's constrained decoding is turned on where the model supports it (OpenAI models and a custom OpenAI-compatible endpoint receive the tool with `strict: true`, Gemini on the platform's native channel runs validated function calling). Changing `parameters` never changes the mode, and the mode can be changed on its own.
+
+Available options: 
+
+`legacy`, 
+
+`strict`
 
 body_template
 
@@ -983,15 +1029,11 @@ string
 
 default:""
 
-​
-
 headers
 
 PublicToolHeader · object[]
 
 Show child attributes
-
-​
 
 mock_responses
 
@@ -999,15 +1041,11 @@ AgentWebhookMockResponsePayload · object[]
 
 Show child attributes
 
-​
-
 expects_response
 
 boolean
 
 default:true
-
-​
 
 execution_mode
 
@@ -1022,6 +1060,22 @@ Available options:
 `fire_and_forget`, 
 
 `background`
+
+pre_tool_speech
+
+AgentToolPreToolSpeech · object
+
+What the caller hears as this tool starts, when the agent's own reply has not said anything yet. `auto` (the default for a new tool): the platform decides for each call whether a line is worth saying, and the model writes the line when one is said. `static`: the agent says `message` as written (required, one language). `off`: nothing (what a tool created before this field reads as). Applies to blocking webhook tools and to client tools with `expects_response: true`. It is stored but not used for other tools.
+
+Show child attributes
+
+signing
+
+AgentWebhookToolSigningStatus · object
+
+Request signing state. Secrets are write-only: rotate returns the new one once.
+
+Show child attributes
 
 Was this page helpful?
 

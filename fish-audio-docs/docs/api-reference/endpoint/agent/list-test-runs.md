@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-test-runs/
-title: List Test Runs - Fish Audio
+title: List Voice Agent Test Runs - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:13.535286+00:00
+fetched_at: 2026-11-22T15:30:35.656725+00:00
 ---
 
-# List Test Runs - Fish Audio
+# List Voice Agent Test Runs - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-test-runs/
 
@@ -138,7 +138,38 @@ cURL
           "error": "",
           "usage": {
             "agent_replies": 0,
-            "cost_usd": "<string>"
+            "cost_usd": "<string>",
+            "platform_fee": {
+              "rate_usd": "<string>",
+              "amount_usd": "<string>"
+            },
+            "llm": [
+              {
+                "participant": "agent",
+                "model": "<string>",
+                "amount_usd": "<string>",
+                "input": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_read": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_5m": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_1h": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "output": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                }
+              }
+            ]
           },
           "started_at": "2023-11-07T05:31:56Z",
           "finished_at": "2023-11-07T05:31:56Z"
@@ -179,7 +210,7 @@ cURL
 
 Tests
 
-# List Test Runs
+# List Voice Agent Test Runs
 
 Copy pageCopy page
 
@@ -332,7 +363,38 @@ cURL
           "error": "",
           "usage": {
             "agent_replies": 0,
-            "cost_usd": "<string>"
+            "cost_usd": "<string>",
+            "platform_fee": {
+              "rate_usd": "<string>",
+              "amount_usd": "<string>"
+            },
+            "llm": [
+              {
+                "participant": "agent",
+                "model": "<string>",
+                "amount_usd": "<string>",
+                "input": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_read": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_5m": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_1h": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "output": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                }
+              }
+            ]
           },
           "started_at": "2023-11-07T05:31:56Z",
           "finished_at": "2023-11-07T05:31:56Z"
@@ -373,8 +435,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -387,25 +447,17 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 agent_id
 
 string | null
-
-​
 
 test_id
 
 string | null
 
-​
-
 batch_id
 
 string | null
-
-​
 
 status
 
@@ -423,8 +475,6 @@ Available options:
 
 `error`
 
-​
-
 test_type
 
 enum<string> | null
@@ -437,13 +487,9 @@ Available options:
 
 `simulation`
 
-​
-
 cursor
 
 string | null
-
-​
 
 page
 
@@ -453,15 +499,11 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
 
 default:false
-
-​
 
 page_size
 
@@ -479,8 +521,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 runs
 
 PublicAgentTestRunSummary · object[]
@@ -489,21 +529,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

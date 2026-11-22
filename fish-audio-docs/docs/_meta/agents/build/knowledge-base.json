@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/agents/build/knowledge-base/",
   "file": "agents/build/knowledge-base.md",
-  "title": "Knowledge Base - Fish Audio",
+  "title": "Voice Agent Knowledge Base - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-20T16:17:52.382238+00:00"
+  "fetched_at": "2026-11-22T15:30:42.322403+00:00"
 }

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/protocol/
-title: Wire Protocol - Fish Audio
+title: Voice Agents Wire Protocol - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:48.008226+00:00
+fetched_at: 2026-11-22T15:30:41.719920+00:00
 ---
 
-# Wire Protocol - Fish Audio
+# Voice Agents Wire Protocol - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/protocol/
 
@@ -30,7 +30,7 @@ Back to top
 
 Deploy
 
-# Wire Protocol
+# Voice Agents Wire Protocol
 
 Copy pageCopy page
 
@@ -285,4 +285,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/deploy/protocol.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/deploy/protocol)
 
-[React SDK](https://docs.fish.audio/agents/deploy/react-sdk)[Phone Numbers](https://docs.fish.audio/agents/telephony/phone-numbers)
+[React Native Widget](https://docs.fish.audio/agents/deploy/react-native-widget)[Phone Numbers](https://docs.fish.audio/agents/telephony/phone-numbers)

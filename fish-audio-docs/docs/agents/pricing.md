@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/pricing/
-title: Pricing & Limits - Fish Audio
+title: Voice Agents Pricing & Limits - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:30:12.316534+00:00
+fetched_at: 2026-11-22T15:30:40.772652+00:00
 ---
 
-# Pricing & Limits - Fish Audio
+# Voice Agents Pricing & Limits - Fish Audio
 
 > Source: https://docs.fish.audio/agents/pricing/
 
@@ -34,7 +34,7 @@ Back to top
 
 Get Started
 
-# Pricing & Limits
+# Voice Agents Pricing & Limits
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/quickstart/
-title: Quickstart - Fish Audio
+title: Voice Agents Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.515635+00:00
+fetched_at: 2026-11-22T15:30:40.553962+00:00
 ---
 
-# Quickstart - Fish Audio
+# Voice Agents Quickstart - Fish Audio
 
 > Source: https://docs.fish.audio/agents/quickstart/
 
@@ -21,7 +21,7 @@ Back to top
 
 Get Started
 
-# Quickstart
+# Voice Agents Quickstart
 
 Copy pageCopy page
 

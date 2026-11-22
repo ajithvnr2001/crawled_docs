@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/monitor/webhooks/
-title: Webhooks - Fish Audio
+title: Voice Agent Webhooks - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:08.866181+00:00
+fetched_at: 2026-11-22T15:30:40.690387+00:00
 ---
 
-# Webhooks - Fish Audio
+# Voice Agent Webhooks - Fish Audio
 
 > Source: https://docs.fish.audio/agents/monitor/webhooks/
 
@@ -31,7 +31,7 @@ Back to top
 
 Monitor
 
-# Webhooks
+# Voice Agent Webhooks
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-agent-versions/
-title: List Agent Versions - Fish Audio
+title: List Voice Agent Versions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:11.088515+00:00
+fetched_at: 2026-11-22T15:30:36.322455+00:00
 ---
 
-# List Agent Versions - Fish Audio
+# List Voice Agent Versions - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-agent-versions/
 
@@ -168,7 +168,7 @@ cURL
 
 Agents
 
-# List Agent Versions
+# List Voice Agent Versions
 
 Copy pageCopy page
 
@@ -359,8 +359,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -373,8 +371,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
@@ -383,13 +379,9 @@ required
 
 #### Query Parameters
 
-​
-
 cursor
 
 string | null
-
-​
 
 page
 
@@ -399,15 +391,11 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
 
 default:false
-
-​
 
 page_size
 
@@ -425,8 +413,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 versions
 
 PublicAgentVersionSummary · object[]
@@ -435,21 +421,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

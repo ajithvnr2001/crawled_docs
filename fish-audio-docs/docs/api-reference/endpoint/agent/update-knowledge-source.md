@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-source/
-title: Update Knowledge Source - Fish Audio
+title: Update Voice Agent Knowledge Source - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:16.321933+00:00
+fetched_at: 2026-11-22T15:30:34.441273+00:00
 ---
 
-# Update Knowledge Source - Fish Audio
+# Update Voice Agent Knowledge Source - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/update-knowledge-source/
 
@@ -20,14 +20,15 @@ cURL
       --header 'Content-Type: multipart/form-data' \
       --form 'source=<string>' \
       --form 'name=<string>' \
-      --form 'description=<string>'
+      --form 'description=<string>' \
+      --form 'folder_id=<string>'
     
     
     import requests
     
     url = "https://api.fish.audio/v1/agent/knowledge-sources/{source_id}"
     
-    payload = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
+    payload = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
     headers = {
         "Authorization": "Bearer <token>",
         "Content-Type": "multipart/form-data"
@@ -42,6 +43,7 @@ cURL
     form.append('source', '<string>');
     form.append('name', '<string>');
     form.append('description', '<string>');
+    form.append('folder_id', '<string>');
     
     const options = {method: 'PATCH', headers: {Authorization: 'Bearer <token>'}};
     
@@ -65,7 +67,7 @@ cURL
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "PATCH",
-      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--",
+      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--",
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
         "Content-Type: multipart/form-data"
@@ -97,7 +99,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/knowledge-sources/{source_id}"
     
-    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
+    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -115,7 +117,7 @@ cURL
     
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/knowledge-sources/{source_id}")
       .header("Authorization", "Bearer <token>")
-      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
+      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
       .asString();
     
     
@@ -129,7 +131,7 @@ cURL
     
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
-    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
+    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
     
     response = http.request(request)
     puts response.read_body
@@ -158,7 +160,8 @@ cURL
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
       "content": "<string>",
-      "description": ""
+      "description": "",
+      "folder_id": "<string>"
     }
     
     
@@ -198,7 +201,7 @@ cURL
 
 Knowledge Sources
 
-# Update Knowledge Source
+# Update Voice Agent Knowledge Source
 
 Copy pageCopy page
 
@@ -237,14 +240,15 @@ cURL
       --header 'Content-Type: multipart/form-data' \
       --form 'source=<string>' \
       --form 'name=<string>' \
-      --form 'description=<string>'
+      --form 'description=<string>' \
+      --form 'folder_id=<string>'
     
     
     import requests
     
     url = "https://api.fish.audio/v1/agent/knowledge-sources/{source_id}"
     
-    payload = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
+    payload = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
     headers = {
         "Authorization": "Bearer <token>",
         "Content-Type": "multipart/form-data"
@@ -259,6 +263,7 @@ cURL
     form.append('source', '<string>');
     form.append('name', '<string>');
     form.append('description', '<string>');
+    form.append('folder_id', '<string>');
     
     const options = {method: 'PATCH', headers: {Authorization: 'Bearer <token>'}};
     
@@ -282,7 +287,7 @@ cURL
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "PATCH",
-      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--",
+      CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--",
       CURLOPT_HTTPHEADER => [
         "Authorization: Bearer <token>",
         "Content-Type: multipart/form-data"
@@ -314,7 +319,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/knowledge-sources/{source_id}"
     
-    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
+    	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
     
     	req, _ := http.NewRequest("PATCH", url, payload)
     
@@ -332,7 +337,7 @@ cURL
     
     HttpResponse<String> response = Unirest.patch("https://api.fish.audio/v1/agent/knowledge-sources/{source_id}")
       .header("Authorization", "Bearer <token>")
-      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
+      .body("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--")
       .asString();
     
     
@@ -346,7 +351,7 @@ cURL
     
     request = Net::HTTP::Patch.new(url)
     request["Authorization"] = 'Bearer <token>'
-    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
+    request.body = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"source\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n<string>\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"folder_id\"\r\n\r\n<string>\r\n-----011000010111000001101001--"
     
     response = http.request(request)
     puts response.read_body
@@ -375,7 +380,8 @@ cURL
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
       "content": "<string>",
-      "description": ""
+      "description": "",
+      "folder_id": "<string>"
     }
     
     
@@ -415,8 +421,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -429,8 +433,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 source_id
 
 string
@@ -441,23 +443,23 @@ required
 
 multipart/form-data
 
-​
-
 source
 
 file | null
-
-​
 
 name
 
 string | null
 
-​
-
 description
 
 string | null
+
+folder_id
+
+string | null
+
+Move the source into this knowledge folder, which must be in the source's own workspace. `root` (or an empty value) takes it out of its folder; omit to leave it where it is. Moving never creates a new revision. 404 if the folder does not exist there.
 
 #### Response
 
@@ -467,15 +469,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 knowledge_source_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -483,15 +481,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 file_name
 
@@ -499,23 +493,17 @@ string
 
 required
 
-​
-
 size_bytes
 
 integer
 
 required
 
-​
-
 chunk_count
 
 integer
 
 required
-
-​
 
 revision_number
 
@@ -525,23 +513,17 @@ required
 
 Increments every time the content is replaced. Drafts always use the newest revision; published versions pin the revision current at publish time.
 
-​
-
 created_at
 
 string<date-time>
 
 required
 
-​
-
 updated_at
 
 string<date-time>
 
 required
-
-​
 
 content
 
@@ -551,13 +533,17 @@ required
 
 The full current text content.
 
-​
-
 description
 
 string
 
 default:""
+
+folder_id
+
+string | null
+
+The knowledge folder this source is in; null at the root. Folders are managed with `/v1/agent/knowledge-folders`.
 
 Was this page helpful?
 

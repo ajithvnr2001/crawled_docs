@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/agents/pricing/",
   "file": "agents/pricing.md",
-  "title": "Pricing & Limits - Fish Audio",
+  "title": "Voice Agents Pricing & Limits - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-21T15:30:12.316918+00:00"
+  "fetched_at": "2026-11-22T15:30:40.773035+00:00"
 }

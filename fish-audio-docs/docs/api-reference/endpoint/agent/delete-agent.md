@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/delete-agent/
-title: Delete Agent - Fish Audio
+title: Delete Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:06.535896+00:00
+fetched_at: 2026-11-22T15:30:38.480415+00:00
 ---
 
-# Delete Agent - Fish Audio
+# Delete Voice Agent - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/delete-agent/
 
@@ -141,7 +141,7 @@ cURL
 
 Agents
 
-# Delete Agent
+# Delete Voice Agent
 
 Copy pageCopy page
 
@@ -301,8 +301,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -314,8 +312,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 agent_id
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/llm-fallback/
-title: LLM Fallback - Fish Audio
+title: LLM Fallback for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.926236+00:00
+fetched_at: 2026-11-22T15:30:42.393555+00:00
 ---
 
-# LLM Fallback - Fish Audio
+# LLM Fallback for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/llm-fallback/
 
@@ -32,7 +32,7 @@ Back to top
 
 Build
 
-# LLM Fallback
+# LLM Fallback for Voice Agents
 
 Copy pageCopy page
 

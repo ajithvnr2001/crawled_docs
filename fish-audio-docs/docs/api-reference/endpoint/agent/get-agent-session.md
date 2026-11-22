@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-agent-session/
-title: Get Agent Session - Fish Audio
+title: Get Voice Agent Session - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:06.996506+00:00
+fetched_at: 2026-11-22T15:30:38.289810+00:00
 ---
 
-# Get Agent Session - Fish Audio
+# Get Voice Agent Session - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-agent-session/
 
@@ -137,8 +137,10 @@ cURL
       "dial_status": "answered",
       "answered_by": "human",
       "caller_number": "<string>",
+      "caller_id_withheld": true,
       "dialed_number": "<string>",
       "sip_call_id": "<string>",
+      "call_sid": "<string>",
       "timezone": "<string>",
       "started_at": "<string>",
       "ended_at": "<string>",
@@ -164,6 +166,7 @@ cURL
           "message_generation_id": "<string>",
           "turn_id": 123,
           "call_count": 0,
+          "unbilled_call_count": 0,
           "usage_complete": false,
           "call_ids": [
             "<string>"
@@ -196,6 +199,7 @@ cURL
             "message_generation_id": "<string>",
             "turn_id": 123,
             "call_count": 0,
+            "unbilled_call_count": 0,
             "usage_complete": false,
             "call_ids": [
               "<string>"
@@ -216,6 +220,14 @@ cURL
           },
           "type": "message",
           "input_medium": "dtmf",
+          "fallback_reason": "llm_error",
+          "answered_by_model": {
+            "model": "<string>",
+            "custom": {
+              "base_url": "<string>",
+              "model": "<string>"
+            }
+          },
           "turn_id": 123,
           "created_at": "<string>"
         }
@@ -238,7 +250,58 @@ cURL
             "rationale": ""
           }
         ]
-      }
+      },
+      "llm_endpoint_errors": [
+        {
+          "type": "http_error",
+          "consecutive_failures": 123,
+          "occurred_at": "<string>",
+          "turn_id": 123,
+          "reason": "dns_failed",
+          "status_code": 123,
+          "response_body": "<string>",
+          "duration_ms": 123
+        }
+      ],
+      "llm_fallbacks": [
+        {
+          "from": {
+            "model": "<string>",
+            "custom": {
+              "base_url": "<string>",
+              "model": "<string>"
+            }
+          },
+          "to": {
+            "model": "<string>",
+            "custom": {
+              "base_url": "<string>",
+              "model": "<string>"
+            }
+          },
+          "reason": "error",
+          "occurred_at": "<string>",
+          "turn_id": 123
+        }
+      ],
+      "engine_fallbacks": [
+        {
+          "from": {
+            "engine": "fish_tts",
+            "tts_model": "<string>",
+            "voice_id": "<string>"
+          },
+          "to": {
+            "engine": "fish_tts",
+            "tts_model": "<string>",
+            "voice_id": "<string>"
+          },
+          "reason": "unsupported_language",
+          "occurred_at": "<string>",
+          "detail": "<string>",
+          "message": "<string>"
+        }
+      ]
     }
     
     
@@ -271,7 +334,7 @@ cURL
 
 Sessions
 
-# Get Agent Session
+# Get Voice Agent Session
 
 Copy pageCopy page
 
@@ -427,8 +490,10 @@ cURL
       "dial_status": "answered",
       "answered_by": "human",
       "caller_number": "<string>",
+      "caller_id_withheld": true,
       "dialed_number": "<string>",
       "sip_call_id": "<string>",
+      "call_sid": "<string>",
       "timezone": "<string>",
       "started_at": "<string>",
       "ended_at": "<string>",
@@ -454,6 +519,7 @@ cURL
           "message_generation_id": "<string>",
           "turn_id": 123,
           "call_count": 0,
+          "unbilled_call_count": 0,
           "usage_complete": false,
           "call_ids": [
             "<string>"
@@ -486,6 +552,7 @@ cURL
             "message_generation_id": "<string>",
             "turn_id": 123,
             "call_count": 0,
+            "unbilled_call_count": 0,
             "usage_complete": false,
             "call_ids": [
               "<string>"
@@ -506,6 +573,14 @@ cURL
           },
           "type": "message",
           "input_medium": "dtmf",
+          "fallback_reason": "llm_error",
+          "answered_by_model": {
+            "model": "<string>",
+            "custom": {
+              "base_url": "<string>",
+              "model": "<string>"
+            }
+          },
           "turn_id": 123,
           "created_at": "<string>"
         }
@@ -528,7 +603,58 @@ cURL
             "rationale": ""
           }
         ]
-      }
+      },
+      "llm_endpoint_errors": [
+        {
+          "type": "http_error",
+          "consecutive_failures": 123,
+          "occurred_at": "<string>",
+          "turn_id": 123,
+          "reason": "dns_failed",
+          "status_code": 123,
+          "response_body": "<string>",
+          "duration_ms": 123
+        }
+      ],
+      "llm_fallbacks": [
+        {
+          "from": {
+            "model": "<string>",
+            "custom": {
+              "base_url": "<string>",
+              "model": "<string>"
+            }
+          },
+          "to": {
+            "model": "<string>",
+            "custom": {
+              "base_url": "<string>",
+              "model": "<string>"
+            }
+          },
+          "reason": "error",
+          "occurred_at": "<string>",
+          "turn_id": 123
+        }
+      ],
+      "engine_fallbacks": [
+        {
+          "from": {
+            "engine": "fish_tts",
+            "tts_model": "<string>",
+            "voice_id": "<string>"
+          },
+          "to": {
+            "engine": "fish_tts",
+            "tts_model": "<string>",
+            "voice_id": "<string>"
+          },
+          "reason": "unsupported_language",
+          "occurred_at": "<string>",
+          "detail": "<string>",
+          "message": "<string>"
+        }
+      ]
     }
     
     
@@ -561,8 +687,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -574,8 +698,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 session_id
 
@@ -591,15 +713,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 session_id
 
 string
 
 required
-
-​
 
 agent_id
 
@@ -607,15 +725,11 @@ string
 
 required
 
-​
-
 agent_name
 
 string
 
 required
-
-​
 
 status
 
@@ -635,8 +749,6 @@ Available options:
 
 `unknown`
 
-​
-
 source
 
 enum<string>
@@ -651,9 +763,9 @@ Available options:
 
 `public`, 
 
-`phone`
+`phone`, 
 
-​
+`whatsapp`
 
 created_at
 
@@ -661,19 +773,13 @@ string
 
 required
 
-​
-
 name
 
 string | null
 
-​
-
 end_user_id
 
 string | null
-
-​
 
 end_reason
 
@@ -703,8 +809,6 @@ Available options:
 
 `dial_failed`
 
-​
-
 direction
 
 enum<string>
@@ -716,8 +820,6 @@ Available options:
 `inbound`, 
 
 `outbound`
-
-​
 
 dial_status
 
@@ -733,8 +835,6 @@ Available options:
 
 `failed`
 
-​
-
 answered_by
 
 enum<string> | null
@@ -747,67 +847,53 @@ Available options:
 
 `unknown`
 
-​
-
 caller_number
 
 string | null
 
-​
+caller_id_withheld
+
+boolean | null
 
 dialed_number
 
 string | null
 
-​
-
 sip_call_id
 
 string | null
 
-​
+call_sid
+
+string | null
 
 timezone
 
 string | null
 
-​
-
 started_at
 
 string | null
-
-​
 
 ended_at
 
 string | null
 
-​
-
 duration_seconds
 
 integer | null
-
-​
 
 participant_identity
 
 string | null
 
-​
-
 agent_participant_identity
 
 string | null
 
-​
-
 agent_joined_at
 
 string | null
-
-​
 
 metadata
 
@@ -815,13 +901,9 @@ Metadata · object
 
 Show child attributes
 
-​
-
 content_purged_at
 
 string | null
-
-​
 
 keypad_menu
 
@@ -831,15 +913,11 @@ How the keypad menu of an inbound phone call ended. `outcome` is `selected` when
 
 Show child attributes
 
-​
-
 unattributed_llm_usage
 
 LLMMessageUsage · object[]
 
 Show child attributes
-
-​
 
 items
 
@@ -860,13 +938,29 @@ One transcript message; system messages never surface here.
 
 Show child attributes
 
-​
-
 analysis
 
 AgentSessionAnalysisResult · object | null
 
 Public trim of the post-call analysis record: outcomes only, no run internals (model, tokens, config hash).
+
+Show child attributes
+
+llm_endpoint_errors
+
+AgentSessionLlmEndpointError · object[]
+
+Show child attributes
+
+llm_fallbacks
+
+AgentSessionLlmFallback · object[]
+
+Show child attributes
+
+engine_fallbacks
+
+AgentSessionEngineFallback · object[]
 
 Show child attributes
 

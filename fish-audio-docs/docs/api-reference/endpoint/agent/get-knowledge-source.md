@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-knowledge-source/
-title: Get Knowledge Source - Fish Audio
+title: Get Voice Agent Knowledge Source - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:08.888665+00:00
+fetched_at: 2026-11-22T15:30:37.489572+00:00
 ---
 
-# Get Knowledge Source - Fish Audio
+# Get Voice Agent Knowledge Source - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-knowledge-source/
 
@@ -132,7 +132,8 @@ cURL
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
       "content": "<string>",
-      "description": ""
+      "description": "",
+      "folder_id": "<string>"
     }
     
     
@@ -158,7 +159,7 @@ cURL
 
 Knowledge Sources
 
-# Get Knowledge Source
+# Get Voice Agent Knowledge Source
 
 Copy pageCopy page
 
@@ -309,7 +310,8 @@ cURL
       "created_at": "2023-11-07T05:31:56Z",
       "updated_at": "2023-11-07T05:31:56Z",
       "content": "<string>",
-      "description": ""
+      "description": "",
+      "folder_id": "<string>"
     }
     
     
@@ -335,8 +337,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -348,8 +348,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 source_id
 
@@ -365,15 +363,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 knowledge_source_id
 
 string
 
 required
-
-​
 
 workspace_id
 
@@ -381,15 +375,11 @@ string
 
 required
 
-​
-
 name
 
 string
 
 required
-
-​
 
 file_name
 
@@ -397,23 +387,17 @@ string
 
 required
 
-​
-
 size_bytes
 
 integer
 
 required
 
-​
-
 chunk_count
 
 integer
 
 required
-
-​
 
 revision_number
 
@@ -423,23 +407,17 @@ required
 
 Increments every time the content is replaced. Drafts always use the newest revision; published versions pin the revision current at publish time.
 
-​
-
 created_at
 
 string<date-time>
 
 required
 
-​
-
 updated_at
 
 string<date-time>
 
 required
-
-​
 
 content
 
@@ -449,13 +427,17 @@ required
 
 The full current text content.
 
-​
-
 description
 
 string
 
 default:""
+
+folder_id
+
+string | null
+
+The knowledge folder this source is in; null at the root. Folders are managed with `/v1/agent/knowledge-folders`.
 
 Was this page helpful?
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/detach-test/
-title: Detach Test - Fish Audio
+title: Detach Test from Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:06.391154+00:00
+fetched_at: 2026-11-22T15:30:38.106859+00:00
 ---
 
-# Detach Test - Fish Audio
+# Detach Test from Voice Agent - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/detach-test/
 
@@ -150,7 +150,7 @@ cURL
 
 Tests
 
-# Detach Test
+# Detach Test from Voice Agent
 
 Copy pageCopy page
 
@@ -327,8 +327,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -341,15 +339,11 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 test_id
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-agent-sessions/
-title: List Agent Sessions - Fish Audio
+title: List Voice Agent Sessions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:10.262995+00:00
+fetched_at: 2026-11-22T15:30:36.422692+00:00
 ---
 
-# List Agent Sessions - Fish Audio
+# List Voice Agent Sessions - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-agent-sessions/
 
@@ -137,8 +137,10 @@ cURL
           "dial_status": "answered",
           "answered_by": "human",
           "caller_number": "<string>",
+          "caller_id_withheld": true,
           "dialed_number": "<string>",
           "sip_call_id": "<string>",
+          "call_sid": "<string>",
           "timezone": "<string>",
           "started_at": "<string>",
           "ended_at": "<string>",
@@ -187,7 +189,7 @@ cURL
 
 Sessions
 
-# List Agent Sessions
+# List Voice Agent Sessions
 
 Copy pageCopy page
 
@@ -339,8 +341,10 @@ cURL
           "dial_status": "answered",
           "answered_by": "human",
           "caller_number": "<string>",
+          "caller_id_withheld": true,
           "dialed_number": "<string>",
           "sip_call_id": "<string>",
+          "call_sid": "<string>",
           "timezone": "<string>",
           "started_at": "<string>",
           "ended_at": "<string>",
@@ -389,8 +393,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -403,13 +405,9 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 agent_id
 
 string | null
-
-​
 
 status
 
@@ -417,15 +415,11 @@ string | null
 
 Comma-separated status filter (pending/active/completed/failed/unknown). Default: every status.
 
-​
-
 end_reason
 
 string | null
 
 Comma-separated end reason filter (user_hangup/agent_hangup/escalated/conversation_timeout/heartbeat_timeout/agent_join_timeout/internal_error/llm_endpoint_failure/room_join_timeout/cancelled/dial_failed).
-
-​
 
 direction
 
@@ -433,15 +427,11 @@ string | null
 
 Filter by call direction (inbound/outbound). Sessions predating the field count as inbound.
 
-​
-
 caller_number
 
 string | null
 
 Exact-match caller E.164 (phone sessions only).
-
-​
 
 sip_call_id
 
@@ -449,33 +439,29 @@ string | null
 
 Exact-match SIP Call-ID of the call's INVITE, for looking up the session behind a carrier CDR entry (phone sessions only).
 
-​
-
 end_user_id
 
 string | null
 
 Exact-match end_user_id set at session creation.
 
-​
+call_sid
+
+string | null
+
+Exact-match carrier call id (Twilio's CallSid on inbound calls through a Twilio number), the call_sid the conversation_init request carries, for finding the session behind that request.
 
 created_after
 
 string | null
 
-​
-
 created_before
 
 string | null
 
-​
-
 cursor
 
 string | null
-
-​
 
 page
 
@@ -485,8 +471,6 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
@@ -494,8 +478,6 @@ boolean
 default:false
 
 Also count the filtered set on the cursor path.
-
-​
 
 page_size
 
@@ -513,8 +495,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 sessions
 
 AgentSessionSummary · object[]
@@ -523,21 +503,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

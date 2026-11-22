@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/custom-llm/
-title: Custom LLM - Fish Audio
+title: Custom LLM for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:49.419054+00:00
+fetched_at: 2026-11-22T15:30:42.691379+00:00
 ---
 
-# Custom LLM - Fish Audio
+# Custom LLM for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/custom-llm/
 
@@ -24,7 +24,7 @@ Back to top
 
 Build
 
-# Custom LLM
+# Custom LLM for Voice Agents
 
 Copy pageCopy page
 
@@ -202,7 +202,6 @@ Voice conversations are latency sensitive:
 
 ## Limitations
 
-  * Single Turn and Tool [agent tests](https://docs.fish.audio/agents/test/agent-tests) are not supported. A scripted test run refuses to execute rather than substitute a platform model for yours. Simulation tests run on your endpoint.
   * The prompt-level safety guardrails still ride the assembled context, but your model decides whether to honor them.
 
 

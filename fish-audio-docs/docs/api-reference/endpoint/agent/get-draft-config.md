@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-draft-config/
-title: Get Draft Config - Fish Audio
+title: Get Voice Agent Draft Config - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:08.595481+00:00
+fetched_at: 2026-11-22T15:30:37.907835+00:00
 ---
 
-# Get Draft Config - Fish Audio
+# Get Voice Agent Draft Config - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-draft-config/
 
@@ -131,14 +131,22 @@ cURL
         "first_message_prompt": "Greet the caller and ask what you can help with."
       },
       "voice": {
-        "voice_id": "b347db033a6549378b48d00acb0d06cd",
+        "voice_id": "<string>",
         "speaking_language": "en",
         "expressive": false,
         "speed": 1,
         "tts_model": "s2.1-pro",
+        "engine": "fish_tts",
+        "live3_prompt": "<string>",
+        "effect": "none",
         "pronunciation_dictionary_ids": [
           "<string>"
-        ]
+        ],
+        "background_sound": {
+          "preset": "off",
+          "volume": 0.15,
+          "custom_asset_id": "<string>"
+        }
       },
       "asr": {
         "model": "deepgram:nova-3",
@@ -156,10 +164,25 @@ cURL
         "interruptible": true,
         "interruption_sensitivity": "balanced",
         "interruption_ignore_phrases": [],
+        "backchannel": {
+          "enabled": true,
+          "strength": 5
+        },
         "speculative_response": true,
-        "reengage_enabled": false,
+        "reengage": {
+          "enabled": false,
+          "steps": [
+            {
+              "after_seconds": 123,
+              "message": ""
+            }
+          ],
+          "exhausted_action": "wait",
+          "exhausted_after_seconds": 10
+        },
         "hangup_after_seconds": 60,
-        "hangup_farewell_enabled": false,
+        "hangup_farewell_mode": "off",
+        "hangup_farewell_message": "",
         "record_audio": true,
         "timezone": "",
         "transfer_destinations": [],
@@ -186,6 +209,14 @@ cURL
           "enabled": false,
           "terminator": "#",
           "inter_digit_timeout_seconds": 2
+        },
+        "echo_guard": {
+          "web_voice": true,
+          "phone_inbound": true,
+          "phone_outbound": true
+        },
+        "turn_detector": {
+          "model": "fish"
         }
       },
       "tools": {
@@ -204,12 +235,14 @@ cURL
         "conversation_init": {
           "url": "<string>",
           "has_secret": false,
+          "previous_secret_expires_at": "2023-11-07T05:31:56Z",
           "timeout_seconds": 5
         },
         "post_call": [
           {
             "url": "<string>",
-            "has_secret": false
+            "has_secret": false,
+            "previous_secret_expires_at": "2023-11-07T05:31:56Z"
           }
         ]
       },
@@ -244,14 +277,42 @@ cURL
       },
       "guardrails": {
         "focus": false,
-        "manipulation": false
+        "manipulation": false,
+        "pre_tool_speech": false
+      },
+      "context": {
+        "current_time": true
       },
       "llm": {
-        "model": "google/gemini-3.6-flash",
+        "model": "openai/gpt-6.1-terra-fast",
         "custom": {
           "base_url": "<string>",
           "model": "<string>",
-          "api_key": null
+          "api_key": null,
+          "headers": {}
+        },
+        "fallback": {
+          "mode": "platform",
+          "models": [
+            {
+              "model": "google/gemini-3.5-flash-lite",
+              "custom": {
+                "base_url": "<string>",
+                "model": "<string>",
+                "api_key": null,
+                "headers": {}
+              },
+              "ttft_timeout_ms": 123,
+              "total_timeout_ms": 123,
+              "parallel": {
+                "kick_in_ms": 1500
+              }
+            }
+          ],
+          "primary": {
+            "ttft_timeout_ms": 123,
+            "total_timeout_ms": 123
+          }
         }
       },
       "updated_at": "2023-11-07T05:31:56Z",
@@ -284,7 +345,7 @@ cURL
 
 Agents
 
-# Get Draft Config
+# Get Voice Agent Draft Config
 
 Copy pageCopy page
 
@@ -438,14 +499,22 @@ cURL
         "first_message_prompt": "Greet the caller and ask what you can help with."
       },
       "voice": {
-        "voice_id": "b347db033a6549378b48d00acb0d06cd",
+        "voice_id": "<string>",
         "speaking_language": "en",
         "expressive": false,
         "speed": 1,
         "tts_model": "s2.1-pro",
+        "engine": "fish_tts",
+        "live3_prompt": "<string>",
+        "effect": "none",
         "pronunciation_dictionary_ids": [
           "<string>"
-        ]
+        ],
+        "background_sound": {
+          "preset": "off",
+          "volume": 0.15,
+          "custom_asset_id": "<string>"
+        }
       },
       "asr": {
         "model": "deepgram:nova-3",
@@ -463,10 +532,25 @@ cURL
         "interruptible": true,
         "interruption_sensitivity": "balanced",
         "interruption_ignore_phrases": [],
+        "backchannel": {
+          "enabled": true,
+          "strength": 5
+        },
         "speculative_response": true,
-        "reengage_enabled": false,
+        "reengage": {
+          "enabled": false,
+          "steps": [
+            {
+              "after_seconds": 123,
+              "message": ""
+            }
+          ],
+          "exhausted_action": "wait",
+          "exhausted_after_seconds": 10
+        },
         "hangup_after_seconds": 60,
-        "hangup_farewell_enabled": false,
+        "hangup_farewell_mode": "off",
+        "hangup_farewell_message": "",
         "record_audio": true,
         "timezone": "",
         "transfer_destinations": [],
@@ -493,6 +577,14 @@ cURL
           "enabled": false,
           "terminator": "#",
           "inter_digit_timeout_seconds": 2
+        },
+        "echo_guard": {
+          "web_voice": true,
+          "phone_inbound": true,
+          "phone_outbound": true
+        },
+        "turn_detector": {
+          "model": "fish"
         }
       },
       "tools": {
@@ -511,12 +603,14 @@ cURL
         "conversation_init": {
           "url": "<string>",
           "has_secret": false,
+          "previous_secret_expires_at": "2023-11-07T05:31:56Z",
           "timeout_seconds": 5
         },
         "post_call": [
           {
             "url": "<string>",
-            "has_secret": false
+            "has_secret": false,
+            "previous_secret_expires_at": "2023-11-07T05:31:56Z"
           }
         ]
       },
@@ -551,14 +645,42 @@ cURL
       },
       "guardrails": {
         "focus": false,
-        "manipulation": false
+        "manipulation": false,
+        "pre_tool_speech": false
+      },
+      "context": {
+        "current_time": true
       },
       "llm": {
-        "model": "google/gemini-3.6-flash",
+        "model": "openai/gpt-6.1-terra-fast",
         "custom": {
           "base_url": "<string>",
           "model": "<string>",
-          "api_key": null
+          "api_key": null,
+          "headers": {}
+        },
+        "fallback": {
+          "mode": "platform",
+          "models": [
+            {
+              "model": "google/gemini-3.5-flash-lite",
+              "custom": {
+                "base_url": "<string>",
+                "model": "<string>",
+                "api_key": null,
+                "headers": {}
+              },
+              "ttft_timeout_ms": 123,
+              "total_timeout_ms": 123,
+              "parallel": {
+                "kick_in_ms": 1500
+              }
+            }
+          ],
+          "primary": {
+            "ttft_timeout_ms": 123,
+            "total_timeout_ms": 123
+          }
         }
       },
       "updated_at": "2023-11-07T05:31:56Z",
@@ -591,8 +713,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -604,8 +724,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 agent_id
 
@@ -621,15 +739,11 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 config_hash
 
@@ -637,9 +751,7 @@ string
 
 required
 
-Content hash of the draft; equal to a version's config_hash when the draft has no unpublished changes.
-
-​
+Opaque content hash of this configuration as stored. On a draft it is the config_hash the next publish gives the version, so it equals the live version's config_hash when nothing is unpublished. Pass it to Publish Agent as expected_config_hash.
 
 prompt
 
@@ -649,19 +761,15 @@ required
 
 Show child attributes
 
-​
-
 voice
 
-AgentVoiceConfigView · object
+PublicAgentVoiceConfig · object
 
 required
 
-Read shape of the voice section. The ASR fields that moved to the asr section stay mirrored here, deprecated, so clients written before the split keep reading them.
+The voice section as the public API reads it: without the console-only sentence buffering switch, live-3 playout and live-3 self-ASR model.
 
 Show child attributes
-
-​
 
 asr
 
@@ -673,8 +781,6 @@ The asr section as the public API reads it: without the console-only noise cance
 
 Show child attributes
 
-​
-
 conversation
 
 AgentConversationConfig · object
@@ -682,8 +788,6 @@ AgentConversationConfig · object
 required
 
 Show child attributes
-
-​
 
 tools
 
@@ -693,8 +797,6 @@ required
 
 Show child attributes
 
-​
-
 webhooks
 
 PublicAgentWebhooksConfig · object
@@ -702,8 +804,6 @@ PublicAgentWebhooksConfig · object
 required
 
 Show child attributes
-
-​
 
 knowledge_base
 
@@ -713,8 +813,6 @@ required
 
 Show child attributes
 
-​
-
 analysis
 
 AgentAnalysisConfig · object
@@ -722,8 +820,6 @@ AgentAnalysisConfig · object
 required
 
 Show child attributes
-
-​
 
 guardrails
 
@@ -733,7 +829,15 @@ required
 
 Show child attributes
 
-​
+context
+
+AgentContextConfig · object
+
+required
+
+Facts the platform tells the agent on its own, one switch per fact. The same mechanism as a guardrail with the opposite sign: a guardrail is a prompt addition that constrains, a context switch is one that informs.
+
+Show child attributes
 
 llm
 
@@ -743,15 +847,11 @@ required
 
 Show child attributes
 
-​
-
 updated_at
 
 string<date-time>
 
 required
-
-​
 
 variables
 

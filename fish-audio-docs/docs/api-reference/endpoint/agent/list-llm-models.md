@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models/
-title: List LLM Models - Fish Audio
+title: List Voice Agent LLM Models - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:30:12.580299+00:00
+fetched_at: 2026-11-22T15:30:35.730626+00:00
 ---
 
-# List LLM Models - Fish Audio
+# List Voice Agent LLM Models - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models/
 
@@ -138,7 +138,8 @@ cURL
               "cache_write_5m": "<string>",
               "output": "<string>"
             }
-          }
+          },
+          "reference_latency_ms": 123
         }
       ]
     }
@@ -159,7 +160,7 @@ cURL
 
 LLM Models
 
-# List LLM Models
+# List Voice Agent LLM Models
 
 Copy pageCopy page
 
@@ -312,7 +313,8 @@ cURL
               "cache_write_5m": "<string>",
               "output": "<string>"
             }
-          }
+          },
+          "reference_latency_ms": 123
         }
       ]
     }

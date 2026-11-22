@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/search-available-phone-numbers/
-title: Search Available Phone Numbers - Fish Audio
+title: Search Available Voice Agent Phone Numbers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:15.165764+00:00
+fetched_at: 2026-11-22T15:30:34.663420+00:00
 ---
 
-# Search Available Phone Numbers - Fish Audio
+# Search Available Voice Agent Phone Numbers - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/search-available-phone-numbers/
 
@@ -159,7 +159,7 @@ cURL
 
 Phone Numbers
 
-# Search Available Phone Numbers
+# Search Available Voice Agent Phone Numbers
 
 Copy pageCopy page
 
@@ -333,8 +333,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -347,8 +345,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 country_code
 
 string
@@ -357,15 +353,11 @@ default:US
 
 ISO 3166-1 alpha-2 country code; `US` or `CA`.
 
-​
-
 area_code
 
 string | null
 
 Restrict to one area code, e.g. 415.
-
-​
 
 number_type
 
@@ -380,8 +372,6 @@ Available options:
 `local`, 
 
 `toll_free`
-
-​
 
 provider
 
@@ -399,8 +389,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 available_phone_numbers
 
 Available Phone Numbers · object[]
@@ -415,4 +403,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/api-reference/endpoint/agent/search-available-phone-numbers.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/endpoint/agent/search-available-phone-numbers)
 
-[List Agents Using Knowledge Source](https://docs.fish.audio/api-reference/endpoint/agent/list-agents-using-knowledge-source)[List Phone Numbers](https://docs.fish.audio/api-reference/endpoint/agent/list-phone-numbers)
+[List LLM Models](https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models)[List Phone Numbers](https://docs.fish.audio/api-reference/endpoint/agent/list-phone-numbers)

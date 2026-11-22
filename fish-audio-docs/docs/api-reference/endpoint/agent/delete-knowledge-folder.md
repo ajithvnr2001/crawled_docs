@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-folder/
-title: Delete Knowledge Folder - Fish Audio
+title: Delete Voice Agent Knowledge Folder - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.104414+00:00
+fetched_at: 2026-11-22T15:30:38.676172+00:00
 ---
 
-# Delete Knowledge Folder - Fish Audio
+# Delete Voice Agent Knowledge Folder - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-folder/
 
@@ -141,7 +141,7 @@ cURL
 
 Knowledge Folders
 
-# Delete Knowledge Folder
+# Delete Voice Agent Knowledge Folder
 
 Copy pageCopy page
 

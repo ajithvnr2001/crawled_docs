@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/configuration/
-title: Configuration - Fish Audio
+title: Voice Agent Configuration - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:42:09.699143+00:00
+fetched_at: 2026-11-22T15:30:42.775246+00:00
 ---
 
-# Configuration - Fish Audio
+# Voice Agent Configuration - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/configuration/
 
@@ -37,7 +37,7 @@ Back to top
 
 Build
 
-# Configuration
+# Voice Agent Configuration
 
 Copy pageCopy page
 
@@ -292,4 +292,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/build/configuration.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/build/configuration)
 
-[Pricing](https://docs.fish.audio/agents/pricing)[Voice & Language](https://docs.fish.audio/agents/build/voice-language)
+[Pricing & Limits](https://docs.fish.audio/agents/pricing)[Voice & Language](https://docs.fish.audio/agents/build/voice-language)

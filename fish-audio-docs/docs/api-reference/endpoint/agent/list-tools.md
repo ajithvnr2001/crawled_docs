@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-tools/
-title: List Tools - Fish Audio
+title: List Voice Agent Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:17.652717+00:00
+fetched_at: 2026-11-22T15:30:35.301277+00:00
 ---
 
-# List Tools - Fish Audio
+# List Voice Agent Tools - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-tools/
 
@@ -173,7 +173,7 @@ cURL
 
 Tools
 
-# List Tools
+# List Voice Agent Tools
 
 Copy pageCopy page
 
@@ -361,8 +361,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -375,15 +373,11 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Query Parameters
 
-​
-
 search
 
 string | null
 
 Case-insensitive match on name.
-
-​
 
 agent_id
 
@@ -391,13 +385,9 @@ string | null
 
 Only tools attached to this agent's draft config.
 
-​
-
 cursor
 
 string | null
-
-​
 
 page
 
@@ -407,15 +397,11 @@ integer | null
 
 Required range: `x >= 1`
 
-​
-
 include_total
 
 boolean
 
 default:false
-
-​
 
 page_size
 
@@ -433,8 +419,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 tools
 
 PublicAgentToolSummary · object[]
@@ -443,21 +427,15 @@ required
 
 Show child attributes
 
-​
-
 has_more
 
 boolean
 
 required
 
-​
-
 next_cursor
 
 string | null
-
-​
 
 total
 

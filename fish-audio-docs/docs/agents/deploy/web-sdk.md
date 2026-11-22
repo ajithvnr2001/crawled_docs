@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/web-sdk/
-title: Web SDK - Fish Audio
+title: Voice Agents Web SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:59:54.539263+00:00
+fetched_at: 2026-11-22T15:30:41.192533+00:00
 ---
 
-# Web SDK - Fish Audio
+# Voice Agents Web SDK - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/web-sdk/
 
@@ -33,7 +33,7 @@ Back to top
 
 Deploy
 
-# Web SDK
+# Voice Agents Web SDK
 
 Copy pageCopy page
 

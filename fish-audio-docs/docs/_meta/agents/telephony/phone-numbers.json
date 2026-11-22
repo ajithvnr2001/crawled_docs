@@ -1,7 +1,7 @@
 {
   "url": "https://docs.fish.audio/agents/telephony/phone-numbers/",
   "file": "agents/telephony/phone-numbers.md",
-  "title": "Phone Numbers - Fish Audio",
+  "title": "Phone Numbers for Voice Agents - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-20T16:17:52.663344+00:00"
+  "fetched_at": "2026-11-22T15:30:39.633003+00:00"
 }

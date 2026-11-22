@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-folders/
-title: List Knowledge Folders - Fish Audio
+title: List Voice Agent Knowledge Folders - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:51.974048+00:00
+fetched_at: 2026-11-22T15:30:36.168467+00:00
 ---
 
-# List Knowledge Folders - Fish Audio
+# List Voice Agent Knowledge Folders - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-folders/
 
@@ -159,7 +159,7 @@ cURL
 
 Knowledge Folders
 
-# List Knowledge Folders
+# List Voice Agent Knowledge Folders
 
 Copy pageCopy page
 

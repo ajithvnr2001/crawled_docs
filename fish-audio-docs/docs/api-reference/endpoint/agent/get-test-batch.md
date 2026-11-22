@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/get-test-batch/
-title: Get Test Batch - Fish Audio
+title: Get Voice Agent Test Batch - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:09.417699+00:00
+fetched_at: 2026-11-22T15:30:37.329300+00:00
 ---
 
-# Get Test Batch - Fish Audio
+# Get Voice Agent Test Batch - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/get-test-batch/
 
@@ -143,7 +143,38 @@ cURL
           "error": "",
           "usage": {
             "agent_replies": 0,
-            "cost_usd": "<string>"
+            "cost_usd": "<string>",
+            "platform_fee": {
+              "rate_usd": "<string>",
+              "amount_usd": "<string>"
+            },
+            "llm": [
+              {
+                "participant": "agent",
+                "model": "<string>",
+                "amount_usd": "<string>",
+                "input": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_read": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_5m": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_1h": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "output": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                }
+              }
+            ]
           },
           "started_at": "2023-11-07T05:31:56Z",
           "finished_at": "2023-11-07T05:31:56Z",
@@ -197,7 +228,19 @@ cURL
               }
             ],
             "summary": "",
-            "passed": false
+            "passed": false,
+            "llm_endpoint_errors": [
+              {
+                "type": "http_error",
+                "consecutive_failures": 123,
+                "occurred_at": "<string>",
+                "turn_id": 123,
+                "reason": "dns_failed",
+                "status_code": 123,
+                "response_body": "<string>",
+                "duration_ms": 123
+              }
+            ]
           },
           "channel": "web_voice",
           "turns_used": 0,
@@ -239,7 +282,7 @@ cURL
 
 Tests
 
-# Get Test Batch
+# Get Voice Agent Test Batch
 
 Copy pageCopy page
 
@@ -409,7 +452,38 @@ cURL
           "error": "",
           "usage": {
             "agent_replies": 0,
-            "cost_usd": "<string>"
+            "cost_usd": "<string>",
+            "platform_fee": {
+              "rate_usd": "<string>",
+              "amount_usd": "<string>"
+            },
+            "llm": [
+              {
+                "participant": "agent",
+                "model": "<string>",
+                "amount_usd": "<string>",
+                "input": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_read": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_5m": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "cache_write_1h": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                },
+                "output": {
+                  "tokens": 123,
+                  "amount_usd": "<string>"
+                }
+              }
+            ]
           },
           "started_at": "2023-11-07T05:31:56Z",
           "finished_at": "2023-11-07T05:31:56Z",
@@ -463,7 +537,19 @@ cURL
               }
             ],
             "summary": "",
-            "passed": false
+            "passed": false,
+            "llm_endpoint_errors": [
+              {
+                "type": "http_error",
+                "consecutive_failures": 123,
+                "occurred_at": "<string>",
+                "turn_id": 123,
+                "reason": "dns_failed",
+                "status_code": 123,
+                "response_body": "<string>",
+                "duration_ms": 123
+              }
+            ]
           },
           "channel": "web_voice",
           "turns_used": 0,
@@ -505,8 +591,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -519,15 +603,11 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 batch_id
 
@@ -543,23 +623,17 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 batch_id
 
 string
 
 required
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 status
 
@@ -575,15 +649,11 @@ Available options:
 
 `completed`
 
-​
-
 completed
 
 boolean
 
 required
-
-​
 
 passed
 
@@ -591,23 +661,17 @@ integer
 
 required
 
-​
-
 failed
 
 integer
 
 required
 
-​
-
 errors
 
 integer
 
 required
-
-​
 
 runs
 
@@ -616,8 +680,6 @@ PublicAgentTestRun · object[]
 required
 
 Show child attributes
-
-​
 
 pass_rate
 

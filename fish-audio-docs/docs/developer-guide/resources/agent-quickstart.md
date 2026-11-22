@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/resources/agent-quickstart/
 title: Coding Assistant Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:51.729842+00:00
+fetched_at: 2026-11-22T15:30:40.080943+00:00
 ---
 
 # Coding Assistant Quickstart - Fish Audio
@@ -145,7 +145,7 @@ Not a coding agent installing a skill, but an autonomous agent, RAG pipeline, or
   * [llms.txt](https://docs.fish.audio/llms.txt): curated documentation index (read this first)
   * [llms-full.txt](https://docs.fish.audio/llms-full.txt): broader context across the whole site
   * [OpenAPI](https://docs.fish.audio/api-reference/openapi.json): REST schemas, parameters, and examples
-  * [AsyncAPI](https://docs.fish.audio/api-reference/asyncapi.yml): the WebSocket streaming protocol
+  * [WebSocket TTS Streaming](https://docs.fish.audio/api-reference/endpoint/websocket/tts-live.md) and [WebSocket Realtime Speech to Text](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime.md): the WebSocket protocols, each page ending with its AsyncAPI schema
 
 
 
@@ -169,7 +169,7 @@ Canonical API facts
 
 Retrieval order
 
-  1. Read [llms.txt](https://docs.fish.audio/llms.txt) for the curated documentation index. 2. Read [llms-full.txt](https://docs.fish.audio/llms-full.txt) when broad site context is needed. 3. Read [OpenAPI](https://docs.fish.audio/api-reference/openapi.json) for REST schemas, parameters, and examples. 4. Read [AsyncAPI](https://docs.fish.audio/api-reference/asyncapi.yml) for the WebSocket streaming protocol. 5. Fetch individual `.md` pages only after narrowing to a specific task.
+  1. Read [llms.txt](https://docs.fish.audio/llms.txt) for the curated documentation index. 2. Read [llms-full.txt](https://docs.fish.audio/llms-full.txt) when broad site context is needed. 3. Read [OpenAPI](https://docs.fish.audio/api-reference/openapi.json) for REST schemas, parameters, and examples. 4. Read [WebSocket TTS Streaming](https://docs.fish.audio/api-reference/endpoint/websocket/tts-live.md) or [WebSocket Realtime Speech to Text](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime.md) for the WebSocket protocols and their AsyncAPI schemas. 5. Fetch individual `.md` pages only after narrowing to a specific task.
 
 
 
@@ -178,7 +178,9 @@ High-value URLs by task
 **API specs**
 
   * [OpenAPI](https://docs.fish.audio/api-reference/openapi.json)
-  * [AsyncAPI](https://docs.fish.audio/api-reference/asyncapi.yml)
+  * [AsyncAPI, WebSocket TTS Streaming](https://docs.fish.audio/api-reference/endpoint/websocket/tts-live.md)
+  * [AsyncAPI, WebSocket TTS with Timestamps](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-live-with-timestamps.md)
+  * [AsyncAPI, WebSocket Realtime Speech to Text](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime.md)
   * [API Introduction](https://docs.fish.audio/api-reference/introduction.md)
 
 **Auth & SDK setup**
@@ -221,13 +223,13 @@ High-value URLs by task
 
 Task routing
 
-  * **Generate speech** → Quick Start, the Text to Speech guide, and `POST /v1/tts`. - **Transcribe audio** → the Speech to Text guide and `POST /v1/asr` with `model: transcribe-1-pro`. - **Clone or manage voices** → Creating Voice Models and the `/model` endpoints. - **Stream audio in real time** → AsyncAPI, WebSocket TTS Streaming, and the realtime guides. - **Pick a model or estimate cost** → Models Overview and Pricing & Rate Limits.
+  * **Generate speech** → Quick Start, the Text to Speech guide, and `POST /v1/tts`. - **Transcribe audio** → the Speech to Text guide and `POST /v1/asr` with `model: transcribe-1-pro`. - **Clone or manage voices** → Creating Voice Models and the `/model` endpoints. - **Stream audio in real time** → WebSocket TTS Streaming and the realtime guides. - **Pick a model or estimate cost** → Models Overview and Pricing & Rate Limits.
 
 
 
 Notes for agents
 
-  * Prefer `openapi.json` and `asyncapi.yml` for machine-readable schemas, except for the `/v1/asr` gaps listed under Canonical API facts.
+  * Prefer `openapi.json` for machine-readable REST schemas, except for the `/v1/asr` gaps listed under Canonical API facts. For a WebSocket endpoint, the AsyncAPI schema is at the end of its page’s `.md` export.
   * Append `.md` to any page URL to fetch the human-authored page as plain Markdown.
   * Some richer pages use interactive MDX widgets. If a fetched page contains UI or component noise, fall back to `llms.txt`, `llms-full.txt`, or the API spec files.
 

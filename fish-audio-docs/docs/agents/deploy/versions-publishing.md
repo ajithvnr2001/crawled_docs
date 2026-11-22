@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/versions-publishing/
-title: Versions & Publishing - Fish Audio
+title: Voice Agent Versions & Publishing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:38:20.983947+00:00
+fetched_at: 2026-11-22T15:30:40.841138+00:00
 ---
 
-# Versions & Publishing - Fish Audio
+# Voice Agent Versions & Publishing - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/versions-publishing/
 
@@ -24,7 +24,7 @@ Back to top
 
 Deploy
 
-# Versions & Publishing
+# Voice Agent Versions & Publishing
 
 Copy pageCopy page
 

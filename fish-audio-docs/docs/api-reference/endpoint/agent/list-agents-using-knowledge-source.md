@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-agents-using-knowledge-source/
-title: List Agents Using Knowledge Source - Fish Audio
+title: List Voice Agents Using Knowledge Source - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:11.653448+00:00
+fetched_at: 2026-11-22T15:30:36.739024+00:00
 ---
 
-# List Agents Using Knowledge Source - Fish Audio
+# List Voice Agents Using Knowledge Source - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-agents-using-knowledge-source/
 
@@ -154,7 +154,7 @@ cURL
 
 Knowledge Sources
 
-# List Agents Using Knowledge Source
+# List Voice Agents Using Knowledge Source
 
 Copy pageCopy page
 
@@ -331,8 +331,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -344,8 +342,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 source_id
 
@@ -361,8 +357,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 agents
 
 PublicDependentAgent · object[]
@@ -372,8 +366,6 @@ required
 Agents that reference this resource in their configuration.
 
 Show child attributes
-
-​
 
 total
 
@@ -387,4 +379,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/api-reference/endpoint/agent/list-agents-using-knowledge-source.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/endpoint/agent/list-agents-using-knowledge-source)
 
-[Delete Knowledge Source](https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-source)[Search Available Phone Numbers](https://docs.fish.audio/api-reference/endpoint/agent/search-available-phone-numbers)
+[Delete Knowledge Source](https://docs.fish.audio/api-reference/endpoint/agent/delete-knowledge-source)[List Knowledge Folders](https://docs.fish.audio/api-reference/endpoint/agent/list-knowledge-folders)

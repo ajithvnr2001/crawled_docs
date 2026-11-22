@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/dynamic-variables/
-title: Dynamic Variables - Fish Audio
+title: Dynamic Variables for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T16:59:55.204134+00:00
+fetched_at: 2026-11-22T15:30:42.543778+00:00
 ---
 
-# Dynamic Variables - Fish Audio
+# Dynamic Variables for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/dynamic-variables/
 
@@ -32,7 +32,7 @@ Back to top
 
 Build
 
-# Dynamic Variables
+# Dynamic Variables for Voice Agents
 
 Copy pageCopy page
 

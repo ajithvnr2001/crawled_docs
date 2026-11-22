@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/list-agents-using-tool/
-title: List Agents Using Tool - Fish Audio
+title: List Voice Agents Using Tool - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:11.783918+00:00
+fetched_at: 2026-11-22T15:30:36.494646+00:00
 ---
 
-# List Agents Using Tool - Fish Audio
+# List Voice Agents Using Tool - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/list-agents-using-tool/
 
@@ -154,7 +154,7 @@ cURL
 
 Tools
 
-# List Agents Using Tool
+# List Voice Agents Using Tool
 
 Copy pageCopy page
 
@@ -331,8 +331,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -344,8 +342,6 @@ required
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 #### Path Parameters
-
-​
 
 tool_id
 
@@ -361,8 +357,6 @@ application/json
 
 Request fulfilled, document follows
 
-​
-
 agents
 
 PublicDependentAgent · object[]
@@ -372,8 +366,6 @@ required
 Agents that reference this resource in their configuration.
 
 Show child attributes
-
-​
 
 total
 

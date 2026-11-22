@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/create-agent-session/
-title: Create Agent Session - Fish Audio
+title: Create Voice Agent Session - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:04.766075+00:00
+fetched_at: 2026-11-22T15:30:39.381887+00:00
 ---
 
-# Create Agent Session - Fish Audio
+# Create Voice Agent Session - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/create-agent-session/
 
@@ -32,13 +32,32 @@ cURL
         "name": "<string>",
         "timezone": "<string>",
         "client_timezone": "<string>",
-        "world_context": True,
+        "context": { "current_time": True },
         "overrides": {
             "first_message": "<string>",
             "first_message_prompt": "<string>",
             "system_prompt": "<string>",
             "voice_id": "<string>",
-            "asr": {}
+            "asr": {},
+            "llm": { "fallback": {
+                    "models": [
+                        {
+                            "custom": {
+                                "base_url": "<string>",
+                                "model": "<string>",
+                                "api_key": "<string>",
+                                "headers": {}
+                            },
+                            "ttft_timeout_ms": 15250,
+                            "total_timeout_ms": 60500,
+                            "parallel": { "kick_in_ms": 1500 }
+                        }
+                    ],
+                    "primary": {
+                        "ttft_timeout_ms": 15250,
+                        "total_timeout_ms": 60500
+                    }
+                } }
         },
         "dynamic_variables": {},
         "end_user_id": "<string>",
@@ -65,13 +84,26 @@ cURL
         name: '<string>',
         timezone: '<string>',
         client_timezone: '<string>',
-        world_context: true,
+        context: {current_time: true},
         overrides: {
           first_message: '<string>',
           first_message_prompt: '<string>',
           system_prompt: '<string>',
           voice_id: '<string>',
-          asr: {}
+          asr: {},
+          llm: {
+            fallback: {
+              models: [
+                {
+                  custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+                  ttft_timeout_ms: 15250,
+                  total_timeout_ms: 60500,
+                  parallel: {kick_in_ms: 1500}
+                }
+              ],
+              primary: {ttft_timeout_ms: 15250, total_timeout_ms: 60500}
+            }
+          }
         },
         dynamic_variables: {},
         end_user_id: '<string>',
@@ -105,7 +137,9 @@ cURL
         'name' => '<string>',
         'timezone' => '<string>',
         'client_timezone' => '<string>',
-        'world_context' => true,
+        'context' => [
+            'current_time' => true
+        ],
         'overrides' => [
             'first_message' => '<string>',
             'first_message_prompt' => '<string>',
@@ -113,6 +147,31 @@ cURL
             'voice_id' => '<string>',
             'asr' => [
                     
+            ],
+            'llm' => [
+                    'fallback' => [
+                                    'models' => [
+                                                                    [
+                                                                                                                                    'custom' => [
+                                                                                                                                                                                                                                                                    'base_url' => '<string>',
+                                                                                                                                                                                                                                                                    'model' => '<string>',
+                                                                                                                                                                                                                                                                    'api_key' => '<string>',
+                                                                                                                                                                                                                                                                    'headers' => [
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                    ]
+                                                                                                                                    ],
+                                                                                                                                    'ttft_timeout_ms' => 15250,
+                                                                                                                                    'total_timeout_ms' => 60500,
+                                                                                                                                    'parallel' => [
+                                                                                                                                                                                                                                                                    'kick_in_ms' => 1500
+                                                                                                                                    ]
+                                                                    ]
+                                    ],
+                                    'primary' => [
+                                                                    'ttft_timeout_ms' => 15250,
+                                                                    'total_timeout_ms' => 60500
+                                    ]
+                    ]
             ]
         ],
         'dynamic_variables' => [
@@ -159,7 +218,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/sessions"
     
-    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"world_context\": true,\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
+    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"context\": {\n    \"current_time\": true\n  },\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -179,7 +238,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/agent/sessions")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"world_context\": true,\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
+      .body("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"context\": {\n    \"current_time\": true\n  },\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
       .asString();
     
     
@@ -194,7 +253,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"world_context\": true,\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}"
+    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"context\": {\n    \"current_time\": true\n  },\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -294,7 +353,7 @@ cURL
 
 Sessions
 
-# Create Agent Session
+# Create Voice Agent Session
 
 Copy pageCopy page
 
@@ -341,13 +400,32 @@ cURL
         "name": "<string>",
         "timezone": "<string>",
         "client_timezone": "<string>",
-        "world_context": True,
+        "context": { "current_time": True },
         "overrides": {
             "first_message": "<string>",
             "first_message_prompt": "<string>",
             "system_prompt": "<string>",
             "voice_id": "<string>",
-            "asr": {}
+            "asr": {},
+            "llm": { "fallback": {
+                    "models": [
+                        {
+                            "custom": {
+                                "base_url": "<string>",
+                                "model": "<string>",
+                                "api_key": "<string>",
+                                "headers": {}
+                            },
+                            "ttft_timeout_ms": 15250,
+                            "total_timeout_ms": 60500,
+                            "parallel": { "kick_in_ms": 1500 }
+                        }
+                    ],
+                    "primary": {
+                        "ttft_timeout_ms": 15250,
+                        "total_timeout_ms": 60500
+                    }
+                } }
         },
         "dynamic_variables": {},
         "end_user_id": "<string>",
@@ -374,13 +452,26 @@ cURL
         name: '<string>',
         timezone: '<string>',
         client_timezone: '<string>',
-        world_context: true,
+        context: {current_time: true},
         overrides: {
           first_message: '<string>',
           first_message_prompt: '<string>',
           system_prompt: '<string>',
           voice_id: '<string>',
-          asr: {}
+          asr: {},
+          llm: {
+            fallback: {
+              models: [
+                {
+                  custom: {base_url: '<string>', model: '<string>', api_key: '<string>', headers: {}},
+                  ttft_timeout_ms: 15250,
+                  total_timeout_ms: 60500,
+                  parallel: {kick_in_ms: 1500}
+                }
+              ],
+              primary: {ttft_timeout_ms: 15250, total_timeout_ms: 60500}
+            }
+          }
         },
         dynamic_variables: {},
         end_user_id: '<string>',
@@ -414,7 +505,9 @@ cURL
         'name' => '<string>',
         'timezone' => '<string>',
         'client_timezone' => '<string>',
-        'world_context' => true,
+        'context' => [
+            'current_time' => true
+        ],
         'overrides' => [
             'first_message' => '<string>',
             'first_message_prompt' => '<string>',
@@ -422,6 +515,31 @@ cURL
             'voice_id' => '<string>',
             'asr' => [
                     
+            ],
+            'llm' => [
+                    'fallback' => [
+                                    'models' => [
+                                                                    [
+                                                                                                                                    'custom' => [
+                                                                                                                                                                                                                                                                    'base_url' => '<string>',
+                                                                                                                                                                                                                                                                    'model' => '<string>',
+                                                                                                                                                                                                                                                                    'api_key' => '<string>',
+                                                                                                                                                                                                                                                                    'headers' => [
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                    ]
+                                                                                                                                    ],
+                                                                                                                                    'ttft_timeout_ms' => 15250,
+                                                                                                                                    'total_timeout_ms' => 60500,
+                                                                                                                                    'parallel' => [
+                                                                                                                                                                                                                                                                    'kick_in_ms' => 1500
+                                                                                                                                    ]
+                                                                    ]
+                                    ],
+                                    'primary' => [
+                                                                    'ttft_timeout_ms' => 15250,
+                                                                    'total_timeout_ms' => 60500
+                                    ]
+                    ]
             ]
         ],
         'dynamic_variables' => [
@@ -468,7 +586,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/agent/sessions"
     
-    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"world_context\": true,\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
+    	payload := strings.NewReader("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"context\": {\n    \"current_time\": true\n  },\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -488,7 +606,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/agent/sessions")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"world_context\": true,\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
+      .body("{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"context\": {\n    \"current_time\": true\n  },\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}")
       .asString();
     
     
@@ -503,7 +621,7 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"world_context\": true,\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {}\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}"
+    request.body = "{\n  \"agent_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"client_timezone\": \"<string>\",\n  \"context\": {\n    \"current_time\": true\n  },\n  \"overrides\": {\n    \"first_message\": \"<string>\",\n    \"first_message_prompt\": \"<string>\",\n    \"system_prompt\": \"<string>\",\n    \"voice_id\": \"<string>\",\n    \"asr\": {},\n    \"llm\": {\n      \"fallback\": {\n        \"models\": [\n          {\n            \"custom\": {\n              \"base_url\": \"<string>\",\n              \"model\": \"<string>\",\n              \"api_key\": \"<string>\",\n              \"headers\": {}\n            },\n            \"ttft_timeout_ms\": 15250,\n            \"total_timeout_ms\": 60500,\n            \"parallel\": {\n              \"kick_in_ms\": 1500\n            }\n          }\n        ],\n        \"primary\": {\n          \"ttft_timeout_ms\": 15250,\n          \"total_timeout_ms\": 60500\n        }\n      }\n    }\n  },\n  \"dynamic_variables\": {},\n  \"end_user_id\": \"<string>\",\n  \"metadata\": {},\n  \"llm_extra_body\": {},\n  \"tool_events\": true,\n  \"record_audio\": true\n}"
     
     response = http.request(request)
     puts response.read_body
@@ -603,8 +721,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -617,8 +733,6 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Headers
 
-​
-
 origin
 
 string | null
@@ -627,23 +741,17 @@ string | null
 
 application/json
 
-​
-
 agent_id
 
 string
 
 required
 
-​
-
 name
 
 string | null
 
 Maximum string length: `128`
-
-​
 
 timezone
 
@@ -653,8 +761,6 @@ IANA timezone (like `Asia/Tokyo`) for the agent's sense of local date and time i
 
 Maximum string length: `64`
 
-​
-
 client_timezone
 
 string | null
@@ -663,15 +769,13 @@ The end user's device timezone as an IANA name (like `Asia/Tokyo`), used as a fa
 
 Maximum string length: `64`
 
-​
+context
 
-world_context
+AgentSessionContextPayload · object | null
 
-boolean
+Per-session overrides of the agent's context switches (`context.current_time` in the agent config). A switch you leave out follows the agent.
 
-default:true
-
-​
+Show child attributes
 
 overrides
 
@@ -683,15 +787,11 @@ Every field must be allow-listed in Agent.overrides_allowed; unauthorized fields
 
 Show child attributes
 
-​
-
 dynamic_variables
 
 Dynamic Variables · object | null
 
 Show child attributes
-
-​
 
 end_user_id
 
@@ -701,15 +801,11 @@ Your identifier for the end user, stored verbatim. Returned on session reads and
 
 Maximum string length: `256`
 
-​
-
 metadata
 
 Metadata · object | null
 
 Show child attributes
-
-​
 
 llm_extra_body
 
@@ -717,15 +813,11 @@ Llm Extra Body · object | null
 
 Show child attributes
 
-​
-
 tool_events
 
 boolean
 
 default:true
-
-​
 
 record_audio
 
@@ -741,15 +833,11 @@ Document created, URL follows
 
 Wire twin of @fishaudio/agent-protocol `SessionToken` (session.ts); keep in sync.
 
-​
-
 session_id
 
 string
 
 required
-
-​
 
 expires_at
 
@@ -757,15 +845,11 @@ string
 
 required
 
-​
-
 max_duration_seconds
 
 integer
 
 required
-
-​
 
 transport
 
@@ -775,15 +859,11 @@ required
 
 Allowed value: `"livekit"`
 
-​
-
 livekit_url
 
 string
 
 required
-
-​
 
 token
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/telephony/outbound-calls/
-title: Outbound Calls - Fish Audio
+title: Outbound Calls with Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.844066+00:00
+fetched_at: 2026-11-22T15:30:40.153150+00:00
 ---
 
-# Outbound Calls - Fish Audio
+# Outbound Calls with Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/telephony/outbound-calls/
 
@@ -26,7 +26,7 @@ Back to top
 
 Telephony
 
-# Outbound Calls
+# Outbound Calls with Voice Agents
 
 Copy pageCopy page
 

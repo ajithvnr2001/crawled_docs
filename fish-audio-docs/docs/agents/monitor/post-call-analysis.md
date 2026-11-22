@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/monitor/post-call-analysis/
-title: Post-call Analysis - Fish Audio
+title: Voice Agent Post-call Analysis - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:47.371598+00:00
+fetched_at: 2026-11-22T15:30:40.962090+00:00
 ---
 
-# Post-call Analysis - Fish Audio
+# Voice Agent Post-call Analysis - Fish Audio
 
 > Source: https://docs.fish.audio/agents/monitor/post-call-analysis/
 
@@ -26,7 +26,7 @@ Back to top
 
 Monitor
 
-# Post-call Analysis
+# Voice Agent Post-call Analysis
 
 Copy pageCopy page
 

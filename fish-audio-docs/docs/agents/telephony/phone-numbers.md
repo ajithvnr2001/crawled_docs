@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/telephony/phone-numbers/
-title: Phone Numbers - Fish Audio
+title: Phone Numbers for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.658649+00:00
+fetched_at: 2026-11-22T15:30:39.632591+00:00
 ---
 
-# Phone Numbers - Fish Audio
+# Phone Numbers for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/telephony/phone-numbers/
 
@@ -26,7 +26,7 @@ Back to top
 
 Telephony
 
-# Phone Numbers
+# Phone Numbers for Voice Agents
 
 Copy pageCopy page
 

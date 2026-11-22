@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/deploy/widget/
-title: Widget - Fish Audio
+title: Voice Agent Widget - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:30:12.678140+00:00
+fetched_at: 2026-11-22T15:30:41.381089+00:00
 ---
 
-# Widget - Fish Audio
+# Voice Agent Widget - Fish Audio
 
 > Source: https://docs.fish.audio/agents/deploy/widget/
 
@@ -28,7 +28,7 @@ Back to top
 
 Deploy
 
-# Widget
+# Voice Agent Widget
 
 Copy pageCopy page
 

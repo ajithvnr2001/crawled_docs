@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/build/time-timezone/
-title: Time & Timezone - Fish Audio
+title: Time & Timezone for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:49.261111+00:00
+fetched_at: 2026-11-22T15:30:42.157922+00:00
 ---
 
-# Time & Timezone - Fish Audio
+# Time & Timezone for Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/build/time-timezone/
 
@@ -22,7 +22,7 @@ Back to top
 
 Build
 
-# Time & Timezone
+# Time & Timezone for Voice Agents
 
 Copy pageCopy page
 
@@ -119,4 +119,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/build/time-timezone.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/build/time-timezone)
 
-[Voice & Language](https://docs.fish.audio/agents/build/voice-language)[Knowledge Base](https://docs.fish.audio/agents/build/knowledge-base)
+[Background Sound & Voice Effect](https://docs.fish.audio/agents/build/background-sound-voice-effect)[Knowledge Base](https://docs.fish.audio/agents/build/knowledge-base)

@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/agents/telephony/inbound-calls/
-title: Inbound Calls - Fish Audio
+title: Inbound Calls with Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T17:13:57.859609+00:00
+fetched_at: 2026-11-22T15:30:40.232769+00:00
 ---
 
-# Inbound Calls - Fish Audio
+# Inbound Calls with Voice Agents - Fish Audio
 
 > Source: https://docs.fish.audio/agents/telephony/inbound-calls/
 
@@ -23,7 +23,7 @@ Back to top
 
 Telephony
 
-# Inbound Calls
+# Inbound Calls with Voice Agents
 
 Copy pageCopy page
 

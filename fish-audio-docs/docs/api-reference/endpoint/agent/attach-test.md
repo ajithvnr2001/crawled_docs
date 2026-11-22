@@ -1,11 +1,11 @@
 ---
 url: https://docs.fish.audio/api-reference/endpoint/agent/attach-test/
-title: Attach Test - Fish Audio
+title: Attach Test to Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:05.270890+00:00
+fetched_at: 2026-11-22T15:30:39.295463+00:00
 ---
 
-# Attach Test - Fish Audio
+# Attach Test to Voice Agent - Fish Audio
 
 > Source: https://docs.fish.audio/api-reference/endpoint/agent/attach-test/
 
@@ -150,7 +150,7 @@ cURL
 
 Tests
 
-# Attach Test
+# Attach Test to Voice Agent
 
 Copy pageCopy page
 
@@ -327,8 +327,6 @@ cURL
 
 #### Authorizations
 
-​
-
 Authorization
 
 string
@@ -341,15 +339,11 @@ Bearer authentication header of the form `Bearer <token>`, where `<token>` is yo
 
 #### Path Parameters
 
-​
-
 agent_id
 
 string
 
 required
-
-​
 
 test_id
 
