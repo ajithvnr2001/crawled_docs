@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/secrets/
 title: Secrets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:07.225669+00:00
+fetched_at: 2026-11-22T09:30:51.163562+00:00
 ---
 
 # Secrets · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-15T14:53:07.225669+00:00
 
 # Secrets
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBackgroundAccess your secrets with WorkersLocal Development with SecretsSecrets on deployed Workers Validate secrets before deploy Adding secrets to your project Delete secrets from your projectCompare secrets and environment variablesRelated resources
+OverviewBackgroundAccess your secrets with WorkersLocal Development with SecretsSecrets on deployed Workers Move a value between a variable and a secret Validate secrets before deploy Add TypeScript types for optional secrets Adding secrets to your project Delete secrets from your projectCompare secrets and environment variablesRelated resources
 
 ## Background
 
@@ -149,9 +149,42 @@ It is possible to control how `.env` files are loaded in local development by se
 
 ## Secrets on deployed Workers
 
+### Move a value between a variable and a secret
+
+Variables and secrets use the same set of binding names. A Worker version cannot define both a variable and a secret with the same name. Adding a secret while a variable still uses that name fails with a binding-name conflict.
+
+Deploying a variable with the same name as an existing secret does not fail. The variable replaces the secret, and the secret is deleted.
+
+Renaming a binding also changes its `env` property. Code that still reads the old name receives `undefined` once that binding is removed.
+
+To change a variable to a secret, or a secret to a variable:
+
+  1. Create the new binding under a new name. For example, create an `API_TOKEN_SECRET` secret to replace an `API_TOKEN` variable. Only use a plaintext variable for values that are safe to expose in configuration. If you use `secrets.required`, add the new secret name to that list.
+  2. Update your code, such as `env.API_TOKEN` → `env.API_TOKEN_SECRET`, and deploy.
+  3. Remove the old binding after the new version works. If it was a secret, remove its name from `secrets.required` too.
+
+
+
+Update your local secrets to use the new name too.
+
 ### Validate secrets before deploy
 
 You can declare the secret names your Worker requires using the [`secrets` configuration property](https://developers.cloudflare.com/workers/wrangler/configuration/#secrets-configuration-property) in your Wrangler configuration. When defined, `wrangler deploy` and `wrangler versions upload` will fail with a clear error if any required secrets are not configured on the Worker.
+
+### Add TypeScript types for optional secrets
+
+`secrets.required` validates presence at deployment. Do not add an optional secret to that list just to generate its type.
+
+Declare optional secrets in your own interface that extends your generated `Env`:
+    
+    
+    interface AppEnv extends Env {
+      OPTIONAL_API_TOKEN?: string;
+    }
+
+Use `AppEnv` in your handler and check for `undefined` before using the value. This type does not create or load the secret.
+
+If `secrets.required` is set, `.dev.vars` and `.env` cannot load optional secrets outside that list. To test those secrets with local files, use a local-only configuration without `secrets.required`. Refer to Local Development with Secrets.
 
 ### Adding secrets to your project
 

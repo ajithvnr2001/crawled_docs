@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/web-crypto/
 title: Web Crypto \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:50.214369+00:00
+fetched_at: 2026-11-22T09:30:51.248606+00:00
 ---
 
 # Web Crypto · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:50.214369+00:00
 
 # Web Crypto
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/web-crypto/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundConstructors Parameters UsageMethods ParametersSubtleCrypto Methods encrypt decrypt sign verify digest generateKey deriveKey deriveBits importKey exportKey wrapKey unwrapKey timingSafeEqual Supported algorithmsRelated resources
 
@@ -466,6 +466,8 @@ MD53 |  |  | ✓ |  |  |  |  |
 HKDF |  |  |  | ✓ |  |  |  | ✓  
 PBKDF2 |  |  |  | ✓ |  |  |  | ✓  
   
+ECDSA supports `P-256`, `P-384`, and `P-521` as `namedCurve` values. The `secp256k1` curve is not supported.
+
 **Footnotes:**
 
   1. Algorithms as specified in the [Secure Curves API ↗︎](https://wicg.github.io/webcrypto-secure-curves).

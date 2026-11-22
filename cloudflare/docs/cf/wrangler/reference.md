@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/wrangler/reference/
 title: Wrangler to cf reference \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:28.003687+00:00
+fetched_at: 2026-11-22T09:30:51.373672+00:00
 ---
 
 # Wrangler to cf reference · Cloudflare CLI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:28.003687+00:00
 
 # Wrangler to cf reference
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCommandsConfiguration fieldsBuild settingsConvert environments to modesConvert Durable Object migrationsComplete example
 
@@ -298,6 +298,8 @@ import { defineConfig, exports } from "cf/config"; import * as entrypoint from "
 Keep a tombstone until a deployment response reports that it is stale, then remove it. Use `cf deploy`, rather than a version upload, for a version that creates, deletes, renames, or transfers a Durable Object class. You cannot roll back a Durable Object lifecycle change to a version from before the change.
 
 For transfers between Workers and the full list of states, refer to [Manage Durable Object lifecycle](https://developers.cloudflare.com/cf/projects/cloudflare-config/#manage-durable-object-lifecycle).
+
+For isolated Durable Objects in Previews, use [`ctx.exports` with `cf` configuration](https://developers.cloudflare.com/workers/previews/resources/#use-cf-configuration). A named `bindings.durableObject()` binding targets the deployed Worker.
 
 ## Complete example
 

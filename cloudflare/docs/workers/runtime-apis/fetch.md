@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/fetch/
 title: Fetch \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:44.026740+00:00
+fetched_at: 2026-11-22T09:30:51.095792+00:00
 ---
 
 # Fetch · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:44.026740+00:00
 
 # Fetch
 
-Last updated Jul 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/fetch/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSyntax ParametersHow the Accept-Encoding header is handled Passthrough behaviorRelated resources
 
@@ -84,6 +84,8 @@ Service Workers are deprecated, but still supported. We recommend using [Module 
     * An object that defines the content and behavior of the request.
 
 
+
+Cache Rules can also affect `fetch()` requests to external APIs. Refer to [Workers and Cache Rules](https://developers.cloudflare.com/cache/interaction-cloudflare-products/workers-cache-rules/) for precedence and compatibility requirements.
 
 * * *
 

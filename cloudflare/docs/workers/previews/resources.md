@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/resources/
 title: Resources and isolation \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:47.792984+00:00
+fetched_at: 2026-11-22T09:30:51.462113+00:00
 ---
 
 # Resources and isolation · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-10T09:28:47.792984+00:00
 
 # Resources and isolation
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBinding reference Resource bindingsDurable Objects Use ctx.exports (recommended) Use an env bindingContainers Use ctx.exports with Containers Use an env container binding Container application cleanupD1 migrations 1\. Configure the shared staging database 2\. Create a Wrangler configuration file for migrations 3\. Override the database for one branch (optional) 4\. Add migration files 5\. Apply migrations to the Preview database 6\. Deploy the PreviewLimitations Service bindings Workflows Queue consumers Cron Triggers Routes
+OverviewBinding reference Resource bindings Select resources with cfDurable Objects Use ctx.exports (recommended) Use cf configuration Use an env bindingContainers Use ctx.exports with Containers Use an env container binding Container application cleanupD1 migrations 1\. Configure the shared staging database 2\. Create a Wrangler configuration file for migrations 3\. Override the database for one branch (optional) 4\. Add migration files 5\. Apply migrations to the Preview database 6\. Deploy the PreviewLimitations Service bindings Workflows Queue consumers Cron Triggers Routes
 
 ## Binding reference
 
@@ -50,6 +50,50 @@ Containers | Automatically provisions a new container app and container instance
 `ratelimits` | Creates a Rate Limiting binding. The runtime binding name comes from `name`, not `binding`. | Use a different `namespace_id`.  
 `send_email` | Creates a Send Email binding. The runtime binding name comes from `name`, not `binding`. Successful delivery requires valid Email Routing setup. | Not applicable.  
   
+### Select resources with `cf`
+
+With [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/), use `isPreview` to select different account-level resources:
+
+cloudflare.config.jsjs
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    
+    export default defineConfig(({ isPreview }) => ({
+    	worker: {
+    		name: "my-worker",
+    		entrypoint: "./src/index.ts",
+    		compatibilityDate: "2026-11-21",
+    		env: {
+    			DB: bindings.d1({
+    				id: isPreview ? "<PREVIEW_DATABASE_ID>" : "<PRODUCTION_DATABASE_ID>",
+    			}),
+    		},
+    	},
+    }));
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    
+    export default defineConfig(({ isPreview }) => ({
+    	worker: {
+    		name: "my-worker",
+    		entrypoint: "./src/index.ts",
+    		compatibilityDate: "2026-11-21",
+    		env: {
+    			DB: bindings.d1({
+    				id: isPreview
+    					? "<PREVIEW_DATABASE_ID>"
+    					: "<PRODUCTION_DATABASE_ID>",
+    			}),
+    		},
+    	},
+    }));
+
+Replace the placeholders with your database IDs. All Previews using `<PREVIEW_DATABASE_ID>` share that database. To isolate Previews from each other, use a different database ID for each Preview. For schema changes, refer to D1 migrations.
+
 ## Durable Objects
 
 Durable Objects use a stateful singleton model: within a namespace, each object ID resolves to one instance and its storage. If Previews shared a namespace, they could read and overwrite the same state. For a class defined in the same Worker without `script_name`, each Preview automatically gets its own namespace and storage.
@@ -59,6 +103,7 @@ State persists across deployments within the same Preview and is deleted when th
 Access pattern | Preview configuration | Result  
 ---|---|---  
 `ctx.exports` | Class and migration only | Recommended. Each Preview gets a separate namespace automatically.  
+`cf` configuration | Class in `worker.exports`; call `ctx.exports.Counter` | Each Preview gets a separate namespace automatically.  
 `env` binding | Class, migration, and a Preview binding | Use when your code needs `env.COUNTER`.  
   
 ### Use `ctx.exports` (recommended)
@@ -70,7 +115,7 @@ With [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/cont
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-11-10",
+    	"compatibility_date": "2026-11-21",
     	"migrations": [
     		{ "tag": "v1", "new_classes": ["Counter"] }
     	],
@@ -79,7 +124,7 @@ With [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/cont
     
     
     # Set this to today's date
-    compatibility_date = "2026-11-10"
+    compatibility_date = "2026-11-21"
     previews = { }
     
     [[migrations]]
@@ -87,6 +132,12 @@ With [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/cont
     new_classes = [ "Counter" ]
 
 Production, `feature-login`, and `redesign` each get their own Durable Object namespace and storage. The empty `previews` block is sufficient because no Preview-specific Durable Object binding is needed.
+
+### Use `cf` configuration
+
+With [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/), declare `Counter` in `worker.exports` using `exports.durableObject({ storage: "sqlite" })`. Call `ctx.exports.Counter` to use the Preview's isolated namespace.
+
+`bindings.durableObject({ worker: "my-worker", exportName: "Counter" })` targets the named Worker's deployed namespace, even when the name matches your Worker. With `cf` configuration, use `ctx.exports.Counter` for automatic isolation of the Preview's own namespace; the named `env` binding does not provide it.
 
 ### Use an `env` binding
 
@@ -157,7 +208,7 @@ Declare the SQLite-backed Durable Object migration and the container configurati
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-11-10",
+    	"compatibility_date": "2026-11-21",
     	"migrations": [
     		{ "tag": "v1", "new_sqlite_classes": ["MyContainer"] }
     	],
@@ -183,7 +234,7 @@ Declare the SQLite-backed Durable Object migration and the container configurati
     
     
     # Set this to today's date
-    compatibility_date = "2026-11-10"
+    compatibility_date = "2026-11-21"
     
     [[migrations]]
     tag = "v1"
@@ -214,7 +265,7 @@ If your code uses an `env` binding, declare the Durable Object binding at the to
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-11-10",
+    	"compatibility_date": "2026-11-21",
     	"migrations": [
     		{ "tag": "v1", "new_sqlite_classes": ["MyContainer"] }
     	],
@@ -250,7 +301,7 @@ If your code uses an `env` binding, declare the Durable Object binding at the to
     
     
     # Set this to today's date
-    compatibility_date = "2026-11-10"
+    compatibility_date = "2026-11-21"
     
     [[migrations]]
     tag = "v1"

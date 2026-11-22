@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/reference/community-projects/
 title: Community projects \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.246569+00:00
+fetched_at: 2026-11-22T09:30:51.298240+00:00
 ---
 
 # Community projects · Cloudflare D1 docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-21T06:51:30.246569+00:00
 
 # Community projects
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewProjects Sutando ORM knex-cloudflare-d1 Prisma ORM D1 adapter for Kysely ORM feathers-kysely Drizzle ORM UQL workers-qb d1-console D1 Migration Guard L1 Staff Directory - a D1-based demo NuxtHub GrainliftFeedback
+OverviewProjects Sutando ORM knex-cloudflare-d1 Prisma ORM D1 adapter for Kysely ORM feathers-kysely Drizzle ORM UQL Reylo workers-qb d1-console D1 Migration Guard L1 Staff Directory - a D1-based demo NuxtHub GrainliftFeedback
 
 Members of the Cloudflare developer community and broader developer ecosystem have built and/or contributed tooling — including ORMs (Object Relational Mapper) libraries, query builders, and CLI tools — that build on top of D1.
 
@@ -90,6 +90,15 @@ UQL is a TypeScript ORM that queries with plain JSON objects and generates migra
 
   * [Docs ↗︎](https://uql-orm.dev/cloudflare-d1)
   * [GitHub ↗︎](https://github.com/rogerpadilla/uql)
+
+
+
+### Reylo
+
+Reylo types the SQL queries in a project's `.sql` files from the database: importing one gives its parameters, columns, nullability and how many rows it returns, through TypeScript 7.1's content mappers. It runs those queries on D1 through the binding, and on a Durable Object's SQLite storage.
+
+  * [GitHub ↗︎](https://github.com/reylosql/reylo)
+  * [D1 guide ↗︎](https://reylo.dev/d1)
 
 
 

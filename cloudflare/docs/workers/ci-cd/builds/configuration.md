@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T09:25:00.582792+00:00
+fetched_at: 2026-11-22T09:30:50.999008+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-09T09:25:00.582792+00:00
 
 # Configuration
 
-Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow Workers Builds worksBuild settings Overview Deploy command Preview command Automatic configuration for new projects API tokenFramework supportEnvironment variables Default variables
+OverviewHow Workers Builds worksBuild settings Overview Configure the Node.js heap Deploy command Preview command Automatic configuration for new projects API tokenFramework supportEnvironment variables Default variables
 
 When connecting your Git repository to your Worker, you can customize the configurations needed to build and deploy your Worker.
 
@@ -63,6 +63,16 @@ Setting | Description
 **[API token](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/#api-token)** _(Optional)_ | The API token is used to authenticate your build request and authorize the upload and deployment of your Worker to Cloudflare. By default, Cloudflare will automatically generate an API token for your account when using Workers Builds, and continue to use this API token for all subsequent builds. Alternatively, you can [create your own API token](https://developers.cloudflare.com/workers/wrangler/migration/v1-to-v2/wrangler-legacy/authentication/#generate-tokens), or select one that you already own.  
 **Build variables and secrets** _(Optional)_ | Add environment variables and secrets accessible only to your build. Build variables will not be accessible at runtime. If you would like to configure runtime variables you can do so in **Settings** > **Variables & Secrets**  
   
+### Configure the Node.js heap
+
+To adjust the heap available to a Node.js build process, add `NODE_OPTIONS` under **Settings** > **Build** > **Build variables and secrets**. For example:
+
+Name | Value  
+---|---  
+`NODE_OPTIONS` | `--max-old-space-size=4096`  
+  
+This sets a 4 GiB heap ceiling without increasing the build machine's memory. This build variable does not change your Worker's runtime memory limit. To select a Node.js version instead, refer to [Override default versions](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/#overriding-default-versions).
+
 Note
 
 Currently, Workers Builds does not honor the configurations set in [Custom Builds](https://developers.cloudflare.com/workers/wrangler/custom-builds/) within your Wrangler configuration file.
@@ -132,6 +142,7 @@ It is recommended to consistently use the same API token across all uploads and 
     * [Astro](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/)
     * [EmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)
     * [React Router (formerly Remix)](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/)
+    * [Remix 3](https://developers.cloudflare.com/workers/framework-guides/web-apps/remix/)
     * [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
     * [OpenNext adapter](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)
     * [Vue](https://developers.cloudflare.com/workers/framework-guides/web-apps/vue/)

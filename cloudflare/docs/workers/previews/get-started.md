@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/get-started/
 title: Get started \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:40.245102+00:00
+fetched_at: 2026-11-22T09:30:50.924248+00:00
 ---
 
 # Get started · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:40.245102+00:00
 
 # Get started
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/previews/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginStep 1: Configure Preview settingsStep 2: Deploy a PreviewNext steps
 
@@ -45,6 +45,8 @@ npmyarnpnpmbun
 ## Step 1: Configure Preview settings
 
 Add a `previews` block to your Wrangler configuration file. Top-level settings define production, and the `previews` block defines Preview settings. The `previews` block can be empty if your Preview does not need separate settings.
+
+Use [test resources](https://developers.cloudflare.com/workers/previews/resources/) for bindings that can affect production. Previews bound to the same D1 `database_id` share data and schema changes. To isolate a Preview, [configure a separate database](https://developers.cloudflare.com/workers/previews/resources/#d1-migrations).
     
     
     {
@@ -74,6 +76,10 @@ To determine which settings belong at the top level or in `previews`, refer to [
 Settings that you add or import in the dashboard must also be copied to your [Wrangler configuration file](https://developers.cloudflare.com/workers/previews/configuration/#dashboard-configuration).
 
 ## Step 2: Deploy a Preview
+
+Cron Triggers do not invoke a Preview's `scheduled()` handler. To test scheduled logic, use the [Preview testing workaround](https://developers.cloudflare.com/workers/previews/resources/#cron-triggers).
+
+Preview URLs are public by default. [Configure Cloudflare Access](https://developers.cloudflare.com/workers/previews/custom-domains/#protect-preview-content) before sharing a Preview that contains private content.
 
 Run the same Preview command locally or in your existing CI workflow:
 

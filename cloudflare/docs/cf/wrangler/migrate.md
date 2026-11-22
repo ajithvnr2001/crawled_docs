@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/wrangler/migrate/
 title: Migrate a Wrangler project \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:28.250944+00:00
+fetched_at: 2026-11-22T09:30:51.543385+00:00
 ---
 
 # Migrate a Wrangler project · Cloudflare CLI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:28.250944+00:00
 
 # Migrate a Wrangler project
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginPreview the migrationChoose a bundlerRun the migrationReview what changedRead the outputResolve follow-up items Durable Objects Environments Build settings Source maps D1 migrations Other required items Workflows and Containers SecretsFinish the projectValidate the projectDeployRemove the Wrangler configurationTroubleshooting No Wrangler configuration found Git worktree is not clean cloudflare.config.ts already exists Wrangler is missing or too old Migration incomplete cloudflare.config.ts is required Wrangler is not installed Unknown command: migrate
 
@@ -300,6 +300,8 @@ cloudflare.config.tsts
     		 */
     	},
     });
+
+For isolated Durable Objects in Previews, use [`ctx.exports` with `cf` configuration](https://developers.cloudflare.com/workers/previews/resources/#use-cf-configuration). A named `bindings.durableObject()` binding targets the deployed Worker.
 
 Some items link to Wrangler or Workers runtime documentation. The next section describes how to resolve each item for `cf`. When you have resolved every item, delete the `TODO(@cloudflare)` comments, the comment that starts with `This migration needs manual work`, and the `throw` statement.
 
